@@ -1,0 +1,31 @@
+@import '../../themes/nice-light/theme.scss';
+
+/* block "Dummy" */
+.Dummy {
+    display: inline-block;
+    background-color: $color-light;
+    padding: $offset-small $offset-large;
+    border-radius: $offset-small;
+    transition: transform 0.2s;
+
+    /* block "Dummy", modifier "isActive" */
+    &--isActive {
+        border: 1px solid $color-crazy;
+        background-color: $color-background;
+        transform: rotate(-2deg);
+
+        &:hover {
+            transform: rotate(0deg);
+        }
+    }
+
+    /* block "Dummy", element "label" */
+    &__label {
+        color: $color-dark;
+
+        /* block "Dummy", element "label", modifier "isActive" */
+        &--isActive {
+            color: $color-crazy;
+        }
+    }
+}
