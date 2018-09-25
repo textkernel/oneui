@@ -6,4 +6,10 @@ module.exports = {
     plugins: [
         plugins.hashedModuleIdsPlugin,
     ],
+    module: {
+        rules: [
+            rules.js,
+            rules.styles,
+        ],
+    },
 }

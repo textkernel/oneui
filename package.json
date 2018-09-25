@@ -4,8 +4,9 @@
   "description": "React Nice UI kit with theme support",
   "main": "src/index.js",
   "scripts": {
-    "build:dev": "webpack --config ./etc/webpack/webpack.config.dev.js",
-    "build": "webpack --config ./etc/webpack/webpack.config.prod.js",
+    "build:dev": "webpack --config ./etc/webpack/webpack.dev.config.js",
+    "build": "webpack --config ./etc/webpack/webpack.prod.config.js",
+    "start:dev": "webpack-dev-server --config ./etc/webpack/webpack.dev.config.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,8 @@
   },
   "homepage": "https://github.com/textkernel/nice2#readme",
   "dependencies": {
+    "classnames": "2.2.6",
+    "prop-types": "15.6.2",
     "react": "16.5.2",
     "react-dom": "16.5.2"
   },
@@ -30,7 +33,15 @@
     "@babel/preset-env": "7.1.0",
     "@babel/preset-react": "7.0.0",
     "babel-loader": "8.0.2",
+    "css-loader": "1.0.0",
+    "html-webpack-plugin": "3.2.0",
+    "mini-css-extract-plugin": "0.4.3",
+    "postcss-import": "12.0.0",
+    "postcss-loader": "3.0.0",
+    "precss": "3.1.2",
+    "style-loader": "0.23.0",
     "webpack": "4.20.0",
-    "webpack-cli": "3.1.1"
+    "webpack-cli": "3.1.1",
+    "webpack-dev-server": "3.1.9"
   }
 }
