@@ -1,23 +1,16 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const postcssPreCss = require('precss')
 
-const SOURCE_PATH = path.resolve(__dirname, '../../src')
-
-const DIST_PATH = path.resolve(__dirname, '../../dist')
+const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../')
+const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src')
+const DIST_PATH = path.resolve(PROJECT_ROOT_PATH, 'dist')
 
 const plugins = {
     namedModulesPlugin: new webpack.NamedModulesPlugin(),
     hashedModuleIdsPlugin: new webpack.HashedModuleIdsPlugin({
         hashDigestLength: 6,
-    }),
-    htmlPlugin: new HtmlWebpackPlugin({
-        title: 'Nice2 storybook',
-        filename: 'index.html',
-        template: 'storybook/index.html',
-        inject: false,
     }),
     cssPlugin: new MiniCssExtractPlugin({
         filename: '[name].css',
@@ -52,10 +45,6 @@ const rules = {
                 options: {
                     plugins: [
                         postcssPreCss(),
-                        // postcssAtImport({
-                        //     path: `${SOURCE_PATH}`,
-                        // }),
-                        // postcssCustomProperties(),
                     ],
                 },
             },
@@ -69,7 +58,6 @@ const baseConfig = {
 
     entry: {
         main: './index.js',
-        storybook: './storybook/storybook.js',
     },
 
     output: {
@@ -91,6 +79,7 @@ module.exports = {
     baseConfig,
     plugins,
     rules,
-    DIST_PATH,
+    PROJECT_ROOT_PATH,
     SOURCE_PATH,
+    DIST_PATH,
 }

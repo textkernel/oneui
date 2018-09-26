@@ -14,9 +14,4 @@ module.exports = {
             rules.styles,
         ],
     },
-    devServer: {
-        contentBase: DIST_PATH,
-        open: true,
-        port: 8002,
-    },
 }
