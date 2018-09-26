@@ -1,23 +1,17 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const postcssPreCss = require('precss')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { getRuleJS } = require('./utils')
 
-const SOURCE_PATH = path.resolve(__dirname, '../../src')
-
-const DIST_PATH = path.resolve(__dirname, '../../dist')
+const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../')
+const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src')
+const DIST_PATH = path.resolve(PROJECT_ROOT_PATH, 'dist')
 
 const plugins = {
     namedModulesPlugin: new webpack.NamedModulesPlugin(),
     hashedModuleIdsPlugin: new webpack.HashedModuleIdsPlugin({
         hashDigestLength: 6,
-    }),
-    htmlPlugin: new HtmlWebpackPlugin({
-        title: 'Nice2 storybook',
-        filename: 'index.html',
-        template: 'storybook/index.html',
-        inject: false,
     }),
     cssPlugin: new MiniCssExtractPlugin({
         filename: '[name].css',
@@ -25,15 +19,7 @@ const plugins = {
 }
 
 const rules = {
-    js: {
-        test: /\.js$/,
-        include: [ SOURCE_PATH ],
-        use: [
-            {
-                loader: 'babel-loader',
-            }
-        ],
-    },
+    js: getRuleJS(SOURCE_PATH),
     styles: {
         test: /\.scss$/,
         use: [
@@ -52,10 +38,6 @@ const rules = {
                 options: {
                     plugins: [
                         postcssPreCss(),
-                        // postcssAtImport({
-                        //     path: `${SOURCE_PATH}`,
-                        // }),
-                        // postcssCustomProperties(),
                     ],
                 },
             },
@@ -69,7 +51,6 @@ const baseConfig = {
 
     entry: {
         main: './index.js',
-        storybook: './storybook/storybook.js',
     },
 
     output: {
@@ -79,7 +60,7 @@ const baseConfig = {
 
     resolve: {
         modules: [
-            path.resolve(SOURCE_PATH, 'modules'),
+            path.resolve(SOURCE_PATH, 'core'),
             path.resolve(SOURCE_PATH, '../node_modules'),
         ],
         extensions: ['.js'],
@@ -91,6 +72,7 @@ module.exports = {
     baseConfig,
     plugins,
     rules,
-    DIST_PATH,
+    PROJECT_ROOT_PATH,
     SOURCE_PATH,
+    DIST_PATH,
 }

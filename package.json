@@ -6,7 +6,7 @@
   "scripts": {
     "build:dev": "webpack --config ./etc/webpack/webpack.dev.config.js",
     "build": "webpack --config ./etc/webpack/webpack.prod.config.js",
-    "start:dev": "webpack-dev-server --config ./etc/webpack/webpack.dev.config.js --watch",
+    "start-storybook:dev": "webpack-dev-server --config ./etc/webpack/webpack-storybook.dev.config.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Dummy from '../components/Dummy'
+import Dummy from '../src/components/Dummy'
 
 render(
       <div>
