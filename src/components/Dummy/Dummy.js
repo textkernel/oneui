@@ -17,9 +17,14 @@ export default class Dummy extends Component {
     }
 
     static propsToMods = [ 'isActive' ]
+    static stateToMods = [ 'isClicked' ]
+
+    state = {
+        isClicked: false,
+    };
 
     handleClick = (e) => {
-        console.log('Dummy was clicked!')
+        this.setState({ isClicked: !this.state.isClicked })
     }
 
     render() {

@@ -20,6 +20,10 @@
         transform: rotate(0deg);
     }
 
+    &--isClicked {
+        border-style: dashed;
+    }
+
     /* block "Dummy", element "label" */
     &__label {
         color: $color-dark;
