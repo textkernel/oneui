@@ -67,7 +67,10 @@ const baseConfig = {
 
     context: SOURCE_PATH,
 
-    entry: './storybook/index.js',
+    entry: {
+        main: './index.js',
+        storybook: './storybook/storybook.js',
+    },
 
     output: {
         filename: '[name].js',
