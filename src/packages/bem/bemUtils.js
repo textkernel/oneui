@@ -19,8 +19,6 @@ function buildMods(props, propsToMods) {
 
             const propValue = props[propName];
 
-            console.log('propValue', propValue);
-
             if (propValue) {
 
                 if (propValue && (typeof propValue === 'string')) {
@@ -109,8 +107,6 @@ function buildClassNames(block, elem = null, propsToMods, props, styles) {
     const blockElemName = elem ? `${block}${ELEM_SEPARATOR}${elem}` : block
     const mods = buildMods(props, propsToMods)
 
-    console.log('mods', mods)
-
     // Base level
     const baseClassName = styles[blockElemName]
     const baseModClassNames = modsToClassNames(block, elem, mods, styles)
@@ -124,12 +120,6 @@ function buildClassNames(block, elem = null, propsToMods, props, styles) {
     const themeStyles = props.theme[block] || {}
     const themeClassName = themeStyles[blockElemName]
     const themeModClassNames = modsToClassNames(block, elem, mods, themeStyles)
-
-  console.log('------------');
-  console.log('blockElemName', blockElemName);
-  console.log('themeStyles', themeStyles);
-  console.log('themeClassName', themeClassName);
-  console.log('themeModClassNames', themeModClassNames);
 
     return classnames(
         // Own level
@@ -155,8 +145,6 @@ function buildClassNames(block, elem = null, propsToMods, props, styles) {
  * @public
  */
 export function buildBemProps(block, elem = null, propsToMods, props, styles) {
-
-  console.log(props);
 
     let classNames = buildClassNames(block, elem, propsToMods, props, styles);
 
