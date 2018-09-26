@@ -1,7 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const postcssPreCss = require('precss')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { getRuleJS } = require('./utils')
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../')
 const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src')
@@ -18,15 +19,7 @@ const plugins = {
 }
 
 const rules = {
-    js: {
-        test: /\.js$/,
-        include: [ SOURCE_PATH ],
-        use: [
-            {
-                loader: 'babel-loader',
-            }
-        ],
-    },
+    js: getRuleJS(SOURCE_PATH),
     styles: {
         test: /\.scss$/,
         use: [
@@ -67,7 +60,7 @@ const baseConfig = {
 
     resolve: {
         modules: [
-            path.resolve(SOURCE_PATH, 'modules'),
+            path.resolve(SOURCE_PATH, 'core'),
             path.resolve(SOURCE_PATH, '../node_modules'),
         ],
         extensions: ['.js'],

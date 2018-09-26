@@ -1,10 +1,11 @@
-const { baseConfig, plugins } =  require('./webpack.config')
+const { baseConfig, plugins } = require('./webpack.config')
 
 module.exports = {
     ...baseConfig,
     mode: 'production',
     plugins: [
         plugins.hashedModuleIdsPlugin,
+        plugins.cssPlugin,
     ],
     module: {
         rules: [

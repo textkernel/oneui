@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { baseConfig, PROJECT_ROOT_PATH, SOURCE_PATH, plugins, rules } = require('./webpack.config')
+const { getRuleJS } = require('./utils')
 
 const STORYBOOK_PORT = 8002
 const STORYBOOK_SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'storybook')
@@ -31,13 +32,7 @@ module.exports = {
     ],
     module: {
         rules: [
-            {
-                ...rules.js,
-                include: [
-                    SOURCE_PATH,
-                    STORYBOOK_SOURCE_PATH
-                ],
-            },
+            getRuleJS(SOURCE_PATH, STORYBOOK_SOURCE_PATH),
             rules.styles,
         ],
     },
