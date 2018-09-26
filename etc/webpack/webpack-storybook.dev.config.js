@@ -18,6 +18,7 @@ module.exports = {
     ...baseConfig,
     context: STORYBOOK_SOURCE_PATH,
     mode: 'development',
+    devtool: 'eval-source-map',
     entry: {
         storybook: './storybook.js',
     },
@@ -39,6 +40,7 @@ module.exports = {
     devServer: {
         contentBase: STORYBOOK_DIST_PATH,
         port: STORYBOOK_PORT,
-        open: true,
+        open: true
     },
+    watch: true,
 }

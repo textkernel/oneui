@@ -25,7 +25,7 @@ export default class Dummy extends Component {
     render() {
         const { children } = this.props
         return (
-            <div { ...this.block() }>
+            <div { ...this.block() } onClick={this.handleClick}>
                 <span { ...this.elem('label') }>
                     { children }
                 </span>
