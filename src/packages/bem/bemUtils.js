@@ -1,5 +1,4 @@
 import React from 'react'
-import classnames from 'classnames'
 
 const ELEM_SEPARATOR = '__'
 const MOD_SEPARATOR = '--'
@@ -7,26 +6,26 @@ const VALUE_SEPARATOR = '_'
 
 /**
  * Builds a dictionary of modifiers
- * @param {Object} propsToMods
- * @param {Object} props
+ * @param {Object} source
+ * @param {Array.<string>} modNames
  * @returns {Object}
  * @private
  */
-function buildMods(props, propsToMods) {
+function buildModsFromObject(source, modNames) {
 
-    return propsToMods.reduce(
-        (result, propName) => {
+    return modNames.reduce(
+        (result, modNames) => {
 
-            const propValue = props[propName];
+            const propValue = source[modNames];
 
             if (propValue) {
 
                 if (propValue && (typeof propValue === 'string')) {
-                    result[propName] = propValue
+                    result[modNames] = propValue
                 }
 
                 if (typeof propValue === 'boolean') {
-                    result[propName] = true
+                    result[modNames] = true
                 }
 
             }
@@ -37,30 +36,29 @@ function buildMods(props, propsToMods) {
     );
 }
 
+/**
+ * @param {string} block
+ * @param {string|null} elem
+ * @param {string} modName
+ * @param {string|boolean} modValue
+ * @returns {string}
+ */
 function buildModClassName({ block, elem = null, modName, modValue }) {
+
     // block, ELEM_SEPARATOR, elem, MOD_SEPARATOR, modName, VALUE_SEPARATOR, modValue
+    let result = block
 
     if (elem) {
-        return [
-            block,
-            ELEM_SEPARATOR,
-            elem,
-            MOD_SEPARATOR,
-            modName,
-            ...(
-                typeof modValue === 'boolean' ? [] : [ VALUE_SEPARATOR, modValue, ]
-            ),
-        ].join('');
+        result += `${ELEM_SEPARATOR}${elem}`
     }
 
-    return  [
-        block,
-        MOD_SEPARATOR,
-        modName,
-        ...(
-            typeof modValue === 'boolean' ? [] : [ VALUE_SEPARATOR, modValue, ]
-        ),
-    ].join('');
+    result += `${MOD_SEPARATOR}${modName}`
+
+    if (typeof modValue !== 'boolean') {
+        result += `${VALUE_SEPARATOR}${modName}`
+    }
+
+    return result
 }
 
 /**
@@ -97,15 +95,18 @@ function getFunctionNameFallback(func) {
  * @param {string} block
  * @param {string} [elem]
  * @param {Object} propsToMods
+ * @param {Object} stateToMods
  * @param {Object} props
  * @param {Object} styles
  * @returns {string}
  * @public
  */
-function buildClassNames(block, elem = null, propsToMods, props, styles) {
+function buildClassNames({ block, elem = null, props, propsToMods, state, stateToMods, styles }) {
 
     const blockElemName = elem ? `${block}${ELEM_SEPARATOR}${elem}` : block
-    const mods = buildMods(props, propsToMods)
+    const modsFromProps = buildModsFromObject(props, propsToMods)
+    const modsFromState = buildModsFromObject(state, stateToMods)
+    const mods = Object.assign({}, modsFromProps, modsFromState)
 
     // Base level
     const baseClassName = styles[blockElemName]
@@ -120,9 +121,7 @@ function buildClassNames(block, elem = null, propsToMods, props, styles) {
     const themeStyles = props.theme[block] || {}
     const themeClassName = themeStyles[blockElemName]
     const themeModClassNames = modsToClassNames(block, elem, mods, themeStyles)
-
-    return classnames(
-        // Own level
+    const classNames = [
         baseClassName,
         ...baseModClassNames,
         // Product level
@@ -131,7 +130,22 @@ function buildClassNames(block, elem = null, propsToMods, props, styles) {
         // Theme level
         themeClassName,
         ...themeModClassNames
-    )
+    ]
+
+    return classNames.filter(className => className).join(' ')
+}
+
+/**
+ * Checks if propsToMods and propsToMods are declared correctly
+ * @param {Object} source – Object to inspect (props or state)
+ * @param {Array.<string>} declaration – List of keys to check
+ */
+function checkModsDeclaration(block, source, declarations) {
+    declarations.forEach(declaration => {
+        if (declaration in source === false) {
+            console.warn(`BEM component "${block}" prabably has incorrect declaration of "${declaration}"`)
+        }
+    })
 }
 
 /**
@@ -144,9 +158,15 @@ function buildClassNames(block, elem = null, propsToMods, props, styles) {
  * @returns {Array.<string>}
  * @public
  */
-export function buildBemProps(block, elem = null, propsToMods, props, styles) {
+export function buildBemProps({ block, elem = null, props, propsToMods, state, stateToMods, styles }) {
 
-    let classNames = buildClassNames(block, elem, propsToMods, props, styles);
+    // If we deal with a new block, checking propsToMods and stateToMods declarations
+    if (process.env.NODE_ENV === 'development' && elem === null) {
+        checkModsDeclaration(block, props, propsToMods)
+        checkModsDeclaration(block, state, stateToMods)
+    }
+
+    let classNames = buildClassNames({ block, elem, props, propsToMods, state, stateToMods, styles });
 
     // If an element mixed in to the component, add it's className
     if (props.className && elem === null) {

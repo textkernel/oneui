@@ -11,19 +11,24 @@ const { Provider: ThemeProvider, Consumer } = React.createContext({})
  */
 const bem = (styles) => (BemComponent) => {
 
-    if (!Array.isArray(BemComponent.propsToMods)) {
-        console.warn('bem(Component) should have static "propsToMods" property')
-    }
-
     const blockName = getFunctionName(BemComponent)
     const propsToMods = Array.isArray(BemComponent.propsToMods) ? BemComponent.propsToMods : []
+    const stateToMods = Array.isArray(BemComponent.stateToMods) ? BemComponent.stateToMods : []
 
     /**
      * Add BemComponent#block method, that produces classNames for blocks
      * @returns {{className: *}}
      */
     BemComponent.prototype.block = function() {
-        return buildBemProps(blockName, null, propsToMods, this.props, styles)
+        return buildBemProps({
+            block: blockName,
+            elem: null,
+            props: this.props,
+            propsToMods,
+            state: this.state,
+            stateToMods,
+            styles,
+        })
     };
 
     /**
@@ -31,7 +36,15 @@ const bem = (styles) => (BemComponent) => {
      * @returns {{className: *}}
      */
     BemComponent.prototype.elem = function(elemName) {
-        return buildBemProps(blockName, elemName, propsToMods, this.props, styles)
+        return buildBemProps({
+            block: blockName,
+            elem: elemName,
+            props: this.props,
+            propsToMods,
+            state: this.state,
+            stateToMods,
+            styles,
+        })
     }
 
     return (props) => (
