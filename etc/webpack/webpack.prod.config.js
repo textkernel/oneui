@@ -1,4 +1,4 @@
-const { baseConfig, plugins } = require('./webpack.config')
+const { baseConfig, plugins, rules } = require('./webpack.config')
 
 module.exports = {
     ...baseConfig,

@@ -60,7 +60,7 @@ const baseConfig = {
 
     resolve: {
         modules: [
-            path.resolve(SOURCE_PATH, 'core'),
+            path.resolve(SOURCE_PATH, 'packages'),
             path.resolve(SOURCE_PATH, '../node_modules'),
         ],
         extensions: ['.js'],
