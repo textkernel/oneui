@@ -13,19 +13,21 @@
         border: 1px solid $color-crazy;
         background-color: $color-background;
         transform: rotate(-2deg);
+        cursor: pointer;
+    }
 
-        &:hover {
-            transform: rotate(0deg);
-        }
+    &--isActive:hover {
+        transform: rotate(0deg);
     }
 
     /* block "Dummy", element "label" */
     &__label {
         color: $color-dark;
-
-        /* block "Dummy", element "label", modifier "isActive" */
-        &--isActive {
-            color: $color-crazy;
-        }
     }
+
+    /* block "Dummy", element "label", modifier "isActive" */
+    &__label--isActive {
+        color: $color-crazy;
+    }
+
 }
