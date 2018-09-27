@@ -20,7 +20,7 @@ module.exports = {
     mode: 'development',
     devtool: 'eval-source-map',
     entry: {
-        storybook: './storybook.js',
+        storybook: ['@babel/polyfill', './storybook.js']
     },
     output: {
         filename: '[name].js',
@@ -40,7 +40,7 @@ module.exports = {
     devServer: {
         contentBase: STORYBOOK_DIST_PATH,
         port: STORYBOOK_PORT,
-        open: true
+        host: '0.0.0.0',
     },
     watch: true,
 }

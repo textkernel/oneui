@@ -50,7 +50,7 @@ const baseConfig = {
     context: SOURCE_PATH,
 
     entry: {
-        main: './index.js',
+        main: ['@babel/polyfill', './index.js']
     },
 
     output: {

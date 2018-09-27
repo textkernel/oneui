@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/textkernel/nice2#readme",
   "dependencies": {
+    "@babel/polyfill": "7.0.0",
     "prop-types": "15.6.2",
     "react": "16.5.2",
     "react-dom": "16.5.2"
