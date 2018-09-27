@@ -7,5 +7,11 @@
         "react/jsx-filename-extension": 0,
         "experimentalDecorators": 0,
         "react/jsx-indent": [2, 4]
+    },
+    "globals": {
+        "describe": false,
+        "it": false,
+        "expect": false,
+        "shallow": false
     }
 }
