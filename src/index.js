@@ -1,1 +1,3 @@
-export { default as Dummy } from './components/Dummy'
+import Dummy from './components/Dummy';
+
+export default Dummy;

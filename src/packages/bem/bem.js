@@ -1,7 +1,7 @@
-import React from 'react'
-import { buildBemProps, getFunctionName } from './bemUtils'
+import React from 'react';
+import { buildBemProps, getFunctionName } from './bemUtils';
 
-const { Provider: ThemeProvider, Consumer } = React.createContext({})
+const { Provider: ThemeProvider, Consumer } = React.createContext({});
 
 /**
  *
@@ -9,17 +9,16 @@ const { Provider: ThemeProvider, Consumer } = React.createContext({})
  * @param {Object} styles
  * @returns {function(*): *}
  */
-const bem = (styles) => (BemComponent) => {
-
-    const blockName = getFunctionName(BemComponent)
-    const propsToMods = Array.isArray(BemComponent.propsToMods) ? BemComponent.propsToMods : []
-    const stateToMods = Array.isArray(BemComponent.stateToMods) ? BemComponent.stateToMods : []
+const bem = styles => BemComponent => {
+    const blockName = getFunctionName(BemComponent);
+    const propsToMods = Array.isArray(BemComponent.propsToMods) ? BemComponent.propsToMods : [];
+    const stateToMods = Array.isArray(BemComponent.stateToMods) ? BemComponent.stateToMods : [];
 
     /**
      * Add BemComponent#block method, that produces classNames for blocks
      * @returns {{className: *}}
      */
-    BemComponent.prototype.block = function() {
+    BemComponent.prototype.block = function block() {
         return buildBemProps({
             block: blockName,
             elem: null,
@@ -27,15 +26,15 @@ const bem = (styles) => (BemComponent) => {
             propsToMods,
             state: this.state,
             stateToMods,
-            styles,
-        })
+            styles
+        });
     };
 
     /**
      * Add BemComponent#elem method, that produces classNames for elements of the block
      * @returns {{className: *}}
      */
-    BemComponent.prototype.elem = function(elemName) {
+    BemComponent.prototype.elem = function elem(elemName) {
         return buildBemProps({
             block: blockName,
             elem: elemName,
@@ -43,18 +42,12 @@ const bem = (styles) => (BemComponent) => {
             propsToMods,
             state: this.state,
             stateToMods,
-            styles,
-        })
-    }
+            styles
+        });
+    };
 
-    return (props) => (
-        <Consumer>
-            {
-                (value) => <BemComponent {...props} theme={value || {}} />
-            }
-        </Consumer>
-    );
+    return props => <Consumer>{value => <BemComponent {...props} theme={value || {}} />}</Consumer>;
 };
 
-export default bem
-export { ThemeProvider }
+export default bem;
+export { ThemeProvider };
