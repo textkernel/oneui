@@ -7,6 +7,8 @@
     "build": "webpack --config ./etc/webpack/webpack.dev.config.js",
     "build:prod": "webpack --config ./etc/webpack/webpack.prod.config.js",
     "start": "webpack-dev-server --config ./etc/webpack/webpack-storybook.dev.config.js",
+    "theme-demo": "webpack-dev-server --config ./etc/webpack/webpack-theme-demo.dev.config.js",
+    "build-theme-demo": "webpack --config ./etc/webpack/webpack-theme-demo.dev.config.js",
     "test": "jest"
   },
   "repository": {
@@ -21,6 +23,7 @@
   "homepage": "https://github.com/textkernel/nice2#readme",
   "dependencies": {
     "@babel/polyfill": "7.0.0",
+    "css-vars-ponyfill": "1.9.0",
     "prop-types": "15.6.2",
     "react": "16.5.2",
     "react-dom": "16.5.2"
