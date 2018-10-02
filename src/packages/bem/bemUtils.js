@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ELEM_SEPARATOR = '__';
 const MOD_SEPARATOR = '--';
 const VALUE_SEPARATOR = '_';
@@ -12,16 +10,17 @@ const VALUE_SEPARATOR = '_';
  * @private
  */
 function buildModsFromObject(source, modNames) {
+    // eslint-disable-next-line no-shadow
     return modNames.reduce((result, modNames) => {
         const propValue = source[modNames];
 
         if (propValue) {
             if (propValue && typeof propValue === 'string') {
-                result[modNames] = propValue;
+                result[modNames] = propValue; // eslint-disable-line no-param-reassign
             }
 
             if (typeof propValue === 'boolean') {
-                result[modNames] = true;
+                result[modNames] = true; // eslint-disable-line no-param-reassign
             }
         }
 

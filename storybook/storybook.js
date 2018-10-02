@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities, no-undef */
 import React from 'react';
 import { render } from 'react-dom';
 import Dummy from '../src/components/Dummy';

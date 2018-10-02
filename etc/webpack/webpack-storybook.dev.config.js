@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: [error, { devDependencies: true }] */
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { baseConfig, PROJECT_ROOT_PATH, SOURCE_PATH, plugins, rules } = require('./webpack.config');

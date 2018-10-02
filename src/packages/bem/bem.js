@@ -18,6 +18,7 @@ const bem = styles => BemComponent => {
      * Add BemComponent#block method, that produces classNames for blocks
      * @returns {{className: *}}
      */
+    // eslint-disable-next-line no-param-reassign
     BemComponent.prototype.block = function block() {
         return buildBemProps({
             block: blockName,
@@ -34,6 +35,7 @@ const bem = styles => BemComponent => {
      * Add BemComponent#elem method, that produces classNames for elements of the block
      * @returns {{className: *}}
      */
+    // eslint-disable-next-line no-param-reassign
     BemComponent.prototype.elem = function elem(elemName) {
         return buildBemProps({
             block: blockName,

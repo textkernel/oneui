@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from 'bem'; // eslint-disable-line import/no-unresolved
 import dummyStyles from './Dummy.scss';
 
 @bem(dummyStyles)
