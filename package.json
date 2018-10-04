@@ -7,7 +7,8 @@
     "build": "webpack --config ./etc/webpack/webpack.dev.config.js",
     "build:prod": "webpack --config ./etc/webpack/webpack.prod.config.js",
     "start": "webpack-dev-server --config ./etc/webpack/webpack-storybook.dev.config.js",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "@babel/plugin-proposal-decorators": "7.1.0",
     "@babel/preset-env": "7.1.0",
     "@babel/preset-react": "7.0.0",
+    "@storybook/react": "4.0.0-alpha.24",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "23.6.0",
     "babel-loader": "8.0.2",
