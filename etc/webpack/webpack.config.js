@@ -1,9 +1,10 @@
-const path = require('path');
-const webpack = require('webpack');
-const postcssPreCss = require('precss');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const { getRuleJS } = require('./utils');
+const path = require('path')
+const webpack = require('webpack')
+const postcssAutoprefixer = require('autoprefixer')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin')
+const { getRuleJS } = require('./utils')
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
 const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
@@ -21,7 +22,8 @@ const plugins = {
     }),
     styleLintPlugin: new StyleLintPlugin({
         context: SOURCE_PATH
-    })
+    }),
+    optimizeCssAssetsPlugin: new OptimizeCssAssetsPlugin()
 }
 
 const getRules = (env = 'prod') => ({
@@ -42,12 +44,21 @@ const getRules = (env = 'prod') => ({
             {
                 loader: 'postcss-loader',
                 options: {
-                    plugins: [postcssPreCss()]
+                    plugins: [
+                        postcssAutoprefixer
+                    ],
+                },
+            },
+            {
+                loader: 'sass-loader',
+                options: {
+                    includePaths: [SOURCE_PATH]
                 }
             }
-        ]
-    }
-});
+        ],
+    },
+}
+
 
 const baseConfig = {
     context: SOURCE_PATH,
