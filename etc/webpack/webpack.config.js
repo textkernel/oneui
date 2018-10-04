@@ -18,8 +18,8 @@ const plugins = {
     })
 };
 
-const rules = {
-    js: getRuleJS(SOURCE_PATH),
+const getRules = (env = 'prod') => ({
+    js: getRuleJS(env === 'prod', SOURCE_PATH),
     styles: {
         test: /\.scss$/,
         use: [
@@ -41,7 +41,7 @@ const rules = {
             }
         ]
     }
-};
+});
 
 const baseConfig = {
     context: SOURCE_PATH,
@@ -67,7 +67,7 @@ const baseConfig = {
 module.exports = {
     baseConfig,
     plugins,
-    rules,
+    getRules,
     PROJECT_ROOT_PATH,
     SOURCE_PATH,
     DIST_PATH

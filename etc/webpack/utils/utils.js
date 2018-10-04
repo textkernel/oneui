@@ -1,12 +1,10 @@
-function getRuleJS(...includePaths) {
+function getRuleJS(useLinting = true, ...includePaths) {
+    const loaders = useLinting ? ['babel-loader', 'eslint-loader'] : ['babel-loader'];
+
     return {
         test: /\.js$/,
         include: includePaths,
-        use: [
-            {
-                loader: 'babel-loader'
-            }
-        ]
+        use: loaders
     };
 }
 
