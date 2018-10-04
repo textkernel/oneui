@@ -7,6 +7,7 @@ module.exports = {
     plugins: [
         plugins.namedModulesPlugin,
         plugins.cssPlugin,
+        plugins.styleLintPlugin
     ],
     module: {
         rules: [

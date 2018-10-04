@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const postcssPreCss = require('precss')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { getRuleJS } = require('./utils')
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../')
@@ -16,6 +17,9 @@ const plugins = {
     cssPlugin: new MiniCssExtractPlugin({
         filename: '[name].css',
     }),
+    styleLintPlugin: new StyleLintPlugin({
+        context: SOURCE_PATH
+    })
 }
 
 const rules = {
