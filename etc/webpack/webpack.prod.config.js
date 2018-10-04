@@ -6,6 +6,7 @@ module.exports = {
     plugins: [
         plugins.hashedModuleIdsPlugin,
         plugins.cssPlugin,
+        plugins.styleLintPlugin
     ],
     module: {
         rules: [

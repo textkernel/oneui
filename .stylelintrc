@@ -1,0 +1,15 @@
+{
+    "extends": "stylelint-config-recommended-scss",
+    "syntax": "scss",
+    "rules": {
+        "declaration-no-important": true,
+        "font-family-name-quotes": "always-where-recommended",
+        "font-weight-notation": "numeric",
+        "indentation": 4,
+        "no-missing-end-of-source-newline": true,
+        "selector-attribute-brackets-space-inside": "never",
+        "selector-attribute-quotes": "always",
+        "selector-max-id": 0,
+        "unit-case": "lower"
+    }
+}
