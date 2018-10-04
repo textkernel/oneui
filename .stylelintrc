@@ -1,6 +1,9 @@
 {
     "extends": "stylelint-config-recommended-scss",
     "syntax": "scss",
+    "plugins": [
+        "stylelint-order"
+    ],
     "rules": {
         "declaration-no-important": true,
         "font-family-name-quotes": "always-where-recommended",
@@ -10,6 +13,15 @@
         "selector-attribute-brackets-space-inside": "never",
         "selector-attribute-quotes": "always",
         "selector-max-id": 0,
-        "unit-case": "lower"
+        "unit-case": "lower",
+        "order/order": [
+            [
+                "custom-properties",
+                "declarations"
+            ],
+            {
+                "disableFix": true
+            }
+        ],
     }
 }
