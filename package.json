@@ -7,7 +7,7 @@
     "build": "webpack --config ./etc/webpack/webpack.dev.config.js",
     "build:prod": "webpack --config ./etc/webpack/webpack.prod.config.js",
     "start": "webpack-dev-server --config ./etc/webpack/webpack-storybook.dev.config.js",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "test": "jest"
   },
   "repository": {
@@ -43,6 +43,7 @@
     "eslint": "5.6.0",
     "eslint-config-airbnb": "17.1.0",
     "eslint-config-prettier": "3.1.0",
+    "eslint-loader": "2.1.1",
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jsx-a11y": "6.1.1",
     "eslint-plugin-prettier": "2.7.0",
