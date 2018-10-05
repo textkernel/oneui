@@ -6,7 +6,6 @@
   "scripts": {
     "build": "webpack --config ./etc/webpack/webpack.dev.config.js",
     "build:prod": "webpack --config ./etc/webpack/webpack.prod.config.js",
-    "start": "webpack-dev-server --config ./etc/webpack/webpack-storybook.dev.config.js",
     "test": "jest",
     "storybook": "start-storybook -p 9001 -c .storybook"
   },
