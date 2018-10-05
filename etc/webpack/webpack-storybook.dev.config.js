@@ -2,7 +2,13 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { baseConfig, PROJECT_ROOT_PATH, SOURCE_PATH, plugins, getRules } = require('./webpack.config');
+const {
+    baseConfig,
+    PROJECT_ROOT_PATH,
+    SOURCE_PATH,
+    plugins,
+    getRules
+} = require('./webpack.config');
 const { getRuleJS } = require('./utils');
 
 const STORYBOOK_PORT = 8002;
