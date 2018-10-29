@@ -5,16 +5,6 @@ import dummyStyles from './Dummy.scss';
 
 @bem(dummyStyles)
 class Dummy extends Component {
-    static propTypes = {
-        children: PropTypes.node,
-        isActive: PropTypes.bool
-    };
-
-    static defaultProps = {
-        children: null,
-        isActive: false
-    };
-
     static propsToMods = ['isActive'];
 
     static stateToMods = ['isClicked'];
@@ -38,5 +28,19 @@ class Dummy extends Component {
         );
     }
 }
+
+Dummy.displayName = 'Dummy';
+
+Dummy.propTypes = {
+    /** Dummy Children */
+    children: PropTypes.node,
+    /** Is active */
+    isActive: PropTypes.bool
+};
+
+Dummy.defaultProps = {
+    children: null,
+    isActive: false
+};
 
 export default Dummy;
