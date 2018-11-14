@@ -1,11 +1,5 @@
-/* Colors */
-$color-background: #FFF;
-$color-light: #AAA;
-$color-dark: #333;
-$color-crazy: magenta;
+@import './base-variables/colors';
+@import './base-variables/typography';
+@import './base-variables/sizing';
 
-/* Offsets */
-$offset-tiny: 0.25em;
-$offset-small: 0.5em;
-$offset-normal: 1em;
-$offset-large: 1.5em;
+@import './mixins/text';
