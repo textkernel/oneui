@@ -30,7 +30,9 @@ import { Button, ButtonGroup } from '@textkernel/nice';
 ## Definition of done
 Any new component should meet the following requirements before it can be merged.
 
+* The component has been manually tested and complies with the Textkernel [browser support guidelines](https://www.textkernel.com/browser-support/)
 * The component is thorougly **covered by tests** (Jest / Enzyme), not only with snapshots
 * The component **comes with a story** in Storybook that allows props to be changed with knobs
 * Utils (functions) should be accompanied with **clear code comments**
+* The implementation is **reviewed** by another contributor
 * The complete **build is passing**
