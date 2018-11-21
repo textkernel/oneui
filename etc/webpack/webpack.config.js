@@ -24,7 +24,7 @@ const plugins = {
         context: SOURCE_PATH
     }),
     optimizeCssAssetsPlugin: new OptimizeCssAssetsPlugin()
-}
+};
 
 const getRules = (env = 'prod') => ({
     js: getRuleJS(env === 'prod', SOURCE_PATH),
@@ -57,8 +57,7 @@ const getRules = (env = 'prod') => ({
             }
         ],
     },
-}
-
+});
 
 const baseConfig = {
     context: SOURCE_PATH,
