@@ -3,16 +3,16 @@
 /* block "Dummy" */
 .Dummy {
     display: inline-block;
-    background-color: $color-light;
-    padding: $offset-small $offset-large;
-    border-radius: $offset-small;
+    background-color: $color-info;
+    padding: 8px 16px;
+    border-radius: 2px;
     transition: transform 0.2s;
 
     /* block "Dummy", modifier "isActive" */
     &--isActive {
-        border: 1px solid $color-crazy;
-        background-color: $color-background;
-        transform: rotate(-2deg);
+        border: 1px solid $color-good;
+        background-color: $color-good;
+        transform: rotate(-15deg);
         cursor: pointer;
     }
 
@@ -26,12 +26,12 @@
 
     /* block "Dummy", element "label" */
     &__label {
-        color: $color-dark;
+        color: $color-bad;
     }
 
     /* block "Dummy", element "label", modifier "isActive" */
     &__label--isActive {
-        color: $color-crazy;
+        color: $color-warning;
     }
 
 }
