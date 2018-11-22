@@ -3,10 +3,7 @@ const { getRules, plugins, baseConfig, PACKAGES_PATH } = require('../etc/webpack
 module.exports = (storybookBaseConfig, configType) => {
 
     // Add support to SASS
-    storybookBaseConfig.module.rules.push(getRules().styles);
-
-    // Add MiniCssExtractPlugin
-    storybookBaseConfig.plugins.push(plugins.cssPlugin);
+    storybookBaseConfig.module.rules.push(getRules('dev').styles);
 
     // Resolve BEM as Module
     storybookBaseConfig.resolve.modules.push(PACKAGES_PATH);
