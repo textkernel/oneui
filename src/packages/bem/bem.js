@@ -1,55 +1,119 @@
 import React from 'react';
 import { buildBemProps, getFunctionName } from './bemUtils';
 
-const { Provider: ThemeProvider, Consumer } = React.createContext({});
+/**
+ * Decorates stateful react component with BEM methods
+ * @param {ClassnamesMap} classnamesMap
+ * @returns {Function}
+ */
+function bemStateful(classnamesMap) {
+
+    /**
+     * @param {Component} BemComponent - Class based statefull react component
+     * @returns {Function} - Decorated react component
+     */
+    return function (StatefulBemComponent) {
+
+        const blockName = getFunctionName(StatefulBemComponent);
+        const propsToMods = Array.isArray(StatefulBemComponent.propsToMods) ? StatefulBemComponent.propsToMods : [];
+        const stateToMods = Array.isArray(StatefulBemComponent.stateToMods) ? StatefulBemComponent.stateToMods : [];
+    
+        /**
+         * Add StatefulBemComponent#block method, that produces classNames for blocks
+         * @returns {BEMClassNames}
+         */
+        // eslint-disable-next-line no-param-reassign
+        StatefulBemComponent.prototype.block = function block() {
+            return buildBemProps({
+                block: blockName,
+                elem: null,
+                props: this.props,
+                propsToMods,
+                state: this.state,
+                stateToMods,
+                classnamesMap,
+            });
+        };
+    
+        /**
+         * Add StatefulBemComponent#elem method, that produces classNames for elements of the block
+         * @returns {BEMClassNames}
+         */
+        // eslint-disable-next-line no-param-reassign
+        StatefulBemComponent.prototype.elem = function elem(elemName) {
+            return buildBemProps({
+                block: blockName,
+                elem: elemName,
+                props: this.props,
+                propsToMods,
+                state: this.state,
+                stateToMods,
+                classnamesMap,
+            });
+        };
+    
+        return StatefulBemComponent;
+    }
+}
 
 /**
- *
- * @param {React.Component} BemComponent
- * @param {Object} styles
- * @returns {function(*): *}
+ * Decorates stateless react component with BEM methods
+ * @param {ClassnamesMap} classnamesMap
+ * @returns {Function}
  */
-const bem = styles => BemComponent => {
-    const blockName = getFunctionName(BemComponent);
-    const propsToMods = Array.isArray(BemComponent.propsToMods) ? BemComponent.propsToMods : [];
-    const stateToMods = Array.isArray(BemComponent.stateToMods) ? BemComponent.stateToMods : [];
+function bemStateless(classnamesMap) {
 
     /**
-     * Add BemComponent#block method, that produces classNames for blocks
-     * @returns {{className: *}}
+     * @param {Component} StatelessBEMComponent - Function based stateless react component
+     * @returns {Function} - Decorated react component
      */
-    // eslint-disable-next-line no-param-reassign
-    BemComponent.prototype.block = function block() {
-        return buildBemProps({
-            block: blockName,
-            elem: null,
-            props: this.props,
-            propsToMods,
-            state: this.state,
-            stateToMods,
-            styles
-        });
-    };
+    return function(StatelessBEMComponent) {
+        const blockName = getFunctionName(StatelessBEMComponent);
+        const propsToMods = Array.isArray(StatelessBEMComponent.propsToMods)
+            ? StatelessBEMComponent.propsToMods
+            : [];
+    
+        return props => {
+            const propsWithBEMTaste = {
+                ...props,
+                block: () =>
+                    buildBemProps({
+                        block: blockName,
+                        elem: null,
+                        props,
+                        propsToMods,
+                        classnamesMap,
+                    }),
+                elem: elemName =>
+                    buildBemProps({
+                        block: blockName,
+                        elem: elemName,
+                        props,
+                        propsToMods,
+                        classnamesMap,
+                    })
+            };
+    
+            return <StatelessBEMComponent {...propsWithBEMTaste} />;
+        };
+    }
+}
+
+/**
+ * Decorates react component with BEM methods
+ * @param {ClassnamesMap} classnamesMap
+ * @returns {Function}
+ */
+export default function bem(classnamesMap) {
 
     /**
-     * Add BemComponent#elem method, that produces classNames for elements of the block
-     * @returns {{className: *}}
+     * @param {Component} BemComponent - React component
+     * @returns {Function} - Decorated react component
      */
-    // eslint-disable-next-line no-param-reassign
-    BemComponent.prototype.elem = function elem(elemName) {
-        return buildBemProps({
-            block: blockName,
-            elem: elemName,
-            props: this.props,
-            propsToMods,
-            state: this.state,
-            stateToMods,
-            styles
-        });
-    };
-
-    return props => <Consumer>{value => <BemComponent {...props} theme={value || {}} />}</Consumer>;
-};
-
-export default bem;
-export { ThemeProvider };
+    return function(BemComponent) {
+        if (BemComponent.prototype instanceof React.Component) {
+            return bemStateful(classnamesMap)(BemComponent);
+        }
+        return bemStateless(classnamesMap)(BemComponent);
+    }
+}

@@ -1,12 +1,47 @@
+/**
+ * Element prefix
+ * @type {string}
+ */
 const ELEM_SEPARATOR = '__';
+
+/**
+ * Modifyer prefix
+ * @type {string}
+ */
 const MOD_SEPARATOR = '--';
+
+/**
+ * Modifyer's value prefix
+ * @type {string}
+ */
 const VALUE_SEPARATOR = '_';
 
 /**
- * Builds a dictionary of modifiers
- * @param {Object} source
- * @param {Array.<string>} modNames
- * @returns {Object}
+ * Object that represents modifyers dictionary (basically, props or state from a component)
+ * @typedef {Object.<string, string|number|boolean>} ModDict
+ */
+
+/**
+ * CSS modules classnames map
+ * @typedef {Object.<string, string>} ClassnamesMap
+ */
+
+/**
+ * List of mods names
+ * @typedef {Array.<string>} ModsList
+ */
+
+/**
+ * BEMClassNames
+ * @typedef {Object} BEMClassNames
+ * @property {string} [className] - Space separates list of class names
+ */
+
+/**
+ * Filters and builds a dictionary of modifiers
+ * @param {ModDict} source
+ * @param {ModsList} modNames
+ * @returns {ModDict}
  * @private
  */
 function buildModsFromObject(source, modNames) {
@@ -32,7 +67,7 @@ function buildModsFromObject(source, modNames) {
  * @param {string} block
  * @param {string|null} elem
  * @param {string} modName
- * @param {string|boolean} modValue
+ * @param {string|number|boolean} modValue
  * @returns {string}
  */
 function buildModClassName({ block, elem = null, modName, modValue }) {
@@ -54,17 +89,17 @@ function buildModClassName({ block, elem = null, modName, modValue }) {
 
 /**
  * For a block or an element builds a list of class names of modifiers
- * @param {string} block
- * @param {string} [elem]
- * @param {Object} mods
- * @param {Object} styles
- * @returns {Array.<string>}
+ * @param {string} block - Block name
+ * @param {string} [elem] - Elem name
+ * @param {ModDict} – Object that represents mods (props or state)
+ * @param {ClassnamesMap} classnamesMap – css modules classnames map
+ * @returns {ClassnamesMap}
  */
-function modsToClassNames(block, elem = null, mods, styles) {
+function modsToClassNames(block, elem = null, mods, classnamesMap) {
     return Object.keys(mods)
         .map(modName => {
             const classKey = buildModClassName({ block, elem, modName, modValue: mods[modName] });
-            return styles[classKey];
+            return classnamesMap[classKey];
         })
         .filter(className => className);
 }
@@ -72,6 +107,7 @@ function modsToClassNames(block, elem = null, mods, styles) {
 /**
  * Parses function string representation to get function name
  * @param {Function} func
+ * @returns {string} – Function name
  */
 function getFunctionNameFallback(func) {
     const [, functionName] = func.toString().match(/^function\s*([^\s(]+)/);
@@ -80,52 +116,36 @@ function getFunctionNameFallback(func) {
 
 /**
  * Builds a full list of class names for a block or an element
- * @param {string} block
- * @param {string} [elem]
- * @param {Object} propsToMods
- * @param {Object} stateToMods
- * @param {Object} props
- * @param {Object} styles
+ * @param {string} block – Block name
+ * @param {string} [elem] – Elem name
+ * @param {ModsList} propsToMods 
+ * @param {ModsList} stateToMods
+ * @param {ModDict} props
+ * @param {ClassnamesMap} classnamesMap – css modules classnames map
  * @returns {string}
  * @public
  */
-function buildClassNames({ block, elem = null, props, propsToMods, state, stateToMods, styles }) {
+function buildClassNames({ block, elem = null, props, propsToMods, state, stateToMods, classnamesMap }) {
     const blockElemName = elem ? `${block}${ELEM_SEPARATOR}${elem}` : block;
     const modsFromProps = buildModsFromObject(props, propsToMods);
     const modsFromState = buildModsFromObject(state, stateToMods);
     const mods = Object.assign({}, modsFromProps, modsFromState);
 
     // Base level
-    const baseClassName = styles[blockElemName];
-    const baseModClassNames = modsToClassNames(block, elem, mods, styles);
+    const baseClassName = classnamesMap[blockElemName];
+    const baseModClassNames = modsToClassNames(block, elem, mods, classnamesMap);
 
-    // Restyle level
-    const restyle = props.restyle || {};
-    const restyleClassName = restyle[blockElemName];
-    const restyleModClassNames = modsToClassNames(block, elem, mods, restyle);
-
-    // Theme level
-    const themeStyles = props.theme[block] || {};
-    const themeClassName = themeStyles[blockElemName];
-    const themeModClassNames = modsToClassNames(block, elem, mods, themeStyles);
-    const classNames = [
-        baseClassName,
-        ...baseModClassNames,
-        // Product level
-        restyleClassName,
-        ...restyleModClassNames,
-        // Theme level
-        themeClassName,
-        ...themeModClassNames
-    ];
+    const classNames = [baseClassName, ...baseModClassNames];
 
     return classNames.filter(className => className).join(' ');
 }
 
 /**
- * Checks if propsToMods and propsToMods are declared correctly
- * @param {Object} source: Object to inspect (props or state)
- * @param {Array.<string>} declaration: List of keys to check
+ * Checks if propsToMods and propsToState are declared correctly
+ * @param {string} block - Block name
+ * @param {ModDict} source - Object to inspect (props or state)
+ * @param {ModsList} declaration - List of keys to check
+ * @returns {void}
  */
 function checkModsDeclaration(block, source, declarations) {
     declarations.forEach(declaration => {
@@ -142,20 +162,22 @@ function checkModsDeclaration(block, source, declarations) {
  * Builds an object of props that will be spreaded through block or elements
  * @param {string} block
  * @param {string} [elem]
- * @param {Object} propsToMods
- * @param {Object} props
- * @param {Object} styles
- * @returns {Array.<string>}
+ * @param {ModDict} [props]
+ * @param {ModsList} [propsToMods]
+ * @param {ModDict} [state]
+ * @param {ModsList} [stateToMods]
+ * @param {ClassnamesMap} classnamesMap
+ * @returns {BEMClassNames}
  * @public
  */
 export function buildBemProps({
     block,
     elem = null,
-    props,
-    propsToMods,
-    state,
-    stateToMods,
-    styles
+    props = {},
+    propsToMods = [],
+    state = {},
+    stateToMods = [],
+    classnamesMap
 }) {
     // If we deal with a new block, checking propsToMods and stateToMods declarations
     if (process.env.NODE_ENV === 'development' && elem === null) {
@@ -170,7 +192,7 @@ export function buildBemProps({
         propsToMods,
         state,
         stateToMods,
-        styles
+        classnamesMap
     });
 
     // If an element mixed in to the component, add it's className

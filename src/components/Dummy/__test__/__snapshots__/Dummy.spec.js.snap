@@ -17,51 +17,57 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
+    "nodeType": "host",
     "props": Object {
-      "children": [Function],
+      "children": <span
+        className="Dummy__label"
+      />,
+      "className": "Dummy",
+      "onClick": [Function],
+      "type": "button",
     },
     "ref": null,
-    "rendered": [Function],
-    "type": Object {
-      "$$typeof": Symbol(react.context),
-      "Consumer": [Circular],
-      "Provider": Object {
-        "$$typeof": Symbol(react.provider),
-        "_context": [Circular],
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": null,
+        "className": "Dummy__label",
       },
-      "_calculateChangedBits": null,
-      "_currentRenderer": null,
-      "_currentRenderer2": null,
-      "_currentValue": Object {},
-      "_currentValue2": Object {},
-      "unstable_read": [Function],
+      "ref": null,
+      "rendered": null,
+      "type": "span",
     },
+    "type": "button",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
+      "nodeType": "host",
       "props": Object {
-        "children": [Function],
+        "children": <span
+          className="Dummy__label"
+        />,
+        "className": "Dummy",
+        "onClick": [Function],
+        "type": "button",
       },
       "ref": null,
-      "rendered": [Function],
-      "type": Object {
-        "$$typeof": Symbol(react.context),
-        "Consumer": [Circular],
-        "Provider": Object {
-          "$$typeof": Symbol(react.provider),
-          "_context": [Circular],
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": null,
+          "className": "Dummy__label",
         },
-        "_calculateChangedBits": null,
-        "_currentRenderer": null,
-        "_currentRenderer2": null,
-        "_currentValue": Object {},
-        "_currentValue2": Object {},
-        "unstable_read": [Function],
+        "ref": null,
+        "rendered": null,
+        "type": "span",
       },
+      "type": "button",
     },
   ],
   Symbol(enzyme.__options__): Object {
@@ -80,8 +86,6 @@ ShallowWrapper {
         },
       },
     },
-    "attachTo": undefined,
-    "hydrateIn": undefined,
   },
 }
 `;
