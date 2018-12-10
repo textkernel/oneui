@@ -28,5 +28,5 @@ $color-good-25: mix($background-color, $color-good, $light-factor);
 $color-good-75: mix($foreground-color, $color-good, $dark-factor);
 $color-warning-25: mix($background-color, $color-warning, $light-factor);
 $color-warning-75: mix($foreground-color, $color-warning, $dark-factor);
-$color-bad-25: mix($foreground-color, $background-color, $color-bad, $light-factor);
-$color-bad-75: darken($color-bad, $dark-factor);
+$color-bad-25: mix($background-color, $color-bad, $light-factor);
+$color-bad-75: mix($foreground-color, $color-bad, $dark-factor);
