@@ -1,12 +1,24 @@
 {
-    "extends": ["airbnb", "prettier"],
-    "plugins": ["react", "prettier"],
+    "extends": [
+        "airbnb",
+        "prettier",
+        "prettier/react"
+    ],
+    "plugins": [
+        "react",
+        "prettier"
+    ],
     "parser": "babel-eslint",
     "rules": {
-        "prettier/prettier": ["error"],
+        "prettier/prettier": [
+            "error"
+        ],
         "react/jsx-filename-extension": 0,
         "experimentalDecorators": 0,
-        "react/jsx-indent": [2, 4]
+        "react/jsx-indent": [
+            2,
+            4
+        ]
     },
     "globals": {
         "describe": false,
