@@ -18,7 +18,7 @@ const plugins = {
         hashDigestLength: 6
     }),
     cssPlugin: new MiniCssExtractPlugin({
-        filename: '[name].css',
+        filename: '[name].css'
     }),
     styleLintPlugin: new StyleLintPlugin({
         context: SOURCE_PATH
@@ -31,7 +31,7 @@ const getRules = (env = 'prod') => ({
     styles: {
         test: /\.scss$/,
         use: [
-            MiniCssExtractPlugin.loader,
+            env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
             {
                 loader: 'css-loader',
                 options: {
@@ -44,10 +44,8 @@ const getRules = (env = 'prod') => ({
             {
                 loader: 'postcss-loader',
                 options: {
-                    plugins: [
-                        postcssAutoprefixer
-                    ],
-                },
+                    plugins: [postcssAutoprefixer]
+                }
             },
             {
                 loader: 'sass-loader',
@@ -55,8 +53,8 @@ const getRules = (env = 'prod') => ({
                     includePaths: [SOURCE_PATH]
                 }
             }
-        ],
-    },
+        ]
+    }
 });
 
 const baseConfig = {
