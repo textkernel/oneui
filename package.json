@@ -2,7 +2,7 @@
     "name": "nice2",
     "version": "0.0.1",
     "description": "React Nice UI kit with theme support",
-    "main": "src/index.js",
+    "main": "dist/nice2.min.js",
     "scripts": {
         "storybook": "start-storybook -p 9001 -c .storybook",
         "storybook:prod": "build-storybook -c .storybook",

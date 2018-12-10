@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Dummy from 'nice2';
 import './App.css';
 
 class App extends Component {
+
   render() {
+
+    console.log(Dummy);
+
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
+          {/* <Dummy> Hoi! </Dummy> */}
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
