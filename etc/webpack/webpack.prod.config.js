@@ -1,6 +1,6 @@
 const { baseConfig, plugins, getRules } = require('./webpack.config');
-const rules = getRules('prod');
 
+const rules = getRules('prod');
 
 module.exports = {
     ...baseConfig,
@@ -12,9 +12,6 @@ module.exports = {
         plugins.optimizeCssAssetsPlugin
     ],
     module: {
-        rules: [
-            rules.js,
-            rules.styles,
-        ],
-    },
-}
+        rules: [rules.js, rules.styles]
+    }
+};

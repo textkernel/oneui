@@ -1,19 +1,13 @@
 const { baseConfig, plugins, getRules } = require('./webpack.config');
+
 const rules = getRules('dev');
 
 module.exports = {
     ...baseConfig,
     mode: 'development',
     devtool: 'eval-source-map',
-    plugins: [
-        plugins.namedModulesPlugin,
-        plugins.cssPlugin,
-        plugins.styleLintPlugin
-    ],
+    plugins: [plugins.namedModulesPlugin, plugins.cssPlugin, plugins.styleLintPlugin],
     module: {
-        rules: [
-            rules.js,
-            rules.styles,
-        ],
-    },
-}
+        rules: [rules.js, rules.styles]
+    }
+};
