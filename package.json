@@ -4,12 +4,13 @@
   "description": "React Nice UI kit with theme support",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --config ./etc/webpack/webpack-storybook.dev.config.js",
     "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook:prod": "build-storybook -c .storybook",
     "build": "webpack --config ./etc/webpack/webpack.dev.config.js",
     "build:prod": "webpack --config ./etc/webpack/webpack.prod.config.js",
-    "lint": "eslint . --fix",
-    "lint:styles": "stylelint 'src/**/*.s(a|c)ss'",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint-styles": "stylelint 'src/**/*.s(a|c)ss'",
     "test": "jest"
   },
   "repository": {
