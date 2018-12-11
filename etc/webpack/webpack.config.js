@@ -11,13 +11,15 @@ const DIST_PATH = path.resolve(PROJECT_ROOT_PATH, 'dist');
 const PACKAGES_PATH = path.resolve(SOURCE_PATH, 'packages');
 const NODE_MODULES_PATH = path.resolve(SOURCE_PATH, '../node_modules');
 
+const LIBRARY_NAME = require('../../package.json').name;
+
 const plugins = {
     namedModulesPlugin: new webpack.NamedModulesPlugin(),
     hashedModuleIdsPlugin: new webpack.HashedModuleIdsPlugin({
         hashDigestLength: 6
     }),
     cssPlugin: new MiniCssExtractPlugin({
-        filename: '[name].css'
+        filename: `${LIBRARY_NAME}.css`
     }),
     styleLintPlugin: new StyleLintPlugin({
         context: SOURCE_PATH
@@ -45,8 +47,11 @@ const baseConfig = {
     },
 
     output: {
-        filename: '[name].js',
-        path: DIST_PATH
+        filename: `${LIBRARY_NAME}.min.js`,
+        path: DIST_PATH,
+        library: LIBRARY_NAME,
+        libraryTarget: 'umd',
+        umdNamedDefine: true,
     },
 
     resolve: {
