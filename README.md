@@ -1,6 +1,8 @@
 Nice 2
 ======
 
+[![Build Status](https://travis-ci.com/textkernel/nice2.svg?branch=master)](https://travis-ci.com/textkernel/nice2)
+
 Rract Nice UI kit with theme support
 
 Contribution
