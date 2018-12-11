@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import bem from '../../packages/bem';
-import styles from './button.scss';
+import styles from './Button.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 
-@bem(styles)
 class Button extends Component {
-    static propsToMods = ['context', 'size', 'block', 'disabled'];
+    static propsToMods = ['context', 'size', 'block'];
 
     render() {
         const { children, disabled, htmlAttributes, onClick, style, className, type } = this.props;
         return (
             <button
+                {...this.block()}
                 type={type}
                 className={className}
                 style={style}
@@ -24,6 +24,8 @@ class Button extends Component {
         );
     }
 }
+
+Button.displayName = 'Button';
 
 Button.propTypes = {
     children: PropTypes.string.isRequired,
@@ -46,8 +48,8 @@ Button.defaultProps = {
     type: 'button',
     htmlAttributes: {},
     onClick: null,
-    style: {},
+    style: null,
     className: ''
 };
 
-export default Button;
+export default bem(styles)(Button);

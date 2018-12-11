@@ -1,17 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Button> that renders a button should render default button correctly 1`] = `
-<Component
-  block={false}
-  className=""
-  context="brand"
-  disabled={false}
-  htmlAttributes={Object {}}
-  onClick={null}
-  size="normal"
-  style={Object {}}
-  type="button"
->
+<Component>
   <Button
     block={false}
     className=""
@@ -20,7 +10,7 @@ exports[`<Button> that renders a button should render default button correctly 1
     htmlAttributes={Object {}}
     onClick={null}
     size="normal"
-    style={Object {}}
+    style={null}
     theme={Object {}}
     type="button"
   >
@@ -28,7 +18,7 @@ exports[`<Button> that renders a button should render default button correctly 1
       className=""
       disabled={false}
       onClick={null}
-      style={Object {}}
+      style={null}
       type="button"
     >
       Click me

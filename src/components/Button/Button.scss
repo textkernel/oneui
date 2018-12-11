@@ -1,6 +1,96 @@
 @import '../../themes/nice/nice.scss';
 
 .button {
-    padding: $spacing-normal;
+    padding: $spacing-medium $spacing-large;
     border-radius: $border-radius;
+    text-align: center;
+    color: $color-background;
+
+    &--size {
+        &_small {
+            font-size: $font-size-small;
+            padding: $spacing-normal, $spacing-medium;
+        }
+        &_large {
+            font-size: $font-size-small;
+            padding: $spacing-large $spacing-xlarge;
+        }
+    }
+
+    &--block {
+        width: 100%;
+    }
+
+    &--context {
+        &_neutral {
+            background-color: $color-background;
+            border: $color-neutral 1px solid;
+            color: $color-foreground;
+
+            &:hover {
+                background-color: $color-neutral;
+            }
+        }
+
+        &_brand {
+            background-color: $color-brand;
+
+            &:hover {
+                background-color: $color-brand-75;
+            }
+        }
+
+        &_primary {
+            background-color: $color-primary;
+
+            &:hover {
+                background-color: $color-primary-75;
+            }
+        }
+
+        &_accent {
+            background-color: $color-accent;
+
+            &:hover {
+                background-color: $color-accent-75;
+            }
+        }
+
+        &_info {
+            background-color: $color-info;
+
+            &:hover {
+                background-color: $color-info-75;
+            }
+        }
+
+        &_good {
+            background-color: $color-good;
+
+            &:hover {
+                background-color: $color-good-75;
+            }
+        }
+
+        &_warning {
+            background-color: $color-warning;
+
+            &:hover {
+                background-color: $color-warning-75;
+            }
+        }
+
+        &_bad {
+            background-color: $color-bad;
+
+            &:hover {
+                background-color: $color-bad-75;
+            }
+        }
+    }
+
+    &:disabled,
+    &[disabled] {
+        opacity: 50%;
+    }
 }
