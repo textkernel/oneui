@@ -1,1 +1,1 @@
-export { default, ThemeProvider } from './bem';
+export { default } from './bem';
