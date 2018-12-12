@@ -4,28 +4,21 @@ import bem from '../../packages/bem';
 import styles from './Button.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 
-class Button extends Component {
-    static propsToMods = ['context', 'size', 'block'];
-
-    render() {
-        const { children, disabled, htmlAttributes, onClick, style, className, type } = this.props;
-        return (
-            <button
-                {...this.block()}
-                type={type}
-                className={className}
-                style={style}
-                onClick={onClick}
-                disabled={disabled}
-                {...htmlAttributes}
-            >
-                {children}
-            </button>
-        );
-    }
+const Button = props => {
+    const { children, disabled, htmlAttributes, onClick, style, className, type, block } = props;
+    return (
+        <button
+            {...block()}
+            type={type}
+            style={style}
+            onClick={onClick}
+            disabled={disabled}
+            {...htmlAttributes}
+        >
+            {children}
+        </button>
+    );
 }
-
-Button.displayName = 'Button';
 
 Button.propTypes = {
     children: PropTypes.string.isRequired,
@@ -51,5 +44,7 @@ Button.defaultProps = {
     style: null,
     className: ''
 };
+
+Button.propsToMods = ['context', 'size', 'block'];
 
 export default bem(styles)(Button);
