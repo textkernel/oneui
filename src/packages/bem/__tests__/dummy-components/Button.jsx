@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class Button extends Component {
 
     static displayName = 'Button';
-    static propsToMods = ['active'];
+    static propsToMods = ['active', 'context'];
     static stateToMods = ['clicked'];
 
     state = { clicked: false };

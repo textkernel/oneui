@@ -9,6 +9,6 @@ const ButtonStateless = (props) => (
     </button>
 );
 
-ButtonStateless.propsToMods = ['active'];
+ButtonStateless.propsToMods = ['active', 'context'];
 
 export default ButtonStateless;
