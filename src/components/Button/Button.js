@@ -23,7 +23,7 @@ const Button = props => {
 Button.propTypes = {
     /** The label of the button */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-    /** The button context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    /** The button context (e.g. brand, primary, bad, good etc. - defaults to neutral) */
     context: PropTypes.oneOf([...CONTEXTS, 'link']),
     /** The size of the button */
     size: PropTypes.oneOf(SIZES),
