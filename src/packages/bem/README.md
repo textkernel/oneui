@@ -96,10 +96,10 @@ import classnamesMap from './Button.scss';
 
 const ButtonStateless = (props) => {
     return (
-      {/*  1. Add { ...props.block() } construction to declare node as a block */}
-      <button { ...props.block() }>
-        {/*  2. Add { ...props.elem('label') } construction to declare node as a label element */}
-        <span { ...props.elem('label') }>
+      {/*  1. Add { ...props.bem.block() } construction to declare node as a block */}
+      <button { ...props.bem.block() }>
+        {/*  2. Add { ...props.bem.elem('label') } construction to declare node as a label element */}
+        <span { ...props.bem.elem('label') }>
             {props.children}
         </span>
       </button>

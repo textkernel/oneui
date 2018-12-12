@@ -1,9 +1,9 @@
 import React from 'react';
 
 const ButtonStateless = (props) => (
-    <button { ...props.block() } type="button">
-        <span { ...props.elem('icon') } />
-        <span { ...props.elem('label') }>
+    <button { ...props.bem.block() } type="button">
+        <span { ...props.bem.elem('icon') } />
+        <span { ...props.bem.elem('label') }>
             {props.children}
         </span>
     </button>

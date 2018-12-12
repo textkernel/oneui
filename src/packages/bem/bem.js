@@ -77,22 +77,24 @@ function bemStateless(classnamesMap) {
         return props => {
             const propsWithBEMTaste = {
                 ...props,
-                block: () =>
-                    buildBemProps({
-                        block: blockName,
-                        elem: null,
-                        props,
-                        propsToMods,
-                        classnamesMap
-                    }),
-                elem: elemName =>
-                    buildBemProps({
-                        block: blockName,
-                        elem: elemName,
-                        props,
-                        propsToMods,
-                        classnamesMap
-                    })
+                bem: {
+                    block: () =>
+                        buildBemProps({
+                            block: blockName,
+                            elem: null,
+                            props,
+                            propsToMods,
+                            classnamesMap,
+                        }),
+                    elem: elemName =>
+                        buildBemProps({
+                            block: blockName,
+                            elem: elemName,
+                            props,
+                            propsToMods,
+                            classnamesMap,
+                        })
+                }
             };
 
             return <StatelessBEMComponent {...propsWithBEMTaste} />;
