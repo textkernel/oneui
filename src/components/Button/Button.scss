@@ -13,7 +13,7 @@
         weight: $font-weight-bold;
     }
     outline: none;
-    padding: $spacing-3x $spacing-4x;
+    padding: $spacing-2x $spacing-4x;
     text-align: center;
     transition: all .3s;
 
@@ -33,8 +33,8 @@
             padding: $spacing-normal $spacing-2x;
         }
         &_large {
-            font-size: $font-size-small;
-            padding: $spacing-2x $spacing-4x;
+            font-size: $font-size-large;
+            padding: $spacing-3x $spacing-5x;
         }
     }
 
