@@ -14,7 +14,7 @@ import { buildBemProps, getFunctionName } from './bemUtils';
 /**
  * BlockDecl
  * @typedef {Object} BlockDecl
- * @property {string} block - Block name
+ * @property {string} name - Block name
  * @property {ClassnamesMap} classnames - Classnames map
  * @property {ModsList} propsToMods - List of prop names that affects classnames
  */
@@ -82,11 +82,11 @@ function bemStateful(classnamesMap) {
  * @returns {{ block: Function, elem: Function }}
  */
 function bemStateless(blockDecl) {
-    const { block, classnames, propsToMods } = blockDecl;
+    const { name, classnames, propsToMods } = blockDecl;
     return {
         block: props =>
             buildBemProps({
-                block,
+                block: name,
                 elem: null,
                 props,
                 propsToMods,
@@ -94,7 +94,7 @@ function bemStateless(blockDecl) {
             }),
         elem: (elemName, props) =>
             buildBemProps({
-                block,
+                block: name,
                 elem: elemName,
                 props,
                 propsToMods,
@@ -111,9 +111,9 @@ function bemStateless(blockDecl) {
  */
 export default function bem(args) {
     // bem was called as a in stateless mode
-    if (args.block && args.classnames) {
-        const { block, classnames, propsToMods } = args;
-        return bemStateless({ block, classnames, propsToMods });
+    if (args.name && args.classnames) {
+        const { name, classnames, propsToMods } = args;
+        return bemStateless({ name, classnames, propsToMods });
     }
 
     // Otherwise be called in stateful mode
@@ -125,7 +125,7 @@ export default function bem(args) {
         const classnamesMap = args;
 
         if (
-            BemComponent.prototype instanceof React.Component === false ||
+            BemComponent.prototype instanceof React.Component === false &&
             BemComponent.prototype instanceof React.PureComponent === false
         ) {
             throw new TypeError(
