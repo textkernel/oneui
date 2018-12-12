@@ -2,6 +2,24 @@ import React from 'react';
 import { buildBemProps, getFunctionName } from './bemUtils';
 
 /**
+ * CSS modules classnames map
+ * @typedef {Object.<string, string>} ClassnamesMap
+ */
+
+/**
+ * List of mods names
+ * @typedef {Array.<string>} ModsList
+ */
+
+/**
+ * BlockDecl
+ * @typedef {Object} BlockDecl
+ * @property {string} block - Block name
+ * @property {ClassnamesMap} classnames - Classnames map
+ * @property {ModsList} propsToMods - List of prop names that affects classnames
+ */
+
+/**
  * Decorates stateful react component with BEM methods
  * @param {ClassnamesMap} classnamesMap
  * @returns {Function}
@@ -63,57 +81,57 @@ function bemStateful(classnamesMap) {
  * @param {ClassnamesMap} classnamesMap
  * @returns {Function}
  */
-function bemStateless(classnamesMap) {
-    /**
-     * @param {Component} StatelessBEMComponent - Function based stateless react component
-     * @returns {Function} - Decorated react component
-     */
-    return function bemStatelessClosure(StatelessBEMComponent) {
-        const blockName = getFunctionName(StatelessBEMComponent);
-        const propsToMods = Array.isArray(StatelessBEMComponent.propsToMods)
-            ? StatelessBEMComponent.propsToMods
-            : [];
-
-        return props => {
-            const propsWithBEMTaste = {
-                ...props,
-                block: () =>
-                    buildBemProps({
-                        block: blockName,
-                        elem: null,
-                        props,
-                        propsToMods,
-                        classnamesMap
-                    }),
-                elem: elemName =>
-                    buildBemProps({
-                        block: blockName,
-                        elem: elemName,
-                        props,
-                        propsToMods,
-                        classnamesMap
-                    })
-            };
-
-            return <StatelessBEMComponent {...propsWithBEMTaste} />;
-        };
+function bemStateless({ block, classnames, propsToMods }) {
+    return {
+        block: props =>
+            buildBemProps({
+                block,
+                elem: null,
+                props,
+                propsToMods,
+                classnamesMap: classnames
+            }),
+        elem: (elemName, props) =>
+            buildBemProps({
+                block,
+                elem: elemName,
+                props,
+                propsToMods,
+                classnamesMap: classnames
+            })
     };
 }
 
 /**
  * Decorates react component with BEM methods
- * @param {ClassnamesMap} classnamesMap
+ * @param {ClassnamesMap|BlockDecl} args – Classnames map in case of usage with stateful componens.
+ *       Block declaration in case of statless usage.
  * @returns {Function}
  */
-export default function bem(classnamesMap) {
+export default function bem(args) {
+    // bem was called as a in stateless mode
+    if (args.block && args.classnames) {
+        const { block, classnames, propsToMods } = args;
+        return bemStateless({ block, classnames, propsToMods });
+    }
+
+    // Otherwise be called in stateful mode
     /**
      * @param {Component} BemComponent - React component
      * @returns {Function} - Decorated react component
      */
     return function bemClosure(BemComponent) {
-        if (BemComponent.prototype instanceof React.Component) {
-            return bemStateful(classnamesMap)(BemComponent);
+        const classnamesMap = args;
+
+        if (
+            BemComponent.prototype instanceof React.Component === false ||
+            BemComponent.prototype instanceof React.PureComponent === false
+        ) {
+            throw new TypeError(
+                'bem(classnames)(Component) should be called with class based react component'
+            );
         }
-        return bemStateless(classnamesMap)(BemComponent);
+
+        return bemStateful(classnamesMap)(BemComponent);
     };
 }

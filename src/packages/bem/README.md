@@ -87,6 +87,8 @@ Button.stateToMods = ['clicked'];
 export default bem(classnamesMap)(Button)
 ```
 
+### Stateless component
+
 ButtonStateless.js
 ```js
 import React, { Component } from 'react';
@@ -94,32 +96,34 @@ import PropTypes from 'prop-types';
 import bem from 'bem';
 import classnamesMap from './Button.scss';
 
+const { block, elem } = bem({
+    block: 'Button', // Block name, that is used in css classnames
+    classnames: classnamesMap, 
+    // 1. If you need to have class name (.ButtonStateless--active) that depends on
+    //    `active` prop, just list this prop in propsToMods list.
+    propsToMods: ['active']
+});
+
 const ButtonStateless = (props) => {
     return (
-      {/*  1. Add { ...props.block() } construction to declare node as a block */}
-      <button { ...props.block() }>
-        {/*  2. Add { ...props.elem('label') } construction to declare node as a label element */}
-        <span { ...props.elem('label') }>
+      {/*  2. Add { ...block(props) } construction to declare node as a block */}
+      <button { ...block(props) }>
+        {/*  3. Add { ...elem('label', props) } construction to declare node as a label element */}
+        <span { ...elem('label', props) }>
             {props.children}
         </span>
       </button>
     );
 }
 
-// You can set displayName explicitly if you need a custom block name
-// for the component. In this case `Button` instead of `ButtonStateless`.
-ButtonStateless.displayName = 'Button';
 ButtonStateless.propTypes = {
     active: PropTypes.bool,
 };
 ButtonStateless.defaultProps = {
     active: false,
 };
-// 3. If you need to have class name (.ButtonStateless--active) that depends on
-//    `active` prop, just list this prop in propsToMods list.
-ButtonStateless.propsToMods = ['active'];
 
-export default bem(classnamesMap)(ButtonStateless);
+export default ButtonStateless;
 ```
 
 Button.scss
