@@ -54,6 +54,13 @@
             &:active {
                 box-shadow: none;
             }
+            &[disabled] {
+                color: $color-neutral-75;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
         }
         &_neutral {
             background-color: $color-background;
@@ -69,6 +76,11 @@
             }
             &:active {
                 box-shadow: inset 0 2px 0 0 $color-neutral-60, 0 0 0 3px $color-neutral-25;
+            }
+            &[disabled] {
+                color: $color-neutral-75;
+                background-color: $color-neutral-25;
+                border-color: $color-neutral-25;
             }
         }
 
@@ -88,6 +100,10 @@
             &:active {
                 box-shadow: inset 0 2px 0 0 $color-brand-75, 0 0 0 3px $color-brand-25;
             }
+            &[disabled] {
+                background-color: $color-brand-25;
+                border-color: $color-brand-25;
+            }
         }
 
         &_primary {
@@ -105,6 +121,10 @@
             }
             &:active {
                 box-shadow: inset 0 2px 0 0 $color-primary-75, 0 0 0 3px $color-primary-25;
+            }
+            &[disabled] {
+                background-color: $color-primary-25;
+                border-color: $color-primary-25;
             }
         }
 
@@ -124,6 +144,10 @@
             &:active {
                 box-shadow: inset 0 2px 0 0 $color-accent-75, 0 0 0 3px $color-accent-25;
             }
+            &[disabled] {
+                background-color: $color-accent-25;
+                border-color: $color-accent-25;
+            }
         }
 
         &_info {
@@ -141,6 +165,10 @@
             }
             &:active {
                 box-shadow: inset 0 2px 0 0 $color-info-75, 0 0 0 3px $color-info-25;
+            }
+            &[disabled] {
+                background-color: $color-info-25;
+                border-color: $color-info-25;
             }
         }
 
@@ -160,6 +188,10 @@
             &:active {
                 box-shadow: inset 0 2px 0 0 $color-good-75, 0 0 0 3px $color-good-25;
             }
+            &[disabled] {
+                background-color: $color-good-25;
+                border-color: $color-good-25;
+            }
         }
 
         &_warning {
@@ -178,6 +210,10 @@
             &:active {
                 box-shadow: inset 0 2px 0 0 $color-warning-75, 0 0 0 3px $color-warning-25;
             }
+            &[disabled] {
+                background-color: $color-warning-25;
+                border-color: $color-warning-25;
+            }
         }
 
         &_bad {
@@ -195,6 +231,10 @@
             }
             &:active {
                 box-shadow: inset 0 2px 0 0 $color-bad-75, 0 0 0 3px $color-bad-25;
+            }
+            &[disabled] {
+                background-color: $color-bad-25;
+                border-color: $color-bad-25;
             }
         }
     }
