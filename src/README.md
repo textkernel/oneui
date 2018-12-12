@@ -9,6 +9,7 @@ Have another contributor review your design to make sure nothing gets overlooked
 * Detailed definition of **prop types**. Go for the highest level of specificity that makes sense: don't just use `object` when you can use `shape`.
 * Which props are **required**
 * **Default** prop values for those that are not required
+* **Description** of each prop with code comments
 * An **example** of conceived implementation, e.g.:
 
 ```
@@ -33,6 +34,6 @@ Any new component should meet the following requirements before it can be merged
 * The component has been manually tested and complies with the Textkernel [browser support guidelines](https://www.textkernel.com/browser-support/)
 * The component is thorougly **covered by tests** (Jest / Enzyme), not only with snapshots
 * The component **comes with a story** in Storybook that allows props to be changed with knobs
-* Utils (functions) should be accompanied with **clear code comments**
+* Utils (functions) should be accompanied with **clear code comments** (including descriptions of each prop)
 * The implementation is **reviewed** by another contributor
 * The complete **build is passing**
