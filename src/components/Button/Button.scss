@@ -2,26 +2,26 @@
 
 .Button {
     border: {
-        radius: $border-radius;
+        radius: var(--border-radius);
         width: 1px;
         style: solid;
     }
-    color: $color-brand;
+    color: var(--color-brand);
     cursor: pointer;
     font: {
-        size: $font-size-base;
-        weight: $font-weight-bold;
-        family: $font-family-primary;
+        size: var(--font-size-base);
+        weight: var(--font-weight-bold);
+        family: var(--font-family-primary);
     }
     outline: none;
-    padding: $spacing-2x $spacing-4x;
+    padding: var(--spacing-2x) var(--spacing-4x);
     text-align: center;
     transition: all .3s;
 
     &:focus,
     &:hover {
         z-index: 1;
-        box-shadow: 0 0 0 3px $transparent;
+        box-shadow: 0 0 0 3px var(--transparent);
     }
 
     &[disabled] {
@@ -30,12 +30,12 @@
 
     &--size {
         &_small {
-            font-size: $font-size-small;
-            padding: $spacing-normal $spacing-2x;
+            font-size: var(--font-size-small);
+            padding: var(--spacing-normal) var(--spacing-2x);
         }
         &_large {
-            font-size: $font-size-large;
-            padding: $spacing-3x $spacing-5x;
+            font-size: var(--font-size-large);
+            padding: var(--spacing-3x) var(--spacing-5x);
         }
     }
 
@@ -45,18 +45,18 @@
 
     &--context {
         &_link {
-            border-color: $transparent;
-            background-color: $transparent;
+            border-color: var(--transparent);
+            background-color: var(--transparent);
 
             &:hover {
-                text-decoration: underline;
+                text-decoration: var(--link-decoration-hover);
             }
             &:focus,
             &:active {
                 box-shadow: none;
             }
             &[disabled] {
-                color: $color-neutral-75;
+                color: var(--color-neutral-75);
 
                 &:hover {
                     text-decoration: none;
@@ -64,178 +64,178 @@
             }
         }
         &_neutral {
-            background-color: $color-background;
-            border-color: $color-neutral;
-            color: $color-foreground;
+            background-color: var(--color-background);
+            border-color: var(--color-neutral);
+            color: var(--color-foreground);
 
             &:hover {
-                background-color: $color-neutral-25;
+                background-color: var(--color-neutral-25);
             }
             &:focus,
             &:active {
-                box-shadow: 0 0 0 3px $color-neutral-25;
+                box-shadow: 0 0 0 3px var(--color-neutral-25);
             }
             &:active {
-                box-shadow: inset 0 2px 0 0 $color-neutral-60, 0 0 0 3px $color-neutral-25;
+                box-shadow: inset 0 2px 0 0 var(--color-neutral-60), 0 0 0 3px var(--color-neutral-25);
             }
             &[disabled] {
-                color: $color-neutral-75;
-                background-color: $color-neutral-25;
-                border-color: $color-neutral-25;
+                color: var(--color-neutral-75);
+                background-color: var(--color-neutral-25);
+                border-color: var(--color-neutral-25);
             }
         }
 
         &_brand {
-            background-color: $color-brand;
-            border-color: $color-brand;
-            color: $color-background;
+            background-color: var(--color-brand);
+            border-color: var(--color-brand);
+            color: var(--color-background);
 
             &:hover {
-                border-color: $color-brand-60;
-                background-color: $color-brand-60;
+                border-color: var(--color-brand-60);
+                background-color: var(--color-brand-60);
             }
             &:focus,
             &:active {
-                box-shadow: 0 0 0 3px $color-brand-25;
+                box-shadow: 0 0 0 3px var(--color-brand-25);
             }
             &:active {
-                box-shadow: inset 0 2px 0 0 $color-brand-75, 0 0 0 3px $color-brand-25;
+                box-shadow: inset 0 2px 0 0 var(--color-brand-75), 0 0 0 3px var(--color-brand-25);
             }
             &[disabled] {
-                background-color: $color-brand-25;
-                border-color: $color-brand-25;
+                background-color: var(--color-brand-25);
+                border-color: var(--color-brand-25);
             }
         }
 
         &_primary {
-            background-color: $color-primary;
-            border-color: $color-primary;
-            color: $color-background;
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            color: var(--color-background);
 
             &:hover {
-                border-color: $color-primary-60;
-                background-color: $color-primary-60;
+                border-color: var(--color-primary-60);
+                background-color: var(--color-primary-60);
             }
             &:focus,
             &:active {
-                box-shadow: 0 0 0 3px $color-primary-25;
+                box-shadow: 0 0 0 3px var(--color-primary-25);
             }
             &:active {
-                box-shadow: inset 0 2px 0 0 $color-primary-75, 0 0 0 3px $color-primary-25;
+                box-shadow: inset 0 2px 0 0 var(--color-primary-75), 0 0 0 3px var(--color-primary-25);
             }
             &[disabled] {
-                background-color: $color-primary-25;
-                border-color: $color-primary-25;
+                background-color: var(--color-primary-25);
+                border-color: var(--color-primary-25);
             }
         }
 
         &_accent {
-            background-color: $color-accent;
-            border-color: $color-accent;
-            color: $color-background;
+            background-color: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-background);
 
             &:hover {
-                border-color: $color-accent-60;
-                background-color: $color-accent-60;
+                border-color: var(--color-accent-60);
+                background-color: var(--color-accent-60);
             }
             &:focus,
             &:active {
-                box-shadow: 0 0 0 3px $color-accent-25;
+                box-shadow: 0 0 0 3px var(--color-accent-25);
             }
             &:active {
-                box-shadow: inset 0 2px 0 0 $color-accent-75, 0 0 0 3px $color-accent-25;
+                box-shadow: inset 0 2px 0 0 var(--color-accent-75), 0 0 0 3px var(--color-accent-25);
             }
             &[disabled] {
-                background-color: $color-accent-25;
-                border-color: $color-accent-25;
+                background-color: var(--color-accent-25);
+                border-color: var(--color-accent-25);
             }
         }
 
         &_info {
-            background-color: $color-info;
-            border-color: $color-info;
-            color: $color-background;
+            background-color: var(--color-info);
+            border-color: var(--color-info);
+            color: var(--color-background);
 
             &:hover {
-                border-color: $color-info-60;
-                background-color: $color-info-60;
+                border-color: var(--color-info-60);
+                background-color: var(--color-info-60);
             }
             &:focus,
             &:active {
-                box-shadow: 0 0 0 3px $color-info-25;
+                box-shadow: 0 0 0 3px var(--color-info-25);
             }
             &:active {
-                box-shadow: inset 0 2px 0 0 $color-info-75, 0 0 0 3px $color-info-25;
+                box-shadow: inset 0 2px 0 0 var(--color-info-75), 0 0 0 3px var(--color-info-25);
             }
             &[disabled] {
-                background-color: $color-info-25;
-                border-color: $color-info-25;
+                background-color: var(--color-info-25);
+                border-color: var(--color-info-25);
             }
         }
 
         &_good {
-            background-color: $color-good;
-            border-color: $color-good;
-            color: $color-background;
+            background-color: var(--color-good);
+            border-color: var(--color-good);
+            color: var(--color-background);
 
             &:hover {
-                border-color: $color-good-60;
-                background-color: $color-good-60;
+                border-color: var(--color-good-60);
+                background-color: var(--color-good-60);
             }
             &:focus,
             &:active {
-                box-shadow: 0 0 0 3px $color-good-25;
+                box-shadow: 0 0 0 3px var(--color-good-25);
             }
             &:active {
-                box-shadow: inset 0 2px 0 0 $color-good-75, 0 0 0 3px $color-good-25;
+                box-shadow: inset 0 2px 0 0 var(--color-good-75), 0 0 0 3px var(--color-good-25);
             }
             &[disabled] {
-                background-color: $color-good-25;
-                border-color: $color-good-25;
+                background-color: var(--color-good-25);
+                border-color: var(--color-good-25);
             }
         }
 
         &_warning {
-            background-color: $color-warning;
-            border-color: $color-warning;
-            color: $color-background;
+            background-color: var(--color-warning);
+            border-color: var(--color-warning);
+            color: var(--color-background);
 
             &:hover {
-                border-color: $color-warning-60;
-                background-color: $color-warning-60;
+                border-color: var(--color-warning-60);
+                background-color: var(--color-warning-60);
             }
             &:focus,
             &:active {
-                box-shadow: 0 0 0 3px $color-warning-25;
+                box-shadow: 0 0 0 3px var(--color-warning-25);
             }
             &:active {
-                box-shadow: inset 0 2px 0 0 $color-warning-75, 0 0 0 3px $color-warning-25;
+                box-shadow: inset 0 2px 0 0 var(--color-warning-75), 0 0 0 3px var(--color-warning-25);
             }
             &[disabled] {
-                background-color: $color-warning-25;
-                border-color: $color-warning-25;
+                background-color: var(--color-warning-25);
+                border-color: var(--color-warning-25);
             }
         }
 
         &_bad {
-            background-color: $color-bad;
-            border-color: $color-bad;
-            color: $color-background;
+            background-color: var(--color-bad);
+            border-color: var(--color-bad);
+            color: var(--color-background);
 
             &:hover {
-                border-color: $color-bad-60;
-                background-color: $color-bad-60;
+                border-color: var(--color-bad-60);
+                background-color: var(--color-bad-60);
             }
             &:focus,
             &:active {
-                box-shadow: 0 0 0 3px $color-bad-25;
+                box-shadow: 0 0 0 3px var(--color-bad-25);
             }
             &:active {
-                box-shadow: inset 0 2px 0 0 $color-bad-75, 0 0 0 3px $color-bad-25;
+                box-shadow: inset 0 2px 0 0 var(--color-bad-75), 0 0 0 3px var(--color-bad-25);
             }
             &[disabled] {
-                background-color: $color-bad-25;
-                border-color: $color-bad-25;
+                background-color: var(--color-bad-25);
+                border-color: var(--color-bad-25);
             }
         }
     }

@@ -1,5 +1,8 @@
-// basic colors
+// Basic colors
 $transparent:       transparent;
+:root {
+    --transparent: #{ $transparent };
+}
 
 $color-background:  #FFF;
 $color-foreground:  #1D1D1B;
@@ -13,36 +16,39 @@ $color-good:        #5CB85C;
 $color-warning:     #FFB819;
 $color-bad:         #F42534;
 
-// shades
-$color-neutral-25:  mix($color-background, $color-neutral, 50%);
-$color-neutral-40:  mix($color-background, $color-neutral, 20%);
-$color-neutral-60:  mix($color-foreground, $color-neutral, 20%);
-$color-neutral-75:  mix($color-foreground, $color-neutral, 50%);
-$color-brand-25:    mix($color-background, $color-brand, 50%);
-$color-brand-40:    mix($color-background, $color-brand, 20%);
-$color-brand-60:    mix($color-foreground, $color-brand, 20%);
-$color-brand-75:    mix($color-foreground, $color-brand, 50%);
-$color-primary-25:  mix($color-background, $color-primary, 50%);
-$color-primary-40:  mix($color-background, $color-primary, 20%);
-$color-primary-60:  mix($color-foreground, $color-primary, 20%);
-$color-primary-75:  mix($color-foreground, $color-primary, 50%);
-$color-accent-25:   mix($color-background, $color-accent, 50%);
-$color-accent-40:   mix($color-background, $color-accent, 20%);
-$color-accent-60:   mix($color-foreground, $color-accent, 20%);
-$color-accent-75:   mix($color-foreground, $color-accent, 50%);
-$color-info-25:     mix($color-background, $color-info, 50%);
-$color-info-40:     mix($color-background, $color-info, 20%);
-$color-info-60:     mix($color-foreground, $color-info, 20%);
-$color-info-75:     mix($color-foreground, $color-info, 50%);
-$color-good-25:     mix($color-background, $color-good, 50%);
-$color-good-40:     mix($color-background, $color-good, 20%);
-$color-good-60:     mix($color-foreground, $color-good, 20%);
-$color-good-75:     mix($color-foreground, $color-good, 50%);
-$color-warning-25:  mix($color-background, $color-warning, 50%);
-$color-warning-40:  mix($color-background, $color-warning, 20%);
-$color-warning-60:  mix($color-foreground, $color-warning, 20%);
-$color-warning-75:  mix($color-foreground, $color-warning, 50%);
-$color-bad-25:      mix($color-background, $color-bad, 50%);
-$color-bad-40:      mix($color-background, $color-bad, 20%);
-$color-bad-60:      mix($color-foreground, $color-bad, 20%);
-$color-bad-75:      mix($color-foreground, $color-bad, 50%);
+@each $context, $value in (
+    background: $color-background,
+    foreground: $color-foreground,
+    neutral: $color-neutral,
+    brand: $color-brand,
+    primary: $color-primary,
+    accent: $color-accent,
+    info: $color-info,
+    good: $color-good,
+    warning: $color-warning,
+    bad: $color-bad
+) {
+    :root {
+        --color-#{ $context }: #{ $value };
+    }
+}
+
+
+// Shades
+@each $context, $value in (
+    neutral: $color-neutral,
+    brand: $color-brand,
+    primary: $color-primary,
+    accent: $color-accent,
+    info: $color-info,
+    good: $color-good,
+    warning: $color-warning,
+    bad: $color-bad
+) {
+    @each $factor in (20, 50) {
+        :root {
+            --color-#{ $context }-#{ 50 - (($factor / 100) * 50) }: #{ mix($color-background, $value, $factor) };
+            --color-#{ $context }-#{ 50 + (($factor / 100) * 50) }: #{ mix($color-foreground, $value, $factor) };
+        }
+    }
+}

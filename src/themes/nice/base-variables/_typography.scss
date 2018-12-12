@@ -9,17 +9,41 @@ $h3-font-size: 1.2 * $font-size-base;
 $h4-font-size: 1.0 * $font-size-base;
 
 // font family
-$font-family-primary: ‘Open Sans’, sans-serif;
-$font-family-secondary: ‘Titillium Web’, sans-serif;
+$font-family-primary:   'Open Sans', sans-serif;
+$font-family-secondary: 'Titillium Web', sans-serif;
 
 // font weight
-$font-weight-light: 200;
-$font-weight-normal: 400;
-$font-weight-bold: 600;
+$font-weight-light:     200;
+$font-weight-normal:    400;
+$font-weight-bold:      600;
 
 // decoration
-$link-decoration-normal: ‘none’;
-$link-decoration-hover: ‘underline’;
+$link-decoration-normal:    none;
+$link-decoration-hover:     underline;
 
 // other
 $heading-font-family: $font-family-secondary;
+
+:root {
+    --font-size-base:   #{ $font-size-base };
+    --font-size-small:  #{ $font-size-small };
+    --font-size-normal: #{ $font-size-normal };
+    --font-size-large:  #{ $font-size-large };
+
+    --h1-font-size:     #{ $h1-font-size };
+    --h2-font-size:     #{ $h2-font-size };
+    --h3-font-size:     #{ $h3-font-size };
+    --h4-font-size:     #{ $h4-font-size };
+
+    --font-family-primary:      #{ $font-family-primary };
+    --font-family-secondary:    #{ $font-family-secondary };
+
+    --font-weight-light:    #{ $font-weight-light };
+    --font-weight-normal:   #{ $font-weight-normal };
+    --font-weight-bold:     #{ $font-weight-bold };
+
+    --link-decoration-normal:   #{ $link-decoration-normal };
+    --link-decoration-hover:    #{ $link-decoration-hover };
+
+    --heading-font-family:      #{ $heading-font-family };
+}
