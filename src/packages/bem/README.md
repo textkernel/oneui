@@ -54,9 +54,15 @@ class Button extends Component {
 
     render() {
         return (
-            {/*  3. Add { ...this.block() } construction to declare node as a block root */}
-            <button { ...this.block() } onClick={this.handleClick}>
-                {/*  4. Add { ...this.elem('label') } construction to declare node as a label element */}
+            {/*  
+            3. Add { ...this.block() } construction to declare node as a block root 
+               Note! If needed, {...this.props} should be spreaded before { ...this.block() } in order
+               to avoid className overwriting.
+            */}
+            <button {...this.props} { ...this.block() } onClick={this.handleClick}>
+                {/*
+                4. Add { ...this.elem('label') } construction to declare node as a label element
+                */}
                 <span { ...this.elem('label') }>
                     {this.props.children}
                 </span>
@@ -106,8 +112,12 @@ const { block, elem } = bem({
 
 const ButtonStateless = (props) => {
     return (
-      {/*  2. Add { ...block(props) } construction to declare node as a block */}
-      <button { ...block(props) }>
+      {/*
+      2. Add { ...block(props) } construction to declare node as a block
+         Note! If needed, {...props} should be spreaded before { ...block(props) } in order
+         to avoid className overwriting.
+      */}
+      <button {...props} { ...block(props) }>
         {/*  3. Add { ...elem('label', props) } construction to declare node as a label element */}
         <span { ...elem('label', props) }>
             {props.children}
