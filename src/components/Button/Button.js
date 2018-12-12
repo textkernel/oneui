@@ -34,7 +34,7 @@ Button.propTypes = {
     /** type of the button */
     type: PropTypes.oneOf(['submit', 'button']),
     /** optional html attrinutes such as target, href, mouseOver etc. */
-    htmlAttributes: PropTypes.objectOf(PropTypes.string),
+    htmlAttributes: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.bool])),
     /** callback function on click */
     onClick: PropTypes.func,
     /** inline styles */

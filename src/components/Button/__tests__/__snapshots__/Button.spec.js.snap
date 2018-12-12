@@ -1,11 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Button> that renders a button should add classes when props are changed 1`] = `
+<Component
+  context="primary"
+  isBlock={true}
+  size="large"
+>
+  <Button
+    block={[Function]}
+    className=""
+    context="primary"
+    disabled={false}
+    elem={[Function]}
+    htmlAttributes={Object {}}
+    isBlock={true}
+    onClick={null}
+    size="large"
+    style={null}
+    type="button"
+  >
+    <button
+      className="Button Button--context_primary Button--size_large Button--isBlock"
+      disabled={false}
+      onClick={null}
+      style={null}
+      type="button"
+    >
+      <span>
+        Click me
+      </span>
+    </button>
+  </Button>
+</Component>
+`;
+
 exports[`<Button> that renders a button should render default button correctly 1`] = `
 <Component>
   <Button
     block={[Function]}
     className=""
-    context="brand"
+    context="neutral"
     disabled={false}
     elem={[Function]}
     htmlAttributes={Object {}}
