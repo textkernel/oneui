@@ -14,6 +14,6 @@ storiesOf('Button', module)
             type={select('Type', ['submit', 'button'], 'submit')}
             disabled={boolean('Disabled', false)}
         >
-            { text('Button label', 'Click me!') }
+            {text('Button label', 'Click me!')}
         </Button>
     ));

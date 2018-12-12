@@ -8,28 +8,44 @@ describe('<Button> that renders a button', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should add classes when props are changed', () => {
-        const wrapper = mount(<Button context="primary" size="large" isBlock={true}><span>Click me</span></Button>)
+        const wrapper = mount(
+            <Button context="primary" size="large" isBlock>
+                <span>Click me</span>
+            </Button>
+        );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('shoudl call click callback correctly', () => {
         const onClickMock = jest.fn();
-        const wrapper = mount(<Button onClick={onClickMock}>Click me</Button>)
+        const wrapper = mount(<Button onClick={onClickMock}>Click me</Button>);
         wrapper.find('button').simulate('click');
         expect(onClickMock).toHaveBeenCalled();
     });
     it('should add string html attributes correctly', () => {
-        const wrapper = mount(<Button htmlAttributes={{
-            'data-test': "something"
-        }}>Click me</Button>)
-        expect(wrapper.find('button').prop('data-test')).toEqual('something')
-    })
+        const wrapper = mount(
+            <Button
+                htmlAttributes={{
+                    'data-test': 'something'
+                }}
+            >
+                Click me
+            </Button>
+        );
+        expect(wrapper.find('button').prop('data-test')).toEqual('something');
+    });
     it('should add functional html attributes correctly', () => {
         const onMouseOverMock = jest.fn();
-        const wrapper = mount(<Button htmlAttributes={{
-            onMouseOver: onMouseOverMock,
-        }}>Click me</Button>)
-        const buttonWrapper = wrapper.find('button')
+        const wrapper = mount(
+            <Button
+                htmlAttributes={{
+                    onMouseOver: onMouseOverMock
+                }}
+            >
+                Click me
+            </Button>
+        );
+        const buttonWrapper = wrapper.find('button');
         buttonWrapper.simulate('mouseover');
         expect(onMouseOverMock).toHaveBeenCalled();
-    })
+    });
 });
