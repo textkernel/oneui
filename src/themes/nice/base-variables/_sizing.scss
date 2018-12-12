@@ -1,12 +1,28 @@
 // borders
-$border-radius: 3px;
+$border-radius: 3px !default;
 
 // lines
-$line-normal: 1px;
-$line-medium: 1.5px;
-$line-thick: 2px;
+$line-normal: 1px !default;
+$line-medium: 1.5 * $line-normal !default;
+$line-thick: 2 * $line-normal !default;
 
 // spacing
-$spacing-normal: 3px;
-$spacing-medium: 2 * $spacing-normal;
-$spacing-large: 3 * $spacing-normal;
+$spacing-normal: 3px !default;
+$spacing-2x: 2 * $spacing-normal !default;
+$spacing-3x: 3 * $spacing-normal !default;
+$spacing-4x: 4 * $spacing-normal !default;
+$spacing-5x: 5 * $spacing-normal !default;
+
+:root {
+    --border-radius:    #{ $border-radius };
+
+    --line-normal:      #{ $line-normal };
+    --line-medium:      #{ $line-medium };
+    --line-thick:       #{ $line-thick };
+
+    --spacing-normal:   #{ $spacing-normal };
+    --spacing-2x:       #{ $spacing-2x };
+    --spacing-3x:       #{ $spacing-3x };
+    --spacing-4x:       #{ $spacing-4x };
+    --spacing-5x:       #{ $spacing-5x };
+}

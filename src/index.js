@@ -1,3 +1,2 @@
-import Dummy from './components/Dummy';
-
-export default Dummy;
+export { default as Dummy } from './components/Dummy';
+export { default as Button } from './components/Button';
