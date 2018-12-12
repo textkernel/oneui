@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Dummy from 'nice2';
+import { Dummy } from 'nice2';
 import 'nice2/dist/nice2.css';
 import './App.css';
 
