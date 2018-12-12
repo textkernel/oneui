@@ -124,9 +124,6 @@ export default function bem(args) {
     return function bemClosure(BemComponent) {
         const classnamesMap = args;
 
-        console.log(BemComponent);
-        console.log(BemComponent.prototype);
-
         if (
             BemComponent.prototype instanceof React.Component === false &&
             BemComponent.prototype instanceof React.PureComponent === false
