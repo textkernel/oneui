@@ -91,20 +91,20 @@
         }
 
         &_primary {
-            background-color: $color-good;
-            border-color: $color-good;
+            background-color: $color-primary;
+            border-color: $color-primary;
             color: $color-background;
 
             &:hover {
-                border-color: $color-good-60;
-                background-color: $color-good-60;
+                border-color: $color-primary-60;
+                background-color: $color-primary-60;
             }
             &:focus,
             &:active {
-                box-shadow: 0 0 0 3px $color-good-25;
+                box-shadow: 0 0 0 3px $color-primary-25;
             }
             &:active {
-                box-shadow: inset 0 2px 0 0 $color-good-75, 0 0 0 3px $color-good-25;
+                box-shadow: inset 0 2px 0 0 $color-primary-75, 0 0 0 3px $color-primary-25;
             }
         }
 
