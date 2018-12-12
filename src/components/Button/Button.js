@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import bem from '../../packages/bem';
 import styles from './Button.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 
 const Button = props => {
-    const { children, disabled, htmlAttributes, onClick, style, className, type, block } = props;
+    const { children, disabled, htmlAttributes, onClick, style, type, block } = props;
     return (
         <button
             {...block()}
@@ -18,19 +18,29 @@ const Button = props => {
             {children}
         </button>
     );
-}
+};
 
 Button.propTypes = {
-    children: PropTypes.string.isRequired,
-    context: PropTypes.oneOf(CONTEXTS), // The button context (e.g. brand, primary, bad, good etc. - defaults to brand)
-    size: PropTypes.oneOf(SIZES), // the size of the button
-    block: PropTypes.bool, // whether or not to show block - level button(full width)
+    /** The label of the button */
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    /** The button context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    context: PropTypes.oneOf(CONTEXTS),
+    /** The size of the button */
+    size: PropTypes.oneOf(SIZES),
+    /** whether or not to show block - level button(full width) */
+    isBlock: PropTypes.bool,
+    /** should button be disabled or not */
     disabled: PropTypes.bool,
-    type: PropTypes.oneOf(['submit', 'button']), // type of the button
-    htmlAttributes: PropTypes.objectOf(PropTypes.string), // optional html attrinutes such as target, href, mouseOver etc.
-    onClick: PropTypes.func, // callback function on click
+    /** type of the button */
+    type: PropTypes.oneOf(['submit', 'button']),
+    /** optional html attrinutes such as target, href, mouseOver etc. */
+    htmlAttributes: PropTypes.objectOf(PropTypes.string),
+    /** callback function on click */
+    onClick: PropTypes.func,
+    /** inline styles */
     style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    className: PropTypes.string // additional class names
+    /** additional class names */
+    className: PropTypes.string
 };
 
 Button.defaultProps = {
