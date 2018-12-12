@@ -97,7 +97,7 @@ import bem from 'bem';
 import classnamesMap from './Button.scss';
 
 const { block, elem } = bem({
-    block: 'Button', // Block name, that is used in css classnames
+    name: 'Button', // Block name, that is used in css classnames
     classnames: classnamesMap, 
     // 1. If you need to have class name (.ButtonStateless--active) that depends on
     //    `active` prop, just list this prop in propsToMods list.
