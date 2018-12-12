@@ -22,16 +22,6 @@ const VALUE_SEPARATOR = '_';
  */
 
 /**
- * CSS modules classnames map
- * @typedef {Object.<string, string>} ClassnamesMap
- */
-
-/**
- * List of mods names
- * @typedef {Array.<string>} ModsList
- */
-
-/**
  * BEMClassNames
  * @typedef {Object} BEMClassNames
  * @property {string} [className] - Space separates list of class names
@@ -142,7 +132,6 @@ function buildClassNames({
     // Base level
     const baseClassName = classnamesMap[blockElemName];
     const baseModClassNames = modsToClassNames(block, elem, mods, classnamesMap);
-
     const classNames = [baseClassName, ...baseModClassNames];
 
     return classNames.filter(className => className).join(' ');

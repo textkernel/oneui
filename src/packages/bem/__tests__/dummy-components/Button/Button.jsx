@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import bem from '../../../';
+import classnamesMap from './classnamesMap.json';
 
-export default class Button extends Component {
+class Button extends Component {
 
     static displayName = 'Button';
-    static propsToMods = ['active', 'context'];
+    static propsToMods = ['active', 'disabled', 'context'];
     static stateToMods = ['clicked'];
 
     state = { clicked: false };
@@ -24,3 +26,5 @@ export default class Button extends Component {
         );
     }
 }
+
+export default bem(classnamesMap)(Button);
