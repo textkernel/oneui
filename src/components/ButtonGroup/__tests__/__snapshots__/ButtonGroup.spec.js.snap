@@ -1,154 +1,109 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ButtonGroup> that renders a button should add classes when props are changed 1`] = `
-<Component
+<ButtonGroup
   isBlock={true}
   size="large"
 >
-  <ButtonGroup
-    block={[Function]}
-    className=""
-    elem={[Function]}
-    isBlock={true}
-    size="large"
-    style={null}
+  <div
+    className="ButtonGroup ButtonGroup--size_large ButtonGroup--isBlock"
   >
-    <div
-      className="ButtonGroup ButtonGroup--size_large ButtonGroup--isBlock"
-      style={null}
+    <Button
+      className="ButtonGroup__button"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      key=".0"
+      onClick={null}
+      size="large"
+      type="button"
     >
-      <Component
-        className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
-        key=".0"
+      <button
+        className="ButtonGroup__button"
+        context="neutral"
+        disabled={false}
+        onClick={null}
         size="large"
+        type="button"
       >
-        <Button
-          block={[Function]}
-          className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
-          context="neutral"
-          disabled={false}
-          elem={[Function]}
-          isBlock={false}
-          onClick={null}
-          size="large"
-          type="button"
-        >
-          <button
-            className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
-            context="neutral"
-            disabled={false}
-            onClick={null}
-            size="large"
-            type="button"
-          >
-            A button
-          </button>
-        </Button>
-      </Component>
-      <Component
-        className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
-        key=".1"
+        A button
+      </button>
+    </Button>
+    <Button
+      className="ButtonGroup__button"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      key=".1"
+      onClick={null}
+      size="large"
+      type="button"
+    >
+      <button
+        className="ButtonGroup__button"
+        context="neutral"
+        disabled={false}
+        onClick={null}
         size="large"
+        type="button"
       >
-        <Button
-          block={[Function]}
-          className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
-          context="neutral"
-          disabled={false}
-          elem={[Function]}
-          isBlock={false}
-          onClick={null}
-          size="large"
-          type="button"
-        >
-          <button
-            className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
-            context="neutral"
-            disabled={false}
-            onClick={null}
-            size="large"
-            type="button"
-          >
-            Another button
-          </button>
-        </Button>
-      </Component>
-    </div>
-  </ButtonGroup>
-</Component>
+        Another button
+      </button>
+    </Button>
+  </div>
+</ButtonGroup>
 `;
 
 exports[`<ButtonGroup> that renders a button should render default button correctly 1`] = `
-<Component>
-  <ButtonGroup
-    block={[Function]}
-    className=""
-    elem={[Function]}
-    isBlock={false}
-    size="normal"
-    style={null}
+<ButtonGroup
+  isBlock={false}
+  size="normal"
+>
+  <div
+    className="ButtonGroup ButtonGroup--size_normal"
   >
-    <div
-      className="ButtonGroup"
-      style={null}
+    <Button
+      className="ButtonGroup__button"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      key=".0"
+      onClick={null}
+      size="normal"
+      type="button"
     >
-      <Component
+      <button
         className="ButtonGroup__button"
-        key=".0"
+        context="neutral"
+        disabled={false}
+        onClick={null}
         size="normal"
+        type="button"
       >
-        <Button
-          block={[Function]}
-          className="ButtonGroup__button"
-          context="neutral"
-          disabled={false}
-          elem={[Function]}
-          isBlock={false}
-          onClick={null}
-          size="normal"
-          type="button"
-        >
-          <button
-            className="ButtonGroup__button"
-            context="neutral"
-            disabled={false}
-            onClick={null}
-            size="normal"
-            type="button"
-          >
-            A button
-          </button>
-        </Button>
-      </Component>
-      <Component
+        A button
+      </button>
+    </Button>
+    <Button
+      className="ButtonGroup__button"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      key=".1"
+      onClick={null}
+      size="normal"
+      type="button"
+    >
+      <button
         className="ButtonGroup__button"
-        key=".1"
+        context="neutral"
+        disabled={false}
+        onClick={null}
         size="normal"
+        type="button"
       >
-        <Button
-          block={[Function]}
-          className="ButtonGroup__button"
-          context="neutral"
-          disabled={false}
-          elem={[Function]}
-          isBlock={false}
-          onClick={null}
-          size="normal"
-          type="button"
-        >
-          <button
-            className="ButtonGroup__button"
-            context="neutral"
-            disabled={false}
-            onClick={null}
-            size="normal"
-            type="button"
-          >
-            Another button
-          </button>
-        </Button>
-      </Component>
-    </div>
-  </ButtonGroup>
-</Component>
+        Another button
+      </button>
+    </Button>
+  </div>
+</ButtonGroup>
 `;

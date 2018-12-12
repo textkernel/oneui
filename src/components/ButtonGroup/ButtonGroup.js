@@ -4,17 +4,27 @@ import bem from '../../packages/bem';
 import styles from './ButtonGroup.scss';
 import { SIZES } from '../../constants';
 
-const ButtonGroup = ({ children, size, block, elem, ...rest }) => (
-    <div {...block()} { ...rest }>
-        {React.Children.map(children, button =>
-            React.cloneElement(button, {
-                ...button.props,
-                size,
-                ...elem('button')
-            })
-        )}
-    </div>
-);
+const { block, elem } = bem({
+    name: 'ButtonGroup',
+    classnames: styles,
+    propsToMods: ['size', 'isBlock']
+});
+
+const ButtonGroup = props => {
+    const { children, size, isBlock, ...rest } = props;
+
+    return (
+        <div {...block(props)} {...rest}>
+            {React.Children.map(children, button =>
+                React.cloneElement(button, {
+                    ...button.props,
+                    size,
+                    ...elem('button')
+                })
+            )}
+        </div>
+    );
+};
 
 ButtonGroup.propTypes = {
     /** The buttons in this group */
@@ -30,6 +40,4 @@ ButtonGroup.defaultProps = {
     isBlock: false
 };
 
-ButtonGroup.propsToMods = ['size', 'isBlock'];
-
-export default bem(styles)(ButtonGroup);
+export default ButtonGroup;
