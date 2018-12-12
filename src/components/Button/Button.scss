@@ -11,6 +11,7 @@
     font: {
         size: $font-size-base;
         weight: $font-weight-bold;
+        family: $font-family-primary;
     }
     outline: none;
     padding: $spacing-2x $spacing-4x;
@@ -20,7 +21,7 @@
     &:focus,
     &:hover {
         z-index: 1;
-        box-shadow: 0 0 0 3px transparent;
+        box-shadow: 0 0 0 3px $transparent;
     }
 
     &[disabled] {
