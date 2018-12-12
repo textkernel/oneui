@@ -1,8 +1,5 @@
 // Basic colors
 $transparent:       transparent !default;
-:root {
-    --transparent: #{ $transparent };
-}
 
 $color-background:  #FFF !default;
 $color-foreground:  #1D1D1B !default;
@@ -16,37 +13,36 @@ $color-good:        #5CB85C !default;
 $color-warning:     #FFB819 !default;
 $color-bad:         #F42534 !default;
 
-@each $context, $value in (
-    background: $color-background,
-    foreground: $color-foreground,
-    neutral: $color-neutral,
-    brand: $color-brand,
-    primary: $color-primary,
-    accent: $color-accent,
-    info: $color-info,
-    good: $color-good,
-    warning: $color-warning,
-    bad: $color-bad
-) {
-    :root {
+:root {
+    --transparent: #{ $transparent };
+    
+    @each $context, $value in (
+        background: $color-background,
+        foreground: $color-foreground,
+        neutral: $color-neutral,
+        brand: $color-brand,
+        primary: $color-primary,
+        accent: $color-accent,
+        info: $color-info,
+        good: $color-good,
+        warning: $color-warning,
+        bad: $color-bad
+    ) {
         --color-#{ $context }: #{ $value };
     }
-}
 
-
-// Shades
-@each $context, $value in (
-    neutral: $color-neutral,
-    brand: $color-brand,
-    primary: $color-primary,
-    accent: $color-accent,
-    info: $color-info,
-    good: $color-good,
-    warning: $color-warning,
-    bad: $color-bad
-) {
-    @each $factor in (20, 50) {
-        :root {
+    // Shades
+    @each $context, $value in (
+        neutral: $color-neutral,
+        brand: $color-brand,
+        primary: $color-primary,
+        accent: $color-accent,
+        info: $color-info,
+        good: $color-good,
+        warning: $color-warning,
+        bad: $color-bad
+    ) {
+        @each $factor in (20, 50) {
             --color-#{ $context }-#{ 50 - (($factor / 100) * 50) }: #{ mix($color-background, $value, $factor) };
             --color-#{ $context }-#{ 50 + (($factor / 100) * 50) }: #{ mix($color-foreground, $value, $factor) };
         }
