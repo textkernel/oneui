@@ -7,17 +7,19 @@ import { buildBemProps, getFunctionName } from './bemUtils';
  * @returns {Function}
  */
 function bemStateful(classnamesMap) {
-
     /**
      * @param {Component} BemComponent - Class based statefull react component
      * @returns {Function} - Decorated react component
      */
-    return function (StatefulBemComponent) {
-
+    return function bemStatefulClosure(StatefulBemComponent) {
         const blockName = getFunctionName(StatefulBemComponent);
-        const propsToMods = Array.isArray(StatefulBemComponent.propsToMods) ? StatefulBemComponent.propsToMods : [];
-        const stateToMods = Array.isArray(StatefulBemComponent.stateToMods) ? StatefulBemComponent.stateToMods : [];
-    
+        const propsToMods = Array.isArray(StatefulBemComponent.propsToMods)
+            ? StatefulBemComponent.propsToMods
+            : [];
+        const stateToMods = Array.isArray(StatefulBemComponent.stateToMods)
+            ? StatefulBemComponent.stateToMods
+            : [];
+
         /**
          * Add StatefulBemComponent#block method, that produces classNames for blocks
          * @returns {BEMClassNames}
@@ -31,10 +33,10 @@ function bemStateful(classnamesMap) {
                 propsToMods,
                 state: this.state,
                 stateToMods,
-                classnamesMap,
+                classnamesMap
             });
         };
-    
+
         /**
          * Add StatefulBemComponent#elem method, that produces classNames for elements of the block
          * @returns {BEMClassNames}
@@ -48,12 +50,12 @@ function bemStateful(classnamesMap) {
                 propsToMods,
                 state: this.state,
                 stateToMods,
-                classnamesMap,
+                classnamesMap
             });
         };
-    
+
         return StatefulBemComponent;
-    }
+    };
 }
 
 /**
@@ -62,17 +64,16 @@ function bemStateful(classnamesMap) {
  * @returns {Function}
  */
 function bemStateless(classnamesMap) {
-
     /**
      * @param {Component} StatelessBEMComponent - Function based stateless react component
      * @returns {Function} - Decorated react component
      */
-    return function(StatelessBEMComponent) {
+    return function bemStatelessClosure(StatelessBEMComponent) {
         const blockName = getFunctionName(StatelessBEMComponent);
         const propsToMods = Array.isArray(StatelessBEMComponent.propsToMods)
             ? StatelessBEMComponent.propsToMods
             : [];
-    
+
         return props => {
             const propsWithBEMTaste = {
                 ...props,
@@ -82,7 +83,7 @@ function bemStateless(classnamesMap) {
                         elem: null,
                         props,
                         propsToMods,
-                        classnamesMap,
+                        classnamesMap
                     }),
                 elem: elemName =>
                     buildBemProps({
@@ -90,13 +91,13 @@ function bemStateless(classnamesMap) {
                         elem: elemName,
                         props,
                         propsToMods,
-                        classnamesMap,
+                        classnamesMap
                     })
             };
-    
+
             return <StatelessBEMComponent {...propsWithBEMTaste} />;
         };
-    }
+    };
 }
 
 /**
@@ -105,15 +106,14 @@ function bemStateless(classnamesMap) {
  * @returns {Function}
  */
 export default function bem(classnamesMap) {
-
     /**
      * @param {Component} BemComponent - React component
      * @returns {Function} - Decorated react component
      */
-    return function(BemComponent) {
+    return function bemClosure(BemComponent) {
         if (BemComponent.prototype instanceof React.Component) {
             return bemStateful(classnamesMap)(BemComponent);
         }
         return bemStateless(classnamesMap)(BemComponent);
-    }
+    };
 }

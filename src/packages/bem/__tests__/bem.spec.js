@@ -11,7 +11,6 @@ describe('BEM decorator', () => {
             };
             const BEMButton = bem(classnamesMap)(Button);
             const buttonWrapper = shallow(<BEMButton />);
-            const buttonIcon = buttonWrapper.childAt(0);
             const buttonLabel = buttonWrapper.childAt(1);
             expect(buttonWrapper.hasClass('button')).toBe(true);
             expect(buttonLabel.hasClass('button__label')).toBe(true);
@@ -54,7 +53,7 @@ describe('BEM decorator', () => {
 
         it('should not add a class names if they are not listed in classnamesMap', () => {
             const classnamesMap = {
-                Button: 'button',
+                Button: 'button'
             };
             const BEMButton = bem(classnamesMap)(Button);
             const buttonWrapper = shallow(<BEMButton active />);
@@ -142,7 +141,7 @@ describe('BEM decorator', () => {
 
         it('should not add a class names if they are not listed in classnames map', () => {
             const classnamesMap = {
-                ButtonStateless: 'stateless-button',
+                ButtonStateless: 'stateless-button'
             };
             const BEMButtonStateless = bem(classnamesMap)(ButtonStateless);
             const buttonWrapper = shallow(<BEMButtonStateless active />);

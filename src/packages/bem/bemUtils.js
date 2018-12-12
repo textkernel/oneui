@@ -89,10 +89,10 @@ function buildModClassName({ block, elem = null, modName, modValue }) {
 
 /**
  * For a block or an element builds a list of class names of modifiers
- * @param {string} block - Block name
- * @param {string} [elem] - Elem name
+ * @param {string} block - Block name
+ * @param {string} [elem] - Elem name
  * @param {ModDict} – Object that represents mods (props or state)
- * @param {ClassnamesMap} classnamesMap – css modules classnames map
+ * @param {ClassnamesMap} classnamesMap – css modules classnames map
  * @returns {ClassnamesMap}
  */
 function modsToClassNames(block, elem = null, mods, classnamesMap) {
@@ -116,16 +116,24 @@ function getFunctionNameFallback(func) {
 
 /**
  * Builds a full list of class names for a block or an element
- * @param {string} block – Block name
- * @param {string} [elem] – Elem name
- * @param {ModsList} propsToMods 
+ * @param {string} block – Block name
+ * @param {string} [elem] – Elem name
+ * @param {ModsList} propsToMods
  * @param {ModsList} stateToMods
  * @param {ModDict} props
- * @param {ClassnamesMap} classnamesMap – css modules classnames map
+ * @param {ClassnamesMap} classnamesMap - css modules classnames map
  * @returns {string}
  * @public
  */
-function buildClassNames({ block, elem = null, props, propsToMods, state, stateToMods, classnamesMap }) {
+function buildClassNames({
+    block,
+    elem = null,
+    props,
+    propsToMods,
+    state,
+    stateToMods,
+    classnamesMap
+}) {
     const blockElemName = elem ? `${block}${ELEM_SEPARATOR}${elem}` : block;
     const modsFromProps = buildModsFromObject(props, propsToMods);
     const modsFromState = buildModsFromObject(state, stateToMods);
