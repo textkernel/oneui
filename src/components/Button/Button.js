@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import bem from '../../packages/bem';
 import styles from './Button.scss';
 import { CONTEXTS, SIZES } from '../../constants';
-debugger;
+
 const { block } = bem({
     name: 'Button',
     classnames: styles,
@@ -18,7 +18,7 @@ const Button = props => {
             {children}
         </button>
     );
-}
+};
 
 Button.propTypes = {
     /** The label of the button */
