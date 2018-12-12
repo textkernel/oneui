@@ -1,0 +1,23 @@
+@import '../../themes/nice/nice.scss';
+
+.ButtonGroup {
+    display: flex;
+
+    &__Button {
+        border-radius: 0;
+
+        &:first-child {
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+        &:last-child {
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        + .ButtonGroup__Button {
+            margin-left: 1px;
+        }
+    }
+    &--isBlock {
+        width: 100%;
+    }
+}
