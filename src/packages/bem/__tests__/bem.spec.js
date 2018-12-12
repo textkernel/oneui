@@ -46,7 +46,7 @@ describe('BEM decorator', () => {
                 'Button__label--context_error': 'button__label--context_error'
             };
             const BEMButton = bem(classnamesMap)(Button);
-            const buttonWrapper = shallow(<BEMButton active context='error' />);
+            const buttonWrapper = shallow(<BEMButton active context="error" />);
             const buttonIcon = buttonWrapper.childAt(0);
             const buttonLabel = buttonWrapper.childAt(1);
             expect(buttonWrapper.hasClass('button--active')).toBe(true);
@@ -139,11 +139,10 @@ describe('BEM decorator', () => {
                 'ButtonStateless__label--context_error': 'stateless-button__label--context_error'
             };
             const BEMButtonStateless = bem(classnamesMap)(ButtonStateless);
-            const buttonWrapper = shallow(<BEMButtonStateless active context='error' />);
+            const buttonWrapper = shallow(<BEMButtonStateless active context="error" />);
             const button = buttonWrapper.dive().find('button');
             const buttonIcon = button.childAt(0);
             const buttonLabel = button.childAt(1);
-            console.log('button', button.debug());
             expect(button.hasClass('stateless-button--active')).toBe(true);
             expect(button.hasClass('stateless-button--context_error')).toBe(true);
             expect(buttonIcon.hasClass('stateless-button__icon--active')).toBe(true);
