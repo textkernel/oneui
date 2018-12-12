@@ -74,7 +74,12 @@ function bemStateless(classnamesMap) {
             ? StatelessBEMComponent.propsToMods
             : [];
 
-        return props => {
+        /**
+         * Returns a wrapper component for a decorated react component
+         * @param {Object} props - Function based stateless react component
+         * @returns {Conponent} - Bem wrapper component
+         */
+        function BemWrapper(props) {
             const propsWithBEMTaste = {
                 ...props,
                 block: () =>
@@ -96,7 +101,13 @@ function bemStateless(classnamesMap) {
             };
 
             return <StatelessBEMComponent {...propsWithBEMTaste} />;
-        };
+        }
+
+        BemWrapper.propTypes = StatelessBEMComponent.propTypes;
+        BemWrapper.defaultProps = StatelessBEMComponent.defaultProps;
+        BemWrapper.displayName = blockName;
+
+        return BemWrapper;
     };
 }
 

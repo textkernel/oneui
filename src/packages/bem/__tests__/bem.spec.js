@@ -164,5 +164,12 @@ describe('BEM decorator', () => {
             expect(buttonIcon.hasClass('stateless-button__icon--active')).toBe(false);
             expect(buttonLabel.hasClass('stateless-button__label--active')).toBe(false);
         });
+
+        it('should bubble up propTypes defaultProps and displayName of a decorated component', () => {
+            const BEMButtonStateless = bem({})(ButtonStateless);
+            expect(BEMButtonStateless.propTypes).toBe(ButtonStateless.propTypes); // eslint-disable-line react/forbid-foreign-prop-types
+            expect(BEMButtonStateless.defaultProps).toEqual(ButtonStateless.defaultProps); // eslint-disable-line react/forbid-foreign-prop-types
+            expect(BEMButtonStateless.displayName).toBe('ButtonStateless');
+        });
     });
 });
