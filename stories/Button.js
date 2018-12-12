@@ -6,11 +6,11 @@ import { CONTEXTS, SIZES } from '../src/constants';
 
 storiesOf('Button', module)
     .addDecorator(withKnobs)
-    .add('button', () => (
+    .add('Button', () => (
         <Button
-            context={select('Context', CONTEXTS, CONTEXTS[1])}
+            context={select('Context', CONTEXTS, CONTEXTS[0])}
             size={select('Size', SIZES, SIZES[1])}
-            block={boolean('Block', false)}
+            isBlock={boolean('isBlock', false)}
             type={select('Type', ['submit', 'button'], 'submit')}
             disabled={boolean('Disabled', false)}
         >

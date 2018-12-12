@@ -24,7 +24,7 @@ Button.propTypes = {
     /** The label of the button */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     /** The button context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context: PropTypes.oneOf(CONTEXTS),
+    context: PropTypes.oneOf([...CONTEXTS, 'link']),
     /** The size of the button */
     size: PropTypes.oneOf(SIZES),
     /** whether or not to show block - level button(full width) */
@@ -44,7 +44,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-    context: 'brand',
+    context: 'neutral',
     size: 'normal',
     isBlock: false,
     disabled: false,
