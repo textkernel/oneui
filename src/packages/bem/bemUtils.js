@@ -81,7 +81,7 @@ function buildModClassName({ block, elem = null, modName, modValue }) {
     result += `${MOD_SEPARATOR}${modName}`;
 
     if (typeof modValue !== 'boolean') {
-        result += `${VALUE_SEPARATOR}${modName}`;
+        result += `${VALUE_SEPARATOR}${modValue}`;
     }
 
     return result;
