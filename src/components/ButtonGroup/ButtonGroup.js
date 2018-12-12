@@ -14,12 +14,12 @@ const ButtonGroup = props => {
     const { children, size, isBlock, ...rest } = props;
 
     return (
-        <div {...block(props)} {...rest}>
+        <div {...rest} {...block(props)}>
             {React.Children.map(children, button =>
                 React.cloneElement(button, {
                     ...button.props,
                     size,
-                    ...elem('button')
+                    ...elem('button', props)
                 })
             )}
         </div>
