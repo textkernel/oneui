@@ -7,4 +7,5 @@ describe('<Button> that renders a button', () => {
         const wrapper = mount(<Button>Click me</Button>);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
 });

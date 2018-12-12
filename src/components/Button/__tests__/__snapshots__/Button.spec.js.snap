@@ -3,19 +3,20 @@
 exports[`<Button> that renders a button should render default button correctly 1`] = `
 <Component>
   <Button
-    block={false}
+    block={[Function]}
     className=""
     context="brand"
     disabled={false}
+    elem={[Function]}
     htmlAttributes={Object {}}
+    isBlock={false}
     onClick={null}
     size="normal"
     style={null}
-    theme={Object {}}
     type="button"
   >
     <button
-      className=""
+      className="Button"
       disabled={false}
       onClick={null}
       style={null}
