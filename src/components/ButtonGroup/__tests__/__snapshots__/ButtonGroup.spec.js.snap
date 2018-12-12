@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonGroup> that renders a button should add classes when props are changed 1`] = `
+<Component
+  isBlock={true}
+  size="large"
+>
+  <ButtonGroup
+    block={[Function]}
+    className=""
+    elem={[Function]}
+    isBlock={true}
+    size="large"
+    style={null}
+  >
+    <div
+      className="ButtonGroup ButtonGroup--size_large ButtonGroup--isBlock"
+      style={null}
+    >
+      <Component
+        className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+        key=".0"
+        size="large"
+      >
+        <Button
+          block={[Function]}
+          className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+          context="neutral"
+          disabled={false}
+          elem={[Function]}
+          htmlAttributes={Object {}}
+          isBlock={false}
+          onClick={null}
+          size="large"
+          style={null}
+          type="button"
+        >
+          <button
+            className="Button Button--size_large ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+            disabled={false}
+            onClick={null}
+            style={null}
+            type="button"
+          >
+            A button
+          </button>
+        </Button>
+      </Component>
+      <Component
+        className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+        key=".1"
+        size="large"
+      >
+        <Button
+          block={[Function]}
+          className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+          context="neutral"
+          disabled={false}
+          elem={[Function]}
+          htmlAttributes={Object {}}
+          isBlock={false}
+          onClick={null}
+          size="large"
+          style={null}
+          type="button"
+        >
+          <button
+            className="Button Button--size_large ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+            disabled={false}
+            onClick={null}
+            style={null}
+            type="button"
+          >
+            Another button
+          </button>
+        </Button>
+      </Component>
+    </div>
+  </ButtonGroup>
+</Component>
+`;
+
+exports[`<ButtonGroup> that renders a button should render default button correctly 1`] = `
+<Component>
+  <ButtonGroup
+    block={[Function]}
+    className=""
+    elem={[Function]}
+    isBlock={false}
+    size="normal"
+    style={null}
+  >
+    <div
+      className="ButtonGroup"
+      style={null}
+    >
+      <Component
+        className="ButtonGroup__button"
+        key=".0"
+        size="normal"
+      >
+        <Button
+          block={[Function]}
+          className="ButtonGroup__button"
+          context="neutral"
+          disabled={false}
+          elem={[Function]}
+          htmlAttributes={Object {}}
+          isBlock={false}
+          onClick={null}
+          size="normal"
+          style={null}
+          type="button"
+        >
+          <button
+            className="Button Button--size_normal ButtonGroup__button"
+            disabled={false}
+            onClick={null}
+            style={null}
+            type="button"
+          >
+            A button
+          </button>
+        </Button>
+      </Component>
+      <Component
+        className="ButtonGroup__button"
+        key=".1"
+        size="normal"
+      >
+        <Button
+          block={[Function]}
+          className="ButtonGroup__button"
+          context="neutral"
+          disabled={false}
+          elem={[Function]}
+          htmlAttributes={Object {}}
+          isBlock={false}
+          onClick={null}
+          size="normal"
+          style={null}
+          type="button"
+        >
+          <button
+            className="Button Button--size_normal ButtonGroup__button"
+            disabled={false}
+            onClick={null}
+            style={null}
+            type="button"
+          >
+            Another button
+          </button>
+        </Button>
+      </Component>
+    </div>
+  </ButtonGroup>
+</Component>
+`;

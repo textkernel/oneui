@@ -5,17 +5,14 @@ import styles from './ButtonGroup.scss';
 import { SIZES } from '../../constants';
 
 const ButtonGroup = ({ children, size, style, block, elem }) => (
-    <div
-        {...block()}
-        style={style}
-    >
-        { React.Children.map(children, button => (
+    <div {...block()} style={style}>
+        {React.Children.map(children, button =>
             React.cloneElement(button, {
                 ...button.props,
                 size,
                 ...elem('button')
             })
-        )) }
+        )}
     </div>
 );
 
