@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from '../../packages/bem';
-import Button from '../Button';
 import styles from './ButtonGroup.scss';
 import { SIZES } from '../../constants';
 
