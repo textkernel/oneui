@@ -8,22 +8,20 @@ exports[`<Button> that renders a button should add classes when props are change
 >
   <Button
     block={[Function]}
-    className=""
     context="primary"
     disabled={false}
     elem={[Function]}
-    htmlAttributes={Object {}}
     isBlock={true}
     onClick={null}
     size="large"
-    style={null}
     type="button"
   >
     <button
       className="Button Button--context_primary Button--size_large Button--isBlock"
+      context="primary"
       disabled={false}
       onClick={null}
-      style={null}
+      size="large"
       type="button"
     >
       <span>
@@ -38,22 +36,20 @@ exports[`<Button> that renders a button should render default button correctly 1
 <Component>
   <Button
     block={[Function]}
-    className=""
     context="neutral"
     disabled={false}
     elem={[Function]}
-    htmlAttributes={Object {}}
     isBlock={false}
     onClick={null}
     size="normal"
-    style={null}
     type="button"
   >
     <button
       className="Button"
+      context="neutral"
       disabled={false}
       onClick={null}
-      style={null}
+      size="normal"
       type="button"
     >
       Click me

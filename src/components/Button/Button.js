@@ -4,21 +4,11 @@ import bem from '../../packages/bem';
 import styles from './Button.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 
-const Button = props => {
-    const { children, disabled, htmlAttributes, onClick, style, type, block } = props;
-    return (
-        <button
-            {...block()}
-            type={type}
-            style={style}
-            onClick={onClick}
-            disabled={disabled}
-            {...htmlAttributes}
-        >
-            {children}
-        </button>
-    );
-};
+const Button = ({ children, disabled, elem, isBlock, onClick, type, block, ...rest }) => (
+    <button {...block()} type={type} onClick={onClick} disabled={disabled} {...rest}>
+        {children}
+    </button>
+);
 
 Button.propTypes = {
     /** The label of the button */
@@ -33,16 +23,8 @@ Button.propTypes = {
     disabled: PropTypes.bool,
     /** type of the button */
     type: PropTypes.oneOf(['submit', 'button']),
-    /** optional html attrinutes such as target, href, mouseOver etc. */
-    htmlAttributes: PropTypes.objectOf(
-        PropTypes.oneOfType([PropTypes.string, PropTypes.func, PropTypes.bool])
-    ),
     /** callback function on click */
-    onClick: PropTypes.func,
-    /** inline styles */
-    style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    /** additional class names */
-    className: PropTypes.string
+    onClick: PropTypes.func
 };
 
 Button.defaultProps = {
@@ -51,10 +33,7 @@ Button.defaultProps = {
     isBlock: false,
     disabled: false,
     type: 'button',
-    htmlAttributes: {},
-    onClick: null,
-    style: null,
-    className: ''
+    onClick: null
 };
 
 Button.propsToMods = ['context', 'size', 'isBlock'];

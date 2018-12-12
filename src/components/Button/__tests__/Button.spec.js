@@ -22,27 +22,14 @@ describe('<Button> that renders a button', () => {
         expect(onClickMock).toHaveBeenCalled();
     });
     it('should add string html attributes correctly', () => {
-        const wrapper = mount(
-            <Button
-                htmlAttributes={{
-                    'data-test': 'something'
-                }}
-            >
-                Click me
-            </Button>
-        );
+        const wrapper = mount(<Button data-test="something">Click me</Button>);
         expect(wrapper.find('button').prop('data-test')).toEqual('something');
     });
     it('should add functional html attributes correctly', () => {
         const onMouseOverMock = jest.fn();
         const wrapper = mount(
-            <Button
-                htmlAttributes={{
-                    onMouseOver: onMouseOverMock
-                }}
-            >
-                Click me
-            </Button>
+            // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
+            <Button onMouseOver={onMouseOverMock}>Click me</Button>
         );
         const buttonWrapper = wrapper.find('button');
         buttonWrapper.simulate('mouseover');
