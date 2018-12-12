@@ -43,8 +43,8 @@ $color-bad:         #F42534 !default;
         bad: $color-bad
     ) {
         @each $factor in (20, 50) {
-            --color-#{ $context }-#{ 50 - (($factor / 100) * 50) }: #{ mix($color-background, $value, $factor) };
-            --color-#{ $context }-#{ 50 + (($factor / 100) * 50) }: #{ mix($color-foreground, $value, $factor) };
+            --color-#{ $context }-#{ 50 - ($factor / 2) }: #{ mix($color-background, $value, $factor) };
+            --color-#{ $context }-#{ 50 + ($factor / 2) }: #{ mix($color-foreground, $value, $factor) };
         }
     }
 }
