@@ -4,8 +4,8 @@ import bem from '../../packages/bem';
 import styles from './ButtonGroup.scss';
 import { SIZES } from '../../constants';
 
-const ButtonGroup = ({ children, size, style, block, elem }) => (
-    <div {...block()} style={style}>
+const ButtonGroup = ({ children, size, block, elem, ...rest }) => (
+    <div {...block()} { ...rest }>
         {React.Children.map(children, button =>
             React.cloneElement(button, {
                 ...button.props,
@@ -22,18 +22,12 @@ ButtonGroup.propTypes = {
     /** The size of the buttons in the button group */
     size: PropTypes.oneOf(SIZES),
     /** whether or not to show block-level button group (full width) */
-    isBlock: PropTypes.bool,
-    /** inline styles */
-    style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    /** additional class names */
-    className: PropTypes.string
+    isBlock: PropTypes.bool
 };
 
 ButtonGroup.defaultProps = {
     size: 'normal',
-    isBlock: false,
-    style: null,
-    className: ''
+    isBlock: false
 };
 
 ButtonGroup.propsToMods = ['size', 'isBlock'];
