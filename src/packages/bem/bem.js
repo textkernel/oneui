@@ -78,10 +78,11 @@ function bemStateful(classnamesMap) {
 
 /**
  * Decorates stateless react component with BEM methods
- * @param {ClassnamesMap} classnamesMap
- * @returns {Function}
+ * @param {BlockDecl} blockDecl - Block declaration in case of statless usage.
+ * @returns {{ block: Function, elem: Function }}
  */
-function bemStateless({ block, classnames, propsToMods }) {
+function bemStateless(blockDecl) {
+    const { block, classnames, propsToMods } = blockDecl;
     return {
         block: props =>
             buildBemProps({
