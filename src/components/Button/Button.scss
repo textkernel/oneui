@@ -20,8 +20,11 @@
 
     &:focus,
     &:hover {
-        z-index: 1;
         box-shadow: 0 0 0 3px var(--transparent);
+    }
+    &:focus,
+    &:active {
+        z-index: 1;
     }
 
     &[disabled] {

@@ -13,7 +13,7 @@ const ButtonGroup = ({ children, size, style, block, elem }) => (
             React.cloneElement(button, {
                 ...button.props,
                 size,
-                ...elem('Button')
+                ...elem('button')
             })
         )) }
     </div>
@@ -22,9 +22,9 @@ const ButtonGroup = ({ children, size, style, block, elem }) => (
 ButtonGroup.propTypes = {
     /** The buttons in this group */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-    /** The size of the button */
+    /** The size of the buttons in the button group */
     size: PropTypes.oneOf(SIZES),
-    /** whether or not to show block - level button(full width) */
+    /** whether or not to show block-level button group (full width) */
     isBlock: PropTypes.bool,
     /** inline styles */
     style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
