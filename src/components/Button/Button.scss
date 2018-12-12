@@ -1,96 +1,201 @@
 @import '../../themes/nice/nice.scss';
 
 .Button {
-    padding: $spacing-medium $spacing-large;
-    border-radius: $border-radius;
+    border: {
+        radius: $border-radius;
+        width: 1px;
+        style: solid;
+    }
+    color: $color-brand;
+    cursor: pointer;
+    font: {
+        size: $font-size-base;
+        weight: $font-weight-bold;
+    }
+    outline: none;
+    padding: $spacing-3x $spacing-4x;
     text-align: center;
-    color: $color-background;
+    transition: all .3s;
+
+    &:focus,
+    &:hover {
+        z-index: 1;
+        box-shadow: 0 0 0 3px transparent;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
 
     &--size {
         &_small {
             font-size: $font-size-small;
-            padding: $spacing-normal, $spacing-medium;
+            padding: $spacing-normal $spacing-2x;
         }
         &_large {
             font-size: $font-size-small;
-            padding: $spacing-large $spacing-xlarge;
+            padding: $spacing-2x $spacing-4x;
         }
     }
 
-    &--block {
+    &--isBlock {
         width: 100%;
     }
 
     &--context {
+        &_link {
+            border-color: $transparent;
+            background-color: $transparent;
+
+            &:hover {
+                text-decoration: underline;
+            }
+            &:focus,
+            &:active {
+                box-shadow: none;
+            }
+        }
         &_neutral {
             background-color: $color-background;
-            border: $color-neutral 1px solid;
+            border-color: $color-neutral;
             color: $color-foreground;
 
             &:hover {
-                background-color: $color-neutral;
+                background-color: $color-neutral-25;
+            }
+            &:focus,
+            &:active {
+                box-shadow: 0 0 0 3px $color-neutral-25;
+            }
+            &:active {
+                box-shadow: inset 0 2px 0 0 $color-neutral-60, 0 0 0 3px $color-neutral-25;
             }
         }
 
         &_brand {
             background-color: $color-brand;
+            border-color: $color-brand;
+            color: $color-background;
 
             &:hover {
-                background-color: $color-brand-75;
+                border-color: $color-brand-60;
+                background-color: $color-brand-60;
+            }
+            &:focus,
+            &:active {
+                box-shadow: 0 0 0 3px $color-brand-25;
+            }
+            &:active {
+                box-shadow: inset 0 2px 0 0 $color-brand-75, 0 0 0 3px $color-brand-25;
             }
         }
 
         &_primary {
-            background-color: $color-primary;
+            background-color: $color-good;
+            border-color: $color-good;
+            color: $color-background;
 
             &:hover {
-                background-color: $color-primary-75;
+                border-color: $color-good-60;
+                background-color: $color-good-60;
+            }
+            &:focus,
+            &:active {
+                box-shadow: 0 0 0 3px $color-good-25;
+            }
+            &:active {
+                box-shadow: inset 0 2px 0 0 $color-good-75, 0 0 0 3px $color-good-25;
             }
         }
 
         &_accent {
             background-color: $color-accent;
+            border-color: $color-accent;
+            color: $color-background;
 
             &:hover {
-                background-color: $color-accent-75;
+                border-color: $color-accent-60;
+                background-color: $color-accent-60;
+            }
+            &:focus,
+            &:active {
+                box-shadow: 0 0 0 3px $color-accent-25;
+            }
+            &:active {
+                box-shadow: inset 0 2px 0 0 $color-accent-75, 0 0 0 3px $color-accent-25;
             }
         }
 
         &_info {
             background-color: $color-info;
+            border-color: $color-info;
+            color: $color-background;
 
             &:hover {
-                background-color: $color-info-75;
+                border-color: $color-info-60;
+                background-color: $color-info-60;
+            }
+            &:focus,
+            &:active {
+                box-shadow: 0 0 0 3px $color-info-25;
+            }
+            &:active {
+                box-shadow: inset 0 2px 0 0 $color-info-75, 0 0 0 3px $color-info-25;
             }
         }
 
         &_good {
             background-color: $color-good;
+            border-color: $color-good;
+            color: $color-background;
 
             &:hover {
-                background-color: $color-good-75;
+                border-color: $color-good-60;
+                background-color: $color-good-60;
+            }
+            &:focus,
+            &:active {
+                box-shadow: 0 0 0 3px $color-good-25;
+            }
+            &:active {
+                box-shadow: inset 0 2px 0 0 $color-good-75, 0 0 0 3px $color-good-25;
             }
         }
 
         &_warning {
             background-color: $color-warning;
+            border-color: $color-warning;
+            color: $color-background;
 
             &:hover {
-                background-color: $color-warning-75;
+                border-color: $color-warning-60;
+                background-color: $color-warning-60;
+            }
+            &:focus,
+            &:active {
+                box-shadow: 0 0 0 3px $color-warning-25;
+            }
+            &:active {
+                box-shadow: inset 0 2px 0 0 $color-warning-75, 0 0 0 3px $color-warning-25;
             }
         }
 
         &_bad {
             background-color: $color-bad;
+            border-color: $color-bad;
+            color: $color-background;
 
             &:hover {
-                background-color: $color-bad-75;
+                border-color: $color-bad-60;
+                background-color: $color-bad-60;
+            }
+            &:focus,
+            &:active {
+                box-shadow: 0 0 0 3px $color-bad-25;
+            }
+            &:active {
+                box-shadow: inset 0 2px 0 0 $color-bad-75, 0 0 0 3px $color-bad-25;
             }
         }
-    }
-
-    &:disabled,
-    &[disabled] {
-        opacity: 50%;
     }
 }

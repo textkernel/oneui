@@ -1,12 +1,12 @@
 // fonts sizes
 $font-size-base: 14px;
-$font-size-small: .8rem;
-$font-size-normal: 1rem;
-$font-size-large: 1.2rem;
-$h1-font-size: 1.6rem;
-$h2-font-size: 1.4rem;
-$h3-font-size: 1.2rem;
-$h4-font-size: 1.0rem;
+$font-size-small: .8 * $font-size-base;
+$font-size-normal: 1 * $font-size-base;
+$font-size-large: 1.2 * $font-size-base;
+$h1-font-size: 1.6 * $font-size-base;
+$h2-font-size: 1.4 * $font-size-base;
+$h3-font-size: 1.2 * $font-size-base;
+$h4-font-size: 1.0 * $font-size-base;
 
 // font family
 $font-family-primary: ‘Open Sans’, sans-serif;
