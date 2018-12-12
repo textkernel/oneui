@@ -46,7 +46,7 @@ Button.propTypes = {
 Button.defaultProps = {
     context: 'brand',
     size: 'normal',
-    block: false,
+    isBlock: false,
     disabled: false,
     type: 'button',
     htmlAttributes: {},
@@ -55,6 +55,6 @@ Button.defaultProps = {
     className: ''
 };
 
-Button.propsToMods = ['context', 'size', 'block'];
+Button.propsToMods = ['context', 'size', 'isBlock'];
 
 export default bem(styles)(Button);
