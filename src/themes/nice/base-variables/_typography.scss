@@ -1,28 +1,28 @@
 // fonts sizes
-$font-size-base: 14px;
-$font-size-small: .8 * $font-size-base;
-$font-size-normal: 1 * $font-size-base;
-$font-size-large: 1.2 * $font-size-base;
-$h1-font-size: 1.6 * $font-size-base;
-$h2-font-size: 1.4 * $font-size-base;
-$h3-font-size: 1.2 * $font-size-base;
-$h4-font-size: 1.0 * $font-size-base;
+$font-size-base: 14px !default;
+$font-size-small: .8 * $font-size-base !default;
+$font-size-normal: 1 * $font-size-base !default;
+$font-size-large: 1.2 * $font-size-base !default;
+$h1-font-size: 1.6 * $font-size-base !default;
+$h2-font-size: 1.4 * $font-size-base !default;
+$h3-font-size: 1.2 * $font-size-base !default;
+$h4-font-size: 1.0 * $font-size-base !default;
 
 // font family
-$font-family-primary:   'Open Sans', sans-serif;
-$font-family-secondary: 'Titillium Web', sans-serif;
+$font-family-primary:   'Open Sans', sans-serif !default;
+$font-family-secondary: 'Titillium Web', sans-serif !default;
 
 // font weight
-$font-weight-light:     200;
-$font-weight-normal:    400;
-$font-weight-bold:      600;
+$font-weight-light:     200 !default;
+$font-weight-normal:    400 !default;
+$font-weight-bold:      600 !default;
 
 // decoration
-$link-decoration-normal:    none;
-$link-decoration-hover:     underline;
+$link-decoration-normal:    none !default;
+$link-decoration-hover:     underline !default;
 
 // other
-$heading-font-family: $font-family-secondary;
+$heading-font-family:   $font-family-secondary !default;
 
 :root {
     --font-size-base:   #{ $font-size-base };

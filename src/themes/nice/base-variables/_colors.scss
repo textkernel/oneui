@@ -1,20 +1,20 @@
 // Basic colors
-$transparent:       transparent;
+$transparent:       transparent !default;
 :root {
     --transparent: #{ $transparent };
 }
 
-$color-background:  #FFF;
-$color-foreground:  #1D1D1B;
+$color-background:  #FFF !default;
+$color-foreground:  #1D1D1B !default;
 
-$color-neutral:     #D0D1D5;
-$color-brand:       #009CC1;
-$color-primary:     #F18700;
-$color-accent:      #182642;
-$color-info:        #60C4DE;
-$color-good:        #5CB85C;
-$color-warning:     #FFB819;
-$color-bad:         #F42534;
+$color-neutral:     #D0D1D5 !default;
+$color-brand:       #009CC1 !default;
+$color-primary:     #F18700 !default;
+$color-accent:      #182642 !default;
+$color-info:        #60C4DE !default;
+$color-good:        #5CB85C !default;
+$color-warning:     #FFB819 !default;
+$color-bad:         #F42534 !default;
 
 @each $context, $value in (
     background: $color-background,
