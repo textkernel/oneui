@@ -14,7 +14,7 @@ const Button = props => {
     const { children, disabled, isBlock, onClick, type, ...rest } = props;
 
     return (
-        <button {...block(props)} type={type} onClick={onClick} disabled={disabled} {...rest}>
+        <button {...rest} {...block(props)} type={type} onClick={onClick} disabled={disabled}>
             {children}
         </button>
     );
