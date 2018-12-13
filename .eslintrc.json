@@ -29,6 +29,7 @@
         "it": false,
         "expect": false,
         "shallow": false,
-        "mount": false
+        "mount": false,
+        "window": true
     }
 }
