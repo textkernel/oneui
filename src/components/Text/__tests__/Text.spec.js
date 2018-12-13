@@ -16,4 +16,13 @@ describe('<Text> that renders a text block', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
+    it('should render html children correctly', () => {
+        const wrapper = shallow(
+            <Text>
+                Some text, <span style="color:blue;">and some colored</span>
+            </Text>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
 });
