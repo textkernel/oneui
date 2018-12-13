@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonGroup> that renders a button should add classes when props are changed 1`] = `
+<ButtonGroup
+  isBlock={true}
+  size="large"
+>
+  <div
+    className="ButtonGroup ButtonGroup--size_large ButtonGroup--isBlock"
+  >
+    <Button
+      className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      key=".0"
+      onClick={null}
+      size="large"
+      type="button"
+    >
+      <button
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+        context="neutral"
+        disabled={false}
+        onClick={null}
+        size="large"
+        type="button"
+      >
+        A button
+      </button>
+    </Button>
+    <Button
+      className="ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      key=".1"
+      onClick={null}
+      size="large"
+      type="button"
+    >
+      <button
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+        context="neutral"
+        disabled={false}
+        onClick={null}
+        size="large"
+        type="button"
+      >
+        Another button
+      </button>
+    </Button>
+  </div>
+</ButtonGroup>
+`;
+
+exports[`<ButtonGroup> that renders a button should render default button correctly 1`] = `
+<ButtonGroup
+  isBlock={false}
+  size="normal"
+>
+  <div
+    className="ButtonGroup ButtonGroup--size_normal"
+  >
+    <Button
+      className="ButtonGroup__button ButtonGroup__button--size_normal"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      key=".0"
+      onClick={null}
+      size="normal"
+      type="button"
+    >
+      <button
+        className="Button Button--context_neutral Button--size_normal ButtonGroup__button ButtonGroup__button--size_normal"
+        context="neutral"
+        disabled={false}
+        onClick={null}
+        size="normal"
+        type="button"
+      >
+        A button
+      </button>
+    </Button>
+    <Button
+      className="ButtonGroup__button ButtonGroup__button--size_normal"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      key=".1"
+      onClick={null}
+      size="normal"
+      type="button"
+    >
+      <button
+        className="Button Button--context_neutral Button--size_normal ButtonGroup__button ButtonGroup__button--size_normal"
+        context="neutral"
+        disabled={false}
+        onClick={null}
+        size="normal"
+        type="button"
+      >
+        Another button
+      </button>
+    </Button>
+  </div>
+</ButtonGroup>
+`;
