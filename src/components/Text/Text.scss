@@ -1,0 +1,14 @@
+@import '../../themes/nice/nice.scss';
+
+.Text {
+    color: var(--color-foreground);
+    font: {
+        family: var(--font-family-primary);
+        size: var(--font-size-normal);
+        weight: var(--font-weight-normal);
+    }
+
+    &--muted {
+        color: var(--color-muted);
+    }
+}

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text> that renders a text block should add classes when props are changed 1`] = `
+<span
+  className="Text Text--muted"
+  muted={true}
+>
+  Some inline, muted text content
+</span>
+`;
+
+exports[`<Text> that renders a text block should render default text block correctly 1`] = `
+<p
+  className="Text"
+  muted={false}
+>
+  Some text content
+</p>
+`;

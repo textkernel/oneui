@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Heading from '..';
+import Heading from '../Heading';
 
 describe('<Heading> that renders a heading', () => {
     it('should render default heading correctly', () => {
