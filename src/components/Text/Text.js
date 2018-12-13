@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem'; // eslint-disable-line import/no-unresolved
+import bem from 'bem';
 import styles from './Text.scss';
 
 const { block } = bem({
@@ -26,7 +26,7 @@ Text.propTypes = {
     /** Render muted (auxiliary) text */
     muted: PropTypes.bool,
     /** Text content */
-    children: PropTypes.string.isRequired
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired
 };
 
 Text.defaultProps = {

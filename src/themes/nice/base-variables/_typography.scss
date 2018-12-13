@@ -25,6 +25,7 @@ $link-decoration-hover:     underline !default;
 
 // other
 $heading-font-family:   $font-family-secondary !default;
+$heading-font-weight:   $font-weight-normal !default;
 
 :root {
     --font-size-base:   #{ $font-size-base };
@@ -50,4 +51,5 @@ $heading-font-family:   $font-family-secondary !default;
     --link-decoration-hover:    #{ $link-decoration-hover };
 
     --heading-font-family:      #{ $heading-font-family };
+    --heading-font-weight:      #{ $heading-font-weight };
 }
