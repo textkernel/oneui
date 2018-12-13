@@ -12,7 +12,7 @@ const { block } = bem({
 
 const Heading = props => {
     const { alignRight, children, level, ...rest } = props;
-    const HtmlNodeType = `h${level}`;
+    const HtmlNodeType = level;
 
     return (
         <HtmlNodeType {...rest} {...block(props)}>
@@ -32,7 +32,7 @@ Heading.propTypes = {
 
 Heading.defaultProps = {
     alignRight: false,
-    level: 1
+    level: 'h1'
 };
 
 export default Heading;

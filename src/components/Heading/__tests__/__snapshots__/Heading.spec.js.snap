@@ -2,7 +2,7 @@
 
 exports[`<Heading> that renders a heading should add classes when props are changed 1`] = `
 <h3
-  className="Heading Heading--alignRight"
+  className="Heading Heading--alignRight Heading--level_h3"
 >
   Some heading text
 </h3>
@@ -10,7 +10,7 @@ exports[`<Heading> that renders a heading should add classes when props are chan
 
 exports[`<Heading> that renders a heading should render default heading correctly 1`] = `
 <h1
-  className="Heading"
+  className="Heading Heading--level_h1"
 >
   Some heading text
 </h1>

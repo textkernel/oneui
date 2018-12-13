@@ -3,10 +3,12 @@ $font-size-base: 14px !default;
 $font-size-small: .8 * $font-size-base !default;
 $font-size-normal: 1 * $font-size-base !default;
 $font-size-large: 1.2 * $font-size-base !default;
-$h1-font-size: 1.6 * $font-size-base !default;
-$h2-font-size: 1.4 * $font-size-base !default;
-$h3-font-size: 1.2 * $font-size-base !default;
-$h4-font-size: 1.0 * $font-size-base !default;
+$h1-font-size: 1.8 * $font-size-base !default;
+$h2-font-size: 1.6 * $font-size-base !default;
+$h3-font-size: 1.4 * $font-size-base !default;
+$h4-font-size: 1.2 * $font-size-base !default;
+$h5-font-size: 1.0 * $font-size-base !default;
+$h6-font-size: 0.8 * $font-size-base !default;
 
 // font family
 $font-family-primary:   'Open Sans', sans-serif !default;
@@ -34,6 +36,8 @@ $heading-font-family:   $font-family-secondary !default;
     --h2-font-size:     #{ $h2-font-size };
     --h3-font-size:     #{ $h3-font-size };
     --h4-font-size:     #{ $h4-font-size };
+    --h5-font-size:     #{ $h5-font-size };
+    --h6-font-size:     #{ $h6-font-size };
 
     --font-family-primary:      #{ $font-family-primary };
     --font-family-secondary:    #{ $font-family-secondary };

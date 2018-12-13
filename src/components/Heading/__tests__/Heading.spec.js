@@ -10,7 +10,7 @@ describe('<Heading> that renders a heading', () => {
 
     it('should add classes when props are changed', () => {
         const wrapper = shallow(
-            <Heading level={3} alignRight>
+            <Heading level="h3" alignRight>
                 Some heading text
             </Heading>
         );

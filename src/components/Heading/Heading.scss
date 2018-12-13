@@ -8,8 +8,8 @@
     color: var(--color-foreground);
 
     &--level {
-        @for $level from 1 to 6 {
-            &_#{ $level } {
+        @for $level from 1 to 7 {
+            &_h#{ $level } {
                 font-size: var(--h#{ $level }-font-size);
             }
         }
