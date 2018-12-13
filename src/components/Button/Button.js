@@ -11,15 +11,17 @@ const { block } = bem({
 });
 
 const Button = props => {
-    const { children, disabled, isBlock, onClick, type, ...rest } = props;
+    const { children, disabled, isBlock, type, ...rest } = props;
 
     return (
-        <button {...rest} {...block(props)} type={type} onClick={onClick} disabled={disabled}>
+        <button {...rest} {...block(props)} type={type} disabled={disabled}>
             {children}
         </button>
     );
 };
 
+// Any other attributes (onClick, onFocus etc.) are
+// supported although not defined in propTypes
 Button.propTypes = {
     /** The label of the button */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
@@ -27,14 +29,12 @@ Button.propTypes = {
     context: PropTypes.oneOf([...CONTEXTS, 'link']),
     /** The size of the button */
     size: PropTypes.oneOf(SIZES),
-    /** whether or not to show block - level button(full width) */
+    /** Whether or not to show block-level button (full width) */
     isBlock: PropTypes.bool,
-    /** should button be disabled or not */
+    /** Should button be disabled or not */
     disabled: PropTypes.bool,
-    /** type of the button */
-    type: PropTypes.oneOf(['submit', 'button']),
-    /** callback function on click */
-    onClick: PropTypes.func
+    /** Type of the button */
+    type: PropTypes.oneOf(['submit', 'button'])
 };
 
 Button.defaultProps = {
@@ -42,8 +42,7 @@ Button.defaultProps = {
     size: 'normal',
     isBlock: false,
     disabled: false,
-    type: 'button',
-    onClick: null
+    type: 'button'
 };
 
 export default Button;

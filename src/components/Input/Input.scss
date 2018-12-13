@@ -1,0 +1,60 @@
+.Input {
+    background-color: #FFF;
+    border: {
+        color: var(--color-neutral);
+        radius: var(--border-radius);
+        style: solid;
+        width: var(--line-normal);
+    }
+    box-sizing: border-box;
+    color: var(--color-foreground);
+    font: {
+        family: var(--font-family-primary);
+        size: var(--font-size-normal);
+        weight: var(--font-weight-normal);
+    }
+    line-height: var(--line-height-normal);
+    outline: none;
+    padding: var(--spacing-2x);
+    transition: border-color var(--transition-duration);
+
+    &:focus {
+        border-color: var(--color-neutral);
+        box-shadow: 0 0 0 var(--outline-size) var(--color-neutral-25);
+        z-index: 1;
+    }
+
+    &[disabled] {
+        background-color: var(--color-neutral-25);
+        color: var(--color-neutral-75);
+        cursor: not-allowed;
+    }
+
+    &--context {
+        @each $context in (brand, primary, accent, info, good, warning, bad) {
+            &_#{ $context } {
+                &:focus {
+                    border-color: var(--color-#{ $context });
+                    box-shadow: 0 0 0 var(--outline-size) var(--color-#{ $context }-25);
+                }
+            }
+        }
+    }
+
+    &--isBlock {
+        width: 100%;
+    }
+
+    &--size {
+        &_small {
+            font-size: var(--font-size-small);
+            line-height: var(--line-height-small);
+            padding: var(--spacing-normal);
+        }
+        &_large {
+            font-size: var(--font-size-large);
+            line-height: var(--line-height-large);
+            padding: var(--spacing-3x);
+        }
+    }
+}

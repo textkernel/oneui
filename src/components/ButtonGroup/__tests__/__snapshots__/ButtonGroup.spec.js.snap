@@ -14,7 +14,6 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       disabled={false}
       isBlock={false}
       key=".0"
-      onClick={null}
       size="large"
       type="button"
     >
@@ -22,7 +21,6 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
         className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
         context="neutral"
         disabled={false}
-        onClick={null}
         size="large"
         type="button"
       >
@@ -35,7 +33,6 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       disabled={false}
       isBlock={false}
       key=".1"
-      onClick={null}
       size="large"
       type="button"
     >
@@ -43,7 +40,6 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
         className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--size_large ButtonGroup__button--isBlock"
         context="neutral"
         disabled={false}
-        onClick={null}
         size="large"
         type="button"
       >
@@ -68,7 +64,6 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       disabled={false}
       isBlock={false}
       key=".0"
-      onClick={null}
       size="normal"
       type="button"
     >
@@ -76,7 +71,6 @@ exports[`<ButtonGroup> that renders a button should render default button correc
         className="Button Button--context_neutral Button--size_normal ButtonGroup__button ButtonGroup__button--size_normal"
         context="neutral"
         disabled={false}
-        onClick={null}
         size="normal"
         type="button"
       >
@@ -89,7 +83,6 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       disabled={false}
       isBlock={false}
       key=".1"
-      onClick={null}
       size="normal"
       type="button"
     >
@@ -97,7 +90,6 @@ exports[`<ButtonGroup> that renders a button should render default button correc
         className="Button Button--context_neutral Button--size_normal ButtonGroup__button ButtonGroup__button--size_normal"
         context="neutral"
         disabled={false}
-        onClick={null}
         size="normal"
         type="button"
       >
