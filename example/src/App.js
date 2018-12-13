@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { Dummy } from 'nice2';
-import 'nice2/dist/nice2.css';
+import { Dummy, Button } from 'nice2';
+
+import ButtonContainer from './components/ButtonContainer';
+
 import './App.css';
 
 class App extends Component {
@@ -10,7 +12,12 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                    <Dummy> Hoi! </Dummy>
+                    <ButtonContainer>
+                        <Button size="large" style={{ margin: 15 }} context="brand"> Brand </Button>
+                        <Button size="large" style={{ margin: 15 }} context="warning"> Warning </Button>
+                        <Button size="large" style={{ margin: 15 }} context="bad"> Bad </Button>
+                        <Dummy> I'm Dummy Component! </Dummy>
+                    </ButtonContainer>
                 </header>
             </div>
         );

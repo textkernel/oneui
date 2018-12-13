@@ -12,4 +12,3 @@ Link it to the Nice2 library folder. Be sure that the lib folder contains the la
 
 Start the project
 ### `npm start`
-
