@@ -1,0 +1,20 @@
+@import '../../themes/nice/nice.scss';
+
+.Heading {
+    font: {
+        family: var(--heading-font-family);
+        weight: var(--font-weight-normal);
+    }
+    color: var(--color-foreground);
+
+    &--level {
+        @for $level from 1 to 6 {
+            &_#{ $level } {
+                font-size: var(--h#{ $level }-font-size);
+            }
+        }
+    }
+    &--alignRight {
+        text-align: right;
+    }
+}
