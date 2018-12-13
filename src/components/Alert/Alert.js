@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../packages/bem';
+import bem from 'bem';
 import Button from '../Button';
 import styles from './Alert.scss';
 import { CONTEXTS } from '../../constants';
@@ -42,7 +42,7 @@ Alert.propTypes = {
     /** The alert context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context: PropTypes.oneOf(CONTEXTS),
     /** The alert title */
-    title: PropTypes.string
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 };
 
 Alert.defaultProps = {
