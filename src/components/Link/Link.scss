@@ -1,0 +1,15 @@
+.Link {
+    color: var(--link-color-normal);
+    font: {
+        family: var(--font-family-primary);
+        size: var(--font-size-normal);
+        weight: var(--font-weight-normal);
+    }
+    text-decoration: var(--link-decoration-normal);
+    transition: color var(--transition-duration);
+
+    &:hover {
+        color: var(--link-color-hover);
+        text-decoration: var(--link-decoration-hover);
+    }
+}
