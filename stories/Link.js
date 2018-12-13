@@ -6,7 +6,7 @@ import Link from '../src/components/Link';
 storiesOf('Link', module)
     .addDecorator(withKnobs)
     .add('Link', () => (
-        <Link target="_blank" href="http://textkernel.com">
+        <Link target="_blank" href="https://textkernel.com">
             {text('Link text', 'Click me')}
         </Link>
     ));

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Link> that renders a link should render default link correctly 1`] = `
+<a
+  className="Link"
+  href="https://textkernel.com"
+>
+  Click me
+</a>
+`;
