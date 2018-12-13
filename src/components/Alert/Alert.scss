@@ -1,6 +1,7 @@
 @import '../../themes/nice/nice.scss';
 
 .Alert {
+    background-color: var(--color-background);
     border: {
         color: var(--color-neutral);
         radius: var(--border-radius);
