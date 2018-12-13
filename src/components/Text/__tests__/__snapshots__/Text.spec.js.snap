@@ -18,14 +18,18 @@ exports[`<Text> that renders a text block should render default text block corre
 </p>
 `;
 
-exports[`<Text> that renders a text block should render html chilrden correctly 1`] = `
+exports[`<Text> that renders a text block should render html children correctly 1`] = `
 <p
   className="Text"
   muted={false}
 >
   Some text, 
   <span
-    style="color:blue;"
+    style={
+      Object {
+        "color": "blue",
+      }
+    }
   >
     and some colored
   </span>

@@ -20,7 +20,7 @@ describe('<Text> that renders a text block', () => {
     it('should render html children correctly', () => {
         const wrapper = shallow(
             <Text>
-                Some text, <span style="color:blue;">and some colored</span>
+                Some text, <span style={{ color: 'blue' }}>and some colored</span>
             </Text>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
