@@ -84,22 +84,32 @@ function bemStateful(classnamesMap) {
 function bemStateless(blockDecl) {
     const { name, classnames, propsToMods } = blockDecl;
     return {
-        block: props =>
-            buildBemProps({
+        block: props => {
+            if (!props) {
+                throw new TypeError('block(props) should be called with props as an argument');
+            }
+            return buildBemProps({
                 block: name,
                 elem: null,
                 props,
                 propsToMods,
                 classnamesMap: classnames
-            }),
-        elem: (elemName, props) =>
-            buildBemProps({
+            });
+        },
+        elem: (elemName, props) => {
+            if (!elemName || !props) {
+                throw new TypeError(
+                    'elem(elemName, props) should be called with elem name and props as an arguments'
+                );
+            }
+            return buildBemProps({
                 block: name,
                 elem: elemName,
                 props,
                 propsToMods,
                 classnamesMap: classnames
-            })
+            });
+        }
     };
 }
 
