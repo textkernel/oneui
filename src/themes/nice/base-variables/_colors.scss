@@ -5,6 +5,7 @@ $color-background:  #FFF !default;
 $color-foreground:  #1D1D1B !default;
 
 $color-neutral:     #D0D1D5 !default;
+$color-muted:       #B2B2B2 !default;
 $color-brand:       #009CC1 !default;
 $color-primary:     #F18700 !default;
 $color-accent:      #182642 !default;
@@ -20,6 +21,7 @@ $color-bad:         #F42534 !default;
         background: $color-background,
         foreground: $color-foreground,
         neutral: $color-neutral,
+        muted: $color-muted,
         brand: $color-brand,
         primary: $color-primary,
         accent: $color-accent,
