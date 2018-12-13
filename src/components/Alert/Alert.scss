@@ -1,0 +1,41 @@
+@import '../../themes/nice/nice.scss';
+
+.Alert {
+    border: {
+        color: var(--color-neutral);
+        radius: var(--border-radius);
+        style: solid;
+        width: var(--line-normal);
+        left-width: 10px;
+    }
+    color: var(--color-foreground);
+    display: flex;
+    font: {
+        family: var(--font-family-primary);
+        size: var(--font-size-normal);
+    };
+    padding: var(--spacing-4x);
+
+    &--context {
+        @each $context in (neutral, brand, primary, accent, info, good, warning, bad) {
+            &_#{ $context } {
+                border-left-color: var(--color-#{ $context });
+            }
+        }
+    }
+
+    &__content {
+        flex-grow: 2;
+    }
+
+    &__action {
+        display: flex;
+        align-content: center;
+    }
+
+    &__title {
+        display: block;
+        margin-bottom: var(--spacing-2x);
+        font-weight: var(--font-weight-bold);
+    }
+}

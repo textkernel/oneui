@@ -13,6 +13,9 @@
     },
     "parser": "babel-eslint",
     "rules": {
+        "import/no-unresolved": [2, {
+            "ignore": ["bem"]
+        }],
         "prettier/prettier": [
             "error"
         ],
@@ -29,6 +32,7 @@
         "it": false,
         "expect": false,
         "shallow": false,
-        "mount": false
+        "mount": false,
+        "window": true
     }
 }
