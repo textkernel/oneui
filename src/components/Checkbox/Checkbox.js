@@ -38,7 +38,7 @@ Checkbox.propTypes = {
     /** If the checkbox should be disabled */
     disabled: PropTypes.bool,
     /** The label for the checkbox */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    children: PropTypes.string.isRequired,
     /** Viewbox dimentions, allows to costumise the checkbox */
     viewbox: PropTypes.arrayOf(PropTypes.number)
 };
