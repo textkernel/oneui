@@ -25,6 +25,18 @@ class Tabs extends PureComponent {
         };
     }
 
+    handleTabChange(e, id) {
+        e.preventDefault();
+        const { onChange } = this.props;
+        this.setState({
+            activeTabId: id
+        });
+        if (!onChange) {
+            return true;
+        }
+        return onChange(id);
+    }
+
     render() {
         const { activeTabId: idFromProps, children, onChange, ...rest } = this.props;
         const { activeTabId } = this.state;
@@ -44,14 +56,7 @@ class Tabs extends PureComponent {
                                 {...this.elem(active ? 'tabActive' : 'tab')}
                                 key={id}
                                 onClick={e => {
-                                    e.preventDefault();
-                                    this.setState({
-                                        activeTabId: id
-                                    });
-                                    if (!onChange) {
-                                        return true;
-                                    }
-                                    return onChange(id);
+                                    this.handleTabChange(e, id);
                                 }}
                             >
                                 {tab.props.label}
