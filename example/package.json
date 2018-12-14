@@ -13,11 +13,5 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "link:nice2": "cd .. && npm link && cd ./example && npm link nice2"
-    },
-    "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
-    ]
+    }
 }
