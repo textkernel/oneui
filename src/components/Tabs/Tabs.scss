@@ -10,16 +10,16 @@
     }
     color: var(--link-color-normal);
     cursor: pointer;
+    margin: {
+        top: var(--margin);
+        right: var(--margin);
+        left: var(--margin);
+    };
     outline: none;
     padding: var(--spacing-2x) var(--spacing-4x);
     line-height: var(--line-height-normal);
     text-decoration: none;
     transition: border-color var(--transition-duration);
-
-    + .Tabs__tab,
-    + .Tabs__tabActive {
-        margin-left: var(--spacing-normal);
-    }
 
     &:hover {
         border-color: var(--color-neutral-60);
