@@ -15,8 +15,6 @@ $color-warning:     #FFB819 !default;
 $color-bad:         #F42534 !default;
 
 :root {
-    --transparent: #{ $transparent };
-    
     @each $context, $value in (
         background: $color-background,
         foreground: $color-foreground,
@@ -49,4 +47,9 @@ $color-bad:         #F42534 !default;
             --color-#{ $context }-#{ 50 + ($factor / 2) }: #{ mix($color-foreground, $value, $factor) };
         }
     }
+
+    --transparent: #{ $transparent };
+    --link-color-normal: var(--color-brand);
+    --link-color-hover: var(--color-brand-40);
 }
+
