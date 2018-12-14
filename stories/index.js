@@ -5,3 +5,4 @@ import './ButtonGroup';
 import './Heading';
 import './Link';
 import './Text';
+import './Input';

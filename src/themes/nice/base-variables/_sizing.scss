@@ -6,6 +6,9 @@ $line-normal: 1px !default;
 $line-medium: 1.5 * $line-normal !default;
 $line-thick: 2 * $line-normal !default;
 
+// outlines
+$outline-size:  3px;
+
 // spacing
 $spacing-normal: 3px !default;
 $spacing-2x: 2 * $spacing-normal !default;
@@ -19,6 +22,8 @@ $spacing-5x: 5 * $spacing-normal !default;
     --line-normal:      #{ $line-normal };
     --line-medium:      #{ $line-medium };
     --line-thick:       #{ $line-thick };
+
+    --outline-size:     #{ $outline-size };
 
     --spacing-normal:   #{ $spacing-normal };
     --spacing-2x:       #{ $spacing-2x };

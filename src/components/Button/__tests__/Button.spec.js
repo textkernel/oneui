@@ -15,7 +15,7 @@ describe('<Button> that renders a button', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-    it('shoudl call click callback correctly', () => {
+    it('should call click callback correctly', () => {
         const onClickMock = jest.fn();
         const wrapper = mount(<Button onClick={onClickMock}>Click me</Button>);
         wrapper.find('button').simulate('click');

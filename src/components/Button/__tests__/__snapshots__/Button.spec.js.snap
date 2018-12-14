@@ -5,7 +5,6 @@ exports[`<Button> that renders a button should add classes when props are change
   context="primary"
   disabled={false}
   isBlock={true}
-  onClick={null}
   size="large"
   type="button"
 >
@@ -13,7 +12,6 @@ exports[`<Button> that renders a button should add classes when props are change
     className="Button Button--context_primary Button--size_large Button--isBlock"
     context="primary"
     disabled={false}
-    onClick={null}
     size="large"
     type="button"
   >
@@ -29,7 +27,6 @@ exports[`<Button> that renders a button should render default button correctly 1
   context="neutral"
   disabled={false}
   isBlock={false}
-  onClick={null}
   size="normal"
   type="button"
 >
@@ -37,7 +34,6 @@ exports[`<Button> that renders a button should render default button correctly 1
     className="Button Button--context_neutral Button--size_normal"
     context="neutral"
     disabled={false}
-    onClick={null}
     size="normal"
     type="button"
   >
