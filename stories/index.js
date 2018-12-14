@@ -3,6 +3,7 @@ import './Alert';
 import './Button';
 import './ButtonGroup';
 import './Heading';
+import './Input';
 import './Link';
 import './Text';
-import './Input';
+import './TextArea';
