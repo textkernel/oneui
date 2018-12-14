@@ -42,8 +42,9 @@
         display: flex;
         justify-content: flex-start;
         padding: {
-            left: var(--spacing-3x);
-            right: var(--spacing-3x);
+            top: var(--spacing-2x);
+            left: var(--spacing-2x);
+            right: var(--spacing-2x);
         }
     }
     &--justified {
