@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './Tab.scss';
 
-const { block, elem } = bem({
+const { block } = bem({
     name: 'Tab',
     classnames: styles,
     propsToMods: []
 });
 
 const Tab = props => {
-    const { children, ...rest } = props;
+    const { children, href, id, label, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)}>
@@ -22,15 +22,16 @@ const Tab = props => {
 Tab.propTypes = {
     /** The tab content */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    /** URL / route for this tab */
+    href: PropTypes.string,
     /** Unique ID for this tab */
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     /** Label for this tab */
-    label: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.node
-    ]).isRequired
+    label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired
 };
 
-Tab.defaultProps = {};
+Tab.defaultProps = {
+    href: '#'
+};
 
 export default Tab;

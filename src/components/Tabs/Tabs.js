@@ -1,7 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import Tab from '../Tab';
 import styles from './Tabs.scss';
 
 class Tabs extends PureComponent {
@@ -11,30 +10,48 @@ class Tabs extends PureComponent {
         const { activeTabId } = props;
 
         this.state = {
-            activeTabId
+            activeTabId,
+            derivedProp: activeTabId // eslint-disable-line react/no-unused-state
+        };
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        if (props.activeTabId === state.derivedProp) {
+            return null;
+        }
+        return {
+            activeTabId: props.activeTabId,
+            derivedProp: props.activeTabId
         };
     }
 
     render() {
-        const { activeTabId: idFromProps, children, ...rest } = this.props;
+        const { activeTabId: idFromProps, children, onChange, ...rest } = this.props;
         const { activeTabId } = this.state;
 
         return (
             <div {...rest} {...this.block()}>
                 <div {...this.elem('container')}>
                     {React.Children.map(children, tab => {
-                        const active = activeTabId === tab.props.id;
+                        const { href, id } = tab.props;
+                        if (!id) {
+                            return null;
+                        }
+                        const active = activeTabId === id;
                         return (
                             <a
-                                href="#" {...this.elem(active ? 'tabActive' : 'tab')}
-                                onClick={ e => {
+                                href={href || '#'}
+                                {...this.elem(active ? 'tabActive' : 'tab')}
+                                key={id}
+                                onClick={e => {
                                     e.preventDefault();
-                                    console.log(tab.props.id);
                                     this.setState({
-                                        activeTabId: tab.props.id
-                                    }, () => {
-                                        console.log(this.state.activeTabId);
+                                        activeTabId: id
                                     });
+                                    if (!onChange) {
+                                        return true;
+                                    }
+                                    return onChange(id);
                                 }}
                             >
                                 {tab.props.label}
@@ -42,30 +59,32 @@ class Tabs extends PureComponent {
                         );
                     })}
                 </div>
-                {React.Children.map(children, tab => {
-                    if (tab.props.id !== activeTabId) {
-                        return null;
-                    }
-                    return tab;
-                })}
+                <Fragment>
+                    {React.Children.map(children, tab => {
+                        const { id } = tab.props;
+                        if (id !== activeTabId) {
+                            return null;
+                        }
+                        return tab;
+                    })}
+                </Fragment>
             </div>
         );
     }
-};
+}
 
 Tabs.propTypes = {
-    /** ID of currently active tab */
-    activeTabId: PropTypes.oneOfType([
-        PropTypes.string,
-        PropTypes.number
-    ]).isRequired,
+    /** Id of currently active tab */
+    activeTabId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     /** The tabs */
-    children: PropTypes.oneOfType([
-        PropTypes.instanceOf(Tab),
-        PropTypes.arrayOf(PropTypes.instanceOf(Tab))
-    ]).isRequired
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]).isRequired,
+    /** Callback function, fired when switching tabs by clicking
+     Passes the new active tab id as first and only parameter */
+    onChange: PropTypes.func
 };
 
-Tabs.defaultProps = {};
+Tabs.defaultProps = {
+    onChange: null
+};
 
 export default bem(styles)(Tabs);

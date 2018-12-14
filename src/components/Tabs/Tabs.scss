@@ -46,6 +46,11 @@
             right: var(--spacing-3x);
         }
     }
+    &--justified {
+        .Tabs__container {
+            justify-content: space-between;;
+        }
+    }
     &__tab {
         @extend %tab;
     }
