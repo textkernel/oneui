@@ -16,7 +16,8 @@
     text-decoration: none;
     transition: border-color var(--transition-duration);
 
-    + .Tabs__tab {
+    + .Tabs__tab,
+    + .Tabs__tabActive {
         margin-left: var(--spacing-normal);
     }
 

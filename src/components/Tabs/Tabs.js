@@ -16,7 +16,8 @@ class Tabs extends PureComponent {
     }
 
     render() {
-        const { activeTabId, children, ...rest } = this.props;
+        const { activeTabId: idFromProps, children, ...rest } = this.props;
+        const { activeTabId } = this.state;
 
         return (
             <div {...rest} {...this.block()}>
@@ -24,7 +25,18 @@ class Tabs extends PureComponent {
                     {React.Children.map(children, tab => {
                         const active = activeTabId === tab.props.id;
                         return (
-                            <a href="#" {...this.elem(active ? 'tabActive' : 'tab')}>
+                            <a
+                                href="#" {...this.elem(active ? 'tabActive' : 'tab')}
+                                onClick={ e => {
+                                    e.preventDefault();
+                                    console.log(tab.props.id);
+                                    this.setState({
+                                        activeTabId: tab.props.id
+                                    }, () => {
+                                        console.log(this.state.activeTabId);
+                                    });
+                                }}
+                            >
                                 {tab.props.label}
                             </a>
                         );
