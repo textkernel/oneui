@@ -22,7 +22,7 @@ const Alert = props => {
             </div>
             {!!action && (
                 <div {...elem('action', props)}>
-                    <Button onClick={action.onClick} context="link">
+                    <Button onClick={action.onClick} context={action.context || 'link'}>
                         {action.label}
                     </Button>
                 </div>
@@ -34,6 +34,7 @@ const Alert = props => {
 Alert.propTypes = {
     /** Action button for this alert */
     action: PropTypes.shape({
+        context: PropTypes.oneOf(['link', ...CONTEXTS]),
         label: PropTypes.string.isRequired,
         onClick: PropTypes.func.isRequired
     }),
