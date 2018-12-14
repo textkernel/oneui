@@ -51,7 +51,7 @@ const baseConfig = {
         path: DIST_PATH,
         library: LIBRARY_NAME,
         libraryTarget: 'umd',
-        umdNamedDefine: true,
+        umdNamedDefine: true
     },
 
     resolve: {
