@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Heading, Button } from 'nice2'; // eslint-disable-line import/no-unresolved
-
+import { Heading, Button } from 'nice2'; // eslint-disable-line import/no-unresolved, import/no-extraneous-dependencies
 import ButtonContainer from './components/ButtonContainer';
-
 import './App.css';
 
 class App extends Component {
@@ -14,7 +12,7 @@ class App extends Component {
         this.altTheme = document.createElement('link');
         this.altTheme.type = 'text/css';
         this.altTheme.rel = 'stylesheet';
-        this.altTheme.href = './customer-nice-theme.css';
+        this.altTheme.href = './theme-custom.css';
 
         this.toggleTheme = this.toggleTheme.bind(this);
     }
@@ -42,7 +40,7 @@ class App extends Component {
             <div className="App">
                 <header className="App-header">
                     <ButtonContainer>
-                        <Heading>I&apos;m Showoff!</Heading>
+                        <Heading style={{ textAlign: 'center' }}>Showing off!</Heading>
                         <Button context="brand" onClick={this.toggleTheme}>
                             Click to toggle theme
                         </Button>

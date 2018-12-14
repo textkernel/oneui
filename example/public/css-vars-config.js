@@ -1,5 +1,4 @@
-/* eslint-disable no-console */
-import cssVars from 'css-vars-ponyfill';
+/* eslint-disable no-console, no-undef */
 
 /**
  * Configures and calls the ponyfill that provides client-side support

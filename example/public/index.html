@@ -18,9 +18,12 @@
         This script needs to be included only for IE11 to make css variables alive.
         Mind that it needs to be loaded in a blocking way (without async or defer)
         in order to prevent style flickering
-        It has an npm dependency on https://www.npmjs.com/package/css-vars-ponyfill
     -->
+    <script src="https://unpkg.com/css-vars-ponyfill@1"></script>
     <script type="text/javascript" src="/css-vars-config.js"></script>
+
+    <!-- Other dependencies, such as fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
 
     <!--
         [ REQUIREMENT ]
@@ -30,8 +33,8 @@
     <link data-nice-level="nice" rel="stylesheet" href="./nice2.css">
 
 
-    <!-- Theme that comes from a CDN  -->
-    <link data-nice-level="theme" rel="stylesheet" href="./theme-custom.css">
+    <!-- Theme that comes from a CDN (in this app this is apply progrematically: see App.js:toggleTheme) -->
+    <!-- <link data-nice-level="theme" rel="stylesheet" href="./theme-custom.css"> -->
 
     <title>Nice2! Themable Example</title>
 
