@@ -48,10 +48,13 @@
 
     &--context {
         &_link {
+            color: var(--link-color-normal);
             border-color: var(--transparent);
             background-color: var(--transparent);
+            text-decoration: var(--link-decoration-normal);
 
             &:hover {
+                color: var(--link-color-hover);
                 text-decoration: var(--link-decoration-hover);
             }
             &:focus,
