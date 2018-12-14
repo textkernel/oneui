@@ -11,17 +11,13 @@ const { block } = bem({
 });
 
 const TextArea = props => {
-    const { children, context, disabled, isBlock, size, value, ...rest } = props;
-    return <textarea {...rest} {...block(props)} disabled={disabled}>
-        {children}
-    </textarea>;
+    const { context, disabled, isBlock, size, ...rest } = props;
+    return <textarea {...rest} {...block(props)} disabled={disabled} />;
 };
 
-// Any other attributes (onChange, onKeyUp etc.) are
+// Any other attributes (value, defaultValue onChange, onKeyUp etc.) are
 // supported although not defined in propTypes
 TextArea.propTypes = {
-    /** Current textarea content */
-    children: PropTypes.string,
     /** The textarea context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context: PropTypes.oneOf(CONTEXTS),
     /** Should the input field be disabled or not */
@@ -33,7 +29,6 @@ TextArea.propTypes = {
 };
 
 TextArea.defaultProps = {
-    children: null,
     context: 'brand',
     disabled: false,
     isBlock: false,

@@ -9,6 +9,7 @@ storiesOf('TextArea', module)
     .add('Default behavior', () => (
         <TextArea
             context={select('Context', CONTEXTS, CONTEXTS[1])}
+            defaultValue="This is a default value"
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
             placeholder={text('Placeholder', 'Some text goes here...')}
@@ -31,7 +32,6 @@ storiesOf('TextArea', module)
             }}
             placeholder={text('Placeholder', 'While typing, check your console log...')}
             size={select('Size', SIZES, SIZES[1])}
-        >
-            {text('Textarea value', '')}
-        </TextArea>
+            value={text('Textarea value', '')}
+        />
     ));
