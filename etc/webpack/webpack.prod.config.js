@@ -1,3 +1,4 @@
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const { baseConfig, plugins, getRules } = require('./webpack.config');
 
 const rules = getRules('prod');
@@ -13,5 +14,14 @@ module.exports = {
     ],
     module: {
         rules: [rules.js, rules.styles]
+    },
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    mangle: false
+                }
+            })
+        ]
     }
 };
