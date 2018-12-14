@@ -1,0 +1,19 @@
+{
+  "name": "theme-provider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/themeProvider.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^17.8.1",
+    "lodash": "^4.17.11",
+    "nanoid": "^2.0.0",
+    "node-sass": "^4.11.0",
+    "randomcolor": "^0.5.3"
+  }
+}
