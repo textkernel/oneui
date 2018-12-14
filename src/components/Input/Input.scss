@@ -1,34 +1,7 @@
+@import '../../themes/nice/nice.scss';
+
 .Input {
-    background-color: #FFF;
-    border: {
-        color: var(--color-neutral);
-        radius: var(--border-radius);
-        style: solid;
-        width: var(--line-normal);
-    }
-    box-sizing: border-box;
-    color: var(--color-foreground);
-    font: {
-        family: var(--font-family-primary);
-        size: var(--font-size-normal);
-        weight: var(--font-weight-normal);
-    }
-    line-height: var(--line-height-normal);
-    outline: none;
-    padding: var(--spacing-2x);
-    transition: border-color var(--transition-duration);
-
-    &:focus {
-        border-color: var(--color-neutral);
-        box-shadow: 0 0 0 var(--outline-size) var(--color-neutral-25);
-        z-index: 1;
-    }
-
-    &[disabled] {
-        background-color: var(--color-neutral-25);
-        color: var(--color-neutral-75);
-        cursor: not-allowed;
-    }
+    @extend %input;
 
     &--context {
         @each $context in (brand, primary, accent, info, good, warning, bad) {
