@@ -1,10 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
-const postcssAutoprefixer = require('autoprefixer');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
-const { getRuleJS } = require('./utils');
+const { getRuleJS, getRuleCSS } = require('./utils');
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
 const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
@@ -27,34 +26,15 @@ const plugins = {
 };
 
 const getRules = (env = 'prod') => ({
-    js: getRuleJS(env === 'prod', SOURCE_PATH),
-    styles: {
-        test: /\.scss$/,
-        use: [
-            env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
-            {
-                loader: 'css-loader',
-                options: {
-                    modules: true,
-                    importLoaders: 1,
-                    localIdentName: '[local]--[hash:base64:10]',
-                    context: DIST_PATH // https://github.com/webpack-contrib/css-loader/issues/464
-                }
-            },
-            {
-                loader: 'postcss-loader',
-                options: {
-                    plugins: [postcssAutoprefixer]
-                }
-            },
-            {
-                loader: 'sass-loader',
-                options: {
-                    includePaths: [SOURCE_PATH]
-                }
-            }
-        ]
-    }
+    js: getRuleJS({
+        includePaths: [SOURCE_PATH]
+    }),
+    styles: getRuleCSS({
+        styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
+        localIdentName: env === 'prod' ? '[local]--[hash:base64:10]' : '[local]',
+        includePaths: [SOURCE_PATH],
+        context: DIST_PATH // https://github.com/webpack-contrib/css-loader/issues/464
+    })
 });
 
 const baseConfig = {
