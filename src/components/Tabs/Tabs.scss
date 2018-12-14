@@ -1,0 +1,20 @@
+.Tabs {
+    color: black;
+
+    &__container {
+        border-bottom: {
+            color: var(--color-neutral);
+            style: solid;
+            width: var(--line-normal);
+        }
+        display: flex;
+        justify-content: flex-start;
+        padding: {
+            left: var(--spacing-2x);
+            right: var(--spacing-2x);
+        }
+    }
+    &__tab {
+        line-height: var(--line-height-normal);
+    }
+}

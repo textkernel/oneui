@@ -1,0 +1,36 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import bem from 'bem';
+import styles from './Tab.scss';
+
+const { block, elem } = bem({
+    name: 'Tab',
+    classnames: styles,
+    propsToMods: []
+});
+
+const Tab = props => {
+    const { children, ...rest } = props;
+
+    return (
+        <div {...rest} {...block(props)}>
+            {children}
+        </div>
+    );
+};
+
+Tab.propTypes = {
+    /** The tab content */
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    /** Unique ID for this tab */
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    /** Label for this tab */
+    label: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.node
+    ]).isRequired
+};
+
+Tab.defaultProps = {};
+
+export default Tab;

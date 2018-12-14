@@ -4,4 +4,6 @@ export { default as Button } from './components/Button';
 export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as Heading } from './components/Heading';
 export { default as Link } from './components/Link';
+export { default as Tabs } from './components/Tabs';
+export { default as Tab } from './components/Tab';
 export { default as Text } from './components/Text';
