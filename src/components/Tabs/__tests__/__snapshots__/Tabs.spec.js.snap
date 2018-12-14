@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tabs> that renders tab container with some tabs should render simple tabs 1`] = `
+<Tabs
+  activeTabId="1"
+  onChange={null}
+>
+  <div
+    className="Tabs"
+  >
+    <div
+      className="Tabs__container"
+    >
+      <a
+        className="Tabs__tabActive"
+        href="#"
+        key="1/.0"
+        onClick={[Function]}
+      >
+        First
+      </a>
+      <a
+        className="Tabs__tab"
+        href="#"
+        key="2/.1"
+        onClick={[Function]}
+      >
+        Second
+      </a>
+    </div>
+    <Tab
+      href="#"
+      id="1"
+      key=".0"
+      label="First"
+    >
+      <div
+        className="Tab"
+      >
+        Some content
+      </div>
+    </Tab>
+  </div>
+</Tabs>
+`;

@@ -29,7 +29,7 @@ describe('<Tabs> that renders tab container with some tabs', () => {
                 </Tab>
             </Tabs>
         );
-        wrapper.find(Tab)[1].simulate('click');
+        wrapper.find('.Tabs__tab').simulate('click');
         expect(wrapper.state().activeTabId).toBe('2');
     });
 });
