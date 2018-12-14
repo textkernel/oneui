@@ -21,11 +21,14 @@ class Tabs extends PureComponent {
         return (
             <div {...rest} {...this.block()}>
                 <div {...this.elem('container')}>
-                    {React.Children.map(children, tab => (
-                        <a href="#" {...this.elem('tab')}>
-                            {tab.props.label}
-                        </a>
-                    ))}
+                    {React.Children.map(children, tab => {
+                        const active = activeTabId === tab.props.id;
+                        return (
+                            <a href="#" {...this.elem(active ? 'tabActive' : 'tab')}>
+                                {tab.props.label}
+                            </a>
+                        );
+                    })}
                 </div>
                 {React.Children.map(children, tab => {
                     if (tab.props.id !== activeTabId) {
