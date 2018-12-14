@@ -13,6 +13,7 @@ class App extends Component {
         this.altTheme.type = 'text/css';
         this.altTheme.rel = 'stylesheet';
         this.altTheme.href = './theme-custom.css';
+        this.altTheme.dataset.niceLevel = 'nice';
 
         this.toggleTheme = this.toggleTheme.bind(this);
     }
