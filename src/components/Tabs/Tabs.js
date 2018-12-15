@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { Children, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './Tabs.scss';
@@ -44,7 +44,7 @@ class Tabs extends PureComponent {
         return (
             <div {...rest} {...this.block()}>
                 <div {...this.elem('container')}>
-                    {React.Children.map(children, tab => {
+                    {Children.map(children, tab => {
                         const { href, id } = tab.props;
                         if (!id) {
                             return null;
@@ -64,15 +64,13 @@ class Tabs extends PureComponent {
                         );
                     })}
                 </div>
-                <Fragment>
-                    {React.Children.map(children, tab => {
-                        const { id } = tab.props;
-                        if (id !== activeTabId) {
-                            return null;
-                        }
-                        return tab;
-                    })}
-                </Fragment>
+                {Children.map(children, tab => {
+                    const { id } = tab.props;
+                    if (id !== activeTabId) {
+                        return null;
+                    }
+                    return tab;
+                })}
             </div>
         );
     }
