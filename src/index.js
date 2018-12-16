@@ -3,6 +3,7 @@ export { default as Alert } from './components/Alert';
 export { default as Button } from './components/Button';
 export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as Checkbox } from './components/Checkbox';
+export { default as Dropdown } from './components/Dropdown';
 export { default as Heading } from './components/Heading';
 export { default as Link } from './components/Link';
 export { default as LoadingSpinner } from './components/LoadingSpinner';

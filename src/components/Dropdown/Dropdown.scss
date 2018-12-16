@@ -1,0 +1,46 @@
+@keyframes listIn {
+    from {
+        opacity: .5;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.Dropdown {
+    display: inline-block;
+    position: relative;
+    font: {
+        family: var(--font-family-primary);
+        size: var(--font-size-normal);
+    }
+
+    &--isBlock {
+        display: block;
+    }
+
+    &__list {
+        background-color: var(--color-background);
+        border: {
+            color: var(--color-neutral);
+            radius: var(--border-radius);
+            style: solid;
+            width: var(--line-normal);
+        }
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        display: none;
+        margin-top: var(--spacing-normal);
+        min-width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        animation: listIn .1s linear;
+
+        &--expanded {
+            display: block;
+        }
+    }
+}

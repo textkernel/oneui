@@ -4,6 +4,7 @@ import './Button';
 import './ButtonGroup';
 import './CandidateAvatar';
 import './Checkbox';
+import './Dropdown';
 import './Heading';
 import './Input';
 import './Link';
