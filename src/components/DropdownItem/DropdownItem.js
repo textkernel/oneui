@@ -6,11 +6,11 @@ import styles from './DropdownItem.scss';
 const { block } = bem({
     name: 'DropdownItem',
     classnames: styles,
-    propsToMods: []
+    propsToMods: ['disabled']
 });
 
 const DropdownItem = props => {
-    const { children, ...rest } = props;
+    const { children, disabled, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)}>
@@ -20,9 +20,12 @@ const DropdownItem = props => {
 };
 
 DropdownItem.propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    disabled: PropTypes.bool
 };
 
-DropdownItem.defaultProps = {};
+DropdownItem.defaultProps = {
+    disabled: false
+};
 
 export default DropdownItem;

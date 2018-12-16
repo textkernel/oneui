@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import diacritics from 'diacritics';
 import Button from '../Button';
 import Input from '../Input';
+import DropdownCaret from './DropdownCaret';
 import bem from '../../packages/bem';
 import styles from './Dropdown.scss';
 import { CONTEXTS, SIZES } from '../../constants';
@@ -99,6 +100,7 @@ class Dropdown extends PureComponent {
                     {...this.elem('button')}
                 >
                     {label}
+                    <DropdownCaret {...this.elem('caret')} />
                 </Button>
                 {!!expanded &&
                     !disabled && (

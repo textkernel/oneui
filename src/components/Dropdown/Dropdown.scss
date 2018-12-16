@@ -17,10 +17,6 @@
         size: var(--font-size-normal);
     }
 
-    &--isBlock {
-        display: block;
-    }
-
     &__list {
         background-color: var(--color-background);
         border: {
@@ -50,6 +46,26 @@
             color: var(--color-neutral-40);
             style: solid;
             width: var(--line-normal);
+        }
+    }
+    &__caret {
+        height: var(--spacing-3x);
+        margin-left: var(--spacing-2x);
+        fill: var(--color-background);
+    }
+    &--isBlock {
+        display: block;
+    }
+    &--context {
+        &_neutral {
+            .Dropdown__caret {
+                fill: var(--color-foreground);
+            }
+        }
+        &_link {
+            .Dropdown__caret {
+                fill: var(--link-color-normal);
+            }
         }
     }
 }

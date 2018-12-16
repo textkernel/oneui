@@ -33,6 +33,7 @@ storiesOf('Dropdown', module)
             >
                 <DropdownItem>Test</DropdownItem>
                 <DropdownItem>This is a very long list item for this dropdown</DropdownItem>
+                <DropdownItem disabled>This is a disabled item</DropdownItem>
             </Dropdown>
         );
     });

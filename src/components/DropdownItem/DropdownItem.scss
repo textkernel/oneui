@@ -1,10 +1,17 @@
 .DropdownItem {
     color: var(--color-foreground);
+    cursor: pointer;
     display: block;
+    line-height: var(--line-height-normal);
     padding: var(--spacing-2x) var(--spacing-3x);
     white-space: nowrap;
 
     &:hover {
         background-color: var(--color-neutral-25);
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+        color: var(--color-neutral-75);
     }
 }
