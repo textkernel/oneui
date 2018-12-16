@@ -18,6 +18,7 @@
     }
 
     &__list {
+        animation: listIn .1s linear;
         background-color: var(--color-background);
         border: {
             color: var(--color-neutral);
@@ -33,7 +34,7 @@
         position: absolute;
         top: 100%;
         left: 0;
-        animation: listIn .1s linear;
+        z-index: 2;
 
         &--expanded {
             display: block;
@@ -43,6 +44,17 @@
         max-height: 310px;
         overflow: auto;
         overflow-x: hidden;
+    }
+    &__heading {
+        background-color: var(--color-neutral-25);
+        border-bottom: {
+            color: var(--color-neutral-40);
+            style: solid;
+            width: var(--line-normal);
+        }
+        color: var(--color-foreground);
+        font-weight: var(--font-weight-bold);
+        padding: var(--spacing-3x);
     }
     &__filter {
         padding: var(--spacing-3x);

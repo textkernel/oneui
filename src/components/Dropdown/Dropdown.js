@@ -86,7 +86,7 @@ class Dropdown extends PureComponent {
     }
 
     render() {
-        const { children, context, disabled, filter, isBlock, label, size, ...rest } = this.props;
+        const { children, context, heading, disabled, filter, isBlock, label, size, ...rest } = this.props;
         const { expanded } = this.state;
 
         return (
@@ -105,6 +105,11 @@ class Dropdown extends PureComponent {
                 {!!expanded &&
                     !disabled && (
                         <div {...this.elem('list')}>
+                            {!!heading && (
+                                <div {...this.elem('heading')}>
+                                    {heading}
+                                </div>
+                            )}
                             {!!filter && (
                                 <div {...this.elem('filter')}>
                                     <Input
@@ -136,6 +141,8 @@ Dropdown.propTypes = {
     children: PropTypes.node,
     /** Dropdown context */
     context: PropTypes.oneOf(['link', ...CONTEXTS]),
+    /** heading to be rendered at the top of dropdown list */
+    heading: PropTypes.node,
     /** Whether the dropdown is disabled */
     disabled: PropTypes.bool,
     /** Filter dropdown options and highlight matches */
@@ -163,6 +170,7 @@ Dropdown.propTypes = {
 Dropdown.defaultProps = {
     children: null,
     context: 'neutral',
+    heading: null,
     disabled: false,
     filter: false,
     isBlock: false,

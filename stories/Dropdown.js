@@ -12,6 +12,7 @@ storiesOf('Dropdown', module)
         return (
             <Dropdown
                 context={select('Context', ['link', ...CONTEXTS], CONTEXTS[0])}
+                heading={text('Heading', 'This is a dropdown heading')}
                 disabled={boolean('Disabled', false)}
                 filter={
                     filter
