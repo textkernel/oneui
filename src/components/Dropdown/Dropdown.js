@@ -1,6 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { Children, PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import diacritics from 'diacritics';
 import Button from '../Button';
+import Input from '../Input';
 import bem from '../../packages/bem';
 import styles from './Dropdown.scss';
 import { CONTEXTS, SIZES } from '../../constants';
@@ -9,7 +11,8 @@ class Dropdown extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            expanded: false
+            expanded: false,
+            filterValue: null
         };
 
         this.dropdown = React.createRef();
@@ -30,7 +33,6 @@ class Dropdown extends PureComponent {
     }
 
     toggleDropdown(e, collapse = false) {
-        const { disabled } = this.props;
         const { expanded } = this.state;
 
         if (e && e.stopPropagation) {
@@ -44,36 +46,97 @@ class Dropdown extends PureComponent {
         return true;
     }
 
+    filteredChildren() {
+        const { children, filter } = this.props;
+        const { filterValue } = this.state;
+
+        if (!filter || !filterValue) {
+            return children;
+        }
+
+        const re = new RegExp(
+            `${filter.matchPosition === 'start' ? '^' : ''}(${filterValue})`,
+            `g${!filter.matchCase ? 'i' : ''}`
+        );
+
+        return Children.toArray(children).filter(item => {
+            const { children: label } = item.props;
+            return label.match(re);
+        });
+    }
+
     render() {
-        const { children, context, disabled, isBlock, label, size, ...rest } = this.props;
+        const { children, context, disabled, filter, isBlock, label, size, ...rest } = this.props;
         const { expanded } = this.state;
 
         return (
-            <div {...rest} {...this.block()} ref={ this.dropdown }>
+            <div {...rest} {...this.block()} ref={this.dropdown}>
                 <Button
-                    context={ context }
-                    disabled={ disabled }
-                    isBlock={ isBlock }
-                    onClick={ this.toggleDropdown }
-                    size={ size }
+                    context={context}
+                    disabled={disabled}
+                    isBlock={isBlock}
+                    onClick={this.toggleDropdown}
+                    size={size}
                     {...this.elem('button')}
                 >
-                    { label }
+                    {label}
                 </Button>
-                <div {...this.elem('list')}>
-                    { children }
-                </div>
+                {!!expanded &&
+                    !disabled && (
+                        <div {...this.elem('list')}>
+                            {!!filter && (
+                                <div {...this.elem('filter')}>
+                                    <Input
+                                        autoFocus
+                                        isBlock
+                                        onChange={e => {
+                                            const { value } = e.target;
+
+                                            this.setState({
+                                                filterValue: filter.matchDiacritics
+                                                    ? value
+                                                    : diacritics.remove(value)
+                                            });
+                                        }}
+                                        placeholder={filter.placeholder || null}
+                                    />
+                                </div>
+                            )}
+                            {this.filteredChildren()}
+                        </div>
+                    )}
             </div>
         );
     }
 }
 
 Dropdown.propTypes = {
+    /** The dropdown items */
     children: PropTypes.node,
+    /** Dropdown context */
     context: PropTypes.oneOf(['link', ...CONTEXTS]),
+    /** Whether the dropdown is disabled */
     disabled: PropTypes.bool,
+    /** Filter dropdown options and highlight matches */
+    filter: PropTypes.oneOfType([
+        PropTypes.bool,
+        PropTypes.shape({
+            /** If the filter is case sensitive */
+            matchCase: PropTypes.bool,
+            /** If the filter should strictly match diacritics */
+            matchDiacritics: PropTypes.bool,
+            /** Whether to match at any position in the string or from the start */
+
+            matchPosition: PropTypes.oneOf(['any', 'start']),
+            /** Input placeholder when filter is empty */
+            placeholder: PropTypes.string
+        })
+    ]),
+    /** Render dropdown as block-level element */
     isBlock: PropTypes.bool,
+    /** Label for the dropdown trigger */
     label: PropTypes.string.isRequired,
+    /** Size of the dropdown trigger */
     size: PropTypes.oneOf(SIZES)
 };
 
@@ -81,6 +144,7 @@ Dropdown.defaultProps = {
     children: null,
     context: 'neutral',
     disabled: false,
+    filter: false,
     isBlock: false,
     size: 'normal'
 };

@@ -13,9 +13,9 @@ const DropdownItem = props => {
     const { children, ...rest } = props;
 
     return (
-        <a href="#" {...rest} {...block(props)}>
-            { children }
-        </a>
+        <div {...rest} {...block(props)}>
+            {children}
+        </div>
     );
 };
 

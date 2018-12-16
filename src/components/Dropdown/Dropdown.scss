@@ -43,4 +43,13 @@
             display: block;
         }
     }
+    &__filter {
+        padding: var(--spacing-3x);
+        background-color: var(--color-neutral-25);
+        border-bottom: {
+            color: var(--color-neutral-40);
+            style: solid;
+            width: var(--line-normal);
+        }
+    }
 }

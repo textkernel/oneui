@@ -40,7 +40,7 @@
         "expect": false,
         "shallow": false,
         "mount": false,
-        "window": true,
-        "document": true
+        "document": true,
+        "window": true
     }
 }
