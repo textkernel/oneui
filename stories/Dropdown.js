@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
+import { boolean, select, text, number, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
 import Dropdown from '../src/components/Dropdown';
 import DropdownItem from '../src/components/DropdownItem';
 import { CONTEXTS, SIZES } from '../src/constants';
@@ -30,6 +30,7 @@ storiesOf('Dropdown', module)
                 }
                 isBlock={boolean('isBlock', false)}
                 label={text('Label', 'Drop me down')}
+                maxHeight={number('Max. height', null)}
                 size={select('Size', SIZES, SIZES[1])}
             >
                 <DropdownItem>Some dropdown item</DropdownItem>

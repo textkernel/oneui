@@ -21,11 +21,13 @@ const DropdownItem = props => {
 
 DropdownItem.propTypes = {
     children: PropTypes.node.isRequired,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 DropdownItem.defaultProps = {
-    disabled: false
+    disabled: false,
+    value: null
 };
 
 export default DropdownItem;

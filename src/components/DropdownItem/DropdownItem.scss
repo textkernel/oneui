@@ -4,10 +4,16 @@
     display: block;
     line-height: var(--line-height-normal);
     padding: var(--spacing-2x) var(--spacing-3x);
+    transition: background-color var(--transition-duration);
+    user-select: none;
     white-space: nowrap;
 
     &:hover {
         background-color: var(--color-neutral-25);
+    }
+
+    &:active {
+        background-color: var(--color-neutral-40);
     }
 
     &--disabled {

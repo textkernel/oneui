@@ -65,7 +65,7 @@
                 box-shadow: none;
             }
             &[disabled] {
-                color: var(--color-neutral-75);
+                color: var(--link-color-disabled);
 
                 &:hover {
                     text-decoration: none;

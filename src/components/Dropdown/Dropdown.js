@@ -86,7 +86,18 @@ class Dropdown extends PureComponent {
     }
 
     render() {
-        const { children, context, heading, disabled, filter, isBlock, label, size, ...rest } = this.props;
+        const {
+            children,
+            context,
+            heading,
+            disabled,
+            filter,
+            isBlock,
+            label,
+            maxHeight,
+            size,
+            ...rest
+        } = this.props;
         const { expanded } = this.state;
 
         return (
@@ -105,11 +116,7 @@ class Dropdown extends PureComponent {
                 {!!expanded &&
                     !disabled && (
                         <div {...this.elem('list')}>
-                            {!!heading && (
-                                <div {...this.elem('heading')}>
-                                    {heading}
-                                </div>
-                            )}
+                            {!!heading && <div {...this.elem('heading')}>{heading}</div>}
                             {!!filter && (
                                 <div {...this.elem('filter')}>
                                     <Input
@@ -128,7 +135,14 @@ class Dropdown extends PureComponent {
                                     />
                                 </div>
                             )}
-                            <div {...this.elem('list-items')}>{this.filteredChildren()}</div>
+                            <div
+                                style={{
+                                    maxHeight
+                                }}
+                                {...this.elem('list-items')}
+                            >
+                                {this.filteredChildren()}
+                            </div>
                         </div>
                     )}
             </div>
@@ -163,6 +177,8 @@ Dropdown.propTypes = {
     isBlock: PropTypes.bool,
     /** Label for the dropdown trigger */
     label: PropTypes.string.isRequired,
+    /** Max. height of dropdown list (will scroll if exceeded) */
+    maxHeight: PropTypes.number,
     /** Size of the dropdown trigger */
     size: PropTypes.oneOf(SIZES)
 };
@@ -174,6 +190,7 @@ Dropdown.defaultProps = {
     disabled: false,
     filter: false,
     isBlock: false,
+    maxHeight: null,
     size: 'normal'
 };
 
