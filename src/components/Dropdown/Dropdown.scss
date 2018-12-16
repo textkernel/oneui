@@ -39,6 +39,11 @@
             display: block;
         }
     }
+    &__list-items {
+        max-height: 310px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
     &__filter {
         padding: var(--spacing-3x);
         background-color: var(--color-neutral-25);
@@ -66,6 +71,11 @@
             .Dropdown__caret {
                 fill: var(--link-color-normal);
             }
+        }
+    }
+    &--disabled {
+        .Dropdown__caret {
+            fill: var(--color-neutral-75);
         }
     }
 }

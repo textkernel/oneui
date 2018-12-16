@@ -31,9 +31,17 @@ storiesOf('Dropdown', module)
                 label={text('Label', 'Drop me down')}
                 size={select('Size', SIZES, SIZES[1])}
             >
-                <DropdownItem>Test</DropdownItem>
-                <DropdownItem>This is a very long list item for this dropdown</DropdownItem>
+                <DropdownItem>Some dropdown item</DropdownItem>
+                <DropdownItem>This is a very long item for this dropdown</DropdownItem>
                 <DropdownItem disabled>This is a disabled item</DropdownItem>
+                <DropdownItem>Yet another item</DropdownItem>
+                <DropdownItem>Yet another item</DropdownItem>
+                <DropdownItem>Yet another item</DropdownItem>
+                <DropdownItem>Yet another item</DropdownItem>                
+                <DropdownItem>Yet another item</DropdownItem>
+                <DropdownItem>Yet another item</DropdownItem>
+                <DropdownItem>Yet another item</DropdownItem>
+                <DropdownItem>Yet another item</DropdownItem>
             </Dropdown>
         );
     });

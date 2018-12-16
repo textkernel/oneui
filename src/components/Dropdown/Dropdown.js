@@ -123,7 +123,9 @@ class Dropdown extends PureComponent {
                                     />
                                 </div>
                             )}
-                            {this.filteredChildren()}
+                            <div {...this.elem('list-items')}>
+                                {this.filteredChildren()}
+                            </div>
                         </div>
                     )}
             </div>
