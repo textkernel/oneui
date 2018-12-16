@@ -17,8 +17,15 @@ class Dropdown extends PureComponent {
 
         this.dropdown = React.createRef();
         this.handleClickOutside = this.handleClickOutside.bind(this);
+        this.handleEscPress = this.handleEscPress.bind(this);
         this.toggleDropdown = this.toggleDropdown.bind(this);
         document.addEventListener('click', this.handleClickOutside, false);
+        document.addEventListener('keyup', this.handleEscPress, true);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleClickOutside, false);
+        document.removeEventListener('keyup', this.handleEscPress, true);
     }
 
     handleClickOutside(e) {
@@ -30,6 +37,18 @@ class Dropdown extends PureComponent {
         }
         this.toggleDropdown(null, true, true);
         return true;
+    }
+
+    handleEscPress(e) {
+        e.stopPropagation();
+        const key = e.keyCode || e.which;
+
+        if (key !== 27) {
+            return false;
+        }
+
+        this.toggleDropdown(null, true, true);
+        return false;
     }
 
     toggleDropdown(e, collapse = false) {
