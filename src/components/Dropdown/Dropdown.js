@@ -123,9 +123,7 @@ class Dropdown extends PureComponent {
                                     />
                                 </div>
                             )}
-                            <div {...this.elem('list-items')}>
-                                {this.filteredChildren()}
-                            </div>
+                            <div {...this.elem('list-items')}>{this.filteredChildren()}</div>
                         </div>
                     )}
             </div>
@@ -149,7 +147,6 @@ Dropdown.propTypes = {
             /** If the filter should strictly match diacritics */
             matchDiacritics: PropTypes.bool,
             /** Whether to match at any position in the string or from the start */
-
             matchPosition: PropTypes.oneOf(['any', 'start']),
             /** Input placeholder when filter is empty */
             placeholder: PropTypes.string

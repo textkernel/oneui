@@ -37,7 +37,7 @@ storiesOf('Dropdown', module)
                 <DropdownItem>Yet another item</DropdownItem>
                 <DropdownItem>Yet another item</DropdownItem>
                 <DropdownItem>Yet another item</DropdownItem>
-                <DropdownItem>Yet another item</DropdownItem>                
+                <DropdownItem>Yet another item</DropdownItem>
                 <DropdownItem>Yet another item</DropdownItem>
                 <DropdownItem>Yet another item</DropdownItem>
                 <DropdownItem>Yet another item</DropdownItem>
