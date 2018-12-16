@@ -59,9 +59,15 @@ class Dropdown extends PureComponent {
             e.stopPropagation();
         }
 
-        this.setState({
+        const newState = {
             expanded: collapse ? false : !expanded
-        });
+        }
+
+        if (!newState.expanded) {
+            newState.filterValue = null;
+        }
+
+        this.setState(newState);
 
         return true;
     }
@@ -98,7 +104,7 @@ class Dropdown extends PureComponent {
             size,
             ...rest
         } = this.props;
-        const { expanded } = this.state;
+        const { expanded, filterValue } = this.state;
 
         return (
             <div {...rest} {...this.block()} ref={this.dropdown}>
@@ -132,6 +138,7 @@ class Dropdown extends PureComponent {
                                             });
                                         }}
                                         placeholder={filter.placeholder || null}
+                                        value={filterValue || ''}
                                     />
                                 </div>
                             )}
