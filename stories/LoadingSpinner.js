@@ -11,11 +11,11 @@ storiesOf('LoadingSpinner', module)
             center={select(
                 'Center in...',
                 {
-                    '': '',
+                    '': null,
                     'Parent element': 'parent',
                     Viewport: 'viewport'
                 },
-                ''
+                null
             )}
             context={select('Context', CONTEXTS, CONTEXTS[1])}
             hidden={boolean('Hidden', false)}
