@@ -23,8 +23,9 @@ const CandidateAvatar = props => {
     const { imageUrl, matchPercentage, ...rest } = props;
 
     const radius = 34;
+    const percentage = Math.max(0, Math.min(100, matchPercentage));
     const circumference = 2 * radius * Math.PI;
-    const strokeDasharray = `${(matchPercentage * circumference) / 100} 999`;
+    const strokeDasharray = `${(percentage * circumference) / 100} 999`;
 
     return (
         <div {...rest} {...block(props)}>
@@ -34,7 +35,7 @@ const CandidateAvatar = props => {
                     backgroundImage: `url(${imageUrl})`
                 }}
             >
-                <div {...elem('percentage', props)}>{`${matchPercentage}%`}</div>
+                <div {...elem('percentage', props)}>{`${percentage}%`}</div>
             </div>
             <svg {...elem('ring', props)}>
                 <circle
@@ -44,7 +45,7 @@ const CandidateAvatar = props => {
                     strokeWidth="4"
                     {...elem('circle', {
                         ...props,
-                        context: context(matchPercentage)
+                        context: context(percentage)
                     })}
                     style={{
                         strokeDasharray
