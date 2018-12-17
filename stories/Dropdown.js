@@ -24,6 +24,7 @@ storiesOf('Dropdown', module)
                                   ['any', 'start'],
                                   'any'
                               ),
+                              noMatchLabel: text('Filter: No matches label', 'No matches found'),
                               placeholder: text('Filter: Placeholder', 'Filter options...')
                           }
                         : null
@@ -31,6 +32,7 @@ storiesOf('Dropdown', module)
                 isBlock={boolean('isBlock', false)}
                 label={text('Label', 'Drop me down')}
                 maxHeight={number('Max. height', null)}
+                minWidth={number('Min. width', null)}
                 multiple={boolean('Multiselect', false)}
                 onClose={() => {
                     // eslint-disable-next-line no-console

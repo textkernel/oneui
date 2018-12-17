@@ -1,9 +1,11 @@
-import React, { cloneElement, Children, PureComponent } from 'react';
+import React, { cloneElement, Children, Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import diacritics from 'diacritics';
+import { escapeRegExp } from '../../utils';
 import Button from '../Button';
 import Input from '../Input';
 import DropdownCaret from './DropdownCaret';
+import DropdownItem from '../DropdownItem';
 import bem from '../../packages/bem';
 import styles from './Dropdown.scss';
 import { CONTEXTS, SIZES } from '../../constants';
@@ -13,10 +15,12 @@ class Dropdown extends PureComponent {
         super(props);
         this.state = {
             expanded: false,
-            filterValue: null
+            filterValue: null,
+            value: null
         };
 
         this.dropdown = React.createRef();
+        this.handleChange = this.handleChange.bind(this);
         this.handleClickOutside = this.handleClickOutside.bind(this);
         this.handleEscPress = this.handleEscPress.bind(this);
         this.toggleDropdown = this.toggleDropdown.bind(this);
@@ -27,6 +31,10 @@ class Dropdown extends PureComponent {
     componentWillUnmount() {
         document.removeEventListener('click', this.handleClickOutside, false);
         document.removeEventListener('keyup', this.handleEscPress, true);
+    }
+
+    handleChange(e, value) {
+        console.log(e, value);
     }
 
     handleClickOutside(e) {
@@ -54,6 +62,38 @@ class Dropdown extends PureComponent {
 
         this.toggleDropdown(null, true, true);
         return false;
+    }
+
+    highlightLabel(label) {
+        const { filterValue } = this.state;
+
+        if (!filterValue) {
+            return label;
+        }
+
+        const parts = label.split(new RegExp(`(${ escapeRegExp(filterValue) })`, 'gi'));
+
+        return (
+            <Fragment>
+                { parts.map((part, i) => {
+                    if (part.toLowerCase() === filterValue.toLowerCase()) {
+                        return (
+                            <strong
+                                key={ i }
+                                {...this.elem('highlight')}
+                            >
+                                { part }
+                            </strong>
+                        );
+                    }
+                    return (
+                        <span key={ i }>
+                            { part }
+                        </span>
+                    );
+                }) }
+            </Fragment>
+        );
     }
 
     toggleDropdown(e, collapse = false) {
@@ -85,7 +125,9 @@ class Dropdown extends PureComponent {
         const { multiple } = this.props;
         return Children.map(children, item =>
             cloneElement(item, {
-                checkbox: multiple
+                checkbox: multiple,
+                children: this.highlightLabel(item.props.children),
+                onClick: this.handleChange
             })
         );
     }
@@ -99,7 +141,7 @@ class Dropdown extends PureComponent {
         }
 
         const re = new RegExp(
-            `${filter.matchPosition === 'start' ? '^' : ''}(${filterValue})`,
+            `${filter.matchPosition === 'start' ? '^' : ''}(${escapeRegExp(filterValue)})`,
             `g${!filter.matchCase ? 'i' : ''}`
         );
 
@@ -107,6 +149,12 @@ class Dropdown extends PureComponent {
             const { children: label } = item.props;
             return label.match(re);
         });
+
+        if (!filteredChildren.length) {
+            return (
+                <DropdownItem isStatic>{filter.noMatchLabel || 'No matches found'}</DropdownItem>
+            );
+        }
 
         return this.extendItemProps(filteredChildren);
     }
@@ -121,6 +169,7 @@ class Dropdown extends PureComponent {
             isBlock,
             label,
             maxHeight,
+            minWidth,
             size,
             ...rest
         } = this.props;
@@ -164,7 +213,8 @@ class Dropdown extends PureComponent {
                             )}
                             <div
                                 style={{
-                                    maxHeight
+                                    maxHeight,
+                                    minWidth
                                 }}
                                 {...this.elem('list-items')}
                             >
@@ -196,6 +246,8 @@ Dropdown.propTypes = {
             matchDiacritics: PropTypes.bool,
             /** Whether to match at any position in the string or from the start */
             matchPosition: PropTypes.oneOf(['any', 'start']),
+            /** Text to show when filter produced no matches */
+            noMatchLabel: PropTypes.node,
             /** Input placeholder when filter is empty */
             placeholder: PropTypes.string
         })
@@ -206,11 +258,27 @@ Dropdown.propTypes = {
     label: PropTypes.string.isRequired,
     /** Max. height of dropdown list (will scroll if exceeded) */
     maxHeight: PropTypes.number,
+    /** Min. width of dropdown list */
+    minWidth: PropTypes.number,
+    /** Whether to render a multiselect dropdown (value should be an array) */
     multiple: PropTypes.bool,
+    /** Callback function that is fired upon item selection
+        The current selection is passed as second argument
+        In case of a multiselect, the new value is added if not yet present
+        or removed if already present */
+    onChange: PropTypes.func,
     /** Callback function that is fired after dropdown collapses */
     onClose: PropTypes.func,
     /** Size of the dropdown trigger */
-    size: PropTypes.oneOf(SIZES)
+    size: PropTypes.oneOf(SIZES),
+    /** Current dropdown value. In case of a multiselect this is expected
+        to be an array of values. Otherwise it holds the value of a selected
+        dropdown item. If provided, the dropdown is a controlled component */
+    value: PropTypes.oneOfType([
+        PropTypes.arrayOf([PropTypes.string, PropTypes.number]),
+        PropTypes.string,
+        PropTypes.number
+    ])
 };
 
 Dropdown.defaultProps = {
@@ -221,9 +289,12 @@ Dropdown.defaultProps = {
     filter: false,
     isBlock: false,
     maxHeight: null,
+    minWidth: null,
     multiple: false,
+    onChange: null,
     onClose: null,
-    size: 'normal'
+    size: 'normal',
+    value: null
 };
 
 Dropdown.propsToMods = ['context', 'disabled', 'isBlock', 'size'];

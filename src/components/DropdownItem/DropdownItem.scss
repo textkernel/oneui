@@ -24,4 +24,14 @@
             background-color: var(--color-neutral-25);
         }
     }
+    &--isStatic {
+        background-color: var(--color-background);
+        color: var(--color-neutral-75);
+        cursor: default;
+
+        &:hover,
+        &:active {
+            background-color: var(--color-background);
+        }
+    }
 }

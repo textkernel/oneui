@@ -67,6 +67,9 @@
         font-weight: var(--font-weight-bold);
         padding: var(--spacing-3x);
     }
+    &__highlight {
+        font-weight: var(--font-weight-bold);
+    }
     &__filter {
         padding: var(--spacing-3x);
         background-color: var(--color-neutral-25);
