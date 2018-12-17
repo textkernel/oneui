@@ -10,10 +10,10 @@ const { block, elem } = bem({
 });
 
 const context = percentage => {
-    if (percentage < 33) {
+    if (percentage <= 33) {
         return 'bad';
     }
-    if (percentage < 66) {
+    if (percentage <= 66) {
         return 'warning';
     }
     return 'good';
@@ -24,23 +24,19 @@ const CandidateAvatar = props => {
 
     const radius = 34;
     const circumference = 2 * radius * Math.PI;
-    const strokeDasharray = `${matchPercentage * circumference / 100} 999`;
+    const strokeDasharray = `${(matchPercentage * circumference) / 100} 999`;
 
     return (
         <div {...rest} {...block(props)}>
             <div
                 {...elem('image', props)}
                 style={{
-                    backgroundImage: `url(${ imageUrl })`
+                    backgroundImage: `url(${imageUrl})`
                 }}
             >
-                <div {...elem('percentage', props)}>
-                    {`${ matchPercentage }%`}
-                </div>
+                <div {...elem('percentage', props)}>{`${matchPercentage}%`}</div>
             </div>
-            <svg
-                {...elem('ring', props)}
-            >
+            <svg {...elem('ring', props)}>
                 <circle
                     r="34"
                     cx="36"

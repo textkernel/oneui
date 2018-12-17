@@ -47,18 +47,22 @@
     }
 
     &__percentage {
-        background-color: rgba(255,255,255,.25);
+        background-color: rgba(0,0,0,.25);
         border-radius: 50%;
+        color: white;
+        cursor: default;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 100%;
         width: 100%;
         opacity: 0;
+        user-select: none;
         font: {
             family: var(--font-family-primary);
             size: var(--font-size-large);
         }
+        text-shadow: 1px 1px 0 black;
         transition: all .3s;
     }
 }
