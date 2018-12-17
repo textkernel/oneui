@@ -4,5 +4,6 @@ import './Button';
 import './ButtonGroup';
 import './Heading';
 import './Link';
+import './LoadingSpinner';
 import './Text';
 import './Input';
