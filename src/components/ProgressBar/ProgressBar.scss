@@ -1,0 +1,63 @@
+@keyframes progressAnimated {
+    0% {
+        opacity: 0;
+        width: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 100%;
+    }
+}
+
+.ProgressBar {
+    background-color: var(--color-neutral-25);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    font: {
+        family: var(--font-family-primary);
+        size: var(--font-size-small);
+        weight: var(--font-weight-bold);
+    }
+    margin: var(--spacing-normal);
+
+    &__fill {
+        border-radius: var(--border-radius);
+        box-sizing: border-box;
+        color: var(--color-background);
+        min-width: 50px;
+        padding: 0 var(--spacing-2x);
+        position: relative;
+        text-align: center;
+        transition: all var(--transition-duration);
+        white-space: nowrap;
+
+        &--animated {
+            &:after {
+                position: absolute;
+                content: '';
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 100%;
+                background-color: rgba(255,255,255,.3);
+                animation: progressAnimated 2s ease infinite;
+            }
+        }
+
+        &--context {
+            @each $context in (neutral, brand, primary, accent, info, good, warning, bad) {
+                &_#{ $context } {
+                    background-color: var(--color-#{ $context });
+                    line-height: var(--line-height-large);
+                }
+            }
+        }
+    }
+
+    &--hidden {
+        display: none;
+    }
+}
