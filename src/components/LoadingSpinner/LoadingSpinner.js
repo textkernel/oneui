@@ -7,11 +7,11 @@ import { CONTEXTS } from '../../constants';
 const { block, elem } = bem({
     name: 'LoadingSpinner',
     classnames: styles,
-    propsToMods: ['context']
+    propsToMods: ['context', 'hidden']
 });
 
 const LoadingSpinner = props => {
-    const { context, size, ...rest } = props;
+    const { context, hidden, size, ...rest } = props;
     return (
         <svg
             viewBox={[0, 0, 44, 44]}
@@ -35,12 +35,15 @@ const LoadingSpinner = props => {
 LoadingSpinner.propTypes = {
     /** The spinner context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context: PropTypes.oneOf(CONTEXTS),
+    /** Hides the spinner when true */
+    hidden: PropTypes.bool,
     /** Custom spinner size (will affect both width and height) */
     size: PropTypes.number
 };
 
 LoadingSpinner.defaultProps = {
     context: 'brand',
+    hidden: false,
     size: null
 };
 

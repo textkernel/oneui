@@ -9,7 +9,7 @@ describe('<LoadingSpinner> that renders a circular loading spinner', () => {
     });
 
     it('should add classes when props are changed', () => {
-        const wrapper = shallow(<LoadingSpinner context="primary" size={12} />);
+        const wrapper = shallow(<LoadingSpinner context="primary" size={12} hidden />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 });

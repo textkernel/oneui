@@ -2,7 +2,7 @@
 
 exports[`<LoadingSpinner> that renders a circular loading spinner should add classes when props are changed 1`] = `
 <svg
-  className="LoadingSpinner LoadingSpinner--context_primary"
+  className="LoadingSpinner LoadingSpinner--context_primary LoadingSpinner--hidden"
   style={
     Object {
       "height": 12,
@@ -19,7 +19,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should add cla
   }
 >
   <circle
-    className="LoadingSpinner__path LoadingSpinner__path--context_primary"
+    className="LoadingSpinner__path LoadingSpinner__path--context_primary LoadingSpinner__path--hidden"
     cx="22"
     cy="22"
     fill="none"
