@@ -16,9 +16,7 @@ const DropdownItem = props => {
         return (
             <div {...rest} {...block(props)}>
                 <input type="checkbox" />
-                <label>
-                    {children}
-                </label>
+                <label>{children}</label>
             </div>
         );
     }
@@ -38,7 +36,7 @@ DropdownItem.propTypes = {
     disabled: PropTypes.bool,
     /** Callback function, fired when item is clicked */
     onClick: PropTypes.func,
-    /** If true, this item does not allow user interaction */
+    /** If true, this item is not meant for user interaction */
     isStatic: PropTypes.bool,
     /** Selected value of this item */
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])

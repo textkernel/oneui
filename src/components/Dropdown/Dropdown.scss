@@ -66,6 +66,7 @@
         color: var(--color-foreground);
         font-weight: var(--font-weight-bold);
         padding: var(--spacing-3x);
+        white-space: nowrap;
     }
     &__highlight {
         font-weight: var(--font-weight-bold);

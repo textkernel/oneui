@@ -14,7 +14,7 @@ class Dropdown extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            expanded: false,
+            expanded: props.initiallyOpened,
             filterValue: null,
             value: null
         };
@@ -71,27 +71,20 @@ class Dropdown extends PureComponent {
             return label;
         }
 
-        const parts = label.split(new RegExp(`(${ escapeRegExp(filterValue) })`, 'gi'));
+        const parts = label.split(new RegExp(`(${escapeRegExp(filterValue)})`, 'gi'));
 
         return (
             <Fragment>
-                { parts.map((part, i) => {
+                {parts.map((part, i) => {
                     if (part.toLowerCase() === filterValue.toLowerCase()) {
                         return (
-                            <strong
-                                key={ i }
-                                {...this.elem('highlight')}
-                            >
-                                { part }
+                            <strong key={i} {...this.elem('highlight')}>
+                                {part}
                             </strong>
                         );
                     }
-                    return (
-                        <span key={ i }>
-                            { part }
-                        </span>
-                    );
-                }) }
+                    return <span key={i}>{part}</span>;
+                })}
             </Fragment>
         );
     }
@@ -166,6 +159,7 @@ class Dropdown extends PureComponent {
             heading,
             disabled,
             filter,
+            initiallyOpened,
             isBlock,
             label,
             maxHeight,
@@ -252,6 +246,8 @@ Dropdown.propTypes = {
             placeholder: PropTypes.string
         })
     ]),
+    /** Open the dropdown after first render */
+    initiallyOpened: PropTypes.bool,
     /** Render dropdown as block-level element */
     isBlock: PropTypes.bool,
     /** Label for the dropdown trigger */
@@ -287,6 +283,7 @@ Dropdown.defaultProps = {
     heading: null,
     disabled: false,
     filter: false,
+    initiallyOpened: false,
     isBlock: false,
     maxHeight: null,
     minWidth: null,
