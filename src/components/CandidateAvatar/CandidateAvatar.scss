@@ -11,13 +11,21 @@
 
     &__circle {
         fill: none;
-        stroke: black;
+        stroke: var(--color-neutral);
         stroke-dasharray: 0 999;
         stroke-linecap: round;
         shape-rendering: geometricPrecision;
         transition: all .3s ease;
         transform: rotate(-90deg);
         transform-origin: 50% 50%;
+
+        &--context {
+            @each $context in (good, warning, bad) {
+                &_#{$context} {
+                    stroke: var(--color-#{$context});
+                }
+            }
+        }
     }
 
     &__image {

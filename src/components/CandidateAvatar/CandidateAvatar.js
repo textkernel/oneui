@@ -6,8 +6,18 @@ import styles from './CandidateAvatar.scss';
 const { block, elem } = bem({
     name: 'CandidateAvatar',
     classnames: styles,
-    propsToMods: []
+    propsToMods: ['context']
 });
+
+const context = percentage => {
+    if (percentage < 33) {
+        return 'bad';
+    }
+    if (percentage < 66) {
+        return 'warning';
+    }
+    return 'good';
+};
 
 const CandidateAvatar = props => {
     const { imageUrl, matchPercentage, ...rest } = props;
@@ -36,7 +46,10 @@ const CandidateAvatar = props => {
                     cx="36"
                     cy="36"
                     strokeWidth="4"
-                    {...elem('circle', props)}
+                    {...elem('circle', {
+                        ...props,
+                        context: context(matchPercentage)
+                    })}
                     style={{
                         strokeDasharray
                     }}
