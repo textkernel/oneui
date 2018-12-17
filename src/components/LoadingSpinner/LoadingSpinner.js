@@ -8,7 +8,7 @@ import { CONTEXTS } from '../../constants';
 const { block, elem } = bem({
     name: 'LoadingSpinner',
     classnames: styles,
-    propsToMods: ['context', 'hidden']
+    propsToMods: ['center', 'context', 'hidden']
 });
 
 const LoadingSpinner = props => {
@@ -47,6 +47,7 @@ const LoadingSpinner = props => {
 };
 
 LoadingSpinner.propTypes = {
+    center: PropTypes.oneOf(['parent', 'viewport']),
     /** The spinner context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context: PropTypes.oneOf(CONTEXTS),
     /** Hides the spinner when true */
@@ -58,6 +59,7 @@ LoadingSpinner.propTypes = {
 };
 
 LoadingSpinner.defaultProps = {
+    center: null,
     context: 'brand',
     hidden: false,
     label: null,

@@ -17,6 +17,12 @@
     }
 }
 
+@mixin center() {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .LoadingSpinner {
     display: inline-flex;
     flex-direction: column;
@@ -48,6 +54,17 @@
     &__label {
         display: block;
         margin-top: var(--spacing-3x);
+    }
+
+    &--center {
+        &_parent {
+            position: absolute;
+            @include center();
+        }
+        &_viewport {
+            position: fixed;
+            @include center();
+        }
     }
 
     &--hidden {
