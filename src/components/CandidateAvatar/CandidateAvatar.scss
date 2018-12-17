@@ -1,0 +1,56 @@
+.CandidateAvatar {
+    position: relative;
+    display: inline-block;
+    height: 72px;
+    width: 72px;
+
+    &__ring {
+        width: 72px;
+        height: 72px;
+    }
+
+    &__circle {
+        fill: none;
+        stroke: black;
+        stroke-dasharray: 0 999;
+        stroke-linecap: round;
+        shape-rendering: geometricPrecision;
+        transition: all .3s ease;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+    }
+
+    &__image {
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 60px;
+        width: 60px;
+        background-size: cover;
+        background-position: 50% 50%;
+
+        &:hover {
+            .CandidateAvatar__percentage {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__percentage {
+        background-color: rgba(255,255,255,.25);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        font: {
+            family: var(--font-family-primary);
+            size: var(--font-size-large);
+        }
+        transition: all .3s;
+    }
+}

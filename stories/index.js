@@ -2,6 +2,7 @@ import './Dummy';
 import './Alert';
 import './Button';
 import './ButtonGroup';
+import './CandidateAvatar';
 import './Checkbox';
 import './Heading';
 import './Input';
