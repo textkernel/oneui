@@ -39,6 +39,18 @@
         &--expanded {
             display: block;
         }
+        > :first-child {
+            border-top: {
+                left-radius: var(--border-radius);
+                right-radius: var(--border-radius);
+            }
+        }
+        > :last-child {
+            border-bottom: {
+                left-radius: var(--border-radius);
+                right-radius: var(--border-radius);
+            }
+        }
     }
     &__list-items {
         overflow: auto;

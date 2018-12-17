@@ -10,22 +10,25 @@ const { block } = bem({
 });
 
 const DropdownItem = props => {
-    const { children, disabled, ...rest } = props;
+    const { checkbox, children, disabled, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)}>
+            {!!checkbox && <input type="checkbox" />}
             {children}
         </div>
     );
 };
 
 DropdownItem.propTypes = {
+    checkbox: PropTypes.bool,
     children: PropTypes.node.isRequired,
     disabled: PropTypes.bool,
     value: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 DropdownItem.defaultProps = {
+    checkbox: false,
     disabled: false,
     value: null
 };

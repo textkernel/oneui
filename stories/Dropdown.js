@@ -31,6 +31,11 @@ storiesOf('Dropdown', module)
                 isBlock={boolean('isBlock', false)}
                 label={text('Label', 'Drop me down')}
                 maxHeight={number('Max. height', null)}
+                multiple={boolean('Multiselect', false)}
+                onClose={() => {
+                    // eslint-disable-next-line no-console
+                    console.log('Dropdown closed');
+                }}
                 size={select('Size', SIZES, SIZES[1])}
             >
                 <DropdownItem>Some dropdown item</DropdownItem>

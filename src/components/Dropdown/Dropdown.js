@@ -1,4 +1,4 @@
-import React, { Children, PureComponent } from 'react';
+import React, { cloneElement, Children, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import diacritics from 'diacritics';
 import Button from '../Button';
@@ -36,6 +36,10 @@ class Dropdown extends PureComponent {
         if (this.dropdown.current.contains(e.target)) {
             return false;
         }
+        const { expanded } = this.state;
+        if (!expanded) {
+            return false;
+        }
         this.toggleDropdown(null, true, true);
         return true;
     }
@@ -61,23 +65,37 @@ class Dropdown extends PureComponent {
 
         const newState = {
             expanded: collapse ? false : !expanded
-        }
+        };
 
         if (!newState.expanded) {
             newState.filterValue = null;
         }
 
-        this.setState(newState);
+        this.setState(newState, () => {
+            const { onClose } = this.props;
+            if (!newState.expanded && onClose) {
+                onClose();
+            }
+        });
 
         return true;
     }
 
+    extendItemProps(children) {
+        const { multiple } = this.props;
+        return Children.map(children, item =>
+            cloneElement(item, {
+                checkbox: multiple
+            })
+        );
+    }
+
     filteredChildren() {
-        const { children, filter } = this.props;
+        const { children, filter, multiple } = this.props;
         const { filterValue } = this.state;
 
         if (!filter || !filterValue) {
-            return children;
+            return this.extendItemProps(children);
         }
 
         const re = new RegExp(
@@ -85,10 +103,12 @@ class Dropdown extends PureComponent {
             `g${!filter.matchCase ? 'i' : ''}`
         );
 
-        return Children.toArray(children).filter(item => {
+        const filteredChildren = Children.toArray(children).filter(item => {
             const { children: label } = item.props;
             return label.match(re);
         });
+
+        return this.extendItemProps(filteredChildren);
     }
 
     render() {
@@ -186,6 +206,9 @@ Dropdown.propTypes = {
     label: PropTypes.string.isRequired,
     /** Max. height of dropdown list (will scroll if exceeded) */
     maxHeight: PropTypes.number,
+    multiple: PropTypes.bool,
+    /** Callback function that is fired after dropdown collapses */
+    onClose: PropTypes.func,
     /** Size of the dropdown trigger */
     size: PropTypes.oneOf(SIZES)
 };
@@ -198,6 +221,8 @@ Dropdown.defaultProps = {
     filter: false,
     isBlock: false,
     maxHeight: null,
+    multiple: false,
+    onClose: null,
     size: 'normal'
 };
 

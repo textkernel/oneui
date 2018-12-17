@@ -19,5 +19,9 @@
     &--disabled {
         cursor: not-allowed;
         color: var(--color-neutral-75);
+
+        &:active {
+            background-color: var(--color-neutral-25);
+        }
     }
 }
