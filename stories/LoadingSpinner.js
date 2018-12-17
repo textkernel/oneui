@@ -11,6 +11,5 @@ storiesOf('LoadingSpinner', module)
             context={select('Context', CONTEXTS, CONTEXTS[1])}
             hidden={boolean('Hidden', false)}
             size={number('Size', null)}
-            slideIn={boolean('Slide in when shown', false)}
         />
     ));
