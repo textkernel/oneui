@@ -1,54 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LoadingSpinner> that renders a circular loading spinner should add classes when props are changed 1`] = `
-<svg
+<div
   className="LoadingSpinner LoadingSpinner--context_primary LoadingSpinner--hidden"
-  style={
-    Object {
-      "height": 12,
-      "width": 12,
-    }
-  }
-  viewBox={
-    Array [
-      0,
-      0,
-      44,
-      44,
-    ]
-  }
 >
-  <circle
-    className="LoadingSpinner__path LoadingSpinner__path--context_primary LoadingSpinner__path--hidden"
-    cx="22"
-    cy="22"
-    fill="none"
-    r="20"
-    strokeWidth="4"
-  />
-</svg>
+  <svg
+    className="LoadingSpinner__svg LoadingSpinner__svg--context_primary LoadingSpinner__svg--hidden"
+    style={
+      Object {
+        "height": 12,
+        "width": 12,
+      }
+    }
+    viewBox={
+      Array [
+        0,
+        0,
+        44,
+        44,
+      ]
+    }
+  >
+    <circle
+      className="LoadingSpinner__path LoadingSpinner__path--context_primary LoadingSpinner__path--hidden"
+      cx="22"
+      cy="22"
+      fill="none"
+      r="20"
+      strokeWidth="4"
+    />
+  </svg>
+</div>
 `;
 
 exports[`<LoadingSpinner> that renders a circular loading spinner should render a default spinner correctly 1`] = `
-<svg
+<div
   className="LoadingSpinner LoadingSpinner--context_brand"
-  style={null}
-  viewBox={
-    Array [
-      0,
-      0,
-      44,
-      44,
-    ]
-  }
 >
-  <circle
-    className="LoadingSpinner__path LoadingSpinner__path--context_brand"
-    cx="22"
-    cy="22"
-    fill="none"
-    r="20"
-    strokeWidth="4"
-  />
-</svg>
+  <svg
+    className="LoadingSpinner__svg LoadingSpinner__svg--context_brand"
+    style={null}
+    viewBox={
+      Array [
+        0,
+        0,
+        44,
+        44,
+      ]
+    }
+  >
+    <circle
+      className="LoadingSpinner__path LoadingSpinner__path--context_brand"
+      cx="22"
+      cy="22"
+      fill="none"
+      r="20"
+      strokeWidth="4"
+    />
+  </svg>
+</div>
+`;
+
+exports[`<LoadingSpinner> that renders a circular loading spinner should render a spinner with label 1`] = `
+<div
+  className="LoadingSpinner LoadingSpinner--context_brand"
+>
+  <svg
+    className="LoadingSpinner__svg LoadingSpinner__svg--context_brand"
+    style={null}
+    viewBox={
+      Array [
+        0,
+        0,
+        44,
+        44,
+      ]
+    }
+  >
+    <circle
+      className="LoadingSpinner__path LoadingSpinner__path--context_brand"
+      cx="22"
+      cy="22"
+      fill="none"
+      r="20"
+      strokeWidth="4"
+    />
+  </svg>
+  <Text
+    className="LoadingSpinner__label LoadingSpinner__label--context_brand"
+    inline={true}
+    muted={false}
+  >
+    Loading...
+  </Text>
+</div>
 `;

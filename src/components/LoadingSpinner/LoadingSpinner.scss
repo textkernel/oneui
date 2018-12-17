@@ -18,10 +18,16 @@
 }
 
 .LoadingSpinner {
-    animation: rotate 2s linear infinite;
-    width: 48px;
-    height: 48px;
-    display: block;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__svg {
+        animation: rotate 2s linear infinite;
+        width: 48px;
+        height: 48px;
+        display: block;
+    }
 
     &__path {
         stroke-dasharray: 1, 150;
@@ -37,6 +43,11 @@
                 }
             }
         }
+    }
+
+    &__label {
+        display: block;
+        margin-top: var(--spacing-3x);
     }
 
     &--hidden {
