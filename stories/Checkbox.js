@@ -15,6 +15,7 @@ storiesOf('Checkbox', module)
             disabled={boolean('Disabled', false)}
             id={text('Id', 'checkbox-1')}
             onChange={() => alert('clicked')} // eslint-disable-line no-undef, no-alert
+            defaultChecked
         >
             {text('Checkbox label', 'Select me!')}
         </Checkbox>
