@@ -23,7 +23,7 @@ const Checkbox = props => {
                 disabled={disabled}
             />
             <span {...elem('box', props)}>
-                <svg {...elem('svg', props)} width="12px" height="10px" viewBox={viewbox}>
+                <svg {...elem('svg', props)} width="12px" height="10px" viewBox={CHECKBOX_VIEWBOX}>
                     <polyline points="1.5 6 3.5 9 8 3" />
                 </svg>
             </span>
@@ -39,13 +39,10 @@ Checkbox.propTypes = {
     disabled: PropTypes.bool,
     /** The label for the checkbox */
     children: PropTypes.string.isRequired,
-    /** Viewbox dimentions, allows to costumise the checkbox */
-    viewbox: PropTypes.arrayOf(PropTypes.number)
 };
 
 Checkbox.defaultProps = {
     disabled: false,
-    viewbox: CHECKBOX_VIEWBOX
 };
 
 export default Checkbox;
