@@ -14,4 +14,14 @@ storiesOf('Checkbox', module)
         >
             {text('Checkbox label', 'Select me!')}
         </Checkbox>
+    ))
+    .add('Checkbox with callback', () => (
+        <Checkbox
+            disabled={boolean('Disabled', false)}
+            id={text('Id', 'checkbox-1')}
+            viewbox={array('Viewbox', CHECKBOX_VIEWBOX)}
+            onChange={() => alert('clicked')} // eslint-disable-line no-undef, no-alert
+        >
+            {text('Checkbox label', 'Select me!')}
+        </Checkbox>
     ));
