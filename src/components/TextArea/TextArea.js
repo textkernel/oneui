@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../packages/bem';
+import bem from 'bem';
 import styles from './TextArea.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 

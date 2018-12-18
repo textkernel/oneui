@@ -12,11 +12,12 @@ storiesOf('TextArea', module)
             defaultValue="This is a default value"
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
-            placeholder={text('Placeholder', 'Some text goes here...')}
             onChange={e => {
+                const { value } = e.target;
                 // eslint-disable-next-line no-console
-                console.log(e.target.value);
+                console.log(value);
             }}
+            placeholder={text('Placeholder', 'Some text goes here...')}
             size={select('Size', SIZES, SIZES[1])}
         />
     ))
