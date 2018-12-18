@@ -7,7 +7,7 @@ storiesOf('CandidateAvatar', module)
     .addDecorator(withKnobs)
     .add('CandidateAvatar', () => (
         <CandidateAvatar
-            imageUrl={text('Image URL', 'https://placehold.it/350x150')}
+            imageUrl={text('Image URL', '/avatar.png')}
             matchPercentage={number('Match percentage', 75)}
             showPercentageOnHover={boolean('Show percentage on hover', true)}
             size={number('Size', 72)}
