@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../packages/bem';
+import bem from 'bem';
+import Checkbox from '../Checkbox';
 import styles from './DropdownItem.scss';
 
 const { block } = bem({
@@ -15,8 +16,9 @@ const DropdownItem = props => {
     if (checkbox) {
         return (
             <div {...rest} {...block(props)}>
-                <input type="checkbox" />
-                <label>{children}</label>
+                <Checkbox disabled={ disabled }>
+                    {children}
+                </Checkbox>
             </div>
         );
     }
