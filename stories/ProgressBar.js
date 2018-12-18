@@ -13,5 +13,6 @@ storiesOf('ProgressBar', module)
             hidden={boolean('Hidden', false)}
             label={text('Label', 'Loading...')}
             percentage={number('Percentage', 50)}
+            small={boolean('Small', false)}
         />
     ));

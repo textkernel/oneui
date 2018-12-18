@@ -3,19 +3,17 @@
 exports[`<ProgressBar> that renders a horizontal progress bar should add classes when props are changed 1`] = `
 <div
   animated={true}
-  className="ProgressBar ProgressBar--animated ProgressBar--context_primary ProgressBar--hidden"
+  className="ProgressBar ProgressBar--animated ProgressBar--context_primary ProgressBar--hidden ProgressBar--small"
   hidden={true}
 >
   <div
-    className="ProgressBar__fill ProgressBar__fill--animated ProgressBar__fill--context_primary ProgressBar__fill--hidden"
+    className="ProgressBar__fill ProgressBar__fill--animated ProgressBar__fill--context_primary ProgressBar__fill--hidden ProgressBar__fill--small"
     style={
       Object {
         "width": "25%",
       }
     }
-  >
-    25%
-  </div>
+  />
 </div>
 `;
 

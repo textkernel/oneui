@@ -14,7 +14,9 @@ describe('<ProgressBar> that renders a horizontal progress bar', () => {
     });
 
     it('should add classes when props are changed', () => {
-        const wrapper = shallow(<ProgressBar percentage={25} context="primary" animated hidden />);
+        const wrapper = shallow(
+            <ProgressBar percentage={25} context="primary" animated hidden small />
+        );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 });

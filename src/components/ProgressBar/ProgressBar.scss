@@ -55,9 +55,18 @@
                 }
             }
         }
+
+        &--small {
+            padding: 0;
+            height: var(--spacing-2x);
+        }
     }
 
     &--hidden {
         display: none;
+    }
+
+    &--small {
+        height: var(--spacing-2x);
     }
 }
