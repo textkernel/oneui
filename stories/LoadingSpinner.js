@@ -8,7 +8,7 @@ storiesOf('LoadingSpinner', module)
     .addDecorator(withKnobs)
     .add('LoadingSpinner', () => (
         <LoadingSpinner
-            center={select(
+            centerIn={select(
                 'Center in...',
                 {
                     '': null,

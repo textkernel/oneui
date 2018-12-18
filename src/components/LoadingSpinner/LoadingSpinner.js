@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import bem from 'bem';
 import Text from '../Text';
-import bem from '../../packages/bem';
 import styles from './LoadingSpinner.scss';
 import { CONTEXTS } from '../../constants';
 
 const { block, elem } = bem({
     name: 'LoadingSpinner',
     classnames: styles,
-    propsToMods: ['center', 'context', 'hidden']
+    propsToMods: ['centerIn', 'context', 'hidden']
 });
 
 const LoadingSpinner = props => {
@@ -47,7 +47,8 @@ const LoadingSpinner = props => {
 };
 
 LoadingSpinner.propTypes = {
-    center: PropTypes.oneOf(['parent', 'viewport']),
+    /** Center the spinner relative to parent element or viewport */
+    centerIn: PropTypes.oneOf(['parent', 'viewport']),
     /** The spinner context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context: PropTypes.oneOf(CONTEXTS),
     /** Hides the spinner when true */
@@ -59,7 +60,7 @@ LoadingSpinner.propTypes = {
 };
 
 LoadingSpinner.defaultProps = {
-    center: null,
+    centerIn: null,
     context: 'brand',
     hidden: false,
     label: null,

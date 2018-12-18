@@ -56,7 +56,7 @@
         margin-top: var(--spacing-3x);
     }
 
-    &--center {
+    &--centerIn {
         &_parent {
             position: absolute;
             @include center();
