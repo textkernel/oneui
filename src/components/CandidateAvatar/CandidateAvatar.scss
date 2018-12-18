@@ -34,8 +34,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        height: 60px;
-        width: 60px;
+        height: calc(100% - 12px);
+        width: calc(100% - 12px);
         background-size: cover;
         background-position: 50% 50%;
 

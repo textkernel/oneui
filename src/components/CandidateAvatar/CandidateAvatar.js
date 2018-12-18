@@ -20,28 +20,41 @@ const context = percentage => {
 };
 
 const CandidateAvatar = props => {
-    const { imageUrl, matchPercentage, ...rest } = props;
+    const { imageUrl, matchPercentage, showPercentageOnHover, size, ...rest } = props;
 
-    const radius = 34;
+    const fixedSize = Math.round(Math.max(32, size));
+    const radius = (fixedSize / 2) - 2;
     const percentage = Math.max(0, Math.min(100, matchPercentage));
     const circumference = 2 * radius * Math.PI;
     const strokeDasharray = `${(percentage * circumference) / 100} 999`;
 
     return (
-        <div {...rest} {...block(props)}>
+        <div {...rest} {...block(props)}
+            style={{
+                width: fixedSize,
+                height: fixedSize
+            }}
+        >
             <div
                 {...elem('image', props)}
                 style={{
                     backgroundImage: `url(${imageUrl})`
                 }}
             >
-                <div {...elem('percentage', props)}>{`${percentage}%`}</div>
+                { !!showPercentageOnHover && (
+                    <div {...elem('percentage', props)}>{`${percentage}%`}</div>
+                )}
             </div>
-            <svg {...elem('ring', props)}>
+            <svg {...elem('ring', props)}
+                style={{
+                    width: fixedSize,
+                    height: fixedSize
+                }}
+            >
                 <circle
-                    r="34"
-                    cx="36"
-                    cy="36"
+                    r={ radius}
+                    cx={ fixedSize / 2}
+                    cy={ fixedSize / 2 }
                     strokeWidth="4"
                     {...elem('circle', {
                         ...props,
@@ -58,12 +71,16 @@ const CandidateAvatar = props => {
 
 CandidateAvatar.propTypes = {
     imageUrl: PropTypes.string,
-    matchPercentage: PropTypes.number
+    matchPercentage: PropTypes.number,
+    showPercentageOnHover: PropTypes.bool,
+    size: PropTypes.number
 };
 
 CandidateAvatar.defaultProps = {
     imageUrl: null,
-    matchPercentage: null
+    matchPercentage: null,
+    showPercentageOnHover: false,
+    size: 72
 };
 
 export default CandidateAvatar;
