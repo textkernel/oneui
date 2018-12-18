@@ -38,11 +38,11 @@ Checkbox.propTypes = {
     /** If the checkbox should be disabled */
     disabled: PropTypes.bool,
     /** The label for the checkbox */
-    children: PropTypes.string.isRequired,
+    children: PropTypes.string.isRequired
 };
 
 Checkbox.defaultProps = {
-    disabled: false,
+    disabled: false
 };
 
 export default Checkbox;

@@ -6,10 +6,7 @@ import Checkbox from '../src/components/Checkbox';
 storiesOf('Checkbox', module)
     .addDecorator(withKnobs)
     .add('Checkbox', () => (
-        <Checkbox
-            disabled={boolean('Disabled', false)}
-            id={text('Id', 'checkbox-1')}
-        >
+        <Checkbox disabled={boolean('Disabled', false)} id={text('Id', 'checkbox-1')}>
             {text('Checkbox label', 'Select me!')}
         </Checkbox>
     ))
