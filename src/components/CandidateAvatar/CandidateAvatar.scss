@@ -45,7 +45,9 @@
             size: var(--font-size-large);
         }
         text-shadow: 1px 1px 0 black;
+        text-overflow: ellipsis;
         transition: all .3s;
+        white-space: nowrap;
     }
 
     &__image {
