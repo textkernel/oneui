@@ -23,13 +23,15 @@ const CandidateAvatar = props => {
     const { imageUrl, matchPercentage, showPercentageOnHover, size, ...rest } = props;
 
     const fixedSize = Math.round(Math.max(32, size));
-    const radius = (fixedSize / 2) - 2;
+    const radius = fixedSize / 2 - 2;
     const percentage = Math.max(0, Math.min(100, matchPercentage));
     const circumference = 2 * radius * Math.PI;
     const strokeDasharray = `${(percentage * circumference) / 100} 999`;
 
     return (
-        <div {...rest} {...block(props)}
+        <div
+            {...rest}
+            {...block(props)}
             style={{
                 width: fixedSize,
                 height: fixedSize
@@ -41,20 +43,21 @@ const CandidateAvatar = props => {
                     backgroundImage: `url(${imageUrl})`
                 }}
             >
-                { !!showPercentageOnHover && (
+                {!!showPercentageOnHover && (
                     <div {...elem('percentage', props)}>{`${percentage}%`}</div>
                 )}
             </div>
-            <svg {...elem('ring', props)}
+            <svg
+                {...elem('ring', props)}
                 style={{
                     width: fixedSize,
                     height: fixedSize
                 }}
             >
                 <circle
-                    r={ radius}
-                    cx={ fixedSize / 2}
-                    cy={ fixedSize / 2 }
+                    r={radius}
+                    cx={fixedSize / 2}
+                    cy={fixedSize / 2}
                     strokeWidth="4"
                     {...elem('circle', {
                         ...props,

@@ -28,24 +28,6 @@
         }
     }
 
-    &__image {
-        border-radius: 50%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        height: calc(100% - 12px);
-        width: calc(100% - 12px);
-        background-size: cover;
-        background-position: 50% 50%;
-
-        &:hover {
-            .CandidateAvatar__percentage {
-                opacity: 1;
-            }
-        }
-    }
-
     &__percentage {
         background-color: rgba(0,0,0,.25);
         border-radius: 50%;
@@ -64,5 +46,23 @@
         }
         text-shadow: 1px 1px 0 black;
         transition: all .3s;
+    }
+
+    &__image {
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: calc(100% - 12px);
+        width: calc(100% - 12px);
+        background-size: cover;
+        background-position: 50% 50%;
+
+        &:hover {
+            .CandidateAvatar__percentage {
+                opacity: 1;
+            }
+        }
     }
 }
