@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
+import Text from '../Text';
 import styles from './Checkbox.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 
@@ -27,7 +28,9 @@ const Checkbox = props => {
                     <polyline points="1.5 6 3.5 9 8 3" />
                 </svg>
             </span>
-            <span {...elem('text', props)}>{children}</span>
+            <Text {...elem('label', props)} inline muted={disabled}>
+                {children}
+            </Text>
         </label>
     );
 };

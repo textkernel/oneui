@@ -33,11 +33,13 @@ exports[`<Checkbox> that renders a checkbox should add classes when props are ch
       />
     </svg>
   </span>
-  <span
-    className="Checkbox__text Checkbox__text--disabled"
+  <Text
+    className="Checkbox__label Checkbox__label--disabled"
+    inline={true}
+    muted={true}
   >
     Useless checkbox
-  </span>
+  </Text>
 </label>
 `;
 
@@ -74,10 +76,12 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
       />
     </svg>
   </span>
-  <span
-    className="Checkbox__text"
+  <Text
+    className="Checkbox__label"
+    inline={true}
+    muted={false}
   >
     Check this out
-  </span>
+  </Text>
 </label>
 `;

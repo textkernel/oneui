@@ -6,12 +6,10 @@
     cursor: pointer;
     display: block;
 
-    &__text {
-        display: inline-block;
+    &__label {
         vertical-align: middle;
         transform: translate3d(0,0,0);
         padding: var(--spacing-normal) 0 var(--spacing-normal) var(--spacing-2x);
-        color: var(--color-foreground);
     }
 
     &__box {
@@ -84,15 +82,18 @@
 
     &--disabled {
         cursor: not-allowed;
-        .Checkbox__text {
-            color: var(--color-muted);
-        }
 
         &:hover {
             .Checkbox__box {
                 border-color: var(--color-neutral);
             }
-    
+        }
+
+        .Checkbox__input:checked {
+            + .Checkbox__box {
+                border-color: var(--color-neutral);
+                background: var(--color-neutral);
+            }
         }
     }
 }
