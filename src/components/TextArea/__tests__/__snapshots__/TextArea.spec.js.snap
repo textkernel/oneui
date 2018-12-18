@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TextArea> that renders a textarea should add classes when props are changed 1`] = `
+<textarea
+  className="TextArea TextArea--context_bad TextArea--isBlock TextArea--size_large"
+  disabled={true}
+/>
+`;
+
+exports[`<TextArea> that renders a textarea should render default textarea correctly 1`] = `
+<textarea
+  className="TextArea TextArea--context_brand TextArea--size_normal"
+  defaultValue="Some value"
+  disabled={false}
+/>
+`;

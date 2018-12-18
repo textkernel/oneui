@@ -1,14 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
-import Input from '../src/components/Input';
-import { CONTEXTS, INPUT_TYPES, SIZES } from '../src/constants';
+import TextArea from '../src/components/TextArea';
+import { CONTEXTS, SIZES } from '../src/constants';
 
-storiesOf('Input', module)
+storiesOf('TextArea', module)
     .addDecorator(withKnobs)
     .add('Default behavior', () => (
-        <Input
+        <TextArea
             context={select('Context', CONTEXTS, CONTEXTS[1])}
+            defaultValue="This is a default value"
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
             onChange={e => {
@@ -18,11 +19,10 @@ storiesOf('Input', module)
             }}
             placeholder={text('Placeholder', 'Some text goes here...')}
             size={select('Size', SIZES, SIZES[1])}
-            type={select('Type', INPUT_TYPES, INPUT_TYPES[0])}
         />
     ))
     .add('Controlled component', () => (
-        <Input
+        <TextArea
             context={select('Context', CONTEXTS, CONTEXTS[1])}
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
@@ -33,7 +33,6 @@ storiesOf('Input', module)
             }}
             placeholder={text('Placeholder', 'While typing, check your console log...')}
             size={select('Size', SIZES, SIZES[1])}
-            type={select('Type', INPUT_TYPES, INPUT_TYPES[0])}
-            value={text('Input value', '')}
+            value={text('Textarea value', '')}
         />
     ));
