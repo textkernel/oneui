@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox> that renders a checkbox should add classes when props are changed 1`] = `
+<label
+  className="Checkbox Checkbox--disabled"
+  disabled={true}
+  htmlFor="c2"
+>
+  <input
+    className="Checkbox__input Checkbox__input--disabled"
+    disabled={true}
+    id="c2"
+    type="checkbox"
+  />
+  <span
+    className="Checkbox__box Checkbox__box--disabled"
+  >
+    <svg
+      className="Checkbox__svg Checkbox__svg--disabled"
+      height="10px"
+      viewBox={
+        Array [
+          0,
+          0,
+          10,
+          10,
+        ]
+      }
+      width="12px"
+    >
+      <polyline
+        points="1.5 6 3.5 9 8 3"
+      />
+    </svg>
+  </span>
+  <Text
+    className="Checkbox__label Checkbox__label--disabled"
+    inline={true}
+    muted={true}
+  >
+    Useless checkbox
+  </Text>
+</label>
+`;
+
+exports[`<Checkbox> that renders a checkbox should render default checkbox correctly 1`] = `
+<label
+  className="Checkbox"
+  disabled={false}
+  htmlFor="c1"
+>
+  <input
+    className="Checkbox__input"
+    disabled={false}
+    id="c1"
+    type="checkbox"
+  />
+  <span
+    className="Checkbox__box"
+  >
+    <svg
+      className="Checkbox__svg"
+      height="10px"
+      viewBox={
+        Array [
+          0,
+          0,
+          10,
+          10,
+        ]
+      }
+      width="12px"
+    >
+      <polyline
+        points="1.5 6 3.5 9 8 3"
+      />
+    </svg>
+  </span>
+  <Text
+    className="Checkbox__label"
+    inline={true}
+    muted={false}
+  >
+    Check this out
+  </Text>
+</label>
+`;
