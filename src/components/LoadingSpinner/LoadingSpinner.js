@@ -12,7 +12,7 @@ const { block, elem } = bem({
 });
 
 const LoadingSpinner = props => {
-    const { context, hidden, label, size, ...rest } = props;
+    const { centerIn, context, hidden, label, size, ...rest } = props;
     return (
         <div {...rest} {...block(props)}>
             <svg
