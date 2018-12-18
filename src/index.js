@@ -5,4 +5,5 @@ export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Heading } from './components/Heading';
 export { default as Link } from './components/Link';
+export { default as LoadingSpinner } from './components/LoadingSpinner';
 export { default as Text } from './components/Text';

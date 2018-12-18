@@ -5,5 +5,6 @@ import './ButtonGroup';
 import './Checkbox';
 import './Heading';
 import './Link';
+import './LoadingSpinner';
 import './Text';
 import './Input';

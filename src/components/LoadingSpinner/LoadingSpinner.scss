@@ -1,0 +1,73 @@
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}
+
+@mixin center() {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.LoadingSpinner {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__svg {
+        animation: rotate 2s linear infinite;
+        width: 48px;
+        height: 48px;
+        display: block;
+    }
+
+    &__path {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+        stroke-linecap: round;
+        animation: dash 1.5s ease-in-out infinite;
+        transition: stroke var(--transition-duration);
+
+        &--context {
+            @each $context in (neutral, brand, primary, accent, info, good, warning, bad) {
+                &_#{ $context } {
+                    stroke: var(--color-#{ $context });
+                }
+            }
+        }
+    }
+
+    &__label {
+        display: block;
+        margin-top: var(--spacing-3x);
+    }
+
+    &--centerIn {
+        &_parent {
+            position: absolute;
+            @include center();
+        }
+        &_viewport {
+            position: fixed;
+            @include center();
+        }
+    }
+
+    &--hidden {
+        display: none;
+    }
+}
