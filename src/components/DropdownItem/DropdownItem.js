@@ -26,9 +26,13 @@ class DropdownItem extends PureComponent {
                         checked={checked}
                         disabled={disabled}
                         onChange={() => {
+                            if (disabled) {
+                                return false;
+                            }
                             if (onSelect) {
                                 onSelect(value);
                             }
+                            return true;
                         }}
                         value={value}
                         {...this.elem('checkbox')}
@@ -44,12 +48,16 @@ class DropdownItem extends PureComponent {
                 {...rest}
                 {...this.block()}
                 onClick={() => {
+                    if (disabled) {
+                        return false;
+                    }
                     if (onClick) {
                         onClick(value);
                     }
                     if (onSelect) {
                         onSelect(value);
                     }
+                    return true;
                 }}
                 role="menuitem"
             >
