@@ -16,10 +16,11 @@ class Dropdown extends PureComponent {
         this.state = {
             expanded: props.initiallyOpened,
             filterValue: null,
-            value: null
+            selection: props.value
         };
 
         this.dropdown = React.createRef();
+        this.filter = React.createRef();
         this.handleChange = this.handleChange.bind(this);
         this.handleClickOutside = this.handleClickOutside.bind(this);
         this.handleEscPress = this.handleEscPress.bind(this);
@@ -33,11 +34,55 @@ class Dropdown extends PureComponent {
         document.removeEventListener('keyup', this.handleEscPress, true);
     }
 
-    handleChange(e, value) {
-        console.log(e, value);
+    focusFilter() {
+        // Focus filter input if enabled and dropdown is a multiselect
+        const { filter, multiple } = this.props;
+        if (!filter || !this.filter || !this.filter.current || !multiple) {
+            return false;
+        }
+        this.filter.current.focus();
+        return true;
+    }
+
+    handleChange(value) {
+        const { multiple } = this.props;
+        let newSelection;
+
+        if (multiple) {
+            const { selection } = this.state;
+            // Clone existing selection or start with empty one
+            newSelection = selection ? [...selection] : [];
+
+            const index = newSelection.indexOf(value);
+            if (index > -1) {
+                // Value already selected: remove it
+                newSelection.splice(index, 1);
+            } else {
+                // Add value to selection
+                newSelection = [...newSelection, value];
+            }
+        } else {
+            // Single-select dropdown: replace value
+            newSelection = value;
+        }
+
+        this.setState(
+            {
+                selection: newSelection
+            },
+            () => {
+                const { onChange } = this.props;
+                this.focusFilter();
+                if (!onChange) {
+                    return true;
+                }
+                return onChange(newSelection);
+            }
+        );
     }
 
     handleClickOutside(e) {
+        // Collapse dropdown on click outside
         if (!this.dropdown || !this.dropdown.current) {
             return false;
         }
@@ -53,6 +98,7 @@ class Dropdown extends PureComponent {
     }
 
     handleEscPress(e) {
+        // Collapse dropdown on esc press
         e.stopPropagation();
         const key = e.keyCode || e.which;
 
@@ -65,6 +111,7 @@ class Dropdown extends PureComponent {
     }
 
     highlightLabel(label) {
+        // Highlight parts of a label that match with current filter value
         const { filterValue } = this.state;
 
         if (!filterValue) {
@@ -78,12 +125,12 @@ class Dropdown extends PureComponent {
                 {parts.map((part, i) => {
                     if (part.toLowerCase() === filterValue.toLowerCase()) {
                         return (
-                            <strong key={i} {...this.elem('highlight')}>
+                            <strong key={i.toString()} {...this.elem('highlight')}>
                                 {part}
                             </strong>
                         );
                     }
-                    return <span key={i}>{part}</span>;
+                    return <span key={i.toString()}>{part}</span>;
                 })}
             </Fragment>
         );
@@ -106,8 +153,9 @@ class Dropdown extends PureComponent {
 
         this.setState(newState, () => {
             const { onClose } = this.props;
+            const { selection } = this.state;
             if (!newState.expanded && onClose) {
-                onClose();
+                onClose(selection);
             }
         });
 
@@ -115,18 +163,23 @@ class Dropdown extends PureComponent {
     }
 
     extendItemProps(children) {
+        // Clone dropdown item and extend its props with those
+        // needed for a multiselect dropdown item
         const { multiple } = this.props;
+        const { selection } = this.state;
+
         return Children.map(children, item =>
             cloneElement(item, {
                 checkbox: multiple,
+                checked: multiple && (selection || []).indexOf(item.props.value) > -1,
                 children: this.highlightLabel(item.props.children),
-                onClick: this.handleChange
+                onSelect: this.handleChange
             })
         );
     }
 
     filteredChildren() {
-        const { children, filter, multiple } = this.props;
+        const { children, filter } = this.props;
         const { filterValue } = this.state;
 
         if (!filter || !filterValue) {
@@ -201,6 +254,7 @@ class Dropdown extends PureComponent {
                                             });
                                         }}
                                         placeholder={filter.placeholder || null}
+                                        ref={this.filter}
                                         value={filterValue || ''}
                                     />
                                 </div>
@@ -211,6 +265,7 @@ class Dropdown extends PureComponent {
                                     minWidth
                                 }}
                                 {...this.elem('list-items')}
+                                role="menu"
                             >
                                 {this.filteredChildren()}
                             </div>
@@ -263,7 +318,8 @@ Dropdown.propTypes = {
         In case of a multiselect, the new value is added if not yet present
         or removed if already present */
     onChange: PropTypes.func,
-    /** Callback function that is fired after dropdown collapses */
+    /** Callback function that is fired after dropdown collapses
+     Current selection is passed as first argument */
     onClose: PropTypes.func,
     /** Size of the dropdown trigger */
     size: PropTypes.oneOf(SIZES),

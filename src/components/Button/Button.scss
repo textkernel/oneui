@@ -18,6 +18,7 @@
     padding: var(--spacing-2x) var(--spacing-4x);
     text-align: center;
     transition: all var(--transition-duration);
+    white-space: nowrap;
 
     &:focus,
     &:hover {

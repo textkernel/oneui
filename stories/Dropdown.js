@@ -34,23 +34,27 @@ storiesOf('Dropdown', module)
                 maxHeight={number('Max. height', null)}
                 minWidth={number('Min. width', null)}
                 multiple={boolean('Multiselect', false)}
+                onChange={selection => {
+                    // eslint-disable-next-line no-console
+                    console.log(selection);
+                }}
                 onClose={() => {
                     // eslint-disable-next-line no-console
                     console.log('Dropdown closed');
                 }}
                 size={select('Size', SIZES, SIZES[1])}
             >
-                <DropdownItem>Some dropdown item</DropdownItem>
-                <DropdownItem>This is a very long item for this dropdown</DropdownItem>
-                <DropdownItem disabled>This is a disabled item</DropdownItem>
-                <DropdownItem>Yet another item</DropdownItem>
-                <DropdownItem>Yet another item</DropdownItem>
-                <DropdownItem>Yet another item</DropdownItem>
-                <DropdownItem>Yet another item</DropdownItem>
-                <DropdownItem>Yet another item</DropdownItem>
-                <DropdownItem>Yet another item</DropdownItem>
-                <DropdownItem>Yet another item</DropdownItem>
-                <DropdownItem>Yet another item</DropdownItem>
+                <DropdownItem value="1">Some dropdown item</DropdownItem>
+                <DropdownItem value="2">This is a very long item for this dropdown</DropdownItem>
+                <DropdownItem value="3" disabled>
+                    This is a disabled item
+                </DropdownItem>
+                <DropdownItem value="4">Yet another item</DropdownItem>
+                <DropdownItem value="5">Yet another item</DropdownItem>
+                <DropdownItem value="6">Yet another item</DropdownItem>
+                <DropdownItem value="7">Yet another item</DropdownItem>
+                <DropdownItem value="8">Yet another item</DropdownItem>
+                <DropdownItem value="9">Yet another item</DropdownItem>
             </Dropdown>
         );
     });

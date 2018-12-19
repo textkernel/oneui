@@ -16,6 +16,10 @@
         background-color: var(--color-neutral-40);
     }
 
+    &--checkbox {
+        padding: 0;
+    }
+
     &--disabled {
         cursor: not-allowed;
         color: var(--color-neutral-75);
@@ -33,5 +37,10 @@
         &:active {
             background-color: var(--color-background);
         }
+    }
+
+    &__checkbox {
+        padding: var(--spacing-2x) var(--spacing-3x);
+        line-height: var(--line-height-normal);
     }
 }
