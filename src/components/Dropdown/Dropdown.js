@@ -1,4 +1,4 @@
-import React, { cloneElement, Children, Fragment, PureComponent } from 'react';
+import React, { cloneElement, createRef, Children, Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import diacritics from 'diacritics';
 import { escapeRegExp } from '../../utils';
@@ -16,22 +16,56 @@ class Dropdown extends PureComponent {
         this.state = {
             expanded: props.initiallyOpened,
             filterValue: null,
+            fromRight: false,
+            fromRightOffset: 0,
             selection: props.value
         };
 
-        this.dropdown = React.createRef();
-        this.filter = React.createRef();
+        this.dropdown = createRef();
+        this.filter = createRef();
+        this.list = createRef();
         this.handleChange = this.handleChange.bind(this);
         this.handleClickOutside = this.handleClickOutside.bind(this);
         this.handleEscPress = this.handleEscPress.bind(this);
         this.toggleDropdown = this.toggleDropdown.bind(this);
-        document.addEventListener('click', this.handleClickOutside, false);
-        document.addEventListener('keyup', this.handleEscPress, true);
+        window.addEventListener('click', this.handleClickOutside, false);
+        window.addEventListener('keyup', this.handleEscPress, true);
+        window.addEventListener('resize', this.determineListOrientation.bind(this), false);
+    }
+
+    componentDidMount() {
+        this.determineListOrientation();
     }
 
     componentWillUnmount() {
-        document.removeEventListener('click', this.handleClickOutside, false);
-        document.removeEventListener('keyup', this.handleEscPress, true);
+        window.removeEventListener('click', this.handleClickOutside, false);
+        window.removeEventListener('keyup', this.handleEscPress, true);
+        window.removeEventListener('resize', this.determineListOrientation.bind(this), false);
+    }
+
+    determineListOrientation() {
+        if (!this.list || !this.list.current) {
+            return true;
+        }
+
+        const windowWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+        const { left, right, width } = this.list.current.getBoundingClientRect();
+        const { fromRight, fromRightOffset } = this.state;
+
+        if (left - width > 0 && right >= windowWidth && !fromRight) {
+            this.setState({
+                fromRight: true,
+                fromRightOffset: right
+            });
+        } else if (fromRight && fromRightOffset < windowWidth) {
+            this.setState({
+                fromRight: false,
+                fromRightOffset: 0
+            });
+        }
+
+        return true;
     }
 
     focusFilter() {
@@ -237,7 +271,7 @@ class Dropdown extends PureComponent {
                 </Button>
                 {!!expanded &&
                     !disabled && (
-                        <div {...this.elem('list')}>
+                        <div {...this.elem('list')} ref={this.list}>
                             {!!heading && <div {...this.elem('heading')}>{heading}</div>}
                             {!!filter && (
                                 <div {...this.elem('filter')}>
@@ -351,6 +385,6 @@ Dropdown.defaultProps = {
 };
 
 Dropdown.propsToMods = ['context', 'disabled', 'isBlock', 'size'];
-Dropdown.stateToMods = ['expanded'];
+Dropdown.stateToMods = ['expanded', 'fromRight'];
 
 export default bem(styles)(Dropdown);
