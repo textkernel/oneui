@@ -121,7 +121,7 @@ function bemStateless(blockDecl) {
  */
 export default function bem(args) {
     // bem was called as a in stateless mode
-    if (args.name && args.classnames) {
+    if (typeof args.name === 'string' && args.name !== '' && typeof args.classnames === 'object') {
         const { name, classnames, propsToMods } = args;
         return bemStateless({ name, classnames, propsToMods });
     }
