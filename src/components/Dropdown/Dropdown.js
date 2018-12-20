@@ -152,7 +152,9 @@ class Dropdown extends PureComponent {
             return label;
         }
 
-        const parts = diacritics.remove(label).split(new RegExp(`(${escapeRegExp(filterValue)})`, 'gi'));
+        const parts = diacritics
+            .remove(label)
+            .split(new RegExp(`(${escapeRegExp(filterValue)})`, 'gi'));
         let pos = 0;
 
         return (

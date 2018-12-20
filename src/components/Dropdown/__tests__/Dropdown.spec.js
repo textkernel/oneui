@@ -22,7 +22,10 @@ describe('<Dropdown> that renders a dropdown element', () => {
         expect(wrapper.state().expanded).toBe(true);
 
         // Select an item and make sure state is updated and callback fired
-        wrapper.find(DropdownItem).first().simulate('click');
+        wrapper
+            .find(DropdownItem)
+            .first()
+            .simulate('click');
         expect(onChange).toHaveBeenCalledWith('1');
         expect(wrapper.state().selection).toBe('1');
 
@@ -35,7 +38,9 @@ describe('<Dropdown> that renders a dropdown element', () => {
     it('should add classes when props are changed', () => {
         const wrapper = shallow(
             <Dropdown label="My dropdown" context="primary" size="large" disabled isBlock>
-                <DropdownItem value="1" disabled>Some item</DropdownItem>
+                <DropdownItem value="1" disabled>
+                    Some item
+                </DropdownItem>
                 <DropdownItem value="2">Another item</DropdownItem>
                 <DropdownItem value="3">More items</DropdownItem>
             </Dropdown>
@@ -45,9 +50,12 @@ describe('<Dropdown> that renders a dropdown element', () => {
 
     it('should filter items correctly', () => {
         const wrapper = mount(
-            <Dropdown label="My dropdown" filter={{
-                placeholder: 'Test filtering options'
-            }}>
+            <Dropdown
+                label="My dropdown"
+                filter={{
+                    placeholder: 'Test filtering options'
+                }}
+            >
                 <DropdownItem value="1">test capitalization</DropdownItem>
                 <DropdownItem value="2">Téšṫ diacritics</DropdownItem>
                 <DropdownItem value="3">Match positioning test</DropdownItem>
@@ -59,7 +67,7 @@ describe('<Dropdown> that renders a dropdown element', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
 
         const filterInput = wrapper.find('input');
-        filterInput.simulate('change', { target: { value: 'Test' }});
+        filterInput.simulate('change', { target: { value: 'Test' } });
         expect(wrapper.find(DropdownItem).length).toBe(3);
 
         wrapper.setProps({
@@ -68,7 +76,7 @@ describe('<Dropdown> that renders a dropdown element', () => {
                 matchPosition: 'start'
             }
         });
-        filterInput.simulate('change', { target: { value: 'test' }});
+        filterInput.simulate('change', { target: { value: 'test' } });
         expect(wrapper.find(DropdownItem).length).toBe(1);
     });
 });

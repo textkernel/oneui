@@ -26,8 +26,8 @@ class DropdownItem extends PureComponent {
                     <Checkbox
                         checked={checked}
                         disabled={disabled}
-                        id={`item_${ index }`}
-                        onChange={ e => {
+                        id={`item_${index}`}
+                        onChange={e => {
                             e.stopPropagation();
                             if (!disabled && onSelect) {
                                 return onSelect(value);
