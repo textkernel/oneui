@@ -48,7 +48,7 @@ storiesOf('Dropdown', module)
                 <DropdownItem value="3" disabled>
                     This is a disabled item
                 </DropdownItem>
-                <DropdownItem value="4">Yet another item</DropdownItem>
+                <DropdownItem value="4">Téšṫ diacritics</DropdownItem>
                 <DropdownItem value="5">Yet another item</DropdownItem>
                 <DropdownItem value="6">Yet another item</DropdownItem>
                 <DropdownItem value="7">Yet another item</DropdownItem>

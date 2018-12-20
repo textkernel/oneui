@@ -3,6 +3,8 @@
 exports[`<DropdownItem> that renders a dropdown item should add classes when props are changed 1`] = `
 <div
   className="DropdownItem DropdownItem--disabled"
+  onClick={[Function]}
+  role="menuitem"
 >
   Another dropdown item
 </div>
@@ -11,6 +13,8 @@ exports[`<DropdownItem> that renders a dropdown item should add classes when pro
 exports[`<DropdownItem> that renders a dropdown item should render a default item correctly 1`] = `
 <div
   className="DropdownItem"
+  onClick={[Function]}
+  role="menuitem"
 >
   A dropdown item
 </div>

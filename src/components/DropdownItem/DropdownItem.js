@@ -12,6 +12,7 @@ class DropdownItem extends PureComponent {
             checked,
             children,
             disabled,
+            index,
             isStatic,
             onClick,
             onSelect,
@@ -25,14 +26,13 @@ class DropdownItem extends PureComponent {
                     <Checkbox
                         checked={checked}
                         disabled={disabled}
-                        onChange={() => {
-                            if (disabled) {
-                                return false;
+                        id={`item_${ index }`}
+                        onChange={ e => {
+                            e.stopPropagation();
+                            if (!disabled && onSelect) {
+                                return onSelect(value);
                             }
-                            if (onSelect) {
-                                onSelect(value);
-                            }
-                            return true;
+                            return false;
                         }}
                         value={value}
                         {...this.elem('checkbox')}

@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dropdown> that renders a dropdown element should add classes when props are changed 1`] = `
+<div
+  className="Dropdown Dropdown--context_primary Dropdown--disabled Dropdown--isBlock Dropdown--size_large"
+  multiple={false}
+  onChange={null}
+  onClose={null}
+  value={null}
+>
+  <Button
+    className="Dropdown__button Dropdown__button--context_primary Dropdown__button--disabled Dropdown__button--isBlock Dropdown__button--size_large"
+    context="primary"
+    disabled={true}
+    isBlock={true}
+    onClick={[Function]}
+    size="large"
+    type="button"
+  >
+    My dropdown
+    <DropdownCaret
+      className="Dropdown__caret Dropdown__caret--context_primary Dropdown__caret--disabled Dropdown__caret--isBlock Dropdown__caret--size_large"
+    />
+  </Button>
+</div>
+`;
+
+exports[`<Dropdown> that renders a dropdown element should filter items correctly 1`] = `
+<Dropdown
+  context="neutral"
+  disabled={false}
+  filter={
+    Object {
+      "placeholder": "Test filtering options",
+    }
+  }
+  heading={null}
+  initiallyOpened={false}
+  isBlock={false}
+  label="My dropdown"
+  maxHeight={null}
+  minWidth={null}
+  multiple={false}
+  onChange={null}
+  onClose={null}
+  size="normal"
+  value={null}
+>
+  <div
+    className="Dropdown Dropdown--context_neutral Dropdown--size_normal Dropdown--expanded"
+    multiple={false}
+    onChange={null}
+    onClose={null}
+    value={null}
+  >
+    <Button
+      className="Dropdown__button Dropdown__button--context_neutral Dropdown__button--size_normal Dropdown__button--expanded"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      onClick={[Function]}
+      size="normal"
+      type="button"
+    >
+      <button
+        className="Button Button--context_neutral Button--size_normal Dropdown__button Dropdown__button--context_neutral Dropdown__button--size_normal Dropdown__button--expanded"
+        context="neutral"
+        disabled={false}
+        onClick={[Function]}
+        size="normal"
+        type="button"
+      >
+        My dropdown
+        <DropdownCaret
+          className="Dropdown__caret Dropdown__caret--context_neutral Dropdown__caret--size_normal Dropdown__caret--expanded"
+        >
+          <svg
+            className="DropdownCaret Dropdown__caret Dropdown__caret--context_neutral Dropdown__caret--size_normal Dropdown__caret--expanded"
+            viewBox="0 0 292.362 292.362"
+          >
+            <g>
+              <path
+                d="M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424   C1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428   s9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z"
+              />
+            </g>
+          </svg>
+        </DropdownCaret>
+      </button>
+    </Button>
+    <div
+      className="Dropdown__list Dropdown__list--context_neutral Dropdown__list--size_normal Dropdown__list--expanded"
+    >
+      <div
+        className="Dropdown__filter Dropdown__filter--context_neutral Dropdown__filter--size_normal Dropdown__filter--expanded"
+      >
+        <ForwardRef
+          autoFocus={true}
+          context="brand"
+          disabled={false}
+          isBlock={true}
+          onChange={[Function]}
+          placeholder="Test filtering options"
+          size="normal"
+          type="text"
+          value=""
+        >
+          <input
+            autoFocus={true}
+            className="Input Input--context_brand Input--isBlock Input--size_normal"
+            disabled={false}
+            onChange={[Function]}
+            placeholder="Test filtering options"
+            type="text"
+            value=""
+          />
+        </ForwardRef>
+      </div>
+      <div
+        className="Dropdown__list-items Dropdown__list-items--context_neutral Dropdown__list-items--size_normal Dropdown__list-items--expanded"
+        role="menu"
+        style={
+          Object {
+            "maxHeight": null,
+            "minWidth": null,
+          }
+        }
+      >
+        <DropdownItem
+          checkbox={false}
+          checked={false}
+          disabled={false}
+          index={0}
+          isStatic={false}
+          key=".0"
+          onClick={null}
+          onSelect={[Function]}
+          value="1"
+        >
+          <div
+            className="DropdownItem"
+            onClick={[Function]}
+            role="menuitem"
+          >
+            test capitalization
+          </div>
+        </DropdownItem>
+        <DropdownItem
+          checkbox={false}
+          checked={false}
+          disabled={false}
+          index={1}
+          isStatic={false}
+          key=".1"
+          onClick={null}
+          onSelect={[Function]}
+          value="2"
+        >
+          <div
+            className="DropdownItem"
+            onClick={[Function]}
+            role="menuitem"
+          >
+            Téšṫ diacritics
+          </div>
+        </DropdownItem>
+        <DropdownItem
+          checkbox={false}
+          checked={false}
+          disabled={false}
+          index={2}
+          isStatic={false}
+          key=".2"
+          onClick={null}
+          onSelect={[Function]}
+          value="3"
+        >
+          <div
+            className="DropdownItem"
+            onClick={[Function]}
+            role="menuitem"
+          >
+            Match positioning test
+          </div>
+        </DropdownItem>
+      </div>
+    </div>
+  </div>
+</Dropdown>
+`;
+
+exports[`<Dropdown> that renders a dropdown element should render a basic dropdown correctly 1`] = `
+<Dropdown
+  context="neutral"
+  disabled={false}
+  filter={false}
+  heading={null}
+  initiallyOpened={false}
+  isBlock={false}
+  label="My dropdown"
+  maxHeight={null}
+  minWidth={null}
+  multiple={false}
+  onChange={[MockFunction]}
+  onClose={[MockFunction]}
+  size="normal"
+  value={null}
+>
+  <div
+    className="Dropdown Dropdown--context_neutral Dropdown--size_normal"
+    multiple={false}
+    onChange={[MockFunction]}
+    onClose={[MockFunction]}
+    value={null}
+  >
+    <Button
+      className="Dropdown__button Dropdown__button--context_neutral Dropdown__button--size_normal"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      onClick={[Function]}
+      size="normal"
+      type="button"
+    >
+      <button
+        className="Button Button--context_neutral Button--size_normal Dropdown__button Dropdown__button--context_neutral Dropdown__button--size_normal"
+        context="neutral"
+        disabled={false}
+        onClick={[Function]}
+        size="normal"
+        type="button"
+      >
+        My dropdown
+        <DropdownCaret
+          className="Dropdown__caret Dropdown__caret--context_neutral Dropdown__caret--size_normal"
+        >
+          <svg
+            className="DropdownCaret Dropdown__caret Dropdown__caret--context_neutral Dropdown__caret--size_normal"
+            viewBox="0 0 292.362 292.362"
+          >
+            <g>
+              <path
+                d="M286.935,69.377c-3.614-3.617-7.898-5.424-12.848-5.424H18.274c-4.952,0-9.233,1.807-12.85,5.424   C1.807,72.998,0,77.279,0,82.228c0,4.948,1.807,9.229,5.424,12.847l127.907,127.907c3.621,3.617,7.902,5.428,12.85,5.428   s9.233-1.811,12.847-5.428L286.935,95.074c3.613-3.617,5.427-7.898,5.427-12.847C292.362,77.279,290.548,72.998,286.935,69.377z"
+              />
+            </g>
+          </svg>
+        </DropdownCaret>
+      </button>
+    </Button>
+  </div>
+</Dropdown>
+`;

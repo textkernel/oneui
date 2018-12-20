@@ -152,19 +152,24 @@ class Dropdown extends PureComponent {
             return label;
         }
 
-        const parts = label.split(new RegExp(`(${escapeRegExp(filterValue)})`, 'gi'));
+        const parts = diacritics.remove(label).split(new RegExp(`(${escapeRegExp(filterValue)})`, 'gi'));
+        let pos = 0;
 
         return (
             <Fragment>
                 {parts.map((part, i) => {
-                    if (part.toLowerCase() === filterValue.toLowerCase()) {
+                    const match = part.toLowerCase() === filterValue.toLowerCase();
+                    const originalPart = label.substring(pos, pos + part.length);
+                    pos += part.length;
+
+                    if (match) {
                         return (
                             <strong key={i.toString()} {...this.elem('highlight')}>
-                                {part}
+                                {originalPart}
                             </strong>
                         );
                     }
-                    return <span key={i.toString()}>{part}</span>;
+                    return <span key={i.toString()}>{originalPart}</span>;
                 })}
             </Fragment>
         );
@@ -202,11 +207,12 @@ class Dropdown extends PureComponent {
         const { multiple } = this.props;
         const { selection } = this.state;
 
-        return Children.map(children, item =>
+        return Children.map(children, (item, index) =>
             cloneElement(item, {
                 checkbox: multiple,
                 checked: multiple && (selection || []).indexOf(item.props.value) > -1,
                 children: this.highlightLabel(item.props.children),
+                index,
                 onSelect: this.handleChange
             })
         );
@@ -227,7 +233,7 @@ class Dropdown extends PureComponent {
 
         const filteredChildren = Children.toArray(children).filter(item => {
             const { children: label } = item.props;
-            return label.match(re);
+            return diacritics.remove(label).match(re);
         });
 
         if (!filteredChildren.length) {
@@ -282,9 +288,7 @@ class Dropdown extends PureComponent {
                                             const { value } = e.target;
 
                                             this.setState({
-                                                filterValue: filter.matchDiacritics
-                                                    ? value
-                                                    : diacritics.remove(value)
+                                                filterValue: diacritics.remove(value)
                                             });
                                         }}
                                         placeholder={filter.placeholder || null}
@@ -325,8 +329,6 @@ Dropdown.propTypes = {
         PropTypes.shape({
             /** If the filter is case sensitive */
             matchCase: PropTypes.bool,
-            /** If the filter should strictly match diacritics */
-            matchDiacritics: PropTypes.bool,
             /** Whether to match at any position in the string or from the start */
             matchPosition: PropTypes.oneOf(['any', 'start']),
             /** Text to show when filter produced no matches */
