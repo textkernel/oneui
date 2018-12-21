@@ -19,7 +19,9 @@ const TabItem = props => {
 };
 
 TabItem.propTypes = {
+    /** Label for this tab */
     label: PropTypes.node.isRequired,
+    /** Renders an active tab */
     isActive: PropTypes.bool
 };
 

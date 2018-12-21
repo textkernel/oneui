@@ -19,6 +19,7 @@ const TabContent = props => {
 };
 
 TabContent.propTypes = {
+    /** Content for this tab */
     children: PropTypes.node.isRequired
 };
 

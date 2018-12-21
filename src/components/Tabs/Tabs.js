@@ -44,11 +44,11 @@ class Tabs extends PureComponent {
 
     render() {
         const { activeTabId } = this.state;
-        const { children } = this.props;
+        const { children, gutters } = this.props;
 
         return (
             <Fragment>
-                <TabMenu>
+                <TabMenu gutters={gutters}>
                     {Children.map(children, tab => {
                         const { id, ...rest } = tab.props;
 
@@ -80,12 +80,15 @@ Tabs.propTypes = {
     activeTabId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     /** The tabs */
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]).isRequired,
+    /** Have gutters (white space) on both sides of tab menu */
+    gutters: PropTypes.bool,
     /** Callback function, fired when switching tabs by clicking
      Passes the new active tab id as first and only parameter */
     onChange: PropTypes.func
 };
 
 Tabs.defaultProps = {
+    gutters: false,
     onChange: null
 };
 

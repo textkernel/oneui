@@ -13,4 +13,14 @@ describe('<TabMenu>', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
+    it('should add classes for props', () => {
+        const wrapper = shallow(
+            <TabMenu gutters>
+                <TabItem label="Some tab" isActive />
+                <TabItem label="Another tab" />
+            </TabMenu>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
 });

@@ -8,7 +8,12 @@
     justify-content: flex-start;
     padding: {
         top: var(--spacing-2x);
-        left: var(--spacing-2x);
-        right: var(--spacing-2x);
+    }
+
+    &--gutters {
+        padding: {
+            left: var(--spacing-2x);
+            right: var(--spacing-2x);
+        }
     }
 }

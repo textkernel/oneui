@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { select, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
+import { boolean, select, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
 import Tab from '../src/components/Tabs/Tab';
 import TabContent from '../src/components/Tabs/TabContent';
 import TabItem from '../src/components/Tabs/TabItem';
@@ -32,6 +32,7 @@ storiesOf('Tabs', module)
     .add('Simple (managed) tabs', () => (
         <Tabs
             activeTabId={select('Active tab', tabIds, tabIds[0])}
+            gutters={boolean('Show gutters', false)}
             onChange={tabId => {
                 // eslint-disable-next-line no-console
                 console.log(`Switched to ${tabId} tab`);
@@ -46,7 +47,7 @@ storiesOf('Tabs', module)
     ))
     .add('Custom tabs', () => (
         <div>
-            <TabMenu>
+            <TabMenu gutters={boolean('Show gutters', false)}>
                 <TabItem label="Some tab" isActive />
                 <TabItem label="Another tab" />
             </TabMenu>

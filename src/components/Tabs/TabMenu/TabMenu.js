@@ -6,11 +6,11 @@ import styles from './TabMenu.scss';
 const { block } = bem({
     name: 'TabMenu',
     classnames: styles,
-    propsToMods: []
+    propsToMods: ['gutters']
 });
 
 const TabMenu = props => {
-    const { children, ...rest } = props;
+    const { children, gutters, ...rest } = props;
     return (
         <div {...rest} {...block(props)}>
             {children}
@@ -19,11 +19,15 @@ const TabMenu = props => {
 };
 
 TabMenu.propTypes = {
-    children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)])
+    /** The tab items */
+    children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
+    /** Have gutters (white space) on both sides of tab menu */
+    gutters: PropTypes.bool
 };
 
 TabMenu.defaultProps = {
-    children: null
+    children: null,
+    gutters: false
 };
 
 export default TabMenu;

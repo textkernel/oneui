@@ -3,9 +3,12 @@
 exports[`<Tabs> that renders tab container with some tabs should render simple tabs 1`] = `
 <Tabs
   activeTabId="1"
+  gutters={false}
   onChange={null}
 >
-  <TabMenu>
+  <TabMenu
+    gutters={false}
+  >
     <div
       className="TabMenu"
     >
