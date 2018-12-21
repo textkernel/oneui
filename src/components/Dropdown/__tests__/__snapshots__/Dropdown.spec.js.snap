@@ -2,14 +2,10 @@
 
 exports[`<Dropdown> that renders a dropdown element should add classes when props are changed 1`] = `
 <div
-  className="Dropdown Dropdown--context_primary Dropdown--disabled Dropdown--isBlock Dropdown--size_large"
-  multiple={false}
-  onChange={null}
-  onClose={null}
-  value={null}
+  className="Dropdown Dropdown--context_primary Dropdown--disabled Dropdown--isBlock Dropdown--size_large Dropdown--expanded"
 >
   <Button
-    className="Dropdown__button Dropdown__button--context_primary Dropdown__button--disabled Dropdown__button--isBlock Dropdown__button--size_large"
+    className="Dropdown__button Dropdown__button--context_primary Dropdown__button--disabled Dropdown__button--isBlock Dropdown__button--size_large Dropdown__button--expanded"
     context="primary"
     disabled={true}
     isBlock={true}
@@ -19,7 +15,7 @@ exports[`<Dropdown> that renders a dropdown element should add classes when prop
   >
     My dropdown
     <DropdownCaret
-      className="Dropdown__caret Dropdown__caret--context_primary Dropdown__caret--disabled Dropdown__caret--isBlock Dropdown__caret--size_large"
+      className="Dropdown__caret Dropdown__caret--context_primary Dropdown__caret--disabled Dropdown__caret--isBlock Dropdown__caret--size_large Dropdown__caret--expanded"
     />
   </Button>
 </div>
@@ -48,10 +44,6 @@ exports[`<Dropdown> that renders a dropdown element should filter items correctl
 >
   <div
     className="Dropdown Dropdown--context_neutral Dropdown--size_normal Dropdown--expanded"
-    multiple={false}
-    onChange={null}
-    onClose={null}
-    value={null}
   >
     <Button
       className="Dropdown__button Dropdown__button--context_neutral Dropdown__button--size_normal Dropdown__button--expanded"
@@ -207,10 +199,6 @@ exports[`<Dropdown> that renders a dropdown element should render a basic dropdo
 >
   <div
     className="Dropdown Dropdown--context_neutral Dropdown--size_normal"
-    multiple={false}
-    onChange={[MockFunction]}
-    onClose={[MockFunction]}
-    value={null}
   >
     <Button
       className="Dropdown__button Dropdown__button--context_neutral Dropdown__button--size_normal"

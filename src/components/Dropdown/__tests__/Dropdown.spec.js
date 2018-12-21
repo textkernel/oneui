@@ -37,7 +37,16 @@ describe('<Dropdown> that renders a dropdown element', () => {
 
     it('should add classes when props are changed', () => {
         const wrapper = shallow(
-            <Dropdown label="My dropdown" context="primary" size="large" disabled isBlock>
+            <Dropdown
+                label="My dropdown"
+                context="primary"
+                size="large"
+                disabled
+                isBlock
+                initiallyOpened
+                maxHeight={100}
+                minWidth={300}
+            >
                 <DropdownItem value="1" disabled>
                     Some item
                 </DropdownItem>

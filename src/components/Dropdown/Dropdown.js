@@ -259,7 +259,11 @@ class Dropdown extends PureComponent {
             label,
             maxHeight,
             minWidth,
+            multiple,
+            onChange,
+            onClose,
             size,
+            value,
             ...rest
         } = this.props;
         const { expanded, filterValue } = this.state;
@@ -287,10 +291,8 @@ class Dropdown extends PureComponent {
                                         autoFocus
                                         isBlock
                                         onChange={e => {
-                                            const { value } = e.target;
-
                                             this.setState({
-                                                filterValue: diacritics.remove(value)
+                                                filterValue: diacritics.remove(e.target.value)
                                             });
                                         }}
                                         placeholder={filter.placeholder || null}
