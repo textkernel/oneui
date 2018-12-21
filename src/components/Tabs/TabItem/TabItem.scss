@@ -1,0 +1,41 @@
+.TabItem {
+    background-color: var(--color-neutral-25);
+    border: {
+        color: var(--color-neutral);
+        style: solid;
+        top-left-radius: var(--border-radius);
+        top-right-radius: var(--border-radius);
+        width: var(--line-normal);
+        bottom-width: 0;
+    }
+    color: var(--link-color-normal);
+    cursor: pointer;
+    font: {
+        family: var(--font-family-primary);
+        size: var(--font-size-normal);
+    }
+    margin: {
+        top: var(--margin);
+        right: var(--margin);
+        left: var(--margin);
+    };
+    outline: none;
+    padding: var(--spacing-2x) var(--spacing-4x);
+    line-height: var(--line-height-normal);
+    text-decoration: none;
+    transition: border-color var(--transition-duration);
+
+    &:hover {
+        border-color: var(--color-neutral-60);
+    }
+
+    &--isActive {
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+        margin-bottom: -1px;
+
+        &:hover {
+            border-color: var(--color-neutral);
+        }
+    }
+}

@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TabMenu> should render tab menu wrapper correctly 1`] = `
+<div
+  className="TabMenu"
+>
+  <TabItem
+    isActive={true}
+    label="Some tab"
+  />
+  <TabItem
+    isActive={false}
+    label="Another tab"
+  />
+</div>
+`;

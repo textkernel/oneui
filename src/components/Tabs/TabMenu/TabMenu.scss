@@ -1,0 +1,14 @@
+.TabMenu {
+    border-bottom: {
+        color: var(--color-neutral);
+        style: solid;
+        width: var(--line-normal);
+    }
+    display: flex;
+    justify-content: flex-start;
+    padding: {
+        top: var(--spacing-2x);
+        left: var(--spacing-2x);
+        right: var(--spacing-2x);
+    }
+}
