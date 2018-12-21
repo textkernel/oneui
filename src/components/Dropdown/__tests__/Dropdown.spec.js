@@ -23,7 +23,7 @@ describe('<Dropdown> that renders a dropdown element', () => {
 
         // Select an item and make sure state is updated and callback fired
         wrapper
-            .find(DropdownItem)
+            .find('DropdownItem')
             .first()
             .simulate('click');
         expect(onChange).toHaveBeenCalledWith('1');
@@ -87,5 +87,55 @@ describe('<Dropdown> that renders a dropdown element', () => {
         });
         filterInput.simulate('change', { target: { value: 'test' } });
         expect(wrapper.find(DropdownItem).length).toBe(1);
+    });
+
+    it('should handle multiselect correctly', () => {
+        const onChange = jest.fn();
+        const onClose = jest.fn();
+
+        const wrapper = mount(
+            <Dropdown
+                label="My multiselect"
+                onChange={onChange}
+                onClose={onClose}
+                initiallyOpened
+                multiple
+            >
+                <DropdownItem value="1">Some item</DropdownItem>
+                <DropdownItem value="2">Another item</DropdownItem>
+                <DropdownItem value="3">More items</DropdownItem>
+            </Dropdown>
+        );
+
+        wrapper
+            .find('DropdownItem')
+            .first()
+            .find('input')
+            .simulate('change');
+        expect(onChange).toHaveBeenCalledWith(['1']);
+
+        wrapper
+            .find('DropdownItem')
+            .at(1)
+            .find('input')
+            .simulate('change');
+        expect(onChange).toHaveBeenCalledWith(['1', '2']);
+
+        wrapper
+            .find('DropdownItem')
+            .at(2)
+            .find('input')
+            .simulate('change');
+        expect(onChange).toHaveBeenCalledWith(['1', '2', '3']);
+
+        wrapper
+            .find('DropdownItem')
+            .first()
+            .find('input')
+            .simulate('change');
+        expect(onChange).toHaveBeenCalledWith(['2', '3']);
+
+        wrapper.find('Button').simulate('click');
+        expect(onClose).toHaveBeenCalledWith(['2', '3']);
     });
 });

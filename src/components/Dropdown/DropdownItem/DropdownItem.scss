@@ -40,7 +40,9 @@
     }
 
     &__checkbox {
-        padding: var(--spacing-2x) var(--spacing-3x);
-        line-height: var(--line-height-normal);
+        .Checkbox__label {
+            padding: var(--spacing-2x) var(--spacing-3x);
+            line-height: var(--line-height-normal);
+        }
     }
 }

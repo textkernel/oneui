@@ -6,6 +6,8 @@ describe('<Checkbox> that renders a checkbox', () => {
     it('should render default checkbox correctly', () => {
         const wrapper = mount(<Checkbox id="c1">Check this out</Checkbox>);
         expect(toJson(wrapper)).toMatchSnapshot();
+        wrapper.find('input').simulate('change');
+        expect(onChange).toHaveBeenCalledTimes(1);
     });
     it('should call onChange function when clicked', () => {
         const onChange = jest.fn();
