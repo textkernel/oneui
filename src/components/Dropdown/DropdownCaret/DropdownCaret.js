@@ -1,5 +1,5 @@
 import React from 'react';
-import bem from '../../packages/bem';
+import bem from 'bem';
 import styles from './DropdownCaret.scss';
 
 const { block } = bem({

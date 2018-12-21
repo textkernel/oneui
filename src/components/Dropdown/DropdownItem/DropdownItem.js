@@ -2,7 +2,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import Checkbox from '../Checkbox';
+import Checkbox from '../../Checkbox';
 import styles from './DropdownItem.scss';
 
 class DropdownItem extends PureComponent {

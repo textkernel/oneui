@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownItem> that renders a dropdown item should add classes when props are changed 1`] = `
+<div
+  className="DropdownItem DropdownItem--disabled"
+  onClick={[Function]}
+  role="menuitem"
+>
+  Another dropdown item
+</div>
+`;
+
+exports[`<DropdownItem> that renders a dropdown item should render a default item correctly 1`] = `
+<div
+  className="DropdownItem"
+  onClick={[Function]}
+  role="menuitem"
+>
+  A dropdown item
+</div>
+`;
+
+exports[`<DropdownItem> that renders a dropdown item should render a item with checkbox correctly 1`] = `
+<div
+  className="DropdownItem DropdownItem--checkbox"
+>
+  <Checkbox
+    checked={false}
+    className="DropdownItem__checkbox DropdownItem__checkbox--checkbox"
+    disabled={false}
+    id="item_undefined"
+    onChange={[Function]}
+    value={null}
+  >
+    A multiselect dropdown item
+  </Checkbox>
+</div>
+`;
+
+exports[`<DropdownItem> that renders a dropdown item should render a item with checked checkbox correctly 1`] = `
+<div
+  className="DropdownItem DropdownItem--checkbox"
+>
+  <Checkbox
+    checked={true}
+    className="DropdownItem__checkbox DropdownItem__checkbox--checkbox"
+    disabled={false}
+    id="item_undefined"
+    onChange={[Function]}
+    value={null}
+  >
+    A multiselect dropdown item
+  </Checkbox>
+</div>
+`;

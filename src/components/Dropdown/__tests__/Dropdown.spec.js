@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import Dropdown from '../Dropdown';
-import DropdownItem from '../../DropdownItem';
+import DropdownItem from '../DropdownItem';
 
 describe('<Dropdown> that renders a dropdown element', () => {
     it('should render a basic dropdown correctly', () => {

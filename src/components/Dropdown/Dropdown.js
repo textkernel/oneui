@@ -1,12 +1,12 @@
 import React, { cloneElement, createRef, Children, Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import diacritics from 'diacritics';
+import bem from 'bem';
 import { escapeRegExp } from '../../utils';
 import Button from '../Button';
 import Input from '../Input';
 import DropdownCaret from './DropdownCaret';
-import DropdownItem from '../DropdownItem';
-import bem from '../../packages/bem';
+import DropdownItem from './DropdownItem';
 import styles from './Dropdown.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 

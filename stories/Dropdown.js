@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, select, text, number, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
 import Dropdown from '../src/components/Dropdown';
-import DropdownItem from '../src/components/DropdownItem';
+import DropdownItem from '../src/components/Dropdown/DropdownItem';
 import { CONTEXTS, SIZES } from '../src/constants';
 
 storiesOf('Dropdown', module)
