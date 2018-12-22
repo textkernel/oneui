@@ -68,7 +68,6 @@ storiesOf('Dropdown', module)
                     filter
                         ? {
                               matchCase: boolean('Filter: Case sensitive matching', false),
-                              matchDiacritics: boolean('Filter: Match diacritics strictly', false),
                               matchPosition: select(
                                   'Filter: Match position',
                                   ['any', 'start'],
