@@ -113,6 +113,9 @@ class Dropdown extends PureComponent {
                 return onChange(newSelection);
             }
         );
+        if (!multiple) {
+            this.toggleDropdown(null, true);
+        }
     }
 
     handleClickOutside(e) {
@@ -127,7 +130,7 @@ class Dropdown extends PureComponent {
         if (!expanded) {
             return false;
         }
-        this.toggleDropdown(null, true, true);
+        this.toggleDropdown(null, true);
         return true;
     }
 
@@ -140,7 +143,7 @@ class Dropdown extends PureComponent {
             return false;
         }
 
-        this.toggleDropdown(null, true, true);
+        this.toggleDropdown(null, true);
         return false;
     }
 

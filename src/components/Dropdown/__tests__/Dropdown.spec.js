@@ -29,10 +29,13 @@ describe('<Dropdown> that renders a dropdown element', () => {
         expect(onChange).toHaveBeenCalledWith('1');
         expect(wrapper.state().selection).toBe('1');
 
-        // Verify that callback is fired on dropdown collapse
-        wrapper.find('Button').simulate('click');
+        // Dropdown should collapse on click when not a multiselect
         expect(onClose).toHaveBeenCalledWith('1');
         expect(wrapper.state().expanded).toBe(false);
+
+        // Verify that callback is fired on dropdown collapse
+        wrapper.find('Button').simulate('click');
+        expect(wrapper.state().expanded).toBe(true);
     });
 
     it('should add classes when props are changed', () => {
