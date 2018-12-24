@@ -49,9 +49,15 @@ storiesOf('Dropdown', module)
                     This is a disabled item
                 </DropdownItem>
                 <DropdownItem value="4">Téšṫ diacritics</DropdownItem>
-                <DropdownItem value="5" onClick={() => {
-                  window.alert('Clicked on item');
-                }}>This item has a click action</DropdownItem>
+                <DropdownItem
+                    value="5"
+                    onClick={() => {
+                        // eslint-disable-next-line no-alert
+                        window.alert('Clicked on item');
+                    }}
+                >
+                    This item has a click action
+                </DropdownItem>
                 <DropdownItem value="6">Yet another item</DropdownItem>
                 <DropdownItem value="7">Yet another item</DropdownItem>
                 <DropdownItem value="8">Yet another item</DropdownItem>
