@@ -5,12 +5,18 @@ exports[`<TabMenu> should add classes for props 1`] = `
   className="TabMenu TabMenu--gutters"
 >
   <TabItem
-    isActive={true}
+    id="1"
+    isActive={false}
+    key=".0"
     label="Some tab"
+    onClick={[Function]}
   />
   <TabItem
-    isActive={false}
+    id="2"
+    isActive={true}
+    key=".1"
     label="Another tab"
+    onClick={[Function]}
   />
 </div>
 `;
@@ -20,12 +26,18 @@ exports[`<TabMenu> should render tab menu wrapper correctly 1`] = `
   className="TabMenu"
 >
   <TabItem
+    id="1"
     isActive={true}
+    key=".0"
     label="Some tab"
+    onClick={[Function]}
   />
   <TabItem
+    id="2"
     isActive={false}
+    key=".1"
     label="Another tab"
+    onClick={[Function]}
   />
 </div>
 `;

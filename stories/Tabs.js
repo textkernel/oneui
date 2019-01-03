@@ -47,9 +47,16 @@ storiesOf('Tabs', module)
     ))
     .add('Custom tabs', () => (
         <div>
-            <TabMenu gutters={boolean('Show gutters', false)}>
-                <TabItem label="Some tab" isActive />
-                <TabItem label="Another tab" />
+            <TabMenu
+                activeTabId="second"
+                onChange={(e, id) => {
+                    // eslint-disable-next-line no-console
+                    console.log(`Switch to ${id} tab requested`);
+                }}
+                gutters={boolean('Show gutters', false)}
+            >
+                <TabItem id="first" label="Some tab" />
+                <TabItem id="second" label="Another tab" />
             </TabMenu>
             <div style={{ padding: 9 }}>Some other content here</div>
             <TabContent>Some content</TabContent>

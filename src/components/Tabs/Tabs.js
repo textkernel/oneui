@@ -12,25 +12,24 @@ class Tabs extends PureComponent {
 
         this.state = {
             activeTabId,
-            derivedProp: activeTabId // eslint-disable-line react/no-unused-state
+            derivedTabId: activeTabId // eslint-disable-line react/no-unused-state
         };
+        this.handleTabChange = this.handleTabChange.bind(this);
     }
 
     static getDerivedStateFromProps(props, state) {
-        if (props.activeTabId === state.derivedProp) {
+        if (props.activeTabId === state.derivedTabId) {
             return null;
         }
         const { activeTabId } = props;
         return {
             activeTabId,
-            derivedProp: activeTabId
+            derivedTabId: activeTabId
         };
     }
 
-    handleTabChange(e, tabId) {
-        if (e && e.preventDefault) {
-            e.preventDefault();
-        }
+    handleTabChange(event, tabId) {
+        event.preventDefault();
 
         const { onChange } = this.props;
         this.setState({
@@ -48,19 +47,15 @@ class Tabs extends PureComponent {
 
         return (
             <Fragment>
-                <TabMenu gutters={gutters}>
+                <TabMenu
+                    activeTabId={activeTabId}
+                    onChange={this.handleTabChange}
+                    gutters={gutters}
+                >
                     {Children.map(children, tab => {
                         const { id, ...rest } = tab.props;
 
-                        return (
-                            <TabItem
-                                {...rest}
-                                onClick={e => {
-                                    this.handleTabChange(e, id);
-                                }}
-                                isActive={id === activeTabId}
-                            />
-                        );
+                        return <TabItem id={id} {...rest} />;
                     })}
                 </TabMenu>
                 {Children.map(children, tab => {
