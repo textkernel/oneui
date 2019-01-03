@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TabItem> should add classes for props 1`] = `
+<a
+  className="TabItem TabItem--isActive"
+  href="#"
+>
+  Some tab
+</a>
+`;
+
+exports[`<TabItem> should allow node type labels 1`] = `
+<a
+  className="TabItem"
+  href="#"
+>
+  <strong>
+    Some tab
+  </strong>
+</a>
+`;
+
+exports[`<TabItem> should render a tab item correctly 1`] = `
+<a
+  className="TabItem"
+  href="#"
+>
+  Some tab
+</a>
+`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TabContent> should render tab content correctly 1`] = `
+<div
+  className="TabContent"
+>
+  <h1>
+    Tab content
+  </h1>
+  Some content
+</div>
+`;

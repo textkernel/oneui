@@ -16,6 +16,8 @@ $spacing-3x: 3 * $spacing-normal !default;
 $spacing-4x: 4 * $spacing-normal !default;
 $spacing-5x: 5 * $spacing-normal !default;
 
+$margin:    0.5 * $spacing-normal !default;
+
 :root {
     --border-radius:    #{ $border-radius };
 
@@ -30,4 +32,6 @@ $spacing-5x: 5 * $spacing-normal !default;
     --spacing-3x:       #{ $spacing-3x };
     --spacing-4x:       #{ $spacing-4x };
     --spacing-5x:       #{ $spacing-5x };
+
+    --margin: #{ $margin };
 }

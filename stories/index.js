@@ -7,5 +7,6 @@ import './Heading';
 import './Input';
 import './Link';
 import './LoadingSpinner';
+import './Tabs';
 import './Text';
 import './TextArea';
