@@ -48,7 +48,6 @@
         stroke: var(--color-background);
         transition: all var(--transition-duration) ease;
         transition-delay: .1s;
-        transform: translate3d(0, 0, 0);
     }
 
     &__input {
@@ -80,8 +79,6 @@
     }
 
     &--disabled {
-        cursor: not-allowed;
-
         &:hover {
             .RadioButton__label {
                 .RadioButton__box {
@@ -90,11 +87,17 @@
             }
         }
 
-        .RadioButton__input:checked {
+        .RadioButton__input{
             + .RadioButton__label {
-                .RadioButton__box {
-                    border-color: var(--color-neutral);
-                    background: var(--color-neutral);
+                cursor: not-allowed;
+            }
+            
+            &:checked {
+                + .RadioButton__label {
+                    .RadioButton__box {
+                        border-color: var(--color-neutral);
+                        background: var(--color-neutral);
+                    }
                 }
             }
         }
