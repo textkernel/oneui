@@ -4,8 +4,8 @@
     "description": "React Nice UI kit with theme support",
     "main": "src/index.js",
     "scripts": {
-        "storybook": "start-storybook -p 9001 -c .storybook",
-        "storybook:prod": "build-storybook -c .storybook",
+        "storybook": "start-storybook -s ./stories/static -p 9001 -c .storybook",
+        "storybook:prod": "build-storybook -s ./stories/static -c .storybook",
         "build": "webpack --config ./etc/webpack/webpack.dev.config.js",
         "build:prod": "webpack --config ./etc/webpack/webpack.prod.config.js",
         "lint": "npm run lint:ci -- --fix",
