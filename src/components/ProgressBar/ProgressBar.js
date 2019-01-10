@@ -11,7 +11,7 @@ const { block, elem } = bem({
 });
 
 const ProgressBar = props => {
-    const { context, label, percentage, small, ...rest } = props;
+    const { animated, context, hidden, label, percentage, small, ...rest } = props;
     const percentageAdjusted = Math.max(0, Math.min(percentage, 100));
 
     return (

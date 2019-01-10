@@ -1,27 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<ProgressBar> that renders a horizontal progress bar should add classes when props are changed 1`] = `
-<div
-  animated={true}
-  className="ProgressBar ProgressBar--animated ProgressBar--context_primary ProgressBar--hidden ProgressBar--small"
-  hidden={true}
->
-  <div
-    className="ProgressBar__fill ProgressBar__fill--animated ProgressBar__fill--context_primary ProgressBar__fill--hidden ProgressBar__fill--small"
-    style={
-      Object {
-        "width": "25%",
-      }
-    }
-  />
-</div>
-`;
-
 exports[`<ProgressBar> that renders a horizontal progress bar should render a default progress bar correctly 1`] = `
 <div
-  animated={false}
   className="ProgressBar ProgressBar--context_brand"
-  hidden={false}
 >
   <div
     className="ProgressBar__fill ProgressBar__fill--context_brand"
@@ -32,25 +13,6 @@ exports[`<ProgressBar> that renders a horizontal progress bar should render a de
     }
   >
     25%
-  </div>
-</div>
-`;
-
-exports[`<ProgressBar> that renders a horizontal progress bar should render a progress bar with label 1`] = `
-<div
-  animated={false}
-  className="ProgressBar ProgressBar--context_brand"
-  hidden={false}
->
-  <div
-    className="ProgressBar__fill ProgressBar__fill--context_brand"
-    style={
-      Object {
-        "width": "25%",
-      }
-    }
-  >
-    Loading...
   </div>
 </div>
 `;
