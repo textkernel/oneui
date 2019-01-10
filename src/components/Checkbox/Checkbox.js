@@ -15,7 +15,7 @@ const Checkbox = props => {
     const { id, children, viewbox, disabled, ...rest } = props;
 
     return (
-        <label {...block(props)} htmlFor={id} disabled={disabled}>
+        <div {...block(props)}>
             <input
                 type="checkbox"
                 id={id}
@@ -23,15 +23,22 @@ const Checkbox = props => {
                 {...elem('input', props)}
                 disabled={disabled}
             />
-            <span {...elem('box', props)}>
-                <svg {...elem('svg', props)} width="12px" height="10px" viewBox={CHECKBOX_VIEWBOX}>
-                    <polyline points="1.5 6 3.5 9 8 3" />
-                </svg>
-            </span>
-            <Text {...elem('label', props)} inline muted={disabled}>
-                {children}
-            </Text>
-        </label>
+            <label {...elem('label', props)} htmlFor={id} disabled={disabled}>
+                <span {...elem('box', props)}>
+                    <svg
+                        {...elem('svg', props)}
+                        width="12px"
+                        height="10px"
+                        viewBox={CHECKBOX_VIEWBOX}
+                    >
+                        <polyline points="1.5 6 3.5 9 8 3" />
+                    </svg>
+                </span>
+                <Text {...elem('text', props)} inline muted={disabled}>
+                    {children}
+                </Text>
+            </label>
+        </div>
     );
 };
 
