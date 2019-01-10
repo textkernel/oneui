@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RadioButton> that renders a radio button should render default radio button correctly 1`] = `
+<RadioButton
+  disabled={false}
+  id="c1"
+>
+  <div
+    className="RadioButton"
+  >
+    <input
+      className="RadioButton__input"
+      disabled={false}
+      id="c1"
+      type="radio"
+    />
+    <label
+      className="RadioButton__label"
+      disabled={false}
+      htmlFor="c1"
+    >
+      <span
+        className="RadioButton__box"
+      >
+        <svg
+          className="RadioButton__svg"
+          height="10px"
+          viewBox={
+            Array [
+              0,
+              0,
+              10,
+              10,
+            ]
+          }
+          width="12px"
+        >
+          <circle
+            cx="5"
+            cy="6"
+            r="3"
+          />
+        </svg>
+      </span>
+      <Text
+        className="RadioButton__text"
+        inline={true}
+        muted={false}
+      >
+        <span
+          className="Text RadioButton__text"
+          muted={false}
+        >
+          Choose me
+        </span>
+      </Text>
+    </label>
+  </div>
+</RadioButton>
+`;
