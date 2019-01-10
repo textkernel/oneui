@@ -20,11 +20,13 @@ const context = percentage => {
 };
 
 const CandidateAvatar = props => {
-    const { imageUrl, matchPercentage, showPercentageOnHover, size, stroke, ...rest } = props;
+    const { imageUrl, matchPercentage, showPercentageOnHover, size, ...rest } = props;
 
-    const fixedSize = Math.round(Math.max(32, size));
-    const strokeWidth = stroke === 'thin' ? 2 : 4;
-    const radiusCorrection = stroke === 'thin' ? 3 : 2;
+    const constrainedSize = Math.round(Math.max(32, size));
+    const fixedSize = constrainedSize % 2 === 0 ? constrainedSize : constrainedSize + 1; // force even number
+    const isSmall = fixedSize < 60;
+    const strokeWidth = isSmall ? 2 : 4;
+    const radiusCorrection = isSmall ? 3 : 2;
     const radius = fixedSize / 2 - radiusCorrection;
     const percentage = Math.max(0, Math.min(100, matchPercentage));
     const circumference = 2 * radius * Math.PI;
@@ -78,19 +80,21 @@ const CandidateAvatar = props => {
 };
 
 CandidateAvatar.propTypes = {
+    /** Path to the avatar image resource */
     imageUrl: PropTypes.string,
+    /** The match percentage, ranging from 0 (bad) - 100 (good) */
     matchPercentage: PropTypes.number,
+    /** Whether to show the match percentage when hovering the image */
     showPercentageOnHover: PropTypes.bool,
-    size: PropTypes.number,
-    stroke: PropTypes.oneOf(['normal', 'thin'])
+    /** Avatar size (1:1 aspect ratio), should be even number */
+    size: PropTypes.number
 };
 
 CandidateAvatar.defaultProps = {
     imageUrl: null,
     matchPercentage: null,
     showPercentageOnHover: false,
-    size: 72,
-    stroke: 'normal'
+    size: 72
 };
 
 export default CandidateAvatar;

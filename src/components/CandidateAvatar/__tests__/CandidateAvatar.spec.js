@@ -42,7 +42,7 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
 
     it('should add classes when props are changed', () => {
         const wrapper = shallow(
-            <CandidateAvatar showPercentageOnHover matchPercentage={10} stroke="thin" />
+            <CandidateAvatar showPercentageOnHover matchPercentage={10} size={58} />
         );
         expect(wrapper.find('.CandidateAvatar__percentage')).toHaveLength(1);
         expect(wrapper.find('.CandidateAvatar__percentage').text()).toBe('10%');
