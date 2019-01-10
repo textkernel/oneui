@@ -2,7 +2,8 @@ import React from 'react';
 import './ButtonContainer.css'
 
 /**
- * One custom component from a application that uses Nice!, like Search!
+ * An example of how to use Nice based styling in a component implemented in 
+ * a 3rd party application, such as Search!
  *
  * This component is also customizable since its CSS uses variables from the
  * application theme ( ./public/default-app-theme.css).
