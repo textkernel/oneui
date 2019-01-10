@@ -1,0 +1,102 @@
+@import '../../themes/nice/nice.scss';
+
+.RadioButton {
+    &__box {
+        background-color: var(--color-background);
+        border: 1px solid var(--color-neutral);
+        border-radius: 50%;
+        box-sizing: content-box;
+        display: inline-block;
+        position: relative;
+        top: -1px;
+        width: 12px;
+        height: 12px;
+        transform: scale(1);
+        transition: all var(--transition-duration) ease;
+        vertical-align: middle;
+
+        &:before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: var(--color-brand);
+            display: block;
+            transform: scale(0);
+            opacity: 1;
+            border-radius: 50%;
+        }
+    }
+
+    &__label {
+        margin: auto;
+        user-select: none;
+        cursor: pointer;
+        display: block;
+
+        &:hover {
+            .RadioButton__box {
+                border-color: var(--color-brand);
+            }
+        }
+    }
+
+    &__svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        fill: none;
+        stroke: var(--color-background);
+        transition: all var(--transition-duration) ease;
+        transition-delay: .1s;
+        transform: translate3d(0, 0, 0);
+    }
+
+    &__input {
+        display: none;
+
+        &:checked {
+            + .RadioButton__label {
+                .RadioButton__box {
+                    background: var(--color-brand);
+                    border-color: var(--color-brand);
+                    animation: wave var(--transition-duration) ease;
+
+                    .RadioButton__svg {
+                        stroke-dashoffset: 0;
+                    }
+
+                    &:before {
+                        transform: scale(2.5);
+                        opacity: 0;
+                        transition: all var(--transition-duration) ease;
+                    }
+                }
+            }
+        }
+    }
+
+    &__text {
+        padding: var(--spacing-normal) 0 var(--spacing-normal) var(--spacing-2x);
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+
+        &:hover {
+            .RadioButton__label {
+                .RadioButton__box {
+                    border-color: var(--color-neutral);
+                }
+            }
+        }
+
+        .RadioButton__input:checked {
+            + .RadioButton__label {
+                .RadioButton__box {
+                    border-color: var(--color-neutral);
+                    background: var(--color-neutral);
+                }
+            }
+        }
+    }
+}
