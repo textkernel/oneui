@@ -1,99 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<CandidateAvatar> that renders a candidate profile image with match indication should add classes when props are changed 1`] = `
-<div
-  className="CandidateAvatar"
-  percentage={25}
-  style={
-    Object {
-      "height": 72,
-      "width": 72,
-    }
-  }
->
-  <div
-    className="CandidateAvatar__image"
-    style={
-      Object {
-        "backgroundImage": "url(null)",
-      }
-    }
-  >
-    <div
-      className="CandidateAvatar__percentage"
-    >
-      0%
-    </div>
-  </div>
-  <svg
-    className="CandidateAvatar__ring"
-    style={
-      Object {
-        "height": 72,
-        "width": 72,
-      }
-    }
-  >
-    <circle
-      className="CandidateAvatar__circle CandidateAvatar__circle--context_bad"
-      cx={36}
-      cy={36}
-      r={34}
-      strokeWidth="4"
-      style={
-        Object {
-          "strokeDasharray": "0 999",
-        }
-      }
-    />
-  </svg>
-</div>
-`;
-
-exports[`<CandidateAvatar> that renders a candidate profile image with match indication should render a custom sized avatar with good match percentage 1`] = `
-<div
-  className="CandidateAvatar"
-  percentage={67}
-  style={
-    Object {
-      "height": 128,
-      "width": 128,
-    }
-  }
->
-  <div
-    className="CandidateAvatar__image"
-    style={
-      Object {
-        "backgroundImage": "url(null)",
-      }
-    }
-  />
-  <svg
-    className="CandidateAvatar__ring"
-    style={
-      Object {
-        "height": 128,
-        "width": 128,
-      }
-    }
-  >
-    <circle
-      className="CandidateAvatar__circle CandidateAvatar__circle--context_bad"
-      cx={64}
-      cy={64}
-      r={62}
-      strokeWidth="4"
-      style={
-        Object {
-          "strokeDasharray": "0 999",
-        }
-      }
-    />
-  </svg>
-</div>
-`;
-
 exports[`<CandidateAvatar> that renders a candidate profile image with match indication should render a default avatar 1`] = `
 <div
   className="CandidateAvatar"
@@ -126,7 +32,7 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
       cx={36}
       cy={36}
       r={34}
-      strokeWidth="4"
+      strokeWidth={4}
       style={
         Object {
           "strokeDasharray": "0 999",
@@ -140,7 +46,6 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
 exports[`<CandidateAvatar> that renders a candidate profile image with match indication should render an avatar with average match percentage 1`] = `
 <div
   className="CandidateAvatar"
-  percentage={34}
   style={
     Object {
       "height": 128,
@@ -166,14 +71,14 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
     }
   >
     <circle
-      className="CandidateAvatar__circle CandidateAvatar__circle--context_bad"
+      className="CandidateAvatar__circle CandidateAvatar__circle--context_warning"
       cx={64}
       cy={64}
       r={62}
-      strokeWidth="4"
+      strokeWidth={4}
       style={
         Object {
-          "strokeDasharray": "0 999",
+          "strokeDasharray": "132.44954627534568 999",
         }
       }
     />
@@ -184,7 +89,6 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
 exports[`<CandidateAvatar> that renders a candidate profile image with match indication should render an avatar with bad match percentage 1`] = `
 <div
   className="CandidateAvatar"
-  percentage={33}
   style={
     Object {
       "height": 128,
@@ -214,10 +118,10 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
       cx={64}
       cy={64}
       r={62}
-      strokeWidth="4"
+      strokeWidth={4}
       style={
         Object {
-          "strokeDasharray": "0 999",
+          "strokeDasharray": "128.5539713848943 999",
         }
       }
     />

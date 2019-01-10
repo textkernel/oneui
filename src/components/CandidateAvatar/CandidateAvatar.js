@@ -20,10 +20,12 @@ const context = percentage => {
 };
 
 const CandidateAvatar = props => {
-    const { imageUrl, matchPercentage, showPercentageOnHover, size, ...rest } = props;
+    const { imageUrl, matchPercentage, showPercentageOnHover, size, stroke, ...rest } = props;
 
     const fixedSize = Math.round(Math.max(32, size));
-    const radius = fixedSize / 2 - 2;
+    const strokeWidth = stroke === 'thin' ? 2 : 4;
+    const radiusCorrection = stroke === 'thin' ? 3 : 2;
+    const radius = fixedSize / 2 - radiusCorrection;
     const percentage = Math.max(0, Math.min(100, matchPercentage));
     const circumference = 2 * radius * Math.PI;
     const strokeDasharray = `${(percentage * circumference) / 100} 999`;
@@ -58,7 +60,7 @@ const CandidateAvatar = props => {
                     r={radius}
                     cx={fixedSize / 2}
                     cy={fixedSize / 2}
-                    strokeWidth="4"
+                    strokeWidth={strokeWidth}
                     {...elem('circle', {
                         ...props,
                         context: context(percentage)
@@ -76,14 +78,16 @@ CandidateAvatar.propTypes = {
     imageUrl: PropTypes.string,
     matchPercentage: PropTypes.number,
     showPercentageOnHover: PropTypes.bool,
-    size: PropTypes.number
+    size: PropTypes.number,
+    stroke: PropTypes.oneOf(['normal', 'thin'])
 };
 
 CandidateAvatar.defaultProps = {
     imageUrl: null,
     matchPercentage: null,
     showPercentageOnHover: false,
-    size: 72
+    size: 72,
+    stroke: 'normal'
 };
 
 export default CandidateAvatar;
