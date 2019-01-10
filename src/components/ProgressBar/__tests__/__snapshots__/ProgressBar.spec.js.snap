@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProgressBar> that renders a horizontal progress bar should render a default progress bar correctly 1`] = `
+<div
+  className="ProgressBar ProgressBar--context_brand"
+>
+  <div
+    className="ProgressBar__fill ProgressBar__fill--context_brand"
+    style={
+      Object {
+        "width": "25%",
+      }
+    }
+  >
+    25%
+  </div>
+</div>
+`;

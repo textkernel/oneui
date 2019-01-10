@@ -8,5 +8,6 @@ import './Input';
 import './Link';
 import './LoadingSpinner';
 import './Tabs';
+import './ProgressBar';
 import './Text';
 import './TextArea';

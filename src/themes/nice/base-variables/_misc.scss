@@ -1,5 +1,14 @@
 $transition-duration: .3s;
 
+// ProgressBar variables
+$progress-background-color: var(--color-neutral-25) !default;
+$progress-font-size: var(--font-size-small) !default;
+$progress-label-color: var(--color-background) !default;
+
 :root {
     --transition-duration: #{ $transition-duration };
+
+    --progress-background-color: #{ $progress-background-color };
+    --progress-font-size: #{ $progress-font-size };
+    --progress-label-color: #{ $progress-label-color };
 }
