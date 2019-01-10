@@ -11,11 +11,10 @@
 
     &__circle {
         fill: none;
-        stroke: var(--color-neutral);
         stroke-dasharray: 0 999;
         stroke-linecap: round;
         shape-rendering: geometricPrecision;
-        transition: all .3s ease;
+        transition: all var(--transition-duration) ease;
         transform: rotate(-90deg);
         transform-origin: 50% 50%;
 
@@ -45,7 +44,7 @@
         }
         text-shadow: 1px 1px 0 black;
         text-overflow: ellipsis;
-        transition: all .3s;
+        transition: all var(--transition-duration);
         white-space: nowrap;
     }
 

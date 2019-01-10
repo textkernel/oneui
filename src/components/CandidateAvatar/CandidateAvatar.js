@@ -45,9 +45,10 @@ const CandidateAvatar = props => {
                     backgroundImage: `url(${imageUrl})`
                 }}
             >
-                {!!showPercentageOnHover && (
-                    <div {...elem('percentage', props)}>{`${percentage}%`}</div>
-                )}
+                {!!Number.isInteger(matchPercentage) &&
+                    !!showPercentageOnHover && (
+                        <div {...elem('percentage', props)}>{`${percentage}%`}</div>
+                    )}
             </div>
             <svg
                 {...elem('ring', props)}
@@ -56,19 +57,21 @@ const CandidateAvatar = props => {
                     height: fixedSize
                 }}
             >
-                <circle
-                    r={radius}
-                    cx={fixedSize / 2}
-                    cy={fixedSize / 2}
-                    strokeWidth={strokeWidth}
-                    {...elem('circle', {
-                        ...props,
-                        context: context(percentage)
-                    })}
-                    style={{
-                        strokeDasharray
-                    }}
-                />
+                {!!Number.isInteger(matchPercentage) && (
+                    <circle
+                        r={radius}
+                        cx={fixedSize / 2}
+                        cy={fixedSize / 2}
+                        strokeWidth={strokeWidth}
+                        {...elem('circle', {
+                            ...props,
+                            context: context(percentage)
+                        })}
+                        style={{
+                            strokeDasharray
+                        }}
+                    />
+                )}
             </svg>
         </div>
     );

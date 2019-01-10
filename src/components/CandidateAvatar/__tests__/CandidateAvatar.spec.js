@@ -9,7 +9,7 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
     });
 
     it('should render a custom sized avatar with good match percentage', () => {
-        const wrapper = shallow(<CandidateAvatar size={128} matchPercentage={67} />);
+        const wrapper = shallow(<CandidateAvatar size={128} matchPercentage={0} />);
         expect(wrapper.props().style).toEqual({
             height: 128,
             width: 128
@@ -41,8 +41,11 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
     });
 
     it('should add classes when props are changed', () => {
-        const wrapper = shallow(<CandidateAvatar showPercentageOnHover stroke="thin" />);
+        const wrapper = shallow(
+            <CandidateAvatar showPercentageOnHover matchPercentage={10} stroke="thin" />
+        );
         expect(wrapper.find('.CandidateAvatar__percentage')).toHaveLength(1);
+        expect(wrapper.find('.CandidateAvatar__percentage').text()).toBe('10%');
         expect(wrapper.find('circle').props().strokeWidth).toBe(2);
     });
 });
