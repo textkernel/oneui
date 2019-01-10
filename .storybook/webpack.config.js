@@ -1,4 +1,4 @@
-const { getRules, plugins, baseConfig, PACKAGES_PATH } = require('../etc/webpack/webpack.config');
+const { getRules, plugins, PACKAGES_PATH } = require('../etc/webpack/webpack.config');
 
 module.exports = (storybookBaseConfig, configType) => {
 
