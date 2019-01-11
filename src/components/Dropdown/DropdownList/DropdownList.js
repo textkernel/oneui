@@ -24,8 +24,11 @@ const DropdownList = forwardRef((props, ref) => {
 });
 
 DropdownList.propTypes = {
+    /** The dropdown list content */
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
+    /** If the list should be aligned alongside the right edge of the parent element */
     fromRight: PropTypes.bool,
+    /** If the list should be visible */
     shown: PropTypes.bool
 };
 
