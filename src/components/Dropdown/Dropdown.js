@@ -6,6 +6,7 @@ import { escapeRegExp } from '../../utils';
 import Button from '../Button';
 import Input from '../Input';
 import DropdownCaret from './DropdownCaret';
+import DropdownList from './DropdownList';
 import DropdownItem from './DropdownItem';
 import styles from './Dropdown.scss';
 import { CONTEXTS, SIZES } from '../../constants';
@@ -269,7 +270,7 @@ class Dropdown extends PureComponent {
             value,
             ...rest
         } = this.props;
-        const { expanded, filterValue } = this.state;
+        const { expanded, filterValue, fromRight } = this.state;
 
         return (
             <div {...rest} {...this.block()} ref={this.dropdown}>
@@ -284,38 +285,40 @@ class Dropdown extends PureComponent {
                     {label}
                     <DropdownCaret {...this.elem('caret')} />
                 </Button>
-                {!!expanded &&
-                    !disabled && (
-                        <div {...this.elem('list')} ref={this.list}>
-                            {!!heading && <div {...this.elem('heading')}>{heading}</div>}
-                            {!!filter && (
-                                <div {...this.elem('filter')}>
-                                    <Input
-                                        autoFocus
-                                        isBlock
-                                        onChange={e => {
-                                            this.setState({
-                                                filterValue: diacritics.remove(e.target.value)
-                                            });
-                                        }}
-                                        placeholder={filter.placeholder || null}
-                                        ref={this.filter}
-                                        value={filterValue || ''}
-                                    />
-                                </div>
-                            )}
-                            <div
-                                style={{
-                                    maxHeight,
-                                    minWidth
+                <DropdownList
+                    fromRight={fromRight}
+                    shown={expanded && !disabled}
+                    ref={this.list}
+                    animated
+                >
+                    {!!heading && <div {...this.elem('heading')}>{heading}</div>}
+                    {!!filter && (
+                        <div {...this.elem('filter')}>
+                            <Input
+                                autoFocus
+                                isBlock
+                                onChange={e => {
+                                    this.setState({
+                                        filterValue: diacritics.remove(e.target.value)
+                                    });
                                 }}
-                                {...this.elem('list-items')}
-                                role="menu"
-                            >
-                                {this.filteredChildren()}
-                            </div>
+                                placeholder={filter.placeholder || null}
+                                ref={this.filter}
+                                value={filterValue || ''}
+                            />
                         </div>
                     )}
+                    <div
+                        style={{
+                            maxHeight,
+                            minWidth
+                        }}
+                        {...this.elem('list-items')}
+                        role="menu"
+                    >
+                        {this.filteredChildren()}
+                    </div>
+                </DropdownList>
             </div>
         );
     }
@@ -394,6 +397,5 @@ Dropdown.defaultProps = {
 };
 
 Dropdown.propsToMods = ['context', 'disabled', 'isBlock', 'size'];
-Dropdown.stateToMods = ['expanded', 'fromRight'];
 
 export default bem(styles)(Dropdown);

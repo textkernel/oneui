@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownList> that renders a dropdown list should render a default list correctly 1`] = `
+<div
+  className="DropdownList DropdownList--shown"
+>
+  Some content
+</div>
+`;

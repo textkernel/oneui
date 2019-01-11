@@ -2,10 +2,10 @@
 
 exports[`<Dropdown> that renders a dropdown element should add classes when props are changed 1`] = `
 <div
-  className="Dropdown Dropdown--context_primary Dropdown--disabled Dropdown--isBlock Dropdown--size_large Dropdown--expanded"
+  className="Dropdown Dropdown--context_primary Dropdown--disabled Dropdown--isBlock Dropdown--size_large"
 >
   <Button
-    className="Dropdown__button Dropdown__button--context_primary Dropdown__button--disabled Dropdown__button--isBlock Dropdown__button--size_large Dropdown__button--expanded"
+    className="Dropdown__button Dropdown__button--context_primary Dropdown__button--disabled Dropdown__button--isBlock Dropdown__button--size_large"
     context="primary"
     disabled={true}
     isBlock={true}
@@ -15,9 +15,65 @@ exports[`<Dropdown> that renders a dropdown element should add classes when prop
   >
     My dropdown
     <DropdownCaret
-      className="Dropdown__caret Dropdown__caret--context_primary Dropdown__caret--disabled Dropdown__caret--isBlock Dropdown__caret--size_large Dropdown__caret--expanded"
+      className="Dropdown__caret Dropdown__caret--context_primary Dropdown__caret--disabled Dropdown__caret--isBlock Dropdown__caret--size_large"
     />
   </Button>
+  <ForwardRef
+    animated={true}
+    fromRight={false}
+    shown={false}
+  >
+    <div
+      className="Dropdown__list-items Dropdown__list-items--context_primary Dropdown__list-items--disabled Dropdown__list-items--isBlock Dropdown__list-items--size_large"
+      role="menu"
+      style={
+        Object {
+          "maxHeight": 100,
+          "minWidth": 300,
+        }
+      }
+    >
+      <DropdownItem
+        checkbox={false}
+        checked={false}
+        disabled={true}
+        index={0}
+        isStatic={false}
+        key=".0"
+        onClick={null}
+        onSelect={[Function]}
+        value="1"
+      >
+        Some item
+      </DropdownItem>
+      <DropdownItem
+        checkbox={false}
+        checked={false}
+        disabled={false}
+        index={1}
+        isStatic={false}
+        key=".1"
+        onClick={null}
+        onSelect={[Function]}
+        value="2"
+      >
+        Another item
+      </DropdownItem>
+      <DropdownItem
+        checkbox={false}
+        checked={false}
+        disabled={false}
+        index={2}
+        isStatic={false}
+        key=".2"
+        onClick={null}
+        onSelect={[Function]}
+        value="3"
+      >
+        More items
+      </DropdownItem>
+    </div>
+  </ForwardRef>
 </div>
 `;
 
@@ -43,10 +99,10 @@ exports[`<Dropdown> that renders a dropdown element should filter items correctl
   value={null}
 >
   <div
-    className="Dropdown Dropdown--context_neutral Dropdown--size_normal Dropdown--expanded"
+    className="Dropdown Dropdown--context_neutral Dropdown--size_normal"
   >
     <Button
-      className="Dropdown__button Dropdown__button--context_neutral Dropdown__button--size_normal Dropdown__button--expanded"
+      className="Dropdown__button Dropdown__button--context_neutral Dropdown__button--size_normal"
       context="neutral"
       disabled={false}
       isBlock={false}
@@ -55,7 +111,7 @@ exports[`<Dropdown> that renders a dropdown element should filter items correctl
       type="button"
     >
       <button
-        className="Button Button--context_neutral Button--size_normal Dropdown__button Dropdown__button--context_neutral Dropdown__button--size_normal Dropdown__button--expanded"
+        className="Button Button--context_neutral Button--size_normal Dropdown__button Dropdown__button--context_neutral Dropdown__button--size_normal"
         context="neutral"
         disabled={false}
         onClick={[Function]}
@@ -64,10 +120,10 @@ exports[`<Dropdown> that renders a dropdown element should filter items correctl
       >
         My dropdown
         <DropdownCaret
-          className="Dropdown__caret Dropdown__caret--context_neutral Dropdown__caret--size_normal Dropdown__caret--expanded"
+          className="Dropdown__caret Dropdown__caret--context_neutral Dropdown__caret--size_normal"
         >
           <svg
-            className="DropdownCaret Dropdown__caret Dropdown__caret--context_neutral Dropdown__caret--size_normal Dropdown__caret--expanded"
+            className="DropdownCaret Dropdown__caret Dropdown__caret--context_neutral Dropdown__caret--size_normal"
             viewBox="0 0 292.362 292.362"
           >
             <g>
@@ -79,103 +135,109 @@ exports[`<Dropdown> that renders a dropdown element should filter items correctl
         </DropdownCaret>
       </button>
     </Button>
-    <div
-      className="Dropdown__list Dropdown__list--context_neutral Dropdown__list--size_normal Dropdown__list--expanded"
+    <ForwardRef
+      animated={true}
+      fromRight={false}
+      shown={true}
     >
       <div
-        className="Dropdown__filter Dropdown__filter--context_neutral Dropdown__filter--size_normal Dropdown__filter--expanded"
+        className="DropdownList DropdownList--animated DropdownList--shown"
       >
-        <ForwardRef
-          autoFocus={true}
-          context="brand"
-          disabled={false}
-          isBlock={true}
-          onChange={[Function]}
-          placeholder="Test filtering options"
-          size="normal"
-          type="text"
-          value=""
+        <div
+          className="Dropdown__filter Dropdown__filter--context_neutral Dropdown__filter--size_normal"
         >
-          <input
+          <ForwardRef
             autoFocus={true}
-            className="Input Input--context_brand Input--isBlock Input--size_normal"
+            context="brand"
             disabled={false}
+            isBlock={true}
             onChange={[Function]}
             placeholder="Test filtering options"
+            size="normal"
             type="text"
             value=""
-          />
-        </ForwardRef>
-      </div>
-      <div
-        className="Dropdown__list-items Dropdown__list-items--context_neutral Dropdown__list-items--size_normal Dropdown__list-items--expanded"
-        role="menu"
-        style={
-          Object {
-            "maxHeight": null,
-            "minWidth": null,
+          >
+            <input
+              autoFocus={true}
+              className="Input Input--context_brand Input--isBlock Input--size_normal"
+              disabled={false}
+              onChange={[Function]}
+              placeholder="Test filtering options"
+              type="text"
+              value=""
+            />
+          </ForwardRef>
+        </div>
+        <div
+          className="Dropdown__list-items Dropdown__list-items--context_neutral Dropdown__list-items--size_normal"
+          role="menu"
+          style={
+            Object {
+              "maxHeight": null,
+              "minWidth": null,
+            }
           }
-        }
-      >
-        <DropdownItem
-          checkbox={false}
-          checked={false}
-          disabled={false}
-          index={0}
-          isStatic={false}
-          key=".0"
-          onClick={null}
-          onSelect={[Function]}
-          value="1"
         >
-          <div
-            className="DropdownItem"
-            onClick={[Function]}
-            role="menuitem"
+          <DropdownItem
+            checkbox={false}
+            checked={false}
+            disabled={false}
+            index={0}
+            isStatic={false}
+            key=".0"
+            onClick={null}
+            onSelect={[Function]}
+            value="1"
           >
-            test capitalization
-          </div>
-        </DropdownItem>
-        <DropdownItem
-          checkbox={false}
-          checked={false}
-          disabled={false}
-          index={1}
-          isStatic={false}
-          key=".1"
-          onClick={null}
-          onSelect={[Function]}
-          value="2"
-        >
-          <div
-            className="DropdownItem"
-            onClick={[Function]}
-            role="menuitem"
+            <div
+              className="DropdownItem"
+              onClick={[Function]}
+              role="menuitem"
+            >
+              test capitalization
+            </div>
+          </DropdownItem>
+          <DropdownItem
+            checkbox={false}
+            checked={false}
+            disabled={false}
+            index={1}
+            isStatic={false}
+            key=".1"
+            onClick={null}
+            onSelect={[Function]}
+            value="2"
           >
-            Téšṫ diacritics
-          </div>
-        </DropdownItem>
-        <DropdownItem
-          checkbox={false}
-          checked={false}
-          disabled={false}
-          index={2}
-          isStatic={false}
-          key=".2"
-          onClick={null}
-          onSelect={[Function]}
-          value="3"
-        >
-          <div
-            className="DropdownItem"
-            onClick={[Function]}
-            role="menuitem"
+            <div
+              className="DropdownItem"
+              onClick={[Function]}
+              role="menuitem"
+            >
+              Téšṫ diacritics
+            </div>
+          </DropdownItem>
+          <DropdownItem
+            checkbox={false}
+            checked={false}
+            disabled={false}
+            index={2}
+            isStatic={false}
+            key=".2"
+            onClick={null}
+            onSelect={[Function]}
+            value="3"
           >
-            Match positioning test
-          </div>
-        </DropdownItem>
+            <div
+              className="DropdownItem"
+              onClick={[Function]}
+              role="menuitem"
+            >
+              Match positioning test
+            </div>
+          </DropdownItem>
+        </div>
       </div>
-    </div>
+    </ForwardRef>
   </div>
 </Dropdown>
 `;
@@ -234,6 +296,11 @@ exports[`<Dropdown> that renders a dropdown element should render a basic dropdo
         </DropdownCaret>
       </button>
     </Button>
+    <ForwardRef
+      animated={true}
+      fromRight={false}
+      shown={false}
+    />
   </div>
 </Dropdown>
 `;

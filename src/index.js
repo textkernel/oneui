@@ -5,6 +5,7 @@ export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Dropdown } from './components/Dropdown';
 export { default as DropdownItem } from './components/Dropdown/DropdownItem';
+export { default as DropdownList } from './components/Dropdown/DropdownList';
 export { default as Heading } from './components/Heading';
 export { default as Link } from './components/Link';
 export { default as LoadingSpinner } from './components/LoadingSpinner';
