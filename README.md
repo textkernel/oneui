@@ -1,23 +1,23 @@
-# Nice 2
+# Textkernel OneUI
 
 [![Build Status](https://travis-ci.com/textkernel/oneui.svg?branch=master)](https://travis-ci.com/textkernel/oneui)
 
-React Nice UI kit with theme support
+React OneUI UI library with theme support
 
-## Integrating Nice in your Application
+## Integrating OneUI in your Application
 ### Installing
 
 ```npm i ...```
 ### Boilerplate
-In your application's `<head>` import the nice stylesheet followed by the stylesheet of the theme you want to apply (if different from default)
+In your application's `<head>` import the OneUI stylesheet followed by the stylesheet of the theme you want to apply (if different from default)
 ```
-<link data-nice-level="nice" rel="stylesheet" href="./nice2.css">
-<link data-nice-level="theme" rel="stylesheet" href="./theme-custom.css">
+<link data-oneui-level="oneui" rel="stylesheet" href="./oneui.css">
+<link data-oneui-level="theme" rel="stylesheet" href="./theme-custom.css">
 ```
 Make sure all other dependencies, such as fonts are also loaded. See details in the [example app](example/public/index.html)
 
 #### IE 11 support
-Nice themes use css variables. To support IE11 and other browsers that don't support css variables you need add a [polyfill: css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill). 
+OneUI themes use css variables. To support IE11 and other browsers that don't support css variables you need add a [polyfill: css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill). 
 
 Best to ensure that only the polyfills you need in the `<head>` of your application are inserted, based on the current environment. E.g. should not add IE11 polifills in Chrome. To achive this, add:
 ```
@@ -38,14 +38,14 @@ See [cofig file](example/public/css-vars-config) in example app.
 ## Usage
 In your React app you can import any of the available components
 ```
-import { Button } from 'nice2';
+import { Button } from '@textkernel/oneui';
 (...)
 <Button>Click me</Button>
 ```
 _Note_: in all components all "other properties" (that are not documented in that component) are applied to the rendered HTML.
 
 ## Creating themes
-A theme for Nice is a simple css file that overrides css variables.
+A theme for OneUI is a simple css file that overrides css variables.
 
 ## Documentation
 For available components and their usage see storybook (`npm run storybook`)

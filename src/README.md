@@ -13,7 +13,7 @@ Have another contributor review your design to make sure nothing gets overlooked
 * An **example** of conceived implementation, e.g.:
 
 ```
-import { Button, ButtonGroup } from '@textkernel/nice';
+import { Button, ButtonGroup } from '@textkernel/oneui';
 <ButtonGroup>
     <Button
         context="primary"
