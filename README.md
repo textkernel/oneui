@@ -1,6 +1,6 @@
 # Nice 2
 
-[![Build Status](https://travis-ci.com/textkernel/nice2.svg?branch=master)](https://travis-ci.com/textkernel/nice2)
+[![Build Status](https://travis-ci.com/textkernel/oneui.svg?branch=master)](https://travis-ci.com/textkernel/oneui)
 
 React Nice UI kit with theme support
 
