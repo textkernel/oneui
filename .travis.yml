@@ -11,4 +11,4 @@ script:
   - npm run build
   - npm run build:prod
   - npm run lint:ci
-  - npm run lint-styles
+  - npm run lint:styles
