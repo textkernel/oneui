@@ -4,7 +4,11 @@ import RadioButton from '../RadioButton';
 
 describe('<RadioButton> that renders a radio button', () => {
     it('should render default radio button correctly', () => {
-        const wrapper = mount(<RadioButton id="c1">Choose me</RadioButton>);
+        const wrapper = mount(
+            <RadioButton id="c1" name="group_name">
+                Choose me
+            </RadioButton>
+        );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should call onChange function when clicked', () => {

@@ -12,11 +12,18 @@ const { block, elem } = bem({
 });
 
 const RadioButton = props => {
-    const { id, children, viewbox, disabled, ...rest } = props;
+    const { id, children, viewbox, disabled, name, ...rest } = props;
 
     return (
         <div {...block(props)}>
-            <input type="radio" id={id} {...rest} {...elem('input', props)} disabled={disabled} />
+            <input
+                {...rest}
+                {...elem('input', props)}
+                type="radio"
+                id={id}
+                name={name}
+                disabled={disabled}
+            />
             <label {...elem('label', props)} htmlFor={id} disabled={disabled}>
                 <span {...elem('box', props)}>
                     <svg
@@ -39,6 +46,8 @@ const RadioButton = props => {
 RadioButton.propTypes = {
     /** A unique id to reference this radio button */
     id: PropTypes.string.isRequired,
+    /** The name of the group this radio button belongs to */
+    name: PropTypes.string,
     /** If the radio button should be disabled */
     disabled: PropTypes.bool,
     /** The label for the radio button */
@@ -46,6 +55,7 @@ RadioButton.propTypes = {
 };
 
 RadioButton.defaultProps = {
+    name: null,
     disabled: false
 };
 

@@ -17,10 +17,10 @@ const Checkbox = props => {
     return (
         <div {...block(props)}>
             <input
-                type="checkbox"
-                id={id}
                 {...rest}
                 {...elem('input', props)}
+                type="checkbox"
+                id={id}
                 disabled={disabled}
             />
             <label {...elem('label', props)} htmlFor={id} disabled={disabled}>

@@ -4,6 +4,7 @@ exports[`<RadioButton> that renders a radio button should render default radio b
 <RadioButton
   disabled={false}
   id="c1"
+  name="group_name"
 >
   <div
     className="RadioButton"
@@ -12,6 +13,7 @@ exports[`<RadioButton> that renders a radio button should render default radio b
       className="RadioButton__input"
       disabled={false}
       id="c1"
+      name="group_name"
       type="radio"
     />
     <label
