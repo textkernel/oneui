@@ -11,7 +11,8 @@ const DIST_PATH = path.resolve(PROJECT_ROOT_PATH, 'dist');
 const PACKAGES_PATH = path.resolve(SOURCE_PATH, 'packages');
 const NODE_MODULES_PATH = path.resolve(SOURCE_PATH, '../node_modules');
 
-const { name: LIBRARY_NAME } = require('../../package.json');
+const { oneui } = require('../../package.json');
+const { libraryName: LIBRARY_NAME } = oneui;
 
 const plugins = {
     namedModulesPlugin: new webpack.NamedModulesPlugin(),

@@ -1,5 +1,8 @@
 {
-    "name": "OneUI",
+    "name": "@textkernel/oneui",
+    "oneui": {
+        "libraryName": "oneui"
+    },
     "version": "0.0.1",
     "description": "React OneUI kit with theme support",
     "main": "dist/oneui.min.js",

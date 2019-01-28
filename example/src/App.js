@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Heading, Button } from 'oneui'; // eslint-disable-line import/no-unresolved, import/no-extraneous-dependencies
+import { Heading, Button } from '@textkernel/oneui'; // eslint-disable-line import/no-unresolved, import/no-extraneous-dependencies
 import ButtonContainer from './components/ButtonContainer';
 import './App.css';
 
