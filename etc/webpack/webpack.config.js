@@ -12,6 +12,7 @@ const PACKAGES_PATH = path.resolve(SOURCE_PATH, 'packages');
 const NODE_MODULES_PATH = path.resolve(SOURCE_PATH, '../node_modules');
 
 const { oneui } = require('../../package.json');
+
 const { libraryName: LIBRARY_NAME } = oneui;
 
 const plugins = {
