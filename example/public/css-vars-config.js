@@ -6,7 +6,7 @@
  * For details see: https://www.npmjs.com/package/css-vars-ponyfill
  */
 cssVars({
-    include: 'style[data-nice-level], link[data-nice-level], style',
+    include: 'style[data-oneui-level], link[data-oneui-level], style',
     onlyLegacy: true,
     onlyVars: true,
     watch: true,

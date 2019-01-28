@@ -1,8 +1,11 @@
 {
-    "name": "nice2",
+    "name": "@textkernel/oneui",
+    "oneui": {
+        "libraryName": "oneui"
+    },
     "version": "0.0.1",
-    "description": "React Nice UI kit with theme support",
-    "main": "dist/nice2.min.js",
+    "description": "React OneUI kit with theme support",
+    "main": "dist/oneui.min.js",
     "scripts": {
         "storybook": "start-storybook -s ./stories/static -p 9001 -c .storybook",
         "storybook:prod": "build-storybook -s ./stories/static -c .storybook",
@@ -20,14 +23,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/textkernel/nice2.git"
+        "url": "git+https://github.com/textkernel/oneui.git"
     },
-    "author": "Textkernel Nice People <nice@textkernel.nl>",
+    "author": "Textkernel OneUI People <open-source@textkernel.nl>",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/textkernel/nice2/issues"
+        "url": "https://github.com/textkernel/oneui/issues"
     },
-    "homepage": "https://github.com/textkernel/nice2#readme",
+    "homepage": "https://github.com/textkernel/oneui#readme",
     "dependencies": {
         "@babel/polyfill": "7.0.0",
         "prop-types": "15.6.2",

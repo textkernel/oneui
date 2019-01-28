@@ -2,7 +2,7 @@ import React from 'react';
 import './ButtonContainer.css'
 
 /**
- * An example of how to use Nice based styling in a component implemented in 
+ * An example of how to use OneUI based styling in a component implemented in 
  * a 3rd party application, such as Search!
  *
  * This component is also customizable since its CSS uses variables from the

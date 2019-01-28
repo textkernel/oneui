@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Heading, Button } from 'nice2'; // eslint-disable-line import/no-unresolved, import/no-extraneous-dependencies
+import { Heading, Button } from '@textkernel/oneui'; // eslint-disable-line import/no-unresolved, import/no-extraneous-dependencies
 import ButtonContainer from './components/ButtonContainer';
 import './App.css';
 
@@ -13,7 +13,7 @@ class App extends Component {
         this.altTheme.type = 'text/css';
         this.altTheme.rel = 'stylesheet';
         this.altTheme.href = './theme-custom.css';
-        this.altTheme.dataset.niceLevel = 'nice';
+        this.altTheme.dataset.oneuiLevel = 'oneui';
 
         this.toggleTheme = this.toggleTheme.bind(this);
     }
