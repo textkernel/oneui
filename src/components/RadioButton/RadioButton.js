@@ -2,25 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import Text from '../Text';
-import styles from './Checkbox.scss';
+import styles from './RadioButton.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 
 const { block, elem } = bem({
-    name: 'Checkbox',
+    name: 'RadioButton',
     classnames: styles,
     propsToMods: ['disabled']
 });
 
-const Checkbox = props => {
-    const { id, children, viewbox, disabled, ...rest } = props;
+const RadioButton = props => {
+    const { id, children, viewbox, disabled, name, ...rest } = props;
 
     return (
         <div {...block(props)}>
             <input
                 {...rest}
                 {...elem('input', props)}
-                type="checkbox"
+                type="radio"
                 id={id}
+                name={name}
                 disabled={disabled}
             />
             <label {...elem('label', props)} htmlFor={id} disabled={disabled}>
@@ -31,28 +32,34 @@ const Checkbox = props => {
                         height="10px"
                         viewBox={CHECKBOX_VIEWBOX}
                     >
-                        <polyline points="1.5 6 3.5 9 8 3" />
+                        <circle cx="5" cy="6" r="3" />
                     </svg>
                 </span>
-                <Text {...elem('text', props)} inline muted={disabled}>
-                    {children}
-                </Text>
+                {!!children && (
+                    <Text {...elem('text', props)} inline muted={disabled}>
+                        {children}
+                    </Text>
+                )}
             </label>
         </div>
     );
 };
 
-Checkbox.propTypes = {
-    /** A unique id to reference this checkbox */
+RadioButton.propTypes = {
+    /** A unique id to reference this radio button */
     id: PropTypes.string.isRequired,
-    /** If the checkbox should be disabled */
+    /** The name of the group this radio button belongs to */
+    name: PropTypes.string,
+    /** If the radio button should be disabled */
     disabled: PropTypes.bool,
-    /** The label for the checkbox */
-    children: PropTypes.string.isRequired
+    /** The label for the radio button */
+    children: PropTypes.string
 };
 
-Checkbox.defaultProps = {
-    disabled: false
+RadioButton.defaultProps = {
+    name: null,
+    disabled: false,
+    children: null
 };
 
-export default Checkbox;
+export default RadioButton;

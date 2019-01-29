@@ -1,10 +1,10 @@
 @import '../../themes/oneui/oneui.scss';
 
-.Checkbox {
+.RadioButton {
     &__box {
         background-color: var(--color-background);
         border: 1px solid var(--color-neutral);
-        border-radius: var(--border-radius);
+        border-radius: 50%;
         box-sizing: content-box;
         display: inline-block;
         position: relative;
@@ -34,7 +34,7 @@
         display: block;
 
         &:hover {
-            .Checkbox__box {
+            .RadioButton__box {
                 border-color: var(--color-brand);
             }
         }
@@ -44,29 +44,22 @@
         position: absolute;
         top: 0;
         left: 0;
-        fill: none;
-        stroke: var(--color-background);
-        stroke-width: 2;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        stroke-dasharray: var(--font-size-large);
-        stroke-dashoffset: var(--font-size-large);
+        fill: var(--color-background);
         transition: all var(--transition-duration) ease;
         transition-delay: .1s;
-        transform: translate3d(0, 0, 0);
     }
 
     &__input {
         display: none;
 
         &:checked {
-            + .Checkbox__label {
-                .Checkbox__box {
+            + .RadioButton__label {
+                .RadioButton__box {
                     background: var(--color-brand);
                     border-color: var(--color-brand);
                     animation: wave var(--transition-duration) ease;
 
-                    .Checkbox__svg {
+                    .RadioButton__svg {
                         stroke-dashoffset: 0;
                     }
 
@@ -86,21 +79,21 @@
 
     &--disabled {
         &:hover {
-            .Checkbox__label {
-                .Checkbox__box {
+            .RadioButton__label {
+                .RadioButton__box {
                     border-color: var(--color-neutral);
                 }
             }
         }
 
-        .Checkbox__input {
-            + .Checkbox__label {
+        .RadioButton__input{
+            + .RadioButton__label {
                 cursor: not-allowed;
             }
-
+            
             &:checked {
-                + .Checkbox__label {
-                    .Checkbox__box {
+                + .RadioButton__label {
+                    .RadioButton__box {
                         border-color: var(--color-neutral);
                         background: var(--color-neutral);
                     }

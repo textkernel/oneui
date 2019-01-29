@@ -7,6 +7,7 @@ import './Heading';
 import './Input';
 import './Link';
 import './LoadingSpinner';
+import './RadioButton';
 import './Tabs';
 import './ProgressBar';
 import './Text';
