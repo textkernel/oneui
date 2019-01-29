@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
-import Input from '../src/components/Input';
-import { CONTEXTS, INPUT_TYPES, SIZES } from '../src/constants';
+import { Input } from '@textkernel/oneui';
+import { CONTEXTS, INPUT_TYPES, SIZES } from '@textkernel/oneui/constants';
 
 storiesOf('Input', module)
     .addDecorator(withKnobs)

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
-import Text from '../src/components/Text';
+import { Text } from '@textkernel/oneui';
 
 storiesOf('Text', module)
     .addDecorator(withKnobs)
