@@ -35,9 +35,11 @@ const RadioButton = props => {
                         <circle cx="5" cy="6" r="3" />
                     </svg>
                 </span>
-                <Text {...elem('text', props)} inline muted={disabled}>
-                    {children}
-                </Text>
+                {!!children && (
+                    <Text {...elem('text', props)} inline muted={disabled}>
+                        {children}
+                    </Text>
+                )}
             </label>
         </div>
     );
@@ -51,12 +53,13 @@ RadioButton.propTypes = {
     /** If the radio button should be disabled */
     disabled: PropTypes.bool,
     /** The label for the radio button */
-    children: PropTypes.string.isRequired
+    children: PropTypes.string
 };
 
 RadioButton.defaultProps = {
     name: null,
-    disabled: false
+    disabled: false,
+    children: null
 };
 
 export default RadioButton;
