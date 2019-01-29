@@ -1,16 +1,25 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import RadioButton from '../RadioButton';
+import Button from '../../Button';
 
 describe('<RadioButton> that renders a radio button', () => {
     it('should render default radio button correctly', () => {
         const wrapper = mount(<RadioButton id="c1" />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-    it('should render radio button with props and children correctly', () => {
+    it('should render radio button with props and string children correctly', () => {
         const wrapper = mount(
             <RadioButton id="c1" name="group_name">
                 Choose me
+            </RadioButton>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+    it('should render radio button with props and node children correctly', () => {
+        const wrapper = mount(
+            <RadioButton id="c1" name="group_name">
+                <Button>Choose me</Button>
             </RadioButton>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
