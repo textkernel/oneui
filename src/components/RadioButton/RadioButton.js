@@ -14,15 +14,6 @@ const { block, elem } = bem({
 const RadioButton = props => {
     const { id, children, viewbox, disabled, name, ...rest } = props;
 
-    const renderedLabel =
-        typeof children === 'string' ? (
-            <Text {...elem('text', props)} inline muted={disabled}>
-                {children}
-            </Text>
-        ) : (
-            children
-        );
-
     return (
         <div {...block(props)}>
             <input
@@ -44,7 +35,11 @@ const RadioButton = props => {
                         <circle cx="5" cy="6" r="3" />
                     </svg>
                 </span>
-                {renderedLabel}
+                {!!children && (
+                    <Text {...elem('text', props)} inline muted={disabled}>
+                        {children}
+                    </Text>
+                )}
             </label>
         </div>
     );
@@ -58,7 +53,7 @@ RadioButton.propTypes = {
     /** If the radio button should be disabled */
     disabled: PropTypes.bool,
     /** The label for the radio button */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+    children: PropTypes.string
 };
 
 RadioButton.defaultProps = {

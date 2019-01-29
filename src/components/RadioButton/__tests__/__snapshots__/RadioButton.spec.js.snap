@@ -49,73 +49,7 @@ exports[`<RadioButton> that renders a radio button should render default radio b
 </RadioButton>
 `;
 
-exports[`<RadioButton> that renders a radio button should render radio button with props and node children correctly 1`] = `
-<RadioButton
-  disabled={false}
-  id="c1"
-  name="group_name"
->
-  <div
-    className="RadioButton"
-  >
-    <input
-      className="RadioButton__input"
-      disabled={false}
-      id="c1"
-      name="group_name"
-      type="radio"
-    />
-    <label
-      className="RadioButton__label"
-      disabled={false}
-      htmlFor="c1"
-    >
-      <span
-        className="RadioButton__box"
-      >
-        <svg
-          className="RadioButton__svg"
-          height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
-          width="12px"
-        >
-          <circle
-            cx="5"
-            cy="6"
-            r="3"
-          />
-        </svg>
-      </span>
-      <Button
-        context="neutral"
-        disabled={false}
-        isBlock={false}
-        size="normal"
-        type="button"
-      >
-        <button
-          className="Button Button--context_neutral Button--size_normal"
-          context="neutral"
-          disabled={false}
-          size="normal"
-          type="button"
-        >
-          Choose me
-        </button>
-      </Button>
-    </label>
-  </div>
-</RadioButton>
-`;
-
-exports[`<RadioButton> that renders a radio button should render radio button with props and string children correctly 1`] = `
+exports[`<RadioButton> that renders a radio button should render radio button with props and children correctly 1`] = `
 <RadioButton
   disabled={false}
   id="c1"
