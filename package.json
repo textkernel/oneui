@@ -22,7 +22,7 @@
     ],
     "husky": {
         "hooks": {
-            "pre-commit": "npm run test && npm run lint && npm run lint:styles"
+            "pre-commit": "npm run test && npm run lint:ci && npm run lint:styles"
         }
     },
     "repository": {
