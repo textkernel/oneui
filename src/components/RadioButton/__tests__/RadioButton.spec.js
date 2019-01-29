@@ -4,9 +4,7 @@ import RadioButton from '../RadioButton';
 
 describe('<RadioButton> that renders a radio button', () => {
     it('should render default radio button correctly', () => {
-        const wrapper = mount(
-            <RadioButton id="c1" />
-        );
+        const wrapper = mount(<RadioButton id="c1" />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should render radio button with props and children correctly', () => {
