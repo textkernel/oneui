@@ -14,14 +14,15 @@ const Icon = props => {
     const { context, name, size, title, ...rest } = props;
 
     const currentIcon = ICONS[name];
+    const correctedSize = Math.max(0, size);
 
     return (
         <svg
             {...rest}
             {...block(props)}
             xmlns="http://www.w3.org/2000/svg"
-            width={size}
-            height={size}
+            width={correctedSize}
+            height={correctedSize}
             viewBox={currentIcon.viewBox}
             aria-labelledby="title"
         >

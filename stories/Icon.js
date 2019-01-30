@@ -10,7 +10,7 @@ storiesOf('Icon', module)
         <Icon
             context={select('Context', CONTEXTS, CONTEXTS[1])}
             name={select('Name', Object.keys(ICONS), Object.keys(ICONS)[0])}
-            size={number('Size', 16)}
+            size={number('Size', 48)}
             title={text('Title', 'Icon')}
         />
     ));

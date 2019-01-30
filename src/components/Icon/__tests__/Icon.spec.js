@@ -14,4 +14,10 @@ describe('<Icon> that renders an icon', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
+    it('should not allow negative sizes', () => {
+        const wrapper = shallow(<Icon name="textkernel" size={-1} />);
+        expect(wrapper.prop('height')).toBe(0);
+        expect(wrapper.prop('width')).toBe(0);
+    });
 });
