@@ -11,7 +11,7 @@ React OneUI UI library with theme support
 ### Boilerplate
 In your application's `<head>` import the OneUI stylesheet followed by the stylesheet of the theme you want to apply (if different from default)
 ```
-<link data-oneui-level="oneui" rel="stylesheet" href="./oneui.css">
+<link data-oneui-level="oneui" rel="stylesheet" href="./oneui.min.css">
 <link data-oneui-level="theme" rel="stylesheet" href="./theme-custom.css">
 ```
 Make sure all other dependencies, such as fonts are also loaded. See details in the [example app](example/public/index.html)

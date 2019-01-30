@@ -21,7 +21,7 @@ const plugins = {
         hashDigestLength: 6
     }),
     cssPlugin: new MiniCssExtractPlugin({
-        filename: `${LIBRARY_NAME}.css`
+        filename: `${LIBRARY_NAME}.min.css`
     }),
     styleLintPlugin: new StyleLintPlugin({
         context: SOURCE_PATH
