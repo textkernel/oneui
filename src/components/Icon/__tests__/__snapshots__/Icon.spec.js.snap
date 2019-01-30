@@ -4,15 +4,11 @@ exports[`<Icon> that renders an icon should render a default icon 1`] = `
 <svg
   aria-labelledby="title"
   className="Icon Icon--context_brand"
-  context="brand"
   height={16}
   viewBox="0 0 369.7 800"
   width={16}
   xmlns="http://www.w3.org/2000/svg"
 >
-  <title>
-    Icon
-  </title>
   <path
     className="Icon__path Icon__path--context_brand"
     d="M334.3,800C203.4,766.9,89.9,681.8,89.9,543.8V248.3H0v-104H89.9V0H223.1V144.2H349.2v104H223.1V554c0,76.5,56.7,109.6,146.6,130.8Z"
@@ -25,7 +21,6 @@ exports[`<Icon> that renders an icon should render an icon with custom context, 
 <svg
   aria-labelledby="title"
   className="Icon Icon--context_neutral"
-  context="neutral"
   height={128}
   viewBox="0 0 369.7 800"
   width={128}
