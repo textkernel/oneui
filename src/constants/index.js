@@ -14,3 +14,4 @@ export const INPUT_TYPES = [
 ];
 
 export * from './style-related';
+export * from './icons';
