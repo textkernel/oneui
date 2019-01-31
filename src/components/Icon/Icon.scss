@@ -1,8 +1,22 @@
-.Icon__path {
-    &--context {
-        @each $context in (neutral, brand, primary, accent, info, good, warning, bad) {
-            &_#{ $context } {
-                fill: var(--color-#{ $context });
+.Icon {
+    display: inline-flex;
+    align-self: center;
+
+    &__svg {
+        &--alignWithText {
+            position: relative;
+            top: .125em;
+            width: 1em;
+            height: 1em;
+        }
+    }
+
+    &__path {
+        &--context {
+            @each $context in (neutral, brand, primary, accent, info, good, warning, bad) {
+                &_#{ $context } {
+                    fill: var(--color-#{ $context });
+                }
             }
         }
     }

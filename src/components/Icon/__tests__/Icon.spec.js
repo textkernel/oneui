@@ -17,7 +17,7 @@ describe('<Icon> that renders an icon', () => {
 
     it('should not allow negative sizes', () => {
         const wrapper = shallow(<Icon name="textkernel" size={-1} />);
-        expect(wrapper.prop('height')).toBe(0);
-        expect(wrapper.prop('width')).toBe(0);
+        expect(wrapper.find('svg').prop('height')).toBe(0);
+        expect(wrapper.find('svg').prop('width')).toBe(0);
     });
 });
