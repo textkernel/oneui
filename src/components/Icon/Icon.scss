@@ -2,6 +2,14 @@
     display: inline-flex;
     align-self: center;
 
+    &--margin {
+        @each $side in (top, right, bottom, left) {
+            &_#{ $side } {
+                margin-#{ $side }: .25em;
+            }
+        }
+    }
+
     &__svg {
         position: relative;
         top: .125em;

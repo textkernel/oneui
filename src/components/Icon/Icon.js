@@ -7,7 +7,7 @@ import { CONTEXTS, ICONS } from '../../constants';
 const { block, elem } = bem({
     name: 'Icon',
     classnames: styles,
-    propsToMods: ['context']
+    propsToMods: ['context', 'margin']
 });
 
 const Icon = props => {
@@ -48,6 +48,8 @@ const Icon = props => {
 Icon.propTypes = {
     /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context: PropTypes.oneOf(CONTEXTS),
+    /** Adds margin between a given side of the icon and other content */
+    margin: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     /** Which icon to show */
     name: PropTypes.oneOf(Object.keys(ICONS)).isRequired,
     /** Absolute size for this icon (size in pixels, aspect ratio is 1:1).
@@ -59,6 +61,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
     context: CONTEXTS[1],
+    margin: null,
     size: null,
     title: null
 };

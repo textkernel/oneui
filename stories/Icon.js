@@ -18,10 +18,8 @@ storiesOf('Icon', module)
     .add('Align with text', () => (
         <Heading level={select('Heading level', HEADING_SIZES, HEADING_SIZES[0])}>
             <Icon
+                margin="right"
                 name={select('Icon name', Object.keys(ICONS), Object.keys(ICONS)[0])}
-                style={{
-                    marginRight: '.25em'
-                }}
             />
             {text('Text', 'Some heading')}
         </Heading>
