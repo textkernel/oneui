@@ -3,12 +3,10 @@
     align-self: center;
 
     &__svg {
-        &--alignWithText {
-            position: relative;
-            top: .125em;
-            width: 1em;
-            height: 1em;
-        }
+        position: relative;
+        top: .125em;
+        width: 1em;
+        height: 1em;
     }
 
     &__path {
