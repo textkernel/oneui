@@ -46,8 +46,6 @@ const Icon = props => {
 };
 
 Icon.propTypes = {
-    /** Makes the icon scale and align itself with text. Size prop will be ignored */
-    // alignWithText: PropTypes.bool,
     /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context: PropTypes.oneOf(CONTEXTS),
     /** Which icon to show */
@@ -60,7 +58,6 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-    // alignWithText: false,
     context: CONTEXTS[1],
     size: null,
     title: null
