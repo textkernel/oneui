@@ -10,6 +10,8 @@
     }
 
     &__path {
+        transition: fill var(--transition-duration);
+
         &--context {
             @each $context in (neutral, brand, primary, accent, info, good, warning, bad) {
                 &_#{ $context } {
