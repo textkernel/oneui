@@ -20,6 +20,8 @@ const Button = props => {
     );
 };
 
+Button.displayName = 'Button';
+
 // Any other attributes (onClick, onFocus etc.) are
 // supported although not defined in propTypes
 Button.propTypes = {

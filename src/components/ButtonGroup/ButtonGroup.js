@@ -26,6 +26,8 @@ const ButtonGroup = props => {
     );
 };
 
+ButtonGroup.displayName = 'ButtonGroup';
+
 ButtonGroup.propTypes = {
     /** The buttons in this group */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,

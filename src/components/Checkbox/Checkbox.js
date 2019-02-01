@@ -42,6 +42,8 @@ const Checkbox = props => {
     );
 };
 
+Checkbox.displayName = 'Checkbox';
+
 Checkbox.propTypes = {
     /** A unique id to reference this checkbox */
     id: PropTypes.string.isRequired,

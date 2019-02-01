@@ -28,6 +28,8 @@ const ProgressBar = props => {
     );
 };
 
+ProgressBar.displayName = 'ProgressBar';
+
 ProgressBar.propTypes = {
     /** Show progress activity with animation */
     animated: PropTypes.bool,

@@ -21,6 +21,8 @@ const Heading = props => {
     );
 };
 
+Heading.displayName = 'Heading';
+
 Heading.propTypes = {
     /** Heading text alignment */
     align: PropTypes.oneOf(['left', 'center', 'right']),

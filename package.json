@@ -8,7 +8,8 @@
     "main": "dist/oneui.min.js",
     "scripts": {
         "storybook": "start-storybook -s ./stories/static -p 9001 -c .storybook",
-        "storybook:prod": "build-storybook -s ./stories/static -c .storybook",
+        "storybook:build": "build-storybook -s ./stories/static -c .storybook",
+        "storybook:deploy": "storybook-to-ghpages --script=storybook:build --out=.out",
         "build": "webpack --config ./etc/webpack/webpack.dev.config.js",
         "build:prod": "webpack --config ./etc/webpack/webpack.prod.config.js",
         "lint": "npm run lint:ci -- --fix",
@@ -31,7 +32,7 @@
         "type": "git",
         "url": "git+https://github.com/textkernel/oneui.git"
     },
-    "author": "Textkernel OneUI People <open-source@textkernel.nl>",
+    "author": "Textkernel B.V. <open-source@textkernel.nl>",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/textkernel/oneui/issues"
@@ -55,6 +56,7 @@
         "@storybook/addon-info": "4.0.8",
         "@storybook/addon-knobs": "4.0.12",
         "@storybook/react": "4.0.8",
+        "@storybook/storybook-deployer": "2.8.1",
         "autoprefixer": "9.1.5",
         "babel-core": "7.0.0-bridge.0",
         "babel-eslint": "10.0.0",

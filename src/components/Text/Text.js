@@ -20,6 +20,8 @@ const Text = props => {
     );
 };
 
+Text.displayName = 'Text';
+
 Text.propTypes = {
     /** Text should be rendered inline */
     inline: PropTypes.bool,

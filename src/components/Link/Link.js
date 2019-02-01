@@ -17,6 +17,8 @@ const Link = props => {
     );
 };
 
+Link.displayName = 'Link';
+
 Link.propTypes = {
     /** Link content */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired
