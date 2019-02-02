@@ -1,6 +1,7 @@
 # Textkernel OneUI
 
 [![Build Status](https://travis-ci.com/textkernel/oneui.svg?branch=master)](https://travis-ci.com/textkernel/oneui)
+[![Coverage Status](https://coveralls.io/repos/github/textkernel/oneui/badge.svg?branch=master)](https://coveralls.io/github/textkernel/oneui?branch=master)
 
 React OneUI UI library with theme support
 
