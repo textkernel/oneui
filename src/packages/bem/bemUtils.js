@@ -40,7 +40,7 @@ function buildModsFromObject(source, modNames) {
         const propValue = source[modNames];
 
         if (propValue) {
-            if (propValue && typeof propValue === 'string') {
+            if (propValue && (typeof propValue === 'string' || typeof propValue === 'number')) {
                 result[modNames] = propValue; // eslint-disable-line no-param-reassign
             }
 
