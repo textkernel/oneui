@@ -23,15 +23,18 @@ describe('BEM decorator', () => {
         });
 
         it('should add proper class names based on propsToMods and passed props', () => {
-            const buttonWrapper = shallow(<Button active context="error" />);
+            const buttonWrapper = shallow(<Button active context="error" size={2} />);
             const buttonIcon = buttonWrapper.childAt(0);
             const buttonLabel = buttonWrapper.childAt(1);
             expect(buttonWrapper.hasClass('Button--active')).toBe(true);
             expect(buttonWrapper.hasClass('Button--context_error')).toBe(true);
+            expect(buttonWrapper.hasClass('Button--size_2')).toBe(true);
             expect(buttonIcon.hasClass('Button__icon--active')).toBe(true);
             expect(buttonIcon.hasClass('Button__icon--context_error')).toBe(true);
+            expect(buttonIcon.hasClass('Button__icon--size_2')).toBe(true);
             expect(buttonLabel.hasClass('Button__label--active')).toBe(true);
             expect(buttonLabel.hasClass('Button__label--context_error')).toBe(true);
+            expect(buttonLabel.hasClass('Button__label--size_2')).toBe(true);
         });
 
         it('should not add a class names if they are not listed in classnamesMap', () => {
@@ -79,15 +82,18 @@ describe('BEM decorator', () => {
         });
 
         it('should add proper class names based on propsToMods and passed props', () => {
-            const buttonWrapper = shallow(<ButtonStateless active context="error" />);
+            const buttonWrapper = shallow(<ButtonStateless active context="error" size={2} />);
             const buttonIcon = buttonWrapper.childAt(0);
             const buttonLabel = buttonWrapper.childAt(1);
             expect(buttonWrapper.hasClass('ButtonStateless--active')).toBe(true);
             expect(buttonWrapper.hasClass('ButtonStateless--context_error')).toBe(true);
+            expect(buttonWrapper.hasClass('ButtonStateless--size_2')).toBe(true);
             expect(buttonIcon.hasClass('ButtonStateless__icon--active')).toBe(true);
             expect(buttonIcon.hasClass('ButtonStateless__icon--context_error')).toBe(true);
+            expect(buttonIcon.hasClass('ButtonStateless__icon--size_2')).toBe(true);
             expect(buttonLabel.hasClass('ButtonStateless__label--active')).toBe(true);
             expect(buttonLabel.hasClass('ButtonStateless__label--context_error')).toBe(true);
+            expect(buttonLabel.hasClass('ButtonStateless__label--size_2')).toBe(true);
         });
 
         it('should not add a class names if they are not listed in classnames map', () => {
