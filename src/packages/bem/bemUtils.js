@@ -154,7 +154,7 @@ function checkModsDeclaration(block, source, declarations) {
         if (declaration in source === false) {
             // eslint-disable-next-line no-console
             console.warn(
-                `BEM component "${block}" prabably has incorrect declaration of "${declaration}"`
+                `BEM component "${block}" probably has incorrect declaration of "${declaration}"`
             );
         }
     });
