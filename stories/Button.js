@@ -13,6 +13,10 @@ storiesOf('Button', module)
             isBlock={boolean('isBlock', false)}
             type={select('Type', ['submit', 'button'], 'submit')}
             disabled={boolean('Disabled', false)}
+            onClick={e => {
+                // eslint-disable-next-line no-console
+                console.log('Clicked button', e);
+            }}
         >
             {text('Button label', 'Click me!')}
         </Button>

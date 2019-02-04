@@ -6,7 +6,14 @@ import Checkbox from '../src/components/Checkbox';
 storiesOf('Checkbox', module)
     .addDecorator(withKnobs)
     .add('Checkbox', () => (
-        <Checkbox disabled={boolean('Disabled', false)} id={text('Id', 'checkbox-1')}>
+        <Checkbox
+            disabled={boolean('Disabled', false)}
+            id={text('Id', 'checkbox-1')}
+            onChange={e => {
+                // eslint-disable-next-line no-console
+                console.log('Checkbox state changed', e);
+            }}
+        >
             {text('Checkbox label', 'Select me!')}
         </Checkbox>
     ))
@@ -14,7 +21,7 @@ storiesOf('Checkbox', module)
         <Checkbox
             disabled={boolean('Disabled', false)}
             id={text('Id', 'checkbox-1')}
-            onChange={() => alert('clicked')} // eslint-disable-line no-undef, no-alert
+            onChange={e => console.log('Checkbox state changed', e)} // eslint-disable-line no-console
             defaultChecked
         >
             {text('Checkbox label', 'Select me!')}
