@@ -13,6 +13,7 @@ exports[`<Tabs> that renders tab container with some tabs should render simple t
   >
     <div
       className="TabMenu"
+      role="tablist"
     >
       <TabItem
         id="1"
@@ -22,10 +23,13 @@ exports[`<Tabs> that renders tab container with some tabs should render simple t
         onClick={[Function]}
       >
         <a
+          aria-selected={true}
           className="TabItem TabItem--isActive"
           href="#"
           id="1"
           onClick={[Function]}
+          role="tab"
+          tabIndex={0}
         >
           First
         </a>
@@ -38,10 +42,13 @@ exports[`<Tabs> that renders tab container with some tabs should render simple t
         onClick={[Function]}
       >
         <a
+          aria-selected={false}
           className="TabItem"
           href="#"
           id="2"
           onClick={[Function]}
+          role="tab"
+          tabIndex={0}
         >
           Second
         </a>

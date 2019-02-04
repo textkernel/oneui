@@ -15,7 +15,16 @@ const ProgressBar = props => {
     const percentageAdjusted = Math.max(0, Math.min(percentage, 100));
 
     return (
-        <div {...rest} {...block(props)}>
+        <div
+            {...rest}
+            {...block(props)}
+            role="progressbar"
+            aria-hidden={hidden}
+            aria-valuenow={percentageAdjusted}
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuetext={label}
+        >
             <div
                 {...elem('fill', props)}
                 style={{

@@ -14,7 +14,7 @@ const { block, elem } = bem({
 const LoadingSpinner = props => {
     const { centerIn, context, hidden, label, size, ...rest } = props;
     return (
-        <div {...rest} {...block(props)}>
+        <div {...rest} {...block(props)} role="alert" aria-busy={!hidden} aria-hidden={hidden}>
             <svg
                 viewBox={[0, 0, 44, 44]}
                 style={(s => {

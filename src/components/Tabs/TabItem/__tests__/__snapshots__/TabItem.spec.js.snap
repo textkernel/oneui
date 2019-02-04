@@ -2,8 +2,11 @@
 
 exports[`<TabItem> should add classes for props 1`] = `
 <a
+  aria-selected={true}
   className="TabItem TabItem--isActive"
   href="#"
+  role="tab"
+  tabIndex={0}
 >
   Some tab
 </a>
@@ -11,8 +14,11 @@ exports[`<TabItem> should add classes for props 1`] = `
 
 exports[`<TabItem> should allow node type labels 1`] = `
 <a
+  aria-selected={false}
   className="TabItem"
   href="#"
+  role="tab"
+  tabIndex={0}
 >
   <strong>
     Some tab
@@ -22,8 +28,11 @@ exports[`<TabItem> should allow node type labels 1`] = `
 
 exports[`<TabItem> should render a tab item correctly 1`] = `
 <a
+  aria-selected={false}
   className="TabItem"
   href="#"
+  role="tab"
+  tabIndex={0}
 >
   Some tab
 </a>

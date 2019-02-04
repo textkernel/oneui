@@ -2,7 +2,10 @@
 
 exports[`<LoadingSpinner> that renders a circular loading spinner should add classes when props are changed 1`] = `
 <div
+  aria-busy={false}
+  aria-hidden={true}
   className="LoadingSpinner LoadingSpinner--centerIn LoadingSpinner--centerIn_viewport LoadingSpinner--context LoadingSpinner--context_primary LoadingSpinner--hidden"
+  role="alert"
 >
   <svg
     className="LoadingSpinner__svg LoadingSpinner__svg--centerIn LoadingSpinner__svg--centerIn_viewport LoadingSpinner__svg--context LoadingSpinner__svg--context_primary LoadingSpinner__svg--hidden"
@@ -35,7 +38,10 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should add cla
 
 exports[`<LoadingSpinner> that renders a circular loading spinner should render a default spinner correctly 1`] = `
 <div
+  aria-busy={true}
+  aria-hidden={false}
   className="LoadingSpinner LoadingSpinner--context LoadingSpinner--context_brand"
+  role="alert"
 >
   <svg
     className="LoadingSpinner__svg LoadingSpinner__svg--context LoadingSpinner__svg--context_brand"
@@ -63,7 +69,10 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
 
 exports[`<LoadingSpinner> that renders a circular loading spinner should render a spinner with label 1`] = `
 <div
+  aria-busy={true}
+  aria-hidden={false}
   className="LoadingSpinner LoadingSpinner--context LoadingSpinner--context_brand"
+  role="alert"
 >
   <svg
     className="LoadingSpinner__svg LoadingSpinner__svg--context LoadingSpinner__svg--context_brand"

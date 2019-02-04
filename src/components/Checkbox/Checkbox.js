@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import Text from '../Text';
@@ -11,7 +11,7 @@ const { block, elem } = bem({
     propsToMods: ['disabled']
 });
 
-const Checkbox = props => {
+const Checkbox = forwardRef((props, ref) => {
     const { id, children, viewbox, disabled, ...rest } = props;
 
     return (
@@ -22,6 +22,7 @@ const Checkbox = props => {
                 type="checkbox"
                 id={id}
                 disabled={disabled}
+                ref={ref}
             />
             <label {...elem('label', props)} htmlFor={id} disabled={disabled}>
                 <span {...elem('box', props)}>
@@ -40,7 +41,7 @@ const Checkbox = props => {
             </label>
         </div>
     );
-};
+});
 
 Checkbox.displayName = 'Checkbox';
 

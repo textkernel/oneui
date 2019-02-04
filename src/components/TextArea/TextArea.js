@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './TextArea.scss';
@@ -10,10 +10,10 @@ const { block } = bem({
     propsToMods: ['context', 'isBlock', 'size']
 });
 
-const TextArea = props => {
+const TextArea = forwardRef((props, ref) => {
     const { context, disabled, isBlock, size, ...rest } = props;
-    return <textarea {...rest} {...block(props)} disabled={disabled} />;
-};
+    return <textarea {...rest} {...block(props)} disabled={disabled} ref={ref} />;
+});
 
 TextArea.displayName = 'TextArea';
 

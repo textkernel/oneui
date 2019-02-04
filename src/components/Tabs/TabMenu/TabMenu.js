@@ -12,7 +12,7 @@ const { block } = bem({
 const TabMenu = props => {
     const { activeTabId, children, gutters, onChange, ...rest } = props;
     return (
-        <div {...rest} {...block(props)}>
+        <div {...rest} {...block(props)} role="tablist">
             {Children.map(children, tab => {
                 const { id } = tab.props;
                 return cloneElement(tab, {

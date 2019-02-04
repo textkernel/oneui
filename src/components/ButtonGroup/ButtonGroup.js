@@ -11,10 +11,10 @@ const { block, elem } = bem({
 });
 
 const ButtonGroup = props => {
-    const { children, size, isBlock, ...rest } = props;
+    const { ariaLabel, children, size, isBlock, ...rest } = props;
 
     return (
-        <div {...rest} {...block(props)}>
+        <div {...rest} {...block(props)} role="group">
             {React.Children.map(children, button =>
                 React.cloneElement(button, {
                     ...button.props,
