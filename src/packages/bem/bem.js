@@ -1,5 +1,5 @@
 import React from 'react';
-import { buildBemProps, getFunctionName } from './bemUtils';
+import { buildBemProps, getFunctionName, isBlockDecl } from './bemUtils';
 
 /**
  * CSS modules classnames map
@@ -43,7 +43,7 @@ function bemStateful(classnamesMap) {
          * @returns {BEMClassNames}
          */
         // eslint-disable-next-line no-param-reassign
-        StatefulBemComponent.prototype.block = function block() {
+        StatefulBemComponent.prototype.block = function block(extraMods = {}) {
             return buildBemProps({
                 block: blockName,
                 elem: null,
@@ -51,6 +51,7 @@ function bemStateful(classnamesMap) {
                 propsToMods,
                 state: this.state,
                 stateToMods,
+                extraMods,
                 classnamesMap
             });
         };
@@ -60,7 +61,7 @@ function bemStateful(classnamesMap) {
          * @returns {BEMClassNames}
          */
         // eslint-disable-next-line no-param-reassign
-        StatefulBemComponent.prototype.elem = function elem(elemName) {
+        StatefulBemComponent.prototype.elem = function elem(elemName, extraMods = {}) {
             return buildBemProps({
                 block: blockName,
                 elem: elemName,
@@ -68,6 +69,7 @@ function bemStateful(classnamesMap) {
                 propsToMods,
                 state: this.state,
                 stateToMods,
+                extraMods,
                 classnamesMap
             });
         };
@@ -84,7 +86,7 @@ function bemStateful(classnamesMap) {
 function bemStateless(blockDecl) {
     const { name, classnames, propsToMods } = blockDecl;
     return {
-        block: props => {
+        block: (props, extraMods = {}) => {
             if (!props) {
                 throw new TypeError('block(props) should be called with props as an argument');
             }
@@ -93,10 +95,11 @@ function bemStateless(blockDecl) {
                 elem: null,
                 props,
                 propsToMods,
+                extraMods,
                 classnamesMap: classnames
             });
         },
-        elem: (elemName, props) => {
+        elem: (elemName, props, extraMods = {}) => {
             if (!elemName || !props) {
                 throw new TypeError(
                     'elem(elemName, props) should be called with elem name and props as an arguments'
@@ -107,6 +110,7 @@ function bemStateless(blockDecl) {
                 elem: elemName,
                 props,
                 propsToMods,
+                extraMods,
                 classnamesMap: classnames
             });
         }
@@ -121,7 +125,7 @@ function bemStateless(blockDecl) {
  */
 export default function bem(args) {
     // bem was called as a in stateless mode
-    if (typeof args.name === 'string' && args.name !== '' && typeof args.classnames === 'object') {
+    if (isBlockDecl(args)) {
         const { name, classnames, propsToMods } = args;
         return bemStateless({ name, classnames, propsToMods });
     }

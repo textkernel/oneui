@@ -108,9 +108,11 @@ function getFunctionNameFallback(func) {
  * Builds a full list of class names for a block or an element
  * @param {string} block – Block name
  * @param {string} [elem] – Elem name
- * @param {ModsList} propsToMods
- * @param {ModsList} stateToMods
- * @param {ModDict} props
+ * @param {ModDict} props - All props from a component
+ * @param {ModsList} propsToMods - List of props properties to use for class generation
+ * @param {ModDict} state - All state from a component
+ * @param {ModsList} stateToMods - List of state properties to use for class generation
+ * @param {ModDict} extraMods - Extra mods that are not related to props or state
  * @param {ClassnamesMap} classnamesMap - css modules classnames map
  * @returns {string}
  * @public
@@ -122,12 +124,15 @@ function buildClassNames({
     propsToMods,
     state,
     stateToMods,
+    extraMods,
     classnamesMap
 }) {
     const blockElemName = elem ? `${block}${ELEM_SEPARATOR}${elem}` : block;
     const modsFromProps = buildModsFromObject(props, propsToMods);
     const modsFromState = buildModsFromObject(state, stateToMods);
-    const mods = Object.assign({}, modsFromProps, modsFromState);
+
+    // Todo: check that modsFromProps, modsFromState, extraMods don't have any intersections
+    const mods = Object.assign({}, modsFromProps, modsFromState, extraMods);
 
     // Base level
     const baseClassName = classnamesMap[blockElemName];
@@ -156,6 +161,16 @@ function checkModsDeclaration(block, source, declarations) {
 }
 
 /**
+ * Tells if args has a shape of BlockDecl
+ * @param {Object} args – Arbitrary object to check
+ * @returns {}
+ * @public
+ */
+export function isBlockDecl(args) {
+    return typeof args.name === 'string' && args.name !== '' && typeof args.classnames === 'object';
+}
+
+/**
  * Builds an object of props that will be spreaded through block or elements
  * @param {string} block
  * @param {string} [elem]
@@ -163,6 +178,7 @@ function checkModsDeclaration(block, source, declarations) {
  * @param {ModsList} [propsToMods]
  * @param {ModDict} [state]
  * @param {ModsList} [stateToMods]
+ * @param {ModDict} [extraMods]
  * @param {ClassnamesMap} classnamesMap
  * @returns {BEMClassNames}
  * @public
@@ -174,6 +190,7 @@ export function buildBemProps({
     propsToMods = [],
     state = {},
     stateToMods = [],
+    extraMods = {},
     classnamesMap
 }) {
     // If we deal with a new block, checking propsToMods and stateToMods declarations
@@ -189,6 +206,7 @@ export function buildBemProps({
         propsToMods,
         state,
         stateToMods,
+        extraMods,
         classnamesMap
     });
 
