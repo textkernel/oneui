@@ -53,6 +53,6 @@ storiesOf('Tabs', module)
                 <TabItem id="second" label="Another tab" />
             </TabMenu>
             <div style={{ padding: 9 }}>Some other content here</div>
-            <TabContent>Some content</TabContent>
+            <TabContent aria-labelledby="second">Some content</TabContent>
         </div>
     ));

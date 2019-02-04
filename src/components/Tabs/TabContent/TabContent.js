@@ -12,7 +12,7 @@ const { block } = bem({
 const TabContent = props => {
     const { children, ...rest } = props;
     return (
-        <div {...rest} {...block(props)}>
+        <div {...rest} {...block(props)} role="tabpanel">
             {children}
         </div>
     );
