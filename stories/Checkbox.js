@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
-import Checkbox from '../src/components/Checkbox';
+import { Checkbox } from '@textkernel/oneui';
 
 storiesOf('Checkbox', module)
     .addDecorator(withKnobs)

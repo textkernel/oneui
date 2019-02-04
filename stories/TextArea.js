@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
-import TextArea from '../src/components/TextArea';
-import { CONTEXTS, SIZES } from '../src/constants';
+import { TextArea } from '@textkernel/oneui';
+import { CONTEXTS, SIZES } from '@textkernel/oneui/constants';
 
 storiesOf('TextArea', module)
     .addDecorator(withKnobs)

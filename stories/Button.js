@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
-import Button from '../src/components/Button';
+import { Button } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '../src/constants';
 
 storiesOf('Button', module)

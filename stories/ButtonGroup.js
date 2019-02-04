@@ -1,9 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, select, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
-import ButtonGroup from '../src/components/ButtonGroup';
-import Button from '../src/components/Button';
-import { SIZES } from '../src/constants';
+import { Button, ButtonGroup } from '@textkernel/oneui';
+import { SIZES } from '@textkernel/oneui/constants';
 
 storiesOf('ButtonGroup', module)
     .addDecorator(withKnobs)

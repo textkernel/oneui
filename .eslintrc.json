@@ -17,7 +17,8 @@
             2,
             {
                 "ignore": [
-                    "bem"
+                    "bem",
+                    "@textkernel/oneui"
                 ]
             }
         ],

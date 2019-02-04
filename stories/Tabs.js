@@ -1,11 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, select, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
-import Tab from '../src/components/Tabs/Tab';
-import TabContent from '../src/components/Tabs/TabContent';
-import TabItem from '../src/components/Tabs/TabItem';
-import TabMenu from '../src/components/Tabs/TabMenu';
-import Tabs from '../src/components/Tabs';
+import { Tab, Tabs, TabContent, TabItem, TabMenu } from '@textkernel/oneui';
 
 const tabs = [
     {
