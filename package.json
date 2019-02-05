@@ -15,7 +15,9 @@
         "lint:ci": "eslint .",
         "lint:styles": "stylelint 'src/**/*.s(a|c)ss'",
         "test": "jest",
-        "prepare": "npm test && npm run lint:ci && npm run lint:styles && npm run build:prod"
+        "test:coverage": "jest --coverage",
+        "prepare": "npm test && npm run lint:ci && npm run lint:styles && npm run build:prod",
+        "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
     },
     "files": [
         "/dist"
@@ -58,6 +60,7 @@
         "babel-eslint": "10.0.0",
         "babel-jest": "23.6.0",
         "babel-loader": "8.0.2",
+        "coveralls": "3.0.2",
         "css-loader": "1.0.0",
         "enzyme": "3.7.0",
         "enzyme-adapter-react-16": "1.7.0",
