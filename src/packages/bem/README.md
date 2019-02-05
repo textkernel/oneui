@@ -181,6 +181,14 @@ Button.scss
     }
 
     /*
+    Block: "Button", modifier: "type" (based on props.type), any truthy value.
+    Is applied to the component's root node when `props.type = "normal"` is set.
+    */
+    &--type {
+        border: 1px;
+    }
+
+    /*
     Block: "Button", modifier: "type" (based on props.type), value: "normal".
     Is applied to the component's root node when `props.type = "normal"` is set.
     */
@@ -261,15 +269,15 @@ respectively exists in classnames map.
 
 ### Prop `active` and `type` are set:
 
-**Note** that property of a boolean type `active={true}` produces `Button__label--active` (*without* mod value), when property of a string type `type='extraordinary'` gives us classname `Button__label--type_extraordinary` (*with* mod value)
+**Note** that property of a boolean type `active={true}` produces `Button__label--active` (*without* mod value), when property of a string type `type='extraordinary'` gives us two classnameas: `Button__label--type` (*without* mod value) and `Button__label--type_extraordinary` (*with* mod value).
 
 ```html
 <Button active={true} type='extraordinary' />
 
     ↓ ↓ ↓
 
-<button class="Button Button--active Button--type_extraordinary">
-    <span class="Button__label Button__label--active Button__label--type_extraordinary" />
+<button class="Button Button--active Button--type Button--type_extraordinary">
+    <span class="Button__label Button__label--active Button__label--type Button__label--type_extraordinary" />
 </button>
 ```
 

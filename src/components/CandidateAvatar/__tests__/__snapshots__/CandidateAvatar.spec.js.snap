@@ -58,7 +58,7 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
     }
   >
     <circle
-      className="CandidateAvatar__circle CandidateAvatar__circle--context_warning"
+      className="CandidateAvatar__circle CandidateAvatar__circle--context CandidateAvatar__circle--context_warning"
       cx={64}
       cy={64}
       r={62}
@@ -116,7 +116,7 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
     }
   >
     <circle
-      className="CandidateAvatar__circle CandidateAvatar__circle--context_bad"
+      className="CandidateAvatar__circle CandidateAvatar__circle--context CandidateAvatar__circle--context_bad"
       cx={64}
       cy={64}
       r={62}
