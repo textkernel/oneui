@@ -9,7 +9,8 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
     });
 
     it('should render a custom sized avatar with good match percentage', () => {
-        const wrapper = shallow(<CandidateAvatar size={128} matchPercentage={0} />);
+        // Try odd size to see if it is forced to be even
+        const wrapper = shallow(<CandidateAvatar size={127} matchPercentage={100} />);
         expect(wrapper.props().style).toEqual({
             height: 128,
             width: 128
