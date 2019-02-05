@@ -45,6 +45,8 @@ const RadioButton = props => {
     );
 };
 
+RadioButton.displayName = 'RadioButton';
+
 RadioButton.propTypes = {
     /** A unique id to reference this radio button */
     id: PropTypes.string.isRequired,
