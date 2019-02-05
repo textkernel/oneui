@@ -37,7 +37,7 @@ describe('BEM decorator', () => {
             expect(buttonLabel.hasClass('Button__label--size_2')).toBe(true);
         });
 
-        it('should add "wildcard" class names for modifier with value (striong or number)', () => {
+        it('should add "wildcard" class names for modifier with value (string or number)', () => {
             const buttonWrapper = shallow(<Button size={3} />);
             const buttonIcon = buttonWrapper.childAt(0);
             const buttonLabel = buttonWrapper.childAt(1);
@@ -127,7 +127,7 @@ describe('BEM decorator', () => {
             expect(buttonLabel.hasClass('ButtonStateless__label--size_2')).toBe(true);
         });
 
-        it('should add "wildcard" class names for modifier with value (striong or number)', () => {
+        it('should add "wildcard" class names for modifier with value (string or number)', () => {
             const buttonWrapper = shallow(<ButtonStateless size={2} />);
             const buttonIcon = buttonWrapper.childAt(0);
             const buttonLabel = buttonWrapper.childAt(1);
