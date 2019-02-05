@@ -1,0 +1,8 @@
+{
+    "overrides": [{
+        "files": ["*.js"],
+        "rules": {
+            "no-console": 0
+        }
+    }]
+}

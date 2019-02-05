@@ -13,6 +13,9 @@ storiesOf('Button', module)
             isBlock={boolean('isBlock', false)}
             type={select('Type', ['submit', 'button'], 'submit')}
             disabled={boolean('Disabled', false)}
+            onClick={e => {
+                console.log('Clicked button', e);
+            }}
         >
             {text('Button label', 'Click me!')}
         </Button>
