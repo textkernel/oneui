@@ -18,6 +18,8 @@ const TabItem = props => {
     );
 };
 
+TabItem.displayName = 'TabItem';
+
 TabItem.propTypes = {
     /** Label for this tab */
     label: PropTypes.node.isRequired,

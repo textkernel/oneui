@@ -31,6 +31,8 @@ const Alert = props => {
     );
 };
 
+Alert.displayName = 'Alert';
+
 Alert.propTypes = {
     /** Action button for this alert */
     action: PropTypes.shape({

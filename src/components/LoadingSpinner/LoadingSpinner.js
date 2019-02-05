@@ -46,6 +46,8 @@ const LoadingSpinner = props => {
     );
 };
 
+LoadingSpinner.displayName = 'LoadingSpinner';
+
 LoadingSpinner.propTypes = {
     /** Center the spinner relative to parent element or viewport */
     centerIn: PropTypes.oneOf(['parent', 'viewport']),

@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 
 const Tab = ({ children }) => children;
 
+Tab.displayName = 'Tab';
+
 Tab.propTypes = {
     /** The tab content */
     children: PropTypes.node.isRequired,

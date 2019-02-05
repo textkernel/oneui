@@ -15,6 +15,8 @@ const Input = props => {
     return <input {...rest} {...block(props)} type={type} disabled={disabled} value={value} />;
 };
 
+Input.displayName = 'Input';
+
 // Any other attributes (onChange, onKeyUp etc.) are
 // supported although not defined in propTypes
 Input.propTypes = {

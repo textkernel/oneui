@@ -89,6 +89,8 @@ const CandidateAvatar = props => {
     );
 };
 
+CandidateAvatar.displayName = 'CandidateAvatar';
+
 CandidateAvatar.propTypes = {
     /** Path to the avatar image resource */
     imageUrl: PropTypes.string,

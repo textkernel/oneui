@@ -1,6 +1,7 @@
 ### OneUI project
 /dist
 /.cache
+/.out
 
 ### VisualStudioCode template
 /.vscode

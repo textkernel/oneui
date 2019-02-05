@@ -18,6 +18,8 @@ const TabContent = props => {
     );
 };
 
+TabContent.displayName = 'TabContent';
+
 TabContent.propTypes = {
     /** Content for this tab */
     children: PropTypes.node.isRequired

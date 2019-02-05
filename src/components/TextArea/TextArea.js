@@ -15,6 +15,8 @@ const TextArea = props => {
     return <textarea {...rest} {...block(props)} disabled={disabled} />;
 };
 
+TextArea.displayName = 'TextArea';
+
 // Any other attributes (value, defaultValue onChange, onKeyUp etc.) are
 // supported although not defined in propTypes
 TextArea.propTypes = {

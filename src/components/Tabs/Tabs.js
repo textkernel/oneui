@@ -70,6 +70,8 @@ class Tabs extends PureComponent {
     }
 }
 
+Tabs.displayName = 'Tabs';
+
 Tabs.propTypes = {
     /** Id of currently active tab */
     activeTabId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,

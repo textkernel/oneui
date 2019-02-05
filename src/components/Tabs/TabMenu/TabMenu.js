@@ -24,6 +24,8 @@ const TabMenu = props => {
     );
 };
 
+TabMenu.displayName = 'TabMenu';
+
 TabMenu.propTypes = {
     /** Id of currently active tab */
     activeTabId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
