@@ -54,8 +54,8 @@ class Button extends Component {
 
     render() {
         return (
-            {/*  
-            3. Add { ...this.block() } construction to declare node as a block root 
+            {/*
+            3. Add { ...this.block() } construction to declare node as a block root
                Note! If needed, {...this.props} should be spreaded before { ...this.block() } in order
                to avoid className overwriting.
             */}
@@ -104,7 +104,7 @@ import classnamesMap from './Button.scss';
 
 const { block, elem } = bem({
     name: 'Button', // Block name, that is used in css classnames
-    classnames: classnamesMap, 
+    classnames: classnamesMap,
     // 1. If you need to have class name (.ButtonStateless--active) that depends on
     //    `active` prop, just list this prop in propsToMods list.
     propsToMods: ['active']
@@ -144,7 +144,7 @@ Button.scss
 
     display: inline-block;
 
-    /* 
+    /*
     Block: "Button", modifier: "active" (based on props.active), value: true.
     Is applied to the component's root node when props.active = true is set.
     */
@@ -152,7 +152,15 @@ Button.scss
         color: red;
     }
 
-    /* 
+    /*
+    Block: "Button", modifier: "type" (based on props.type), any truthy value.
+    Is applied to the component's root node when `props.type = "normal"` is set.
+    */
+    &--type {
+        border: 1px;
+    }
+
+    /*
     Block: "Button", modifier: "type" (based on props.type), value: "normal".
     Is applied to the component's root node when `props.type = "normal"` is set.
     */
@@ -160,7 +168,7 @@ Button.scss
         background-color: grey;
     }
 
-    /* 
+    /*
     Block "Button", modifier "type" (based on props.type), value "extraordinary".
     Is applied to the component's root node when `props.type = "extraordinary"` is set.
     */
@@ -168,7 +176,7 @@ Button.scss
         background-color: red;
     }
 
-    /* 
+    /*
     Block "Button", modifier "clicked" (based on state.clicked), value true.
     Is applied to the component's root node when `state.clicked = true` is set.
     */
@@ -176,7 +184,7 @@ Button.scss
         border-style: dashed;
     }
 
-    /* 
+    /*
     Block "Button", element "label"
     Is applied to the component's label node.
     */
@@ -184,7 +192,7 @@ Button.scss
         color: blue;
     }
 
-    /* 
+    /*
     Block "Button", element "label", modifier: "active" (based on props.active), value: true.
     Is applied to the component's label node when props.active = true is set.
     */
@@ -193,7 +201,7 @@ Button.scss
     }
 
 
-/* 
+/*
     Block "Button", element "label", modifier "extraordinary" (based on props.type), value "extraordinary".
     Is applied to the component's label node when `props.type = "extraordinary"` is set.
     */
@@ -233,15 +241,15 @@ respectively exists in classnames map.
 
 ### Prop `active` and `type` are set:
 
-**Note** that property of a boolean type `active={true}` produces `Button__label--active` (*without* mod value), when property of a string type `type='extraordinary'` gives us classname `Button__label--type_extraordinary` (*with* mod value)
+**Note** that property of a boolean type `active={true}` produces `Button__label--active` (*without* mod value), when property of a string type `type='extraordinary'` gives us two classnameas: `Button__label--type` (*without* mod value) and `Button__label--type_extraordinary` (*with* mod value).
 
 ```html
 <Button active={true} type='extraordinary' />
 
     ↓ ↓ ↓
 
-<button class="Button Button--active Button--type_extraordinary">
-    <span class="Button__label Button__label--active Button__label--type_extraordinary" />
+<button class="Button Button--active Button--type Button--type_extraordinary">
+    <span class="Button__label Button__label--active Button__label--type Button__label--type_extraordinary" />
 </button>
 ```
 
@@ -261,7 +269,7 @@ No classnames will be produced if boolean property has `false` value.
 ### Clicked state
 ```html
 <Button /> <!-- this.setState({ clicked: true }) -->
- 
+
     ↓ ↓ ↓
 
 <button class="Button Button--clicked">

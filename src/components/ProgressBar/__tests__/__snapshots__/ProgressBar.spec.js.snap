@@ -2,10 +2,10 @@
 
 exports[`<ProgressBar> that renders a horizontal progress bar should render a default progress bar correctly 1`] = `
 <div
-  className="ProgressBar ProgressBar--context_brand"
+  className="ProgressBar ProgressBar--context ProgressBar--context_brand"
 >
   <div
-    className="ProgressBar__fill ProgressBar__fill--context_brand"
+    className="ProgressBar__fill ProgressBar__fill--context ProgressBar__fill--context_brand"
     style={
       Object {
         "width": "25%",

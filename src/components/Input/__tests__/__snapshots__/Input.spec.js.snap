@@ -2,7 +2,7 @@
 
 exports[`<Input> that renders an input field should add classes when props are changed 1`] = `
 <input
-  className="Input Input--context_bad Input--isBlock Input--size_large"
+  className="Input Input--context Input--context_bad Input--isBlock Input--size Input--size_large"
   disabled={true}
   type="text"
 />
@@ -10,7 +10,7 @@ exports[`<Input> that renders an input field should add classes when props are c
 
 exports[`<Input> that renders an input field should render default input correctly 1`] = `
 <input
-  className="Input Input--context_brand Input--size_normal"
+  className="Input Input--context Input--context_brand Input--size Input--size_normal"
   disabled={false}
   type="text"
   value="Some value"
