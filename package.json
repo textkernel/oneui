@@ -8,7 +8,7 @@
     "main": "dist/oneui.min.js",
     "scripts": {
         "storybook": "start-storybook -s ./stories/static -p 9001 -c .storybook",
-        "storybook:build": "build-storybook -s ./stories/static -c .storybook",
+        "storybook:build": "build-storybook -s ./stories/static -c .storybook -o .out",
         "storybook:deploy": "storybook-to-ghpages --script=storybook:build --out=.out",
         "build": "webpack --config ./etc/webpack/webpack.dev.config.js",
         "build:prod": "webpack --config ./etc/webpack/webpack.prod.config.js",
