@@ -13,7 +13,6 @@ storiesOf('Input', module)
             isBlock={boolean('isBlock', false)}
             onChange={e => {
                 const { value } = e.target;
-                // eslint-disable-next-line no-console
                 console.log(value);
             }}
             placeholder={text('Placeholder', 'Some text goes here...')}
@@ -28,7 +27,6 @@ storiesOf('Input', module)
             isBlock={boolean('isBlock', false)}
             onChange={e => {
                 const { value } = e.target;
-                // eslint-disable-next-line no-console
                 console.log(value);
             }}
             placeholder={text('Placeholder', 'While typing, check your console log...')}

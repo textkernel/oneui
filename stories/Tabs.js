@@ -34,7 +34,6 @@ storiesOf('Tabs', module)
             activeTabId={select('Active tab', tabIds, tabIds[0])}
             gutters={boolean('Show gutters', false)}
             onChange={tabId => {
-                // eslint-disable-next-line no-console
                 console.log(`Switched to ${tabId} tab`);
             }}
         >
@@ -50,7 +49,6 @@ storiesOf('Tabs', module)
             <TabMenu
                 activeTabId="second"
                 onChange={(e, id) => {
-                    // eslint-disable-next-line no-console
                     console.log(`Switch to ${id} tab requested`);
                 }}
                 gutters={boolean('Show gutters', false)}

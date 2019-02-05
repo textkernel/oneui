@@ -14,7 +14,6 @@ storiesOf('RadioButton', module)
                 name="my-group"
                 onChange={e => {
                     const { value } = e.target;
-                    // eslint-disable-next-line no-console
                     console.log(`Radio value changed to ${value}`, e);
                 }}
             >
@@ -27,7 +26,6 @@ storiesOf('RadioButton', module)
                 name="my-group"
                 onChange={e => {
                     const { value } = e.target;
-                    // eslint-disable-next-line no-console
                     console.log(`Radio value changed to ${value}`, e);
                 }}
             >

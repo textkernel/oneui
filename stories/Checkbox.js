@@ -10,7 +10,6 @@ storiesOf('Checkbox', module)
             disabled={boolean('Disabled', false)}
             id={text('Id', 'checkbox-1')}
             onChange={e => {
-                // eslint-disable-next-line no-console
                 console.log('Checkbox state changed', e);
             }}
         >
@@ -21,7 +20,7 @@ storiesOf('Checkbox', module)
         <Checkbox
             disabled={boolean('Disabled', false)}
             id={text('Id', 'checkbox-1')}
-            onChange={e => console.log('Checkbox state changed', e)} // eslint-disable-line no-console
+            onChange={e => console.log('Checkbox state changed', e)}
             defaultChecked
         >
             {text('Checkbox label', 'Select me!')}

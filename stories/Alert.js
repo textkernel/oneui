@@ -16,7 +16,6 @@ storiesOf('Alert', module)
                         ? {
                               label: 'Dismiss',
                               onClick: e => {
-                                  // eslint-disable-next-line no-console
                                   console.log('Clicked alert action', e);
                               }
                           }
