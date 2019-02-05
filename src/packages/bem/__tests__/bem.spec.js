@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonStateless } from './dummy-components';
+import { Button, ButtonStateless, Avatar, AvatarStateless } from './dummy-components';
 
 describe('BEM decorator', () => {
     describe('Decorate stateFUL class component', () => {
@@ -35,6 +35,27 @@ describe('BEM decorator', () => {
             expect(buttonLabel.hasClass('Button__label--active')).toBe(true);
             expect(buttonLabel.hasClass('Button__label--context_error')).toBe(true);
             expect(buttonLabel.hasClass('Button__label--size_2')).toBe(true);
+        });
+
+        it('should add proper class names based on extra mods with string value', () => {
+            const avatarWrapper = shallow(<Avatar match={80} />);
+            const avatarImage = avatarWrapper.childAt(0);
+            expect(avatarWrapper.hasClass('Avatar--outlineColor_green')).toBe(true);
+            expect(avatarImage.hasClass('Avatar__image--outlineColor_green')).toBe(true);
+        });
+
+        it('should add proper class names based on extra mods with number value', () => {
+            const avatarWrapper = shallow(<Avatar match={58} />);
+            const avatarImage = avatarWrapper.childAt(0);
+            expect(avatarWrapper.hasClass('Avatar--unmatchScore_42')).toBe(true);
+            expect(avatarImage.hasClass('Avatar__image--unmatchScore_42')).toBe(true);
+        });
+
+        it('should add proper class names based on extra mods with boolean value', () => {
+            const avatarWrapper = shallow(<Avatar match={100} />);
+            const avatarImage = avatarWrapper.childAt(0);
+            expect(avatarWrapper.hasClass('Avatar--isPerfect')).toBe(true);
+            expect(avatarImage.hasClass('Avatar__image--isPerfect')).toBe(true);
         });
 
         it('should not add a class names if they are not listed in classnamesMap', () => {
@@ -94,6 +115,27 @@ describe('BEM decorator', () => {
             expect(buttonLabel.hasClass('ButtonStateless__label--active')).toBe(true);
             expect(buttonLabel.hasClass('ButtonStateless__label--context_error')).toBe(true);
             expect(buttonLabel.hasClass('ButtonStateless__label--size_2')).toBe(true);
+        });
+
+        it('should add proper class names based on extra mods with string value', () => {
+            const avatarWrapper = shallow(<AvatarStateless match={80} />);
+            const avatarImage = avatarWrapper.childAt(0);
+            expect(avatarWrapper.hasClass('AvatarStateless--outlineColor_green')).toBe(true);
+            expect(avatarImage.hasClass('AvatarStateless__image--outlineColor_green')).toBe(true);
+        });
+
+        it('should add proper class names based on extra mods with number value', () => {
+            const avatarWrapper = shallow(<AvatarStateless match={58} />);
+            const avatarImage = avatarWrapper.childAt(0);
+            expect(avatarWrapper.hasClass('AvatarStateless--unmatchScore_42')).toBe(true);
+            expect(avatarImage.hasClass('AvatarStateless__image--unmatchScore_42')).toBe(true);
+        });
+
+        it('should add proper class names based on extra mods with boolean value', () => {
+            const avatarWrapper = shallow(<AvatarStateless match={100} />);
+            const avatarImage = avatarWrapper.childAt(0);
+            expect(avatarWrapper.hasClass('AvatarStateless--isPerfect')).toBe(true);
+            expect(avatarImage.hasClass('AvatarStateless__image--isPerfect')).toBe(true);
         });
 
         it('should not add a class names if they are not listed in classnames map', () => {

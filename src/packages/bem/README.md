@@ -52,10 +52,16 @@ class Button extends Component {
         this.setState({ clicked: !clicked });
     };
 
+    almostRandomValue() {
+        if (this.props.active) return 'foo';
+        if (Math.random() > 0.5) return 'bar';
+        return 'buz';
+    }
+
     render() {
         return (
-            {/*  
-            3. Add { ...this.block() } construction to declare node as a block root 
+            {/*
+            3. Add { ...this.block() } construction to declare node as a block root
                Note! If needed, {...this.props} should be spreaded before { ...this.block() } in order
                to avoid className overwriting.
             */}
@@ -65,6 +71,13 @@ class Button extends Component {
                 */}
                 <span { ...this.elem('label') }>
                     {this.props.children}
+                </span>
+                {/*
+                4. If you need to add some custom modifiers, you can pass it as 2nd argument to this.elem function.
+                Or as a 1st argument to this.block function. E.g. { ...this.block({ custom: 'modifier' }) }
+                */}
+                <span { ...this.elem('icon', { almostRandomValue: this.almostRandomValue() }) }>
+                    {props.children}
                 </span>
             </button>
         );
@@ -104,11 +117,17 @@ import classnamesMap from './Button.scss';
 
 const { block, elem } = bem({
     name: 'Button', // Block name, that is used in css classnames
-    classnames: classnamesMap, 
+    classnames: classnamesMap,
     // 1. If you need to have class name (.ButtonStateless--active) that depends on
     //    `active` prop, just list this prop in propsToMods list.
     propsToMods: ['active']
 });
+
+const almostRandomValue = (props) => {
+    if (props.active) return 'foo';
+    if (Math.random() > 0.5) return 'bar';
+    return 'buz';
+}
 
 const ButtonStateless = (props) => {
     return (
@@ -118,8 +137,17 @@ const ButtonStateless = (props) => {
          to avoid className overwriting.
       */}
       <button {...props} { ...block(props) }>
-        {/*  3. Add { ...elem('label', props) } construction to declare node as a label element */}
+        {/*
+        3. Add { ...elem('label', props) } construction to declare node as a label element
+        */}
         <span { ...elem('label', props) }>
+            {props.children}
+        </span>
+        {/*
+        4. If you need to add some custom modifiers, you can pass it as 3rd argument to the elem function.
+            Or as a 2nd argument to block function. E.g. { ...block(props, { custom: 'modifier' }) }
+        */}
+        <span { ...elem('icon', props, { almostRandomValue: almostRandomValue(props) }) }>
             {props.children}
         </span>
       </button>
@@ -144,7 +172,7 @@ Button.scss
 
     display: inline-block;
 
-    /* 
+    /*
     Block: "Button", modifier: "active" (based on props.active), value: true.
     Is applied to the component's root node when props.active = true is set.
     */
@@ -152,7 +180,7 @@ Button.scss
         color: red;
     }
 
-    /* 
+    /*
     Block: "Button", modifier: "type" (based on props.type), value: "normal".
     Is applied to the component's root node when `props.type = "normal"` is set.
     */
@@ -160,7 +188,7 @@ Button.scss
         background-color: grey;
     }
 
-    /* 
+    /*
     Block "Button", modifier "type" (based on props.type), value "extraordinary".
     Is applied to the component's root node when `props.type = "extraordinary"` is set.
     */
@@ -168,7 +196,7 @@ Button.scss
         background-color: red;
     }
 
-    /* 
+    /*
     Block "Button", modifier "clicked" (based on state.clicked), value true.
     Is applied to the component's root node when `state.clicked = true` is set.
     */
@@ -176,7 +204,7 @@ Button.scss
         border-style: dashed;
     }
 
-    /* 
+    /*
     Block "Button", element "label"
     Is applied to the component's label node.
     */
@@ -184,7 +212,7 @@ Button.scss
         color: blue;
     }
 
-    /* 
+    /*
     Block "Button", element "label", modifier: "active" (based on props.active), value: true.
     Is applied to the component's label node when props.active = true is set.
     */
@@ -193,7 +221,7 @@ Button.scss
     }
 
 
-/* 
+/*
     Block "Button", element "label", modifier "extraordinary" (based on props.type), value "extraordinary".
     Is applied to the component's label node when `props.type = "extraordinary"` is set.
     */
@@ -261,7 +289,7 @@ No classnames will be produced if boolean property has `false` value.
 ### Clicked state
 ```html
 <Button /> <!-- this.setState({ clicked: true }) -->
- 
+
     ↓ ↓ ↓
 
 <button class="Button Button--clicked">
