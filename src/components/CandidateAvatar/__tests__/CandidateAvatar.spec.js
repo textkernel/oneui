@@ -28,8 +28,15 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('should render an avatar with bad match percentage', () => {
-        const wrapper = shallow(<CandidateAvatar size={128} matchPercentage={33} />);
+    it('should render an avatar with bad match percentage and avatar', () => {
+        const wrapper = shallow(
+            <CandidateAvatar
+                imageUrl="/candidate.jpg"
+                size={128}
+                matchPercentage={33}
+                showPercentageOnHover
+            />
+        );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 

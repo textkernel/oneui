@@ -49,7 +49,17 @@ const CandidateAvatar = props => {
             >
                 {!!Number.isInteger(matchPercentage) &&
                     !!showPercentageOnHover && (
-                        <div {...elem('percentage', props)}>{`${percentage}%`}</div>
+                        <svg {...elem('percentage', props)} viewBox="0 0 50 50">
+                            <text
+                                {...elem('percentage-value', props)}
+                                x="50%"
+                                y="50%"
+                                textAnchor="middle"
+                                dominantBaseline="central"
+                            >
+                                {`${percentage}%`}
+                            </text>
+                        </svg>
                     )}
             </div>
             <svg
