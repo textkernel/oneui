@@ -19,8 +19,10 @@ describe('<Tabs> that renders tab container with some tabs', () => {
     });
 
     it('should switch tabs correctly', () => {
+        const onChange = jest.fn();
+
         const wrapper = mount(
-            <Tabs activeTabId="1">
+            <Tabs activeTabId="1" onChange={onChange}>
                 <Tab id="1" label="First">
                     Some content
                 </Tab>
@@ -35,5 +37,28 @@ describe('<Tabs> that renders tab container with some tabs', () => {
             .at(1)
             .simulate('click');
         expect(wrapper.state().activeTabId).toBe('2');
+        expect(onChange).toHaveBeenCalledWith('2');
+    });
+
+    it('should switch tabs correctly (programmatically)', () => {
+        const wrapper = mount(
+            <Tabs activeTabId="1">
+                <Tab id="1" label="First">
+                    Some content
+                </Tab>
+                <Tab id="2" label="Second">
+                    Some more content
+                </Tab>
+            </Tabs>
+        );
+        wrapper.setProps(
+            {
+                activeTabId: '2'
+            },
+            () => {
+                expect(wrapper.state().activeTabId).toBe('2');
+                expect(wrapper.state().derivedTabId).toBe('2');
+            }
+        );
     });
 });
