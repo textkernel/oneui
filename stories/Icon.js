@@ -28,48 +28,48 @@ storiesOf('Icons', module)
         <IconExtract
             context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
-            title={text('Title', 'Extract! logo')}
+            title={text('Title', 'Extract!')}
         />
     ))
     .add('Harvester icon', () => (
         <IconHarvester
             context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
-            title={text('Title', 'Sourcebox logo')}
+            title={text('Title', 'Harvester')}
         />
     ))
     .add('Jobfeed icon', () => (
         <IconJobfeed
             context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
-            title={text('Title', 'Jobfeed logo')}
+            title={text('Title', 'Jobfeed')}
         />
     ))
     .add('Match! icon', () => (
         <IconMatch
             context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
-            title={text('Title', 'Match! logo')}
+            title={text('Title', 'Match!')}
         />
     ))
     .add('Search! icon', () => (
         <IconSearch
             context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
-            title={text('Title', 'Search! logo')}
+            title={text('Title', 'Search!')}
         />
     ))
     .add('Sourcebox icon', () => (
         <IconSourcebox
             context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
-            title={text('Title', 'Sourcebox logo')}
+            title={text('Title', 'Sourcebox')}
         />
     ))
     .add('Textkernel icon', () => (
         <IconTextkernel
             context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
-            title={text('Title', 'Textkernel logo')}
+            title={text('Title', 'Textkernel')}
         />
     ));
