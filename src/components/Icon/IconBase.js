@@ -31,7 +31,7 @@ const IconBase = props => {
         <div {...rest} {...block(props)}>
             <svg
                 {...elem('svg', props)}
-                aria-labelledby={title || null}
+                aria-labelledby={title ? 'title' : null}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox={viewBox}
                 style={adjustSize(size)}
