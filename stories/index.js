@@ -4,6 +4,7 @@ import './ButtonGroup';
 import './CandidateAvatar';
 import './Checkbox';
 import './Heading';
+import './Icon';
 import './Input';
 import './Link';
 import './LoadingSpinner';
