@@ -37,6 +37,16 @@ describe('BEM decorator', () => {
             expect(buttonLabel.hasClass('Button__label--size_2')).toBe(true);
         });
 
+        it('should add "wildcard" class names for modifier with value (string or number)', () => {
+            const buttonWrapper = shallow(<Button size={3} />);
+            const buttonIcon = buttonWrapper.childAt(0);
+            const buttonLabel = buttonWrapper.childAt(1);
+            expect(buttonWrapper.hasClass('Button--size')).toBe(true);
+            expect(buttonWrapper.hasClass('Button--context')).toBe(false);
+            expect(buttonIcon.hasClass('Button__icon--size')).toBe(true);
+            expect(buttonLabel.hasClass('Button__label--size')).toBe(false);
+        });
+
         it('should add proper class names based on extra mods with string value', () => {
             const avatarWrapper = shallow(<Avatar match={80} />);
             const avatarImage = avatarWrapper.childAt(0);
@@ -115,6 +125,16 @@ describe('BEM decorator', () => {
             expect(buttonLabel.hasClass('ButtonStateless__label--active')).toBe(true);
             expect(buttonLabel.hasClass('ButtonStateless__label--context_error')).toBe(true);
             expect(buttonLabel.hasClass('ButtonStateless__label--size_2')).toBe(true);
+        });
+
+        it('should add "wildcard" class names for modifier with value (string or number)', () => {
+            const buttonWrapper = shallow(<ButtonStateless size={2} />);
+            const buttonIcon = buttonWrapper.childAt(0);
+            const buttonLabel = buttonWrapper.childAt(1);
+            expect(buttonWrapper.hasClass('ButtonStateless--context')).toBe(false);
+            expect(buttonWrapper.hasClass('ButtonStateless--size')).toBe(true);
+            expect(buttonIcon.hasClass('ButtonStateless__icon--size')).toBe(true);
+            expect(buttonLabel.hasClass('ButtonStateless__label--size')).toBe(false);
         });
 
         it('should add proper class names based on extra mods with string value', () => {
