@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import IconBase from '../IconBase';
-import { propTypes, defaultProps } from '../prop-types';
+import { CONTEXTS } from '../../../constants';
 
 const IconExtract = props => (
     <IconBase {...props} viewBox="0 0 77.36 93.32">
@@ -13,8 +14,23 @@ const IconExtract = props => (
 
 IconExtract.displayName = 'IconExtract';
 
-IconExtract.propTypes = propTypes;
+IconExtract.propTypes = {
+    /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    context: PropTypes.oneOf(CONTEXTS),
+    /** Adds margin between a given side of the icon and other content */
+    margin: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
+    /** Absolute size for this icon (size in pixels, aspect ratio is 1:1).
+     If not defined, icon will scale and align itself with text. */
+    size: PropTypes.number,
+    /** Optional icon title */
+    title: PropTypes.string
+};
 
-IconExtract.defaultProps = defaultProps;
+IconExtract.defaultProps = {
+    context: CONTEXTS[1],
+    margin: null,
+    size: null,
+    title: null
+};
 
 export default IconExtract;
