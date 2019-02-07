@@ -55,7 +55,7 @@ For available components and their usage see storybook (`npm run storybook`)
 ## Contributing
 
 * If yor IDE doesn't support [editor config](https://editorconfig.org/), please install a plugin for your IDE (e.g. [plugin for VS Code](https://github.com/editorconfig/editorconfig-vscode)).
-* Please make sure to read the [developer guidelines](src/CONTRIBUTING.md) before contributing.
+* Please make sure to read the [developer guidelines](CONTRIBUTING.md) before contributing.
 
 ## Development
 
