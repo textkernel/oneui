@@ -1,0 +1,28 @@
+.IconBase {
+    display: inline-flex;
+    align-self: center;
+
+    &__svg {
+        position: relative;
+        top: .125em;
+        width: 1em;
+        height: 1em;
+        transition: fill var(--transition-duration);
+    }
+
+    &--context {
+        @each $context in (neutral, brand, primary, accent, info, good, warning, bad) {
+            &_#{ $context } {
+                fill: var(--color-#{ $context });
+            }
+        }
+    }
+
+    &--margin {
+        @each $side in (top, right, bottom, left) {
+            &_#{ $side } {
+                margin-#{ $side }: .25em;
+            }
+        }
+    }
+}
