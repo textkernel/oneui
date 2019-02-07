@@ -2,6 +2,19 @@
 
 When contributing to the OneUI library, please consider the following developer guidelines.
 
+## Definition of Done Checklist
+Any new implementation is expected to meet the following standards before it can be merged.
+
+- The component has been manually tested and complies with the Textkernel [browser support guidelines](https://textkernel.com/browser-support/).
+- The component has a [__displayName__](#display-names) defined.
+- The component comes with a [__detailed propTypes__](#component-props) (and defaultProps) definition.
+- The implementation complies with [__accessibility__](#accessibility) standards.
+- The component is __properly exported__ in `src/index.js` (maintain alphabetical order).
+- The implementation is thoroughly [__covered by tests__](#testing) (Jest / Enzyme, preferably 100%), not only with snapshots.
+- The component [__comes with a story__](#component-showcases) in Storybook that allows props to be changed with knobs.
+- The implementation is __reviewed__ by another contributor.
+- The complete __build is passing__ (including tests and code linting).
+
 ## Component Design
 In general: OneUI tries to adhere to the principles prescribed by [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). This means we intend to work from the smallest possible units (molecules) towards larger compounds (organisms).
 
@@ -68,16 +81,3 @@ Each implementation should be thoroughly covered with tests. DOM structure can i
 2. Start with simple component rendering tests, possibly using a snapshot
 3. Test additional interactivity / behaviour with explicit assertions
 4. Strive for 100% code coverage
-
-## Definition of Done Checklist
-Any new implementation is expected to meet the following standards before it can be merged.
-
-- The component has been manually tested and complies with the Textkernel [browser support guidelines](https://textkernel.com/browser-support/).
-- The component has a __displayName__ defined.
-- The component comes with a __detailed propTypes__ (and defaultProps) definition.
-- The implementation complies with __accessibility__ standards.
-- The component is __properly exported__ in `src/index.js` (maintain alphabetical order).
-- The implementation is thoroughly __covered by tests__ (Jest / Enzyme, preferably 100%), not only with snapshots.
-- The component __comes with a story__ in Storybook that allows props to be changed with knobs.
-- The implementation is __reviewed__ by another contributor.
-- The complete __build is passing__ (including tests and code linting).
