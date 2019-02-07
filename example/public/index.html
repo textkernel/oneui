@@ -1,49 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
 
-    <!--
-        [ REQUIREMENT ]
-        Loads the polyfills according to the user browser. Used mainly to run
-        this demo on IE11
-    -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+        <!--
+            [ REQUIREMENT ]
+            Loads the polyfills according to the user browser. Used mainly to run
+            this demo on IE11
+        -->
+        <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 
-    <!--
-        [ REQUIREMENT ]
-        This script needs to be included only for IE11 to make css variables alive.
-        Mind that it needs to be loaded in a blocking way (without async or defer)
-        in order to prevent style flickering
-    -->
-    <script src="https://unpkg.com/css-vars-ponyfill@1"></script>
-    <script type="text/javascript" src="/css-vars-config.js"></script>
+        <title>OneUI Themable Example</title>
+    </head>
 
-    <!-- Other dependencies, such as fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
-
-    <!--
-        [ REQUIREMENT ]
-        Loads the `OneUI CSS` with its own variables.
-        The theme must go after in order to be able to override variables
-    -->
-    <link data-oneui-level="oneui" rel="stylesheet" href="./oneui.min.css">
-
-
-    <!-- Theme that comes from a CDN (in this app this is apply progrematically: see App.js:toggleTheme) -->
-    <!-- <link data-oneui-level="theme" rel="stylesheet" href="./theme-custom.css"> -->
-
-    <title>OneUI Themable Example</title>
-
-</head>
-
-<body>
-
-    <div id="root"></div>
-
-</body>
+    <body>
+        <div id="root"></div>
+    </body>
 
 </html>
