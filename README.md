@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/textkernel/oneui.svg?branch=master)](https://travis-ci.com/textkernel/oneui)
 [![Coverage Status](https://coveralls.io/repos/github/textkernel/oneui/badge.svg?branch=master)](https://coveralls.io/github/textkernel/oneui?branch=master)
-![](https://img.shields.io/lgtm/grade/javascript/g/textkernel/oneui.svg?style=flat)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/textkernel/oneui.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/textkernel/oneui/context:javascript)
 ![](https://img.shields.io/david/textkernel/oneui.svg?style=flat)
 
 React OneUI UI library with theme support
