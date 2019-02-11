@@ -53,10 +53,10 @@ A theme for OneUI is a simple css file that overrides css variables.
 ## Documentation
 For available components and their usage see storybook (`npm run storybook`)
 
-## Contribution
+## Contributing
 
 * If yor IDE doesn't support [editor config](https://editorconfig.org/), please install a plugin for your IDE (e.g. [plugin for VS Code](https://github.com/editorconfig/editorconfig-vscode)).
-* Please make sure to read the [implementation guidelines](src/README.md) before contributing
+* Please make sure to read the [developer guidelines](CONTRIBUTING.md) before contributing.
 
 ## Development
 
