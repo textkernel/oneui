@@ -31,14 +31,15 @@ class Tabs extends PureComponent {
     handleTabChange(event, tabId) {
         event.preventDefault();
 
-        const { onChange } = this.props;
         this.setState({
             activeTabId: tabId
         });
-        if (!onChange) {
-            return true;
+
+        const { onChange } = this.props;
+
+        if (onChange) {
+            onChange(tabId);
         }
-        return onChange(tabId);
     }
 
     render() {
