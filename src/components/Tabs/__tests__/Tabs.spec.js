@@ -58,6 +58,7 @@ describe('<Tabs> that renders tab container with some tabs', () => {
             () => {
                 expect(wrapper.state().activeTabId).toBe('2');
                 expect(wrapper.state().derivedTabId).toBe('2');
+                expect(wrapper.find('TabContent').text()).toEqual('Some more content');
             }
         );
     });
