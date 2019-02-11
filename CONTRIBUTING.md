@@ -19,7 +19,7 @@ Any new implementation is expected to meet the following standards before it can
 In general: OneUI tries to adhere to the principles prescribed by [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/). This means we intend to work from the smallest possible units (molecules) towards larger compounds (organisms).
 
 ### Functional vs. Class Components
-Simple functional components have the preference over class / stateful components. Only use class components if it needs to have internal methods or a state of its own.
+Simple functional components have the preference over class / stateful components. Only use class components if it needs to have lifecycle methods or a state of its own.
 
 ### Display Names
 Every component should have a [display name](https://reactjs.org/docs/react-component.html#displayname) defined. This is because component names will get minified in the production build process, causing them to be mangled and unidentifiable.
