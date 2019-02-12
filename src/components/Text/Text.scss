@@ -8,7 +8,21 @@
         weight: var(--font-weight-normal);
     }
 
+    &--bold {
+        font-weight: var(--font-weight-bold);
+    }
+
     &--muted {
         color: var(--color-muted);
+    }
+
+    &--size {
+        &_small {
+            font-size: var(--font-size-small);
+        }
+
+        &_large {
+            font-size: var(--font-size-large);
+        }
     }
 }

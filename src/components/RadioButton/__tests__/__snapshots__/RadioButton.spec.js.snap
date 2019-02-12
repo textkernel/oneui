@@ -94,12 +94,14 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
         </svg>
       </span>
       <Text
+        bold={false}
         className="RadioButton__text"
         inline={true}
         muted={false}
+        size="normal"
       >
         <span
-          className="Text RadioButton__text"
+          className="Text Text--size Text--size_normal RadioButton__text"
           muted={false}
         >
           Choose me
