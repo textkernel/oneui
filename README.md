@@ -1,5 +1,6 @@
 # Textkernel OneUI
 
+[![npm version](https://img.shields.io/npm/v/@textkernel/oneui.svg)](https://www.npmjs.com/package/@textkernel/oneui)
 [![Build Status](https://travis-ci.com/textkernel/oneui.svg?branch=master)](https://travis-ci.com/textkernel/oneui)
 [![Coverage Status](https://coveralls.io/repos/github/textkernel/oneui/badge.svg?branch=master)](https://coveralls.io/github/textkernel/oneui?branch=master)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/textkernel/oneui.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/textkernel/oneui/context:javascript)
