@@ -1,0 +1,24 @@
+@import '../../themes/oneui/oneui.scss';
+
+.Header {
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid var(--border-color-strong);
+    box-shadow: 0 1px 3px var(--border-color-light);
+
+    &__wrapper {
+        box-sizing: border-box;
+        max-width: var(--site-container-size);
+        height: 100%;
+        padding: var(--spacing-normal);
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        align-content: center;
+    }
+
+    &__logo {
+        height: 40px;
+    }
+}

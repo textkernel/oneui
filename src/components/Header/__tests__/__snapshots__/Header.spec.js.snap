@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component that renders a website header with a logo on the left and optional children on the right side should render correctly 1`] = `
+<Header
+  logoLink="/"
+  logoName="website logo"
+  logoSrc="jobfeed-logo.svg"
+>
+  <div
+    className="Header"
+  >
+    <div
+      className="Header__wrapper"
+    >
+      <a
+        href="/"
+      >
+        <img
+          alt="website logo"
+          className="Header__logo"
+          src="jobfeed-logo.svg"
+        />
+      </a>
+      <div
+        className="Header__menu"
+      >
+        This is a placeholder for children
+      </div>
+    </div>
+  </div>
+</Header>
+`;

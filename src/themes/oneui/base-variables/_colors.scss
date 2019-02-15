@@ -51,5 +51,8 @@ $color-bad:         #F42534 !default;
     --transparent: #{ $transparent };
     --link-color-normal: var(--color-brand);
     --link-color-hover: var(--color-brand-40);
+
+    --border-color-light: var(--color-neutral-25);
+    --border-color-strong: var(--color-neutral-40);
 }
 
