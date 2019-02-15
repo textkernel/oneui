@@ -87,7 +87,6 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
     />
   </svg>
   <Text
-    bold={false}
     className="LoadingSpinner__label LoadingSpinner__label--context LoadingSpinner__label--context_brand"
     inline={true}
     muted={false}

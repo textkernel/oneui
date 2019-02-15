@@ -7,7 +7,7 @@ import { SIZES } from '../../constants';
 const { block } = bem({
     name: 'Text',
     classnames: styles,
-    propsToMods: ['bold', 'muted', 'size']
+    propsToMods: ['muted', 'size']
 });
 
 const Text = props => {
@@ -24,8 +24,6 @@ const Text = props => {
 Text.displayName = 'Text';
 
 Text.propTypes = {
-    /** Text should be bold */
-    bold: PropTypes.bool,
     /** Text content */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     /** Text should be rendered inline */
@@ -37,7 +35,6 @@ Text.propTypes = {
 };
 
 Text.defaultProps = {
-    bold: false,
     inline: false,
     muted: false,
     size: 'normal'

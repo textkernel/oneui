@@ -41,7 +41,6 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
         </svg>
       </span>
       <Text
-        bold={false}
         className="Checkbox__text"
         inline={true}
         muted={false}

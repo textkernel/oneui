@@ -7,7 +7,6 @@ storiesOf('Text', module)
     .addDecorator(withKnobs)
     .add('Text', () => (
         <Text
-            bold={boolean('Bold', false)}
             inline={boolean('Inline text', false)}
             muted={boolean('Muted text', false)}
             size={select('Size', ['small', 'normal', 'large'], 'normal')}
