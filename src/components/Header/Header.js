@@ -9,13 +9,13 @@ const { block, elem } = bem({
 });
 
 const Header = props => {
-    const { logoSrc, logoLink, logoName, children, ...rest } = props;
+    const { logoSrc, logoLink, logoTitle, children, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)}>
             <div {...elem('wrapper', props)}>
                 <a href={logoLink}>
-                    <img src={logoSrc} alt={logoName} {...elem('logo', props)} />
+                    <img src={logoSrc} alt={logoTitle} {...elem('logo', props)} />
                 </a>
                 <div {...elem('menu', props)}>{children}</div>
             </div>
@@ -31,14 +31,14 @@ Header.propTypes = {
     /** path to where the logo should link to if clicked */
     logoLink: PropTypes.string,
     /** a name for the logo, it will used as alternative text to the img */
-    logoName: PropTypes.string,
+    logoTitle: PropTypes.string,
     /** Node(s) to be rendered on the right side of the header */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
 };
 
 Header.defaultProps = {
     logoLink: '/',
-    logoName: 'website logo',
+    logoTitle: 'website logo',
     children: null
 };
 

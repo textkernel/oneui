@@ -7,7 +7,7 @@ storiesOf('Header', module)
     .addDecorator(withKnobs)
     .add('Header', () => (
         <Header
-            logoSrc={text('Image URL', 'jobfeed-logo.svg')}
+            logoSrc={text('Image URL', 'https://www.jobfeed.nl/images/jobfeed-logo.svg')}
             logoLink={text('URL where click on logo will lead', '/')}
             logoName={text('Alt text for the logo', 'Jobfeed')}
         >

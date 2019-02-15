@@ -3,8 +3,8 @@
 exports[`Header component that renders a website header with a logo on the left and optional children on the right side should render correctly 1`] = `
 <Header
   logoLink="/"
-  logoName="website logo"
   logoSrc="jobfeed-logo.svg"
+  logoTitle="website logo"
 >
   <div
     className="Header"
