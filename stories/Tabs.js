@@ -40,11 +40,12 @@ storiesOf('Tabs', module)
             ))}
         </Tabs>
     ))
-    .add('Custom tabs', () => (
+    .add('Controlled mode', () => (
         <div>
             <TabMenu
                 activeTabId="second"
                 onChange={(e, id) => {
+                    e.preventDefault();
                     console.log(`Switch to ${id} tab requested`);
                 }}
                 gutters={boolean('Show gutters', false)}
@@ -52,7 +53,7 @@ storiesOf('Tabs', module)
                 <TabItem id="first" label="Some tab" />
                 <TabItem id="second" label="Another tab" />
             </TabMenu>
-            <div style={{ padding: 9 }}>Some other content here</div>
+            <div style={{ padding: 9 }}>Some other content in between tab menu and tab content</div>
             <TabContent>Some content</TabContent>
         </div>
     ));
