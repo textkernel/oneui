@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconBase from '../IconBase';
-import { CONTEXTS } from '../../../constants';
+import { ALL_COLOR_CONTEXTS } from '../../../constants';
 
 const IconHarvester = props => (
     <IconBase {...props} viewBox="0 0 714.83 798.85">
@@ -13,7 +13,7 @@ IconHarvester.displayName = 'IconHarvester';
 
 IconHarvester.propTypes = {
     /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context: PropTypes.oneOf(CONTEXTS),
+    context: PropTypes.oneOf(ALL_COLOR_CONTEXTS),
     /** Adds margin between a given side of the icon and other content */
     margin: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     /** Absolute size for this icon (size in pixels, aspect ratio is 1:1).
@@ -24,7 +24,7 @@ IconHarvester.propTypes = {
 };
 
 IconHarvester.defaultProps = {
-    context: CONTEXTS[1],
+    context: ALL_COLOR_CONTEXTS[3],
     margin: null,
     size: null,
     title: null

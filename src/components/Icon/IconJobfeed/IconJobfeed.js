@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconBase from '../IconBase';
-import { CONTEXTS } from '../../../constants';
+import { ALL_COLOR_CONTEXTS } from '../../../constants';
 
 const IconJobfeed = props => (
     <IconBase {...props} viewBox="0 0 50 93.1">
@@ -13,7 +13,7 @@ IconJobfeed.displayName = 'IconJobfeed';
 
 IconJobfeed.propTypes = {
     /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context: PropTypes.oneOf(CONTEXTS),
+    context: PropTypes.oneOf(ALL_COLOR_CONTEXTS),
     /** Adds margin between a given side of the icon and other content */
     margin: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     /** Absolute size for this icon (size in pixels, aspect ratio is 1:1).
@@ -24,7 +24,7 @@ IconJobfeed.propTypes = {
 };
 
 IconJobfeed.defaultProps = {
-    context: CONTEXTS[1],
+    context: ALL_COLOR_CONTEXTS[3],
     margin: null,
     size: null,
     title: null
