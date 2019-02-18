@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component that renders a copyright text on the left and optional children on the right side should render correctly with TK copyright 1`] = `
+<Footer
+  copyright={null}
+>
+  <div
+    className="Footer"
+  >
+    <div
+      className="Footer__wrapper"
+    >
+      <span>
+        © 2019 
+        <strong>
+          <IconTextkernel
+            context="background"
+            margin={null}
+            size={null}
+            title={null}
+          >
+            <IconBase
+              context="background"
+              margin={null}
+              size={null}
+              title={null}
+              viewBox="0 0 369.7 800"
+            >
+              <span
+                className="IconBase IconBase--context IconBase--context_background"
+                margin={null}
+              >
+                <svg
+                  aria-labelledby={null}
+                  className="IconBase__svg IconBase__svg--context IconBase__svg--context_background"
+                  role="img"
+                  style={null}
+                  viewBox="0 0 369.7 800"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M334.3,800C203.4,766.9,89.9,681.8,89.9,543.8V248.3H0v-104H89.9V0H223.1V144.2H349.2v104H223.1V554c0,76.5,56.7,109.6,146.6,130.8Z"
+                  />
+                </svg>
+              </span>
+            </IconBase>
+          </IconTextkernel>
+          ex
+          <IconTextkernel
+            context="background"
+            margin={null}
+            size={null}
+            title={null}
+          >
+            <IconBase
+              context="background"
+              margin={null}
+              size={null}
+              title={null}
+              viewBox="0 0 369.7 800"
+            >
+              <span
+                className="IconBase IconBase--context IconBase--context_background"
+                margin={null}
+              >
+                <svg
+                  aria-labelledby={null}
+                  className="IconBase__svg IconBase__svg--context IconBase__svg--context_background"
+                  role="img"
+                  style={null}
+                  viewBox="0 0 369.7 800"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M334.3,800C203.4,766.9,89.9,681.8,89.9,543.8V248.3H0v-104H89.9V0H223.1V144.2H349.2v104H223.1V554c0,76.5,56.7,109.6,146.6,130.8Z"
+                  />
+                </svg>
+              </span>
+            </IconBase>
+          </IconTextkernel>
+          kernel
+        </strong>
+      </span>
+      <div
+        className="Footer__menu"
+      >
+        This is a placeholder for children
+      </div>
+    </div>
+  </div>
+</Footer>
+`;
+
+exports[`Footer component that renders a copyright text on the left and optional children on the right side should render correctly with custom copyright 1`] = `
+<Footer
+  copyright="my special copyright"
+>
+  <div
+    className="Footer"
+  >
+    <div
+      className="Footer__wrapper"
+    >
+      my special copyright
+      <div
+        className="Footer__menu"
+      >
+        This is a placeholder for children
+      </div>
+    </div>
+  </div>
+</Footer>
+`;
