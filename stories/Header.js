@@ -13,11 +13,11 @@ storiesOf('Header', module)
                 title: text('Alt text for the logo', 'Jobfeed')
             }}
         >
-            {text('Left side', 'This is a placeholder for children')}
+            {text('Right side', 'This is a placeholder for children')}
         </Header>
     ))
     .add('Header with logo as component', () => (
         <Header logo={<IconTextkernel />}>
-            {text('Left side', 'This is a placeholder for children')}
+            {text('Right side', 'This is a placeholder for children')}
         </Header>
     ));
