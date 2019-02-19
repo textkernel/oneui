@@ -1,0 +1,26 @@
+@import '../../themes/oneui/oneui.scss';
+
+.Footer {
+    background-color: var(--footer-background-color);
+    color: var(--footer-foreground-color);
+    width: 100%;
+    height: var(--footer-height);
+    border-bottom: 1px solid var(--border-color-strong);
+    box-shadow: 0 1px 3px var(--border-color-light);
+
+    &__wrapper {
+        box-sizing: border-box;
+        max-width: var(--site-container-size);
+        min-height: 100%;
+        padding: var(--spacing-normal);
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        align-content: center;
+    }
+
+    &__logo {
+        fill: var(--footer-foreground-color);
+    }
+}
