@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconBase from '../IconBase';
-import { ALL_COLOR_CONTEXTS } from '../../../constants';
+import { CONTEXTS } from '../../../constants';
 
 const IconTextkernel = props => (
     <IconBase {...props} viewBox="0 0 369.7 800">
@@ -13,7 +13,7 @@ IconTextkernel.displayName = 'IconTextkernel';
 
 IconTextkernel.propTypes = {
     /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context: PropTypes.oneOf(ALL_COLOR_CONTEXTS),
+    context: PropTypes.oneOf(CONTEXTS),
     /** Adds margin between a given side of the icon and other content */
     margin: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     /** Absolute size for this icon (size in pixels, aspect ratio is 1:1).
@@ -24,7 +24,7 @@ IconTextkernel.propTypes = {
 };
 
 IconTextkernel.defaultProps = {
-    context: ALL_COLOR_CONTEXTS[3],
+    context: CONTEXTS[1],
     margin: null,
     size: null,
     title: null
