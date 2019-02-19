@@ -1,0 +1,21 @@
+// Header variables
+$header-background-color: var(--color-background) !default;
+$header-foreground-color: var(--color-foreground) !default;
+$header-height: 50px !default;
+
+// Footer variables
+$footer-background-color: var(--color-accent) !default;
+$footer-foreground-color: var(--color-background) !default;
+$footer-height: 70px !default;
+
+:root {
+    --header-background-color: #{$header-background-color};
+    --header-foreground-color: #{$header-foreground-color};
+    --header-height: #{$header-height};
+    --header-content-height: #{$header-height - 10px};
+
+    --footer-background-color: #{$footer-background-color};
+    --footer-foreground-color: #{$footer-foreground-color};
+    --footer-height: #{$footer-height};
+    --footer-content-height: #{$footer-height - 10px};
+}

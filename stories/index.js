@@ -3,6 +3,7 @@ import './Button';
 import './ButtonGroup';
 import './CandidateAvatar';
 import './Checkbox';
+import './Header';
 import './Heading';
 import './Icon';
 import './Input';
