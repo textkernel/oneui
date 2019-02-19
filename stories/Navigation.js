@@ -10,25 +10,25 @@ storiesOf('Navigation', module)
         <NavBar>
             <NavItem href="/">Home</NavItem>
             <NavItem href="/" active={boolean('active', true)}>
-                Else
+                Another item
             </NavItem>
             <NavItem href="/" pullRight={boolean('pullRight', true)}>
-                On the right
+                Item on the right
             </NavItem>
-            <NavItem href="/">Other</NavItem>
+            <NavItem href="/">Yet another item</NavItem>
         </NavBar>
     ))
-    .add('react navigation', () => (
+    .add('With React Router', () => (
         <BrowserRouter>
             <NavBar>
                 <NavLinkItem exact to="/">
                     Home
                 </NavLinkItem>
-                <NavLinkItem to="/">Else</NavLinkItem>
-                <NavLinkItem to="/right" pullRight={boolean('pullRight', true)}>
-                    On the right
+                <NavLinkItem to="/another">Another item</NavLinkItem>
+                <NavLinkItem to="/on-right" pullRight={boolean('pullRight', true)}>
+                    Item on the right
                 </NavLinkItem>
-                <NavLinkItem to="/else">Other</NavLinkItem>
+                <NavLinkItem to="/yet-another">Yet another item</NavLinkItem>
             </NavBar>
         </BrowserRouter>
     ));

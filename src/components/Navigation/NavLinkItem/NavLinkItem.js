@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import styles from './NavItem.scss';
+import styles from '../NavItem/NavItem.scss';
 
 const { block, elem } = bem({
     name: 'NavItem',
