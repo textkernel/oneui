@@ -19,4 +19,8 @@
         align-items: flex-start;
         align-content: center;
     }
+
+    &__logo {
+        fill: var(--footer-foreground-color);
+    }
 }

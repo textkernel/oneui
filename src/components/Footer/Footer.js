@@ -15,12 +15,8 @@ const Footer = props => {
     const tkCopyright = (
         <span>
             {`\u00a9 ${new Date().getFullYear()} `}
-            <strong>
-                <IconTextkernel context="background" />
-                ex
-                <IconTextkernel context="background" />
-                kernel
-            </strong>
+            <IconTextkernel {...elem('logo', props)} />
+            {` Textkernel`}
         </span>
     );
 
