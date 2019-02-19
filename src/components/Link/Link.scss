@@ -9,8 +9,16 @@
     text-decoration: var(--link-decoration-normal);
     transition: color var(--transition-duration);
 
+    .IconBase {
+        fill: var(--link-color-normal);
+    }
+
     &:hover {
         color: var(--link-color-hover);
         text-decoration: var(--link-decoration-hover);
+
+        .IconBase {
+            fill: var(--link-color-hover);
+        }
     }
 }

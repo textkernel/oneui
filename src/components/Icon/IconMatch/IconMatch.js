@@ -13,7 +13,7 @@ const IconMatch = props => (
 IconMatch.displayName = 'IconMatch';
 
 IconMatch.propTypes = {
-    /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    /** The icon context (e.g. brand, primary, bad, good etc.) */
     context: PropTypes.oneOf(CONTEXTS),
     /** Adds margin between a given side of the icon and other content */
     margin: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
@@ -25,7 +25,7 @@ IconMatch.propTypes = {
 };
 
 IconMatch.defaultProps = {
-    context: CONTEXTS[1],
+    context: null,
     margin: null,
     size: null,
     title: null

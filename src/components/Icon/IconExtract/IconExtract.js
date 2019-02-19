@@ -15,7 +15,7 @@ const IconExtract = props => (
 IconExtract.displayName = 'IconExtract';
 
 IconExtract.propTypes = {
-    /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    /** The icon context (e.g. brand, primary, bad, good etc.) */
     context: PropTypes.oneOf(CONTEXTS),
     /** Adds margin between a given side of the icon and other content */
     margin: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
@@ -27,7 +27,7 @@ IconExtract.propTypes = {
 };
 
 IconExtract.defaultProps = {
-    context: CONTEXTS[1],
+    context: null,
     margin: null,
     size: null,
     title: null

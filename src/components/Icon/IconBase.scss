@@ -1,6 +1,7 @@
 .IconBase {
     display: inline-flex;
     align-self: center;
+    fill: var(--color-foreground);
 
     &__svg {
         position: relative;
