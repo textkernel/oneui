@@ -1,0 +1,22 @@
+.DropdownContent {
+    background-color: var(--color-background);
+    border: {
+        color: var(--color-neutral);
+        radius: var(--border-radius);
+        style: solid;
+        width: var(--line-normal);
+    }
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: none;
+    margin-top: var(--spacing-normal);
+    min-width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+
+    &--shown {
+        display: block;
+    }
+}
