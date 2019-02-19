@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './IconBase.scss';
-import { ALL_COLOR_CONTEXTS } from '../../constants';
+import { CONTEXTS } from '../../constants';
 
 const { block, elem } = bem({
     name: 'IconBase',
@@ -28,7 +28,7 @@ const IconBase = props => {
     const { children, context, size, title, viewBox, ...rest } = props;
 
     return (
-        <span {...rest} {...block(props)}>
+        <div {...rest} {...block(props)}>
             <svg
                 {...elem('svg', props)}
                 aria-labelledby={title ? 'title' : null}
@@ -40,7 +40,7 @@ const IconBase = props => {
                 {!!title && <title>{title}</title>}
                 {children}
             </svg>
-        </span>
+        </div>
     );
 };
 
@@ -49,7 +49,7 @@ IconBase.propTypes = {
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
         .isRequired,
     /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context: PropTypes.oneOf(ALL_COLOR_CONTEXTS),
+    context: PropTypes.oneOf(CONTEXTS),
     /** Adds margin between a given side of the icon and other content */
     margin: PropTypes.oneOf(['top', 'right', 'bottom', 'left']),
     /** Absolute size for this icon (size in pixels, aspect ratio is 1:1).
@@ -62,7 +62,7 @@ IconBase.propTypes = {
 };
 
 IconBase.defaultProps = {
-    context: ALL_COLOR_CONTEXTS[3],
+    context: CONTEXTS[1],
     margin: null,
     size: null,
     title: null
