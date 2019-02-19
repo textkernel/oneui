@@ -1,0 +1,25 @@
+@import '../../themes/oneui/oneui.scss';
+
+.NavBar {
+    background-color: var(--color-neutral);
+    color: var(--color-brand);
+    width: 100%;
+    height: var(--navigation-height);
+    border-bottom: 1px solid var(--border-color-strong);
+    box-shadow: 0 1px 3px var(--border-color-light);
+
+    &__wrapper {
+        box-sizing: border-box;
+        max-width: var(--site-container-size);
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        align-content: center;
+    }
+
+    a {
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,20 @@
+@import '../../themes/oneui/oneui.scss';
+
+.NavItem {
+    color: var(--color-brand);
+    height: 100%;
+    vertical-align: middle;
+    font-size: var(--font-size-large);
+    box-sizing: border-box;
+    padding: 13px;
+
+    &__active,
+    &--active {
+        color: var(--color-foreground);
+        border-bottom: 3px solid var(--color-primary);
+    }
+
+    &--pullRight {
+        margin-left: auto;
+    }
+}
