@@ -5,6 +5,7 @@ import './CandidateAvatar';
 import './Checkbox';
 import './Chip';
 import './ContentPlaceholder';
+import './Dropdown';
 import './Footer';
 import './Header';
 import './Heading';
