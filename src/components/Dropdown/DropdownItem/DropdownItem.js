@@ -4,7 +4,7 @@ import bem from 'bem';
 import Checkbox from '../../Checkbox';
 import Text from '../../Text';
 import { DropdownConsumer } from '../DropdownContext';
-import { escapeRegExp } from '../../../utils';
+import { isStringMatch } from '../../../utils';
 import styles from './DropdownItem.scss';
 
 const { block, elem } = bem({
@@ -18,32 +18,35 @@ const DropdownItem = props => {
 
     return (
         <DropdownConsumer>
-            {({ filterValue, multiselect, onChange, selection }) => {
-                const re = new RegExp(`(${escapeRegExp(filterValue || '')})`, 'gi');
-
-                if (filterValue && !(children || '').match(re)) {
+            {({ filterValue, handleChange, multiselect, selection }) => {
+                if (!isStringMatch(filterValue, children)) {
                     return null;
                 }
 
                 return (
-                    <div {...block(props)}>
+                    <div {...block(props)} role="menuitem">
                         {multiselect ? (
                             <Checkbox
                                 id={`item-${value}`}
                                 {...elem('node', props)}
                                 checked={selection && selection.indexOf(value) > -1}
                                 disabled={disabled}
-                                onChange={e => {
-                                    onChange(e.target.value, children);
+                                onChange={() => {
+                                    handleChange({ value, label: children });
                                 }}
                                 value={value}
                             >
                                 {children}
                             </Checkbox>
                         ) : (
-                            <div {...elem('node', props)}>
+                            <button
+                                {...elem('node', props)}
+                                onClick={() => {
+                                    handleChange({ value, label: children });
+                                }}
+                            >
                                 <Text inline>{children}</Text>
-                            </div>
+                            </button>
                         )}
                     </div>
                 );

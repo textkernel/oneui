@@ -17,6 +17,9 @@ storiesOf('Dropdown', module)
             context={select('Context', ['link', ...CONTEXTS], CONTEXTS[0])}
             isBlock={boolean('isBlock', false)}
             label={text('Label', 'My dropdown')}
+            onChange={({ value, label }) => {
+                console.log(`Selected value '${value}' (${label})`);
+            }}
             size={select('Size', SIZES, SIZES[1])}
         >
             <DropdownItem value="1">Item 1</DropdownItem>
@@ -34,14 +37,14 @@ storiesOf('Dropdown', module)
             isBlock={boolean('isBlock', false)}
             label={text('Label', 'My dropdown')}
             multiselect
-            onChange={(value, label) => {
+            onChange={({ value, label }) => {
                 console.log(`Selected value '${value}' (${label})`);
             }}
             selectedLabel={selection => `${selection.length} items selected`}
             size={select('Size', SIZES, SIZES[1])}
             value={['1', '5']}
         >
-            <DropdownFilter placeholder="Filter items..." />
+            <DropdownFilter placeholder="Filter items..." autoFocus />
             <DropdownItem value="1">Item 1</DropdownItem>
             <DropdownItem value="2">Item 2</DropdownItem>
             <DropdownItem value="3">Item 3</DropdownItem>
@@ -53,7 +56,7 @@ storiesOf('Dropdown', module)
     ))
     .add('Dropdown with min width / max height', () => (
         <Dropdown label="My dropdown">
-            <DropdownFilter placeholder="Filter items..." />
+            <DropdownFilter placeholder="Filter items..." autoFocus />
             <ScrollContainer
                 maxHeight={number('Max height', 200)}
                 minWidth={number('Min width', 300)}
