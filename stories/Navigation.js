@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { BrowserRouter, NavLink } from 'react-router-dom'; // eslint-disable-line import/no-extraneous-dependencies
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
 import { NavBar, NavItem } from '@textkernel/oneui';
