@@ -1,3 +1,4 @@
+export { default as IconCaret } from './IconCaret';
 export { default as IconExtract } from './IconExtract';
 export { default as IconHarvester } from './IconHarvester';
 export { default as IconJobfeed } from './IconJobfeed';

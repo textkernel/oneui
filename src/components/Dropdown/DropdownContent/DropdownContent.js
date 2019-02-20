@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './DropdownContent.scss';
@@ -9,11 +9,15 @@ const { block } = bem({
     propsToMods: ['shown']
 });
 
-const DropdownContent = props => {
-    const { children } = props;
+const DropdownContent = forwardRef((props, ref) => {
+    const { children, ...rest } = props;
 
-    return <div {...block(props)}>{children}</div>;
-};
+    return (
+        <div {...rest} {...block(props)} ref={ref}>
+            {children}
+        </div>
+    );
+});
 
 DropdownContent.displayName = 'DropdownContent';
 

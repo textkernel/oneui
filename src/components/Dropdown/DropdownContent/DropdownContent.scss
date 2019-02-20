@@ -1,4 +1,16 @@
+@keyframes listIn {
+    from {
+        opacity: .5;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .DropdownContent {
+    animation: listIn .1s linear;
     background-color: var(--color-background);
     border: {
         color: var(--color-neutral);
@@ -11,6 +23,8 @@
     display: none;
     margin-top: var(--spacing-normal);
     min-width: 100%;
+    overflow: auto;
+    overflow-x: hidden;
     position: absolute;
     top: 100%;
     left: 0;

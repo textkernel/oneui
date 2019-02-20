@@ -1,0 +1,10 @@
+.DropdownGroup {
+    &__label {
+        font-weight: var(--font-weight-bold);
+        padding: var(--spacing-2x) var(--spacing-3x);
+    }
+
+    &__nodes {
+        padding-left: var(--spacing-5x);
+    }
+}

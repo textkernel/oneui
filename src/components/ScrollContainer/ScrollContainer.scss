@@ -1,0 +1,11 @@
+.ScrollContainer {
+    overflow: auto;
+
+    &--hideScrollX {
+        overflow-x: hidden;
+    }
+
+    &--hideScrollY {
+        overflow-y: hidden;
+    }
+}
