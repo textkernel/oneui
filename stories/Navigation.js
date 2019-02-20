@@ -1,34 +1,31 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, NavLink } from 'react-router-dom';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
-import { NavBar, NavItem, NavLinkItem } from '@textkernel/oneui';
+import { NavBar, NavItem } from '@textkernel/oneui';
 
 storiesOf('Navigation', module)
     .addDecorator(withKnobs)
-    .add('Simple navigation', () => (
-        <NavBar>
-            <NavItem href="/">Home</NavItem>
-            <NavItem href="/" active={boolean('active', true)}>
-                Another item
-            </NavItem>
-            <NavItem href="/" pullRight={boolean('pullRight', true)}>
-                Item on the right
-            </NavItem>
-            <NavItem href="/">Yet another item</NavItem>
-        </NavBar>
-    ))
-    .add('With React Router', () => (
+    .add('Navigation', () => (
         <BrowserRouter>
             <NavBar>
-                <NavLinkItem exact to="/">
-                    Home
-                </NavLinkItem>
-                <NavLinkItem to="/another">Another item</NavLinkItem>
-                <NavLinkItem to="/on-right" pullRight={boolean('pullRight', true)}>
-                    Item on the right
-                </NavLinkItem>
-                <NavLinkItem to="/yet-another">Yet another item</NavLinkItem>
+                <NavItem>
+                    <a href="/">Home</a>
+                </NavItem>
+                <NavItem active={boolean('active', true)}>
+                    <a href="/">Active item</a>
+                </NavItem>
+                <NavItem
+                    useActiveClass={boolean('useActiveClass', true)}
+                    pullRight={boolean('pullRight', true)}
+                >
+                    <NavLink exact to="/">
+                        Item on the right
+                    </NavLink>
+                </NavItem>
+                <NavItem useActiveClass={boolean('useActiveClass', true)}>
+                    <NavLink to="/">Active NavLink</NavLink>
+                </NavItem>
             </NavBar>
         </BrowserRouter>
     ));
