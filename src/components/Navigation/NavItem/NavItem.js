@@ -11,7 +11,8 @@ const { block, elem } = bem({
 
 const NavItem = props => {
     const { active, pullRight, useActiveClass, children, ...rest } = props;
-    const newProps = { ...rest, ...block(props) };
+    const ariaProp = active ? { 'aria-current': 'page' } : {};
+    const newProps = { ...ariaProp, ...rest, ...block(props) };
     if (useActiveClass) {
         newProps.activeClassName = elem('active', props).className;
     }

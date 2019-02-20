@@ -20,6 +20,7 @@ describe('NavItem that renders a single navigation item', () => {
             </NavItem>
         );
         expect(wrapper.find('a').props().className).toEqual('NavItem NavItem--active');
+        expect(wrapper.find('a').props()['aria-current']).toEqual('page');
     });
     it('should add pullRight class', () => {
         const wrapper = mount(
