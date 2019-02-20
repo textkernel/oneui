@@ -61,6 +61,7 @@ storiesOf('Dropdown', module)
                 maxHeight={number('Max height', 200)}
                 minWidth={number('Min width', 300)}
                 hideScrollX
+                resize={select('Resize', ['both', 'horizontal', 'vertical'], 'both')}
             >
                 <DropdownItem value="1">Item 1</DropdownItem>
                 <DropdownItem value="2">Item 2</DropdownItem>

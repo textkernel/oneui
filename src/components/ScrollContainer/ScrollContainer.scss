@@ -8,4 +8,12 @@
     &--hideScrollY {
         overflow-y: hidden;
     }
+
+    &--resize {
+        @each $axis in (both, horizontal, vertical) {
+            &_#{ $axis } {
+                resize: $axis;
+            }
+        }
+    }
 }

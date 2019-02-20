@@ -107,6 +107,7 @@ class Dropdown extends PureComponent {
             size,
             ...rest
         } = this.props;
+
         const { expanded, filterValue, selection } = this.state;
 
         return (
@@ -120,13 +121,7 @@ class Dropdown extends PureComponent {
                         setFilter: this.handleSetFilter
                     }}
                 >
-                    <Button
-                        {...rest}
-                        context={context}
-                        isBlock={isBlock}
-                        onClick={this.toggleDropdown}
-                        size={size}
-                    >
+                    <Button {...rest} context={context} onClick={this.toggleDropdown}>
                         {selectedLabel ? selectedLabel(selection) : label}
                         <IconCaret {...this.elem('caret')} context={context} />
                     </Button>
