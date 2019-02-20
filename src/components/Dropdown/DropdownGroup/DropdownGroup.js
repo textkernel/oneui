@@ -2,7 +2,7 @@ import React, { Children } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import { DropdownConsumer } from '../DropdownContext';
-import { escapeRegExp } from '../../../utils';
+import { isStringMatch } from '../../../utils';
 import styles from './DropdownGroup.scss';
 
 const { block, elem } = bem({
@@ -17,10 +17,8 @@ const DropdownGroup = props => {
     return (
         <DropdownConsumer>
             {({ filterValue }) => {
-                const re = new RegExp(`(${escapeRegExp(filterValue || '')})`, 'gi');
-
                 const items = Children.map(children, child => {
-                    if (!filterValue || (child.props.children || '').match(re)) {
+                    if (isStringMatch(filterValue, child.props.children)) {
                         return child;
                     }
 

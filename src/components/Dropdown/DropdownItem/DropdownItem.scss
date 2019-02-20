@@ -7,7 +7,7 @@
     white-space: nowrap;
 
     &:hover {
-        background-color: var(--color-neutral-25);
+        background-color: var(--color-neutral-10);
     }
 
     &--disabled {
@@ -20,6 +20,13 @@
     }
 
     &__node {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        display: block;
+        outline: none;
         padding: var(--spacing-2x) var(--spacing-3x);
+        width: 100%;
+        text-align: left;
     }
 }

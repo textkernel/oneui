@@ -19,6 +19,7 @@ class Dropdown extends PureComponent {
         };
 
         this.dropdown = createRef();
+        this.handleChange = this.handleChange.bind(this);
         this.handleClickOutside = this.handleClickOutside.bind(this);
         this.handleEscPress = this.handleEscPress.bind(this);
         this.handleSetFilter = this.handleSetFilter.bind(this);
@@ -31,6 +32,16 @@ class Dropdown extends PureComponent {
     componentWillUnmount() {
         window.removeEventListener('click', this.handleClickOutside, false);
         window.removeEventListener('keyup', this.handleEscPress, true);
+    }
+
+    handleChange(selection) {
+        const { multiselect, onChange } = this.props;
+
+        onChange(selection);
+
+        if (!multiselect) {
+            this.toggleDropdown(null, true);
+        }
     }
 
     handleClickOutside(e) {
@@ -92,9 +103,9 @@ class Dropdown extends PureComponent {
             isBlock,
             label,
             multiselect,
-            onChange,
             selectedLabel,
-            size
+            size,
+            ...rest
         } = this.props;
         const { expanded, filterValue, selection } = this.state;
 
@@ -103,13 +114,14 @@ class Dropdown extends PureComponent {
                 <DropdownProvider
                     value={{
                         filterValue,
+                        handleChange: this.handleChange,
                         multiselect,
-                        onChange,
                         selection,
                         setFilter: this.handleSetFilter
                     }}
                 >
                     <Button
+                        {...rest}
                         context={context}
                         isBlock={isBlock}
                         onClick={this.toggleDropdown}
@@ -118,9 +130,11 @@ class Dropdown extends PureComponent {
                         {selectedLabel ? selectedLabel(selection) : label}
                         <IconCaret {...this.elem('caret')} context={context} />
                     </Button>
-                    <DropdownContent ref={this.dropdown} shown={expanded} role="menu">
-                        {children}
-                    </DropdownContent>
+                    {!!expanded && (
+                        <DropdownContent ref={this.dropdown} role="menu" aria-expanded shown>
+                            {children}
+                        </DropdownContent>
+                    )}
                 </DropdownProvider>
             </div>
         );
@@ -148,7 +162,7 @@ Dropdown.defaultProps = {
     initiallyOpened: false,
     isBlock: false,
     multiselect: false,
-    onChange: null,
+    onChange: () => {},
     selectedLabel: null,
     size: 'normal',
     value: null
