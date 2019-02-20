@@ -97,16 +97,7 @@ class Dropdown extends PureComponent {
     }
 
     render() {
-        const {
-            children,
-            context,
-            isBlock,
-            label,
-            multiselect,
-            selectedLabel,
-            size,
-            ...rest
-        } = this.props;
+        const { children, label, multiselect, selectedLabel, ...rest } = this.props;
 
         const { expanded, filterValue, selection } = this.state;
 
@@ -121,9 +112,9 @@ class Dropdown extends PureComponent {
                         setFilter: this.handleSetFilter
                     }}
                 >
-                    <Button {...rest} context={context} onClick={this.toggleDropdown}>
+                    <Button {...rest} onClick={this.toggleDropdown}>
                         {selectedLabel ? selectedLabel(selection) : label}
-                        <IconCaret {...this.elem('caret')} context={context} />
+                        <IconCaret {...this.elem('caret')} />
                     </Button>
                     {!!expanded && (
                         <DropdownContent ref={this.dropdown} role="menu" aria-expanded shown>
