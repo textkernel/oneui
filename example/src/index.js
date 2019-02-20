@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import ThemeLoader from './ThemeLoader';
-
-
+import ThemeLoader from '@textkernel/oneui';
 import '@textkernel/oneui/dist/oneui.css';
 
+const renderApplication = () => ReactDOM.render(<App />, document.getElementById('root'));
 
-ThemeLoader.load()
-    .then(() => ReactDOM.render(<App />, document.getElementById('root')))
-    .catch(err => console.error(err));
-
+ThemeLoader.init()
+    .then(() => renderApplication())
+    .catch((err) => {
+        console.warn(err);
+        renderApplication();
+    });
