@@ -6,7 +6,7 @@ import styles from './ScrollContainer.scss';
 const { block } = bem({
     name: 'ScrollContainer',
     classnames: styles,
-    propsToMods: ['hideScrollX', 'hideScrollY']
+    propsToMods: ['hideScrollX', 'hideScrollY', 'resize']
 });
 
 const ScrollContainer = props => {
@@ -31,14 +31,16 @@ ScrollContainer.propTypes = {
     hideScrollX: PropTypes.bool,
     hideScrollY: PropTypes.bool,
     maxHeight: PropTypes.number,
-    minWidth: PropTypes.number
+    minWidth: PropTypes.number,
+    resize: PropTypes.oneOf(['both', 'horizontal', 'vertical'])
 };
 
 ScrollContainer.defaultProps = {
     hideScrollX: false,
     hideScrollY: false,
     maxHeight: null,
-    minWidth: null
+    minWidth: null,
+    resize: null
 };
 
 export default ScrollContainer;
