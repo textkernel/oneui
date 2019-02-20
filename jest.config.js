@@ -13,5 +13,7 @@ module.exports = {
     setupTestFrameworkScriptFile: '<rootDir>etc/test/enzyme.setup.js',
 
     // The glob patterns Jest uses to detect test files
-    testMatch: ['**/__tests__/**/*.spec.js']
+    testMatch: ['**/__tests__/**/*.spec.js'],
+
+    coveragePathIgnorePatterns: ['/node_modules/', 'dummy-components']
 };
