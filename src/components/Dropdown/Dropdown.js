@@ -76,7 +76,7 @@ class Dropdown extends PureComponent {
     handleSetFilter(e) {
         const { value } = e.target;
         this.setState({
-            filterValue: value || null
+            filterValue: value
         });
     }
 
