@@ -21,8 +21,8 @@ const NavBar = props => {
 NavBar.displayName = 'NavBar';
 
 NavBar.propTypes = {
-    /** Node(s) to be rendered as navigation. They are expeted to be NavItem */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+    /** Node(s) to be rendered as navigation */
+    children: PropTypes.node
 };
 
 NavBar.defaultProps = {

@@ -16,11 +16,13 @@ const NavItem = props => {
         newProps.activeClassName = elem('active', props).className;
     }
 
-    if (!React.Children.only(children)) {
+    try {
+        React.Children.only(children);
+    } catch {
         throw new Error('NavItem should have a single child only');
     }
 
-    return React.Children.map(children, child => React.cloneElement(child, newProps));
+    return React.cloneElement(children, newProps);
 };
 
 NavItem.displayName = 'NavItem';
