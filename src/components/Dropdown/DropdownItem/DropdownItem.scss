@@ -3,7 +3,6 @@
     cursor: pointer;
     display: block;
     line-height: var(--line-height-normal);
-    padding: var(--spacing-2x) var(--spacing-3x);
     user-select: none;
     white-space: nowrap;
 
@@ -18,5 +17,9 @@
         &:active {
             background-color: var(--color-neutral-25);
         }
+    }
+
+    &__node {
+        padding: var(--spacing-2x) var(--spacing-3x);
     }
 }

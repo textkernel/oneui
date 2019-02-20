@@ -5,4 +5,18 @@
         family: var(--font-family-primary);
         size: var(--font-size-normal);
     }
+
+    &__caret {
+        margin-left: .5em;
+        fill: var(--color-background);
+
+        &--context {
+            &_link {
+                fill: var(--link-color-normal);
+            }
+            &_neutral {
+                fill: var(--color-foreground);
+            }
+        }
+    }
 }

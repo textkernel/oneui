@@ -16,10 +16,10 @@ const Input = forwardRef((props, ref) => {
         <input
             {...rest}
             {...block(props)}
-            ref={ref}
             type={type}
             disabled={disabled}
             value={value}
+            ref={ref}
         />
     );
 });
