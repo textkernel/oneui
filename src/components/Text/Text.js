@@ -2,15 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './Text.scss';
+import { SIZES } from '../../constants';
 
 const { block } = bem({
     name: 'Text',
     classnames: styles,
-    propsToMods: ['muted']
+    propsToMods: ['muted', 'size']
 });
 
 const Text = props => {
-    const { children, inline, ...rest } = props;
+    const { children, inline, size, ...rest } = props;
     const HtmlNodeType = inline ? 'span' : 'p';
 
     return (
@@ -23,17 +24,20 @@ const Text = props => {
 Text.displayName = 'Text';
 
 Text.propTypes = {
+    /** Text content */
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     /** Text should be rendered inline */
     inline: PropTypes.bool,
     /** Render muted (auxiliary) text */
     muted: PropTypes.bool,
-    /** Text content */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired
+    /** Custom text sizes */
+    size: PropTypes.oneOf(SIZES)
 };
 
 Text.defaultProps = {
     inline: false,
-    muted: false
+    muted: false,
+    size: 'normal'
 };
 
 export default Text;
