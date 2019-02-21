@@ -11,7 +11,7 @@ const { block } = bem({
 });
 
 const Text = props => {
-    const { bold, children, inline, size, ...rest } = props;
+    const { children, inline, size, ...rest } = props;
     const HtmlNodeType = inline ? 'span' : 'p';
 
     return (
