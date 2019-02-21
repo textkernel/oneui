@@ -31,7 +31,7 @@ const DropdownGroup = props => {
 
                 return (
                     <div {...block(props)}>
-                        <div {...elem('label', props)}>{label}</div>
+                        {!!label && <div {...elem('label', props)}>{label}</div>}
                         <div {...elem('nodes', props)}>{items}</div>
                     </div>
                 );
@@ -43,9 +43,12 @@ const DropdownGroup = props => {
 DropdownGroup.displayName = 'DropdownGroup';
 
 DropdownGroup.propTypes = {
-    label: PropTypes.node.isRequired
+    /** Label for this dropdown group */
+    label: PropTypes.node
 };
 
-DropdownGroup.defaultProps = {};
+DropdownGroup.defaultProps = {
+    label: null
+};
 
 export default DropdownGroup;

@@ -97,7 +97,14 @@ class Dropdown extends PureComponent {
     }
 
     render() {
-        const { children, label, multiselect, selectedLabel, ...rest } = this.props;
+        const {
+            children,
+            initiallyOpened,
+            label,
+            multiselect,
+            selectedLabel,
+            ...rest
+        } = this.props;
 
         const { expanded, filterValue, selection } = this.state;
 
@@ -130,15 +137,25 @@ class Dropdown extends PureComponent {
 Dropdown.displayName = 'Dropdown';
 
 Dropdown.propTypes = {
+    /** The dropdown content */
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.arrayOf(PropTypes.node)]),
+    /** Context for this dropdown */
     context: PropTypes.oneOf(['link', ...CONTEXTS]),
+    /** Wether the dropdown should be expanded when rendered */
     initiallyOpened: PropTypes.bool,
+    /** Renders block-level dropdown trigger */
     isBlock: PropTypes.bool,
+    /** Label for the dropdown trigger */
     label: PropTypes.node.isRequired,
+    /** Wether it is possible to select multiple items */
     multiselect: PropTypes.bool,
+    /** Callback function to be triggered when selecting items */
     onChange: PropTypes.func,
+    /** Returns the label to be shown in case of a selection */
     selectedLabel: PropTypes.func,
+    /** Size for the dropdown trigger */
     size: PropTypes.oneOf(SIZES),
+    /** Current selection */
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.array])
 };
 
