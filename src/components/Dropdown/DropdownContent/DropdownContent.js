@@ -10,7 +10,7 @@ const { block } = bem({
 });
 
 const DropdownContent = forwardRef((props, ref) => {
-    const { children, ...rest } = props;
+    const { children, shown, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)} ref={ref}>

@@ -58,13 +58,12 @@ const DropdownItem = props => {
 DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
-    disabled: PropTypes.bool,
-    grouped: PropTypes.bool
+    /** Indicates if this item is disabled */
+    disabled: PropTypes.bool
 };
 
 DropdownItem.defaultProps = {
-    disabled: false,
-    grouped: false
+    disabled: false
 };
 
 export default DropdownItem;
