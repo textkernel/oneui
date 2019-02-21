@@ -2,6 +2,41 @@ import React from 'react';
 import { buildBemProps, getFunctionName, isBlockDecl } from './bemUtils';
 
 /**
+ * 1. Static check from the classnamesMap side.
+ *      - block name prefix equals component name
+ *      - All modifyers from a classname map are listed in propsToMod and stateToMod
+ *
+ * 2. Runtime checks:
+ *      - Mod value was passed but there is no correspondent classname
+ *      - Element was passed buy there is no correspondent classname for element
+ */
+
+/*
+{
+    block: 'Button',
+    mods: {
+        context: ['accent', 'bad', 'brand'],
+        size: ['large', 'small'],
+        isBlocked: [true],
+    },
+    elems: {
+        label: {
+            mods: {
+                context: ['accent', 'bad', 'brand'],
+                size: ['large'],
+            },
+        },
+        icon: {
+            mods: {
+                context: ['accent', 'bad', 'brand'],
+                isBlocked: [true],
+            },
+        }
+    }
+}
+*/
+
+/**
  * CSS modules classnames map
  * @typedef {Object.<string, string>} ClassnamesMap
  */
@@ -124,13 +159,14 @@ function bemStateless(blockDecl) {
  * @returns {Function}
  */
 export default function bem(args) {
-    // bem was called as a in stateless mode
+    // Bem was called as a in stateless mode
     if (isBlockDecl(args)) {
         const { name, classnames, propsToMods } = args;
+        console.log({ name, classnames, propsToMods });
         return bemStateless({ name, classnames, propsToMods });
     }
 
-    // Otherwise be called in stateful mode
+    // Otherwise it was called in stateful mode
     /**
      * @param {Component} BemComponent - React component
      * @returns {Function} - Decorated react component
