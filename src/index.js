@@ -18,6 +18,7 @@ export { default as LoadingSpinner } from './components/LoadingSpinner';
 export { NavBar, NavItem } from './components/Navigation';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as RadioButton } from './components/RadioButton';
+export { default as RemoteInterface } from './components/RemoteInterface';
 export { default as ScrollContainer } from './components/ScrollContainer';
 export { Tabs, Tab, TabContent, TabItem, TabMenu } from './components/Tabs';
 export { default as Text } from './components/Text';

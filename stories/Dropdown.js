@@ -1,14 +1,19 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { boolean, number, select, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
+import fetchMock from 'fetch-mock';
+import { storiesOf } from '@storybook/react';
+import { boolean, number, select, text, withKnobs } from '@storybook/addon-knobs';
 import {
     Dropdown,
     DropdownFilter,
     DropdownItem,
     DropdownGroup,
+    LoadingSpinner,
+    RemoteInterface,
     ScrollContainer
 } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '../src/constants';
+
+const mockEndpoint = 'https://my.api/items';
 
 storiesOf('Dropdown', module)
     .addDecorator(withKnobs)
@@ -77,4 +82,49 @@ storiesOf('Dropdown', module)
                 <DropdownItem value="10">Item 10</DropdownItem>
             </ScrollContainer>
         </Dropdown>
-    ));
+    ))
+    .add('Load items from API', () => {
+        const payload = {
+            items: [
+                {
+                    value: '1',
+                    label: 'Item 1'
+                },
+                {
+                    value: '2',
+                    label: 'Item 2'
+                },
+                {
+                    value: '3',
+                    label: 'Item 3'
+                }
+            ]
+        };
+
+        const delay = () => new Promise(res => setTimeout(res, 1000));
+
+        fetchMock.restore().get(mockEndpoint, delay().then(() => payload));
+
+        return (
+            <Dropdown label="My dropdown">
+                <ScrollContainer minHeight={100} minWidth={150}>
+                    <RemoteInterface
+                        endpoint={mockEndpoint}
+                        renderer={(loading, response) => {
+                            if (loading || !response) {
+                                return (
+                                    <LoadingSpinner centerIn="parent" context="neutral" size={24} />
+                                );
+                            }
+
+                            return response.items.map(item => (
+                                <DropdownItem value={item.value} key={item.value}>
+                                    {item.label}
+                                </DropdownItem>
+                            ));
+                        }}
+                    />
+                </ScrollContainer>
+            </Dropdown>
+        );
+    });
