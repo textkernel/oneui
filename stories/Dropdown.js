@@ -11,6 +11,7 @@ import {
     RemoteInterface,
     ScrollContainer
 } from '@textkernel/oneui';
+import { DropdownConsumer } from '../src/components/Dropdown/DropdownContext';
 import { CONTEXTS, SIZES } from '../src/constants';
 
 const mockEndpoint = 'https://my.api/items';
@@ -97,34 +98,61 @@ storiesOf('Dropdown', module)
                 {
                     value: '3',
                     label: 'Item 3'
+                },
+                {
+                    value: '4',
+                    label: 'Item 4'
+                },
+                {
+                    value: '5',
+                    label: 'Item 5'
                 }
             ]
         };
 
-        const delay = () => new Promise(res => setTimeout(res, 1000));
+        const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
 
         fetchMock.restore().get(mockEndpoint, delay().then(() => payload));
 
         return (
-            <Dropdown label="My dropdown">
-                <ScrollContainer minHeight={100} minWidth={150}>
-                    <RemoteInterface
-                        endpoint={mockEndpoint}
-                        renderer={(loading, response) => {
-                            if (loading || !response) {
-                                return (
-                                    <LoadingSpinner centerIn="parent" context="neutral" size={24} />
-                                );
-                            }
+            <Dropdown
+                label="My dropdown"
+                multiselect
+                onChange={({ value, label }) => {
+                    console.log(`Selected value '${value}' (${label})`);
+                }}
+            >
+                <DropdownFilter autoFocus />
+                <DropdownConsumer>
+                    {({ filterValue }) => (
+                        <RemoteInterface
+                            endpoint={mockEndpoint}
+                            body={{
+                                q: filterValue
+                            }}
+                        >
+                            {(loading, response) => {
+                                if (loading || !response) {
+                                    return (
+                                        <ScrollContainer minHeight={100} minWidth={100}>
+                                            <LoadingSpinner
+                                                centerIn="parent"
+                                                context="neutral"
+                                                size={24}
+                                            />
+                                        </ScrollContainer>
+                                    );
+                                }
 
-                            return response.items.map(item => (
-                                <DropdownItem value={item.value} key={item.value}>
-                                    {item.label}
-                                </DropdownItem>
-                            ));
-                        }}
-                    />
-                </ScrollContainer>
+                                return response.items.map(item => (
+                                    <DropdownItem value={item.value} key={item.value} noFilter>
+                                        {item.label}
+                                    </DropdownItem>
+                                ));
+                            }}
+                        </RemoteInterface>
+                    )}
+                </DropdownConsumer>
             </Dropdown>
         );
     });

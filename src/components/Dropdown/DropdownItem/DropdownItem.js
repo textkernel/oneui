@@ -14,12 +14,12 @@ const { block, elem } = bem({
 });
 
 const DropdownItem = props => {
-    const { children, disabled, value } = props;
+    const { children, disabled, noFilter, value } = props;
 
     return (
         <DropdownConsumer>
             {({ filterValue, handleChange, multiselect, selection }) => {
-                if (!isStringMatch(filterValue, children)) {
+                if (!noFilter && !isStringMatch(filterValue, children)) {
                     return null;
                 }
 
@@ -59,11 +59,14 @@ DropdownItem.displayName = 'DropdownItem';
 
 DropdownItem.propTypes = {
     /** Indicates if this item is disabled */
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    /** Indicates that the item should not be filtered */
+    noFilter: PropTypes.bool
 };
 
 DropdownItem.defaultProps = {
-    disabled: false
+    disabled: false,
+    noFilter: false
 };
 
 export default DropdownItem;
