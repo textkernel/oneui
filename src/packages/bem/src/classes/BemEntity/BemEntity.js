@@ -1,22 +1,19 @@
 import BemDelimiters from '../BemDelimiters';
 
-/**
- * @typedef {Object} BemEntity
- * @property {string} block - Block name
- * @property {string|undefined} elem - Elem name
- * @property {string|undefined} mod - Mod name
- * @property {string|undefined} value - Mod value
- */
-
 const BEM_ENTITY_PATTERN = '[a-zA-Z]+[a-zA-Z0-9]*'; // Pattern for matching block name, elem name or modifier name
 const BEM_VALUE_PATTERN = '[a-zA-Z0-9]+'; // Pattern for matching modifier's value
 
-export class BemTokensError extends Error {}
+export class BemEntityError extends Error {}
 
-export default class BemTokens {
+/**
+ * BemEntity class provides following functionality:
+ * 1. Parsing class name into BemEntity object. @see BemEntity.from()
+ * 2. Validating BEM tokens. @see BemEntity#constructor()
+ */
+export default class BemEntity {
     constructor(tokens) {
         const { block, elem = '', mod = '', value = '' } = tokens;
-        BemTokens.validate({ block, elem, mod, value });
+        BemEntity.validate({ block, elem, mod, value });
         Object.assign(this, { block, elem, mod, value });
     }
 
@@ -26,50 +23,50 @@ export default class BemTokens {
      */
     static validate({ block, elem, mod, value }) {
         if (typeof block !== 'string' || block === '') {
-            throw new BemTokensError('block must be a non empty string.');
+            throw new BemEntityError('block must be a non empty string.');
         }
 
         if (elem && typeof elem !== 'string') {
-            throw new BemTokensError('"elem" must be a string.');
+            throw new BemEntityError('"elem" must be a string.');
         }
 
         if (mod && typeof mod !== 'string') {
-            throw new BemTokensError('"mod" must be a string.');
+            throw new BemEntityError('"mod" must be a string.');
         }
 
         if (value && typeof value !== 'string') {
-            throw new BemTokensError('"value" must be a string.');
+            throw new BemEntityError('"value" must be a string.');
         }
 
         // "value" can't be set without "mod"
         if (mod === '' && value !== '') {
-            throw new BemTokensError('"value" can be set only when "mod" is also set.');
+            throw new BemEntityError('"value" can be set only when "mod" is also set.');
         }
 
         const bemEntityPattern = new RegExp(`^${BEM_ENTITY_PATTERN}$`);
         const bemValuePattern = new RegExp(`^${BEM_VALUE_PATTERN}$`);
 
-        // tokens should have proper syntax
+        // Tokens should have proper syntax
         if (block.match(bemEntityPattern) === null) {
-            throw new BemTokensError(
+            throw new BemEntityError(
                 `block value "${block}" has invalid syntax. Should match ${BEM_ENTITY_PATTERN} pattern.`
             );
         }
 
         if (elem && elem.match(bemEntityPattern) === null) {
-            throw new BemTokensError(
+            throw new BemEntityError(
                 `elem value "${elem}" has invalid syntax. Should match ${BEM_VALUE_PATTERN} pattern.`
             );
         }
 
         if (mod && mod.match(bemEntityPattern) === null) {
-            throw new BemTokensError(
+            throw new BemEntityError(
                 `mod value "${elem}" has invalid syntax. Should match ${BEM_ENTITY_PATTERN} pattern.`
             );
         }
 
         if (value && value.match(bemValuePattern) === null) {
-            throw new BemTokensError(
+            throw new BemEntityError(
                 `value "${value}" has invalid syntax. Should match ${BEM_VALUE_PATTERN} pattern.`
             );
         }
@@ -110,33 +107,33 @@ export default class BemTokens {
      */
     static validateClassName(className) {
         if (typeof className !== 'string') {
-            throw new BemTokensError('BEM classname shoud be a string');
+            throw new BemEntityError('BEM classname shoud be a string');
         }
         if (className === '') {
-            throw new BemTokensError('BEM classname shoud not be empty');
+            throw new BemEntityError('BEM classname shoud not be empty');
         }
     }
 
     /**
-     *
+     * Parces and validates css class nams into BEM object representation.
      * @param {string} className
      * @param {Object.<string, string>} delimiters
      * @public
      */
     static from(className = '', delimiters = {}) {
-        BemTokens.validateClassName(className);
+        BemEntity.validateClassName(className);
         const bemDelimiters = new BemDelimiters(delimiters);
-        const classNamePattern = BemTokens.createClassNamePattern(bemDelimiters);
+        const classNamePattern = BemEntity.createClassNamePattern(bemDelimiters);
         const match = className.match(classNamePattern);
         if (match === null) {
-            throw new BemTokensError(`BEM classname '${className}' has invalid syntax.`);
+            throw new BemEntityError(`BEM classname '${className}' has invalid syntax.`);
         }
         const [, block, elem, mod, value] = match;
-        return new BemTokens({
+        return new BemEntity({
             block,
-            elem: BemTokens.stripDelimiter(elem, bemDelimiters.elem),
-            mod: BemTokens.stripDelimiter(mod, bemDelimiters.mod),
-            value: BemTokens.stripDelimiter(value, bemDelimiters.value)
+            elem: BemEntity.stripDelimiter(elem, bemDelimiters.elem),
+            mod: BemEntity.stripDelimiter(mod, bemDelimiters.mod),
+            value: BemEntity.stripDelimiter(value, bemDelimiters.value)
         });
     }
 }
