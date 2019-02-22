@@ -85,7 +85,7 @@ storiesOf('Dropdown', module)
         </Dropdown>
     ))
     .add('Load items from API', () => {
-        const payload = {
+        const data = {
             items: [
                 {
                     value: '1',
@@ -112,7 +112,17 @@ storiesOf('Dropdown', module)
 
         const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
 
-        fetchMock.restore().get(mockEndpoint, delay().then(() => payload));
+        fetchMock.restore().get(mockEndpoint, (_, { body }) => {
+            const { q } = body;
+            if (!q) {
+                return data;
+            }
+            const re = new RegExp(`(${q})`, 'gi');
+            const dataFiltered = {
+                items: data.items.filter(item => item.label.match(re)) || []
+            };
+            return delay().then(() => dataFiltered);
+        });
 
         return (
             <Dropdown
@@ -126,12 +136,13 @@ storiesOf('Dropdown', module)
                 <DropdownConsumer>
                     {({ filterValue }) => (
                         <RemoteInterface
+                            delay={500}
                             endpoint={mockEndpoint}
                             body={{
                                 q: filterValue
                             }}
                         >
-                            {(loading, response) => {
+                            {({ loading, response }) => {
                                 if (loading || !response) {
                                     return (
                                         <ScrollContainer minHeight={100} minWidth={100}>
