@@ -19,14 +19,25 @@
         }
     }
 
-    &__node {
-        border: none;
+    &__single,
+    &__multi {
+        box-sizing: border-box;
         background-color: transparent;
+        width: 100%;
+        text-align: left;
+    }
+
+    &__single {
+        border: none;
         cursor: pointer;
         display: block;
         outline: none;
         padding: var(--spacing-2x) var(--spacing-3x);
-        width: 100%;
-        text-align: left;
+    }
+
+    &__multi {
+        .Checkbox__label {
+            padding: var(--spacing-2x) var(--spacing-3x);
+        }
     }
 }
