@@ -30,7 +30,7 @@ const defaultPrefixes = {
     elem: DEFAULT_ELEM_PREFIX,
     mod: DEFAULT_MOD_PREFIX,
     value: DEFAULT_VALUE_PREFIX
-}
+};
 
 export class BemPrefixSetError extends Error {}
 

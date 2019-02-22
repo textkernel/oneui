@@ -1,14 +1,13 @@
 import BemPrefixSet, { BemPrefixSetError } from '..';
 
 describe('BemPrefixSet', () => {
-
     describe('module export', () => {
         it('should export BemPrefixSet as default', () => {
             expect(BemPrefixSet).toBeTruthy();
-        })
+        });
         it('should export BemPrefixSetError as named export', () => {
             expect(BemPrefixSetError).toBeTruthy();
-        })
+        });
     });
 
     describe('#constructor', () => {
@@ -37,7 +36,7 @@ describe('BemPrefixSet', () => {
             const bemPrefixSet = new BemPrefixSet(prefixes);
             expect(bemPrefixSet).toEqual({
                 ...prefixes,
-                elem: '__',
+                elem: '__'
             });
         });
         it('should set "mod" to default if it is not set', () => {
@@ -48,7 +47,7 @@ describe('BemPrefixSet', () => {
             const bemPrefixSet = new BemPrefixSet(prefixes);
             expect(bemPrefixSet).toEqual({
                 ...prefixes,
-                mod: '--',
+                mod: '--'
             });
         });
         it('should set "value" to default if it is not set', () => {
@@ -59,7 +58,7 @@ describe('BemPrefixSet', () => {
             const bemPrefixSet = new BemPrefixSet(prefixes);
             expect(bemPrefixSet).toEqual({
                 ...prefixes,
-                value: '_',
+                value: '_'
             });
         });
         it('should throw if "elem" prefix is invalid', () => {

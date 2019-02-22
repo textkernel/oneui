@@ -11,7 +11,6 @@ import BemPrefixSet from '../BemPrefixSet';
 export class BemTokensError extends Error {}
 
 export default class BemTokens {
-    
     constructor(tokens) {
         const { block, elem, mod, value } = tokens;
         Object.assign(this, { block, elem, mod, value });
@@ -64,7 +63,7 @@ export default class BemTokens {
             throw new BemTokensError(`BEM classname '${className}' has invalid syntax or empty`);
         }
         const [, block, elem, mod, value] = match;
-        return ({
+        return new BemTokens({
             block,
             elem: BemTokens.stripPrefix(elem, prefixSet.elem),
             mod: BemTokens.stripPrefix(mod, prefixSet.mod),

@@ -1,19 +1,19 @@
 import BemTokens, { BemTokensError } from '..';
 
 describe('BemTokens', () => {
-
     describe('module export', () => {
         it('should export BemTokens as default', () => {
             expect(BemTokens).toBeTruthy();
-        })
+        });
         it('should export BemTokensError as named export', () => {
             expect(BemTokensError).toBeTruthy();
-        })
+        });
     });
 
     describe('.from', () => {
         it.only('should parse "block" correctly', () => {
             const bemTokens = BemTokens.from('block');
+            expect(bemTokens).toBeInstanceOf(BemTokens);
             expect(bemTokens).toEqual({
                 block: 'block',
                 elem: '',
