@@ -1,5 +1,6 @@
 .ScrollContainer {
     overflow: auto;
+    position: relative;
 
     &--hideScrollX {
         overflow-x: hidden;
