@@ -1,1 +1,1 @@
-export { default } from './BemTokens';
+export { default, BemTokensError } from './BemTokens';

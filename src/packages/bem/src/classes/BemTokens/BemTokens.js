@@ -1,3 +1,5 @@
+import BemPrefixSet from '../BemPrefixSet';
+
 /**
  * @typedef {Object} BemEntity
  * @property {string} block - Block name
@@ -6,18 +8,10 @@
  * @property {string|undefined} value - Mod value
  */
 
-export class BEMTokensError extends Error {}
+export class BemTokensError extends Error {}
 
-export default class BEMTokens {
-    /**
-     * @type {Object}
-     */
-    static DEFAULT_SEPARATORS = {
-        elemSeparator: '__',
-        modSeparator: '--',
-        valueSeparator: '_'
-    };
-
+export default class BemTokens {
+    
     constructor(tokens) {
         const { block, elem, mod, value } = tokens;
         Object.assign(this, { block, elem, mod, value });
@@ -26,15 +20,15 @@ export default class BEMTokens {
     /**
      * @returns {RegExp} - Pattern for matching and parsing a BEM classname
      */
-    static createClassNamePattern(separators) {
+    static createClassNamePattern(prefixes) {
         const bemEntityPattern = '[a-zA-Z]+[a-zA-Z0-9]*'; // Pattern for matching block name, elem name or modifier name
         const valuePattern = '[a-zA-Z0-9]+'; // Pattern for matching modifier's value
-        const { elemSeparator, modSeparator, valueSeparator } = separators;
+        const { elem, mod, value } = prefixes;
         const pattern = new RegExp(
             `^(${bemEntityPattern})` +
-                `(${elemSeparator}${bemEntityPattern})?` +
-                `(${modSeparator}${bemEntityPattern})?` +
-                `(${valueSeparator}${valuePattern})?$`
+                `(${elem}${bemEntityPattern})?` +
+                `(${mod}${bemEntityPattern})?` +
+                `(${value}${valuePattern})?$`
         );
         return pattern;
     }
@@ -45,6 +39,7 @@ export default class BEMTokens {
      * @returns {string} - Stripped value
      */
     static stripPrefix(value, prefix) {
+        if (typeof value !== 'string') return '';
         if (value.startsWith(prefix)) {
             return value.replace(prefix, '');
         }
@@ -53,50 +48,27 @@ export default class BEMTokens {
 
     static validateClassName(className) {
         if (typeof className !== 'string') {
-            throw new BEMTokensError('BEN classname shoud be a string');
+            throw new BemTokensError('BEN classname shoud be a string');
         }
         if (className === '') {
-            throw new BEMTokensError('BEN classname shoud not be empty');
+            throw new BemTokensError('BEN classname shoud not be empty');
         }
     }
 
-    static validateSeparators(separators) {
-        const allowedTypes = ['elemSeparator', 'modSeparator', 'valueSeparator'];
-        const separatorPattern = /[_-]+/;
-        Object.keys(separators).forEach(separatorType => {
-            // Validating keys
-            if (allowedTypes.includes[separatorType] === false) {
-                throw new TypeError(
-                    `BEM separators declaration includes unknown property '${separatorType}'. ` +
-                        `Allowed values are ${allowedTypes.join(', ')}.`
-                );
-            }
-
-            // Validating values
-            const separatorValue = separators[separatorType];
-            const separatorValueMatch = separatorValue.match(separatorPattern);
-            if (separatorValueMatch === null) {
-                throw new TypeError(
-                    `BEM ${separatorType} has invalid value: '${separatorValue}'. It contains invalid characters or it is empty.`
-                );
-            }
-        });
-    }
-
-    static from(className, separators = BEMTokens.DEFAULT_SEPARATORS) {
-        BEMTokens.validateClassName(className);
-        BEMTokens.validateSeparators(separators);
-        const classNamePattern = BEMTokens.createClassNamePattern(separators);
+    static from(className = '', prefixes = {}) {
+        BemTokens.validateClassName(className);
+        const prefixSet = new BemPrefixSet(prefixes);
+        const classNamePattern = BemTokens.createClassNamePattern(prefixSet);
         const match = className.match(classNamePattern);
         if (match === null) {
-            throw TypeError(`BEM classname '${className}' has invalid syntax or empty`);
+            throw new BemTokensError(`BEM classname '${className}' has invalid syntax or empty`);
         }
         const [, block, elem, mod, value] = match;
-        return new BEMTokens({
+        return ({
             block,
-            elem: BEMTokens.stripPrefix(elem, separators.elem),
-            mod: BEMTokens.stripPrefix(mod, separators.mod),
-            value: BEMTokens.stripPrefix(value, separators.value)
+            elem: BemTokens.stripPrefix(elem, prefixSet.elem),
+            mod: BemTokens.stripPrefix(mod, prefixSet.mod),
+            value: BemTokens.stripPrefix(value, prefixSet.value)
         });
     }
 }
