@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf } from '@storybook/react';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { TextArea } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '@textkernel/oneui/constants';
 

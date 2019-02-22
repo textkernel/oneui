@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { select, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf } from '@storybook/react';
+import { select, text, withKnobs } from '@storybook/addon-knobs';
 import { Heading } from '@textkernel/oneui';
 import { HEADING_SIZES } from '@textkernel/oneui/constants';
 
