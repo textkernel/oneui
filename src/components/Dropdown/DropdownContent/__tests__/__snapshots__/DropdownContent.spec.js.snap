@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DropdownContent> should render a dropdown container correctly 1`] = `
+<div
+  className="DropdownContent"
+>
+  Some content
+</div>
+`;

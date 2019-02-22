@@ -28,7 +28,7 @@ const DropdownItem = props => {
                         {multiselect ? (
                             <Checkbox
                                 id={`item-${value}`}
-                                {...elem('node', props)}
+                                {...elem('multi', props)}
                                 checked={selection && selection.indexOf(value) > -1}
                                 disabled={disabled}
                                 onChange={() => {
@@ -40,7 +40,7 @@ const DropdownItem = props => {
                             </Checkbox>
                         ) : (
                             <button
-                                {...elem('node', props)}
+                                {...elem('single', props)}
                                 onClick={() => {
                                     handleChange({ value, label: children });
                                 }}

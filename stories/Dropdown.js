@@ -61,7 +61,12 @@ storiesOf('Dropdown', module)
         </Dropdown>
     ))
     .add('Dropdown with min width / max height', () => (
-        <Dropdown label="My dropdown">
+        <Dropdown
+            label="My dropdown"
+            onChange={({ value, label }) => {
+                console.log(`Selected value '${value}' (${label})`);
+            }}
+        >
             <DropdownFilter placeholder="Filter items..." autoFocus />
             <ScrollContainer
                 maxHeight={number('Max height', 200)}

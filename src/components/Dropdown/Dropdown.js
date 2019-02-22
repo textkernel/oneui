@@ -91,6 +91,10 @@ class Dropdown extends PureComponent {
             expanded: collapse ? false : !expanded
         };
 
+        if (collapse) {
+            newState.filterValue = null;
+        }
+
         this.setState(newState);
 
         return true;
