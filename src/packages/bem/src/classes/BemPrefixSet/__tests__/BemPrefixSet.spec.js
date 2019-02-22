@@ -67,7 +67,9 @@ describe('BemPrefixSet', () => {
                 mod: '--',
                 value: '_'
             };
-            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingSnapshot();
+            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingInlineSnapshot(
+                `"BEM elem has invalid value: '~'. It contains invalid characters or it is empty."`
+            );
         });
         it('should throw if "mod" prefix is invalid', () => {
             const prefixes = {
@@ -75,7 +77,9 @@ describe('BemPrefixSet', () => {
                 mod: '~',
                 value: '_'
             };
-            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingSnapshot();
+            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingInlineSnapshot(
+                `"BEM mod has invalid value: '~'. It contains invalid characters or it is empty."`
+            );
         });
         it('should throw if "value" prefix is invalid', () => {
             const prefixes = {
@@ -83,7 +87,9 @@ describe('BemPrefixSet', () => {
                 mod: '--',
                 value: '~'
             };
-            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingSnapshot();
+            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingInlineSnapshot(
+                `"BEM value has invalid value: '~'. It contains invalid characters or it is empty."`
+            );
         });
         it('should throw if "elem" prefix is empty', () => {
             const prefixes = {
@@ -91,7 +97,9 @@ describe('BemPrefixSet', () => {
                 mod: '--',
                 value: '_'
             };
-            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingSnapshot();
+            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingInlineSnapshot(
+                `"BEM elem has invalid value: ''. It contains invalid characters or it is empty."`
+            );
         });
         it('should throw if "mod" prefix is empty', () => {
             const prefixes = {
@@ -99,7 +107,9 @@ describe('BemPrefixSet', () => {
                 mod: '',
                 value: '_'
             };
-            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingSnapshot();
+            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingInlineSnapshot(
+                `"BEM mod has invalid value: ''. It contains invalid characters or it is empty."`
+            );
         });
         it('should throw if "value" prefix is empty', () => {
             const prefixes = {
@@ -107,7 +117,19 @@ describe('BemPrefixSet', () => {
                 mod: '--',
                 value: ''
             };
-            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingSnapshot();
+            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingInlineSnapshot(
+                `"BEM value has invalid value: ''. It contains invalid characters or it is empty."`
+            );
+        });
+        it('should throw if prefixes has invalid property', () => {
+            const prefixes = {
+                element: '__',
+                mod: '--',
+                value: '_'
+            };
+            expect(() => new BemPrefixSet(prefixes)).toThrowErrorMatchingInlineSnapshot(
+                `"BEM prefixes declaration includes unknown property 'element'. Allowed values are \\"elem, mod, value\\"."`
+            );
         });
     });
 });

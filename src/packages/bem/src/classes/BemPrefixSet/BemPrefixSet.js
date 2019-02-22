@@ -36,12 +36,12 @@ export class BemPrefixSetError extends Error {}
 
 export default class BemPrefixSet {
     constructor(prefixes = {}) {
-        const { elem, mod, value } = {
+        const prefixesWithDefaults = {
             ...defaultPrefixes,
             ...prefixes
         };
-        BemPrefixSet.validate({ elem, mod, value });
-        Object.assign(this, { elem, mod, value });
+        BemPrefixSet.validate(prefixesWithDefaults);
+        Object.assign(this, prefixesWithDefaults);
     }
 
     /**
@@ -51,10 +51,10 @@ export default class BemPrefixSet {
     static validate(prefixSet) {
         Object.keys(prefixSet).forEach(prefixName => {
             // Validating keys name
-            if (ALLOWED_PREFIX_NAMES.includes[prefixName] === false) {
+            if (ALLOWED_PREFIX_NAMES.includes(prefixName) === false) {
                 throw new BemPrefixSetError(
                     `BEM prefixes declaration includes unknown property '${prefixName}'. ` +
-                        `Allowed values are ${ALLOWED_PREFIX_NAMES.join(', ')}.`
+                        `Allowed values are "${ALLOWED_PREFIX_NAMES.join(', ')}".`
                 );
             }
 
