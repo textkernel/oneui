@@ -1,1 +1,1 @@
-export { default } from './BemPrefixSet';
+export { default, BemPrefixSetError } from './BemPrefixSet';

@@ -1,11 +1,4 @@
 /**
- * @typedef {Object} BemPrefixDict
- * @property {string} elem - Elem name
- * @property {string} mod - Mod name
- * @property {string} value - Mod value
- */
-
-/**
  * @type {Array.<string>}
  */
 const ALLOWED_PREFIX_NAMES = ['elem', 'mod', 'value'];
@@ -30,14 +23,23 @@ const DEFAULT_MOD_PREFIX = '--';
  */
 const DEFAULT_VALUE_PREFIX = '_';
 
+/**
+ * @type {Object.<string, string>}
+ */
+const defaultPrefixes = {
+    elem: DEFAULT_ELEM_PREFIX,
+    mod: DEFAULT_MOD_PREFIX,
+    value: DEFAULT_VALUE_PREFIX
+}
+
 export class BemPrefixSetError extends Error {}
 
 export default class BemPrefixSet {
-    constructor({
-        elem = DEFAULT_ELEM_PREFIX,
-        mod = DEFAULT_MOD_PREFIX,
-        value = DEFAULT_VALUE_PREFIX
-    }) {
+    constructor(prefixes = {}) {
+        const { elem, mod, value } = {
+            ...defaultPrefixes,
+            ...prefixes
+        };
         BemPrefixSet.validate({ elem, mod, value });
         Object.assign(this, { elem, mod, value });
     }
@@ -48,9 +50,9 @@ export default class BemPrefixSet {
      */
     static validate(prefixSet) {
         Object.keys(prefixSet).forEach(prefixName => {
-            // Validating keys
+            // Validating keys name
             if (ALLOWED_PREFIX_NAMES.includes[prefixName] === false) {
-                throw new TypeError(
+                throw new BemPrefixSetError(
                     `BEM prefixes declaration includes unknown property '${prefixName}'. ` +
                         `Allowed values are ${ALLOWED_PREFIX_NAMES.join(', ')}.`
                 );
@@ -60,7 +62,7 @@ export default class BemPrefixSet {
             const prefixValue = prefixSet[prefixName];
             const prefixValueMatch = prefixValue.match(PREFIX_PATTERN);
             if (prefixValueMatch === null) {
-                throw new TypeError(
+                throw new BemPrefixSetError(
                     `BEM ${prefixName} has invalid value: '${prefixValue}'. It contains invalid characters or it is empty.`
                 );
             }

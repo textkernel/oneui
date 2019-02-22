@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BemPrefixSet #constructor should throw if "elem" prefix is empty 1`] = `"BEM elem has invalid value: ''. It contains invalid characters or it is empty."`;
+
+exports[`BemPrefixSet #constructor should throw if "elem" prefix is invalid 1`] = `"BEM elem has invalid value: '~'. It contains invalid characters or it is empty."`;
+
+exports[`BemPrefixSet #constructor should throw if "mod" prefix is empty 1`] = `"BEM mod has invalid value: ''. It contains invalid characters or it is empty."`;
+
+exports[`BemPrefixSet #constructor should throw if "mod" prefix is invalid 1`] = `"BEM mod has invalid value: '~'. It contains invalid characters or it is empty."`;
+
+exports[`BemPrefixSet #constructor should throw if "value" prefix is empty 1`] = `"BEM value has invalid value: ''. It contains invalid characters or it is empty."`;
+
+exports[`BemPrefixSet #constructor should throw if "value" prefix is invalid 1`] = `"BEM value has invalid value: '~'. It contains invalid characters or it is empty."`;
