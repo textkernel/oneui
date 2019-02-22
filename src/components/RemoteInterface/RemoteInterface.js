@@ -26,7 +26,7 @@ class RemoteInterface extends PureComponent {
     }
 
     fetch() {
-        const { endpoint, method, ...rest } = this.props;
+        const { endpoint, method, onError, ...rest } = this.props;
 
         this.setState({ ...state }, () => {
             fetch(endpoint, {
@@ -40,10 +40,12 @@ class RemoteInterface extends PureComponent {
                         loading: false
                     });
                 })
-                .catch(() => {
+                .catch(err => {
                     this.setState({ ...state });
 
-                    throw new Error('Request failed');
+                    if (onError) {
+                        onError(err);
+                    }
                 });
         });
     }
@@ -65,12 +67,14 @@ RemoteInterface.propTypes = {
     /** URL to the API endpoint */
     endpoint: PropTypes.string.isRequired,
     /** Request method */
-    method: PropTypes.oneOf(['GET', 'POST'])
+    method: PropTypes.oneOf(['GET', 'POST']),
+    onError: PropTypes.func
 };
 
 RemoteInterface.defaultProps = {
     delay: 0,
-    method: 'GET'
+    method: 'GET',
+    onError: null
 };
 
 export default RemoteInterface;
