@@ -10,6 +10,26 @@ describe('BemTokens', () => {
         });
     });
 
+    describe('#constructor', () => {
+        it('should throw is "block" is not set', () => {
+            expect(() => new BemTokens({ elem: 'foo' })).toThrowErrorMatchingInlineSnapshot(
+                `"block must be a non empty string."`
+            );
+        });
+        it('should throw is "block" is not a string', () => {
+            expect(() => new BemTokens({ block: 42 })).toThrowErrorMatchingInlineSnapshot(
+                `"block must be a non empty string."`
+            );
+        });
+        it('should throw is value is set and mod is not set', () => {
+            expect(
+                () => new BemTokens({ block: 'Button', value: '42' })
+            ).toThrowErrorMatchingInlineSnapshot(
+                `"\\"value\\" can be set only when \\"mod\\" is also set."`
+            );
+        });
+    });
+
     describe('.from', () => {
         it('should parse "block" correctly', () => {
             const bemTokens = BemTokens.from('block');
@@ -39,6 +59,15 @@ describe('BemTokens', () => {
                 value: 'value'
             });
         });
+        it('should parse "block--mod_1" correctly', () => {
+            const bemTokens = BemTokens.from('block--mod_1');
+            expect(bemTokens).toEqual({
+                block: 'block',
+                elem: '',
+                mod: 'mod',
+                value: '1'
+            });
+        });
         it('should parse "block__elem" correctly', () => {
             const bemTokens = BemTokens.from('block__elem');
             expect(bemTokens).toEqual({
@@ -66,10 +95,44 @@ describe('BemTokens', () => {
                 value: 'value'
             });
         });
+        it('should throw if className has no mod but has a value', () => {
+            expect(() => BemTokens.from('block_value')).toThrowErrorMatchingInlineSnapshot(
+                `"\\"value\\" can be set only when \\"mod\\" is also set."`
+            );
+            expect(() => BemTokens.from('block__elem_value')).toThrowErrorMatchingInlineSnapshot(
+                `"\\"value\\" can be set only when \\"mod\\" is also set."`
+            );
+        });
+        it('should throw if className is not set', () => {
+            expect(() => BemTokens.from('__elem')).toThrowErrorMatchingInlineSnapshot(
+                `"BEM classname '__elem' has invalid syntax."`
+            );
+            expect(() => BemTokens.from('--mod')).toThrowErrorMatchingInlineSnapshot(
+                `"BEM classname '--mod' has invalid syntax."`
+            );
+            expect(() => BemTokens.from('--mod_value')).toThrowErrorMatchingInlineSnapshot(
+                `"BEM classname '--mod_value' has invalid syntax."`
+            );
+            expect(() => BemTokens.from('_value')).toThrowErrorMatchingInlineSnapshot(
+                `"BEM classname '_value' has invalid syntax."`
+            );
+            expect(() => BemTokens.from('block__--_')).toThrowErrorMatchingInlineSnapshot(
+                `"BEM classname 'block__--_' has invalid syntax."`
+            );
+            expect(() => BemTokens.from('block__elem--mod_')).toThrowErrorMatchingInlineSnapshot(
+                `"BEM classname 'block__elem--mod_' has invalid syntax."`
+            );
+        });
         it('should throw if className is empty or not a string', () => {
-            expect(() => BemTokens.from()).toThrowErrorMatchingSnapshot();
-            expect(() => BemTokens.from(42)).toThrowErrorMatchingSnapshot();
-            expect(() => BemTokens.from({ foo: 'bar ' })).toThrowErrorMatchingSnapshot();
+            expect(() => BemTokens.from()).toThrowErrorMatchingInlineSnapshot(
+                `"BEM classname shoud not be empty"`
+            );
+            expect(() => BemTokens.from(42)).toThrowErrorMatchingInlineSnapshot(
+                `"BEM classname shoud be a string"`
+            );
+            expect(() => BemTokens.from({ foo: 'bar ' })).toThrowErrorMatchingInlineSnapshot(
+                `"BEM classname shoud be a string"`
+            );
         });
     });
 });

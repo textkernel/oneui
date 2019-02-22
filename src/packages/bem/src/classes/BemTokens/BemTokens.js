@@ -8,26 +8,79 @@ import BemPrefixSet from '../BemPrefixSet';
  * @property {string|undefined} value - Mod value
  */
 
+const BEM_ENTITY_PATTERN = '[a-zA-Z]+[a-zA-Z0-9]*'; // Pattern for matching block name, elem name or modifier name
+const BEM_VALUE_PATTERN = '[a-zA-Z0-9]+'; // Pattern for matching modifier's value
+
 export class BemTokensError extends Error {}
 
 export default class BemTokens {
     constructor(tokens) {
-        const { block, elem, mod, value } = tokens;
+        const { block, elem = '', mod = '', value = '' } = tokens;
+        BemTokens.validate({ block, elem, mod, value });
         Object.assign(this, { block, elem, mod, value });
+    }
+
+    /**
+     * @param {BemEntity} tokens
+     */
+    static validate({ block, elem, mod, value }) {
+        if (typeof block !== 'string' || block === '') {
+            throw new BemTokensError('block must be a non empty string.');
+        }
+
+        if (elem && typeof elem !== 'string') {
+            throw new BemTokensError('"elem" must be a string.');
+        }
+
+        if (mod && typeof mod !== 'string') {
+            throw new BemTokensError('"mod" must be a string.');
+        }
+
+        if (value && typeof value !== 'string') {
+            throw new BemTokensError('"value" must be a string.');
+        }
+
+        // "value" can't be set without "mod"
+        if (mod === '' && value !== '') {
+            throw new BemTokensError('"value" can be set only when "mod" is also set.');
+        }
+
+        // tokens should have proper syntax
+        if (block.match(BEM_ENTITY_PATTERN) === null) {
+            throw new BemTokensError(
+                `block value "${block}" has invalid syntax. Should match ${BEM_ENTITY_PATTERN} pattern.`
+            );
+        }
+
+        if (elem && elem.match(BEM_ENTITY_PATTERN) === null) {
+            throw new BemTokensError(
+                `elem value "${elem}" has invalid syntax. Should match ${BEM_VALUE_PATTERN} pattern.`
+            );
+        }
+
+        if (mod && mod.match(BEM_ENTITY_PATTERN) === null) {
+            throw new BemTokensError(
+                `mod value "${elem}" has invalid syntax. Should match ${BEM_ENTITY_PATTERN} pattern.`
+            );
+        }
+
+        if (value && value.match(BEM_VALUE_PATTERN) === null) {
+            throw new BemTokensError(
+                `value "${value}" has invalid syntax. Should match ${BEM_VALUE_PATTERN} pattern.`
+            );
+        }
     }
 
     /**
      * @returns {RegExp} - Pattern for matching and parsing a BEM classname
      */
     static createClassNamePattern(prefixes) {
-        const bemEntityPattern = '[a-zA-Z]+[a-zA-Z0-9]*'; // Pattern for matching block name, elem name or modifier name
-        const valuePattern = '[a-zA-Z0-9]+'; // Pattern for matching modifier's value
         const { elem, mod, value } = prefixes;
         const pattern = new RegExp(
-            `^(${bemEntityPattern})` +
-                `(${elem}${bemEntityPattern})?` +
-                `(${mod}${bemEntityPattern})?` +
-                `(${value}${valuePattern})?$`
+            `^(${BEM_ENTITY_PATTERN})` +
+                `(${elem}${BEM_ENTITY_PATTERN})?` +
+                `(${mod}${BEM_ENTITY_PATTERN})?` +
+                `(${value}${BEM_VALUE_PATTERN})?$`
         );
         return pattern;
     }
@@ -60,7 +113,7 @@ export default class BemTokens {
         const classNamePattern = BemTokens.createClassNamePattern(prefixSet);
         const match = className.match(classNamePattern);
         if (match === null) {
-            throw new BemTokensError(`BEM classname '${className}' has invalid syntax or empty`);
+            throw new BemTokensError(`BEM classname '${className}' has invalid syntax.`);
         }
         const [, block, elem, mod, value] = match;
         return new BemTokens({
