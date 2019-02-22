@@ -1,4 +1,4 @@
-import BemPrefixSet from '../BemPrefixSet';
+import BemDelimiters from '../BemDelimiters';
 
 /**
  * @typedef {Object} BemEntity
@@ -79,8 +79,8 @@ export default class BemTokens {
      * @returns {RegExp} - Pattern for matching and parsing a BEM classname
      * @private
      */
-    static createClassNamePattern(prefixes) {
-        const { elem, mod, value } = prefixes;
+    static createClassNamePattern(delimiters) {
+        const { elem, mod, value } = delimiters;
         const pattern = new RegExp(
             `^(${BEM_ENTITY_PATTERN})` +
                 `(${elem}${BEM_ENTITY_PATTERN})?` +
@@ -91,15 +91,15 @@ export default class BemTokens {
     }
 
     /**
-     * @param {string} value - Value to be stripped from a prefix
-     * @param {string} prefix - Prefix
+     * @param {string} value - Value to be stripped from a delimiter
+     * @param {string} delimiter - Delimiter
      * @returns {string} - Stripped value
      * @private
      */
-    static stripPrefix(value, prefix) {
+    static stripDelimiter(value, delimiter) {
         if (typeof value !== 'string') return '';
-        if (value.startsWith(prefix)) {
-            return value.replace(prefix, '');
+        if (value.startsWith(delimiter)) {
+            return value.replace(delimiter, '');
         }
         return value;
     }
@@ -120,13 +120,13 @@ export default class BemTokens {
     /**
      *
      * @param {string} className
-     * @param {Object.<string, string>} prefixes
+     * @param {Object.<string, string>} delimiters
      * @public
      */
-    static from(className = '', prefixes = {}) {
+    static from(className = '', delimiters = {}) {
         BemTokens.validateClassName(className);
-        const prefixSet = new BemPrefixSet(prefixes);
-        const classNamePattern = BemTokens.createClassNamePattern(prefixSet);
+        const bemDelimiters = new BemDelimiters(delimiters);
+        const classNamePattern = BemTokens.createClassNamePattern(bemDelimiters);
         const match = className.match(classNamePattern);
         if (match === null) {
             throw new BemTokensError(`BEM classname '${className}' has invalid syntax.`);
@@ -134,9 +134,9 @@ export default class BemTokens {
         const [, block, elem, mod, value] = match;
         return new BemTokens({
             block,
-            elem: BemTokens.stripPrefix(elem, prefixSet.elem),
-            mod: BemTokens.stripPrefix(mod, prefixSet.mod),
-            value: BemTokens.stripPrefix(value, prefixSet.value)
+            elem: BemTokens.stripDelimiter(elem, bemDelimiters.elem),
+            mod: BemTokens.stripDelimiter(mod, bemDelimiters.mod),
+            value: BemTokens.stripDelimiter(value, bemDelimiters.value)
         });
     }
 }
