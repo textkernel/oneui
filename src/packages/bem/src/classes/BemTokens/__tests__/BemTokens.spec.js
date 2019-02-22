@@ -21,6 +21,47 @@ describe('BemTokens', () => {
                 `"block must be a non empty string."`
             );
         });
+        it('should throw is "block" is invalid string', () => {
+            expect(() => new BemTokens({ block: '42Block*' })).toThrowErrorMatchingInlineSnapshot(
+                `"block value \\"42Block*\\" has invalid syntax. Should match [a-zA-Z]+[a-zA-Z0-9]* pattern."`
+            );
+        });
+        it('should throw is "elem" is not a string', () => {
+            expect(
+                () => new BemTokens({ block: 'Block', elem: 42 })
+            ).toThrowErrorMatchingInlineSnapshot(`"\\"elem\\" must be a string."`);
+        });
+        it('should throw is "elem" is invalid string', () => {
+            expect(
+                () => new BemTokens({ block: 'Block', elem: '((elem))' })
+            ).toThrowErrorMatchingInlineSnapshot(
+                `"elem value \\"((elem))\\" has invalid syntax. Should match [a-zA-Z0-9]+ pattern."`
+            );
+        });
+        it('should throw is "mod" is not a string', () => {
+            expect(
+                () => new BemTokens({ block: 'Block', mod: 42 })
+            ).toThrowErrorMatchingInlineSnapshot(`"\\"mod\\" must be a string."`);
+        });
+        it('should throw is "mod" is invalid string', () => {
+            expect(
+                () => new BemTokens({ block: 'Block', mod: '42mod' })
+            ).toThrowErrorMatchingInlineSnapshot(
+                `"mod value \\"\\" has invalid syntax. Should match [a-zA-Z]+[a-zA-Z0-9]* pattern."`
+            );
+        });
+        it('should throw is "value" is not a string', () => {
+            expect(
+                () => new BemTokens({ block: 'Block', mod: 'mod', value: 42 })
+            ).toThrowErrorMatchingInlineSnapshot(`"\\"value\\" must be a string."`);
+        });
+        it('should throw is "value" is invalid string', () => {
+            expect(
+                () => new BemTokens({ block: 'Block', mod: 'mod', value: '*' })
+            ).toThrowErrorMatchingInlineSnapshot(
+                `"value \\"*\\" has invalid syntax. Should match [a-zA-Z0-9]+ pattern."`
+            );
+        });
         it('should throw is value is set and mod is not set', () => {
             expect(
                 () => new BemTokens({ block: 'Button', value: '42' })

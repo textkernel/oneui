@@ -22,6 +22,7 @@ export default class BemTokens {
 
     /**
      * @param {BemEntity} tokens
+     * @private
      */
     static validate({ block, elem, mod, value }) {
         if (typeof block !== 'string' || block === '') {
@@ -45,26 +46,29 @@ export default class BemTokens {
             throw new BemTokensError('"value" can be set only when "mod" is also set.');
         }
 
+        const bemEntityPattern = new RegExp(`^${BEM_ENTITY_PATTERN}$`);
+        const bemValuePattern = new RegExp(`^${BEM_VALUE_PATTERN}$`);
+
         // tokens should have proper syntax
-        if (block.match(BEM_ENTITY_PATTERN) === null) {
+        if (block.match(bemEntityPattern) === null) {
             throw new BemTokensError(
                 `block value "${block}" has invalid syntax. Should match ${BEM_ENTITY_PATTERN} pattern.`
             );
         }
 
-        if (elem && elem.match(BEM_ENTITY_PATTERN) === null) {
+        if (elem && elem.match(bemEntityPattern) === null) {
             throw new BemTokensError(
                 `elem value "${elem}" has invalid syntax. Should match ${BEM_VALUE_PATTERN} pattern.`
             );
         }
 
-        if (mod && mod.match(BEM_ENTITY_PATTERN) === null) {
+        if (mod && mod.match(bemEntityPattern) === null) {
             throw new BemTokensError(
                 `mod value "${elem}" has invalid syntax. Should match ${BEM_ENTITY_PATTERN} pattern.`
             );
         }
 
-        if (value && value.match(BEM_VALUE_PATTERN) === null) {
+        if (value && value.match(bemValuePattern) === null) {
             throw new BemTokensError(
                 `value "${value}" has invalid syntax. Should match ${BEM_VALUE_PATTERN} pattern.`
             );
@@ -73,6 +77,7 @@ export default class BemTokens {
 
     /**
      * @returns {RegExp} - Pattern for matching and parsing a BEM classname
+     * @private
      */
     static createClassNamePattern(prefixes) {
         const { elem, mod, value } = prefixes;
@@ -89,6 +94,7 @@ export default class BemTokens {
      * @param {string} value - Value to be stripped from a prefix
      * @param {string} prefix - Prefix
      * @returns {string} - Stripped value
+     * @private
      */
     static stripPrefix(value, prefix) {
         if (typeof value !== 'string') return '';
@@ -98,6 +104,10 @@ export default class BemTokens {
         return value;
     }
 
+    /**
+     * @param {string} className
+     * @private
+     */
     static validateClassName(className) {
         if (typeof className !== 'string') {
             throw new BemTokensError('BEM classname shoud be a string');
@@ -107,6 +117,12 @@ export default class BemTokens {
         }
     }
 
+    /**
+     *
+     * @param {string} className
+     * @param {Object.<string, string>} prefixes
+     * @public
+     */
     static from(className = '', prefixes = {}) {
         BemTokens.validateClassName(className);
         const prefixSet = new BemPrefixSet(prefixes);
