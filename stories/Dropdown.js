@@ -85,41 +85,45 @@ storiesOf('Dropdown', module)
         </Dropdown>
     ))
     .add('Load items from API', () => {
-        const data = {
-            items: [
-                {
-                    value: '1',
-                    label: 'Item 1'
-                },
-                {
-                    value: '2',
-                    label: 'Item 2'
-                },
-                {
-                    value: '3',
-                    label: 'Item 3'
-                },
-                {
-                    value: '4',
-                    label: 'Item 4'
-                },
-                {
-                    value: '5',
-                    label: 'Item 5'
-                }
-            ]
-        };
+        const data = [
+            {
+                value: '1',
+                label: 'Item 1'
+            },
+            {
+                value: '2',
+                label: 'Item 2'
+            },
+            {
+                value: '3',
+                label: 'Item 3'
+            },
+            {
+                value: '4',
+                label: 'Item 4'
+            },
+            {
+                value: '5',
+                label: 'Item 5'
+            },
+            {
+                value: 'remote',
+                label: 'Item from remote endpoint'
+            }
+        ];
 
         const delay = () => new Promise(resolve => setTimeout(resolve, 1000));
 
         fetchMock.restore().get(mockEndpoint, (_, { body }) => {
             const { q } = body;
             if (!q) {
-                return data;
+                return {
+                    items: data.filter(item => !item.label.match(/remote/gi))
+                };
             }
             const re = new RegExp(`(${q})`, 'gi');
             const dataFiltered = {
-                items: data.items.filter(item => item.label.match(re)) || []
+                items: data.filter(item => item.label.match(re)) || []
             };
             return delay().then(() => dataFiltered);
         });
@@ -132,7 +136,7 @@ storiesOf('Dropdown', module)
                     console.log(`Selected value '${value}' (${label})`);
                 }}
             >
-                <DropdownFilter autoFocus />
+                <DropdownFilter placeholder="Try searching for 'remote'..." autoFocus />
                 <DropdownConsumer>
                     {({ filterValue }) => (
                         <RemoteInterface
@@ -145,7 +149,7 @@ storiesOf('Dropdown', module)
                             {({ loading, response }) => {
                                 if (loading || !response) {
                                     return (
-                                        <ScrollContainer minHeight={100} minWidth={100}>
+                                        <ScrollContainer minHeight={100} minWidth={250}>
                                             <LoadingSpinner
                                                 centerIn="parent"
                                                 context="neutral"
@@ -155,11 +159,19 @@ storiesOf('Dropdown', module)
                                     );
                                 }
 
-                                return response.items.map(item => (
-                                    <DropdownItem value={item.value} key={item.value} noFilter>
-                                        {item.label}
-                                    </DropdownItem>
-                                ));
+                                return (
+                                    <ScrollContainer minWidth={250} hideScrollX>
+                                        {response.items.map(item => (
+                                            <DropdownItem
+                                                value={item.value}
+                                                key={item.value}
+                                                noFilter
+                                            >
+                                                {item.label}
+                                            </DropdownItem>
+                                        ))}
+                                    </ScrollContainer>
+                                );
                             }}
                         </RemoteInterface>
                     )}
