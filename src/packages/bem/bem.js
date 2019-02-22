@@ -162,7 +162,6 @@ export default function bem(args) {
     // Bem was called as a in stateless mode
     if (isBlockDecl(args)) {
         const { name, classnames, propsToMods } = args;
-        console.log({ name, classnames, propsToMods });
         return bemStateless({ name, classnames, propsToMods });
     }
 

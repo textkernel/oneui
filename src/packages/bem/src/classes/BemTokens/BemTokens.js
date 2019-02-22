@@ -47,10 +47,10 @@ export default class BemTokens {
 
     static validateClassName(className) {
         if (typeof className !== 'string') {
-            throw new BemTokensError('BEN classname shoud be a string');
+            throw new BemTokensError('BEM classname shoud be a string');
         }
         if (className === '') {
-            throw new BemTokensError('BEN classname shoud not be empty');
+            throw new BemTokensError('BEM classname shoud not be empty');
         }
     }
 

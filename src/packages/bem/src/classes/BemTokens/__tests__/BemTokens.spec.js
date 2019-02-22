@@ -11,7 +11,7 @@ describe('BemTokens', () => {
     });
 
     describe('.from', () => {
-        it.only('should parse "block" correctly', () => {
+        it('should parse "block" correctly', () => {
             const bemTokens = BemTokens.from('block');
             expect(bemTokens).toBeInstanceOf(BemTokens);
             expect(bemTokens).toEqual({
@@ -21,7 +21,7 @@ describe('BemTokens', () => {
                 value: ''
             });
         });
-        it.only('should parse "block--mod" correctly', () => {
+        it('should parse "block--mod" correctly', () => {
             const bemTokens = BemTokens.from('block--mod');
             expect(bemTokens).toEqual({
                 block: 'block',
@@ -30,7 +30,7 @@ describe('BemTokens', () => {
                 value: ''
             });
         });
-        it.only('should parse "block--mod_value" correctly', () => {
+        it('should parse "block--mod_value" correctly', () => {
             const bemTokens = BemTokens.from('block--mod_value');
             expect(bemTokens).toEqual({
                 block: 'block',
@@ -39,7 +39,7 @@ describe('BemTokens', () => {
                 value: 'value'
             });
         });
-        it.only('should parse "block__elem" correctly', () => {
+        it('should parse "block__elem" correctly', () => {
             const bemTokens = BemTokens.from('block__elem');
             expect(bemTokens).toEqual({
                 block: 'block',
@@ -48,7 +48,7 @@ describe('BemTokens', () => {
                 value: ''
             });
         });
-        it.only('should parse "block__elem--mod" correctly', () => {
+        it('should parse "block__elem--mod" correctly', () => {
             const bemTokens = BemTokens.from('block__elem--mod');
             expect(bemTokens).toEqual({
                 block: 'block',
@@ -57,7 +57,7 @@ describe('BemTokens', () => {
                 value: ''
             });
         });
-        it.only('should parse "block__elem--mod_value" correctly', () => {
+        it('should parse "block__elem--mod_value" correctly', () => {
             const bemTokens = BemTokens.from('block__elem--mod_value');
             expect(bemTokens).toEqual({
                 block: 'block',
@@ -65,6 +65,11 @@ describe('BemTokens', () => {
                 mod: 'mod',
                 value: 'value'
             });
+        });
+        it('should throw if className is empty or not a string', () => {
+            expect(() => BemTokens.from()).toThrowErrorMatchingSnapshot();
+            expect(() => BemTokens.from(42)).toThrowErrorMatchingSnapshot();
+            expect(() => BemTokens.from({ foo: 'bar ' })).toThrowErrorMatchingSnapshot();
         });
     });
 });

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BemTokens .from should throw if className is empty or not a string 1`] = `"BEM classname shoud not be empty"`;
+
+exports[`BemTokens .from should throw if className is empty or not a string 2`] = `"BEM classname shoud be a string"`;
+
+exports[`BemTokens .from should throw if className is empty or not a string 3`] = `"BEM classname shoud be a string"`;
+
+exports[`BemTokens .from should throw if className is empty or not of a string type 1`] = `"BEM classname shoud not be empty"`;
+
+exports[`BemTokens .from should throw if className is empty or not of a string type 2`] = `"BEM classname shoud be a string"`;
+
+exports[`BemTokens .from should throw if className is empty or not of a string type 3`] = `"BEM classname shoud be a string"`;
