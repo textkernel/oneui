@@ -12,7 +12,7 @@ const { block, elem } = bem({
 });
 
 const LoadingSpinner = props => {
-    const { centerIn, context, hidden, label, size, ...rest } = props;
+    const { centerIn, children, context, hidden, size, ...rest } = props;
     return (
         <div {...rest} {...block(props)}>
             <svg
@@ -37,9 +37,9 @@ const LoadingSpinner = props => {
                     {...elem('path', props)}
                 />
             </svg>
-            {!!label && (
+            {!!children && (
                 <Text inline {...elem('label', props)}>
-                    {label}
+                    {children}
                 </Text>
             )}
         </div>
@@ -51,21 +51,21 @@ LoadingSpinner.displayName = 'LoadingSpinner';
 LoadingSpinner.propTypes = {
     /** Center the spinner relative to parent element or viewport */
     centerIn: PropTypes.oneOf(['parent', 'viewport']),
+    /** Loading text */
+    children: PropTypes.node,
     /** The spinner context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context: PropTypes.oneOf(CONTEXTS),
     /** Hides the spinner when true */
     hidden: PropTypes.bool,
-    /** Loading text */
-    label: PropTypes.node,
     /** Custom spinner size (will affect both width and height) */
     size: PropTypes.number
 };
 
 LoadingSpinner.defaultProps = {
     centerIn: null,
+    children: null,
     context: 'brand',
     hidden: false,
-    label: null,
     size: null
 };
 

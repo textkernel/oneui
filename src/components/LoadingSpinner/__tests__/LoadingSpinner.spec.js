@@ -9,7 +9,7 @@ describe('<LoadingSpinner> that renders a circular loading spinner', () => {
     });
 
     it('should render a spinner with label', () => {
-        const wrapper = shallow(<LoadingSpinner label="Loading..." />);
+        const wrapper = shallow(<LoadingSpinner>Loading...</LoadingSpinner>);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 

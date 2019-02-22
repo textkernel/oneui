@@ -19,7 +19,8 @@ storiesOf('LoadingSpinner', module)
             )}
             context={select('Context', CONTEXTS, CONTEXTS[1])}
             hidden={boolean('Hidden', false)}
-            label={text('Label', 'Loading...')}
             size={number('Size', null)}
-        />
+        >
+            {text('Label', 'Loading...')}
+        </LoadingSpinner>
     ));

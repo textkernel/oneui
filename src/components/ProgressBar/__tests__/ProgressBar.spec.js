@@ -9,7 +9,7 @@ describe('<ProgressBar> that renders a horizontal progress bar', () => {
     });
 
     it('should render a progress bar with label', () => {
-        const wrapper = shallow(<ProgressBar percentage={25} label="Loading..." />);
+        const wrapper = shallow(<ProgressBar percentage={25}>Loading...</ProgressBar>);
 
         // Check that label is shown
         expect(wrapper.childAt(0).text()).toBe('Loading...');
