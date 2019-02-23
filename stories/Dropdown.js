@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, number, select, text, withKnobs } from '@storybook/addon-knobs';
 import {
     Dropdown,
+    DropdownConsumer,
     DropdownFilter,
     DropdownItem,
     DropdownGroup,
@@ -11,7 +12,6 @@ import {
     RemoteInterface,
     ScrollContainer
 } from '@textkernel/oneui';
-import { DropdownConsumer } from '../src/components/Dropdown/DropdownContext';
 import { CONTEXTS, SIZES } from '../src/constants';
 
 const mockEndpoint = 'https://my.api/items';

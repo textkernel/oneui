@@ -6,10 +6,13 @@ export { default as CandidateAvatar } from './components/CandidateAvatar';
 export { default as Checkbox } from './components/Checkbox';
 export { default as Chip } from './components/Chip';
 export { default as ContentPlaceholder } from './components/ContentPlaceholder';
-export { default as Dropdown } from './components/Dropdown';
-export { default as DropdownFilter } from './components/Dropdown/DropdownFilter';
-export { default as DropdownItem } from './components/Dropdown/DropdownItem';
-export { default as DropdownGroup } from './components/Dropdown/DropdownGroup';
+export {
+    Dropdown,
+    DropdownConsumer,
+    DropdownFilter,
+    DropdownGroup,
+    DropdownItem
+} from './components/Dropdown';
 export { default as Footer } from './components/Footer';
 export { default as Header } from './components/Header';
 export { default as Heading } from './components/Heading';
