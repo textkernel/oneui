@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { boolean, number, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf } from '@storybook/react';
+import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 import { CandidateAvatar } from '@textkernel/oneui';
 
 storiesOf('CandidateAvatar', module)

@@ -1,7 +1,7 @@
 import React from 'react';
-import { BrowserRouter, NavLink } from 'react-router-dom'; // eslint-disable-line import/no-extraneous-dependencies
-import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { boolean, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
+import { BrowserRouter, NavLink } from 'react-router-dom';
+import { storiesOf } from '@storybook/react';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { NavBar, NavItem } from '@textkernel/oneui';
 
 storiesOf('Navigation', module)

@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
-import { boolean, number, select, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
+import { storiesOf } from '@storybook/react';
+import { boolean, number, select, text, withKnobs } from '@storybook/addon-knobs';
 import { ProgressBar } from '@textkernel/oneui';
 import { CONTEXTS } from '@textkernel/oneui/constants';
 
