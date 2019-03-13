@@ -11,7 +11,7 @@ const { block, elem } = bem({
 });
 
 const ProgressBar = props => {
-    const { animated, context, hidden, label, percentage, small, ...rest } = props;
+    const { animated, children, context, hidden, percentage, small, ...rest } = props;
     const percentageAdjusted = Math.max(0, Math.min(percentage, 100));
 
     return (
@@ -22,7 +22,7 @@ const ProgressBar = props => {
                     width: `${percentageAdjusted}%`
                 }}
             >
-                {!small && (label || `${Number(percentageAdjusted)}%`)}
+                {!small && (children || `${Number(percentageAdjusted)}%`)}
             </div>
         </div>
     );
@@ -33,22 +33,23 @@ ProgressBar.displayName = 'ProgressBar';
 ProgressBar.propTypes = {
     /** Show progress activity with animation */
     animated: PropTypes.bool,
+    /** Text to show instead of percentage */
+    children: PropTypes.node,
     /** The progress bar context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context: PropTypes.oneOf(CONTEXTS),
     /** Hides the progress bar if true */
     hidden: PropTypes.bool,
-    /** Text to show instead of percentage */
-    label: PropTypes.node,
     /** Percentage of progress bar to be filled */
     percentage: PropTypes.number.isRequired,
+    /** Renders a narrow bar without label or percentage */
     small: PropTypes.bool
 };
 
 ProgressBar.defaultProps = {
     animated: false,
+    children: null,
     context: 'brand',
     hidden: false,
-    label: null,
     small: false
 };
 

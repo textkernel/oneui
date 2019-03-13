@@ -11,8 +11,9 @@ storiesOf('ProgressBar', module)
             animated={boolean('Animated', true)}
             context={select('Context', CONTEXTS, CONTEXTS[1])}
             hidden={boolean('Hidden', false)}
-            label={text('Label', 'Loading...')}
             percentage={number('Percentage', 50)}
             small={boolean('Small', false)}
-        />
+        >
+            {text('Label', 'Loading...')}
+        </ProgressBar>
     ));
