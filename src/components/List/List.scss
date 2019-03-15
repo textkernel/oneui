@@ -1,0 +1,10 @@
+.List {
+    &--Component_ul {
+        padding: 0 var(--spacing-2x);
+        list-style: none;
+    }
+
+    &--Component_menu {
+        list-style: none;
+    }
+}
