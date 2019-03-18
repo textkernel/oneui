@@ -90,20 +90,29 @@ function modsToClassNames(block, elem = null, mods, classnamesMap) {
     Object.keys(mods).forEach(modName => {
         const modValue = mods[modName];
 
-        // Checking if we should produce a "wildcard" class name for the current modifier
-        // E.g. Component--size
+        // Process numeric and string mods
         if (typeof modValue === 'string' || typeof modValue === 'number') {
+            // Checking if we should produce a "wildcard" class name for the current modifier
+            // E.g. Component--size
             const wildcardClassKey = buildModClassName({ block, elem, modName, modValue: true });
             if (classnamesMap[wildcardClassKey]) {
                 classNames.push(classnamesMap[wildcardClassKey]);
             }
+
+            // Checking if there is specific class name defined
+            // E.g. Component--size_2
+            const classKey = buildModClassName({ block, elem, modName, modValue });
+            if (classnamesMap[classKey]) {
+                classNames.push(classnamesMap[classKey]);
+            }
         }
 
-        // Checking if there is specific class name defined
-        // E.g. Component--size_2
-        const classKey = buildModClassName({ block, elem, modName, modValue });
-        if (classnamesMap[classKey]) {
-            classNames.push(classnamesMap[classKey]);
+        // Process boolean mods
+        if (typeof modValue === 'boolean' && modValue === true) {
+            const classKey = buildModClassName({ block, elem, modName, modValue });
+            if (classnamesMap[classKey]) {
+                classNames.push(classnamesMap[classKey]);
+            }
         }
     });
 
