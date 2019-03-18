@@ -1,15 +1,5 @@
 import cssVarsPonyfill from 'css-vars-ponyfill';
 
-const buildURL = (cdn = '', themeId = '') => {
-    if (cdn === '' && themeId === '') return '';
-
-    if (cdn.charAt(cdn.length - 1) !== '/') {
-        return `${cdn}/${themeId}`;
-    }
-
-    return `${cdn}${themeId}`;
-};
-
 const isInternetExplorer11 = () => {
     const ua = window.navigator.userAgent;
     return ua.indexOf('Trident/') > 0;
@@ -22,25 +12,19 @@ class ThemeLoader {
      * Loads the theme and the CSS vars ponyfill if necessary
      *
      * @param {Object} themeConfig - Object that contains the configuration to initialize the theme
-     * @param {string} themeConfig.cdn - Server URL that hosts the theme
-     * @param {string} themeConfig.themeId - Theme unique idenfitier
+     * @param {string} themeConfig.themeURL - URL that serves the theme file
      * @param {number} themeConfig.maxTime - Max time to wait for the theme to be loaded
      * @param {Object} themeConfig.ponyfillOptions - Set of options that can be used to configure the ponyfill. Options: https://www.npmjs.com/package/css-vars-ponyfill#options
      */
-    static init({ cdn, themeId, maxTime = DEFAULT_LOADING_TIMEOUT, ponyfillOptions } = {}) {
+    static init({ themeURL = '', maxTime = DEFAULT_LOADING_TIMEOUT, ponyfillOptions } = {}) {
         const loadTheme = Promise.all([
-            ThemeLoader.applyTheme(cdn, themeId),
+            ThemeLoader.applyTheme(themeURL),
             ThemeLoader.startCssVarsPonyfill(ponyfillOptions)
         ]);
 
         const timeout = new Promise((resolve, reject) =>
             setTimeout(
-                () =>
-                    reject(
-                        new Error(
-                            `Theme "${buildURL(cdn, themeId)}" not loaded. Loading time expired`
-                        )
-                    ),
+                () => reject(new Error(`Theme "${themeURL}" not loaded. Loading time expired`)),
                 maxTime
             )
         );
@@ -73,10 +57,8 @@ class ThemeLoader {
         });
     }
 
-    static applyTheme(cdn, themeId) {
+    static applyTheme(themeURL) {
         return new Promise((resolve, reject) => {
-            const themeURL = buildURL(cdn, themeId);
-
             if (themeURL === '') {
                 resolve();
                 return;
