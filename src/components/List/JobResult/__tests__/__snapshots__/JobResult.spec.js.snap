@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobResuts should render correctly with just a title 1`] = `
+<JobResult
+  details=""
+  location=""
+  organization=""
+  title="some title"
+>
+  <p
+    className="JobResult"
+  >
+    <span
+      className="JobResult__titleLine"
+    >
+      <Text
+        className="JobResult__title"
+        context="brand"
+        inline={true}
+        size="normal"
+        title="some title"
+      >
+        <span
+          className="Text Text--context Text--context_brand Text--size Text--size_normal JobResult__title"
+          title="some title"
+        >
+          some title
+        </span>
+      </Text>
+    </span>
+  </p>
+</JobResult>
+`;
+
+exports[`JobResuts should render with all props defined 1`] = `
+<JobResult
+  details="detials about this job"
+  location=" - location"
+  organization="Organization"
+  title="A job title"
+>
+  <p
+    className="JobResult"
+  >
+    <span
+      className="JobResult__titleLine"
+    >
+      <Text
+        className="JobResult__title"
+        context="brand"
+        inline={true}
+        size="normal"
+        title="A job title"
+      >
+        <span
+          className="Text Text--context Text--context_brand Text--size Text--size_normal JobResult__title"
+          title="A job title"
+        >
+          A job title
+        </span>
+      </Text>
+      <Text
+        className="JobResult__location"
+        context="muted"
+        inline={true}
+        size="normal"
+      >
+        <span
+          className="Text Text--context Text--context_muted Text--size Text--size_normal JobResult__location"
+        >
+           - location
+        </span>
+      </Text>
+    </span>
+    <Text
+      className="JobResult__organization"
+      context="accent"
+      inline={true}
+      size="normal"
+    >
+      <span
+        className="Text Text--context Text--context_accent Text--size Text--size_normal JobResult__organization"
+      >
+        Organization
+      </span>
+    </Text>
+    <Text
+      className="JobResult__details"
+      context="muted"
+      inline={true}
+      size="normal"
+    >
+      <span
+        className="Text Text--context Text--context_muted Text--size Text--size_normal JobResult__details"
+      >
+        detials about this job
+      </span>
+    </Text>
+  </p>
+</JobResult>
+`;
+
+exports[`JobResuts should render with props passed as nodes 1`] = `
+<JobResult
+  details={
+    <span>
+      detials about this job
+    </span>
+  }
+  location={
+    <span>
+      location
+    </span>
+  }
+  organization={
+    <a
+      href="/"
+    >
+      Organization
+    </a>
+  }
+  title={
+    <a
+      href="/"
+    >
+      linked text
+    </a>
+  }
+>
+  <p
+    className="JobResult"
+  >
+    <span
+      className="JobResult__titleLine"
+    >
+      <a
+        href="/"
+      >
+        linked text
+      </a>
+      <span>
+        location
+      </span>
+    </span>
+    <a
+      href="/"
+    >
+      Organization
+    </a>
+    <span>
+      detials about this job
+    </span>
+  </p>
+</JobResult>
+`;

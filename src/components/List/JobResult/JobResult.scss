@@ -1,0 +1,19 @@
+.JobResult {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+
+    &__titleLine {
+        display: flex;
+    }
+
+    &__title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__location {
+        white-space: nowrap;
+        padding-left: var(--spacing-normal);
+    }
+}

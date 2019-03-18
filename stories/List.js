@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
-import { List, ListItem, ListActions, Text, Button, Checkbox } from '@textkernel/oneui';
+import { List, ListItem, ListActions, JobResult, Text, Button, Checkbox } from '@textkernel/oneui';
 
 storiesOf('List', module)
     .addDecorator(withKnobs)
@@ -36,4 +36,32 @@ storiesOf('List', module)
                 Clickable item
             </ListItem>
         </List>
+    ))
+    .add('List showing job results', () => (
+        <div style={{ width: '250px' }}>
+            <List isDividedList>
+                <ListItem>
+                    <JobResult
+                        title="My first job"
+                        location=" - Melbourne"
+                        organization="Awsome inc."
+                        details="It was posted here, yesterday"
+                    />
+                </ListItem>
+                <ListItem>
+                    <JobResult
+                        title="Job with a very, very, very long title to be truncated by css"
+                        location=" - Melbourne"
+                        organization="Awsome inc."
+                        details="It was posted there, yesterday"
+                    />
+                </ListItem>
+                <ListItem>
+                    <JobResult title="An other job with a very, very, very long title to be truncated by css if it doesn't fit" />
+                    <ListActions>
+                        <Button context="link">Action</Button>
+                    </ListActions>
+                </ListItem>
+            </List>
+        </div>
     ));
