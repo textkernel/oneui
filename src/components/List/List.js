@@ -24,7 +24,7 @@ List.propTypes = {
     /** List Items */
     children: PropTypes.node,
     /** The HTML or React component to be used to render the list  */
-    Component: PropTypes.string,
+    Component: PropTypes.oneOf(['ul', 'ol', 'menu']),
     /** Adds dividing lines between the list items */
     isDividedList: PropTypes.bool
 };
