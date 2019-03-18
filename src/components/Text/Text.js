@@ -30,8 +30,6 @@ Text.propTypes = {
     inline: PropTypes.bool,
     /** The context of the text, effecting its color (e.g. brand, primary, bad, good etc. 'muted' added as special context here) */
     context: PropTypes.oneOf([...CONTEXTS, 'muted', 'default']),
-    /** Render muted (auxiliary) text */
-    muted: PropTypes.bool,
     /** Custom text sizes */
     size: PropTypes.oneOf(SIZES)
 };
@@ -39,7 +37,6 @@ Text.propTypes = {
 Text.defaultProps = {
     inline: false,
     context: 'default',
-    muted: false,
     size: 'normal'
 };
 

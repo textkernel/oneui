@@ -13,7 +13,6 @@ exports[`ListItem component should render ListItem correctly 1`] = `
       context="default"
       inline={false}
       key=".0"
-      muted={false}
       size="normal"
     >
       An item

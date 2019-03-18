@@ -90,7 +90,6 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
     className="LoadingSpinner__label LoadingSpinner__label--context LoadingSpinner__label--context_brand"
     context="default"
     inline={true}
-    muted={false}
     size="normal"
   >
     Loading...
