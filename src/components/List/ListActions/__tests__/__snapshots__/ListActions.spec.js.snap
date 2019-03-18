@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListActions> should render ListActions 1`] = `
+<div
+  className="ListActions"
+>
+  action
+</div>
+`;

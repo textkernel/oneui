@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component should render List correctly 1`] = `
+<List
+  Component="ul"
+  isDividedList={false}
+>
+  <ul
+    className="List List--Component List--Component_ul"
+  >
+    <ListItem
+      isDivided={false}
+      isDividedList={false}
+      isSelected={false}
+      key=".0"
+      onClick={null}
+    >
+      <li
+        className="ListItem ListItem--clickable"
+      >
+        <div
+          className="ListItem__container"
+          onClick={null}
+          role="presentation"
+        >
+          <Text
+            inline={false}
+            key=".0"
+            muted={false}
+            size="normal"
+          >
+            <p
+              className="Text Text--size Text--size_normal"
+              muted={false}
+            >
+              Item 1
+            </p>
+          </Text>
+        </div>
+      </li>
+    </ListItem>
+    <ListItem
+      isDivided={false}
+      isDividedList={false}
+      isSelected={false}
+      key=".1"
+      onClick={null}
+    >
+      <li
+        className="ListItem ListItem--clickable"
+      >
+        <div
+          className="ListItem__container"
+          onClick={null}
+          role="presentation"
+        >
+          <Text
+            inline={false}
+            key=".0"
+            muted={false}
+            size="normal"
+          >
+            <p
+              className="Text Text--size Text--size_normal"
+              muted={false}
+            >
+              Item 2
+            </p>
+          </Text>
+        </div>
+      </li>
+    </ListItem>
+  </ul>
+</List>
+`;
