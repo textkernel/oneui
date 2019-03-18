@@ -43,14 +43,20 @@ class ThemeLoader {
                 return;
             }
 
+            const { onComplete, onError, ...rest } = ponyfillOptions;
+
             cssVarsPonyfill({
-                ...ponyfillOptions,
-                // eslint-disable-next-line no-unused-vars
+                ...rest,
                 onComplete(cssText, node, url) {
+                    if (onComplete) {
+                        onComplete(cssText, node, url);
+                    }
                     resolve();
                 },
-                // eslint-disable-next-line no-unused-vars
                 onError(message, node, xhr, url) {
+                    if (onError) {
+                        onError(message, node, xhr, url);
+                    }
                     reject(message);
                 }
             });
