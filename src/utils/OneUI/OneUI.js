@@ -36,9 +36,11 @@ class ThemeLoader {
      * Loads the CSS Vars ponyfill in case the browser is Internet Explorer 11. It can also
      * forces to load in modern browsers in case the user passes `onlyLegacy` property as false
      */
-    static startCssVarsPonyfill(ponyfillOptions = { onlyLegacy: true }) {
+    static startCssVarsPonyfill(ponyfillOptions = {}) {
         return new Promise((resolve, reject) => {
-            if (!isInternetExplorer11() && ponyfillOptions.onlyLegacy === true) {
+            const shouldForcePonyfill = ponyfillOptions.onlyLegacy === false;
+
+            if (!isInternetExplorer11() && !shouldForcePonyfill) {
                 resolve();
                 return;
             }
