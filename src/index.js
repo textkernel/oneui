@@ -17,4 +17,4 @@ export { default as RadioButton } from './components/RadioButton';
 export { Tabs, Tab, TabContent, TabItem, TabMenu } from './components/Tabs';
 export { default as Text } from './components/Text';
 export { default as TextArea } from './components/TextArea';
-export { default } from './ThemeLoader';
+export { default } from './utils/ThemeLoader';
