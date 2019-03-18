@@ -10,7 +10,7 @@ describe('<Text> that renders a text block', () => {
 
     it('should add classes when props are changed', () => {
         const wrapper = shallow(
-            <Text inline muted size="small">
+            <Text inline context="muted" size="small">
                 Some inline, muted text content
             </Text>
         );

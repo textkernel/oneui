@@ -42,12 +42,13 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
       </span>
       <Text
         className="Checkbox__text"
+        context="default"
         inline={true}
         muted={false}
         size="normal"
       >
         <span
-          className="Text Text--size Text--size_normal Checkbox__text"
+          className="Text Text--context Text--context_default Text--size Text--size_normal Checkbox__text"
           muted={false}
         >
           Check this out

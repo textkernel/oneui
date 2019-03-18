@@ -36,7 +36,7 @@ const RadioButton = props => {
                     </svg>
                 </span>
                 {!!children && (
-                    <Text {...elem('text', props)} inline muted={disabled}>
+                    <Text {...elem('text', props)} inline context={disabled ? 'muted' : 'default'}>
                         {children}
                     </Text>
                 )}

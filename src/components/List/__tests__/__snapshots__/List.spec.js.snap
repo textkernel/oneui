@@ -24,6 +24,7 @@ exports[`List component should render List correctly 1`] = `
         >
           <Text
             inline={true}
+            context="default"
             key=".0"
             muted={false}
             size="normal"

@@ -8,10 +8,6 @@
         weight: var(--font-weight-normal);
     }
 
-    &--muted {
-        color: var(--color-muted);
-    }
-
     &--size {
         &_small {
             font-size: var(--font-size-small);
@@ -19,6 +15,14 @@
 
         &_large {
             font-size: var(--font-size-large);
+        }
+    }
+
+    &--context {
+        @each $context in (muted, brand, primary, accent, info, good, warning, bad) {
+            &_#{ $context } {
+                color: var(--color-#{$context});
+            }
         }
     }
 }

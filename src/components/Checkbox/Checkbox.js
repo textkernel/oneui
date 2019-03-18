@@ -34,7 +34,7 @@ const Checkbox = props => {
                         <polyline points="1.5 6 3.5 9 8 3" />
                     </svg>
                 </span>
-                <Text {...elem('text', props)} inline muted={disabled}>
+                <Text {...elem('text', props)} inline context={disabled ? 'muted' : 'default'}>
                     {children}
                 </Text>
             </label>
