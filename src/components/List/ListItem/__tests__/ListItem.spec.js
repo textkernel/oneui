@@ -18,8 +18,7 @@ describe('ListItem component', () => {
 
         expect(wrapper.find('Text')).toHaveLength(1);
     });
-    it.skip('should not add clickable class when onClick is not defined', () => {
-        // This test is failing due to bug in bem. See https://jira.textkernel.nl/browse/ONEUI-34
+    it('should not add clickable class when onClick is not defined', () => {
         const wrapper = mount(<ListItem>An item</ListItem>);
 
         expect(wrapper.find('.ListItem--clickable')).toHaveLength(0);

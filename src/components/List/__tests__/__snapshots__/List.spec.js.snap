@@ -16,7 +16,7 @@ exports[`List component should render List correctly 1`] = `
       onClick={null}
     >
       <li
-        className="ListItem ListItem--clickable"
+        className="ListItem"
       >
         <div
           className="ListItem__container"
@@ -47,7 +47,7 @@ exports[`List component should render List correctly 1`] = `
       onClick={null}
     >
       <li
-        className="ListItem ListItem--clickable"
+        className="ListItem"
       >
         <div
           className="ListItem__container"
