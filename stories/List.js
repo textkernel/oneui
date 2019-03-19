@@ -38,8 +38,8 @@ storiesOf('List', module)
         </List>
     ))
     .add('List showing job results', () => (
-        <div style={{ width: '250px' }}>
-            <List isDividedList>
+        <div style={{ width: '500px' }}>
+            <List isDivided>
                 <ListItem>
                     <JobResult
                         title="My first job"

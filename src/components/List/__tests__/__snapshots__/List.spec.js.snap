@@ -23,14 +23,13 @@ exports[`List component should render List correctly 1`] = `
           role="presentation"
         >
           <Text
-            inline={true}
             context="default"
+            inline={true}
             key=".0"
             size="normal"
           >
             <span
-              className="Text Text--size Text--size_normal"
-              muted={false}
+              className="Text Text--context Text--context_default Text--size Text--size_normal"
             >
               Item 1
             </span>
@@ -53,13 +52,13 @@ exports[`List component should render List correctly 1`] = `
           role="presentation"
         >
           <Text
+            context="default"
             inline={true}
             key=".0"
             size="normal"
           >
             <span
-              className="Text Text--size Text--size_normal"
-              muted={false}
+              className="Text Text--context Text--context_default Text--size Text--size_normal"
             >
               Item 2
             </span>
