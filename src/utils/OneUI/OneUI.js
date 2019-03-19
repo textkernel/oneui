@@ -7,7 +7,7 @@ const isInternetExplorer11 = () => {
 
 const DEFAULT_LOADING_TIMEOUT = 2000;
 
-class ThemeLoader {
+class OneUI {
     /**
      * Loads the theme and the CSS vars ponyfill if necessary
      *
@@ -18,8 +18,8 @@ class ThemeLoader {
      */
     static init({ themeURL = '', maxTime = DEFAULT_LOADING_TIMEOUT, ponyfillOptions } = {}) {
         const loadTheme = Promise.all([
-            ThemeLoader.applyTheme(themeURL),
-            ThemeLoader.startCssVarsPonyfill(ponyfillOptions)
+            OneUI.applyTheme(themeURL),
+            OneUI.startCssVarsPonyfill(ponyfillOptions)
         ]);
 
         const timeout = new Promise((resolve, reject) =>
@@ -85,4 +85,4 @@ class ThemeLoader {
     }
 }
 
-export default ThemeLoader;
+export default OneUI;
