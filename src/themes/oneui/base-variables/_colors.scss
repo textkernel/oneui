@@ -16,37 +16,35 @@ $color-bad: #f42534 !default;
 
 :root {
     @each $context,
-        $value
-        in (
+        $value in (
             background: $color-background,
-                foreground: $color-foreground,
-                neutral: $color-neutral,
-                muted: $color-muted,
-                brand: $color-brand,
-                primary: $color-primary,
-                accent: $color-accent,
-                info: $color-info,
-                good: $color-good,
-                warning: $color-warning,
-                bad: $color-bad
-            )
+            foreground: $color-foreground,
+            neutral: $color-neutral,
+            muted: $color-muted,
+            brand: $color-brand,
+            primary: $color-primary,
+            accent: $color-accent,
+            info: $color-info,
+            good: $color-good,
+            warning: $color-warning,
+            bad: $color-bad
+        )
     {
         --color-#{ $context }: #{$value};
     }
 
     // Shades
     @each $context,
-        $value
-        in (
+        $value in (
             neutral: $color-neutral,
-                brand: $color-brand,
-                primary: $color-primary,
-                accent: $color-accent,
-                info: $color-info,
-                good: $color-good,
-                warning: $color-warning,
-                bad: $color-bad
-            )
+            brand: $color-brand,
+            primary: $color-primary,
+            accent: $color-accent,
+            info: $color-info,
+            good: $color-good,
+            warning: $color-warning,
+            bad: $color-bad
+        )
     {
         @each $factor in (20, 50, 80) {
             --color-#{ $context }-#{ 50 - ($factor / 2) }: #{mix(
