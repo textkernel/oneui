@@ -37,31 +37,55 @@ storiesOf('List', module)
             </ListItem>
         </List>
     ))
-    .add('List showing job results', () => (
-        <div style={{ width: '500px' }}>
-            <List isDivided>
-                <ListItem>
-                    <JobResult
-                        title="My first job"
-                        location=" - Melbourne"
-                        organization="Awsome inc."
-                        details="It was posted here, yesterday"
-                    />
-                </ListItem>
-                <ListItem>
-                    <JobResult
-                        title="Job with a very, very, very long title to be truncated by css"
-                        location=" - Melbourne"
-                        organization="Awsome inc."
-                        details="It was posted there, yesterday"
-                    />
-                </ListItem>
-                <ListItem>
-                    <JobResult title="An other job with a very, very, very long title to be truncated by css if it doesn't fit" />
-                    <ListActions>
-                        <Button context="link">Action</Button>
-                    </ListActions>
-                </ListItem>
-            </List>
-        </div>
-    ));
+    .add('List showing job results', () => {
+        const onClickJob = e => {
+            e.preventDefault();
+            alert('Item was selected'); // eslint-disable-line no-alert, no-undef
+        };
+        const onClickAction = e => {
+            e.preventDefault();
+            e.stopPropagation();
+            alert('Action button was clicked'); // eslint-disable-line no-alert, no-undef
+        };
+
+        return (
+            <div style={{ width: '500px' }}>
+                <List isDivided>
+                    <ListItem onClick={onClickJob}>
+                        <JobResult
+                            title="My first job"
+                            location=" - Melbourne"
+                            organization="Awsome inc."
+                            details="It was posted here, yesterday"
+                        />
+                        <ListActions>
+                            <Button context="link" onClick={onClickAction}>
+                                Action
+                            </Button>
+                        </ListActions>
+                    </ListItem>
+                    <ListItem onClick={onClickJob}>
+                        <JobResult
+                            title="Job with a very, very, very long title to be truncated by css"
+                            location=" - Melbourne"
+                            organization="Awsome inc."
+                            details="It was posted there, yesterday"
+                        />
+                        <ListActions>
+                            <Button context="link" onClick={onClickAction}>
+                                Action
+                            </Button>
+                        </ListActions>
+                    </ListItem>
+                    <ListItem onClick={onClickJob}>
+                        <JobResult title="An other job with a very, very, very long title to be truncated by css if it doesn't fit" />
+                        <ListActions>
+                            <Button context="link" onClick={onClickAction}>
+                                Action
+                            </Button>
+                        </ListActions>
+                    </ListItem>
+                </List>
+            </div>
+        );
+    });
