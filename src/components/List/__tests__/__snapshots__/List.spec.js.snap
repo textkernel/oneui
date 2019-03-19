@@ -3,20 +3,19 @@
 exports[`List component should render List correctly 1`] = `
 <List
   Component="ul"
-  isDividedList={false}
+  isDivided={false}
 >
   <ul
     className="List List--Component List--Component_ul"
   >
     <ListItem
-      isDivided={false}
-      isDividedList={false}
+      className="List__item List__item--Component List__item--Component_ul"
       isSelected={false}
       key=".0"
       onClick={null}
     >
       <li
-        className="ListItem"
+        className="ListItem List__item List__item--Component List__item--Component_ul"
       >
         <div
           className="ListItem__container"
@@ -24,30 +23,29 @@ exports[`List component should render List correctly 1`] = `
           role="presentation"
         >
           <Text
-            inline={false}
+            inline={true}
             key=".0"
             muted={false}
             size="normal"
           >
-            <p
+            <span
               className="Text Text--size Text--size_normal"
               muted={false}
             >
               Item 1
-            </p>
+            </span>
           </Text>
         </div>
       </li>
     </ListItem>
     <ListItem
-      isDivided={false}
-      isDividedList={false}
+      className="List__item List__item--Component List__item--Component_ul"
       isSelected={false}
       key=".1"
       onClick={null}
     >
       <li
-        className="ListItem"
+        className="ListItem List__item List__item--Component List__item--Component_ul"
       >
         <div
           className="ListItem__container"
@@ -55,17 +53,17 @@ exports[`List component should render List correctly 1`] = `
           role="presentation"
         >
           <Text
-            inline={false}
+            inline={true}
             key=".0"
             muted={false}
             size="normal"
           >
-            <p
+            <span
               className="Text Text--size Text--size_normal"
               muted={false}
             >
               Item 2
-            </p>
+            </span>
           </Text>
         </div>
       </li>

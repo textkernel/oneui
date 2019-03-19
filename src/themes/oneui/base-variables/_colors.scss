@@ -1,58 +1,74 @@
 // Basic colors
-$transparent:       transparent !default;
+$transparent: transparent !default;
 
-$color-background:  #FFF !default;
-$color-foreground:  #1D1D1B !default;
+$color-background: #fff !default;
+$color-foreground: #1d1d1b !default;
 
-$color-neutral:     #D0D1D5 !default;
-$color-muted:       #B2B2B2 !default;
-$color-brand:       #009CC1 !default;
-$color-primary:     #F18700 !default;
-$color-accent:      #182642 !default;
-$color-info:        #60C4DE !default;
-$color-good:        #5CB85C !default;
-$color-warning:     #FFB819 !default;
-$color-bad:         #F42534 !default;
+$color-neutral: #d0d1d5 !default;
+$color-muted: #b2b2b2 !default;
+$color-brand: #009cc1 !default;
+$color-primary: #f18700 !default;
+$color-accent: #182642 !default;
+$color-info: #60c4de !default;
+$color-good: #5cb85c !default;
+$color-warning: #ffb819 !default;
+$color-bad: #f42534 !default;
 
 :root {
-    @each $context, $value in (
-        background: $color-background,
-        foreground: $color-foreground,
-        neutral: $color-neutral,
-        muted: $color-muted,
-        brand: $color-brand,
-        primary: $color-primary,
-        accent: $color-accent,
-        info: $color-info,
-        good: $color-good,
-        warning: $color-warning,
-        bad: $color-bad
-    ) {
-        --color-#{ $context }: #{ $value };
+    @each $context,
+        $value
+        in (
+            background: $color-background,
+                foreground: $color-foreground,
+                neutral: $color-neutral,
+                muted: $color-muted,
+                brand: $color-brand,
+                primary: $color-primary,
+                accent: $color-accent,
+                info: $color-info,
+                good: $color-good,
+                warning: $color-warning,
+                bad: $color-bad
+            )
+    {
+        --color-#{ $context }: #{$value};
     }
 
     // Shades
-    @each $context, $value in (
-        neutral: $color-neutral,
-        brand: $color-brand,
-        primary: $color-primary,
-        accent: $color-accent,
-        info: $color-info,
-        good: $color-good,
-        warning: $color-warning,
-        bad: $color-bad
-    ) {
+    @each $context,
+        $value
+        in (
+            neutral: $color-neutral,
+                brand: $color-brand,
+                primary: $color-primary,
+                accent: $color-accent,
+                info: $color-info,
+                good: $color-good,
+                warning: $color-warning,
+                bad: $color-bad
+            )
+    {
         @each $factor in (20, 50, 80) {
-            --color-#{ $context }-#{ 50 - ($factor / 2) }: #{ mix($color-background, $value, $factor) };
-            --color-#{ $context }-#{ 50 + ($factor / 2) }: #{ mix($color-foreground, $value, $factor) };
+            --color-#{ $context }-#{ 50 - ($factor / 2) }: #{mix(
+                $color-background,
+                $value,
+                $factor
+            )};
+            --color-#{ $context }-#{ 50 + ($factor / 2) }: #{mix(
+                $color-foreground,
+                $value,
+                $factor
+            )};
         }
     }
 
-    --transparent: #{ $transparent };
+    --transparent: #{$transparent};
     --link-color-normal: var(--color-brand);
     --link-color-hover: var(--color-brand-40);
 
     --border-color-light: var(--color-neutral-25);
     --border-color-strong: var(--color-neutral-40);
-}
 
+    --color-hover-background: #{mix($color-background, $color-brand, 90)};
+    --color-highlight-background: #{mix($color-background, $color-brand, 90)};
+}

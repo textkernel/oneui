@@ -1,10 +1,16 @@
 .List {
     &--Component_ul {
-        padding: 0 var(--spacing-2x);
+        padding: var(--spacing-2x);
         list-style: none;
     }
 
     &--Component_menu {
         list-style: none;
+    }
+
+    &--isDivided {
+        .List__item + .List__item {
+            border-top: 1px solid var(--color-neutral-25);
+        }
     }
 }

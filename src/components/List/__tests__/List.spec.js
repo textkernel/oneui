@@ -25,15 +25,4 @@ describe('List component', () => {
 
         expect(wrapper.find('ol')).toHaveLength(1);
     });
-    it('should propagate isDividedList prop its childer', () => {
-        const wrapper = mount(
-            <List isDividedList>
-                <ListItem>Item 1</ListItem>
-                <ListItem>Item 2</ListItem>
-            </List>
-        );
-
-        expect(wrapper.find('.List--isDividedList')).toHaveLength(1);
-        expect(wrapper.find('.ListItem--isDividedList')).toHaveLength(2);
-    });
 });
