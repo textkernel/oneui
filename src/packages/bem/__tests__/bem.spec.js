@@ -68,6 +68,22 @@ describe('BEM decorator', () => {
             expect(avatarImage.hasClass('Avatar__image--isPerfect')).toBe(true);
         });
 
+        it("should not add a class name for boolean mod if mod's value is false (fpr extra mods)", () => {
+            const avatarWrapper = shallow(<Avatar match={99} />);
+            const avatarImage = avatarWrapper.childAt(0);
+            expect(avatarWrapper.hasClass('Avatar--isPerfect')).toBe(false);
+            expect(avatarImage.hasClass('Avatar--isPerfect')).toBe(false);
+        });
+
+        it("should not add a class name for boolean mod if mod's value is false (for props)", () => {
+            const buttonWrapper = shallow(<Button size={3} active={false} />);
+            const buttonIcon = buttonWrapper.childAt(0);
+            const buttonLabel = buttonWrapper.childAt(1);
+            expect(buttonWrapper.hasClass('Button--active')).toBe(false);
+            expect(buttonIcon.hasClass('Button__icon--active')).toBe(false);
+            expect(buttonLabel.hasClass('Button__label--active')).toBe(false);
+        });
+
         it('should not add a class names if they are not listed in classnamesMap', () => {
             const buttonWrapper = shallow(<Button disabled />);
             const buttonIcon = buttonWrapper.childAt(0);
@@ -156,6 +172,22 @@ describe('BEM decorator', () => {
             const avatarImage = avatarWrapper.childAt(0);
             expect(avatarWrapper.hasClass('AvatarStateless--isPerfect')).toBe(true);
             expect(avatarImage.hasClass('AvatarStateless__image--isPerfect')).toBe(true);
+        });
+
+        it("should not add a class name for boolean mod if mod's value is false (for extra mods)", () => {
+            const avatarWrapper = shallow(<AvatarStateless match={99} />);
+            const avatarImage = avatarWrapper.childAt(0);
+            expect(avatarWrapper.hasClass('AvatarStateless--isPerfect')).toBe(false);
+            expect(avatarImage.hasClass('AvatarStateless__image--isPerfect')).toBe(false);
+        });
+
+        it("should not add a class name for boolean mod if mod's value is false (for props)", () => {
+            const buttonWrapper = shallow(<ButtonStateless size={3} active={false} />);
+            const buttonIcon = buttonWrapper.childAt(0);
+            const buttonLabel = buttonWrapper.childAt(1);
+            expect(buttonWrapper.hasClass('ButtonStateless--active')).toBe(false);
+            expect(buttonIcon.hasClass('ButtonStateless__icon--active')).toBe(false);
+            expect(buttonLabel.hasClass('ButtonStateless__label--active')).toBe(false);
         });
 
         it('should not add a class names if they are not listed in classnames map', () => {
