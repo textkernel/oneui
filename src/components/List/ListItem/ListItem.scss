@@ -1,4 +1,6 @@
 .ListItem {
+    transition: background-color var(--transition-duration);
+
     &__container {
         display: flex;
         align-items: baseline;
