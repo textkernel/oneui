@@ -9,6 +9,7 @@ import './Heading';
 import './Icon';
 import './Input';
 import './Link';
+import './List';
 import './LoadingSpinner';
 import './Navigation';
 import './ProgressBar';

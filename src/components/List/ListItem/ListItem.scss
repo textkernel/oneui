@@ -1,0 +1,19 @@
+.ListItem {
+    &__container {
+        display: flex;
+        align-items: baseline;
+        padding: var(--spacing-3x);
+    }
+
+    &:hover {
+        background-color: var(--color-hover-background);
+    }
+
+    &--isSelected {
+        background-color: var(--color-highlight-background);
+    }
+
+    &--clickable {
+        cursor: pointer;
+    }
+}
