@@ -6,10 +6,7 @@ import { List, ListItem, ListActions, JobResult, Text, Button, Checkbox } from '
 storiesOf('List', module)
     .addDecorator(withKnobs)
     .add('List', () => (
-        <List
-            Component={select('List component', ['ul', 'ol', 'menu'], 'ul')}
-            isDivided={boolean('Add dividers between items', true)}
-        >
+        <List isDivided={boolean('Add dividers between items', true)}>
             <ListItem>
                 First item passed as string{' '}
                 <ListActions>

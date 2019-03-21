@@ -2,20 +2,19 @@
 
 exports[`List component should render List correctly 1`] = `
 <List
-  Component="ul"
   isDivided={false}
 >
   <ul
-    className="List List--Component List--Component_ul"
+    className="List"
   >
     <ListItem
-      className="List__item List__item--Component List__item--Component_ul"
+      className="List__item"
       isSelected={false}
       key=".0"
       onClick={null}
     >
       <li
-        className="ListItem List__item List__item--Component List__item--Component_ul"
+        className="ListItem List__item"
       >
         <div
           className="ListItem__container"
@@ -38,13 +37,13 @@ exports[`List component should render List correctly 1`] = `
       </li>
     </ListItem>
     <ListItem
-      className="List__item List__item--Component List__item--Component_ul"
+      className="List__item"
       isSelected={false}
       key=".1"
       onClick={null}
     >
       <li
-        className="ListItem List__item List__item--Component List__item--Component_ul"
+        className="ListItem List__item"
       >
         <div
           className="ListItem__container"

@@ -7,15 +7,15 @@ import styles from './List.scss';
 const { block, elem } = bem({
     name: 'List',
     classnames: styles,
-    propsToMods: ['isDivided', 'Component']
+    propsToMods: ['isDivided']
 });
 
 const List = props => {
-    const { children, Component, isDivided, ...rest } = props;
+    const { children, isDivided, ...rest } = props;
     return (
-        <Component {...rest} {...block(props)}>
+        <ul {...rest} {...block(props)}>
             {React.Children.map(children, child => React.cloneElement(child, elem('item', props)))}
-        </Component>
+        </ul>
     );
 };
 
@@ -36,15 +36,12 @@ List.propTypes = {
         });
         return error;
     },
-    /** The HTML or React component to be used to render the list  */
-    Component: PropTypes.oneOf(['ul', 'ol', 'menu']),
     /** Adds dividing lines between the list items */
     isDivided: PropTypes.bool
 };
 
 List.defaultProps = {
     children: null,
-    Component: 'ul',
     isDivided: false
 };
 
