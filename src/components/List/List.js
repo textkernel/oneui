@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
+import ListItem from './ListItem';
 import styles from './List.scss';
 
 const { block, elem } = bem({
@@ -21,8 +22,20 @@ const List = props => {
 List.displayName = 'List';
 
 List.propTypes = {
-    /** List Items */
-    children: PropTypes.node,
+    /** List items */
+    children: (props, propName, componentName) => {
+        const prop = props[propName];
+
+        let error = null;
+        React.Children.forEach(prop, child => {
+            if (child.type !== ListItem && child.type !== 'li') {
+                error = new Error(
+                    `'${componentName}' children should be of type 'ListItem' or 'li'.`
+                );
+            }
+        });
+        return error;
+    },
     /** The HTML or React component to be used to render the list  */
     Component: PropTypes.oneOf(['ul', 'ol', 'menu']),
     /** Adds dividing lines between the list items */

@@ -13,6 +13,7 @@ describe('ListItem component', () => {
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
     it('should turn string items to Text', () => {
         const wrapper = mount(<ListItem>Simple string</ListItem>);
 
