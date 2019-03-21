@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, select, withKnobs } from '@storybook/addon-knobs';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { List, ListItem, ListActions, JobResult, Text, Button, Checkbox } from '@textkernel/oneui';
 
 storiesOf('List', module)
