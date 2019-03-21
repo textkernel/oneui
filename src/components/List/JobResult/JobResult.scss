@@ -16,7 +16,10 @@
     }
     &__location {
         white-space: nowrap;
-        padding-left: var(--spacing-normal);
+
+        &::before {
+            content: '\00a0\2014\00a0';
+        }
     }
 
     &__organization {

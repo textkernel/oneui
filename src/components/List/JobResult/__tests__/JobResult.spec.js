@@ -12,7 +12,7 @@ describe('JobResuts', () => {
         const wrapper = mount(
             <JobResuts
                 title="A job title"
-                location=" - location"
+                location="location"
                 organization="Organization"
                 details="detials about this job"
             />
@@ -26,7 +26,7 @@ describe('JobResuts', () => {
                 title={<a href="/">linked text</a>}
                 location={<span>location</span>}
                 organization={<a href="/">Organization</a>}
-                details={<span>detials about this job</span>}
+                details={<span>details about this job</span>}
             />
         );
 

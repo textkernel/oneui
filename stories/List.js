@@ -54,7 +54,7 @@ storiesOf('List', module)
                     <ListItem onClick={onClickJob}>
                         <JobResult
                             title="My first job"
-                            location=" - Melbourne"
+                            location="Melbourne"
                             organization="Awsome inc."
                             details="It was posted here, yesterday"
                         />
@@ -67,7 +67,7 @@ storiesOf('List', module)
                     <ListItem onClick={onClickJob}>
                         <JobResult
                             title="Job with a very, very, very long title to be truncated by css"
-                            location=" - Melbourne"
+                            location="Melbourne"
                             organization="Awsome inc."
                             details="It was posted there, yesterday"
                         />

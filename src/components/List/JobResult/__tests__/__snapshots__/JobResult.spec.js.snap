@@ -35,7 +35,7 @@ exports[`JobResuts should render correctly with just a title 1`] = `
 exports[`JobResuts should render with all props defined 1`] = `
 <JobResult
   details="detials about this job"
-  location=" - location"
+  location="location"
   organization="Organization"
   title="A job title"
 >
@@ -68,7 +68,7 @@ exports[`JobResuts should render with all props defined 1`] = `
         <span
           className="Text Text--context Text--context_muted Text--size Text--size_normal JobResult__location"
         >
-           - location
+          location
         </span>
       </Text>
     </span>
@@ -104,7 +104,7 @@ exports[`JobResuts should render with props passed as nodes 1`] = `
 <JobResult
   details={
     <span>
-      detials about this job
+      details about this job
     </span>
   }
   location={
@@ -148,7 +148,7 @@ exports[`JobResuts should render with props passed as nodes 1`] = `
       Organization
     </a>
     <span>
-      detials about this job
+      details about this job
     </span>
   </p>
 </JobResult>
