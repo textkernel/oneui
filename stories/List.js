@@ -17,7 +17,7 @@ storiesOf('List', module)
                 </ListActions>
             </ListItem>
             <ListItem>
-                <Checkbox id="item 2" />
+                <Checkbox id="item2" />
                 <div>
                     <Text>Item passed as Text component</Text>
                     <Text>It has multiple lines</Text>
@@ -32,7 +32,7 @@ storiesOf('List', module)
                     alert('Item was selected'); // eslint-disable-line no-alert, no-undef
                 }}
             >
-                <Checkbox id="item 4" />
+                <Checkbox id="item4" />
                 Clickable item
             </ListItem>
         </List>
