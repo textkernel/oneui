@@ -15,34 +15,24 @@ const JobResult = props => {
     return (
         <p {...rest} {...block(props)}>
             <span {...elem('titleLine', props)}>
-                {typeof title === 'string' ? (
-                    <Text inline context="brand" title={title} {...elem('title', props)}>
-                        {title}
-                    </Text>
-                ) : (
-                    title
-                )}
-                {location && typeof location === 'string' ? (
+                <Text inline context="brand" title={title} {...elem('title', props)}>
+                    {title}
+                </Text>
+                {location && (
                     <Text inline context="muted" {...elem('location', props)}>
                         {location}
                     </Text>
-                ) : (
-                    location
                 )}
             </span>
-            {organization && typeof organization === 'string' ? (
+            {organization && (
                 <Text inline context="accent" {...elem('organization', props)}>
                     {organization}
                 </Text>
-            ) : (
-                organization
             )}
-            {details && typeof details === 'string' ? (
+            {details && (
                 <Text inline context="muted" {...elem('details', props)}>
                     {details}
                 </Text>
-            ) : (
-                details
             )}
         </p>
     );
@@ -51,14 +41,14 @@ const JobResult = props => {
 JobResult.displayName = 'JobResult';
 
 JobResult.propTypes = {
-    /** The job's title. Note: when using node and not string text formatting will not be applied */
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-    /** The location of the job. Note: when using node and not string text formatting will not be applied */
-    location: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    /** The organization that posted this job. Note: when using node and not string text formatting will not be applied */
-    organization: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    /** Details related to this job. Note: when using node and not string text formatting will not be applied */
-    details: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+    /** The job's title. */
+    title: PropTypes.string.isRequired,
+    /** The location of the job. */
+    location: PropTypes.string,
+    /** The organization that posted this job. */
+    organization: PropTypes.string,
+    /** Details related to this job. */
+    details: PropTypes.string
 };
 
 JobResult.defaultProps = {

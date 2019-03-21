@@ -20,16 +20,4 @@ describe('JobResuts', () => {
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-    it('should render with props passed as nodes', () => {
-        const wrapper = mount(
-            <JobResuts
-                title={<a href="/">linked text</a>}
-                location={<span>location</span>}
-                organization={<a href="/">Organization</a>}
-                details={<span>details about this job</span>}
-            />
-        );
-
-        expect(toJson(wrapper)).toMatchSnapshot();
-    });
 });
