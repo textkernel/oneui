@@ -10,7 +10,9 @@ storiesOf('List', module)
             <ListItem>
                 First item passed as string{' '}
                 <ListActions>
-                    <Button context="link">Action</Button>
+                    <Button context="link" isInline>
+                        Action
+                    </Button>
                 </ListActions>
             </ListItem>
             <ListItem>
@@ -56,7 +58,7 @@ storiesOf('List', module)
                             details="It was posted here, yesterday"
                         />
                         <ListActions>
-                            <Button context="link" onClick={onClickAction}>
+                            <Button context="link" onClick={onClickAction} isInline>
                                 Action
                             </Button>
                         </ListActions>
@@ -69,7 +71,7 @@ storiesOf('List', module)
                             details="It was posted there, yesterday"
                         />
                         <ListActions>
-                            <Button context="link" onClick={onClickAction}>
+                            <Button context="link" onClick={onClickAction} isInline>
                                 Action
                             </Button>
                         </ListActions>
@@ -77,7 +79,7 @@ storiesOf('List', module)
                     <ListItem onClick={onClickJob}>
                         <JobResult title="An other job with a very, very, very long title to be truncated by css if it doesn't fit" />
                         <ListActions>
-                            <Button context="link" onClick={onClickAction}>
+                            <Button context="link" onClick={onClickAction} isInline>
                                 Action
                             </Button>
                         </ListActions>

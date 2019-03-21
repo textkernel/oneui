@@ -7,11 +7,11 @@ import { CONTEXTS, SIZES } from '../../constants';
 const { block } = bem({
     name: 'Button',
     classnames: styles,
-    propsToMods: ['context', 'size', 'isBlock']
+    propsToMods: ['context', 'size', 'isBlock', 'isInline']
 });
 
 const Button = props => {
-    const { children, disabled, isBlock, type, ...rest } = props;
+    const { children, disabled, isBlock, isInline, type, ...rest } = props;
 
     return (
         <button {...rest} {...block(props)} type={type} disabled={disabled}>
@@ -33,6 +33,8 @@ Button.propTypes = {
     size: PropTypes.oneOf(SIZES),
     /** Whether or not to show block-level button (full width) */
     isBlock: PropTypes.bool,
+    /** Whether or not to show inline button (without padding) */
+    isInline: PropTypes.bool,
     /** Should button be disabled or not */
     disabled: PropTypes.bool,
     /** Type of the button */
@@ -43,6 +45,7 @@ Button.defaultProps = {
     context: 'neutral',
     size: 'normal',
     isBlock: false,
+    isInline: false,
     disabled: false,
     type: 'button'
 };
