@@ -18,11 +18,5 @@
         }
     }
 
-    &--context {
-        @each $context in (muted, brand, primary, accent, info, good, warning, bad) {
-            &_#{ $context } {
-                color: var(--color-#{$context});
-            }
-        }
-    }
+    @include context-attribute-with-color('color', (muted));
 }

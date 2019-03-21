@@ -1,0 +1,11 @@
+$contexts: (neutral, brand, primary, accent, info, good, warning, bad);
+
+@mixin context-attribute-with-color($attribute, $extra: ()) {
+    &--context {
+        @each $context in join($contexts, $extra) {
+            &_#{ $context } {
+                #{$attribute}: var(--color-#{$context});
+            }
+        }
+    }
+}
