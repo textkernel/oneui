@@ -4,11 +4,11 @@
     @extend %input;
 
     &--context {
-        @each $context in (brand, primary, accent, info, good, warning, bad) {
+        @each $context in ($contexts) {
             &_#{ $context } {
                 &:focus {
-                    border-color: var(--color-#{ $context });
-                    box-shadow: 0 0 0 var(--outline-size) var(--color-#{ $context }-25);
+                    border-color: var(--color-#{$context});
+                    box-shadow: 0 0 0 var(--outline-size) var(--color-#{$context}-25);
                 }
             }
         }

@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './Text.scss';
-import { SIZES } from '../../constants';
+import { SIZES, CONTEXTS } from '../../constants';
 
 const { block } = bem({
     name: 'Text',
     classnames: styles,
-    propsToMods: ['muted', 'size']
+    propsToMods: ['context', 'size']
 });
 
 const Text = props => {
-    const { children, inline, size, ...rest } = props;
+    const { children, context, inline, size, ...rest } = props;
     const HtmlNodeType = inline ? 'span' : 'p';
 
     return (
@@ -28,15 +28,15 @@ Text.propTypes = {
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     /** Text should be rendered inline */
     inline: PropTypes.bool,
-    /** Render muted (auxiliary) text */
-    muted: PropTypes.bool,
+    /** The context of the text, effecting its color (e.g. brand, primary, bad, good etc. 'muted' added as special context here) */
+    context: PropTypes.oneOf([...CONTEXTS, 'muted', 'default']),
     /** Custom text sizes */
     size: PropTypes.oneOf(SIZES)
 };
 
 Text.defaultProps = {
     inline: false,
-    muted: false,
+    context: 'default',
     size: 'normal'
 };
 

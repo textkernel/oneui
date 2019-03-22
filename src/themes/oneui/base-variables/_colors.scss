@@ -16,8 +16,7 @@ $color-bad: #f42534 !default;
 
 :root {
     @each $context,
-        $value
-        in (
+        $value in (
             background: $color-background,
             foreground: $color-foreground,
             neutral: $color-neutral,
@@ -36,8 +35,7 @@ $color-bad: #f42534 !default;
 
     // Shades
     @each $context,
-        $value
-        in (
+        $value in (
             neutral: $color-neutral,
             brand: $color-brand,
             primary: $color-primary,

@@ -11,6 +11,7 @@ storiesOf('Button', module)
             context={select('Context', ['link', ...CONTEXTS], CONTEXTS[0])}
             size={select('Size', SIZES, SIZES[1])}
             isBlock={boolean('isBlock', false)}
+            isInline={boolean('isInline', false)}
             type={select('Type', ['submit', 'button'], 'submit')}
             disabled={boolean('Disabled', false)}
             onClick={e => {

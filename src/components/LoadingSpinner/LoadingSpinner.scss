@@ -1,5 +1,9 @@
+@import '../../themes/oneui/oneui.scss';
+
 @keyframes rotate {
-    100% { transform: rotate(360deg); }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes dash {
@@ -42,13 +46,7 @@
         animation: dash 1.5s ease-in-out infinite;
         transition: stroke var(--transition-duration);
 
-        &--context {
-            @each $context in (neutral, brand, primary, accent, info, good, warning, bad) {
-                &_#{ $context } {
-                    stroke: var(--color-#{ $context });
-                }
-            }
-        }
+        @include context-attribute-with-color('stroke');
     }
 
     &__label {

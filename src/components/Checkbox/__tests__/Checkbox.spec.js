@@ -25,6 +25,6 @@ describe('<Checkbox> that renders a checkbox', () => {
         );
         expect(wrapper.find('input[disabled]')).toHaveLength(1);
         expect(wrapper.find('label[disabled]')).toHaveLength(1);
-        expect(wrapper.find('.Text--muted')).toHaveLength(1);
+        expect(wrapper.find('.Text--context_muted')).toHaveLength(1);
     });
 });

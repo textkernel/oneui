@@ -8,10 +8,6 @@
         weight: var(--font-weight-normal);
     }
 
-    &--muted {
-        color: var(--color-muted);
-    }
-
     &--size {
         &_small {
             font-size: var(--font-size-small);
@@ -21,4 +17,6 @@
             font-size: var(--font-size-large);
         }
     }
+
+    @include context-attribute-with-color('color', (muted));
 }

@@ -15,16 +15,10 @@
     font: {
         family: var(--font-family-primary);
         size: var(--font-size-normal);
-    };
+    }
     padding: var(--spacing-4x);
 
-    &--context {
-        @each $context in (neutral, brand, primary, accent, info, good, warning, bad) {
-            &_#{ $context } {
-                border-left-color: var(--color-#{ $context });
-            }
-        }
-    }
+    @include context-attribute-with-color('border-left-color');
 
     &__content {
         flex-grow: 2;

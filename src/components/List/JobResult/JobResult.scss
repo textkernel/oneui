@@ -1,0 +1,33 @@
+.JobResult {
+    min-width: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    &__titleLine {
+        display: flex;
+    }
+
+    &__title {
+        font-weight: var(--font-weight-bold);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__location {
+        white-space: nowrap;
+
+        &::before {
+            content: '\00a0\2014\00a0';
+        }
+    }
+
+    &__organization {
+        font-weight: var(--font-weight-bold);
+    }
+
+    &__titleLine:not(:last-child),
+    &__organization:not(:last-child) {
+        padding-bottom: var(--spacing-2x);
+    }
+}

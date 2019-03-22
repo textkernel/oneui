@@ -95,13 +95,12 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
       </span>
       <Text
         className="RadioButton__text"
+        context="default"
         inline={true}
-        muted={false}
         size="normal"
       >
         <span
-          className="Text Text--size Text--size_normal RadioButton__text"
-          muted={false}
+          className="Text Text--context Text--context_default Text--size Text--size_normal RadioButton__text"
         >
           Choose me
         </span>

@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobResuts should render correctly with just a title 1`] = `
+<JobResult
+  details=""
+  location=""
+  organization=""
+  title="some title"
+>
+  <p
+    className="JobResult"
+  >
+    <span
+      className="JobResult__titleLine"
+    >
+      <Text
+        className="JobResult__title"
+        context="brand"
+        inline={true}
+        size="normal"
+        title="some title"
+      >
+        <span
+          className="Text Text--context Text--context_brand Text--size Text--size_normal JobResult__title"
+          title="some title"
+        >
+          some title
+        </span>
+      </Text>
+    </span>
+  </p>
+</JobResult>
+`;
+
+exports[`JobResuts should render with all props defined 1`] = `
+<JobResult
+  details="details about this job"
+  location="location"
+  organization="Organization"
+  title="A job title"
+>
+  <p
+    className="JobResult"
+  >
+    <span
+      className="JobResult__titleLine"
+    >
+      <Text
+        className="JobResult__title"
+        context="brand"
+        inline={true}
+        size="normal"
+        title="A job title"
+      >
+        <span
+          className="Text Text--context Text--context_brand Text--size Text--size_normal JobResult__title"
+          title="A job title"
+        >
+          A job title
+        </span>
+      </Text>
+      <Text
+        className="JobResult__location"
+        context="muted"
+        inline={true}
+        size="normal"
+      >
+        <span
+          className="Text Text--context Text--context_muted Text--size Text--size_normal JobResult__location"
+        >
+          location
+        </span>
+      </Text>
+    </span>
+    <Text
+      className="JobResult__organization"
+      context="accent"
+      inline={true}
+      size="normal"
+    >
+      <span
+        className="Text Text--context Text--context_accent Text--size Text--size_normal JobResult__organization"
+      >
+        Organization
+      </span>
+    </Text>
+    <Text
+      className="JobResult__details"
+      context="muted"
+      inline={true}
+      size="normal"
+    >
+      <span
+        className="Text Text--context Text--context_muted Text--size Text--size_normal JobResult__details"
+      >
+        details about this job
+      </span>
+    </Text>
+  </p>
+</JobResult>
+`;
