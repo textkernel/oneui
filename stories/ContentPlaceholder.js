@@ -7,13 +7,25 @@ storiesOf('ContentPlaceholder', module)
     .addDecorator(withKnobs)
     .add('ContentPlaceholder', () => {
         const duration = number('Animation duration in seconds', 1);
-        const height = number('Custom height', 15);
+        const height = number('Custom height in pixels', 15);
 
         return (
-            <div style={{ width: number('Container width', 400) }}>
-                <ContentPlaceholder duration={duration} height={height} />
-                <ContentPlaceholder duration={duration} height={height} width={55} />
-                <ContentPlaceholder duration={duration} height={height} width={65} />
+            <div style={{ width: number('Container width in pixels', 400) }}>
+                <ContentPlaceholder
+                    duration={duration}
+                    height={height}
+                    width={number('Width for placeholder 1', 100)}
+                />
+                <ContentPlaceholder
+                    duration={duration}
+                    height={height}
+                    width={number('Width for placeholder 2', 55)}
+                />
+                <ContentPlaceholder
+                    duration={duration}
+                    height={height}
+                    width={number('Width for placeholder 3', 65)}
+                />
             </div>
         );
     });
