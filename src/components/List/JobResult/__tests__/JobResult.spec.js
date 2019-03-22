@@ -14,7 +14,7 @@ describe('JobResuts', () => {
                 title="A job title"
                 location="location"
                 organization="Organization"
-                details="detials about this job"
+                details="details about this job"
             />
         );
 
