@@ -56,9 +56,9 @@ ContentPlaceholder.propTypes = {
 };
 
 ContentPlaceholder.defaultProps = {
-    duration: 1,
+    duration: null,
     height: null,
-    width: 100
+    width: null
 };
 
 export default ContentPlaceholder;
