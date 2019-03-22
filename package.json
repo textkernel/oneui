@@ -3,7 +3,7 @@
     "oneui": {
         "libraryName": "oneui"
     },
-    "version": "0.2.1",
+    "version": "0.3.0",
     "description": "React OneUI kit with theme support",
     "main": "dist/oneui.min.js",
     "scripts": {
