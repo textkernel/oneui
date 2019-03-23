@@ -14,3 +14,9 @@ script:
   - npm run lint:styles
 after_script:
   - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
+deploy:
+  provider: script
+  script: npm run storybook:deploy
+  skip-cleanup: true
+  on:
+    branch: master
