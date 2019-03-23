@@ -1,7 +1,7 @@
 const path = require('path');
 const { getRules, plugins, PACKAGES_PATH } = require('../etc/webpack/webpack.config');
 
-module.exports = (storybookBaseConfig, configType) => {
+module.exports = ({ config: storybookBaseConfig }) => {
 
     // Resolve OneUI package
     storybookBaseConfig.resolve.alias['@textkernel/oneui'] = path.resolve(__dirname, '../src');
