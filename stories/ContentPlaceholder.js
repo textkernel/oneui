@@ -6,7 +6,7 @@ import { ContentPlaceholder } from '@textkernel/oneui';
 storiesOf('ContentPlaceholder', module)
     .addDecorator(withKnobs)
     .add('ContentPlaceholder', () => {
-        const duration = number('Animation duration in seconds', 1);
+        const duration = number('Animation duration in seconds', null);
         const height = number('Custom height in pixels', null);
 
         return (
@@ -15,7 +15,7 @@ storiesOf('ContentPlaceholder', module)
                     <ContentPlaceholder
                         duration={duration}
                         height={height}
-                        width={number('Width for placeholder 1', 100)}
+                        width={number('Width for placeholder 1', null)}
                     />
                 </div>
                 <div style={{ margin: '6px 0', lineHeight: '14px' }}>
