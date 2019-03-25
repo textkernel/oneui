@@ -39,6 +39,7 @@ const ContentPlaceholder = props => {
                 height
             }}
         >
+            &nbsp;
             <div {...elem('mask', props)} style={calcMaskWidth(width)} />
         </div>
     );

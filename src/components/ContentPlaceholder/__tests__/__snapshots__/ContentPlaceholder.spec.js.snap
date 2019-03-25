@@ -10,6 +10,7 @@ exports[`<ContentPlaceholder> that renders a content placeholder should render d
     }
   }
 >
+   
   <div
     className="ContentPlaceholder__mask"
     style={null}

@@ -16,16 +16,16 @@
         name: shimmer;
         timing-function: linear;
     }
-    line-height: normal;
-    height: 15px;
+    line-height: inherit;
+    height: auto;
     width: 100%;
     background: var(--color-neutral-25);
     background: linear-gradient(to right, var(--color-neutral-10) 5%, var(--color-neutral-25) 15%, var(--color-neutral-10) 30%);
     background-size: 200% 100%;
     position: relative;
     display: flex;
-    flex-direction: row-reverse;
-    margin: var(--spacing-2x) 0;
+    flex-direction: row;
+    justify-content: flex-end;
 
     &__mask {
         background-color: white;

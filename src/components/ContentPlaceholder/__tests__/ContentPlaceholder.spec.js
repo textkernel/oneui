@@ -10,7 +10,7 @@ describe('<ContentPlaceholder> that renders a content placeholder', () => {
             animationDuration: null,
             height: null
         });
-        expect(wrapper.childAt(0).props().style).toBeNull();
+        expect(wrapper.childAt(1).props().style).toBeNull();
     });
 
     it('should affect styles when props are changed', () => {
@@ -21,7 +21,7 @@ describe('<ContentPlaceholder> that renders a content placeholder', () => {
             height: 30
         });
 
-        expect(wrapper.childAt(0).props().style).toEqual({
+        expect(wrapper.childAt(1).props().style).toEqual({
             width: '40%'
         });
     });
