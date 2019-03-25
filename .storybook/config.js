@@ -1,6 +1,7 @@
-import { configure, addDecorator } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
 import { withConsole } from '@storybook/addon-console';
+import OneUITheme from './oneui.theme';
 
 addDecorator(
     withInfo({
@@ -9,6 +10,12 @@ addDecorator(
 );
 
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
+
+addParameters({
+    options: {
+        theme: OneUITheme,
+    }
+});
 
 function loadStories() {
     require('../stories/index.js');
