@@ -95,7 +95,7 @@
         "stylelint-order": "1.0.0",
         "stylelint-scss": "3.3.1",
         "stylelint-webpack-plugin": "0.10.5",
-        "uglifyjs-webpack-plugin": "2.0.1",
+        "terser-webpack-plugin": "1.2.3",
         "webpack": "4.28.1",
         "webpack-cli": "3.2.1",
         "webpack-dev-server": "3.1.14"
