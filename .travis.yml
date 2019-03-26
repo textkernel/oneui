@@ -16,7 +16,7 @@ after_script:
   - COVERALLS_REPO_TOKEN=$coveralls_repo_token npm run coveralls
 deploy:
   provider: script
-  script: npm run storybook:deploy
+  script: npm run storybook:deploy -- --ci
   skip-cleanup: true
   on:
     tags: true
