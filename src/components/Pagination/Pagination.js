@@ -38,7 +38,7 @@ const Pagination = props => {
     const handleClick = e => {
         const { dataset } = e.target;
 
-        if (!onClick || !dataset.page) {
+        if (!onClick || !dataset.page || dataset.page > totalPages) {
             return null;
         }
 
