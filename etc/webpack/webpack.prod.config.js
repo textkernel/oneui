@@ -1,4 +1,4 @@
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
+const TerserPlugin = require('terser-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const { baseConfig, plugins, getRules } = require('./webpack.config');
 
 const rules = getRules('prod');
@@ -17,8 +17,8 @@ module.exports = {
     },
     optimization: {
         minimizer: [
-            new UglifyJsPlugin({
-                uglifyOptions: {
+            new TerserPlugin({
+                terserOptions: {
                     mangle: false
                 }
             })
