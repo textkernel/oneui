@@ -13,6 +13,7 @@ import './Link';
 import './List';
 import './LoadingSpinner';
 import './Navigation';
+import './Pagination';
 import './ProgressBar';
 import './RadioButton';
 import './Tabs';

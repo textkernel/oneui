@@ -1,0 +1,7 @@
+.Pagination {
+    &__gap {
+        color: var(--color-neutral);
+        display: inline-block;
+        padding: 0 var(--spacing-2x);
+    }
+}

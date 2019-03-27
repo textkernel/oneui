@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pagination> that renders a pagination component should render a default pagination 1`] = `
+<div
+  className="Pagination"
+>
+  <Button
+    className="Pagination__button"
+    context="link"
+    data-page={0}
+    disabled={true}
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    size="normal"
+    type="button"
+  >
+    « 
+    Previous
+  </Button>
+  <PaginationButton
+    data-page={1}
+    isActive={true}
+    onClick={[Function]}
+  >
+    1
+  </PaginationButton>
+  <PaginationButton
+    data-page={2}
+    isActive={false}
+    key="page_2"
+    onClick={[Function]}
+  >
+    2
+  </PaginationButton>
+  <PaginationButton
+    data-page={3}
+    isActive={false}
+    key="page_3"
+    onClick={[Function]}
+  >
+    3
+  </PaginationButton>
+  <PaginationButton
+    data-page={4}
+    isActive={false}
+    key="page_4"
+    onClick={[Function]}
+  >
+    4
+  </PaginationButton>
+  <PaginationButton
+    data-page={5}
+    isActive={false}
+    key="page_5"
+    onClick={[Function]}
+  >
+    5
+  </PaginationButton>
+  <Button
+    className="Pagination__button"
+    context="link"
+    data-page={2}
+    disabled={false}
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    size="normal"
+    type="button"
+  >
+    Next
+     »
+  </Button>
+</div>
+`;

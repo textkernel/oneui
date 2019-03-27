@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PaginationButton> that renders a page button should render a page button and test classes 1`] = `
+<Button
+  className="PaginationButton"
+  context="link"
+  data-page={1}
+  disabled={false}
+  isBlock={false}
+  isInline={false}
+  size="normal"
+  type="button"
+>
+  1
+</Button>
+`;
