@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Pagination> that renders a pagination component should render a default pagination 1`] = `
-<div
-  className="Pagination"
+<nav
+  aria-label="pagination"
+  className="Pagination Pagination--align Pagination--align_center"
 >
   <Button
-    className="Pagination__button"
+    aria-disabled={true}
+    className="Pagination__button Pagination__button--align Pagination__button--align_center"
     context="link"
     data-page={0}
     disabled={true}
@@ -58,7 +60,8 @@ exports[`<Pagination> that renders a pagination component should render a defaul
     5
   </PaginationButton>
   <Button
-    className="Pagination__button"
+    aria-disabled={false}
+    className="Pagination__button Pagination__button--align Pagination__button--align_center"
     context="link"
     data-page={2}
     disabled={false}
@@ -71,5 +74,5 @@ exports[`<Pagination> that renders a pagination component should render a defaul
     Next
      »
   </Button>
-</div>
+</nav>
 `;

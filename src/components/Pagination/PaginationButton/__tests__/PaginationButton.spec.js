@@ -13,5 +13,6 @@ describe('<PaginationButton> that renders a page button', () => {
         });
 
         expect(wrapper.hasClass('PaginationButton--isActive')).toBe(true);
+        expect(wrapper.prop('aria-current')).toBe('page');
     });
 });

@@ -31,5 +31,17 @@ describe('<Pagination> that renders a pagination component', () => {
                 .first()
                 .prop('data-page')
         ).toBe(4);
+
+        wrapper.setProps({
+            align: 'left'
+        });
+
+        expect(wrapper.hasClass('Pagination--align_left')).toBe(true);
+
+        wrapper.setProps({
+            align: 'right'
+        });
+
+        expect(wrapper.hasClass('Pagination--align_right')).toBe(true);
     });
 });

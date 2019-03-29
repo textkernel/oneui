@@ -2,6 +2,7 @@
 
 exports[`<PaginationButton> that renders a page button should render a page button and test classes 1`] = `
 <Button
+  aria-current={null}
   className="PaginationButton"
   context="link"
   data-page={1}

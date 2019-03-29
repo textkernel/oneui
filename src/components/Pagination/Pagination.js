@@ -8,7 +8,7 @@ import PaginationButton from './PaginationButton';
 const { block, elem } = bem({
     name: 'Pagination',
     classnames: styles,
-    propsToMods: []
+    propsToMods: ['align']
 });
 
 const defineRange = ({ currentPage, maxPages, totalPages }) => {
@@ -20,7 +20,16 @@ const defineRange = ({ currentPage, maxPages, totalPages }) => {
 };
 
 const Pagination = props => {
-    const { currentPage, maxPages, totalPages, prevLabel, nextLabel, onClick, ...rest } = props;
+    const {
+        align,
+        currentPage,
+        maxPages,
+        totalPages,
+        prevLabel,
+        nextLabel,
+        onClick,
+        ...rest
+    } = props;
 
     const isPrevDisabled = currentPage === 1;
     const isNextDisabled = currentPage === totalPages;
@@ -43,13 +52,14 @@ const Pagination = props => {
     };
 
     return (
-        <div {...rest} {...block(props)}>
+        <nav {...rest} {...block(props)} aria-label="pagination">
             <Button
                 {...elem('button', props)}
                 onClick={handleClick}
                 disabled={isPrevDisabled}
                 context="link"
                 data-page={currentPage - 1}
+                aria-disabled={isPrevDisabled}
             >
                 &laquo; {prevLabel}
             </Button>
@@ -73,16 +83,19 @@ const Pagination = props => {
                 disabled={isNextDisabled}
                 context="link"
                 data-page={currentPage + 1}
+                aria-disabled={isNextDisabled}
             >
                 {nextLabel} &raquo;
             </Button>
-        </div>
+        </nav>
     );
 };
 
 Pagination.displayName = 'Pagination';
 
 Pagination.propTypes = {
+    /** How the buttons should be aligned in the pagination container */
+    align: PropTypes.oneOf(['left', 'center', 'right']),
     /** Current page number */
     currentPage: PropTypes.number,
     /** Max. number of pages to list (excluding prev / next) */
@@ -98,6 +111,7 @@ Pagination.propTypes = {
 };
 
 Pagination.defaultProps = {
+    align: 'center',
     currentPage: 1,
     maxPages: 10,
     prevLabel: 'Previous',

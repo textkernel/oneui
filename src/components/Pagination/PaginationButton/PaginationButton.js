@@ -14,7 +14,7 @@ const PaginationButton = props => {
     const { children, isActive, ...rest } = props;
 
     return (
-        <Button {...rest} context="link" {...block(props)}>
+        <Button {...rest} context="link" {...block(props)} aria-current={isActive ? 'page' : null}>
             {children}
         </Button>
     );
