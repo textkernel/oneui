@@ -14,14 +14,9 @@ const { block, elem } = bem({
 const defineRange = ({ currentPage, maxPages, totalPages }) => {
     const start = Math.max(2, currentPage);
     const end = Math.min(totalPages, start + maxPages - 2);
+    const range = new Array(end - start + 1).fill().map((_, i) => start + i);
 
-    const pages = [];
-
-    for (let i = start; i <= end; i += 1) {
-        pages.push(i);
-    }
-
-    return pages;
+    return range;
 };
 
 const Pagination = props => {
