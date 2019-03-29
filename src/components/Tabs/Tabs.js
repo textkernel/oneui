@@ -14,10 +14,9 @@ class Tabs extends PureComponent {
             activeTabId,
             derivedTabId: activeTabId // eslint-disable-line react/no-unused-state
         };
-        this.handleTabChange = this.handleTabChange.bind(this);
     }
 
-    static getDerivedStateFromProps(props, state) {
+    static getDerivedStateFromProps = (props, state) => {
         if (props.activeTabId === state.derivedTabId) {
             return null;
         }
@@ -26,9 +25,9 @@ class Tabs extends PureComponent {
             activeTabId,
             derivedTabId: activeTabId
         };
-    }
+    };
 
-    handleTabChange(event, tabId) {
+    handleTabChange = (event, tabId) => {
         event.preventDefault();
 
         this.setState({
@@ -40,7 +39,7 @@ class Tabs extends PureComponent {
         if (onChange) {
             onChange(tabId);
         }
-    }
+    };
 
     render() {
         const { activeTabId } = this.state;
