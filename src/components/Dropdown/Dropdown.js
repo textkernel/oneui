@@ -12,29 +12,28 @@ class Dropdown extends PureComponent {
     constructor(props) {
         super(props);
 
+        const { initiallyOpened = false, value = null } = props;
+
         this.state = {
-            expanded: props.initiallyOpened || false,
+            expanded: initiallyOpened,
             filterValue: null,
-            selection: props.value || null
+            selection: value
         };
 
         this.dropdown = createRef();
-        this.handleChange = this.handleChange.bind(this);
-        this.handleClickOutside = this.handleClickOutside.bind(this);
-        this.handleEscPress = this.handleEscPress.bind(this);
-        this.handleSetFilter = this.handleSetFilter.bind(this);
-        this.toggleDropdown = this.toggleDropdown.bind(this);
+    }
 
-        window.addEventListener('click', this.handleClickOutside, false);
+    componentDidMount = () => {
+        window.addEventListener('click', this.handleClickOutside);
         window.addEventListener('keyup', this.handleEscPress, true);
-    }
+    };
 
-    componentWillUnmount() {
-        window.removeEventListener('click', this.handleClickOutside, false);
+    componentWillUnmount = () => {
+        window.removeEventListener('click', this.handleClickOutside);
         window.removeEventListener('keyup', this.handleEscPress, true);
-    }
+    };
 
-    handleChange(selection) {
+    handleChange = selection => {
         const { multiselect, onChange } = this.props;
 
         onChange(selection);
@@ -42,14 +41,14 @@ class Dropdown extends PureComponent {
         if (!multiselect) {
             this.toggleDropdown(null, true);
         }
-    }
+    };
 
-    handleClickOutside(e) {
+    handleClickOutside = ({ target }) => {
         // Collapse dropdown on click outside
         if (!this.dropdown || !this.dropdown.current) {
             return false;
         }
-        if (this.dropdown.current.contains(e.target)) {
+        if (this.dropdown.current.contains(target)) {
             return false;
         }
         const { expanded } = this.state;
@@ -58,12 +57,12 @@ class Dropdown extends PureComponent {
         }
         this.toggleDropdown(null, true);
         return true;
-    }
+    };
 
-    handleEscPress(e) {
+    handleEscPress = event => {
         // Collapse dropdown on esc press
-        e.stopPropagation();
-        const key = e.keyCode || e.which;
+        event.stopPropagation();
+        const key = event.keyCode || event.which;
 
         if (key !== 27) {
             return false;
@@ -71,20 +70,22 @@ class Dropdown extends PureComponent {
 
         this.toggleDropdown(null, true);
         return false;
-    }
+    };
 
-    handleSetFilter(e) {
-        const { value } = e.target;
+    handleSetFilter = event => {
+        const {
+            target: { value }
+        } = event;
         this.setState({
             filterValue: value
         });
-    }
+    };
 
-    toggleDropdown(e, collapse = false) {
+    toggleDropdown = (event, collapse = false) => {
         const { expanded } = this.state;
 
-        if (e && e.stopPropagation) {
-            e.stopPropagation();
+        if (event && event.stopPropagation) {
+            event.stopPropagation();
         }
 
         const newState = {
@@ -98,7 +99,7 @@ class Dropdown extends PureComponent {
         this.setState(newState);
 
         return true;
-    }
+    };
 
     render() {
         const {
