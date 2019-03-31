@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from '../../packages/bem';
 import styles from './Input.scss';
@@ -10,10 +10,19 @@ const { block } = bem({
     propsToMods: ['context', 'isBlock', 'size']
 });
 
-const Input = props => {
+const Input = forwardRef((props, ref) => {
     const { children, context, disabled, isBlock, size, type, value, ...rest } = props;
-    return <input {...rest} {...block(props)} type={type} disabled={disabled} value={value} />;
-};
+    return (
+        <input
+            {...rest}
+            {...block(props)}
+            ref={ref}
+            type={type}
+            disabled={disabled}
+            value={value}
+        />
+    );
+});
 
 Input.displayName = 'Input';
 
