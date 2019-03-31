@@ -21,16 +21,17 @@ class Dropdown extends PureComponent {
         };
 
         this.dropdown = createRef();
+        this.dropdownContent = createRef();
     }
 
     componentDidMount = () => {
         window.addEventListener('click', this.handleClickOutside);
-        window.addEventListener('keyup', this.handleEscPress, true);
+        this.dropdown.current.addEventListener('keyup', this.handleEscPress, true);
     };
 
     componentWillUnmount = () => {
         window.removeEventListener('click', this.handleClickOutside);
-        window.removeEventListener('keyup', this.handleEscPress, true);
+        this.dropdown.current.removeEventListener('keyup', this.handleEscPress, true);
     };
 
     handleChange = selection => {
@@ -45,10 +46,10 @@ class Dropdown extends PureComponent {
 
     handleClickOutside = ({ target }) => {
         // Collapse dropdown on click outside
-        if (!this.dropdown || !this.dropdown.current) {
+        if (!this.dropdownContent || !this.dropdownContent.current) {
             return false;
         }
-        if (this.dropdown.current.contains(target)) {
+        if (this.dropdownContent.current.contains(target)) {
             return false;
         }
         const { expanded } = this.state;
@@ -107,14 +108,24 @@ class Dropdown extends PureComponent {
             initiallyOpened,
             label,
             multiselect,
+            renderButton,
             selectedLabel,
             ...rest
         } = this.props;
 
         const { expanded, filterValue, selection } = this.state;
+        const buttonLabel = selectedLabel ? selectedLabel(selection) : label;
+        const dropdownButton = renderButton({
+            props: {
+                ...rest,
+                onClick: this.toggleDropdown
+            },
+            label: buttonLabel,
+            caret: <IconCaret {...this.elem('caret')} />
+        });
 
         return (
-            <div {...this.block()}>
+            <div {...this.block()} ref={this.dropdown}>
                 <DropdownProvider
                     value={{
                         filterValue,
@@ -124,12 +135,9 @@ class Dropdown extends PureComponent {
                         setFilter: this.handleSetFilter
                     }}
                 >
-                    <Button {...rest} onClick={this.toggleDropdown}>
-                        {selectedLabel ? selectedLabel(selection) : label}
-                        <IconCaret {...this.elem('caret')} />
-                    </Button>
+                    {dropdownButton}
                     {!!expanded && (
-                        <DropdownContent ref={this.dropdown} role="menu" aria-expanded shown>
+                        <DropdownContent ref={this.dropdownContent} role="menu" aria-expanded shown>
                             {children}
                         </DropdownContent>
                     )}
@@ -156,6 +164,8 @@ Dropdown.propTypes = {
     multiselect: PropTypes.bool,
     /** Callback function to be triggered when selecting items */
     onChange: PropTypes.func,
+    /** Custom dropdown trigger component */
+    renderButton: PropTypes.func,
     /** Returns the label to be shown in case of a selection */
     selectedLabel: PropTypes.func,
     /** Size for the dropdown trigger */
@@ -171,6 +181,12 @@ Dropdown.defaultProps = {
     isBlock: false,
     multiselect: false,
     onChange: () => {},
+    renderButton: ({ props, label, caret }) => (
+        <Button {...props}>
+            {label}
+            {caret}
+        </Button>
+    ),
     selectedLabel: null,
     size: 'normal',
     value: null
