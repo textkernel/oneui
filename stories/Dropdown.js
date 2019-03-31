@@ -183,4 +183,23 @@ storiesOf('Dropdown', module)
                 </DropdownConsumer>
             </Dropdown>
         );
+    })
+    .add('Custom button renderer', () => {
+        const CustomButton = ({ children, context, ...rest }) => (
+            <button {...rest}>{children}</button>
+        );
+
+        return (
+            <Dropdown
+                label={text('Label', 'Custom dropdown button')}
+                onChange={({ value, label }) => {
+                    console.log(`Selected value '${value}' (${label})`);
+                }}
+                renderButton={({ props, label }) => <CustomButton {...props}>{label}</CustomButton>}
+            >
+                <DropdownItem value="1">Item 1</DropdownItem>
+                <DropdownItem value="2">Item 2</DropdownItem>
+                <DropdownItem value="3">Item 3</DropdownItem>
+            </Dropdown>
+        );
     });
