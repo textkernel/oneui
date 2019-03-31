@@ -12,15 +12,15 @@ class Tabs extends PureComponent {
 
         this.state = {
             activeTabId,
-            derivedTabId: activeTabId // eslint-disable-line react/no-unused-state
+            derivedTabId: activeTabId
         };
     }
 
-    static getDerivedStateFromProps = (props, state) => {
-        if (props.activeTabId === state.derivedTabId) {
+    static getDerivedStateFromProps = (nextProps, prevState) => {
+        if (nextProps.activeTabId === prevState.derivedTabId) {
             return null;
         }
-        const { activeTabId } = props;
+        const { activeTabId } = nextProps;
         return {
             activeTabId,
             derivedTabId: activeTabId
