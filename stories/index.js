@@ -1,5 +1,6 @@
 import './Alert';
 import './Button';
+import './ButtonIcon';
 import './ButtonGroup';
 import './CandidateAvatar';
 import './Checkbox';

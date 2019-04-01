@@ -10,7 +10,8 @@ import {
     DropdownGroup,
     LoadingSpinner,
     RemoteInterface,
-    ScrollContainer
+    ScrollContainer,
+    ButtonIcon
 } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '../src/constants';
 
@@ -185,21 +186,44 @@ storiesOf('Dropdown', module)
         );
     })
     .add('Custom button renderer', () => {
-        const CustomButton = ({ children, context, ...rest }) => (
-            <button {...rest}>{children}</button>
-        );
+        const CustomButton = ({ children, ...rest }) => <button {...rest}>{children}</button>;
 
         return (
-            <Dropdown
-                label={text('Label', 'Custom dropdown button')}
-                onChange={({ value, label }) => {
-                    console.log(`Selected value '${value}' (${label})`);
-                }}
-                renderButton={({ props, label }) => <CustomButton {...props}>{label}</CustomButton>}
-            >
-                <DropdownItem value="1">Item 1</DropdownItem>
-                <DropdownItem value="2">Item 2</DropdownItem>
-                <DropdownItem value="3">Item 3</DropdownItem>
-            </Dropdown>
+            <div>
+                <Dropdown
+                    label={text('Label', 'Custom dropdown button')}
+                    onChange={({ value, label }) => {
+                        console.log(`Selected value '${value}' (${label})`);
+                    }}
+                    renderButton={({ props, label, expanded }) => (
+                        <CustomButton {...props}>
+                            {!expanded ? label : 'Click me again to collapse'}
+                        </CustomButton>
+                    )}
+                >
+                    <DropdownItem value="1">Item 1</DropdownItem>
+                    <DropdownItem value="2">Item 2</DropdownItem>
+                    <DropdownItem value="3">Item 3</DropdownItem>
+                </Dropdown>
+                <Dropdown
+                    context="brand"
+                    onChange={({ value, label }) => {
+                        console.log(`Selected value '${value}' (${label})`);
+                    }}
+                    renderButton={({ props, expanded }) => (
+                        <ButtonIcon {...props} isActive={expanded}>
+                            <i className="far fa-bookmark" />
+                        </ButtonIcon>
+                    )}
+                    multiselect
+                >
+                    <DropdownFilter placeholder="Search bookmark folder" autoFocus />
+                    <ScrollContainer minWidth={125} hideScrollX>
+                        <DropdownItem value="1">My bookmarked results</DropdownItem>
+                        <DropdownItem value="2">Other bookmarks</DropdownItem>
+                        <DropdownItem value="3">More bookmarks</DropdownItem>
+                    </ScrollContainer>
+                </Dropdown>
+            </div>
         );
     });

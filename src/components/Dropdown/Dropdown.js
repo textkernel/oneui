@@ -121,7 +121,8 @@ class Dropdown extends PureComponent {
                 onClick: this.toggleDropdown
             },
             label: buttonLabel,
-            caret: <IconCaret {...this.elem('caret')} />
+            caret: <IconCaret {...this.elem('caret')} />,
+            expanded
         });
 
         return (

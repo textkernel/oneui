@@ -1,0 +1,41 @@
+@import '../../themes/oneui/oneui.scss';
+
+.ButtonIcon {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--color-foreground);
+    line-height: 36px;
+    height: 36px;
+    width: 36px;
+    display: inline-flex;
+    font-size: var(--font-size-normal);
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-duration);
+
+    &:hover {
+        background-color: var(--color-neutral-10);
+    }
+
+    &--context {
+        @each $context in ($contexts) {
+            &_#{ $context } {
+                color: var(--color-#{$context});
+
+                &:hover {
+                    background-color: var(--color-#{$context});
+                    color: var(--color-background);
+                }
+
+                &:active,
+                &.ButtonIcon--isActive {
+                    background-color: var(--color-#{$context}-60);
+                    color: var(--color-background);
+                }
+            }
+        }
+    }
+}

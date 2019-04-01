@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ButtonIcon> that renders a button icon should render a default progress bar correctly 1`] = `
+<button
+  className="ButtonIcon ButtonIcon--context ButtonIcon--context_neutral"
+  context="neutral"
+  isActive={false}
+>
+  <i
+    className="far fa-bookmark"
+  />
+</button>
+`;
