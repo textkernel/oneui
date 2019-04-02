@@ -12,7 +12,7 @@ const { block, elem } = bem({
 });
 
 const defineRange = ({ currentPage, maxPages, totalPages }) => {
-    const start = Math.max(2, currentPage);
+    const start = Math.max(2, Math.min(currentPage - 2, totalPages - maxPages + 2));
     const end = Math.min(totalPages, start + maxPages - 2);
     const range = new Array(end - start + 1).fill().map((_, i) => start + i);
 
@@ -27,14 +27,16 @@ const Pagination = props => {
         totalPages,
         prevLabel,
         nextLabel,
+        lastLabel,
         onClick,
         ...rest
     } = props;
 
-    const isPrevDisabled = currentPage === 1;
-    const isNextDisabled = currentPage === totalPages;
+    const currentPageCapped = Math.max(1, Math.min(currentPage, totalPages));
+    const isPrevDisabled = currentPageCapped === 1;
+    const isNextDisabled = currentPageCapped === totalPages;
     const range = defineRange({
-        currentPage,
+        currentPage: currentPageCapped,
         maxPages,
         totalPages
     });
@@ -53,40 +55,60 @@ const Pagination = props => {
 
     return (
         <nav {...rest} {...block(props)} aria-label="pagination">
-            <Button
-                {...elem('button', props)}
+            {!!prevLabel && (
+                <Button
+                    {...elem('button', props)}
+                    onClick={handleClick}
+                    disabled={isPrevDisabled}
+                    context="link"
+                    data-page={currentPageCapped - 1}
+                    aria-disabled={isPrevDisabled}
+                >
+                    &lsaquo; {prevLabel}
+                </Button>
+            )}
+            <PaginationButton
                 onClick={handleClick}
-                disabled={isPrevDisabled}
-                context="link"
-                data-page={currentPage - 1}
-                aria-disabled={isPrevDisabled}
+                isActive={currentPageCapped === 1}
+                data-page={1}
             >
-                &laquo; {prevLabel}
-            </Button>
-            <PaginationButton onClick={handleClick} isActive={currentPage === 1} data-page={1}>
                 {1}
             </PaginationButton>
-            {currentPage > 1 && <div {...elem('gap', props)}>...</div>}
+            {range[0] > 2 && <div {...elem('gap', props)}>&hellip;</div>}
             {range.map(page => (
                 <PaginationButton
                     onClick={handleClick}
-                    isActive={page === currentPage}
+                    isActive={page === currentPageCapped}
                     data-page={page}
                     key={`page_${page}`}
                 >
                     {page}
                 </PaginationButton>
             ))}
-            <Button
-                {...elem('button', props)}
-                onClick={handleClick}
-                disabled={isNextDisabled}
-                context="link"
-                data-page={currentPage + 1}
-                aria-disabled={isNextDisabled}
-            >
-                {nextLabel} &raquo;
-            </Button>
+            {!!nextLabel && (
+                <Button
+                    {...elem('button', props)}
+                    onClick={handleClick}
+                    disabled={isNextDisabled}
+                    context="link"
+                    data-page={currentPageCapped + 1}
+                    aria-disabled={isNextDisabled}
+                >
+                    {nextLabel} &rsaquo;
+                </Button>
+            )}
+            {!!lastLabel && (
+                <Button
+                    {...elem('button', props)}
+                    onClick={handleClick}
+                    disabled={isNextDisabled}
+                    context="link"
+                    data-page={totalPages}
+                    aria-disabled={isNextDisabled}
+                >
+                    {lastLabel} &raquo;
+                </Button>
+            )}
         </nav>
     );
 };
@@ -102,10 +124,12 @@ Pagination.propTypes = {
     maxPages: PropTypes.number,
     /** Total number of available pages */
     totalPages: PropTypes.number.isRequired,
-    /** Alternative label for Previous button */
+    /** Label for 'Previous page' button (required for button to show) */
     prevLabel: PropTypes.string,
-    /** Alternative label for Next button */
+    /** Label for 'Next page' button (required for button to show) */
     nextLabel: PropTypes.string,
+    /** Label for 'Last page' button (required for button to show) */
+    lastLabel: PropTypes.string,
     /** Callback function on page / prev/ next click */
     onClick: PropTypes.func
 };
@@ -114,8 +138,9 @@ Pagination.defaultProps = {
     align: 'center',
     currentPage: 1,
     maxPages: 10,
-    prevLabel: 'Previous',
-    nextLabel: 'Next',
+    prevLabel: null,
+    nextLabel: null,
+    lastLabel: null,
     onClick: null
 };
 

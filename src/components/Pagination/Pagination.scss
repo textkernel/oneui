@@ -3,8 +3,9 @@
 
     &__gap {
         color: var(--color-neutral);
-        display: inline-block;
-        padding: 0 var(--spacing-2x);
+        display: inline-flex;
+        align-items: center;
+        padding: 0 var(--spacing-3x);
     }
     &--align_left {
         justify-content: flex-start;

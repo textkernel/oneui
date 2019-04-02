@@ -17,7 +17,7 @@ exports[`<Pagination> that renders a pagination component should render a defaul
     size="normal"
     type="button"
   >
-    « 
+    ‹ 
     Previous
   </Button>
   <PaginationButton
@@ -72,6 +72,21 @@ exports[`<Pagination> that renders a pagination component should render a defaul
     type="button"
   >
     Next
+     ›
+  </Button>
+  <Button
+    aria-disabled={false}
+    className="Pagination__button Pagination__button--align Pagination__button--align_center"
+    context="link"
+    data-page={20}
+    disabled={false}
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    size="normal"
+    type="button"
+  >
+    Last
      »
   </Button>
 </nav>

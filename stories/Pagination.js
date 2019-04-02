@@ -16,5 +16,6 @@ storiesOf('Pagination', module)
             }}
             prevLabel={text('Previous label', 'Previous')}
             nextLabel={text('Next label', 'Next')}
+            lastLabel={text('Last label', 'Last')}
         />
     ));

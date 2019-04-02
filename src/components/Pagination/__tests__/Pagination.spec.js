@@ -5,7 +5,16 @@ import Pagination from '../Pagination';
 describe('<Pagination> that renders a pagination component', () => {
     it('should render a default pagination', () => {
         const onClick = jest.fn();
-        const wrapper = shallow(<Pagination maxPages={5} totalPages={20} onClick={onClick} />);
+        const wrapper = shallow(
+            <Pagination
+                maxPages={5}
+                totalPages={20}
+                onClick={onClick}
+                prevLabel="Previous"
+                nextLabel="Next"
+                lastLabel="Last"
+            />
+        );
 
         expect(toJson(wrapper)).toMatchSnapshot();
 
