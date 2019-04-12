@@ -67,7 +67,7 @@ class OneUI {
 
     static applyTheme(themeURL) {
         return new Promise((resolve, reject) => {
-            if (themeURL === '') {
+            if (!themeURL) {
                 resolve();
                 return;
             }
