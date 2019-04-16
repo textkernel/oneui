@@ -28,7 +28,7 @@
     justify-content: flex-end;
 
     &__mask {
-        background-color: white;
+        background-color: var(--color-background);
         height: inherit;
         width: 0;
     }
