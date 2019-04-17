@@ -16,9 +16,8 @@
         name: shimmer;
         timing-function: linear;
     }
+    margin-bottom: var(--spacing-2x);
     line-height: inherit;
-    height: auto;
-    width: 100%;
     background: var(--color-neutral-25);
     background: linear-gradient(to right, var(--color-neutral-10) 5%, var(--color-neutral-25) 15%, var(--color-neutral-10) 30%);
     background-size: 200% 100%;
@@ -31,5 +30,9 @@
         background-color: var(--color-background);
         height: inherit;
         width: 0;
+    }
+    
+    &--withoutMargin {
+        margin-bottom: 0;
     }
 }

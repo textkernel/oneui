@@ -11,25 +11,22 @@ storiesOf('ContentPlaceholder', module)
 
         return (
             <div style={{ width: number('Container width in pixels', 400) }}>
-                <div style={{ margin: '6px 0', lineHeight: '12px' }}>
-                    <ContentPlaceholder
-                        duration={duration}
-                        height={height}
-                        width={number('Width for placeholder 1', null)}
-                    />
+                <div style={{ lineHeight: '12px' }}>
+                    <ContentPlaceholder duration={duration} height={height} />
                 </div>
-                <div style={{ margin: '6px 0', lineHeight: '14px' }}>
+                <div style={{ lineHeight: '14px' }}>
                     <ContentPlaceholder
                         duration={duration}
                         height={height}
                         width={number('Width for placeholder 2', 55)}
                     />
                 </div>
-                <div style={{ margin: '6px 0', lineHeight: '16px' }}>
+                <div style={{ lineHeight: '16px' }}>
                     <ContentPlaceholder
                         duration={duration}
                         height={height}
                         width={number('Width for placeholder 3', 65)}
+                        withoutMargin
                     />
                 </div>
             </div>
