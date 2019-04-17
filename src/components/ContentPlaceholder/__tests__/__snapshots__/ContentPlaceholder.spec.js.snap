@@ -9,7 +9,6 @@ exports[`<ContentPlaceholder> that renders a content placeholder should render d
       "height": null,
     }
   }
-  withoutMargin={false}
 >
    
   <div

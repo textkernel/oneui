@@ -16,7 +16,7 @@ const calcMaskWidth = width => ({
 });
 
 const ContentPlaceholder = props => {
-    const { duration, height, width, ...rest } = props;
+    const { duration, height, width, withoutMargin, ...rest } = props;
 
     return (
         <div
