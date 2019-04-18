@@ -11,7 +11,6 @@ exports[`<Button> that renders a button should add classes when props are change
 >
   <button
     className="Button Button--context Button--context_primary Button--size Button--size_large Button--isBlock"
-    context="primary"
     disabled={false}
     size="large"
     type="button"
@@ -34,7 +33,6 @@ exports[`<Button> that renders a button should render default button correctly 1
 >
   <button
     className="Button Button--context Button--context_neutral Button--size Button--size_normal"
-    context="neutral"
     disabled={false}
     size="normal"
     type="button"

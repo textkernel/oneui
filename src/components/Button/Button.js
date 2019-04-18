@@ -11,7 +11,7 @@ const { block } = bem({
 });
 
 const Button = props => {
-    const { children, disabled, isBlock, isInline, type, ...rest } = props;
+    const { children, context, disabled, isBlock, isInline, type, ...rest } = props;
 
     return (
         <button {...rest} {...block(props)} type={type} disabled={disabled}>
