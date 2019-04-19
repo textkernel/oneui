@@ -31,10 +31,11 @@ ListItem.displayName = 'ListItem';
 ListItem.propTypes = {
     /** List Items */
     children: PropTypes.node,
-    /** Formats this item as selected  */
-    isSelected: PropTypes.bool,
     /** A function to be called if the item is clicked */
     onClick: PropTypes.func,
+    /** Formats this item as selected  */
+    isSelected: PropTypes.bool,
+    /** Format this item as disabled */
     disabled: PropTypes.bool
 };
 
