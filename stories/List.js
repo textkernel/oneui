@@ -25,6 +25,9 @@ storiesOf('List', module)
             <ListItem isSelected={boolean('Select item', true)}>
                 <Text inline>Item selectable via props</Text>
             </ListItem>
+            <ListItem disabled={boolean('Disable item', true)}>
+                <Text inline>Disabled item</Text>
+            </ListItem>
             <ListItem
                 onClick={e => {
                     e.preventDefault();

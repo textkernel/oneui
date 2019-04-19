@@ -18,4 +18,8 @@
     &--clickable {
         cursor: pointer;
     }
+
+    &--disabled:hover {
+        background-color: var(--color-background);
+    }
 }
