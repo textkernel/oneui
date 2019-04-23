@@ -6,59 +6,115 @@
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/textkernel/oneui.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/textkernel/oneui/context:javascript)
 ![](https://img.shields.io/david/textkernel/oneui.svg?style=flat)
 
-React OneUI UI library with theme support
+> Library of reusable React components with theming support
 
-## Integrating OneUI in your Application
-### Installing
+# Getting started
 
-```npm i ...```
-### Boilerplate
-In your application's `<head>` import the OneUI stylesheet followed by the stylesheet of the theme you want to apply (if different from default)
-```
-<link data-oneui-level="oneui" rel="stylesheet" href="./oneui.min.css">
-<link data-oneui-level="theme" rel="stylesheet" href="./theme-custom.css">
-```
-Make sure all other dependencies, such as fonts are also loaded. See details in the [example app](example/public/index.html)
+For live examples of all OneUI components, [click here](https://textkernel.github.io/oneui/).
 
-#### IE 11 support
-OneUI themes use css variables. To support IE11 and other browsers that don't support css variables you need add a [polyfill: css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill). 
+## Install with npm
 
-Best to ensure that only the polyfills you need in the `<head>` of your application are inserted, based on the current environment. E.g. should not add IE11 polifills in Chrome. To achive this, add:
-```
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
-```
-For details see: [Polyfill.io](https://polyfill.io/v2/docs/)
+Within your project’s frontend root, install the package from NPM. Make sure it’s marked as production dependency.
 
-You can load the polyfill via the html `<head>` as in the example app: 
-```
-<script src="https://unpkg.com/css-vars-ponyfill@1"></script>
-<script type="text/javascript" src="/css-vars-config.js"></script>
+```bash
+$ npm i '@textkernel/oneui'
 ```
 
-or via npm and load the config programmatically. See details in the [package documentation page](https://www.npmjs.com/package/css-vars-ponyfill).
+## Set up boilerplate
 
-See [cofig file](example/public/css-vars-config) in example app.
+### Import OneUI base stylesheet
 
-## Usage
-In your React app you can import any of the available components
+In your application main Javascript, make sure to import the OneUI base stylesheet. The base stylesheet includes the default OneUI theme.
+
+```javascript
+import '@textkernel/oneui/dist/oneui.min.css';
 ```
-import { Button } from '@textkernel/oneui';
-(...)
-<Button>Click me</Button>
+
+### Custom themes and browser support
+
+To enable support for older browsers that don’t support CSS variables natively and to apply custom a theme, OneUI comes with a utility that takes on all of these responsibilities. See [Theming](#theming) for more on custom themes.
+
+To apply a specific theme on top of the library components, the OneUI utility can be used to parse the provided theme file:
+
+```javascript
+import OneUI from '@textkernel/oneui';
+
+OneUI.init({
+    themeURL: 'http://theme-cdn.com/my-theme.css'
+}).then(() => ReactDOM.render(
+    <MyApp />,
+    document.getElementById('root')
+));
 ```
-_Note_: in all components all "other properties" (that are not documented in that component) are applied to the rendered HTML.
 
-## Creating themes
-A theme for OneUI is a simple css file that overrides css variables.
+The utility can take three optional arguments:
 
-## Documentation
-For available components and their usage see storybook (`npm run storybook`)
+* `themeURL`: URL that provides the file containing the CSS variables that will be used instead of the default ones.
+* `maxTime`:  The maximum amount of time in milliseconds that the loader will wait to parse the external theme, otherwise it will fallback to the default library theme. By default, the timeout is set to 2000 milliseconds.
+* `ponyfillOptions`: Allow the developer to override the default [css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill ) configuration.
 
-## Contributing
 
-* If yor IDE doesn't support [editor config](https://editorconfig.org/), please install a plugin for your IDE (e.g. [plugin for VS Code](https://github.com/editorconfig/editorconfig-vscode)).
+#### IE11 support
+
+OneUI relies on browser support for CSS variables. Support for older browsers such as IE11 can be enabled by using a polyfill. Using the previously mentioned utility will take care of it automatically.
+
+## Using components
+
+1. Import the desired UI component(s) from the library, e.g.:
+```javascript
+import { Alert } from '@textkernel/oneui';
+```
+2. Include the component on your page:
+```jsx
+<Alert context="info" title="Hey there!">
+    This is some information for you
+</Alert>
+```
+
+### Undocumented props
+
+Please note that any properties that are not documented in the component prop types definition are applied to the top level HTML element unless mentioned otherwise. These undocumented props are also not described in Storybook.
+
+# Examples & Testing
+
+## Storybook
+
+OneUI comes with a Storybook of examples for all components. [Click here](https://textkernel.github.io/oneui/) to check it out.
+
+In order to run it yourself locally...
+
+1. Make sure you have Storybook installed (globally):
+```bash
+$ npm i -g @storybook/cli
+```
+2. Within the OneUI root, run `npm run storybook`
+3. Go to http://localhost:9001 to check out examples of all OneUI components
+
+## Example of implementation
+
+An implementation example can be found in the example directory, along with instructions on how to run it.
+
+## Testing
+
+* Run tests: `npm test`
+* Coverage report: `npm run test:coverage`
+
+# Theming
+
+All CSS variables (‘[custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)’) exposed by OneUI can be customized, except for color shades (e.g. `--color-primary-25`) which are computed when generating new themes. A theme file is an additional stylesheet that consists of a reassignment of all variables with values that are different from their defaults. Theme files should not contain any CSS selectors or properties - only CSS variables and values, e.g.:
+
+```css
+--color-primary: red;
+--color-brand: blue;
+--font-size-base: 12px;
+```
+
+# Contributing
+
+* Did you find a bug or do you have a feature proposal? Please open a new issue.
+* If your IDE does not support [EditorConfig](https://editorconfig.org/), please install a plugin (e.g. for VS Code).
 * Please make sure to read the [developer guidelines](CONTRIBUTING.md) before contributing.
 
-## Development
+# Copyright
 
-See `package.json -> scripts` section for available tasks.
+Code and documentation © 2019 Textkernel B.V.
