@@ -7,7 +7,7 @@ describe('List component', () => {
     let consoleError;
 
     beforeEach(() => {
-        consoleError = jest.spyOn(console, 'error');
+        consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
     });
 
     afterEach(() => {
