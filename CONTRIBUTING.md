@@ -36,7 +36,7 @@ Make sure to consider which props are required. Those that are not required shou
 #### Use of Props and `...rest`
 Props that are very specific to a component should be explicitly destructed and applied accordingly. Any remaining props should be applied to the top-level DOM element using `...rest` syntax, before all attributes that should not be overridden. Considering the following example of a component that renders a simple checkbox:
 
-```
+```javascript
 const { disabled, ...rest } = props;
 
 return (
@@ -49,7 +49,7 @@ Using the `...rest` syntax we allow any (undocumented) prop to be applied to the
 #### Prop Descriptions
 Every prop in propTypes should come with a short description of its purpose. This description will automatically show up in Storybook. Descriptions are to be written in jsdoc format, above each prop type definition. For example:
 
-```
+```javascript
 Button.propTypes = {
     /** The type of this button */
     Type: PropTypes.oneOf([‘submit’, ‘button’])
