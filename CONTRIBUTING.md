@@ -81,3 +81,6 @@ Each implementation should be thoroughly covered with tests. DOM structure can i
 2. Start with simple component rendering tests, possibly using a snapshot
 3. Test additional interactivity / behaviour with explicit assertions
 4. Strive for 100% code coverage
+
+## Releasing
+The procedure for making a new release is [described here](RELEASING.md).
