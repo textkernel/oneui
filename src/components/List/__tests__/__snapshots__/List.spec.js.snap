@@ -9,6 +9,7 @@ exports[`List component should render List correctly 1`] = `
   >
     <ListItem
       className="List__item"
+      disabled={false}
       isSelected={false}
       key=".0"
       onClick={null}
@@ -38,6 +39,7 @@ exports[`List component should render List correctly 1`] = `
     </ListItem>
     <ListItem
       className="List__item"
+      disabled={false}
       isSelected={false}
       key=".1"
       onClick={null}

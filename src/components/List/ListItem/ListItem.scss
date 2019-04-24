@@ -7,7 +7,7 @@
         padding: var(--spacing-3x);
     }
 
-    &:hover {
+    &:hover:not(.ListItem--disabled) {
         background-color: var(--color-hover-background);
     }
 
