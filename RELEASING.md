@@ -1,9 +1,7 @@
 # Releasing a new version of OneUI
-
 When making a new release, please follow the procedure described below.
 
 ## Version Numbering
-
 OneUI follows [semver](https://semver.org) specifications for version numbering. The rule of thumb in short:
 
 > Given a version number MAJOR.MINOR.PATCH, increment the:
@@ -15,7 +13,6 @@ OneUI follows [semver](https://semver.org) specifications for version numbering.
 Version numbers should not be prefixed (e.g. 1.2.3, **not** v1.2.3).
 
 ## Release Procedure
-
 1. Make sure the local `master` branch is checked out and up to date. It should contain all the latest commits that should be included with the release.
 2. Determine the new version number on the basis of [semver specifications](https://semver.org).
 3. Update the version number in metadata files (package[-lock].json), replacing `x.x.x` with actual version number:
@@ -38,3 +35,6 @@ Version numbers should not be prefixed (e.g. 1.2.3, **not** v1.2.3).
 ```bash
 (master) $ npm publish --access=public
 ```
+
+## Storybook
+A new version of Storybook will be deployed automatically when pushing new tags.
