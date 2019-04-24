@@ -41,8 +41,8 @@ ListItem.propTypes = {
 
 ListItem.defaultProps = {
     children: null,
-    isSelected: false,
     onClick: null,
+    isSelected: false,
     disabled: false
 };
 
