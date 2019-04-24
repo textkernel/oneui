@@ -7,7 +7,7 @@
         padding: var(--spacing-3x);
     }
 
-    &:hover {
+    &:hover:not(.ListItem--disabled) {
         background-color: var(--color-hover-background);
     }
 
@@ -17,9 +17,5 @@
 
     &--clickable {
         cursor: pointer;
-    }
-
-    &--disabled:hover {
-        background-color: var(--color-background);
     }
 }
