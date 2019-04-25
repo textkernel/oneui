@@ -8,6 +8,9 @@ storiesOf('LoadingSpinner', module)
     .addDecorator(withKnobs)
     .add('LoadingSpinner', () => (
         <LoadingSpinner
+            context={select('Context', CONTEXTS, CONTEXTS[1])}
+            hidden={boolean('Hidden', false)}
+            size={number('Size', null)}
             centerIn={select(
                 'Center in...',
                 {
@@ -17,9 +20,6 @@ storiesOf('LoadingSpinner', module)
                 },
                 null
             )}
-            context={select('Context', CONTEXTS, CONTEXTS[1])}
-            hidden={boolean('Hidden', false)}
-            size={number('Size', null)}
         >
             {text('Label', 'Loading...')}
         </LoadingSpinner>
