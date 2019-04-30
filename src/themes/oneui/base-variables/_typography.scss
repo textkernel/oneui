@@ -1,64 +1,66 @@
 // fonts sizes
 $font-size-base: 14px !default;
-$font-size-small: .8 * $font-size-base !default;
+$font-size-small: 0.8 * $font-size-base !default;
 $font-size-normal: 1 * $font-size-base !default;
 $font-size-large: 1.2 * $font-size-base !default;
 
-$line-height-small:     1.4 * $font-size-small !default;
-$line-height-normal:    1.4 * $font-size-normal !default;
-$line-height-large:     1.4 * $font-size-large !default;
+$line-height-small: 1.4 * $font-size-small !default;
+$line-height-normal: 1.4 * $font-size-normal !default;
+$line-height-large: 1.4 * $font-size-large !default;
 
-$h1-font-size: 1.8 * $font-size-base !default;
-$h2-font-size: 1.6 * $font-size-base !default;
-$h3-font-size: 1.4 * $font-size-base !default;
-$h4-font-size: 1.2 * $font-size-base !default;
-$h5-font-size: 1.0 * $font-size-base !default;
-$h6-font-size: 0.8 * $font-size-base !default;
+$h1-font-size: 4 + $font-size-base !default;
+$h2-font-size: 2 + $font-size-base !default;
+$h3-font-size: $font-size-base !default;
+$h4-font-size: $font-size-base - 2 !default;
+$h5-font-size: $font-size-base - 4 !default;
+$h6-font-size: $font-size-base - 6 !default;
 
 // font family
-$font-family-primary:   'Open Sans', sans-serif !default;
+$font-family-primary: 'Open Sans', sans-serif !default;
 $font-family-secondary: 'Titillium Web', sans-serif !default;
 
 // font weight
-$font-weight-light:     200 !default;
-$font-weight-normal:    400 !default;
-$font-weight-bold:      600 !default;
+$font-weight-light: 200 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 600 !default;
 
 // decoration
-$link-decoration-normal:    none !default;
-$link-decoration-hover:     underline !default;
+$link-decoration-normal: none !default;
+$link-decoration-hover: underline !default;
 
 // other
-$heading-font-family:   $font-family-secondary !default;
-$heading-font-weight:   $font-weight-bold !default;
+$heading-font-family: $font-family-primary !default;
+$heading-font-weight: $font-weight-bold !default;
+$heading-margin: 0 !default;
 
 :root {
-    --font-size-base:   #{ $font-size-base };
-    --font-size-small:  #{ $font-size-small };
-    --font-size-normal: #{ $font-size-normal };
-    --font-size-large:  #{ $font-size-large };
+    --font-size-base: #{$font-size-base};
+    --font-size-small: #{$font-size-small};
+    --font-size-normal: #{$font-size-normal};
+    --font-size-large: #{$font-size-large};
 
-    --line-height-small:    #{ $line-height-small };
-    --line-height-normal:   #{ $line-height-normal };
-    --line-height-large:    #{ $line-height-large };
+    --line-height-small: #{$line-height-small};
+    --line-height-normal: #{$line-height-normal};
+    --line-height-large: #{$line-height-large};
 
-    --h1-font-size:     #{ $h1-font-size };
-    --h2-font-size:     #{ $h2-font-size };
-    --h3-font-size:     #{ $h3-font-size };
-    --h4-font-size:     #{ $h4-font-size };
-    --h5-font-size:     #{ $h5-font-size };
-    --h6-font-size:     #{ $h6-font-size };
+    --h1-font-size: #{$h1-font-size};
+    --h2-font-size: #{$h2-font-size};
+    --h3-font-size: #{$h3-font-size};
+    --h4-font-size: #{$h4-font-size};
+    --h5-font-size: #{$h5-font-size};
+    --h6-font-size: #{$h6-font-size};
 
-    --font-family-primary:      #{ $font-family-primary };
-    --font-family-secondary:    #{ $font-family-secondary };
+    --font-family-primary: #{$font-family-primary};
+    --font-family-secondary: #{$font-family-secondary};
 
-    --font-weight-light:    #{ $font-weight-light };
-    --font-weight-normal:   #{ $font-weight-normal };
-    --font-weight-bold:     #{ $font-weight-bold };
+    --font-weight-light: #{$font-weight-light};
+    --font-weight-normal: #{$font-weight-normal};
+    --font-weight-bold: #{$font-weight-bold};
 
-    --link-decoration-normal:   #{ $link-decoration-normal };
-    --link-decoration-hover:    #{ $link-decoration-hover };
+    --link-decoration-normal: #{$link-decoration-normal};
+    --link-decoration-hover: #{$link-decoration-hover};
 
-    --heading-font-family:      #{ $heading-font-family };
-    --heading-font-weight:      #{ $heading-font-weight };
+    --heading-font-family: #{$heading-font-family};
+    --heading-font-weight: #{$heading-font-weight};
+    --heading-margin: #{$heading-margin};
 }
