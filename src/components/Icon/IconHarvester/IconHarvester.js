@@ -24,7 +24,7 @@ IconHarvester.propTypes = {
 };
 
 IconHarvester.defaultProps = {
-    context: CONTEXTS[1],
+    context: null,
     margin: null,
     size: null,
     title: null

@@ -24,7 +24,7 @@ IconTextkernel.propTypes = {
 };
 
 IconTextkernel.defaultProps = {
-    context: CONTEXTS[1],
+    context: null,
     margin: null,
     size: null,
     title: null

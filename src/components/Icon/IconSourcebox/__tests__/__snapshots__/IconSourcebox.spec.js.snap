@@ -2,7 +2,7 @@
 
 exports[`<IconSourcebox> should render an Sourcebox icon 1`] = `
 <IconBase
-  context="brand"
+  context={null}
   margin={null}
   size={null}
   title={null}

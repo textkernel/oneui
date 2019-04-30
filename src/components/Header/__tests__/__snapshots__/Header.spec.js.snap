@@ -7,7 +7,7 @@ exports[`Header component that renders a website header with a logo on the left 
       href="/test"
     >
       <IconTextkernel
-        context="brand"
+        context={null}
         margin={null}
         size={null}
         title={null}
@@ -26,25 +26,25 @@ exports[`Header component that renders a website header with a logo on the left 
         href="/test"
       >
         <IconTextkernel
-          context="brand"
+          context={null}
           margin={null}
           size={null}
           title={null}
         >
           <IconBase
-            context="brand"
+            context={null}
             margin={null}
             size={null}
             title={null}
             viewBox="0 0 369.7 800"
           >
             <div
-              className="IconBase IconBase--context IconBase--context_brand"
+              className="IconBase"
               margin={null}
             >
               <svg
                 aria-labelledby={null}
-                className="IconBase__svg IconBase__svg--context IconBase__svg--context_brand"
+                className="IconBase__svg"
                 role="img"
                 style={null}
                 viewBox="0 0 369.7 800"

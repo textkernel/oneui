@@ -3,6 +3,7 @@
 .IconBase {
     display: inline-flex;
     align-self: center;
+    fill: currentColor;
 
     &__svg {
         position: relative;

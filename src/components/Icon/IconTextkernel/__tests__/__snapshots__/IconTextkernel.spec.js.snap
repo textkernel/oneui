@@ -2,7 +2,7 @@
 
 exports[`<IconTextkernel> should render an Textkernel icon 1`] = `
 <IconBase
-  context="brand"
+  context={null}
   margin={null}
   size={null}
   title={null}
