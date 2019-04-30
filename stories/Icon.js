@@ -13,7 +13,8 @@ import {
 } from '@textkernel/oneui';
 import { CONTEXTS, HEADING_SIZES } from '../src/constants';
 
-const CONTEXT_DEFAULT = CONTEXTS[1];
+const STORY_CONTEXTS = [...CONTEXTS, null];
+const CONTEXT_DEFAULT = null;
 const SIZE_DEFAULT = 48;
 
 storiesOf('Icons', module)
@@ -26,49 +27,49 @@ storiesOf('Icons', module)
     ))
     .add('Extract! icon', () => (
         <IconExtract
-            context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
+            context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
             title={text('Title', 'Extract!')}
         />
     ))
     .add('Harvester icon', () => (
         <IconHarvester
-            context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
+            context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
             title={text('Title', 'Harvester')}
         />
     ))
     .add('Jobfeed icon', () => (
         <IconJobfeed
-            context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
+            context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
             title={text('Title', 'Jobfeed')}
         />
     ))
     .add('Match! icon', () => (
         <IconMatch
-            context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
+            context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
             title={text('Title', 'Match!')}
         />
     ))
     .add('Search! icon', () => (
         <IconSearch
-            context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
+            context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
             title={text('Title', 'Search!')}
         />
     ))
     .add('Sourcebox icon', () => (
         <IconSourcebox
-            context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
+            context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
             title={text('Title', 'Sourcebox')}
         />
     ))
     .add('Textkernel icon', () => (
         <IconTextkernel
-            context={select('Context', CONTEXTS, CONTEXT_DEFAULT)}
+            context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
             title={text('Title', 'Textkernel')}
         />

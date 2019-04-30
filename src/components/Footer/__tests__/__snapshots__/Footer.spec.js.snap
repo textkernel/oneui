@@ -14,26 +14,26 @@ exports[`Footer component that renders a copyright text on the left and optional
         © 2019 
         <IconTextkernel
           className="Footer__logo"
-          context="brand"
+          context={null}
           margin={null}
           size={null}
           title={null}
         >
           <IconBase
             className="Footer__logo"
-            context="brand"
+            context={null}
             margin={null}
             size={null}
             title={null}
             viewBox="0 0 369.7 800"
           >
             <div
-              className="IconBase IconBase--context IconBase--context_brand Footer__logo"
+              className="IconBase Footer__logo"
               margin={null}
             >
               <svg
                 aria-labelledby={null}
-                className="IconBase__svg IconBase__svg--context IconBase__svg--context_brand"
+                className="IconBase__svg"
                 role="img"
                 style={null}
                 viewBox="0 0 369.7 800"
