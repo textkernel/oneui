@@ -6,6 +6,7 @@ describe('<Button> that renders a button', () => {
     it('should render default button correctly', () => {
         const wrapper = mount(<Button>Click me</Button>);
         expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('button')).toHaveLength(1);
     });
     it('should add classes when props are changed', () => {
         const wrapper = mount(
@@ -34,5 +35,11 @@ describe('<Button> that renders a button', () => {
         const buttonWrapper = wrapper.find('button');
         buttonWrapper.simulate('mouseover');
         expect(onMouseOverMock).toHaveBeenCalled();
+    });
+    it('should render an ancor element if href is defined', () => {
+        const wrapper = mount(<Button href="/">Click me</Button>);
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('button')).toHaveLength(0);
+        expect(wrapper.find('a')).toHaveLength(1);
     });
 });

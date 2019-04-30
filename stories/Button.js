@@ -9,7 +9,7 @@ storiesOf('Button', module)
     .add('Button', () => (
         <Button
             context={select('Context', ['link', ...CONTEXTS], CONTEXTS[0])}
-            size={select('Size', SIZES, SIZES[1])}
+            size={select('Size', SIZES, SIZES[0])}
             isBlock={boolean('isBlock', false)}
             isInline={boolean('isInline', false)}
             type={select('Type', ['submit', 'button'], 'submit')}
@@ -17,6 +17,7 @@ storiesOf('Button', module)
             onClick={e => {
                 console.log('Clicked button', e);
             }}
+            href={text('Href to be rendere for links', '')}
         >
             {text('Button label', 'Click me!')}
         </Button>
