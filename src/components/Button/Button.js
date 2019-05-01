@@ -11,7 +11,15 @@ const { block } = bem({
 });
 
 const Button = props => {
-    const { children, context, disabled, isBlock, isInline, type, ...rest } = props;
+    const { children, context, disabled, isBlock, isInline, type, href, ...rest } = props;
+
+    if (href) {
+        return (
+            <a {...rest} {...block(props)} href={href}>
+                {children}
+            </a>
+        );
+    }
 
     return (
         <button {...rest} {...block(props)} type={type} disabled={disabled}>
@@ -38,7 +46,9 @@ Button.propTypes = {
     /** Should button be disabled or not */
     disabled: PropTypes.bool,
     /** Type of the button */
-    type: PropTypes.oneOf(['submit', 'button'])
+    type: PropTypes.oneOf(['submit', 'button']),
+    /** Providing an href will render an <a> element, styled as a button. */
+    href: PropTypes.string
 };
 
 Button.defaultProps = {
@@ -47,7 +57,8 @@ Button.defaultProps = {
     isBlock: false,
     isInline: false,
     disabled: false,
-    type: 'button'
+    type: 'button',
+    href: null
 };
 
 export default Button;

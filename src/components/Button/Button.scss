@@ -1,6 +1,7 @@
 @import '../../themes/oneui/oneui.scss';
 
 .Button {
+    display: inline-block;
     border: {
         radius: var(--border-radius);
         width: var(--line-normal);
@@ -13,6 +14,7 @@
         weight: var(--font-weight-bold);
         family: var(--font-family-primary);
     }
+    text-decoration: none;
     line-height: var(--line-height-normal);
     outline: none;
     padding: var(--spacing-2x) var(--spacing-4x);

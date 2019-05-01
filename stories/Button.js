@@ -17,6 +17,7 @@ storiesOf('Button', module)
             onClick={e => {
                 console.log('Clicked button', e);
             }}
+            href={text('Href (will render an anchor)', '')}
         >
             {text('Button label', 'Click me!')}
         </Button>

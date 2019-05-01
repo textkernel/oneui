@@ -12,6 +12,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       className="ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_large ButtonGroup__button--isBlock"
       context="neutral"
       disabled={false}
+      href={null}
       isBlock={false}
       isInline={false}
       key=".0"
@@ -31,6 +32,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       className="ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_large ButtonGroup__button--isBlock"
       context="neutral"
       disabled={false}
+      href={null}
       isBlock={false}
       isInline={false}
       key=".1"
@@ -62,6 +64,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       className="ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_normal"
       context="neutral"
       disabled={false}
+      href={null}
       isBlock={false}
       isInline={false}
       key=".0"
@@ -81,6 +84,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       className="ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_normal"
       context="neutral"
       disabled={false}
+      href={null}
       isBlock={false}
       isInline={false}
       key=".1"
