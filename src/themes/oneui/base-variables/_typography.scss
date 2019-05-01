@@ -8,16 +8,16 @@ $line-height-small: 1.4 * $font-size-small !default;
 $line-height-normal: 1.4 * $font-size-normal !default;
 $line-height-large: 1.4 * $font-size-large !default;
 
-$h1-font-size: 4 + $font-size-base !default;
-$h2-font-size: 2 + $font-size-base !default;
-$h3-font-size: $font-size-base !default;
-$h4-font-size: $font-size-base - 2 !default;
-$h5-font-size: $font-size-base - 4 !default;
-$h6-font-size: $font-size-base - 6 !default;
+$h1-font-size: 18px !default;
+$h2-font-size: 16px !default;
+$h3-font-size: 14px !default;
+$h4-font-size: 12px - 2 !default;
+$h5-font-size: 10px - 4 !default;
+$h6-font-size: 10px - 6 !default;
 
 // font family
 $font-family-primary: 'Open Sans', sans-serif !default;
-$font-family-secondary: 'Titillium Web', sans-serif !default;
+$font-family-secondary: 'Open Sans', sans-serif !default;
 
 // font weight
 $font-weight-light: 200 !default;
@@ -29,9 +29,8 @@ $link-decoration-normal: none !default;
 $link-decoration-hover: underline !default;
 
 // other
-$heading-font-family: $font-family-primary !default;
+$heading-font-family: $font-family-secondary !default;
 $heading-font-weight: $font-weight-bold !default;
-$heading-margin: 0 !default;
 
 :root {
     --font-size-base: #{$font-size-base};
@@ -62,5 +61,4 @@ $heading-margin: 0 !default;
 
     --heading-font-family: #{$heading-font-family};
     --heading-font-weight: #{$heading-font-weight};
-    --heading-margin: #{$heading-margin};
 }
