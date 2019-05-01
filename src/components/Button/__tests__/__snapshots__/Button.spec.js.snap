@@ -35,7 +35,7 @@ exports[`<Button> that renders a button should render an ancor element if href i
 >
   <a
     className="Button Button--context Button--context_neutral Button--size Button--size_normal"
-    hfer="/"
+    href="/"
     size="normal"
   >
     Click me

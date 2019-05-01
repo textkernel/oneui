@@ -13,11 +13,15 @@ const { block } = bem({
 const Button = props => {
     const { children, context, disabled, isBlock, isInline, type, href, ...rest } = props;
 
-    return href ? (
-        <a {...rest} {...block(props)} hfer={href}>
-            {children}
-        </a>
-    ) : (
+    if (href) {
+        return (
+            <a {...rest} {...block(props)} href={href}>
+                {children}
+            </a>
+        );
+    }
+
+    return (
         <button {...rest} {...block(props)} type={type} disabled={disabled}>
             {children}
         </button>
