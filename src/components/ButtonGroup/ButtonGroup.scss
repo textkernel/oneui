@@ -22,6 +22,10 @@
         width: 100%;
     }
 
+    &--isInline {
+        display: inline-flex;
+    }
+
     &__button--isBlock {
         flex-grow: 1;
     }
