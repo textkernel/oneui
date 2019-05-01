@@ -7,7 +7,11 @@ import { SIZES } from '@textkernel/oneui/constants';
 storiesOf('ButtonGroup', module)
     .addDecorator(withKnobs)
     .add('ButtonGroup', () => (
-        <ButtonGroup isBlock={boolean('isBlock', false)} size={select('Size', SIZES, SIZES[1])}>
+        <ButtonGroup
+            isBlock={boolean('isBlock', false)}
+            isInline={boolean('isInline', false)}
+            size={select('Size', SIZES, SIZES[1])}
+        >
             <Button context="neutral">Some</Button>
             <Button context="neutral">Button</Button>
             <Button context="neutral">Group</Button>
