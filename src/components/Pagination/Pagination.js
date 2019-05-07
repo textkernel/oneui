@@ -45,12 +45,13 @@ const Pagination = props => {
         const {
             dataset: { page = null }
         } = e.target;
+        const pageNum = +page;
 
-        if (!onClick || !page || page > totalPages) {
+        if (!onClick || !pageNum || pageNum === currentPage) {
             return false;
         }
 
-        return onClick(e, page);
+        return onClick(e, pageNum);
     };
 
     return (

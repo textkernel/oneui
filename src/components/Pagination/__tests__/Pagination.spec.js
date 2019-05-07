@@ -33,63 +33,80 @@ describe('<Pagination> that renders a pagination component', () => {
     it('should render correctly with all props', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-    it('should call onClick with correct paramas', () => {
-        const e = {
-            target: {
-                dataset: {
-                    page: 3
+    describe('click behaviour', () => {
+        it('should call onClick with correct paramas when a page button is clicked', () => {
+            const e = {
+                target: {
+                    dataset: {
+                        page: 3
+                    }
                 }
-            }
-        };
+            };
 
-        wrapper.find('[data-page=3]').simulate('click', e);
+            wrapper.find('[data-page=3]').simulate('click', e);
 
-        expect(onClick).toHaveBeenCalledWith(e, 3);
-    });
-    it('should set data property on First button correctly', () => {
-        expect(
-            wrapper
-                .find('Button')
-                .at(0)
-                .prop('data-page')
-        ).toBe(1);
-    });
-    it('should set data property on Prev button correctly', () => {
-        expect(
-            wrapper
-                .find('Button')
-                .at(1)
-                .prop('data-page')
-        ).toBe(CURRENT_PAGE - 1);
-    });
-    it('should set data property on Next button correctly', () => {
-        expect(
-            wrapper
-                .find('Button')
-                .at(2)
-                .prop('data-page')
-        ).toBe(CURRENT_PAGE + 1);
-    });
-    it('should set data property on Last button correctly', () => {
-        expect(
-            wrapper
-                .find('Button')
-                .at(3)
-                .prop('data-page')
-        ).toBe(20);
-    });
-    it('should set data property on "page 1" button correctly', () => {
-        expect(
-            wrapper
-                .find('PaginationButton')
-                .at(0)
-                .prop('data-page')
-        ).toBe(1);
-    });
-    it('should set data property on a page button correctly', () => {
-        const pageButton = wrapper.find('PaginationButton').at(2);
+            expect(onClick).toHaveBeenCalledWith(e, 3);
+        });
+        it('should not call onClick when current page button is clicked', () => {
+            const e = {
+                target: {
+                    dataset: {
+                        page: CURRENT_PAGE
+                    }
+                }
+            };
 
-        expect(pageButton.prop('children')).toBe(4);
-        expect(pageButton.prop('data-page')).toBe(4);
+            wrapper.find(`[data-page=${CURRENT_PAGE}]`).simulate('click', e);
+
+            expect(onClick).not.toHaveBeenCalled();
+        });
+    });
+    describe('data-page property of buttons', () => {
+        it('should be set correctly on First', () => {
+            expect(
+                wrapper
+                    .find('Button')
+                    .at(0)
+                    .prop('data-page')
+            ).toBe(1);
+        });
+        it('should be set correctly on Prev button', () => {
+            expect(
+                wrapper
+                    .find('Button')
+                    .at(1)
+                    .prop('data-page')
+            ).toBe(CURRENT_PAGE - 1);
+        });
+        it('should be set correctly on Next button', () => {
+            expect(
+                wrapper
+                    .find('Button')
+                    .at(2)
+                    .prop('data-page')
+            ).toBe(CURRENT_PAGE + 1);
+        });
+        it('should be set correctly on Last button', () => {
+            expect(
+                wrapper
+                    .find('Button')
+                    .at(3)
+                    .prop('data-page')
+            ).toBe(20);
+        });
+        it('should be set correctly on "page 1" button', () => {
+            expect(
+                wrapper
+                    .find('PaginationButton')
+                    .at(0)
+                    .prop('data-page')
+            ).toBe(1);
+        });
+        it('should be set correctly on a page button', () => {
+            const pageButton = wrapper.find('PaginationButton').at(2);
+
+            expect(pageButton.prop('children')).toBe(4);
+            expect(pageButton.prop('data-page')).toBe(4);
+        });
     });
 });
