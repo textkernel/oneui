@@ -1,28 +1,151 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Pagination> that renders a pagination component should render a default pagination 1`] = `
+exports[`<Pagination> that renders a pagination component should render correctly with all props 1`] = `
 <nav
   aria-label="pagination"
   className="Pagination Pagination--align Pagination--align_center"
 >
   <Button
-    aria-disabled={true}
+    aria-disabled={false}
     className="Pagination__button Pagination__button--align Pagination__button--align_center"
     context="link"
-    data-page={0}
-    disabled={true}
+    data-page={1}
+    disabled={false}
+    href={null}
     isBlock={false}
     isInline={false}
     onClick={[Function]}
     size="normal"
     type="button"
   >
-    ‹ 
-    Previous
+    « First
+  </Button>
+  <Button
+    aria-disabled={false}
+    className="Pagination__button Pagination__button--align Pagination__button--align_center"
+    context="link"
+    data-page={5}
+    disabled={false}
+    href={null}
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    size="normal"
+    type="button"
+  >
+    ‹ Previous
   </Button>
   <PaginationButton
     data-page={1}
+    isActive={false}
+    key="page_1"
+    onClick={[Function]}
+  >
+    1
+  </PaginationButton>
+  <div
+    className="Pagination__gap Pagination__gap--align Pagination__gap--align_center"
+  >
+    …
+  </div>
+  <PaginationButton
+    data-page={3}
+    isActive={false}
+    key="page_3"
+    onClick={[Function]}
+  >
+    3
+  </PaginationButton>
+  <PaginationButton
+    data-page={4}
+    isActive={false}
+    key="page_4"
+    onClick={[Function]}
+  >
+    4
+  </PaginationButton>
+  <PaginationButton
+    data-page={5}
+    isActive={false}
+    key="page_5"
+    onClick={[Function]}
+  >
+    5
+  </PaginationButton>
+  <PaginationButton
+    data-page={6}
     isActive={true}
+    key="page_6"
+    onClick={[Function]}
+  >
+    6
+  </PaginationButton>
+  <PaginationButton
+    data-page={7}
+    isActive={false}
+    key="page_7"
+    onClick={[Function]}
+  >
+    7
+  </PaginationButton>
+  <PaginationButton
+    data-page={8}
+    isActive={false}
+    key="page_8"
+    onClick={[Function]}
+  >
+    8
+  </PaginationButton>
+  <PaginationButton
+    data-page={9}
+    isActive={false}
+    key="page_9"
+    onClick={[Function]}
+  >
+    9
+  </PaginationButton>
+  <Button
+    aria-disabled={false}
+    className="Pagination__button Pagination__button--align Pagination__button--align_center"
+    context="link"
+    data-page={7}
+    disabled={false}
+    href={null}
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    size="normal"
+    type="button"
+  >
+    Next ›
+  </Button>
+  <Button
+    aria-disabled={false}
+    className="Pagination__button Pagination__button--align Pagination__button--align_center"
+    context="link"
+    data-page={20}
+    disabled={false}
+    href={null}
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    size="normal"
+    type="button"
+  >
+    Last »
+  </Button>
+</nav>
+`;
+
+exports[`<Pagination> that renders a pagination component should render correctly with default props 1`] = `
+<nav
+  aria-label="pagination"
+  className="Pagination Pagination--align Pagination--align_center"
+>
+  <PaginationButton
+    data-page={1}
+    isActive={true}
+    key="page_1"
     onClick={[Function]}
   >
     1
@@ -59,35 +182,45 @@ exports[`<Pagination> that renders a pagination component should render a defaul
   >
     5
   </PaginationButton>
-  <Button
-    aria-disabled={false}
-    className="Pagination__button Pagination__button--align Pagination__button--align_center"
-    context="link"
-    data-page={2}
-    disabled={false}
-    isBlock={false}
-    isInline={false}
+  <PaginationButton
+    data-page={6}
+    isActive={false}
+    key="page_6"
     onClick={[Function]}
-    size="normal"
-    type="button"
   >
-    Next
-     ›
-  </Button>
-  <Button
-    aria-disabled={false}
-    className="Pagination__button Pagination__button--align Pagination__button--align_center"
-    context="link"
-    data-page={20}
-    disabled={false}
-    isBlock={false}
-    isInline={false}
+    6
+  </PaginationButton>
+  <PaginationButton
+    data-page={7}
+    isActive={false}
+    key="page_7"
     onClick={[Function]}
-    size="normal"
-    type="button"
   >
-    Last
-     »
-  </Button>
+    7
+  </PaginationButton>
+  <PaginationButton
+    data-page={8}
+    isActive={false}
+    key="page_8"
+    onClick={[Function]}
+  >
+    8
+  </PaginationButton>
+  <PaginationButton
+    data-page={9}
+    isActive={false}
+    key="page_9"
+    onClick={[Function]}
+  >
+    9
+  </PaginationButton>
+  <PaginationButton
+    data-page={10}
+    isActive={false}
+    key="page_10"
+    onClick={[Function]}
+  >
+    10
+  </PaginationButton>
 </nav>
 `;

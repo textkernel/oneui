@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PaginationButton> that renders a page button should render a page button and test classes 1`] = `
+exports[`<PaginationButton> that renders a page button should render correctly with default props 1`] = `
 <Button
   aria-current={null}
   className="PaginationButton"
   context="link"
   data-page={1}
   disabled={false}
+  href={null}
   isBlock={false}
   isInline={false}
   size="normal"

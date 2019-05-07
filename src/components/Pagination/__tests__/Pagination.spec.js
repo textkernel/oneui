@@ -3,21 +3,37 @@ import toJson from 'enzyme-to-json';
 import Pagination from '../Pagination';
 
 describe('<Pagination> that renders a pagination component', () => {
-    it('should render a default pagination', () => {
-        const onClick = jest.fn();
-        const wrapper = shallow(
+    const CURRENT_PAGE = 6;
+    const onClick = jest.fn();
+    let wrapper;
+    beforeEach(() => {
+        wrapper = shallow(
             <Pagination
-                maxPages={5}
+                currentPage={CURRENT_PAGE}
+                maxPageButtons={8}
                 totalPages={20}
                 onClick={onClick}
                 prevLabel="Previous"
                 nextLabel="Next"
+                firstLabel="First"
                 lastLabel="Last"
             />
         );
+    });
+
+    afterEach(() => {
+        jest.resetAllMocks();
+    });
+
+    it('should render correctly with default props', () => {
+        wrapper = shallow(<Pagination totalPages={20} />);
 
         expect(toJson(wrapper)).toMatchSnapshot();
-
+    });
+    it('should render correctly with all props', () => {
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+    it('should call onClick with correct paramas', () => {
         const e = {
             target: {
                 dataset: {
@@ -29,28 +45,51 @@ describe('<Pagination> that renders a pagination component', () => {
         wrapper.find('[data-page=3]').simulate('click', e);
 
         expect(onClick).toHaveBeenCalledWith(e, 3);
-
-        wrapper.setProps({
-            currentPage: 5
-        });
-
+    });
+    it('should set data property on First button correctly', () => {
         expect(
             wrapper
                 .find('Button')
-                .first()
+                .at(0)
                 .prop('data-page')
-        ).toBe(4);
+        ).toBe(1);
+    });
+    it('should set data property on Prev button correctly', () => {
+        expect(
+            wrapper
+                .find('Button')
+                .at(1)
+                .prop('data-page')
+        ).toBe(CURRENT_PAGE - 1);
+    });
+    it('should set data property on Next button correctly', () => {
+        expect(
+            wrapper
+                .find('Button')
+                .at(2)
+                .prop('data-page')
+        ).toBe(CURRENT_PAGE + 1);
+    });
+    it('should set data property on Last button correctly', () => {
+        expect(
+            wrapper
+                .find('Button')
+                .at(3)
+                .prop('data-page')
+        ).toBe(20);
+    });
+    it('should set data property on "page 1" button correctly', () => {
+        expect(
+            wrapper
+                .find('PaginationButton')
+                .at(0)
+                .prop('data-page')
+        ).toBe(1);
+    });
+    it('should set data property on a page button correctly', () => {
+        const pageButton = wrapper.find('PaginationButton').at(2);
 
-        wrapper.setProps({
-            align: 'left'
-        });
-
-        expect(wrapper.hasClass('Pagination--align_left')).toBe(true);
-
-        wrapper.setProps({
-            align: 'right'
-        });
-
-        expect(wrapper.hasClass('Pagination--align_right')).toBe(true);
+        expect(pageButton.prop('children')).toBe(4);
+        expect(pageButton.prop('data-page')).toBe(4);
     });
 });
