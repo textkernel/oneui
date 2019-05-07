@@ -8,14 +8,15 @@ storiesOf('Pagination', module)
     .add('Pagination', () => (
         <Pagination
             align={select('Button alignment', ['left', 'center', 'right'], 'center')}
-            currentPage={number('Current page number', 1)}
-            maxPages={number('Max. number of pages to list', 5)}
+            currentPage={number('Current page number', 6)}
+            maxPageButtons={number('Max. number of pages to list', 8)}
             totalPages={number('Total number of pages', 25)}
             onClick={(e, page) => {
                 console.log(`Requested page ${page}`);
             }}
             prevLabel={text('Previous label', 'Previous')}
             nextLabel={text('Next label', 'Next')}
+            firstLabel={text('First label', 'First')}
             lastLabel={text('Last label', 'Last')}
         />
     ));

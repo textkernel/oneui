@@ -11,35 +11,35 @@ const { block, elem } = bem({
     propsToMods: ['align']
 });
 
-const defineRange = ({ currentPage, maxPages, totalPages }) => {
-    const start = Math.max(2, Math.min(currentPage - 2, totalPages - maxPages + 2));
-    const end = Math.min(totalPages, start + maxPages - 2);
-    const range = new Array(end - start + 1).fill().map((_, i) => start + i);
-
-    return range;
-};
-
 const Pagination = props => {
     const {
         align,
         currentPage,
-        maxPages,
+        maxPageButtons,
         totalPages,
         prevLabel,
         nextLabel,
         lastLabel,
+        firstLabel,
         onClick,
         ...rest
     } = props;
 
-    const currentPageCapped = Math.max(1, Math.min(currentPage, totalPages));
-    const isPrevDisabled = currentPageCapped === 1;
-    const isNextDisabled = currentPageCapped === totalPages;
-    const range = defineRange({
-        currentPage: currentPageCapped,
-        maxPages,
-        totalPages
-    });
+    const defineRange = () => {
+        const showBefore = Math.floor((maxPageButtons - 1) / 2);
+        const start = Math.max(
+            2,
+            Math.min(currentPage - showBefore, totalPages - maxPageButtons + 1)
+        );
+        const end = Math.min(totalPages, start + maxPageButtons - 2);
+        const range = new Array(end - start + 1).fill().map((_, i) => start + i);
+
+        return range;
+    };
+
+    const isPrevDisabled = currentPage === 1;
+    const isNextDisabled = currentPage === totalPages;
+    const range = defineRange();
 
     const handleClick = e => {
         const {
@@ -55,22 +55,35 @@ const Pagination = props => {
 
     return (
         <nav {...rest} {...block(props)} aria-label="pagination">
+            {!!firstLabel && (
+                <Button
+                    {...elem('button', props)}
+                    onClick={handleClick}
+                    disabled={isPrevDisabled}
+                    context="link"
+                    data-page={1}
+                    aria-disabled={isPrevDisabled}
+                >
+                    {`\u00ab ${firstLabel}`}
+                </Button>
+            )}
             {!!prevLabel && (
                 <Button
                     {...elem('button', props)}
                     onClick={handleClick}
                     disabled={isPrevDisabled}
                     context="link"
-                    data-page={currentPageCapped - 1}
+                    data-page={currentPage - 1}
                     aria-disabled={isPrevDisabled}
                 >
-                    &lsaquo; {prevLabel}
+                    {`\u2039 ${prevLabel}`}
                 </Button>
             )}
             <PaginationButton
                 onClick={handleClick}
-                isActive={currentPageCapped === 1}
+                isActive={currentPage === 1}
                 data-page={1}
+                key="page_1"
             >
                 {1}
             </PaginationButton>
@@ -78,7 +91,7 @@ const Pagination = props => {
             {range.map(page => (
                 <PaginationButton
                     onClick={handleClick}
-                    isActive={page === currentPageCapped}
+                    isActive={page === currentPage}
                     data-page={page}
                     key={`page_${page}`}
                 >
@@ -91,10 +104,10 @@ const Pagination = props => {
                     onClick={handleClick}
                     disabled={isNextDisabled}
                     context="link"
-                    data-page={currentPageCapped + 1}
+                    data-page={currentPage + 1}
                     aria-disabled={isNextDisabled}
                 >
-                    {nextLabel} &rsaquo;
+                    {`${nextLabel} \u203a`}
                 </Button>
             )}
             {!!lastLabel && (
@@ -106,7 +119,7 @@ const Pagination = props => {
                     data-page={totalPages}
                     aria-disabled={isNextDisabled}
                 >
-                    {lastLabel} &raquo;
+                    {`${lastLabel} \u00bb`}
                 </Button>
             )}
         </nav>
@@ -120,14 +133,16 @@ Pagination.propTypes = {
     align: PropTypes.oneOf(['left', 'center', 'right']),
     /** Current page number */
     currentPage: PropTypes.number,
-    /** Max. number of pages to list (excluding prev / next) */
-    maxPages: PropTypes.number,
+    /** Max. number of pages to list (excluding prev / next / last) Recommended to use even number */
+    maxPageButtons: PropTypes.number,
     /** Total number of available pages */
     totalPages: PropTypes.number.isRequired,
     /** Label for 'Previous page' button (required for button to show) */
     prevLabel: PropTypes.string,
     /** Label for 'Next page' button (required for button to show) */
     nextLabel: PropTypes.string,
+    /** Label for 'First page' button (required for button to show) */
+    firstLabel: PropTypes.string,
     /** Label for 'Last page' button (required for button to show) */
     lastLabel: PropTypes.string,
     /** Callback function on page / prev/ next click */
@@ -137,9 +152,10 @@ Pagination.propTypes = {
 Pagination.defaultProps = {
     align: 'center',
     currentPage: 1,
-    maxPages: 10,
+    maxPageButtons: 10,
     prevLabel: null,
     nextLabel: null,
+    firstLabel: null,
     lastLabel: null,
     onClick: null
 };

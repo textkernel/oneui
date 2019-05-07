@@ -14,6 +14,7 @@
     &--isActive {
         color: var(--color-background);
         background-color: var(--color-accent);
+        cursor: auto;
 
         &:hover {
             color: var(--color-background);
