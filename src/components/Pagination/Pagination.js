@@ -25,11 +25,21 @@ const Pagination = props => {
         ...rest
     } = props;
 
+    if (currentPage < 1 || currentPage > totalPages) {
+        throw new Error(
+            'Pagination error: current page should be at least 1 and no more then total available pages.'
+        );
+    }
+
     const defineRange = () => {
+        if (maxPageButtons === 1 && currentPage !== 1) {
+            return [currentPage];
+        }
+
         const showBefore = Math.floor((maxPageButtons - 1) / 2);
         const start = Math.max(
             2,
-            Math.min(currentPage - showBefore, totalPages - maxPageButtons + 1)
+            Math.min(currentPage - showBefore, totalPages - maxPageButtons + 2)
         );
         const end = Math.min(totalPages, start + maxPageButtons - 2);
         const range = new Array(end - start + 1).fill().map((_, i) => start + i);
@@ -37,10 +47,12 @@ const Pagination = props => {
         return range;
     };
 
+    const showButton1 = maxPageButtons > 1 || currentPage === 1;
     const isPrevDisabled = currentPage === 1;
     const isNextDisabled = currentPage === totalPages;
     const range = defineRange();
 
+    // TODO: optimization needed: memoization. Consider React.useCallback() once supported by enzyme
     const handleClick = e => {
         const {
             dataset: { page = null }
@@ -80,15 +92,19 @@ const Pagination = props => {
                     {`\u2039 ${prevLabel}`}
                 </Button>
             )}
-            <PaginationButton
-                onClick={handleClick}
-                isActive={currentPage === 1}
-                data-page={1}
-                key="page_1"
-            >
-                {1}
-            </PaginationButton>
-            {range[0] > 2 && <div {...elem('gap', props)}>&hellip;</div>}
+            {showButton1 && (
+                <React.Fragment>
+                    <PaginationButton
+                        onClick={handleClick}
+                        isActive={currentPage === 1}
+                        data-page={1}
+                        key="page_1"
+                    >
+                        {1}
+                    </PaginationButton>
+                    {range[0] > 2 && <div {...elem('gap', props)}>&hellip;</div>}
+                </React.Fragment>
+            )}
             {range.map(page => (
                 <PaginationButton
                     onClick={handleClick}

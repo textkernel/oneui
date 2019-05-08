@@ -4,13 +4,15 @@ import Pagination from '../Pagination';
 
 describe('<Pagination> that renders a pagination component', () => {
     const CURRENT_PAGE = 6;
+    const MAX_BUTTONS = 8;
     const onClick = jest.fn();
     let wrapper;
+
     beforeEach(() => {
         wrapper = shallow(
             <Pagination
                 currentPage={CURRENT_PAGE}
-                maxPageButtons={8}
+                maxPageButtons={MAX_BUTTONS}
                 totalPages={20}
                 onClick={onClick}
                 prevLabel="Previous"
@@ -32,6 +34,7 @@ describe('<Pagination> that renders a pagination component', () => {
     });
     it('should render correctly with all props', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('PaginationButton')).toHaveLength(MAX_BUTTONS);
     });
     describe('click behaviour', () => {
         it('should call onClick with correct paramas when a page button is clicked', () => {
@@ -107,6 +110,43 @@ describe('<Pagination> that renders a pagination component', () => {
 
             expect(pageButton.prop('children')).toBe(4);
             expect(pageButton.prop('data-page')).toBe(4);
+        });
+    });
+    describe('edge cases', () => {
+        it('should throw and error if curernt page is 0', () => {
+            expect(() => shallow(<Pagination totalPages={20} currentPage={0} />)).toThrow();
+        });
+        it('should throw and error if curernt page is too large', () => {
+            expect(() => shallow(<Pagination totalPages={20} currentPage={22} />)).toThrow();
+        });
+        it('should show only button for page 1 when maxPageButtons is 1 and current page is 1', () => {
+            wrapper = shallow(<Pagination currentPage={1} maxPageButtons={1} totalPages={20} />);
+            const pageButtons = wrapper.find('PaginationButton');
+
+            expect(pageButtons).toHaveLength(1);
+            expect(pageButtons.at(0).prop('data-page')).toBe(1);
+        });
+        it('should show only button for CURRENT_PAGE when maxPageButtons is 1 and current page is not 1', () => {
+            wrapper = shallow(
+                <Pagination currentPage={CURRENT_PAGE} maxPageButtons={1} totalPages={20} />
+            );
+            const pageButtons = wrapper.find('PaginationButton');
+
+            expect(pageButtons).toHaveLength(1);
+            expect(pageButtons.at(0).prop('data-page')).toBe(CURRENT_PAGE);
+        });
+        it('should show last page when it is the current page as well', () => {
+            wrapper = shallow(
+                <Pagination
+                    currentPage={CURRENT_PAGE}
+                    maxPageButtons={5}
+                    totalPages={CURRENT_PAGE}
+                />
+            );
+            const pageButtons = wrapper.find('PaginationButton');
+
+            expect(pageButtons).toHaveLength(5);
+            expect(pageButtons.last().prop('data-page')).toBe(CURRENT_PAGE);
         });
     });
 });
