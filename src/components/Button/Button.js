@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from '../../packages/bem';
 import styles from './Button.scss';
@@ -10,23 +10,23 @@ const { block } = bem({
     propsToMods: ['context', 'size', 'isBlock', 'isInline']
 });
 
-const Button = props => {
+const Button = forwardRef((props, ref) => {
     const { children, context, disabled, isBlock, isInline, type, href, ...rest } = props;
 
     if (href) {
         return (
-            <a {...rest} {...block(props)} href={href}>
+            <a {...rest} {...block(props)} ref={ref} href={href}>
                 {children}
             </a>
         );
     }
 
     return (
-        <button {...rest} {...block(props)} type={type} disabled={disabled}>
+        <button {...rest} {...block(props)} ref={ref} type={type} disabled={disabled}>
             {children}
         </button>
     );
-};
+});
 
 Button.displayName = 'Button';
 

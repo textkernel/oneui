@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import Text from '../Text';
@@ -11,7 +11,7 @@ const { block, elem } = bem({
     propsToMods: ['disabled']
 });
 
-const RadioButton = props => {
+const RadioButton = forwardRef((props, ref) => {
     const { id, children, viewbox, disabled, name, ...rest } = props;
 
     return (
@@ -19,6 +19,7 @@ const RadioButton = props => {
             <input
                 {...rest}
                 {...elem('input', props)}
+                ref={ref}
                 type="radio"
                 id={id}
                 name={name}
@@ -43,7 +44,7 @@ const RadioButton = props => {
             </label>
         </div>
     );
-};
+});
 
 RadioButton.displayName = 'RadioButton';
 
