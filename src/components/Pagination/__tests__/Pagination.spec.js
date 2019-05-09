@@ -47,10 +47,7 @@ describe('<Pagination> that renders a pagination component', () => {
                 }
             };
 
-            wrapper
-                .find('[data-page=3]')
-                .first()
-                .simulate('click', e);
+            wrapper.find('button[data-page=3]').simulate('click', e);
 
             expect(onClick).toHaveBeenCalledWith(expect.anything(), 3);
         });
@@ -63,10 +60,7 @@ describe('<Pagination> that renders a pagination component', () => {
                 }
             };
 
-            wrapper
-                .find(`[data-page=${CURRENT_PAGE}]`)
-                .first()
-                .simulate('click', e);
+            wrapper.find(`button[data-page=${CURRENT_PAGE}]`).simulate('click', e);
 
             expect(onClick).not.toHaveBeenCalled();
         });
@@ -75,47 +69,47 @@ describe('<Pagination> that renders a pagination component', () => {
         it('should be set correctly on First', () => {
             expect(
                 wrapper
-                    .find('Button')
-                    .at(0)
+                    .findWhere(el => el.text() === `\u00ab First`)
+                    .find('button')
                     .prop('data-page')
             ).toBe(1);
         });
         it('should be set correctly on Prev button', () => {
             expect(
                 wrapper
-                    .find('Button')
-                    .at(1)
+                    .findWhere(el => el.text() === `\u2039 Previous`)
+                    .find('button')
                     .prop('data-page')
             ).toBe(CURRENT_PAGE - 1);
         });
         it('should be set correctly on Next button', () => {
             expect(
                 wrapper
-                    .find('Button')
-                    .at(MAX_BUTTONS + 2)
+                    .findWhere(el => el.text() === `Next \u203a`)
+                    .find('button')
                     .prop('data-page')
             ).toBe(CURRENT_PAGE + 1);
         });
         it('should be set correctly on Last button', () => {
             expect(
                 wrapper
-                    .find('Button')
-                    .last()
+                    .findWhere(el => el.text() === `Last \u00bb`)
+                    .find('button')
                     .prop('data-page')
             ).toBe(20);
         });
         it('should be set correctly on "page 1" button', () => {
             expect(
                 wrapper
-                    .find('PaginationButton')
-                    .at(0)
+                    .findWhere(el => el.text() === '1')
+                    .find('button')
                     .prop('data-page')
             ).toBe(1);
         });
         it('should be set correctly on a page button', () => {
             const pageButton = wrapper.find('PaginationButton').at(2);
 
-            expect(pageButton.prop('children')).toBe(4);
+            expect(pageButton.text()).toBe('4');
             expect(pageButton.prop('data-page')).toBe(4);
         });
     });
