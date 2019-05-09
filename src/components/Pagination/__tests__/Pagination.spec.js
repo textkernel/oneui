@@ -9,7 +9,8 @@ describe('<Pagination> that renders a pagination component', () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = shallow(
+        jest.spyOn(console, 'error').mockImplementationOnce(() => {});
+        wrapper = mount(
             <Pagination
                 currentPage={CURRENT_PAGE}
                 maxPageButtons={MAX_BUTTONS}
@@ -28,7 +29,7 @@ describe('<Pagination> that renders a pagination component', () => {
     });
 
     it('should render correctly with default props', () => {
-        wrapper = shallow(<Pagination totalPages={20} />);
+        wrapper = mount(<Pagination totalPages={20} />);
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
@@ -46,9 +47,12 @@ describe('<Pagination> that renders a pagination component', () => {
                 }
             };
 
-            wrapper.find('[data-page=3]').simulate('click', e);
+            wrapper
+                .find('[data-page=3]')
+                .first()
+                .simulate('click', e);
 
-            expect(onClick).toHaveBeenCalledWith(e, 3);
+            expect(onClick).toHaveBeenCalledWith(expect.anything(), 3);
         });
         it('should not call onClick when current page button is clicked', () => {
             const e = {
@@ -59,7 +63,10 @@ describe('<Pagination> that renders a pagination component', () => {
                 }
             };
 
-            wrapper.find(`[data-page=${CURRENT_PAGE}]`).simulate('click', e);
+            wrapper
+                .find(`[data-page=${CURRENT_PAGE}]`)
+                .first()
+                .simulate('click', e);
 
             expect(onClick).not.toHaveBeenCalled();
         });
@@ -85,7 +92,7 @@ describe('<Pagination> that renders a pagination component', () => {
             expect(
                 wrapper
                     .find('Button')
-                    .at(2)
+                    .at(MAX_BUTTONS + 2)
                     .prop('data-page')
             ).toBe(CURRENT_PAGE + 1);
         });
@@ -93,7 +100,7 @@ describe('<Pagination> that renders a pagination component', () => {
             expect(
                 wrapper
                     .find('Button')
-                    .at(3)
+                    .last()
                     .prop('data-page')
             ).toBe(20);
         });
@@ -114,20 +121,20 @@ describe('<Pagination> that renders a pagination component', () => {
     });
     describe('edge cases', () => {
         it('should throw and error if curernt page is 0', () => {
-            expect(() => shallow(<Pagination totalPages={20} currentPage={0} />)).toThrow();
+            expect(() => mount(<Pagination totalPages={20} currentPage={0} />)).toThrow();
         });
         it('should throw and error if curernt page is too large', () => {
-            expect(() => shallow(<Pagination totalPages={20} currentPage={22} />)).toThrow();
+            expect(() => mount(<Pagination totalPages={20} currentPage={22} />)).toThrow();
         });
         it('should show only button for page 1 when maxPageButtons is 1 and current page is 1', () => {
-            wrapper = shallow(<Pagination currentPage={1} maxPageButtons={1} totalPages={20} />);
+            wrapper = mount(<Pagination currentPage={1} maxPageButtons={1} totalPages={20} />);
             const pageButtons = wrapper.find('PaginationButton');
 
             expect(pageButtons).toHaveLength(1);
             expect(pageButtons.at(0).prop('data-page')).toBe(1);
         });
         it('should show only button for CURRENT_PAGE when maxPageButtons is 1 and current page is not 1', () => {
-            wrapper = shallow(
+            wrapper = mount(
                 <Pagination currentPage={CURRENT_PAGE} maxPageButtons={1} totalPages={20} />
             );
             const pageButtons = wrapper.find('PaginationButton');
@@ -136,7 +143,7 @@ describe('<Pagination> that renders a pagination component', () => {
             expect(pageButtons.at(0).prop('data-page')).toBe(CURRENT_PAGE);
         });
         it('should show last page when it is the current page as well', () => {
-            wrapper = shallow(
+            wrapper = mount(
                 <Pagination
                     currentPage={CURRENT_PAGE}
                     maxPageButtons={5}
