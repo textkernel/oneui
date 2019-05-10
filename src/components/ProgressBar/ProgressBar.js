@@ -23,7 +23,6 @@ const ProgressBar = props => {
             aria-valuenow={percentageAdjusted}
             aria-valuemin="0"
             aria-valuemax="100"
-            aria-valuetext={children}
         >
             <div
                 {...elem('fill', props)}
