@@ -1,0 +1,19 @@
+.Pagination {
+    display: flex;
+
+    &__gap {
+        color: var(--color-neutral);
+        display: inline-flex;
+        align-items: center;
+        padding: 0 var(--spacing-3x);
+    }
+    &--align_left {
+        justify-content: flex-start;
+    }
+    &--align_center {
+        justify-content: center;
+    }
+    &--align_right {
+        justify-content: flex-end;
+    }
+}

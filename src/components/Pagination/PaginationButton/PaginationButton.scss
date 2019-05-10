@@ -1,0 +1,25 @@
+.PaginationButton {
+    transition: none;
+
+    + .PaginationButton {
+        margin-left: var(--spacing-normal);
+    }
+
+    &:hover {
+        color: var(--color-background);
+        background-color: var(--color-brand);
+        text-decoration: none;
+    }
+
+    &--isActive {
+        color: var(--color-background);
+        background-color: var(--color-accent);
+        cursor: auto;
+
+        &:hover {
+            color: var(--color-background);
+            background-color: var(--color-accent);
+            text-decoration: none;
+        }
+    }
+}
