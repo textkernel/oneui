@@ -16,7 +16,7 @@ const Alert = props => {
 
     return (
         <div {...rest} {...block(props)}>
-            <div {...elem('content', props)}>
+            <div {...elem('content', props)} role="alert">
                 {!!title && <strong {...elem('title', props)}>{title}</strong>}
                 {children}
             </div>

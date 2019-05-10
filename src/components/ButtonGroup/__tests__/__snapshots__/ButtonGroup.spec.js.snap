@@ -8,6 +8,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
 >
   <div
     className="ButtonGroup ButtonGroup--size ButtonGroup--size_large ButtonGroup--isBlock"
+    role="group"
   >
     <Button
       className="ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_large ButtonGroup__button--isBlock"
@@ -61,6 +62,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
 >
   <div
     className="ButtonGroup ButtonGroup--size ButtonGroup--size_normal"
+    role="group"
   >
     <Button
       className="ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_normal"
