@@ -4,8 +4,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
 <Pagination
   align="center"
   currentPage={6}
-  firstLabel="First"
-  lastLabel="Last"
   maxPageButtons={8}
   nextLabel="Next"
   onClick={[MockFunction]}
@@ -16,31 +14,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
     aria-label="pagination"
     className="Pagination Pagination--align Pagination--align_center"
   >
-    <Button
-      aria-disabled={false}
-      className="Pagination__button Pagination__button--align Pagination__button--align_center"
-      context="link"
-      data-page={1}
-      disabled={false}
-      href={null}
-      isBlock={false}
-      isInline={false}
-      onClick={[Function]}
-      size="normal"
-      type="button"
-    >
-      <button
-        aria-disabled={false}
-        className="Button Button--context Button--context_link Button--size Button--size_normal Pagination__button Pagination__button--align Pagination__button--align_center"
-        data-page={1}
-        disabled={false}
-        onClick={[Function]}
-        size="normal"
-        type="button"
-      >
-        « First
-      </button>
-    </Button>
     <Button
       aria-disabled={false}
       className="Pagination__button Pagination__button--align Pagination__button--align_center"
@@ -352,31 +325,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         Next ›
       </button>
     </Button>
-    <Button
-      aria-disabled={false}
-      className="Pagination__button Pagination__button--align Pagination__button--align_center"
-      context="link"
-      data-page={20}
-      disabled={false}
-      href={null}
-      isBlock={false}
-      isInline={false}
-      onClick={[Function]}
-      size="normal"
-      type="button"
-    >
-      <button
-        aria-disabled={false}
-        className="Button Button--context Button--context_link Button--size Button--size_normal Pagination__button Pagination__button--align Pagination__button--align_center"
-        data-page={20}
-        disabled={false}
-        onClick={[Function]}
-        size="normal"
-        type="button"
-      >
-        Last »
-      </button>
-    </Button>
   </nav>
 </Pagination>
 `;
@@ -385,8 +333,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
 <Pagination
   align="center"
   currentPage={1}
-  firstLabel={null}
-  lastLabel={null}
   maxPageButtons={10}
   nextLabel={null}
   onClick={null}

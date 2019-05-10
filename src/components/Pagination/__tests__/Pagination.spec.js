@@ -18,8 +18,6 @@ describe('<Pagination> that renders a pagination component', () => {
                 onClick={onClick}
                 prevLabel="Previous"
                 nextLabel="Next"
-                firstLabel="First"
-                lastLabel="Last"
             />
         );
     });
@@ -66,14 +64,6 @@ describe('<Pagination> that renders a pagination component', () => {
         });
     });
     describe('data-page property of buttons', () => {
-        it('should be set correctly on First', () => {
-            expect(
-                wrapper
-                    .findWhere(el => el.text() === `\u00ab First`)
-                    .find('button')
-                    .prop('data-page')
-            ).toBe(1);
-        });
         it('should be set correctly on Prev button', () => {
             expect(
                 wrapper
@@ -89,14 +79,6 @@ describe('<Pagination> that renders a pagination component', () => {
                     .find('button')
                     .prop('data-page')
             ).toBe(CURRENT_PAGE + 1);
-        });
-        it('should be set correctly on Last button', () => {
-            expect(
-                wrapper
-                    .findWhere(el => el.text() === `Last \u00bb`)
-                    .find('button')
-                    .prop('data-page')
-            ).toBe(20);
         });
         it('should be set correctly on "page 1" button', () => {
             expect(

@@ -19,8 +19,6 @@ const Pagination = props => {
         totalPages,
         prevLabel,
         nextLabel,
-        lastLabel,
-        firstLabel,
         onClick,
         ...rest
     } = props;
@@ -67,18 +65,6 @@ const Pagination = props => {
 
     return (
         <nav {...rest} {...block(props)} aria-label="pagination">
-            {!!firstLabel && (
-                <Button
-                    {...elem('button', props)}
-                    onClick={handleClick}
-                    disabled={isPrevDisabled}
-                    context="link"
-                    data-page={1}
-                    aria-disabled={isPrevDisabled}
-                >
-                    {`\u00ab ${firstLabel}`}
-                </Button>
-            )}
             {!!prevLabel && (
                 <Button
                     {...elem('button', props)}
@@ -126,18 +112,6 @@ const Pagination = props => {
                     {`${nextLabel} \u203a`}
                 </Button>
             )}
-            {!!lastLabel && (
-                <Button
-                    {...elem('button', props)}
-                    onClick={handleClick}
-                    disabled={isNextDisabled}
-                    context="link"
-                    data-page={totalPages}
-                    aria-disabled={isNextDisabled}
-                >
-                    {`${lastLabel} \u00bb`}
-                </Button>
-            )}
         </nav>
     );
 };
@@ -157,10 +131,6 @@ Pagination.propTypes = {
     prevLabel: PropTypes.string,
     /** Label for 'Next page' button (required for button to show) */
     nextLabel: PropTypes.string,
-    /** Label for 'First page' button (required for button to show) */
-    firstLabel: PropTypes.string,
-    /** Label for 'Last page' button (required for button to show) */
-    lastLabel: PropTypes.string,
     /** Callback function on page / prev/ next click */
     onClick: PropTypes.func
 };
@@ -171,8 +141,6 @@ Pagination.defaultProps = {
     maxPageButtons: 10,
     prevLabel: null,
     nextLabel: null,
-    firstLabel: null,
-    lastLabel: null,
     onClick: null
 };
 
