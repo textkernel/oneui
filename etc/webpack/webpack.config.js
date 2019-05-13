@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { getRuleJS, getRuleCSS } = require('./utils');
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
@@ -26,7 +27,11 @@ const plugins = {
     styleLintPlugin: new StyleLintPlugin({
         context: SOURCE_PATH
     }),
-    optimizeCssAssetsPlugin: new OptimizeCssAssetsPlugin()
+    optimizeCssAssetsPlugin: new OptimizeCssAssetsPlugin(),
+    bundleAnalyzerPlugin: new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        reportFilename: '../reports/bundle-size.html'
+    })
 };
 
 const getRules = (env = 'prod') => ({

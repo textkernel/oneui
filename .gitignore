@@ -2,6 +2,7 @@
 /dist
 /.cache
 /.out
+/reports
 
 ### VisualStudioCode template
 /.vscode
