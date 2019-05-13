@@ -14,11 +14,11 @@ const TabItem = props => {
     return (
         <a
             href={href || '#'}
+            tabIndex={0}
             {...rest}
             {...block(props)}
             role="tab"
             aria-selected={isActive}
-            tabIndex={0}
         >
             {label}
         </a>
