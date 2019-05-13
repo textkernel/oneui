@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './Pagination.scss';
@@ -50,7 +50,7 @@ const Pagination = props => {
     const isNextDisabled = currentPage === totalPages;
     const range = defineRange();
 
-    const handleClick = e => {
+    const handleClick = useCallback(e => {
         const {
             dataset: { page = null }
         } = e.target;
@@ -61,7 +61,7 @@ const Pagination = props => {
         }
 
         return onClick(e, pageNum);
-    };
+    });
 
     return (
         <nav {...rest} {...block(props)} aria-label="pagination">
