@@ -14,7 +14,7 @@ const ButtonGroup = props => {
     const { children, size, isBlock, isInline, ...rest } = props;
 
     return (
-        <div {...rest} {...block(props)}>
+        <div {...rest} {...block(props)} role="group">
             {React.Children.map(children, button =>
                 React.cloneElement(button, {
                     ...button.props,

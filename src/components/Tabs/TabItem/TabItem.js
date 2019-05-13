@@ -12,7 +12,14 @@ const { block } = bem({
 const TabItem = props => {
     const { href, isActive, label, ...rest } = props;
     return (
-        <a href={href || '#'} {...rest} {...block(props)}>
+        <a
+            href={href || '#'}
+            tabIndex={0}
+            {...rest}
+            {...block(props)}
+            role="tab"
+            aria-selected={isActive}
+        >
             {label}
         </a>
     );

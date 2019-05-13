@@ -63,7 +63,7 @@ class Tabs extends PureComponent {
                     if (id !== activeTabId) {
                         return null;
                     }
-                    return <TabContent>{tab.props.children}</TabContent>;
+                    return <TabContent aria-labelledby={id}>{tab.props.children}</TabContent>;
                 })}
             </Fragment>
         );

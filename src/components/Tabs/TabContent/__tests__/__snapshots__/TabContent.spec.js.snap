@@ -3,6 +3,7 @@
 exports[`<TabContent> should render tab content correctly 1`] = `
 <div
   className="TabContent"
+  role="tabpanel"
 >
   <h1>
     Tab content

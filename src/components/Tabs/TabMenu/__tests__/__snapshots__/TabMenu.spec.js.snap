@@ -3,6 +3,7 @@
 exports[`<TabMenu> should add classes for props 1`] = `
 <div
   className="TabMenu TabMenu--gutters"
+  role="tablist"
 >
   <TabItem
     id="1"
@@ -24,6 +25,7 @@ exports[`<TabMenu> should add classes for props 1`] = `
 exports[`<TabMenu> should render tab menu wrapper correctly 1`] = `
 <div
   className="TabMenu"
+  role="tablist"
 >
   <TabItem
     id="1"

@@ -6,6 +6,7 @@ exports[`<Alert> that renders an alert should add classes when props are changed
 >
   <div
     className="Alert__content Alert__content--context Alert__content--context_bad"
+    role="alert"
   >
     <strong
       className="Alert__title Alert__title--context Alert__title--context_bad"
@@ -33,6 +34,7 @@ exports[`<Alert> that renders an alert should have a button that works 1`] = `
   >
     <div
       className="Alert__content Alert__content--context Alert__content--context_brand"
+      role="alert"
     >
       <strong
         className="Alert__title Alert__title--context Alert__title--context_brand"
@@ -75,6 +77,7 @@ exports[`<Alert> that renders an alert should render default alert correctly 1`]
 >
   <div
     className="Alert__content Alert__content--context Alert__content--context_brand"
+    role="alert"
   >
     This is a basic alert without title or action
   </div>
