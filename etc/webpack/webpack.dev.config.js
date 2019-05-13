@@ -6,7 +6,12 @@ module.exports = {
     ...baseConfig,
     mode: 'development',
     devtool: 'eval-source-map',
-    plugins: [plugins.namedModulesPlugin, plugins.cssPlugin, plugins.styleLintPlugin],
+    plugins: [
+        plugins.namedModulesPlugin,
+        plugins.cssPlugin,
+        plugins.styleLintPlugin,
+        plugins.bundleAnalyzerPlugin
+    ],
     module: {
         rules: [rules.js, rules.styles]
     }
