@@ -5,6 +5,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should add cla
   aria-busy={false}
   aria-hidden={true}
   className="LoadingSpinner LoadingSpinner--centerIn LoadingSpinner--centerIn_viewport LoadingSpinner--context LoadingSpinner--context_primary LoadingSpinner--hidden"
+  role="status"
 >
   <svg
     className="LoadingSpinner__svg LoadingSpinner__svg--centerIn LoadingSpinner__svg--centerIn_viewport LoadingSpinner__svg--context LoadingSpinner__svg--context_primary LoadingSpinner__svg--hidden"
@@ -40,6 +41,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
   aria-busy={true}
   aria-hidden={false}
   className="LoadingSpinner LoadingSpinner--context LoadingSpinner--context_brand"
+  role="status"
 >
   <svg
     className="LoadingSpinner__svg LoadingSpinner__svg--context LoadingSpinner__svg--context_brand"
@@ -70,6 +72,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
   aria-busy={true}
   aria-hidden={false}
   className="LoadingSpinner LoadingSpinner--context LoadingSpinner--context_brand"
+  role="status"
 >
   <svg
     className="LoadingSpinner__svg LoadingSpinner__svg--context LoadingSpinner__svg--context_brand"
