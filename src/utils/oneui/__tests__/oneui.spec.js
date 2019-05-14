@@ -1,5 +1,5 @@
 import cssVarsPonyfill from 'css-vars-ponyfill';
-import OneUI from '../OneUI';
+import OneUI from '../oneui';
 
 jest.mock('css-vars-ponyfill');
 
