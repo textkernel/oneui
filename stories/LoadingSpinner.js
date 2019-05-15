@@ -6,21 +6,24 @@ import { CONTEXTS } from '@textkernel/oneui/constants';
 
 storiesOf('LoadingSpinner', module)
     .addDecorator(withKnobs)
-    .add('LoadingSpinner', () => (
-        <LoadingSpinner
-            context={select('Context', CONTEXTS, CONTEXTS[1])}
-            hidden={boolean('Hidden', false)}
-            size={number('Size', null)}
-            centerIn={select(
-                'Center in...',
-                {
-                    '': null,
-                    'Parent element': 'parent',
-                    Viewport: 'viewport'
-                },
-                null
-            )}
-        >
-            {text('Label', 'Loading...')}
-        </LoadingSpinner>
-    ));
+    .add('LoadingSpinner', () => {
+        const label = text('Label', 'Loading...');
+        return (
+            <LoadingSpinner
+                context={select('Context', CONTEXTS, CONTEXTS[1])}
+                hidden={boolean('Hidden', false)}
+                size={number('Size', null)}
+                centerIn={select(
+                    'Center in...',
+                    {
+                        '': null,
+                        'Parent element': 'parent',
+                        Viewport: 'viewport'
+                    },
+                    null
+                )}
+            >
+                {label}
+            </LoadingSpinner>
+        );
+    });
