@@ -13,4 +13,24 @@
         color: var(--link-color-hover);
         text-decoration: var(--link-decoration-hover);
     }
+
+    &--context {
+        @each $context in (brand, neutral, primary, accent, info, good, warning, bad) {
+            &_#{ $context } {
+                color: var(--color-#{$context});
+
+                &:hover {
+                    color: var(--color-#{$context}-40);
+                }
+            }
+        }
+
+        &_muted {
+            color: var(--color-muted);
+
+            &:hover {
+                color: var(--color-neutral);
+            }
+        }
+    }
 }

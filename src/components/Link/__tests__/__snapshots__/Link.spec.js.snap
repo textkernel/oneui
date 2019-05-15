@@ -2,7 +2,7 @@
 
 exports[`<Link> that renders a link should render default link correctly 1`] = `
 <a
-  className="Link"
+  className="Link Link--context Link--context_default"
   href="https://textkernel.com"
 >
   Click me
