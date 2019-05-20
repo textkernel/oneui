@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Chip> that renders a pill shaped chip should render correctly 1`] = `
+<span
+  className="Chip"
+>
+  some text
+</span>
+`;
