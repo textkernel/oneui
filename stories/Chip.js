@@ -8,6 +8,7 @@ storiesOf('Chip', module)
     .add('Chip', () => (
         <Chip title={text('Title', 'This is a title that uses native browser functionality')}>
             <IconMatch />
-            {text('Content', ' This is a chip')}
+            &nbsp;
+            {text('Content', 'This is a chip')}
         </Chip>
     ));
