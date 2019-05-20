@@ -3,7 +3,6 @@
 exports[`<Chip> that renders a pill shaped chip should render correctly 1`] = `
 <span
   className="Chip"
-  title={null}
 >
   some text
 </span>

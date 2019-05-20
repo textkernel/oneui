@@ -9,10 +9,10 @@ const { block } = bem({
 });
 
 const Chip = props => {
-    const { children, title, ...rest } = props;
+    const { children, ...rest } = props;
 
     return (
-        <span title={title} {...rest} {...block(props)}>
+        <span {...rest} {...block(props)}>
             {children}
         </span>
     );
@@ -22,13 +22,7 @@ Chip.displayName = 'Chip';
 
 Chip.propTypes = {
     /** The content of the chip: it is expected to be short text possibly accompanied by an icon */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-    /** Text for title chip that shows up when it is hovered for a few seconds */
-    title: PropTypes.string
-};
-
-Chip.defaultProps = {
-    title: null
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired
 };
 
 export default Chip;
