@@ -4,7 +4,7 @@
     &__container {
         display: flex;
         align-items: baseline;
-        padding: var(--spacing-3x);
+        padding: var(--spacing-4x);
     }
 
     &:hover:not(.ListItem--disabled) {
