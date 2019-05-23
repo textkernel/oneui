@@ -9,7 +9,8 @@ import {
     IconMatch,
     IconSearch,
     IconSourcebox,
-    IconTextkernel
+    IconTextkernel,
+    IconTextkernelFull
 } from '@textkernel/oneui';
 import { CONTEXTS, HEADING_SIZES } from '../src/constants';
 
@@ -69,6 +70,13 @@ storiesOf('Icons', module)
     ))
     .add('Textkernel icon', () => (
         <IconTextkernel
+            context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
+            size={number('Size', SIZE_DEFAULT)}
+            title={text('Title', 'Textkernel')}
+        />
+    ))
+    .add('Textkernel icon with full name', () => (
+        <IconTextkernelFull
             context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
             title={text('Title', 'Textkernel')}

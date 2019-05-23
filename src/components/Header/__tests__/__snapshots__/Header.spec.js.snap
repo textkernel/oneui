@@ -33,6 +33,7 @@ exports[`Header component that renders a website header with a logo on the left 
         >
           <IconBase
             context={null}
+            keepWidth={false}
             margin={null}
             size={null}
             title={null}

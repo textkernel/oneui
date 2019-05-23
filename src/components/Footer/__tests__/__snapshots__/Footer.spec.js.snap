@@ -22,6 +22,7 @@ exports[`Footer component that renders a copyright text on the left and optional
           <IconBase
             className="Footer__logo"
             context={null}
+            keepWidth={false}
             margin={null}
             size={null}
             title={null}
