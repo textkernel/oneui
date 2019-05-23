@@ -24,12 +24,12 @@ const Header = props => {
         : React.cloneElement(logo, { ...elem('logo', props) });
 
     return (
-        <div {...rest} {...block(props)}>
+        <header {...rest} {...block(props)}>
             <div {...elem('wrapper', props)}>
                 {renderedLogo}
                 <div {...elem('menu', props)}>{children}</div>
             </div>
-        </div>
+        </header>
     );
 };
 
