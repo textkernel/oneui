@@ -77,9 +77,11 @@ exports[`JobResuts should render with all props defined 1`] = `
       context="accent"
       inline={true}
       size="normal"
+      title="Organization"
     >
       <span
         className="Text Text--context Text--context_accent Text--size Text--size_normal JobResult__organization"
+        title="Organization"
       >
         Organization
       </span>

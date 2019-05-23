@@ -21,12 +21,12 @@ const Footer = props => {
     );
 
     return (
-        <div {...rest} {...block(props)}>
+        <footer {...rest} {...block(props)}>
             <div {...elem('wrapper', props)}>
                 {copyright || tkCopyright}
                 <div {...elem('menu', props)}>{children}</div>
             </div>
-        </div>
+        </footer>
     );
 };
 

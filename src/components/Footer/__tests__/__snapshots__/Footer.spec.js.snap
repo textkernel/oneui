@@ -4,7 +4,7 @@ exports[`Footer component that renders a copyright text on the left and optional
 <Footer
   copyright={null}
 >
-  <div
+  <footer
     className="Footer"
   >
     <div
@@ -54,7 +54,7 @@ exports[`Footer component that renders a copyright text on the left and optional
         This is a placeholder for children
       </div>
     </div>
-  </div>
+  </footer>
 </Footer>
 `;
 
@@ -62,7 +62,7 @@ exports[`Footer component that renders a copyright text on the left and optional
 <Footer
   copyright="my special copyright"
 >
-  <div
+  <footer
     className="Footer"
   >
     <div
@@ -75,6 +75,6 @@ exports[`Footer component that renders a copyright text on the left and optional
         This is a placeholder for children
       </div>
     </div>
-  </div>
+  </footer>
 </Footer>
 `;

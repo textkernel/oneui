@@ -15,7 +15,7 @@ exports[`Header component that renders a website header with a logo on the left 
     </a>
   }
 >
-  <div
+  <header
     className="Header"
   >
     <div
@@ -64,7 +64,7 @@ exports[`Header component that renders a website header with a logo on the left 
         This is a placeholder for children
       </div>
     </div>
-  </div>
+  </header>
 </Header>
 `;
 
@@ -76,7 +76,7 @@ exports[`Header component that renders a website header with a logo on the left 
     }
   }
 >
-  <div
+  <header
     className="Header"
   >
     <div
@@ -93,7 +93,7 @@ exports[`Header component that renders a website header with a logo on the left 
         This is a placeholder for children
       </div>
     </div>
-  </div>
+  </header>
 </Header>
 `;
 
@@ -106,7 +106,7 @@ exports[`Header component that renders a website header with a logo on the left 
     }
   }
 >
-  <div
+  <header
     className="Header"
   >
     <div
@@ -126,6 +126,6 @@ exports[`Header component that renders a website header with a logo on the left 
         This is a placeholder for children
       </div>
     </div>
-  </div>
+  </header>
 </Header>
 `;

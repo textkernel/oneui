@@ -23,7 +23,9 @@
     }
 
     &__organization {
-        font-weight: var(--font-weight-bold);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__titleLine:not(:last-child),

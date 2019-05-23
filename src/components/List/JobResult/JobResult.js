@@ -25,7 +25,7 @@ const JobResult = props => {
                 )}
             </span>
             {organization && (
-                <Text inline context="accent" {...elem('organization', props)}>
+                <Text inline context="accent" title={organization} {...elem('organization', props)}>
                     {organization}
                 </Text>
             )}
