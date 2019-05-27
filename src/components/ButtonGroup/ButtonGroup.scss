@@ -7,10 +7,12 @@
         border-radius: 0;
 
         &:first-child {
-            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            border-top-left-radius: var(--border-radius);
+            border-bottom-left-radius: var(--border-radius);
         }
         &:last-child {
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            border-top-right-radius: var(--border-radius);
+            border-bottom-right-radius: var(--border-radius);
         }
 
         + .ButtonGroup__button {
