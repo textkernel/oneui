@@ -6,7 +6,7 @@ import { Footer } from '@textkernel/oneui';
 storiesOf('Footer', module)
     .addDecorator(withKnobs)
     .add('Footer', () => (
-        <Footer copyright={text('Alternative copyright', '')}>
+        <Footer copyright={text('Alternative copyright', null)}>
             {text('Left side', 'This is a placeholder for children')}
         </Footer>
     ));
