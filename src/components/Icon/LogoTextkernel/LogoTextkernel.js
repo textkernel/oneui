@@ -18,7 +18,7 @@ const LogoTextkernel = props => (
     </IconBase>
 );
 
-LogoTextkernel.displayName = 'IconTextkernel';
+LogoTextkernel.displayName = 'LogoTextkernel';
 
 LogoTextkernel.propTypes = {
     /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
