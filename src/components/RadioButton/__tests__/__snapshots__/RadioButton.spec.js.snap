@@ -6,9 +6,7 @@ exports[`<RadioButton> that renders a radio button should render default radio b
   id="c1"
   name={null}
 >
-  <div
-    className="RadioButton"
-  >
+  <div>
     <input
       className="RadioButton__input"
       disabled={false}
@@ -55,9 +53,7 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
   id="c1"
   name="group_name"
 >
-  <div
-    className="RadioButton"
-  >
+  <div>
     <input
       className="RadioButton__input"
       disabled={false}
@@ -100,7 +96,7 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
         size="normal"
       >
         <span
-          className="Text Text--context Text--context_default Text--size Text--size_normal RadioButton__text"
+          className="Text RadioButton__text"
         >
           Choose me
         </span>

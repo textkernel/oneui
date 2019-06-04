@@ -29,11 +29,11 @@ exports[`Footer component that renders a copyright text on the left and optional
             viewBox="0 0 442.8 77.3"
           >
             <div
-              className="IconBase IconBase--margin IconBase--margin_left Footer__logo"
+              className="IconBase IconBase--margin_left Footer__logo"
             >
               <svg
                 aria-labelledby={null}
-                className="IconBase__svg IconBase__svg--margin IconBase__svg--margin_left"
+                className="IconBase__svg"
                 role="img"
                 style={
                   Object {
@@ -78,9 +78,7 @@ exports[`Footer component that renders a copyright text on the left and optional
           </IconBase>
         </LogoTextkernel>
       </span>
-      <div
-        className="Footer__menu"
-      >
+      <div>
         This is a placeholder for children
       </div>
     </div>
@@ -99,9 +97,7 @@ exports[`Footer component that renders a copyright text on the left and optional
       className="Footer__wrapper"
     >
       my special copyright
-      <div
-        className="Footer__menu"
-      >
+      <div>
         This is a placeholder for children
       </div>
     </div>

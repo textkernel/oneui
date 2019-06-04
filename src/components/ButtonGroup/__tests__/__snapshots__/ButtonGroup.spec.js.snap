@@ -7,11 +7,11 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
   size="large"
 >
   <div
-    className="ButtonGroup ButtonGroup--size ButtonGroup--size_large ButtonGroup--isBlock"
+    className="ButtonGroup ButtonGroup--isBlock"
     role="group"
   >
     <Button
-      className="ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+      className="ButtonGroup__button ButtonGroup__button--isBlock"
       context="neutral"
       disabled={false}
       href={null}
@@ -22,7 +22,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       type="button"
     >
       <button
-        className="Button Button--context Button--context_neutral Button--size Button--size_large ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock"
         disabled={false}
         size="large"
         type="button"
@@ -31,7 +31,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       </button>
     </Button>
     <Button
-      className="ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+      className="ButtonGroup__button ButtonGroup__button--isBlock"
       context="neutral"
       disabled={false}
       href={null}
@@ -42,7 +42,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       type="button"
     >
       <button
-        className="Button Button--context Button--context_neutral Button--size Button--size_large ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_large ButtonGroup__button--isBlock"
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock"
         disabled={false}
         size="large"
         type="button"
@@ -61,11 +61,11 @@ exports[`<ButtonGroup> that renders a button should render default button correc
   size="normal"
 >
   <div
-    className="ButtonGroup ButtonGroup--size ButtonGroup--size_normal"
+    className="ButtonGroup"
     role="group"
   >
     <Button
-      className="ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_normal"
+      className="ButtonGroup__button"
       context="neutral"
       disabled={false}
       href={null}
@@ -76,7 +76,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       type="button"
     >
       <button
-        className="Button Button--context Button--context_neutral Button--size Button--size_normal ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_normal"
+        className="Button Button--context_neutral ButtonGroup__button"
         disabled={false}
         size="normal"
         type="button"
@@ -85,7 +85,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       </button>
     </Button>
     <Button
-      className="ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_normal"
+      className="ButtonGroup__button"
       context="neutral"
       disabled={false}
       href={null}
@@ -96,7 +96,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       type="button"
     >
       <button
-        className="Button Button--context Button--context_neutral Button--size Button--size_normal ButtonGroup__button ButtonGroup__button--size ButtonGroup__button--size_normal"
+        className="Button Button--context_neutral ButtonGroup__button"
         disabled={false}
         size="normal"
         type="button"

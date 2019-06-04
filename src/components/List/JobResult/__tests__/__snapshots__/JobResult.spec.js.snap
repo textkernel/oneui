@@ -21,7 +21,7 @@ exports[`JobResuts should render correctly with just a title 1`] = `
         title="some title"
       >
         <span
-          className="Text Text--context Text--context_brand Text--size Text--size_normal JobResult__title"
+          className="Text Text--context_brand JobResult__title"
           title="some title"
         >
           some title
@@ -53,7 +53,7 @@ exports[`JobResuts should render with all props defined 1`] = `
         title="A job title"
       >
         <span
-          className="Text Text--context Text--context_brand Text--size Text--size_normal JobResult__title"
+          className="Text Text--context_brand JobResult__title"
           title="A job title"
         >
           A job title
@@ -66,7 +66,7 @@ exports[`JobResuts should render with all props defined 1`] = `
         size="normal"
       >
         <span
-          className="Text Text--context Text--context_muted Text--size Text--size_normal JobResult__location"
+          className="Text Text--context_muted JobResult__location"
         >
           location
         </span>
@@ -80,20 +80,19 @@ exports[`JobResuts should render with all props defined 1`] = `
       title="Organization"
     >
       <span
-        className="Text Text--context Text--context_accent Text--size Text--size_normal JobResult__organization"
+        className="Text Text--context_accent JobResult__organization"
         title="Organization"
       >
         Organization
       </span>
     </Text>
     <Text
-      className="JobResult__details"
       context="muted"
       inline={true}
       size="normal"
     >
       <span
-        className="Text Text--context Text--context_muted Text--size Text--size_normal JobResult__details"
+        className="Text Text--context_muted"
       >
         details about this job
       </span>

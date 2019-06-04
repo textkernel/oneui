@@ -11,7 +11,7 @@ exports[`<Button> that renders a button should add classes when props are change
   type="button"
 >
   <button
-    className="Button Button--context Button--context_primary Button--size Button--size_large Button--isBlock"
+    className="Button Button--context_primary Button--size_large Button--isBlock"
     disabled={false}
     size="large"
     type="button"
@@ -34,7 +34,7 @@ exports[`<Button> that renders a button should render an ancor element if href i
   type="button"
 >
   <a
-    className="Button Button--context Button--context_neutral Button--size Button--size_normal"
+    className="Button Button--context_neutral"
     href="/"
     size="normal"
   >
@@ -54,7 +54,7 @@ exports[`<Button> that renders a button should render default button correctly 1
   type="button"
 >
   <button
-    className="Button Button--context Button--context_neutral Button--size Button--size_normal"
+    className="Button Button--context_neutral"
     disabled={false}
     size="normal"
     type="button"

@@ -2,11 +2,11 @@
 
 exports[`<IconBase> that renders an SVG wrapper with all options included should render a default icon 1`] = `
 <div
-  className="IconBase IconBase--context IconBase--context_brand IconBase--margin IconBase--margin_right"
+  className="IconBase IconBase--context_brand IconBase--margin_right"
 >
   <svg
     aria-labelledby="title"
-    className="IconBase__svg IconBase__svg--context IconBase__svg--context_brand IconBase__svg--margin IconBase__svg--margin_right"
+    className="IconBase__svg"
     role="img"
     style={
       Object {

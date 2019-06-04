@@ -5,9 +5,7 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
   disabled={false}
   id="c1"
 >
-  <div
-    className="Checkbox"
-  >
+  <div>
     <input
       className="Checkbox__input"
       disabled={false}
@@ -47,7 +45,7 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
         size="normal"
       >
         <span
-          className="Text Text--context Text--context_default Text--size Text--size_normal Checkbox__text"
+          className="Text Checkbox__text"
         >
           Check this out
         </span>
