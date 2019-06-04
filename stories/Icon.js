@@ -10,7 +10,7 @@ import {
     IconSearch,
     IconSourcebox,
     IconTextkernel,
-    IconTextkernelFull
+    LogoTextkernel
 } from '@textkernel/oneui';
 import { CONTEXTS, HEADING_SIZES } from '../src/constants';
 
@@ -76,7 +76,7 @@ storiesOf('Icons', module)
         />
     ))
     .add('Textkernel icon with full name', () => (
-        <IconTextkernelFull
+        <LogoTextkernel
             context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
             title={text('Title', 'Textkernel')}

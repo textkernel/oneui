@@ -3,8 +3,8 @@
 exports[`<IconMatch> should render an Match! icon 1`] = `
 <IconBase
   context={null}
-  keepWidth={false}
   margin={null}
+  preserveAspectRatio={false}
   size={null}
   title={null}
   viewBox="0 0 107.17 92.73"

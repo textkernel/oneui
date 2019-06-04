@@ -22,8 +22,8 @@ exports[`Footer component that renders a copyright text on the left and optional
           <IconBase
             className="Footer__logo"
             context={null}
-            keepWidth={false}
             margin={null}
+            preserveAspectRatio={false}
             size={null}
             title={null}
             viewBox="0 0 369.7 800"
@@ -36,7 +36,11 @@ exports[`Footer component that renders a copyright text on the left and optional
                 aria-labelledby={null}
                 className="IconBase__svg"
                 role="img"
-                style={null}
+                style={
+                  Object {
+                    "width": "1em",
+                  }
+                }
                 viewBox="0 0 369.7 800"
                 xmlns="http://www.w3.org/2000/svg"
               >
