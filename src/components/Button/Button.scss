@@ -23,14 +23,11 @@
     padding: var(--spacing-2x) var(--spacing-4x);
     text-align: center;
     transition: all var(--transition-duration);
+    z-index: 1;
 
     &:focus,
-    &:hover {
-        box-shadow: 0 0 0 var(--outline-size) var(--transparent);
-    }
-    &:focus,
     &:active {
-        z-index: 1;
+        z-index: 100;
     }
 
     &[disabled] {
