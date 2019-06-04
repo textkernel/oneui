@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './Footer.scss';
-import { IconTextkernel } from '../Icon';
+import { LogoTextkernel } from '../Icon';
 
 const { block, elem } = bem({
     name: 'Footer',
@@ -15,8 +15,7 @@ const Footer = props => {
     const tkCopyright = (
         <span>
             {`\u00a9 ${new Date().getFullYear()} `}
-            <IconTextkernel {...elem('logo', props)} />
-            {` Textkernel`}
+            <LogoTextkernel {...elem('logo', props)} margin="left" />
         </span>
     );
 

@@ -41,7 +41,6 @@ exports[`Header component that renders a website header with a logo on the left 
           >
             <div
               className="IconBase"
-              margin={null}
             >
               <svg
                 aria-labelledby={null}
