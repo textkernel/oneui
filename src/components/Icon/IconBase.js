@@ -28,7 +28,7 @@ const adjustSize = (size, preserveAspectRatio) => {
 };
 
 const IconBase = props => {
-    const { children, context, size, preserveAspectRatio, title, viewBox, ...rest } = props;
+    const { children, context, margin, size, preserveAspectRatio, title, viewBox, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)}>

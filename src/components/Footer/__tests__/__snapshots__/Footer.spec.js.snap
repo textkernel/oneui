@@ -30,7 +30,6 @@ exports[`Footer component that renders a copyright text on the left and optional
           >
             <div
               className="IconBase IconBase--margin IconBase--margin_left Footer__logo"
-              margin="left"
             >
               <svg
                 aria-labelledby={null}
