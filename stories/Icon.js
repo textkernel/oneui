@@ -75,10 +75,10 @@ storiesOf('Icons', module)
             title={text('Title', 'Textkernel')}
         />
     ))
-    .add('Textkernel icon with full name', () => (
+    .add('Textkernel logo', () => (
         <LogoTextkernel
             context={select('Context', STORY_CONTEXTS, CONTEXT_DEFAULT)}
             size={number('Size', SIZE_DEFAULT)}
-            title={text('Title', 'Textkernel')}
+            title={text('Title', 'Textkernel logo')}
         />
     ));
