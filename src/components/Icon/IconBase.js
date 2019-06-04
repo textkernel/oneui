@@ -10,22 +10,25 @@ const { block, elem } = bem({
     propsToMods: ['context', 'margin']
 });
 
-const adjustSize = size => {
+const adjustSize = (size, preserveAspectRatio) => {
     if (!size) {
-        return null;
+        if (!preserveAspectRatio) {
+            return { width: '1em' };
+        }
+        return { width: 'auto' };
     }
 
     const adjustedSize = Math.max(0, size);
 
     return {
         top: 'auto',
-        width: adjustedSize,
+        width: preserveAspectRatio ? 'auto' : adjustedSize,
         height: adjustedSize
     };
 };
 
 const IconBase = props => {
-    const { children, context, size, title, viewBox, ...rest } = props;
+    const { children, context, size, preserveAspectRatio, title, viewBox, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)}>
@@ -34,7 +37,7 @@ const IconBase = props => {
                 aria-labelledby={title ? 'title' : null}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox={viewBox}
-                style={adjustSize(size)}
+                style={adjustSize(size, preserveAspectRatio)}
                 role="img"
             >
                 {!!title && <title>{title}</title>}
@@ -55,6 +58,8 @@ IconBase.propTypes = {
     /** Absolute size for this icon (size in pixels, aspect ratio is 1:1).
      If not defined, icon will scale and align itself with text. */
     size: PropTypes.number,
+    /** If true, width will set to be automatic */
+    preserveAspectRatio: PropTypes.bool,
     /** Optional icon title */
     title: PropTypes.string,
     /** The SVG viewbox */
@@ -65,6 +70,7 @@ IconBase.defaultProps = {
     context: null,
     margin: null,
     size: null,
+    preserveAspectRatio: false,
     title: null
 };
 

@@ -5,3 +5,4 @@ export { default as IconMatch } from './IconMatch';
 export { default as IconSearch } from './IconSearch';
 export { default as IconSourcebox } from './IconSourcebox';
 export { default as IconTextkernel } from './IconTextkernel';
+export { default as LogoTextkernel } from './LogoTextkernel';
