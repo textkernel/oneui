@@ -29,7 +29,7 @@ exports[`List component should render List correctly 1`] = `
             size="normal"
           >
             <span
-              className="Text Text--context Text--context_default Text--size Text--size_normal"
+              className="Text"
             >
               Item 1
             </span>
@@ -59,7 +59,7 @@ exports[`List component should render List correctly 1`] = `
             size="normal"
           >
             <span
-              className="Text Text--context Text--context_default Text--size Text--size_normal"
+              className="Text"
             >
               Item 2
             </span>

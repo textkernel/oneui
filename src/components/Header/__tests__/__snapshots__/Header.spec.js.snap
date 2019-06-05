@@ -62,9 +62,7 @@ exports[`Header component that renders a website header with a logo on the left 
           </IconBase>
         </IconTextkernel>
       </a>
-      <div
-        className="Header__menu"
-      >
+      <div>
         This is a placeholder for children
       </div>
     </div>
@@ -91,9 +89,7 @@ exports[`Header component that renders a website header with a logo on the left 
         className="Header__logo"
         src="jobfeed-logo.svg"
       />
-      <div
-        className="Header__menu"
-      >
+      <div>
         This is a placeholder for children
       </div>
     </div>
@@ -124,9 +120,7 @@ exports[`Header component that renders a website header with a logo on the left 
           src="jobfeed-logo.svg"
         />
       </a>
-      <div
-        className="Header__menu"
-      >
+      <div>
         This is a placeholder for children
       </div>
     </div>

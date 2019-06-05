@@ -1,16 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<ProgressBar> that renders a horizontal progress bar should add classes when props are changed 1`] = `
+<div
+  aria-hidden={true}
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow={25}
+  className="ProgressBar ProgressBar--hidden ProgressBar--small"
+  role="progressbar"
+>
+  <div
+    className="ProgressBar__fill ProgressBar__fill--animated ProgressBar__fill--context_primary ProgressBar__fill--small"
+    style={
+      Object {
+        "width": "25%",
+      }
+    }
+  />
+</div>
+`;
+
 exports[`<ProgressBar> that renders a horizontal progress bar should render a default progress bar correctly 1`] = `
 <div
   aria-hidden={false}
   aria-valuemax="100"
   aria-valuemin="0"
   aria-valuenow={25}
-  className="ProgressBar ProgressBar--context ProgressBar--context_brand"
+  className="ProgressBar"
   role="progressbar"
 >
   <div
-    className="ProgressBar__fill ProgressBar__fill--context ProgressBar__fill--context_brand"
+    className="ProgressBar__fill ProgressBar__fill--context_brand"
     style={
       Object {
         "width": "25%",

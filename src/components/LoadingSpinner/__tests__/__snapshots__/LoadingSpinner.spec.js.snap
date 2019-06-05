@@ -4,11 +4,11 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should add cla
 <div
   aria-busy={false}
   aria-hidden={true}
-  className="LoadingSpinner LoadingSpinner--centerIn LoadingSpinner--centerIn_viewport LoadingSpinner--context LoadingSpinner--context_primary LoadingSpinner--hidden"
+  className="LoadingSpinner LoadingSpinner--centerIn_viewport LoadingSpinner--hidden"
   role="status"
 >
   <svg
-    className="LoadingSpinner__svg LoadingSpinner__svg--centerIn LoadingSpinner__svg--centerIn_viewport LoadingSpinner__svg--context LoadingSpinner__svg--context_primary LoadingSpinner__svg--hidden"
+    className="LoadingSpinner__svg"
     style={
       Object {
         "height": 12,
@@ -25,7 +25,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should add cla
     }
   >
     <circle
-      className="LoadingSpinner__path LoadingSpinner__path--centerIn LoadingSpinner__path--centerIn_viewport LoadingSpinner__path--context LoadingSpinner__path--context_primary LoadingSpinner__path--hidden"
+      className="LoadingSpinner__path LoadingSpinner__path--context_primary"
       cx="22"
       cy="22"
       fill="none"
@@ -40,11 +40,11 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
 <div
   aria-busy={true}
   aria-hidden={false}
-  className="LoadingSpinner LoadingSpinner--context LoadingSpinner--context_brand"
+  className="LoadingSpinner"
   role="status"
 >
   <svg
-    className="LoadingSpinner__svg LoadingSpinner__svg--context LoadingSpinner__svg--context_brand"
+    className="LoadingSpinner__svg"
     style={null}
     viewBox={
       Array [
@@ -56,7 +56,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
     }
   >
     <circle
-      className="LoadingSpinner__path LoadingSpinner__path--context LoadingSpinner__path--context_brand"
+      className="LoadingSpinner__path LoadingSpinner__path--context_brand"
       cx="22"
       cy="22"
       fill="none"
@@ -71,11 +71,11 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
 <div
   aria-busy={true}
   aria-hidden={false}
-  className="LoadingSpinner LoadingSpinner--context LoadingSpinner--context_brand"
+  className="LoadingSpinner"
   role="status"
 >
   <svg
-    className="LoadingSpinner__svg LoadingSpinner__svg--context LoadingSpinner__svg--context_brand"
+    className="LoadingSpinner__svg"
     style={null}
     viewBox={
       Array [
@@ -87,7 +87,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
     }
   >
     <circle
-      className="LoadingSpinner__path LoadingSpinner__path--context LoadingSpinner__path--context_brand"
+      className="LoadingSpinner__path LoadingSpinner__path--context_brand"
       cx="22"
       cy="22"
       fill="none"
@@ -96,7 +96,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
     />
   </svg>
   <Text
-    className="LoadingSpinner__label LoadingSpinner__label--context LoadingSpinner__label--context_brand"
+    className="LoadingSpinner__label"
     context="default"
     inline={true}
     size="normal"
