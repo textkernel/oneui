@@ -24,7 +24,7 @@ const Checkbox = forwardRef((props, ref) => {
                 id={id}
                 disabled={disabled}
             />
-            <label {...elem('label', props)} htmlFor={id} disabled={disabled}>
+            <label {...elem('label', props)} htmlFor={id}>
                 <span {...elem('box', props)}>
                     <svg
                         {...elem('svg', props)}

@@ -24,7 +24,6 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       <button
         className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock"
         disabled={false}
-        size="large"
         type="button"
       >
         A button
@@ -44,7 +43,6 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       <button
         className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock"
         disabled={false}
-        size="large"
         type="button"
       >
         Another button
@@ -78,7 +76,6 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       <button
         className="Button Button--context_neutral ButtonGroup__button"
         disabled={false}
-        size="normal"
         type="button"
       >
         A button
@@ -98,7 +95,6 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       <button
         className="Button Button--context_neutral ButtonGroup__button"
         disabled={false}
-        size="normal"
         type="button"
       >
         Another button

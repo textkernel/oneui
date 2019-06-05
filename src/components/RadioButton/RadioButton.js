@@ -25,7 +25,7 @@ const RadioButton = forwardRef((props, ref) => {
                 name={name}
                 disabled={disabled}
             />
-            <label {...elem('label', props)} htmlFor={id} disabled={disabled}>
+            <label {...elem('label', props)} htmlFor={id}>
                 <span {...elem('box', props)}>
                     <svg
                         {...elem('svg', props)}

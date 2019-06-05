@@ -32,7 +32,6 @@ describe('<RadioButton> that renders a radio button', () => {
             </RadioButton>
         );
         expect(wrapper.find('input[disabled]')).toHaveLength(1);
-        expect(wrapper.find('label[disabled]')).toHaveLength(1);
         expect(wrapper.find('.Text--context_muted')).toHaveLength(1);
     });
 });
