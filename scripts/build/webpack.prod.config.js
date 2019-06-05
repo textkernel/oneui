@@ -1,17 +1,22 @@
 const TerserPlugin = require('terser-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
-const { baseConfig, plugins, getRules } = require('./webpack.config');
+const { baseConfig, LIBRARY_NAME, plugins, getRules } = require('./webpack.config');
 
 const rules = getRules('prod');
 
 module.exports = {
     ...baseConfig,
     mode: 'production',
+    output: {
+        ...baseConfig.output,
+        filename: `${LIBRARY_NAME}.min.js`
+    },
     plugins: [
         plugins.hashedModuleIdsPlugin,
         plugins.cssPlugin,
         plugins.styleLintPlugin,
         plugins.optimizeCssAssetsPlugin,
-        plugins.bundleAnalyzerPlugin
+        plugins.bundleAnalyzerPlugin,
+        plugins.cleanWebpackPlugin
     ],
     module: {
         rules: [rules.js, rules.styles]

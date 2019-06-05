@@ -1,5 +1,5 @@
 const path = require('path');
-const { getRules, plugins, PACKAGES_PATH } = require('../etc/webpack/webpack.config');
+const { getRules, PACKAGES_PATH } = require('../scripts/build/webpack.config');
 
 module.exports = ({ config: storybookBaseConfig }) => {
 

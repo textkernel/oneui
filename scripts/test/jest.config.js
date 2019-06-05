@@ -14,7 +14,7 @@ module.exports = {
 
     // The path to a module that runs some code to configure or set up the testing framework
     // before each test
-    setupFiles: ['<rootDir>etc/test/enzyme.setup.js'],
+    setupFiles: ['<rootDir>scripts/test/enzyme.setup.js'],
 
     // The glob patterns Jest uses to detect test files
     testMatch: ['**/__tests__/**/*.spec.js'],
