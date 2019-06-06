@@ -16,38 +16,15 @@ Version numbers should not be prefixed (e.g. 1.2.3, **not** v1.2.3).
 
 ## Release Procedure
 
-1. Make sure the local `master` branch is checked out and up to date. It should contain all the latest commits that should be included with the release.
-2. Determine the new version number on the basis of [semver specifications](https://semver.org).
-3. Update the version number in metadata files (package[-lock].json), replacing `x.x.x` with actual version number:
 
-```bash
-(master) $ npm --no-git-tag-version version x.x.x
-(master) $ git add -u .
-(master) $ git commit -m "bump version number"
-```
+To make a new release, simply run **`npm run release`**.
 
-4. Create a new annotated Git tag, replacing `x.x.x` with actual version number:
+The release script will...
+1. ...auto determine a new version number on the basis of commit messages since last tag.
+2. ...update the version number in metadata files (package[-lock].json).
+3. ...generate an updated CHANGELOG.md on the basis of commit messages since last tag.
+4. ...push a new tag and publish a new package to npm.
 
-```bash
-(master) $ git tag -a x.x.x
-```
-
-5. In the tag message, list all significant changes that come with the new release. To list all commits since last tag, run:
-
-```bash
-(master) $ git log <lasttag>..HEAD
-```
-
-6. Push new tag to remote, replacing `x.x.x` with actual version number:
-
-```bash
-(master) $ git push origin master x.x.x
-```
-
-7. Publish new package version to [NPM](https://npmjs.com/package/@textkernel/oneui):
-
-```bash
-(master) $ npm publish --access=public
 ```
 
 ## Storybook

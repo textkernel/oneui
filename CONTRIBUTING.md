@@ -82,5 +82,21 @@ Each implementation should be thoroughly covered with tests. DOM structure can i
 3. Test additional interactivity / behaviour with explicit assertions
 4. Strive for 100% code coverage
 
+## Committing and Merging
+
+### Commit Messages
+OneUI's [release procedure](RELEASING.md) and [changelog](CHANGELOG.md) automation heavily relies on commit messages. Commit messages should follow the [Conventional Commit](https://www.conventionalcommits.org/en/) specifications. This is critical for the release script to determine a correct new version number. An updated changelog is generated automatically on the basis of commit messages. The commit message structure should be as follows:
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer]
+```
+
+### Merging
+When merging a branch, squash its commits for the changelog to be nice and tidy. Each pull request / squashed commit should eventually equal one fix / feature / change in docs or tests.
+
 ## Releasing
 The procedure for making a new release is [described here](RELEASING.md).
