@@ -16,16 +16,13 @@ Version numbers should not be prefixed (e.g. 1.2.3, **not** v1.2.3).
 
 ## Release Procedure
 
-
 To make a new release, simply run **`npm run release`**.
 
 The release script will...
 1. ...auto determine a new version number on the basis of commit messages since last tag.
 2. ...update the version number in metadata files (package[-lock].json).
-3. ...generate an updated CHANGELOG.md on the basis of commit messages since last tag.
-4. ...push a new tag and publish a new package to npm.
-
-```
+3. ...generate an updated [CHANGELOG.md](CHANGELOG.md) on the basis of commit messages since last tag.
+4. ...push a new tag and publish a new package to [npm](https://npmjs.com/package/@textkernel/oneui).
 
 ## Storybook
 
