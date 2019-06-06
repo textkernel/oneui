@@ -16,7 +16,6 @@ exports[`<RadioButton> that renders a radio button should render default radio b
     />
     <label
       className="RadioButton__label"
-      disabled={false}
       htmlFor="c1"
     >
       <span
@@ -63,7 +62,6 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
     />
     <label
       className="RadioButton__label"
-      disabled={false}
       htmlFor="c1"
     >
       <span

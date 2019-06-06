@@ -32,7 +32,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         data-page={5}
         disabled={false}
         onClick={[Function]}
-        size="normal"
         type="button"
       >
         ‹ Previous
@@ -63,7 +62,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={1}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           1
@@ -100,7 +98,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={3}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           3
@@ -132,7 +129,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={4}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           4
@@ -164,7 +160,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={5}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           5
@@ -196,7 +191,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={6}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           6
@@ -228,7 +222,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={7}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           7
@@ -260,7 +253,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={8}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           8
@@ -292,7 +284,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={9}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           9
@@ -317,7 +308,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         data-page={7}
         disabled={false}
         onClick={[Function]}
-        size="normal"
         type="button"
       >
         Next ›
@@ -366,7 +356,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={1}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           1
@@ -398,7 +387,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={2}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           2
@@ -430,7 +418,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={3}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           3
@@ -462,7 +449,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={4}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           4
@@ -494,7 +480,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={5}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           5
@@ -526,7 +511,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={6}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           6
@@ -558,7 +542,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={7}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           7
@@ -590,7 +573,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={8}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           8
@@ -622,7 +604,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={9}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           9
@@ -654,7 +635,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
           data-page={10}
           disabled={false}
           onClick={[Function]}
-          size="normal"
           type="button"
         >
           10

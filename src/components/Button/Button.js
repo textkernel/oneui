@@ -11,7 +11,7 @@ const { block } = bem({
 });
 
 const Button = forwardRef((props, ref) => {
-    const { children, context, disabled, isBlock, isInline, type, href, ...rest } = props;
+    const { children, context, disabled, isBlock, isInline, type, href, size, ...rest } = props;
 
     if (href) {
         return (

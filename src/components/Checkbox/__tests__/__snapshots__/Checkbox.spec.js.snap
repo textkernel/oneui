@@ -14,7 +14,6 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
     />
     <label
       className="Checkbox__label"
-      disabled={false}
       htmlFor="c1"
     >
       <span
