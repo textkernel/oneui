@@ -96,16 +96,19 @@ OneUI's [release procedure](RELEASING.md) and [changelog](CHANGELOG.md) automati
 ```
 
 Commit types include:
-* `feat`: A new feature
-* `fix`: A bug fix
+* `feat`: A new feature (equivalent to `MINOR`)
+* `fix`: A bug fix (equivalent to `PATCH`)
 * `docs`: Changes to documentation
 * `test`: Changes to tests
 * `chore`: Other changes that dont affect source files, tests or documentation
 * `revert`: Reverted previous commit
+* `style`: Code style change (indentation, semicolons, ...)
+* `perf`: Performance enhancements
+* `refactor`: Code refactoring without changes to public API
 
 Use imperative, present tense in your commit description ("change", not "changed" or "changes") without uppercases or period (.) at the end.
 
-Breaking changes should be explicitly marked (with uppercase) in the message footer, e.g. `BREAKING CHANGE: <note>`.
+**Breaking changes** should be explicitly marked (with uppercase) in the message footer, e.g. `BREAKING CHANGE: <note>`. This will result in a new `MAJOR` package version.
 
 ### Merging
 When merging a branch, squash its commits for the changelog to be nice and tidy. Each pull request / squashed commit should eventually equal one fix / feature / change in docs or tests.
