@@ -19,7 +19,7 @@
         "test:coverage": "jest --config etc/test/jest.config.js --coverage",
         "prepublishOnly": "npm test && npm run lint:ci && npm run lint:styles && npm run build:prod",
         "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
-        "release": "standard-version -t"
+        "release": "standard-version -t ''"
     },
     "files": [
         "/dist"
