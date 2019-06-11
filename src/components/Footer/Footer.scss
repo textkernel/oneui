@@ -8,6 +8,14 @@
     border-bottom: 1px solid var(--border-color-strong);
     box-shadow: 0 1px 3px var(--border-color-light);
 
+    a {
+        color: var(--footer-link-color);
+
+        &:hover {
+            color: var(--footer-link-color);
+        }
+    }
+
     &__wrapper {
         box-sizing: border-box;
         max-width: var(--site-container-size);

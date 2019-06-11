@@ -6,6 +6,7 @@ $header-height: 50px !default;
 // Footer variables
 $footer-background-color: var(--color-accent) !default;
 $footer-foreground-color: var(--color-background) !default;
+$footer-link-color: var(--color-neutral-60) !default;
 $footer-height: 100px !default;
 
 // navigation bar
@@ -19,6 +20,7 @@ $navigation-height: 48px !default;
 
     --footer-background-color: #{$footer-background-color};
     --footer-foreground-color: #{$footer-foreground-color};
+    --footer-link-color: #{$footer-link-color};
     --footer-height: #{$footer-height};
 
     --navigation-height: #{$navigation-height};
