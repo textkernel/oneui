@@ -1,3 +1,13 @@
+## [1.2.1](https://github.com/textkernel/oneui/compare/1.2.0...1.2.1) (2019-06-11)
+
+
+### Bug Fixes
+
+* **footer:** add styling to links ([#119](https://github.com/textkernel/oneui/issues/119)) ([3f0e8ad](https://github.com/textkernel/oneui/commit/3f0e8ad))
+* destruct props that should not be applied as html attributes ([#117](https://github.com/textkernel/oneui/issues/117)) ([bff61c3](https://github.com/textkernel/oneui/commit/bff61c3))
+
+
+
 # [1.2.0](https://github.com/textkernel/oneui/compare/1.1.0...1.2.0) (2019-06-06)
 
 
