@@ -4,14 +4,6 @@ import bem from 'bem';
 import styles from './ButtonGroup.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 
-const compact = obj =>
-    Object.keys(obj).reduce((accumulator, k) => {
-        if (obj[k] && typeof obj[k] !== typeof undefined) {
-            accumulator[k] = obj[k];
-        }
-        return accumulator;
-    }, {});
-
 const { block, elem } = bem({
     name: 'ButtonGroup',
     classnames: styles,
@@ -25,11 +17,9 @@ const ButtonGroup = props => {
         <div {...rest} {...block(props)} role="group">
             {React.Children.map(children, button =>
                 React.cloneElement(button, {
-                    ...compact({
-                        ...button.props,
-                        context,
-                        size
-                    }),
+                    ...button.props,
+                    context,
+                    size,
                     ...elem('button', props)
                 })
             )}
@@ -51,7 +41,7 @@ ButtonGroup.propTypes = {
 };
 
 ButtonGroup.defaultProps = {
-    context: null,
+    context: 'neutral',
     size: 'normal',
     isBlock: false
 };
