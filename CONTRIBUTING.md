@@ -82,5 +82,36 @@ Each implementation should be thoroughly covered with tests. DOM structure can i
 3. Test additional interactivity / behaviour with explicit assertions
 4. Strive for 100% code coverage
 
+## Committing and Merging
+
+### Commit Messages
+OneUI's [release procedure](RELEASING.md) and [changelog](CHANGELOG.md) automation heavily relies on commit messages. Commit messages should follow the [Conventional Commit](https://www.conventionalcommits.org/en/) specifications. This is critical for the release script to determine a correct new version number. An updated changelog is generated automatically on the basis of commit messages. The commit message structure should be as follows:
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer]
+```
+
+Commit types include:
+* `feat`: A new feature (equivalent to `MINOR`)
+* `fix`: A bug fix (equivalent to `PATCH`)
+* `docs`: Changes to documentation
+* `test`: Changes to tests
+* `chore`: Other changes that dont affect source files, tests or documentation
+* `revert`: Reverted previous commit
+* `style`: Code style change (indentation, semicolons, ...)
+* `perf`: Performance enhancements
+* `refactor`: Code refactoring without changes to public API
+
+Use imperative, present tense in your commit description ("change", not "changed" or "changes") without uppercases or period (.) at the end.
+
+**Breaking changes** should be explicitly marked (with uppercase) in the message footer, e.g. `BREAKING CHANGE: <note>`. This will result in a new `MAJOR` package version.
+
+### Merging
+When merging a branch, squash its commits for the changelog to be nice and tidy. Each pull request / squashed commit should eventually equal one fix / feature / change in docs or tests.
+
 ## Releasing
 The procedure for making a new release is [described here](RELEASING.md).
