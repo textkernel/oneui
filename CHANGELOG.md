@@ -1,3 +1,26 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [2.0.0](https://github.com/textkernel/oneui/compare/1.2.1...2.0.0) (2019-06-14)
+
+
+### Bug Fixes
+
+* **buttongroup:** add separators, define context on group level, remove isInline prop ([#120](https://github.com/textkernel/oneui/issues/120)) ([2456b84](https://github.com/textkernel/oneui/commit/2456b84))
+
+
+### Features
+
+* **workflow:** set up standard-version and update docs ([#118](https://github.com/textkernel/oneui/issues/118)) ([0953ec4](https://github.com/textkernel/oneui/commit/0953ec4))
+
+
+### BREAKING CHANGES
+
+* **buttongroup:** ButtonGroup isInline prop is deprecated, ButtonGroup is now an inline element by default
+
+
+
 ## [1.2.1](https://github.com/textkernel/oneui/compare/1.2.0...1.2.1) (2019-06-11)
 
 
@@ -107,6 +130,3 @@
 
 
 ## [0.2.1](https://github.com/textkernel/oneui/compare/0.1.0...0.2.1) (2019-02-20)
-
-
-
