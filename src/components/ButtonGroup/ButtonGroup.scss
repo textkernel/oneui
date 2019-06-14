@@ -21,7 +21,7 @@
     }
 
     .Button--context {
-        @each $context in (brand, primary, accent, info, good, warning, bad) {
+        @each $context in ($contexts) {
             &_#{$context} {
                 &:not(:first-child):not(:focus) {
                     border-left-color: var(--color-#{$context}-25);

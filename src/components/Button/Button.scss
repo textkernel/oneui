@@ -1,7 +1,8 @@
 @import '../../themes/oneui/oneui.scss';
 
 .Button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     border: {
         radius: var(--border-radius);
         width: var(--line-normal);
@@ -23,7 +24,6 @@
     padding: var(--spacing-2x) var(--spacing-4x);
     text-align: center;
     transition: all var(--transition-duration);
-    z-index: 1;
 
     &:focus,
     &:active {
