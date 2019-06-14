@@ -2,8 +2,8 @@
 
 exports[`<ButtonGroup> that renders a button should add classes when props are changed 1`] = `
 <ButtonGroup
+  context="neutral"
   isBlock={true}
-  isInline={false}
   size="large"
 >
   <div
@@ -54,8 +54,8 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
 
 exports[`<ButtonGroup> that renders a button should render default button correctly 1`] = `
 <ButtonGroup
+  context="neutral"
   isBlock={false}
-  isInline={false}
   size="normal"
 >
   <div

@@ -1,7 +1,8 @@
 @import '../../themes/oneui/oneui.scss';
 
 .Button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     border: {
         radius: var(--border-radius);
         width: var(--line-normal);
@@ -25,12 +26,8 @@
     transition: all var(--transition-duration);
 
     &:focus,
-    &:hover {
-        box-shadow: 0 0 0 var(--outline-size) var(--transparent);
-    }
-    &:focus,
     &:active {
-        z-index: 1;
+        z-index: 100;
     }
 
     &[disabled] {

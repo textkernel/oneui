@@ -1,7 +1,7 @@
 @import '../../themes/oneui/oneui.scss';
 
 .ButtonGroup {
-    display: flex;
+    display: inline-flex;
 
     &__button {
         border-radius: 0;
@@ -20,12 +20,22 @@
         }
     }
 
-    &--isBlock {
-        width: 100%;
+    .Button--context {
+        @each $context in ($contexts) {
+            &_#{$context} {
+                &:not(:first-child):not(:focus) {
+                    border-left-color: var(--color-#{$context}-25);
+                }
+                &:not(:last-child):not(:focus) {
+                    border-right-color: var(--color-#{$context}-25);
+                }
+            }
+        }
     }
 
-    &--isInline {
-        display: inline-flex;
+    &--isBlock {
+        display: flex;
+        width: 100%;
     }
 
     &__button--isBlock {
