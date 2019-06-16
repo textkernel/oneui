@@ -52,7 +52,7 @@ const Pagination = props => {
 
     const handleClick = e => {
         const {
-            dataset: { page = null }
+            dataset: { page }
         } = e.target;
         const pageNum = +page;
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Tabs> that renders tab container with some tabs should render simple tabs 1`] = `
+exports[`<Tabs> that renders tab container with some tabs should render simple tabs (without onChange callback prop) 1`] = `
 <Tabs
   activeTabId="1"
   gutters={false}

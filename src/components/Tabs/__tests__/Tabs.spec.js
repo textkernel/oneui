@@ -4,7 +4,9 @@ import Tabs from '../Tabs';
 import Tab from '../Tab';
 
 describe('<Tabs> that renders tab container with some tabs', () => {
-    it('should render simple tabs', () => {
+    it('should render simple tabs (without onChange callback prop)', () => {
+        const onChange = jest.fn();
+
         const wrapper = mount(
             <Tabs activeTabId="1">
                 <Tab id="1" label="First">
@@ -16,6 +18,14 @@ describe('<Tabs> that renders tab container with some tabs', () => {
             </Tabs>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
+
+        wrapper
+            .find('TabMenu')
+            .find('TabItem')
+            .at(1)
+            .simulate('click');
+
+        expect(onChange).not.toHaveBeenCalled();
     });
 
     it('should switch tabs correctly', () => {
