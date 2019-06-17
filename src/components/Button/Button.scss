@@ -3,12 +3,13 @@
 .Button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     border: {
         radius: var(--border-radius);
         width: var(--line-normal);
         style: solid;
     }
-    box-sizing: content-box;
+    box-sizing: border-box;
     color: var(--color-brand);
     cursor: pointer;
     font: {
@@ -18,12 +19,13 @@
     }
     text-decoration: none;
     line-height: var(--line-height-normal);
-    height: var(--line-height-normal);
     margin: 0;
     outline: none;
     padding: var(--spacing-2x) var(--spacing-4x);
     text-align: center;
     transition: all var(--transition-duration);
+    white-space: nowrap;
+    flex-wrap: nowrap;
 
     &:focus,
     &:active {
