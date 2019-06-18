@@ -111,4 +111,11 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
             expect(ponyfillOptions.onError).toBeCalledTimes(1);
         });
     });
+
+    it('should throw an error when timeout expired', () =>
+        expect(
+            OneUI.init({
+                maxTime: 1
+            })
+        ).rejects.toThrowErrorMatchingSnapshot());
 });
