@@ -16,7 +16,7 @@ class OneUI {
      * @param {number} themeConfig.maxTime - Max time to wait for the theme to be loaded
      * @param {Object} themeConfig.ponyfillOptions - Set of options that can be used to configure the ponyfill. Options: https://www.npmjs.com/package/css-vars-ponyfill#options
      */
-    static init({ themeURL = '', maxTime = DEFAULT_LOADING_TIMEOUT, ponyfillOptions } = {}) {
+    static init({ themeURL = '', maxTime = DEFAULT_LOADING_TIMEOUT, ponyfillOptions }) {
         const loadTheme = Promise.all([
             OneUI.applyTheme(themeURL),
             OneUI.startCssVarsPonyfill(ponyfillOptions)

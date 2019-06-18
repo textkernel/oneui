@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OneUI loader that starts the ponyfill and attach the theme to DOM should throw an error when timeout expired 1`] = `"Theme \\"\\" not loaded. Loading time expired"`;
