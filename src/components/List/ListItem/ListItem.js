@@ -17,9 +17,8 @@ const ListItem = props => {
     return (
         <li {...rest} {...block(props, customBlockMod)}>
             <div onClick={onClick} role="presentation" {...elem('container', props)}>
-                {React.Children.map(
-                    children,
-                    child => (typeof child === 'string' ? <Text inline>{child}</Text> : child)
+                {React.Children.map(children, child =>
+                    typeof child === 'string' ? <Text inline>{child}</Text> : child
                 )}
             </div>
         </li>
