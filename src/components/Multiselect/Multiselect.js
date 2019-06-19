@@ -30,7 +30,9 @@ class Multiselect extends React.Component {
     handleChange(selectedItems) {
         const { onChange } = this.props;
         console.log({ selectedItems });
-        onChange(selectedItems);
+        if (onChange) {
+            onChange(selectedItems);
+        }
     }
 
     handleInputKeyDown({ event, isOpen, removeItem, selectedItems }) {
@@ -146,11 +148,13 @@ Multiselect.propTypes = {
     //         id: PropTypes.string.isRequired
     //     })
     getItems: PropTypes.func.isRequired,
-    onFinished: PropTypes.func
+    onFinished: PropTypes.func,
+    onChange: PropTypes.func
 };
 
 Multiselect.defaultProps = {
-    onFinished: null
+    onFinished: null,
+    onChange: null
 };
 
 export default Multiselect;
