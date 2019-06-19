@@ -47,20 +47,19 @@ const CandidateAvatar = props => {
                     backgroundImage: `url(${imageUrl})`
                 }}
             >
-                {!!Number.isInteger(matchPercentage) &&
-                    !!showPercentageOnHover && (
-                        <svg {...elem('percentage', props)} viewBox="0 0 50 50">
-                            <text
-                                {...elem('percentage-value', props)}
-                                x="50%"
-                                y="50%"
-                                textAnchor="middle"
-                                dominantBaseline="central"
-                            >
-                                {`${percentage}%`}
-                            </text>
-                        </svg>
-                    )}
+                {!!Number.isInteger(matchPercentage) && !!showPercentageOnHover && (
+                    <svg {...elem('percentage', props)} viewBox="0 0 50 50">
+                        <text
+                            {...elem('percentage-value', props)}
+                            x="50%"
+                            y="50%"
+                            textAnchor="middle"
+                            dominantBaseline="central"
+                        >
+                            {`${percentage}%`}
+                        </text>
+                    </svg>
+                )}
             </div>
             <svg
                 {...elem('ring', props)}

@@ -47,6 +47,8 @@ const IconBase = props => {
     );
 };
 
+IconBase.displayName = 'IconBase';
+
 IconBase.propTypes = {
     /** The SVG content */
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
