@@ -13,6 +13,7 @@ import './Input';
 import './Link';
 import './List';
 import './LoadingSpinner';
+import './Multiselect';
 import './Navigation';
 import './Pagination';
 import './ProgressBar';

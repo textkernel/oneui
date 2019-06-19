@@ -1,0 +1,45 @@
+.Multiselect {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+
+    &__wrapper {
+        cursor: pointer;
+        position: relative;
+        border-radius: 6px;
+        padding: 10px;
+        padding-right: 50px;
+        box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+        border: 1px solid #96c8da;
+    }
+
+    &__selectedWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    &__tagsWrapper {
+        margin: 2px;
+        padding: 2px 8px;
+        display: inline-block;
+        word-wrap: none;
+        background-color: #ccc;
+        border-radius: 2px;
+    }
+
+    &__tagsInnerWrapper {
+        display: grid;
+        grid-gap: 6px;
+        grid-auto-flow: column;
+        align-items: center;
+    }
+
+    &__input {
+        border: 0;
+        margin-left: 6px;
+        flex: 1;
+        font-size: 14px;
+        min-height: 27px;
+    }
+}
