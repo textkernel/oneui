@@ -10,14 +10,16 @@ const { block, elem } = bem({
     propsToMods: ['isDivided']
 });
 
-const List = props => {
+const List = React.forwardRef((props, ref) => {
     const { children, isDivided, ...rest } = props;
     return (
-        <ul {...rest} {...block(props)}>
-            {React.Children.map(children, child => React.cloneElement(child, elem('item', props)))}
+        <ul {...rest} ref={ref} {...block(props)}>
+            {React.Children.map(children, child =>
+                child ? React.cloneElement(child, elem('item', props)) : null
+            )}
         </ul>
     );
-};
+});
 
 List.displayName = 'List';
 
@@ -28,7 +30,7 @@ List.propTypes = {
 
         let error = null;
         React.Children.forEach(prop, child => {
-            if (child.type !== ListItem && child.type !== 'li') {
+            if (child && child.type !== ListItem && child.type !== 'li') {
                 error = new Error(
                     `'${componentName}' children should be of type 'ListItem' or 'li'.`
                 );

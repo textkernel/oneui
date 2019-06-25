@@ -1,22 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ListItem component should render ListItem correctly 1`] = `
-<li
-  className="ListItem"
+<ListItem
+  disabled={false}
+  isSelected={false}
+  onClick={null}
 >
-  <div
-    className="ListItem__container"
-    onClick={null}
-    role="presentation"
+  <li
+    className="ListItem"
   >
-    <Text
-      context="default"
-      inline={false}
-      key=".0"
-      size="normal"
+    <div
+      className="ListItem__container"
+      onClick={null}
+      role="presentation"
     >
-      An item
-    </Text>
-  </div>
-</li>
+      <Text
+        context="default"
+        inline={false}
+        key=".0"
+        size="normal"
+      >
+        <p
+          className="Text"
+        >
+          An item
+        </p>
+      </Text>
+    </div>
+  </li>
+</ListItem>
 `;

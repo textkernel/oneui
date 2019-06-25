@@ -5,13 +5,15 @@ import Text from '../../../Text';
 
 describe('ListItem component', () => {
     it('should render ListItem correctly', () => {
-        const wrapper = shallow(
-            <ListItem>
+        const ref = React.createRef();
+        const wrapper = mount(
+            <ListItem ref={ref}>
                 <Text>An item</Text>
             </ListItem>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
+        expect(ref.current.props.Component.displayName).toEqual('ListItem');
     });
 
     it('should turn string items to Text', () => {
