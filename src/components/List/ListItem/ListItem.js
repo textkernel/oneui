@@ -10,12 +10,12 @@ const { block, elem } = bem({
     propsToMods: ['isSelected', 'onClick', 'disabled']
 });
 
-const ListItem = props => {
+const ListItem = React.forwardRef((props, ref) => {
     const { children, isSelected, onClick, disabled, ...rest } = props;
     const customBlockMod = { clickable: typeof onClick === 'function' };
 
     return (
-        <li {...rest} {...block(props, customBlockMod)}>
+        <li {...rest} ref={ref} {...block(props, customBlockMod)}>
             <div onClick={onClick} role="presentation" {...elem('container', props)}>
                 {React.Children.map(children, child =>
                     typeof child === 'string' ? <Text inline>{child}</Text> : child
@@ -23,7 +23,7 @@ const ListItem = props => {
             </div>
         </li>
     );
-};
+});
 
 ListItem.displayName = 'ListItem';
 

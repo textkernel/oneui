@@ -25,6 +25,17 @@ describe('List component', () => {
         expect(wrapper.find('ul')).toHaveLength(1);
         expect(consoleError).not.toHaveBeenCalled();
     });
+    it('should render correctly with ref', () => {
+        const ref = React.createRef();
+        mount(
+            <List ref={ref}>
+                <ListItem>Item 1</ListItem>
+                <ListItem>Item 2</ListItem>
+            </List>
+        );
+
+        expect(ref.current.props.Component.displayName).toEqual('List');
+    });
     it('should warn if children are not ListItem nor li', () => {
         mount(
             <List>
