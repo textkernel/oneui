@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/textkernel/oneui/compare/2.0.0...2.0.1) (2019-06-26)
+
+
+### Bug Fixes
+
+* **button:** include paddings / margins with box sizing; center-align button labels (notable when isBlock) ([8b17817](https://github.com/textkernel/oneui/commit/8b17817))
+
+
+
 ## [2.0.0](https://github.com/textkernel/oneui/compare/1.2.1...2.0.0) (2019-06-14)
 
 
