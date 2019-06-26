@@ -16,7 +16,18 @@ Version numbers should not be prefixed (e.g. 1.2.3, **not** v1.2.3).
 
 ## Release Procedure
 
-To make a new release, simply run **`npm run release`**.
+**First**, make sure your master branch is up to date and do a dry-run to verify that the expected version number will be used:
+
+```bash
+(master)$ git pull
+(master)$ npm run release -- --dry-run
+```
+
+**Finally**, simply run the following to make a new release:
+
+```bash
+(master)$ npm run release
+```
 
 The release script will...
 1. ...auto determine a new version number on the basis of commit messages since last tag.
