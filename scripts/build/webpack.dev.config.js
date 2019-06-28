@@ -10,7 +10,8 @@ module.exports = {
         plugins.namedModulesPlugin,
         plugins.cssPlugin,
         plugins.styleLintPlugin,
-        plugins.bundleAnalyzerPlugin
+        plugins.bundleAnalyzerPlugin,
+        plugins.cleanWebpackPlugin
     ],
     module: {
         rules: [rules.js, rules.styles]

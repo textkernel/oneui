@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { getRuleJS, getRuleCSS } = require('./utils');
 
@@ -31,7 +32,8 @@ const plugins = {
     bundleAnalyzerPlugin: new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         reportFilename: '../reports/bundle-size.html'
-    })
+    }),
+    cleanWebpackPlugin: new CleanWebpackPlugin({ verbose: true })
 };
 
 const getRules = (env = 'prod') => ({
@@ -54,7 +56,7 @@ const baseConfig = {
     },
 
     output: {
-        filename: `${LIBRARY_NAME}.min.js`,
+        filename: `${LIBRARY_NAME}.js`,
         path: DIST_PATH,
         library: LIBRARY_NAME,
         libraryTarget: 'umd',
@@ -71,6 +73,7 @@ module.exports = {
     baseConfig,
     plugins,
     getRules,
+    LIBRARY_NAME,
     PROJECT_ROOT_PATH,
     SOURCE_PATH,
     DIST_PATH,
