@@ -7,7 +7,7 @@ import { CONTEXTS, SIZES } from '../../constants';
 const { block, elem } = bem({
     name: 'ButtonGroup',
     classnames: styles,
-    propsToMods: ['size', 'isBlock']
+    propsToMods: ['size', 'isBlock', 'context']
 });
 
 const ButtonGroup = props => {

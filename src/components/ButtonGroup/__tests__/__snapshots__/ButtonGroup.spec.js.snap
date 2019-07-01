@@ -11,7 +11,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
     role="group"
   >
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock"
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
       context="neutral"
       disabled={false}
       href={null}
@@ -22,7 +22,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       type="button"
     >
       <button
-        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock"
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
         disabled={false}
         type="button"
       >
@@ -30,7 +30,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       </button>
     </Button>
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock"
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
       context="neutral"
       disabled={false}
       href={null}
@@ -41,7 +41,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       type="button"
     >
       <button
-        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock"
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
         disabled={false}
         type="button"
       >
@@ -63,7 +63,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
     role="group"
   >
     <Button
-      className="ButtonGroup__button"
+      className="ButtonGroup__button ButtonGroup__button--context_neutral"
       context="neutral"
       disabled={false}
       href={null}
@@ -74,7 +74,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       type="button"
     >
       <button
-        className="Button Button--context_neutral ButtonGroup__button"
+        className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral"
         disabled={false}
         type="button"
       >
@@ -82,7 +82,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       </button>
     </Button>
     <Button
-      className="ButtonGroup__button"
+      className="ButtonGroup__button ButtonGroup__button--context_neutral"
       context="neutral"
       disabled={false}
       href={null}
@@ -93,7 +93,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       type="button"
     >
       <button
-        className="Button Button--context_neutral ButtonGroup__button"
+        className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral"
         disabled={false}
         type="button"
       >
