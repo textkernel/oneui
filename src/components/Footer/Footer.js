@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
+import PageWidthRestrictor from '../PageWidthRestrictor';
 import styles from './Footer.scss';
 import { LogoTextkernel } from '../Icon';
 
@@ -21,10 +22,10 @@ const Footer = props => {
 
     return (
         <footer {...rest} {...block(props)}>
-            <div {...elem('wrapper', props)}>
+            <PageWidthRestrictor {...elem('wrapper', props)}>
                 {copyright || tkCopyright}
                 <div {...elem('menu', props)}>{children}</div>
-            </div>
+            </PageWidthRestrictor>
         </footer>
     );
 };

@@ -14,6 +14,7 @@ export { default as Link } from './components/Link';
 export { List, ListItem, ListActions, JobResult } from './components/List';
 export { default as LoadingSpinner } from './components/LoadingSpinner';
 export { NavBar, NavItem } from './components/Navigation';
+export { default as PageWidthRestrictor } from './components/PageWidthRestrictor';
 export { default as Pagination } from './components/Pagination';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as RadioButton } from './components/RadioButton';

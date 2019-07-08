@@ -10,10 +10,7 @@
 
     &__wrapper {
         box-sizing: border-box;
-        max-width: var(--site-container-size);
         height: 100%;
-        padding: var(--spacing-normal) 0;
-        margin: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
