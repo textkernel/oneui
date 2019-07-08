@@ -5,12 +5,12 @@ exports[`NavBar that renders a container for navigation should render correctly 
   <div
     className="NavBar"
   >
-    <PageWidthRestrictor
+    <BlockWidthRestrictor
       As="nav"
       className="NavBar__wrapper"
     >
       <nav
-        className="PageWidthRestrictor NavBar__wrapper"
+        className="BlockWidthRestrictor NavBar__wrapper"
       >
         <a
           href="/"
@@ -23,7 +23,7 @@ exports[`NavBar that renders a container for navigation should render correctly 
           other
         </a>
       </nav>
-    </PageWidthRestrictor>
+    </BlockWidthRestrictor>
   </div>
 </NavBar>
 `;

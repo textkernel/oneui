@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import PageWidthRestrictor from '../../PageWidthRestrictor';
+import { BlockWidthRestrictor } from '../../WidthRestrictor';
 import styles from './NavBar.scss';
 
 const { block, elem } = bem({
@@ -14,9 +14,9 @@ const NavBar = props => {
 
     return (
         <div {...rest} {...block(props)}>
-            <PageWidthRestrictor As="nav" {...elem('wrapper', props)}>
+            <BlockWidthRestrictor As="nav" {...elem('wrapper', props)}>
                 {children}
-            </PageWidthRestrictor>
+            </BlockWidthRestrictor>
         </div>
     );
 };

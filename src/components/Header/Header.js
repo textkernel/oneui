@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import PageWidthRestrictor from '../PageWidthRestrictor';
+import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Header.scss';
 
 const { block, elem } = bem({
@@ -26,10 +26,10 @@ const Header = props => {
 
     return (
         <header {...rest} {...block(props)}>
-            <PageWidthRestrictor {...elem('wrapper', props)}>
+            <BlockWidthRestrictor {...elem('wrapper', props)}>
                 {renderedLogo}
                 <div {...elem('menu', props)}>{children}</div>
-            </PageWidthRestrictor>
+            </BlockWidthRestrictor>
         </header>
     );
 };

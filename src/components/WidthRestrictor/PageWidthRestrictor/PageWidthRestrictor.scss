@@ -1,0 +1,5 @@
+@import '../../../themes/oneui/oneui.scss';
+
+.PageWidthRestrictor {
+    min-width: calc(var(--site-container-min-size) + 2 * var(--site-container-padding));
+}

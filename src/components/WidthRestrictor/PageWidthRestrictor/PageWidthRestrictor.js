@@ -9,12 +9,12 @@ const { block } = bem({
 });
 
 const PageWidthRestrictor = props => {
-    const { children, As, ...rest } = props;
+    const { children, ...rest } = props;
 
     return (
-        <As {...rest} {...block(props)}>
+        <div {...rest} {...block(props)}>
             {children}
-        </As>
+        </div>
     );
 };
 
@@ -22,13 +22,7 @@ PageWidthRestrictor.displayName = 'PageWidthRestrictor';
 
 PageWidthRestrictor.propTypes = {
     /** Node(s) to be rendered inside the container */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-    /** HTML tag to be used to render the container */
-    As: PropTypes.string
-};
-
-PageWidthRestrictor.defaultProps = {
-    As: 'div'
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired
 };
 
 export default PageWidthRestrictor;
