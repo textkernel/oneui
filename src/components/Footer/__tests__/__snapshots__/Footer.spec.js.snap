@@ -7,12 +7,12 @@ exports[`Footer component that renders a copyright text on the left and optional
   <footer
     className="Footer"
   >
-    <PageWidthRestrictor
+    <BlockWidthRestrictor
       As="div"
       className="Footer__wrapper"
     >
       <div
-        className="PageWidthRestrictor Footer__wrapper"
+        className="BlockWidthRestrictor Footer__wrapper"
       >
         <span>
           © 2019 
@@ -86,7 +86,7 @@ exports[`Footer component that renders a copyright text on the left and optional
           This is a placeholder for children
         </div>
       </div>
-    </PageWidthRestrictor>
+    </BlockWidthRestrictor>
   </footer>
 </Footer>
 `;
@@ -98,19 +98,19 @@ exports[`Footer component that renders a copyright text on the left and optional
   <footer
     className="Footer"
   >
-    <PageWidthRestrictor
+    <BlockWidthRestrictor
       As="div"
       className="Footer__wrapper"
     >
       <div
-        className="PageWidthRestrictor Footer__wrapper"
+        className="BlockWidthRestrictor Footer__wrapper"
       >
         my special copyright
         <div>
           This is a placeholder for children
         </div>
       </div>
-    </PageWidthRestrictor>
+    </BlockWidthRestrictor>
   </footer>
 </Footer>
 `;
