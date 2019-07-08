@@ -1,0 +1,8 @@
+@import '../../themes/oneui/oneui.scss';
+
+.PageWidthRestrictor {
+    min-width: var(--site-container-min-size);
+    max-width: var(--site-container-max-size);
+    padding: 0 var(--site-container-padding);
+    margin: 0 auto;
+}

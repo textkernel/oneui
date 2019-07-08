@@ -18,11 +18,7 @@
 
     &__wrapper {
         box-sizing: border-box;
-        min-width: var(--site-container-min-size);
-        max-width: var(--site-container-max-size);
         min-height: 100%;
-        padding: var(--spacing-3x) var(--site-container-padding);
-        margin: auto;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;

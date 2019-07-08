@@ -14,6 +14,7 @@ import './Link';
 import './List';
 import './LoadingSpinner';
 import './Navigation';
+import './PageWidthRestrictor';
 import './Pagination';
 import './ProgressBar';
 import './RadioButton';
