@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/textkernel/oneui/compare/2.0.1...3.0.0) (2019-07-09)
+
+
+### Bug Fixes
+
+* fixed ButtonGroup styles ([234849c](https://github.com/textkernel/oneui/commit/234849c))
+
+
+### Build System
+
+* enhanced dev and prod build modes ([13bf249](https://github.com/textkernel/oneui/commit/13bf249)), closes [#ONEUI-53](https://github.com/textkernel/oneui/issues/ONEUI-53)
+
+
+### Features
+
+* add container variables to make it a bit responsive ([#130](https://github.com/textkernel/oneui/issues/130)) ([39128ed](https://github.com/textkernel/oneui/commit/39128ed))
+* **component:** added WithResctroctor components ([0051627](https://github.com/textkernel/oneui/commit/0051627))
+
+
+### BREAKING CHANGES
+
+* variable --site-container-size is deprecated in favor of --site-container-min-size, --site-container-max-size and --site-container-padding. Recommended new usage through <PageWidthRestrictor>.
+
+
+
 ### [2.0.1](https://github.com/textkernel/oneui/compare/2.0.0...2.0.1) (2019-06-26)
 
 
