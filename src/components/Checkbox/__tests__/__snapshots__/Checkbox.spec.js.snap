@@ -44,7 +44,7 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
         size="normal"
       >
         <span
-          className="Text Checkbox__text"
+          className=" Checkbox__text"
         >
           Check this out
         </span>

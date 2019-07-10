@@ -1,13 +1,6 @@
 @import '../../themes/oneui/oneui.scss';
 
 .Text {
-    color: var(--color-foreground);
-    font: {
-        family: var(--font-family-primary);
-        size: var(--font-size-normal);
-        weight: var(--font-weight-normal);
-    }
-
     &--size {
         &_small {
             font-size: var(--font-size-small);
