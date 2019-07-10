@@ -1,4 +1,4 @@
-.JobResult {
+.Teaser {
     min-width: 0;
     margin: 0;
     display: flex;
@@ -22,14 +22,14 @@
         }
     }
 
-    &__organization {
+    &__subTitle {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
     &__titleLine:not(:last-child),
-    &__organization:not(:last-child) {
+    &__subTitle:not(:last-child) {
         padding-bottom: var(--spacing-2x);
     }
 }

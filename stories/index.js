@@ -19,5 +19,6 @@ import './Pagination';
 import './ProgressBar';
 import './RadioButton';
 import './Tabs';
+import './Teaser';
 import './Text';
 import './TextArea';
