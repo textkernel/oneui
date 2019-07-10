@@ -1,13 +1,14 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, withKnobs } from '@storybook/addon-knobs';
+import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { List, ListItem, ListActions, JobResult, Text, Button, Checkbox } from '@textkernel/oneui';
+import { CONTEXTS } from '../src/constants';
 
 storiesOf('List', module)
     .addDecorator(withKnobs)
     .add('List', () => (
         <List isDivided={boolean('Add dividers between items', true)}>
-            <ListItem>
+            <ListItem highlightContext={select('Highlight context', ['default', ...CONTEXTS])}>
                 First item passed as string{' '}
                 <ListActions>
                     <Button context="link" isInline>
@@ -15,17 +16,23 @@ storiesOf('List', module)
                     </Button>
                 </ListActions>
             </ListItem>
-            <ListItem>
+            <ListItem highlightContext={select('Highlight context', ['default', ...CONTEXTS])}>
                 <Checkbox id="item2" />
                 <div>
                     <Text>Item passed as Text component</Text>
                     <Text>It has multiple lines</Text>
                 </div>
             </ListItem>
-            <ListItem isSelected={boolean('Select item', true)}>
+            <ListItem
+                isSelected={boolean('Select item', true)}
+                highlightContext={select('Highlight context', ['default', ...CONTEXTS])}
+            >
                 <Text inline>Item selectable via props</Text>
             </ListItem>
-            <ListItem disabled={boolean('Disable item', true)}>
+            <ListItem
+                disabled={boolean('Disable item', true)}
+                highlightContext={select('Highlight context', ['default', ...CONTEXTS])}
+            >
                 <Text inline>Disabled item</Text>
             </ListItem>
             <ListItem
@@ -33,6 +40,7 @@ storiesOf('List', module)
                     e.preventDefault();
                     alert('Item was selected'); // eslint-disable-line no-alert, no-undef
                 }}
+                highlightContext={select('Highlight context', ['default', ...CONTEXTS])}
             >
                 <Checkbox id="item4" />
                 Clickable item

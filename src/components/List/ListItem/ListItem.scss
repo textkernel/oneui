@@ -1,3 +1,5 @@
+$contexts: (neutral, brand, primary, accent, info, good, warning, bad);
+
 .ListItem {
     transition: background-color var(--transition-duration);
 
@@ -17,5 +19,19 @@
 
     &--clickable {
         cursor: pointer;
+    }
+
+    &--highlightContext {
+        @each $context in $contexts {
+            &_#{ $context }:hover:not(.ListItem--disabled) {
+                background-color: var(--color-#{$context});
+                color: var(--color-background);
+            }
+
+            &_#{ $context } + .ListItem--isSelected {
+                background-color: var(--color-#{$context});
+                color: var(--color-background);
+            }
+        }
     }
 }
