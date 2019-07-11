@@ -10,6 +10,7 @@ exports[`List component should render List correctly 1`] = `
     <ListItem
       className="List__item"
       disabled={false}
+      highlightContext="default"
       isSelected={false}
       key=".0"
       onClick={null}
@@ -28,9 +29,7 @@ exports[`List component should render List correctly 1`] = `
             key=".0"
             size="normal"
           >
-            <span
-              className="Text"
-            >
+            <span>
               Item 1
             </span>
           </Text>
@@ -40,6 +39,7 @@ exports[`List component should render List correctly 1`] = `
     <ListItem
       className="List__item"
       disabled={false}
+      highlightContext="default"
       isSelected={false}
       key=".1"
       onClick={null}
@@ -58,9 +58,7 @@ exports[`List component should render List correctly 1`] = `
             key=".0"
             size="normal"
           >
-            <span
-              className="Text"
-            >
+            <span>
               Item 2
             </span>
           </Text>

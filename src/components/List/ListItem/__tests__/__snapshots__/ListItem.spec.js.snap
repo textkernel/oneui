@@ -3,6 +3,7 @@
 exports[`ListItem component should render ListItem correctly 1`] = `
 <ListItem
   disabled={false}
+  highlightContext="default"
   isSelected={false}
   onClick={null}
 >
@@ -20,9 +21,7 @@ exports[`ListItem component should render ListItem correctly 1`] = `
         key=".0"
         size="normal"
       >
-        <p
-          className="Text"
-        >
+        <p>
           An item
         </p>
       </Text>

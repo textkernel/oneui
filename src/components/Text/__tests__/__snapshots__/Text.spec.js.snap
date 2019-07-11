@@ -2,24 +2,20 @@
 
 exports[`<Text> that renders a text block should add classes when props are changed 1`] = `
 <span
-  className="Text Text--context_muted Text--size_small"
+  className="Text--context_muted Text--size_small"
 >
   Some inline, muted text content
 </span>
 `;
 
 exports[`<Text> that renders a text block should render default text block correctly 1`] = `
-<p
-  className="Text"
->
+<p>
   Some text content
 </p>
 `;
 
 exports[`<Text> that renders a text block should render html children correctly 1`] = `
-<p
-  className="Text"
->
+<p>
   Some text, 
   <span
     style={
