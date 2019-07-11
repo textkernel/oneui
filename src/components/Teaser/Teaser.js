@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import Text from '../../Text';
-import styles from './JobResult.scss';
+import Text from '../Text';
+import styles from './Teaser.scss';
 
 const { block, elem } = bem({
-    name: 'JobResult',
+    name: 'Teaser',
     classnames: styles
 });
 
-const JobResult = props => {
-    const { title, location, organization, details, ...rest } = props;
+const Teaser = props => {
+    const { title, subTitle, location, details, ...rest } = props;
 
     return (
         <p {...rest} {...block(props)}>
@@ -24,13 +24,13 @@ const JobResult = props => {
                     </Text>
                 )}
             </span>
-            {organization && (
-                <Text inline context="accent" title={organization} {...elem('organization', props)}>
-                    {organization}
+            {subTitle && (
+                <Text inline context="accent" title={subTitle} {...elem('subTitle', props)}>
+                    {subTitle}
                 </Text>
             )}
             {details && (
-                <Text inline context="muted" {...elem('details', props)}>
+                <Text inline context="muted">
                     {details}
                 </Text>
             )}
@@ -38,23 +38,23 @@ const JobResult = props => {
     );
 };
 
-JobResult.displayName = 'JobResult';
+Teaser.displayName = 'Teaser';
 
-JobResult.propTypes = {
-    /** The job's title. */
+Teaser.propTypes = {
+    /** The title of entity */
     title: PropTypes.string.isRequired,
-    /** The location of the job. */
+    /** The subtitle of the entity */
+    subTitle: PropTypes.string,
+    /** The location of the entity */
     location: PropTypes.string,
-    /** The organization that posted this job. */
-    organization: PropTypes.string,
-    /** Details related to this job. */
+    /** Details related to the entity */
     details: PropTypes.string
 };
 
-JobResult.defaultProps = {
+Teaser.defaultProps = {
     location: '',
-    organization: '',
+    subTitle: '',
     details: ''
 };
 
-export default JobResult;
+export default Teaser;
