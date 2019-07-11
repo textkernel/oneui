@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/textkernel/oneui/compare/3.0.0...4.0.0) (2019-07-11)
+
+
+### Build System
+
+* **deps:** bump lodash.template from 4.4.0 to 4.5.0 ([#134](https://github.com/textkernel/oneui/issues/134)) ([dae7392](https://github.com/textkernel/oneui/commit/dae7392))
+
+
+### Features
+
+* **ListItem:** Allow context highlighting in ListItem ([#132](https://github.com/textkernel/oneui/issues/132)) ([d8eec1e](https://github.com/textkernel/oneui/commit/d8eec1e))
+
+
+### refactor
+
+* changed JobResult component name and props into more general ([2952e31](https://github.com/textkernel/oneui/commit/2952e31))
+
+
+### BREAKING CHANGES
+
+* renamed JobResult component to Teaser
+
+fix: updated test snapshot for Teaser
+
+fix: added snapshot for Teaser
+
+fix: fixed styles for trancate text in Teaser
+
+fix: fixed styles for trancate text in Teaser
+
+
+
 ## [3.0.0](https://github.com/textkernel/oneui/compare/2.0.1...3.0.0) (2019-07-09)
 
 
