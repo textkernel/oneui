@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/textkernel/oneui/compare/4.0.0...4.0.1) (2019-07-12)
+
+
+### Bug Fixes
+
+* **BlockWidthRestrictor:** define box-sizing in css ([#136](https://github.com/textkernel/oneui/issues/136)) ([2c22106](https://github.com/textkernel/oneui/commit/2c22106))
+
+
+
 ## [4.0.0](https://github.com/textkernel/oneui/compare/3.0.0...4.0.0) (2019-07-11)
 
 
