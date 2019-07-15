@@ -43,18 +43,19 @@ const InputWrapper = React.forwardRef((props, ref) => {
 InputWrapper.displayName = 'InputWrapper';
 
 InputWrapper.propTypes = {
-    /** clear button label */
-    clearLabel: PropTypes.string.isRequired,
-    /** reset the selected suggestions array to it's default value */
-    onClear: PropTypes.func,
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton: PropTypes.bool,
-    /** is content should be considered to be in focus */
+    /** clear button label */
+    clearLabel: PropTypes.string,
+    /** reset the selected suggestions array to it's default value */
+    onClear: PropTypes.func,
+    /** is content should be considered to be in focus, when clear button should not be shown */
     isFocused: PropTypes.bool
 };
 
 InputWrapper.defaultProps = {
     showClearButton: false,
+    clearLabel: '',
     onClear: null,
     isFocused: false
 };
