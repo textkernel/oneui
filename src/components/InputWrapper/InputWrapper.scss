@@ -1,0 +1,39 @@
+.InputWrapper {
+    position: relative;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color-strong);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    padding: var(--spacing-normal);
+    transition: all var(--transition-duration);
+
+    &__clearButton {
+        display: none;
+        position: absolute;
+        top: var(--spacing-2x);
+        right: var(--spacing-2x);
+        border: 0;
+        background-color: var(--color-background);
+        transition: all var(--transition-duration);
+
+        span {
+            position: relative;
+            top: 1px;
+            margin-left: var(--spacing-2x);
+        }
+    }
+
+    &:hover {
+        border-color: var(--color-brand);
+
+        & .InputWrapper__clearButton {
+            display: block;
+        }
+    }
+
+    &--isFocused,
+    &:focus {
+        border-color: var(--color-brand);
+        outline: none;
+    }
+}
