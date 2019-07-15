@@ -1,4 +1,5 @@
 import './Alert';
+import './Autocomplete';
 import './Button';
 import './ButtonGroup';
 import './CandidateAvatar';
@@ -10,6 +11,7 @@ import './Header';
 import './Heading';
 import './Icon';
 import './Input';
+import './InputWrapper';
 import './Link';
 import './List';
 import './LoadingSpinner';

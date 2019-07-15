@@ -1,5 +1,6 @@
 export * from './components/Icon';
 export { default as Alert } from './components/Alert';
+export { Autocomplete, ItemTag } from './components/Autocomplete';
 export { default as Button } from './components/Button';
 export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as CandidateAvatar } from './components/CandidateAvatar';
@@ -10,6 +11,7 @@ export { default as Footer } from './components/Footer';
 export { default as Header } from './components/Header';
 export { default as Heading } from './components/Heading';
 export { default as Input } from './components/Input';
+export { default as InputWrapper } from './components/InputWrapper';
 export { default as Link } from './components/Link';
 export { List, ListItem, ListActions } from './components/List';
 export { default as LoadingSpinner } from './components/LoadingSpinner';

@@ -21,3 +21,4 @@ export const LIST_NAVIGATION_DIRECTIONS = {
 export const ENTER_KEY = 'Enter';
 
 export * from './style-related';
+export * from './autocomplete';
