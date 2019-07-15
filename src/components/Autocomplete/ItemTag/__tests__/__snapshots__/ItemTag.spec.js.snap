@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ItemTag should render correctly 1`] = `ReactWrapper {}`;
+exports[`ItemTag should render correctly 1`] = `
+<ItemTag
+  onClick={null}
+>
+  <div
+    className="ItemTag"
+  >
+    <span
+      className="ItemTag__label"
+      title="tag"
+    >
+      tag
+    </span>
+  </div>
+</ItemTag>
+`;

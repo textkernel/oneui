@@ -1,12 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import ItemTag from '../ItemTag';
 
 describe('ItemTag', () => {
     it('should render correctly', () => {
         const wrapper = mount(<ItemTag>tag</ItemTag>);
 
-        expect(wrapper).toMatchSnapshot();
+        expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('button')).toHaveLength(0);
     });
     it('should add delete button if onClick is defined', () => {
