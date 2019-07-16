@@ -1,0 +1,494 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Autocomplete rendering should initally render empty component correctly 1`] = `
+<Autocomplete
+  clearTitle="Clear"
+  getSuggestions={[Function]}
+  iconNode={null}
+  inputPlaceholder="type here..."
+  isLoading={false}
+  isMultiselect={false}
+  noSuggestionsPlaceholder="No suggestions..."
+  onBlur={[MockFunction]}
+  onClearAllSelected={[MockFunction]}
+  onInputValueChange={[MockFunction]}
+  onSelectionChange={[MockFunction]}
+  selectedPlaceholder=""
+  selectedSuggestions={Array []}
+  showClearButton={true}
+  suggestionToString={[Function]}
+>
+  <Downshift
+    defaultHighlightedIndex={0}
+    defaultIsOpen={false}
+    environment={[Window]}
+    getA11yStatusMessage={[Function]}
+    inputValue=""
+    itemToString={[Function]}
+    onChange={[Function]}
+    onInputValueChange={[Function]}
+    onOuterClick={[Function]}
+    onSelect={[Function]}
+    onStateChange={[Function]}
+    onUserAction={[Function]}
+    scrollIntoView={[Function]}
+    selectedItemChanged={[Function]}
+    stateReducer={[Function]}
+    suppressRefError={false}
+  >
+    <InputWrapper
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-0-label"
+      aria-owns={null}
+      className="Autocomplete"
+      clearLabel="Clear"
+      onClear={[Function]}
+      role="combobox"
+      showClearButton={false}
+    >
+      <div
+        aria-expanded={false}
+        aria-haspopup="listbox"
+        aria-labelledby="downshift-0-label"
+        aria-owns={null}
+        className="InputWrapper Autocomplete"
+        role="combobox"
+      >
+        <div
+          className="Autocomplete__wrapper"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="searchbox"
+          tabIndex="0"
+        >
+          <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls={null}
+            aria-labelledby="downshift-0-label"
+            autoComplete="off"
+            className="Autocomplete__input"
+            id="downshift-0-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder="type here..."
+            value=""
+          />
+        </div>
+        <List
+          aria-labelledby="downshift-0-label"
+          id="downshift-0-menu"
+          isDivided={false}
+          role="listbox"
+        >
+          <ul
+            aria-labelledby="downshift-0-label"
+            className="List"
+            id="downshift-0-menu"
+            role="listbox"
+          />
+        </List>
+      </div>
+    </InputWrapper>
+  </Downshift>
+</Autocomplete>
+`;
+
+exports[`Autocomplete rendering should render all suggestions from the list 1`] = `
+<Autocomplete
+  clearTitle="Clear"
+  getSuggestions={[Function]}
+  iconNode={null}
+  inputPlaceholder="type here..."
+  isLoading={false}
+  isMultiselect={false}
+  noSuggestionsPlaceholder="No suggestions..."
+  onBlur={[MockFunction]}
+  onClearAllSelected={[MockFunction]}
+  onInputValueChange={[MockFunction]}
+  onSelectionChange={[MockFunction]}
+  selectedPlaceholder=""
+  selectedSuggestions={Array []}
+  showClearButton={true}
+  suggestionToString={[Function]}
+>
+  <Downshift
+    defaultHighlightedIndex={0}
+    defaultIsOpen={false}
+    environment={[Window]}
+    getA11yStatusMessage={[Function]}
+    inputValue=""
+    itemToString={[Function]}
+    onChange={[Function]}
+    onInputValueChange={[Function]}
+    onOuterClick={[Function]}
+    onSelect={[Function]}
+    onStateChange={[Function]}
+    onUserAction={[Function]}
+    scrollIntoView={[Function]}
+    selectedItemChanged={[Function]}
+    stateReducer={[Function]}
+    suppressRefError={false}
+  >
+    <InputWrapper
+      aria-expanded={true}
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-3-label"
+      aria-owns="downshift-3-menu"
+      className="Autocomplete Autocomplete--isOpen"
+      clearLabel="Clear"
+      onClear={[Function]}
+      role="combobox"
+      showClearButton={false}
+    >
+      <div
+        aria-expanded={true}
+        aria-haspopup="listbox"
+        aria-labelledby="downshift-3-label"
+        aria-owns="downshift-3-menu"
+        className="InputWrapper Autocomplete Autocomplete--isOpen"
+        role="combobox"
+      >
+        <div
+          className="Autocomplete__wrapper Autocomplete__wrapper--isOpen"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="searchbox"
+          tabIndex="0"
+        >
+          <input
+            aria-activedescendant="downshift-3-item-0"
+            aria-autocomplete="list"
+            aria-controls="downshift-3-menu"
+            aria-labelledby="downshift-3-label"
+            autoComplete="off"
+            className="Autocomplete__input"
+            id="downshift-3-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder="type here..."
+            value=""
+          />
+        </div>
+        <List
+          aria-labelledby="downshift-3-label"
+          className="Autocomplete__list--isOpen"
+          id="downshift-3-menu"
+          isDivided={false}
+          role="listbox"
+        >
+          <ul
+            aria-labelledby="downshift-3-label"
+            className="List Autocomplete__list--isOpen"
+            id="downshift-3-menu"
+            role="listbox"
+          >
+            <ListItem
+              aria-selected={true}
+              className="List__item"
+              disabled={false}
+              highlightContext="brand"
+              id="downshift-3-item-0"
+              isSelected={true}
+              key=".$Sun"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              onMouseMove={[Function]}
+              role="option"
+            >
+              <li
+                aria-selected={true}
+                className="ListItem ListItem--isSelected ListItem--highlightContext_brand ListItem--clickable List__item"
+                id="downshift-3-item-0"
+                onMouseDown={[Function]}
+                onMouseMove={[Function]}
+                role="option"
+              >
+                <div
+                  className="ListItem__container"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  <Text
+                    context="default"
+                    inline={true}
+                    key=".0"
+                    size="normal"
+                  >
+                    <span>
+                      Sun
+                    </span>
+                  </Text>
+                </div>
+              </li>
+            </ListItem>
+            <ListItem
+              aria-selected={false}
+              className="List__item"
+              disabled={false}
+              highlightContext="brand"
+              id="downshift-3-item-1"
+              isSelected={false}
+              key=".$Moon"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              onMouseMove={[Function]}
+              role="option"
+            >
+              <li
+                aria-selected={false}
+                className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                id="downshift-3-item-1"
+                onMouseDown={[Function]}
+                onMouseMove={[Function]}
+                role="option"
+              >
+                <div
+                  className="ListItem__container"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  <Text
+                    context="default"
+                    inline={true}
+                    key=".0"
+                    size="normal"
+                  >
+                    <span>
+                      Moon
+                    </span>
+                  </Text>
+                </div>
+              </li>
+            </ListItem>
+            <ListItem
+              aria-selected={false}
+              className="List__item"
+              disabled={false}
+              highlightContext="brand"
+              id="downshift-3-item-2"
+              isSelected={false}
+              key=".$Mercury"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              onMouseMove={[Function]}
+              role="option"
+            >
+              <li
+                aria-selected={false}
+                className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                id="downshift-3-item-2"
+                onMouseDown={[Function]}
+                onMouseMove={[Function]}
+                role="option"
+              >
+                <div
+                  className="ListItem__container"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  <Text
+                    context="default"
+                    inline={true}
+                    key=".0"
+                    size="normal"
+                  >
+                    <span>
+                      Mercury
+                    </span>
+                  </Text>
+                </div>
+              </li>
+            </ListItem>
+            <ListItem
+              aria-selected={false}
+              className="List__item"
+              disabled={false}
+              highlightContext="brand"
+              id="downshift-3-item-3"
+              isSelected={false}
+              key=".$Venus"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              onMouseMove={[Function]}
+              role="option"
+            >
+              <li
+                aria-selected={false}
+                className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                id="downshift-3-item-3"
+                onMouseDown={[Function]}
+                onMouseMove={[Function]}
+                role="option"
+              >
+                <div
+                  className="ListItem__container"
+                  onClick={[Function]}
+                  role="presentation"
+                >
+                  <Text
+                    context="default"
+                    inline={true}
+                    key=".0"
+                    size="normal"
+                  >
+                    <span>
+                      Venus
+                    </span>
+                  </Text>
+                </div>
+              </li>
+            </ListItem>
+          </ul>
+        </List>
+      </div>
+    </InputWrapper>
+  </Downshift>
+</Autocomplete>
+`;
+
+exports[`Autocomplete rendering should render noSuggestions placeholder when empty suggestions list is passed 1`] = `
+<Autocomplete
+  clearTitle="Clear"
+  getSuggestions={[Function]}
+  iconNode={null}
+  inputPlaceholder="type here..."
+  isLoading={false}
+  isMultiselect={false}
+  noSuggestionsPlaceholder="No suggestions..."
+  onBlur={[MockFunction]}
+  onClearAllSelected={[MockFunction]}
+  onInputValueChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "driver",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  onSelectionChange={[MockFunction]}
+  selectedPlaceholder=""
+  selectedSuggestions={Array []}
+  showClearButton={true}
+  suggestionToString={[Function]}
+>
+  <Downshift
+    defaultHighlightedIndex={0}
+    defaultIsOpen={false}
+    environment={[Window]}
+    getA11yStatusMessage={[Function]}
+    inputValue="driver"
+    itemToString={[Function]}
+    onChange={[Function]}
+    onInputValueChange={[Function]}
+    onOuterClick={[Function]}
+    onSelect={[Function]}
+    onStateChange={[Function]}
+    onUserAction={[Function]}
+    scrollIntoView={[Function]}
+    selectedItemChanged={[Function]}
+    stateReducer={[Function]}
+    suppressRefError={false}
+  >
+    <InputWrapper
+      aria-expanded={true}
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-2-label"
+      aria-owns="downshift-2-menu"
+      className="Autocomplete Autocomplete--isOpen"
+      clearLabel="Clear"
+      onClear={[Function]}
+      role="combobox"
+      showClearButton={false}
+    >
+      <div
+        aria-expanded={true}
+        aria-haspopup="listbox"
+        aria-labelledby="downshift-2-label"
+        aria-owns="downshift-2-menu"
+        className="InputWrapper Autocomplete Autocomplete--isOpen"
+        role="combobox"
+      >
+        <div
+          className="Autocomplete__wrapper Autocomplete__wrapper--isOpen"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="searchbox"
+          tabIndex="0"
+        >
+          <input
+            aria-activedescendant="downshift-2-item-0"
+            aria-autocomplete="list"
+            aria-controls="downshift-2-menu"
+            aria-labelledby="downshift-2-label"
+            autoComplete="off"
+            className="Autocomplete__input"
+            id="downshift-2-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            placeholder="type here..."
+            value="driver"
+          />
+        </div>
+        <List
+          aria-labelledby="downshift-2-label"
+          className="Autocomplete__list--isOpen"
+          id="downshift-2-menu"
+          isDivided={false}
+          role="listbox"
+        >
+          <ul
+            aria-labelledby="downshift-2-label"
+            className="List Autocomplete__list--isOpen"
+            id="downshift-2-menu"
+            role="listbox"
+          >
+            <ListItem
+              className="List__item"
+              disabled={true}
+              highlightContext="default"
+              isSelected={false}
+              key=".0"
+              onClick={null}
+            >
+              <li
+                className="ListItem List__item"
+              >
+                <div
+                  className="ListItem__container"
+                  onClick={null}
+                  role="presentation"
+                >
+                  <Text
+                    context="muted"
+                    inline={false}
+                    key=".0"
+                    size="normal"
+                  >
+                    <p
+                      className="Text--context_muted"
+                    >
+                      No suggestions...
+                    </p>
+                  </Text>
+                </div>
+              </li>
+            </ListItem>
+          </ul>
+        </List>
+      </div>
+    </InputWrapper>
+  </Downshift>
+</Autocomplete>
+`;

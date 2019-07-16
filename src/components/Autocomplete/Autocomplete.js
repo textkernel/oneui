@@ -35,10 +35,14 @@ class Autocomplete extends React.Component {
     }
 
     handleChange(selectedItem) {
-        const { onSelectionChange } = this.props;
+        const { onSelectionChange, isMultiselect } = this.props;
 
         this.setState({ inputValue: '' });
         onSelectionChange(selectedItem);
+
+        if (!isMultiselect) {
+            this.handleBlur();
+        }
     }
 
     handleInputKeyDown(event) {
@@ -47,7 +51,7 @@ class Autocomplete extends React.Component {
             event.key === 'Backspace' &&
             !event.target.value &&
             selectedSuggestions &&
-            selectedSuggestions.length
+            !!selectedSuggestions.length
         ) {
             // remove the last input
             onSelectionChange(selectedSuggestions[selectedSuggestions.length - 1]);
@@ -72,10 +76,12 @@ class Autocomplete extends React.Component {
     }
 
     handleClearSelectedSuggestions(e) {
-        const { clearSelectedSuggestions } = this.props;
+        const { onClearAllSelected } = this.props;
 
         e.stopPropagation();
-        clearSelectedSuggestions();
+        if (onClearAllSelected) {
+            onClearAllSelected();
+        }
     }
 
     handleBlur() {
@@ -135,7 +141,7 @@ class Autocomplete extends React.Component {
             ) : null;
         }
 
-        if (selectedSuggestions && selectedSuggestions.length > 0) {
+        if (selectedSuggestions && !!selectedSuggestions.length) {
             const onClick = memoize(item => e => {
                 e.stopPropagation();
                 onSelectionChange(item);
@@ -213,8 +219,9 @@ class Autocomplete extends React.Component {
             onBlur,
             onSelectionChange,
             onInputValueChange,
-            clearSelectedSuggestions,
+            onClearAllSelected,
             isMultiselect,
+            //isProminent,
             ...rest
         } = this.props;
         const { inputValue, focused } = this.state;
@@ -236,7 +243,7 @@ class Autocomplete extends React.Component {
                 onChange={this.handleChange}
                 itemToString={suggestionToString}
                 onOuterClick={this.handleBlur}
-                stateReducer={this.constructor.stateReducer}
+                stateReducer={this.stateReducer}
                 onStateChange={this.stateUpdater}
                 onInputValueChange={this.handleInputValueChange}
                 inputValue={inputValue}
@@ -254,8 +261,12 @@ class Autocomplete extends React.Component {
                     <InputWrapper
                         clearLabel={clearTitle}
                         onClear={this.handleClearSelectedSuggestions}
-                        showClearButton={showClearButton}
-                        isFocused={focused}
+                        showClearButton={
+                            showClearButton &&
+                            selectedSuggestions &&
+                            !!selectedSuggestions.length &&
+                            !focused
+                        }
                         {...rest}
                         {...block({ ...this.props, ...this.state, isOpen })}
                         {...getRootProps({ refKey: 'ref' })}
@@ -327,13 +338,15 @@ Autocomplete.propTypes = {
     /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
     onInputValueChange: PropTypes.func,
     /** reset the selected suggestions array to it's default value */
-    clearSelectedSuggestions: PropTypes.func.isRequired,
+    onClearAllSelected: PropTypes.func,
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton: PropTypes.bool,
     /** an icon or other node to always be rendered as a first element inside the input box */
     iconNode: PropTypes.node,
     /** should this component behaive as a multiselect (e.g. no collapse after selection made) */
     isMultiselect: PropTypes.bool
+    /** style the compoent to be prominent */
+    // isProminent: PropTypes.bool
 };
 
 Autocomplete.defaultProps = {
@@ -341,10 +354,12 @@ Autocomplete.defaultProps = {
     isLoading: false,
     onBlur: null,
     onInputValueChange: null,
+    onClearAllSelected: null,
     showClearButton: false,
     selectedPlaceholder: '',
     iconNode: null,
     isMultiselect: false
+    // isProminent: false
 };
 
 Autocomplete.displayName = 'Autocomplete';
