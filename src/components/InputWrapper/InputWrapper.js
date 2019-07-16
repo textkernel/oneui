@@ -25,7 +25,7 @@ const InputWrapper = React.forwardRef((props, ref) => {
     return (
         <div ref={ref} {...rest} {...block(props)}>
             {children}
-            {showClearButton && !isFocused && (
+            {showClearButton && (
                 <Button
                     isInline
                     context="link"
@@ -48,16 +48,13 @@ InputWrapper.propTypes = {
     /** clear button label */
     clearLabel: PropTypes.string,
     /** reset the selected suggestions array to it's default value */
-    onClear: PropTypes.func,
-    /** is content should be considered to be in focus, when clear button should not be shown */
-    isFocused: PropTypes.bool
+    onClear: PropTypes.func
 };
 
 InputWrapper.defaultProps = {
     showClearButton: false,
     clearLabel: '',
-    onClear: null,
-    isFocused: false
+    onClear: null
 };
 
 export default InputWrapper;

@@ -3,7 +3,6 @@
 exports[`InputWrapper should add clear button if showClearButton is true 1`] = `
 <InputWrapper
   clearLabel="Clear"
-  isFocused={false}
   onClear={null}
   showClearButton={true}
 >
@@ -41,7 +40,6 @@ exports[`InputWrapper should add clear button if showClearButton is true 1`] = `
 exports[`InputWrapper should render correctly 1`] = `
 <InputWrapper
   clearLabel=""
-  isFocused={false}
   onClear={null}
   showClearButton={false}
 >
