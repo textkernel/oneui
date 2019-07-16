@@ -245,10 +245,10 @@ class Autocomplete extends React.Component {
             }
         });
 
+        const stateAndProps = { ...this.props, ...this.state };
         const hideInputPlaceholder = !focused && !!selectedPlaceholder;
         const doShowClearButton =
             showClearButton && !!selectedSuggestions && !!selectedSuggestions.length && !focused;
-
         const rootStyle = { position: 'relative' };
 
         if (focused) {
@@ -275,7 +275,7 @@ class Autocomplete extends React.Component {
                         highlightedIndex,
                         openMenu
                     }) => (
-                        <div {...rest} {...block({ ...this.props, ...this.state })}>
+                        <div {...rest} {...block(stateAndProps)}>
                             <InputWrapper
                                 clearLabel={clearTitle}
                                 onClear={this.handleClearSelectedSuggestions}
@@ -286,15 +286,12 @@ class Autocomplete extends React.Component {
                                     onClick={wrapperOnClick(openMenu)}
                                     onKeyDown={wrapperOnKeyDown(openMenu)}
                                     role="searchbox"
-                                    {...elem('wrapper', { ...this.props, ...this.state })}
+                                    {...elem('wrapper', stateAndProps)}
                                 >
                                     {iconNode &&
                                         React.cloneElement(
                                             iconNode,
-                                            elem('spacedElem', {
-                                                ...this.props,
-                                                ...this.state
-                                            })
+                                            elem('spacedElem', stateAndProps)
                                         )}
                                     {this.renderTags()}
                                     <input
@@ -304,13 +301,13 @@ class Autocomplete extends React.Component {
                                             placeholder: hideInputPlaceholder
                                                 ? ''
                                                 : inputPlaceholder,
-                                            ...elem('input', { ...this.props, ...this.state })
+                                            ...elem('input', stateAndProps)
                                         })}
                                     />
                                 </div>
                                 <List
                                     {...getMenuProps({
-                                        ...elem('list', { ...this.props, ...this.state })
+                                        ...elem('list', stateAndProps)
                                     })}
                                 >
                                     {focused
