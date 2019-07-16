@@ -4,6 +4,7 @@ exports[`ListItem component should render ListItem correctly 1`] = `
 <ListItem
   disabled={false}
   highlightContext="default"
+  isHighlighted={false}
   isSelected={false}
   onClick={null}
 >
