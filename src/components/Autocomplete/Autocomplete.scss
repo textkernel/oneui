@@ -1,11 +1,20 @@
 .Autocomplete {
     position: relative;
-    max-width: 640px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
     background-color: var(--color-background);
+    transition: all var(--transition-duration);
 
-    &--isOpen {
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
+    &--focused {
+        position: absolute;
+    }
+
+    &--isProminent {
+        transform-origin: left top;
+
+        &.Autocomplete--focused {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
+        }
     }
 
     &__wrapper {
@@ -14,24 +23,11 @@
         flex-wrap: wrap;
         align-items: baseline;
 
-        &--isOpen {
+        &--focused {
             margin-bottom: var(--spacing-normal);
             border-bottom: 1px solid var(--border-color-light);
         }
     }
-
-    // &--focused {
-    //     position: absolute;
-    //     transform: scale(1.1);
-    //     border-color: var(--color-brand);
-    //     box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
-    //     z-index: 50;
-    //     width: 100%;
-
-    //     & > .Autocomplete__wrapper {
-    //         border-bottom: 1px solid var(--border-color-light);
-    //     }
-    // }
 
     &__spacedElem {
         margin: var(--spacing-normal);
@@ -49,25 +45,12 @@
         }
     }
 
-    &__list--isOpen {
-        position: absolute;
-        top: 100%;
-        left: -1px;
-        width: 100%;
-        background-color: var(--color-background);
-        z-index: 50;
+    &__list--focused {
         max-height: 200px;
         overflow: auto;
-        border: inherit;
-        border-radius: inherit;
-        border-top: 0;
-        border-top-right-radius: 0;
-        border-top-left-radius: 0;
-
-        margin: var(--spacing-normal) -3px -3px -3px;
     }
 
-    &__placeholderContainer {
+    &__loaderContainer {
         width: 250px;
     }
 }

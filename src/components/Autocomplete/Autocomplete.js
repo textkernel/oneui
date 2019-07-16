@@ -11,7 +11,7 @@ import { NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS } from '../../constants';
 const { block, elem } = bem({
     name: 'Autocomplete',
     classnames: styles,
-    propsToMods: ['focused', 'isOpen']
+    propsToMods: ['focused', 'isProminent']
 });
 
 class Autocomplete extends React.Component {
@@ -21,7 +21,9 @@ class Autocomplete extends React.Component {
         this.rootRef = React.createRef();
         this.state = {
             inputValue: '',
-            focused: false
+            focused: false,
+            originHeight: 'auto',
+            originWidth: 'auto'
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -32,6 +34,12 @@ class Autocomplete extends React.Component {
         this.renderTags = this.renderTags.bind(this);
         this.stateUpdater = this.stateUpdater.bind(this);
         this.stateReducer = this.stateReducer.bind(this);
+    }
+
+    componentDidMount() {
+        if (!this.rootRef.current) return;
+        const { height, width } = this.rootRef.current.getBoundingClientRect();
+        this.setState({ originHeight: height, originWidth: width });
     }
 
     handleChange(selectedItem) {
@@ -125,17 +133,18 @@ class Autocomplete extends React.Component {
         }
     }
 
-    renderTags(isOpen) {
+    renderTags() {
         const {
             selectedPlaceholder,
             suggestionToString,
             selectedSuggestions,
             onSelectionChange
         } = this.props;
+        const { focused } = this.state;
 
-        if (!isOpen) {
+        if (!focused) {
             return selectedPlaceholder ? (
-                <div {...elem('spacedElem', { ...this.props, ...this.state, isOpen })}>
+                <div {...elem('spacedElem', { ...this.props, ...this.state })}>
                     {selectedPlaceholder}
                 </div>
             ) : null;
@@ -171,7 +180,7 @@ class Autocomplete extends React.Component {
             return new Array(NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS).fill('').map((el, i) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <ListItem key={i}>
-                    <div {...elem('placeholderContainer', { ...this.props, ...this.state })}>
+                    <div {...elem('loaderContainer', { ...this.props, ...this.state })}>
                         <ContentPlaceholder />
                     </div>
                 </ListItem>
@@ -221,10 +230,10 @@ class Autocomplete extends React.Component {
             onInputValueChange,
             onClearAllSelected,
             isMultiselect,
-            //isProminent,
+            isProminent,
             ...rest
         } = this.props;
-        const { inputValue, focused } = this.state;
+        const { inputValue, focused, originHeight, originWidth } = this.state;
 
         // eslint-disable-next-line no-unused-vars
         const wrapperOnClick = memoize(openMenu => e => {
@@ -236,80 +245,86 @@ class Autocomplete extends React.Component {
             }
         });
 
-        const hideInputPlaceholder = isOpen => !isOpen && !!selectedPlaceholder;
+        const hideInputPlaceholder = !focused && !!selectedPlaceholder;
+        const doShowClearButton =
+            showClearButton && !!selectedSuggestions && !!selectedSuggestions.length && !focused;
+
+        const rootStyle = { position: 'relative' };
+
+        if (focused) {
+            rootStyle.height = originHeight;
+            rootStyle.width = originWidth;
+        }
 
         return (
-            <Downshift
-                onChange={this.handleChange}
-                itemToString={suggestionToString}
-                onOuterClick={this.handleBlur}
-                stateReducer={this.stateReducer}
-                onStateChange={this.stateUpdater}
-                onInputValueChange={this.handleInputValueChange}
-                inputValue={inputValue}
-                defaultHighlightedIndex={0}
-            >
-                {({
-                    getRootProps,
-                    getInputProps,
-                    getMenuProps,
-                    isOpen,
-                    getItemProps,
-                    highlightedIndex,
-                    openMenu
-                }) => (
-                    <InputWrapper
-                        clearLabel={clearTitle}
-                        onClear={this.handleClearSelectedSuggestions}
-                        showClearButton={
-                            showClearButton &&
-                            selectedSuggestions &&
-                            !!selectedSuggestions.length &&
-                            !focused
-                        }
-                        {...rest}
-                        {...block({ ...this.props, ...this.state, isOpen })}
-                        {...getRootProps({ refKey: 'ref' })}
-                    >
-                        <div
-                            tabIndex="0"
-                            onClick={wrapperOnClick(openMenu)}
-                            onKeyDown={wrapperOnKeyDown(openMenu)}
-                            role="searchbox"
-                            {...elem('wrapper', { ...this.props, ...this.state, isOpen })}
-                        >
-                            {iconNode &&
-                                React.cloneElement(
-                                    iconNode,
-                                    elem('spacedElem', { ...this.props, ...this.state, isOpen })
-                                )}
-                            {this.renderTags(isOpen)}
-                            <input
-                                {...getInputProps({
-                                    ref: this.inputRef,
-                                    onKeyDown: this.handleInputKeyDown,
-                                    placeholder: hideInputPlaceholder(isOpen)
-                                        ? ''
-                                        : inputPlaceholder,
-                                    ...elem('input', { ...this.props, ...this.state, isOpen })
-                                })}
-                            />
+            <div ref={this.rootRef} style={rootStyle}>
+                <Downshift
+                    onChange={this.handleChange}
+                    itemToString={suggestionToString}
+                    onOuterClick={this.handleBlur}
+                    stateReducer={this.stateReducer}
+                    onStateChange={this.stateUpdater}
+                    onInputValueChange={this.handleInputValueChange}
+                    inputValue={inputValue}
+                    defaultHighlightedIndex={0}
+                >
+                    {({
+                        getInputProps,
+                        getMenuProps,
+                        getItemProps,
+                        highlightedIndex,
+                        openMenu
+                    }) => (
+                        <div {...rest} {...block({ ...this.props, ...this.state })}>
+                            <InputWrapper
+                                clearLabel={clearTitle}
+                                onClear={this.handleClearSelectedSuggestions}
+                                showClearButton={doShowClearButton}
+                            >
+                                <div
+                                    tabIndex="0"
+                                    onClick={wrapperOnClick(openMenu)}
+                                    onKeyDown={wrapperOnKeyDown(openMenu)}
+                                    role="searchbox"
+                                    {...elem('wrapper', { ...this.props, ...this.state })}
+                                >
+                                    {iconNode &&
+                                        React.cloneElement(
+                                            iconNode,
+                                            elem('spacedElem', {
+                                                ...this.props,
+                                                ...this.state
+                                            })
+                                        )}
+                                    {this.renderTags()}
+                                    <input
+                                        {...getInputProps({
+                                            ref: this.inputRef,
+                                            onKeyDown: this.handleInputKeyDown,
+                                            placeholder: hideInputPlaceholder
+                                                ? ''
+                                                : inputPlaceholder,
+                                            ...elem('input', { ...this.props, ...this.state })
+                                        })}
+                                    />
+                                </div>
+                                <List
+                                    {...getMenuProps({
+                                        ...elem('list', { ...this.props, ...this.state })
+                                    })}
+                                >
+                                    {focused
+                                        ? this.renderSuggestions({
+                                              getItemProps,
+                                              highlightedIndex
+                                          })
+                                        : null}
+                                </List>
+                            </InputWrapper>
                         </div>
-                        <List
-                            {...getMenuProps({
-                                ...elem('list', { ...this.props, ...this.state, isOpen })
-                            })}
-                        >
-                            {isOpen
-                                ? this.renderSuggestions({
-                                      getItemProps,
-                                      highlightedIndex
-                                  })
-                                : null}
-                        </List>
-                    </InputWrapper>
-                )}
-            </Downshift>
+                    )}
+                </Downshift>
+            </div>
         );
     }
 }
@@ -344,9 +359,9 @@ Autocomplete.propTypes = {
     /** an icon or other node to always be rendered as a first element inside the input box */
     iconNode: PropTypes.node,
     /** should this component behaive as a multiselect (e.g. no collapse after selection made) */
-    isMultiselect: PropTypes.bool
+    isMultiselect: PropTypes.bool,
     /** style the compoent to be prominent */
-    // isProminent: PropTypes.bool
+    isProminent: PropTypes.bool
 };
 
 Autocomplete.defaultProps = {
@@ -358,8 +373,8 @@ Autocomplete.defaultProps = {
     showClearButton: false,
     selectedPlaceholder: '',
     iconNode: null,
-    isMultiselect: false
-    // isProminent: false
+    isMultiselect: false,
+    isProminent: false
 };
 
 Autocomplete.displayName = 'Autocomplete';
