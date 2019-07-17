@@ -47,7 +47,8 @@
     "dependencies": {
         "@babel/polyfill": "7.0.0",
         "css-vars-ponyfill": "1.16.4",
-        "prop-types": "^15.7.2"
+        "prop-types": "^15.7.2",
+        "react-modal": "3.9.1"
     },
     "peerDependencies": {
         "react": "^16.8.6",
