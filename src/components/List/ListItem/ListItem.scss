@@ -10,11 +10,15 @@ $contexts: (neutral, brand, primary, accent, info, good, warning, bad);
     }
 
     &:hover:not(.ListItem--disabled) {
-        background-color: var(--color-hover-background);
+        background-color: var(--color-highlight-background);
     }
 
-    &--isSelected, &--isHighlighted {
+    &--isHighlighted {
         background-color: var(--color-highlight-background);
+    }
+
+    &--isSelected {
+        background-color: var(--color-selection-background);
     }
 
     &--clickable {
@@ -24,8 +28,8 @@ $contexts: (neutral, brand, primary, accent, info, good, warning, bad);
     &--highlightContext {
         @each $context in $contexts {
             &_#{ $context }:hover:not(.ListItem--disabled) {
-                background-color: var(--color-#{$context});
-                color: var(--color-background);
+                background-color: var(--color-#{$context}-10);
+                color: var(--color-#{$context}-90);
             }
 
             &_#{ $context }.ListItem--isSelected {
@@ -34,8 +38,8 @@ $contexts: (neutral, brand, primary, accent, info, good, warning, bad);
             }
 
             &_#{ $context }.ListItem--isHighlighted:not(.ListItem--disabled) {
-                background-color: var(--color-#{$context});
-                color: var(--color-background);
+                background-color: var(--color-#{$context}-10);
+                color: var(--color-#{$context}-90);
             }
         }
     }

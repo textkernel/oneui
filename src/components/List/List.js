@@ -46,13 +46,12 @@ const List = React.forwardRef((props, ref) => {
         // Update selectedIndex with arrow navigation and make onNavigate function callback
         if (e.key === LIST_NAVIGATION_DIRECTIONS.UP || e.key === LIST_NAVIGATION_DIRECTIONS.DOWN) {
             const nextSelectedIndex = getNextSelectedIndex(e.key);
-            e.preventDefault();
 
             if (selectedIndex !== nextSelectedIndex) {
+                e.preventDefault();
                 setSelectedIndex(getNextSelectedIndex(e.key));
 
                 if (onNavigate) {
-                    // onNavigate(children[selectedIndex]);
                     onNavigate(e.key);
                 }
             }
@@ -68,10 +67,15 @@ const List = React.forwardRef((props, ref) => {
                 children[selectedIndex].props.onClick(e);
 
                 if (onSelect) {
-                    // onSelect(children[selectedIndex]);
                     onSelect();
                 }
             }
+        }
+    };
+
+    const handleMouseOver = index => {
+        if (selectedIndex !== index) {
+            setSelectedIndex(index);
         }
     };
 
@@ -81,7 +85,8 @@ const List = React.forwardRef((props, ref) => {
                 child
                     ? React.cloneElement(child, {
                           ...elem('item', props),
-                          isHighlighted: index === selectedIndex
+                          isHighlighted: index === selectedIndex,
+                          onMouseOver: () => handleMouseOver(index)
                       })
                     : null
             )}

@@ -7,11 +7,14 @@ import { LIST_NAVIGATION_DIRECTIONS } from '../../../constants';
 describe('List component', () => {
     let consoleError;
     let wrapper;
+    let listComponent;
 
     const itemNumbersArray = [0, 1, 2, 3, 4];
     const mockOnNavigate = jest.fn();
     const mockOnSelect = jest.fn();
     const mockOnClick = jest.fn();
+
+    const getListItemAt = index => wrapper.children().childAt(index);
 
     const navigateUp = () => wrapper.children().simulate('keyDown', { key: 'ArrowUp' });
     const navigateDown = () => wrapper.children().simulate('keyDown', { key: 'ArrowDown' });
@@ -62,20 +65,114 @@ describe('List component', () => {
     describe('Keyboard navigation', () => {
         beforeEach(() => {
             wrapper = mount(
+                <List>
+                    {itemNumbersArray.map(number => (
+                        <ListItem>Item ${number}</ListItem>
+                    ))}
+                </List>
+            );
+            listComponent = wrapper.children();
+        });
+
+        it('should not have any item highlighted from the start', () => {
+            itemNumbersArray.forEach(number => {
+                expect(getListItemAt(number).props().isHighlighted).toBe(false);
+            });
+            expect(mockOnNavigate).not.toHaveBeenCalled();
+        });
+
+        it('should move highlight on components in both directions properly', () => {
+            listComponent.simulate('click');
+            navigateDown();
+
+            expect(getListItemAt(0).props().isHighlighted).toBe(true);
+
+            navigateDown();
+
+            expect(getListItemAt(0).props().isHighlighted).toBe(false);
+            expect(getListItemAt(1).props().isHighlighted).toBe(true);
+
+            navigateUp();
+
+            expect(getListItemAt(0).props().isHighlighted).toBe(true);
+            expect(getListItemAt(1).props().isHighlighted).toBe(false);
+        });
+
+        it('should not let highlighted item got out of list bounds', () => {
+            listComponent.simulate('click');
+            navigateUp();
+            navigateUp();
+
+            expect(getListItemAt(0).props().isHighlighted).toBe(true);
+
+            itemNumbersArray.forEach(() => {
+                navigateDown();
+                navigateDown();
+            });
+
+            expect(getListItemAt(itemNumbersArray.length - 1).props().isHighlighted).toBe(true);
+        });
+
+        it('should highlight an item by hovering on it', () => {
+            expect(getListItemAt(0).props().isHighlighted).toBe(false);
+
+            getListItemAt(0).simulate('mouseover');
+
+            expect(getListItemAt(0).props().isHighlighted).toBe(true);
+        });
+
+        it('should highlight items by using the combination of keyboard navigation and cursor hovering properly', () => {
+            const itemIndexToHover = 3;
+
+            listComponent.simulate('click');
+            navigateDown();
+
+            expect(getListItemAt(0).props().isHighlighted).toBe(true);
+
+            getListItemAt(itemIndexToHover).simulate('mouseover');
+
+            expect(getListItemAt(0).props().isHighlighted).toBe(false);
+            expect(getListItemAt(itemIndexToHover).props().isHighlighted).toBe(true);
+
+            navigateDown();
+
+            expect(getListItemAt(itemIndexToHover).props().isHighlighted).toBe(false);
+            expect(getListItemAt(itemIndexToHover + 1).props().isHighlighted).toBe(true);
+        });
+    });
+
+    describe('Callbacks', () => {
+        beforeEach(() => {
+            wrapper = mount(
                 <List onNavigate={mockOnNavigate} onSelect={mockOnSelect}>
                     {itemNumbersArray.map(number => (
                         <ListItem onClick={() => mockOnClick(number)}>Item ${number}</ListItem>
                     ))}
                 </List>
             );
+            listComponent = wrapper.children();
         });
 
-        it('should not have any item highlighted from the start', () => {
-            expect(mockOnNavigate).not.toHaveBeenCalled();
+        it('should call onSelect callback of the highlighted item', () => {
+            listComponent.simulate('click');
+            navigateDown();
+            listComponent.simulate('keyDown', { key: 'Enter' });
+
+            expect(mockOnSelect).toHaveBeenCalled();
         });
 
-        it('should update selectedIndex in both directions properly', () => {
-            wrapper.children().simulate('click');
+        it('should call onClick after selecting the highlighted item', () => {
+            listComponent.simulate('click');
+            navigateDown();
+            navigateDown();
+            navigateDown();
+            listComponent.simulate('keyDown', { key: 'Enter' });
+
+            expect(mockOnClick).toBeCalledWith(2);
+        });
+
+        it('should call onNavigation callback', () => {
+            listComponent.simulate('click');
             navigateDown();
 
             expect(mockOnNavigate).toBeCalledWith(LIST_NAVIGATION_DIRECTIONS.DOWN);
@@ -84,31 +181,6 @@ describe('List component', () => {
             navigateUp();
 
             expect(mockOnNavigate).toBeCalledWith(LIST_NAVIGATION_DIRECTIONS.UP);
-        });
-
-        it('should not let highlighting selectedIndex got out of [0, itemsArray.length] bounds', () => {
-            wrapper.children().simulate('click');
-            navigateUp();
-            navigateUp();
-
-            expect(mockOnNavigate).toHaveBeenCalledTimes(1);
-
-            itemNumbersArray.forEach(() => {
-                navigateDown();
-                navigateDown();
-            });
-
-            expect(mockOnNavigate).toHaveBeenCalledTimes(itemNumbersArray.length);
-        });
-
-        it('should call onSelect callback of the highlighted item', () => {
-            wrapper.children().simulate('click');
-            navigateDown();
-            navigateDown();
-            navigateDown();
-            wrapper.children().simulate('keyDown', { key: 'Enter' });
-
-            expect(mockOnClick).toBeCalledWith(2);
         });
     });
 });
