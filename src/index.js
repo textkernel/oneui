@@ -13,7 +13,6 @@ export { default as Input } from './components/Input';
 export { default as Link } from './components/Link';
 export { List, ListItem, ListActions } from './components/List';
 export { default as LoadingSpinner } from './components/LoadingSpinner';
-export { default as Modal } from './components/Modal';
 export { NavBar, NavItem } from './components/Navigation';
 export { PageWidthRestrictor, BlockWidthRestrictor } from './components/WidthRestrictor';
 export { default as Pagination } from './components/Pagination';
