@@ -2,6 +2,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import Autocomplete from '../Autocomplete';
+import { IconMatch } from '../../Icon';
 import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../__mocks__/suggestions';
 import { NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS } from '../../../constants';
 
@@ -116,6 +117,13 @@ describe('Autocomplete', () => {
             wrapper.setProps({ isLoading: true });
 
             expect(wrapper.find('li')).toHaveLength(NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS);
+        });
+        it('should render icon correctly if passed', () => {
+            const iconNode = <IconMatch />;
+            wrapper.setProps({ iconNode });
+
+            expect(toJson(wrapper)).toMatchSnapshot();
+            expect(wrapper.find('IconMatch')).toHaveLength(1);
         });
     });
     describe('focusing and blurring the search field', () => {
