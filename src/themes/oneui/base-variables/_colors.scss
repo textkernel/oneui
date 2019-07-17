@@ -67,6 +67,6 @@ $color-bad: #f42534 !default;
     --border-color-light: var(--color-neutral-25);
     --border-color-strong: var(--color-neutral-40);
 
-    --color-highlight-background: var(--color-info-10);
+    --color-highlight-background: #{mix($color-background, $color-brand, 90)};
     --color-selection-background: #{mix($color-background, $color-brand, 90)};
 }
