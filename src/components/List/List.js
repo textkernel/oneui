@@ -1,6 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
@@ -49,10 +46,10 @@ const List = React.forwardRef((props, ref) => {
 
             if (selectedIndex !== nextSelectedIndex) {
                 e.preventDefault();
-                setSelectedIndex(getNextSelectedIndex(e.key));
+                setSelectedIndex(nextSelectedIndex);
 
                 if (onNavigate) {
-                    onNavigate(e.key);
+                    onNavigate(nextSelectedIndex, e.key);
                 }
             }
         }
@@ -67,26 +64,27 @@ const List = React.forwardRef((props, ref) => {
                 children[selectedIndex].props.onClick(e);
 
                 if (onSelect) {
-                    onSelect();
+                    onSelect(selectedIndex);
                 }
             }
         }
     };
 
-    const handleMouseOver = index => {
+    const handleMouseEnter = index => {
         if (selectedIndex !== index) {
             setSelectedIndex(index);
         }
     };
 
     return (
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex
         <ul {...rest} ref={ref} tabIndex="0" onKeyDown={handleKeyDown} {...block(props)}>
             {React.Children.map(children, (child, index) =>
                 child
                     ? React.cloneElement(child, {
                           ...elem('item', props),
                           isHighlighted: index === selectedIndex,
-                          onMouseOver: () => handleMouseOver(index)
+                          onMouseEnter: () => handleMouseEnter(index)
                       })
                     : null
             )}
@@ -113,9 +111,9 @@ List.propTypes = {
     },
     /** Adds dividing lines between the list items */
     isDivided: PropTypes.bool,
-    /** onNavigate function callback */
+    /** onNavigate function callback. (selectedIndex: number, key: 'ArrowUp' || 'ArrowDown') */
     onNavigate: PropTypes.func,
-    /** onSelect function callback */
+    /** onSelect function callback. (selectedIndex: number) */
     onSelect: PropTypes.func
 };
 

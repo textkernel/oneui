@@ -116,12 +116,12 @@ describe('List component', () => {
         it('should highlight an item by hovering on it', () => {
             expect(getListItemAt(0).props().isHighlighted).toBe(false);
 
-            getListItemAt(0).simulate('mouseover');
+            getListItemAt(0).simulate('mouseenter');
 
             expect(getListItemAt(0).props().isHighlighted).toBe(true);
         });
 
-        it('should highlight items by using the combination of keyboard navigation and cursor hovering properly', () => {
+        it('should highlight items by using the combination of keyboard navigation and mouse enter event properly', () => {
             const itemIndexToHover = 3;
 
             listComponent.simulate('click');
@@ -129,7 +129,7 @@ describe('List component', () => {
 
             expect(getListItemAt(0).props().isHighlighted).toBe(true);
 
-            getListItemAt(itemIndexToHover).simulate('mouseover');
+            getListItemAt(itemIndexToHover).simulate('mouseenter');
 
             expect(getListItemAt(0).props().isHighlighted).toBe(false);
             expect(getListItemAt(itemIndexToHover).props().isHighlighted).toBe(true);
@@ -156,9 +156,10 @@ describe('List component', () => {
         it('should call onSelect callback of the highlighted item', () => {
             listComponent.simulate('click');
             navigateDown();
+            navigateDown();
             listComponent.simulate('keyDown', { key: 'Enter' });
 
-            expect(mockOnSelect).toHaveBeenCalled();
+            expect(mockOnSelect).toBeCalledWith(1);
         });
 
         it('should call onClick after selecting the highlighted item', () => {
@@ -175,12 +176,13 @@ describe('List component', () => {
             listComponent.simulate('click');
             navigateDown();
 
-            expect(mockOnNavigate).toBeCalledWith(LIST_NAVIGATION_DIRECTIONS.DOWN);
+            expect(mockOnNavigate).toBeCalledWith(0, LIST_NAVIGATION_DIRECTIONS.DOWN);
 
+            navigateDown();
             navigateDown();
             navigateUp();
 
-            expect(mockOnNavigate).toBeCalledWith(LIST_NAVIGATION_DIRECTIONS.UP);
+            expect(mockOnNavigate).toBeCalledWith(1, LIST_NAVIGATION_DIRECTIONS.UP);
         });
     });
 });
