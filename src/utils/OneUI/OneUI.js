@@ -1,4 +1,5 @@
 import cssVarsPonyfill from 'css-vars-ponyfill';
+import ReactModal from 'react-modal';
 
 const isInternetExplorer11 = () => {
     const ua = window.navigator.userAgent;
@@ -82,6 +83,14 @@ class OneUI {
             const head = document.getElementsByTagName('head')[0];
             head.appendChild(styleElement);
         });
+    }
+
+    /**
+     * Inits ReactModal and sets global params for it.
+     * @param {string} selector - css selector for the app element
+     */
+    static modalInit(selector) {
+        ReactModal.setAppElement(selector);
     }
 }
 
