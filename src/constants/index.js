@@ -13,4 +13,11 @@ export const INPUT_TYPES = [
     'week'
 ];
 
+export const LIST_NAVIGATION_DIRECTIONS = {
+    UP: 'ArrowUp',
+    DOWN: 'ArrowDown'
+};
+
+export const ENTER_KEY = 'Enter';
+
 export * from './style-related';

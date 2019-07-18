@@ -1,22 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`List component should render List correctly 1`] = `
+exports[`List component Initial rendering should render List correctly 1`] = `
 <List
   isDivided={false}
+  onNavigate={null}
+  onSelect={null}
 >
   <ul
     className="List"
+    onKeyDown={[Function]}
+    tabIndex="0"
   >
     <ListItem
       className="List__item"
       disabled={false}
       highlightContext="default"
+      isHighlighted={false}
       isSelected={false}
       key=".0"
       onClick={null}
+      onMouseEnter={[Function]}
     >
       <li
         className="ListItem List__item"
+        onMouseEnter={[Function]}
       >
         <div
           className="ListItem__container"
@@ -40,12 +47,15 @@ exports[`List component should render List correctly 1`] = `
       className="List__item"
       disabled={false}
       highlightContext="default"
+      isHighlighted={false}
       isSelected={false}
       key=".1"
       onClick={null}
+      onMouseEnter={[Function]}
     >
       <li
         className="ListItem List__item"
+        onMouseEnter={[Function]}
       >
         <div
           className="ListItem__container"
