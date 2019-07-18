@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import Autocomplete from '../Autocomplete';
@@ -197,7 +196,6 @@ describe('Autocomplete', () => {
                 suggestionsList = SUGGESTIONS.slice(1, 20);
                 wrapper.setProps({ isMultiselect: true });
 
-                // expect(wrapper.prop('isMultiselect')).toBeFalsy();
                 expect(wrapper.state('focused')).toBeFalsy();
 
                 setFocusOnInput();
