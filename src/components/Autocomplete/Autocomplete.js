@@ -46,7 +46,10 @@ class Autocomplete extends React.Component {
         const { onSelectionChange, isMultiselect } = this.props;
 
         this.setState({ inputValue: '' });
-        onSelectionChange(selectedItem);
+
+        if (selectedItem) {
+            onSelectionChange(selectedItem);
+        }
 
         if (!isMultiselect) {
             this.handleBlur();
