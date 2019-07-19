@@ -22,3 +22,4 @@ import './Tabs';
 import './Teaser';
 import './Text';
 import './TextArea';
+import './Slider';
