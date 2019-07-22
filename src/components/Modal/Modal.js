@@ -23,11 +23,11 @@ const Modal = props => {
 
     const { className: portalClass } = block(props);
     const { className: overlayClass } = elem('overlay', props);
-    const { className: overlayEnterClass } = elem('overlayEnter', props);
-    const { className: overlayExitClass } = elem('overlayExit', props);
+    const { className: overlayEnteredClass } = elem('overlay--entered', props);
+    const { className: overlayExitedClass } = elem('overlay--exited', props);
     const { className: contentClass } = elem('content', props);
-    const { className: contentEnterClass } = elem('contentEnter', props);
-    const { className: contentExitClass } = elem('contentExit', props);
+    const { className: contentEnteredClass } = elem('content--entered', props);
+    const { className: contentExitedClass } = elem('content--exited', props);
 
     const contentClassJoined = [contentClass, className].join(' ');
 
@@ -40,13 +40,13 @@ const Modal = props => {
             portalClassName={portalClass}
             overlayClassName={{
                 base: overlayClass,
-                afterOpen: overlayEnterClass,
-                beforeClose: overlayExitClass
+                afterOpen: overlayEnteredClass,
+                beforeClose: overlayExitedClass
             }}
             className={{
                 base: contentClassJoined,
-                afterOpen: contentEnterClass,
-                beforeClose: contentExitClass
+                afterOpen: contentEnteredClass,
+                beforeClose: contentExitedClass
             }}
             {...rest}
         >

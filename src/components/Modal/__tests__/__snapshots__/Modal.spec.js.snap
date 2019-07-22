@@ -6,9 +6,9 @@ exports[`Modal should render correctly 1`] = `
   bodyOpenClassName="ReactModal__Body--open"
   className={
     Object {
-      "afterOpen": "Modal__contentEnter",
+      "afterOpen": "Modal__content--entered",
       "base": "Modal__content ",
-      "beforeClose": "Modal__contentExit",
+      "beforeClose": "Modal__content--exited",
     }
   }
   closeTimeoutMS={300}
@@ -17,9 +17,9 @@ exports[`Modal should render correctly 1`] = `
   onRequestClose={null}
   overlayClassName={
     Object {
-      "afterOpen": "Modal__overlayEnter",
+      "afterOpen": "Modal__overlay--entered",
       "base": "Modal__overlay",
-      "beforeClose": "Modal__overlayExit",
+      "beforeClose": "Modal__overlay--exited",
     }
   }
   parentSelector={[Function]}
