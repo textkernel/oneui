@@ -19,7 +19,7 @@ class OneUI {
     static init({ themeURL = '', maxTime = DEFAULT_LOADING_TIMEOUT, ponyfillOptions } = {}) {
         const loadTheme = Promise.all([
             OneUI.applyTheme(themeURL),
-            OneUI.startCssVarsPonyfill(ponyfillOptions)
+            OneUI.applyCssVarsPonyfill(ponyfillOptions)
         ]);
 
         const timeout = new Promise((resolve, reject) =>
@@ -36,7 +36,7 @@ class OneUI {
      * Loads the CSS Vars ponyfill in case the browser is Internet Explorer 11. It can also
      * forces to load in modern browsers in case the user passes `onlyLegacy` property as false
      */
-    static startCssVarsPonyfill(ponyfillOptions = {}) {
+    static applyCssVarsPonyfill(ponyfillOptions = {}) {
         return new Promise((resolve, reject) => {
             const shouldForcePonyfill = ponyfillOptions.onlyLegacy === false;
 
