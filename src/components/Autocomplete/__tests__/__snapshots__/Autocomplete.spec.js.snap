@@ -85,6 +85,7 @@ exports[`Autocomplete rendering should initally render empty component correctly
             <List
               aria-labelledby="downshift-0-label"
               id="downshift-0-menu"
+              isControlledNavigation={true}
               isDivided={false}
               onNavigate={null}
               onSelect={null}
@@ -94,9 +95,7 @@ exports[`Autocomplete rendering should initally render empty component correctly
                 aria-labelledby="downshift-0-label"
                 className="List"
                 id="downshift-0-menu"
-                onKeyDown={[Function]}
                 role="listbox"
-                tabIndex="0"
               />
             </List>
           </div>
@@ -195,6 +194,7 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
               aria-labelledby="downshift-3-label"
               className="Autocomplete__list--focused"
               id="downshift-3-menu"
+              isControlledNavigation={true}
               isDivided={false}
               onNavigate={null}
               onSelect={null}
@@ -204,9 +204,7 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                 aria-labelledby="downshift-3-label"
                 className="List Autocomplete__list--focused"
                 id="downshift-3-menu"
-                onKeyDown={[Function]}
                 role="listbox"
-                tabIndex="0"
               >
                 <ListItem
                   aria-selected={true}
@@ -214,21 +212,19 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                   disabled={false}
                   highlightContext="brand"
                   id="downshift-3-item-0"
-                  isHighlighted={false}
-                  isSelected={true}
+                  isHighlighted={true}
+                  isSelected={false}
                   key=".$Sun"
                   onClick={[Function]}
                   onMouseDown={[Function]}
-                  onMouseEnter={[Function]}
                   onMouseMove={[Function]}
                   role="option"
                 >
                   <li
                     aria-selected={true}
-                    className="ListItem ListItem--isSelected ListItem--highlightContext_brand ListItem--clickable List__item"
+                    className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable List__item"
                     id="downshift-3-item-0"
                     onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
                     onMouseMove={[Function]}
                     role="option"
                   >
@@ -261,7 +257,6 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                   key=".$Moon"
                   onClick={[Function]}
                   onMouseDown={[Function]}
-                  onMouseEnter={[Function]}
                   onMouseMove={[Function]}
                   role="option"
                 >
@@ -270,7 +265,6 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                     className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
                     id="downshift-3-item-1"
                     onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
                     onMouseMove={[Function]}
                     role="option"
                   >
@@ -303,7 +297,6 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                   key=".$Mercury"
                   onClick={[Function]}
                   onMouseDown={[Function]}
-                  onMouseEnter={[Function]}
                   onMouseMove={[Function]}
                   role="option"
                 >
@@ -312,7 +305,6 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                     className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
                     id="downshift-3-item-2"
                     onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
                     onMouseMove={[Function]}
                     role="option"
                   >
@@ -345,7 +337,6 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                   key=".$Venus"
                   onClick={[Function]}
                   onMouseDown={[Function]}
-                  onMouseEnter={[Function]}
                   onMouseMove={[Function]}
                   role="option"
                 >
@@ -354,7 +345,6 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                     className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
                     id="downshift-3-item-3"
                     onMouseDown={[Function]}
-                    onMouseEnter={[Function]}
                     onMouseMove={[Function]}
                     role="option"
                   >
@@ -524,6 +514,7 @@ exports[`Autocomplete rendering should render icon correctly if passed 1`] = `
             <List
               aria-labelledby="downshift-9-label"
               id="downshift-9-menu"
+              isControlledNavigation={true}
               isDivided={false}
               onNavigate={null}
               onSelect={null}
@@ -533,9 +524,7 @@ exports[`Autocomplete rendering should render icon correctly if passed 1`] = `
                 aria-labelledby="downshift-9-label"
                 className="List"
                 id="downshift-9-menu"
-                onKeyDown={[Function]}
                 role="listbox"
-                tabIndex="0"
               />
             </List>
           </div>
@@ -648,6 +637,7 @@ exports[`Autocomplete rendering should render noSuggestions placeholder when emp
               aria-labelledby="downshift-2-label"
               className="Autocomplete__list--focused"
               id="downshift-2-menu"
+              isControlledNavigation={true}
               isDivided={false}
               onNavigate={null}
               onSelect={null}
@@ -657,9 +647,7 @@ exports[`Autocomplete rendering should render noSuggestions placeholder when emp
                 aria-labelledby="downshift-2-label"
                 className="List Autocomplete__list--focused"
                 id="downshift-2-menu"
-                onKeyDown={[Function]}
                 role="listbox"
-                tabIndex="0"
               >
                 <ListItem
                   className="List__item"
@@ -669,11 +657,9 @@ exports[`Autocomplete rendering should render noSuggestions placeholder when emp
                   isSelected={false}
                   key=".0"
                   onClick={null}
-                  onMouseEnter={[Function]}
                 >
                   <li
                     className="ListItem List__item"
-                    onMouseEnter={[Function]}
                   >
                     <div
                       className="ListItem__container"

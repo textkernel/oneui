@@ -19,6 +19,7 @@ class Autocomplete extends React.Component {
         super();
         this.inputRef = React.createRef();
         this.rootRef = React.createRef();
+        this.listRef = React.createRef();
         this.state = {
             inputValue: '',
             focused: false,
@@ -76,9 +77,8 @@ class Autocomplete extends React.Component {
         const { onInputValueChange } = this.props;
         if (changes.type === Downshift.stateChangeTypes.changeInput) {
             this.setState({ inputValue });
-            const listEl = document.querySelector(`.${styles.list}`);
-            if (listEl) {
-                listEl.scrollTop = 0;
+            if (this.listRef.current) {
+                this.listRef.current.scrollTop = 0;
             }
             if (onInputValueChange) {
                 onInputValueChange(inputValue);
@@ -206,7 +206,7 @@ class Autocomplete extends React.Component {
                 {...getItemProps({
                     item,
                     index,
-                    isSelected: highlightedIndex === index,
+                    isHighlighted: highlightedIndex === index,
                     highlightContext: 'brand'
                 })}
             >
@@ -310,7 +310,11 @@ class Autocomplete extends React.Component {
                                 </div>
                                 <List
                                     {...getMenuProps({
-                                        ...elem('list', stateAndProps)
+                                        ...elem('list', stateAndProps),
+                                        ref: e => {
+                                            this.listRef.current = e;
+                                        },
+                                        isControlledNavigation: true
                                     })}
                                 >
                                     {focused
