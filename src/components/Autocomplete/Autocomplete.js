@@ -6,7 +6,13 @@ import memoize from 'fast-memoize';
 import { List, ListItem, ContentPlaceholder, Text, InputWrapper } from '../../index';
 import ItemTag from './ItemTag';
 import styles from './Autocomplete.scss';
-import { NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS } from '../../constants';
+import {
+    NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS,
+    BACKSPACE_KEY,
+    ESCAPE_KEY,
+    TAB_KEY,
+    ENTER_KEY
+} from '../../constants';
 
 const { block, elem } = bem({
     name: 'Autocomplete',
@@ -60,14 +66,14 @@ class Autocomplete extends React.Component {
     handleInputKeyDown(event) {
         const { onSelectionChange, selectedSuggestions } = this.props;
         if (
-            event.key === 'Backspace' &&
+            event.key === BACKSPACE_KEY &&
             !event.target.value &&
             selectedSuggestions &&
             !!selectedSuggestions.length
         ) {
             // remove the last input
             onSelectionChange(selectedSuggestions[selectedSuggestions.length - 1]);
-        } else if (['Escape', 'Tab'].includes(event.key)) {
+        } else if ([ESCAPE_KEY, TAB_KEY].includes(event.key)) {
             this.inputRef.current.blur();
             this.handleBlur();
         }
@@ -243,7 +249,7 @@ class Autocomplete extends React.Component {
             this.focus(openMenu);
         });
         const wrapperOnKeyDown = memoize(openMenu => e => {
-            if (e.key === 'Enter') {
+            if (e.key === ENTER_KEY) {
                 this.focus(openMenu);
             }
         });

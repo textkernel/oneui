@@ -18,7 +18,6 @@ export const LIST_NAVIGATION_DIRECTIONS = {
     DOWN: 'ArrowDown'
 };
 
-export const ENTER_KEY = 'Enter';
-
 export * from './style-related';
 export * from './autocomplete';
+export * from './keyboard';
