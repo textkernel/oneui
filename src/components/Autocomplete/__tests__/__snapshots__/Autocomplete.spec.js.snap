@@ -233,16 +233,21 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                       onClick={[Function]}
                       role="presentation"
                     >
-                      <Text
-                        context="default"
+                      <MarkedText
                         inline={true}
                         key=".0"
-                        size="normal"
+                        marker=""
                       >
-                        <span>
-                          Sun
-                        </span>
-                      </Text>
+                        <Text
+                          context="default"
+                          inline={true}
+                          size="normal"
+                        >
+                          <span>
+                            Sun
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </div>
                   </li>
                 </ListItem>
@@ -273,16 +278,21 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                       onClick={[Function]}
                       role="presentation"
                     >
-                      <Text
-                        context="default"
+                      <MarkedText
                         inline={true}
                         key=".0"
-                        size="normal"
+                        marker=""
                       >
-                        <span>
-                          Moon
-                        </span>
-                      </Text>
+                        <Text
+                          context="default"
+                          inline={true}
+                          size="normal"
+                        >
+                          <span>
+                            Moon
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </div>
                   </li>
                 </ListItem>
@@ -313,16 +323,21 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                       onClick={[Function]}
                       role="presentation"
                     >
-                      <Text
-                        context="default"
+                      <MarkedText
                         inline={true}
                         key=".0"
-                        size="normal"
+                        marker=""
                       >
-                        <span>
-                          Mercury
-                        </span>
-                      </Text>
+                        <Text
+                          context="default"
+                          inline={true}
+                          size="normal"
+                        >
+                          <span>
+                            Mercury
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </div>
                   </li>
                 </ListItem>
@@ -353,16 +368,21 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                       onClick={[Function]}
                       role="presentation"
                     >
-                      <Text
-                        context="default"
+                      <MarkedText
                         inline={true}
                         key=".0"
-                        size="normal"
+                        marker=""
                       >
-                        <span>
-                          Venus
-                        </span>
-                      </Text>
+                        <Text
+                          context="default"
+                          inline={true}
+                          size="normal"
+                        >
+                          <span>
+                            Venus
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </div>
                   </li>
                 </ListItem>

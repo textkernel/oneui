@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import bem from 'bem';
 import Downshift from 'downshift';
 import memoize from 'fast-memoize';
-import { List, ListItem, ContentPlaceholder, Text, InputWrapper } from '../../index';
+import { List, ListItem, ContentPlaceholder, Text, MarkedText, InputWrapper } from '../../index';
 import ItemTag from './ItemTag';
 import styles from './Autocomplete.scss';
 import {
@@ -28,6 +28,7 @@ class Autocomplete extends React.Component {
         this.listRef = React.createRef();
         this.state = {
             inputValue: '',
+            inputValueRecall: '',
             focused: false,
             originHeight: 'auto',
             originWidth: 'auto'
@@ -82,7 +83,7 @@ class Autocomplete extends React.Component {
     handleInputValueChange(inputValue, changes) {
         const { onInputValueChange } = this.props;
         if (changes.type === Downshift.stateChangeTypes.changeInput) {
-            this.setState({ inputValue });
+            this.setState({ inputValue, inputValueRecall: inputValue });
             if (this.listRef.current) {
                 this.listRef.current.scrollTop = 0;
             }
@@ -104,7 +105,7 @@ class Autocomplete extends React.Component {
     handleBlur() {
         const { onBlur } = this.props;
 
-        this.setState({ inputValue: '' });
+        this.setState({ inputValue: '', inputValueRecall: '' });
         if (onBlur) {
             onBlur();
         }
@@ -183,7 +184,7 @@ class Autocomplete extends React.Component {
             getSuggestions,
             noSuggestionsPlaceholder
         } = this.props;
-        const { inputValue } = this.state;
+        const { inputValue, inputValueRecall } = this.state;
 
         if (isLoading) {
             return new Array(NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS).fill('').map((el, i) => (
@@ -216,7 +217,9 @@ class Autocomplete extends React.Component {
                     highlightContext: 'brand'
                 })}
             >
-                {suggestionToString(item)}
+                <MarkedText marker={inputValueRecall} inline>
+                    {suggestionToString(item)}
+                </MarkedText>
             </ListItem>
         ));
     }
