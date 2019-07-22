@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Autocomplete rendering should initally render empty component correctly 1`] = `
-<Autocomplete
+exports[`Autosuggest rendering should initally render empty component correctly 1`] = `
+<Autosuggest
   clearTitle="Clear"
   getSuggestions={[Function]}
   iconNode={null}
@@ -49,7 +49,7 @@ exports[`Autocomplete rendering should initally render empty component correctly
         aria-haspopup="listbox"
         aria-labelledby="downshift-0-label"
         aria-owns={null}
-        className="Autocomplete"
+        className="Autosuggest"
         role="combobox"
       >
         <InputWrapper
@@ -61,7 +61,7 @@ exports[`Autocomplete rendering should initally render empty component correctly
             className="InputWrapper"
           >
             <div
-              className="Autocomplete__wrapper"
+              className="Autosuggest__wrapper"
               onClick={[Function]}
               onKeyDown={[Function]}
               role="searchbox"
@@ -73,7 +73,7 @@ exports[`Autocomplete rendering should initally render empty component correctly
                 aria-controls={null}
                 aria-labelledby="downshift-0-label"
                 autoComplete="off"
-                className="Autocomplete__input"
+                className="Autosuggest__input"
                 id="downshift-0-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -103,11 +103,11 @@ exports[`Autocomplete rendering should initally render empty component correctly
       </div>
     </Downshift>
   </div>
-</Autocomplete>
+</Autosuggest>
 `;
 
-exports[`Autocomplete rendering should render all suggestions from the list 1`] = `
-<Autocomplete
+exports[`Autosuggest rendering should render all suggestions from the list 1`] = `
+<Autosuggest
   clearTitle="Clear"
   getSuggestions={[Function]}
   iconNode={null}
@@ -157,7 +157,7 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
         aria-haspopup="listbox"
         aria-labelledby="downshift-3-label"
         aria-owns="downshift-3-menu"
-        className="Autocomplete Autocomplete--focused"
+        className="Autosuggest Autosuggest--focused"
         role="combobox"
       >
         <InputWrapper
@@ -169,7 +169,7 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
             className="InputWrapper"
           >
             <div
-              className="Autocomplete__wrapper Autocomplete__wrapper--focused"
+              className="Autosuggest__wrapper Autosuggest__wrapper--focused"
               onClick={[Function]}
               onKeyDown={[Function]}
               role="searchbox"
@@ -181,7 +181,7 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
                 aria-controls="downshift-3-menu"
                 aria-labelledby="downshift-3-label"
                 autoComplete="off"
-                className="Autocomplete__input"
+                className="Autosuggest__input"
                 id="downshift-3-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -192,7 +192,7 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
             </div>
             <List
               aria-labelledby="downshift-3-label"
-              className="Autocomplete__list--focused"
+              className="Autosuggest__list--focused"
               id="downshift-3-menu"
               isControlledNavigation={true}
               isDivided={false}
@@ -202,7 +202,7 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
             >
               <ul
                 aria-labelledby="downshift-3-label"
-                className="List Autocomplete__list--focused"
+                className="List Autosuggest__list--focused"
                 id="downshift-3-menu"
                 role="listbox"
               >
@@ -393,11 +393,11 @@ exports[`Autocomplete rendering should render all suggestions from the list 1`] 
       </div>
     </Downshift>
   </div>
-</Autocomplete>
+</Autosuggest>
 `;
 
-exports[`Autocomplete rendering should render icon correctly if passed 1`] = `
-<Autocomplete
+exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
+<Autosuggest
   clearTitle="Clear"
   getSuggestions={[Function]}
   iconNode={
@@ -452,7 +452,7 @@ exports[`Autocomplete rendering should render icon correctly if passed 1`] = `
         aria-haspopup="listbox"
         aria-labelledby="downshift-9-label"
         aria-owns={null}
-        className="Autocomplete"
+        className="Autosuggest"
         role="combobox"
       >
         <InputWrapper
@@ -464,21 +464,21 @@ exports[`Autocomplete rendering should render icon correctly if passed 1`] = `
             className="InputWrapper"
           >
             <div
-              className="Autocomplete__wrapper"
+              className="Autosuggest__wrapper"
               onClick={[Function]}
               onKeyDown={[Function]}
               role="searchbox"
               tabIndex="0"
             >
               <IconMatch
-                className="Autocomplete__spacedElem"
+                className="Autosuggest__spacedElem"
                 context={null}
                 margin={null}
                 size={null}
                 title={null}
               >
                 <IconBase
-                  className="Autocomplete__spacedElem"
+                  className="Autosuggest__spacedElem"
                   context={null}
                   margin={null}
                   preserveAspectRatio={false}
@@ -487,7 +487,7 @@ exports[`Autocomplete rendering should render icon correctly if passed 1`] = `
                   viewBox="0 0 107.17 92.73"
                 >
                   <div
-                    className="IconBase Autocomplete__spacedElem"
+                    className="IconBase Autosuggest__spacedElem"
                   >
                     <svg
                       aria-labelledby={null}
@@ -512,7 +512,7 @@ exports[`Autocomplete rendering should render icon correctly if passed 1`] = `
                 </IconBase>
               </IconMatch>
               <div
-                className="Autocomplete__spacedElem"
+                className="Autosuggest__spacedElem"
               >
                 Current selection
               </div>
@@ -522,7 +522,7 @@ exports[`Autocomplete rendering should render icon correctly if passed 1`] = `
                 aria-controls={null}
                 aria-labelledby="downshift-9-label"
                 autoComplete="off"
-                className="Autocomplete__input"
+                className="Autosuggest__input"
                 id="downshift-9-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -552,11 +552,11 @@ exports[`Autocomplete rendering should render icon correctly if passed 1`] = `
       </div>
     </Downshift>
   </div>
-</Autocomplete>
+</Autosuggest>
 `;
 
-exports[`Autocomplete rendering should render noSuggestions placeholder when empty suggestions list is passed 1`] = `
-<Autocomplete
+exports[`Autosuggest rendering should render noSuggestions placeholder when empty suggestions list is passed 1`] = `
+<Autosuggest
   clearTitle="Clear"
   getSuggestions={[Function]}
   iconNode={null}
@@ -620,7 +620,7 @@ exports[`Autocomplete rendering should render noSuggestions placeholder when emp
         aria-haspopup="listbox"
         aria-labelledby="downshift-2-label"
         aria-owns="downshift-2-menu"
-        className="Autocomplete Autocomplete--focused"
+        className="Autosuggest Autosuggest--focused"
         role="combobox"
       >
         <InputWrapper
@@ -632,7 +632,7 @@ exports[`Autocomplete rendering should render noSuggestions placeholder when emp
             className="InputWrapper"
           >
             <div
-              className="Autocomplete__wrapper Autocomplete__wrapper--focused"
+              className="Autosuggest__wrapper Autosuggest__wrapper--focused"
               onClick={[Function]}
               onKeyDown={[Function]}
               role="searchbox"
@@ -644,7 +644,7 @@ exports[`Autocomplete rendering should render noSuggestions placeholder when emp
                 aria-controls="downshift-2-menu"
                 aria-labelledby="downshift-2-label"
                 autoComplete="off"
-                className="Autocomplete__input"
+                className="Autosuggest__input"
                 id="downshift-2-input"
                 onBlur={[Function]}
                 onChange={[Function]}
@@ -655,7 +655,7 @@ exports[`Autocomplete rendering should render noSuggestions placeholder when emp
             </div>
             <List
               aria-labelledby="downshift-2-label"
-              className="Autocomplete__list--focused"
+              className="Autosuggest__list--focused"
               id="downshift-2-menu"
               isControlledNavigation={true}
               isDivided={false}
@@ -665,7 +665,7 @@ exports[`Autocomplete rendering should render noSuggestions placeholder when emp
             >
               <ul
                 aria-labelledby="downshift-2-label"
-                className="List Autocomplete__list--focused"
+                className="List Autosuggest__list--focused"
                 id="downshift-2-menu"
                 role="listbox"
               >
@@ -708,5 +708,5 @@ exports[`Autocomplete rendering should render noSuggestions placeholder when emp
       </div>
     </Downshift>
   </div>
-</Autocomplete>
+</Autosuggest>
 `;

@@ -5,7 +5,7 @@ import Downshift from 'downshift';
 import memoize from 'fast-memoize';
 import { List, ListItem, ContentPlaceholder, Text, MarkedText, InputWrapper } from '../../index';
 import ItemTag from './ItemTag';
-import styles from './Autocomplete.scss';
+import styles from './Autosuggest.scss';
 import {
     NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS,
     BACKSPACE_KEY,
@@ -15,12 +15,12 @@ import {
 } from '../../constants';
 
 const { block, elem } = bem({
-    name: 'Autocomplete',
+    name: 'Autosuggest',
     classnames: styles,
     propsToMods: ['focused', 'isProminent']
 });
 
-class Autocomplete extends React.Component {
+class Autosuggest extends React.Component {
     constructor() {
         super();
         this.inputRef = React.createRef();
@@ -342,7 +342,7 @@ class Autocomplete extends React.Component {
     }
 }
 
-Autocomplete.propTypes = {
+Autosuggest.propTypes = {
     /** array of already selected suggestions */
     selectedSuggestions: PropTypes.array, // eslint-disable-line react/forbid-prop-types
     /** getSuggestions(inputValue) => should return an array of objects that will be used to render the suggestions list. */
@@ -377,7 +377,7 @@ Autocomplete.propTypes = {
     isProminent: PropTypes.bool
 };
 
-Autocomplete.defaultProps = {
+Autosuggest.defaultProps = {
     selectedSuggestions: null,
     isLoading: false,
     onBlur: null,
@@ -390,6 +390,6 @@ Autocomplete.defaultProps = {
     isProminent: false
 };
 
-Autocomplete.displayName = 'Autocomplete';
+Autosuggest.displayName = 'Autosuggest';
 
-export default Autocomplete;
+export default Autosuggest;

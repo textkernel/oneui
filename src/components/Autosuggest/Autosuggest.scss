@@ -1,4 +1,4 @@
-.Autocomplete {
+.Autosuggest {
     position: relative;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
     background-color: var(--color-background);
@@ -12,7 +12,7 @@
     &--isProminent {
         transform-origin: left top;
 
-        &.Autocomplete--focused {
+        &.Autosuggest--focused {
             transform: scale(1.1);
             box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
         }

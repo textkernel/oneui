@@ -1,6 +1,6 @@
 export * from './components/Icon';
 export { default as Alert } from './components/Alert';
-export { Autocomplete, ItemTag } from './components/Autocomplete';
+export { Autosuggest, ItemTag } from './components/Autosuggest';
 export { default as Button } from './components/Button';
 export { default as ButtonGroup } from './components/ButtonGroup';
 export { default as CandidateAvatar } from './components/CandidateAvatar';

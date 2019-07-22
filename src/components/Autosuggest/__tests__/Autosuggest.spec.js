@@ -1,11 +1,11 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Autocomplete from '../Autocomplete';
+import Autosuggest from '../Autosuggest';
 import { IconMatch } from '../../Icon';
 import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../__mocks__/suggestions';
 import { NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS } from '../../../constants';
 
-describe('Autocomplete', () => {
+describe('Autosuggest', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     let selectedPlaceholder = '';
     const inputPlaceholder = 'type here...';
@@ -23,11 +23,11 @@ describe('Autocomplete', () => {
     let wrapper;
     let instance;
 
-    const setFocusOnInput = () => wrapper.find('.Autocomplete__input').simulate('click');
+    const setFocusOnInput = () => wrapper.find('.Autosuggest__input').simulate('click');
 
     beforeEach(() => {
         wrapper = mount(
-            <Autocomplete
+            <Autosuggest
                 selectedSuggestions={selectedSuggestions}
                 getSuggestions={getSuggestions}
                 suggestionToString={suggestionToString}
@@ -42,7 +42,7 @@ describe('Autocomplete', () => {
                 showClearButton
             />
         );
-        instance = wrapper.find('Autocomplete').instance();
+        instance = wrapper.find('Autosuggest').instance();
     });
 
     afterEach(() => {
@@ -84,7 +84,7 @@ describe('Autocomplete', () => {
         it('should render selection placeholder when component is not focused', () => {
             selectedPlaceholder = 'Current selection';
             wrapper.setProps({ selectedPlaceholder });
-            expect(wrapper.find('.Autocomplete__spacedElem').text()).toEqual(selectedPlaceholder);
+            expect(wrapper.find('.Autosuggest__spacedElem').text()).toEqual(selectedPlaceholder);
         });
         it('should render tag for each selected selection when component is focused', () => {
             selectedSuggestions = SUGGESTIONS.slice(0, 5);
@@ -133,7 +133,7 @@ describe('Autocomplete', () => {
             expect(wrapper.state('focused')).toBeFalsy();
             expect(focusSpy).not.toHaveBeenCalled();
 
-            wrapper.find('.Autocomplete__wrapper').simulate('click');
+            wrapper.find('.Autosuggest__wrapper').simulate('click');
 
             expect(wrapper.state('focused')).toBeTruthy();
             expect(focusSpy).toHaveBeenCalledTimes(1);

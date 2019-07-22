@@ -1,5 +1,5 @@
 import './Alert';
-import './Autocomplete';
+import './Autosuggest';
 import './Button';
 import './ButtonGroup';
 import './CandidateAvatar';

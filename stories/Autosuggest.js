@@ -1,16 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
-import { Autocomplete, IconMatch } from '@textkernel/oneui';
+import { Autosuggest, IconMatch } from '@textkernel/oneui';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING
-} from '../src/components/Autocomplete/__mocks__/suggestions';
+} from '../src/components/Autosuggest/__mocks__/suggestions';
 
-storiesOf('Autocomplete', module)
+storiesOf('Autosuggest', module)
     .addDecorator(withKnobs)
-    .add('Autocomplete as single select with icon', () => (
-        <Autocomplete
+    .add('Autosuggest as single select with icon', () => (
+        <Autosuggest
             getSuggestions={() => SUGGESTIONS}
             suggestionToString={SUGGESTION_TO_STRING}
             isLoading={boolean('Loading', false)}
@@ -29,8 +29,8 @@ storiesOf('Autocomplete', module)
             style={{ width: '650px' }}
         />
     ))
-    .add('Autocomplete with multiselect options', () => (
-        <Autocomplete
+    .add('Autosuggest with multiselect options', () => (
+        <Autosuggest
             selectedSuggestions={SUGGESTIONS.slice(2, 4)}
             getSuggestions={() => SUGGESTIONS}
             suggestionToString={SUGGESTION_TO_STRING}
