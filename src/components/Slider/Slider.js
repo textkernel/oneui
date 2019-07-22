@@ -20,7 +20,7 @@ Slider.propTypes = {
      * Value to be added or subtracted on each step the slider makes.
      * Must be greater than zero, and max - min should be evenly divisible by the step value.
      */
-    step: 1,
+    step: PropTypes.number,
     /** Slider value change callback */
     onChange: PropTypes.func
 };
