@@ -23,6 +23,6 @@ export { default as ProgressBar } from './components/ProgressBar';
 export { default as RadioButton } from './components/RadioButton';
 export { Tabs, Tab, TabContent, TabItem, TabMenu } from './components/Tabs';
 export { default as Teaser } from './components/Teaser';
-export { default as Text } from './components/Text';
+export { Text, MarkedText } from './components/Text';
 export { default as TextArea } from './components/TextArea';
 export { default } from './utils/OneUI';

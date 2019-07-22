@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, select, withKnobs } from '@storybook/addon-knobs';
-import { Text } from '@textkernel/oneui';
+import { Text, MarkedText } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '../src/constants';
 
 storiesOf('Text', module)
@@ -13,4 +13,13 @@ storiesOf('Text', module)
         >
             {text('Content', 'This is some text content')}
         </Text>
+    ))
+    .add('Marked text', () => (
+        <MarkedText
+            context={select('Context', ['default', 'muted', ...CONTEXTS])}
+            size={select('Size', SIZES, 'normal')}
+            marker={text('Marker', 'so')}
+        >
+            {text('Content', 'This is some text content')}
+        </MarkedText>
     ));

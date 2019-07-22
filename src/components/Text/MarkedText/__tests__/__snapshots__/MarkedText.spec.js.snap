@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MarkedText> that renders a text block while marking matched substrings should pass props to Text 1`] = `
+<MarkedText
+  context="brand"
+  inline={true}
+  marker="text"
+>
+  <Text
+    context="brand"
+    inline={true}
+    size="normal"
+  >
+    <span
+      className="Text--context_brand"
+    >
+      Some 
+      <mark
+        className="MarkedText__marked"
+        key="match1"
+      >
+        text
+      </mark>
+       content
+    </span>
+  </Text>
+</MarkedText>
+`;
+
+exports[`<MarkedText> that renders a text block while marking matched substrings should render correctly when there are matches 1`] = `
+<MarkedText
+  marker="text"
+>
+  <Text
+    context="default"
+    inline={false}
+    size="normal"
+  >
+    <p>
+      Some 
+      <mark
+        className="MarkedText__marked"
+        key="match1"
+      >
+        text
+      </mark>
+       content
+    </p>
+  </Text>
+</MarkedText>
+`;
+
+exports[`<MarkedText> that renders a text block while marking matched substrings should render correctly when there are no matches 1`] = `
+<MarkedText
+  marker="else"
+>
+  <Text
+    context="default"
+    inline={false}
+    size="normal"
+  >
+    <p>
+      Some text content
+    </p>
+  </Text>
+</MarkedText>
+`;
+
+exports[`<MarkedText> that renders a text block while marking matched substrings should render correctly with multiple matches 1`] = `
+<MarkedText
+  marker="te"
+>
+  <Text
+    context="default"
+    inline={false}
+    size="normal"
+  >
+    <p>
+      Some 
+      <mark
+        className="MarkedText__marked"
+        key="match1"
+      >
+        te
+      </mark>
+      xt con
+      <mark
+        className="MarkedText__marked"
+        key="match3"
+      >
+        te
+      </mark>
+      nt that has 
+      <mark
+        className="MarkedText__marked"
+        key="match5"
+      >
+        te
+      </mark>
+      xt more then once
+    </p>
+  </Text>
+</MarkedText>
+`;
