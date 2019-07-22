@@ -28,7 +28,9 @@ exports[`InputWrapper should add clear button if showClearButton is true 1`] = `
         type="button"
       >
         Clear
-        <span>
+        <span
+          className="InputWrapper__buttonIcon"
+        >
           ×
         </span>
       </button>

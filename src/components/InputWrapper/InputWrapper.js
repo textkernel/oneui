@@ -33,7 +33,7 @@ const InputWrapper = React.forwardRef((props, ref) => {
                     {...elem('clearButton', props)}
                 >
                     {clearLabel}
-                    <span>&times;</span>
+                    <span {...elem('buttonIcon', props)}>&times;</span>
                 </Button>
             )}
         </div>

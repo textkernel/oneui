@@ -15,12 +15,12 @@
         border: 0;
         background-color: var(--color-background);
         transition: all var(--transition-duration);
+    }
 
-        span {
-            position: relative;
-            top: 1px;
-            margin-left: var(--spacing-2x);
-        }
+    &__buttonIcon {
+        position: relative;
+        top: 1px;
+        margin-left: var(--spacing-2x);
     }
 
     &:hover {
