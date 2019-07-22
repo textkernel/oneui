@@ -5,7 +5,6 @@ exports[`Slider component should render component correctly 1`] = `
   initialValue={0}
   max={100}
   min={0}
-  onChange={null}
   step={1}
 >
   <ComponentEnhancer(undefined)
@@ -27,7 +26,7 @@ exports[`Slider component should render component correctly 1`] = `
     min={0}
     onAfterChange={[Function]}
     onBeforeChange={[Function]}
-    onChange={null}
+    onChange={[Function]}
     prefixCls="rc-slider"
     railStyle={Object {}}
     step={1}
