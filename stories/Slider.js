@@ -13,7 +13,6 @@ storiesOf('Slider', module)
                 max={number('Max value', 100)}
                 step={number('Step', 1)}
                 defaultValue={10}
-                onChange={value => console.log(value)}
             />
         ),
         {
