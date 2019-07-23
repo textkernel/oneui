@@ -33,16 +33,6 @@ class Autosuggest extends React.Component {
             originHeight: 'auto',
             originWidth: 'auto'
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleInputKeyDown = this.handleInputKeyDown.bind(this);
-        this.handleInputValueChange = this.handleInputValueChange.bind(this);
-        this.handleClearSelectedSuggestions = this.handleClearSelectedSuggestions.bind(this);
-        this.handleBlur = this.handleBlur.bind(this);
-        this.renderTags = this.renderTags.bind(this);
-        this.stateUpdater = this.stateUpdater.bind(this);
-        this.stateReducer = this.stateReducer.bind(this);
-        this.setRootSize = this.setRootSize.bind(this);
     }
 
     componentDidMount() {
@@ -54,13 +44,13 @@ class Autosuggest extends React.Component {
         window.removeEventListener('resize', this.setRootSize);
     }
 
-    setRootSize() {
+    setRootSize = () => {
         if (!this.rootRef.current) return;
         const { height, width } = this.rootRef.current.getBoundingClientRect();
         this.setState({ originHeight: height, originWidth: width });
-    }
+    };
 
-    handleChange(selectedItem) {
+    handleChange = selectedItem => {
         const { onSelectionChange, isMultiselect } = this.props;
 
         this.setState({ inputValue: '' });
@@ -72,9 +62,9 @@ class Autosuggest extends React.Component {
         if (!isMultiselect) {
             this.handleBlur();
         }
-    }
+    };
 
-    handleInputKeyDown(event) {
+    handleInputKeyDown = event => {
         const { onSelectionChange, selectedSuggestions } = this.props;
         if (
             event.key === BACKSPACE_KEY &&
@@ -88,9 +78,9 @@ class Autosuggest extends React.Component {
             this.inputRef.current.blur();
             this.handleBlur();
         }
-    }
+    };
 
-    handleInputValueChange(inputValue, changes) {
+    handleInputValueChange = (inputValue, changes) => {
         const { onInputValueChange } = this.props;
         if (changes.type === Downshift.stateChangeTypes.changeInput) {
             this.setState({ inputValue, inputValueRecall: inputValue });
@@ -101,32 +91,27 @@ class Autosuggest extends React.Component {
                 onInputValueChange(inputValue);
             }
         }
-    }
+    };
 
-    handleClearSelectedSuggestions(e) {
+    handleClearSelectedSuggestions = e => {
         const { onClearAllSelected } = this.props;
 
         e.stopPropagation();
         if (onClearAllSelected) {
             onClearAllSelected();
         }
-    }
+    };
 
-    handleBlur() {
+    handleBlur = () => {
         const { onBlur } = this.props;
 
         this.setState({ inputValue: '', inputValueRecall: '' });
         if (onBlur) {
             onBlur();
         }
-    }
+    };
 
-    focus(openMenu) {
-        openMenu();
-        this.inputRef.current.focus();
-    }
-
-    stateReducer(state, changes) {
+    stateReducer = (state, changes) => {
         const { isMultiselect } = this.props;
 
         switch (changes.type) {
@@ -144,13 +129,18 @@ class Autosuggest extends React.Component {
             default:
                 return changes;
         }
-    }
+    };
 
-    stateUpdater(change, state) {
+    stateUpdater = (change, state) => {
         const { focused } = this.state;
         if (state.isOpen !== focused) {
             this.setState({ focused: state.isOpen });
         }
+    };
+
+    focus(openMenu) {
+        openMenu();
+        this.inputRef.current.focus();
     }
 
     renderTags() {
