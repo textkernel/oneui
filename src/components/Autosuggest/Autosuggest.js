@@ -35,6 +35,8 @@ class Autosuggest extends React.Component {
         };
 
         this.handleTagDeleteClick = memoize(this.handleTagDeleteClick);
+        this.handleWrapperClick = memoize(this.handleWrapperClick);
+        this.handleWrapperKeyDown = memoize(this.handleWrapperKeyDown);
     }
 
     componentDidMount() {
@@ -121,6 +123,16 @@ class Autosuggest extends React.Component {
             onSelectionChange(item);
             this.inputRef.current.focus();
         };
+    };
+
+    handleWrapperClick = openMenu => () => {
+        this.focus(openMenu);
+    };
+
+    handleWrapperKeyDown = openMenu => e => {
+        if (e.key === ENTER_KEY) {
+            this.focus(openMenu);
+        }
     };
 
     stateReducer = (state, changes) => {
@@ -248,15 +260,6 @@ class Autosuggest extends React.Component {
         } = this.props;
         const { inputValue, focused, originHeight, originWidth } = this.state;
 
-        const wrapperOnClick = memoize(openMenu => () => {
-            this.focus(openMenu);
-        });
-        const wrapperOnKeyDown = memoize(openMenu => e => {
-            if (e.key === ENTER_KEY) {
-                this.focus(openMenu);
-            }
-        });
-
         const stateAndProps = { ...this.props, ...this.state };
         const hideInputPlaceholder = !focused && !!selectedPlaceholder;
         const doShowClearButton =
@@ -295,8 +298,8 @@ class Autosuggest extends React.Component {
                             >
                                 <div
                                     tabIndex="0"
-                                    onClick={wrapperOnClick(openMenu)}
-                                    onKeyDown={wrapperOnKeyDown(openMenu)}
+                                    onClick={this.handleWrapperClick(openMenu)}
+                                    onKeyDown={this.handleWrapperKeyDown(openMenu)}
                                     role="searchbox"
                                     {...elem('wrapper', stateAndProps)}
                                 >
