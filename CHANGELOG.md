@@ -2,33 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [5.0.0](https://github.com/textkernel/oneui/compare/4.0.1...5.0.0) (2019-07-23)
-
-
-### Bug Fixes
-
-* **Header, Footer:** Adjust styling to match designs ([#138](https://github.com/textkernel/oneui/issues/138)) ([0851d4d](https://github.com/textkernel/oneui/commit/0851d4d))
-
-
-### Features
-
-* **component:** new Modal component ([6483e5f](https://github.com/textkernel/oneui/commit/6483e5f))
-* **List:** added keyboard navigation ([#140](https://github.com/textkernel/oneui/issues/140)) ([46f7d87](https://github.com/textkernel/oneui/commit/46f7d87))
-* renamed OneUI.startCssVarsPonyfill to OneUI.applyCssVarsPonyfill() ([b8b3b61](https://github.com/textkernel/oneui/commit/b8b3b61))
-
-
-### Tests
-
-* **WidthRestrictor:** add basic tests to components ([#139](https://github.com/textkernel/oneui/issues/139)) ([e45bacc](https://github.com/textkernel/oneui/commit/e45bacc))
-
-
-### BREAKING CHANGES
-
-* if you used `OneUI.startCssVarsPonyfill()` directly in your app
-rename it to `OneUI.applyCssVarsPonyfill()`.
-
-
-
 ### [4.0.1](https://github.com/textkernel/oneui/compare/4.0.0...4.0.1) (2019-07-12)
 
 
