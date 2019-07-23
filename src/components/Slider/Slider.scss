@@ -2,7 +2,7 @@
 $slider-rail-height: 8px;
 $slider-handle-size: 24px;
 
-// Adjustments of handle on the rail so it gets centered properly
+// Centering adjustments of the handle on the rail
 $slider-handle-adjust-left: -($slider-handle-size / 2);
 $slider-handle-adjust-top: -(($slider-handle-size / 2) - ($slider-rail-height / 2));
 
