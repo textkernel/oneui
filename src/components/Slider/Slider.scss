@@ -1,6 +1,8 @@
 // Definition of basic slider variables
 $slider-rail-height: 8px;
 $slider-handle-size: 24px;
+$slider-handle-border-width: 6px;
+$slider-transition-duration: 0.3s;
 
 // Centering adjustments of the handle on the rail
 $slider-handle-adjust-left: -($slider-handle-size / 2);
@@ -8,10 +10,8 @@ $slider-handle-adjust-top: -(($slider-handle-size / 2) - ($slider-rail-height / 
 
 // Definitions of variables for paddings, shadows, etc.
 $slider-padding: 5px 0;
-$slider-transition-duration: 0.3s;
 $slider-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .2);
 $slider-handle-box-shadow: 0px 2px 4px 0px rgba(29, 22, 22, 0.5);
-$slider-handle-border-width: 6px;
 
 :global .rc-slider-track {
     position: absolute;
