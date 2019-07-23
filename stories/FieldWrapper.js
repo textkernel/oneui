@@ -1,13 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
-import { InputWrapper, Text } from '@textkernel/oneui';
+import { FieldWrapper, Text } from '@textkernel/oneui';
 
-storiesOf('InputWrapper', module)
+storiesOf('FieldWrapper', module)
     .addDecorator(withKnobs)
-    .add('InputWrapper', () => {
+    .add('FieldWrapper', () => {
         return (
-            <InputWrapper
+            <FieldWrapper
                 clearLabel={text('Clear button label', 'Clear')}
                 onClear={() => console.log('onClear has been called')}
                 showClearButton={boolean('Show clear button', true)}
@@ -27,6 +27,6 @@ storiesOf('InputWrapper', module)
                         'Note: for optimal rendering all child elements should have spacing-normal margins.'
                     )}
                 </Text>
-            </InputWrapper>
+            </FieldWrapper>
         );
     });

@@ -11,7 +11,7 @@ export { default as Footer } from './components/Footer';
 export { default as Header } from './components/Header';
 export { default as Heading } from './components/Heading';
 export { default as Input } from './components/Input';
-export { default as InputWrapper } from './components/InputWrapper';
+export { default as FieldWrapper } from './components/FieldWrapper';
 export { default as Link } from './components/Link';
 export { List, ListItem, ListActions } from './components/List';
 export { default as LoadingSpinner } from './components/LoadingSpinner';

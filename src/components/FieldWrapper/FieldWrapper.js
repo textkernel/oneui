@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import { Button } from '../../index';
-import styles from './InputWrapper.scss';
+import styles from './FieldWrapper.scss';
 
 const { block, elem } = bem({
-    name: 'InputWrapper',
+    name: 'FieldWrapper',
     classnames: styles,
     propsToMod: ['isFocused']
 });
 
-const InputWrapper = React.forwardRef((props, ref) => {
+const FieldWrapper = React.forwardRef((props, ref) => {
     const handleClear = e => {
         const { onClear } = props;
 
@@ -40,9 +40,9 @@ const InputWrapper = React.forwardRef((props, ref) => {
     );
 });
 
-InputWrapper.displayName = 'InputWrapper';
+FieldWrapper.displayName = 'FieldWrapper';
 
-InputWrapper.propTypes = {
+FieldWrapper.propTypes = {
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton: PropTypes.bool,
     /** clear button label */
@@ -51,10 +51,10 @@ InputWrapper.propTypes = {
     onClear: PropTypes.func
 };
 
-InputWrapper.defaultProps = {
+FieldWrapper.defaultProps = {
     showClearButton: false,
     clearLabel: '',
     onClear: null
 };
 
-export default InputWrapper;
+export default FieldWrapper;

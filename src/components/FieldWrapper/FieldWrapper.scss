@@ -1,4 +1,4 @@
-.InputWrapper {
+.FieldWrapper {
     position: relative;
     box-sizing: border-box;
     border: 1px solid var(--border-color-strong);
@@ -26,7 +26,7 @@
     &:hover {
         border-color: var(--color-brand);
 
-        & .InputWrapper__clearButton {
+        & .FieldWrapper__clearButton {
             display: block;
         }
     }

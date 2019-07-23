@@ -1,19 +1,19 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import InputWrapper from '../InputWrapper';
+import FieldWrapper from '../FieldWrapper';
 
-describe('InputWrapper', () => {
+describe('FieldWrapper', () => {
     it('should render correctly', () => {
-        const wrapper = mount(<InputWrapper>some children</InputWrapper>);
+        const wrapper = mount(<FieldWrapper>some children</FieldWrapper>);
 
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('button')).toHaveLength(0);
     });
     it('should add clear button if showClearButton is true', () => {
         const wrapper = mount(
-            <InputWrapper showClearButton clearLabel="Clear">
+            <FieldWrapper showClearButton clearLabel="Clear">
                 some children
-            </InputWrapper>
+            </FieldWrapper>
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -22,9 +22,9 @@ describe('InputWrapper', () => {
     it('should call onClear callback correctly', () => {
         const onClearMock = jest.fn();
         const wrapper = mount(
-            <InputWrapper showClearButton clearLabel="Clear" onClear={onClearMock}>
+            <FieldWrapper showClearButton clearLabel="Clear" onClear={onClearMock}>
                 tag
-            </InputWrapper>
+            </FieldWrapper>
         );
 
         wrapper.find('button').simulate('click');

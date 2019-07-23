@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InputWrapper should add clear button if showClearButton is true 1`] = `
-<InputWrapper
+exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
+<FieldWrapper
   clearLabel="Clear"
   onClear={null}
   showClearButton={true}
 >
   <div
-    className="InputWrapper"
+    className="FieldWrapper"
   >
     some children
     <Button
-      className="InputWrapper__clearButton"
+      className="FieldWrapper__clearButton"
       context="link"
       disabled={false}
       href={null}
@@ -22,33 +22,33 @@ exports[`InputWrapper should add clear button if showClearButton is true 1`] = `
       type="button"
     >
       <button
-        className="Button Button--context_link Button--isInline InputWrapper__clearButton"
+        className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
         disabled={false}
         onClick={[Function]}
         type="button"
       >
         Clear
         <span
-          className="InputWrapper__buttonIcon"
+          className="FieldWrapper__buttonIcon"
         >
           ×
         </span>
       </button>
     </Button>
   </div>
-</InputWrapper>
+</FieldWrapper>
 `;
 
-exports[`InputWrapper should render correctly 1`] = `
-<InputWrapper
+exports[`FieldWrapper should render correctly 1`] = `
+<FieldWrapper
   clearLabel=""
   onClear={null}
   showClearButton={false}
 >
   <div
-    className="InputWrapper"
+    className="FieldWrapper"
   >
     some children
   </div>
-</InputWrapper>
+</FieldWrapper>
 `;

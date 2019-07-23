@@ -52,13 +52,13 @@ exports[`Autosuggest rendering should initally render empty component correctly 
         className="Autosuggest"
         role="combobox"
       >
-        <InputWrapper
+        <FieldWrapper
           clearLabel="Clear"
           onClear={[Function]}
           showClearButton={false}
         >
           <div
-            className="InputWrapper"
+            className="FieldWrapper"
           >
             <div
               className="Autosuggest__wrapper"
@@ -99,7 +99,7 @@ exports[`Autosuggest rendering should initally render empty component correctly 
               />
             </List>
           </div>
-        </InputWrapper>
+        </FieldWrapper>
       </div>
     </Downshift>
   </div>
@@ -160,13 +160,13 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
         className="Autosuggest Autosuggest--focused"
         role="combobox"
       >
-        <InputWrapper
+        <FieldWrapper
           clearLabel="Clear"
           onClear={[Function]}
           showClearButton={false}
         >
           <div
-            className="InputWrapper"
+            className="FieldWrapper"
           >
             <div
               className="Autosuggest__wrapper Autosuggest__wrapper--focused"
@@ -389,7 +389,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
               </ul>
             </List>
           </div>
-        </InputWrapper>
+        </FieldWrapper>
       </div>
     </Downshift>
   </div>
@@ -455,13 +455,13 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
         className="Autosuggest"
         role="combobox"
       >
-        <InputWrapper
+        <FieldWrapper
           clearLabel="Clear"
           onClear={[Function]}
           showClearButton={false}
         >
           <div
-            className="InputWrapper"
+            className="FieldWrapper"
           >
             <div
               className="Autosuggest__wrapper"
@@ -548,7 +548,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
               />
             </List>
           </div>
-        </InputWrapper>
+        </FieldWrapper>
       </div>
     </Downshift>
   </div>
@@ -623,13 +623,13 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
         className="Autosuggest Autosuggest--focused"
         role="combobox"
       >
-        <InputWrapper
+        <FieldWrapper
           clearLabel="Clear"
           onClear={[Function]}
           showClearButton={false}
         >
           <div
-            className="InputWrapper"
+            className="FieldWrapper"
           >
             <div
               className="Autosuggest__wrapper Autosuggest__wrapper--focused"
@@ -704,7 +704,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
               </ul>
             </List>
           </div>
-        </InputWrapper>
+        </FieldWrapper>
       </div>
     </Downshift>
   </div>

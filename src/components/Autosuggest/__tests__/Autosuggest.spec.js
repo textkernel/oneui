@@ -94,21 +94,21 @@ describe('Autosuggest', () => {
             expect(wrapper.find('ItemTag')).toHaveLength(selectedSuggestions.length);
         });
         it('should render clear button only if there are selected suggestion', () => {
-            expect(wrapper.find('.InputWrapper__clearButton')).toHaveLength(0);
+            expect(wrapper.find('.FieldWrapper__clearButton')).toHaveLength(0);
 
             selectedSuggestions = SUGGESTIONS.slice(0, 5);
             wrapper.setProps({ selectedSuggestions });
 
-            expect(wrapper.find('.InputWrapper__clearButton')).toHaveLength(2);
+            expect(wrapper.find('.FieldWrapper__clearButton')).toHaveLength(2);
         });
         it('should not render clear button if component is in focus', () => {
             selectedSuggestions = SUGGESTIONS.slice(0, 5);
             wrapper.setProps({ selectedSuggestions });
 
-            expect(wrapper.find('.InputWrapper__clearButton')).toHaveLength(2);
+            expect(wrapper.find('.FieldWrapper__clearButton')).toHaveLength(2);
             setFocusOnInput();
 
-            expect(wrapper.find('.InputWrapper__clearButton')).toHaveLength(0);
+            expect(wrapper.find('.FieldWrapper__clearButton')).toHaveLength(0);
         });
 
         it(`should render ${NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS} loaders if isLoading is true`, () => {
@@ -293,7 +293,7 @@ describe('Autosuggest', () => {
             expect(mockonClearAllSelected).not.toHaveBeenCalled();
 
             wrapper
-                .find('.InputWrapper__clearButton')
+                .find('.FieldWrapper__clearButton')
                 .at(1)
                 .simulate('click');
 

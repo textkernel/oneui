@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import bem from 'bem';
 import Downshift from 'downshift';
 import memoize from 'fast-memoize';
-import { List, ListItem, ContentPlaceholder, Text, MarkedText, InputWrapper } from '../../index';
+import { List, ListItem, ContentPlaceholder, Text, MarkedText, FieldWrapper } from '../../index';
 import ItemTag from './ItemTag';
 import styles from './Autosuggest.scss';
 import {
@@ -288,7 +288,7 @@ class Autosuggest extends React.Component {
                         openMenu
                     }) => (
                         <div {...rest} {...block(stateAndProps)}>
-                            <InputWrapper
+                            <FieldWrapper
                                 clearLabel={clearTitle}
                                 onClear={this.handleClearSelectedSuggestions}
                                 showClearButton={doShowClearButton}
@@ -333,7 +333,7 @@ class Autosuggest extends React.Component {
                                           })
                                         : null}
                                 </List>
-                            </InputWrapper>
+                            </FieldWrapper>
                         </div>
                     )}
                 </Downshift>
