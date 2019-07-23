@@ -42,9 +42,19 @@ class Autosuggest extends React.Component {
         this.renderTags = this.renderTags.bind(this);
         this.stateUpdater = this.stateUpdater.bind(this);
         this.stateReducer = this.stateReducer.bind(this);
+        this.setRootSize = this.setRootSize.bind(this);
     }
 
     componentDidMount() {
+        this.setRootSize();
+        window.addEventListener('resize', this.setRootSize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.setRootSize);
+    }
+
+    setRootSize() {
         if (!this.rootRef.current) return;
         const { height, width } = this.rootRef.current.getBoundingClientRect();
         this.setState({ originHeight: height, originWidth: width });
@@ -161,14 +171,14 @@ class Autosuggest extends React.Component {
         }
 
         if (selectedSuggestions && !!selectedSuggestions.length) {
-            const onClick = memoize(item => e => {
+            const handleTagDeleteClick = memoize(item => e => {
                 e.stopPropagation();
                 onSelectionChange(item);
                 this.inputRef.current.focus();
             });
 
             return selectedSuggestions.map(item => (
-                <ItemTag key={suggestionToString(item)} onClick={onClick(item)}>
+                <ItemTag key={suggestionToString(item)} onClick={handleTagDeleteClick(item)}>
                     {suggestionToString(item)}
                 </ItemTag>
             ));
