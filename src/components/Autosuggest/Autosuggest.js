@@ -247,8 +247,7 @@ class Autosuggest extends React.Component {
         } = this.props;
         const { inputValue, focused, originHeight, originWidth } = this.state;
 
-        // eslint-disable-next-line no-unused-vars
-        const wrapperOnClick = memoize(openMenu => e => {
+        const wrapperOnClick = memoize(openMenu => () => {
             this.focus(openMenu);
         });
         const wrapperOnKeyDown = memoize(openMenu => e => {
