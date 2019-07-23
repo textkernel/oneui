@@ -33,6 +33,8 @@ class Autosuggest extends React.Component {
             originHeight: 'auto',
             originWidth: 'auto'
         };
+
+        this.handleTagDeleteClick = memoize(this.handleTagDeleteClick);
     }
 
     componentDidMount() {
@@ -111,6 +113,16 @@ class Autosuggest extends React.Component {
         }
     };
 
+    handleTagDeleteClick = item => {
+        const { onSelectionChange } = this.props;
+
+        return e => {
+            e.stopPropagation();
+            onSelectionChange(item);
+            this.inputRef.current.focus();
+        };
+    };
+
     stateReducer = (state, changes) => {
         const { isMultiselect } = this.props;
 
@@ -144,12 +156,7 @@ class Autosuggest extends React.Component {
     }
 
     renderTags() {
-        const {
-            selectedPlaceholder,
-            suggestionToString,
-            selectedSuggestions,
-            onSelectionChange
-        } = this.props;
+        const { selectedPlaceholder, suggestionToString, selectedSuggestions } = this.props;
         const { focused } = this.state;
 
         if (!focused) {
@@ -161,14 +168,8 @@ class Autosuggest extends React.Component {
         }
 
         if (selectedSuggestions && !!selectedSuggestions.length) {
-            const handleTagDeleteClick = memoize(item => e => {
-                e.stopPropagation();
-                onSelectionChange(item);
-                this.inputRef.current.focus();
-            });
-
             return selectedSuggestions.map(item => (
-                <ItemTag key={suggestionToString(item)} onClick={handleTagDeleteClick(item)}>
+                <ItemTag key={suggestionToString(item)} onClick={this.handleTagDeleteClick(item)}>
                     {suggestionToString(item)}
                 </ItemTag>
             ));
