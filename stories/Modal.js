@@ -34,13 +34,9 @@ storiesOf('Modal', module)
                 * You can pass other props according to their definition, apart from classes.
                 * For accessibility reasons you need to __initialise__ modal use in your app. 
                 For more info see [app element](http://reactcommunity.org/react-modal/accessibility/#app-element) in thier documentation. 
-                To do this:
+                To do this call the following function once:
 
-                > import OneUI from '@textkernel/oneui';
-
-                > OneUI.__initModal__(appElementSelector);
-
-                
+                > __Modal.setAppElement__(appElementSelector);
 
                 To see the modal in action here, change the Open prop to 'true' in the Knobs section.
                 `

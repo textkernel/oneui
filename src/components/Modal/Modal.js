@@ -55,6 +55,14 @@ const Modal = props => {
     );
 };
 
+/**
+ * Inits ReactModal and sets global params for it.
+ * @param {string} selector - css selector for the app element
+ */
+Modal.setAppElement = selector => {
+    ReactModal.setAppElement(selector);
+};
+
 Modal.displayName = 'Modal';
 
 Modal.propTypes = {
