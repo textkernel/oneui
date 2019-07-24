@@ -295,6 +295,7 @@ class Autosuggest extends React.Component {
                                 clearLabel={clearTitle}
                                 onClear={this.handleClearSelectedSuggestions}
                                 showClearButton={doShowClearButton}
+                                {...elem('field', stateAndProps)}
                             >
                                 <div
                                     tabIndex="0"

@@ -53,12 +53,13 @@ exports[`Autosuggest rendering should initally render empty component correctly 
         role="combobox"
       >
         <FieldWrapper
+          className="Autosuggest__field"
           clearLabel="Clear"
           onClear={[Function]}
           showClearButton={false}
         >
           <div
-            className="FieldWrapper"
+            className="FieldWrapper Autosuggest__field"
           >
             <div
               className="Autosuggest__wrapper"
@@ -161,12 +162,13 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
         role="combobox"
       >
         <FieldWrapper
+          className="Autosuggest__field"
           clearLabel="Clear"
           onClear={[Function]}
           showClearButton={false}
         >
           <div
-            className="FieldWrapper"
+            className="FieldWrapper Autosuggest__field"
           >
             <div
               className="Autosuggest__wrapper Autosuggest__wrapper--focused"
@@ -456,12 +458,13 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
         role="combobox"
       >
         <FieldWrapper
+          className="Autosuggest__field"
           clearLabel="Clear"
           onClear={[Function]}
           showClearButton={false}
         >
           <div
-            className="FieldWrapper"
+            className="FieldWrapper Autosuggest__field"
           >
             <div
               className="Autosuggest__wrapper"
@@ -624,12 +627,13 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
         role="combobox"
       >
         <FieldWrapper
+          className="Autosuggest__field"
           clearLabel="Clear"
           onClear={[Function]}
           showClearButton={false}
         >
           <div
-            className="FieldWrapper"
+            className="FieldWrapper Autosuggest__field"
           >
             <div
               className="Autosuggest__wrapper Autosuggest__wrapper--focused"

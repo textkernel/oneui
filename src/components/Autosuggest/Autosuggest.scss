@@ -8,6 +8,10 @@
     &--focused {
         position: absolute;
         width: 100%;
+
+        .Autosuggest__field {
+            padding: 0;
+        }
     }
 
     &--isProminent {
@@ -26,7 +30,7 @@
         align-items: baseline;
 
         &--focused {
-            margin-bottom: var(--spacing-normal);
+            padding: var(--spacing-normal);
             border-bottom: 1px solid var(--border-color-light);
         }
     }
