@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import ListItem from './ListItem';
@@ -17,9 +17,17 @@ const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1
 };
 
+const SCROLL_INTO_VIEW_SETTINGS = {
+    behavior: 'smooth',
+    block: 'nearest'
+};
+const SCROLL_INTO_VIEW_DELAY = 100;
+
 const List = React.forwardRef((props, ref) => {
-    const { children, isDivided, onNavigate, onSelect, ...rest } = props;
     const [selectedIndex, setSelectedIndex] = useState(null);
+    const highlightedListItem = useRef(null);
+
+    const { children, isDivided, onNavigate, onSelect, ...rest } = props;
 
     const getNextSelectedIndex = keyCode => {
         const stepValue = NAVIGATION_STEP_VALUES[keyCode];
@@ -47,6 +55,11 @@ const List = React.forwardRef((props, ref) => {
             if (selectedIndex !== nextSelectedIndex) {
                 e.preventDefault();
                 setSelectedIndex(nextSelectedIndex);
+
+                // Scroll view with a delay so this function would refer to the next highlighted item
+                setTimeout(() => {
+                    highlightedListItem.current.scrollIntoView(SCROLL_INTO_VIEW_SETTINGS);
+                }, SCROLL_INTO_VIEW_DELAY);
 
                 if (onNavigate) {
                     onNavigate(nextSelectedIndex, e.key);
@@ -83,6 +96,7 @@ const List = React.forwardRef((props, ref) => {
                 child
                     ? React.cloneElement(child, {
                           ...elem('item', props),
+                          ref: index === selectedIndex ? highlightedListItem : null,
                           isHighlighted: index === selectedIndex,
                           onMouseEnter: () => handleMouseEnter(index)
                       })
