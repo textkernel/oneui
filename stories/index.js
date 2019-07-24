@@ -8,6 +8,7 @@ import './Icon';
 import './Input';
 import './Link';
 import './List';
+import './Map';
 import './Modal';
 import './ProgressBar';
 import './Slider';
