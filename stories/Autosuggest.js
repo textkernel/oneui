@@ -25,7 +25,7 @@ storiesOf('Autosuggest', module)
             onClearAllSelected={() => console.log('onClearAllSelected was called')}
             showClearButton={boolean('Show clear button', true)}
             iconNode={<IconMatch />}
-            isProminent
+            isProminent={boolean('Use prominent styling', true)}
             style={{ width: '650px' }}
         />
     ))
