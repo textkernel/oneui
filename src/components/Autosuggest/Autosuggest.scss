@@ -8,10 +8,10 @@
     &--focused {
         position: absolute;
         width: 100%;
+    }
 
-        .Autosuggest__field {
-            padding: 0;
-        }
+    &__field--focused {
+        padding: 0;
     }
 
     &--isProminent {
