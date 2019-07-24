@@ -7,7 +7,7 @@ import { LogoTextkernel } from '../Icon';
 
 const { block, elem } = bem({
     name: 'Footer',
-    classnames: styles
+    classnames: styles,
 });
 
 const Footer = props => {
@@ -36,12 +36,12 @@ Footer.propTypes = {
     /** supply copyright text ready to be rendered instead of the default one */
     copyright: PropTypes.node,
     /** Node(s) to be rendered on the right side of the header */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
 Footer.defaultProps = {
     copyright: null,
-    children: null
+    children: null,
 };
 
 export default Footer;

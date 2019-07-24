@@ -8,13 +8,13 @@ import { LIST_NAVIGATION_DIRECTIONS, ENTER_KEY } from '../../constants';
 const { block, elem } = bem({
     name: 'List',
     classnames: styles,
-    propsToMods: ['isDivided']
+    propsToMods: ['isDivided'],
 });
 
 const isListItem = element => element && element.type !== ListItem && element.type !== 'li';
 const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.UP]: -1,
-    [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1
+    [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1,
 };
 
 const List = React.forwardRef((props, ref) => {
@@ -84,7 +84,7 @@ const List = React.forwardRef((props, ref) => {
                     ? React.cloneElement(child, {
                           ...elem('item', props),
                           isHighlighted: index === selectedIndex,
-                          onMouseEnter: () => handleMouseEnter(index)
+                          onMouseEnter: () => handleMouseEnter(index),
                       })
                     : null
             )}
@@ -114,14 +114,14 @@ List.propTypes = {
     /** onNavigate function callback. (selectedIndex: number, key: 'ArrowUp' || 'ArrowDown') */
     onNavigate: PropTypes.func,
     /** onSelect function callback. (selectedIndex: number) */
-    onSelect: PropTypes.func
+    onSelect: PropTypes.func,
 };
 
 List.defaultProps = {
     children: null,
     isDivided: false,
     onNavigate: null,
-    onSelect: null
+    onSelect: null,
 };
 
 export default List;

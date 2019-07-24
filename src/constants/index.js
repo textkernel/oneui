@@ -10,12 +10,12 @@ export const INPUT_TYPES = [
     'url',
     'search',
     'time',
-    'week'
+    'week',
 ];
 
 export const LIST_NAVIGATION_DIRECTIONS = {
     UP: 'ArrowUp',
-    DOWN: 'ArrowDown'
+    DOWN: 'ArrowDown',
 };
 
 export const ENTER_KEY = 'Enter';

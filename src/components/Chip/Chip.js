@@ -5,7 +5,7 @@ import styles from './Chip.scss';
 
 const { block } = bem({
     name: 'Chip',
-    classnames: styles
+    classnames: styles,
 });
 
 const Chip = props => {
@@ -22,7 +22,7 @@ Chip.displayName = 'Chip';
 
 Chip.propTypes = {
     /** The content of the chip: it is expected to be short text possibly accompanied by an icon */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
 };
 
 export default Chip;

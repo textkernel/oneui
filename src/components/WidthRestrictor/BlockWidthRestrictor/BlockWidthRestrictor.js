@@ -5,7 +5,7 @@ import styles from './BlockWidthRestrictor.scss';
 
 const { block } = bem({
     name: 'BlockWidthRestrictor',
-    classnames: styles
+    classnames: styles,
 });
 
 const BlockWidthRestrictor = props => {
@@ -24,11 +24,11 @@ BlockWidthRestrictor.propTypes = {
     /** Node(s) to be rendered inside the container */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     /** HTML tag to be used to render the container */
-    As: PropTypes.string
+    As: PropTypes.string,
 };
 
 BlockWidthRestrictor.defaultProps = {
-    As: 'div'
+    As: 'div',
 };
 
 export default BlockWidthRestrictor;

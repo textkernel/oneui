@@ -150,7 +150,7 @@ function buildClassNames({
     state,
     stateToMods,
     extraMods,
-    classnamesMap
+    classnamesMap,
 }) {
     const blockElemName = elem ? `${block}${ELEM_SEPARATOR}${elem}` : block;
     const modsFromProps = buildModsFromObject(props, propsToMods);
@@ -216,7 +216,7 @@ export function buildBemProps({
     state = {},
     stateToMods = [],
     extraMods = {},
-    classnamesMap
+    classnamesMap,
 }) {
     // If we deal with a new block, checking propsToMods and stateToMods declarations
     if (process.env.NODE_ENV === 'development' && elem === null) {
@@ -232,7 +232,7 @@ export function buildBemProps({
         state,
         stateToMods,
         extraMods,
-        classnamesMap
+        classnamesMap,
     });
 
     // If an element mixed in to the component, add it's className
@@ -245,7 +245,7 @@ export function buildBemProps({
     }
 
     return {
-        className: classNames
+        className: classNames,
     };
 }
 

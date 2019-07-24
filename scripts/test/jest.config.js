@@ -23,7 +23,7 @@ module.exports = {
     // A transformer is a module that provides a synchronous function for transforming source files.
     transform: {
         '^.+\\.jsx?$': 'babel-jest',
-        '^.+\\.scss$': 'jest-css-modules-transform'
+        '^.+\\.scss$': 'jest-css-modules-transform',
     },
 
     // An array of glob patterns indicating a set of files for which coverage information should be
@@ -34,5 +34,5 @@ module.exports = {
 
     // An array of regexp pattern strings that are matched against all file paths before executing
     // the test. If the file path matches any of the patterns, coverage information will be skipped.
-    coveragePathIgnorePatterns: ['/dummy-components/', '/node_modules/', '/packages/bem/']
+    coveragePathIgnorePatterns: ['/dummy-components/', '/node_modules/', '/packages/bem/'],
 };

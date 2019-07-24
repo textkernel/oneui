@@ -6,7 +6,7 @@ import styles from './TabContent.scss';
 const { block } = bem({
     name: 'TabContent',
     classnames: styles,
-    propsToMods: []
+    propsToMods: [],
 });
 
 const TabContent = props => {
@@ -22,7 +22,7 @@ TabContent.displayName = 'TabContent';
 
 TabContent.propTypes = {
     /** Content for this tab */
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
 };
 
 export default TabContent;

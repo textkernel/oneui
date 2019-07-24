@@ -17,7 +17,7 @@ storiesOf('Alert', module)
                               label: 'Dismiss',
                               onClick: e => {
                                   console.log('Clicked alert action', e);
-                              }
+                              },
                           }
                         : null
                 }

@@ -8,7 +8,7 @@ import { CONTEXTS } from '../../constants';
 const { block, elem } = bem({
     name: 'Alert',
     classnames: styles,
-    propsToMods: ['context']
+    propsToMods: ['context'],
 });
 
 const Alert = props => {
@@ -38,20 +38,20 @@ Alert.propTypes = {
     action: PropTypes.shape({
         context: PropTypes.oneOf(['link', ...CONTEXTS]),
         label: PropTypes.string.isRequired,
-        onClick: PropTypes.func.isRequired
+        onClick: PropTypes.func.isRequired,
     }),
     /** The alert content */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     /** The alert context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context: PropTypes.oneOf(CONTEXTS),
     /** The alert title */
-    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+    title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
 Alert.defaultProps = {
     action: null,
     context: 'brand',
-    title: null
+    title: null,
 };
 
 export default Alert;

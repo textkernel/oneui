@@ -7,7 +7,7 @@ import { CONTEXTS, SIZES } from '../../constants';
 const { block, elem } = bem({
     name: 'ButtonGroup',
     classnames: styles,
-    propsToMods: ['size', 'isBlock', 'context']
+    propsToMods: ['size', 'isBlock', 'context'],
 });
 
 const ButtonGroup = props => {
@@ -20,7 +20,7 @@ const ButtonGroup = props => {
                     ...button.props,
                     context,
                     size,
-                    ...elem('button', props)
+                    ...elem('button', props),
                 })
             )}
         </div>
@@ -37,13 +37,13 @@ ButtonGroup.propTypes = {
     /** Whether or not to show block-level button group (full width) */
     isBlock: PropTypes.bool,
     /** The size of the buttons in the button group */
-    size: PropTypes.oneOf(SIZES)
+    size: PropTypes.oneOf(SIZES),
 };
 
 ButtonGroup.defaultProps = {
     context: 'neutral',
     size: 'normal',
-    isBlock: false
+    isBlock: false,
 };
 
 export default ButtonGroup;

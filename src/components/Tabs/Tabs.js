@@ -12,7 +12,7 @@ class Tabs extends PureComponent {
 
         this.state = {
             activeTabId,
-            derivedTabId: activeTabId
+            derivedTabId: activeTabId,
         };
     }
 
@@ -23,7 +23,7 @@ class Tabs extends PureComponent {
         const { activeTabId } = nextProps;
         return {
             activeTabId,
-            derivedTabId: activeTabId
+            derivedTabId: activeTabId,
         };
     };
 
@@ -31,7 +31,7 @@ class Tabs extends PureComponent {
         event.preventDefault();
 
         this.setState({
-            activeTabId: tabId
+            activeTabId: tabId,
         });
 
         const { onChange } = this.props;
@@ -81,12 +81,12 @@ Tabs.propTypes = {
     gutters: PropTypes.bool,
     /** Callback function, fired when switching tabs by clicking
      Passes the new active tab id as first and only parameter */
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
 };
 
 Tabs.defaultProps = {
     gutters: false,
-    onChange: null
+    onChange: null,
 };
 
 export default Tabs;

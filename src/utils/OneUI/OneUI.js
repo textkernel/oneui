@@ -19,7 +19,7 @@ class OneUI {
     static init({ themeURL = '', maxTime = DEFAULT_LOADING_TIMEOUT, ponyfillOptions } = {}) {
         const loadTheme = Promise.all([
             OneUI.applyTheme(themeURL),
-            OneUI.applyCssVarsPonyfill(ponyfillOptions)
+            OneUI.applyCssVarsPonyfill(ponyfillOptions),
         ]);
 
         const timeout = new Promise((resolve, reject) =>
@@ -60,7 +60,7 @@ class OneUI {
                         onError(message, node, xhr, url);
                     }
                     reject(message);
-                }
+                },
             });
         });
     }
