@@ -5,8 +5,6 @@
     color: var(--footer-foreground-color);
     width: 100%;
     height: var(--footer-height);
-    border-bottom: 1px solid var(--border-color-strong);
-    box-shadow: 0 1px 3px var(--border-color-light);
 
     a {
         color: var(--footer-link-color);
@@ -18,6 +16,8 @@
 
     &__wrapper {
         box-sizing: border-box;
+        padding-top: var(--spacing-normal);
+        padding-bottom: var(--spacing-normal);
         min-height: 100%;
         display: flex;
         justify-content: space-between;
