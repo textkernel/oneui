@@ -1,38 +1,30 @@
-@keyframes shimmer {
-    0% {
-        background-position: 100% 0;
-    }
+$location-card-width: 300px;
+$close-button-side: 10px;
+$close-button-adjustment: 5px;
 
-    100% {
-        background-position: -100% 0;
-    }
-}
+.LocationCard {
+    width: $location-card-width;
+    height: 122px;
+    padding: 14px 20px;
+    background-color: var(--color-neutral-25);
 
-.ContentPlaceholder {
-    animation:{
-        duration: 1s;
-        fill-mode: forwards;
-        iteration-count: infinite;
-        name: shimmer;
-        timing-function: linear;
-    }
-    margin-bottom: var(--spacing-2x);
-    line-height: inherit;
-    background: var(--color-neutral-25);
-    background: linear-gradient(to right, var(--color-neutral-10) 5%, var(--color-neutral-25) 15%, var(--color-neutral-10) 30%);
-    background-size: 200% 100%;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    .header {
+        flex-direction: row;
+        display: flex;
 
-    &__mask {
-        background-color: var(--color-background);
-        height: inherit;
-        width: 0;
+        .title {
+            width: 100%;
+        }
+
+        .closeButton {
+            width: $close-button-side;
+            height: $close-button-side;
+            margin-right: $close-button-adjustment;
+        }
     }
     
-    &--withoutMargin {
-        margin-bottom: 0;
+    .slider {
+        flex-direction: row;
+        display: flex;
     }
 }

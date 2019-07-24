@@ -20,4 +20,6 @@ export const LIST_NAVIGATION_DIRECTIONS = {
 
 export const ENTER_KEY = 'Enter';
 
+export const CROSS_CHAR = '×';
+
 export * from './style-related';
