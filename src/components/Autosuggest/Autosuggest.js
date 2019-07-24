@@ -148,6 +148,7 @@ class Autosuggest extends React.Component {
             case Downshift.stateChangeTypes.clickItem:
                 return {
                     ...changes,
+                    highlightedIndex: state.highlightedIndex,
                     isOpen: isMultiselect
                 };
             default:
