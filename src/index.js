@@ -25,4 +25,5 @@ export { Tabs, Tab, TabContent, TabItem, TabMenu } from './components/Tabs';
 export { default as Teaser } from './components/Teaser';
 export { Text, MarkedText } from './components/Text';
 export { default as TextArea } from './components/TextArea';
+export { default as Slider } from './components/Slider';
 export { default } from './utils/OneUI';
