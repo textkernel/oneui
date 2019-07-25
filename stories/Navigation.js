@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, withKnobs } from '@storybook/addon-knobs';
 import { NavBar, NavItem } from '@textkernel/oneui';
 
-storiesOf('Navigation', module)
+storiesOf('Molecules|Navigation', module)
     .addDecorator(withKnobs)
     .add('Navigation', () => (
         <BrowserRouter>

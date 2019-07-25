@@ -4,7 +4,7 @@ import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import { Modal } from '@textkernel/oneui';
 
-storiesOf('Modal', module)
+storiesOf('Atoms|Modal', module)
     .addDecorator(withKnobs)
     .addDecorator(withInfo)
     .add(

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { number, withKnobs } from '@storybook/addon-knobs';
 import { ContentPlaceholder } from '@textkernel/oneui';
 
-storiesOf('ContentPlaceholder', module)
+storiesOf('Atoms|ContentPlaceholder', module)
     .addDecorator(withKnobs)
     .add('Simple implementation', () => {
         const duration = number('Animation duration in seconds', null);

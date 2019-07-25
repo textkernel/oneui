@@ -23,7 +23,7 @@ const tabs = [
 
 const tabIds = tabs.map(tab => tab.id);
 
-storiesOf('Tabs', module)
+storiesOf('Atoms|Tabs', module)
     .addDecorator(withKnobs)
     .add('Simple (managed) tabs', () => (
         <Tabs
