@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import Text from '../Text';
+import { Text } from '../Text';
 import styles from './RadioButton.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 

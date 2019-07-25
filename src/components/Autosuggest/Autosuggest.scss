@@ -1,0 +1,62 @@
+.Autosuggest {
+    position: relative;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    background-color: var(--color-background);
+    transition: all var(--transition-duration);
+    border-radius: var(--border-radius);
+
+    &--focused {
+        position: absolute;
+        width: 100%;
+    }
+
+    &__field--focused {
+        padding: 0;
+    }
+
+    &--isProminent {
+        transform-origin: left top;
+
+        &.Autosuggest--focused {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    &__wrapper {
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+
+        &--focused {
+            padding: var(--spacing-normal);
+            border-bottom: 1px solid var(--border-color-light);
+        }
+    }
+
+    &__spacedElem {
+        margin: var(--spacing-normal);
+    }
+
+    &__input {
+        border: 0;
+        margin: var(--spacing-normal);
+        flex: 1;
+        font-size: var(--font-size-normal);
+        min-width: 150px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__list--focused {
+        max-height: 200px;
+        overflow: auto;
+    }
+
+    &__loaderContainer {
+        width: 250px;
+    }
+}

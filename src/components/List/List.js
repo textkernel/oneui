@@ -27,7 +27,7 @@ const List = React.forwardRef((props, ref) => {
 
     const highlightedListItem = useRef(null);
 
-    const { children, isDivided, onNavigate, onSelect, ...rest } = props;
+    const { children, isDivided, onNavigate, onSelect, isControlledNavigation, ...rest } = props;
 
     /**
      * Scroll list if it's necessary to make the highlighted item visible
@@ -101,7 +101,13 @@ const List = React.forwardRef((props, ref) => {
         }
     };
 
-    return (
+    return isControlledNavigation ? (
+        <ul {...rest} ref={ref} {...block(props)}>
+            {React.Children.map(children, child =>
+                child ? React.cloneElement(child, elem('item', props)) : null
+            )}
+        </ul>
+    ) : (
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex
         <ul {...rest} ref={ref} tabIndex="0" onKeyDown={handleKeyDown} {...block(props)}>
             {React.Children.map(children, (child, index) =>
@@ -140,14 +146,17 @@ List.propTypes = {
     /** onNavigate function callback. (selectedIndex: number, key: 'ArrowUp' || 'ArrowDown') */
     onNavigate: PropTypes.func,
     /** onSelect function callback. (selectedIndex: number) */
-    onSelect: PropTypes.func
+    onSelect: PropTypes.func,
+    /** manage keyboard navigation externally */
+    isControlledNavigation: PropTypes.bool
 };
 
 List.defaultProps = {
     children: null,
     isDivided: false,
     onNavigate: null,
-    onSelect: null
+    onSelect: null,
+    isControlledNavigation: false
 };
 
 export default List;

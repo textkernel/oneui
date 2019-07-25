@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import Text from '../Text';
+import { Text } from '../Text';
 import styles from './LoadingSpinner.scss';
 import { CONTEXTS } from '../../constants';
 
