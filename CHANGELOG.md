@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/textkernel/oneui/compare/5.0.0...5.1.0) (2019-07-25)
+
+
+### Bug Fixes
+
+* **List:** Fix scroll to highlighted component with keyboard navigation  ([#145](https://github.com/textkernel/oneui/issues/145)) ([165b025](https://github.com/textkernel/oneui/commit/165b025))
+
+
+### Features
+
+* **component:** new Autosuggest, FieldWrapper and MarkedText components ([#137](https://github.com/textkernel/oneui/issues/137)) ([b7a8250](https://github.com/textkernel/oneui/commit/b7a8250))
+* **component:** new Modal component ([#141](https://github.com/textkernel/oneui/issues/141)) ([fd5e379](https://github.com/textkernel/oneui/commit/fd5e379))
+* **component:** new Slider component ([#144](https://github.com/textkernel/oneui/issues/144)) ([62ae1c5](https://github.com/textkernel/oneui/commit/62ae1c5))
+
+
+
 ## [5.0.0](https://github.com/textkernel/oneui/compare/4.0.1...5.0.0) (2019-07-23)
 
 ### Bug Fixes
