@@ -1,18 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import Text from '../../Text';
+import { Text } from '../../Text';
 import { CONTEXTS } from '../../../constants';
 import styles from './ListItem.scss';
 
 const { block, elem } = bem({
     name: 'ListItem',
     classnames: styles,
-    propsToMods: ['isSelected', 'onClick', 'disabled', 'highlightContext']
+    propsToMods: ['isSelected', 'isHighlighted', 'onClick', 'disabled', 'highlightContext']
 });
 
 const ListItem = React.forwardRef((props, ref) => {
-    const { children, isSelected, onClick, disabled, highlightContext, ...rest } = props;
+    const {
+        children,
+        isSelected,
+        isHighlighted,
+        onClick,
+        disabled,
+        highlightContext,
+        ...rest
+    } = props;
     const customBlockMod = { clickable: typeof onClick === 'function' };
 
     return (
@@ -35,6 +43,8 @@ ListItem.propTypes = {
     onClick: PropTypes.func,
     /** Formats this item as selected  */
     isSelected: PropTypes.bool,
+    /** Formats this item as selected  */
+    isHighlighted: PropTypes.bool,
     /** Format this item as disabled */
     disabled: PropTypes.bool,
     /** formatting context when hovered or selected */
@@ -45,6 +55,7 @@ ListItem.defaultProps = {
     children: null,
     onClick: null,
     isSelected: false,
+    isHighlighted: false,
     disabled: false,
     highlightContext: 'default'
 };

@@ -21,7 +21,7 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
             configurable: true
         });
 
-        OneUI.startCssVarsPonyfill();
+        OneUI.applyCssVarsPonyfill();
 
         expect(cssVarsPonyfill).toBeCalledTimes(1);
     });
@@ -35,7 +35,7 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
             configurable: true
         });
 
-        OneUI.startCssVarsPonyfill();
+        OneUI.applyCssVarsPonyfill();
 
         expect(cssVarsPonyfill).toBeCalledTimes(0);
     });
@@ -45,18 +45,18 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
         const ponyfillOptions = { onlyLegacy: false };
 
         const mockedApplyTheme = jest.spyOn(OneUI, 'applyTheme');
-        const mockedStartCssVarsPonyfill = jest.spyOn(OneUI, 'startCssVarsPonyfill');
+        const mockedApplyCssVarsPonyfill = jest.spyOn(OneUI, 'applyCssVarsPonyfill');
 
         mockedApplyTheme.mockImplementation(() => Promise.resolve());
-        mockedStartCssVarsPonyfill.mockImplementation(() => Promise.resolve());
+        mockedApplyCssVarsPonyfill.mockImplementation(() => Promise.resolve());
 
         OneUI.init({ themeURL, ponyfillOptions });
 
         expect(mockedApplyTheme).toBeCalledWith(themeURL);
-        expect(mockedStartCssVarsPonyfill).toBeCalledWith(ponyfillOptions);
+        expect(mockedApplyCssVarsPonyfill).toBeCalledWith(ponyfillOptions);
 
         mockedApplyTheme.mockRestore();
-        mockedStartCssVarsPonyfill.mockRestore();
+        mockedApplyCssVarsPonyfill.mockRestore();
     });
 
     it('should not attach link element in the DOM when themeURL is not provided', () => {
@@ -86,7 +86,7 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
             onComplete: jest.fn()
         };
 
-        return OneUI.startCssVarsPonyfill(ponyfillOptions).then(() => {
+        return OneUI.applyCssVarsPonyfill(ponyfillOptions).then(() => {
             expect(ponyfillOptions.onComplete).toBeCalledTimes(1);
         });
     });
@@ -107,7 +107,7 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
             onError: jest.fn()
         };
 
-        return OneUI.startCssVarsPonyfill(ponyfillOptions).catch(() => {
+        return OneUI.applyCssVarsPonyfill(ponyfillOptions).catch(() => {
             expect(ponyfillOptions.onError).toBeCalledTimes(1);
         });
     });
