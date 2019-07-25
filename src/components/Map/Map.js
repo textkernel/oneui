@@ -1,96 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useLoadScript, GoogleMap, Marker, Circle } from '@react-google-maps/api';
-import { LoadingSpinner } from '../../index';
+import GoogleLoader from './GoogleLoader';
+import MapRenderer from './MapRenderer';
 
-const circleOptions = radius => ({
-    strokeColor: 'transparent',
-    strokeOpacity: 1,
-    strokeWeight: 0,
-    fillColor: '#FF0000',
-    fillOpacity: 0.35,
-    clickable: false,
-    draggable: false,
-    editable: false,
-    visible: true,
-    radius,
-    zIndex: 1
-});
+const Map = React.forwardRef((props, ref) => {
+    const { apiKey, loadErrorMessage, ...rest } = props;
 
-const Map = props => {
-    const { apiKey, center, zoom, markers, loadErrorMessage, mapContainerStyle, ...rest } = props;
-    const positions = markers.map(marker => ({ lat: marker.lat, lng: marker.lng }));
-    const mapRef = React.createRef();
-    const { isLoaded, loadError } = useLoadScript({ googleMapsApiKey: apiKey });
-
-    const fitBounds = () => {
-        if (!mapRef.current || !mapRef.current.state.map) return;
-        const { map } = mapRef.current.state;
-
-        // eslint-disable-next-line no-undef
-        const { LatLngBounds, Circle: CircleClass } = google.maps;
-
-        if (markers.length) {
-            const bounds = new LatLngBounds();
-            markers.forEach((marker, i) => {
-                if (marker.radius) {
-                    const circle = new CircleClass({ center: positions[i], radius: marker.radius });
-                    bounds.union(circle.getBounds());
-                } else {
-                    bounds.extend(positions[i]);
-                }
-                map.fitBounds(bounds);
-            });
-        } else {
-            map.setCenter(center);
-            map.setZoom(zoom);
-        }
-    };
-
-    useEffect(() => fitBounds());
-
-    if (loadError) {
-        return <div>{loadErrorMessage}</div>;
-    }
-
-    return isLoaded ? (
-        <GoogleMap
-            ref={mapRef}
-            onLoad={fitBounds}
-            center={center}
-            zoom={zoom}
-            mapContainerStyle={mapContainerStyle}
-            options={{
-                fullscreenControl: false,
-                mapTypeControl: false,
-                streetViewControl: false,
-                rotateControl: false
-            }}
-            {...rest}
-        >
-            {!!markers.length &&
-                markers.map((marker, i) => {
-                    const { radius } = marker;
-                    const position = positions[i];
-                    const positionStr = `${position.lat}-${position.lng}`;
-                    return (
-                        <React.Fragment>
-                            <Marker key={`${positionStr}-marker`} position={position} />
-                            {!!radius && (
-                                <Circle
-                                    key={`${positionStr}-circle`}
-                                    center={position}
-                                    options={circleOptions(radius)}
-                                />
-                            )}
-                        </React.Fragment>
-                    );
-                })}
-        </GoogleMap>
-    ) : (
-        <LoadingSpinner centerIn="parent" />
+    return (
+        <GoogleLoader apiKey={apiKey} loadErrorMessage={loadErrorMessage}>
+            <MapRenderer ref={ref} {...rest} />
+        </GoogleLoader>
     );
-};
+});
 
 Map.displayName = 'Map';
 
