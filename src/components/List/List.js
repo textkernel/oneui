@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import ListItem from './ListItem';
@@ -18,16 +18,32 @@ const NAVIGATION_STEP_VALUES = {
 };
 
 const SCROLL_INTO_VIEW_SETTINGS = {
-    behavior: 'smooth',
     block: 'nearest'
 };
-const SCROLL_INTO_VIEW_DELAY = 100;
 
 const List = React.forwardRef((props, ref) => {
     const [selectedIndex, setSelectedIndex] = useState(null);
+    const [highlightedWithKeyboard, setHighlightedWithKeyboard] = useState(false);
+
     const highlightedListItem = useRef(null);
 
     const { children, isDivided, onNavigate, onSelect, ...rest } = props;
+
+    /**
+     * Scroll list if it's necessary to make the highlighted item visible
+     * every time selectedIndex was changed with the keyboard navigation
+     */
+    useEffect(() => {
+        const hasScrollIntoViewFunction =
+            highlightedListItem &&
+            highlightedListItem.current &&
+            highlightedListItem.current.scrollIntoView;
+
+        if (highlightedWithKeyboard && hasScrollIntoViewFunction) {
+            highlightedListItem.current.scrollIntoView(SCROLL_INTO_VIEW_SETTINGS);
+            setHighlightedWithKeyboard(false);
+        }
+    }, [selectedIndex]);
 
     const getNextSelectedIndex = keyCode => {
         const stepValue = NAVIGATION_STEP_VALUES[keyCode];
@@ -55,11 +71,7 @@ const List = React.forwardRef((props, ref) => {
             if (selectedIndex !== nextSelectedIndex) {
                 e.preventDefault();
                 setSelectedIndex(nextSelectedIndex);
-
-                // Scroll view with a delay so this function would refer to the next highlighted item
-                setTimeout(() => {
-                    highlightedListItem.current.scrollIntoView(SCROLL_INTO_VIEW_SETTINGS);
-                }, SCROLL_INTO_VIEW_DELAY);
+                setHighlightedWithKeyboard(true);
 
                 if (onNavigate) {
                     onNavigate(nextSelectedIndex, e.key);
