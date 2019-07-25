@@ -11,13 +11,13 @@ import {
     BACKSPACE_KEY,
     ESCAPE_KEY,
     TAB_KEY,
-    ENTER_KEY
+    ENTER_KEY,
 } from '../../constants';
 
 const { block, elem } = bem({
     name: 'Autosuggest',
     classnames: styles,
-    propsToMods: ['focused', 'isProminent']
+    propsToMods: ['focused', 'isProminent'],
 });
 
 class Autosuggest extends React.Component {
@@ -31,7 +31,7 @@ class Autosuggest extends React.Component {
             inputValueRecall: '',
             focused: false,
             originHeight: 'auto',
-            originWidth: 'auto'
+            originWidth: 'auto',
         };
 
         this.handleTagDeleteClick = memoize(this.handleTagDeleteClick);
@@ -143,13 +143,13 @@ class Autosuggest extends React.Component {
                 return {
                     ...changes,
                     highlightedIndex: state.highlightedIndex,
-                    isOpen: isMultiselect
+                    isOpen: isMultiselect,
                 };
             case Downshift.stateChangeTypes.clickItem:
                 return {
                     ...changes,
                     highlightedIndex: state.highlightedIndex,
-                    isOpen: isMultiselect
+                    isOpen: isMultiselect,
                 };
             default:
                 return changes;
@@ -196,7 +196,7 @@ class Autosuggest extends React.Component {
             isLoading,
             suggestionToString,
             getSuggestions,
-            noSuggestionsPlaceholder
+            noSuggestionsPlaceholder,
         } = this.props;
         const { inputValue, inputValueRecall } = this.state;
 
@@ -228,7 +228,7 @@ class Autosuggest extends React.Component {
                     item,
                     index,
                     isHighlighted: highlightedIndex === index,
-                    highlightContext: 'brand'
+                    highlightContext: 'brand',
                 })}
             >
                 <MarkedText marker={inputValueRecall} inline>
@@ -289,7 +289,7 @@ class Autosuggest extends React.Component {
                         getMenuProps,
                         getItemProps,
                         highlightedIndex,
-                        openMenu
+                        openMenu,
                     }) => (
                         <div {...rest} {...block(stateAndProps)}>
                             <FieldWrapper
@@ -318,7 +318,7 @@ class Autosuggest extends React.Component {
                                             placeholder: hideInputPlaceholder
                                                 ? ''
                                                 : inputPlaceholder,
-                                            ...elem('input', stateAndProps)
+                                            ...elem('input', stateAndProps),
                                         })}
                                     />
                                 </div>
@@ -328,13 +328,13 @@ class Autosuggest extends React.Component {
                                         ref: e => {
                                             this.listRef.current = e;
                                         },
-                                        isControlledNavigation: true
+                                        isControlledNavigation: true,
                                     })}
                                 >
                                     {focused
                                         ? this.renderSuggestions({
                                               getItemProps,
-                                              highlightedIndex
+                                              highlightedIndex,
                                           })
                                         : null}
                                 </List>
@@ -379,7 +379,7 @@ Autosuggest.propTypes = {
     /** should this component behaive as a multiselect (e.g. no collapse after selection made) */
     isMultiselect: PropTypes.bool,
     /** style the compoent to be prominent */
-    isProminent: PropTypes.bool
+    isProminent: PropTypes.bool,
 };
 
 Autosuggest.defaultProps = {
@@ -392,7 +392,7 @@ Autosuggest.defaultProps = {
     selectedPlaceholder: '',
     iconNode: null,
     isMultiselect: false,
-    isProminent: false
+    isProminent: false,
 };
 
 Autosuggest.displayName = 'Autosuggest';

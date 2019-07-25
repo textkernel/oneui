@@ -6,7 +6,7 @@ import styles from './TabItem.scss';
 const { block } = bem({
     name: 'TabItem',
     classnames: styles,
-    propsToMods: ['isActive']
+    propsToMods: ['isActive'],
 });
 
 const TabItem = props => {
@@ -31,11 +31,11 @@ TabItem.propTypes = {
     /** Label for this tab */
     label: PropTypes.node.isRequired,
     /** Renders an active tab */
-    isActive: PropTypes.bool
+    isActive: PropTypes.bool,
 };
 
 TabItem.defaultProps = {
-    isActive: false
+    isActive: false,
 };
 
 export default TabItem;

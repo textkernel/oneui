@@ -8,7 +8,7 @@ import PaginationButton from './PaginationButton';
 const { block, elem } = bem({
     name: 'Pagination',
     classnames: styles,
-    propsToMods: ['align']
+    propsToMods: ['align'],
 });
 
 const Pagination = props => {
@@ -52,7 +52,7 @@ const Pagination = props => {
 
     const handleClick = e => {
         const {
-            dataset: { page = null }
+            dataset: { page = null },
         } = e.target;
         const pageNum = +page;
 
@@ -132,7 +132,7 @@ Pagination.propTypes = {
     /** Label for 'Next page' button (required for button to show) */
     nextLabel: PropTypes.string,
     /** Callback function on page / prev/ next click */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
 };
 
 Pagination.defaultProps = {
@@ -141,7 +141,7 @@ Pagination.defaultProps = {
     maxPageButtons: 10,
     prevLabel: null,
     nextLabel: null,
-    onClick: null
+    onClick: null,
 };
 
 export default Pagination;

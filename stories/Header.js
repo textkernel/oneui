@@ -10,7 +10,7 @@ storiesOf('Header', module)
             logo={{
                 src: text('Image URL', 'https://www.jobfeed.nl/images/jobfeed-logo.svg'),
                 link: text('URL where click on logo will lead', '/'),
-                title: text('Alt text for the logo', 'Jobfeed')
+                title: text('Alt text for the logo', 'Jobfeed'),
             }}
         >
             {text('Right side', 'This is a placeholder for children')}

@@ -8,17 +8,17 @@ import { LIST_NAVIGATION_DIRECTIONS, ENTER_KEY } from '../../constants';
 const { block, elem } = bem({
     name: 'List',
     classnames: styles,
-    propsToMods: ['isDivided']
+    propsToMods: ['isDivided'],
 });
 
 const isListItem = element => element && element.type !== ListItem && element.type !== 'li';
 const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.UP]: -1,
-    [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1
+    [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1,
 };
 
 const SCROLL_INTO_VIEW_SETTINGS = {
-    block: 'nearest'
+    block: 'nearest',
 };
 
 const List = React.forwardRef((props, ref) => {
@@ -122,7 +122,7 @@ const List = React.forwardRef((props, ref) => {
                           ...elem('item', props),
                           ref: index === selectedIndex ? highlightedListItem : null,
                           isHighlighted: index === selectedIndex,
-                          onMouseEnter: () => handleMouseEnter(index)
+                          onMouseEnter: () => handleMouseEnter(index),
                       })
                     : null
             )}
@@ -154,7 +154,7 @@ List.propTypes = {
     /** onSelect function callback. (selectedIndex: number) */
     onSelect: PropTypes.func,
     /** manage keyboard navigation externally */
-    isControlledNavigation: PropTypes.bool
+    isControlledNavigation: PropTypes.bool,
 };
 
 List.defaultProps = {
@@ -162,7 +162,7 @@ List.defaultProps = {
     isDivided: false,
     onNavigate: null,
     onSelect: null,
-    isControlledNavigation: false
+    isControlledNavigation: false,
 };
 
 export default List;

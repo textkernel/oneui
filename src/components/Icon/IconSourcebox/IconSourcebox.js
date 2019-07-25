@@ -22,14 +22,14 @@ IconSourcebox.propTypes = {
      If not defined, icon will scale and align itself with text. */
     size: PropTypes.number,
     /** Optional icon title */
-    title: PropTypes.string
+    title: PropTypes.string,
 };
 
 IconSourcebox.defaultProps = {
     context: null,
     margin: null,
     size: null,
-    title: null
+    title: null,
 };
 
 export default IconSourcebox;

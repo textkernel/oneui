@@ -6,7 +6,7 @@ import styles from './MarkedText.scss';
 
 const { block, elem } = bem({
     name: 'MarkedText',
-    classnames: styles
+    classnames: styles,
 });
 
 const MarkedText = props => {
@@ -40,7 +40,7 @@ MarkedText.propTypes = {
     /** Text content */
     children: PropTypes.string.isRequired,
     /** The text that should be marked if found within the children */
-    marker: PropTypes.string.isRequired
+    marker: PropTypes.string.isRequired,
 };
 
 export default MarkedText;

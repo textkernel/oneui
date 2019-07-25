@@ -40,9 +40,9 @@ describe('<Pagination> that renders a pagination component', () => {
             const e = {
                 target: {
                     dataset: {
-                        page: 3
-                    }
-                }
+                        page: 3,
+                    },
+                },
             };
 
             wrapper.find('button[data-page=3]').simulate('click', e);
@@ -53,9 +53,9 @@ describe('<Pagination> that renders a pagination component', () => {
             const e = {
                 target: {
                     dataset: {
-                        page: CURRENT_PAGE
-                    }
-                }
+                        page: CURRENT_PAGE,
+                    },
+                },
             };
 
             wrapper.find(`button[data-page=${CURRENT_PAGE}]`).simulate('click', e);

@@ -4,7 +4,7 @@ function getRuleJS({ includePaths }) {
     return {
         test: /\.js$/,
         include: includePaths,
-        use: ['babel-loader']
+        use: ['babel-loader'],
     };
 }
 
@@ -19,26 +19,26 @@ function getRuleCSS({ styleLoader, localIdentName, includePaths, context }) {
                     modules: true,
                     importLoaders: 1,
                     localIdentName,
-                    context
-                }
+                    context,
+                },
             },
             {
                 loader: 'postcss-loader',
                 options: {
-                    plugins: [postcssAutoprefixer]
-                }
+                    plugins: [postcssAutoprefixer],
+                },
             },
             {
                 loader: 'sass-loader',
                 options: {
-                    includePaths
-                }
-            }
-        ]
+                    includePaths,
+                },
+            },
+        ],
     };
 }
 
 module.exports = {
     getRuleJS,
-    getRuleCSS
+    getRuleCSS,
 };

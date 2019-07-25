@@ -53,7 +53,7 @@ describe('<Tabs> that renders tab container with some tabs', () => {
         );
         wrapper.setProps(
             {
-                activeTabId: '2'
+                activeTabId: '2',
             },
             () => {
                 expect(wrapper.state().activeTabId).toBe('2');

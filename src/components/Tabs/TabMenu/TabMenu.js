@@ -6,7 +6,7 @@ import styles from './TabMenu.scss';
 const { block } = bem({
     name: 'TabMenu',
     classnames: styles,
-    propsToMods: ['gutters']
+    propsToMods: ['gutters'],
 });
 
 const TabMenu = props => {
@@ -17,7 +17,7 @@ const TabMenu = props => {
                 const { id } = tab.props;
                 return cloneElement(tab, {
                     isActive: id === activeTabId,
-                    onClick: event => onChange(event, id)
+                    onClick: event => onChange(event, id),
                 });
             })}
         </div>
@@ -34,13 +34,13 @@ TabMenu.propTypes = {
     /** Have gutters (white space) on both sides of tab menu */
     gutters: PropTypes.bool,
     /** Callback function for when changing tabs */
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
 };
 
 TabMenu.defaultProps = {
     children: null,
     gutters: false,
-    onChange: null
+    onChange: null,
 };
 
 export default TabMenu;

@@ -7,7 +7,7 @@ export const SUGGESTIONS = [
     { name: 'Mars' },
     { name: 'Jupiter' },
     { name: 'Saturn' },
-    { name: 'Neptun' }
+    { name: 'Neptun' },
 ];
 
 export const SUGGESTION_TO_STRING = item => (item ? item.name : '');

@@ -18,7 +18,7 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
 
         Object.defineProperty(window.navigator, 'userAgent', {
             value: ieUserAgent,
-            configurable: true
+            configurable: true,
         });
 
         OneUI.applyCssVarsPonyfill();
@@ -32,7 +32,7 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
 
         Object.defineProperty(window.navigator, 'userAgent', {
             value: chromeUserAgent,
-            configurable: true
+            configurable: true,
         });
 
         OneUI.applyCssVarsPonyfill();
@@ -79,11 +79,11 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
 
         Object.defineProperty(window.navigator, 'userAgent', {
             value: ieUserAgent,
-            configurable: true
+            configurable: true,
         });
 
         const ponyfillOptions = {
-            onComplete: jest.fn()
+            onComplete: jest.fn(),
         };
 
         return OneUI.applyCssVarsPonyfill(ponyfillOptions).then(() => {
@@ -100,11 +100,11 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
 
         Object.defineProperty(window.navigator, 'userAgent', {
             value: ieUserAgent,
-            configurable: true
+            configurable: true,
         });
 
         const ponyfillOptions = {
-            onError: jest.fn()
+            onError: jest.fn(),
         };
 
         return OneUI.applyCssVarsPonyfill(ponyfillOptions).catch(() => {

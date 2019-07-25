@@ -7,7 +7,7 @@ import { HEADING_SIZES } from '../../constants';
 const { block } = bem({
     name: 'Heading',
     classnames: styles,
-    propsToMods: ['align', 'level']
+    propsToMods: ['align', 'level'],
 });
 
 const Heading = props => {
@@ -29,12 +29,12 @@ Heading.propTypes = {
     /** Heading text */
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     /** Heading size (h1, h2, ...) */
-    level: PropTypes.oneOf(HEADING_SIZES)
+    level: PropTypes.oneOf(HEADING_SIZES),
 };
 
 Heading.defaultProps = {
     align: 'left',
-    level: 'h1'
+    level: 'h1',
 };
 
 export default Heading;

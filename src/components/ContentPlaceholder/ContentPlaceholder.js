@@ -6,13 +6,13 @@ import styles from './ContentPlaceholder.scss';
 const { block, elem } = bem({
     name: 'ContentPlaceholder',
     classnames: styles,
-    propsToMods: ['withoutMargin']
+    propsToMods: ['withoutMargin'],
 });
 
 const calcDuration = seconds => `${seconds}s`;
 
 const calcMaskWidth = width => ({
-    width: `${100 - Math.max(Math.min(width, 100), 0)}%`
+    width: `${100 - Math.max(Math.min(width, 100), 0)}%`,
 });
 
 const ContentPlaceholder = props => {
@@ -24,7 +24,7 @@ const ContentPlaceholder = props => {
             {...block(props)}
             style={{
                 animationDuration: calcDuration(duration),
-                height
+                height,
             }}
         >
             &nbsp;
@@ -43,14 +43,14 @@ ContentPlaceholder.propTypes = {
     /** Width of the content placeholder, relative to its parent */
     width: PropTypes.number,
     /** Renders placeholder without its default margin */
-    withoutMargin: PropTypes.bool
+    withoutMargin: PropTypes.bool,
 };
 
 ContentPlaceholder.defaultProps = {
     duration: 1,
     height: null,
     width: 100,
-    withoutMargin: false
+    withoutMargin: false,
 };
 
 export default ContentPlaceholder;

@@ -7,7 +7,7 @@ import { CONTEXTS, SIZES } from '../../constants';
 const { block } = bem({
     name: 'TextArea',
     classnames: styles,
-    propsToMods: ['context', 'isBlock', 'size']
+    propsToMods: ['context', 'isBlock', 'size'],
 });
 
 const TextArea = forwardRef((props, ref) => {
@@ -27,14 +27,14 @@ TextArea.propTypes = {
     /** Whether or not to show block-level textarea (full width) */
     isBlock: PropTypes.bool,
     /** The size of the textarea */
-    size: PropTypes.oneOf(SIZES)
+    size: PropTypes.oneOf(SIZES),
 };
 
 TextArea.defaultProps = {
     context: 'brand',
     disabled: false,
     isBlock: false,
-    size: 'normal'
+    size: 'normal',
 };
 
 export default TextArea;

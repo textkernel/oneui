@@ -2,5 +2,6 @@
     "printWidth": 100,
     "singleQuote": true,
     "tabWidth": 4,
-    "endOfLine": "lf"
+    "endOfLine": "lf",
+    "trailingComma": "es5"
 }
