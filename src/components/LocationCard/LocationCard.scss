@@ -1,6 +1,7 @@
 $location-card-width: 300px;
 $close-button-side: 10px;
 $close-button-adjustment: 5px;
+$slider-indication-width: 110px;
 
 .LocationCard {
     width: $location-card-width;
@@ -15,7 +16,7 @@ $close-button-adjustment: 5px;
             width: 100%;
         }
 
-        .delete-button {
+        .deleteButton {
             width: $close-button-side;
             height: $close-button-side;
             margin-right: $close-button-adjustment;
@@ -34,7 +35,7 @@ $close-button-adjustment: 5px;
         margin: 20px 0px;
 
         .slider-indication {
-            width: 110px;
+            width: $slider-indication-width;
             margin: 0;
             align-self: flex-end;
             text-align: end;
