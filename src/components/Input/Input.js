@@ -7,7 +7,7 @@ import { CONTEXTS, INPUT_TYPES, SIZES } from '../../constants';
 const { block } = bem({
     name: 'Input',
     classnames: styles,
-    propsToMods: ['context', 'isBlock', 'size']
+    propsToMods: ['context', 'isBlock', 'size'],
 });
 
 const Input = forwardRef((props, ref) => {
@@ -40,7 +40,7 @@ Input.propTypes = {
     /** Type of the input field */
     type: PropTypes.oneOf(INPUT_TYPES),
     /** Current input field value */
-    value: PropTypes.string
+    value: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -49,7 +49,7 @@ Input.defaultProps = {
     isBlock: false,
     size: 'normal',
     type: 'text',
-    value: undefined
+    value: undefined,
 };
 
 export default Input;

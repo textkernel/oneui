@@ -4,7 +4,7 @@ import { text, boolean, withKnobs } from '@storybook/addon-knobs';
 import { Autosuggest, IconMatch } from '@textkernel/oneui';
 import {
     SUGGESTIONS,
-    SUGGESTION_TO_STRING
+    SUGGESTION_TO_STRING,
 } from '../src/components/Autosuggest/__mocks__/suggestions';
 
 storiesOf('Autosuggest', module)

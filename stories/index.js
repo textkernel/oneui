@@ -20,6 +20,7 @@ import './Navigation';
 import './Pagination';
 import './ProgressBar';
 import './RadioButton';
+import './Slider';
 import './Tabs';
 import './Teaser';
 import './Text';

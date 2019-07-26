@@ -6,7 +6,7 @@ import styles from './Teaser.scss';
 
 const { block, elem } = bem({
     name: 'Teaser',
-    classnames: styles
+    classnames: styles,
 });
 
 const Teaser = props => {
@@ -48,13 +48,13 @@ Teaser.propTypes = {
     /** The location of the entity */
     location: PropTypes.string,
     /** Details related to the entity */
-    details: PropTypes.string
+    details: PropTypes.string,
 };
 
 Teaser.defaultProps = {
     location: '',
     subTitle: '',
-    details: ''
+    details: '',
 };
 
 export default Teaser;

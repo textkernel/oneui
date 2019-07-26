@@ -7,7 +7,7 @@ import { SIZES, CONTEXTS } from '../../constants';
 const { block } = bem({
     name: 'Text',
     classnames: styles,
-    propsToMods: ['context', 'size']
+    propsToMods: ['context', 'size'],
 });
 
 const Text = props => {
@@ -31,13 +31,13 @@ Text.propTypes = {
     /** The context of the text, effecting its color (e.g. brand, primary, bad, good etc. 'muted' added as special context here) */
     context: PropTypes.oneOf([...CONTEXTS, 'muted', 'default']),
     /** Custom text sizes */
-    size: PropTypes.oneOf(SIZES)
+    size: PropTypes.oneOf(SIZES),
 };
 
 Text.defaultProps = {
     inline: false,
     context: 'default',
-    size: 'normal'
+    size: 'normal',
 };
 
 export default Text;

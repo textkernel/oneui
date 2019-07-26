@@ -20,39 +20,39 @@ const { libraryName: LIBRARY_NAME } = oneui;
 const plugins = {
     namedModulesPlugin: new webpack.NamedModulesPlugin(),
     hashedModuleIdsPlugin: new webpack.HashedModuleIdsPlugin({
-        hashDigestLength: 6
+        hashDigestLength: 6,
     }),
     cssPlugin: new MiniCssExtractPlugin({
-        filename: `${LIBRARY_NAME}.min.css`
+        filename: `${LIBRARY_NAME}.min.css`,
     }),
     styleLintPlugin: new StyleLintPlugin({
-        context: SOURCE_PATH
+        context: SOURCE_PATH,
     }),
     optimizeCssAssetsPlugin: new OptimizeCssAssetsPlugin(),
     bundleAnalyzerPlugin: new BundleAnalyzerPlugin({
         analyzerMode: 'static',
-        reportFilename: '../reports/bundle-size.html'
+        reportFilename: '../reports/bundle-size.html',
     }),
-    cleanWebpackPlugin: new CleanWebpackPlugin({ verbose: true })
+    cleanWebpackPlugin: new CleanWebpackPlugin({ verbose: true }),
 };
 
 const getRules = (env = 'prod') => ({
     js: getRuleJS({
-        includePaths: [SOURCE_PATH]
+        includePaths: [SOURCE_PATH],
     }),
     styles: getRuleCSS({
         styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
         localIdentName: env === 'prod' ? '[local]--[hash:base64:10]' : '[local]',
         includePaths: [SOURCE_PATH],
-        context: DIST_PATH // https://github.com/webpack-contrib/css-loader/issues/464
-    })
+        context: DIST_PATH, // https://github.com/webpack-contrib/css-loader/issues/464
+    }),
 });
 
 const baseConfig = {
     context: SOURCE_PATH,
 
     entry: {
-        main: './index.js'
+        main: './index.js',
     },
 
     output: {
@@ -60,13 +60,13 @@ const baseConfig = {
         path: DIST_PATH,
         library: LIBRARY_NAME,
         libraryTarget: 'umd',
-        umdNamedDefine: true
+        umdNamedDefine: true,
     },
 
     resolve: {
         modules: [PACKAGES_PATH, NODE_MODULES_PATH],
-        extensions: ['.js']
-    }
+        extensions: ['.js'],
+    },
 };
 
 module.exports = {
@@ -78,5 +78,5 @@ module.exports = {
     SOURCE_PATH,
     DIST_PATH,
     PACKAGES_PATH,
-    NODE_MODULES_PATH
+    NODE_MODULES_PATH,
 };

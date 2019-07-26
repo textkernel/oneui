@@ -7,7 +7,7 @@ import { CONTEXTS } from '../../constants';
 const { block, elem } = bem({
     name: 'IconBase',
     classnames: styles,
-    propsToMods: ['context', 'margin']
+    propsToMods: ['context', 'margin'],
 });
 
 const adjustSize = (size, preserveAspectRatio) => {
@@ -23,7 +23,7 @@ const adjustSize = (size, preserveAspectRatio) => {
     return {
         top: 'auto',
         width: preserveAspectRatio ? 'auto' : adjustedSize,
-        height: adjustedSize
+        height: adjustedSize,
     };
 };
 
@@ -65,7 +65,7 @@ IconBase.propTypes = {
     /** Optional icon title */
     title: PropTypes.string,
     /** The SVG viewbox */
-    viewBox: PropTypes.string.isRequired
+    viewBox: PropTypes.string.isRequired,
 };
 
 IconBase.defaultProps = {
@@ -73,7 +73,7 @@ IconBase.defaultProps = {
     margin: null,
     size: null,
     preserveAspectRatio: false,
-    title: null
+    title: null,
 };
 
 export default IconBase;

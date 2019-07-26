@@ -6,7 +6,7 @@ import styles from './NavBar.scss';
 
 const { block, elem } = bem({
     name: 'NavBar',
-    classnames: styles
+    classnames: styles,
 });
 
 const NavBar = props => {
@@ -25,11 +25,11 @@ NavBar.displayName = 'NavBar';
 
 NavBar.propTypes = {
     /** Node(s) to be rendered as navigation */
-    children: PropTypes.node
+    children: PropTypes.node,
 };
 
 NavBar.defaultProps = {
-    children: null
+    children: null,
 };
 
 export default NavBar;

@@ -6,7 +6,7 @@ import styles from './Header.scss';
 
 const { block, elem } = bem({
     name: 'Header',
-    classnames: styles
+    classnames: styles,
 });
 
 const Header = props => {
@@ -46,15 +46,15 @@ Header.propTypes = {
             /** path to where the logo should link to if clicked */
             link: PropTypes.string,
             /** a name for the logo, it will used as alternative text to the img */
-            title: PropTypes.string
-        })
+            title: PropTypes.string,
+        }),
     ]).isRequired,
     /** Node(s) to be rendered on the right side of the header */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
 Header.defaultProps = {
-    children: null
+    children: null,
 };
 
 export default Header;

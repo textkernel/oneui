@@ -5,7 +5,7 @@ import styles from './ItemTag.scss';
 
 const { block, elem } = bem({
     name: 'ItemTag',
-    classnames: styles
+    classnames: styles,
 });
 
 const ItemTag = props => {
@@ -27,11 +27,11 @@ const ItemTag = props => {
 
 ItemTag.propTypes = {
     children: PropTypes.string.isRequired,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
 };
 
 ItemTag.defaultProps = {
-    onClick: null
+    onClick: null,
 };
 
 ItemTag.displayName = 'ItemTag';

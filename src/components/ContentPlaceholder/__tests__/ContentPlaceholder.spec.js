@@ -8,10 +8,10 @@ describe('<ContentPlaceholder> that renders a content placeholder', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.props().style).toEqual({
             animationDuration: '1s',
-            height: null
+            height: null,
         });
         expect(wrapper.childAt(1).props().style).toEqual({
-            width: '0%'
+            width: '0%',
         });
     });
 
@@ -22,11 +22,11 @@ describe('<ContentPlaceholder> that renders a content placeholder', () => {
 
         expect(wrapper.props().style).toEqual({
             animationDuration: '3s',
-            height: 30
+            height: 30,
         });
 
         expect(wrapper.childAt(1).props().style).toEqual({
-            width: '40%'
+            width: '40%',
         });
 
         expect(wrapper.hasClass('ContentPlaceholder--withoutMargin')).toBe(true);

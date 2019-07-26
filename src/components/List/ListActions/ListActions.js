@@ -5,7 +5,7 @@ import styles from './ListActions.scss';
 
 const { block } = bem({
     name: 'ListActions',
-    classnames: styles
+    classnames: styles,
 });
 
 const ListActions = props => {
@@ -22,11 +22,11 @@ ListActions.displayName = 'ListActions';
 
 ListActions.propTypes = {
     /** Actions to be pushed to the left side of a List Item */
-    children: PropTypes.node
+    children: PropTypes.node,
 };
 
 ListActions.defaultProps = {
-    children: null
+    children: null,
 };
 
 export default ListActions;

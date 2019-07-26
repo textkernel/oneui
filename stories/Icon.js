@@ -10,7 +10,7 @@ import {
     IconSearch,
     IconSourcebox,
     IconTextkernel,
-    LogoTextkernel
+    LogoTextkernel,
 } from '@textkernel/oneui';
 import { CONTEXTS, HEADING_SIZES } from '../src/constants';
 

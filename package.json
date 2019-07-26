@@ -3,7 +3,7 @@
     "oneui": {
         "libraryName": "oneui"
     },
-    "version": "5.0.0",
+    "version": "5.1.0",
     "description": "Library of reusable React components with theming support",
     "main": "dist/oneui.min.js",
     "scripts": {
@@ -47,9 +47,10 @@
     "dependencies": {
         "@babel/polyfill": "7.0.0",
         "css-vars-ponyfill": "1.16.4",
+        "prop-types": "^15.7.2",
+        "rc-slider": "8.6.13",
         "downshift": "3.2.10",
         "fast-memoize": "2.5.1",
-        "prop-types": "^15.7.2",
         "react-modal": "3.9.1"
     },
     "peerDependencies": {
