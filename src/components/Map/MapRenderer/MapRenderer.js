@@ -25,8 +25,7 @@ const MapRenderer = React.forwardRef((props, ref) => {
         if (!mapRef.current || !mapRef.current.state.map) return;
         const { map } = mapRef.current.state;
 
-        // eslint-disable-next-line no-undef
-        const { LatLngBounds, Circle: CircleClass } = google.maps;
+        const { LatLngBounds, Circle: CircleClass } = window.google.maps;
 
         if (markers.length) {
             const bounds = new LatLngBounds();
@@ -68,7 +67,7 @@ const MapRenderer = React.forwardRef((props, ref) => {
                     const position = positions[i];
                     const positionStr = `${position.lat}-${position.lng}`;
                     return (
-                        <React.Fragment>
+                        <React.Fragment key={positionStr}>
                             <Marker key={`${positionStr}-marker`} position={position} />
                             {!!radius && (
                                 <Circle
