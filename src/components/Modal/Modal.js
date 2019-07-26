@@ -6,7 +6,7 @@ import styles from './Modal.scss';
 
 const { block, elem } = bem({
     name: 'Modal',
-    classnames: styles
+    classnames: styles,
 });
 
 const Modal = props => {
@@ -41,12 +41,12 @@ const Modal = props => {
             overlayClassName={{
                 base: overlayClass,
                 afterOpen: overlayEnteredClass,
-                beforeClose: overlayExitedClass
+                beforeClose: overlayExitedClass,
             }}
             className={{
                 base: contentClassJoined,
                 afterOpen: contentEnteredClass,
-                beforeClose: contentExitedClass
+                beforeClose: contentExitedClass,
             }}
             {...rest}
         >
@@ -75,12 +75,12 @@ Modal.propTypes = {
     /** A function to be called when the modal is closed */
     onRequestClose: PropTypes.func,
     /** Additional class to be applied to the content part */
-    className: PropTypes.string
+    className: PropTypes.string,
 };
 
 Modal.defaultProps = {
     onRequestClose: null,
-    className: ''
+    className: '',
 };
 
 export default Modal;

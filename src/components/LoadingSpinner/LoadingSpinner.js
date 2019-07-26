@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import Text from '../Text';
+import { Text } from '../Text';
 import styles from './LoadingSpinner.scss';
 import { CONTEXTS } from '../../constants';
 
 const { block, elem } = bem({
     name: 'LoadingSpinner',
     classnames: styles,
-    propsToMods: ['centerIn', 'context', 'hidden']
+    propsToMods: ['centerIn', 'context', 'hidden'],
 });
 
 const LoadingSpinner = props => {
@@ -23,7 +23,7 @@ const LoadingSpinner = props => {
                     }
                     return {
                         width: s,
-                        height: s
+                        height: s,
                     };
                 })(size)}
                 {...elem('svg', props)}
@@ -58,7 +58,7 @@ LoadingSpinner.propTypes = {
     /** Hides the spinner when true */
     hidden: PropTypes.bool,
     /** Custom spinner size (will affect both width and height) */
-    size: PropTypes.number
+    size: PropTypes.number,
 };
 
 LoadingSpinner.defaultProps = {
@@ -66,7 +66,7 @@ LoadingSpinner.defaultProps = {
     children: null,
     context: 'brand',
     hidden: false,
-    size: null
+    size: null,
 };
 
 export default LoadingSpinner;

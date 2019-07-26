@@ -6,7 +6,7 @@ import styles from './NavItem.scss';
 const { block, elem } = bem({
     name: 'NavItem',
     classnames: styles,
-    propsToMods: ['active', 'pullRight']
+    propsToMods: ['active', 'pullRight'],
 });
 
 const NavItem = props => {
@@ -36,14 +36,14 @@ NavItem.propTypes = {
     /** add activeClassName to the rendered item. You should add this to react-routers NavLink */
     useActiveClass: PropTypes.bool,
     /** Node to be rendered as a single navigation item. There should be only 1 child */
-    children: PropTypes.node
+    children: PropTypes.node,
 };
 
 NavItem.defaultProps = {
     active: false,
     pullRight: false,
     useActiveClass: false,
-    children: null
+    children: null,
 };
 
 export default NavItem;

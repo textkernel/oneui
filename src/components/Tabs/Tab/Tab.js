@@ -10,7 +10,7 @@ Tab.propTypes = {
     /** Unique ID for this tab */
     id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     /** Label for this tab */
-    label: PropTypes.node.isRequired
+    label: PropTypes.node.isRequired,
 };
 
 Tab.defaultProps = {};

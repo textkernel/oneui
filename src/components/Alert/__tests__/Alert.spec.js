@@ -24,7 +24,7 @@ describe('<Alert> that renders an alert', () => {
                 title="Hey there"
                 action={{
                     label: 'Click me',
-                    onClick
+                    onClick,
                 }}
             >
                 This is an alert with custom context and a title

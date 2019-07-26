@@ -7,7 +7,7 @@ import { CONTEXTS } from '../../constants';
 const { block, elem } = bem({
     name: 'ProgressBar',
     classnames: styles,
-    propsToMods: ['animated', 'context', 'hidden', 'small']
+    propsToMods: ['animated', 'context', 'hidden', 'small'],
 });
 
 const ProgressBar = props => {
@@ -27,7 +27,7 @@ const ProgressBar = props => {
             <div
                 {...elem('fill', props)}
                 style={{
-                    width: `${percentageAdjusted}%`
+                    width: `${percentageAdjusted}%`,
                 }}
             >
                 {!small && (children || `${Number(percentageAdjusted)}%`)}
@@ -50,7 +50,7 @@ ProgressBar.propTypes = {
     /** Percentage of progress bar to be filled */
     percentage: PropTypes.number.isRequired,
     /** Renders a narrow bar without label or percentage */
-    small: PropTypes.bool
+    small: PropTypes.bool,
 };
 
 ProgressBar.defaultProps = {
@@ -58,7 +58,7 @@ ProgressBar.defaultProps = {
     children: null,
     context: 'brand',
     hidden: false,
-    small: false
+    small: false,
 };
 
 export default ProgressBar;

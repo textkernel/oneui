@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import Text from '../../Text';
+import { Text } from '../../Text';
 import { CONTEXTS } from '../../../constants';
 import styles from './ListItem.scss';
 
 const { block, elem } = bem({
     name: 'ListItem',
     classnames: styles,
-    propsToMods: ['isSelected', 'isHighlighted', 'onClick', 'disabled', 'highlightContext']
+    propsToMods: ['isSelected', 'isHighlighted', 'onClick', 'disabled', 'highlightContext'],
 });
 
 const ListItem = React.forwardRef((props, ref) => {
@@ -48,7 +48,7 @@ ListItem.propTypes = {
     /** Format this item as disabled */
     disabled: PropTypes.bool,
     /** formatting context when hovered or selected */
-    highlightContext: PropTypes.oneOf([...CONTEXTS, 'default'])
+    highlightContext: PropTypes.oneOf([...CONTEXTS, 'default']),
 };
 
 ListItem.defaultProps = {
@@ -57,7 +57,7 @@ ListItem.defaultProps = {
     isSelected: false,
     isHighlighted: false,
     disabled: false,
-    highlightContext: 'default'
+    highlightContext: 'default',
 };
 
 export default ListItem;

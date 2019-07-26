@@ -11,9 +11,9 @@ module.exports = {
         plugins.cssPlugin,
         plugins.styleLintPlugin,
         plugins.bundleAnalyzerPlugin,
-        plugins.cleanWebpackPlugin
+        plugins.cleanWebpackPlugin,
     ],
     module: {
-        rules: [rules.js, rules.styles]
-    }
+        rules: [rules.js, rules.styles],
+    },
 };

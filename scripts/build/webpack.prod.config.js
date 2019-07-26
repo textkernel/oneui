@@ -8,7 +8,7 @@ module.exports = {
     mode: 'production',
     output: {
         ...baseConfig.output,
-        filename: `${LIBRARY_NAME}.min.js`
+        filename: `${LIBRARY_NAME}.min.js`,
     },
     plugins: [
         plugins.hashedModuleIdsPlugin,
@@ -16,19 +16,19 @@ module.exports = {
         plugins.styleLintPlugin,
         plugins.optimizeCssAssetsPlugin,
         plugins.bundleAnalyzerPlugin,
-        plugins.cleanWebpackPlugin
+        plugins.cleanWebpackPlugin,
     ],
     module: {
-        rules: [rules.js, rules.styles]
+        rules: [rules.js, rules.styles],
     },
     optimization: {
         minimizer: [
             new TerserPlugin({
                 terserOptions: {
-                    mangle: false
-                }
-            })
-        ]
+                    mangle: false,
+                },
+            }),
+        ],
     },
     externals: {
         // Don't bundle react or react-dom
@@ -36,13 +36,13 @@ module.exports = {
             commonjs: 'react',
             commonjs2: 'react',
             amd: 'React',
-            root: 'React'
+            root: 'React',
         },
         'react-dom': {
             commonjs: 'react-dom',
             commonjs2: 'react-dom',
             amd: 'ReactDOM',
-            root: 'ReactDOM'
-        }
-    }
+            root: 'ReactDOM',
+        },
+    },
 };

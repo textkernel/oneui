@@ -1,14 +1,14 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import Text from '../Text';
+import { Text } from '../Text';
 import styles from './RadioButton.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 
 const { block, elem } = bem({
     name: 'RadioButton',
     classnames: styles,
-    propsToMods: ['disabled']
+    propsToMods: ['disabled'],
 });
 
 const RadioButton = forwardRef((props, ref) => {
@@ -56,13 +56,13 @@ RadioButton.propTypes = {
     /** If the radio button should be disabled */
     disabled: PropTypes.bool,
     /** The label for the radio button */
-    children: PropTypes.string
+    children: PropTypes.string,
 };
 
 RadioButton.defaultProps = {
     name: null,
     disabled: false,
-    children: null
+    children: null,
 };
 
 export default RadioButton;

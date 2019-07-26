@@ -4,7 +4,6 @@ $close-button-adjustment: 5px;
 
 .LocationCard {
     width: $location-card-width;
-    height: 122px;
     padding: 14px 20px;
     background-color: var(--color-neutral-25);
 
@@ -16,15 +15,29 @@ $close-button-adjustment: 5px;
             width: 100%;
         }
 
-        .closeButton {
+        .delete-button {
             width: $close-button-side;
             height: $close-button-side;
             margin-right: $close-button-adjustment;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
     }
     
     .slider {
         flex-direction: row;
         display: flex;
+        margin: 20px 0px;
+
+        .slider-indication {
+            width: 110px;
+            margin: 0;
+            align-self: flex-end;
+            text-align: end;
+        }
     }
 }

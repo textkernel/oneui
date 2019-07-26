@@ -5,8 +5,8 @@ import Input from '../Input';
 describe('<Input> that renders an input field', () => {
     const data = {
         target: {
-            value: 'test'
-        }
+            value: 'test',
+        },
     };
 
     it('should render default input correctly', () => {

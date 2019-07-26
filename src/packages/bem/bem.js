@@ -52,7 +52,7 @@ function bemStateful(classnamesMap) {
                 state: this.state,
                 stateToMods,
                 extraMods,
-                classnamesMap
+                classnamesMap,
             });
         };
 
@@ -70,7 +70,7 @@ function bemStateful(classnamesMap) {
                 state: this.state,
                 stateToMods,
                 extraMods,
-                classnamesMap
+                classnamesMap,
             });
         };
 
@@ -96,7 +96,7 @@ function bemStateless(blockDecl) {
                 props,
                 propsToMods,
                 extraMods,
-                classnamesMap: classnames
+                classnamesMap: classnames,
             });
         },
         elem: (elemName, props, extraMods = {}) => {
@@ -111,9 +111,9 @@ function bemStateless(blockDecl) {
                 props,
                 propsToMods,
                 extraMods,
-                classnamesMap: classnames
+                classnamesMap: classnames,
             });
-        }
+        },
     };
 }
 

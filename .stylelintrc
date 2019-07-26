@@ -11,6 +11,9 @@
         "indentation": 4,
         "no-missing-end-of-source-newline": true,
         "selector-attribute-brackets-space-inside": "never",
+        "selector-pseudo-class-no-unknown": [true, {
+            ignorePseudoClasses: ["global"]
+        }],
         "selector-attribute-quotes": "always",
         "selector-max-id": 0,
         "unit-case": "lower",

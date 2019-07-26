@@ -1,8 +1,19 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { number, text, withKnobs } from '@storybook/addon-knobs';
 import { LocationCard } from '@textkernel/oneui';
 
 storiesOf('LocationCard', module)
     .addDecorator(withKnobs)
-    .add('LocationCard', () => <LocationCard />);
+    .add('LocationCard', () => (
+        <LocationCard
+            locationTitle={text('Location title', 'London')}
+            distanceRadius={number('Distance radius', 42)}
+            sliderIndicationString="+42 km"
+            minRadius={number('Min radius', 1)}
+            maxRadius={number('Max radius', 100)}
+            radiusStep={number('Step', 1)}
+            onRadiusChange={value => console.log(value)}
+            onDelete={() => console.log('Delete')}
+        />
+    ));

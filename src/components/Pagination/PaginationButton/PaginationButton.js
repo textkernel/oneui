@@ -7,7 +7,7 @@ import Button from '../../Button';
 const { block } = bem({
     name: 'PaginationButton',
     classnames: styles,
-    propsToMods: ['isActive']
+    propsToMods: ['isActive'],
 });
 
 const PaginationButton = props => {
@@ -24,11 +24,11 @@ PaginationButton.displayName = 'PaginationButton';
 
 PaginationButton.propTypes = {
     children: PropTypes.number.isRequired,
-    isActive: PropTypes.bool
+    isActive: PropTypes.bool,
 };
 
 PaginationButton.defaultProps = {
-    isActive: false
+    isActive: false,
 };
 
 export default PaginationButton;

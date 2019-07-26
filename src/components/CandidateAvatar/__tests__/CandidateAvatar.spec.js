@@ -13,11 +13,11 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
         const wrapper = shallow(<CandidateAvatar size={127} matchPercentage={100} />);
         expect(wrapper.props().style).toEqual({
             height: 128,
-            width: 128
+            width: 128,
         });
         expect(wrapper.find('svg').props().style).toEqual({
             height: 128,
-            width: 128
+            width: 128,
         });
         expect(wrapper.find('circle').props().strokeWidth).toBe(4);
         expect(wrapper.find('circle').props().cx).toBe(64);
@@ -44,7 +44,7 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
     it('should change avatar image', () => {
         const wrapper = shallow(<CandidateAvatar imageUrl="/candidate.jpg" />);
         expect(wrapper.find('.CandidateAvatar__image').props().style).toEqual({
-            backgroundImage: 'url(/candidate.jpg)'
+            backgroundImage: 'url(/candidate.jpg)',
         });
     });
 

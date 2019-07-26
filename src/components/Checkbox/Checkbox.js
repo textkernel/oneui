@@ -1,14 +1,14 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import Text from '../Text';
+import { Text } from '../Text';
 import styles from './Checkbox.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 
 const { block, elem } = bem({
     name: 'Checkbox',
     classnames: styles,
-    propsToMods: ['disabled']
+    propsToMods: ['disabled'],
 });
 
 const Checkbox = forwardRef((props, ref) => {
@@ -53,12 +53,12 @@ Checkbox.propTypes = {
     /** If the checkbox should be disabled */
     disabled: PropTypes.bool,
     /** The label for the checkbox */
-    children: PropTypes.string
+    children: PropTypes.string,
 };
 
 Checkbox.defaultProps = {
     disabled: false,
-    children: null
+    children: null,
 };
 
 export default Checkbox;

@@ -6,7 +6,7 @@ import styles from './CandidateAvatar.scss';
 const { block, elem } = bem({
     name: 'CandidateAvatar',
     classnames: styles,
-    propsToMods: ['context']
+    propsToMods: ['context'],
 });
 
 const context = percentage => {
@@ -38,13 +38,13 @@ const CandidateAvatar = props => {
             {...block(props)}
             style={{
                 width: fixedSize,
-                height: fixedSize
+                height: fixedSize,
             }}
         >
             <div
                 {...elem('image', props)}
                 style={{
-                    backgroundImage: `url(${imageUrl})`
+                    backgroundImage: `url(${imageUrl})`,
                 }}
             >
                 {!!Number.isInteger(matchPercentage) && !!showPercentageOnHover && (
@@ -65,7 +65,7 @@ const CandidateAvatar = props => {
                 {...elem('ring', props)}
                 style={{
                     width: fixedSize,
-                    height: fixedSize
+                    height: fixedSize,
                 }}
             >
                 {!!Number.isInteger(matchPercentage) && (
@@ -76,10 +76,10 @@ const CandidateAvatar = props => {
                         strokeWidth={strokeWidth}
                         {...elem('circle', {
                             ...props,
-                            context: context(percentage)
+                            context: context(percentage),
                         })}
                         style={{
-                            strokeDasharray
+                            strokeDasharray,
                         }}
                     />
                 )}
@@ -98,14 +98,14 @@ CandidateAvatar.propTypes = {
     /** Whether to show the match percentage when hovering the image */
     showPercentageOnHover: PropTypes.bool,
     /** Avatar size (1:1 aspect ratio), should be even number */
-    size: PropTypes.number
+    size: PropTypes.number,
 };
 
 CandidateAvatar.defaultProps = {
     imageUrl: null,
     matchPercentage: null,
     showPercentageOnHover: false,
-    size: 72
+    size: 72,
 };
 
 export default CandidateAvatar;

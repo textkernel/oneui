@@ -5,7 +5,7 @@ import styles from './PageWidthRestrictor.scss';
 
 const { block } = bem({
     name: 'PageWidthRestrictor',
-    classnames: styles
+    classnames: styles,
 });
 
 const PageWidthRestrictor = props => {
@@ -22,7 +22,7 @@ PageWidthRestrictor.displayName = 'PageWidthRestrictor';
 
 PageWidthRestrictor.propTypes = {
     /** Node(s) to be rendered inside the container */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
 };
 
 export default PageWidthRestrictor;

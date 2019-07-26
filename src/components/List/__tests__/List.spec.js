@@ -38,7 +38,19 @@ describe('List component', () => {
 
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('ul')).toHaveLength(1);
+            expect(wrapper.find('ul').props()).toHaveProperty('onKeyDown');
             expect(consoleError).not.toHaveBeenCalled();
+        });
+        it('should render List correctly without keyboard navigation', () => {
+            wrapper = mount(
+                <List isControlledNavigation>
+                    <ListItem>Item 1</ListItem>
+                    <ListItem>Item 2</ListItem>
+                </List>
+            );
+
+            expect(toJson(wrapper)).toMatchSnapshot();
+            expect(wrapper.find('ul').props()).not.toHaveProperty('onKeyDown');
         });
         it('should render correctly with ref', () => {
             const ref = React.createRef();

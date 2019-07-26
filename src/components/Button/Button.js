@@ -7,7 +7,7 @@ import { CONTEXTS, SIZES } from '../../constants';
 const { block } = bem({
     name: 'Button',
     classnames: styles,
-    propsToMods: ['context', 'size', 'isBlock', 'isInline']
+    propsToMods: ['context', 'size', 'isBlock', 'isInline'],
 });
 
 const Button = forwardRef((props, ref) => {
@@ -48,7 +48,7 @@ Button.propTypes = {
     /** Type of the button */
     type: PropTypes.oneOf(['submit', 'button']),
     /** Providing an href will render an <a> element, styled as a button. */
-    href: PropTypes.string
+    href: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -58,7 +58,7 @@ Button.defaultProps = {
     isInline: false,
     disabled: false,
     type: 'button',
-    href: null
+    href: null,
 };
 
 export default Button;

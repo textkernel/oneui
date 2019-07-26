@@ -5,8 +5,8 @@ import TextArea from '../TextArea';
 describe('<TextArea> that renders a textarea', () => {
     const data = {
         target: {
-            value: 'test'
-        }
+            value: 'test',
+        },
     };
 
     it('should render default textarea correctly', () => {

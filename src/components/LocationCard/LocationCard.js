@@ -1,28 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import { Heading, Text } from '@textkernel/oneui';
+import { Heading, Slider, Text } from '../../index';
 import { CROSS_CHAR } from '../../constants';
 import styles from './LocationCard.scss';
 
 const { block } = bem({
     name: 'LocationCard',
-    classnames: styles
+    classnames: styles,
 });
 
 const LocationCard = props => {
-    const { duration, height, width, withoutMargin, ...rest } = props;
+    const {
+        locationTitle,
+        distanceRadius,
+        sliderIndicationString,
+        minRadius,
+        maxRadius,
+        radiusStep,
+        onRadiusChange,
+        onDelete,
+        ...rest
+    } = props;
 
     return (
         <div {...rest} {...block(props)}>
             <div className="header">
-                <Heading className="title">London</Heading>
-                <Heading className="closeButton" onClick={() => console.log('close')}>
+                <Heading className="title">{locationTitle}</Heading>
+                <Heading className="delete-button" onClick={onDelete}>
                     {CROSS_CHAR}
                 </Heading>
             </div>
             <div className="slider">
-                <Text>+5 miles</Text>
+                <Slider
+                    value={distanceRadius}
+                    min={minRadius}
+                    max={maxRadius}
+                    step={radiusStep}
+                    onChange={onRadiusChange}
+                />
+                <Text className="slider-indication">{sliderIndicationString}</Text>
             </div>
         </div>
     );
@@ -31,13 +48,10 @@ const LocationCard = props => {
 LocationCard.displayName = 'LocationCard';
 
 LocationCard.propTypes = {
-    /** Object that describes the location and its radius */
-    location: PropTypes.objectOf({
-        title: PropTypes.string
-    }).isRequired,
-    locationToString: PropTypes.func.isRequired,
-    /** Units type to be shown next to the distance slider value */
-    distanceUnits: PropTypes.string,
+    /** Location title */
+    locationTitle: PropTypes.string,
+    /** Slider indication string for displaying its formatted value */
+    sliderIndicationString: PropTypes.string,
     /** The minimum value of the distance slider */
     minRadius: PropTypes.number,
     /** The maximum value of the distance slider */
@@ -50,16 +64,17 @@ LocationCard.propTypes = {
     /** Slider value change callback */
     onRadiusChange: PropTypes.func,
     /** Location card delete callback */
-    onDelete: PropTypes.func
+    onDelete: PropTypes.func,
 };
 
 LocationCard.defaultProps = {
-    distanceUnits: 'km',
+    locationTitle: 'Placeholder',
+    sliderIndicationString: '',
     minRadius: 1,
     maxRadius: 100,
     radiusStep: 1,
-    onRadiusChange: () => true,
-    onDelete: () => true
+    onRadiusChange: () => null,
+    onDelete: () => null,
 };
 
 export default LocationCard;

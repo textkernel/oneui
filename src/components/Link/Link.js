@@ -5,7 +5,7 @@ import styles from './Link.scss';
 
 const { block } = bem({
     name: 'Link',
-    classnames: styles
+    classnames: styles,
 });
 
 const Link = props => {
@@ -21,7 +21,7 @@ Link.displayName = 'Link';
 
 Link.propTypes = {
     /** Link content */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
 };
 
 export default Link;

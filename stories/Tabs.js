@@ -7,18 +7,18 @@ const tabs = [
     {
         id: 'first',
         label: 'First tab',
-        content: 'Some content'
+        content: 'Some content',
     },
     {
         id: 'second',
         label: 'Second tab',
-        content: 'Some more content'
+        content: 'Some more content',
     },
     {
         id: 'third',
         label: 'Third tab',
-        content: 'Even more content'
-    }
+        content: 'Even more content',
+    },
 ];
 
 const tabIds = tabs.map(tab => tab.id);

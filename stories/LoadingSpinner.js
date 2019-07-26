@@ -18,7 +18,7 @@ storiesOf('LoadingSpinner', module)
                     {
                         '': null,
                         'Parent element': 'parent',
-                        Viewport: 'viewport'
+                        Viewport: 'viewport',
                     },
                     null
                 )}
