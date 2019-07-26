@@ -4,7 +4,7 @@ import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { Button } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '../src/constants';
 
-storiesOf('Button', module)
+storiesOf('Atoms|Button', module)
     .addDecorator(withKnobs)
     .add('Button', () => (
         <Button

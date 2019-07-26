@@ -5,7 +5,7 @@ import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { List, ListItem, ListActions, Teaser, Text, Button, Checkbox } from '@textkernel/oneui';
 import { CONTEXTS } from '../src/constants';
 
-storiesOf('List', module)
+storiesOf('Atoms|List', module)
     .addDecorator(withKnobs)
     .add('List', () => (
         <List isDivided={boolean('Add dividers between items', true)}>

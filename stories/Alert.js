@@ -4,7 +4,7 @@ import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { Alert } from '@textkernel/oneui';
 import { CONTEXTS } from '@textkernel/oneui/constants';
 
-storiesOf('Alert', module)
+storiesOf('Molecules|Alert', module)
     .addDecorator(withKnobs)
     .add('Alert', () => {
         const hasAction = boolean('Has an action', true);

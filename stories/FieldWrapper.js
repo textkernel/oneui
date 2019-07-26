@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { FieldWrapper, Text } from '@textkernel/oneui';
 
-storiesOf('FieldWrapper', module)
+storiesOf('Molecules|FieldWrapper', module)
     .addDecorator(withKnobs)
-    .add('FieldWrapper', () => {
+    .add('Molecules|FieldWrapper', () => {
         return (
             <FieldWrapper
                 clearLabel={text('Clear button label', 'Clear')}

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { Checkbox } from '@textkernel/oneui';
 
-storiesOf('Checkbox', module)
+storiesOf('Molecules|Checkbox', module)
     .addDecorator(withKnobs)
     .add('Checkbox', () => (
         <Checkbox
