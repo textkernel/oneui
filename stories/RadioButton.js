@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { RadioButton } from '@textkernel/oneui';
 
-storiesOf('RadioButton', module)
+storiesOf('Molecules|RadioButton', module)
     .addDecorator(withKnobs)
     .add('RadioButton', () => (
         <div>

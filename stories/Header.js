@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { Header, IconTextkernel } from '@textkernel/oneui';
 
-storiesOf('Header', module)
+storiesOf('Molecules|Header', module)
     .addDecorator(withKnobs)
     .add('Header with simple logo', () => (
         <Header

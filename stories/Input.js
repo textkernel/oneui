@@ -4,7 +4,7 @@ import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { Input } from '@textkernel/oneui';
 import { CONTEXTS, INPUT_TYPES, SIZES } from '@textkernel/oneui/constants';
 
-storiesOf('Input', module)
+storiesOf('Atoms|Input', module)
     .addDecorator(withKnobs)
     .add('Default behavior', () => (
         <Input
