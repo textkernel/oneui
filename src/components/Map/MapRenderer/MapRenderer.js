@@ -97,7 +97,9 @@ MapRenderer.propTypes = {
     ]),
     /** The default zoom of the map to be used if no markers are present */
     zoom: PropTypes.number,
-    /** The markers to be shown on the map. When present, map will zoom automatically to display them */
+    /** The markers to be shown on the map. When present, map will zoom automatically to display them
+     * The radius is in meters on the Earth's surface.
+     */
     markers: PropTypes.arrayOf(
         PropTypes.shape({
             lng: PropTypes.number.isRequired,
