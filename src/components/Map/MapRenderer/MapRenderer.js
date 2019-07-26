@@ -13,7 +13,7 @@ const circleOptions = radius => ({
     editable: false,
     visible: true,
     radius,
-    zIndex: 1
+    zIndex: 1,
 });
 
 const MapRenderer = React.forwardRef((props, ref) => {
@@ -58,7 +58,7 @@ const MapRenderer = React.forwardRef((props, ref) => {
                 fullscreenControl: false,
                 mapTypeControl: false,
                 streetViewControl: false,
-                rotateControl: false
+                rotateControl: false,
             }}
             {...rest}
         >
@@ -92,8 +92,8 @@ MapRenderer.propTypes = {
         PropTypes.arrayOf(PropTypes.number),
         PropTypes.shape({
             lng: PropTypes.number.isRequired,
-            lat: PropTypes.number.isRequired
-        })
+            lat: PropTypes.number.isRequired,
+        }),
     ]),
     /** The default zoom of the map to be used if no markers are present */
     zoom: PropTypes.number,
@@ -104,7 +104,7 @@ MapRenderer.propTypes = {
         PropTypes.shape({
             lng: PropTypes.number.isRequired,
             lat: PropTypes.number.isRequired,
-            radius: PropTypes.number
+            radius: PropTypes.number,
         })
     ),
     /** The style of the map container. It has to have explicit width and height (requirement from Google).
@@ -112,21 +112,21 @@ MapRenderer.propTypes = {
      */
     mapContainerStyle: PropTypes.shape({
         width: PropTypes.string.isRequired,
-        height: PropTypes.string.isRequired
-    })
+        height: PropTypes.string.isRequired,
+    }),
 };
 
 MapRenderer.defaultProps = {
     center: {
         lat: 52.3922288,
-        lng: 4.9338793
+        lng: 4.9338793,
     },
     zoom: 7,
     markers: [],
     mapContainerStyle: {
         height: '100%',
-        width: '100%'
-    }
+        width: '100%',
+    },
 };
 
 export default MapRenderer;

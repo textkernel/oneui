@@ -34,13 +34,13 @@ GoogleLoader.propTypes = {
      */
     region: PropTypes.string,
     /** The map to be rendered */
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
 };
 
 GoogleLoader.defaultProps = {
     onLoadError: null,
     language: undefined,
-    region: undefined
+    region: undefined,
 };
 
 export default GoogleLoader;
