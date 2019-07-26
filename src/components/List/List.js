@@ -141,6 +141,7 @@ List.propTypes = {
     },
     /** Adds dividing lines between the list items */
     isDivided: PropTypes.bool,
+    /** Defines if selection should be made on navigate */
     doSelectOnNavigate: PropTypes.bool,
     /** manage keyboard navigation externally */
     isControlledNavigation: PropTypes.bool,
