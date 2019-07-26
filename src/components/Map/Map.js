@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GoogleLoader from './GoogleLoader';
+import GoogleMapsApiLoader from './GoogleMapsApiLoader';
 import MapRenderer from './MapRenderer';
 
 const Map = React.forwardRef((props, ref) => {
     const { apiKey, onLoadError, language, region, additionalLoaderProps, ...rest } = props;
 
     return (
-        <GoogleLoader
+        <GoogleMapsApiLoader
             apiKey={apiKey}
             onLoadError={onLoadError}
             language={language}
@@ -15,14 +15,14 @@ const Map = React.forwardRef((props, ref) => {
             {...additionalLoaderProps}
         >
             <MapRenderer ref={ref} {...rest} />
-        </GoogleLoader>
+        </GoogleMapsApiLoader>
     );
 });
 
 Map.displayName = 'Map';
 
 Map.propTypes = {
-    ...GoogleLoader.propTypes,
+    ...GoogleMapsApiLoader.propTypes,
     ...MapRenderer.propTypes,
     /** other props to pass to the google loader. For details see: https://developers.google.com/maps/documentation/javascript/localization#Region */
     additionalLoaderProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types

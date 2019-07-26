@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useLoadScript } from '@react-google-maps/api';
 import { LoadingSpinner } from '../../../index';
 
-const GoogleLoader = props => {
+const GoogleMapsApiLoader = props => {
     const { apiKey, onLoadError, language, region, children } = props;
     const { isLoaded, loadError } = useLoadScript({ googleMapsApiKey: apiKey, language, region });
 
@@ -18,9 +18,9 @@ const GoogleLoader = props => {
     );
 };
 
-GoogleLoader.displayName = 'GoogleLoader';
+GoogleMapsApiLoader.displayName = 'GoogleMapsApiLoader';
 
-GoogleLoader.propTypes = {
+GoogleMapsApiLoader.propTypes = {
     /** Google API key */
     apiKey: PropTypes.string.isRequired,
     /** Message to be shown if error occured during loading Google API */
@@ -37,10 +37,10 @@ GoogleLoader.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-GoogleLoader.defaultProps = {
+GoogleMapsApiLoader.defaultProps = {
     onLoadError: null,
     language: undefined,
     region: undefined,
 };
 
-export default GoogleLoader;
+export default GoogleMapsApiLoader;
