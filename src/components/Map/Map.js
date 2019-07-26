@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LoadScriptNext } from '@react-google-maps/api';
 import { LoadingSpinner } from '../../index';
-// import GoogleMapsApiLoader from './GoogleMapsApiLoader';
 import MapRenderer from './MapRenderer';
 
 const Map = React.forwardRef((props, ref) => {
@@ -40,20 +39,10 @@ Map.propTypes = {
 };
 
 Map.defaultProps = {
-    center: {
-        lat: 52.3922288,
-        lng: 4.9338793,
-    },
-    zoom: 7,
-    markers: [],
-    mapContainerStyle: {
-        height: '100%',
-        width: '100%',
-    },
-    additionalLoaderProps: {},
-    onLoadError: undefined,
+    additionalGoogleProps: {},
     language: undefined,
     region: undefined,
+    ...MapRenderer.defaultProps,
 };
 
 export default Map;
