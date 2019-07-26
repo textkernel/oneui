@@ -2,7 +2,6 @@ import React from 'react';
 import toJson from 'enzyme-to-json';
 import ListItem from '../ListItem';
 import List from '../List';
-import { LIST_NAVIGATION_DIRECTIONS } from '../../../constants';
 
 describe('List component', () => {
     let consoleError;
@@ -10,8 +9,6 @@ describe('List component', () => {
     let listComponent;
 
     const itemNumbersArray = [0, 1, 2, 3, 4];
-    const mockOnNavigate = jest.fn();
-    const mockOnSelect = jest.fn();
     const mockOnClick = jest.fn();
 
     const getListItemAt = index => wrapper.children().childAt(index);
@@ -90,7 +87,6 @@ describe('List component', () => {
             itemNumbersArray.forEach(number => {
                 expect(getListItemAt(number).props().isHighlighted).toBe(false);
             });
-            expect(mockOnNavigate).not.toHaveBeenCalled();
         });
 
         it('should move highlight on components in both directions properly', () => {
@@ -156,22 +152,13 @@ describe('List component', () => {
     describe('Callbacks', () => {
         beforeEach(() => {
             wrapper = mount(
-                <List onNavigate={mockOnNavigate} onSelect={mockOnSelect}>
+                <List>
                     {itemNumbersArray.map(number => (
                         <ListItem onClick={() => mockOnClick(number)}>Item ${number}</ListItem>
                     ))}
                 </List>
             );
             listComponent = wrapper.children();
-        });
-
-        it('should call onSelect callback of the highlighted item', () => {
-            listComponent.simulate('click');
-            navigateDown();
-            navigateDown();
-            listComponent.simulate('keyDown', { key: 'Enter' });
-
-            expect(mockOnSelect).toBeCalledWith(1);
         });
 
         it('should call onClick after selecting the highlighted item', () => {
@@ -183,18 +170,34 @@ describe('List component', () => {
 
             expect(mockOnClick).toBeCalledWith(2);
         });
+        it('should not call onClick after navigating to the next highlighted item', () => {
+            listComponent = wrapper.children();
 
-        it('should call onNavigation callback', () => {
             listComponent.simulate('click');
             navigateDown();
-
-            expect(mockOnNavigate).toBeCalledWith(0, LIST_NAVIGATION_DIRECTIONS.DOWN);
-
             navigateDown();
             navigateDown();
-            navigateUp();
+            listComponent.simulate('keyDown', { key: 'Enter' });
 
-            expect(mockOnNavigate).toBeCalledWith(1, LIST_NAVIGATION_DIRECTIONS.UP);
+            expect(mockOnClick).toHaveBeenCalledTimes(1);
+        });
+        it('should call onClick after navigating to the next highlighted item with doSelectOnNavigate enabled', () => {
+            wrapper = mount(
+                <List doSelectOnNavigate>
+                    {itemNumbersArray.map(number => (
+                        <ListItem onClick={() => mockOnClick(number)}>Item ${number}</ListItem>
+                    ))}
+                </List>
+            );
+            listComponent = wrapper.children();
+
+            listComponent.simulate('click');
+            navigateDown();
+            navigateDown();
+            navigateDown();
+            listComponent.simulate('keyDown', { key: 'Enter' });
+
+            expect(mockOnClick).toHaveBeenCalledTimes(3);
         });
     });
 });
