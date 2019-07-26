@@ -1,5 +1,5 @@
 $location-card-width: 300px;
-$close-button-side: 10px;
+$close-button-side: 15px;
 $close-button-adjustment: 5px;
 $slider-indication-width: 110px;
 
@@ -8,37 +8,44 @@ $slider-indication-width: 110px;
     padding: 14px 20px;
     background-color: var(--color-neutral-25);
 
-    .header {
+    &__header {
         flex-direction: row;
         display: flex;
+    }
 
-        .title {
-            width: 100%;
-        }
+    &__title {
+        width: 100%;
+    }
 
-        .deleteButton {
-            width: $close-button-side;
-            height: $close-button-side;
-            margin-right: $close-button-adjustment;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-        }
+    &__delete-button {
+        width: $close-button-side;
+        height: 2 * $close-button-side;
+        padding: 0;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        border: none;
+        overflow: hidden;
+        outline: none;
+
+        // disable text selection
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
     
-    .slider {
+    &__slider {
         flex-direction: row;
         display: flex;
         margin: 20px 0px;
+    }
 
-        .slider-indication {
-            width: $slider-indication-width;
-            margin: 0;
-            align-self: flex-end;
-            text-align: end;
-        }
+    &__slider-label {
+        width: $slider-indication-width;
+        margin: 0;
+        align-self: flex-end;
+        text-align: end;
     }
 }

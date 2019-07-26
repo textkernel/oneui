@@ -12,7 +12,7 @@ describe('LocationCard component', () => {
             <LocationCard
                 locationTitle="London"
                 distanceRadius={42}
-                sliderIndicationString="+42 km"
+                sliderLabel="+42 km"
                 minRadius={1}
                 maxRadius={100}
                 radiusStep={1}
@@ -33,10 +33,7 @@ describe('LocationCard component', () => {
         it('should call onDelete callback', () => {
             expect(mockOnDelete).not.toHaveBeenCalled();
 
-            wrapper
-                .find('.delete-button')
-                .at(0)
-                .simulate('click');
+            wrapper.find('button').simulate('click');
 
             expect(mockOnDelete).toHaveBeenCalled();
         });

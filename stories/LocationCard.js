@@ -9,7 +9,7 @@ storiesOf('LocationCard', module)
         <LocationCard
             locationTitle={text('Location title', 'London')}
             distanceRadius={number('Distance radius', 42)}
-            sliderIndicationString="+42 km"
+            sliderLabel="+42 km"
             minRadius={number('Min radius', 1)}
             maxRadius={number('Max radius', 100)}
             radiusStep={number('Step', 1)}

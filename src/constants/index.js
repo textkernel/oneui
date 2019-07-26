@@ -18,8 +18,7 @@ export const LIST_NAVIGATION_DIRECTIONS = {
     DOWN: 'ArrowDown',
 };
 
-export const CROSS_CHAR = '×';
-
 export * from './style-related';
 export * from './autocomplete';
 export * from './keyboard';
+export * from './characters';

@@ -5,7 +5,7 @@ import { Heading, Slider, Text } from '../../index';
 import { CROSS_CHAR } from '../../constants';
 import styles from './LocationCard.scss';
 
-const { block } = bem({
+const { block, elem } = bem({
     name: 'LocationCard',
     classnames: styles,
 });
@@ -14,7 +14,7 @@ const LocationCard = props => {
     const {
         locationTitle,
         distanceRadius,
-        sliderIndicationString,
+        sliderLabel,
         minRadius,
         maxRadius,
         radiusStep,
@@ -25,13 +25,13 @@ const LocationCard = props => {
 
     return (
         <div {...rest} {...block(props)}>
-            <div className="header">
-                <Heading className="title">{locationTitle}</Heading>
-                <Heading className="delete-button" onClick={onDelete}>
-                    {CROSS_CHAR}
-                </Heading>
+            <div {...elem('header', props)}>
+                <Heading {...elem('title', props)}>{locationTitle}</Heading>
+                <button onClick={onDelete} type="button" {...elem('delete-button', props)}>
+                    <Heading>{CROSS_CHAR}</Heading>
+                </button>
             </div>
-            <div className="slider">
+            <div {...elem('slider', props)}>
                 <Slider
                     value={distanceRadius}
                     min={minRadius}
@@ -39,7 +39,7 @@ const LocationCard = props => {
                     step={radiusStep}
                     onChange={onRadiusChange}
                 />
-                <Text className="slider-indication">{sliderIndicationString}</Text>
+                <Text {...elem('slider-label', props)}>{sliderLabel}</Text>
             </div>
         </div>
     );
@@ -49,9 +49,9 @@ LocationCard.displayName = 'LocationCard';
 
 LocationCard.propTypes = {
     /** Location title */
-    locationTitle: PropTypes.string,
+    locationTitle: PropTypes.string.isRequired,
     /** Slider indication string for displaying its formatted value */
-    sliderIndicationString: PropTypes.string,
+    sliderLabel: PropTypes.string,
     /** The minimum value of the distance slider */
     minRadius: PropTypes.number,
     /** The maximum value of the distance slider */
@@ -68,8 +68,7 @@ LocationCard.propTypes = {
 };
 
 LocationCard.defaultProps = {
-    locationTitle: 'Placeholder',
-    sliderIndicationString: '',
+    sliderLabel: '',
     minRadius: 1,
     maxRadius: 100,
     radiusStep: 1,

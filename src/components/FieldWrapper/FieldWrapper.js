@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import bem from 'bem';
 import { Button } from '../../index';
 import styles from './FieldWrapper.scss';
+import { CROSS_CHAR } from '../../constants';
 
 const { block, elem } = bem({
     name: 'FieldWrapper',
@@ -33,7 +34,7 @@ const FieldWrapper = React.forwardRef((props, ref) => {
                     {...elem('clearButton', props)}
                 >
                     {clearLabel}
-                    <span {...elem('buttonIcon', props)}>&times;</span>
+                    <span {...elem('buttonIcon', props)}>{CROSS_CHAR}</span>
                 </Button>
             )}
         </div>
