@@ -4,7 +4,7 @@ import { withInfo } from '@storybook/addon-info';
 import { withKnobs, number, select, text } from '@storybook/addon-knobs';
 import { Map } from '@textkernel/oneui';
 
-storiesOf('Map', module)
+storiesOf('Atoms|Map', module)
     .addDecorator(withKnobs)
     .addDecorator(withInfo)
     .add(
