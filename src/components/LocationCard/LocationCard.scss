@@ -1,5 +1,6 @@
 $location-card-width: 300px;
-$close-button-side: 15px;
+$close-button-width: 15px;
+$close-button-height: 20px;
 $slider-indication-width: 110px;
 
 .LocationCard {
@@ -13,14 +14,18 @@ $slider-indication-width: 110px;
 
     &__title {
         width: 100%;
+        margin: 0;
+        font-weight: var(--font-weight-bold);
     }
 
     &__delete-button {
-        width: $close-button-side;
-        height: 2 * $close-button-side;
+        width: $close-button-width;
+        height: $close-button-height;
+        margin: 0;
+        margin-top: calc(var(--spacing-normal) * -1);
         padding: 0;
+        font-size: $close-button-height;
         background-color: transparent;
-        background-repeat: no-repeat;
         border: none;
         overflow: hidden;
         outline: none;

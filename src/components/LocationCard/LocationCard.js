@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import { Heading, Slider, Text } from '../../index';
-import { CROSS_CHAR } from '../../constants';
+import { Slider, Text } from '../../index';
+import { CROSS_CHAR, SIZES } from '../../constants';
 import styles from './LocationCard.scss';
 
 const { block, elem } = bem({
@@ -26,9 +26,11 @@ const LocationCard = props => {
     return (
         <div {...rest} {...block(props)}>
             <div {...elem('header', props)}>
-                <Heading {...elem('title', props)}>{locationTitle}</Heading>
+                <Text size={SIZES[2]} {...elem('title', props)}>
+                    {locationTitle}
+                </Text>
                 <button onClick={onDelete} type="button" {...elem('delete-button', props)}>
-                    <Heading>{CROSS_CHAR}</Heading>
+                    {CROSS_CHAR}
                 </button>
             </div>
             <div {...elem('slider', props)}>
@@ -39,7 +41,9 @@ const LocationCard = props => {
                     step={radiusStep}
                     onChange={onRadiusChange}
                 />
-                <Text {...elem('slider-label', props)}>{sliderLabel}</Text>
+                <Text size={SIZES[0]} {...elem('slider-label', props)}>
+                    {sliderLabel}
+                </Text>
             </div>
         </div>
     );

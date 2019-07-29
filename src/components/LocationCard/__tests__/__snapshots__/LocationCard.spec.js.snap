@@ -17,32 +17,24 @@ exports[`LocationCard component should render component correctly 1`] = `
     <div
       className="LocationCard__header"
     >
-      <Heading
-        align="left"
+      <Text
         className="LocationCard__title"
-        level="h1"
+        context="default"
+        inline={false}
+        size="large"
       >
-        <h1
-          className="Heading Heading--level_h1 LocationCard__title"
+        <p
+          className="Text--size_large LocationCard__title"
         >
           London
-        </h1>
-      </Heading>
+        </p>
+      </Text>
       <button
         className="LocationCard__delete-button"
         onClick={[MockFunction]}
         type="button"
       >
-        <Heading
-          align="left"
-          level="h1"
-        >
-          <h1
-            className="Heading Heading--level_h1"
-          >
-            ×
-          </h1>
-        </Heading>
+        ×
       </button>
     </div>
     <div
@@ -188,10 +180,10 @@ exports[`LocationCard component should render component correctly 1`] = `
         className="LocationCard__slider-label"
         context="default"
         inline={false}
-        size="normal"
+        size="small"
       >
         <p
-          className=" LocationCard__slider-label"
+          className="Text--size_small LocationCard__slider-label"
         >
           +42 km
         </p>
