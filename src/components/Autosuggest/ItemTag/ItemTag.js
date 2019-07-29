@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './ItemTag.scss';
+import { CROSS_CHAR } from '../../../constants';
 
 const { block, elem } = bem({
     name: 'ItemTag',
@@ -18,7 +19,7 @@ const ItemTag = props => {
             </span>
             {onClick ? (
                 <button onClick={onClick} type="button" {...elem('button', props)}>
-                    &times;
+                    {CROSS_CHAR}
                 </button>
             ) : null}
         </div>

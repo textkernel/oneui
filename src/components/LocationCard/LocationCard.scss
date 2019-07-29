@@ -1,15 +1,13 @@
 $location-card-width: 300px;
 $close-button-side: 15px;
-$close-button-adjustment: 5px;
 $slider-indication-width: 110px;
 
 .LocationCard {
     width: $location-card-width;
-    padding: 14px 20px;
+    padding: var(--spacing-3x) var(--spacing-4x);
     background-color: var(--color-neutral-25);
 
     &__header {
-        flex-direction: row;
         display: flex;
     }
 
@@ -39,7 +37,7 @@ $slider-indication-width: 110px;
     &__slider {
         flex-direction: row;
         display: flex;
-        margin: 20px 0px;
+        margin: var(--spacing-5x) 0px;
     }
 
     &__slider-label {
