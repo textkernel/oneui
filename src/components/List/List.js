@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import ListItem from './ListItem';
@@ -45,7 +45,7 @@ const List = React.forwardRef((props, ref) => {
         }
     }, [selectedIndex]);
 
-    const getNextSelectedIndex = useCallback(keyCode => {
+    const getNextSelectedIndex = keyCode => {
         const stepValue = NAVIGATION_STEP_VALUES[keyCode];
         const nextSelectedIndex = selectedIndex + stepValue;
 
@@ -61,37 +61,31 @@ const List = React.forwardRef((props, ref) => {
 
         // Return nextSelectedIndex without any changes for others cases
         return nextSelectedIndex;
-    });
+    };
 
-    const handleKeyDown = useCallback(
-        e => {
-            // Update selectedIndex with arrow navigation and make onNavigate function callback
+    const handleKeyDown = e => {
+        // Update selectedIndex with arrow navigation and make onNavigate function callback
+        if (e.key === LIST_NAVIGATION_DIRECTIONS.UP || e.key === LIST_NAVIGATION_DIRECTIONS.DOWN) {
+            const nextSelectedIndex = getNextSelectedIndex(e.key);
+
+            if (selectedIndex !== nextSelectedIndex) {
+                e.preventDefault();
+                setSelectedIndex(nextSelectedIndex);
+                setHighlightedWithKeyboard(true);
+            }
+        }
+
+        // Imitate onClick event on Enter press and make onSelect function callback
+        if (e.key === ENTER_KEY || doSelectOnNavigate) {
             if (
-                e.key === LIST_NAVIGATION_DIRECTIONS.UP ||
-                e.key === LIST_NAVIGATION_DIRECTIONS.DOWN
+                children[selectedIndex] &&
+                children[selectedIndex].props &&
+                children[selectedIndex].props.onClick
             ) {
-                const nextSelectedIndex = getNextSelectedIndex(e.key);
-
-                if (selectedIndex !== nextSelectedIndex) {
-                    e.preventDefault();
-                    setSelectedIndex(nextSelectedIndex);
-                    setHighlightedWithKeyboard(true);
-                }
+                children[selectedIndex].props.onClick(e);
             }
-
-            // Imitate onClick event on Enter press and make onSelect function callback
-            if (e.key === ENTER_KEY || doSelectOnNavigate) {
-                if (
-                    children[selectedIndex] &&
-                    children[selectedIndex].props &&
-                    children[selectedIndex].props.onClick
-                ) {
-                    children[selectedIndex].props.onClick(e);
-                }
-            }
-        },
-        [selectedIndex]
-    );
+        }
+    };
 
     const handleMouseEnter = index => {
         if (selectedIndex !== index) {
