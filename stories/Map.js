@@ -47,6 +47,12 @@ storiesOf('Map', module)
         ## Displaying Map in storybook
 
         To make this component work you need to provide your own Google API key. At the moment this is only possible via accessing the source code. Sorry for the inconvenience.
+
+        ## Note about props
+
+        'Map' is a wrapper around the 'MapRenderer' component, that makes sure the Google API is loaded on the page. 
+        You don't need to use 'MapRenderer' directly.
+        'Map' will pass props that are not needed for loading the API to 'MapRenderer', so you can provide them all together.
         `,
             },
         }
