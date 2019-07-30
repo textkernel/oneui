@@ -33,7 +33,7 @@ Map.propTypes = {
      * For adetails see: https://developers.google.com/maps/documentation/javascript/localization#Region
      */
     region: PropTypes.string,
-    /** other props to pass to the google loader. For details see: https://developers.google.com/maps/documentation/javascript/localization#Region */
+    /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
     additionalGoogleProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     ...MapRenderer.propTypes,
 };
