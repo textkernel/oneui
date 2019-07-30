@@ -20,7 +20,7 @@ const MapRenderer = React.forwardRef((props, ref) => {
     const { center, zoom, markers, mapContainerStyle, ...rest } = props;
     const mapRef = ref || React.createRef();
 
-    const fitBounds = () => {
+    const fitBounds = React.useCallback(() => {
         if (!mapRef.current || !mapRef.current.state.map) return;
         const { map } = mapRef.current.state;
 
@@ -44,9 +44,9 @@ const MapRenderer = React.forwardRef((props, ref) => {
             map.setCenter(center);
             map.setZoom(zoom);
         }
-    };
+    });
 
-    useEffect(() => fitBounds());
+    useEffect(fitBounds);
 
     return (
         <GoogleMap
