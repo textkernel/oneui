@@ -3,6 +3,7 @@
 exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
 <FieldWrapper
   clearLabel="Clear"
+  isFocused={false}
   onClear={null}
   showClearButton={true}
 >
@@ -42,6 +43,7 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
 exports[`FieldWrapper should render correctly 1`] = `
 <FieldWrapper
   clearLabel=""
+  isFocused={false}
   onClear={null}
   showClearButton={false}
 >

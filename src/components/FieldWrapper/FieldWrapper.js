@@ -7,7 +7,7 @@ import styles from './FieldWrapper.scss';
 const { block, elem } = bem({
     name: 'FieldWrapper',
     classnames: styles,
-    propsToMod: ['isFocused'],
+    propsToMods: ['isFocused'],
 });
 
 const FieldWrapper = React.forwardRef((props, ref) => {
@@ -49,12 +49,15 @@ FieldWrapper.propTypes = {
     clearLabel: PropTypes.string,
     /** reset the selected suggestions array to it's default value */
     onClear: PropTypes.func,
+    /** to style the field as it is focused */
+    isFocused: PropTypes.bool,
 };
 
 FieldWrapper.defaultProps = {
     showClearButton: false,
     clearLabel: '',
     onClear: null,
+    isFocused: false,
 };
 
 export default FieldWrapper;
