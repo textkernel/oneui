@@ -18,7 +18,6 @@ const circleOptions = radius => ({
 
 const MapRenderer = React.forwardRef((props, ref) => {
     const { center, zoom, markers, mapContainerStyle, ...rest } = props;
-    const positions = markers.map(marker => ({ lat: marker.lat, lng: marker.lng }));
     const mapRef = ref || React.createRef();
 
     const fitBounds = () => {
@@ -29,12 +28,15 @@ const MapRenderer = React.forwardRef((props, ref) => {
 
         if (markers.length) {
             const bounds = new LatLngBounds();
-            markers.forEach((marker, i) => {
+            markers.forEach(marker => {
                 if (marker.radius) {
-                    const circle = new CircleClass({ center: positions[i], radius: marker.radius });
+                    const circle = new CircleClass({
+                        center: marker.position,
+                        radius: marker.radius,
+                    });
                     bounds.union(circle.getBounds());
                 } else {
-                    bounds.extend(positions[i]);
+                    bounds.extend(marker.position);
                 }
                 map.fitBounds(bounds);
             });
@@ -62,9 +64,8 @@ const MapRenderer = React.forwardRef((props, ref) => {
             {...rest}
         >
             {!!markers.length &&
-                markers.map((marker, i) => {
-                    const { radius } = marker;
-                    const position = positions[i];
+                markers.map(marker => {
+                    const { position, radius } = marker;
                     const positionStr = `${position.lat}-${position.lng}`;
                     return (
                         <React.Fragment key={positionStr}>
@@ -101,8 +102,10 @@ MapRenderer.propTypes = {
      */
     markers: PropTypes.arrayOf(
         PropTypes.shape({
-            lng: PropTypes.number.isRequired,
-            lat: PropTypes.number.isRequired,
+            position: PropTypes.shape({
+                lng: PropTypes.number.isRequired,
+                lat: PropTypes.number.isRequired,
+            }),
             radius: PropTypes.number,
         })
     ),

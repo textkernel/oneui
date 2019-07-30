@@ -11,13 +11,17 @@ stabGoogleApi();
 
 describe('<MapRendered/> that renders a Map with markers', () => {
     const regionMarker = {
-        lat: 52.3922288,
-        lng: 4.9338793,
+        position: {
+            lat: 52.3922288,
+            lng: 4.9338793,
+        },
         radius: 30000,
     };
     const pointMarker = {
-        lat: 52.5112671,
-        lng: 7.2535521,
+        position: {
+            lat: 52.5112671,
+            lng: 7.2535521,
+        },
     };
 
     it('should render with default props', () => {

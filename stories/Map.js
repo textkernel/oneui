@@ -11,13 +11,17 @@ storiesOf('Atoms|Map', module)
         'Map',
         () => {
             const defaultMarker = {
-                lat: number('Latitude 1', 52.3922288),
-                lng: number('Longitude 1', 4.9338793),
+                position: {
+                    lat: number('Latitude 1', 52.3922288),
+                    lng: number('Longitude 1', 4.9338793),
+                },
                 radius: number('Radius in meters 1', 30000),
             };
             const addedMarker = {
-                lat: number('Latitude 2', 52.5112671),
-                lng: number('Longitude 2', 7.2535521),
+                position: {
+                    lat: number('Latitude 2', 52.5112671),
+                    lng: number('Longitude 2', 7.2535521),
+                },
                 radius: number('Radius in meters 2', 30000),
             };
             const markers = {
@@ -34,10 +38,7 @@ storiesOf('Atoms|Map', module)
                         height: text('Container height', '400px'),
                     }}
                 >
-                    <Map
-                        apiKey="Please provide a key"
-                        markers={select('Markers', markers, [defaultMarker])}
-                    />
+                    <Map apiKey="" markers={select('Markers', markers, [defaultMarker])} />
                 </div>
             );
         },
