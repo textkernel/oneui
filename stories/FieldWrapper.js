@@ -5,7 +5,7 @@ import { FieldWrapper, Text } from '@textkernel/oneui';
 
 storiesOf('Molecules|FieldWrapper', module)
     .addDecorator(withKnobs)
-    .add('Molecules|FieldWrapper', () => {
+    .add('FieldWrapper', () => {
         return (
             <FieldWrapper
                 clearLabel={text('Clear button label', 'Clear')}

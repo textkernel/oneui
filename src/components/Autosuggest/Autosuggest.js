@@ -257,6 +257,7 @@ class Autosuggest extends React.Component {
             onClearAllSelected,
             isMultiselect,
             isProminent,
+            style,
             ...rest
         } = this.props;
         const { inputValue, focused, originHeight, originWidth } = this.state;
@@ -265,7 +266,7 @@ class Autosuggest extends React.Component {
         const hideInputPlaceholder = !focused && !!selectedPlaceholder;
         const doShowClearButton =
             showClearButton && !!selectedSuggestions && !!selectedSuggestions.length && !focused;
-        const rootStyle = { position: 'relative' };
+        const rootStyle = { ...style };
 
         if (focused) {
             rootStyle.height = originHeight;
@@ -273,7 +274,7 @@ class Autosuggest extends React.Component {
         }
 
         return (
-            <div ref={this.rootRef} style={rootStyle}>
+            <div {...rest} ref={this.rootRef} style={rootStyle} {...block(stateAndProps)}>
                 <Downshift
                     onChange={this.handleChange}
                     itemToString={suggestionToString}
@@ -291,11 +292,12 @@ class Autosuggest extends React.Component {
                         highlightedIndex,
                         openMenu,
                     }) => (
-                        <div {...rest} {...block(stateAndProps)}>
+                        <div {...elem('main', stateAndProps)}>
                             <FieldWrapper
                                 clearLabel={clearTitle}
                                 onClear={this.handleClearSelectedSuggestions}
                                 showClearButton={doShowClearButton}
+                                isFocused={focused}
                                 {...elem('field', stateAndProps)}
                             >
                                 <div

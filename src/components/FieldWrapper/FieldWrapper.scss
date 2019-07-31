@@ -22,6 +22,10 @@
         margin-left: var(--spacing-2x);
     }
 
+    &__content {
+        width: 100%;
+    }
+
     &:hover {
         border-color: var(--color-brand);
 

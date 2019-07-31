@@ -20,11 +20,12 @@ const FieldWrapper = React.forwardRef((props, ref) => {
         }
     };
 
-    const { children, clearLabel, showClearButton, onClear, refKey, isFocused, ...rest } = props;
+    const { children, clearLabel, showClearButton, onClear, isFocused, ...rest } = props;
 
     return (
         <div ref={ref} {...rest} {...block(props)}>
-            {children}
+            <div {...elem('content', props)}>{children}</div>
+
             {showClearButton && (
                 <Button
                     isInline
