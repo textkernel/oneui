@@ -26,7 +26,7 @@
         }
     }
 
-    &__field--focused {
+    &__field {
         padding: 0;
     }
 
@@ -37,11 +37,7 @@
         align-items: center;
         min-height: 30px;
         outline: none;
-
-        &--focused {
-            padding: var(--spacing-normal);
-            border-bottom: 1px solid var(--border-color-light);
-        }
+        padding: var(--spacing-normal);
     }
 
     &__spacedElem {
@@ -67,6 +63,7 @@
     &__list--focused {
         max-height: 200px;
         overflow: auto;
+        border-top: 1px solid var(--border-color-light);
     }
 
     &__loaderContainer {

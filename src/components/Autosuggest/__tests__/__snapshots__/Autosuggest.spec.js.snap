@@ -49,6 +49,7 @@ exports[`Autosuggest rendering should initally render empty component correctly 
         role="combobox"
       >
         <FieldWrapper
+          className="Autosuggest__field"
           clearLabel="Clear"
           isFocused={false}
           onClear={[Function]}
@@ -57,7 +58,7 @@ exports[`Autosuggest rendering should initally render empty component correctly 
           showClearButton={false}
         >
           <div
-            className="FieldWrapper"
+            className="FieldWrapper Autosuggest__field"
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -158,7 +159,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
         role="combobox"
       >
         <FieldWrapper
-          className="Autosuggest__field--focused"
+          className="Autosuggest__field"
           clearLabel="Clear"
           isFocused={true}
           onClear={[Function]}
@@ -167,7 +168,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
           showClearButton={false}
         >
           <div
-            className="FieldWrapper FieldWrapper--isFocused Autosuggest__field--focused"
+            className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -175,7 +176,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
               className="FieldWrapper__content"
             >
               <div
-                className="Autosuggest__wrapper Autosuggest__wrapper--focused"
+                className="Autosuggest__wrapper"
                 role="searchbox"
                 tabIndex="0"
               >
@@ -457,6 +458,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
         role="combobox"
       >
         <FieldWrapper
+          className="Autosuggest__field"
           clearLabel="Clear"
           isFocused={false}
           onClear={[Function]}
@@ -465,7 +467,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
           showClearButton={false}
         >
           <div
-            className="FieldWrapper"
+            className="FieldWrapper Autosuggest__field"
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -626,7 +628,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
         role="combobox"
       >
         <FieldWrapper
-          className="Autosuggest__field--focused"
+          className="Autosuggest__field"
           clearLabel="Clear"
           isFocused={true}
           onClear={[Function]}
@@ -635,7 +637,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
           showClearButton={false}
         >
           <div
-            className="FieldWrapper FieldWrapper--isFocused Autosuggest__field--focused"
+            className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -643,7 +645,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
               className="FieldWrapper__content"
             >
               <div
-                className="Autosuggest__wrapper Autosuggest__wrapper--focused"
+                className="Autosuggest__wrapper"
                 role="searchbox"
                 tabIndex="0"
               >
