@@ -36,6 +36,7 @@
         flex-wrap: wrap;
         align-items: center;
         min-height: 30px;
+        outline: none;
 
         &--focused {
             padding: var(--spacing-normal);
