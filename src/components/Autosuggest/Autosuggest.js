@@ -30,29 +30,12 @@ class Autosuggest extends React.Component {
             inputValue: '',
             inputValueRecall: '',
             focused: false,
-            originHeight: 'auto',
-            originWidth: 'auto',
         };
 
         this.handleTagDeleteClick = memoize(this.handleTagDeleteClick);
         this.handleWrapperClick = memoize(this.handleWrapperClick);
         this.handleWrapperKeyDown = memoize(this.handleWrapperKeyDown);
     }
-
-    componentDidMount() {
-        this.setRootSize();
-        window.addEventListener('resize', this.setRootSize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.setRootSize);
-    }
-
-    setRootSize = () => {
-        if (!this.rootRef.current) return;
-        const { height, width } = this.rootRef.current.getBoundingClientRect();
-        this.setState({ originHeight: height, originWidth: width });
-    };
 
     handleChange = selectedItem => {
         const { onSelectionChange, isMultiselect } = this.props;
@@ -261,24 +244,17 @@ class Autosuggest extends React.Component {
             onClearAllSelected,
             isMultiselect,
             isProminent,
-            style,
             ...rest
         } = this.props;
-        const { inputValue, focused, originHeight, originWidth } = this.state;
+        const { inputValue, focused } = this.state;
 
         const stateAndProps = { ...this.props, ...this.state };
         const hideInputPlaceholder = !focused && !!selectedPlaceholder;
         const doShowClearButton =
             showClearButton && !!selectedSuggestions && !!selectedSuggestions.length && !focused;
-        const rootStyle = { ...style };
-
-        if (focused) {
-            rootStyle.height = originHeight;
-            rootStyle.width = originWidth;
-        }
 
         return (
-            <div {...rest} ref={this.rootRef} style={rootStyle} {...block(stateAndProps)}>
+            <div {...rest} ref={this.rootRef} {...block(stateAndProps)}>
                 <Downshift
                     onChange={this.handleChange}
                     itemToString={suggestionToString}

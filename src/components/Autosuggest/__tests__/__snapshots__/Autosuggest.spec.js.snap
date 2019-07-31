@@ -21,7 +21,6 @@ exports[`Autosuggest rendering should initally render empty component correctly 
 >
   <div
     className="Autosuggest"
-    style={Object {}}
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -131,12 +130,6 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
 >
   <div
     className="Autosuggest"
-    style={
-      Object {
-        "height": 0,
-        "width": 0,
-      }
-    }
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -436,7 +429,6 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
 >
   <div
     className="Autosuggest"
-    style={Object {}}
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -606,12 +598,6 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
 >
   <div
     className="Autosuggest"
-    style={
-      Object {
-        "height": 0,
-        "width": 0,
-      }
-    }
   >
     <Downshift
       defaultHighlightedIndex={0}
