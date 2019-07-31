@@ -49,7 +49,6 @@ $slider-indication-width: 110px;
     &__slider-label {
         width: $slider-indication-width;
         margin: 0;
-        align-self: flex-end;
-        text-align: end;
+        text-align: right;
     }
 }
