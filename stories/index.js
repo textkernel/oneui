@@ -27,5 +27,5 @@ import './Navigation';
 import './Pagination';
 import './RadioButton';
 import './Teaser';
-// Organizms
+// Organisms
 import './Autosuggest';

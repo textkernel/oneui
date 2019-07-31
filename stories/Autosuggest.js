@@ -7,7 +7,7 @@ import {
     SUGGESTION_TO_STRING,
 } from '../src/components/Autosuggest/__mocks__/suggestions';
 
-storiesOf('Organizms|Autosuggest', module)
+storiesOf('Organisms|Autosuggest', module)
     .addDecorator(withKnobs)
     .add('Single select with icon', () => (
         <Autosuggest
