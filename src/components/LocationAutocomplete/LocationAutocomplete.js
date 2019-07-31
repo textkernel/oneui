@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 // import PropTypes from 'prop-types';
 import { useLoadScript } from '@react-google-maps/api';
 import { Autosuggest } from '../Autosuggest';
@@ -15,26 +15,34 @@ import { Autosuggest } from '../Autosuggest';
 const LOAD_SCRIPT_LIBRARIES = ['places'];
 
 const LocationAutocomplete = () => {
-    const [inputValue, setInputValue] = useState('');
-    const [placesList, setPlacesList] = useState([]);
+    const [inputValue, setInputValue] = React.useState('');
+    const [placesList, setPlacesList] = React.useState([]);
+    const [setIsLoading] = React.useState(false);
+
     const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: 'YOUR_KEY',
+        googleMapsApiKey: '',
         libraries: LOAD_SCRIPT_LIBRARIES,
     });
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (inputValue) {
             const service = new window.google.maps.places.AutocompleteService();
-            service.getQueryPredictions(
+            service.getPlacePredictions(
                 {
                     input: inputValue,
+                    types: ['(regions)'],
                 },
                 predictions => setPlacesList(predictions)
             );
+        } else {
+            setPlacesList([]);
         }
     }, [inputValue]);
 
-    const handleInputValueChange = value => setInputValue(value);
+    const handleInputValueChange = value => {
+        setInputValue(value);
+        setIsLoading(true);
+    };
 
     const handleSelectionChange = () => null;
 
