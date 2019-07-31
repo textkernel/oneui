@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withInfo } from '@storybook/addon-info';
-import { withKnobs, number, select, text } from '@storybook/addon-knobs';
+import { withKnobs, select, text } from '@storybook/addon-knobs';
 import { Map } from '@textkernel/oneui';
 
 storiesOf('Atoms|Map', module)
@@ -12,17 +12,17 @@ storiesOf('Atoms|Map', module)
         () => {
             const defaultMarker = {
                 center: {
-                    lat: number('Latitude 1', 52.3922288),
-                    lng: number('Longitude 1', 4.9338793),
+                    lat: 52.3922288,
+                    lng: 4.9338793,
                 },
-                radius: number('Radius in meters 1', 30000),
+                radius: 30000,
             };
             const addedMarker = {
                 center: {
-                    lat: number('Latitude 2', 52.5112671),
-                    lng: number('Longitude 2', 7.2535521),
+                    lat: 52.5112671,
+                    lng: 7.2535521,
                 },
-                radius: number('Radius in meters 2', 30000),
+                radius: 30000,
             };
             const markers = {
                 marker1: [defaultMarker],
