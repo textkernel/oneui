@@ -43,25 +43,28 @@ const List = React.forwardRef((props, ref) => {
             highlightedListItem.current.scrollIntoView(SCROLL_INTO_VIEW_SETTINGS);
             setHighlightedWithKeyboard(false);
         }
-    }, [selectedIndex]);
+    }, [highlightedWithKeyboard, selectedIndex]);
 
-    const getNextSelectedIndex = useCallback(keyCode => {
-        const stepValue = NAVIGATION_STEP_VALUES[keyCode];
-        const nextSelectedIndex = selectedIndex + stepValue;
+    const getNextSelectedIndex = useCallback(
+        keyCode => {
+            const stepValue = NAVIGATION_STEP_VALUES[keyCode];
+            const nextSelectedIndex = selectedIndex + stepValue;
 
-        // Return 0 index if nextSelectedIndex has negative value or selectedIndex hasn't been updated before
-        if (nextSelectedIndex < 0 || selectedIndex === null) {
-            return 0;
-        }
+            // Return 0 index if nextSelectedIndex has negative value or selectedIndex hasn't been updated before
+            if (nextSelectedIndex < 0 || selectedIndex === null) {
+                return 0;
+            }
 
-        // Return last React.Children index if nextSelectedIndex is out of the right bound
-        if (nextSelectedIndex >= children.length) {
-            return children.length - 1;
-        }
+            // Return last React.Children index if nextSelectedIndex is out of the right bound
+            if (nextSelectedIndex >= children.length) {
+                return children.length - 1;
+            }
 
-        // Return nextSelectedIndex without any changes for others cases
-        return nextSelectedIndex;
-    });
+            // Return nextSelectedIndex without any changes for others cases
+            return nextSelectedIndex;
+        },
+        [selectedIndex, children]
+    );
 
     const handleKeyDown = useCallback(
         e => {
@@ -98,7 +101,7 @@ const List = React.forwardRef((props, ref) => {
                 }
             }
         },
-        [selectedIndex]
+        [children, getNextSelectedIndex, onNavigate, onSelect, selectedIndex]
     );
 
     const handleMouseEnter = index => {

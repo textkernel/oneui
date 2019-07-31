@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Map/> that loads google api and renders a Map should render with default props 1`] = `
+<Map
+  additionalGoogleProps={Object {}}
+  apiKey="someKey"
+  center={
+    Object {
+      "lat": 52.3922288,
+      "lng": 4.9338793,
+    }
+  }
+  mapContainerStyle={
+    Object {
+      "height": "100%",
+      "width": "100%",
+    }
+  }
+  markers={Array []}
+  zoom={7}
+>
+  <LoadScriptNext
+    googleMapsApiKey="someKey"
+    loadingElement={
+      <LoadingSpinner
+        centerIn="parent"
+        context="brand"
+        hidden={false}
+        size={null}
+      />
+    }
+  >
+    <LoadingSpinner
+      centerIn="parent"
+      context="brand"
+      hidden={false}
+      size={null}
+    >
+      <div
+        aria-busy={true}
+        aria-hidden={false}
+        className="LoadingSpinner LoadingSpinner--centerIn_parent"
+        role="status"
+      >
+        <svg
+          className="LoadingSpinner__svg"
+          style={null}
+          viewBox={
+            Array [
+              0,
+              0,
+              44,
+              44,
+            ]
+          }
+        >
+          <circle
+            className="LoadingSpinner__path LoadingSpinner__path--context_brand"
+            cx="22"
+            cy="22"
+            fill="none"
+            r="20"
+            strokeWidth="4"
+          />
+        </svg>
+      </div>
+    </LoadingSpinner>
+  </LoadScriptNext>
+</Map>
+`;
