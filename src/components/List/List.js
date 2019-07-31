@@ -43,7 +43,7 @@ const List = React.forwardRef((props, ref) => {
             highlightedListItem.current.scrollIntoView(SCROLL_INTO_VIEW_SETTINGS);
             setHighlightedWithKeyboard(false);
         }
-    }, [selectedIndex]);
+    }, [highlightedWithKeyboard, selectedIndex]);
 
     const getNextSelectedIndex = keyCode => {
         const stepValue = NAVIGATION_STEP_VALUES[keyCode];
