@@ -81,11 +81,12 @@ storiesOf('Organisms|Autosuggest', module)
             };
 
             const onSelectionChange = item => {
+                console.log(`onSelectionChange was called with ${item.name}`);
                 if (selectedSuggestions.includes(item)) {
-                    setSelectedSuggestions(selectedSuggestions.filter(el => el !== item));
+                    const newSelection = selectedSuggestions.filter(el => el.name !== item.name);
+                    setSelectedSuggestions(newSelection);
                 } else {
-                    selectedSuggestions.push(item);
-                    setSelectedSuggestions(selectedSuggestions);
+                    setSelectedSuggestions([...selectedSuggestions, item]);
                 }
             };
 
