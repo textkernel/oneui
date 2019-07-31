@@ -7,6 +7,7 @@ storiesOf('Molecules|LocationCard', module)
     .addDecorator(withKnobs)
     .add('LocationCard', () => (
         <LocationCard
+            locationId={text('Location id', 'ajdo-219a-j19v-0491')}
             locationTitle={text('Location title', 'London')}
             distanceRadius={number('Distance radius', 42)}
             sliderLabel="+42 km"
@@ -14,6 +15,6 @@ storiesOf('Molecules|LocationCard', module)
             maxRadius={number('Max radius', 100)}
             radiusStep={number('Step', 1)}
             onRadiusChange={value => console.log(value)}
-            onDelete={() => console.log('Delete')}
+            onDelete={id => console.log(`Delete called on ${id}`)}
         />
     ));

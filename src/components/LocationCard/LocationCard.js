@@ -12,6 +12,7 @@ const { block, elem } = bem({
 
 const LocationCard = props => {
     const {
+        locationId,
         locationTitle,
         distanceRadius,
         sliderLabel,
@@ -23,13 +24,15 @@ const LocationCard = props => {
         ...rest
     } = props;
 
+    const handleDelete = () => onDelete(locationId);
+
     return (
         <div {...rest} {...block(props)}>
             <div {...elem('header', props)}>
                 <Text size={SIZES[2]} {...elem('title', props)}>
                     {locationTitle}
                 </Text>
-                <button onClick={onDelete} type="button" {...elem('delete-button', props)}>
+                <button onClick={handleDelete} type="button" {...elem('delete-button', props)}>
                     {CROSS_CHAR}
                 </button>
             </div>
@@ -52,6 +55,8 @@ const LocationCard = props => {
 LocationCard.displayName = 'LocationCard';
 
 LocationCard.propTypes = {
+    /** Location id */
+    locationId: PropTypes.string,
     /** Location title */
     locationTitle: PropTypes.string.isRequired,
     /** Slider indication string for displaying its formatted value */
@@ -72,6 +77,7 @@ LocationCard.propTypes = {
 };
 
 LocationCard.defaultProps = {
+    locationId: null,
     sliderLabel: '',
     minRadius: 1,
     maxRadius: 100,
