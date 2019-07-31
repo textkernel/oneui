@@ -33,11 +33,6 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
         type="button"
       >
         Clear
-        <span
-          className="FieldWrapper__buttonIcon"
-        >
-          ×
-        </span>
       </button>
     </Button>
   </div>

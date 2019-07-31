@@ -34,7 +34,6 @@ const FieldWrapper = React.forwardRef((props, ref) => {
                     {...elem('clearButton', props)}
                 >
                     {clearLabel}
-                    <span {...elem('buttonIcon', props)}>&times;</span>
                 </Button>
             )}
         </div>
