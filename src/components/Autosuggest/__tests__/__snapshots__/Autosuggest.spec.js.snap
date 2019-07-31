@@ -53,18 +53,20 @@ exports[`Autosuggest rendering should initally render empty component correctly 
           clearLabel="Clear"
           isFocused={false}
           onClear={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
           showClearButton={false}
         >
           <div
             className="FieldWrapper"
+            onClick={[Function]}
+            onKeyDown={[Function]}
           >
             <div
               className="FieldWrapper__content"
             >
               <div
                 className="Autosuggest__wrapper"
-                onClick={[Function]}
-                onKeyDown={[Function]}
                 role="searchbox"
                 tabIndex="0"
               >
@@ -167,18 +169,20 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
           clearLabel="Clear"
           isFocused={true}
           onClear={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
           showClearButton={false}
         >
           <div
             className="FieldWrapper FieldWrapper--isFocused Autosuggest__field--focused"
+            onClick={[Function]}
+            onKeyDown={[Function]}
           >
             <div
               className="FieldWrapper__content"
             >
               <div
                 className="Autosuggest__wrapper Autosuggest__wrapper--focused"
-                onClick={[Function]}
-                onKeyDown={[Function]}
                 role="searchbox"
                 tabIndex="0"
               >
@@ -464,18 +468,20 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
           clearLabel="Clear"
           isFocused={false}
           onClear={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
           showClearButton={false}
         >
           <div
             className="FieldWrapper"
+            onClick={[Function]}
+            onKeyDown={[Function]}
           >
             <div
               className="FieldWrapper__content"
             >
               <div
                 className="Autosuggest__wrapper"
-                onClick={[Function]}
-                onKeyDown={[Function]}
                 role="searchbox"
                 tabIndex="0"
               >
@@ -638,18 +644,20 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
           clearLabel="Clear"
           isFocused={true}
           onClear={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
           showClearButton={false}
         >
           <div
             className="FieldWrapper FieldWrapper--isFocused Autosuggest__field--focused"
+            onClick={[Function]}
+            onKeyDown={[Function]}
           >
             <div
               className="FieldWrapper__content"
             >
               <div
                 className="Autosuggest__wrapper Autosuggest__wrapper--focused"
-                onClick={[Function]}
-                onKeyDown={[Function]}
                 role="searchbox"
                 tabIndex="0"
               >

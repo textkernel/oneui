@@ -126,11 +126,15 @@ class Autosuggest extends React.Component {
     };
 
     handleWrapperClick = openMenu => () => {
-        this.focus(openMenu);
+        const { focused } = this.state;
+        if (!focused) {
+            this.focus(openMenu);
+        }
     };
 
     handleWrapperKeyDown = openMenu => e => {
-        if (e.key === ENTER_KEY) {
+        const { focused } = this.state;
+        if (!focused && e.key === ENTER_KEY) {
             this.focus(openMenu);
         }
     };
@@ -298,12 +302,12 @@ class Autosuggest extends React.Component {
                                 onClear={this.handleClearSelectedSuggestions}
                                 showClearButton={doShowClearButton}
                                 isFocused={focused}
+                                onClick={this.handleWrapperClick(openMenu)}
+                                onKeyDown={this.handleWrapperKeyDown(openMenu)}
                                 {...elem('field', stateAndProps)}
                             >
                                 <div
                                     tabIndex="0"
-                                    onClick={this.handleWrapperClick(openMenu)}
-                                    onKeyDown={this.handleWrapperKeyDown(openMenu)}
                                     role="searchbox"
                                     {...elem('wrapper', stateAndProps)}
                                 >
