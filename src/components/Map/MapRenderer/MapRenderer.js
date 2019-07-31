@@ -31,12 +31,12 @@ const MapRenderer = React.forwardRef((props, ref) => {
             markers.forEach(marker => {
                 if (marker.radius) {
                     const circle = new CircleClass({
-                        center: marker.position,
+                        center: marker.center,
                         radius: marker.radius,
                     });
                     bounds.union(circle.getBounds());
                 } else {
-                    bounds.extend(marker.position);
+                    bounds.extend(marker.center);
                 }
                 map.fitBounds(bounds);
             });
@@ -44,7 +44,7 @@ const MapRenderer = React.forwardRef((props, ref) => {
             map.setCenter(center);
             map.setZoom(zoom);
         }
-    });
+    }, [center, mapRef, markers, zoom]);
 
     useEffect(fitBounds);
 
@@ -65,15 +65,15 @@ const MapRenderer = React.forwardRef((props, ref) => {
         >
             {!!markers.length &&
                 markers.map(marker => {
-                    const { position, radius } = marker;
-                    const positionStr = `${position.lat}-${position.lng}`;
+                    const { center: mCenter, radius } = marker;
+                    const positionStr = `${mCenter.lat}-${mCenter.lng}`;
                     return (
                         <React.Fragment key={positionStr}>
-                            <Marker key={`${positionStr}-marker`} position={position} />
+                            <Marker key={`${positionStr}-marker`} position={mCenter} />
                             {!!radius && (
                                 <Circle
                                     key={`${positionStr}-circle`}
-                                    center={position}
+                                    center={mCenter}
                                     options={circleOptions(radius)}
                                 />
                             )}
@@ -102,7 +102,7 @@ MapRenderer.propTypes = {
      */
     markers: PropTypes.arrayOf(
         PropTypes.shape({
-            position: PropTypes.shape({
+            center: PropTypes.shape({
                 lng: PropTypes.number.isRequired,
                 lat: PropTypes.number.isRequired,
             }),

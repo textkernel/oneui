@@ -11,14 +11,14 @@ storiesOf('Atoms|Map', module)
         'Map',
         () => {
             const defaultMarker = {
-                position: {
+                center: {
                     lat: number('Latitude 1', 52.3922288),
                     lng: number('Longitude 1', 4.9338793),
                 },
                 radius: number('Radius in meters 1', 30000),
             };
             const addedMarker = {
-                position: {
+                center: {
                     lat: number('Latitude 2', 52.5112671),
                     lng: number('Longitude 2', 7.2535521),
                 },
