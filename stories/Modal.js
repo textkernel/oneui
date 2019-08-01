@@ -1,8 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
-import { Modal } from '@textkernel/oneui';
+import { State, Store } from '@sambego/storybook-state';
+import { Modal, Button } from '@textkernel/oneui';
 
 storiesOf('Atoms|Modal', module)
     .addDecorator(withKnobs)
@@ -10,18 +11,27 @@ storiesOf('Atoms|Modal', module)
     .add(
         'Modal',
         () => {
-            const onClose = () => console.log('Modal was requested to be closed.');
+            const store = new Store({ isOpen: false });
+            const onClose = () => {
+                console.log('Modal was requested to be closed.');
+                store.set({ isOpen: false });
+            };
             return (
-                <Modal
-                    isOpen={boolean('Open', false)}
-                    contentLabel={text(
-                        'Label for content visible to screenreaders',
-                        'My superb modal'
-                    )}
-                    onRequestClose={onClose}
-                >
-                    Some content
-                </Modal>
+                <div>
+                    <State store={store}>
+                        <Button onClick={() => store.set({ isOpen: true })}>Open Modal</Button>
+                        <Modal
+                            isOpen={store.get('isOpen')}
+                            contentLabel={text(
+                                'Label for content visible to screenreaders',
+                                'My superb modal'
+                            )}
+                            onRequestClose={onClose}
+                        >
+                            Some content
+                        </Modal>
+                    </State>
+                </div>
             );
         },
         {
@@ -37,8 +47,6 @@ storiesOf('Atoms|Modal', module)
                 To do this call the following function once:
 
                 > __Modal.setAppElement__(appElementSelector);
-
-                To see the modal in action here, change the Open prop to 'true' in the Knobs section.
                 `,
             },
         }
