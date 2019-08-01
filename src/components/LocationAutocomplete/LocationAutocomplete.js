@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import { useLoadScript } from '@react-google-maps/api';
 import { Autosuggest } from '../Autosuggest';
+import useDebounce from '../../hooks/useDebounce';
 // import bem from 'bem';
 // import styles from './Heading.scss';
 // import { HEADING_SIZES } from '../../constants';
@@ -13,11 +14,14 @@ import { Autosuggest } from '../Autosuggest';
 // });
 
 const LOAD_SCRIPT_LIBRARIES = ['places'];
+const PLACE_PREDICTIONS_TYPES = ['(regions)'];
 
 const LocationAutocomplete = () => {
     const [inputValue, setInputValue] = React.useState('');
     const [placesList, setPlacesList] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
+
+    const debouncedInputValue = useDebounce(inputValue, 350);
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: '',
@@ -25,29 +29,32 @@ const LocationAutocomplete = () => {
     });
 
     React.useEffect(() => {
-        if (inputValue) {
-            console.log(1);
+        if (debouncedInputValue) {
             const service = new window.google.maps.places.AutocompleteService();
 
-            console.log(2);
             service.getPlacePredictions(
                 {
-                    input: inputValue,
-                    types: ['(regions)'],
+                    input: debouncedInputValue,
+                    types: PLACE_PREDICTIONS_TYPES,
                 },
-                predictions => setPlacesList(predictions)
+                predictions => {
+                    setPlacesList(predictions);
+                    setIsLoading(false);
+                }
             );
-            setIsLoading(false);
-
-            console.log(3);
         } else {
             setPlacesList([]);
         }
-    }, [inputValue]);
+    }, [debouncedInputValue]);
 
     const handleInputValueChange = value => {
-        setInputValue(value);
-        setIsLoading(true);
+        if (value) {
+            setIsLoading(true);
+            setInputValue(value);
+        } else {
+            setIsLoading(false);
+            setPlacesList([]);
+        }
     };
 
     const handleSelectionChange = () => null;
@@ -64,7 +71,7 @@ const LocationAutocomplete = () => {
                 getSuggestions={getSuggestions}
                 suggestionToString={suggestionToString}
                 isLoading={isLoading}
-                inputPlaceholder="Select something..."
+                inputPlaceholder="Enter a city, region or postal code"
                 noSuggestionsPlaceholder="No suggestions found..."
                 clearTitle="Clear"
                 onInputValueChange={handleInputValueChange}
