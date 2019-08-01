@@ -30,29 +30,12 @@ class Autosuggest extends React.Component {
             inputValue: '',
             inputValueRecall: '',
             focused: false,
-            originHeight: 'auto',
-            originWidth: 'auto',
         };
 
         this.handleTagDeleteClick = memoize(this.handleTagDeleteClick);
         this.handleWrapperClick = memoize(this.handleWrapperClick);
         this.handleWrapperKeyDown = memoize(this.handleWrapperKeyDown);
     }
-
-    componentDidMount() {
-        this.setRootSize();
-        window.addEventListener('resize', this.setRootSize);
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('resize', this.setRootSize);
-    }
-
-    setRootSize = () => {
-        if (!this.rootRef.current) return;
-        const { height, width } = this.rootRef.current.getBoundingClientRect();
-        this.setState({ originHeight: height, originWidth: width });
-    };
 
     handleChange = selectedItem => {
         const { onSelectionChange, isMultiselect } = this.props;
@@ -126,11 +109,15 @@ class Autosuggest extends React.Component {
     };
 
     handleWrapperClick = openMenu => () => {
-        this.focus(openMenu);
+        const { focused } = this.state;
+        if (!focused) {
+            this.focus(openMenu);
+        }
     };
 
     handleWrapperKeyDown = openMenu => e => {
-        if (e.key === ENTER_KEY) {
+        const { focused } = this.state;
+        if (!focused && e.key === ENTER_KEY) {
             this.focus(openMenu);
         }
     };
@@ -259,21 +246,15 @@ class Autosuggest extends React.Component {
             isProminent,
             ...rest
         } = this.props;
-        const { inputValue, focused, originHeight, originWidth } = this.state;
+        const { inputValue, focused } = this.state;
 
         const stateAndProps = { ...this.props, ...this.state };
         const hideInputPlaceholder = !focused && !!selectedPlaceholder;
         const doShowClearButton =
             showClearButton && !!selectedSuggestions && !!selectedSuggestions.length && !focused;
-        const rootStyle = { position: 'relative' };
-
-        if (focused) {
-            rootStyle.height = originHeight;
-            rootStyle.width = originWidth;
-        }
 
         return (
-            <div ref={this.rootRef} style={rootStyle}>
+            <div {...rest} ref={this.rootRef} {...block(stateAndProps)}>
                 <Downshift
                     onChange={this.handleChange}
                     itemToString={suggestionToString}
@@ -291,17 +272,18 @@ class Autosuggest extends React.Component {
                         highlightedIndex,
                         openMenu,
                     }) => (
-                        <div {...rest} {...block(stateAndProps)}>
+                        <div {...elem('main', stateAndProps)}>
                             <FieldWrapper
                                 clearLabel={clearTitle}
                                 onClear={this.handleClearSelectedSuggestions}
                                 showClearButton={doShowClearButton}
+                                isFocused={focused}
+                                onClick={this.handleWrapperClick(openMenu)}
+                                onKeyDown={this.handleWrapperKeyDown(openMenu)}
                                 {...elem('field', stateAndProps)}
                             >
                                 <div
                                     tabIndex="0"
-                                    onClick={this.handleWrapperClick(openMenu)}
-                                    onKeyDown={this.handleWrapperKeyDown(openMenu)}
                                     role="searchbox"
                                     {...elem('wrapper', stateAndProps)}
                                 >
