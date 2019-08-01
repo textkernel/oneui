@@ -6,7 +6,7 @@ $slider-indication-width: 110px;
 .LocationCard {
     box-sizing: border-box;
     width: $location-card-width;
-    padding: var(--spacing-3x) var(--spacing-4x);
+    padding: var(--spacing-4x) var(--spacing-5x);
     background-color: var(--color-neutral-25);
 
     &__header {
@@ -23,7 +23,6 @@ $slider-indication-width: 110px;
         width: $close-button-width;
         height: $close-button-height;
         margin: 0;
-        margin-top: calc(var(--spacing-normal) * -1);
         padding: 0;
         font-size: $close-button-height;
         background-color: transparent;
@@ -31,6 +30,7 @@ $slider-indication-width: 110px;
         overflow: hidden;
         outline: none;
         user-select: none;
+        cursor: pointer;
     }
     
     &__slider {

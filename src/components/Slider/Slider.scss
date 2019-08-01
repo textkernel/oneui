@@ -32,12 +32,11 @@ $slider-handle-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
     transition: background-color var(--transition-duration) ease;
     background-color: var(--color-brand);
     box-shadow: $slider-handle-box-shadow;
-    cursor: -webkit-grab;
     cursor: grab;
 
     &:active {
-        cursor: -webkit-grabbing;
         cursor: grabbing;
+        background-color: var(--color-primary);
     }
 
     &:focus {
@@ -52,6 +51,10 @@ $slider-handle-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
     width: 100%;
 
     &:hover .rc-slider-track {
+        background-color: var(--color-brand-40);
+    }
+
+    &:active .rc-slider-track {
         background-color: var(--color-brand-40);
     }
 

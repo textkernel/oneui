@@ -5,6 +5,8 @@ import { Slider, Text } from '../../index';
 import { CROSS_CHAR, SIZES } from '../../constants';
 import styles from './LocationCard.scss';
 
+const MAX_LOCATION_TITLE_LENGTH = 25;
+
 const { block, elem } = bem({
     name: 'LocationCard',
     classnames: styles,
@@ -24,13 +26,21 @@ const LocationCard = props => {
         ...rest
     } = props;
 
+    const getTruncatedTitle = () => {
+        if (locationTitle.length > MAX_LOCATION_TITLE_LENGTH) {
+            return `${locationTitle.substring(0, MAX_LOCATION_TITLE_LENGTH)}...`;
+        }
+
+        return locationTitle;
+    };
+
     const handleDelete = () => onDelete(locationId);
 
     return (
         <div {...rest} {...block(props)}>
             <div {...elem('header', props)}>
-                <Text size={SIZES[2]} {...elem('title', props)}>
-                    {locationTitle}
+                <Text title={locationTitle} size={SIZES[2]} {...elem('title', props)}>
+                    {getTruncatedTitle()}
                 </Text>
                 <button onClick={handleDelete} type="button" {...elem('delete-button', props)}>
                     {CROSS_CHAR}
@@ -57,7 +67,7 @@ LocationCard.displayName = 'LocationCard';
 LocationCard.propTypes = {
     /** Location id */
     locationId: PropTypes.string,
-    /** Location title */
+    /** Location card title. Gets truncated from the end if the string length is more than 25 symbols. */
     locationTitle: PropTypes.string.isRequired,
     /** Slider indication string for displaying its formatted value */
     sliderLabel: PropTypes.string,

@@ -23,9 +23,11 @@ exports[`LocationCard component should render component correctly 1`] = `
         context="default"
         inline={false}
         size="large"
+        title="London"
       >
         <p
           className="Text--size_large LocationCard__title"
+          title="London"
         >
           London
         </p>
