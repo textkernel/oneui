@@ -17,7 +17,7 @@ const LOAD_SCRIPT_LIBRARIES = ['places'];
 const LocationAutocomplete = () => {
     const [inputValue, setInputValue] = React.useState('');
     const [placesList, setPlacesList] = React.useState([]);
-    const [setIsLoading] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(false);
 
     const { isLoaded, loadError } = useLoadScript({
         googleMapsApiKey: '',
@@ -26,7 +26,10 @@ const LocationAutocomplete = () => {
 
     React.useEffect(() => {
         if (inputValue) {
+            console.log(1);
             const service = new window.google.maps.places.AutocompleteService();
+
+            console.log(2);
             service.getPlacePredictions(
                 {
                     input: inputValue,
@@ -34,6 +37,9 @@ const LocationAutocomplete = () => {
                 },
                 predictions => setPlacesList(predictions)
             );
+            setIsLoading(false);
+
+            console.log(3);
         } else {
             setPlacesList([]);
         }
@@ -57,12 +63,15 @@ const LocationAutocomplete = () => {
             <Autosuggest
                 getSuggestions={getSuggestions}
                 suggestionToString={suggestionToString}
+                isLoading={isLoading}
                 inputPlaceholder="Select something..."
                 noSuggestionsPlaceholder="No suggestions found..."
                 clearTitle="Clear"
                 onInputValueChange={handleInputValueChange}
                 onSelectionChange={handleSelectionChange}
                 showClearButton
+                isProminent
+                style={{ width: '650px' }}
             />
         );
     }
