@@ -176,7 +176,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
               className="FieldWrapper__content"
             >
               <div
-                className="Autosuggest__wrapper"
+                className="Autosuggest__wrapper Autosuggest__wrapper--focused"
                 role="searchbox"
                 tabIndex="0"
               >
@@ -645,7 +645,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
               className="FieldWrapper__content"
             >
               <div
-                className="Autosuggest__wrapper"
+                className="Autosuggest__wrapper Autosuggest__wrapper--focused"
                 role="searchbox"
                 tabIndex="0"
               >
