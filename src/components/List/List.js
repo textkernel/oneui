@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import ListItem from './ListItem';
@@ -22,10 +22,10 @@ const SCROLL_INTO_VIEW_SETTINGS = {
 };
 
 const List = React.forwardRef((props, ref) => {
-    const [selectedIndex, setSelectedIndex] = useState(null);
-    const [highlightedWithKeyboard, setHighlightedWithKeyboard] = useState(false);
+    const [selectedIndex, setSelectedIndex] = React.useState(null);
+    const [highlightedWithKeyboard, setHighlightedWithKeyboard] = React.useState(false);
 
-    const highlightedListItem = useRef(null);
+    const highlightedListItem = React.useRef(null);
 
     const { children, isDivided, doSelectOnNavigate, isControlledNavigation, ...rest } = props;
 
@@ -33,7 +33,7 @@ const List = React.forwardRef((props, ref) => {
      * Scroll list if it's necessary to make the highlighted item visible
      * every time selectedIndex was changed with the keyboard navigation
      */
-    useEffect(() => {
+    React.useEffect(() => {
         const hasScrollIntoViewFunction =
             highlightedListItem &&
             highlightedListItem.current &&
@@ -87,11 +87,14 @@ const List = React.forwardRef((props, ref) => {
         }
     };
 
-    const handleMouseEnter = index => {
-        if (selectedIndex !== index) {
-            setSelectedIndex(index);
-        }
-    };
+    const handleMouseEnter = React.useCallback(
+        index => {
+            if (selectedIndex !== index) {
+                setSelectedIndex(index);
+            }
+        },
+        [selectedIndex]
+    );
 
     return isControlledNavigation ? (
         <ul {...rest} ref={ref} {...block(props)}>
