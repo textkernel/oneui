@@ -51,8 +51,9 @@ storiesOf('Organisms|Autosuggest', module)
             style={{ width: '650px' }}
         />
     ))
-    .add('Multiselect example implementation', () => {
-        const Implementation = () => {
+    .add('Example implementation', () => {
+        // eslint-disable-next-line react/prop-types
+        const Implementation = ({ style }) => {
             const [selectedSuggestions, setSelectedSuggestions] = React.useState([]);
             const [inputValue, setInputValue] = React.useState('');
 
@@ -64,6 +65,7 @@ storiesOf('Organisms|Autosuggest', module)
             };
 
             const onInputValueChange = value => {
+                console.log(`onInputValueChange was called with ${value}`);
                 setInputValue(value);
             };
 
@@ -81,7 +83,7 @@ storiesOf('Organisms|Autosuggest', module)
             };
 
             const onSelectionChange = item => {
-                console.log(`onSelectionChange was called with ${item.name}`);
+                console.log(`onSelectionChange was called with {name: ${item.name}}`);
                 if (selectedSuggestions.includes(item)) {
                     const newSelection = selectedSuggestions.filter(el => el.name !== item.name);
                     setSelectedSuggestions(newSelection);
@@ -91,33 +93,44 @@ storiesOf('Organisms|Autosuggest', module)
             };
 
             const onBlur = () => {
-                setInputValue('');
                 console.log('onBlur was called');
+                setInputValue('');
+            };
+
+            const onClearAllSelected = () => {
+                console.log('onClearAllSelected was called');
+                setSelectedSuggestions([]);
             };
 
             return (
                 <Autosuggest
-                    selectedSuggestions={selectedSuggestions}
-                    getSuggestions={getSuggestions}
-                    suggestionToString={SUGGESTION_TO_STRING}
+                    selectedSuggestions={
+                        boolean('Add selectedSuggestions', true) ? selectedSuggestions : undefined
+                    }
+                    selectedPlaceholder={
+                        boolean('Add selectionPlaceholder', true)
+                            ? getSelectedPlaceholder()
+                            : undefined
+                    }
                     isLoading={boolean('Loading', false)}
-                    selectedPlaceholder={getSelectedPlaceholder()}
+                    showClearButton={boolean('Show clear button', true)}
+                    isMultiselect={boolean('Multiselect', true)}
+                    isProminent={boolean('Use prominent styling', true)}
                     inputPlaceholder={text('Input placeholder', 'Select something...')}
                     noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
                     clearTitle={text('Remove button label', 'Clear')}
+                    getSuggestions={getSuggestions}
+                    suggestionToString={SUGGESTION_TO_STRING}
                     onBlur={onBlur}
                     onSelectionChange={onSelectionChange}
-                    onClearAllSelected={() => setSelectedSuggestions([])}
+                    onClearAllSelected={onClearAllSelected}
                     onInputValueChange={onInputValueChange}
-                    showClearButton
-                    isMultiselect
-                    isProminent={boolean('Use prominent styling', true)}
-                    style={{ width: '650px' }}
+                    style={style}
                 />
             );
         };
 
         Implementation.displayName = 'Implementation';
 
-        return <Implementation />;
+        return <Implementation style={{ width: '650px' }} />;
     });
