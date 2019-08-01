@@ -17,6 +17,9 @@ $slider-indication-width: 110px;
         width: 100%;
         margin: 0;
         font-weight: var(--font-weight-bold);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__delete-button {
