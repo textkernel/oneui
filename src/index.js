@@ -10,6 +10,7 @@ export { default as Input } from './components/Input';
 export { default as Link } from './components/Link';
 export { List, ListItem, ListActions } from './components/List';
 export { default as Modal } from './components/Modal';
+export { Map, MapRenderer } from './components/Map';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as Slider } from './components/Slider';
 export { Tabs, Tab, TabContent, TabItem, TabMenu } from './components/Tabs';
@@ -29,5 +30,5 @@ export { NavBar, NavItem } from './components/Navigation';
 export { default as Pagination } from './components/Pagination';
 export { default as RadioButton } from './components/RadioButton';
 export { default as Teaser } from './components/Teaser';
-// Organizms
+// Organisms
 export { Autosuggest, ItemTag } from './components/Autosuggest';

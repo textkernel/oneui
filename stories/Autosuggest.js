@@ -7,9 +7,9 @@ import {
     SUGGESTION_TO_STRING,
 } from '../src/components/Autosuggest/__mocks__/suggestions';
 
-storiesOf('Organizms|Autosuggest', module)
+storiesOf('Organisms|Autosuggest', module)
     .addDecorator(withKnobs)
-    .add('Autosuggest as single select with icon', () => (
+    .add('Single select with icon', () => (
         <Autosuggest
             getSuggestions={() => SUGGESTIONS}
             suggestionToString={SUGGESTION_TO_STRING}
@@ -29,7 +29,7 @@ storiesOf('Organizms|Autosuggest', module)
             style={{ width: '650px' }}
         />
     ))
-    .add('Autosuggest with multiselect options', () => (
+    .add('Multiselect', () => (
         <Autosuggest
             selectedSuggestions={SUGGESTIONS.slice(2, 4)}
             getSuggestions={() => SUGGESTIONS}
@@ -50,4 +50,87 @@ storiesOf('Organizms|Autosuggest', module)
             isProminent={boolean('Use prominent styling', true)}
             style={{ width: '650px' }}
         />
-    ));
+    ))
+    .add('Example implementation', () => {
+        // eslint-disable-next-line react/prop-types
+        const Implementation = ({ style }) => {
+            const [selectedSuggestions, setSelectedSuggestions] = React.useState([]);
+            const [inputValue, setInputValue] = React.useState('');
+
+            const getSuggestions = () => {
+                if (!inputValue.length) return [];
+                return SUGGESTIONS.filter(item => !selectedSuggestions.includes(item)).filter(
+                    item => item.name.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())
+                );
+            };
+
+            const onInputValueChange = value => {
+                console.log(`onInputValueChange was called with ${value}`);
+                setInputValue(value);
+            };
+
+            const getSelectedPlaceholder = () => {
+                const numOfItems = selectedSuggestions.length;
+                if (!numOfItems) {
+                    return '';
+                }
+
+                if (numOfItems === 1) {
+                    return SUGGESTION_TO_STRING(selectedSuggestions[0]);
+                }
+
+                return `${SUGGESTION_TO_STRING(selectedSuggestions[0])} + ${numOfItems - 1} more`;
+            };
+
+            const onSelectionChange = item => {
+                console.log(`onSelectionChange was called with {name: ${item.name}}`);
+                if (selectedSuggestions.includes(item)) {
+                    const newSelection = selectedSuggestions.filter(el => el.name !== item.name);
+                    setSelectedSuggestions(newSelection);
+                } else {
+                    setSelectedSuggestions([...selectedSuggestions, item]);
+                }
+            };
+
+            const onBlur = () => {
+                console.log('onBlur was called');
+                setInputValue('');
+            };
+
+            const onClearAllSelected = () => {
+                console.log('onClearAllSelected was called');
+                setSelectedSuggestions([]);
+            };
+
+            return (
+                <Autosuggest
+                    selectedSuggestions={
+                        boolean('Add selectedSuggestions', true) ? selectedSuggestions : undefined
+                    }
+                    selectedPlaceholder={
+                        boolean('Add selectionPlaceholder', true)
+                            ? getSelectedPlaceholder()
+                            : undefined
+                    }
+                    isLoading={boolean('Loading', false)}
+                    showClearButton={boolean('Show clear button', true)}
+                    isMultiselect={boolean('Multiselect', true)}
+                    isProminent={boolean('Use prominent styling', true)}
+                    inputPlaceholder={text('Input placeholder', 'Select something...')}
+                    noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
+                    clearTitle={text('Remove button label', 'Clear')}
+                    getSuggestions={getSuggestions}
+                    suggestionToString={SUGGESTION_TO_STRING}
+                    onBlur={onBlur}
+                    onSelectionChange={onSelectionChange}
+                    onClearAllSelected={onClearAllSelected}
+                    onInputValueChange={onInputValueChange}
+                    style={style}
+                />
+            );
+        };
+
+        Implementation.displayName = 'Implementation';
+
+        return <Implementation style={{ width: '650px' }} />;
+    });

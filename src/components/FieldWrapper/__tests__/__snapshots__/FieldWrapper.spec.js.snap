@@ -3,13 +3,18 @@
 exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
 <FieldWrapper
   clearLabel="Clear"
+  isFocused={false}
   onClear={null}
   showClearButton={true}
 >
   <div
     className="FieldWrapper"
   >
-    some children
+    <div
+      className="FieldWrapper__content"
+    >
+      some children
+    </div>
     <Button
       className="FieldWrapper__clearButton"
       context="link"
@@ -28,11 +33,6 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
         type="button"
       >
         Clear
-        <span
-          className="FieldWrapper__buttonIcon"
-        >
-          ×
-        </span>
       </button>
     </Button>
   </div>
@@ -42,13 +42,18 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
 exports[`FieldWrapper should render correctly 1`] = `
 <FieldWrapper
   clearLabel=""
+  isFocused={false}
   onClear={null}
   showClearButton={false}
 >
   <div
     className="FieldWrapper"
   >
-    some children
+    <div
+      className="FieldWrapper__content"
+    >
+      some children
+    </div>
   </div>
 </FieldWrapper>
 `;
