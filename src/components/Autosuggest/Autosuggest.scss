@@ -66,12 +66,18 @@
     }
 
     &__list--focused {
-        max-height: 200px;
+        max-height: 215px;
         overflow: auto;
         border-top: 1px solid var(--border-color-light);
     }
 
     &__loaderContainer {
         width: 250px;
+    }
+
+    &__poweredByGoogleImage {
+        position: absolute;
+        right: var(--spacing-4x);
+        bottom: var(--spacing-4x);
     }
 }

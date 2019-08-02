@@ -1,3 +1,7 @@
 .LocationAutocomplete {
-    background-color: transparent;
+    &__poweredByGoogleImage {
+        position: absolute;
+        right: var(--spacing-4x);
+        bottom: var(--spacing-4x);
+    }
 }

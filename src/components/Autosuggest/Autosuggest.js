@@ -184,6 +184,7 @@ class Autosuggest extends React.Component {
             suggestionToString,
             getSuggestions,
             noSuggestionsPlaceholder,
+            renderList,
         } = this.props;
         const { inputValue, inputValueRecall } = this.state;
 
@@ -208,21 +209,31 @@ class Autosuggest extends React.Component {
             ) : null;
         }
 
-        return suggestions.map((item, index) => (
-            <ListItem
-                key={suggestionToString(item)}
-                {...getItemProps({
-                    item,
-                    index,
-                    isHighlighted: highlightedIndex === index,
-                    highlightContext: 'brand',
-                })}
-            >
-                <MarkedText marker={inputValueRecall} inline>
-                    {suggestionToString(item)}
-                </MarkedText>
-            </ListItem>
-        ));
+        const defaultListRenderer = () =>
+            suggestions.map((item, index) => (
+                <ListItem
+                    key={suggestionToString(item)}
+                    {...getItemProps({
+                        item,
+                        index,
+                        isHighlighted: highlightedIndex === index,
+                        highlightContext: 'brand',
+                    })}
+                >
+                    <MarkedText marker={inputValueRecall} inline>
+                        {suggestionToString(item)}
+                    </MarkedText>
+                </ListItem>
+            ));
+
+        return renderList
+            ? renderList({
+                  suggestions,
+                  getItemProps,
+                  highlightedIndex,
+                  listInputValue: inputValueRecall,
+              })
+            : defaultListRenderer();
     }
 
     render() {
@@ -362,6 +373,8 @@ Autosuggest.propTypes = {
     isMultiselect: PropTypes.bool,
     /** style the compoent to be prominent */
     isProminent: PropTypes.bool,
+    /** render custom list for the dropdown */
+    renderList: PropTypes.func,
 };
 
 Autosuggest.defaultProps = {
@@ -375,6 +388,7 @@ Autosuggest.defaultProps = {
     iconNode: null,
     isMultiselect: false,
     isProminent: false,
+    renderList: null,
 };
 
 Autosuggest.displayName = 'Autosuggest';

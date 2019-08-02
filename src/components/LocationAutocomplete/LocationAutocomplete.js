@@ -1,95 +1,52 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { useLoadScript } from '@react-google-maps/api';
-import { Autosuggest } from '../Autosuggest';
-import useDebounce from '../../hooks/useDebounce';
-// import bem from 'bem';
-// import styles from './Heading.scss';
-// import { HEADING_SIZES } from '../../constants';
-
-// const { block } = bem({
-//     name: 'Heading',
-//     classnames: styles,
-//     propsToMods: ['align', 'level'],
-// });
+import PropTypes from 'prop-types';
+import { LoadScriptNext } from '@react-google-maps/api';
+import { LoadingSpinner } from '../../index';
+import LocationAutocompleteRenderer from './LocationAutocompleteRenderer';
 
 const LOAD_SCRIPT_LIBRARIES = ['places'];
-const PLACE_PREDICTIONS_TYPES = ['(regions)'];
 
-const LocationAutocomplete = () => {
-    const [inputValue, setInputValue] = React.useState('');
-    const [placesList, setPlacesList] = React.useState([]);
-    const [isLoading, setIsLoading] = React.useState(false);
+const LocationAutocomplete = props => {
+    const { apiKey, language, region, additionalGoogleProps, ...rest } = props;
 
-    const debouncedInputValue = useDebounce(inputValue, 350);
-
-    const { isLoaded, loadError } = useLoadScript({
-        googleMapsApiKey: '',
-        libraries: LOAD_SCRIPT_LIBRARIES,
-    });
-
-    React.useEffect(() => {
-        if (debouncedInputValue) {
-            const service = new window.google.maps.places.AutocompleteService();
-
-            service.getPlacePredictions(
-                {
-                    input: debouncedInputValue,
-                    types: PLACE_PREDICTIONS_TYPES,
-                },
-                predictions => {
-                    setPlacesList(predictions);
-                    setIsLoading(false);
-                }
-            );
-        } else {
-            setPlacesList([]);
-        }
-    }, [debouncedInputValue]);
-
-    const handleInputValueChange = value => {
-        if (value) {
-            setIsLoading(true);
-            setInputValue(value);
-        } else {
-            setIsLoading(false);
-            setPlacesList([]);
-        }
-    };
-
-    const handleSelectionChange = () => null;
-
-    const getSuggestions = () => placesList;
-
-    const suggestionToString = suggestion => (suggestion ? suggestion.description : '');
-
-    if (loadError) return null;
-
-    if (isLoaded) {
-        return (
-            <Autosuggest
-                getSuggestions={getSuggestions}
-                suggestionToString={suggestionToString}
-                isLoading={isLoading}
-                inputPlaceholder="Enter a city, region or postal code"
-                noSuggestionsPlaceholder="No suggestions found..."
-                clearTitle="Clear"
-                onInputValueChange={handleInputValueChange}
-                onSelectionChange={handleSelectionChange}
-                showClearButton
-                isProminent
-                style={{ width: '650px' }}
-            />
-        );
-    }
-
-    return null;
+    return (
+        <LoadScriptNext
+            googleMapsApiKey={apiKey}
+            language={language}
+            region={region}
+            loadingElement={<LoadingSpinner centerIn="parent" />}
+            libraries={LOAD_SCRIPT_LIBRARIES}
+            {...additionalGoogleProps}
+        >
+            <LocationAutocompleteRenderer {...rest} />
+        </LoadScriptNext>
+    );
 };
 
 LocationAutocomplete.displayName = 'LocationAutocomplete';
 
-LocationAutocomplete.propTypes = {};
+LocationAutocomplete.propTypes = {
+    /** Google API key */
+    apiKey: PropTypes.string.isRequired,
+    /**
+     * The language code to be used for the map (e.g en). By default the users browser language will be used
+     * For available values see: https://developers.google.com/maps/faq#languagesupport
+     */
+    language: PropTypes.string,
+    /** Regonal setting for the map. By default Google uses US.
+     * For adetails see: https://developers.google.com/maps/documentation/javascript/localization#Region
+     */
+    region: PropTypes.string,
+    /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
+    additionalGoogleProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+    ...LocationAutocompleteRenderer.propTypes,
+};
 
-LocationAutocomplete.defaultProps = {};
+LocationAutocomplete.defaultProps = {
+    additionalGoogleProps: {},
+    language: undefined,
+    region: undefined,
+    ...LocationAutocompleteRenderer.defaultProps,
+};
 
 export default LocationAutocomplete;

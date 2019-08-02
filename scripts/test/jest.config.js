@@ -35,4 +35,9 @@ module.exports = {
     // An array of regexp pattern strings that are matched against all file paths before executing
     // the test. If the file path matches any of the patterns, coverage information will be skipped.
     coveragePathIgnorePatterns: ['/dummy-components/', '/node_modules/', '/packages/bem/'],
+
+    // A map from regular expressions to module names that allow to stub out resources with a single module
+    moduleNameMapper: {
+        '.+\\.(svg|png|jpg)$': 'identity-obj-proxy',
+    },
 };

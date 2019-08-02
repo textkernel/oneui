@@ -25,7 +25,10 @@ export { default as Footer } from './components/Footer';
 export { default as Header } from './components/Header';
 export { default as FieldWrapper } from './components/FieldWrapper';
 export { default as LoadingSpinner } from './components/LoadingSpinner';
-export { default as LocationAutocomplete } from './components/LocationAutocomplete';
+export {
+    LocationAutocomplete,
+    LocationAutocompleteRenderer,
+} from './components/LocationAutocomplete';
 export { NavBar, NavItem } from './components/Navigation';
 export { default as Pagination } from './components/Pagination';
 export { default as RadioButton } from './components/RadioButton';
