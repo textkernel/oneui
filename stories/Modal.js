@@ -50,8 +50,6 @@ storiesOf('Atoms|Modal', module)
                 To do this call the following function once:
 
                 > __Modal.setAppElement__(appElementSelector);
-
-                To see the modal in action here, change the Open prop to 'true' in the Knobs section.
                 `,
             },
         }
