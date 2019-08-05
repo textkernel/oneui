@@ -4,6 +4,7 @@ exports[`<LocationAutocomplete/> that loads google api and renders a LocationAut
 <LocationAutocomplete
   additionalGoogleProps={Object {}}
   apiKey="someKey"
+  country={null}
   onSelectionChange={[Function]}
 >
   <LoadScriptNext

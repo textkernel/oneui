@@ -21,7 +21,13 @@ const LocationAutocomplete = props => {
     const [suggestionsList, setSuggestionsList] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
 
-    const { onSelectionChange, inputPlaceholder, noSuggestionsPlaceholder, ...rest } = props;
+    const {
+        onSelectionChange,
+        inputPlaceholder,
+        noSuggestionsPlaceholder,
+        country,
+        ...rest
+    } = props;
 
     // Suggestion functions
     const getSuggestions = () => suggestionsList;
@@ -38,6 +44,7 @@ const LocationAutocomplete = props => {
                 {
                     input: debouncedInputValue,
                     types: PLACE_PREDICTIONS_TYPES,
+                    componentRestrictions: { country },
                 },
                 predictions => {
                     setSuggestionsList(predictions);
@@ -47,7 +54,7 @@ const LocationAutocomplete = props => {
         } else {
             resetSuggestionsList();
         }
-    }, [debouncedInputValue]);
+    }, [country, debouncedInputValue]);
 
     const handleInputValueChange = value => {
         if (value) {
@@ -114,10 +121,13 @@ LocationAutocomplete.propTypes = {
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** callback to be called with selected value */
     onSelectionChange: PropTypes.func,
+    /** restrict predictions to country/countries. For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#ComponentRestrictions */
+    country: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
 };
 
 LocationAutocomplete.defaultProps = {
     onSelectionChange: () => null,
+    country: null,
 };
 
 export default LocationAutocomplete;
