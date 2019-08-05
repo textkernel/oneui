@@ -33,8 +33,8 @@ LocationAutocomplete.propTypes = {
      * For available values see: https://developers.google.com/maps/faq#languagesupport
      */
     language: PropTypes.string,
-    /** Regonal setting for the map. By default Google uses US.
-     * For adetails see: https://developers.google.com/maps/documentation/javascript/localization#Region
+    /** Regional setting for the map. By default Google uses US.
+     * For details see: https://developers.google.com/maps/documentation/javascript/localization#Region
      */
     region: PropTypes.string,
     /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */

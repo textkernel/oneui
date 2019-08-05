@@ -24,10 +24,10 @@ import './FieldWrapper';
 import './Footer';
 import './Header';
 import './LoadingSpinner';
-import './LocationAutocomplete';
 import './Navigation';
 import './Pagination';
 import './RadioButton';
 import './Teaser';
 // Organisms
 import './Autosuggest';
+import './LocationAutocomplete';

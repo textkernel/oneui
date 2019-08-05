@@ -9,12 +9,12 @@ exports[`Autosuggest rendering should initally render empty component correctly 
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
+  listRenderer={null}
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
-  renderList={null}
   selectedPlaceholder=""
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -22,7 +22,6 @@ exports[`Autosuggest rendering should initally render empty component correctly 
 >
   <div
     className="Autosuggest"
-    renderList={null}
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -121,12 +120,12 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
+  listRenderer={null}
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
-  renderList={null}
   selectedPlaceholder=""
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -134,7 +133,6 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
 >
   <div
     className="Autosuggest"
-    renderList={null}
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -422,12 +420,12 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
+  listRenderer={null}
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
-  renderList={null}
   selectedPlaceholder="Current selection"
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -435,7 +433,6 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
 >
   <div
     className="Autosuggest"
-    renderList={null}
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -580,6 +577,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
+  listRenderer={null}
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onClearAllSelected={[MockFunction]}
@@ -599,7 +597,6 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
     }
   }
   onSelectionChange={[MockFunction]}
-  renderList={null}
   selectedPlaceholder=""
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -607,7 +604,6 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
 >
   <div
     className="Autosuggest"
-    renderList={null}
   >
     <Downshift
       defaultHighlightedIndex={0}

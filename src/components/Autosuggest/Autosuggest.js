@@ -184,7 +184,7 @@ class Autosuggest extends React.Component {
             suggestionToString,
             getSuggestions,
             noSuggestionsPlaceholder,
-            renderList,
+            listRenderer,
         } = this.props;
         const { inputValue, inputValueRecall } = this.state;
 
@@ -226,8 +226,8 @@ class Autosuggest extends React.Component {
                 </ListItem>
             ));
 
-        return renderList
-            ? renderList({
+        return listRenderer
+            ? listRenderer({
                   suggestions,
                   getItemProps,
                   highlightedIndex,
@@ -255,6 +255,7 @@ class Autosuggest extends React.Component {
             onClearAllSelected,
             isMultiselect,
             isProminent,
+            listRenderer,
             ...rest
         } = this.props;
         const { inputValue, focused } = this.state;
@@ -347,9 +348,9 @@ Autosuggest.propTypes = {
     getSuggestions: PropTypes.func.isRequired,
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: PropTypes.func.isRequired,
-    /** if suggestions are still loading, i.e. display palceholders */
+    /** if suggestions are still loading, i.e. display placeholders */
     isLoading: PropTypes.bool,
-    /** a string or function (to be called with selectedValues) that represents the selected values when the component is blured */
+    /** a string or function (to be called with selectedValues) that represents the selected values when the component is blurred */
     selectedPlaceholder: PropTypes.string,
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: PropTypes.string.isRequired,
@@ -359,7 +360,7 @@ Autosuggest.propTypes = {
     clearTitle: PropTypes.string.isRequired,
     /** onBlur() is called when the component is blurred */
     onBlur: PropTypes.func,
-    /** onSelectionChange() called when a suggestion is seelcted or removed. Can be used to implement the component as controlled component */
+    /** onSelectionChange() called when a suggestion is selected or removed. Can be used to implement the component as controlled component */
     onSelectionChange: PropTypes.func.isRequired,
     /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
     onInputValueChange: PropTypes.func,
@@ -369,12 +370,12 @@ Autosuggest.propTypes = {
     showClearButton: PropTypes.bool,
     /** an icon or other node to always be rendered as a first element inside the input box */
     iconNode: PropTypes.node,
-    /** should this component behaive as a multiselect (e.g. no collapse after selection made) */
+    /** should this component behave as a multiselect (e.g. no collapse after selection made) */
     isMultiselect: PropTypes.bool,
-    /** style the compoent to be prominent */
+    /** style the component to be prominent */
     isProminent: PropTypes.bool,
-    /** render custom list for the dropdown */
-    renderList: PropTypes.func,
+    /** custom render function for listing suggestions */
+    listRenderer: PropTypes.func,
 };
 
 Autosuggest.defaultProps = {
@@ -388,7 +389,7 @@ Autosuggest.defaultProps = {
     iconNode: null,
     isMultiselect: false,
     isProminent: false,
-    renderList: null,
+    listRenderer: null,
 };
 
 Autosuggest.displayName = 'Autosuggest';

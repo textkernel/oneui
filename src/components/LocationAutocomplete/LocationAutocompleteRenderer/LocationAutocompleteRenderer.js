@@ -21,7 +21,7 @@ const LocationAutocomplete = props => {
     const [suggestionsList, setSuggestionsList] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
 
-    const { onSelectionChange } = props;
+    const { onSelectionChange, inputPlaceholder, noSuggestionsPlaceholder, ...rest } = props;
 
     // Suggestion functions
     const getSuggestions = () => suggestionsList;
@@ -94,15 +94,13 @@ const LocationAutocomplete = props => {
             getSuggestions={getSuggestions}
             suggestionToString={suggestionToString}
             isLoading={isLoading}
-            inputPlaceholder="Enter a city, region or postal code"
-            noSuggestionsPlaceholder="No suggestions found..."
-            clearTitle="Clear"
+            inputPlaceholder={inputPlaceholder}
+            noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             renderList={renderListPoweredByGoogle}
             onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
             onSelectionChange={onSelectionChange}
-            showClearButton
-            style={{ width: '650px' }}
+            {...rest}
         />
     );
 };
@@ -110,6 +108,11 @@ const LocationAutocomplete = props => {
 LocationAutocomplete.displayName = 'LocationAutocomplete';
 
 LocationAutocomplete.propTypes = {
+    /** to be shown in the input field when no value is typed */
+    inputPlaceholder: PropTypes.string.isRequired,
+    /** to be shown when no suggestions are available */
+    noSuggestionsPlaceholder: PropTypes.string.isRequired,
+    /** callback to be called with selected value */
     onSelectionChange: PropTypes.func,
 };
 
