@@ -7,12 +7,10 @@ import { ListItem, MarkedText } from '../../../index';
 import POWERED_BY_GOOGLE_ON_WHITE from '../../../images/powered_by_google_on_white.png';
 import styles from '../LocationAutocomplete.scss';
 
-const { block, elem } = bem({
+const { elem } = bem({
     name: 'LocationAutocomplete',
     classnames: styles,
 });
-
-const PLACE_PREDICTIONS_TYPES = ['(regions)'];
 
 const DEBOUNCE_DELAY = 350;
 
@@ -26,11 +24,11 @@ const LocationAutocomplete = props => {
         inputPlaceholder,
         noSuggestionsPlaceholder,
         country,
+        placeTypes,
         ...rest
     } = props;
 
     // Suggestion functions
-    const getSuggestions = () => suggestionsList;
     const resetSuggestionsList = () => setSuggestionsList([]);
     const suggestionToString = suggestion => (suggestion ? suggestion.description : '');
 
@@ -43,7 +41,7 @@ const LocationAutocomplete = props => {
             service.getPlacePredictions(
                 {
                     input: debouncedInputValue,
-                    types: PLACE_PREDICTIONS_TYPES,
+                    types: placeTypes,
                     componentRestrictions: { country },
                 },
                 predictions => {
@@ -54,7 +52,7 @@ const LocationAutocomplete = props => {
         } else {
             resetSuggestionsList();
         }
-    }, [country, debouncedInputValue]);
+    }, [country, debouncedInputValue, placeTypes]);
 
     const handleInputValueChange = value => {
         if (value) {
@@ -66,44 +64,40 @@ const LocationAutocomplete = props => {
         }
     };
 
-    const renderListPoweredByGoogle = ({
-        suggestions,
-        listInputValue,
-        getItemProps,
-        highlightedIndex,
-    }) =>
-        suggestions.map((item, index) => (
-            <ListItem
-                {...block(props)}
-                key={suggestionToString(item)}
-                {...getItemProps({
-                    item,
-                    index,
-                    isHighlighted: highlightedIndex === index,
-                    highlightContext: 'brand',
-                })}
-            >
-                <MarkedText marker={listInputValue} inline>
-                    {suggestionToString(item)}
-                </MarkedText>
-                {index === suggestions.length - 1 && (
-                    <img
-                        {...elem('poweredByGoogleImage', props)}
-                        src={POWERED_BY_GOOGLE_ON_WHITE}
-                        alt="Powered by Google"
-                    />
-                )}
-            </ListItem>
-        ));
+    // eslint-disable-next-line react/display-name
+    const renderListPoweredByGoogle = ({ listInputValue, getItemProps, highlightedIndex }) => (
+        <React.Fragment>
+            <img
+                {...elem('poweredByGoogleImage', props)}
+                src={POWERED_BY_GOOGLE_ON_WHITE}
+                alt="Powered by Google"
+            />
+            {suggestionsList.map((item, index) => (
+                <ListItem
+                    key={suggestionToString(item)}
+                    {...getItemProps({
+                        item,
+                        index,
+                        isHighlighted: highlightedIndex === index,
+                        highlightContext: 'brand',
+                    })}
+                >
+                    <MarkedText marker={listInputValue} inline>
+                        {suggestionToString(item)}
+                    </MarkedText>
+                </ListItem>
+            ))}
+        </React.Fragment>
+    );
 
     return (
         <Autosuggest
-            getSuggestions={getSuggestions}
+            getSuggestions={suggestionsList}
             suggestionToString={suggestionToString}
             isLoading={isLoading}
             inputPlaceholder={inputPlaceholder}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
-            renderList={renderListPoweredByGoogle}
+            listRenderer={renderListPoweredByGoogle}
             onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
             onSelectionChange={onSelectionChange}
@@ -119,15 +113,24 @@ LocationAutocomplete.propTypes = {
     inputPlaceholder: PropTypes.string.isRequired,
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
-    /** callback to be called with selected value */
+    /** callback to be called with selected value.
+     * Value is of type [AutocompletePrediction](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction)
+     */
     onSelectionChange: PropTypes.func,
-    /** restrict predictions to country/countries. For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#ComponentRestrictions */
+    /** restrict predictions to country/countries.
+     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#ComponentRestrictions
+     */
     country: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+    /** type of locations that should be searched for.
+     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
+     */
+    placeTypes: PropTypes.arrayOf(PropTypes.string),
 };
 
 LocationAutocomplete.defaultProps = {
     onSelectionChange: () => null,
     country: null,
+    placeTypes: ['(regions)'],
 };
 
 export default LocationAutocomplete;

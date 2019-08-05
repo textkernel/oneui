@@ -6,6 +6,11 @@ exports[`<LocationAutocomplete/> that loads google api and renders a LocationAut
   apiKey="someKey"
   country={null}
   onSelectionChange={[Function]}
+  placeTypes={
+    Array [
+      "(regions)",
+    ]
+  }
 >
   <LoadScriptNext
     googleMapsApiKey="someKey"
