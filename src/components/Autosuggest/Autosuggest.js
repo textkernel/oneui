@@ -199,7 +199,8 @@ class Autosuggest extends React.Component {
             ));
         }
 
-        const suggestions = getSuggestions(inputValue);
+        const suggestions =
+            typeof getSuggestions === 'function' ? getSuggestions(inputValue) : getSuggestions;
 
         if (!suggestions || !suggestions.length) {
             return inputValue ? (
@@ -344,8 +345,9 @@ class Autosuggest extends React.Component {
 Autosuggest.propTypes = {
     /** array of already selected suggestions */
     selectedSuggestions: PropTypes.array, // eslint-disable-line react/forbid-prop-types
-    /** getSuggestions(inputValue) => should return an array of objects that will be used to render the suggestions list. */
-    getSuggestions: PropTypes.func.isRequired,
+    /** getSuggestions(inputValue) => an array of objects that will be used to render the suggestions list. */
+    getSuggestions: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.objects), PropTypes.func])
+        .isRequired,
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: PropTypes.func.isRequired,
     /** if suggestions are still loading, i.e. display placeholders */
