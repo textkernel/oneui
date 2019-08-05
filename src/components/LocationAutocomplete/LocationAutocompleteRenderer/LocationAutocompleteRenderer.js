@@ -106,7 +106,7 @@ const LocationAutocomplete = props => {
     );
 };
 
-LocationAutocomplete.displayName = 'LocationAutocomplete';
+LocationAutocomplete.displayName = 'LocationAutocompleteRenderer';
 
 LocationAutocomplete.propTypes = {
     /** to be shown in the input field when no value is typed */
