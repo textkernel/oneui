@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
-import { LocationAutocomplete } from '@textkernel/oneui';
+import { LocationAutocomplete, LocationAutocompleteRenderer } from '@textkernel/oneui';
 
 storiesOf('Organisms|LocationAutocomplete', module)
     .addDecorator(withKnobs)
@@ -27,6 +27,7 @@ storiesOf('Organisms|LocationAutocomplete', module)
         },
         {
             info: {
+                propTables: [LocationAutocomplete, LocationAutocompleteRenderer],
                 text: `
     ## Note about props
 
