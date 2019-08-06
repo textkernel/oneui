@@ -24,6 +24,7 @@ import './FieldWrapper';
 import './Footer';
 import './Header';
 import './LoadingSpinner';
+import './LocationCard';
 import './Navigation';
 import './Pagination';
 import './RadioButton';

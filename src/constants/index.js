@@ -21,3 +21,4 @@ export const LIST_NAVIGATION_DIRECTIONS = {
 export * from './style-related';
 export * from './autocomplete';
 export * from './keyboard';
+export * from './characters';
