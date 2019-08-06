@@ -8,7 +8,7 @@ let timer = null;
 
 function debondcePrompt() {
     if (!timer) {
-        apiKey = window.prompt('Please provide a Google API key');
+        apiKey = window.prompt('Please provide a Google API key'); // eslint-disable-line no-alert
     }
 
     timer = setTimeout(() => {
