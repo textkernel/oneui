@@ -5,16 +5,16 @@ import { Autosuggest } from '../../Autosuggest';
 import useDebounce from '../../../hooks/useDebounce';
 import { ListItem, MarkedText } from '../../../index';
 import POWERED_BY_GOOGLE_ON_WHITE from '../../../images/powered_by_google_on_white.png';
-import styles from '../LocationAutocomplete.scss';
+import styles from './LocationAutocompleteRenderer.scss';
 
 const { elem } = bem({
-    name: 'LocationAutocomplete',
+    name: 'LocationAutocompleteRenderer',
     classnames: styles,
 });
 
 const DEBOUNCE_DELAY = 350;
 
-const LocationAutocomplete = props => {
+const LocationAutocompleteRenderer = props => {
     const [inputValue, setInputValue] = React.useState('');
     const [suggestionsList, setSuggestionsList] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
@@ -109,9 +109,9 @@ const LocationAutocomplete = props => {
     );
 };
 
-LocationAutocomplete.displayName = 'LocationAutocompleteRenderer';
+LocationAutocompleteRenderer.displayName = 'LocationAutocompleteRenderer';
 
-LocationAutocomplete.propTypes = {
+LocationAutocompleteRenderer.propTypes = {
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: PropTypes.string.isRequired,
     /** to be shown when no suggestions are available */
@@ -119,7 +119,7 @@ LocationAutocomplete.propTypes = {
     /** callback to be called with selected value.
      * Value is of type AutocompletePrediction: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction
      */
-    onSelectionChange: PropTypes.func,
+    onSelectionChange: PropTypes.func.isRequired,
     /** restrict predictions to country/countries.
      * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#ComponentRestrictions
      */
@@ -132,11 +132,10 @@ LocationAutocomplete.propTypes = {
     showCountryInSuggestions: PropTypes.bool,
 };
 
-LocationAutocomplete.defaultProps = {
-    onSelectionChange: () => null,
+LocationAutocompleteRenderer.defaultProps = {
     country: null,
     placeTypes: ['(regions)'],
     showCountryInSuggestions: false,
 };
 
-export default LocationAutocomplete;
+export default LocationAutocompleteRenderer;
