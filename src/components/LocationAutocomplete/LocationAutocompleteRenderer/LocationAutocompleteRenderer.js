@@ -5,16 +5,17 @@ import { Autosuggest } from '../../Autosuggest';
 import useDebounce from '../../../hooks/useDebounce';
 import { ListItem, MarkedText } from '../../../index';
 import POWERED_BY_GOOGLE_ON_WHITE from '../../../images/powered_by_google_on_white.png';
-import styles from '../LocationAutocomplete.scss';
+import styles from './LocationAutocompleteRenderer.scss';
 
 const { elem } = bem({
-    name: 'LocationAutocomplete',
+    name: 'LocationAutocompleteRenderer',
     classnames: styles,
 });
 
 const DEBOUNCE_DELAY = 350;
+const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
-const LocationAutocomplete = props => {
+const LocationAutocompleteRenderer = props => {
     const [inputValue, setInputValue] = React.useState('');
     const [suggestionsList, setSuggestionsList] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
@@ -25,6 +26,8 @@ const LocationAutocomplete = props => {
         noSuggestionsPlaceholder,
         country,
         placeTypes,
+        showCountryInSuggestions,
+        onError,
         ...rest
     } = props;
 
@@ -44,15 +47,24 @@ const LocationAutocomplete = props => {
                     types: placeTypes,
                     componentRestrictions: { country },
                 },
-                predictions => {
-                    setSuggestionsList(predictions);
+                (predictions, status) => {
+                    if (ACCEPTABLE_API_STATUSES.includes(status)) {
+                        setSuggestionsList(predictions);
+                    } else {
+                        // TODO: check desired behaviour with Carlo
+                        // currently the UI will look same as when no suggestions found
+                        resetSuggestionsList();
+                        if (onError) {
+                            onError(status);
+                        }
+                    }
                     setIsLoading(false);
                 }
             );
         } else {
             resetSuggestionsList();
         }
-    }, [country, debouncedInputValue, placeTypes]);
+    }, [country, debouncedInputValue, onError, placeTypes]);
 
     const handleInputValueChange = value => {
         if (value) {
@@ -83,7 +95,9 @@ const LocationAutocomplete = props => {
                     })}
                 >
                     <MarkedText marker={listInputValue} inline>
-                        {suggestionToString(item)}
+                        {showCountryInSuggestions
+                            ? suggestionToString(item)
+                            : item.structured_formatting.main_text}
                     </MarkedText>
                 </ListItem>
             ))}
@@ -106,17 +120,17 @@ const LocationAutocomplete = props => {
     );
 };
 
-LocationAutocomplete.displayName = 'LocationAutocompleteRenderer';
+LocationAutocompleteRenderer.displayName = 'LocationAutocompleteRenderer';
 
-LocationAutocomplete.propTypes = {
+LocationAutocompleteRenderer.propTypes = {
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: PropTypes.string.isRequired,
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** callback to be called with selected value.
-     * Value is of type [AutocompletePrediction](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction)
+     * Value is of type AutocompletePrediction: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction
      */
-    onSelectionChange: PropTypes.func,
+    onSelectionChange: PropTypes.func.isRequired,
     /** restrict predictions to country/countries.
      * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#ComponentRestrictions
      */
@@ -125,12 +139,17 @@ LocationAutocomplete.propTypes = {
      * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
      */
     placeTypes: PropTypes.arrayOf(PropTypes.string),
+    /** show state and country in suggestions list */
+    showCountryInSuggestions: PropTypes.bool,
+    /** function to be executed if error occurs while fetching suggestions */
+    onError: PropTypes.func,
 };
 
-LocationAutocomplete.defaultProps = {
-    onSelectionChange: () => null,
+LocationAutocompleteRenderer.defaultProps = {
     country: null,
     placeTypes: ['(regions)'],
+    showCountryInSuggestions: false,
+    onError: null,
 };
 
-export default LocationAutocomplete;
+export default LocationAutocompleteRenderer;
