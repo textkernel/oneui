@@ -13,6 +13,7 @@ const { elem } = bem({
 });
 
 const DEBOUNCE_DELAY = 350;
+const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
 const LocationAutocompleteRenderer = props => {
     const [inputValue, setInputValue] = React.useState('');
@@ -26,6 +27,7 @@ const LocationAutocompleteRenderer = props => {
         country,
         placeTypes,
         showCountryInSuggestions,
+        onError,
         ...rest
     } = props;
 
@@ -45,15 +47,24 @@ const LocationAutocompleteRenderer = props => {
                     types: placeTypes,
                     componentRestrictions: { country },
                 },
-                predictions => {
-                    setSuggestionsList(predictions);
+                (predictions, status) => {
+                    if (ACCEPTABLE_API_STATUSES.includes(status)) {
+                        setSuggestionsList(predictions);
+                    } else {
+                        // TODO: check desired behaviour with Carlo
+                        // currently the UI will look same as when no suggestions found
+                        resetSuggestionsList();
+                        if (onError) {
+                            onError(status);
+                        }
+                    }
                     setIsLoading(false);
                 }
             );
         } else {
             resetSuggestionsList();
         }
-    }, [country, debouncedInputValue, placeTypes]);
+    }, [country, debouncedInputValue, onError, placeTypes]);
 
     const handleInputValueChange = value => {
         if (value) {
@@ -130,12 +141,15 @@ LocationAutocompleteRenderer.propTypes = {
     placeTypes: PropTypes.arrayOf(PropTypes.string),
     /** show state and country in suggestions list */
     showCountryInSuggestions: PropTypes.bool,
+    /** function to be executed if error occurs while fetching suggestions */
+    onError: PropTypes.func,
 };
 
 LocationAutocompleteRenderer.defaultProps = {
     country: null,
     placeTypes: ['(regions)'],
     showCountryInSuggestions: false,
+    onError: null,
 };
 
 export default LocationAutocompleteRenderer;

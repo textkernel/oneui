@@ -12,6 +12,12 @@ storiesOf('Organisms|LocationAutocomplete', module)
                 console.log('onSelectionChange was called with:');
                 console.log(value);
             };
+
+            const onError = error => {
+                console.log('an error was cought');
+                console.log(error);
+            };
+
             return (
                 <LocationAutocomplete
                     apiKey=""
@@ -26,6 +32,7 @@ storiesOf('Organisms|LocationAutocomplete', module)
                         'Should show state and country in suggestions',
                         false
                     )}
+                    onError={onError}
                 />
             );
         },
