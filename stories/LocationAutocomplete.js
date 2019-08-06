@@ -3,12 +3,25 @@ import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
 import { LocationAutocomplete, LocationAutocompleteRenderer } from '@textkernel/oneui';
 
+let apiKey = '';
+let timer = null;
+
+function debondcePrompt() {
+    if (!timer) {
+        apiKey = window.prompt('Please provide a Google API key'); // eslint-disable-line no-alert
+    }
+
+    timer = setTimeout(() => {
+        clearTimeout(timer);
+        timer = null;
+    }, 500);
+}
+
 storiesOf('Organisms|LocationAutocomplete', module)
     .addDecorator(withKnobs)
     .add(
         'LocationAutocomplete',
         () => {
-            let apiKey = '';
             const onSelectionChange = value => {
                 console.log('onSelectionChange was called with:');
                 console.log(value);
@@ -25,9 +38,9 @@ storiesOf('Organisms|LocationAutocomplete', module)
                 }
             };
 
-            if (!window.google) {
+            if (!apiKey) {
                 // eslint-disable-next-line no-alert
-                apiKey = window.prompt('Please provide a Google API key');
+                debondcePrompt();
             }
 
             return (
@@ -54,8 +67,8 @@ storiesOf('Organisms|LocationAutocomplete', module)
                 text: `
     ## Note about props
 
-    'LocationAutocomplete' is a wrapper around the 'LocationAutocompleteRenderer' component, and it makes sure the Google API is loaded on the page. 
-    
+    'LocationAutocomplete' is a wrapper around the 'LocationAutocompleteRenderer' component, and it makes sure the Google API is loaded on the page.
+
     You don't need to use 'LocationAutocompleteRenderer' directly.
     'LocationAutocomplete' __will pass props__ that are not needed for loading the API __to 'LocationAutocompleteRenderer'__, so you can provide them all together. For list of props see below
     `,
