@@ -25,6 +25,7 @@ const LocationAutocomplete = props => {
         noSuggestionsPlaceholder,
         country,
         placeTypes,
+        showCountryInSuggestions,
         ...rest
     } = props;
 
@@ -83,7 +84,9 @@ const LocationAutocomplete = props => {
                     })}
                 >
                     <MarkedText marker={listInputValue} inline>
-                        {suggestionToString(item)}
+                        {showCountryInSuggestions
+                            ? suggestionToString(item)
+                            : item.structured_formatting.main_text}
                     </MarkedText>
                 </ListItem>
             ))}
@@ -114,7 +117,7 @@ LocationAutocomplete.propTypes = {
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** callback to be called with selected value.
-     * Value is of type [AutocompletePrediction](https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction)
+     * Value is of type AutocompletePrediction: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction
      */
     onSelectionChange: PropTypes.func,
     /** restrict predictions to country/countries.
@@ -125,12 +128,15 @@ LocationAutocomplete.propTypes = {
      * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
      */
     placeTypes: PropTypes.arrayOf(PropTypes.string),
+    /** show state and country in suggestions list */
+    showCountryInSuggestions: PropTypes.bool,
 };
 
 LocationAutocomplete.defaultProps = {
     onSelectionChange: () => null,
     country: null,
     placeTypes: ['(regions)'],
+    showCountryInSuggestions: false,
 };
 
 export default LocationAutocomplete;

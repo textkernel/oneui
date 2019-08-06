@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { text, boolean, withKnobs } from '@storybook/addon-knobs';
 import { LocationAutocomplete, LocationAutocompleteRenderer } from '@textkernel/oneui';
 
 storiesOf('Organisms|LocationAutocomplete', module)
@@ -22,6 +22,10 @@ storiesOf('Organisms|LocationAutocomplete', module)
                     )}
                     onSelectionChange={onSelectionChange}
                     country={text('Restrict results to country', 'UK')}
+                    showCountryInSuggestions={boolean(
+                        'Should show state and country in suggestions',
+                        false
+                    )}
                 />
             );
         },
