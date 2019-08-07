@@ -37,6 +37,16 @@ const LocationAutocompleteRenderer = props => {
 
     const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
 
+    if (!(window.google && window.google.maps && window.google.maps.places)) {
+        // TODO: clarify with Carlo how to handle errors
+        return (
+            <Alert context="bad" title="No API found">
+                Google Maps Places APi was not found on the page. Before using this component, make
+                sure to load the places API
+            </Alert>
+        );
+    }
+
     React.useEffect(() => {
         if (debouncedInputValue) {
             const service = new window.google.maps.places.AutocompleteService();
