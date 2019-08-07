@@ -4,14 +4,9 @@ exports[`<LocationAutocomplete/> that loads google api and renders a LocationAut
 <LocationAutocomplete
   additionalGoogleProps={Object {}}
   apiKey="someKey"
-  country={null}
-  onError={null}
-  placeTypes={
-    Array [
-      "(regions)",
-    ]
-  }
-  showCountryInSuggestions={false}
+  inputPlaceholder="Location..."
+  noSuggestionsPlaceholder="No suggestions..."
+  onSelectionChange={[Function]}
 >
   <LoadScriptNext
     googleMapsApiKey="someKey"
