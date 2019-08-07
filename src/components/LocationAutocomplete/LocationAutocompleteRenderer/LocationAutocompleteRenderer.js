@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import { Autosuggest } from '../../Autosuggest';
+import { Autosuggest, Alert } from '../../../index';
 import useDebounce from '../../../hooks/useDebounce';
 import { ListItem, MarkedText } from '../../../index';
 import POWERED_BY_GOOGLE_ON_WHITE from '../../../images/powered_by_google_on_white.png';
@@ -76,6 +76,12 @@ const LocationAutocompleteRenderer = props => {
         }
     };
 
+    const handleSelection = value => {
+        resetSuggestionsList();
+        setInputValue('');
+        onSelectionChange(value);
+    };
+
     // eslint-disable-next-line react/display-name
     const renderListPoweredByGoogle = ({ listInputValue, getItemProps, highlightedIndex }) => (
         <React.Fragment>
@@ -114,7 +120,7 @@ const LocationAutocompleteRenderer = props => {
             listRenderer={renderListPoweredByGoogle}
             onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
-            onSelectionChange={onSelectionChange}
+            onSelectionChange={handleSelection}
             {...rest}
         />
     );
