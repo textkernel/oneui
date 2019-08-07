@@ -237,9 +237,15 @@ class Autosuggest extends React.Component {
             : defaultListRenderer();
     }
 
-    renderIcon(iconNode) {
-        const classes = [elem('spacedElem', {}).className, iconNode.props.className].join(' ');
-        return React.cloneElement(iconNode, { className: classes });
+    renderIcon() {
+        const { iconNode } = this.props;
+
+        const classes = [elem('spacedElem', {}).className];
+        if (iconNode.props.className) {
+            classes.push(iconNode.props.className);
+        }
+
+        return React.cloneElement(iconNode, { className: classes.join(' ') });
     }
 
     render() {
@@ -250,7 +256,6 @@ class Autosuggest extends React.Component {
             clearTitle,
             showClearButton,
             iconNode,
-            // props not used here, but listed to clear the ...rest
             selectedSuggestions,
             getSuggestions,
             isLoading,
@@ -305,7 +310,7 @@ class Autosuggest extends React.Component {
                                     role="searchbox"
                                     {...elem('wrapper', stateAndProps)}
                                 >
-                                    {iconNode && this.renderIcon(iconNode)}
+                                    {iconNode && this.renderIcon()}
                                     {this.renderTags()}
                                     <input
                                         {...getInputProps({

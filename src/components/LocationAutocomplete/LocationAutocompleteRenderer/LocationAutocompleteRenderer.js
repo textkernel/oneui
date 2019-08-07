@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import bem from 'bem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import { Autosuggest, Alert } from '../../../index';
+import { Autosuggest, Alert, ListItem, MarkedText } from '../../../index';
 import useDebounce from '../../../hooks/useDebounce';
-import { ListItem, MarkedText } from '../../../index';
 import POWERED_BY_GOOGLE_ON_WHITE from '../../../images/powered_by_google_on_white.png';
 import styles from './LocationAutocompleteRenderer.scss';
 
@@ -39,16 +38,6 @@ const LocationAutocompleteRenderer = props => {
 
     const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
 
-    if (!(window.google && window.google.maps && window.google.maps.places)) {
-        // TODO: clarify with Carlo how to handle errors
-        return (
-            <Alert context="bad" title="No API found">
-                Google Maps Places APi was not found on the page. Before using this component, make
-                sure to load the places API
-            </Alert>
-        );
-    }
-
     React.useEffect(() => {
         if (debouncedInputValue) {
             const service = new window.google.maps.places.AutocompleteService();
@@ -77,6 +66,16 @@ const LocationAutocompleteRenderer = props => {
             resetSuggestionsList();
         }
     }, [country, debouncedInputValue, onError, placeTypes]);
+
+    if (!(window.google && window.google.maps && window.google.maps.places)) {
+        // TODO: clarify with Carlo how to handle errors
+        return (
+            <Alert context="bad" title="No API found">
+                Google Maps Places APi was not found on the page. Before using this component, make
+                sure to load the places API
+            </Alert>
+        );
+    }
 
     const handleInputValueChange = value => {
         if (value) {

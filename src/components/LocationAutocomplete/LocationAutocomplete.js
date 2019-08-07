@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LoadScriptNext } from '@react-google-maps/api';
 import { LoadingSpinner } from '../../index';
-import { GOOGLE_SCRIPT_ID } from '../../constants';
 import LocationAutocompleteRenderer from './LocationAutocompleteRenderer';
 
 // for details see: https://developers.google.com/maps/documentation/javascript/libraries
