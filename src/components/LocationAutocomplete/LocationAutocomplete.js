@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LoadScriptNext } from '@react-google-maps/api';
 import { LoadingSpinner } from '../../index';
+import { GOOGLE_SCRIPT_ID } from '../../constants';
 import LocationAutocompleteRenderer from './LocationAutocompleteRenderer';
 
-const LOAD_SCRIPT_LIBRARIES = ['places'];
+// for details see: https://developers.google.com/maps/documentation/javascript/libraries
+const GOOGLE_API_LIBRARIES = ['places'];
 
 const LocationAutocomplete = props => {
     const { apiKey, language, region, additionalGoogleProps, ...rest } = props;
@@ -15,7 +17,7 @@ const LocationAutocomplete = props => {
             language={language}
             region={region}
             loadingElement={<LoadingSpinner centerIn="parent" />}
-            libraries={LOAD_SCRIPT_LIBRARIES}
+            libraries={GOOGLE_API_LIBRARIES}
             {...additionalGoogleProps}
         >
             <LocationAutocompleteRenderer {...rest} />
