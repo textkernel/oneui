@@ -237,6 +237,11 @@ class Autosuggest extends React.Component {
             : defaultListRenderer();
     }
 
+    renderIcon(iconNode) {
+        const classes = [elem('spacedElem', {}).className, iconNode.props.className].join(' ');
+        return React.cloneElement(iconNode, { className: classes });
+    }
+
     render() {
         const {
             selectedPlaceholder,
@@ -300,11 +305,7 @@ class Autosuggest extends React.Component {
                                     role="searchbox"
                                     {...elem('wrapper', stateAndProps)}
                                 >
-                                    {iconNode &&
-                                        React.cloneElement(
-                                            iconNode,
-                                            elem('spacedElem', stateAndProps)
-                                        )}
+                                    {iconNode && this.renderIcon(iconNode)}
                                     {this.renderTags()}
                                     <input
                                         {...getInputProps({
