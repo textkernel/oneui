@@ -19,7 +19,7 @@ const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
 const LocationAutocompleteRenderer = props => {
     const [inputValue, setInputValue] = React.useState('');
-    const [suggestionsList, setSuggestionsList] = React.useState([]);
+    const [suggestionsList, setSuggestionsList] = React.useState(null);
     const [isLoading, setIsLoading] = React.useState(false);
 
     const {
@@ -34,7 +34,7 @@ const LocationAutocompleteRenderer = props => {
     } = props;
 
     // Suggestion functions
-    const resetSuggestionsList = () => setSuggestionsList([]);
+    const resetSuggestionsList = () => setSuggestionsList(null);
     const suggestionToString = suggestion => (suggestion ? suggestion.description : '');
 
     const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
@@ -101,6 +101,7 @@ const LocationAutocompleteRenderer = props => {
                 {...elem('poweredByGoogleImage', props)}
                 src={POWERED_BY_GOOGLE_ON_WHITE}
                 alt="Powered by Google"
+                isListException
             />
             {suggestionsList.map((item, index) => (
                 <ListItem

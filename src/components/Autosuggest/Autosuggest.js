@@ -347,8 +347,7 @@ Autosuggest.propTypes = {
     /** array of already selected suggestions */
     selectedSuggestions: PropTypes.array, // eslint-disable-line react/forbid-prop-types
     /** getSuggestions(inputValue) => an array of objects that will be used to render the suggestions list. */
-    getSuggestions: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.objects), PropTypes.func])
-        .isRequired,
+    getSuggestions: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: PropTypes.func.isRequired,
     /** if suggestions are still loading, i.e. display placeholders */
@@ -360,7 +359,7 @@ Autosuggest.propTypes = {
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** to be shown as clear button title */
-    clearTitle: PropTypes.string.isRequired,
+    clearTitle: PropTypes.string,
     /** onBlur() is called when the component is blurred */
     onBlur: PropTypes.func,
     /** onSelectionChange() called when a suggestion is selected or removed. Can be used to implement the component as controlled component */
@@ -382,6 +381,7 @@ Autosuggest.propTypes = {
 };
 
 Autosuggest.defaultProps = {
+    getSuggestions: null,
     selectedSuggestions: null,
     isLoading: false,
     onBlur: null,
@@ -393,6 +393,7 @@ Autosuggest.defaultProps = {
     isMultiselect: false,
     isProminent: false,
     listRenderer: null,
+    clearTitle: '',
 };
 
 Autosuggest.displayName = 'Autosuggest';

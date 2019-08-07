@@ -11,7 +11,7 @@ const { block, elem } = bem({
     propsToMods: ['isDivided'],
 });
 
-const isListItem = element => element && element.type !== ListItem && element.type !== 'li';
+const isNotListItem = element => element && element.type !== ListItem && element.type !== 'li';
 const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.UP]: -1,
     [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1,
@@ -136,13 +136,15 @@ const List = React.forwardRef((props, ref) => {
 List.displayName = 'List';
 
 List.propTypes = {
-    /** List items */
+    /** List items. They should be ListItem or li.
+     * If you sure using other element will work for you, you can bypass validation by adding `isListException` as a prop to the child
+     */
     children: (props, propName, componentName) => {
         const prop = props[propName];
 
         let error = null;
         React.Children.forEach(prop, child => {
-            if (isListItem(child)) {
+            if (isNotListItem(child) && child.props.isListException !== true) {
                 error = new Error(
                     `'${componentName}' children should be of type 'ListItem' or 'li'.`
                 );
