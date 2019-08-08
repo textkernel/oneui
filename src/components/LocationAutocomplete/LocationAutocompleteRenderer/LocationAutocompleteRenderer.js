@@ -100,7 +100,7 @@ const LocationAutocompleteRenderer = props => {
                 {...elem('poweredByGoogleImage', props)}
                 src={POWERED_BY_GOOGLE_ON_WHITE}
                 alt="Powered by Google"
-                isListException
+                data-list-child
             />
             {suggestionsList.map((item, index) => (
                 <ListItem
