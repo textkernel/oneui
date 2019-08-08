@@ -137,16 +137,16 @@ List.displayName = 'List';
 
 List.propTypes = {
     /** List items. They should be ListItem or li.
-     * If you sure using other element will work for you, you can bypass validation by adding `isListException` as a prop to the child
+     * If you sure using other element will work for you, you can bypass validation by adding `data-list-item` as a prop to the child
      */
     children: (props, propName, componentName) => {
         const prop = props[propName];
 
         let error = null;
         React.Children.forEach(prop, child => {
-            if (isNotListItem(child) && child.props.isListException !== true) {
+            if (isNotListItem(child) && !child.props['data-list-child']) {
                 error = new Error(
-                    `'${componentName}' children should be of type 'ListItem' or 'li'.`
+                    `'${componentName}' children should be of type 'ListItem' or 'li' or have 'data-list-child' attribute.`
                 );
             }
         });

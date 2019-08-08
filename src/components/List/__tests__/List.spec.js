@@ -71,6 +71,19 @@ describe('List component', () => {
                 </List>
             );
             expect(consoleError).toHaveBeenCalled();
+            expect(consoleError.mock.calls[0][0]).toContain(
+                "Failed prop type: 'List' children should be of type 'ListItem' or 'li'"
+            );
+        });
+        it('should not warn if children marked with data-list-item', () => {
+            mount(
+                <List>
+                    <a href="/" data-list-child>
+                        Item 1
+                    </a>
+                </List>
+            );
+            expect(consoleError).not.toHaveBeenCalled();
         });
     });
 
