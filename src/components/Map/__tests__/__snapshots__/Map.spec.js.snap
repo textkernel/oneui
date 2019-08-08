@@ -19,7 +19,7 @@ exports[`<Map/> that loads google api and renders a Map should render with defau
   markers={Array []}
   zoom={7}
 >
-  <LoadScriptNext
+  <Memo(LoadScriptNext)
     googleMapsApiKey="someKey"
     loadingElement={
       <LoadingSpinner
@@ -65,6 +65,6 @@ exports[`<Map/> that loads google api and renders a Map should render with defau
         </svg>
       </div>
     </LoadingSpinner>
-  </LoadScriptNext>
+  </Memo(LoadScriptNext)>
 </Map>
 `;

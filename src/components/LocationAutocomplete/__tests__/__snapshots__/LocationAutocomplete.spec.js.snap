@@ -8,7 +8,7 @@ exports[`<LocationAutocomplete/> that loads google api and renders a LocationAut
   noSuggestionsPlaceholder="No suggestions..."
   onSelectionChange={[Function]}
 >
-  <LoadScriptNext
+  <Memo(LoadScriptNext)
     googleMapsApiKey="someKey"
     libraries={
       Array [
@@ -59,6 +59,6 @@ exports[`<LocationAutocomplete/> that loads google api and renders a LocationAut
         </svg>
       </div>
     </LoadingSpinner>
-  </LoadScriptNext>
+  </Memo(LoadScriptNext)>
 </LocationAutocomplete>
 `;
