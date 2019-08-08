@@ -75,7 +75,7 @@ describe('List component', () => {
                 "Failed prop type: 'List' children should be of type 'ListItem' or 'li'"
             );
         });
-        it('should not warn if children marked with data-list-item', () => {
+        it('should not warn if children marked with data-list-child', () => {
             mount(
                 <List>
                     <a href="/" data-list-child>
