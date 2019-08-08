@@ -1,12 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
 import { Map } from '@textkernel/oneui';
 
 storiesOf('Atoms|Map', module)
     .addDecorator(withKnobs)
-    .addDecorator(withInfo)
     .add(
         'Map',
         () => {
@@ -47,7 +45,7 @@ storiesOf('Atoms|Map', module)
                 text: `
         ## Displaying Map in storybook
 
-        To make this component work you need to provide your own Google API key. At the moment this is only possible via accessing the source code. Sorry for the inconvenience.
+        To make this component work in none-dev mode, you need to provide your own Google API key. At the moment this is only possible via accessing the source code. Sorry for the inconvenience.
 
         ## Note about props
 
