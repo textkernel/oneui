@@ -38,8 +38,7 @@ storiesOf('Organisms|LocationAutocomplete', module)
                 }
             };
 
-            if (!apiKey) {
-                // eslint-disable-next-line no-alert
+            if (!apiKey && !(window.google && window.google.maps && window.google.maps.places)) {
                 debondcePrompt();
             }
 
