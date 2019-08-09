@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonStateless, Avatar, AvatarStateless } from './dummy-components';
+import { Button, ButtonStateless, Avatar, AvatarStateless, List } from './dummy-components';
 
 describe('BEM decorator', () => {
     describe('Decorate stateFUL class component', () => {
@@ -118,6 +118,17 @@ describe('BEM decorator', () => {
             const buttonWrapper = shallow(<ButtonStateless className="custom-class-name" />);
             expect(buttonWrapper.hasClass('ButtonStateless')).toBe(true);
             expect(buttonWrapper.hasClass('custom-class-name')).toBe(true);
+        });
+
+        it.skip('should respect className property and pass it to the decorated element also on children', () => {
+            const listWrapper = shallow(
+                <List>
+                    <li className="custom-class-name" />
+                </List>
+            );
+            const liElement = listWrapper.find('li');
+            expect(liElement.hasClass('List__item')).toBe(true);
+            expect(liElement.hasClass('custom-class-name')).toBe(true);
         });
 
         it('should pass all props to the decorarted component', () => {
