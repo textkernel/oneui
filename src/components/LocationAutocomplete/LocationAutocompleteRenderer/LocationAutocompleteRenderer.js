@@ -93,33 +93,36 @@ const LocationAutocompleteRenderer = props => {
     };
 
     // eslint-disable-next-line react/display-name
-    const renderListPoweredByGoogle = ({ listInputValue, getItemProps, highlightedIndex }) => (
-        <React.Fragment>
+    const renderListPoweredByGoogle = ({ listInputValue, getItemProps, highlightedIndex }) => {
+        const elems = suggestionsList.map((item, index) => (
+            <ListItem
+                key={suggestionToString(item)}
+                {...getItemProps({
+                    item,
+                    index,
+                    isHighlighted: highlightedIndex === index,
+                    highlightContext: 'brand',
+                })}
+            >
+                <MarkedText marker={listInputValue} inline>
+                    {showCountryInSuggestions
+                        ? suggestionToString(item)
+                        : item.structured_formatting.main_text}
+                </MarkedText>
+            </ListItem>
+        ));
+
+        elems.unshift(
             <img
+                key="powered by google logo"
                 {...elem('poweredByGoogleImage', props)}
                 src={POWERED_BY_GOOGLE_ON_WHITE}
                 alt="Powered by Google"
-                data-list-child
+                data-list-exception
             />
-            {suggestionsList.map((item, index) => (
-                <ListItem
-                    key={suggestionToString(item)}
-                    {...getItemProps({
-                        item,
-                        index,
-                        isHighlighted: highlightedIndex === index,
-                        highlightContext: 'brand',
-                    })}
-                >
-                    <MarkedText marker={listInputValue} inline>
-                        {showCountryInSuggestions
-                            ? suggestionToString(item)
-                            : item.structured_formatting.main_text}
-                    </MarkedText>
-                </ListItem>
-            ))}
-        </React.Fragment>
-    );
+        );
+        return elems;
+    };
 
     return (
         <Autosuggest

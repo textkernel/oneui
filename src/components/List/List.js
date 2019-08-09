@@ -21,6 +21,9 @@ const SCROLL_INTO_VIEW_SETTINGS = {
     block: 'nearest',
 };
 
+const NOT_LIST_CHILD = 'data-list-exception';
+const LIST_CHILD = 'data-list-child';
+
 const List = React.forwardRef((props, ref) => {
     const [selectedIndex, setSelectedIndex] = useState(null);
     const [highlightedWithKeyboard, setHighlightedWithKeyboard] = useState(false);
@@ -110,25 +113,42 @@ const List = React.forwardRef((props, ref) => {
         }
     };
 
+    const getChildClasses = child => {
+        const classes = [elem('item', props).className];
+        if (child.props.className) {
+            classes.push(child.props.className);
+        }
+
+        return classes.join(' ');
+    };
+
     return isControlledNavigation ? (
         <ul {...rest} ref={ref} {...block(props)}>
-            {React.Children.map(children, child =>
-                child ? React.cloneElement(child, elem('item', props)) : null
-            )}
+            {React.Children.map(children, child => {
+                if (child) {
+                    return child.props[NOT_LIST_CHILD]
+                        ? child
+                        : React.cloneElement(child, { className: getChildClasses(child) });
+                }
+                return null;
+            })}
         </ul>
     ) : (
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex
         <ul {...rest} ref={ref} tabIndex="0" onKeyDown={handleKeyDown} {...block(props)}>
-            {React.Children.map(children, (child, index) =>
-                child
-                    ? React.cloneElement(child, {
-                          ...elem('item', props),
-                          ref: index === selectedIndex ? highlightedListItem : null,
-                          isHighlighted: index === selectedIndex,
-                          onMouseEnter: () => handleMouseEnter(index),
-                      })
-                    : null
-            )}
+            {React.Children.map(children, (child, index) => {
+                if (child) {
+                    return child.props[NOT_LIST_CHILD]
+                        ? child
+                        : React.cloneElement(child, {
+                              className: getChildClasses(child),
+                              ref: index === selectedIndex ? highlightedListItem : null,
+                              isHighlighted: index === selectedIndex,
+                              onMouseEnter: () => handleMouseEnter(index),
+                          });
+                }
+                return null;
+            })}
         </ul>
     );
 });
@@ -138,15 +158,17 @@ List.displayName = 'List';
 List.propTypes = {
     /** List items. They should be ListItem or li.
      * If you sure using other element will work for you, you can bypass validation by adding `data-list-item` as a prop to the child
+     * If you want to add an element that is not part of the list, but should be rendered within it
+     * (e.g. an image to decorate the list) use `data-list-exception` as a prop to that child
      */
     children: (props, propName, componentName) => {
         const prop = props[propName];
 
         let error = null;
         React.Children.forEach(prop, child => {
-            if (isNotListItem(child) && !child.props['data-list-child']) {
+            if (isNotListItem(child) && !child.props[LIST_CHILD] && !child.props[NOT_LIST_CHILD]) {
                 error = new Error(
-                    `'${componentName}' children should be of type 'ListItem' or 'li' or have 'data-list-child' attribute.`
+                    `'${componentName}' children should be of type 'ListItem' or 'li' or have '${LIST_CHILD}' or '${NOT_LIST_CHILD}' attribute.`
                 );
             }
         });

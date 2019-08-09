@@ -343,17 +343,19 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                     <img
                       alt="Powered by Google"
                       className="LocationAutocompleteRenderer__poweredByGoogleImage"
-                      data-list-child={true}
+                      data-list-exception={true}
+                      key=".$powered by google logo"
                       src="test-file-stub"
                     />
                     <ListItem
                       aria-selected={true}
+                      className="List__item"
                       disabled={false}
                       highlightContext="brand"
                       id="downshift-4-item-0"
                       isHighlighted={true}
                       isSelected={false}
-                      key="Truro, UK"
+                      key=".$Truro, UK"
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -361,7 +363,7 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                     >
                       <li
                         aria-selected={true}
-                        className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable"
+                        className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable List__item"
                         id="downshift-4-item-0"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -392,12 +394,13 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                     </ListItem>
                     <ListItem
                       aria-selected={false}
+                      className="List__item"
                       disabled={false}
                       highlightContext="brand"
                       id="downshift-4-item-1"
                       isHighlighted={false}
                       isSelected={false}
-                      key="Trowbridge, UK"
+                      key=".$Trowbridge, UK"
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -405,7 +408,7 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                     >
                       <li
                         aria-selected={false}
-                        className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
                         id="downshift-4-item-1"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -436,12 +439,13 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                     </ListItem>
                     <ListItem
                       aria-selected={false}
+                      className="List__item"
                       disabled={false}
                       highlightContext="brand"
                       id="downshift-4-item-2"
                       isHighlighted={false}
                       isSelected={false}
-                      key="Tring, UK"
+                      key=".$Tring, UK"
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -449,7 +453,7 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                     >
                       <li
                         aria-selected={false}
-                        className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
                         id="downshift-4-item-2"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -480,12 +484,13 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                     </ListItem>
                     <ListItem
                       aria-selected={false}
+                      className="List__item"
                       disabled={false}
                       highlightContext="brand"
                       id="downshift-4-item-3"
                       isHighlighted={false}
                       isSelected={false}
-                      key="Troon, UK"
+                      key=".$Troon, UK"
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -493,7 +498,7 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                     >
                       <li
                         aria-selected={false}
-                        className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
                         id="downshift-4-item-3"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -524,12 +529,13 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                     </ListItem>
                     <ListItem
                       aria-selected={false}
+                      className="List__item"
                       disabled={false}
                       highlightContext="brand"
                       id="downshift-4-item-4"
                       isHighlighted={false}
                       isSelected={false}
-                      key="Tredegar, UK"
+                      key=".$Tredegar, UK"
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -537,7 +543,7 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                     >
                       <li
                         aria-selected={false}
-                        className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
                         id="downshift-4-item-4"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
