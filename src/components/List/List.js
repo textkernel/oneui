@@ -21,8 +21,8 @@ const SCROLL_INTO_VIEW_SETTINGS = {
     block: 'nearest',
 };
 
-const NOT_LIST_CHILD = 'data-list-exception';
-const LIST_CHILD = 'data-list-child';
+export const NOT_LIST_CHILD = 'data-list-exception';
+export const LIST_CHILD = 'data-list-child';
 
 const List = React.forwardRef((props, ref) => {
     const [selectedIndex, setSelectedIndex] = useState(null);
