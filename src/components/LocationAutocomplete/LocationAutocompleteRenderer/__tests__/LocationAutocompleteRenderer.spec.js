@@ -27,9 +27,7 @@ describe('<LocationAutocompleteRenderer/> that renders a location search field',
     });
 
     afterEach(() => {
-        // jest.runAllTimers();
         jest.resetAllMocks();
-        // wrapper.unmount();
     });
 
     it('should render with minimal props', () => {
@@ -37,24 +35,25 @@ describe('<LocationAutocompleteRenderer/> that renders a location search field',
     });
     it('should set loading to true when user starts typing', () => {
         expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
-        // act(() => {
         wrapper.find('input').simulate('change', { target: { value: 'Honolulu' } });
-        // });
 
         expect(wrapper.find('Autosuggest').props().isLoading).toBeTruthy();
     });
     it('should set loading to false when user deletes input value', () => {
-        // act(() => {
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
+        wrapper.find('input').simulate('change', { target: { value: 'Honolulu' } });
+
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeTruthy();
+
         wrapper.find('input').simulate('change', { target: { value: '' } });
-        // });
 
         expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
     });
     it('should request predictions from API when user types', () => {
+        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {
-            wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
+            jest.runAllTimers();
         });
-        jest.runAllTimers();
         focusField();
 
         expect(getPlacePredictionsMock).toHaveBeenCalledWith(
@@ -64,10 +63,10 @@ describe('<LocationAutocompleteRenderer/> that renders a location search field',
     });
     it('should pass predictions to Autosuggest', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
+        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {
-            wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
+            jest.runAllTimers();
         });
-        jest.runAllTimers();
         focusField();
 
         expect(wrapper.find('Autosuggest').props().getSuggestions).toHaveLength(5);
@@ -78,20 +77,20 @@ describe('<LocationAutocompleteRenderer/> that renders a location search field',
         getPlacePredictionsMock.mockImplementationOnce((req, cb) =>
             cb(predictionsMock, 'REQUEST_DENIED')
         );
+        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {
-            wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
+            jest.runAllTimers();
         });
-        jest.runAllTimers();
         focusField();
 
         expect(onErrorMock).toHaveBeenCalled();
     });
     it('should call onSelectionChange when suggestion is selected', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
+        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {
-            wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
+            jest.runAllTimers();
         });
-        jest.runAllTimers();
         focusField();
         wrapper
             .find('li')
@@ -103,10 +102,10 @@ describe('<LocationAutocompleteRenderer/> that renders a location search field',
     });
     it('should not display country information in list', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
+        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {
-            wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
+            jest.runAllTimers();
         });
-        jest.runAllTimers();
         focusField();
 
         expect(
@@ -119,10 +118,10 @@ describe('<LocationAutocompleteRenderer/> that renders a location search field',
     it('should display country information in list if showCountryInSuggestions is true', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         wrapper.setProps({ showCountryInSuggestions: true });
+        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {
-            wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
+            jest.runAllTimers();
         });
-        jest.runAllTimers();
         focusField();
 
         expect(
