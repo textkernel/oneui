@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Autosuggest, Alert, ListItem, MarkedText } from '../../../index';
 import useDebounce from '../../../hooks/useDebounce';
 import POWERED_BY_GOOGLE_ON_WHITE from '../../../images/powered_by_google_on_white.png';
@@ -133,7 +132,7 @@ const LocationAutocompleteRenderer = props => {
             onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
             onSelectionChange={handleSelection}
-            iconNode={<FontAwesomeIcon icon={faMapMarkerAlt} {...elem('icon', props)} />}
+            iconNode={<FaMapMarkerAlt {...elem('icon', props)} />}
             {...rest}
         />
     );

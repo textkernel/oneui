@@ -206,35 +206,8 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
       ]
     }
     iconNode={
-      <FontAwesomeIcon
-        border={false}
+      <FaMapMarkerAlt
         className="LocationAutocompleteRenderer__icon"
-        fixedWidth={false}
-        flip={null}
-        icon={
-          Object {
-            "icon": Array [
-              384,
-              512,
-              Array [],
-              "f3c5",
-              "M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z",
-            ],
-            "iconName": "map-marker-alt",
-            "prefix": "fas",
-          }
-        }
-        inverse={false}
-        listItem={false}
-        mask={null}
-        pull={null}
-        pulse={false}
-        rotation={null}
-        size={null}
-        spin={false}
-        symbol={false}
-        title=""
-        transform={null}
       />
     }
     inputPlaceholder="Location..."
@@ -303,54 +276,39 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                   role="searchbox"
                   tabIndex="0"
                 >
-                  <FontAwesomeIcon
-                    border={false}
+                  <FaMapMarkerAlt
                     className="Autosuggest__spacedElem LocationAutocompleteRenderer__icon"
-                    fixedWidth={false}
-                    flip={null}
-                    icon={
-                      Object {
-                        "icon": Array [
-                          384,
-                          512,
-                          Array [],
-                          "f3c5",
-                          "M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z",
-                        ],
-                        "iconName": "map-marker-alt",
-                        "prefix": "fas",
-                      }
-                    }
-                    inverse={false}
-                    listItem={false}
-                    mask={null}
-                    pull={null}
-                    pulse={false}
-                    rotation={null}
-                    size={null}
-                    spin={false}
-                    symbol={false}
-                    title=""
-                    transform={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="svg-inline--fa fa-map-marker-alt fa-w-12 Autosuggest__spacedElem LocationAutocompleteRenderer__icon"
-                      data-icon="map-marker-alt"
-                      data-prefix="fas"
-                      focusable="false"
-                      role="img"
-                      style={Object {}}
-                      viewBox="0 0 384 512"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <IconBase
+                      attr={
+                        Object {
+                          "viewBox": "0 0 384 512",
+                        }
+                      }
+                      className="Autosuggest__spacedElem LocationAutocompleteRenderer__icon"
                     >
-                      <path
-                        d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                      <svg
+                        className="Autosuggest__spacedElem LocationAutocompleteRenderer__icon"
                         fill="currentColor"
-                        style={Object {}}
-                      />
-                    </svg>
-                  </FontAwesomeIcon>
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 384 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </FaMapMarkerAlt>
                   <input
                     aria-activedescendant="downshift-4-item-0"
                     aria-autocomplete="list"
@@ -638,35 +596,8 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
     clearTitle=""
     getSuggestions={null}
     iconNode={
-      <FontAwesomeIcon
-        border={false}
+      <FaMapMarkerAlt
         className="LocationAutocompleteRenderer__icon"
-        fixedWidth={false}
-        flip={null}
-        icon={
-          Object {
-            "icon": Array [
-              384,
-              512,
-              Array [],
-              "f3c5",
-              "M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z",
-            ],
-            "iconName": "map-marker-alt",
-            "prefix": "fas",
-          }
-        }
-        inverse={false}
-        listItem={false}
-        mask={null}
-        pull={null}
-        pulse={false}
-        rotation={null}
-        size={null}
-        spin={false}
-        symbol={false}
-        title=""
-        transform={null}
       />
     }
     inputPlaceholder="Location..."
@@ -735,54 +666,39 @@ exports[`<LocationAutocompleteRenderer/> that renders a location search field sh
                   role="searchbox"
                   tabIndex="0"
                 >
-                  <FontAwesomeIcon
-                    border={false}
+                  <FaMapMarkerAlt
                     className="Autosuggest__spacedElem LocationAutocompleteRenderer__icon"
-                    fixedWidth={false}
-                    flip={null}
-                    icon={
-                      Object {
-                        "icon": Array [
-                          384,
-                          512,
-                          Array [],
-                          "f3c5",
-                          "M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z",
-                        ],
-                        "iconName": "map-marker-alt",
-                        "prefix": "fas",
-                      }
-                    }
-                    inverse={false}
-                    listItem={false}
-                    mask={null}
-                    pull={null}
-                    pulse={false}
-                    rotation={null}
-                    size={null}
-                    spin={false}
-                    symbol={false}
-                    title=""
-                    transform={null}
                   >
-                    <svg
-                      aria-hidden="true"
-                      className="svg-inline--fa fa-map-marker-alt fa-w-12 Autosuggest__spacedElem LocationAutocompleteRenderer__icon"
-                      data-icon="map-marker-alt"
-                      data-prefix="fas"
-                      focusable="false"
-                      role="img"
-                      style={Object {}}
-                      viewBox="0 0 384 512"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <IconBase
+                      attr={
+                        Object {
+                          "viewBox": "0 0 384 512",
+                        }
+                      }
+                      className="Autosuggest__spacedElem LocationAutocompleteRenderer__icon"
                     >
-                      <path
-                        d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                      <svg
+                        className="Autosuggest__spacedElem LocationAutocompleteRenderer__icon"
                         fill="currentColor"
-                        style={Object {}}
-                      />
-                    </svg>
-                  </FontAwesomeIcon>
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 384 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </FaMapMarkerAlt>
                   <input
                     aria-activedescendant={null}
                     aria-autocomplete="list"
