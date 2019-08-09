@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
-import { LocationAutocomplete, LocationAutocompleteRenderer } from '@textkernel/oneui';
+import { LocationAutocompleteWithGoogleLoader, LocationAutocomplete } from '@textkernel/oneui';
 
 let apiKey = '';
 let timer = null;
@@ -43,7 +43,7 @@ storiesOf('Organisms|LocationAutocomplete', module)
             }
 
             return (
-                <LocationAutocomplete
+                <LocationAutocompleteWithGoogleLoader
                     apiKey={apiKey}
                     inputPlaceholder={text('Input field placeholder', 'Enter a city or region...')}
                     noSuggestionsPlaceholder={text(
@@ -62,14 +62,14 @@ storiesOf('Organisms|LocationAutocomplete', module)
         },
         {
             info: {
-                propTables: [LocationAutocomplete, LocationAutocompleteRenderer],
+                propTables: [LocationAutocompleteWithGoogleLoader, LocationAutocomplete],
                 text: `
     ## Note about props
 
-    'LocationAutocomplete' is a wrapper around the 'LocationAutocompleteRenderer' component, and it makes sure the Google API is loaded on the page.
+    'LocationAutocompleteWithGoogleLoader' is a wrapper around the 'LocationAutocomplete' component, and it makes sure the Google API is loaded on the page.
 
-    You don't need to use 'LocationAutocompleteRenderer' directly.
-    'LocationAutocomplete' __will pass props__ that are not needed for loading the API __to 'LocationAutocompleteRenderer'__, so you can provide them all together. For list of props see below
+    You don't need to use 'LocationAutocomplete' directly.
+    'LocationAutocompleteWithGoogleLoader' __will pass props__ that are not needed for loading the API __to 'LocationAutocomplete'__, so you can provide them all together. For list of props see below
     `,
             },
         }

@@ -1,64 +1,747 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LocationAutocomplete/> that loads google api and renders a LocationAutocomplete should render with default props 1`] = `
+exports[`<LocationAutocomplete/> that renders a location search field should pass predictions to Autosuggest 1`] = `
 <LocationAutocomplete
-  additionalGoogleProps={Object {}}
-  apiKey="someKey"
+  country={null}
   inputPlaceholder="Location..."
   noSuggestionsPlaceholder="No suggestions..."
-  onSelectionChange={[Function]}
+  onError={[MockFunction]}
+  onSelectionChange={[MockFunction]}
+  placeTypes={
+    Array [
+      "(regions)",
+    ]
+  }
+  showCountryInSuggestions={false}
 >
-  <Memo(LoadScriptNext)
-    googleMapsApiKey="someKey"
-    libraries={
+  <Autosuggest
+    clearTitle=""
+    getSuggestions={
       Array [
-        "places",
+        Object {
+          "description": "Truro, UK",
+          "id": "51b6747d060368917397ce3cc25abe2089302262",
+          "matched_substrings": Array [
+            Object {
+              "length": 2,
+              "offset": 0,
+            },
+          ],
+          "place_id": "ChIJdRpa1XwQa0gRtAcdle9HY2E",
+          "reference": "ChIJdRpa1XwQa0gRtAcdle9HY2E",
+          "structured_formatting": Object {
+            "main_text": "Truro",
+            "main_text_matched_substrings": Array [
+              Object {
+                "length": 2,
+                "offset": 0,
+              },
+            ],
+            "secondary_text": "UK",
+          },
+          "terms": Array [
+            Object {
+              "offset": 0,
+              "value": "Truro",
+            },
+            Object {
+              "offset": 7,
+              "value": "UK",
+            },
+          ],
+          "types": Array [
+            "locality",
+            "political",
+            "geocode",
+          ],
+        },
+        Object {
+          "description": "Trowbridge, UK",
+          "id": "b10d478a406230745e98edd2d2a01f59097d5a59",
+          "matched_substrings": Array [
+            Object {
+              "length": 2,
+              "offset": 0,
+            },
+          ],
+          "place_id": "ChIJM6W0Ewp9cUgRLXIknC4a-Pw",
+          "reference": "ChIJM6W0Ewp9cUgRLXIknC4a-Pw",
+          "structured_formatting": Object {
+            "main_text": "Trowbridge",
+            "main_text_matched_substrings": Array [
+              Object {
+                "length": 2,
+                "offset": 0,
+              },
+            ],
+            "secondary_text": "UK",
+          },
+          "terms": Array [
+            Object {
+              "offset": 0,
+              "value": "Trowbridge",
+            },
+            Object {
+              "offset": 12,
+              "value": "UK",
+            },
+          ],
+          "types": Array [
+            "locality",
+            "political",
+            "geocode",
+          ],
+        },
+        Object {
+          "description": "Tring, UK",
+          "id": "8b1f6899d3555c6aae3a2d383ed96c7649f3ccf8",
+          "matched_substrings": Array [
+            Object {
+              "length": 2,
+              "offset": 0,
+            },
+          ],
+          "place_id": "ChIJ33SmFitYdkgR3-ErzH_p6Bw",
+          "reference": "ChIJ33SmFitYdkgR3-ErzH_p6Bw",
+          "structured_formatting": Object {
+            "main_text": "Tring",
+            "main_text_matched_substrings": Array [
+              Object {
+                "length": 2,
+                "offset": 0,
+              },
+            ],
+            "secondary_text": "UK",
+          },
+          "terms": Array [
+            Object {
+              "offset": 0,
+              "value": "Tring",
+            },
+            Object {
+              "offset": 7,
+              "value": "UK",
+            },
+          ],
+          "types": Array [
+            "locality",
+            "political",
+            "geocode",
+          ],
+        },
+        Object {
+          "description": "Troon, UK",
+          "id": "c563f4c69998a376dac8e3b4122067d782e752f7",
+          "matched_substrings": Array [
+            Object {
+              "length": 2,
+              "offset": 0,
+            },
+          ],
+          "place_id": "ChIJxy8qU3jRiUgR-sKnFLHxiSM",
+          "reference": "ChIJxy8qU3jRiUgR-sKnFLHxiSM",
+          "structured_formatting": Object {
+            "main_text": "Troon",
+            "main_text_matched_substrings": Array [
+              Object {
+                "length": 2,
+                "offset": 0,
+              },
+            ],
+            "secondary_text": "UK",
+          },
+          "terms": Array [
+            Object {
+              "offset": 0,
+              "value": "Troon",
+            },
+            Object {
+              "offset": 7,
+              "value": "UK",
+            },
+          ],
+          "types": Array [
+            "locality",
+            "political",
+            "geocode",
+          ],
+        },
+        Object {
+          "description": "Tredegar, UK",
+          "id": "4dca94194f54dee0879b9d368379eb5d09ec838d",
+          "matched_substrings": Array [
+            Object {
+              "length": 2,
+              "offset": 0,
+            },
+          ],
+          "place_id": "ChIJdQjXYyYkbkgRTRfZ8WAt6lI",
+          "reference": "ChIJdQjXYyYkbkgRTRfZ8WAt6lI",
+          "structured_formatting": Object {
+            "main_text": "Tredegar",
+            "main_text_matched_substrings": Array [
+              Object {
+                "length": 2,
+                "offset": 0,
+              },
+            ],
+            "secondary_text": "UK",
+          },
+          "terms": Array [
+            Object {
+              "offset": 0,
+              "value": "Tredegar",
+            },
+            Object {
+              "offset": 10,
+              "value": "UK",
+            },
+          ],
+          "types": Array [
+            "locality",
+            "political",
+            "geocode",
+          ],
+        },
       ]
     }
-    loadingElement={
-      <LoadingSpinner
-        centerIn="parent"
-        context="brand"
-        hidden={false}
-        size={null}
+    iconNode={
+      <FaMapMarkerAlt
+        className="LocationAutocomplete__icon"
       />
     }
+    inputPlaceholder="Location..."
+    isLoading={false}
+    isMultiselect={false}
+    isProminent={false}
+    listRenderer={[Function]}
+    noSuggestionsPlaceholder="No suggestions..."
+    onBlur={[Function]}
+    onClearAllSelected={null}
+    onInputValueChange={[Function]}
+    onSelectionChange={[Function]}
+    selectedPlaceholder=""
+    selectedSuggestions={null}
+    showClearButton={false}
+    suggestionToString={[Function]}
   >
-    <LoadingSpinner
-      centerIn="parent"
-      context="brand"
-      hidden={false}
-      size={null}
+    <div
+      className="Autosuggest"
     >
-      <div
-        aria-busy={true}
-        aria-hidden={false}
-        className="LoadingSpinner LoadingSpinner--centerIn_parent"
-        role="status"
+      <Downshift
+        defaultHighlightedIndex={0}
+        defaultIsOpen={false}
+        environment={[Window]}
+        getA11yStatusMessage={[Function]}
+        inputValue="Tonga"
+        itemToString={[Function]}
+        onChange={[Function]}
+        onInputValueChange={[Function]}
+        onOuterClick={[Function]}
+        onSelect={[Function]}
+        onStateChange={[Function]}
+        onUserAction={[Function]}
+        scrollIntoView={[Function]}
+        selectedItemChanged={[Function]}
+        stateReducer={[Function]}
+        suppressRefError={false}
       >
-        <svg
-          className="LoadingSpinner__svg"
-          style={null}
-          viewBox={
-            Array [
-              0,
-              0,
-              44,
-              44,
-            ]
-          }
+        <div
+          aria-expanded={true}
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-4-label"
+          aria-owns="downshift-4-menu"
+          className="Autosuggest__main Autosuggest__main--focused"
+          role="combobox"
         >
-          <circle
-            className="LoadingSpinner__path LoadingSpinner__path--context_brand"
-            cx="22"
-            cy="22"
-            fill="none"
-            r="20"
-            strokeWidth="4"
-          />
-        </svg>
-      </div>
-    </LoadingSpinner>
-  </Memo(LoadScriptNext)>
+          <FieldWrapper
+            className="Autosuggest__field"
+            clearLabel=""
+            isFocused={true}
+            onClear={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            showClearButton={false}
+          >
+            <div
+              className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+            >
+              <div
+                className="FieldWrapper__content"
+              >
+                <div
+                  className="Autosuggest__wrapper Autosuggest__wrapper--focused"
+                  role="searchbox"
+                  tabIndex="0"
+                >
+                  <FaMapMarkerAlt
+                    className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                  >
+                    <IconBase
+                      attr={
+                        Object {
+                          "viewBox": "0 0 384 512",
+                        }
+                      }
+                      className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                    >
+                      <svg
+                        className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 384 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </FaMapMarkerAlt>
+                  <input
+                    aria-activedescendant="downshift-4-item-0"
+                    aria-autocomplete="list"
+                    aria-controls="downshift-4-menu"
+                    aria-labelledby="downshift-4-label"
+                    autoComplete="off"
+                    className="Autosuggest__input"
+                    id="downshift-4-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="Location..."
+                    value="Tonga"
+                  />
+                </div>
+                <List
+                  aria-labelledby="downshift-4-label"
+                  className="Autosuggest__list--focused"
+                  id="downshift-4-menu"
+                  isControlledNavigation={true}
+                  isDivided={false}
+                  onNavigate={null}
+                  onSelect={null}
+                  role="listbox"
+                >
+                  <ul
+                    aria-labelledby="downshift-4-label"
+                    className="List Autosuggest__list--focused"
+                    id="downshift-4-menu"
+                    role="listbox"
+                  >
+                    <img
+                      alt="Powered by Google"
+                      className="LocationAutocomplete__poweredByGoogleImage"
+                      data-list-exception={true}
+                      key=".$powered by google logo"
+                      src="test-file-stub"
+                    />
+                    <ListItem
+                      aria-selected={true}
+                      className="List__item"
+                      disabled={false}
+                      highlightContext="brand"
+                      id="downshift-4-item-0"
+                      isHighlighted={true}
+                      isSelected={false}
+                      key=".$Truro, UK"
+                      onClick={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseMove={[Function]}
+                      role="option"
+                    >
+                      <li
+                        aria-selected={true}
+                        className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable List__item"
+                        id="downshift-4-item-0"
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <div
+                          className="ListItem__container"
+                          onClick={[Function]}
+                          role="presentation"
+                        >
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker="Tonga"
+                          >
+                            <Text
+                              context="default"
+                              inline={true}
+                              size="normal"
+                            >
+                              <span>
+                                Truro
+                              </span>
+                            </Text>
+                          </MarkedText>
+                        </div>
+                      </li>
+                    </ListItem>
+                    <ListItem
+                      aria-selected={false}
+                      className="List__item"
+                      disabled={false}
+                      highlightContext="brand"
+                      id="downshift-4-item-1"
+                      isHighlighted={false}
+                      isSelected={false}
+                      key=".$Trowbridge, UK"
+                      onClick={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseMove={[Function]}
+                      role="option"
+                    >
+                      <li
+                        aria-selected={false}
+                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                        id="downshift-4-item-1"
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <div
+                          className="ListItem__container"
+                          onClick={[Function]}
+                          role="presentation"
+                        >
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker="Tonga"
+                          >
+                            <Text
+                              context="default"
+                              inline={true}
+                              size="normal"
+                            >
+                              <span>
+                                Trowbridge
+                              </span>
+                            </Text>
+                          </MarkedText>
+                        </div>
+                      </li>
+                    </ListItem>
+                    <ListItem
+                      aria-selected={false}
+                      className="List__item"
+                      disabled={false}
+                      highlightContext="brand"
+                      id="downshift-4-item-2"
+                      isHighlighted={false}
+                      isSelected={false}
+                      key=".$Tring, UK"
+                      onClick={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseMove={[Function]}
+                      role="option"
+                    >
+                      <li
+                        aria-selected={false}
+                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                        id="downshift-4-item-2"
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <div
+                          className="ListItem__container"
+                          onClick={[Function]}
+                          role="presentation"
+                        >
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker="Tonga"
+                          >
+                            <Text
+                              context="default"
+                              inline={true}
+                              size="normal"
+                            >
+                              <span>
+                                Tring
+                              </span>
+                            </Text>
+                          </MarkedText>
+                        </div>
+                      </li>
+                    </ListItem>
+                    <ListItem
+                      aria-selected={false}
+                      className="List__item"
+                      disabled={false}
+                      highlightContext="brand"
+                      id="downshift-4-item-3"
+                      isHighlighted={false}
+                      isSelected={false}
+                      key=".$Troon, UK"
+                      onClick={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseMove={[Function]}
+                      role="option"
+                    >
+                      <li
+                        aria-selected={false}
+                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                        id="downshift-4-item-3"
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <div
+                          className="ListItem__container"
+                          onClick={[Function]}
+                          role="presentation"
+                        >
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker="Tonga"
+                          >
+                            <Text
+                              context="default"
+                              inline={true}
+                              size="normal"
+                            >
+                              <span>
+                                Troon
+                              </span>
+                            </Text>
+                          </MarkedText>
+                        </div>
+                      </li>
+                    </ListItem>
+                    <ListItem
+                      aria-selected={false}
+                      className="List__item"
+                      disabled={false}
+                      highlightContext="brand"
+                      id="downshift-4-item-4"
+                      isHighlighted={false}
+                      isSelected={false}
+                      key=".$Tredegar, UK"
+                      onClick={[Function]}
+                      onMouseDown={[Function]}
+                      onMouseMove={[Function]}
+                      role="option"
+                    >
+                      <li
+                        aria-selected={false}
+                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                        id="downshift-4-item-4"
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <div
+                          className="ListItem__container"
+                          onClick={[Function]}
+                          role="presentation"
+                        >
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker="Tonga"
+                          >
+                            <Text
+                              context="default"
+                              inline={true}
+                              size="normal"
+                            >
+                              <span>
+                                Tredegar
+                              </span>
+                            </Text>
+                          </MarkedText>
+                        </div>
+                      </li>
+                    </ListItem>
+                  </ul>
+                </List>
+              </div>
+            </div>
+          </FieldWrapper>
+        </div>
+      </Downshift>
+    </div>
+  </Autosuggest>
+</LocationAutocomplete>
+`;
+
+exports[`<LocationAutocomplete/> that renders a location search field should render with minimal props 1`] = `
+<LocationAutocomplete
+  country={null}
+  inputPlaceholder="Location..."
+  noSuggestionsPlaceholder="No suggestions..."
+  onError={[MockFunction]}
+  onSelectionChange={[MockFunction]}
+  placeTypes={
+    Array [
+      "(regions)",
+    ]
+  }
+  showCountryInSuggestions={false}
+>
+  <Autosuggest
+    clearTitle=""
+    getSuggestions={null}
+    iconNode={
+      <FaMapMarkerAlt
+        className="LocationAutocomplete__icon"
+      />
+    }
+    inputPlaceholder="Location..."
+    isLoading={false}
+    isMultiselect={false}
+    isProminent={false}
+    listRenderer={[Function]}
+    noSuggestionsPlaceholder="No suggestions..."
+    onBlur={[Function]}
+    onClearAllSelected={null}
+    onInputValueChange={[Function]}
+    onSelectionChange={[Function]}
+    selectedPlaceholder=""
+    selectedSuggestions={null}
+    showClearButton={false}
+    suggestionToString={[Function]}
+  >
+    <div
+      className="Autosuggest"
+    >
+      <Downshift
+        defaultHighlightedIndex={0}
+        defaultIsOpen={false}
+        environment={[Window]}
+        getA11yStatusMessage={[Function]}
+        inputValue=""
+        itemToString={[Function]}
+        onChange={[Function]}
+        onInputValueChange={[Function]}
+        onOuterClick={[Function]}
+        onSelect={[Function]}
+        onStateChange={[Function]}
+        onUserAction={[Function]}
+        scrollIntoView={[Function]}
+        selectedItemChanged={[Function]}
+        stateReducer={[Function]}
+        suppressRefError={false}
+      >
+        <div
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-0-label"
+          aria-owns={null}
+          className="Autosuggest__main"
+          role="combobox"
+        >
+          <FieldWrapper
+            className="Autosuggest__field"
+            clearLabel=""
+            isFocused={false}
+            onClear={[Function]}
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            showClearButton={false}
+          >
+            <div
+              className="FieldWrapper Autosuggest__field"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+            >
+              <div
+                className="FieldWrapper__content"
+              >
+                <div
+                  className="Autosuggest__wrapper"
+                  role="searchbox"
+                  tabIndex="0"
+                >
+                  <FaMapMarkerAlt
+                    className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                  >
+                    <IconBase
+                      attr={
+                        Object {
+                          "viewBox": "0 0 384 512",
+                        }
+                      }
+                      className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                    >
+                      <svg
+                        className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                        fill="currentColor"
+                        height="1em"
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 384 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </FaMapMarkerAlt>
+                  <input
+                    aria-activedescendant={null}
+                    aria-autocomplete="list"
+                    aria-controls={null}
+                    aria-labelledby="downshift-0-label"
+                    autoComplete="off"
+                    className="Autosuggest__input"
+                    id="downshift-0-input"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="Location..."
+                    value=""
+                  />
+                </div>
+                <List
+                  aria-labelledby="downshift-0-label"
+                  id="downshift-0-menu"
+                  isControlledNavigation={true}
+                  isDivided={false}
+                  onNavigate={null}
+                  onSelect={null}
+                  role="listbox"
+                >
+                  <ul
+                    aria-labelledby="downshift-0-label"
+                    className="List"
+                    id="downshift-0-menu"
+                    role="listbox"
+                  />
+                </List>
+              </div>
+            </div>
+          </FieldWrapper>
+        </div>
+      </Downshift>
+    </div>
+  </Autosuggest>
 </LocationAutocomplete>
 `;

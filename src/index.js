@@ -32,6 +32,6 @@ export { default as Teaser } from './components/Teaser';
 // Organisms
 export { Autosuggest, ItemTag } from './components/Autosuggest';
 export {
+    LocationAutocompleteWithGoogleLoader,
     LocationAutocomplete,
-    LocationAutocompleteRenderer,
 } from './components/LocationAutocomplete';

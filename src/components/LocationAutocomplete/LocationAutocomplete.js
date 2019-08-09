@@ -1,51 +1,176 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { LoadScriptNext } from '@react-google-maps/api';
-import { LoadingSpinner } from '../../index';
-import LocationAutocompleteRenderer from './LocationAutocompleteRenderer';
+import bem from 'bem';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import { Autosuggest, Alert, ListItem, MarkedText } from '../../index';
+import useDebounce from '../../hooks/useDebounce';
+import POWERED_BY_GOOGLE_ON_WHITE from '../../images/powered_by_google_on_white.png';
+import styles from './LocationAutocomplete.scss';
 
-// for details see: https://developers.google.com/maps/documentation/javascript/libraries
-const GOOGLE_API_LIBRARIES = ['places'];
+const { elem } = bem({
+    name: 'LocationAutocomplete',
+    classnames: styles,
+});
+
+const DEBOUNCE_DELAY = 350;
+const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
 const LocationAutocomplete = props => {
-    const { apiKey, language, region, additionalGoogleProps, ...rest } = props;
+    const [inputValue, setInputValue] = React.useState('');
+    const [suggestionsList, setSuggestionsList] = React.useState(null);
+    const [isLoading, setIsLoading] = React.useState(false);
+
+    const {
+        onSelectionChange,
+        inputPlaceholder,
+        noSuggestionsPlaceholder,
+        country,
+        placeTypes,
+        showCountryInSuggestions,
+        onError,
+        ...rest
+    } = props;
+
+    // Suggestion functions
+    const resetSuggestionsList = () => setSuggestionsList(null);
+    const suggestionToString = suggestion => (suggestion ? suggestion.description : '');
+
+    const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
+
+    React.useEffect(() => {
+        if (debouncedInputValue) {
+            const service = new window.google.maps.places.AutocompleteService();
+
+            service.getPlacePredictions(
+                {
+                    input: debouncedInputValue,
+                    types: placeTypes,
+                    componentRestrictions: { country },
+                },
+                (predictions, status) => {
+                    if (ACCEPTABLE_API_STATUSES.includes(status)) {
+                        setSuggestionsList(predictions);
+                    } else {
+                        // TODO: check desired behaviour with Carlo
+                        // currently the UI will look same as when no suggestions found
+                        resetSuggestionsList();
+                        if (onError) {
+                            onError(status);
+                        }
+                    }
+                    setIsLoading(false);
+                }
+            );
+        } else {
+            resetSuggestionsList();
+        }
+    }, [country, debouncedInputValue, onError, placeTypes]);
+
+    if (!(window.google && window.google.maps && window.google.maps.places)) {
+        // TODO: clarify with Carlo how to handle errors
+        return (
+            <Alert context="bad" title="No API found">
+                Google Maps Places APi was not found on the page. Before using this component, make
+                sure to load the places API
+            </Alert>
+        );
+    }
+
+    const handleInputValueChange = value => {
+        if (value) {
+            setIsLoading(true);
+            setInputValue(value);
+        } else {
+            setIsLoading(false);
+            resetSuggestionsList();
+        }
+    };
+
+    const handleSelection = value => {
+        resetSuggestionsList();
+        setInputValue('');
+        onSelectionChange(value);
+    };
+
+    // eslint-disable-next-line react/display-name
+    const renderListPoweredByGoogle = ({ listInputValue, getItemProps, highlightedIndex }) => {
+        const elems = suggestionsList.map((item, index) => (
+            <ListItem
+                key={suggestionToString(item)}
+                {...getItemProps({
+                    item,
+                    index,
+                    isHighlighted: highlightedIndex === index,
+                    highlightContext: 'brand',
+                })}
+            >
+                <MarkedText marker={listInputValue} inline>
+                    {showCountryInSuggestions
+                        ? suggestionToString(item)
+                        : item.structured_formatting.main_text}
+                </MarkedText>
+            </ListItem>
+        ));
+
+        elems.unshift(
+            <img
+                key="powered by google logo"
+                {...elem('poweredByGoogleImage', props)}
+                src={POWERED_BY_GOOGLE_ON_WHITE}
+                alt="Powered by Google"
+                data-list-exception
+            />
+        );
+        return elems;
+    };
 
     return (
-        <LoadScriptNext
-            googleMapsApiKey={apiKey}
-            language={language}
-            region={region}
-            loadingElement={<LoadingSpinner centerIn="parent" />}
-            libraries={GOOGLE_API_LIBRARIES}
-            {...additionalGoogleProps}
-        >
-            <LocationAutocompleteRenderer {...rest} />
-        </LoadScriptNext>
+        <Autosuggest
+            getSuggestions={suggestionsList}
+            suggestionToString={suggestionToString}
+            isLoading={isLoading}
+            inputPlaceholder={inputPlaceholder}
+            noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+            listRenderer={renderListPoweredByGoogle}
+            onBlur={resetSuggestionsList}
+            onInputValueChange={handleInputValueChange}
+            onSelectionChange={handleSelection}
+            iconNode={<FaMapMarkerAlt {...elem('icon', props)} />}
+            {...rest}
+        />
     );
 };
 
 LocationAutocomplete.displayName = 'LocationAutocomplete';
 
 LocationAutocomplete.propTypes = {
-    /** Google API key */
-    apiKey: PropTypes.string.isRequired,
-    /**
-     * The language code to be used for the map (e.g en). By default the users browser language will be used
-     * For available values see: https://developers.google.com/maps/faq#languagesupport
+    /** to be shown in the input field when no value is typed */
+    inputPlaceholder: PropTypes.string.isRequired,
+    /** to be shown when no suggestions are available */
+    noSuggestionsPlaceholder: PropTypes.string.isRequired,
+    /** callback to be called with selected value.
+     * Value is of type AutocompletePrediction: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction
      */
-    language: PropTypes.string,
-    /** Regional setting for the map. By default Google uses US.
-     * For details see: https://developers.google.com/maps/documentation/javascript/localization#Region
+    onSelectionChange: PropTypes.func.isRequired,
+    /** restrict predictions to country/countries.
+     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#ComponentRestrictions
      */
-    region: PropTypes.string,
-    /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
-    additionalGoogleProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+    country: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+    /** type of locations that should be searched for.
+     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
+     */
+    placeTypes: PropTypes.arrayOf(PropTypes.string),
+    /** show state and country in suggestions list */
+    showCountryInSuggestions: PropTypes.bool,
+    /** function to be executed if error occurs while fetching suggestions */
+    onError: PropTypes.func,
 };
 
 LocationAutocomplete.defaultProps = {
-    additionalGoogleProps: {},
-    language: undefined,
-    region: undefined,
+    country: null,
+    placeTypes: ['(regions)'],
+    showCountryInSuggestions: false,
+    onError: null,
 };
 
 export default LocationAutocomplete;
