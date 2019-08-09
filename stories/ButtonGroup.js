@@ -4,7 +4,7 @@ import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { Button, ButtonGroup } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '@textkernel/oneui/constants';
 
-storiesOf('ButtonGroup', module)
+storiesOf('Molecules|ButtonGroup', module)
     .addDecorator(withKnobs)
     .add('ButtonGroup', () => (
         <ButtonGroup

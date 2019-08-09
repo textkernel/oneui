@@ -43,7 +43,7 @@ const List = React.forwardRef((props, ref) => {
             highlightedListItem.current.scrollIntoView(SCROLL_INTO_VIEW_SETTINGS);
             setHighlightedWithKeyboard(false);
         }
-    }, [selectedIndex]);
+    }, [highlightedWithKeyboard, selectedIndex]);
 
     const getNextSelectedIndex = keyCode => {
         const stepValue = NAVIGATION_STEP_VALUES[keyCode];
@@ -75,7 +75,7 @@ const List = React.forwardRef((props, ref) => {
             }
         }
 
-        // Imitate onClick event on Enter press and make onSelect function callback
+        // Imitate onClick event for the selected highlighted item
         if (e.key === ENTER_KEY || doSelectOnNavigate) {
             if (
                 children[selectedIndex] &&

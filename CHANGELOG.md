@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.2.0](https://github.com/textkernel/oneui/compare/5.1.1...5.2.0) (2019-08-01)
+
+
+### Bug Fixes
+
+* **Autosuggest:** styles and behaviour adjustments ([#151](https://github.com/textkernel/oneui/issues/151)) ([e4c3946](https://github.com/textkernel/oneui/commit/e4c3946))
+
+
+### Features
+
+* **component:** new Map component ([#148](https://github.com/textkernel/oneui/issues/148)) ([3bf12d4](https://github.com/textkernel/oneui/commit/3bf12d4))
+
+
+
+### [5.1.1](https://github.com/textkernel/oneui/compare/5.1.0...5.1.1) (2019-07-30)
+
+
+
 ## [5.1.0](https://github.com/textkernel/oneui/compare/5.0.0...5.1.0) (2019-07-25)
 
 

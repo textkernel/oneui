@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-e
 import { number, select, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
 import { Pagination } from '@textkernel/oneui';
 
-storiesOf('Pagination', module)
+storiesOf('Molecules|Pagination', module)
     .addDecorator(withKnobs)
     .add('Pagination', () => (
         <Pagination

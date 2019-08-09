@@ -7,7 +7,7 @@ import styles from './FieldWrapper.scss';
 const { block, elem } = bem({
     name: 'FieldWrapper',
     classnames: styles,
-    propsToMod: ['isFocused'],
+    propsToMods: ['isFocused'],
 });
 
 const FieldWrapper = React.forwardRef((props, ref) => {
@@ -20,11 +20,12 @@ const FieldWrapper = React.forwardRef((props, ref) => {
         }
     };
 
-    const { children, clearLabel, showClearButton, onClear, refKey, isFocused, ...rest } = props;
+    const { children, clearLabel, showClearButton, onClear, isFocused, ...rest } = props;
 
     return (
         <div ref={ref} {...rest} {...block(props)}>
-            {children}
+            <div {...elem('content', props)}>{children}</div>
+
             {showClearButton && (
                 <Button
                     isInline
@@ -33,7 +34,6 @@ const FieldWrapper = React.forwardRef((props, ref) => {
                     {...elem('clearButton', props)}
                 >
                     {clearLabel}
-                    <span {...elem('buttonIcon', props)}>&times;</span>
                 </Button>
             )}
         </div>
@@ -49,12 +49,15 @@ FieldWrapper.propTypes = {
     clearLabel: PropTypes.string,
     /** reset the selected suggestions array to it's default value */
     onClear: PropTypes.func,
+    /** to style the field as it is focused */
+    isFocused: PropTypes.bool,
 };
 
 FieldWrapper.defaultProps = {
     showClearButton: false,
     clearLabel: '',
     onClear: null,
+    isFocused: false,
 };
 
 export default FieldWrapper;

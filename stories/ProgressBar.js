@@ -4,7 +4,7 @@ import { boolean, number, select, text, withKnobs } from '@storybook/addon-knobs
 import { ProgressBar } from '@textkernel/oneui';
 import { CONTEXTS } from '@textkernel/oneui/constants';
 
-storiesOf('ProgressBar', module)
+storiesOf('Atoms|ProgressBar', module)
     .addDecorator(withKnobs)
     .add('ProgressBar', () => (
         <ProgressBar

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { Teaser } from '@textkernel/oneui';
 
-storiesOf('Teaser', module)
+storiesOf('Molecules|Teaser', module)
     .addDecorator(withKnobs)
     .add('Teaser', () => (
         <Teaser
