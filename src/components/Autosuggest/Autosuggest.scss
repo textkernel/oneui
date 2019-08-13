@@ -69,6 +69,7 @@
         max-height: 215px;
         overflow: auto;
         border-top: 1px solid var(--border-color-light);
+        margin-top: -1px;
     }
 
     &__loaderContainer {
