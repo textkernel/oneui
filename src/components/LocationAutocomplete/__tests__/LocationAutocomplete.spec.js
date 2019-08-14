@@ -85,6 +85,27 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
 
         expect(onErrorMock).toHaveBeenCalled();
     });
+    it('should display powerByGoogle logo', () => {
+        getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
+        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
+        act(() => {
+            jest.runAllTimers();
+        });
+        focusField();
+
+        expect(wrapper.find('ul img')).toHaveLength(1);
+    });
+    it('should not display powerByGoogle logo if hidePoweredByGoogleLogo set to true', () => {
+        wrapper.setProps({ hidePoweredByGoogleLogo: true });
+        getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
+        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
+        act(() => {
+            jest.runAllTimers();
+        });
+        focusField();
+
+        expect(wrapper.find('ul img')).toHaveLength(0);
+    });
     it('should call onSelectionChange when suggestion is selected', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
