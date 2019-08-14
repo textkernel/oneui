@@ -2,12 +2,15 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
 import { Map } from '@textkernel/oneui';
+import ensureApiKey from './utils/ensureApiKey';
 
 storiesOf('Atoms|Map', module)
     .addDecorator(withKnobs)
     .add(
         'Map',
         () => {
+            const apiKey = ensureApiKey();
+
             const defaultMarker = {
                 center: {
                     lat: 52.3922288,
@@ -36,7 +39,7 @@ storiesOf('Atoms|Map', module)
                         height: text('Container height', '400px'),
                     }}
                 >
-                    <Map apiKey="" markers={select('Markers', markers, [defaultMarker])} />
+                    <Map apiKey={apiKey} markers={select('Markers', markers, [defaultMarker])} />
                 </div>
             );
         },

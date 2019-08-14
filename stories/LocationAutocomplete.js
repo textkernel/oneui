@@ -2,20 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
 import { LocationAutocompleteWithGoogleLoader, LocationAutocomplete } from '@textkernel/oneui';
-
-let apiKey = '';
-let timer = null;
-
-function debondcePrompt() {
-    if (!timer) {
-        apiKey = window.prompt('Please provide a Google API key'); // eslint-disable-line no-alert
-    }
-
-    timer = setTimeout(() => {
-        clearTimeout(timer);
-        timer = null;
-    }, 500);
-}
+import ensureApiKey from './utils/ensureApiKey';
 
 storiesOf('Organisms|LocationAutocomplete', module)
     .addDecorator(withKnobs)
@@ -38,9 +25,7 @@ storiesOf('Organisms|LocationAutocomplete', module)
                 }
             };
 
-            if (!apiKey && !(window.google && window.google.maps && window.google.maps.places)) {
-                debondcePrompt();
-            }
+            const apiKey = ensureApiKey('places');
 
             return (
                 <LocationAutocompleteWithGoogleLoader
