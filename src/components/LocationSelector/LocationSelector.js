@@ -10,17 +10,30 @@ import {
     LocationCard,
 } from '@textkernel/oneui';
 
-const DEFAULT_LOCATION_CIRCLE_RADIUS = 1;
-
 function LocationSelector(props) {
+    /** FieldWrapper props */
+    const { clearLabel, onRemoveAllLocations } = props;
+
+    /** LocationCard props */
     const {
         minRadius,
         maxRadius,
+        radiusDefaultValue,
         selectedLocations,
-        addLocation,
-        changeLocation,
-        removeLocation,
+        onAddLocation,
+        onUpdateLocation,
+        onRemoveLocation,
         doneLabel,
+    } = props;
+
+    /** LocationAutocomplete props */
+    const {
+        country,
+        placeTypes,
+        autocompletePlaceholder,
+        noSuggestionsPlaceholder,
+        showCountryInSuggestions,
+        onLocationAutocompleteError,
     } = props;
 
     const [isOpen, setIsOpen] = React.useState(false);
@@ -29,23 +42,31 @@ function LocationSelector(props) {
      * Fetch additional information for the selected place and
      * add it along with passed location object to the selectedLocations array
      */
-    function onAddLocation(location) {
+    function handleAddLocation(location) {
         const placeInfo = fetchPlaceInfo(location.id);
         const locationToAdd = {
             ...location,
             center: placeInfo.coordinates,
-            radius: DEFAULT_LOCATION_CIRCLE_RADIUS,
+            radius: radiusDefaultValue,
             structuredFormatting: placeInfo.structuredFormatting,
         };
-        addLocation(locationToAdd);
+        onAddLocation(locationToAdd);
     }
 
     return (
         <>
-            <FieldWrapper />
+            <FieldWrapper clearLabel={clearLabel} onClear={onRemoveAllLocations} />
             <Modal isOpen={isOpen}>
                 <LoadScriptNext>
-                    <LocationAutocomplete />
+                    <LocationAutocomplete
+                        inputPlaceholder={autocompletePlaceholder}
+                        noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+                        onSelectionChange={handleAddLocation}
+                        country={country}
+                        placeTypes={placeTypes}
+                        showCountryInSuggestions={showCountryInSuggestions}
+                        onError={onLocationAutocompleteError}
+                    />
                     <Button context="brand">{doneLabel}</Button>
                     {selectedLocations.map(location => (
                         <LocationCard
@@ -54,7 +75,8 @@ function LocationSelector(props) {
                             sliderLabel={location.radius}
                             minRadius={minRadius}
                             maxRadius={maxRadius}
-                            // lots of other props
+                            onRadiusChange={onUpdateLocation}
+                            onDelete={onRemoveLocation}
                         />
                     ))}
                     <Map />
@@ -81,11 +103,13 @@ LocationSelector.propTypes = {
             }).isRequired,
             radius: PropTypes.number.isRequired,
         })
-    ),
+    ).isRequired,
     /** country where search can take place */
     country: PropTypes.string.isRequired,
     /** language in which suggestions should be displayed */
     language: PropTypes.string.isRequired,
+    /** default radius value */
+    radiusDefaultValue: PropTypes.number,
     /** radius measurement unit */
     radiusUnits: PropTypes.oneOf(['km', 'mi']).isRequired,
     /** radius label suffix (e.g. km, miles or other language) */
@@ -96,19 +120,26 @@ LocationSelector.propTypes = {
     maxRadius: PropTypes.number.isRequired,
     /** radius step value of the slider component */
     radiusStep: PropTypes.number.isRequired,
-    /** map center coordinates if nothing has been selected yet */
+    /** map center coordinates if there's no selected locations */
     mapCenter: PropTypes.shape({
         lng: PropTypes.number.isRequired,
         lat: PropTypes.number.isRequired,
-    }).isRequired,
+    }),
     /** map localize */
     mapRegion: PropTypes.string,
     /** map default zoom value */
-    mapZoom: PropTypes.number.isRequired,
+    mapZoom: PropTypes.number,
     /** placeholder for LocationAutocomplete field */
     autocompletePlaceholder: PropTypes.string.isRequired,
     /** placeholder for empty LocationAutocomplete list */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
+    /**
+     * type of locations that should be searched for.
+     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
+     */
+    placeTypes: LocationAutocomplete.propTypes.placeTypes,
+    /** function to be executed if error occurs while fetching suggestions */
+    onLocationAutocompleteError: PropTypes.func,
     /** string to be displayed in FieldWrapper when the modal is closed, but locations are selected */
     selectionPlaceholder: PropTypes.string.isRequired,
     /** placeholder for FieldWrapper when there's no locations selected */
@@ -118,21 +149,21 @@ LocationSelector.propTypes = {
     /** show country name in autocomplete suggestions */
     showCountryInSuggestions: PropTypes.bool,
     /** label to be used on the clear all button */
-    removeAllLabel: PropTypes.string.isRequired,
+    clearLabel: PropTypes.string.isRequired,
     /** function with a location object as an argument to be added to the selectedLocations array */
-    addLocation: PropTypes.func.isRequired,
+    onAddLocation: PropTypes.func.isRequired,
     /** function with a location details as an argument to be changed */
-    changeLocation: PropTypes.func.isRequired,
+    onUpdateLocation: PropTypes.func.isRequired,
     /** function with a locationId as an argument to be removed */
-    removeLocation: PropTypes.func.isRequired,
+    onRemoveLocation: PropTypes.func.isRequired,
     /** callback function for the Clear button click */
-    removeAllLocations: PropTypes.func.isRequired,
+    onRemoveAllLocations: PropTypes.func.isRequired,
     /** callback function for closed modal */
     onBlur: PropTypes.func,
 };
 
 LocationSelector.defaultProps = {
-    selectedLocations: [],
+    radiusDefaultValue: 1,
     showCountryInSuggestions: true,
     onBlur: () => null,
 };
