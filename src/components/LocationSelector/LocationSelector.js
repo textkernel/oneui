@@ -9,6 +9,12 @@ import {
     Button,
     LocationCard,
 } from '@textkernel/oneui';
+import styles from './LocationSelector.scss';
+
+const { block, elem } = bem({
+    name: 'LocationCard',
+    classnames: styles,
+});
 
 function LocationSelector(props) {
     const {
@@ -53,7 +59,7 @@ function LocationSelector(props) {
     }
 
     return (
-        <>
+        <div {...block(props)}>
             <FieldWrapper clearLabel={clearLabel} onClear={onRemoveAllLocations} />
             <Modal isOpen={isOpen}>
                 <LoadScriptNext>
@@ -81,7 +87,7 @@ function LocationSelector(props) {
                     <Map />
                 </LoadScriptNext>
             </Modal>
-        </>
+        </div>
     );
 }
 
