@@ -42,6 +42,7 @@ storiesOf('Organisms|LocationAutocomplete', module)
                         false
                     )}
                     onError={onError}
+                    hidePoweredByGoogleLogo={boolean('Hide powered by Google logo', false)}
                 />
             );
         },

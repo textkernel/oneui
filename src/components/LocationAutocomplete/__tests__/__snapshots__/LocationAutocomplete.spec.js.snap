@@ -3,6 +3,7 @@
 exports[`<LocationAutocomplete/> that renders a location search field should pass predictions to Autosuggest 1`] = `
 <LocationAutocomplete
   country={null}
+  hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
@@ -587,6 +588,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
 exports[`<LocationAutocomplete/> that renders a location search field should render with minimal props 1`] = `
 <LocationAutocomplete
   country={null}
+  hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}

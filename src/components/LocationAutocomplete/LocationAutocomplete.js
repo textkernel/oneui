@@ -28,6 +28,7 @@ const LocationAutocomplete = props => {
         placeTypes,
         showCountryInSuggestions,
         onError,
+        hidePoweredByGoogleLogo,
         ...rest
     } = props;
 
@@ -112,15 +113,20 @@ const LocationAutocomplete = props => {
             </ListItem>
         ));
 
-        elems.unshift(
-            <img
-                key="powered by google logo"
-                {...elem('poweredByGoogleImage', props)}
-                src={POWERED_BY_GOOGLE_ON_WHITE}
-                alt="Powered by Google"
-                data-list-exception
-            />
-        );
+        if (!hidePoweredByGoogleLogo) {
+            elems.unshift(
+                // TODO: replace this element with correct resolution version
+                // for all available images see: https://developers.google.com/maps/documentation/images/powered_by_google.zip
+                <img
+                    key="powered by google logo"
+                    {...elem('poweredByGoogleImage', props)}
+                    src={POWERED_BY_GOOGLE_ON_WHITE}
+                    alt="Powered by Google"
+                    data-list-exception
+                />
+            );
+        }
+
         return elems;
     };
 
@@ -164,6 +170,8 @@ LocationAutocomplete.propTypes = {
     showCountryInSuggestions: PropTypes.bool,
     /** function to be executed if error occurs while fetching suggestions */
     onError: PropTypes.func,
+    /** To hide powered by google logo. For legal reasons only set it to true if Google map is displayed on the same screen as this component! */
+    hidePoweredByGoogleLogo: PropTypes.bool,
 };
 
 LocationAutocomplete.defaultProps = {
@@ -171,6 +179,7 @@ LocationAutocomplete.defaultProps = {
     placeTypes: ['(regions)'],
     showCountryInSuggestions: false,
     onError: null,
+    hidePoweredByGoogleLogo: false,
 };
 
 export default LocationAutocomplete;
