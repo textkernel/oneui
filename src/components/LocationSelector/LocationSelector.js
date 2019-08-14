@@ -11,11 +11,12 @@ import {
 } from '@textkernel/oneui';
 
 function LocationSelector(props) {
-    /** FieldWrapper props */
-    const { clearLabel, onRemoveAllLocations } = props;
-
-    /** LocationCard props */
     const {
+        /** FieldWrapper props */
+        clearLabel,
+        onRemoveAllLocations,
+
+        /** LocationCard props */
         minRadius,
         maxRadius,
         radiusDefaultValue,
@@ -24,10 +25,8 @@ function LocationSelector(props) {
         onUpdateLocation,
         onRemoveLocation,
         doneLabel,
-    } = props;
 
-    /** LocationAutocomplete props */
-    const {
+        /** LocationAutocomplete props */
         country,
         placeTypes,
         autocompletePlaceholder,
