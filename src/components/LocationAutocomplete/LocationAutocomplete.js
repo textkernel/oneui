@@ -16,9 +16,11 @@ const DEBOUNCE_DELAY = 350;
 const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
 const LocationAutocomplete = props => {
-    const [inputValue, setInputValue] = React.useState('');
+    const [storage] = React.useState({ latestInputValue: '' });
     const [suggestionsList, setSuggestionsList] = React.useState(null);
     const [isLoading, setIsLoading] = React.useState(false);
+    const [inputValue, setInputValue] = React.useState('');
+    const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
 
     const {
         onSelectionChange,
@@ -36,10 +38,11 @@ const LocationAutocomplete = props => {
     const resetSuggestionsList = () => setSuggestionsList(null);
     const suggestionToString = suggestion => (suggestion ? suggestion.description : '');
 
-    const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
-
     React.useEffect(() => {
         if (debouncedInputValue) {
+            // Putting latest debounced input value to the storage
+            storage.latestInputValue = debouncedInputValue;
+
             const service = new window.google.maps.places.AutocompleteService();
 
             service.getPlacePredictions(
@@ -49,6 +52,9 @@ const LocationAutocomplete = props => {
                     componentRestrictions: { country },
                 },
                 (predictions, status) => {
+                    // if this function was called with outdated input value, return early
+                    if (debouncedInputValue !== storage.latestInputValue) return;
+
                     if (ACCEPTABLE_API_STATUSES.includes(status)) {
                         setSuggestionsList(predictions);
                     } else {
@@ -65,7 +71,7 @@ const LocationAutocomplete = props => {
         } else {
             resetSuggestionsList();
         }
-    }, [country, debouncedInputValue, onError, placeTypes]);
+    }, [country, debouncedInputValue, onError, placeTypes, storage.latestInputValue]);
 
     if (!(window.google && window.google.maps && window.google.maps.places)) {
         // TODO: clarify with Carlo how to handle errors
@@ -78,9 +84,9 @@ const LocationAutocomplete = props => {
     }
 
     const handleInputValueChange = value => {
+        setInputValue(value);
         if (value) {
             setIsLoading(true);
-            setInputValue(value);
         } else {
             setIsLoading(false);
             resetSuggestionsList();

@@ -152,4 +152,29 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
                 .text()
         ).toContain(' UK');
     });
+    it('should display latest results only, even if reply is delayed on previous requests', () => {
+        getPlacePredictionsMock
+            .mockImplementationOnce((req, cb) =>
+                setTimeout(() => cb([predictionsMock[0]], 'OK'), 1000)
+            ) // delay the reply to the first request
+            .mockImplementationOnce((req, cb) => cb([predictionsMock[1]], 'OK'));
+
+        wrapper.find('input').simulate('change', { target: { value: 'One' } });
+        act(() => {
+            jest.advanceTimersByTime(400);
+        });
+
+        expect(getPlacePredictionsMock).toHaveBeenCalledTimes(1);
+
+        wrapper.find('input').simulate('change', { target: { value: 'Two' } });
+        act(() => {
+            jest.runAllTimers();
+        });
+
+        // TODO: check why it is called 3 times and not 2 only
+        expect(getPlacePredictionsMock).toHaveBeenCalledTimes(3);
+        expect(wrapper.find('li').text()).toContain(
+            predictionsMock[1].structured_formatting.main_text
+        );
+    });
 });
