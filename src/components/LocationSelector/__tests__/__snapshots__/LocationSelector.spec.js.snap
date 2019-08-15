@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationSelector component should render LocationSelector properly 1`] = `ShallowWrapper {}`;

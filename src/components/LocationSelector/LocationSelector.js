@@ -1,18 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import bem from 'bem';
 import { LoadScriptNext } from '@react-google-maps/api';
-import {
-    Modal,
-    Map,
-    FieldWrapper,
-    LocationAutocomplete,
-    Button,
-    LocationCard,
-} from '@textkernel/oneui';
+import { Text, Modal, Map, FieldWrapper, Button, LocationCard } from '../../index';
 import styles from './LocationSelector.scss';
 
 const { block, elem } = bem({
-    name: 'LocationCard',
+    name: 'LocationSelector',
     classnames: styles,
 });
 
@@ -43,48 +37,84 @@ function LocationSelector(props) {
 
     const [isOpen, setIsOpen] = React.useState(false);
 
+    function handleOpenModal() {
+        if (!isOpen) {
+            setIsOpen(true);
+        }
+    }
+
+    function handleCloseModal() {
+        if (isOpen) {
+            setIsOpen(false);
+        }
+    }
+
     /**
      * Fetch additional information for the selected place and
      * add it along with passed location object to the selectedLocations array
      */
     function handleAddLocation(location) {
-        const placeInfo = fetchPlaceInfo(location.id);
-        const locationToAdd = {
-            ...location,
-            center: placeInfo.coordinates,
-            radius: radiusDefaultValue,
-            structuredFormatting: placeInfo.structuredFormatting,
-        };
-        onAddLocation(locationToAdd);
+        // const placeInfo = fetchPlaceInfo(location.id);
+        // const locationToAdd = {
+        //     ...location,
+        //     center: placeInfo.coordinates,
+        //     radius: radiusDefaultValue,
+        //     structuredFormatting: placeInfo.structuredFormatting,
+        // };
+        // onAddLocation(locationToAdd);
     }
 
     return (
         <div {...block(props)}>
-            <FieldWrapper clearLabel={clearLabel} onClear={onRemoveAllLocations} />
-            <Modal isOpen={isOpen}>
+            <FieldWrapper
+                onClick={handleOpenModal}
+                clearLabel={clearLabel}
+                onClear={onRemoveAllLocations}
+            >
+                <Text placeholder="Some placeholder" {...elem('mainTextInput', props)}>
+                    Some placeholder
+                </Text>
+            </FieldWrapper>
+            <Modal {...elem('modal', props)} isOpen={isOpen} onRequestClose={handleCloseModal}>
                 <LoadScriptNext>
-                    <LocationAutocomplete
-                        inputPlaceholder={autocompletePlaceholder}
-                        noSuggestionsPlaceholder={noSuggestionsPlaceholder}
-                        onSelectionChange={handleAddLocation}
-                        country={country}
-                        placeTypes={placeTypes}
-                        showCountryInSuggestions={showCountryInSuggestions}
-                        onError={onLocationAutocompleteError}
-                    />
-                    <Button context="brand">{doneLabel}</Button>
-                    {selectedLocations.map(location => (
-                        <LocationCard
-                            locationId={location.id}
-                            locationTitle={location.description}
-                            sliderLabel={location.radius}
-                            minRadius={minRadius}
-                            maxRadius={maxRadius}
-                            onRadiusChange={onUpdateLocation}
-                            onDelete={onRemoveLocation}
-                        />
-                    ))}
-                    <Map />
+                    <div {...elem('autocomplete', props)}>
+                        <div {...elem('input', props)} />
+                        {/* <LocationAutocomplete
+                            inputPlaceholder={autocompletePlaceholder}
+                            noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+                            onSelectionChange={handleAddLocation}
+                            country={country}
+                            placeTypes={placeTypes}
+                            showCountryInSuggestions={showCountryInSuggestions}
+                            onError={onLocationAutocompleteError}
+                        /> */}
+                        <Button
+                            {...elem('button', props)}
+                            onClick={handleCloseModal}
+                            context="brand"
+                        >
+                            {doneLabel}
+                        </Button>
+                    </div>
+                    <div {...elem('locationsWrapper', props)}>
+                        <ul {...elem('locationCardsContainer', props)}>
+                            {selectedLocations.map(location => (
+                                <LocationCard
+                                    {...elem('locationCard', props)}
+                                    As="li"
+                                    locationId={location.id}
+                                    locationTitle={location.description}
+                                    distanceRadius={location.radius}
+                                    sliderLabel={location.sliderLabel}
+                                    minRadius={minRadius}
+                                    maxRadius={maxRadius}
+                                    onRadiusChange={onUpdateLocation}
+                                    onDelete={onRemoveLocation}
+                                />
+                            ))}
+                        </ul>
+                        <Map />
+                    </div>
                 </LoadScriptNext>
             </Modal>
         </div>
@@ -102,7 +132,7 @@ LocationSelector.propTypes = {
             id: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
             structuredFormatting: PropTypes.string.isRequired,
-            center: PropTypes.shapeOf({
+            center: PropTypes.shape({
                 lng: PropTypes.number.isRequired,
                 lan: PropTypes.number.isRequired,
             }).isRequired,
@@ -142,7 +172,7 @@ LocationSelector.propTypes = {
      * type of locations that should be searched for.
      * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
      */
-    placeTypes: LocationAutocomplete.propTypes.placeTypes,
+    // placeTypes: LocationAutocomplete.propTypes.placeTypes,
     /** function to be executed if error occurs while fetching suggestions */
     onLocationAutocompleteError: PropTypes.func,
     /** string to be displayed in FieldWrapper when the modal is closed, but locations are selected */
@@ -168,6 +198,7 @@ LocationSelector.propTypes = {
 };
 
 LocationSelector.defaultProps = {
+    // placeTypes: LocationAutocomplete.propTypes.placeTypes,
     radiusDefaultValue: 1,
     showCountryInSuggestions: true,
     onBlur: () => null,

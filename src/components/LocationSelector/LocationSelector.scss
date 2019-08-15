@@ -1,0 +1,53 @@
+$modal-width: 75%;
+$done-button-width: 150px;
+$location-card-width: 300px;
+
+.LocationSelector {
+    &__mainTextInput {
+        border: 0;
+        margin: var(--spacing-normal);
+        font-size: var(--font-size-normal);
+        color: var(--color-muted);
+    }
+
+    &__modal {
+        display: flex;
+        flex-direction: column;
+        width: $modal-width;
+    }
+
+    &__autocomplete {
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        padding: var(--spacing-4x);
+    }
+
+    &__input {
+        width: 100%;
+        border: 1px double black;
+    }
+
+    &__button {
+        width: $done-button-width;
+        margin-left: var(--spacing-4x);
+    }
+
+    &__locationsWrapper {
+        display: flex;
+        height: 100%;
+    }
+
+    &__locationCardsContainer {
+        padding: 0;
+        margin: 0;
+        width: $location-card-width;
+        min-width: $location-card-width;
+        padding-right: calc(var(--spacing-4x) - 1px);
+        overflow: scroll;
+    }
+
+    &__locationCard:not(:last-child) {
+        margin-bottom: var(--spacing-normal);
+    }
+}
