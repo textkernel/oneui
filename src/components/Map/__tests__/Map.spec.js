@@ -35,7 +35,7 @@ describe('<Map/> that renders a Map with markers', () => {
         expect(setZoomMock).toHaveBeenCalledTimes(1);
         expect(setCenterMock).toHaveBeenCalledTimes(1);
     });
-    it('should bounds when rendered default address', () => {
+    it('should fit bounds when rendered with defaultArea as address', () => {
         geocodeMock.mockImplementationOnce((req, cb) => {
             cb(geocodeResponse.results, geocodeResponse.status);
         });

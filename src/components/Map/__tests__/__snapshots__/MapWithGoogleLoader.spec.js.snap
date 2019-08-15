@@ -5,7 +5,7 @@ exports[`<MapWithGoogleLoader/> that loads google api and renders a Map should r
   additionalGoogleProps={Object {}}
   apiKey="someKey"
 >
-  <Memo(LoadScriptNext)
+  <LoadScriptNext
     googleMapsApiKey="someKey"
     loadingElement={
       <LoadingSpinner
@@ -51,6 +51,6 @@ exports[`<MapWithGoogleLoader/> that loads google api and renders a Map should r
         </svg>
       </div>
     </LoadingSpinner>
-  </Memo(LoadScriptNext)>
+  </LoadScriptNext>
 </MapWithGoogleLoader>
 `;
