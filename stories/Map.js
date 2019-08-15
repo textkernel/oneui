@@ -1,12 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs';
 import { MapWithGoogleLoader } from '@textkernel/oneui';
 
 storiesOf('Atoms|Map', module)
     .addDecorator(withKnobs)
-    .addDecorator(withInfo)
     .add(
         'Map',
         () => {
@@ -41,6 +39,22 @@ storiesOf('Atoms|Map', module)
                     <MapWithGoogleLoader
                         apiKey=""
                         markers={select('Markers', markers, [defaultMarker])}
+                        defaultArea={
+                            boolean('Use address to set default area', true)
+                                ? {
+                                      address: text(
+                                          'Address to fit map to when no markers are present',
+                                          'NL'
+                                      ),
+                                  }
+                                : {
+                                      center: {
+                                          lat: number('Default center latitude', 52.3922288),
+                                          lng: number('Default center longitude', 4.9338793),
+                                      },
+                                      zoom: number('Default zoom', 7),
+                                  }
+                        }
                     />
                 </div>
             );

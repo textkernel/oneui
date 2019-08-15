@@ -17,7 +17,7 @@ const circleOptions = radius => ({
 });
 
 const Map = React.forwardRef((props, ref) => {
-    const { center, zoom, markers, mapContainerStyle, ...rest } = props;
+    const { defaultArea, markers, mapContainerStyle, ...rest } = props;
     const mapRef = ref || React.createRef();
 
     const fitBounds = React.useCallback(() => {
@@ -40,11 +40,22 @@ const Map = React.forwardRef((props, ref) => {
                 }
                 map.fitBounds(bounds);
             });
+        } else if (defaultArea.address) {
+            const { Geocoder } = window.google.maps;
+            const geocoder = new Geocoder();
+
+            geocoder.geocode({ address: defaultArea.address }, (result, status) => {
+                if (status === 'OK') {
+                    map.fitBounds(result[0].geometry.viewport);
+                } else {
+                    // TODO: add error handling
+                }
+            });
         } else {
-            map.setCenter(center);
-            map.setZoom(zoom);
+            map.setCenter(defaultArea.center);
+            map.setZoom(defaultArea.zoom);
         }
-    }, [center, mapRef, markers, zoom]);
+    }, [defaultArea, mapRef, markers]);
 
     useEffect(fitBounds);
 
@@ -52,8 +63,6 @@ const Map = React.forwardRef((props, ref) => {
         <GoogleMap
             ref={mapRef}
             onLoad={fitBounds}
-            center={center}
-            zoom={zoom}
             mapContainerStyle={mapContainerStyle}
             options={{
                 fullscreenControl: false,
@@ -87,16 +96,22 @@ const Map = React.forwardRef((props, ref) => {
 Map.displayName = 'Map';
 
 Map.propTypes = {
-    /** The default center of the map to be used if no markers are present */
-    center: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.number),
+    /** The default parameters to determine the viewport when no markers are present. */
+    defaultArea: PropTypes.oneOfType([
         PropTypes.shape({
-            lng: PropTypes.number.isRequired,
-            lat: PropTypes.number.isRequired,
+            address: PropTypes.string,
+        }),
+        PropTypes.shape({
+            center: PropTypes.oneOfType([
+                PropTypes.arrayOf(PropTypes.number),
+                PropTypes.shape({
+                    lng: PropTypes.number.isRequired,
+                    lat: PropTypes.number.isRequired,
+                }),
+            ]),
+            zoom: PropTypes.number,
         }),
     ]),
-    /** The default zoom of the map to be used if no markers are present */
-    zoom: PropTypes.number,
     /** The markers to be shown on the map. When present, map will zoom automatically to display them
      * The radius is in meters on the Earth's surface.
      */
@@ -110,7 +125,7 @@ Map.propTypes = {
         })
     ),
     /** The style of the map container. It has to have explicit width and height (requirement from Google).
-     *  Altenatively you can set explicit size on the parent container, then, by default, the map will scale to match that
+     *  Alternatively you can set explicit size on the parent container, then, by default, the map will scale to match that
      */
     mapContainerStyle: PropTypes.shape({
         width: PropTypes.string.isRequired,
@@ -119,11 +134,13 @@ Map.propTypes = {
 };
 
 Map.defaultProps = {
-    center: {
-        lat: 52.3922288,
-        lng: 4.9338793,
+    defaultArea: {
+        center: {
+            lat: 52.3922288,
+            lng: 4.9338793,
+        },
+        zoom: 7,
     },
-    zoom: 7,
     markers: [],
     mapContainerStyle: {
         height: '100%',
