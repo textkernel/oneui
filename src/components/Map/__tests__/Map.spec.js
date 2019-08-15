@@ -9,7 +9,7 @@ import Map from '../Map';
 
 stabGoogleApi();
 
-describe('<MapRendered/> that renders a Map with markers', () => {
+describe('<Map/> that renders a Map with markers', () => {
     const regionMarker = {
         center: {
             lat: 52.3922288,
@@ -30,9 +30,8 @@ describe('<MapRendered/> that renders a Map with markers', () => {
     });
     it('should set center and zoom when rendered with default props', () => {
         mount(<Map />);
-        // call on init Map and once onLoad
-        expect(setZoomMock).toHaveBeenCalledTimes(2);
-        expect(setCenterMock).toHaveBeenCalledTimes(2);
+        expect(setZoomMock).toHaveBeenCalledTimes(1);
+        expect(setCenterMock).toHaveBeenCalledTimes(1);
     });
     it('should render with markers', () => {
         const wrapper = mount(<Map markers={[pointMarker, regionMarker]} />);
@@ -53,10 +52,8 @@ describe('<MapRendered/> that renders a Map with markers', () => {
     });
     it('should fit to default center and zoom if markers removed', () => {
         const wrapper = mount(<Map markers={[pointMarker, regionMarker]} />);
+        wrapper.setProps({ markers: [] });
         expect(setZoomMock).toHaveBeenCalledTimes(1);
         expect(setCenterMock).toHaveBeenCalledTimes(1);
-        wrapper.setProps({ markers: [] });
-        expect(setZoomMock).toHaveBeenCalledTimes(2);
-        expect(setCenterMock).toHaveBeenCalledTimes(2);
     });
 });
