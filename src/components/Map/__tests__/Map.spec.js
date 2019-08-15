@@ -4,7 +4,9 @@ import stabGoogleApi, {
     fitBoundsMock,
     setZoomMock,
     setCenterMock,
+    geocodeMock,
 } from '../../../__mocks__/googleApiMock';
+import geocodeResponse from '../__mocks__/geocodeResponse.json';
 import Map from '../Map';
 
 stabGoogleApi();
@@ -32,6 +34,14 @@ describe('<Map/> that renders a Map with markers', () => {
         mount(<Map />);
         expect(setZoomMock).toHaveBeenCalledTimes(1);
         expect(setCenterMock).toHaveBeenCalledTimes(1);
+    });
+    it('should bounds when rendered default address', () => {
+        geocodeMock.mockImplementationOnce((req, cb) => {
+            cb(geocodeResponse.results, geocodeResponse.status);
+        });
+        mount(<Map defaultArea={{ address: 'nl' }} />);
+        expect(geocodeMock).toHaveBeenCalledTimes(1);
+        expect(fitBoundsMock).toHaveBeenCalledTimes(1);
     });
     it('should render with markers', () => {
         const wrapper = mount(<Map markers={[pointMarker, regionMarker]} />);
