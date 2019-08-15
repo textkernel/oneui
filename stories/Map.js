@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text } from '@storybook/addon-knobs';
-import { Map } from '@textkernel/oneui';
+import { MapWithGoogleLoader } from '@textkernel/oneui';
 import ensureApiKey from './utils/ensureApiKey';
 
 storiesOf('Atoms|Map', module)
@@ -39,7 +39,10 @@ storiesOf('Atoms|Map', module)
                         height: text('Container height', '400px'),
                     }}
                 >
-                    <Map apiKey={apiKey} markers={select('Markers', markers, [defaultMarker])} />
+                    <MapWithGoogleLoader
+                        apiKey={apiKey}
+                        markers={select('Markers', markers, [defaultMarker])}
+                    />
                 </div>
             );
         },
@@ -52,10 +55,10 @@ storiesOf('Atoms|Map', module)
 
         ## Note about props
 
-        'Map' is a wrapper around the 'MapRenderer' component, and it makes sure the Google API is loaded on the page. 
+        'MapWithGoogleLoader' is a wrapper around the 'Map' component, and it makes sure the Google API is loaded on the page. 
         
-        You don't need to use 'MapRenderer' directly.
-        'Map' __will pass props__ that are not needed for loading the API __to 'MapRenderer'__, so you can provide them all together. For list of props see below
+        You don't need to use 'Map' directly.
+        'MapWithGoogleLoader' __will pass props__ that are not needed for loading the API __to 'Map'__, so you can provide them all together. For list of props see below
         `,
             },
         }

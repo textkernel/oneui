@@ -1,48 +1,134 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { LoadScriptNext } from '@react-google-maps/api';
-import { LoadingSpinner } from '../../index';
-import MapRenderer from './MapRenderer';
+import { GoogleMap, Marker, Circle } from '@react-google-maps/api';
+
+const circleOptions = radius => ({
+    strokeColor: 'transparent',
+    strokeOpacity: 1,
+    strokeWeight: 0,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35,
+    clickable: false,
+    draggable: false,
+    editable: false,
+    visible: true,
+    radius,
+    zIndex: 1,
+});
 
 const Map = React.forwardRef((props, ref) => {
-    const { apiKey, language, region, additionalGoogleProps, ...rest } = props;
+    const { center, zoom, markers, mapContainerStyle, ...rest } = props;
+    const mapRef = ref || React.createRef();
+
+    const fitBounds = React.useCallback(() => {
+        if (!mapRef.current || !mapRef.current.state.map) return;
+        const { map } = mapRef.current.state;
+
+        const { LatLngBounds, Circle: CircleClass } = window.google.maps;
+
+        if (markers.length) {
+            const bounds = new LatLngBounds();
+            markers.forEach(marker => {
+                if (marker.radius) {
+                    const circle = new CircleClass({
+                        center: marker.center,
+                        radius: marker.radius,
+                    });
+                    bounds.union(circle.getBounds());
+                } else {
+                    bounds.extend(marker.center);
+                }
+                map.fitBounds(bounds);
+            });
+        } else {
+            map.setCenter(center);
+            map.setZoom(zoom);
+        }
+    }, [center, mapRef, markers, zoom]);
+
+    useEffect(fitBounds);
 
     return (
-        <LoadScriptNext
-            googleMapsApiKey={apiKey}
-            language={language}
-            region={region}
-            loadingElement={<LoadingSpinner centerIn="parent" />}
-            {...additionalGoogleProps}
+        <GoogleMap
+            ref={mapRef}
+            onLoad={fitBounds}
+            center={center}
+            zoom={zoom}
+            mapContainerStyle={mapContainerStyle}
+            options={{
+                fullscreenControl: false,
+                mapTypeControl: false,
+                streetViewControl: false,
+                rotateControl: false,
+            }}
+            {...rest}
         >
-            <MapRenderer ref={ref} {...rest} />
-        </LoadScriptNext>
+            {!!markers.length &&
+                markers.map(marker => {
+                    const { center: mCenter, radius } = marker;
+                    const positionStr = `${mCenter.lat}-${mCenter.lng}`;
+                    return (
+                        <React.Fragment key={positionStr}>
+                            <Marker key={`${positionStr}-marker`} position={mCenter} />
+                            {!!radius && (
+                                <Circle
+                                    key={`${positionStr}-circle`}
+                                    center={mCenter}
+                                    options={circleOptions(radius)}
+                                />
+                            )}
+                        </React.Fragment>
+                    );
+                })}
+        </GoogleMap>
     );
 });
 
 Map.displayName = 'Map';
 
 Map.propTypes = {
-    /** Google API key */
-    apiKey: PropTypes.string.isRequired,
-    /** Tha language code to be used for the map (e.g en). By default the users browser language will be used
-     * For available values see: https://developers.google.com/maps/faq#languagesupport
+    /** The default center of the map to be used if no markers are present */
+    center: PropTypes.oneOfType([
+        PropTypes.arrayOf(PropTypes.number),
+        PropTypes.shape({
+            lng: PropTypes.number.isRequired,
+            lat: PropTypes.number.isRequired,
+        }),
+    ]),
+    /** The default zoom of the map to be used if no markers are present */
+    zoom: PropTypes.number,
+    /** The markers to be shown on the map. When present, map will zoom automatically to display them
+     * The radius is in meters on the Earth's surface.
      */
-    language: PropTypes.string,
-    /** Regonal setting for the map. By default Google uses US.
-     * For adetails see: https://developers.google.com/maps/documentation/javascript/localization#Region
+    markers: PropTypes.arrayOf(
+        PropTypes.shape({
+            center: PropTypes.shape({
+                lng: PropTypes.number.isRequired,
+                lat: PropTypes.number.isRequired,
+            }),
+            radius: PropTypes.number,
+        })
+    ),
+    /** The style of the map container. It has to have explicit width and height (requirement from Google).
+     *  Altenatively you can set explicit size on the parent container, then, by default, the map will scale to match that
      */
-    region: PropTypes.string,
-    /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
-    additionalGoogleProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    ...MapRenderer.propTypes,
+    mapContainerStyle: PropTypes.shape({
+        width: PropTypes.string.isRequired,
+        height: PropTypes.string.isRequired,
+    }),
 };
 
 Map.defaultProps = {
-    additionalGoogleProps: {},
-    language: undefined,
-    region: undefined,
-    ...MapRenderer.defaultProps,
+    center: {
+        lat: 52.3922288,
+        lng: 4.9338793,
+    },
+    zoom: 7,
+    markers: [],
+    mapContainerStyle: {
+        height: '100%',
+        width: '100%',
+    },
 };
 
 export default Map;

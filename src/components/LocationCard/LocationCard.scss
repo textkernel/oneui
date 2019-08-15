@@ -1,0 +1,50 @@
+$location-card-width: 300px;
+$close-button-width: 15px;
+$close-button-height: 20px;
+$slider-indication-width: 110px;
+
+.LocationCard {
+    box-sizing: border-box;
+    width: $location-card-width;
+    padding: var(--spacing-4x) var(--spacing-5x);
+    background-color: var(--color-neutral-25);
+
+    &__header {
+        display: flex;
+    }
+
+    &__title {
+        width: 100%;
+        margin: 0;
+        font-weight: var(--font-weight-bold);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__delete-button {
+        width: $close-button-width;
+        height: $close-button-height;
+        margin: 0;
+        padding: 0;
+        font-size: $close-button-height;
+        background-color: transparent;
+        border: none;
+        overflow: hidden;
+        outline: none;
+        user-select: none;
+        cursor: pointer;
+    }
+    
+    &__slider {
+        flex-direction: row;
+        display: flex;
+        margin: var(--spacing-5x) 0px;
+    }
+
+    &__slider-label {
+        width: $slider-indication-width;
+        margin: 0;
+        text-align: right;
+    }
+}

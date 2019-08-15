@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import ListItem from './ListItem';
@@ -48,64 +48,55 @@ const List = React.forwardRef((props, ref) => {
         }
     }, [highlightedWithKeyboard, selectedIndex]);
 
-    const getNextSelectedIndex = useCallback(
-        keyCode => {
-            const stepValue = NAVIGATION_STEP_VALUES[keyCode];
-            const nextSelectedIndex = selectedIndex + stepValue;
+    const getNextSelectedIndex = keyCode => {
+        const stepValue = NAVIGATION_STEP_VALUES[keyCode];
+        const nextSelectedIndex = selectedIndex + stepValue;
 
-            // Return 0 index if nextSelectedIndex has negative value or selectedIndex hasn't been updated before
-            if (nextSelectedIndex < 0 || selectedIndex === null) {
-                return 0;
+        // Return 0 index if nextSelectedIndex has negative value or selectedIndex hasn't been updated before
+        if (nextSelectedIndex < 0 || selectedIndex === null) {
+            return 0;
+        }
+
+        // Return last React.Children index if nextSelectedIndex is out of the right bound
+        if (nextSelectedIndex >= children.length) {
+            return children.length - 1;
+        }
+
+        // Return nextSelectedIndex without any changes for others cases
+        return nextSelectedIndex;
+    };
+
+    const handleKeyDown = e => {
+        // Update selectedIndex with arrow navigation and make onNavigate function callback
+        if (e.key === LIST_NAVIGATION_DIRECTIONS.UP || e.key === LIST_NAVIGATION_DIRECTIONS.DOWN) {
+            const nextSelectedIndex = getNextSelectedIndex(e.key);
+
+            if (selectedIndex !== nextSelectedIndex) {
+                e.preventDefault();
+                setSelectedIndex(nextSelectedIndex);
+                setHighlightedWithKeyboard(true);
+
+                if (onNavigate) {
+                    onNavigate(nextSelectedIndex, e.key);
+                }
             }
+        }
 
-            // Return last React.Children index if nextSelectedIndex is out of the right bound
-            if (nextSelectedIndex >= children.length) {
-                return children.length - 1;
-            }
-
-            // Return nextSelectedIndex without any changes for others cases
-            return nextSelectedIndex;
-        },
-        [selectedIndex, children]
-    );
-
-    const handleKeyDown = useCallback(
-        e => {
-            // Update selectedIndex with arrow navigation and make onNavigate function callback
+        // Imitate onClick event on Enter press and make onSelect function callback
+        if (e.key === ENTER_KEY) {
             if (
-                e.key === LIST_NAVIGATION_DIRECTIONS.UP ||
-                e.key === LIST_NAVIGATION_DIRECTIONS.DOWN
+                children[selectedIndex] &&
+                children[selectedIndex].props &&
+                children[selectedIndex].props.onClick
             ) {
-                const nextSelectedIndex = getNextSelectedIndex(e.key);
+                children[selectedIndex].props.onClick(e);
 
-                if (selectedIndex !== nextSelectedIndex) {
-                    e.preventDefault();
-                    setSelectedIndex(nextSelectedIndex);
-                    setHighlightedWithKeyboard(true);
-
-                    if (onNavigate) {
-                        onNavigate(nextSelectedIndex, e.key);
-                    }
+                if (onSelect) {
+                    onSelect(selectedIndex);
                 }
             }
-
-            // Imitate onClick event on Enter press and make onSelect function callback
-            if (e.key === ENTER_KEY) {
-                if (
-                    children[selectedIndex] &&
-                    children[selectedIndex].props &&
-                    children[selectedIndex].props.onClick
-                ) {
-                    children[selectedIndex].props.onClick(e);
-
-                    if (onSelect) {
-                        onSelect(selectedIndex);
-                    }
-                }
-            }
-        },
-        [children, getNextSelectedIndex, onNavigate, onSelect, selectedIndex]
-    );
+        }
+    };
 
     const handleMouseEnter = index => {
         if (selectedIndex !== index) {
