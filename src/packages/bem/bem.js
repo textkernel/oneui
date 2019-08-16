@@ -43,7 +43,7 @@ function bemStateful(classnamesMap) {
          * @returns {BEMClassNames}
          */
         // eslint-disable-next-line no-param-reassign
-        StatefulBemComponent.prototype.block = function block(extraMods = {}) {
+        StatefulBemComponent.prototype.block = function block() {
             return buildBemProps({
                 block: blockName,
                 elem: null,
@@ -51,7 +51,6 @@ function bemStateful(classnamesMap) {
                 propsToMods,
                 state: this.state,
                 stateToMods,
-                extraMods,
                 classnamesMap,
             });
         };
@@ -61,7 +60,7 @@ function bemStateful(classnamesMap) {
          * @returns {BEMClassNames}
          */
         // eslint-disable-next-line no-param-reassign
-        StatefulBemComponent.prototype.elem = function elem(elemName, extraMods = {}) {
+        StatefulBemComponent.prototype.elem = function elem(elemName) {
             return buildBemProps({
                 block: blockName,
                 elem: elemName,
@@ -69,7 +68,6 @@ function bemStateful(classnamesMap) {
                 propsToMods,
                 state: this.state,
                 stateToMods,
-                extraMods,
                 classnamesMap,
             });
         };
@@ -86,7 +84,7 @@ function bemStateful(classnamesMap) {
 function bemStateless(blockDecl) {
     const { name, classnames, propsToMods } = blockDecl;
     return {
-        block: (props, extraMods = {}) => {
+        block: props => {
             if (!props) {
                 throw new TypeError('block(props) should be called with props as an argument');
             }
@@ -95,7 +93,6 @@ function bemStateless(blockDecl) {
                 elem: null,
                 props,
                 propsToMods,
-                extraMods,
                 classnamesMap: classnames,
             });
         },
@@ -111,7 +108,6 @@ function bemStateless(blockDecl) {
                     elem: elemName,
                     props,
                     propsToMods,
-                    extraMods: {},
                     classnamesMap: classnames,
                 }).className,
                 classesToKeep,

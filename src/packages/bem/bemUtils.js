@@ -137,7 +137,6 @@ function getFunctionNameFallback(func) {
  * @param {ModsList} propsToMods - List of props properties to use for class generation
  * @param {ModDict} state - All state from a component
  * @param {ModsList} stateToMods - List of state properties to use for class generation
- * @param {ModDict} extraMods - Extra mods that are not related to props or state
  * @param {ClassnamesMap} classnamesMap - css modules classnames map
  * @returns {string}
  * @public
@@ -149,15 +148,14 @@ function buildClassNames({
     propsToMods,
     state,
     stateToMods,
-    extraMods,
     classnamesMap,
 }) {
     const blockElemName = elem ? `${block}${ELEM_SEPARATOR}${elem}` : block;
     const modsFromProps = buildModsFromObject(props, propsToMods);
     const modsFromState = buildModsFromObject(state, stateToMods);
 
-    // Todo: check that modsFromProps, modsFromState, extraMods don't have any intersections
-    const mods = Object.assign({}, modsFromProps, modsFromState, extraMods);
+    // Todo: check that modsFromProps and modsFromState don't have any intersections
+    const mods = Object.assign({}, modsFromProps, modsFromState);
 
     // Base level
     const baseClassName = classnamesMap[blockElemName];
@@ -203,7 +201,6 @@ export function isBlockDecl(args) {
  * @param {ModsList} [propsToMods]
  * @param {ModDict} [state]
  * @param {ModsList} [stateToMods]
- * @param {ModDict} [extraMods]
  * @param {ClassnamesMap} classnamesMap
  * @returns {BEMClassNames}
  * @public
@@ -215,7 +212,6 @@ export function buildBemProps({
     propsToMods = [],
     state = {},
     stateToMods = [],
-    extraMods = {},
     classnamesMap,
 }) {
     // If we deal with a new block, checking propsToMods and stateToMods declarations
@@ -231,7 +227,6 @@ export function buildBemProps({
         propsToMods,
         state,
         stateToMods,
-        extraMods,
         classnamesMap,
     });
 

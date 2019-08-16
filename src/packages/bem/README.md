@@ -123,7 +123,8 @@ const { block, elem } = bem({
     classnames: classnamesMap,
     // 1. If you need to have class name (.ButtonStateless--active) that depends on
     //    `active` prop, just list this prop in propsToMods list.
-    propsToMods: ['active']
+    //    Make sure to list custom modifiers as well, if you have any (see point 4. below)
+    propsToMods: ['active', 'almostRandomValue']
 });
 
 const almostRandomValue = (props) => {
@@ -147,10 +148,9 @@ const ButtonStateless = (props) => {
             {props.children}
         </span>
         {/*
-        4. If you need to add some custom modifiers, you can pass it as 3rd argument to the elem function.
-            Or as a 2nd argument to block function. E.g. { ...block(props, { custom: 'modifier' }) }
+        4. If you need to add some custom modifiers, you can add it to the props.
         */}
-        <span { ...elem('icon', props, { almostRandomValue: almostRandomValue(props) }) }>
+        <span { ...elem('icon', { ...props, almostRandomValue: almostRandomValue(props) }) }>
             {props.children}
         </span>
       </button>

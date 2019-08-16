@@ -8,7 +8,14 @@ import styles from './ListItem.scss';
 const { block, elem } = bem({
     name: 'ListItem',
     classnames: styles,
-    propsToMods: ['isSelected', 'isHighlighted', 'onClick', 'disabled', 'highlightContext'],
+    propsToMods: [
+        'isSelected',
+        'isHighlighted',
+        'onClick',
+        'disabled',
+        'highlightContext',
+        'clickable',
+    ],
 });
 
 const ListItem = React.forwardRef((props, ref) => {
@@ -24,7 +31,7 @@ const ListItem = React.forwardRef((props, ref) => {
     const customBlockMod = { clickable: typeof onClick === 'function' };
 
     return (
-        <li {...rest} ref={ref} {...block(props, customBlockMod)}>
+        <li {...rest} ref={ref} {...block({ ...props, ...customBlockMod })}>
             <div onClick={onClick} role="presentation" {...elem('container', props)}>
                 {React.Children.map(children, child =>
                     typeof child === 'string' ? <Text inline>{child}</Text> : child
