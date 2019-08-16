@@ -1,44 +1,45 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, fireEvent } from '@testing-library/react';
 import Button from '../Button';
 
 describe('<Button> that renders a button', () => {
+    const buttonTitle = 'Click me';
+
     it('should render default button correctly', () => {
-        const wrapper = mount(<Button>Click me</Button>);
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('button')).toHaveLength(1);
+        const { container } = render(<Button>{buttonTitle}</Button>);
+        expect(container).toMatchSnapshot();
     });
     it('should add classes when props are changed', () => {
-        const wrapper = mount(
+        const { container } = render(
             <Button context="primary" size="large" isBlock>
-                <span>Click me</span>
+                {buttonTitle}
             </Button>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
     it('should call click callback correctly', () => {
         const onClickMock = jest.fn();
-        const wrapper = mount(<Button onClick={onClickMock}>Click me</Button>);
-        wrapper.find('button').simulate('click');
+        const { getByText } = render(<Button onClick={onClickMock}>{buttonTitle}</Button>);
+        fireEvent.click(getByText(buttonTitle));
         expect(onClickMock).toHaveBeenCalled();
     });
     it('should add string html attributes correctly', () => {
-        const wrapper = mount(<Button data-test="something">Click me</Button>);
-        expect(wrapper.find('button').prop('data-test')).toEqual('something');
+        const { container } = render(<Button data-test="something">{buttonTitle}</Button>);
+        expect(container.querySelector('button')).toHaveAttribute('data-test', 'something');
     });
     it('should add functional html attributes correctly', () => {
         const onMouseOverMock = jest.fn();
-        const wrapper = mount(
+        const { container } = render(
             // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
-            <Button onMouseOver={onMouseOverMock}>Click me</Button>
+            <Button onMouseOver={onMouseOverMock}>{buttonTitle}</Button>
         );
-        const buttonWrapper = wrapper.find('button');
-        buttonWrapper.simulate('mouseover');
+        fireEvent.mouseOver(container.querySelector('button'));
         expect(onMouseOverMock).toHaveBeenCalled();
     });
     it('should render an ancor element if href is defined', () => {
-        const wrapper = mount(<Button href="/">Click me</Button>);
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('a')).toHaveLength(1);
+        const { container } = render(<Button href="/">{buttonTitle}</Button>);
+        expect(container).toMatchSnapshot();
+        expect(container.querySelector('a')).toBeVisible();
     });
 });
