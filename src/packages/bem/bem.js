@@ -102,18 +102,14 @@ function bemStateless(blockDecl) {
                     'elem(elemName, props) should be called with elem name and props as an arguments'
                 );
             }
-            const classes = [
-                buildBemProps({
-                    block: name,
-                    elem: elemName,
-                    props,
-                    propsToMods,
-                    classnamesMap: classnames,
-                }).className,
+            return buildBemProps({
+                block: name,
+                elem: elemName,
+                props,
+                propsToMods,
+                classnamesMap: classnames,
                 classesToKeep,
-            ].filter(c => c);
-
-            return { className: classes.length ? classes.join(' ') : undefined };
+            });
         },
     };
 }

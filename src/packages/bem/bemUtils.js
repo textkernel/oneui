@@ -202,6 +202,7 @@ export function isBlockDecl(args) {
  * @param {ModDict} [state]
  * @param {ModsList} [stateToMods]
  * @param {ClassnamesMap} classnamesMap
+ * @param {string} [classesToKeep]
  * @returns {BEMClassNames}
  * @public
  */
@@ -213,6 +214,7 @@ export function buildBemProps({
     state = {},
     stateToMods = [],
     classnamesMap,
+    classesToKeep = null,
 }) {
     // If we deal with a new block, checking propsToMods and stateToMods declarations
     if (process.env.NODE_ENV === 'development' && elem === null) {
@@ -220,28 +222,30 @@ export function buildBemProps({
         checkModsDeclaration(block, state, stateToMods);
     }
 
-    let classNames = buildClassNames({
-        block,
-        elem,
-        props,
-        propsToMods,
-        state,
-        stateToMods,
-        classnamesMap,
-    });
+    const classNames = [
+        buildClassNames({
+            block,
+            elem,
+            props,
+            propsToMods,
+            state,
+            stateToMods,
+            classnamesMap,
+        }),
+    ];
 
-    // If an element mixed in to the component, add it's className
-    if (props.className && elem === null) {
-        classNames += ` ${props.className}`;
+    // If block level classes, add className from prop
+    if (elem === null) {
+        classNames.push(props.className);
+    } else {
+        // add classesToKeep to elem level
+        classNames.push(classesToKeep);
     }
 
-    if (classNames === '') {
-        return Object.create(null);
-    }
+    // only use classes that actually there
+    const classes = classNames.filter(c => c);
 
-    return {
-        className: classNames,
-    };
+    return classes.length ? { className: classes.join(' ') } : Object.create(null);
 }
 
 export function getFunctionName(func) {
