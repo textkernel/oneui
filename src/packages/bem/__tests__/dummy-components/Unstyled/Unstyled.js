@@ -1,23 +1,23 @@
 import React from 'react';
 import bem from '../../..';
-import styles from './styles.json';
+// import styles from './styles.json';
 
 const { block, elem } = bem({
-    name: 'List',
-    classnames: styles,
+    name: 'Unstyled',
+    classnames: {},
 });
 
-const List = props => {
+const Unstyled = props => {
     const { children } = props;
     return (
-        <ul {...block(props)}>
+        <div {...block(props)}>
             {React.Children.map(children, child =>
                 child ? React.cloneElement(child, elem('item', props, child.props.className)) : null
             )}
-        </ul>
+        </div>
     );
 };
 
-List.displayName = 'List';
+Unstyled.displayName = 'Unstyled';
 
-export default List;
+export default Unstyled;
