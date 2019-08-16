@@ -80,7 +80,7 @@ function bemStateful(classnamesMap) {
 
 /**
  * Decorates stateless react component with BEM methods
- * @param {BlockDecl} blockDecl - Block declaration in case of statless usage.
+ * @param {BlockDecl} blockDecl - Block declaration in case of stateless usage.
  * @returns {{ block: Function, elem: Function }}
  */
 function bemStateless(blockDecl) {
@@ -99,20 +99,25 @@ function bemStateless(blockDecl) {
                 classnamesMap: classnames,
             });
         },
-        elem: (elemName, props, extraMods = {}) => {
+        elem: (elemName, props, classesToKeep = '') => {
             if (!elemName || !props) {
                 throw new TypeError(
                     'elem(elemName, props) should be called with elem name and props as an arguments'
                 );
             }
-            return buildBemProps({
-                block: name,
-                elem: elemName,
-                props,
-                propsToMods,
-                extraMods,
-                classnamesMap: classnames,
-            });
+            const classes = [
+                buildBemProps({
+                    block: name,
+                    elem: elemName,
+                    props,
+                    propsToMods,
+                    extraMods: {},
+                    classnamesMap: classnames,
+                }).className,
+                classesToKeep,
+            ].filter(c => c);
+
+            return classes.length ? { className: classes.join(' ') } : null;
         },
     };
 }
