@@ -277,8 +277,8 @@ respectively exists in classnames map.
 ### No props:
 
 ```html
-<Button />
- ↓ ↓ ↓
+<button />
+↓ ↓ ↓
 <button class="Button">
     <span class="Button__label" />
 </button>
