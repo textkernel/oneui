@@ -38,7 +38,7 @@ const selectedLocations = [
 
 storiesOf('Organisms|LocationSelector', module).add('LocationSelector', () => (
     <LocationSelector
-        apiKey="AIzaSyAN8CrPoGIMCNX4XXzAQpIal6Ks0FCXhuQ"
+        apiKey="apiKey"
         selectedLocations={selectedLocations}
         country="NL"
         language="EN"

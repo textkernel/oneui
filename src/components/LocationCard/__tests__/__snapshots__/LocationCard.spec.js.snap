@@ -2,6 +2,7 @@
 
 exports[`LocationCard component should render component correctly 1`] = `
 <LocationCard
+  As="div"
   distanceRadius={42}
   locationId={null}
   locationTitle="London"
