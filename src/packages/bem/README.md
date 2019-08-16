@@ -242,7 +242,7 @@ Button.scss
 
 ### Using elem to enrich existing elements
 
-If you wish to enrich an existing HTML element (e.g. child of the component) with extra classes, you need to make sure to preserve already existing classes on that element. To achieve that you can list existing classes as the 3rd argument for `elem`. For example:
+If you wish to enrich an existing element (e.g. child of the component) with extra classes, you need to make sure to preserve already existing classes on that element. To achieve that you can list existing classes as the 3rd argument for `elem`. For example:
 
 ```jsx
 import React from 'react';
