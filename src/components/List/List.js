@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import ListItem from './ListItem';
@@ -22,18 +22,18 @@ const SCROLL_INTO_VIEW_SETTINGS = {
 };
 
 const List = React.forwardRef((props, ref) => {
-    const [selectedIndex, setSelectedIndex] = useState(null);
-    const [highlightedWithKeyboard, setHighlightedWithKeyboard] = useState(false);
+    const [selectedIndex, setSelectedIndex] = React.useState(null);
+    const [highlightedWithKeyboard, setHighlightedWithKeyboard] = React.useState(false);
 
-    const highlightedListItem = useRef(null);
+    const highlightedListItem = React.useRef(null);
 
-    const { children, isDivided, onNavigate, onSelect, isControlledNavigation, ...rest } = props;
+    const { children, isDivided, doSelectOnNavigate, isControlledNavigation, ...rest } = props;
 
     /**
      * Scroll list if it's necessary to make the highlighted item visible
      * every time selectedIndex was changed with the keyboard navigation
      */
-    useEffect(() => {
+    React.useEffect(() => {
         const hasScrollIntoViewFunction =
             highlightedListItem &&
             highlightedListItem.current &&
@@ -72,34 +72,29 @@ const List = React.forwardRef((props, ref) => {
                 e.preventDefault();
                 setSelectedIndex(nextSelectedIndex);
                 setHighlightedWithKeyboard(true);
-
-                if (onNavigate) {
-                    onNavigate(nextSelectedIndex, e.key);
-                }
             }
         }
 
-        // Imitate onClick event on Enter press and make onSelect function callback
-        if (e.key === ENTER_KEY) {
+        // Imitate onClick event for the selected highlighted item
+        if (e.key === ENTER_KEY || doSelectOnNavigate) {
             if (
                 children[selectedIndex] &&
                 children[selectedIndex].props &&
                 children[selectedIndex].props.onClick
             ) {
                 children[selectedIndex].props.onClick(e);
-
-                if (onSelect) {
-                    onSelect(selectedIndex);
-                }
             }
         }
     };
 
-    const handleMouseEnter = index => {
-        if (selectedIndex !== index) {
-            setSelectedIndex(index);
-        }
-    };
+    const handleMouseEnter = React.useCallback(
+        index => {
+            if (selectedIndex !== index) {
+                setSelectedIndex(index);
+            }
+        },
+        [selectedIndex]
+    );
 
     return isControlledNavigation ? (
         <ul {...rest} ref={ref} {...block(props)}>
@@ -143,10 +138,8 @@ List.propTypes = {
     },
     /** Adds dividing lines between the list items */
     isDivided: PropTypes.bool,
-    /** onNavigate function callback. (selectedIndex: number, key: 'ArrowUp' || 'ArrowDown') */
-    onNavigate: PropTypes.func,
-    /** onSelect function callback. (selectedIndex: number) */
-    onSelect: PropTypes.func,
+    /** Defines if selection should be made on navigate */
+    doSelectOnNavigate: PropTypes.bool,
     /** manage keyboard navigation externally */
     isControlledNavigation: PropTypes.bool,
 };
@@ -154,8 +147,7 @@ List.propTypes = {
 List.defaultProps = {
     children: null,
     isDivided: false,
-    onNavigate: null,
-    onSelect: null,
+    doSelectOnNavigate: false,
     isControlledNavigation: false,
 };
 
