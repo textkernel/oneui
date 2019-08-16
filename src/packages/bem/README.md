@@ -18,23 +18,17 @@ In terms of CSS classnames it looks like this:
 
 ```css
 /* component's root node class name */
-.ComponentName {
-}
+.ComponentName {}
 /* component's root node class name with boolean modifier applied */
-.ComponentName--modName {
-}
+.ComponentName--modName {}
 /* component's root node class name with string/number modifier applied */
-.ComponentName--modName_modValue {
-}
+.ComponentName--modName_modValue {}
 /* component's sub node (element) class name */
-.ComponentName__elem {
-}
+.ComponentName__elem {}
 /* component's root node class name with boolean modifier + value applied */
-.ComponentName__elem--modName {
-}
+.ComponentName__elem--modName {}
 /* component's root node class name with string/number modifier + value applied */
-.ComponentName__elem--modName_modValue {
-}
+.ComponentName__elem--modName_modValue {}
 ```
 
 ## Example of usage
@@ -283,8 +277,8 @@ respectively exists in classnames map.
 ### No props:
 
 ```html
-<button />
-↓ ↓ ↓
+<Button />
+ ↓ ↓ ↓
 <button class="Button">
     <span class="Button__label" />
 </button>
@@ -293,10 +287,8 @@ respectively exists in classnames map.
 ### Prop `active` is set:
 
 ```html
-<button active="{true}" />
-
-↓ ↓ ↓
-
+<Button active={true} />
+ ↓ ↓ ↓
 <button class="Button Button--active">
     <span class="Button__label Button__label--active" />
 </button>
@@ -307,10 +299,8 @@ respectively exists in classnames map.
 **Note** that property of a boolean type `active={true}` produces `Button__label--active` (_without_ mod value), when property of a string type `type='extraordinary'` gives us two classnames: `Button__label--type` (_without_ mod value) and `Button__label--type_extraordinary` (_with_ mod value).
 
 ```html
-<button active="{true}" type="extraordinary" />
-
-↓ ↓ ↓
-
+<Button active={true} type="extraordinary" />
+ ↓ ↓ ↓
 <button class="Button Button--active Button--type Button--type_extraordinary">
     <span
         class="Button__label Button__label--active Button__label--type Button__label--type_extraordinary"
@@ -323,10 +313,8 @@ respectively exists in classnames map.
 No classnames will be produced if boolean property has `false` value.
 
 ```html
-<button active="{false}" />
-
-↓ ↓ ↓
-
+<Button active={false} />
+ ↓ ↓ ↓
 <button class="Button">
     <span class="Button__label" />
 </button>
@@ -335,11 +323,8 @@ No classnames will be produced if boolean property has `false` value.
 ### Clicked state
 
 ```html
-<button />
-<!-- this.setState({ clicked: true }) -->
-
-↓ ↓ ↓
-
+<Button /> <!-- this.setState({ clicked: true }) -->
+ ↓ ↓ ↓
 <button class="Button Button--clicked">
     <span class="Button__label Button__label--clicked" />
 </button>
