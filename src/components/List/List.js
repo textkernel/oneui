@@ -104,22 +104,13 @@ const List = React.forwardRef((props, ref) => {
         }
     };
 
-    const getChildClasses = child => {
-        const classes = [elem('item', props).className];
-        if (child.props.className) {
-            classes.push(child.props.className);
-        }
-
-        return classes.join(' ');
-    };
-
     return isControlledNavigation ? (
         <ul {...rest} ref={ref} {...block(props)}>
             {React.Children.map(children, child => {
                 if (child) {
                     return child.props[NOT_LIST_CHILD]
                         ? child
-                        : React.cloneElement(child, { className: getChildClasses(child) });
+                        : React.cloneElement(child, elem('item', props, child.props.className));
                 }
                 return null;
             })}
@@ -132,7 +123,7 @@ const List = React.forwardRef((props, ref) => {
                     return child.props[NOT_LIST_CHILD]
                         ? child
                         : React.cloneElement(child, {
-                              className: getChildClasses(child),
+                              ...elem('item', props, child.props.className),
                               ref: index === selectedIndex ? highlightedListItem : null,
                               isHighlighted: index === selectedIndex,
                               onMouseEnter: () => handleMouseEnter(index),
