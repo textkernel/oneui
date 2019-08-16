@@ -1,19 +1,23 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import Heading from '../Heading';
 
 describe('<Heading> that renders a heading', () => {
     it('should render default heading correctly', () => {
-        const wrapper = shallow(<Heading>Some heading text</Heading>);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const title = 'Some heading text';
+        const { container } = render(<Heading>{title}</Heading>);
+        expect(container.textContent).toBe(title);
+        expect(container).toMatchSnapshot();
     });
 
     it('should add classes when props are changed', () => {
-        const wrapper = shallow(
+        const title = 'Some heading text';
+        const { container } = render(
             <Heading level="h3" align="right">
-                Some heading text
+                {title}
             </Heading>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 });

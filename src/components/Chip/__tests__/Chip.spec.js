@@ -1,10 +1,11 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import Chip from '../Chip';
 
 describe('<Chip> that renders a pill shaped chip', () => {
     it('should render correctly', () => {
-        const wrapper = shallow(<Chip>some text</Chip>);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const { container } = render(<Chip>some text</Chip>);
+        expect(container).toMatchSnapshot();
     });
 });

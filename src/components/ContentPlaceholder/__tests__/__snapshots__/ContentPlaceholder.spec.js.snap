@@ -1,23 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ContentPlaceholder> that renders a content placeholder should render default placeholder 1`] = `
-<div
-  className="ContentPlaceholder"
-  style={
-    Object {
-      "animationDuration": "1s",
-      "height": null,
-    }
-  }
->
-   
+<div>
   <div
-    className="ContentPlaceholder__mask"
-    style={
-      Object {
-        "width": "0%",
-      }
-    }
-  />
+    class="ContentPlaceholder"
+    style="animation-duration: 1s;"
+  >
+     
+    <div
+      class="ContentPlaceholder__mask"
+      style="width: 0%;"
+    />
+  </div>
 </div>
 `;

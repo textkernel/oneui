@@ -1,34 +1,35 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import ContentPlaceholder from '../ContentPlaceholder';
 
 describe('<ContentPlaceholder> that renders a content placeholder', () => {
     it('should render default placeholder', () => {
-        const wrapper = shallow(<ContentPlaceholder />);
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.props().style).toEqual({
+        const { container } = render(<ContentPlaceholder />);
+        expect(container).toMatchSnapshot();
+        expect(container).toHaveStyle(`
             animationDuration: '1s',
             height: null,
-        });
-        expect(wrapper.childAt(1).props().style).toEqual({
+        `);
+        expect(container.querySelector('.ContentPlaceholder__mask')).toHaveStyle(`
             width: '0%',
-        });
+        `);
     });
 
     it('should affect styles when props are changed', () => {
-        const wrapper = shallow(
+        const { container } = render(
             <ContentPlaceholder duration={3} height={30} width={60} withoutMargin />
         );
 
-        expect(wrapper.props().style).toEqual({
+        expect(container).toHaveStyle(`
             animationDuration: '3s',
             height: 30,
-        });
+        `);
 
-        expect(wrapper.childAt(1).props().style).toEqual({
+        expect(container.querySelector('.ContentPlaceholder__mask')).toHaveStyle(`
             width: '40%',
-        });
+        `);
 
-        expect(wrapper.hasClass('ContentPlaceholder--withoutMargin')).toBe(true);
+        expect(container.querySelector('.ContentPlaceholder--withoutMargin')).toBeVisible();
     });
 });
