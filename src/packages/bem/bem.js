@@ -117,7 +117,7 @@ function bemStateless(blockDecl) {
                 classesToKeep,
             ].filter(c => c);
 
-            return classes.length ? { className: classes.join(' ') } : null;
+            return { className: classes.length ? classes.join(' ') : undefined };
         },
     };
 }
