@@ -43,7 +43,7 @@ function bemStateful(classnamesMap) {
          * @returns {BEMClassNames}
          */
         // eslint-disable-next-line no-param-reassign
-        StatefulBemComponent.prototype.block = function block(extraMods = {}) {
+        StatefulBemComponent.prototype.block = function block() {
             return buildBemProps({
                 block: blockName,
                 elem: null,
@@ -51,7 +51,6 @@ function bemStateful(classnamesMap) {
                 propsToMods,
                 state: this.state,
                 stateToMods,
-                extraMods,
                 classnamesMap,
             });
         };
@@ -61,7 +60,7 @@ function bemStateful(classnamesMap) {
          * @returns {BEMClassNames}
          */
         // eslint-disable-next-line no-param-reassign
-        StatefulBemComponent.prototype.elem = function elem(elemName, extraMods = {}) {
+        StatefulBemComponent.prototype.elem = function elem(elemName) {
             return buildBemProps({
                 block: blockName,
                 elem: elemName,
@@ -69,7 +68,6 @@ function bemStateful(classnamesMap) {
                 propsToMods,
                 state: this.state,
                 stateToMods,
-                extraMods,
                 classnamesMap,
             });
         };
@@ -80,13 +78,13 @@ function bemStateful(classnamesMap) {
 
 /**
  * Decorates stateless react component with BEM methods
- * @param {BlockDecl} blockDecl - Block declaration in case of statless usage.
+ * @param {BlockDecl} blockDecl - Block declaration in case of stateless usage.
  * @returns {{ block: Function, elem: Function }}
  */
 function bemStateless(blockDecl) {
     const { name, classnames, propsToMods } = blockDecl;
     return {
-        block: (props, extraMods = {}) => {
+        block: props => {
             if (!props) {
                 throw new TypeError('block(props) should be called with props as an argument');
             }
@@ -95,11 +93,10 @@ function bemStateless(blockDecl) {
                 elem: null,
                 props,
                 propsToMods,
-                extraMods,
                 classnamesMap: classnames,
             });
         },
-        elem: (elemName, props, extraMods = {}) => {
+        elem: (elemName, props, classesToKeep = '') => {
             if (!elemName || !props) {
                 throw new TypeError(
                     'elem(elemName, props) should be called with elem name and props as an arguments'
@@ -110,8 +107,8 @@ function bemStateless(blockDecl) {
                 elem: elemName,
                 props,
                 propsToMods,
-                extraMods,
                 classnamesMap: classnames,
+                classesToKeep,
             });
         },
     };

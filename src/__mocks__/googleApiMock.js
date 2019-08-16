@@ -9,6 +9,7 @@ export const fitBoundsMock = jest.fn();
 export const setZoomMock = jest.fn();
 export const setCenterMock = jest.fn();
 export const getPlacePredictionsMock = jest.fn();
+export const geocodeMock = jest.fn();
 
 export class Map {
     fitBounds() {
@@ -317,7 +318,11 @@ export const google = {
                 ZERO_RESULTS: 'ZERO_RESULTS',
             },
         },
-        Geocoder: class {},
+        Geocoder: class {
+            geocode(req, cb) {
+                geocodeMock(req, cb);
+            }
+        },
         GeocoderStatus: {
             ERROR: 'ERROR',
             INVALID_REQUEST: 'INVALID_REQUEST',

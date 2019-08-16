@@ -137,7 +137,6 @@ function getFunctionNameFallback(func) {
  * @param {ModsList} propsToMods - List of props properties to use for class generation
  * @param {ModDict} state - All state from a component
  * @param {ModsList} stateToMods - List of state properties to use for class generation
- * @param {ModDict} extraMods - Extra mods that are not related to props or state
  * @param {ClassnamesMap} classnamesMap - css modules classnames map
  * @returns {string}
  * @public
@@ -149,15 +148,14 @@ function buildClassNames({
     propsToMods,
     state,
     stateToMods,
-    extraMods,
     classnamesMap,
 }) {
     const blockElemName = elem ? `${block}${ELEM_SEPARATOR}${elem}` : block;
     const modsFromProps = buildModsFromObject(props, propsToMods);
     const modsFromState = buildModsFromObject(state, stateToMods);
 
-    // Todo: check that modsFromProps, modsFromState, extraMods don't have any intersections
-    const mods = Object.assign({}, modsFromProps, modsFromState, extraMods);
+    // Todo: check that modsFromProps and modsFromState don't have any intersections
+    const mods = Object.assign({}, modsFromProps, modsFromState);
 
     // Base level
     const baseClassName = classnamesMap[blockElemName];
@@ -203,8 +201,8 @@ export function isBlockDecl(args) {
  * @param {ModsList} [propsToMods]
  * @param {ModDict} [state]
  * @param {ModsList} [stateToMods]
- * @param {ModDict} [extraMods]
  * @param {ClassnamesMap} classnamesMap
+ * @param {string} [classesToKeep]
  * @returns {BEMClassNames}
  * @public
  */
@@ -215,8 +213,8 @@ export function buildBemProps({
     propsToMods = [],
     state = {},
     stateToMods = [],
-    extraMods = {},
     classnamesMap,
+    classesToKeep = null,
 }) {
     // If we deal with a new block, checking propsToMods and stateToMods declarations
     if (process.env.NODE_ENV === 'development' && elem === null) {
@@ -224,29 +222,30 @@ export function buildBemProps({
         checkModsDeclaration(block, state, stateToMods);
     }
 
-    let classNames = buildClassNames({
-        block,
-        elem,
-        props,
-        propsToMods,
-        state,
-        stateToMods,
-        extraMods,
-        classnamesMap,
-    });
+    const classNames = [
+        buildClassNames({
+            block,
+            elem,
+            props,
+            propsToMods,
+            state,
+            stateToMods,
+            classnamesMap,
+        }),
+    ];
 
-    // If an element mixed in to the component, add it's className
-    if (props.className && elem === null) {
-        classNames += ` ${props.className}`;
+    // If block level classes, add className from prop
+    if (elem === null) {
+        classNames.push(props.className);
+    } else {
+        // add classesToKeep to elem level
+        classNames.push(classesToKeep);
     }
 
-    if (classNames === '') {
-        return Object.create(null);
-    }
+    // only use classes that actually there
+    const classes = classNames.filter(c => c);
 
-    return {
-        className: classNames,
-    };
+    return classes.length ? { className: classes.join(' ') } : Object.create(null);
 }
 
 export function getFunctionName(func) {
