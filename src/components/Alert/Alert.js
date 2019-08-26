@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import { Button } from '../Button';
+import { Button } from '../Buttons';
 import styles from './Alert.scss';
 import { CONTEXTS } from '../../constants';
 

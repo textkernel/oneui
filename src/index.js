@@ -1,6 +1,6 @@
 export { default } from './utils/OneUI';
 // Atoms
-export { Button, SearchButton } from './components/Button';
+export { Button, SearchButton } from './components/Buttons';
 export { default as CandidateAvatar } from './components/CandidateAvatar';
 export { default as Chip } from './components/Chip';
 export { default as ContentPlaceholder } from './components/ContentPlaceholder';
