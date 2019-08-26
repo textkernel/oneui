@@ -25,15 +25,15 @@ describe('<Input> that renders an input field', () => {
         expect(container).toMatchSnapshot();
     });
 
-    // it('should call change callback correctly', () => {
-    //     const { container, debug } = render(<Input onChange={onChangeMock} />);
-    //     debug(container.querySelector('input'));
-    //     fireEvent.change(container.querySelector('input'), changeOptions);
-    //     expect(onChangeMock).toHaveBeenCalledWith(changeOptions);
-    // });
+    it('should call change callback correctly', () => {
+        const { container, debug } = render(<Input onChange={onChangeMock} />);
+        debug(container.querySelector('input'));
+        fireEvent.change(container.querySelector('input'), changeOptions);
+        expect(onChangeMock).toHaveBeenCalled();
+    });
 
-    // it('should add string html attributes correctly', () => {
-    //     const wrapper = shallow(<Input data-test="something" />);
-    //     expect(wrapper.find('input').prop('data-test')).toEqual('something');
-    // });
+    it('should add string html attributes correctly', () => {
+        const { container } = render(<Input data-test="something" />);
+        expect(container.querySelector('input')).toHaveAttribute('data-test', 'something');
+    });
 });

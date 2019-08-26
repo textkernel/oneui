@@ -1,155 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List component Initial rendering should render List correctly 1`] = `
-<List
-  isControlledNavigation={false}
-  isDivided={false}
-  onNavigate={null}
-  onSelect={null}
->
+<div>
   <ul
-    className="List"
-    onKeyDown={[Function]}
-    tabIndex="0"
+    class="List"
+    tabindex="0"
   >
-    <ListItem
-      className="List__item"
-      disabled={false}
-      highlightContext="default"
-      isHighlighted={false}
-      isSelected={false}
-      key=".0"
-      onClick={null}
-      onMouseEnter={[Function]}
+    <li
+      class="ListItem List__item"
     >
-      <li
-        className="ListItem List__item"
-        onMouseEnter={[Function]}
+      <div
+        class="ListItem__container"
+        role="presentation"
       >
-        <div
-          className="ListItem__container"
-          onClick={null}
-          role="presentation"
-        >
-          <Text
-            context="default"
-            inline={true}
-            key=".0"
-            size="normal"
-          >
-            <span>
-              Item 1
-            </span>
-          </Text>
-        </div>
-      </li>
-    </ListItem>
-    <ListItem
-      className="List__item"
-      disabled={false}
-      highlightContext="default"
-      isHighlighted={false}
-      isSelected={false}
-      key=".1"
-      onClick={null}
-      onMouseEnter={[Function]}
+        <span>
+          Item 1
+        </span>
+      </div>
+    </li>
+    <li
+      class="ListItem List__item"
     >
-      <li
-        className="ListItem List__item"
-        onMouseEnter={[Function]}
+      <div
+        class="ListItem__container"
+        role="presentation"
       >
-        <div
-          className="ListItem__container"
-          onClick={null}
-          role="presentation"
-        >
-          <Text
-            context="default"
-            inline={true}
-            key=".0"
-            size="normal"
-          >
-            <span>
-              Item 2
-            </span>
-          </Text>
-        </div>
-      </li>
-    </ListItem>
+        <span>
+          Item 2
+        </span>
+      </div>
+    </li>
   </ul>
-</List>
-`;
-
-exports[`List component Initial rendering should render List correctly without keyboard navigation 1`] = `
-<List
-  isControlledNavigation={true}
-  isDivided={false}
-  onNavigate={null}
-  onSelect={null}
->
-  <ul
-    className="List"
-  >
-    <ListItem
-      className="List__item"
-      disabled={false}
-      highlightContext="default"
-      isHighlighted={false}
-      isSelected={false}
-      key=".0"
-      onClick={null}
-    >
-      <li
-        className="ListItem List__item"
-      >
-        <div
-          className="ListItem__container"
-          onClick={null}
-          role="presentation"
-        >
-          <Text
-            context="default"
-            inline={true}
-            key=".0"
-            size="normal"
-          >
-            <span>
-              Item 1
-            </span>
-          </Text>
-        </div>
-      </li>
-    </ListItem>
-    <ListItem
-      className="List__item"
-      disabled={false}
-      highlightContext="default"
-      isHighlighted={false}
-      isSelected={false}
-      key=".1"
-      onClick={null}
-    >
-      <li
-        className="ListItem List__item"
-      >
-        <div
-          className="ListItem__container"
-          onClick={null}
-          role="presentation"
-        >
-          <Text
-            context="default"
-            inline={true}
-            key=".0"
-            size="normal"
-          >
-            <span>
-              Item 2
-            </span>
-          </Text>
-        </div>
-      </li>
-    </ListItem>
-  </ul>
-</List>
+</div>
 `;
