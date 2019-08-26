@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { Button, SearchButton } from '@textkernel/oneui';
-import { CONTEXTS, SIZES, MAIN_CONTEXTS } from '../src/constants';
+import { CONTEXTS, SIZES } from '../src/constants';
 
 storiesOf('Atoms|Button', module)
     .addDecorator(withKnobs)
@@ -24,7 +24,6 @@ storiesOf('Atoms|Button', module)
     ))
     .add('SearchButton', () => (
         <SearchButton
-            context={select('Context', MAIN_CONTEXTS, MAIN_CONTEXTS[1])}
             type={select('Type', ['submit', 'button'], 'submit')}
             disabled={boolean('Disabled', false)}
             onClick={e => {

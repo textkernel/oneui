@@ -2,12 +2,11 @@
 
 exports[`<SearchButton> that renders a search button should render default button correctly 1`] = `
 <SearchButton
-  context="primary"
   disabled={false}
   type="button"
 >
   <button
-    className="SearchButton SearchButton--context_primary"
+    className="SearchButton"
     disabled={false}
     type="button"
   >

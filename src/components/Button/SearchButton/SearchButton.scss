@@ -1,24 +1,36 @@
 .SearchButton {
     display: inline-flex;
-    align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+
+    height: var(--search-button-size);
+    width: var(--search-button-size);
+    margin: 0;
+
     border: {
         radius: 50%;
         width: var(--line-normal);
         style: solid;
+        color: var(--color-primary);
     }
     color: var(--color-background);
-    box-sizing: border-box;
+    background-color: var(--color-primary);
+    box-shadow: 0 2px 4px var(--color-primary-40);
+
     cursor: pointer;
     text-decoration: none;
-    margin: 0;
     outline: none;
-    height: var(--search-button-size);
-    width: var(--search-button-size);
-    text-align: center;
     transition: all var(--transition-duration);
-    white-space: nowrap;
-    flex-wrap: nowrap;
+
+    &:hover {
+        border-color: var(--color-primary-60);
+        background-color: var(--color-primary-60);
+    }
+    &:focus,
+    &[disabled] {
+        background-color: var(--color-primary-25);
+        border-color: var(--color-primary-25);
+    }
 
     &:focus,
     &:active {
@@ -28,25 +40,5 @@
 
     &[disabled] {
         cursor: not-allowed;
-    }
-
-    &--context {
-        @each $context in (brand, primary, accent) {
-            &_#{ $context } {
-                background-color: var(--color-#{$context});
-                border-color: var(--color-#{$context});
-                box-shadow: 0 2px 4px var(--color-#{$context}-40);
-
-                &:hover {
-                    border-color: var(--color-#{$context}-60);
-                    background-color: var(--color-#{$context}-60);
-                }
-                &:focus,
-                &[disabled] {
-                    background-color: var(--color-#{$context}-25);
-                    border-color: var(--color-#{$context}-25);
-                }
-            }
-        }
     }
 }
