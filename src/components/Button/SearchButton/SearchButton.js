@@ -12,7 +12,7 @@ const { block } = bem({
 });
 
 const SearchButton = forwardRef((props, ref) => {
-    const { children, context, disabled, type, ...rest } = props;
+    const { context, disabled, type, ...rest } = props;
 
     return (
         <button {...rest} {...block(props)} ref={ref} type={type} disabled={disabled}>
