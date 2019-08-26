@@ -3,16 +3,14 @@
     justify-content: center;
     box-sizing: border-box;
 
+    font-size: var(--font-size-normal);
     height: var(--search-button-size);
     width: var(--search-button-size);
     margin: 0;
 
-    border: {
-        radius: 50%;
-        width: var(--line-normal);
-        style: solid;
-        color: var(--color-primary);
-    }
+    border: none;
+    border-radius: 50%;
+
     color: var(--color-background);
     background-color: var(--color-primary);
     box-shadow: 0 2px 4px var(--color-primary-40);
@@ -23,22 +21,22 @@
     transition: all var(--transition-duration);
 
     &:hover {
-        border-color: var(--color-primary-60);
         background-color: var(--color-primary-60);
     }
-    &:focus,
+
     &[disabled] {
         background-color: var(--color-primary-25);
-        border-color: var(--color-primary-25);
+        box-shadow: none;
+        cursor: not-allowed;
     }
 
     &:focus,
     &:active {
-        z-index: 100;
-        outline: none;
+        box-shadow: 0 0 0 var(--outline-size) var(--color-primary-25);
     }
 
-    &[disabled] {
-        cursor: not-allowed;
+    &:active {
+        box-shadow: inset 0 2px 0 0 var(--color-primary-75),
+            0 0 0 var(--outline-size) var(--color-primary-25);
     }
 }
