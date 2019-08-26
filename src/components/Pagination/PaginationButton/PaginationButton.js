@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './PaginationButton.scss';
-import Button from '../../Button';
+import { Button } from '../../Button';
 
 const { block } = bem({
     name: 'PaginationButton',

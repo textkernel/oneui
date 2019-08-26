@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import ButtonGroup from '../ButtonGroup';
-import Button from '../../Button';
+import { Button } from '../../Button';
 
 describe('<ButtonGroup> that renders a button', () => {
     it('should render default button correctly', () => {

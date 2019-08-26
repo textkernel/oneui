@@ -23,6 +23,9 @@ $site-container-min-size: 1150px !default;
 $site-container-max-size: 1400px !default;
 $site-container-padding: 20px !default;
 
+// SearchButton size
+$search-button-size: 38px !default;
+
 :root {
     --border-radius: #{$border-radius};
 
@@ -43,4 +46,6 @@ $site-container-padding: 20px !default;
     --site-container-min-size: #{$site-container-min-size};
     --site-container-max-size: #{$site-container-max-size};
     --site-container-padding: #{$site-container-padding};
+
+    --search-button-size: #{$search-button-size};
 }

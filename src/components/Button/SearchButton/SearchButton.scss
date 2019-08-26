@@ -1,0 +1,52 @@
+.SearchButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: {
+        radius: 50%;
+        width: var(--line-normal);
+        style: solid;
+    }
+    color: var(--color-background);
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0;
+    outline: none;
+    height: var(--search-button-size);
+    width: var(--search-button-size);
+    text-align: center;
+    transition: all var(--transition-duration);
+    white-space: nowrap;
+    flex-wrap: nowrap;
+
+    &:focus,
+    &:active {
+        z-index: 100;
+        outline: none;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
+
+    &--context {
+        @each $context in (brand, primary, accent) {
+            &_#{ $context } {
+                background-color: var(--color-#{$context});
+                border-color: var(--color-#{$context});
+                box-shadow: 0 2px 4px var(--color-#{$context}-40);
+
+                &:hover {
+                    border-color: var(--color-#{$context}-60);
+                    background-color: var(--color-#{$context}-60);
+                }
+                &:focus,
+                &[disabled] {
+                    background-color: var(--color-#{$context}-25);
+                    border-color: var(--color-#{$context}-25);
+                }
+            }
+        }
+    }
+}
