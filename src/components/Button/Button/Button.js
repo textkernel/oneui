@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import styles from './Button.scss';
-import { CONTEXTS, SIZES } from '../../constants';
+import { CONTEXTS, SIZES } from '../../../constants';
 
 const { block } = bem({
     name: 'Button',
