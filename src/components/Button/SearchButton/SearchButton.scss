@@ -1,6 +1,7 @@
 .SearchButton {
     display: inline-flex;
     justify-content: center;
+    align-items: center;
     box-sizing: border-box;
 
     font-size: var(--font-size-normal);
@@ -30,8 +31,7 @@
         cursor: not-allowed;
     }
 
-    &:focus,
-    &:active {
+    &:focus {
         box-shadow: 0 0 0 var(--outline-size) var(--color-primary-25);
     }
 
