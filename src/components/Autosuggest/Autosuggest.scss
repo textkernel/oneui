@@ -66,9 +66,10 @@
     }
 
     &__list--focused {
-        max-height: 200px;
+        max-height: 214px;
         overflow: auto;
         border-top: 1px solid var(--border-color-light);
+        margin-top: -1px;
     }
 
     &__loaderContainer {

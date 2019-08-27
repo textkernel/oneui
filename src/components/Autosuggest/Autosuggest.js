@@ -184,6 +184,7 @@ class Autosuggest extends React.Component {
             suggestionToString,
             getSuggestions,
             noSuggestionsPlaceholder,
+            listRenderer,
         } = this.props;
         const { inputValue, inputValueRecall } = this.state;
 
@@ -198,7 +199,8 @@ class Autosuggest extends React.Component {
             ));
         }
 
-        const suggestions = getSuggestions(inputValue);
+        const suggestions =
+            typeof getSuggestions === 'function' ? getSuggestions(inputValue) : getSuggestions;
 
         if (!suggestions || !suggestions.length) {
             return inputValue ? (
@@ -208,21 +210,31 @@ class Autosuggest extends React.Component {
             ) : null;
         }
 
-        return suggestions.map((item, index) => (
-            <ListItem
-                key={suggestionToString(item)}
-                {...getItemProps({
-                    item,
-                    index,
-                    isHighlighted: highlightedIndex === index,
-                    highlightContext: 'brand',
-                })}
-            >
-                <MarkedText marker={inputValueRecall} inline>
-                    {suggestionToString(item)}
-                </MarkedText>
-            </ListItem>
-        ));
+        const defaultListRenderer = () =>
+            suggestions.map((item, index) => (
+                <ListItem
+                    key={suggestionToString(item)}
+                    {...getItemProps({
+                        item,
+                        index,
+                        isHighlighted: highlightedIndex === index,
+                        highlightContext: 'brand',
+                    })}
+                >
+                    <MarkedText marker={inputValueRecall} inline>
+                        {suggestionToString(item)}
+                    </MarkedText>
+                </ListItem>
+            ));
+
+        return listRenderer
+            ? listRenderer({
+                  suggestions,
+                  getItemProps,
+                  highlightedIndex,
+                  listInputValue: inputValueRecall,
+              })
+            : defaultListRenderer();
     }
 
     render() {
@@ -233,7 +245,6 @@ class Autosuggest extends React.Component {
             clearTitle,
             showClearButton,
             iconNode,
-            // props not used here, but listed to clear the ...rest
             selectedSuggestions,
             getSuggestions,
             isLoading,
@@ -244,6 +255,7 @@ class Autosuggest extends React.Component {
             onClearAllSelected,
             isMultiselect,
             isProminent,
+            listRenderer,
             ...rest
         } = this.props;
         const { inputValue, focused } = this.state;
@@ -290,7 +302,7 @@ class Autosuggest extends React.Component {
                                     {iconNode &&
                                         React.cloneElement(
                                             iconNode,
-                                            elem('spacedElem', stateAndProps)
+                                            elem('spacedElem', {}, iconNode.props.className)
                                         )}
                                     {this.renderTags()}
                                     <input
@@ -332,23 +344,23 @@ class Autosuggest extends React.Component {
 Autosuggest.propTypes = {
     /** array of already selected suggestions */
     selectedSuggestions: PropTypes.array, // eslint-disable-line react/forbid-prop-types
-    /** getSuggestions(inputValue) => should return an array of objects that will be used to render the suggestions list. */
-    getSuggestions: PropTypes.func.isRequired,
+    /** getSuggestions(inputValue) => an array of objects that will be used to render the suggestions list. */
+    getSuggestions: PropTypes.oneOfType([PropTypes.array, PropTypes.func]),
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: PropTypes.func.isRequired,
-    /** if suggestions are still loading, i.e. display palceholders */
+    /** if suggestions are still loading, i.e. display placeholders */
     isLoading: PropTypes.bool,
-    /** a string or function (to be called with selectedValues) that represents the selected values when the component is blured */
+    /** a string or function (to be called with selectedValues) that represents the selected values when the component is blurred */
     selectedPlaceholder: PropTypes.string,
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: PropTypes.string.isRequired,
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** to be shown as clear button title */
-    clearTitle: PropTypes.string.isRequired,
+    clearTitle: PropTypes.string,
     /** onBlur() is called when the component is blurred */
     onBlur: PropTypes.func,
-    /** onSelectionChange() called when a suggestion is seelcted or removed. Can be used to implement the component as controlled component */
+    /** onSelectionChange() called when a suggestion is selected or removed. Can be used to implement the component as controlled component */
     onSelectionChange: PropTypes.func.isRequired,
     /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
     onInputValueChange: PropTypes.func,
@@ -358,13 +370,16 @@ Autosuggest.propTypes = {
     showClearButton: PropTypes.bool,
     /** an icon or other node to always be rendered as a first element inside the input box */
     iconNode: PropTypes.node,
-    /** should this component behaive as a multiselect (e.g. no collapse after selection made) */
+    /** should this component behave as a multiselect (e.g. no collapse after selection made) */
     isMultiselect: PropTypes.bool,
-    /** style the compoent to be prominent */
+    /** style the component to be prominent */
     isProminent: PropTypes.bool,
+    /** custom render function for listing suggestions */
+    listRenderer: PropTypes.func,
 };
 
 Autosuggest.defaultProps = {
+    getSuggestions: null,
     selectedSuggestions: null,
     isLoading: false,
     onBlur: null,
@@ -375,6 +390,8 @@ Autosuggest.defaultProps = {
     iconNode: null,
     isMultiselect: false,
     isProminent: false,
+    listRenderer: null,
+    clearTitle: '',
 };
 
 Autosuggest.displayName = 'Autosuggest';

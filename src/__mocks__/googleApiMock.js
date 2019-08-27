@@ -8,6 +8,7 @@ const EMPTY_CLASS = class {};
 export const fitBoundsMock = jest.fn();
 export const setZoomMock = jest.fn();
 export const setCenterMock = jest.fn();
+export const getPlacePredictionsMock = jest.fn();
 export const geocodeMock = jest.fn();
 
 export class Map {
@@ -293,7 +294,11 @@ export const google = {
         ZoomControlStyle: EMPTY_CLASS,
 
         places: {
-            AutocompleteService: class {},
+            AutocompleteService: class {
+                getPlacePredictions(req, cb) {
+                    getPlacePredictionsMock(req, cb);
+                }
+            },
             PlacesServiceStatus: {
                 INVALID_REQUEST: 'INVALID_REQUEST',
                 NOT_FOUND: 'NOT_FOUND',

@@ -31,3 +31,4 @@ import './RadioButton';
 import './Teaser';
 // Organisms
 import './Autosuggest';
+import './LocationAutocomplete';

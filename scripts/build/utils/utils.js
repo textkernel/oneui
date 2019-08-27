@@ -38,7 +38,19 @@ function getRuleCSS({ styleLoader, localIdentName, includePaths, context }) {
     };
 }
 
+function getRuleFiles({ fileLoader }) {
+    return {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+            {
+                loader: fileLoader,
+            },
+        ],
+    };
+}
+
 module.exports = {
     getRuleJS,
     getRuleCSS,
+    getRuleFiles,
 };

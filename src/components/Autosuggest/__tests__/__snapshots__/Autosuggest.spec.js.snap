@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Autosuggest rendering should initally render empty component correctly 1`] = `
+exports[`Autosuggest rendering should initially render empty component correctly 1`] = `
 <Autosuggest
   clearTitle="Clear"
   getSuggestions={[Function]}
@@ -9,6 +9,7 @@ exports[`Autosuggest rendering should initally render empty component correctly 
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
+  listRenderer={null}
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onClearAllSelected={[MockFunction]}
@@ -118,6 +119,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
+  listRenderer={null}
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onClearAllSelected={[MockFunction]}
@@ -406,6 +408,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
   getSuggestions={[Function]}
   iconNode={
     <IconMatch
+      className="test"
       context={null}
       margin={null}
       size={null}
@@ -416,6 +419,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
+  listRenderer={null}
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onClearAllSelected={[MockFunction]}
@@ -450,7 +454,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
       <div
         aria-expanded={false}
         aria-haspopup="listbox"
-        aria-labelledby="downshift-9-label"
+        aria-labelledby="downshift-10-label"
         aria-owns={null}
         className="Autosuggest__main"
         role="combobox"
@@ -478,14 +482,14 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
                 tabIndex="0"
               >
                 <IconMatch
-                  className="Autosuggest__spacedElem"
+                  className="Autosuggest__spacedElem test"
                   context={null}
                   margin={null}
                   size={null}
                   title={null}
                 >
                   <IconBase
-                    className="Autosuggest__spacedElem"
+                    className="Autosuggest__spacedElem test"
                     context={null}
                     margin={null}
                     preserveAspectRatio={false}
@@ -494,7 +498,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
                     viewBox="0 0 107.17 92.73"
                   >
                     <div
-                      className="IconBase Autosuggest__spacedElem"
+                      className="IconBase Autosuggest__spacedElem test"
                     >
                       <svg
                         aria-labelledby={null}
@@ -527,10 +531,10 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
                   aria-activedescendant={null}
                   aria-autocomplete="list"
                   aria-controls={null}
-                  aria-labelledby="downshift-9-label"
+                  aria-labelledby="downshift-10-label"
                   autoComplete="off"
                   className="Autosuggest__input"
-                  id="downshift-9-input"
+                  id="downshift-10-input"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onKeyDown={[Function]}
@@ -539,17 +543,17 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
                 />
               </div>
               <List
-                aria-labelledby="downshift-9-label"
+                aria-labelledby="downshift-10-label"
                 doSelectOnNavigate={false}
-                id="downshift-9-menu"
+                id="downshift-10-menu"
                 isControlledNavigation={true}
                 isDivided={false}
                 role="listbox"
               >
                 <ul
-                  aria-labelledby="downshift-9-label"
+                  aria-labelledby="downshift-10-label"
                   className="List"
-                  id="downshift-9-menu"
+                  id="downshift-10-menu"
                   role="listbox"
                 />
               </List>
@@ -571,6 +575,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
+  listRenderer={null}
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onClearAllSelected={[MockFunction]}
@@ -705,6 +710,313 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
                             No suggestions...
                           </p>
                         </Text>
+                      </div>
+                    </li>
+                  </ListItem>
+                </ul>
+              </List>
+            </div>
+          </div>
+        </FieldWrapper>
+      </div>
+    </Downshift>
+  </div>
+</Autosuggest>
+`;
+
+exports[`Autosuggest rendering should render suggestions also if it passed as an array, and not a function 1`] = `
+<Autosuggest
+  clearTitle="Clear"
+  getSuggestions={
+    Array [
+      Object {
+        "name": "Sun",
+      },
+      Object {
+        "name": "Moon",
+      },
+      Object {
+        "name": "Mercury",
+      },
+      Object {
+        "name": "Venus",
+      },
+    ]
+  }
+  iconNode={null}
+  inputPlaceholder="type here..."
+  isLoading={false}
+  isMultiselect={false}
+  isProminent={false}
+  listRenderer={null}
+  noSuggestionsPlaceholder="No suggestions..."
+  onBlur={[MockFunction]}
+  onClearAllSelected={[MockFunction]}
+  onInputValueChange={[MockFunction]}
+  onSelectionChange={[MockFunction]}
+  selectedPlaceholder=""
+  selectedSuggestions={Array []}
+  showClearButton={true}
+  suggestionToString={[Function]}
+>
+  <div
+    className="Autosuggest"
+  >
+    <Downshift
+      defaultHighlightedIndex={0}
+      defaultIsOpen={false}
+      environment={[Window]}
+      getA11yStatusMessage={[Function]}
+      inputValue=""
+      itemToString={[Function]}
+      onChange={[Function]}
+      onInputValueChange={[Function]}
+      onOuterClick={[Function]}
+      onSelect={[Function]}
+      onStateChange={[Function]}
+      onUserAction={[Function]}
+      scrollIntoView={[Function]}
+      selectedItemChanged={[Function]}
+      stateReducer={[Function]}
+      suppressRefError={false}
+    >
+      <div
+        aria-expanded={true}
+        aria-haspopup="listbox"
+        aria-labelledby="downshift-4-label"
+        aria-owns="downshift-4-menu"
+        className="Autosuggest__main Autosuggest__main--focused"
+        role="combobox"
+      >
+        <FieldWrapper
+          className="Autosuggest__field"
+          clearLabel="Clear"
+          isFocused={true}
+          onClear={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          showClearButton={false}
+        >
+          <div
+            className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <div
+              className="FieldWrapper__content"
+            >
+              <div
+                className="Autosuggest__wrapper Autosuggest__wrapper--focused"
+                role="searchbox"
+                tabIndex="0"
+              >
+                <input
+                  aria-activedescendant="downshift-4-item-0"
+                  aria-autocomplete="list"
+                  aria-controls="downshift-4-menu"
+                  aria-labelledby="downshift-4-label"
+                  autoComplete="off"
+                  className="Autosuggest__input"
+                  id="downshift-4-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="type here..."
+                  value=""
+                />
+              </div>
+              <List
+                aria-labelledby="downshift-4-label"
+                className="Autosuggest__list--focused"
+                doSelectOnNavigate={false}
+                id="downshift-4-menu"
+                isControlledNavigation={true}
+                isDivided={false}
+                role="listbox"
+              >
+                <ul
+                  aria-labelledby="downshift-4-label"
+                  className="List Autosuggest__list--focused"
+                  id="downshift-4-menu"
+                  role="listbox"
+                >
+                  <ListItem
+                    aria-selected={true}
+                    className="List__item"
+                    disabled={false}
+                    highlightContext="brand"
+                    id="downshift-4-item-0"
+                    isHighlighted={true}
+                    isSelected={false}
+                    key=".$Sun"
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseMove={[Function]}
+                    role="option"
+                  >
+                    <li
+                      aria-selected={true}
+                      className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable List__item"
+                      id="downshift-4-item-0"
+                      onMouseDown={[Function]}
+                      onMouseMove={[Function]}
+                      role="option"
+                    >
+                      <div
+                        className="ListItem__container"
+                        onClick={[Function]}
+                        role="presentation"
+                      >
+                        <MarkedText
+                          inline={true}
+                          key=".0"
+                          marker=""
+                        >
+                          <Text
+                            context="default"
+                            inline={true}
+                            size="normal"
+                          >
+                            <span>
+                              Sun
+                            </span>
+                          </Text>
+                        </MarkedText>
+                      </div>
+                    </li>
+                  </ListItem>
+                  <ListItem
+                    aria-selected={false}
+                    className="List__item"
+                    disabled={false}
+                    highlightContext="brand"
+                    id="downshift-4-item-1"
+                    isHighlighted={false}
+                    isSelected={false}
+                    key=".$Moon"
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseMove={[Function]}
+                    role="option"
+                  >
+                    <li
+                      aria-selected={false}
+                      className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                      id="downshift-4-item-1"
+                      onMouseDown={[Function]}
+                      onMouseMove={[Function]}
+                      role="option"
+                    >
+                      <div
+                        className="ListItem__container"
+                        onClick={[Function]}
+                        role="presentation"
+                      >
+                        <MarkedText
+                          inline={true}
+                          key=".0"
+                          marker=""
+                        >
+                          <Text
+                            context="default"
+                            inline={true}
+                            size="normal"
+                          >
+                            <span>
+                              Moon
+                            </span>
+                          </Text>
+                        </MarkedText>
+                      </div>
+                    </li>
+                  </ListItem>
+                  <ListItem
+                    aria-selected={false}
+                    className="List__item"
+                    disabled={false}
+                    highlightContext="brand"
+                    id="downshift-4-item-2"
+                    isHighlighted={false}
+                    isSelected={false}
+                    key=".$Mercury"
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseMove={[Function]}
+                    role="option"
+                  >
+                    <li
+                      aria-selected={false}
+                      className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                      id="downshift-4-item-2"
+                      onMouseDown={[Function]}
+                      onMouseMove={[Function]}
+                      role="option"
+                    >
+                      <div
+                        className="ListItem__container"
+                        onClick={[Function]}
+                        role="presentation"
+                      >
+                        <MarkedText
+                          inline={true}
+                          key=".0"
+                          marker=""
+                        >
+                          <Text
+                            context="default"
+                            inline={true}
+                            size="normal"
+                          >
+                            <span>
+                              Mercury
+                            </span>
+                          </Text>
+                        </MarkedText>
+                      </div>
+                    </li>
+                  </ListItem>
+                  <ListItem
+                    aria-selected={false}
+                    className="List__item"
+                    disabled={false}
+                    highlightContext="brand"
+                    id="downshift-4-item-3"
+                    isHighlighted={false}
+                    isSelected={false}
+                    key=".$Venus"
+                    onClick={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseMove={[Function]}
+                    role="option"
+                  >
+                    <li
+                      aria-selected={false}
+                      className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                      id="downshift-4-item-3"
+                      onMouseDown={[Function]}
+                      onMouseMove={[Function]}
+                      role="option"
+                    >
+                      <div
+                        className="ListItem__container"
+                        onClick={[Function]}
+                        role="presentation"
+                      >
+                        <MarkedText
+                          inline={true}
+                          key=".0"
+                          marker=""
+                        >
+                          <Text
+                            context="default"
+                            inline={true}
+                            size="normal"
+                          >
+                            <span>
+                              Venus
+                            </span>
+                          </Text>
+                        </MarkedText>
                       </div>
                     </li>
                   </ListItem>

@@ -1,12 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MapWithGoogleLoader/> that loads google api and renders a Map should render with default props 1`] = `
-<MapWithGoogleLoader
+exports[`<LocationAutocompleteWithGoogleLoader/> that loads google api and renders a LocationAutocompleteWithGoogleLoader should render with default props 1`] = `
+<LocationAutocompleteWithGoogleLoader
   additionalGoogleProps={Object {}}
   apiKey="someKey"
+  inputPlaceholder="Location..."
+  noSuggestionsPlaceholder="No suggestions..."
+  onSelectionChange={[Function]}
 >
   <Memo(LoadScriptNext)
     googleMapsApiKey="someKey"
+    libraries={
+      Array [
+        "places",
+      ]
+    }
     loadingElement={
       <LoadingSpinner
         centerIn="parent"
@@ -52,5 +60,5 @@ exports[`<MapWithGoogleLoader/> that loads google api and renders a Map should r
       </div>
     </LoadingSpinner>
   </Memo(LoadScriptNext)>
-</MapWithGoogleLoader>
+</LocationAutocompleteWithGoogleLoader>
 `;

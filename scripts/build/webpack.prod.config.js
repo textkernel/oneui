@@ -19,7 +19,7 @@ module.exports = {
         plugins.cleanWebpackPlugin,
     ],
     module: {
-        rules: [rules.js, rules.styles],
+        rules: [rules.js, rules.styles, rules.files],
     },
     optimization: {
         minimizer: [
