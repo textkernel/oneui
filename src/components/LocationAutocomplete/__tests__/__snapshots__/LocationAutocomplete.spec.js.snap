@@ -347,6 +347,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       data-list-exception={true}
                       key=".$powered by google logo"
                       src="test-file-stub"
+                      srcSet="test-file-stub, test-file-stub 2x, test-file-stub 3x"
                     />
                     <ListItem
                       aria-selected={true}
