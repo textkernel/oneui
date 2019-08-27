@@ -328,11 +328,10 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                 <List
                   aria-labelledby="downshift-4-label"
                   className="Autosuggest__list--focused"
+                  doSelectOnNavigate={false}
                   id="downshift-4-menu"
                   isControlledNavigation={true}
                   isDivided={false}
-                  onNavigate={null}
-                  onSelect={null}
                   role="listbox"
                 >
                   <ul
@@ -725,11 +724,10 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
                 </div>
                 <List
                   aria-labelledby="downshift-0-label"
+                  doSelectOnNavigate={false}
                   id="downshift-0-menu"
                   isControlledNavigation={true}
                   isDivided={false}
-                  onNavigate={null}
-                  onSelect={null}
                   role="listbox"
                 >
                   <ul

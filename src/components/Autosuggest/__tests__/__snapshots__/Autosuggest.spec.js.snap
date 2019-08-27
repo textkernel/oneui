@@ -88,11 +88,10 @@ exports[`Autosuggest rendering should initially render empty component correctly
               </div>
               <List
                 aria-labelledby="downshift-0-label"
+                doSelectOnNavigate={false}
                 id="downshift-0-menu"
                 isControlledNavigation={true}
                 isDivided={false}
-                onNavigate={null}
-                onSelect={null}
                 role="listbox"
               >
                 <ul
@@ -200,11 +199,10 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
               <List
                 aria-labelledby="downshift-3-label"
                 className="Autosuggest__list--focused"
+                doSelectOnNavigate={false}
                 id="downshift-3-menu"
                 isControlledNavigation={true}
                 isDivided={false}
-                onNavigate={null}
-                onSelect={null}
                 role="listbox"
               >
                 <ul
@@ -546,11 +544,10 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
               </div>
               <List
                 aria-labelledby="downshift-10-label"
+                doSelectOnNavigate={false}
                 id="downshift-10-menu"
                 isControlledNavigation={true}
                 isDivided={false}
-                onNavigate={null}
-                onSelect={null}
                 role="listbox"
               >
                 <ul
@@ -672,11 +669,10 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
               <List
                 aria-labelledby="downshift-2-label"
                 className="Autosuggest__list--focused"
+                doSelectOnNavigate={false}
                 id="downshift-2-menu"
                 isControlledNavigation={true}
                 isDivided={false}
-                onNavigate={null}
-                onSelect={null}
                 role="listbox"
               >
                 <ul
@@ -832,11 +828,10 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
               <List
                 aria-labelledby="downshift-4-label"
                 className="Autosuggest__list--focused"
+                doSelectOnNavigate={false}
                 id="downshift-4-menu"
                 isControlledNavigation={true}
                 isDivided={false}
-                onNavigate={null}
-                onSelect={null}
                 role="listbox"
               >
                 <ul
