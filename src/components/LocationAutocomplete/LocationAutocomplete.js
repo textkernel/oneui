@@ -4,9 +4,9 @@ import bem from 'bem';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Autosuggest, Alert, ListItem, MarkedText } from '../../index';
 import useDebounce from '../../hooks/useDebounce';
-import POWERED_BY_GOOGLE_ON_WHITE from '../../images/powered_by_google_on_white.png';
-import POWERED_BY_GOOGLE_ON_WHITE_2X from '../../images/powered_by_google_on_white@2x.png';
-import POWERED_BY_GOOGLE_ON_WHITE_3X from '../../images/powered_by_google_on_white@3x.png';
+import POWERED_BY_GOOGLE_ON_WHITE from './images/powered_by_google_on_white.png';
+import POWERED_BY_GOOGLE_ON_WHITE_2X from './images/powered_by_google_on_white@2x.png';
+import POWERED_BY_GOOGLE_ON_WHITE_3X from './images/powered_by_google_on_white@3x.png';
 import styles from './LocationAutocomplete.scss';
 
 const { elem } = bem({
