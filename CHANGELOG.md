@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/textkernel/oneui/compare/5.2.0...6.0.0) (2019-08-27)
+
+
+*  feat(Map): add option to fit map to address as default view (#158) ([aefc9e7](https://github.com/textkernel/oneui/commit/aefc9e7)), closes [#158](https://github.com/textkernel/oneui/issues/158)
+* feat:(Map): rename Map components to match LocationAutocomplete structure (#156) ([4741f9a](https://github.com/textkernel/oneui/commit/4741f9a)), closes [#156](https://github.com/textkernel/oneui/issues/156)
+
+
+### Bug Fixes
+
+* **bem:** add support to preserve existing classes in 'elem' ([#159](https://github.com/textkernel/oneui/issues/159)) ([f8f412b](https://github.com/textkernel/oneui/commit/f8f412b))
+
+
+### Features
+
+* **List:** Update item's onClick calling ([#150](https://github.com/textkernel/oneui/issues/150)) ([8609eaf](https://github.com/textkernel/oneui/commit/8609eaf))
+* **LocationCard:** new LocationCard component ([#149](https://github.com/textkernel/oneui/issues/149)) ([5b70841](https://github.com/textkernel/oneui/commit/5b70841))
+* **storybook:** added withStore decorator for Storybook ([#152](https://github.com/textkernel/oneui/issues/152)) ([f213823](https://github.com/textkernel/oneui/commit/f213823))
+* new SearchButton component ([#160](https://github.com/textkernel/oneui/issues/160)) ([d4899cd](https://github.com/textkernel/oneui/commit/d4899cd))
+
+
+### BREAKING CHANGES
+
+* `center` and `zoom` props have been deprecated in favour of `defaultArea` that supports also fitting map boundaries based on address lookup
+* Map component is renamed to MapWithGoogleLoader and MapRenderer to Map to better reflect their function and to match the LocationAutocomplete API
+
+
+
 ## [5.2.0](https://github.com/textkernel/oneui/compare/5.1.1...5.2.0) (2019-08-01)
 
 

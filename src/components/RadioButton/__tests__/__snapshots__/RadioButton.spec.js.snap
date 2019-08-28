@@ -94,7 +94,7 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
         size="normal"
       >
         <span
-          className=" RadioButton__text"
+          className="RadioButton__text"
         >
           Choose me
         </span>

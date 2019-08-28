@@ -2,10 +2,9 @@
 
 exports[`List component Initial rendering should render List correctly 1`] = `
 <List
+  doSelectOnNavigate={false}
   isControlledNavigation={false}
   isDivided={false}
-  onNavigate={null}
-  onSelect={null}
 >
   <ul
     className="List"
@@ -82,10 +81,9 @@ exports[`List component Initial rendering should render List correctly 1`] = `
 
 exports[`List component Initial rendering should render List correctly without keyboard navigation 1`] = `
 <List
+  doSelectOnNavigate={false}
   isControlledNavigation={true}
   isDivided={false}
-  onNavigate={null}
-  onSelect={null}
 >
   <ul
     className="List"

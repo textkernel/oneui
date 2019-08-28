@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import ListItem from './ListItem';
@@ -11,7 +11,7 @@ const { block, elem } = bem({
     propsToMods: ['isDivided'],
 });
 
-const isListItem = element => element && element.type !== ListItem && element.type !== 'li';
+const isNotListItem = element => element && element.type !== ListItem && element.type !== 'li';
 const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.UP]: -1,
     [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1,
@@ -21,19 +21,22 @@ const SCROLL_INTO_VIEW_SETTINGS = {
     block: 'nearest',
 };
 
+export const NOT_LIST_CHILD = 'data-list-exception';
+export const LIST_CHILD = 'data-list-child';
+
 const List = React.forwardRef((props, ref) => {
-    const [selectedIndex, setSelectedIndex] = useState(null);
-    const [highlightedWithKeyboard, setHighlightedWithKeyboard] = useState(false);
+    const [selectedIndex, setSelectedIndex] = React.useState(null);
+    const [highlightedWithKeyboard, setHighlightedWithKeyboard] = React.useState(false);
 
-    const highlightedListItem = useRef(null);
+    const highlightedListItem = React.useRef(null);
 
-    const { children, isDivided, onNavigate, onSelect, isControlledNavigation, ...rest } = props;
+    const { children, isDivided, doSelectOnNavigate, isControlledNavigation, ...rest } = props;
 
     /**
      * Scroll list if it's necessary to make the highlighted item visible
      * every time selectedIndex was changed with the keyboard navigation
      */
-    useEffect(() => {
+    React.useEffect(() => {
         const hasScrollIntoViewFunction =
             highlightedListItem &&
             highlightedListItem.current &&
@@ -72,54 +75,57 @@ const List = React.forwardRef((props, ref) => {
                 e.preventDefault();
                 setSelectedIndex(nextSelectedIndex);
                 setHighlightedWithKeyboard(true);
-
-                if (onNavigate) {
-                    onNavigate(nextSelectedIndex, e.key);
-                }
             }
         }
 
-        // Imitate onClick event on Enter press and make onSelect function callback
-        if (e.key === ENTER_KEY) {
+        // Imitate onClick event for the selected highlighted item
+        if (e.key === ENTER_KEY || doSelectOnNavigate) {
             if (
                 children[selectedIndex] &&
                 children[selectedIndex].props &&
                 children[selectedIndex].props.onClick
             ) {
                 children[selectedIndex].props.onClick(e);
-
-                if (onSelect) {
-                    onSelect(selectedIndex);
-                }
             }
         }
     };
 
-    const handleMouseEnter = index => {
-        if (selectedIndex !== index) {
-            setSelectedIndex(index);
-        }
-    };
+    const handleMouseEnter = React.useCallback(
+        index => {
+            if (selectedIndex !== index) {
+                setSelectedIndex(index);
+            }
+        },
+        [selectedIndex]
+    );
 
     return isControlledNavigation ? (
         <ul {...rest} ref={ref} {...block(props)}>
-            {React.Children.map(children, child =>
-                child ? React.cloneElement(child, elem('item', props)) : null
-            )}
+            {React.Children.map(children, child => {
+                if (child) {
+                    return child.props[NOT_LIST_CHILD]
+                        ? child
+                        : React.cloneElement(child, elem('item', props, child.props.className));
+                }
+                return null;
+            })}
         </ul>
     ) : (
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex
         <ul {...rest} ref={ref} tabIndex="0" onKeyDown={handleKeyDown} {...block(props)}>
-            {React.Children.map(children, (child, index) =>
-                child
-                    ? React.cloneElement(child, {
-                          ...elem('item', props),
-                          ref: index === selectedIndex ? highlightedListItem : null,
-                          isHighlighted: index === selectedIndex,
-                          onMouseEnter: () => handleMouseEnter(index),
-                      })
-                    : null
-            )}
+            {React.Children.map(children, (child, index) => {
+                if (child) {
+                    return child.props[NOT_LIST_CHILD]
+                        ? child
+                        : React.cloneElement(child, {
+                              ...elem('item', props, child.props.className),
+                              ref: index === selectedIndex ? highlightedListItem : null,
+                              isHighlighted: index === selectedIndex,
+                              onMouseEnter: () => handleMouseEnter(index),
+                          });
+                }
+                return null;
+            })}
         </ul>
     );
 });
@@ -127,15 +133,19 @@ const List = React.forwardRef((props, ref) => {
 List.displayName = 'List';
 
 List.propTypes = {
-    /** List items */
+    /** List items. They should be ListItem or li.
+     * If you sure using other element will work for you, you can bypass validation by adding `data-list-item` as a prop to the child
+     * If you want to add an element that is not part of the list, but should be rendered within it
+     * (e.g. an image to decorate the list) use `data-list-exception` as a prop to that child
+     */
     children: (props, propName, componentName) => {
         const prop = props[propName];
 
         let error = null;
         React.Children.forEach(prop, child => {
-            if (isListItem(child)) {
+            if (isNotListItem(child) && !child.props[LIST_CHILD] && !child.props[NOT_LIST_CHILD]) {
                 error = new Error(
-                    `'${componentName}' children should be of type 'ListItem' or 'li'.`
+                    `'${componentName}' children should be of type 'ListItem' or 'li' or have '${LIST_CHILD}' or '${NOT_LIST_CHILD}' attribute.`
                 );
             }
         });
@@ -143,10 +153,8 @@ List.propTypes = {
     },
     /** Adds dividing lines between the list items */
     isDivided: PropTypes.bool,
-    /** onNavigate function callback. (selectedIndex: number, key: 'ArrowUp' || 'ArrowDown') */
-    onNavigate: PropTypes.func,
-    /** onSelect function callback. (selectedIndex: number) */
-    onSelect: PropTypes.func,
+    /** Defines if selection should be made on navigate */
+    doSelectOnNavigate: PropTypes.bool,
     /** manage keyboard navigation externally */
     isControlledNavigation: PropTypes.bool,
 };
@@ -154,8 +162,7 @@ List.propTypes = {
 List.defaultProps = {
     children: null,
     isDivided: false,
-    onNavigate: null,
-    onSelect: null,
+    doSelectOnNavigate: false,
     isControlledNavigation: false,
 };
 

@@ -1,40 +1,42 @@
-BEM
-===
+# BEM
 
 bem.js automatically produces a list of classnames for your component based on its props and state.
 
-Classnames being generated based on BEM convention with the following assumtions:
- * As a block name we use React component name.
- * We can declare elements with `{ ...this.elem('elementName') }` construction
- * Modifyer is a component's prop or state name and its value (if value is of boolean type, it is ommited).
+Classnames being generated based on BEM convention with the following assumptions:
+
+-   As a block name we use React component name.
+-   We can declare elements with `{ ...this.elem('elementName') }` construction
+-   Modifier is a component's prop or state name and its value (if value is of boolean type, it is omitted).
 
 As a separators we use:
-* element prefix: `__` (double underscore)
-* modifyer prefix `--` (double dash)
-* modifyer's value prefix is `_` (single underscore)
+
+-   element prefix: `__` (double underscore)
+-   modifier prefix `--` (double dash)
+-   modifier's value prefix is `_` (single underscore)
 
 In terms of CSS classnames it looks like this:
+
 ```css
 /* component's root node class name */
 .ComponentName {}
-/* component's root node class name with boolean modifyer applied */
+/* component's root node class name with boolean modifier applied */
 .ComponentName--modName {}
-/* component's root node class name with string/number modifyer applied */
+/* component's root node class name with string/number modifier applied */
 .ComponentName--modName_modValue {}
 /* component's sub node (element) class name */
 .ComponentName__elem {}
-/* component's root node class name with boolean modifyer + value applied */
+/* component's root node class name with boolean modifier + value applied */
 .ComponentName__elem--modName {}
-/* component's root node class name with string/number modifyer + value applied */
+/* component's root node class name with string/number modifier + value applied */
 .ComponentName__elem--modName_modValue {}
 ```
 
-Example of usage
-----------------
+## Example of usage
 
 ### Statefull component
 
 Button.js
+
 ```js
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -62,7 +64,7 @@ class Button extends Component {
         return (
             {/*
             3. Add { ...this.block() } construction to declare node as a block root
-               Note! If needed, {...this.props} should be spreaded before { ...this.block() } in order
+               Note! If needed, {...this.props} should be spread before { ...this.block() } in order
                to avoid className overwriting.
             */}
             <button {...this.props} { ...this.block() } onClick={this.handleClick}>
@@ -109,6 +111,7 @@ export default bem(classnamesMap)(Button)
 ### Stateless component
 
 ButtonStateless.js
+
 ```js
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -120,7 +123,8 @@ const { block, elem } = bem({
     classnames: classnamesMap,
     // 1. If you need to have class name (.ButtonStateless--active) that depends on
     //    `active` prop, just list this prop in propsToMods list.
-    propsToMods: ['active']
+    //    Make sure to list custom modifiers as well, if you have any (see point 4. below)
+    propsToMods: ['active', 'almostRandomValue']
 });
 
 const almostRandomValue = (props) => {
@@ -133,7 +137,7 @@ const ButtonStateless = (props) => {
     return (
       {/*
       2. Add { ...block(props) } construction to declare node as a block
-         Note! If needed, {...props} should be spreaded before { ...block(props) } in order
+         Note! If needed, {...props} should be spread before { ...block(props) } in order
          to avoid className overwriting.
       */}
       <button {...props} { ...block(props) }>
@@ -144,10 +148,9 @@ const ButtonStateless = (props) => {
             {props.children}
         </span>
         {/*
-        4. If you need to add some custom modifiers, you can pass it as 3rd argument to the elem function.
-            Or as a 2nd argument to block function. E.g. { ...block(props, { custom: 'modifier' }) }
+        4. If you need to add some custom modifiers, you can add it to the props.
         */}
-        <span { ...elem('icon', props, { almostRandomValue: almostRandomValue(props) }) }>
+        <span { ...elem('icon', { ...props, almostRandomValue: almostRandomValue(props) }) }>
             {props.children}
         </span>
       </button>
@@ -165,11 +168,10 @@ export default ButtonStateless;
 ```
 
 Button.scss
-```css
 
+```css
 /* Component's root node class name */
 .Button {
-
     display: inline-block;
 
     /*
@@ -228,8 +230,7 @@ Button.scss
         color: yellow;
     }
 
-
-/*
+    /*
     Block "Button", element "label", modifier "extraordinary" (based on props.type), value "extraordinary".
     Is applied to the component's label node when `props.type = "extraordinary"` is set.
     */
@@ -239,14 +240,42 @@ Button.scss
 }
 ```
 
-Examples of outcome
--------------------
+### Using elem to enrich existing elements
+
+If you wish to enrich an existing element (e.g. child of the component) with extra classes, you need to make sure to preserve already existing classes on that element. To achieve that you can list existing classes as the 3rd argument for `elem`. For example:
+
+```jsx
+import React from 'react';
+import bem from '../../..';
+import styles from './styles.json';
+
+const { block, elem } = bem({
+    name: 'List',
+    classnames: styles,
+});
+
+const List = props => (
+    <ul {...block(props)}>
+        {React.Children.map(props.children, child =>
+            // Note the 3rd argument when calling 'elem'
+            child ? React.cloneElement(child, elem('item', props, child.props.className)) : null
+        )}
+    </ul>
+);
+
+List.displayName = 'List';
+
+export default List;
+```
+
+## Examples of outcome
 
 Having the example above we can get the following results.
 `bem` decorator adds only classnames that are declared in a stylesheet and
 respectively exists in classnames map.
 
 ### No props:
+
 ```html
 <Button />
  ↓ ↓ ↓
@@ -259,9 +288,7 @@ respectively exists in classnames map.
 
 ```html
 <Button active={true} />
-
-    ↓ ↓ ↓
-
+ ↓ ↓ ↓
 <button class="Button Button--active">
     <span class="Button__label Button__label--active" />
 </button>
@@ -269,37 +296,35 @@ respectively exists in classnames map.
 
 ### Prop `active` and `type` are set:
 
-**Note** that property of a boolean type `active={true}` produces `Button__label--active` (*without* mod value), when property of a string type `type='extraordinary'` gives us two classnameas: `Button__label--type` (*without* mod value) and `Button__label--type_extraordinary` (*with* mod value).
+**Note** that property of a boolean type `active={true}` produces `Button__label--active` (_without_ mod value), when property of a string type `type='extraordinary'` gives us two classnames: `Button__label--type` (_without_ mod value) and `Button__label--type_extraordinary` (_with_ mod value).
 
 ```html
-<Button active={true} type='extraordinary' />
-
-    ↓ ↓ ↓
-
+<Button active={true} type="extraordinary" />
+ ↓ ↓ ↓
 <button class="Button Button--active Button--type Button--type_extraordinary">
-    <span class="Button__label Button__label--active Button__label--type Button__label--type_extraordinary" />
+    <span
+        class="Button__label Button__label--active Button__label--type Button__label--type_extraordinary"
+    />
 </button>
 ```
 
 ### Prop `active` equals false
 
 No classnames will be produced if boolean property has `false` value.
+
 ```html
 <Button active={false} />
-
-    ↓ ↓ ↓
-
+ ↓ ↓ ↓
 <button class="Button">
     <span class="Button__label" />
 </button>
 ```
 
 ### Clicked state
+
 ```html
 <Button /> <!-- this.setState({ clicked: true }) -->
-
-    ↓ ↓ ↓
-
+ ↓ ↓ ↓
 <button class="Button Button--clicked">
     <span class="Button__label Button__label--clicked" />
 </button>

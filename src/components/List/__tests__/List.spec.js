@@ -1,8 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import ListItem from '../ListItem';
-import List from '../List';
-import { LIST_NAVIGATION_DIRECTIONS } from '../../../constants';
+import List, { NOT_LIST_CHILD, LIST_CHILD } from '../List';
 
 describe('List component', () => {
     let consoleError;
@@ -10,8 +9,6 @@ describe('List component', () => {
     let listComponent;
 
     const itemNumbersArray = [0, 1, 2, 3, 4];
-    const mockOnNavigate = jest.fn();
-    const mockOnSelect = jest.fn();
     const mockOnClick = jest.fn();
 
     const getListItemAt = index => wrapper.children().childAt(index);
@@ -63,14 +60,59 @@ describe('List component', () => {
 
             expect(ref.current.props.Component.displayName).toEqual('List');
         });
-        it('should warn if children are not ListItem nor li', () => {
-            mount(
-                <List>
-                    <a href="/">Item 1</a>
-                    <a href="/">Item 2</a>
-                </List>
-            );
-            expect(consoleError).toHaveBeenCalled();
+        describe('enriching children with props', () => {
+            it('should not overwrite classes on children', () => {
+                wrapper = mount(
+                    <List>
+                        <li className="test">Item 1</li>
+                    </List>
+                );
+                expect(wrapper.find('li').props().className).toContain('test');
+            });
+            it(`should not add extra class if has ${NOT_LIST_CHILD}`, () => {
+                wrapper = mount(
+                    <List>
+                        <li className="test" data-list-exception>
+                            Item 1
+                        </li>
+                    </List>
+                );
+                expect(wrapper.find('li').props().className).not.toContain('List__item');
+            });
+        });
+        describe('children prop validation', () => {
+            it('should warn if children are not ListItem nor li', () => {
+                mount(
+                    <List>
+                        <a href="/">Item 1</a>
+                        <a href="/">Item 2</a>
+                    </List>
+                );
+                expect(consoleError).toHaveBeenCalled();
+                expect(consoleError.mock.calls[0][0]).toContain(
+                    "Failed prop type: 'List' children should be of type 'ListItem' or 'li'"
+                );
+            });
+            it(`should not warn if children marked with ${LIST_CHILD}`, () => {
+                mount(
+                    <List>
+                        <a href="/" data-list-child>
+                            Item 1
+                        </a>
+                    </List>
+                );
+                expect(consoleError).not.toHaveBeenCalled();
+            });
+            it(`should not warn if children marked with ${NOT_LIST_CHILD}`, () => {
+                mount(
+                    <List>
+                        <a href="/" data-list-exception>
+                            Item 1
+                        </a>
+                    </List>
+                );
+                expect(consoleError).not.toHaveBeenCalled();
+            });
         });
     });
 
@@ -90,7 +132,6 @@ describe('List component', () => {
             itemNumbersArray.forEach(number => {
                 expect(getListItemAt(number).props().isHighlighted).toBe(false);
             });
-            expect(mockOnNavigate).not.toHaveBeenCalled();
         });
 
         it('should move highlight on components in both directions properly', () => {
@@ -156,22 +197,13 @@ describe('List component', () => {
     describe('Callbacks', () => {
         beforeEach(() => {
             wrapper = mount(
-                <List onNavigate={mockOnNavigate} onSelect={mockOnSelect}>
+                <List>
                     {itemNumbersArray.map(number => (
                         <ListItem onClick={() => mockOnClick(number)}>Item ${number}</ListItem>
                     ))}
                 </List>
             );
             listComponent = wrapper.children();
-        });
-
-        it('should call onSelect callback of the highlighted item', () => {
-            listComponent.simulate('click');
-            navigateDown();
-            navigateDown();
-            listComponent.simulate('keyDown', { key: 'Enter' });
-
-            expect(mockOnSelect).toBeCalledWith(1);
         });
 
         it('should call onClick after selecting the highlighted item', () => {
@@ -183,18 +215,34 @@ describe('List component', () => {
 
             expect(mockOnClick).toBeCalledWith(2);
         });
+        it('should not call onClick after navigating to the next highlighted item', () => {
+            listComponent = wrapper.children();
 
-        it('should call onNavigation callback', () => {
             listComponent.simulate('click');
             navigateDown();
-
-            expect(mockOnNavigate).toBeCalledWith(0, LIST_NAVIGATION_DIRECTIONS.DOWN);
-
             navigateDown();
             navigateDown();
-            navigateUp();
+            listComponent.simulate('keyDown', { key: 'Enter' });
 
-            expect(mockOnNavigate).toBeCalledWith(1, LIST_NAVIGATION_DIRECTIONS.UP);
+            expect(mockOnClick).toHaveBeenCalledTimes(1);
+        });
+        it('should call onClick after navigating to the next highlighted item with doSelectOnNavigate enabled', () => {
+            wrapper = mount(
+                <List doSelectOnNavigate>
+                    {itemNumbersArray.map(number => (
+                        <ListItem onClick={() => mockOnClick(number)}>Item ${number}</ListItem>
+                    ))}
+                </List>
+            );
+            listComponent = wrapper.children();
+
+            listComponent.simulate('click');
+            navigateDown();
+            navigateDown();
+            navigateDown();
+            listComponent.simulate('keyDown', { key: 'Enter' });
+
+            expect(mockOnClick).toHaveBeenCalledTimes(3);
         });
     });
 });

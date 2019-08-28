@@ -1,0 +1,167 @@
+[
+    {
+        "description": "Truro, UK",
+        "id": "51b6747d060368917397ce3cc25abe2089302262",
+        "matched_substrings": [
+            {
+                "length": 2,
+                "offset": 0
+            }
+        ],
+        "place_id": "ChIJdRpa1XwQa0gRtAcdle9HY2E",
+        "reference": "ChIJdRpa1XwQa0gRtAcdle9HY2E",
+        "structured_formatting": {
+            "main_text": "Truro",
+            "main_text_matched_substrings": [
+                {
+                    "length": 2,
+                    "offset": 0
+                }
+            ],
+            "secondary_text": "UK"
+        },
+        "terms": [
+            {
+                "offset": 0,
+                "value": "Truro"
+            },
+            {
+                "offset": 7,
+                "value": "UK"
+            }
+        ],
+        "types": ["locality", "political", "geocode"]
+    },
+    {
+        "description": "Trowbridge, UK",
+        "id": "b10d478a406230745e98edd2d2a01f59097d5a59",
+        "matched_substrings": [
+            {
+                "length": 2,
+                "offset": 0
+            }
+        ],
+        "place_id": "ChIJM6W0Ewp9cUgRLXIknC4a-Pw",
+        "reference": "ChIJM6W0Ewp9cUgRLXIknC4a-Pw",
+        "structured_formatting": {
+            "main_text": "Trowbridge",
+            "main_text_matched_substrings": [
+                {
+                    "length": 2,
+                    "offset": 0
+                }
+            ],
+            "secondary_text": "UK"
+        },
+        "terms": [
+            {
+                "offset": 0,
+                "value": "Trowbridge"
+            },
+            {
+                "offset": 12,
+                "value": "UK"
+            }
+        ],
+        "types": ["locality", "political", "geocode"]
+    },
+    {
+        "description": "Tring, UK",
+        "id": "8b1f6899d3555c6aae3a2d383ed96c7649f3ccf8",
+        "matched_substrings": [
+            {
+                "length": 2,
+                "offset": 0
+            }
+        ],
+        "place_id": "ChIJ33SmFitYdkgR3-ErzH_p6Bw",
+        "reference": "ChIJ33SmFitYdkgR3-ErzH_p6Bw",
+        "structured_formatting": {
+            "main_text": "Tring",
+            "main_text_matched_substrings": [
+                {
+                    "length": 2,
+                    "offset": 0
+                }
+            ],
+            "secondary_text": "UK"
+        },
+        "terms": [
+            {
+                "offset": 0,
+                "value": "Tring"
+            },
+            {
+                "offset": 7,
+                "value": "UK"
+            }
+        ],
+        "types": ["locality", "political", "geocode"]
+    },
+    {
+        "description": "Troon, UK",
+        "id": "c563f4c69998a376dac8e3b4122067d782e752f7",
+        "matched_substrings": [
+            {
+                "length": 2,
+                "offset": 0
+            }
+        ],
+        "place_id": "ChIJxy8qU3jRiUgR-sKnFLHxiSM",
+        "reference": "ChIJxy8qU3jRiUgR-sKnFLHxiSM",
+        "structured_formatting": {
+            "main_text": "Troon",
+            "main_text_matched_substrings": [
+                {
+                    "length": 2,
+                    "offset": 0
+                }
+            ],
+            "secondary_text": "UK"
+        },
+        "terms": [
+            {
+                "offset": 0,
+                "value": "Troon"
+            },
+            {
+                "offset": 7,
+                "value": "UK"
+            }
+        ],
+        "types": ["locality", "political", "geocode"]
+    },
+    {
+        "description": "Tredegar, UK",
+        "id": "4dca94194f54dee0879b9d368379eb5d09ec838d",
+        "matched_substrings": [
+            {
+                "length": 2,
+                "offset": 0
+            }
+        ],
+        "place_id": "ChIJdQjXYyYkbkgRTRfZ8WAt6lI",
+        "reference": "ChIJdQjXYyYkbkgRTRfZ8WAt6lI",
+        "structured_formatting": {
+            "main_text": "Tredegar",
+            "main_text_matched_substrings": [
+                {
+                    "length": 2,
+                    "offset": 0
+                }
+            ],
+            "secondary_text": "UK"
+        },
+        "terms": [
+            {
+                "offset": 0,
+                "value": "Tredegar"
+            },
+            {
+                "offset": 10,
+                "value": "UK"
+            }
+        ],
+        "types": ["locality", "political", "geocode"]
+    }
+]

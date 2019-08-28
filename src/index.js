@@ -1,6 +1,6 @@
 export { default } from './utils/OneUI';
 // Atoms
-export { default as Button } from './components/Button';
+export { Button, SearchButton } from './components/Buttons';
 export { default as CandidateAvatar } from './components/CandidateAvatar';
 export { default as Chip } from './components/Chip';
 export { default as ContentPlaceholder } from './components/ContentPlaceholder';
@@ -32,3 +32,7 @@ export { default as RadioButton } from './components/RadioButton';
 export { default as Teaser } from './components/Teaser';
 // Organisms
 export { Autosuggest, ItemTag } from './components/Autosuggest';
+export {
+    LocationAutocompleteWithGoogleLoader,
+    LocationAutocomplete,
+} from './components/LocationAutocomplete';

@@ -1,15 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs';
 import { MapWithGoogleLoader } from '@textkernel/oneui';
+import ensureApiKey from './utils/ensureApiKey';
 
 storiesOf('Atoms|Map', module)
     .addDecorator(withKnobs)
-    .addDecorator(withInfo)
     .add(
         'Map',
         () => {
+            const apiKey = ensureApiKey();
+
             const defaultMarker = {
                 center: {
                     lat: 52.3922288,
@@ -39,8 +40,24 @@ storiesOf('Atoms|Map', module)
                     }}
                 >
                     <MapWithGoogleLoader
-                        apiKey=""
+                        apiKey={apiKey}
                         markers={select('Markers', markers, [defaultMarker])}
+                        defaultArea={
+                            boolean('Use address to set default area', true)
+                                ? {
+                                      address: text(
+                                          'Address to fit map to when no markers are present',
+                                          'NL'
+                                      ),
+                                  }
+                                : {
+                                      center: {
+                                          lat: number('Default center latitude', 52.3922288),
+                                          lng: number('Default center longitude', 4.9338793),
+                                      },
+                                      zoom: number('Default zoom', 7),
+                                  }
+                        }
                     />
                 </div>
             );
@@ -50,7 +67,7 @@ storiesOf('Atoms|Map', module)
                 text: `
         ## Displaying Map in storybook
 
-        To make this component work you need to provide your own Google API key. At the moment this is only possible via accessing the source code. Sorry for the inconvenience.
+        To make this component work in none-dev mode, you need to provide your own Google API key. At the moment this is only possible via accessing the source code. Sorry for the inconvenience.
 
         ## Note about props
 

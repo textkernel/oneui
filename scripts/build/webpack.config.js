@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { getRuleJS, getRuleCSS } = require('./utils');
+const { getRuleJS, getRuleCSS, getRuleFiles } = require('./utils');
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
 const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
@@ -45,6 +45,9 @@ const getRules = (env = 'prod') => ({
         localIdentName: env === 'prod' ? '[local]--[hash:base64:10]' : '[local]',
         includePaths: [SOURCE_PATH],
         context: DIST_PATH, // https://github.com/webpack-contrib/css-loader/issues/464
+    }),
+    files: getRuleFiles({
+        fileLoader: 'file-loader',
     }),
 });
 

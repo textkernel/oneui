@@ -1,0 +1,11 @@
+.LocationAutocomplete {
+    &__poweredByGoogleImage {
+        position: absolute;
+        right: var(--spacing-4x);
+        bottom: var(--spacing-4x);
+    }
+
+    &__icon {
+        color: var(--color-muted);
+    }
+}

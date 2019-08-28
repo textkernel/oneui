@@ -48,10 +48,11 @@ describe('Autosuggest', () => {
     afterEach(() => {
         suggestionsList = null;
         selectedSuggestions = [];
+        wrapper.unmount();
     });
 
     describe('rendering', () => {
-        it('should initally render empty component correctly', () => {
+        it('should initially render empty component correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.state('focused')).toBeFalsy();
         });
@@ -76,6 +77,14 @@ describe('Autosuggest', () => {
         });
         it('should render all suggestions from the list', () => {
             suggestionsList = SUGGESTIONS.slice(0, 4);
+            setFocusOnInput();
+
+            expect(toJson(wrapper)).toMatchSnapshot();
+            expect(wrapper.find('li')).toHaveLength(suggestionsList.length);
+        });
+        it('should render suggestions also if it passed as an array, and not a function', () => {
+            suggestionsList = SUGGESTIONS.slice(0, 4);
+            wrapper.setProps({ getSuggestions: suggestionsList });
             setFocusOnInput();
 
             expect(toJson(wrapper)).toMatchSnapshot();
@@ -118,11 +127,29 @@ describe('Autosuggest', () => {
             expect(wrapper.find('li')).toHaveLength(NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS);
         });
         it('should render icon correctly if passed', () => {
-            const iconNode = <IconMatch />;
+            const iconNode = <IconMatch className="test" />;
             wrapper.setProps({ iconNode });
 
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('IconMatch')).toHaveLength(1);
+            expect(wrapper.find('IconMatch').props().className).toContain('test');
+        });
+        it('should use alternative list render function if passed', () => {
+            const listRendererMock = jest.fn(() => <li>My list</li>);
+            suggestionsList = SUGGESTIONS.slice(0, 4);
+
+            wrapper.setProps({ listRenderer: listRendererMock });
+            setFocusOnInput();
+
+            expect(listRendererMock).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    getItemProps: expect.any(Function),
+                    highlightedIndex: expect.any(Number),
+                    listInputValue: expect.any(String),
+                    suggestions: expect.any(Array),
+                })
+            );
+            expect(wrapper.find('li')).toHaveLength(1);
         });
     });
     describe('focusing and blurring the search field', () => {
