@@ -1,12 +1,16 @@
 $modal-width: 75%;
-$done-button-width: 150px;
 $location-card-width: 300px;
 
 .LocationSelector {
     &__mainTextInput {
+        display: inline-block;
         border: 0;
         margin: var(--spacing-normal);
         font-size: var(--font-size-normal);
+        color: var(--color-muted);
+    }
+
+    &__icon {
         color: var(--color-muted);
     }
 
@@ -16,20 +20,20 @@ $location-card-width: 300px;
         width: $modal-width;
     }
 
-    &__autocomplete {
+    &__inputLine {
         display: flex;
         box-sizing: border-box;
         width: 100%;
         padding: var(--spacing-4x);
     }
 
-    &__input {
-        width: 100%;
-        border: 1px double black;
+    &__searchField {
+        flex-grow: 4;
+        min-width: 100px;
     }
 
     &__button {
-        width: $done-button-width;
+        flex-grow: 1;
         margin-left: var(--spacing-4x);
     }
 

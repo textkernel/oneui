@@ -1,7 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { number, withKnobs } from '@storybook/addon-knobs';
+import { number, text, withKnobs } from '@storybook/addon-knobs';
 import LocationSelector from '../src/components/LocationSelector';
+import ensureApiKey from './utils/ensureApiKey';
+import withStore from '../src/packages/storybook/withStore';
 
 const selectedLocations = [
     {
@@ -36,27 +38,95 @@ const selectedLocations = [
     },
 ];
 
-storiesOf('Organisms|LocationSelector', module).add('LocationSelector', () => (
-    <LocationSelector
-        apiKey="apiKey"
-        selectedLocations={selectedLocations}
-        country="NL"
-        language="EN"
-        radiusUnits="km"
-        radiusUnitDisplayText="42"
-        minRadius={1}
-        maxRadius={100}
-        radiusStep={1}
-        autocompletePlaceholder="autocompletePlaceholder"
-        noSuggestionsPlaceholder="noSuggestionsPlaceholder"
-        selectionPlaceholder="selectionPlaceholder"
-        mainPlaceholder="mainPlaceholder"
-        doneLabel="Done"
-        clearLabel="Clear"
-        contentLabel="Location selector"
-        onAddLocation={() => null}
-        onUpdateLocation={() => null}
-        onRemoveLocation={() => null}
-        onRemoveAllLocations={() => null}
-    />
-));
+storiesOf('Organisms|LocationSelector', module)
+    .addDecorator(withKnobs)
+    .addParameters(
+        withStore({
+            selectedLocations: [],
+        })
+    )
+    .add('Basic component', () => {
+        const apiKey = ensureApiKey();
+
+        return (
+            <LocationSelector
+                apiKey={apiKey}
+                selectedLocations={selectedLocations}
+                country={text('country', 'NL')}
+                language={text('Language', 'EN')}
+                radiusUnits="km"
+                renderRadiusLabel={r => `+ ${r} km`}
+                minRadius={number('Min radius', 1)}
+                maxRadius={number('Max radius', 100)}
+                radiusStep={number('Radius steps', 1)}
+                autocompletePlaceholder="autocompletePlaceholder"
+                noSuggestionsPlaceholder="noSuggestionsPlaceholder"
+                selectionPlaceholder="selectionPlaceholder"
+                mainPlaceholder="mainPlaceholder"
+                doneLabel={text('Label for Done button', 'Done')}
+                clearLabel={text('Label for clear button', 'Clear')}
+                contentLabel={text('Placeholder for input field', 'Location selector')}
+                onAddLocation={location => console.log('onAddLocation was called with:', location)}
+                onUpdateLocation={() => console.log('onUpdateLocation was called')}
+                onRemoveLocation={() => console.log('onRemoveLocation was called')}
+                onRemoveAllLocations={() => console.log('onRemoveAllLocations was called')}
+            />
+        );
+    })
+    .add('Example implementation', ({ parameters }) => {
+        const apiKey = ensureApiKey();
+        const store = parameters.getStore();
+
+        const handleAddLocation = location => {
+            console.log('onAddLocation was called with:', location);
+            store.set({ selectedLocations: [...store.get('selectedLocations'), location] });
+        };
+
+        const handleUpdateLocation = (id, radius) => {
+            console.log('onUpdateLocation was called', id, radius);
+            const newSelection = store.get('selectedLocations').map(loc => {
+                if (loc.id === id) {
+                    loc.radius = radius;
+                }
+                return loc;
+            });
+            store.set({ selectedLocations: newSelection });
+        };
+
+        const handleRemoveLocation = id => {
+            console.log('onRemoveLocation was called', id);
+            store.set({
+                selectedLocations: store.get('selectedLocations').filter(l => l.id !== id),
+            });
+        };
+
+        const handleRemoveAllLocations = () => {
+            console.log('onRemoveAllLocations was called');
+            store.set({ selectedLocations: [] });
+        };
+
+        return (
+            <LocationSelector
+                apiKey={apiKey}
+                selectedLocations={store.get('selectedLocations')}
+                country={text('country', 'NL')}
+                language={text('Language', 'EN')}
+                radiusUnits="km"
+                renderRadiusLabel={r => `+ ${r} km`}
+                minRadius={number('Min radius', 1)}
+                maxRadius={number('Max radius', 100)}
+                radiusStep={number('Radius steps', 1)}
+                autocompletePlaceholder="autocompletePlaceholder"
+                noSuggestionsPlaceholder="noSuggestionsPlaceholder"
+                selectionPlaceholder="selectionPlaceholder"
+                mainPlaceholder="mainPlaceholder"
+                doneLabel={text('Label for Done button', 'Done')}
+                clearLabel={text('Label for clear button', 'Clear')}
+                contentLabel={text('Placeholder for input field', 'Location selector')}
+                onAddLocation={handleAddLocation}
+                onUpdateLocation={handleUpdateLocation}
+                onRemoveLocation={handleRemoveLocation}
+                onRemoveAllLocations={handleRemoveAllLocations}
+            />
+        );
+    });

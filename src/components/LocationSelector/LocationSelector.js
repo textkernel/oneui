@@ -2,8 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import { LoadScriptNext } from '@react-google-maps/api';
-import { Text, Modal, Map, FieldWrapper, Button, LocationCard } from '../../index';
+import { FaMapMarkerAlt } from 'react-icons/fa';
+import {
+    Text,
+    Modal,
+    Map,
+    FieldWrapper,
+    Button,
+    LocationCard,
+    LoadingSpinner,
+    LocationAutocomplete,
+} from '../../index';
 import styles from './LocationSelector.scss';
+
+const GOOGLE_API_LIBRARIES = ['places'];
 
 const { block, elem } = bem({
     name: 'LocationSelector',
@@ -12,6 +24,12 @@ const { block, elem } = bem({
 
 function LocationSelector(props) {
     const {
+        /** Google props */
+        apiKey,
+        language,
+        region,
+        additionalGoogleProps,
+
         /** FieldWrapper props */
         clearLabel,
         onRemoveAllLocations,
@@ -19,6 +37,7 @@ function LocationSelector(props) {
         /** LocationCard props */
         minRadius,
         maxRadius,
+        renderRadiusLabel,
         radiusDefaultValue,
         selectedLocations,
         onAddLocation,
@@ -33,36 +52,38 @@ function LocationSelector(props) {
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
         onLocationAutocompleteError,
+
+        ...rest
     } = props;
 
     const [isOpen, setIsOpen] = React.useState(false);
 
-    function handleOpenModal() {
+    const handleOpenModal = () => {
         if (!isOpen) {
             setIsOpen(true);
         }
-    }
+    };
 
-    function handleCloseModal() {
+    const handleCloseModal = () => {
         if (isOpen) {
             setIsOpen(false);
         }
-    }
+    };
 
     /**
      * Fetch additional information for the selected place and
      * add it along with passed location object to the selectedLocations array
      */
-    function handleAddLocation(location) {
+    const handleAddLocation = location => {
         // const placeInfo = fetchPlaceInfo(location.id);
-        // const locationToAdd = {
-        //     ...location,
-        //     center: placeInfo.coordinates,
-        //     radius: radiusDefaultValue,
-        //     structuredFormatting: placeInfo.structuredFormatting,
-        // };
-        // onAddLocation(locationToAdd);
-    }
+        const locationToAdd = {
+            ...location,
+            // center: placeInfo.coordinates,
+            radius: radiusDefaultValue,
+            // structuredFormatting: placeInfo.structuredFormatting,
+        };
+        onAddLocation(locationToAdd);
+    };
 
     return (
         <div {...block(props)}>
@@ -70,16 +91,25 @@ function LocationSelector(props) {
                 onClick={handleOpenModal}
                 clearLabel={clearLabel}
                 onClear={onRemoveAllLocations}
+                {...rest}
             >
+                <FaMapMarkerAlt {...elem('icon', props)} />
                 <Text placeholder="Some placeholder" {...elem('mainTextInput', props)}>
                     Some placeholder
                 </Text>
             </FieldWrapper>
             <Modal {...elem('modal', props)} isOpen={isOpen} onRequestClose={handleCloseModal}>
-                <LoadScriptNext>
-                    <div {...elem('autocomplete', props)}>
-                        <div {...elem('input', props)} />
-                        {/* <LocationAutocomplete
+                <LoadScriptNext
+                    googleMapsApiKey={apiKey}
+                    language={language}
+                    region={region}
+                    loadingElement={<LoadingSpinner centerIn="parent" />}
+                    libraries={GOOGLE_API_LIBRARIES}
+                    {...additionalGoogleProps}
+                >
+                    <div {...elem('inputLine', props)}>
+                        <LocationAutocomplete
+                            {...elem('searchField', props)}
                             inputPlaceholder={autocompletePlaceholder}
                             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                             onSelectionChange={handleAddLocation}
@@ -87,7 +117,8 @@ function LocationSelector(props) {
                             placeTypes={placeTypes}
                             showCountryInSuggestions={showCountryInSuggestions}
                             onError={onLocationAutocompleteError}
-                        /> */}
+                            hidePoweredByGoogleLogo
+                        />
                         <Button
                             {...elem('button', props)}
                             onClick={handleCloseModal}
@@ -105,11 +136,11 @@ function LocationSelector(props) {
                                     locationId={location.id}
                                     locationTitle={location.description}
                                     distanceRadius={location.radius}
-                                    sliderLabel={location.sliderLabel}
+                                    sliderLabel={renderRadiusLabel(location.radius)}
                                     minRadius={minRadius}
                                     maxRadius={maxRadius}
-                                    onRadiusChange={onUpdateLocation}
-                                    onDelete={onRemoveLocation}
+                                    onRadiusChange={radius => onUpdateLocation(location.id, radius)}
+                                    onDelete={() => onRemoveLocation(location.id)}
                                 />
                             ))}
                         </ul>
@@ -147,8 +178,8 @@ LocationSelector.propTypes = {
     radiusDefaultValue: PropTypes.number,
     /** radius measurement unit */
     radiusUnits: PropTypes.oneOf(['km', 'mi']).isRequired,
-    /** radius label suffix (e.g. km, miles or other language) */
-    radiusUnitDisplayText: PropTypes.string.isRequired,
+    /** radius label renderer e.g. radius => `+ ${radius} km` */
+    renderRadiusLabel: PropTypes.func.isRequired,
     /** min radius value of the slider component */
     minRadius: PropTypes.number.isRequired,
     /** max radius value of the slider component */
