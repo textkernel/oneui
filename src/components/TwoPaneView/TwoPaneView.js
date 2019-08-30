@@ -40,10 +40,10 @@ const TwoPaneView = props => {
     const handleResize = e => {
         const widthEl = blockRef.current;
         const { width: fullWidth } = widthEl.getBoundingClientRect();
-        const padding = +window
-            .getComputedStyle(widthEl, null)
-            .getPropertyValue('padding-right')
-            .match(/\d.?/)[0];
+        const padding = parseInt(
+            window.getComputedStyle(widthEl, null).getPropertyValue('padding-right'),
+            10
+        );
         const leftEl = leftRef.current;
         const { width: leftWidth } = leftEl.getBoundingClientRect();
         const width = fullWidth - 2 * padding - leftWidth;
