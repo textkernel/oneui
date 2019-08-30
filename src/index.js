@@ -30,6 +30,7 @@ export { NavBar, NavItem } from './components/Navigation';
 export { default as Pagination } from './components/Pagination';
 export { default as RadioButton } from './components/RadioButton';
 export { default as Teaser } from './components/Teaser';
+export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
 // Organisms
 export { Autosuggest, ItemTag } from './components/Autosuggest';
 export {

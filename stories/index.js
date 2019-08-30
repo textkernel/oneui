@@ -29,6 +29,7 @@ import './Navigation';
 import './Pagination';
 import './RadioButton';
 import './Teaser';
+import './TwoPaneView';
 // Organisms
 import './Autosuggest';
 import './LocationAutocomplete';

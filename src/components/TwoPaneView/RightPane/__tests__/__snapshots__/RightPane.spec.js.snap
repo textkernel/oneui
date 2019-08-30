@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RightPane> that renders a right pane of a two pane view should render correctly 1`] = `
+<div
+  className="RightPane"
+>
+  Some content
+</div>
+`;
