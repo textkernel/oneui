@@ -23,16 +23,6 @@ const TwoPaneView = props => {
     const leftRef = React.createRef();
     const blockRef = React.createRef();
 
-    React.useLayoutEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    });
-
-    React.useLayoutEffect(() => {
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    });
-
     const handleScroll = (e, leftEl = leftRef.current) => {
         const leftDimensions = leftEl.getBoundingClientRect();
         const top = leftDimensions.top > 0 ? 0 : -leftDimensions.top;
@@ -61,6 +51,16 @@ const TwoPaneView = props => {
         setRightWidth(width);
         handleScroll(e, leftEl);
     };
+
+    React.useLayoutEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    });
+
+    React.useLayoutEffect(() => {
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    });
 
     return (
         <BlockWidthRestrictor {...rest} ref={blockRef} {...block(props)}>
@@ -104,6 +104,10 @@ TwoPaneView.propTypes = {
         });
         return error;
     },
+};
+
+TwoPaneView.defaultProps = {
+    children: null,
 };
 
 export default TwoPaneView;
