@@ -22,10 +22,10 @@ exports[`<TwoPaneView> that renders a two pane view should render correctly 1`] 
         key=".1"
         style={
           Object {
-            "display": "inline-block",
-            "height": 200,
-            "top": 0,
-            "width": 600,
+            "display": "none",
+            "height": 0,
+            "top": -0,
+            "width": NaN,
           }
         }
       >
@@ -33,10 +33,10 @@ exports[`<TwoPaneView> that renders a two pane view should render correctly 1`] 
           className="RightPane"
           style={
             Object {
-              "display": "inline-block",
-              "height": 200,
-              "top": 0,
-              "width": 600,
+              "display": "none",
+              "height": 0,
+              "top": -0,
+              "width": NaN,
             }
           }
         >
