@@ -38,15 +38,16 @@ const TwoPaneView = props => {
     };
 
     const handleResize = e => {
-        const widthEl = blockRef.current;
-        const { width: fullWidth } = widthEl.getBoundingClientRect();
-        const padding = parseInt(
-            window.getComputedStyle(widthEl, null).getPropertyValue('padding-right'),
-            10
-        );
+        const blockEl = blockRef.current;
+        const { width: fullWidth } = blockEl.getBoundingClientRect();
+        const blockStyle = window.getComputedStyle(blockEl, null);
+        const paddingRight = parseInt(blockStyle.getPropertyValue('padding-right'), 10);
+        const paddingLeft = parseInt(blockStyle.getPropertyValue('padding-left'), 10);
+
         const leftEl = leftRef.current;
         const { width: leftWidth } = leftEl.getBoundingClientRect();
-        const width = fullWidth - 2 * padding - leftWidth;
+
+        const width = fullWidth - paddingRight - paddingLeft - leftWidth;
 
         setRightWidth(width);
         handleScroll(e, leftEl);
