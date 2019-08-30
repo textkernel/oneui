@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { number, text, withKnobs } from '@storybook/addon-knobs';
+import { number, text, select, boolean, withKnobs } from '@storybook/addon-knobs';
 import LocationSelector from '../src/components/LocationSelector';
 import ensureApiKey from './utils/ensureApiKey';
 import withStore from '../src/packages/storybook/withStore';
@@ -86,7 +86,7 @@ storiesOf('Organisms|LocationSelector', module)
             console.log('onUpdateLocation was called', id, radius);
             const newSelection = store.get('selectedLocations').map(loc => {
                 if (loc.id === id) {
-                    loc.radius = radius;
+                    loc.radius = radius; // eslint-disable-line no-param-reassign
                 }
                 return loc;
             });
@@ -105,28 +105,37 @@ storiesOf('Organisms|LocationSelector', module)
             store.set({ selectedLocations: [] });
         };
 
+        const getPlaceholder = () => {
+            const selection = store.get('selectedLocations');
+            return selection.length ? selection[0].structured_formatting.main_text : null;
+        };
+
         return (
             <LocationSelector
                 apiKey={apiKey}
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
-                radiusUnits="km"
+                radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
                 renderRadiusLabel={r => `+ ${r} km`}
                 minRadius={number('Min radius', 1)}
                 maxRadius={number('Max radius', 100)}
+                radiusDefaultValue={number('Radius default value', 5)}
                 radiusStep={number('Radius steps', 1)}
-                autocompletePlaceholder="autocompletePlaceholder"
+                placeTypes="city"
+                showCountryInSuggestions={boolean('Show country in suggestions', true)}
+                inputPlaceholder={text('Input placeholder', 'Location...')}
                 noSuggestionsPlaceholder="noSuggestionsPlaceholder"
-                selectionPlaceholder="selectionPlaceholder"
-                mainPlaceholder="mainPlaceholder"
+                selectionPlaceholder={getPlaceholder()}
                 doneLabel={text('Label for Done button', 'Done')}
                 clearLabel={text('Label for clear button', 'Clear')}
-                contentLabel={text('Placeholder for input field', 'Location selector')}
                 onAddLocation={handleAddLocation}
                 onUpdateLocation={handleUpdateLocation}
                 onRemoveLocation={handleRemoveLocation}
                 onRemoveAllLocations={handleRemoveAllLocations}
+                onBlur={() => {
+                    console.log('onBlur was called');
+                }}
             />
         );
     });

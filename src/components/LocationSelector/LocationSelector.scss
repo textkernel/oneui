@@ -7,7 +7,10 @@ $location-card-width: 300px;
         border: 0;
         margin: var(--spacing-normal);
         font-size: var(--font-size-normal);
-        color: var(--color-muted);
+
+        &--muted {
+            color: var(--color-muted);
+        }
     }
 
     &__icon {
@@ -28,12 +31,12 @@ $location-card-width: 300px;
     }
 
     &__searchField {
-        flex-grow: 4;
+        flex-basis: 80%;
         min-width: 100px;
     }
 
     &__button {
-        flex-grow: 1;
+        flex-basis: 20%;
         margin-left: var(--spacing-4x);
     }
 
