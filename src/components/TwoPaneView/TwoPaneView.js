@@ -45,6 +45,7 @@ const TwoPaneView = props => {
         const paddingLeft = parseInt(blockStyle.getPropertyValue('padding-left'), 10);
 
         const leftEl = leftRef.current;
+        if (!leftEl) return;
         const { width: leftWidth } = leftEl.getBoundingClientRect();
 
         const width = fullWidth - paddingRight - paddingLeft - leftWidth;
