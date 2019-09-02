@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/textkernel/oneui/compare/6.0.0...6.1.0) (2019-09-02)
+
+
+### Features
+
+* **component:** new Location Autocomplete component ([#154](https://github.com/textkernel/oneui/issues/154)) ([fd03816](https://github.com/textkernel/oneui/commit/fd03816))
+* new TwoPaneView component ([#162](https://github.com/textkernel/oneui/issues/162)) ([d6bf5e4](https://github.com/textkernel/oneui/commit/d6bf5e4))
+
+
+
 ## [6.0.0](https://github.com/textkernel/oneui/compare/5.2.0...6.0.0) (2019-08-27)
 
 
