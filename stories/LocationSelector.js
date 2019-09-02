@@ -124,6 +124,10 @@ storiesOf('Organisms|LocationSelector', module)
                 radiusStep={number('Radius steps', 1)}
                 placeTypes="city"
                 showCountryInSuggestions={boolean('Show country in suggestions', true)}
+                modalContentLabel={text(
+                    'Modal content title for screen readers',
+                    'Location selection'
+                )}
                 inputPlaceholder={text('Input placeholder', 'Location...')}
                 noSuggestionsPlaceholder="noSuggestionsPlaceholder"
                 selectionPlaceholder={getPlaceholder()}

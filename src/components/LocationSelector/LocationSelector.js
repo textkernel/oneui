@@ -38,6 +38,9 @@ const LocationSelector = props => {
         inputPlaceholder,
         selectionPlaceholder,
 
+        /** Modal props */
+        modalContentLabel,
+
         /** LocationCard props */
         minRadius,
         maxRadius,
@@ -119,7 +122,12 @@ const LocationSelector = props => {
                     {selectionPlaceholder || inputPlaceholder}
                 </Text>
             </FieldWrapper>
-            <Modal {...elem('modal', props)} isOpen={isOpen} onRequestClose={handleCloseModal}>
+            <Modal
+                {...elem('modal', props)}
+                isOpen={isOpen}
+                onRequestClose={handleCloseModal}
+                contentLabel={modalContentLabel}
+            >
                 <LoadScriptNext
                     googleMapsApiKey={apiKey}
                     language={language}
@@ -225,6 +233,8 @@ LocationSelector.propTypes = {
     placeTypes: PropTypes.arrayOf(PropTypes.string),
     /** show country name in autocomplete suggestions */
     showCountryInSuggestions: PropTypes.bool,
+    /** A title for the modal that will be used by screenreaders */
+    modalContentLabel: PropTypes.string.isRequired,
     /** placeholder for both main field and autocomplete field in modal */
     inputPlaceholder: PropTypes.string.isRequired,
     /** placeholder for empty LocationAutocomplete list */
