@@ -109,6 +109,7 @@
         "react-dom": "16.8.6",
         "react-icons": "3.7.0",
         "react-router-dom": "4.3.1",
+        "regenerator-runtime": "0.13.3",
         "sass-loader": "7.1.0",
         "standard-version": "^6.0.1",
         "style-loader": "0.23.0",
