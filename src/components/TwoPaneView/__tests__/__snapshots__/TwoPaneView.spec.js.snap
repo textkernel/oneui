@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TwoPaneView> that renders a two pane view should render correctly 1`] = `
+<TwoPaneView>
+  <BlockWidthRestrictor
+    As="div"
+    className="TwoPaneView"
+  >
+    <div
+      className="BlockWidthRestrictor TwoPaneView"
+    >
+      <LeftPane
+        key=".0"
+      >
+        <div
+          className="LeftPane"
+        >
+          Some content
+        </div>
+      </LeftPane>
+      <RightPane
+        key=".1"
+        style={
+          Object {
+            "display": "none",
+            "height": 0,
+            "top": -0,
+            "width": NaN,
+          }
+        }
+      >
+        <div
+          className="RightPane"
+          style={
+            Object {
+              "display": "none",
+              "height": 0,
+              "top": -0,
+              "width": NaN,
+            }
+          }
+        >
+          Some content
+        </div>
+      </RightPane>
+    </div>
+  </BlockWidthRestrictor>
+</TwoPaneView>
+`;
