@@ -28,7 +28,7 @@ $slider-handle-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
     margin-top: $slider-handle-adjust-top;
     border: solid $slider-handle-border-width var(--color-brand);
     border-radius: 50%;
-    transition: background-color var(--transition-duration) ease;
+    transition: background-color var(--transition-duration) ease, transform  var(--transition-duration);
     background-color: var(--color-background);
     cursor: grab;
 
@@ -49,6 +49,10 @@ $slider-handle-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 
     &:hover .rc-slider-track {
         background-color: var(--color-brand-40);
+    }
+
+    &:hover .rc-slider-handle {
+        transform: scale(1.2);
     }
 
     &:active .rc-slider-track {
