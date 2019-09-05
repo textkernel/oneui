@@ -1,0 +1,32 @@
+.Select {
+
+    &__list,
+    &__listItem {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    &__list {
+        max-height: 200px;
+        overflow: auto;
+        background-color: #FFF;
+        margin-top: 5px;
+        border: 1px solid #F5F5F5;
+        border-radius: 3px;
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    &__listItem {
+        padding: 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        cursor: pointer;
+    }
+
+    &__listItem:hover {
+        background-color: #F5F5F5;
+    }
+
+}

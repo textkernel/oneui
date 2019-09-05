@@ -1,0 +1,14 @@
+.Tooltip {
+
+    &__anchor {
+        display: inline-block;
+    }
+
+    &__content {
+        color: #FFFFFF;
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 5px;
+        max-width: 25vw;
+    }
+
+}
