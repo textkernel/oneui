@@ -1,1 +1,1 @@
-export { default } from './LocationSelector';
+export { default } from './LocationSelectorWithGoogleLoader';

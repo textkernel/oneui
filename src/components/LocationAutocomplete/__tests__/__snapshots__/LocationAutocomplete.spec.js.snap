@@ -5,6 +5,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
   country={null}
   hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
+  isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
   onSelectionChange={[MockFunction]}
@@ -212,6 +213,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
       />
     }
     inputPlaceholder="Location..."
+    isFocused={false}
     isLoading={false}
     isMultiselect={false}
     isProminent={false}
@@ -590,6 +592,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   country={null}
   hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
+  isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
   onSelectionChange={[MockFunction]}
@@ -609,6 +612,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
       />
     }
     inputPlaceholder="Location..."
+    isFocused={false}
     isLoading={false}
     isMultiselect={false}
     isProminent={false}

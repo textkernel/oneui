@@ -14,15 +14,15 @@ stabGoogleApi();
 describe('<Map/> that renders a Map with markers', () => {
     const regionMarker = {
         center: {
-            lat: 52.3922288,
-            lng: 4.9338793,
+            lat: () => 52.3922288,
+            lng: () => 4.9338793,
         },
         radius: 30000,
     };
     const pointMarker = {
         center: {
-            lat: 52.5112671,
-            lng: 7.2535521,
+            lat: () => 52.5112671,
+            lng: () => 7.2535521,
         },
     };
 

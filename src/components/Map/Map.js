@@ -75,7 +75,8 @@ const Map = React.forwardRef((props, ref) => {
             {!!markers.length &&
                 markers.map(marker => {
                     const { center: mCenter, radius } = marker;
-                    const positionStr = `${mCenter.lat}-${mCenter.lng}`;
+                    const positionStr = `${mCenter.lat()}-${mCenter.lng()}`;
+
                     return (
                         <React.Fragment key={positionStr}>
                             <Marker key={`${positionStr}-marker`} position={mCenter} />
@@ -105,8 +106,8 @@ Map.propTypes = {
             center: PropTypes.oneOfType([
                 PropTypes.arrayOf(PropTypes.number),
                 PropTypes.shape({
-                    lng: PropTypes.number.isRequired,
-                    lat: PropTypes.number.isRequired,
+                    lng: PropTypes.func.isRequired,
+                    lat: PropTypes.func.isRequired,
                 }),
             ]),
             zoom: PropTypes.number,
@@ -118,8 +119,8 @@ Map.propTypes = {
     markers: PropTypes.arrayOf(
         PropTypes.shape({
             center: PropTypes.shape({
-                lng: PropTypes.number.isRequired,
-                lat: PropTypes.number.isRequired,
+                lng: PropTypes.func.isRequired,
+                lat: PropTypes.func.isRequired,
             }),
             radius: PropTypes.number,
         })

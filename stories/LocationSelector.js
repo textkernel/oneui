@@ -7,31 +7,31 @@ import withStore from '../src/packages/storybook/withStore';
 
 const selectedLocations = [
     {
-        locationId: 'ajdo-219a-j19v-0491',
+        id: 'ajdo-219a-j19v-0491',
         description: 'London',
         radius: 42,
         sliderLabel: '42km',
     },
     {
-        locationId: 'ajdo-219a-j19v-0492',
+        id: 'ajdo-219a-j19v-0492',
         description: 'Berlin',
         radius: 20,
         sliderLabel: '20km',
     },
     {
-        locationId: 'ajdo-219a-j19v-04925',
+        id: 'ajdo-219a-j19v-04925',
         description: 'Berlin',
         radius: 20,
         sliderLabel: '20km',
     },
     {
-        locationId: 'ajdo-219a-j19v-0494',
+        id: 'ajdo-219a-j19v-0494',
         description: 'Berlin',
         radius: 20,
         sliderLabel: '20km',
     },
     {
-        locationId: 'ajdo-219a-j19v-0492231',
+        id: 'ajdo-219a-j19v-0492231',
         description: 'Berlin',
         radius: 20,
         sliderLabel: '20km',
@@ -122,7 +122,7 @@ storiesOf('Organisms|LocationSelector', module)
                 maxRadius={number('Max radius', 100)}
                 radiusDefaultValue={number('Radius default value', 5)}
                 radiusStep={number('Radius steps', 1)}
-                placeTypes="city"
+                placeTypes={['(regions)']}
                 showCountryInSuggestions={boolean('Show country in suggestions', true)}
                 modalContentLabel={text(
                     'Modal content title for screen readers',

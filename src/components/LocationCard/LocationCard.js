@@ -25,6 +25,8 @@ const LocationCard = props => {
         ...rest
     } = props;
 
+    const handleRadiusChange = radius => onRadiusChange(locationId, radius);
+
     const handleDelete = () => onDelete(locationId);
 
     return (
@@ -43,7 +45,7 @@ const LocationCard = props => {
                     min={minRadius}
                     max={maxRadius}
                     step={radiusStep}
-                    onChange={onRadiusChange}
+                    onChange={handleRadiusChange}
                 />
                 <Text size={SIZES[0]} {...elem('slider-label', props)}>
                     {sliderLabel}

@@ -6,6 +6,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
   getSuggestions={[Function]}
   iconNode={null}
   inputPlaceholder="type here..."
+  isFocused={false}
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
@@ -116,6 +117,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
   getSuggestions={[Function]}
   iconNode={null}
   inputPlaceholder="type here..."
+  isFocused={false}
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
@@ -416,6 +418,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
     />
   }
   inputPlaceholder="type here..."
+  isFocused={false}
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
@@ -572,6 +575,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
   getSuggestions={[Function]}
   iconNode={null}
   inputPlaceholder="type here..."
+  isFocused={false}
   isLoading={false}
   isMultiselect={false}
   isProminent={false}
@@ -745,6 +749,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
   }
   iconNode={null}
   inputPlaceholder="type here..."
+  isFocused={false}
   isLoading={false}
   isMultiselect={false}
   isProminent={false}

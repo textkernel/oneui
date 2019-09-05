@@ -21,16 +21,20 @@ const { block, elem } = bem({
 });
 
 class Autosuggest extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.inputRef = React.createRef();
         this.rootRef = React.createRef();
         this.listRef = React.createRef();
         this.state = {
             inputValue: '',
             inputValueRecall: '',
-            focused: false,
+            focused: props.isFocused,
         };
+
+        if (props.isFocused) {
+            this.focus();
+        }
 
         this.handleTagDeleteClick = memoize(this.handleTagDeleteClick);
         this.handleWrapperClick = memoize(this.handleWrapperClick);
@@ -151,8 +155,11 @@ class Autosuggest extends React.Component {
     };
 
     focus(openMenu) {
-        openMenu();
-        this.inputRef.current.focus();
+        if (openMenu) {
+            openMenu();
+        }
+
+        setTimeout(() => this.inputRef.current.focus());
     }
 
     renderTags() {
@@ -248,6 +255,7 @@ class Autosuggest extends React.Component {
             selectedSuggestions,
             getSuggestions,
             isLoading,
+            isFocused,
             noSuggestionsPlaceholder,
             onBlur,
             onSelectionChange,
@@ -350,6 +358,8 @@ Autosuggest.propTypes = {
     suggestionToString: PropTypes.func.isRequired,
     /** if suggestions are still loading, i.e. display placeholders */
     isLoading: PropTypes.bool,
+    /** trigger of the initial focus of the input field */
+    isFocused: PropTypes.bool,
     /** a string or function (to be called with selectedValues) that represents the selected values when the component is blurred */
     selectedPlaceholder: PropTypes.string,
     /** to be shown in the input field when no value is typed */
@@ -382,6 +392,7 @@ Autosuggest.defaultProps = {
     getSuggestions: null,
     selectedSuggestions: null,
     isLoading: false,
+    isFocused: false,
     onBlur: null,
     onInputValueChange: null,
     onClearAllSelected: null,

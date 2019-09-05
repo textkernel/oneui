@@ -1,5 +1,6 @@
 $modal-width: 75%;
 $location-card-width: 300px;
+$icon-margin-adjustment: 0px 1px -1px 3px;
 
 .LocationSelector {
     &__mainTextInput {
@@ -15,6 +16,7 @@ $location-card-width: 300px;
 
     &__icon {
         color: var(--color-muted);
+        margin: $icon-margin-adjustment;
     }
 
     &__modal {
