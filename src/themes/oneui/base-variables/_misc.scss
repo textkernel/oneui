@@ -5,10 +5,23 @@ $progress-background-color: var(--color-neutral-25) !default;
 $progress-font-size: var(--font-size-small) !default;
 $progress-label-color: var(--color-background) !default;
 
+// Drawer variables
+$drawer-width: 400px;
+$drawer-z-index: 100;
+$drawer-head-background-color: #333 !default;
+$drawer-extent-active-background-color: #797777 !default;
+$drawer-extent-hover-background-color: #565656 !default;
+
 :root {
     --transition-duration: #{ $transition-duration };
 
     --progress-background-color: #{ $progress-background-color };
     --progress-font-size: #{ $progress-font-size };
     --progress-label-color: #{ $progress-label-color };
+
+    --drawer-width: #{ $drawer-width };
+    --drawer-z-index: #{ $drawer-z-index };
+    --drawer-head-background-color: #{ $drawer-head-background-color };
+    --drawer-extent-active-background-color: #{ $drawer-extent-active-background-color };
+    --drawer-extent-hover-background-color: #{ $drawer-extent-hover-background-color };
 }

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer should render correctly 1`] = `
+<div
+  className="Drawer"
+>
+  <header
+    className="Drawer__head"
+  >
+    <h4
+      className="Drawer__headTitle"
+    >
+      some title
+    </h4>
+    <div
+      className="Drawer__headButtons"
+    >
+      <button
+        className="Drawer__extendButton"
+        onClick={[Function]}
+        type="button"
+      >
+        <IoIosArrowUp
+          className="Drawer__extendIcon"
+        />
+      </button>
+    </div>
+  </header>
+  <section
+    aria-hidden={true}
+    className="Drawer__body"
+  >
+    some text
+  </section>
+</div>
+`;

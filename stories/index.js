@@ -3,6 +3,7 @@ import './Button';
 import './CandidateAvatar';
 import './Chip';
 import './ContentPlaceholder';
+import './Drawer';
 import './Heading';
 import './Icon';
 import './Input';

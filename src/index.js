@@ -13,6 +13,7 @@ export { default as Modal } from './components/Modal';
 export { MapWithGoogleLoader, Map } from './components/Map';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as Slider } from './components/Slider';
+export { default as Drawer } from './components/Drawer';
 export { Tabs, Tab, TabContent, TabItem, TabMenu } from './components/Tabs';
 export { Text, MarkedText } from './components/Text';
 export { default as TextArea } from './components/TextArea';
