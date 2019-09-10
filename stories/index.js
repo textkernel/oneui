@@ -1,6 +1,7 @@
 // Atoms
 import './Button';
 import './CandidateAvatar';
+import './Callout';
 import './Chip';
 import './ContentPlaceholder';
 import './Heading';

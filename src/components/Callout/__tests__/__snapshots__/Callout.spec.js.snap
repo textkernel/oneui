@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Callout should render correctly 1`] = `
+<div
+  className="Callout Callout--context_info"
+  context="info"
+>
+  <p
+    className="Callout__content Callout__content--context_info"
+    style={
+      Object {
+        "lineHeight": "22px",
+      }
+    }
+  >
+    some text
+  </p>
+</div>
+`;
