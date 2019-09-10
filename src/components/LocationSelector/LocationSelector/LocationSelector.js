@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import { Map, Button, LocationCard, LocationAutocomplete } from '../../index';
+import { Map, Button, LocationCard, LocationAutocomplete } from '../../../index';
 import styles from './LocationSelector.scss';
 
 const { elem } = bem({
     name: 'LocationSelector',
     classnames: styles,
-    propsToMods: ['muted'],
 });
 
 const LocationSelector = props => {
@@ -93,8 +92,8 @@ LocationSelector.propTypes = {
             id: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
             center: PropTypes.shape({
-                lng: PropTypes.func.isRequired,
-                lat: PropTypes.func.isRequired,
+                lng: PropTypes.number.isRequired,
+                lat: PropTypes.number.isRequired,
             }).isRequired,
             radius: PropTypes.number.isRequired,
         })

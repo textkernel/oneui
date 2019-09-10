@@ -1,38 +1,28 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, text, select, boolean, withKnobs } from '@storybook/addon-knobs';
-import LocationSelector from '../src/components/LocationSelector';
+import { LocationSelectorWithGoogleLoader } from '../src/components/LocationSelector';
 import ensureApiKey from './utils/ensureApiKey';
 import withStore from '../src/packages/storybook/withStore';
 
 const selectedLocations = [
     {
         id: 'ajdo-219a-j19v-0491',
-        description: 'London',
+        description: 'Amsterdam',
+        center: {
+            lng: 4.894539799999961,
+            lat: 52.3666969,
+        },
         radius: 42,
         sliderLabel: '42km',
     },
     {
         id: 'ajdo-219a-j19v-0492',
-        description: 'Berlin',
-        radius: 20,
-        sliderLabel: '20km',
-    },
-    {
-        id: 'ajdo-219a-j19v-04925',
-        description: 'Berlin',
-        radius: 20,
-        sliderLabel: '20km',
-    },
-    {
-        id: 'ajdo-219a-j19v-0494',
-        description: 'Berlin',
-        radius: 20,
-        sliderLabel: '20km',
-    },
-    {
-        id: 'ajdo-219a-j19v-0492231',
-        description: 'Berlin',
+        description: 'Utrecht',
+        center: {
+            lng: 5.121420100000023,
+            lat: 52.09073739999999,
+        },
         radius: 20,
         sliderLabel: '20km',
     },
@@ -43,13 +33,14 @@ storiesOf('Organisms|LocationSelector', module)
     .addParameters(
         withStore({
             selectedLocations: [],
+            radiusUnits: 'km',
         })
     )
     .add('Basic component', () => {
         const apiKey = ensureApiKey();
 
         return (
-            <LocationSelector
+            <LocationSelectorWithGoogleLoader
                 apiKey={apiKey}
                 selectedLocations={selectedLocations}
                 country={text('country', 'NL')}
@@ -59,17 +50,22 @@ storiesOf('Organisms|LocationSelector', module)
                 minRadius={number('Min radius', 1)}
                 maxRadius={number('Max radius', 100)}
                 radiusStep={number('Radius steps', 1)}
-                autocompletePlaceholder="autocompletePlaceholder"
+                modalContentLabel={text(
+                    'Modal content title for screen readers',
+                    'Location selection'
+                )}
+                inputPlaceholder={text('Input placeholder', 'Location...')}
                 noSuggestionsPlaceholder="noSuggestionsPlaceholder"
                 selectionPlaceholder="selectionPlaceholder"
-                mainPlaceholder="mainPlaceholder"
                 doneLabel={text('Label for Done button', 'Done')}
                 clearLabel={text('Label for clear button', 'Clear')}
-                contentLabel={text('Placeholder for input field', 'Location selector')}
                 onAddLocation={location => console.log('onAddLocation was called with:', location)}
                 onUpdateLocation={() => console.log('onUpdateLocation was called')}
                 onRemoveLocation={() => console.log('onRemoveLocation was called')}
                 onRemoveAllLocations={() => console.log('onRemoveAllLocations was called')}
+                onLocationAutocompleteError={() =>
+                    console.log('onLocationAutocompleteError was called')
+                }
             />
         );
     })
@@ -107,11 +103,14 @@ storiesOf('Organisms|LocationSelector', module)
 
         const getPlaceholder = () => {
             const selection = store.get('selectedLocations');
-            return selection.length ? selection[0].structured_formatting.main_text : null;
+            const selectedLocationsText = selection
+                .map(item => item.structured_formatting.main_text)
+                .join(', ');
+            return selectedLocationsText || null;
         };
 
         return (
-            <LocationSelector
+            <LocationSelectorWithGoogleLoader
                 apiKey={apiKey}
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
@@ -140,6 +139,9 @@ storiesOf('Organisms|LocationSelector', module)
                 onBlur={() => {
                     console.log('onBlur was called');
                 }}
+                onLocationAutocompleteError={() =>
+                    console.log('onLocationAutocompleteError was called')
+                }
             />
         );
     });

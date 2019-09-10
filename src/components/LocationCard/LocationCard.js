@@ -77,7 +77,7 @@ LocationCard.propTypes = {
     onRadiusChange: PropTypes.func,
     /** Location card delete callback */
     onDelete: PropTypes.func,
-    /** Name of the wrapping component */
+    /** HTML tag to be used as a wrapping component */
     As: PropTypes.string,
 };
 

@@ -1,0 +1,42 @@
+$text-input-height: 38px;
+$location-card-width: 300px;
+$modal-width: 75%;
+$modal-min-width: 2 * $location-card-width;
+$modal-min-height: 400px;
+$icon-margin-adjustment: 5px 1px -3px 3px;
+
+.LocationSelectorWithGoogleLoader {
+    &__mainTextInputWrapper {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+        height: $text-input-height;
+    }
+
+    &__mainTextInput {
+        display: inline-block;
+        border: 0;
+        margin: var(--spacing-normal);
+        font-size: var(--font-size-normal);
+        white-space: nowrap;
+        overflow: hidden;
+        vertical-align: middle;
+        text-overflow: ellipsis;
+        width: calc(100% - 40px);
+
+        &--muted {
+            color: var(--color-muted);
+        }
+    }
+
+    &__icon {
+        color: var(--color-muted);
+        margin: $icon-margin-adjustment;
+    }
+
+    &__modal {
+        display: flex;
+        flex-direction: column;
+        max-width: $modal-width;
+        min-width: $modal-min-width;
+        min-height: $modal-min-height;
+    }
+}

@@ -32,13 +32,17 @@ class Autosuggest extends React.Component {
             focused: props.isFocused,
         };
 
-        if (props.isFocused) {
-            this.focus();
-        }
-
         this.handleTagDeleteClick = memoize(this.handleTagDeleteClick);
         this.handleWrapperClick = memoize(this.handleWrapperClick);
         this.handleWrapperKeyDown = memoize(this.handleWrapperKeyDown);
+    }
+
+    componentDidMount() {
+        const { isFocused } = this.props;
+
+        if (isFocused) {
+            this.inputRef.current.focus();
+        }
     }
 
     handleChange = selectedItem => {
@@ -56,7 +60,9 @@ class Autosuggest extends React.Component {
     };
 
     handleInputKeyDown = event => {
-        const { onSelectionChange, selectedSuggestions } = this.props;
+        const { getSuggestions, onSelectionChange, selectedSuggestions } = this.props;
+        const { inputValue } = this.state;
+
         if (
             event.key === BACKSPACE_KEY &&
             !event.target.value &&
@@ -65,9 +71,22 @@ class Autosuggest extends React.Component {
         ) {
             // remove the last input
             onSelectionChange(selectedSuggestions[selectedSuggestions.length - 1]);
-        } else if ([ESCAPE_KEY, TAB_KEY].includes(event.key)) {
+        } else if (event.key === TAB_KEY) {
             this.inputRef.current.blur();
             this.handleBlur();
+        } else if (event.key === ESCAPE_KEY) {
+            const getSuggestionsIsFunc = typeof getSuggestions === 'function';
+            const suggestions = getSuggestionsIsFunc ? getSuggestions(inputValue) : getSuggestions;
+
+            // prevents key propagation if the dropdown is opened so escape press will close
+            // otherwise let it go so pressed key could have an affection on the parent component
+            // e.g. close modal window
+            if (suggestions && suggestions.length) {
+                this.handleBlur();
+                event.stopPropagation();
+            } else {
+                this.inputRef.current.blur();
+            }
         }
     };
 
@@ -154,13 +173,11 @@ class Autosuggest extends React.Component {
         }
     };
 
-    focus(openMenu) {
+    focus = openMenu => {
         if (openMenu) {
             openMenu();
         }
-
-        setTimeout(() => this.inputRef.current.focus());
-    }
+    };
 
     renderTags() {
         const { selectedPlaceholder, suggestionToString, selectedSuggestions } = this.props;

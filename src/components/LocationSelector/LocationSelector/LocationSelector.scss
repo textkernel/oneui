@@ -1,34 +1,11 @@
-$modal-width: 75%;
+$input-line-height: 67px;
 $location-card-width: 300px;
-$icon-margin-adjustment: 0px 1px -1px 3px;
 
 .LocationSelector {
-    &__mainTextInput {
-        display: inline-block;
-        border: 0;
-        margin: var(--spacing-normal);
-        font-size: var(--font-size-normal);
-
-        &--muted {
-            color: var(--color-muted);
-        }
-    }
-
-    &__icon {
-        color: var(--color-muted);
-        margin: $icon-margin-adjustment;
-    }
-
-    &__modal {
-        display: flex;
-        flex-direction: column;
-        width: $modal-width;
-    }
-
     &__inputLine {
         display: flex;
         box-sizing: border-box;
-        width: 100%;
+        height: $input-line-height;
         padding: var(--spacing-4x);
     }
 
@@ -53,7 +30,7 @@ $icon-margin-adjustment: 0px 1px -1px 3px;
         width: $location-card-width;
         min-width: $location-card-width;
         padding-right: calc(var(--spacing-4x) - 1px);
-        overflow: scroll;
+        overflow: auto;
     }
 
     &__locationCard:not(:last-child) {

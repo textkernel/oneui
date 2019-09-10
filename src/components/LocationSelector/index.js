@@ -1,1 +1,4 @@
-export { default } from './LocationSelectorWithGoogleLoader';
+export { default as LocationSelector } from './LocationSelector/LocationSelector';
+export {
+    default as LocationSelectorWithGoogleLoader,
+} from './LocationSelectorWithGoogleLoader/LocationSelectorWithGoogleLoader';

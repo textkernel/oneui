@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import bem from 'bem';
 import { LoadScriptNext } from '@react-google-maps/api';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { Text, Modal, FieldWrapper, LoadingSpinner, LocationAutocomplete } from '../../index';
-import LocationSelector from './LocationSelector';
-import { findCenter, getRadiusInMeters } from './utils';
-import styles from './LocationSelector.scss';
+import { Text, Modal, FieldWrapper, LoadingSpinner, LocationAutocomplete } from '../../../index';
+import LocationSelector from '../LocationSelector/LocationSelector';
+import { findCenter, getRadiusInMeters } from '../utils';
+import styles from './LocationSelectorWithGoogleLoader.scss';
 
 const GOOGLE_API_LIBRARIES = ['places'];
 
 const { block, elem } = bem({
-    name: 'LocationSelector',
+    name: 'LocationSelectorWithGoogleLoader',
     classnames: styles,
     propsToMods: ['muted'],
 });
@@ -60,6 +60,8 @@ function LocationSelectorWithGoogleLoader(props) {
 
     const [isOpen, setIsOpen] = React.useState(false);
 
+    const hasLocationsSelected = selectedLocations && selectedLocations.length > 0;
+
     function handleOpenModal() {
         if (!isOpen) {
             setIsOpen(true);
@@ -76,6 +78,7 @@ function LocationSelectorWithGoogleLoader(props) {
     /**
      * Fetch additional information for the selected place and
      * add it along with passed location object to the selectedLocations array
+     * if this location was not selected yet
      */
     function handleAddLocation(location) {
         const { Geocoder } = window.google.maps;
@@ -85,10 +88,20 @@ function LocationSelectorWithGoogleLoader(props) {
             .then(center => {
                 const locationToAdd = {
                     ...location,
-                    center,
+                    center: {
+                        lng: center.lng(),
+                        lat: center.lat(),
+                    },
                     radius: radiusDefaultValue,
                 };
-                onAddLocation(locationToAdd);
+
+                const isLocationSelected = selectedLocations
+                    .map(item => item.id)
+                    .includes(location.id);
+
+                if (!isLocationSelected) {
+                    onAddLocation(locationToAdd);
+                }
             })
             .catch(/* TODO: add error handling */);
     }
@@ -103,6 +116,8 @@ function LocationSelectorWithGoogleLoader(props) {
     return (
         <div {...block(props)}>
             <FieldWrapper
+                {...elem('mainTextInputWrapper', props)}
+                showClearButton={hasLocationsSelected}
                 clearLabel={clearLabel}
                 onClick={handleOpenModal}
                 onClear={onRemoveAllLocations}
@@ -172,8 +187,8 @@ LocationSelectorWithGoogleLoader.propTypes = {
             id: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
             center: PropTypes.shape({
-                lng: PropTypes.func.isRequired,
-                lat: PropTypes.func.isRequired,
+                lng: PropTypes.number.isRequired,
+                lat: PropTypes.number.isRequired,
             }).isRequired,
             radius: PropTypes.number.isRequired,
         })

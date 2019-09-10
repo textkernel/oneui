@@ -25,8 +25,8 @@ exports[`LocationSelector component should render LocationSelector properly when
     Array [
       Object {
         "center": Object {
-          "lat": [Function],
-          "lng": [Function],
+          "lat": 52.3666969,
+          "lng": 4.894539799999961,
         },
         "description": "Amsterdam",
         "id": "ajdo-219a-j19v-0491",
@@ -35,8 +35,8 @@ exports[`LocationSelector component should render LocationSelector properly when
       },
       Object {
         "center": Object {
-          "lat": [Function],
-          "lng": [Function],
+          "lat": 52.09073739999999,
+          "lng": 5.121420100000023,
         },
         "description": "Utrecht",
         "id": "ajdo-219a-j19v-0492",
@@ -704,8 +704,8 @@ exports[`LocationSelector component should render LocationSelector propertly whe
     Array [
       Object {
         "center": Object {
-          "lat": [Function],
-          "lng": [Function],
+          "lat": 52.3666969,
+          "lng": 4.894539799999961,
         },
         "description": "Amsterdam",
         "id": "ajdo-219a-j19v-0491",
@@ -714,8 +714,8 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       },
       Object {
         "center": Object {
-          "lat": [Function],
-          "lng": [Function],
+          "lat": 52.09073739999999,
+          "lng": 5.121420100000023,
         },
         "description": "Utrecht",
         "id": "ajdo-219a-j19v-0492",

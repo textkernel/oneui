@@ -6,7 +6,7 @@ describe('getRadiusInMeters', () => {
         expect(getRadiusInMeters(12, 'km')).toEqual(12000);
     });
     it('should convert correctly from miles to meters', () => {
-        expect(getRadiusInMeters(12, 'mi')).toEqual(1621.34);
+        expect(getRadiusInMeters(12, 'mi')).toEqual(19312.079999999998);
     });
 });
 

@@ -3,7 +3,7 @@ import { act } from 'react-dom/test-utils';
 import toJson from 'enzyme-to-json';
 import stabGoogleApi, { getPlacePredictionsMock } from '../../../__mocks__/googleApiMock';
 import predictionsMock from '../../LocationAutocomplete/__mocks__/predictions.json';
-import LocationSelector from '../LocationSelector';
+import { LocationSelector } from '..';
 
 stabGoogleApi();
 
@@ -13,8 +13,8 @@ describe('LocationSelector component', () => {
             id: 'ajdo-219a-j19v-0491',
             description: 'Amsterdam',
             center: {
-                lng: () => 4.894539799999961,
-                lat: () => 52.3666969,
+                lng: 4.894539799999961,
+                lat: 52.3666969,
             },
             radius: 42,
             sliderLabel: '42km',
@@ -23,8 +23,8 @@ describe('LocationSelector component', () => {
             id: 'ajdo-219a-j19v-0492',
             description: 'Utrecht',
             center: {
-                lng: () => 5.121420100000023,
-                lat: () => 52.09073739999999,
+                lng: 5.121420100000023,
+                lat: 52.09073739999999,
             },
             radius: 20,
             sliderLabel: '20km',

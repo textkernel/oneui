@@ -5,7 +5,7 @@ export const getRadiusInMeters = (radius, radiusUnits) => {
     if (radiusUnits === 'km') {
         return radius * METER_TO_KM;
     }
-    return radius + METER_TO_MI;
+    return radius * METER_TO_MI;
 };
 
 export const findCenter = (geocoder, placeId) =>
