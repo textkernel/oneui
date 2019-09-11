@@ -82,10 +82,12 @@ class Autosuggest extends React.Component {
             // otherwise let it go so pressed key could have an affection on the parent component
             // e.g. close modal window
             if (suggestions && suggestions.length) {
-                this.handleBlur();
+                this.inputRef.current.blur();
+                this.inputRef.current.parentElement.focus();
                 event.stopPropagation();
             } else {
                 this.inputRef.current.blur();
+                this.handleBlur();
             }
         }
     };
@@ -173,11 +175,10 @@ class Autosuggest extends React.Component {
         }
     };
 
-    focus = openMenu => {
-        if (openMenu) {
-            openMenu();
-        }
-    };
+    focus(openMenu) {
+        openMenu();
+        this.inputRef.current.focus();
+    }
 
     renderTags() {
         const { selectedPlaceholder, suggestionToString, selectedSuggestions } = this.props;
