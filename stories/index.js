@@ -4,6 +4,7 @@ import './CandidateAvatar';
 import './Callout';
 import './Chip';
 import './ContentPlaceholder';
+import './Drawer';
 import './Heading';
 import './Icon';
 import './Input';

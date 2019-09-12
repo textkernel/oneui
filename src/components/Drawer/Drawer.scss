@@ -1,0 +1,85 @@
+$drawer-head-height: 40px;
+$open-transition-duration: 170ms;
+$icon-size: 26px;
+
+.Drawer {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 0px;
+    right: 100px;
+    width: var(--drawer-width);
+    max-height: 100vh;
+    box-shadow:  0 5px 10px rgba(0,0,0,.1);
+    z-index: var(--drawer-z-index);
+    transform: translateY(100%) translateY($drawer-head-height * -1);
+    transition-duration: $open-transition-duration;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &--isOpen {
+        transform: translateY(0%);
+    }
+
+    &__head {
+        padding: 0 var(--spacing-5x);
+        display: flex;
+        align-items: center;
+        height: $drawer-head-height;
+        background-color: var(--drawer-head-background-color);
+        border-radius: 4px 4px 0 0;
+    }
+
+    &__headTitle {
+        font-weight: 200;
+        color: var(--color-neutral-10);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__headButtons {
+        flex-shrink: 0;
+        margin-left: auto;
+    }
+
+    &__extendButton {
+        display: inline-block;
+        vertical-align: middle;
+        height: $icon-size;
+        width: $icon-size;
+        padding: 0;
+        cursor: pointer;
+        background-color: var(--transparent);
+        color: var(--color-neutral-10);
+        border: none;
+        border-radius: 50%;
+        outline: 0;
+        transition: background-color var(--transition-duration) ease, transform 0ms ease $open-transition-duration;
+
+        &--isOpen {
+            transform: rotate(180deg);
+        }
+
+        &:hover,
+        &:focus {
+            background-color: var(--drawer-extent-hover-background-color);
+        }
+
+        &:active {
+            background-color: var(--drawer-extent-active-background-color);
+        }
+    }
+
+    &__extendIcon {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 16px;
+    }
+
+    &__body {
+        overflow: auto;
+        background-color: var(--color-background);
+        border-left: 1px solid var(--color-neutral);
+        border-right: 1px solid var(--color-neutral);
+    }
+}
