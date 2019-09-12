@@ -8,15 +8,15 @@ const { block } = bem({
     classnames: styles,
 });
 
-const BlockWidthRestrictor = props => {
+const BlockWidthRestrictor = React.forwardRef((props, ref) => {
     const { children, As, ...rest } = props;
 
     return (
-        <As {...rest} {...block(props)}>
+        <As {...rest} ref={ref} {...block(props)}>
             {children}
         </As>
     );
-};
+});
 
 BlockWidthRestrictor.displayName = 'BlockWidthRestrictor';
 

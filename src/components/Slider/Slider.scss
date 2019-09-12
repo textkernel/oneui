@@ -1,7 +1,7 @@
 // Definition of basic slider variables
-$slider-rail-height: 8px;
-$slider-handle-size: 24px;
-$slider-handle-border-width: 6px;
+$slider-rail-height: 3px;
+$slider-handle-size: 18px;
+$slider-handle-border-width: 2px;
 
 // Centering adjustments of the handle on the rail
 $slider-handle-adjust-left: -($slider-handle-size / 2);
@@ -9,8 +9,6 @@ $slider-handle-adjust-top: -(($slider-handle-size / 2) - ($slider-rail-height / 
 
 // Definitions of variables for paddings, shadows, etc.
 $slider-padding: 5px 0;
-$slider-box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, .2);
-$slider-handle-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 
 :global .rc-slider-track {
     position: absolute;
@@ -18,7 +16,6 @@ $slider-handle-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
     border-radius: $slider-rail-height / 2;
     background-color: var(--color-brand);
     transition: background-color var(--transition-duration) ease;
-    box-shadow: $slider-box-shadow
 }
 
 :global .rc-slider-handle {
@@ -27,16 +24,14 @@ $slider-handle-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
     height: $slider-handle-size;
     margin-left: $slider-handle-adjust-left;
     margin-top: $slider-handle-adjust-top;
-    border: solid $slider-handle-border-width white;
+    border: solid $slider-handle-border-width var(--color-brand);
     border-radius: 50%;
-    transition: background-color var(--transition-duration) ease;
-    background-color: var(--color-brand);
-    box-shadow: $slider-handle-box-shadow;
+    transition: background-color var(--transition-duration) ease, transform  var(--transition-duration);
+    background-color: var(--color-background);
     cursor: grab;
 
     &:active {
         cursor: grabbing;
-        background-color: var(--color-primary);
     }
 
     &:focus {
@@ -54,12 +49,12 @@ $slider-handle-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
         background-color: var(--color-brand-40);
     }
 
-    &:active .rc-slider-track {
-        background-color: var(--color-brand-40);
+    &:hover .rc-slider-handle {
+        transform: scale(1.2);
     }
 
-    &:hover .rc-slider-handle {
-        background-color: var(--color-primary);
+    &:active .rc-slider-track {
+        background-color: var(--color-brand-40);
     }
 
     * {
@@ -70,8 +65,7 @@ $slider-handle-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
 :global .rc-slider-rail {
     position: absolute;
     width: 100%;
-    background-color: white;
+    background-color: var(--color-neutral-10);
     height: $slider-rail-height;
     border-radius: $slider-rail-height / 2;
-    box-shadow: $slider-box-shadow
 }
