@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, text, select, boolean, withKnobs } from '@storybook/addon-knobs';
-import { LocationSelectorWithGoogleLoader } from '../src/components/LocationSelector';
+import { LocationSelectorWithGoogleLoader } from '@textkernel/oneui';
 import ensureApiKey from './utils/ensureApiKey';
 import withStore from '../src/packages/storybook/withStore';
 
