@@ -12,6 +12,7 @@ const { block, elem } = bem({
 
 const LocationCard = props => {
     const {
+        As,
         locationId,
         locationTitle,
         distanceRadius,
@@ -24,10 +25,12 @@ const LocationCard = props => {
         ...rest
     } = props;
 
+    const handleRadiusChange = radius => onRadiusChange(locationId, radius);
+
     const handleDelete = () => onDelete(locationId);
 
     return (
-        <div {...rest} {...block(props)}>
+        <As {...rest} {...block(props)}>
             <div {...elem('header', props)}>
                 <Text title={locationTitle} size={SIZES[2]} {...elem('title', props)}>
                     {locationTitle}
@@ -42,13 +45,13 @@ const LocationCard = props => {
                     min={minRadius}
                     max={maxRadius}
                     step={radiusStep}
-                    onChange={onRadiusChange}
+                    onChange={handleRadiusChange}
                 />
                 <Text size={SIZES[0]} {...elem('slider-label', props)}>
                     {sliderLabel}
                 </Text>
             </div>
-        </div>
+        </As>
     );
 };
 
@@ -74,6 +77,8 @@ LocationCard.propTypes = {
     onRadiusChange: PropTypes.func,
     /** Location card delete callback */
     onDelete: PropTypes.func,
+    /** HTML tag to be used as a wrapping component */
+    As: PropTypes.string,
 };
 
 LocationCard.defaultProps = {
@@ -84,6 +89,7 @@ LocationCard.defaultProps = {
     radiusStep: 1,
     onRadiusChange: () => null,
     onDelete: () => null,
+    As: 'div',
 };
 
 export default LocationCard;

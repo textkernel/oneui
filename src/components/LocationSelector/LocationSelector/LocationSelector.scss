@@ -1,0 +1,39 @@
+$input-line-height: 67px;
+$location-card-width: 300px;
+
+.LocationSelector {
+    &__inputLine {
+        display: flex;
+        box-sizing: border-box;
+        height: $input-line-height;
+        padding: var(--spacing-4x);
+    }
+
+    &__searchField {
+        flex-basis: 80%;
+        min-width: 100px;
+    }
+
+    &__button {
+        flex-basis: 20%;
+        margin-left: var(--spacing-4x);
+    }
+
+    &__locationsWrapper {
+        display: flex;
+        height: 100%;
+    }
+
+    &__locationCardsContainer {
+        padding: 0;
+        margin: 0;
+        width: $location-card-width;
+        min-width: $location-card-width;
+        padding-right: calc(var(--spacing-4x) - 1px);
+        overflow: auto;
+    }
+
+    &__locationCard:not(:last-child) {
+        margin-bottom: var(--spacing-normal);
+    }
+}

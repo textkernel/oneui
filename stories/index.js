@@ -35,3 +35,4 @@ import './TwoPaneView';
 // Organisms
 import './Autosuggest';
 import './LocationAutocomplete';
+import './LocationSelector';

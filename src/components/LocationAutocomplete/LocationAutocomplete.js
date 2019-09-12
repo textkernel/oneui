@@ -25,6 +25,7 @@ const LocationAutocomplete = props => {
     const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
 
     const {
+        isFocused,
         onSelectionChange,
         inputPlaceholder,
         noSuggestionsPlaceholder,
@@ -142,6 +143,7 @@ const LocationAutocomplete = props => {
             getSuggestions={suggestionsList}
             suggestionToString={suggestionToString}
             isLoading={isLoading}
+            isFocused={isFocused}
             inputPlaceholder={inputPlaceholder}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             listRenderer={renderListPoweredByGoogle}
@@ -161,6 +163,8 @@ LocationAutocomplete.propTypes = {
     inputPlaceholder: PropTypes.string.isRequired,
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
+    /** trigger of the initial focus of the input field */
+    isFocused: PropTypes.bool,
     /** callback to be called with selected value.
      * Value is of type AutocompletePrediction: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction
      */
@@ -184,6 +188,7 @@ LocationAutocomplete.propTypes = {
 LocationAutocomplete.defaultProps = {
     country: null,
     placeTypes: ['(regions)'],
+    isFocused: false,
     showCountryInSuggestions: false,
     onError: null,
     hidePoweredByGoogleLogo: false,

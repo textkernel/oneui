@@ -76,6 +76,7 @@ const Map = React.forwardRef((props, ref) => {
                 markers.map(marker => {
                     const { center: mCenter, radius } = marker;
                     const positionStr = `${mCenter.lat}-${mCenter.lng}`;
+
                     return (
                         <React.Fragment key={positionStr}>
                             <Marker key={`${positionStr}-marker`} position={mCenter} />

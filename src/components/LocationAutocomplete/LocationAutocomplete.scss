@@ -1,3 +1,5 @@
+$icon-margin-adjustment: 1px 1px 0px 3px;
+
 .LocationAutocomplete {
     &__poweredByGoogleImage {
         position: absolute;
@@ -7,5 +9,6 @@
 
     &__icon {
         color: var(--color-muted);
+        margin: $icon-margin-adjustment;
     }
 }

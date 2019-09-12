@@ -1,5 +1,6 @@
 /* eslint import/no-extraneous-dependencies: [error, { devDependencies: true }] */
 
+import 'regenerator-runtime/runtime';
 import Enzyme, { shallow, render, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 

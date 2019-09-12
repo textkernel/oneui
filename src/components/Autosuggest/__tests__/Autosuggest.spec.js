@@ -13,7 +13,7 @@ describe('Autosuggest', () => {
     const clearTitle = 'Clear';
     const mockOnSelectionChange = jest.fn();
     const mockOnInputValueChange = jest.fn();
-    const mockonClearAllSelected = jest.fn();
+    const mockOnClearAllSelected = jest.fn();
     const mockOnBlur = jest.fn();
 
     let suggestionsList = null;
@@ -38,7 +38,7 @@ describe('Autosuggest', () => {
                 onSelectionChange={mockOnSelectionChange}
                 onInputValueChange={mockOnInputValueChange}
                 onBlur={mockOnBlur}
-                onClearAllSelected={mockonClearAllSelected}
+                onClearAllSelected={mockOnClearAllSelected}
                 showClearButton
             />
         );
@@ -160,7 +160,7 @@ describe('Autosuggest', () => {
             expect(wrapper.state('focused')).toBeFalsy();
             expect(focusSpy).not.toHaveBeenCalled();
 
-            wrapper.find('.Autosuggest__wrapper').simulate('click');
+            setFocusOnInput();
 
             expect(wrapper.state('focused')).toBeTruthy();
             expect(focusSpy).toHaveBeenCalledTimes(1);
@@ -317,14 +317,14 @@ describe('Autosuggest', () => {
         it('should call onClearAllSelected when clear button was clicked', () => {
             selectedSuggestions = SUGGESTIONS.slice(0, 5);
             wrapper.setProps({ selectedSuggestions });
-            expect(mockonClearAllSelected).not.toHaveBeenCalled();
+            expect(mockOnClearAllSelected).not.toHaveBeenCalled();
 
             wrapper
                 .find('.FieldWrapper__clearButton')
                 .at(1)
                 .simulate('click');
 
-            expect(mockonClearAllSelected).toHaveBeenCalled();
+            expect(mockOnClearAllSelected).toHaveBeenCalled();
         });
         it('should clear the input field when a suggestion was selected', () => {
             const textInputValue = 'driver';
