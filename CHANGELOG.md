@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.2.1](https://github.com/textkernel/oneui/compare/6.2.0...6.2.1) (2019-09-12)
+
+
+### Bug Fixes
+
+* Add LocationSelector component files to the src/index.js ([#169](https://github.com/textkernel/oneui/issues/169)) ([40d0027](https://github.com/textkernel/oneui/commit/40d0027))
+
+
+### Build System
+
+* **deps:** bump eslint-utils from 1.3.1 to 1.4.2 in /example ([#166](https://github.com/textkernel/oneui/issues/166)) ([7b25096](https://github.com/textkernel/oneui/commit/7b25096))
+* **deps:** bump lodash-es from 4.17.11 to 4.17.15 ([#168](https://github.com/textkernel/oneui/issues/168)) ([6ed6879](https://github.com/textkernel/oneui/commit/6ed6879))
+* **deps:** bump lodash.template from 4.4.0 to 4.5.0 in /example ([#167](https://github.com/textkernel/oneui/issues/167)) ([14d2575](https://github.com/textkernel/oneui/commit/14d2575))
+
+
+
 ## [6.2.0](https://github.com/textkernel/oneui/compare/6.1.0...6.2.0) (2019-09-12)
 
 
