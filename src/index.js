@@ -39,3 +39,4 @@ export {
     LocationAutocompleteWithGoogleLoader,
     LocationAutocomplete,
 } from './components/LocationAutocomplete';
+export { LocationSelectorWithGoogleLoader, LocationSelector } from './components/LocationSelector';

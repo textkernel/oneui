@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import bem from 'bem';
 import { LoadScriptNext } from '@react-google-maps/api';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { Text, Modal, FieldWrapper, LoadingSpinner, LocationAutocomplete } from '../../../index';
-import LocationSelector from '../LocationSelector/LocationSelector';
+import { Text, Modal, FieldWrapper, LoadingSpinner, LocationSelector } from '../../../index';
 import { findCenter, getRadiusInMeters } from '../utils';
 import styles from './LocationSelectorWithGoogleLoader.scss';
 
@@ -250,8 +249,8 @@ LocationSelectorWithGoogleLoader.defaultProps = {
     additionalGoogleProps: {},
     region: undefined,
     selectionPlaceholder: null,
-    placeTypes: LocationAutocomplete.defaultProps.placeTypes,
-    onLocationAutocompleteError: LocationAutocomplete.defaultProps.onError,
+    placeTypes: ['(regions)'],
+    onLocationAutocompleteError: () => null,
 };
 
 export default LocationSelectorWithGoogleLoader;
