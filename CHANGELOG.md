@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.2.0](https://github.com/textkernel/oneui/compare/6.1.0...6.2.0) (2019-09-12)
+
+
+### Bug Fixes
+
+* **Slider:** update styling ([#163](https://github.com/textkernel/oneui/issues/163)) ([a0ba478](https://github.com/textkernel/oneui/commit/a0ba478))
+
+
+### Features
+
+* **component:** new Callout component ([#165](https://github.com/textkernel/oneui/issues/165)) ([810a81a](https://github.com/textkernel/oneui/commit/810a81a))
+* **component:** New LocationSelector component ([#157](https://github.com/textkernel/oneui/issues/157)) ([e3c14d3](https://github.com/textkernel/oneui/commit/e3c14d3))
+
+
+
 ## [6.1.0](https://github.com/textkernel/oneui/compare/6.0.0...6.1.0) (2019-09-02)
 
 
