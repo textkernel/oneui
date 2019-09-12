@@ -1,0 +1,49 @@
+@import '../../themes/oneui/oneui.scss';
+
+$icon-size: 16px;
+
+.Callout {
+    display: flex;
+    padding: 0 var(--spacing-5x);
+    align-items: center;
+
+    &__content {
+        padding-right: var(--spacing-5x);
+    }
+
+    &__closeButton {
+        display: inline-block;
+        flex-shrink: 0;
+        height: $icon-size;
+        width: $icon-size;
+        padding: 0;
+        margin-left: auto;
+        cursor: pointer;
+        background-color: var(--transparent);
+        border: none;
+        outline: 0;
+        transition: color --transition-duration ease;
+    }
+
+    &__closeIcon {
+        font-size: 16px;
+    }
+
+    @each $context in ($contexts) {
+        &--context_#{$context} {
+            background-color: var(--color-#{$context}-10);
+        }
+        &__content--context_#{ $context } {
+            color: var(--color-#{$context}-75);
+        }
+
+        &__closeButton--context_#{ $context } {
+            color: var(--color-#{$context}-60);
+        }
+
+        &__closeButton--context_#{ $context }:hover,
+        &__closeButton--context_#{ $context }:focus {
+            color: var(--color-#{$context}-75);
+        }
+    }
+}
