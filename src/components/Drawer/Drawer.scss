@@ -12,11 +12,15 @@ $icon-size: 26px;
     max-height: 100vh;
     box-shadow:  0 5px 10px rgba(0,0,0,.1);
     z-index: var(--drawer-z-index);
-    transform: translateY(100%) translateY($drawer-head-height * -1);
+    transform: translateY(100%);
     transition-duration: $open-transition-duration;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-    &--isOpen {
+    &--isShownAndClosed {
+        transform: translateY(100%) translateY($drawer-head-height * -1);
+    }
+
+    &--isShownAndExpanded {
         transform: translateY(0%);
     }
 
@@ -27,6 +31,8 @@ $icon-size: 26px;
         height: $drawer-head-height;
         background-color: var(--drawer-head-background-color);
         border-radius: 4px 4px 0 0;
+        cursor: pointer;
+        outline: 0;
     }
 
     &__headTitle {
@@ -42,7 +48,7 @@ $icon-size: 26px;
         margin-left: auto;
     }
 
-    &__extendButton {
+    &__expandButton {
         display: inline-block;
         vertical-align: middle;
         height: $icon-size;
@@ -56,21 +62,21 @@ $icon-size: 26px;
         outline: 0;
         transition: background-color var(--transition-duration) ease, transform 0ms ease $open-transition-duration;
 
-        &--isOpen {
+        &--isExpanded {
             transform: rotate(180deg);
         }
 
         &:hover,
         &:focus {
-            background-color: var(--drawer-extent-hover-background-color);
+            background-color: var(--drawer-expand-hover-background-color);
         }
 
         &:active {
-            background-color: var(--drawer-extent-active-background-color);
+            background-color: var(--drawer-expand-active-background-color);
         }
     }
 
-    &__extendIcon {
+    &__expandIcon {
         display: inline-block;
         vertical-align: middle;
         font-size: 16px;
