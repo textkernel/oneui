@@ -39,4 +39,8 @@ export {
     LocationAutocompleteWithGoogleLoader,
     LocationAutocomplete,
 } from './components/LocationAutocomplete';
-export { LocationSelectorWithGoogleLoader, LocationSelector } from './components/LocationSelector';
+export {
+    LocationSelectorDialog,
+    LocationSelectorDialogWithGoogleLoader,
+    LocationSelector,
+} from './components/LocationSelector';

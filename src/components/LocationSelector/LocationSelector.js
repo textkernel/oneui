@@ -1,21 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import { LoadScriptNext } from '@react-google-maps/api';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { Text, Modal, FieldWrapper, LoadingSpinner, LocationSelector } from '../../../index';
-import { findCenter, getRadiusInMeters } from '../utils';
-import styles from './LocationSelectorWithGoogleLoader.scss';
-
-const GOOGLE_API_LIBRARIES = ['places'];
+import { Text, Modal, FieldWrapper } from '../../index';
+import LocationSelectorDialogWithGoogleLoader from './LocationSelectorDialogWithGoogleLoader';
+import { findCenter, getRadiusInMeters } from './utils';
+import styles from './LocationSelector.scss';
 
 const { block, elem } = bem({
-    name: 'LocationSelectorWithGoogleLoader',
+    name: 'LocationSelector',
     classnames: styles,
     propsToMods: ['muted'],
 });
 
-function LocationSelectorWithGoogleLoader(props) {
+function LocationSelector(props) {
     const {
         /** Google props */
         apiKey,
@@ -134,42 +132,37 @@ function LocationSelectorWithGoogleLoader(props) {
                 onRequestClose={handleCloseModal}
                 contentLabel={modalContentLabel}
             >
-                <LoadScriptNext
-                    googleMapsApiKey={apiKey}
+                <LocationSelectorDialogWithGoogleLoader
+                    apiKey={apiKey}
                     language={language}
                     region={region}
-                    loadingElement={<LoadingSpinner centerIn="parent" />}
-                    libraries={GOOGLE_API_LIBRARIES}
                     {...additionalGoogleProps}
-                >
-                    <LocationSelector
-                        inputPlaceholder={inputPlaceholder}
-                        minRadius={minRadius}
-                        maxRadius={maxRadius}
-                        radiusStep={radiusStep}
-                        renderRadiusLabel={renderRadiusLabel}
-                        onRemoveLocation={onRemoveLocation}
-                        doneLabel={doneLabel}
-                        country={country}
-                        placeTypes={placeTypes}
-                        noSuggestionsPlaceholder={noSuggestionsPlaceholder}
-                        showCountryInSuggestions={showCountryInSuggestions}
-                        onLocationAutocompleteError={onLocationAutocompleteError}
-                        onUpdateLocation={onUpdateLocation}
-                        selectedLocations={selectedLocations}
-                        getMarkers={getMarkers}
-                        onAddLocation={handleAddLocation}
-                        onCloseModal={handleCloseModal}
-                    />
-                </LoadScriptNext>
+                    inputPlaceholder={inputPlaceholder}
+                    minRadius={minRadius}
+                    maxRadius={maxRadius}
+                    radiusStep={radiusStep}
+                    renderRadiusLabel={renderRadiusLabel}
+                    onRemoveLocation={onRemoveLocation}
+                    doneLabel={doneLabel}
+                    country={country}
+                    placeTypes={placeTypes}
+                    noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+                    showCountryInSuggestions={showCountryInSuggestions}
+                    onLocationAutocompleteError={onLocationAutocompleteError}
+                    onUpdateLocation={onUpdateLocation}
+                    selectedLocations={selectedLocations}
+                    getMarkers={getMarkers}
+                    onAddLocation={handleAddLocation}
+                    onCloseModal={handleCloseModal}
+                />
             </Modal>
         </div>
     );
 }
 
-LocationSelectorWithGoogleLoader.displayName = 'LocationSelectorWithGoogleLoader';
+LocationSelector.displayName = 'LocationSelector';
 
-LocationSelectorWithGoogleLoader.propTypes = {
+LocationSelector.propTypes = {
     /** Google api key */
     apiKey: PropTypes.string.isRequired,
     /** language in which suggestions should be displayed */
@@ -239,7 +232,7 @@ LocationSelectorWithGoogleLoader.propTypes = {
     onBlur: PropTypes.func,
 };
 
-LocationSelectorWithGoogleLoader.defaultProps = {
+LocationSelector.defaultProps = {
     radiusDefaultValue: 1,
     minRadius: 1,
     maxRadius: 100,
@@ -253,4 +246,4 @@ LocationSelectorWithGoogleLoader.defaultProps = {
     onLocationAutocompleteError: () => null,
 };
 
-export default LocationSelectorWithGoogleLoader;
+export default LocationSelector;

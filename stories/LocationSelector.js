@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, text, select, boolean, withKnobs } from '@storybook/addon-knobs';
-import { LocationSelectorWithGoogleLoader } from '@textkernel/oneui';
+import { LocationSelector } from '@textkernel/oneui';
 import ensureApiKey from './utils/ensureApiKey';
 import withStore from '../src/packages/storybook/withStore';
 
@@ -40,7 +40,7 @@ storiesOf('Organisms|LocationSelector', module)
         const apiKey = ensureApiKey();
 
         return (
-            <LocationSelectorWithGoogleLoader
+            <LocationSelector
                 apiKey={apiKey}
                 selectedLocations={selectedLocations}
                 country={text('country', 'NL')}
@@ -110,7 +110,7 @@ storiesOf('Organisms|LocationSelector', module)
         };
 
         return (
-            <LocationSelectorWithGoogleLoader
+            <LocationSelector
                 apiKey={apiKey}
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}

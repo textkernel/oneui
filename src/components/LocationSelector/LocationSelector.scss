@@ -5,7 +5,7 @@ $modal-min-width: 2 * $location-card-width;
 $modal-min-height: 400px;
 $icon-margin-adjustment: 5px 1px -3px 3px;
 
-.LocationSelectorWithGoogleLoader {
+.LocationSelector {
     &__mainTextInputWrapper {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
         height: $text-input-height;

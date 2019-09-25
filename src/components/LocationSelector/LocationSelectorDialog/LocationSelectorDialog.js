@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import { Map, Button, LocationCard, LocationAutocomplete } from '../../../index';
-import styles from './LocationSelector.scss';
+import styles from './LocationSelectorDialog.scss';
 
 const { elem } = bem({
-    name: 'LocationSelector',
+    name: 'LocationSelectorDialog',
     classnames: styles,
 });
 
-const LocationSelector = props => {
+const LocationSelectorDialog = props => {
     const {
         /** FieldWrapper props */
         inputPlaceholder,
@@ -83,9 +83,9 @@ const LocationSelector = props => {
     );
 };
 
-LocationSelector.displayName = 'LocationSelector';
+LocationSelectorDialog.displayName = 'LocationSelectorDialog';
 
-LocationSelector.propTypes = {
+LocationSelectorDialog.propTypes = {
     /** stores an array of selected location objects */
     selectedLocations: PropTypes.arrayOf(
         PropTypes.shape({
@@ -129,7 +129,8 @@ LocationSelector.propTypes = {
     onUpdateLocation: PropTypes.func.isRequired,
     /** function with a locationId as an argument to be removed */
     onRemoveLocation: PropTypes.func.isRequired,
+    /** function to calculate marker positions in Map  */
     getMarkers: PropTypes.func.isRequired,
 };
 
-export default LocationSelector;
+export default LocationSelectorDialog;
