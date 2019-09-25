@@ -84,13 +84,13 @@ LocationSelectorDialogWithGoogleLoader.propTypes = {
     /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
     additionalGoogleProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** LocationSelectorDialog props */
-    ...LocationSelectorDialog.propTypes,
+    // ...LocationSelectorDialog.propTypes,
 };
 
 LocationSelectorDialogWithGoogleLoader.defaultProps = {
     additionalGoogleProps: {},
     region: undefined,
-    ...LocationSelectorDialog.defaultProps,
+    // ...LocationSelectorDialog.defaultProps,
 };
 
 export default LocationSelectorDialogWithGoogleLoader;

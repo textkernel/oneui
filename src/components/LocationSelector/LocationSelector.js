@@ -81,13 +81,13 @@ function LocationSelector(props) {
         const { Geocoder } = window.google.maps;
         const geocoder = new Geocoder();
 
-        findCenter(geocoder, location.place_id)
+        return findCenter(geocoder, location.place_id)
             .then(center => {
                 const locationToAdd = {
                     ...location,
                     center: {
-                        lng: center.lng(),
-                        lat: center.lat(),
+                        lng: typeof center.lng === 'function' ? center.lng() : center.lng,
+                        lat: typeof center.lat === 'function' ? center.lat() : center.lat,
                     },
                     radius: radiusDefaultValue,
                 };

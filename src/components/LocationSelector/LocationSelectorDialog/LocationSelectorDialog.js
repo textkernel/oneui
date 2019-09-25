@@ -114,13 +114,13 @@ LocationSelectorDialog.propTypes = {
      */
     placeTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
     /** show country name in autocomplete suggestions */
-    showCountryInSuggestions: PropTypes.bool.isRequired,
+    showCountryInSuggestions: PropTypes.bool,
     /** placeholder for both main field and autocomplete field in modal */
     inputPlaceholder: PropTypes.string.isRequired,
     /** placeholder for empty LocationAutocomplete list */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** function to be executed if error occurs while fetching suggestions */
-    onLocationAutocompleteError: PropTypes.func.isRequired,
+    onLocationAutocompleteError: PropTypes.func,
     /** label for the Done button */
     doneLabel: PropTypes.string.isRequired,
     /** function called with location object as an argument when it is selected from the suggestions */
@@ -131,6 +131,11 @@ LocationSelectorDialog.propTypes = {
     onRemoveLocation: PropTypes.func.isRequired,
     /** function to calculate marker positions in Map  */
     getMarkers: PropTypes.func.isRequired,
+};
+
+LocationSelectorDialog.defaultProps = {
+    showCountryInSuggestions: false,
+    onLocationAutocompleteError: null,
 };
 
 export default LocationSelectorDialog;
