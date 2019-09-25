@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/textkernel/oneui/compare/6.2.1...7.0.0) (2019-09-25)
+
+
+### Bug Fixes
+
+* escape button press doesn't reset the state of Autosuggest component ([#172](https://github.com/textkernel/oneui/issues/172)) ([a8b0377](https://github.com/textkernel/oneui/commit/a8b0377))
+
+
+### Features
+
+* **Drawer:** improvements Drawer component ([#171](https://github.com/textkernel/oneui/issues/171)) ([94a306f](https://github.com/textkernel/oneui/commit/94a306f))
+
+
+### BREAKING CHANGES
+
+* **Drawer:** changed Drawer API
+
+
+
 ### [6.2.1](https://github.com/textkernel/oneui/compare/6.2.0...6.2.1) (2019-09-12)
 
 
