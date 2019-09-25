@@ -1,36 +1,143 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Drawer should render correctly 1`] = `
-<div
-  className="Drawer"
+<Drawer
+  initialIsExpanded={false}
+  isExpanded={null}
+  isShown={true}
+  onClick={null}
+  title="some title"
 >
-  <header
-    className="Drawer__head"
+  <Portal
+    containerInfo={
+      <body>
+        <div
+          aria-hidden="false"
+          class="Drawer Drawer--isShownAndClosed"
+        >
+          <header
+            class="Drawer__head"
+            role="button"
+            tabindex="-1"
+          >
+            <h4
+              class="Drawer__headTitle"
+            >
+              some title
+            </h4>
+            <div
+              class="Drawer__headButtons"
+            >
+              <button
+                class="Drawer__expandButton"
+                type="button"
+              >
+                <svg
+                  class="Drawer__expandIcon"
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  stroke-width="0"
+                  viewBox="0 0 512 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </header>
+          <section
+            aria-hidden="true"
+            class="Drawer__body"
+          >
+            some text
+          </section>
+        </div>
+      </body>
+    }
   >
-    <h4
-      className="Drawer__headTitle"
+    <mockConstructor
+      appear={true}
+      in={true}
+      timeout={
+        Object {
+          "enter": 10,
+          "exit": 300,
+        }
+      }
+      unmountOnExit={true}
     >
-      some title
-    </h4>
-    <div
-      className="Drawer__headButtons"
-    >
-      <button
-        className="Drawer__extendButton"
-        onClick={[Function]}
-        type="button"
+      <div
+        aria-hidden={false}
+        className="Drawer Drawer--isShownAndClosed"
       >
-        <IoIosArrowUp
-          className="Drawer__extendIcon"
-        />
-      </button>
-    </div>
-  </header>
-  <section
-    aria-hidden={true}
-    className="Drawer__body"
-  >
-    some text
-  </section>
-</div>
+        <header
+          className="Drawer__head"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="button"
+          tabIndex="-1"
+        >
+          <h4
+            className="Drawer__headTitle"
+          >
+            some title
+          </h4>
+          <div
+            className="Drawer__headButtons"
+          >
+            <button
+              className="Drawer__expandButton"
+              onClick={[Function]}
+              type="button"
+            >
+              <IoIosArrowUp
+                className="Drawer__expandIcon"
+              >
+                <IconBase
+                  attr={
+                    Object {
+                      "viewBox": "0 0 512 512",
+                    }
+                  }
+                  className="Drawer__expandIcon"
+                >
+                  <svg
+                    className="Drawer__expandIcon"
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
+                      key="0"
+                    />
+                  </svg>
+                </IconBase>
+              </IoIosArrowUp>
+            </button>
+          </div>
+        </header>
+        <section
+          aria-hidden={true}
+          className="Drawer__body"
+        >
+          some text
+        </section>
+      </div>
+    </mockConstructor>
+  </Portal>
+</Drawer>
 `;

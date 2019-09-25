@@ -7,10 +7,10 @@ $progress-label-color: var(--color-background) !default;
 
 // Drawer variables
 $drawer-width: 400px;
-$drawer-z-index: 100;
+$drawer-z-index: 15;
 $drawer-head-background-color: #333 !default;
-$drawer-extent-active-background-color: #797777 !default;
-$drawer-extent-hover-background-color: #565656 !default;
+$drawer-expand-active-background-color: #797777 !default;
+$drawer-expand-hover-background-color: #565656 !default;
 
 :root {
     --transition-duration: #{ $transition-duration };
@@ -22,6 +22,6 @@ $drawer-extent-hover-background-color: #565656 !default;
     --drawer-width: #{ $drawer-width };
     --drawer-z-index: #{ $drawer-z-index };
     --drawer-head-background-color: #{ $drawer-head-background-color };
-    --drawer-extent-active-background-color: #{ $drawer-extent-active-background-color };
-    --drawer-extent-hover-background-color: #{ $drawer-extent-hover-background-color };
+    --drawer-expand-active-background-color: #{ $drawer-expand-active-background-color };
+    --drawer-expand-hover-background-color: #{ $drawer-expand-hover-background-color };
 }
