@@ -60,8 +60,7 @@ class Autosuggest extends React.Component {
     };
 
     handleInputKeyDown = event => {
-        const { getSuggestions, onSelectionChange, selectedSuggestions } = this.props;
-        const { inputValue } = this.state;
+        const { onSelectionChange, selectedSuggestions } = this.props;
 
         if (
             event.key === BACKSPACE_KEY &&
@@ -75,20 +74,11 @@ class Autosuggest extends React.Component {
             this.inputRef.current.blur();
             this.handleBlur();
         } else if (event.key === ESCAPE_KEY) {
-            const getSuggestionsIsFunc = typeof getSuggestions === 'function';
-            const suggestions = getSuggestionsIsFunc ? getSuggestions(inputValue) : getSuggestions;
-
-            // prevents key propagation if the dropdown is opened so escape press will close
-            // otherwise let it go so pressed key could have an affection on the parent component
-            // e.g. close modal window
-            if (suggestions && suggestions.length) {
-                this.inputRef.current.blur();
-                this.inputRef.current.parentElement.focus();
-                event.stopPropagation();
-            } else {
-                this.inputRef.current.blur();
-                this.handleBlur();
-            }
+            // prevents key propagation and sets the focus on parent component
+            this.inputRef.current.blur();
+            this.handleBlur();
+            this.inputRef.current.parentElement.focus();
+            event.stopPropagation();
         }
     };
 

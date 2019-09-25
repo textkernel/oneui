@@ -179,6 +179,17 @@ describe('Autosuggest', () => {
             expect(blurSpy).toHaveBeenCalled();
             expect(mockOnBlur).toHaveBeenCalled();
         });
+        it('should clear input value on pressing Escape button', () => {
+            const textInputValue = 'driver';
+
+            wrapper.find('input').simulate('change', { target: { value: textInputValue } });
+
+            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+
+            wrapper.find('input').simulate('keyDown', { key: 'Escape' });
+
+            expect(wrapper.find('input').props().value).toEqual('');
+        });
         it('should blur on pressing Tab button', () => {
             const inputEl = instance.inputRef.current;
             const blurSpy = jest.spyOn(inputEl, 'blur');
