@@ -1,5 +1,8 @@
 $pill-height: 32px !default;
 $pill-label-height: 17px !default;
+$pill-button-size: 25px !default;
+
+$half-pill-height: $pill-height / 2;
 
 .PillButton {
     display: inline-grid;
@@ -11,6 +14,7 @@ $pill-label-height: 17px !default;
 
     &__label {
         grid-area: label;
+        padding-left: $half-pill-height;
         font-size: var(--font-size-small);
         text-transform: uppercase;
         color: var(--color-brand);
@@ -20,9 +24,10 @@ $pill-label-height: 17px !default;
         grid-area: pill;
         display: flex;
         justify-content: space-between;
-        border-radius: calc(#{$pill-height} / 2);
+        align-items: center;
+        border-radius: $half-pill-height;
         border: 1px solid var(--color-brand);
-        padding: var(--spacing-2x);
+        padding: var(--spacing-2x) var(--spacing-2x) var(--spacing-2x) $half-pill-height;
         color: var(--color-brand);
         cursor: pointer;
 
@@ -43,6 +48,11 @@ $pill-label-height: 17px !default;
     }
 
     &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $pill-button-size;
+        height: $pill-button-size;
         border-radius: 50%;
         margin-left: var(--spacing-2x);
         border: none;
@@ -51,6 +61,14 @@ $pill-label-height: 17px !default;
 
         &--isActive:hover {
             background-color: var(--color-brand-25);
+        }
+
+        &--isOpen:hover {
+            background-color: transparent;
+        }
+
+        &:focus {
+            outline: none;
         }
     }
 }

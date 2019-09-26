@@ -11,8 +11,10 @@ storiesOf('Molecules|Pill', module)
             togglePopup={() => {
                 console.log('togglePopup has been called');
             }}
-            onClear={() => 'onClean has been called'}
-            label={text('Pill label', 'Pill label')}
-            contentLabel={text('Pill contnent label', 'This pill is used')}
+            onClear={() => {
+                console.log('onClear has been called');
+            }}
+            name={text('Name of the pill', 'Pill name')}
+            label={text('Label for pill content', 'This pill is used')}
         />
     ));
