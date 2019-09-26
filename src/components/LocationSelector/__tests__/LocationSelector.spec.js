@@ -1,8 +1,8 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import toJson from 'enzyme-to-json';
-import stabGoogleApi, { getPlacePredictionsMock } from '../../../__mocks__/googleApiMock';
-import predictionsMock from '../../LocationAutocomplete/__mocks__/predictions.json';
+import { act } from 'react-dom/test-utils';
+import stabGoogleApi, { geocodeMock } from '../../../__mocks__/googleApiMock';
+import geocodeResponse from '../../Map/__mocks__/geocodeResponse.json';
 import { LocationSelector } from '..';
 
 stabGoogleApi();
@@ -34,6 +34,7 @@ describe('LocationSelector component', () => {
     const minRadius = 1;
     const maxRadius = 100;
     const radiusStep = 1;
+    const radiusDefaultValue = 2;
     const renderRadiusLabel = r => `+ ${r} km`;
     const country = 'NL';
     const placeTypes = ['(regions)'];
@@ -46,13 +47,18 @@ describe('LocationSelector component', () => {
     const onUpdateLocationMock = jest.fn();
     const onRemoveLocationMock = jest.fn();
     const onLocationAutocompleteErrorMock = jest.fn();
-    const onCloseModal = jest.fn();
 
     let wrapper;
 
     beforeEach(() => {
         wrapper = mount(
             <LocationSelector
+                apiKey="apiKey"
+                language="en"
+                radiusUnits="km"
+                radiusDefaultValue={radiusDefaultValue}
+                modalContentLabel="Location selection dialog"
+                clearLabel="Clear"
                 inputPlaceholder={inputPlaceholder}
                 minRadius={minRadius}
                 maxRadius={maxRadius}
@@ -67,9 +73,8 @@ describe('LocationSelector component', () => {
                 onLocationAutocompleteError={onLocationAutocompleteErrorMock}
                 onUpdateLocation={onUpdateLocationMock}
                 selectedLocations={selectedLocations}
-                getMarkers={() => []}
                 onAddLocation={onAddLocationMock}
-                onCloseModal={onCloseModal}
+                onRemoveAllLocations={jest.fn()}
             />
         );
     });
@@ -85,59 +90,77 @@ describe('LocationSelector component', () => {
         wrapper.find('.FieldWrapper').simulate('click');
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-    it('should close LocationSelector by pressing on Done button', () => {
-        wrapper.find('.FieldWrapper').simulate('click');
-        expect(onCloseModal).not.toHaveBeenCalled();
-        wrapper.find('.Button').simulate('click');
-        expect(onCloseModal).toHaveBeenCalledTimes(1);
-    });
-    it('should call onAddLocation by selecting an item from the autosuggestion list', () => {
-        jest.useFakeTimers();
-        getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
-        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
+    it('should open and close modal when requested', () => {
+        expect(
+            wrapper
+                .find('Modal')
+                .at(0)
+                .props().isOpen
+        ).toBeFalsy();
+
+        wrapper.find('FieldWrapper').simulate('click');
+        expect(
+            wrapper
+                .find('Modal')
+                .at(0)
+                .props().isOpen
+        ).toBeTruthy();
+
+        // Since JSDom cannot click outside of component,
+        // and because LocationSelectorDialog is not rendered due to LoadScriptNext not resolving
+        // we hack the callback by calling it directly on Modal
         act(() => {
-            jest.runAllTimers();
+            wrapper
+                .find('Modal')
+                .at(0)
+                .props()
+                .onRequestClose();
         });
-        wrapper.find('input').simulate('click');
 
-        expect(wrapper.find('Autosuggest').find('li')).toHaveLength(5);
-        expect(onAddLocationMock).not.toHaveBeenCalled();
-
-        wrapper
-            .find('Autosuggest')
-            .find('li')
-            .at(0)
-            .childAt(0)
-            .simulate('click');
-
-        expect(onAddLocationMock).toHaveBeenCalledTimes(1);
+        expect(
+            wrapper
+                .find('Modal')
+                .at(0)
+                .props().isOpen
+        ).toBeTruthy();
     });
-    it('should call onRemoveLocation by clicking on Close button of the selected location item', () => {
-        expect(onRemoveLocationMock).not.toHaveBeenCalled();
+    it('should add locations correctly', async () => {
+        geocodeMock.mockImplementationOnce((req, cb) => {
+            cb(geocodeResponse.results, geocodeResponse.status);
+        });
 
-        wrapper
-            .find('ul')
-            .at(1)
-            .childAt(0)
-            .find('button')
-            .simulate('click');
+        wrapper.find('FieldWrapper').simulate('click');
 
-        expect(onRemoveLocationMock).toHaveBeenCalledTimes(1);
+        // Since LocationSelectorDialog is not rendered due to LoadScriptNext not resolving
+        // we hack the callback by calling it directly on LocationSelectorDialogWithGoogleLoader
+        await wrapper
+            .find('LocationSelectorDialogWithGoogleLoader')
+            .props()
+            .onAddLocation({ place_id: 'someId' });
+
+        expect(onAddLocationMock).toHaveBeenCalledWith({
+            center: { lat: 52.132633, lng: 5.291265999999999 },
+            place_id: 'someId',
+            radius: radiusDefaultValue,
+        });
     });
-    // TODO: Update test so slider handle would be reachable in order to update a LocationCard
-    it.skip('should call onUpdateLocation by setting a new location radius valueof the selected location item', () => {
-        expect(onUpdateLocationMock).not.toHaveBeenCalled();
+    it('should get markers correctly', () => {
+        const expectedResponse = selectedLocations.map(location => ({
+            center: {
+                lat: location.center.lat,
+                lng: location.center.lng,
+            },
+            radius: location.radius * 1000,
+        }));
+        wrapper.find('FieldWrapper').simulate('click');
 
-        wrapper
-            .find('ul')
-            .at(1)
-            .childAt(0)
-            .find('div.rc-slider-handle')
-            .simulate('mouseover')
-            .simulate('mousedown')
-            .simulate('mousemove')
-            .simulate('mouseup');
-
-        expect(onUpdateLocationMock).toHaveBeenCalled();
+        // Since LocationSelectorDialog is not rendered due to LoadScriptNext not resolving
+        // we hack the callback by calling it directly on LocationSelectorDialogWithGoogleLoader
+        expect(
+            wrapper
+                .find('LocationSelectorDialogWithGoogleLoader')
+                .props()
+                .getMarkers()
+        ).toEqual(expectedResponse);
     });
 });

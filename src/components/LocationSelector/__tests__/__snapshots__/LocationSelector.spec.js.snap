@@ -2,16 +2,21 @@
 
 exports[`LocationSelector component should render LocationSelector properly when modal is open 1`] = `
 <LocationSelector
+  additionalGoogleProps={Object {}}
+  apiKey="apiKey"
+  clearLabel="Clear"
   country="NL"
   doneLabel="doneLabel"
-  getMarkers={[Function]}
   inputPlaceholder="inputPlaceholder"
+  language="en"
   maxRadius={100}
   minRadius={1}
+  modalContentLabel="Location selection dialog"
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
   onAddLocation={[MockFunction]}
-  onCloseModal={[MockFunction]}
+  onBlur={[Function]}
   onLocationAutocompleteError={[MockFunction]}
+  onRemoveAllLocations={[MockFunction]}
   onRemoveLocation={[MockFunction]}
   onUpdateLocation={[MockFunction]}
   placeTypes={
@@ -19,7 +24,9 @@ exports[`LocationSelector component should render LocationSelector properly when
       "(regions)",
     ]
   }
+  radiusDefaultValue={2}
   radiusStep={1}
+  radiusUnits="km"
   renderRadiusLabel={[Function]}
   selectedLocations={
     Array [
@@ -45,652 +52,376 @@ exports[`LocationSelector component should render LocationSelector properly when
       },
     ]
   }
+  selectionPlaceholder={null}
   showCountryInSuggestions={true}
 >
-  <div
-    className="LocationSelector__inputLine"
-  >
-    <LocationAutocomplete
-      className="LocationSelector__searchField"
-      country="NL"
-      hidePoweredByGoogleLogo={true}
-      inputPlaceholder="inputPlaceholder"
-      isFocused={true}
-      noSuggestionsPlaceholder="noSuggestionsPlaceholder"
-      onError={[MockFunction]}
-      onSelectionChange={[MockFunction]}
-      placeTypes={
-        Array [
-          "(regions)",
-        ]
-      }
-      showCountryInSuggestions={true}
+  <div>
+    <FieldWrapper
+      className="LocationSelector__mainTextInputWrapper"
+      clearLabel="Clear"
+      isFocused={false}
+      onClear={[MockFunction]}
+      onClick={[Function]}
+      showClearButton={true}
     >
-      <Autosuggest
-        className="LocationSelector__searchField"
-        clearTitle=""
-        getSuggestions={null}
-        iconNode={
-          <FaMapMarkerAlt
-            className="LocationAutocomplete__icon"
-          />
-        }
-        inputPlaceholder="inputPlaceholder"
-        isFocused={true}
-        isLoading={false}
-        isMultiselect={false}
-        isProminent={false}
-        listRenderer={[Function]}
-        noSuggestionsPlaceholder="noSuggestionsPlaceholder"
-        onBlur={[Function]}
-        onClearAllSelected={null}
-        onInputValueChange={[Function]}
-        onSelectionChange={[Function]}
-        selectedPlaceholder=""
-        selectedSuggestions={null}
-        showClearButton={false}
-        suggestionToString={[Function]}
+      <div
+        className="FieldWrapper LocationSelector__mainTextInputWrapper"
+        onClick={[Function]}
       >
         <div
-          className="Autosuggest LocationSelector__searchField"
+          className="FieldWrapper__content"
         >
-          <Downshift
-            defaultHighlightedIndex={0}
-            defaultIsOpen={false}
-            environment={[Window]}
-            getA11yStatusMessage={[Function]}
-            inputValue=""
-            itemToString={[Function]}
-            onChange={[Function]}
-            onInputValueChange={[Function]}
-            onOuterClick={[Function]}
-            onSelect={[Function]}
-            onStateChange={[Function]}
-            onUserAction={[Function]}
-            scrollIntoView={[Function]}
-            selectedItemChanged={[Function]}
-            stateReducer={[Function]}
-            suppressRefError={false}
+          <FaMapMarkerAlt
+            className="LocationSelector__icon"
           >
-            <div
-              aria-expanded={false}
-              aria-haspopup="listbox"
-              aria-labelledby="downshift-1-label"
-              aria-owns={null}
-              className="Autosuggest__main Autosuggest__main--focused"
-              role="combobox"
+            <IconBase
+              attr={
+                Object {
+                  "viewBox": "0 0 384 512",
+                }
+              }
+              className="LocationSelector__icon"
             >
-              <FieldWrapper
-                className="Autosuggest__field"
-                clearLabel=""
-                isFocused={true}
-                onClear={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                showClearButton={false}
+              <svg
+                className="LocationSelector__icon"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 384 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                  key="0"
+                />
+              </svg>
+            </IconBase>
+          </FaMapMarkerAlt>
+          <Text
+            className="LocationSelector__mainTextInput LocationSelector__mainTextInput--muted"
+            context="default"
+            inline={false}
+            size="normal"
+          >
+            <p
+              className="LocationSelector__mainTextInput LocationSelector__mainTextInput--muted"
+            >
+              inputPlaceholder
+            </p>
+          </Text>
+        </div>
+        <Button
+          className="FieldWrapper__clearButton"
+          context="link"
+          disabled={false}
+          href={null}
+          isBlock={false}
+          isInline={true}
+          onClick={[Function]}
+          size="normal"
+          type="button"
+        >
+          <button
+            className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Clear
+          </button>
+        </Button>
+      </div>
+    </FieldWrapper>
+    <Modal
+      ariaHideApp={false}
+      className="LocationSelector__modal"
+      contentLabel="Location selection dialog"
+      isOpen={true}
+      onRequestClose={[Function]}
+    >
+      <Modal
+        ariaHideApp={false}
+        bodyOpenClassName="ReactModal__Body--open"
+        className={
+          Object {
+            "afterOpen": "Modal__content--entered",
+            "base": "Modal__content LocationSelector__modal",
+            "beforeClose": "Modal__content--exited",
+          }
+        }
+        closeTimeoutMS={300}
+        contentLabel="Location selection dialog"
+        isOpen={true}
+        onRequestClose={[Function]}
+        overlayClassName={
+          Object {
+            "afterOpen": "Modal__overlay--entered",
+            "base": "Modal__overlay",
+            "beforeClose": "Modal__overlay--exited",
+          }
+        }
+        parentSelector={[Function]}
+        portalClassName="LocationSelector__modal"
+        role="dialog"
+        shouldCloseOnEsc={true}
+        shouldCloseOnOverlayClick={true}
+        shouldFocusAfterRender={true}
+        shouldReturnFocusAfterClose={true}
+      >
+        <Portal
+          containerInfo={
+            <div
+              class="LocationSelector__modal"
+            >
+              <div
+                class="Modal__overlay Modal__overlay--entered"
               >
                 <div
-                  className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
+                  aria-label="Location selection dialog"
+                  class="Modal__content LocationSelector__modal Modal__content--entered"
+                  role="dialog"
+                  tabindex="-1"
                 >
                   <div
-                    className="FieldWrapper__content"
+                    aria-busy="true"
+                    aria-hidden="false"
+                    class="LoadingSpinner LoadingSpinner--centerIn_parent"
+                    role="status"
                   >
-                    <div
-                      className="Autosuggest__wrapper Autosuggest__wrapper--focused"
-                      role="searchbox"
-                      tabIndex="0"
+                    <svg
+                      class="LoadingSpinner__svg"
+                      viewBox="0,0,44,44"
                     >
-                      <FaMapMarkerAlt
-                        className="Autosuggest__spacedElem LocationAutocomplete__icon"
-                      >
-                        <IconBase
-                          attr={
-                            Object {
-                              "viewBox": "0 0 384 512",
-                            }
-                          }
-                          className="Autosuggest__spacedElem LocationAutocomplete__icon"
-                        >
-                          <svg
-                            className="Autosuggest__spacedElem LocationAutocomplete__icon"
-                            fill="currentColor"
-                            height="1em"
-                            stroke="currentColor"
-                            strokeWidth="0"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }
-                            viewBox="0 0 384 512"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
-                              key="0"
-                            />
-                          </svg>
-                        </IconBase>
-                      </FaMapMarkerAlt>
-                      <input
-                        aria-activedescendant={null}
-                        aria-autocomplete="list"
-                        aria-controls={null}
-                        aria-labelledby="downshift-1-label"
-                        autoComplete="off"
-                        className="Autosuggest__input"
-                        id="downshift-1-input"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onKeyDown={[Function]}
-                        placeholder="inputPlaceholder"
-                        value=""
+                      <circle
+                        class="LoadingSpinner__path LoadingSpinner__path--context_brand"
+                        cx="22"
+                        cy="22"
+                        fill="none"
+                        r="20"
+                        stroke-width="4"
                       />
-                    </div>
-                    <List
-                      aria-labelledby="downshift-1-label"
-                      className="Autosuggest__list--focused"
-                      doSelectOnNavigate={false}
-                      id="downshift-1-menu"
-                      isControlledNavigation={true}
-                      isDivided={false}
-                      role="listbox"
-                    >
-                      <ul
-                        aria-labelledby="downshift-1-label"
-                        className="List Autosuggest__list--focused"
-                        id="downshift-1-menu"
-                        role="listbox"
-                      />
-                    </List>
+                    </svg>
                   </div>
                 </div>
-              </FieldWrapper>
+              </div>
             </div>
-          </Downshift>
-        </div>
-      </Autosuggest>
-    </LocationAutocomplete>
-    <Button
-      className="LocationSelector__button"
-      context="brand"
-      disabled={false}
-      href={null}
-      isBlock={false}
-      isInline={false}
-      onClick={[MockFunction]}
-      size="normal"
-      type="button"
-    >
-      <button
-        className="Button Button--context_brand LocationSelector__button"
-        disabled={false}
-        onClick={[MockFunction]}
-        type="button"
-      >
-        doneLabel
-      </button>
-    </Button>
-  </div>
-  <div
-    className="LocationSelector__locationsWrapper"
-  >
-    <ul
-      className="LocationSelector__locationCardsContainer"
-    >
-      <LocationCard
-        As="li"
-        className="LocationSelector__locationCard"
-        distanceRadius={42}
-        key="ajdo-219a-j19v-0491"
-        locationId="ajdo-219a-j19v-0491"
-        locationTitle="Amsterdam"
-        maxRadius={100}
-        minRadius={1}
-        onDelete={[MockFunction]}
-        onRadiusChange={[MockFunction]}
-        radiusStep={1}
-        sliderLabel="+ 42 km"
-      >
-        <li
-          className="LocationCard LocationSelector__locationCard"
-        >
-          <div
-            className="LocationCard__header"
-          >
-            <Text
-              className="LocationCard__title"
-              context="default"
-              inline={false}
-              size="large"
-              title="Amsterdam"
-            >
-              <p
-                className="Text--size_large LocationCard__title"
-                title="Amsterdam"
-              >
-                Amsterdam
-              </p>
-            </Text>
-            <button
-              className="LocationCard__delete-button"
-              onClick={[Function]}
-              type="button"
-            >
-              ×
-            </button>
-          </div>
-          <div
-            className="LocationCard__slider"
-          >
-            <Slider
-              initialValue={0}
-              max={100}
-              min={1}
-              onChange={[Function]}
-              step={1}
-              value={42}
-            >
-              <ComponentEnhancer(undefined)
-                activeDotStyle={Object {}}
-                className=""
-                disabled={false}
-                dotStyle={Object {}}
-                dots={false}
-                handle={[Function]}
-                handleStyle={
-                  Array [
-                    Object {},
-                  ]
-                }
-                included={true}
-                initialValue={0}
-                marks={Object {}}
-                max={100}
-                min={1}
-                onAfterChange={[Function]}
-                onBeforeChange={[Function]}
-                onChange={[Function]}
-                prefixCls="rc-slider"
-                railStyle={Object {}}
-                step={1}
-                trackStyle={
-                  Array [
-                    Object {},
-                  ]
-                }
-                value={42}
-                vertical={false}
-              >
-                <div
-                  className="rc-slider"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
-                  onTouchStart={[Function]}
-                >
-                  <div
-                    className="rc-slider-rail"
-                    style={Object {}}
-                  />
-                  <Track
-                    className="rc-slider-track"
-                    included={true}
-                    length={41.41414141414141}
-                    offset={0}
-                    style={Object {}}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-track"
-                      style={
-                        Object {
-                          "left": "0%",
-                          "width": "41.41414141414141%",
-                        }
-                      }
-                    />
-                  </Track>
-                  <Steps
-                    activeDotStyle={Object {}}
-                    dotStyle={Object {}}
-                    dots={false}
-                    included={true}
-                    lowerBound={1}
-                    marks={Object {}}
-                    max={100}
-                    min={1}
-                    prefixCls="rc-slider"
-                    step={1}
-                    upperBound={42}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-step"
-                    />
-                  </Steps>
-                  <Handle
-                    className="rc-slider-handle"
-                    disabled={false}
-                    key="0"
-                    max={100}
-                    min={1}
-                    offset={41.41414141414141}
-                    prefixCls="rc-slider"
-                    style={Object {}}
-                    value={42}
-                    vertical={false}
-                  >
-                    <div
-                      aria-disabled={false}
-                      aria-valuemax={100}
-                      aria-valuemin={1}
-                      aria-valuenow={42}
-                      className="rc-slider-handle"
-                      onBlur={[Function]}
-                      onKeyDown={[Function]}
-                      onMouseDown={[Function]}
-                      role="slider"
-                      style={
-                        Object {
-                          "left": "41.41414141414141%",
-                        }
-                      }
-                      tabIndex={0}
-                    />
-                  </Handle>
-                  <Marks
-                    className="rc-slider-mark"
-                    included={true}
-                    lowerBound={1}
-                    marks={Object {}}
-                    max={100}
-                    min={1}
-                    onClickLabel={[Function]}
-                    upperBound={42}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-mark"
-                    />
-                  </Marks>
-                </div>
-              </ComponentEnhancer(undefined)>
-            </Slider>
-            <Text
-              className="LocationCard__slider-label"
-              context="default"
-              inline={false}
-              size="small"
-            >
-              <p
-                className="Text--size_small LocationCard__slider-label"
-              >
-                + 42 km
-              </p>
-            </Text>
-          </div>
-        </li>
-      </LocationCard>
-      <LocationCard
-        As="li"
-        className="LocationSelector__locationCard"
-        distanceRadius={20}
-        key="ajdo-219a-j19v-0492"
-        locationId="ajdo-219a-j19v-0492"
-        locationTitle="Utrecht"
-        maxRadius={100}
-        minRadius={1}
-        onDelete={[MockFunction]}
-        onRadiusChange={[MockFunction]}
-        radiusStep={1}
-        sliderLabel="+ 20 km"
-      >
-        <li
-          className="LocationCard LocationSelector__locationCard"
-        >
-          <div
-            className="LocationCard__header"
-          >
-            <Text
-              className="LocationCard__title"
-              context="default"
-              inline={false}
-              size="large"
-              title="Utrecht"
-            >
-              <p
-                className="Text--size_large LocationCard__title"
-                title="Utrecht"
-              >
-                Utrecht
-              </p>
-            </Text>
-            <button
-              className="LocationCard__delete-button"
-              onClick={[Function]}
-              type="button"
-            >
-              ×
-            </button>
-          </div>
-          <div
-            className="LocationCard__slider"
-          >
-            <Slider
-              initialValue={0}
-              max={100}
-              min={1}
-              onChange={[Function]}
-              step={1}
-              value={20}
-            >
-              <ComponentEnhancer(undefined)
-                activeDotStyle={Object {}}
-                className=""
-                disabled={false}
-                dotStyle={Object {}}
-                dots={false}
-                handle={[Function]}
-                handleStyle={
-                  Array [
-                    Object {},
-                  ]
-                }
-                included={true}
-                initialValue={0}
-                marks={Object {}}
-                max={100}
-                min={1}
-                onAfterChange={[Function]}
-                onBeforeChange={[Function]}
-                onChange={[Function]}
-                prefixCls="rc-slider"
-                railStyle={Object {}}
-                step={1}
-                trackStyle={
-                  Array [
-                    Object {},
-                  ]
-                }
-                value={20}
-                vertical={false}
-              >
-                <div
-                  className="rc-slider"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
-                  onTouchStart={[Function]}
-                >
-                  <div
-                    className="rc-slider-rail"
-                    style={Object {}}
-                  />
-                  <Track
-                    className="rc-slider-track"
-                    included={true}
-                    length={19.19191919191919}
-                    offset={0}
-                    style={Object {}}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-track"
-                      style={
-                        Object {
-                          "left": "0%",
-                          "width": "19.19191919191919%",
-                        }
-                      }
-                    />
-                  </Track>
-                  <Steps
-                    activeDotStyle={Object {}}
-                    dotStyle={Object {}}
-                    dots={false}
-                    included={true}
-                    lowerBound={1}
-                    marks={Object {}}
-                    max={100}
-                    min={1}
-                    prefixCls="rc-slider"
-                    step={1}
-                    upperBound={20}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-step"
-                    />
-                  </Steps>
-                  <Handle
-                    className="rc-slider-handle"
-                    disabled={false}
-                    key="0"
-                    max={100}
-                    min={1}
-                    offset={19.19191919191919}
-                    prefixCls="rc-slider"
-                    style={Object {}}
-                    value={20}
-                    vertical={false}
-                  >
-                    <div
-                      aria-disabled={false}
-                      aria-valuemax={100}
-                      aria-valuemin={1}
-                      aria-valuenow={20}
-                      className="rc-slider-handle"
-                      onBlur={[Function]}
-                      onKeyDown={[Function]}
-                      onMouseDown={[Function]}
-                      role="slider"
-                      style={
-                        Object {
-                          "left": "19.19191919191919%",
-                        }
-                      }
-                      tabIndex={0}
-                    />
-                  </Handle>
-                  <Marks
-                    className="rc-slider-mark"
-                    included={true}
-                    lowerBound={1}
-                    marks={Object {}}
-                    max={100}
-                    min={1}
-                    onClickLabel={[Function]}
-                    upperBound={20}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-mark"
-                    />
-                  </Marks>
-                </div>
-              </ComponentEnhancer(undefined)>
-            </Slider>
-            <Text
-              className="LocationCard__slider-label"
-              context="default"
-              inline={false}
-              size="small"
-            >
-              <p
-                className="Text--size_small LocationCard__slider-label"
-              >
-                + 20 km
-              </p>
-            </Text>
-          </div>
-        </li>
-      </LocationCard>
-    </ul>
-    <Map
-      defaultArea={
-        Object {
-          "address": "NL",
-        }
-      }
-      mapContainerStyle={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-      markers={Array []}
-    >
-      <GoogleMap
-        mapContainerStyle={
-          Object {
-            "height": "100%",
-            "width": "100%",
           }
-        }
-        onLoad={[Function]}
-        options={
-          Object {
-            "fullscreenControl": false,
-            "mapTypeControl": false,
-            "rotateControl": false,
-            "streetViewControl": false,
-          }
-        }
-      >
-        <div
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
+        >
+          <ModalPortal
+            ariaHideApp={false}
+            bodyOpenClassName="ReactModal__Body--open"
+            className={
+              Object {
+                "afterOpen": "Modal__content--entered",
+                "base": "Modal__content LocationSelector__modal",
+                "beforeClose": "Modal__content--exited",
+              }
             }
-          }
-        />
-      </GoogleMap>
-    </Map>
+            closeTimeoutMS={300}
+            contentLabel="Location selection dialog"
+            defaultStyles={
+              Object {
+                "content": Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "background": "#fff",
+                  "border": "1px solid #ccc",
+                  "borderRadius": "4px",
+                  "bottom": "40px",
+                  "left": "40px",
+                  "outline": "none",
+                  "overflow": "auto",
+                  "padding": "20px",
+                  "position": "absolute",
+                  "right": "40px",
+                  "top": "40px",
+                },
+                "overlay": Object {
+                  "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "fixed",
+                  "right": 0,
+                  "top": 0,
+                },
+              }
+            }
+            isOpen={true}
+            onRequestClose={[Function]}
+            overlayClassName={
+              Object {
+                "afterOpen": "Modal__overlay--entered",
+                "base": "Modal__overlay",
+                "beforeClose": "Modal__overlay--exited",
+              }
+            }
+            parentSelector={[Function]}
+            portalClassName="LocationSelector__modal"
+            role="dialog"
+            shouldCloseOnEsc={true}
+            shouldCloseOnOverlayClick={true}
+            shouldFocusAfterRender={true}
+            shouldReturnFocusAfterClose={true}
+            style={
+              Object {
+                "content": Object {},
+                "overlay": Object {},
+              }
+            }
+          >
+            <div
+              className="Modal__overlay Modal__overlay--entered"
+              onClick={[Function]}
+              onMouseDown={[Function]}
+              style={Object {}}
+            >
+              <div
+                aria-label="Location selection dialog"
+                className="Modal__content LocationSelector__modal Modal__content--entered"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                role="dialog"
+                style={Object {}}
+                tabIndex="-1"
+              >
+                <LocationSelectorDialogWithGoogleLoader
+                  additionalGoogleProps={Object {}}
+                  apiKey="apiKey"
+                  country="NL"
+                  doneLabel="doneLabel"
+                  getMarkers={[Function]}
+                  inputPlaceholder="inputPlaceholder"
+                  language="en"
+                  maxRadius={100}
+                  minRadius={1}
+                  noSuggestionsPlaceholder="noSuggestionsPlaceholder"
+                  onAddLocation={[Function]}
+                  onCloseModal={[Function]}
+                  onLocationAutocompleteError={[MockFunction]}
+                  onRemoveLocation={[MockFunction]}
+                  onUpdateLocation={[MockFunction]}
+                  placeTypes={
+                    Array [
+                      "(regions)",
+                    ]
+                  }
+                  radiusStep={1}
+                  renderRadiusLabel={[Function]}
+                  selectedLocations={
+                    Array [
+                      Object {
+                        "center": Object {
+                          "lat": 52.3666969,
+                          "lng": 4.894539799999961,
+                        },
+                        "description": "Amsterdam",
+                        "id": "ajdo-219a-j19v-0491",
+                        "radius": 42,
+                        "sliderLabel": "42km",
+                      },
+                      Object {
+                        "center": Object {
+                          "lat": 52.09073739999999,
+                          "lng": 5.121420100000023,
+                        },
+                        "description": "Utrecht",
+                        "id": "ajdo-219a-j19v-0492",
+                        "radius": 20,
+                        "sliderLabel": "20km",
+                      },
+                    ]
+                  }
+                  showCountryInSuggestions={true}
+                >
+                  <Memo(LoadScriptNext)
+                    googleMapsApiKey="apiKey"
+                    language="en"
+                    libraries={
+                      Array [
+                        "places",
+                      ]
+                    }
+                    loadingElement={
+                      <LoadingSpinner
+                        centerIn="parent"
+                        context="brand"
+                        hidden={false}
+                        size={null}
+                      />
+                    }
+                  >
+                    <LoadingSpinner
+                      centerIn="parent"
+                      context="brand"
+                      hidden={false}
+                      size={null}
+                    >
+                      <div
+                        aria-busy={true}
+                        aria-hidden={false}
+                        className="LoadingSpinner LoadingSpinner--centerIn_parent"
+                        role="status"
+                      >
+                        <svg
+                          className="LoadingSpinner__svg"
+                          style={null}
+                          viewBox={
+                            Array [
+                              0,
+                              0,
+                              44,
+                              44,
+                            ]
+                          }
+                        >
+                          <circle
+                            className="LoadingSpinner__path LoadingSpinner__path--context_brand"
+                            cx="22"
+                            cy="22"
+                            fill="none"
+                            r="20"
+                            strokeWidth="4"
+                          />
+                        </svg>
+                      </div>
+                    </LoadingSpinner>
+                  </Memo(LoadScriptNext)>
+                </LocationSelectorDialogWithGoogleLoader>
+              </div>
+            </div>
+          </ModalPortal>
+        </Portal>
+      </Modal>
+    </Modal>
   </div>
 </LocationSelector>
 `;
 
 exports[`LocationSelector component should render LocationSelector propertly when modal is closed 1`] = `
 <LocationSelector
+  additionalGoogleProps={Object {}}
+  apiKey="apiKey"
+  clearLabel="Clear"
   country="NL"
   doneLabel="doneLabel"
-  getMarkers={[Function]}
   inputPlaceholder="inputPlaceholder"
+  language="en"
   maxRadius={100}
   minRadius={1}
+  modalContentLabel="Location selection dialog"
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
   onAddLocation={[MockFunction]}
-  onCloseModal={[MockFunction]}
+  onBlur={[Function]}
   onLocationAutocompleteError={[MockFunction]}
+  onRemoveAllLocations={[MockFunction]}
   onRemoveLocation={[MockFunction]}
   onUpdateLocation={[MockFunction]}
   placeTypes={
@@ -698,7 +429,9 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       "(regions)",
     ]
   }
+  radiusDefaultValue={2}
   radiusStep={1}
+  radiusUnits="km"
   renderRadiusLabel={[Function]}
   selectedLocations={
     Array [
@@ -724,636 +457,200 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       },
     ]
   }
+  selectionPlaceholder={null}
   showCountryInSuggestions={true}
 >
-  <div
-    className="LocationSelector__inputLine"
-  >
-    <LocationAutocomplete
-      className="LocationSelector__searchField"
-      country="NL"
-      hidePoweredByGoogleLogo={true}
-      inputPlaceholder="inputPlaceholder"
-      isFocused={true}
-      noSuggestionsPlaceholder="noSuggestionsPlaceholder"
-      onError={[MockFunction]}
-      onSelectionChange={[MockFunction]}
-      placeTypes={
-        Array [
-          "(regions)",
-        ]
-      }
-      showCountryInSuggestions={true}
+  <div>
+    <FieldWrapper
+      className="LocationSelector__mainTextInputWrapper"
+      clearLabel="Clear"
+      isFocused={false}
+      onClear={[MockFunction]}
+      onClick={[Function]}
+      showClearButton={true}
     >
-      <Autosuggest
-        className="LocationSelector__searchField"
-        clearTitle=""
-        getSuggestions={null}
-        iconNode={
+      <div
+        className="FieldWrapper LocationSelector__mainTextInputWrapper"
+        onClick={[Function]}
+      >
+        <div
+          className="FieldWrapper__content"
+        >
           <FaMapMarkerAlt
-            className="LocationAutocomplete__icon"
-          />
-        }
-        inputPlaceholder="inputPlaceholder"
-        isFocused={true}
-        isLoading={false}
-        isMultiselect={false}
-        isProminent={false}
-        listRenderer={[Function]}
-        noSuggestionsPlaceholder="noSuggestionsPlaceholder"
-        onBlur={[Function]}
-        onClearAllSelected={null}
-        onInputValueChange={[Function]}
-        onSelectionChange={[Function]}
-        selectedPlaceholder=""
-        selectedSuggestions={null}
-        showClearButton={false}
-        suggestionToString={[Function]}
-      >
-        <div
-          className="Autosuggest LocationSelector__searchField"
-        >
-          <Downshift
-            defaultHighlightedIndex={0}
-            defaultIsOpen={false}
-            environment={[Window]}
-            getA11yStatusMessage={[Function]}
-            inputValue=""
-            itemToString={[Function]}
-            onChange={[Function]}
-            onInputValueChange={[Function]}
-            onOuterClick={[Function]}
-            onSelect={[Function]}
-            onStateChange={[Function]}
-            onUserAction={[Function]}
-            scrollIntoView={[Function]}
-            selectedItemChanged={[Function]}
-            stateReducer={[Function]}
-            suppressRefError={false}
+            className="LocationSelector__icon"
           >
-            <div
-              aria-expanded={false}
-              aria-haspopup="listbox"
-              aria-labelledby="downshift-0-label"
-              aria-owns={null}
-              className="Autosuggest__main Autosuggest__main--focused"
-              role="combobox"
+            <IconBase
+              attr={
+                Object {
+                  "viewBox": "0 0 384 512",
+                }
+              }
+              className="LocationSelector__icon"
             >
-              <FieldWrapper
-                className="Autosuggest__field"
-                clearLabel=""
-                isFocused={true}
-                onClear={[Function]}
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                showClearButton={false}
+              <svg
+                className="LocationSelector__icon"
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 384 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <div
-                  className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                >
-                  <div
-                    className="FieldWrapper__content"
-                  >
-                    <div
-                      className="Autosuggest__wrapper Autosuggest__wrapper--focused"
-                      role="searchbox"
-                      tabIndex="0"
-                    >
-                      <FaMapMarkerAlt
-                        className="Autosuggest__spacedElem LocationAutocomplete__icon"
-                      >
-                        <IconBase
-                          attr={
-                            Object {
-                              "viewBox": "0 0 384 512",
-                            }
-                          }
-                          className="Autosuggest__spacedElem LocationAutocomplete__icon"
-                        >
-                          <svg
-                            className="Autosuggest__spacedElem LocationAutocomplete__icon"
-                            fill="currentColor"
-                            height="1em"
-                            stroke="currentColor"
-                            strokeWidth="0"
-                            style={
-                              Object {
-                                "color": undefined,
-                              }
-                            }
-                            viewBox="0 0 384 512"
-                            width="1em"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
-                              key="0"
-                            />
-                          </svg>
-                        </IconBase>
-                      </FaMapMarkerAlt>
-                      <input
-                        aria-activedescendant={null}
-                        aria-autocomplete="list"
-                        aria-controls={null}
-                        aria-labelledby="downshift-0-label"
-                        autoComplete="off"
-                        className="Autosuggest__input"
-                        id="downshift-0-input"
-                        onBlur={[Function]}
-                        onChange={[Function]}
-                        onKeyDown={[Function]}
-                        placeholder="inputPlaceholder"
-                        value=""
-                      />
-                    </div>
-                    <List
-                      aria-labelledby="downshift-0-label"
-                      className="Autosuggest__list--focused"
-                      doSelectOnNavigate={false}
-                      id="downshift-0-menu"
-                      isControlledNavigation={true}
-                      isDivided={false}
-                      role="listbox"
-                    >
-                      <ul
-                        aria-labelledby="downshift-0-label"
-                        className="List Autosuggest__list--focused"
-                        id="downshift-0-menu"
-                        role="listbox"
-                      />
-                    </List>
-                  </div>
-                </div>
-              </FieldWrapper>
-            </div>
-          </Downshift>
+                <path
+                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+                  key="0"
+                />
+              </svg>
+            </IconBase>
+          </FaMapMarkerAlt>
+          <Text
+            className="LocationSelector__mainTextInput LocationSelector__mainTextInput--muted"
+            context="default"
+            inline={false}
+            size="normal"
+          >
+            <p
+              className="LocationSelector__mainTextInput LocationSelector__mainTextInput--muted"
+            >
+              inputPlaceholder
+            </p>
+          </Text>
         </div>
-      </Autosuggest>
-    </LocationAutocomplete>
-    <Button
-      className="LocationSelector__button"
-      context="brand"
-      disabled={false}
-      href={null}
-      isBlock={false}
-      isInline={false}
-      onClick={[MockFunction]}
-      size="normal"
-      type="button"
-    >
-      <button
-        className="Button Button--context_brand LocationSelector__button"
-        disabled={false}
-        onClick={[MockFunction]}
-        type="button"
-      >
-        doneLabel
-      </button>
-    </Button>
-  </div>
-  <div
-    className="LocationSelector__locationsWrapper"
-  >
-    <ul
-      className="LocationSelector__locationCardsContainer"
-    >
-      <LocationCard
-        As="li"
-        className="LocationSelector__locationCard"
-        distanceRadius={42}
-        key="ajdo-219a-j19v-0491"
-        locationId="ajdo-219a-j19v-0491"
-        locationTitle="Amsterdam"
-        maxRadius={100}
-        minRadius={1}
-        onDelete={[MockFunction]}
-        onRadiusChange={[MockFunction]}
-        radiusStep={1}
-        sliderLabel="+ 42 km"
-      >
-        <li
-          className="LocationCard LocationSelector__locationCard"
+        <Button
+          className="FieldWrapper__clearButton"
+          context="link"
+          disabled={false}
+          href={null}
+          isBlock={false}
+          isInline={true}
+          onClick={[Function]}
+          size="normal"
+          type="button"
         >
-          <div
-            className="LocationCard__header"
+          <button
+            className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
           >
-            <Text
-              className="LocationCard__title"
-              context="default"
-              inline={false}
-              size="large"
-              title="Amsterdam"
-            >
-              <p
-                className="Text--size_large LocationCard__title"
-                title="Amsterdam"
-              >
-                Amsterdam
-              </p>
-            </Text>
-            <button
-              className="LocationCard__delete-button"
-              onClick={[Function]}
-              type="button"
-            >
-              ×
-            </button>
-          </div>
-          <div
-            className="LocationCard__slider"
-          >
-            <Slider
-              initialValue={0}
-              max={100}
-              min={1}
-              onChange={[Function]}
-              step={1}
-              value={42}
-            >
-              <ComponentEnhancer(undefined)
-                activeDotStyle={Object {}}
-                className=""
-                disabled={false}
-                dotStyle={Object {}}
-                dots={false}
-                handle={[Function]}
-                handleStyle={
-                  Array [
-                    Object {},
-                  ]
-                }
-                included={true}
-                initialValue={0}
-                marks={Object {}}
-                max={100}
-                min={1}
-                onAfterChange={[Function]}
-                onBeforeChange={[Function]}
-                onChange={[Function]}
-                prefixCls="rc-slider"
-                railStyle={Object {}}
-                step={1}
-                trackStyle={
-                  Array [
-                    Object {},
-                  ]
-                }
-                value={42}
-                vertical={false}
-              >
-                <div
-                  className="rc-slider"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
-                  onTouchStart={[Function]}
-                >
-                  <div
-                    className="rc-slider-rail"
-                    style={Object {}}
-                  />
-                  <Track
-                    className="rc-slider-track"
-                    included={true}
-                    length={41.41414141414141}
-                    offset={0}
-                    style={Object {}}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-track"
-                      style={
-                        Object {
-                          "left": "0%",
-                          "width": "41.41414141414141%",
-                        }
-                      }
-                    />
-                  </Track>
-                  <Steps
-                    activeDotStyle={Object {}}
-                    dotStyle={Object {}}
-                    dots={false}
-                    included={true}
-                    lowerBound={1}
-                    marks={Object {}}
-                    max={100}
-                    min={1}
-                    prefixCls="rc-slider"
-                    step={1}
-                    upperBound={42}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-step"
-                    />
-                  </Steps>
-                  <Handle
-                    className="rc-slider-handle"
-                    disabled={false}
-                    key="0"
-                    max={100}
-                    min={1}
-                    offset={41.41414141414141}
-                    prefixCls="rc-slider"
-                    style={Object {}}
-                    value={42}
-                    vertical={false}
-                  >
-                    <div
-                      aria-disabled={false}
-                      aria-valuemax={100}
-                      aria-valuemin={1}
-                      aria-valuenow={42}
-                      className="rc-slider-handle"
-                      onBlur={[Function]}
-                      onKeyDown={[Function]}
-                      onMouseDown={[Function]}
-                      role="slider"
-                      style={
-                        Object {
-                          "left": "41.41414141414141%",
-                        }
-                      }
-                      tabIndex={0}
-                    />
-                  </Handle>
-                  <Marks
-                    className="rc-slider-mark"
-                    included={true}
-                    lowerBound={1}
-                    marks={Object {}}
-                    max={100}
-                    min={1}
-                    onClickLabel={[Function]}
-                    upperBound={42}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-mark"
-                    />
-                  </Marks>
-                </div>
-              </ComponentEnhancer(undefined)>
-            </Slider>
-            <Text
-              className="LocationCard__slider-label"
-              context="default"
-              inline={false}
-              size="small"
-            >
-              <p
-                className="Text--size_small LocationCard__slider-label"
-              >
-                + 42 km
-              </p>
-            </Text>
-          </div>
-        </li>
-      </LocationCard>
-      <LocationCard
-        As="li"
-        className="LocationSelector__locationCard"
-        distanceRadius={20}
-        key="ajdo-219a-j19v-0492"
-        locationId="ajdo-219a-j19v-0492"
-        locationTitle="Utrecht"
-        maxRadius={100}
-        minRadius={1}
-        onDelete={[MockFunction]}
-        onRadiusChange={[MockFunction]}
-        radiusStep={1}
-        sliderLabel="+ 20 km"
-      >
-        <li
-          className="LocationCard LocationSelector__locationCard"
-        >
-          <div
-            className="LocationCard__header"
-          >
-            <Text
-              className="LocationCard__title"
-              context="default"
-              inline={false}
-              size="large"
-              title="Utrecht"
-            >
-              <p
-                className="Text--size_large LocationCard__title"
-                title="Utrecht"
-              >
-                Utrecht
-              </p>
-            </Text>
-            <button
-              className="LocationCard__delete-button"
-              onClick={[Function]}
-              type="button"
-            >
-              ×
-            </button>
-          </div>
-          <div
-            className="LocationCard__slider"
-          >
-            <Slider
-              initialValue={0}
-              max={100}
-              min={1}
-              onChange={[Function]}
-              step={1}
-              value={20}
-            >
-              <ComponentEnhancer(undefined)
-                activeDotStyle={Object {}}
-                className=""
-                disabled={false}
-                dotStyle={Object {}}
-                dots={false}
-                handle={[Function]}
-                handleStyle={
-                  Array [
-                    Object {},
-                  ]
-                }
-                included={true}
-                initialValue={0}
-                marks={Object {}}
-                max={100}
-                min={1}
-                onAfterChange={[Function]}
-                onBeforeChange={[Function]}
-                onChange={[Function]}
-                prefixCls="rc-slider"
-                railStyle={Object {}}
-                step={1}
-                trackStyle={
-                  Array [
-                    Object {},
-                  ]
-                }
-                value={20}
-                vertical={false}
-              >
-                <div
-                  className="rc-slider"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  onKeyDown={[Function]}
-                  onMouseDown={[Function]}
-                  onMouseUp={[Function]}
-                  onTouchStart={[Function]}
-                >
-                  <div
-                    className="rc-slider-rail"
-                    style={Object {}}
-                  />
-                  <Track
-                    className="rc-slider-track"
-                    included={true}
-                    length={19.19191919191919}
-                    offset={0}
-                    style={Object {}}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-track"
-                      style={
-                        Object {
-                          "left": "0%",
-                          "width": "19.19191919191919%",
-                        }
-                      }
-                    />
-                  </Track>
-                  <Steps
-                    activeDotStyle={Object {}}
-                    dotStyle={Object {}}
-                    dots={false}
-                    included={true}
-                    lowerBound={1}
-                    marks={Object {}}
-                    max={100}
-                    min={1}
-                    prefixCls="rc-slider"
-                    step={1}
-                    upperBound={20}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-step"
-                    />
-                  </Steps>
-                  <Handle
-                    className="rc-slider-handle"
-                    disabled={false}
-                    key="0"
-                    max={100}
-                    min={1}
-                    offset={19.19191919191919}
-                    prefixCls="rc-slider"
-                    style={Object {}}
-                    value={20}
-                    vertical={false}
-                  >
-                    <div
-                      aria-disabled={false}
-                      aria-valuemax={100}
-                      aria-valuemin={1}
-                      aria-valuenow={20}
-                      className="rc-slider-handle"
-                      onBlur={[Function]}
-                      onKeyDown={[Function]}
-                      onMouseDown={[Function]}
-                      role="slider"
-                      style={
-                        Object {
-                          "left": "19.19191919191919%",
-                        }
-                      }
-                      tabIndex={0}
-                    />
-                  </Handle>
-                  <Marks
-                    className="rc-slider-mark"
-                    included={true}
-                    lowerBound={1}
-                    marks={Object {}}
-                    max={100}
-                    min={1}
-                    onClickLabel={[Function]}
-                    upperBound={20}
-                    vertical={false}
-                  >
-                    <div
-                      className="rc-slider-mark"
-                    />
-                  </Marks>
-                </div>
-              </ComponentEnhancer(undefined)>
-            </Slider>
-            <Text
-              className="LocationCard__slider-label"
-              context="default"
-              inline={false}
-              size="small"
-            >
-              <p
-                className="Text--size_small LocationCard__slider-label"
-              >
-                + 20 km
-              </p>
-            </Text>
-          </div>
-        </li>
-      </LocationCard>
-    </ul>
-    <Map
-      defaultArea={
-        Object {
-          "address": "NL",
-        }
-      }
-      mapContainerStyle={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-      markers={Array []}
+            Clear
+          </button>
+        </Button>
+      </div>
+    </FieldWrapper>
+    <Modal
+      ariaHideApp={false}
+      className="LocationSelector__modal"
+      contentLabel="Location selection dialog"
+      isOpen={false}
+      onRequestClose={[Function]}
     >
-      <GoogleMap
-        mapContainerStyle={
+      <Modal
+        ariaHideApp={false}
+        bodyOpenClassName="ReactModal__Body--open"
+        className={
           Object {
-            "height": "100%",
-            "width": "100%",
+            "afterOpen": "Modal__content--entered",
+            "base": "Modal__content LocationSelector__modal",
+            "beforeClose": "Modal__content--exited",
           }
         }
-        onLoad={[Function]}
-        options={
+        closeTimeoutMS={300}
+        contentLabel="Location selection dialog"
+        isOpen={false}
+        onRequestClose={[Function]}
+        overlayClassName={
           Object {
-            "fullscreenControl": false,
-            "mapTypeControl": false,
-            "rotateControl": false,
-            "streetViewControl": false,
+            "afterOpen": "Modal__overlay--entered",
+            "base": "Modal__overlay",
+            "beforeClose": "Modal__overlay--exited",
           }
         }
+        parentSelector={[Function]}
+        portalClassName="LocationSelector__modal"
+        role="dialog"
+        shouldCloseOnEsc={true}
+        shouldCloseOnOverlayClick={true}
+        shouldFocusAfterRender={true}
+        shouldReturnFocusAfterClose={true}
       >
-        <div
-          style={
-            Object {
-              "height": "100%",
-              "width": "100%",
+        <Portal
+          containerInfo={
+            <div
+              class="LocationSelector__modal"
+            />
+          }
+        >
+          <ModalPortal
+            ariaHideApp={false}
+            bodyOpenClassName="ReactModal__Body--open"
+            className={
+              Object {
+                "afterOpen": "Modal__content--entered",
+                "base": "Modal__content LocationSelector__modal",
+                "beforeClose": "Modal__content--exited",
+              }
             }
-          }
-        />
-      </GoogleMap>
-    </Map>
+            closeTimeoutMS={300}
+            contentLabel="Location selection dialog"
+            defaultStyles={
+              Object {
+                "content": Object {
+                  "WebkitOverflowScrolling": "touch",
+                  "background": "#fff",
+                  "border": "1px solid #ccc",
+                  "borderRadius": "4px",
+                  "bottom": "40px",
+                  "left": "40px",
+                  "outline": "none",
+                  "overflow": "auto",
+                  "padding": "20px",
+                  "position": "absolute",
+                  "right": "40px",
+                  "top": "40px",
+                },
+                "overlay": Object {
+                  "backgroundColor": "rgba(255, 255, 255, 0.75)",
+                  "bottom": 0,
+                  "left": 0,
+                  "position": "fixed",
+                  "right": 0,
+                  "top": 0,
+                },
+              }
+            }
+            isOpen={false}
+            onRequestClose={[Function]}
+            overlayClassName={
+              Object {
+                "afterOpen": "Modal__overlay--entered",
+                "base": "Modal__overlay",
+                "beforeClose": "Modal__overlay--exited",
+              }
+            }
+            parentSelector={[Function]}
+            portalClassName="LocationSelector__modal"
+            role="dialog"
+            shouldCloseOnEsc={true}
+            shouldCloseOnOverlayClick={true}
+            shouldFocusAfterRender={true}
+            shouldReturnFocusAfterClose={true}
+            style={
+              Object {
+                "content": Object {},
+                "overlay": Object {},
+              }
+            }
+          />
+        </Portal>
+      </Modal>
+    </Modal>
   </div>
 </LocationSelector>
 `;

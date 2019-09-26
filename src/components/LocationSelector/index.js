@@ -1,4 +1,5 @@
-export { default as LocationSelector } from './LocationSelector/LocationSelector';
+export { default as LocationSelectorDialog } from './LocationSelectorDialog';
 export {
-    default as LocationSelectorWithGoogleLoader,
-} from './LocationSelectorWithGoogleLoader/LocationSelectorWithGoogleLoader';
+    default as LocationSelectorDialogWithGoogleLoader,
+} from './LocationSelectorDialogWithGoogleLoader';
+export { default as LocationSelector } from './LocationSelector';
