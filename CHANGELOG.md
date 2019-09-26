@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.0.0](https://github.com/textkernel/oneui/compare/7.0.0...8.0.0) (2019-09-26)
+
+
+### Bug Fixes
+
+* **LocationSelector:** rename components and fix unit tests ([#173](https://github.com/textkernel/oneui/issues/173)) ([c6f36db](https://github.com/textkernel/oneui/commit/c6f36db))
+
+
+### BREAKING CHANGES
+
+* **LocationSelector:** LocationSelector and related components has been renamed. For top level use LocationSelector (instead of LocationSelectorWithGoogleLoader which has been deprecated). There are no changes to the props. For sub components see documentation.
+
+
+
 ## [7.0.0](https://github.com/textkernel/oneui/compare/6.2.1...7.0.0) (2019-09-25)
 
 
