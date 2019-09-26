@@ -29,6 +29,7 @@ import './LoadingSpinner';
 import './LocationCard';
 import './Navigation';
 import './Pagination';
+import './Pill';
 import './RadioButton';
 import './Teaser';
 import './TwoPaneView';
