@@ -17,27 +17,37 @@ const PillButton = React.forwardRef((props, ref) => {
     const propsForBem = { ...props, isActive };
 
     let buttonIcon;
-    let buttonClick;
+    let useButtonClick = false;
 
     if (isOpen) {
         buttonIcon = <IoIosArrowUp />;
-        buttonClick = null;
     } else if (isActive) {
         buttonIcon = CROSS_CHAR;
-        buttonClick = e => {
-            e.stopPropagation();
-            onClear();
-        };
+        useButtonClick = true;
     } else {
         buttonIcon = <IoIosArrowDown />;
-        buttonClick = null;
     }
 
-    const handleKeyDown = e => {
+    const buttonClick = useButtonClick
+        ? e => {
+              e.stopPropagation();
+              onClear();
+          }
+        : undefined;
+
+    const handleKeyDownOnPill = e => {
         if (e.key === ENTER_KEY) {
             togglePopup();
         }
     };
+
+    const handleKeyDownOnButton = buttonClick
+        ? e => {
+              if (e.key === ENTER_KEY) {
+                  buttonClick();
+              }
+          }
+        : undefined;
 
     return (
         <div
@@ -45,14 +55,19 @@ const PillButton = React.forwardRef((props, ref) => {
             {...rest}
             {...block(propsForBem)}
             onClick={togglePopup}
-            onKeyDown={handleKeyDown}
+            onKeyDown={handleKeyDownOnPill}
             tabIndex="0"
             role="button"
         >
             <div {...elem('label', propsForBem)}>{isActive && name}</div>
             <div {...elem('pill', propsForBem)}>
                 <span {...elem('pillLabel', propsForBem)}>{label || name}</span>
-                <button type="button" {...elem('button', propsForBem)} onClick={buttonClick}>
+                <button
+                    type="button"
+                    {...elem('button', propsForBem)}
+                    onClick={buttonClick}
+                    onKeyDown={handleKeyDownOnButton}
+                >
                     {buttonIcon}
                 </button>
             </div>

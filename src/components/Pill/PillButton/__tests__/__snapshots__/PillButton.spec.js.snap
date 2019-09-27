@@ -28,7 +28,6 @@ exports[`<PillButton> component in active and open state should render correctly
       </span>
       <button
         className="PillButton__button PillButton__button--isActive PillButton__button--isOpen"
-        onClick={null}
         type="button"
       >
         <IoIosArrowUp>
@@ -95,6 +94,7 @@ exports[`<PillButton> component in active state (with label prop defined) should
       <button
         className="PillButton__button PillButton__button--isActive"
         onClick={[Function]}
+        onKeyDown={[Function]}
         type="button"
       >
         ×
@@ -130,7 +130,6 @@ exports[`<PillButton> component in open state should render correctly 1`] = `
       </span>
       <button
         className="PillButton__button PillButton__button--isOpen"
-        onClick={null}
         type="button"
       >
         <IoIosArrowUp>
@@ -194,7 +193,6 @@ exports[`<PillButton> component with minimal props should render correctly 1`] =
       </span>
       <button
         className="PillButton__button"
-        onClick={null}
         type="button"
       >
         <IoIosArrowDown>
