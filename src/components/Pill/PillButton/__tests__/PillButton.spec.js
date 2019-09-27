@@ -15,7 +15,7 @@ describe('<PillButton> component', () => {
         jest.resetAllMocks();
     });
 
-    describe('with minimal props', () => {
+    describe('in inactive, collapsed state (with minimal props)', () => {
         beforeEach(() => {
             wrapper = mount(
                 <PillButton togglePopup={togglePopupMock} onClear={onClearMock} name={name} />
@@ -40,7 +40,7 @@ describe('<PillButton> component', () => {
         });
     });
 
-    describe('in open state', () => {
+    describe('in inactive, open state (isOpen prop)', () => {
         beforeEach(() => {
             wrapper = mount(
                 <PillButton
@@ -65,7 +65,8 @@ describe('<PillButton> component', () => {
             expect(togglePopupMock).toHaveBeenCalledTimes(1);
         });
     });
-    describe('in active state (with label prop defined)', () => {
+
+    describe('in active, collapsed state (with label prop)', () => {
         beforeEach(() => {
             wrapper = mount(
                 <PillButton
@@ -91,7 +92,7 @@ describe('<PillButton> component', () => {
             expect(togglePopupMock).toHaveBeenCalledTimes(0);
         });
     });
-    describe('in active and open state', () => {
+    describe('in active, open state (label and isOpen prop)', () => {
         beforeEach(() => {
             wrapper = mount(
                 <PillButton

@@ -35,19 +35,19 @@ const PillButton = React.forwardRef((props, ref) => {
           }
         : undefined;
 
-    const handleKeyDownOnPill = e => {
-        if (e.key === ENTER_KEY) {
-            togglePopup();
-        }
-    };
-
-    const handleKeyDownOnButton = buttonClick
+    const handleKeyDownOnButton = useButtonClick
         ? e => {
               if (e.key === ENTER_KEY) {
                   buttonClick();
               }
           }
         : undefined;
+
+    const handleKeyDownOnPill = e => {
+        if (e.key === ENTER_KEY) {
+            togglePopup();
+        }
+    };
 
     return (
         <div
