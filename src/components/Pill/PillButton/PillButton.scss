@@ -5,26 +5,29 @@ $pill-button-size: 25px !default;
 $half-pill-height: $pill-height / 2;
 
 .PillButton {
-    display: inline-grid;
-    grid-template-rows: $pill-label-height $pill-height;
-    grid-template-areas:
-        'label'
-        'pill';
+    display: inline-flex;
+    flex-direction: column;
     justify-items: start;
 
     &__label {
-        grid-area: label;
+        box-sizing: border-box;
+        height: $pill-label-height;
         padding-left: $half-pill-height;
         font-size: var(--font-size-small);
         text-transform: uppercase;
         color: var(--color-brand);
+
+        &--isActive {
+            cursor: pointer;
+        }
     }
 
     &__pill {
-        grid-area: pill;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        box-sizing: border-box;
+        height: $pill-height;
         border-radius: $half-pill-height;
         border: 1px solid var(--color-brand);
         padding: var(--spacing-2x) var(--spacing-2x) var(--spacing-2x) $half-pill-height;

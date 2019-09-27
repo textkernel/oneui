@@ -16,7 +16,7 @@ exports[`<PillButton> component in active and open state should render correctly
     tabIndex="0"
   >
     <div
-      className="PillButton__label"
+      className="PillButton__label PillButton__label--isActive"
     >
       Pill name
     </div>
@@ -82,7 +82,7 @@ exports[`<PillButton> component in active state (with label prop defined) should
     tabIndex="0"
   >
     <div
-      className="PillButton__label"
+      className="PillButton__label PillButton__label--isActive"
     >
       Pill name
     </div>
