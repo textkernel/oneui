@@ -9,10 +9,6 @@ $half-pill-height: $pill-height / 2;
     flex-direction: column;
     justify-items: start;
 
-    &:focus {
-        outline: none;
-    }
-
     &__label {
         box-sizing: border-box;
         height: $pill-label-height;
@@ -23,10 +19,6 @@ $half-pill-height: $pill-height / 2;
 
         &--isActive {
             cursor: pointer;
-        }
-
-        &:focus {
-            outline: none;
         }
     }
 
@@ -56,10 +48,6 @@ $half-pill-height: $pill-height / 2;
         &--isOpen {
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-
-        &:focus {
-            outline: none;
-        }
     }
 
     &__button {
@@ -80,10 +68,6 @@ $half-pill-height: $pill-height / 2;
 
         &--isOpen:hover {
             background-color: transparent;
-        }
-
-        &:focus {
-            outline: none;
         }
     }
 }

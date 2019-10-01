@@ -31,6 +31,7 @@ const PillButton = React.forwardRef((props, ref) => {
     const buttonClick = useButtonClick
         ? e => {
               e.stopPropagation();
+              e.preventDefault();
               onClear();
           }
         : undefined;
@@ -38,13 +39,14 @@ const PillButton = React.forwardRef((props, ref) => {
     const handleKeyDownOnButton = useButtonClick
         ? e => {
               if (e.key === ENTER_KEY) {
-                  buttonClick();
+                  buttonClick(e);
               }
           }
         : undefined;
 
     const handleKeyDownOnPill = e => {
         if (e.key === ENTER_KEY) {
+            e.preventDefault();
             togglePopup();
         }
     };

@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import PillButton from '../PillButton';
-import { CROSS_CHAR } from '../../../../constants';
+import { CROSS_CHAR, ENTER_KEY } from '../../../../constants';
 
 describe('<PillButton> component', () => {
     const togglePopupMock = jest.fn();
@@ -31,11 +31,25 @@ describe('<PillButton> component', () => {
             wrapper.find('.PillButton').simulate('click');
             expect(togglePopupMock).toHaveBeenCalledTimes(1);
         });
+        it('should trigger toggle state once on keyboard interaction', () => {
+            wrapper
+                .find('.PillButton')
+                .simulate('focus')
+                .simulate('keyDown', { key: ENTER_KEY });
+            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+        });
         it('should have arrow down label', () => {
             expect(wrapper.find('IoIosArrowDown')).toHaveLength(1);
         });
         it('should trigger toggle state once when button is clicked', () => {
             wrapper.find('button').simulate('click');
+            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+        });
+        it('should trigger toggle state once on keyboard interaction with button', () => {
+            wrapper
+                .find('button')
+                .simulate('focus')
+                .simulate('keyDown', { key: ENTER_KEY });
             expect(togglePopupMock).toHaveBeenCalledTimes(1);
         });
     });
@@ -62,6 +76,13 @@ describe('<PillButton> component', () => {
         });
         it('should trigger toggle state once when button is clicked', () => {
             wrapper.find('button').simulate('click');
+            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+        });
+        it('should trigger toggle state once on keyboard interaction with button', () => {
+            wrapper
+                .find('button')
+                .simulate('focus')
+                .simulate('keyDown', { key: ENTER_KEY });
             expect(togglePopupMock).toHaveBeenCalledTimes(1);
         });
     });
@@ -91,6 +112,14 @@ describe('<PillButton> component', () => {
             expect(onClearMock).toHaveBeenCalledTimes(1);
             expect(togglePopupMock).toHaveBeenCalledTimes(0);
         });
+        it('should not trigger toggle state but onClear only on keyboard interaction with button', () => {
+            wrapper
+                .find('button')
+                .simulate('focus')
+                .simulate('keyDown', { key: ENTER_KEY });
+            expect(onClearMock).toHaveBeenCalledTimes(1);
+            expect(togglePopupMock).toHaveBeenCalledTimes(0);
+        });
     });
     describe('in active, open state (label and isOpen prop)', () => {
         beforeEach(() => {
@@ -115,6 +144,13 @@ describe('<PillButton> component', () => {
         });
         it('should trigger toggle state once when button is clicked', () => {
             wrapper.find('button').simulate('click');
+            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+        });
+        it('should trigger toggle state once on keyboard interaction with button', () => {
+            wrapper
+                .find('button')
+                .simulate('focus')
+                .simulate('keyDown', { key: ENTER_KEY });
             expect(togglePopupMock).toHaveBeenCalledTimes(1);
         });
     });
