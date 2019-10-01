@@ -17,18 +17,18 @@ const PillButton = React.forwardRef((props, ref) => {
     const propsForBem = { ...props, isActive };
 
     let buttonIcon;
-    let useButtonClick = false;
+    let isButtonClickable = false;
 
     if (isOpen) {
         buttonIcon = <IoIosArrowUp />;
     } else if (isActive) {
         buttonIcon = CROSS_CHAR;
-        useButtonClick = true;
+        isButtonClickable = true;
     } else {
         buttonIcon = <IoIosArrowDown />;
     }
 
-    const buttonClick = useButtonClick
+    const buttonClick = isButtonClickable
         ? e => {
               e.stopPropagation();
               e.preventDefault();
@@ -36,7 +36,7 @@ const PillButton = React.forwardRef((props, ref) => {
           }
         : undefined;
 
-    const handleKeyDownOnButton = useButtonClick
+    const handleKeyDownOnButton = isButtonClickable
         ? e => {
               if (e.key === ENTER_KEY) {
                   buttonClick(e);
