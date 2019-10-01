@@ -12,7 +12,7 @@ $half-pill-height: $pill-height / 2;
     &__label {
         box-sizing: border-box;
         height: $pill-label-height;
-        padding-left: $half-pill-height;
+        padding: 0 $half-pill-height;
         font-size: var(--font-size-small);
         text-transform: uppercase;
         color: var(--color-brand);

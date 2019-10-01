@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<PillButton> component in active, collapsed state (with label prop) should render correctly 1`] = `
+exports[`<PillButton> component in active, collapsed state (with content prop) should render correctly 1`] = `
 <PillButton
+  content="This pill is in use"
   isOpen={false}
-  label="This pill is in use"
   name="Pill name"
   onClear={[MockFunction]}
   togglePopup={[MockFunction]}
@@ -39,10 +39,10 @@ exports[`<PillButton> component in active, collapsed state (with label prop) sho
 </PillButton>
 `;
 
-exports[`<PillButton> component in active, open state (label and isOpen prop) should render correctly 1`] = `
+exports[`<PillButton> component in active, open state (content and isOpen prop) should render correctly 1`] = `
 <PillButton
+  content="This pill is in use"
   isOpen={true}
-  label="This pill is in use"
   name="Pill name"
   onClear={[MockFunction]}
   togglePopup={[MockFunction]}
@@ -106,8 +106,8 @@ exports[`<PillButton> component in active, open state (label and isOpen prop) sh
 
 exports[`<PillButton> component in inactive, collapsed state (with minimal props) should render correctly 1`] = `
 <PillButton
+  content={null}
   isOpen={false}
-  label={null}
   name="Pill name"
   onClear={[MockFunction]}
   togglePopup={[MockFunction]}
@@ -169,8 +169,8 @@ exports[`<PillButton> component in inactive, collapsed state (with minimal props
 
 exports[`<PillButton> component in inactive, open state (isOpen prop) should render correctly 1`] = `
 <PillButton
+  content={null}
   isOpen={true}
-  label={null}
   name="Pill name"
   onClear={[MockFunction]}
   togglePopup={[MockFunction]}

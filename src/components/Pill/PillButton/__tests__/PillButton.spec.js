@@ -7,7 +7,7 @@ describe('<PillButton> component', () => {
     const togglePopupMock = jest.fn();
     const onClearMock = jest.fn();
     const name = 'Pill name';
-    const label = 'This pill is in use';
+    const content = 'This pill is in use';
 
     let wrapper;
 
@@ -87,14 +87,14 @@ describe('<PillButton> component', () => {
         });
     });
 
-    describe('in active, collapsed state (with label prop)', () => {
+    describe('in active, collapsed state (with content prop)', () => {
         beforeEach(() => {
             wrapper = mount(
                 <PillButton
                     togglePopup={togglePopupMock}
                     onClear={onClearMock}
                     name={name}
-                    label={label}
+                    content={content}
                 />
             );
         });
@@ -121,14 +121,14 @@ describe('<PillButton> component', () => {
             expect(togglePopupMock).toHaveBeenCalledTimes(0);
         });
     });
-    describe('in active, open state (label and isOpen prop)', () => {
+    describe('in active, open state (content and isOpen prop)', () => {
         beforeEach(() => {
             wrapper = mount(
                 <PillButton
                     togglePopup={togglePopupMock}
                     onClear={onClearMock}
                     name={name}
-                    label={label}
+                    content={content}
                     isOpen
                 />
             );

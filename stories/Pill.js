@@ -15,6 +15,6 @@ storiesOf('Molecules|Pill', module)
                 console.log('onClear has been called');
             }}
             name={text('Name of the pill', 'Pill name')}
-            label={text('Label for pill content', 'This pill is used')}
+            content={text('Label for pill content', 'This pill is used')}
         />
     ));

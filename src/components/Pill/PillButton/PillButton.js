@@ -12,9 +12,27 @@ const { block, elem } = bem({
 });
 
 const PillButton = React.forwardRef((props, ref) => {
-    const { isOpen, togglePopup, onClear, name, label, ...rest } = props;
-    const isActive = !!label;
+    const { isOpen, togglePopup, onClear, name, content, ...rest } = props;
+    const isActive = !!content;
     const propsForBem = { ...props, isActive };
+
+    const labelRef = React.createRef();
+    const pillRef = React.createRef();
+    const [pillMinWidth, setPillMinWidth] = React.useState(0);
+
+    // make sure label is not longer then pill
+    React.useLayoutEffect(() => {
+        if (isActive) {
+            const labelEl = labelRef.current;
+            const { width: labelWidth } = labelEl.getBoundingClientRect();
+            const pillEl = pillRef.current;
+            const { width: pillWidth } = pillEl.getBoundingClientRect();
+
+            if (labelWidth > pillWidth) {
+                setPillMinWidth(labelWidth);
+            }
+        }
+    }, [isActive, labelRef, pillMinWidth, pillRef]);
 
     let buttonIcon;
     let isButtonClickable = false;
@@ -53,15 +71,19 @@ const PillButton = React.forwardRef((props, ref) => {
 
     return (
         <div ref={ref} {...rest} {...block(propsForBem)}>
-            <div {...elem('label', propsForBem)}>{isActive && name}</div>
+            <div ref={labelRef} {...elem('label', propsForBem)}>
+                {isActive && name}
+            </div>
             <div
+                ref={pillRef}
                 {...elem('pill', propsForBem)}
+                style={pillMinWidth ? { minWidth: pillMinWidth } : undefined}
                 onClick={togglePopup}
                 onKeyDown={handleKeyDownOnPill}
                 tabIndex="0"
                 role="button"
             >
-                <span {...elem('pillLabel', propsForBem)}>{label || name}</span>
+                <span {...elem('pillLabel', propsForBem)}>{content || name}</span>
                 <button
                     type="button"
                     {...elem('button', propsForBem)}
@@ -87,12 +109,12 @@ PillButton.propTypes = {
     /** name describing the pill/filter */
     name: PropTypes.string.isRequired,
     /** label describing the content of an active filter/pill */
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
 };
 
 PillButton.defaultProps = {
     isOpen: false,
-    label: null,
+    content: null,
 };
 
 export default PillButton;
