@@ -1,6 +1,6 @@
 $pill-height: 32px !default;
 $pill-label-height: 17px !default;
-$pill-button-size: 25px !default;
+$pill-button-size: 20px !default;
 
 $half-pill-height: $pill-height / 2;
 
@@ -16,10 +16,6 @@ $half-pill-height: $pill-height / 2;
         font-size: var(--font-size-small);
         text-transform: uppercase;
         color: var(--color-brand);
-
-        &--isActive {
-            cursor: pointer;
-        }
     }
 
     &__pill {
@@ -56,11 +52,13 @@ $half-pill-height: $pill-height / 2;
         align-items: center;
         width: $pill-button-size;
         height: $pill-button-size;
+        font-size: var(--font-size-normal);
+        border: none;
         border-radius: 50%;
         margin-left: var(--spacing-2x);
-        border: none;
         background-color: transparent;
         color: inherit;
+        cursor: pointer;
 
         &--isActive:hover {
             background-color: var(--color-brand-25);

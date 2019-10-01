@@ -52,17 +52,15 @@ const PillButton = React.forwardRef((props, ref) => {
     };
 
     return (
-        <div
-            ref={ref}
-            {...rest}
-            {...block(propsForBem)}
-            onClick={togglePopup}
-            onKeyDown={handleKeyDownOnPill}
-            tabIndex="0"
-            role="button"
-        >
+        <div ref={ref} {...rest} {...block(propsForBem)}>
             <div {...elem('label', propsForBem)}>{isActive && name}</div>
-            <div {...elem('pill', propsForBem)}>
+            <div
+                {...elem('pill', propsForBem)}
+                onClick={togglePopup}
+                onKeyDown={handleKeyDownOnPill}
+                tabIndex="0"
+                role="button"
+            >
                 <span {...elem('pillLabel', propsForBem)}>{label || name}</span>
                 <button
                     type="button"

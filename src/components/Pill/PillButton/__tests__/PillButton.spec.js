@@ -28,12 +28,12 @@ describe('<PillButton> component', () => {
             expect(wrapper.find('.PillButton__pill--isOpen')).toHaveLength(0);
         });
         it('should trigger toggle state once when clicked', () => {
-            wrapper.find('.PillButton').simulate('click');
+            wrapper.find('.PillButton__pill').simulate('click');
             expect(togglePopupMock).toHaveBeenCalledTimes(1);
         });
         it('should trigger toggle state once on keyboard interaction', () => {
             wrapper
-                .find('.PillButton')
+                .find('.PillButton__pill')
                 .simulate('focus')
                 .simulate('keyDown', { key: ENTER_KEY });
             expect(togglePopupMock).toHaveBeenCalledTimes(1);
