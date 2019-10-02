@@ -52,7 +52,8 @@ $half-pill-height: $pill-height / 2;
         align-items: center;
         width: $pill-button-size;
         height: $pill-button-size;
-        font-size: var(--font-size-normal);
+        padding: 0;
+        font-size: var(--font-size-large);
         border: none;
         border-radius: 50%;
         margin-left: var(--spacing-2x);
@@ -66,6 +67,18 @@ $half-pill-height: $pill-height / 2;
 
         &--isOpen:hover {
             background-color: transparent;
+        }
+    }
+
+    &__buttonIcon {
+        transform: translate(0, 1px);
+
+        &--isActive {
+            transform: translate(1px, -1px);
+        }
+
+        &--isOpen {
+            transform: translate(0, 0);
         }
     }
 }

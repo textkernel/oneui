@@ -38,12 +38,12 @@ const PillButton = React.forwardRef((props, ref) => {
     let isButtonClickable = false;
 
     if (isOpen) {
-        buttonIcon = <IoIosArrowUp />;
+        buttonIcon = <IoIosArrowUp {...elem('buttonIcon', propsForBem)} />;
     } else if (isActive) {
-        buttonIcon = CROSS_CHAR;
+        buttonIcon = <span {...elem('buttonIcon', propsForBem)}>{CROSS_CHAR}</span>;
         isButtonClickable = true;
     } else {
-        buttonIcon = <IoIosArrowDown />;
+        buttonIcon = <IoIosArrowDown {...elem('buttonIcon', propsForBem)} />;
     }
 
     const buttonClick = isButtonClickable

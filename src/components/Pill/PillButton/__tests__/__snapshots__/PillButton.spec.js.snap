@@ -32,7 +32,11 @@ exports[`<PillButton> component in active, collapsed state (with content prop) s
         onKeyDown={[Function]}
         type="button"
       >
-        ×
+        <span
+          className="PillButton__buttonIcon PillButton__buttonIcon--isActive"
+        >
+          ×
+        </span>
       </button>
     </div>
   </div>
@@ -69,15 +73,19 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
         className="PillButton__button PillButton__button--isActive PillButton__button--isOpen"
         type="button"
       >
-        <IoIosArrowUp>
+        <IoIosArrowUp
+          className="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
+        >
           <IconBase
             attr={
               Object {
                 "viewBox": "0 0 512 512",
               }
             }
+            className="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
           >
             <svg
+              className="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
               fill="currentColor"
               height="1em"
               stroke="currentColor"
@@ -132,15 +140,19 @@ exports[`<PillButton> component in inactive, collapsed state (with minimal props
         className="PillButton__button"
         type="button"
       >
-        <IoIosArrowDown>
+        <IoIosArrowDown
+          className="PillButton__buttonIcon"
+        >
           <IconBase
             attr={
               Object {
                 "viewBox": "0 0 512 512",
               }
             }
+            className="PillButton__buttonIcon"
           >
             <svg
+              className="PillButton__buttonIcon"
               fill="currentColor"
               height="1em"
               stroke="currentColor"
@@ -195,15 +207,19 @@ exports[`<PillButton> component in inactive, open state (isOpen prop) should ren
         className="PillButton__button PillButton__button--isOpen"
         type="button"
       >
-        <IoIosArrowUp>
+        <IoIosArrowUp
+          className="PillButton__buttonIcon PillButton__buttonIcon--isOpen"
+        >
           <IconBase
             attr={
               Object {
                 "viewBox": "0 0 512 512",
               }
             }
+            className="PillButton__buttonIcon PillButton__buttonIcon--isOpen"
           >
             <svg
+              className="PillButton__buttonIcon PillButton__buttonIcon--isOpen"
               fill="currentColor"
               height="1em"
               stroke="currentColor"
