@@ -111,14 +111,13 @@ function LocationSelector(props) {
     }
 
     return (
-        <div {...block(props)}>
+        <div {...rest} {...block(props)}>
             <FieldWrapper
                 {...elem('mainTextInputWrapper', props)}
                 showClearButton={hasLocationsSelected}
                 clearLabel={clearLabel}
                 onClick={handleOpenModal}
                 onClear={onRemoveAllLocations}
-                {...rest}
             >
                 <FaMapMarkerAlt {...elem('icon', props)} />
                 <Text {...elem('mainTextInput', { ...props, muted: !selectionPlaceholder })}>
