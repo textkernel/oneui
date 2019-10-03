@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.1](https://github.com/textkernel/oneui/compare/8.0.0...8.0.1) (2019-10-03)
+
+
+### Bug Fixes
+
+* **LocationSelector:** move rest props to the main wrapper ([92fa259](https://github.com/textkernel/oneui/commit/92fa259))
+
+
+
 ## [8.0.0](https://github.com/textkernel/oneui/compare/7.0.0...8.0.0) (2019-09-26)
 
 
