@@ -41,30 +41,35 @@ $half-pill-height: $pill-height / 2;
         box-sizing: border-box;
         height: $pill-height;
         border-radius: $half-pill-height;
-        border: 1px solid var(--color-brand);
+        border: 1px solid var(--color-brand-40);
         padding: var(--spacing-2x) var(--spacing-2x) var(--spacing-2x) $half-pill-height;
         color: var(--color-brand);
         cursor: pointer;
         transition: all var(--transition-duration) ease;
 
-        &:focus {
+        &:focus,
+        &:hover {
             outline: none;
-            border-color: var(--color-brand-40);
+            border-color: var(--color-brand);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        &--isOpen {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                background-color: var(--color-neutral-10);
+            }
         }
 
         &--isActive {
             background-color: var(--color-brand);
             color: var(--color-background);
-        }
 
-        &:hover,
-        &--isOpen {
-            background-color: var(--color-brand-40);
-            color: var(--color-background);
-        }
-
-        &--isOpen {
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            &:hover {
+                background-color: var(--color-brand-40);
+                border-color: var(--color-brand-40);
+            }
         }
     }
 
@@ -83,21 +88,11 @@ $half-pill-height: $pill-height / 2;
         color: inherit;
         cursor: pointer;
         box-sizing: content-box;
-        transition: all var(--transition-duration) ease;
+        transition: background-color var(--transition-duration) ease;
 
         &:focus {
             outline: none;
-            border: 1px solid var(--color-brand-10);
-        }
-
-        &--isActive {
-            &:hover {
-                background-color: var(--color-brand-25);
-            }
-
-            &:focus {
-                border-color: var(--color-brand-40);
-            }
+            border-color: var(--color-brand-10);
         }
 
         &--isOpen {
@@ -106,7 +101,15 @@ $half-pill-height: $pill-height / 2;
             }
 
             &:focus {
-                border-color: var(--color-brand-40);
+                border-color: var(--color-brand-10);
+            }
+        }
+
+        &--isActive {
+            &:hover,
+            &:focus {
+                background-color: var(--color-brand-25);
+                border-color: transparent;
             }
         }
     }
