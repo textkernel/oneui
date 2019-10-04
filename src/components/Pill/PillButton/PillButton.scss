@@ -41,26 +41,27 @@ $half-pill-height: $pill-height / 2;
         box-sizing: border-box;
         height: $pill-height;
         border-radius: $half-pill-height;
-        border: 1px solid var(--color-brand);
+        border: 1px solid var(--color-brand-40);
         padding: var(--spacing-2x) var(--spacing-2x) var(--spacing-2x) $half-pill-height;
         color: var(--color-brand);
         cursor: pointer;
         transition: all var(--transition-duration) ease;
 
-        &:focus {
+        &:focus,
+        &:hover {
             outline: none;
-            border-color: var(--color-brand-40);
+            border-color: var(--color-brand);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         &--isActive {
             background-color: var(--color-brand);
             color: var(--color-background);
-        }
 
-        &:hover,
-        &--isOpen {
-            background-color: var(--color-brand-40);
-            color: var(--color-background);
+            &:hover {
+                background-color: var(--color-brand-40);
+                border-color: var(--color-brand-40);
+            }
         }
 
         &--isOpen {
@@ -76,18 +77,17 @@ $half-pill-height: $pill-height / 2;
         height: $pill-button-size;
         padding: 0;
         font-size: var(--font-size-large);
-        border: 1px solid transparent;
+        border: none;
         border-radius: 50%;
         margin-left: var(--spacing-2x);
         background-color: transparent;
         color: inherit;
         cursor: pointer;
         box-sizing: content-box;
-        transition: all var(--transition-duration) ease;
+        transition: background-color var(--transition-duration) ease;
 
         &:focus {
             outline: none;
-            border: 1px solid var(--color-brand-10);
         }
 
         &--isActive {
