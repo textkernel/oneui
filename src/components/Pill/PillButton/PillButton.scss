@@ -111,6 +111,10 @@ $half-pill-height: $pill-height / 2;
                 background-color: var(--color-brand-25);
                 border-color: transparent;
             }
+
+            &.PillButton__button--isOpen:hover {
+                background-color: transparent;
+            }
         }
     }
 
