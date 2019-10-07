@@ -1,0 +1,132 @@
+$pill-height: 32px !default;
+$pill-label-height: 17px !default;
+$pill-button-size: 20px !default;
+
+$half-pill-height: $pill-height / 2;
+
+@keyframes labelIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.PillButton {
+    display: inline-flex;
+    flex-direction: column;
+    justify-items: start;
+
+    &__label {
+        box-sizing: border-box;
+        height: $pill-label-height;
+        padding: 0 $half-pill-height;
+        font-size: var(--font-size-x-small);
+        text-transform: uppercase;
+        color: var(--color-brand);
+
+        &--isActive {
+            animation: labelIn var(--transition-duration) forwards;
+            animation-timing-function: ease-out;
+        }
+    }
+
+    &__pill {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        height: $pill-height;
+        border-radius: $half-pill-height;
+        border: 1px solid var(--color-brand-40);
+        padding: var(--spacing-2x) var(--spacing-2x) var(--spacing-2x) $half-pill-height;
+        color: var(--color-brand);
+        cursor: pointer;
+        transition: all var(--transition-duration) ease;
+
+        &:focus,
+        &:hover {
+            outline: none;
+            border-color: var(--color-brand);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        &--isOpen {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+            &:hover {
+                background-color: var(--color-neutral-10);
+            }
+        }
+
+        &--isActive {
+            background-color: var(--color-brand);
+            color: var(--color-background);
+
+            &:hover {
+                background-color: var(--color-brand-40);
+                border-color: var(--color-brand-40);
+            }
+        }
+    }
+
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: $pill-button-size;
+        height: $pill-button-size;
+        padding: 0;
+        font-size: var(--font-size-large);
+        border: 1px solid transparent;
+        border-radius: 50%;
+        margin-left: var(--spacing-2x);
+        background-color: transparent;
+        color: inherit;
+        cursor: pointer;
+        box-sizing: content-box;
+        transition: background-color var(--transition-duration) ease;
+
+        &:focus {
+            outline: none;
+            border-color: var(--color-brand-10);
+        }
+
+        &--isOpen {
+            &:hover {
+                background-color: transparent;
+            }
+
+            &:focus {
+                border-color: var(--color-brand-10);
+            }
+        }
+
+        &--isActive {
+            &:hover,
+            &:focus {
+                background-color: var(--color-brand-25);
+                border-color: transparent;
+            }
+
+            &.PillButton__button--isOpen:hover {
+                background-color: transparent;
+            }
+        }
+    }
+
+    &__buttonIcon {
+        transform: translateY(1px);
+
+        &--isActive {
+            transform: translateY(-1px);
+        }
+
+        &--isOpen {
+            transform: translateY(0);
+        }
+    }
+}
