@@ -12,6 +12,7 @@ const { block, elem } = bem({
     classnames: styles,
     propsToMods: ['muted'],
 });
+const modalStyleObject = { overlay: { zIndex: 500 } };
 
 function LocationSelector(props) {
     const {
@@ -126,6 +127,7 @@ function LocationSelector(props) {
             </FieldWrapper>
             <Modal
                 {...elem('modal', props)}
+                style={modalStyleObject}
                 isOpen={isOpen}
                 ariaHideApp={false}
                 onRequestClose={handleCloseModal}
