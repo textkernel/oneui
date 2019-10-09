@@ -1,14 +1,5 @@
 $transition-duration: .3s;
 
-/**
- * Layering of components by z-index guide
- * [0-100] — regular components
- * [101-200] — pop-ups, tooltips
- * 
- * >500 — modal windows, top-layer pop-ups
- *
- */
-
 // ProgressBar variables
 $progress-background-color: var(--color-neutral-25) !default;
 $progress-font-size: var(--font-size-small) !default;

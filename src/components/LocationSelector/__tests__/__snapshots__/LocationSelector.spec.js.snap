@@ -145,13 +145,6 @@ exports[`LocationSelector component should render LocationSelector properly when
       contentLabel="Location selection dialog"
       isOpen={true}
       onRequestClose={[Function]}
-      style={
-        Object {
-          "overlay": Object {
-            "zIndex": 500,
-          },
-        }
-      }
     >
       <Modal
         ariaHideApp={false}
@@ -181,13 +174,6 @@ exports[`LocationSelector component should render LocationSelector properly when
         shouldCloseOnOverlayClick={true}
         shouldFocusAfterRender={true}
         shouldReturnFocusAfterClose={true}
-        style={
-          Object {
-            "overlay": Object {
-              "zIndex": 500,
-            },
-          }
-        }
       >
         <Portal
           containerInfo={
@@ -196,7 +182,6 @@ exports[`LocationSelector component should render LocationSelector properly when
             >
               <div
                 class="Modal__overlay Modal__overlay--entered"
-                style="z-index: 500;"
               >
                 <div
                   aria-label="Location selection dialog"
@@ -285,9 +270,8 @@ exports[`LocationSelector component should render LocationSelector properly when
             shouldReturnFocusAfterClose={true}
             style={
               Object {
-                "overlay": Object {
-                  "zIndex": 500,
-                },
+                "content": Object {},
+                "overlay": Object {},
               }
             }
           >
@@ -295,11 +279,7 @@ exports[`LocationSelector component should render LocationSelector properly when
               className="Modal__overlay Modal__overlay--entered"
               onClick={[Function]}
               onMouseDown={[Function]}
-              style={
-                Object {
-                  "zIndex": 500,
-                }
-              }
+              style={Object {}}
             >
               <div
                 aria-label="Location selection dialog"
@@ -570,13 +550,6 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       contentLabel="Location selection dialog"
       isOpen={false}
       onRequestClose={[Function]}
-      style={
-        Object {
-          "overlay": Object {
-            "zIndex": 500,
-          },
-        }
-      }
     >
       <Modal
         ariaHideApp={false}
@@ -606,13 +579,6 @@ exports[`LocationSelector component should render LocationSelector propertly whe
         shouldCloseOnOverlayClick={true}
         shouldFocusAfterRender={true}
         shouldReturnFocusAfterClose={true}
-        style={
-          Object {
-            "overlay": Object {
-              "zIndex": 500,
-            },
-          }
-        }
       >
         <Portal
           containerInfo={
@@ -677,9 +643,8 @@ exports[`LocationSelector component should render LocationSelector propertly whe
             shouldReturnFocusAfterClose={true}
             style={
               Object {
-                "overlay": Object {
-                  "zIndex": 500,
-                },
+                "content": Object {},
+                "overlay": Object {},
               }
             }
           />
