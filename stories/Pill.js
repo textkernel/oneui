@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-extraneous-dependencies
 import { boolean, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
-import { PillButton } from '@textkernel/oneui';
+import { PillButton, Pill } from '@textkernel/oneui';
 
 storiesOf('Molecules|Pill', module)
     .addDecorator(withKnobs)
@@ -9,8 +9,8 @@ storiesOf('Molecules|Pill', module)
         <div style={{ display: 'flex' }}>
             <PillButton
                 isOpen={boolean('Pill is open', false)}
-                togglePopup={() => {
-                    console.log('togglePopup has been called');
+                toggleDropdown={() => {
+                    console.log('toggleDropdown has been called');
                 }}
                 onClear={() => {
                     console.log('onClear has been called');
@@ -21,8 +21,8 @@ storiesOf('Molecules|Pill', module)
             &nbsp;&nbsp;
             <PillButton
                 isOpen={boolean('Pill is open 2', false)}
-                togglePopup={() => {
-                    console.log('togglePopup 2 has been called');
+                toggleDropdown={() => {
+                    console.log('toggleDropdown 2 has been called');
                 }}
                 onClear={() => {
                     console.log('onClear 2 has been called');
@@ -31,4 +31,32 @@ storiesOf('Molecules|Pill', module)
                 content={text('Label for pill content 2', '')}
             />
         </div>
-    ));
+    ))
+    .add('Pill', () => {
+        const DummyComponent = React.forwardRef(({ close, className, innerPadding }, ref) => (
+            <div ref={ref} className={className} style={{ padding: innerPadding }}>
+                <p>This is some content for the pill</p>
+                <button onClick={close}>Close me</button>
+            </div>
+        ));
+
+        return (
+            <div style={{ position: 'relative' }}>
+                <Pill
+                    onClear={() => {
+                        console.log('onClear has been called');
+                    }}
+                    name={text('Name of the pill', 'Pill name')}
+                    content={text('Label for pill content', 'This pill is used')}
+                >
+                    {({ close, className, innerPadding }) => (
+                        <DummyComponent
+                            close={close}
+                            className={className}
+                            innerPadding={innerPadding}
+                        />
+                    )}
+                </Pill>
+            </div>
+        );
+    });
