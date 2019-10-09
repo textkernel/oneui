@@ -1,9 +1,10 @@
 $text-input-height: 38px;
 $location-card-width: 300px;
+$icon-margin-adjustment: 5px 1px -3px 3px;
+
 $modal-width: 75%;
 $modal-min-width: 2 * $location-card-width;
 $modal-min-height: 400px;
-$icon-margin-adjustment: 5px 1px -3px 3px;
 
 .LocationSelector {
     &__mainTextInputWrapper {
