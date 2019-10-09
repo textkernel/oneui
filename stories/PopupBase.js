@@ -10,8 +10,8 @@ storiesOf('Atoms|PopupBase', module)
     .add('PopupBase', () => (
         <div style={{ textAlign: 'center' }}>
             <PopupBase
-                anchorRenderer={({ setPopupVisibility, isOpened }) => (
-                    <Button onClick={() => setPopupVisibility(!isOpened)}>Toggle popup</Button>
+                anchorRenderer={({ setPopupVisibility, isOpen }) => (
+                    <Button onClick={() => setPopupVisibility(!isOpen)}>Toggle popup</Button>
                 )}
                 popupRenderer={({ setPopupVisibility }) => (
                     <PopoverDummy setPopupVisibility={setPopupVisibility} />

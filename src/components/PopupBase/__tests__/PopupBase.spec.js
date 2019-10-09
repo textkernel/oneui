@@ -7,8 +7,8 @@ import PopupBase from '../PopupBase';
 import PopoverDummy from '../__mocks__/PopoverDummy';
 
 describe('<PopupBase> that adds basic anchor/popup functionality to rendered components', () => {
-    const anchorRendererMock = ({ setPopupVisibility, isOpened }) => (
-        <Button onClick={() => setPopupVisibility(!isOpened)}>Toggle popup</Button>
+    const anchorRendererMock = ({ setPopupVisibility, isOpen }) => (
+        <Button onClick={() => setPopupVisibility(!isOpen)}>Toggle popup</Button>
     );
     const popupRendererMock = ({ setPopupVisibility }) => (
         <PopoverDummy setPopupVisibility={setPopupVisibility} />

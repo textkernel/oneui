@@ -5,20 +5,11 @@ import PopperJS from 'popper.js';
 import { POPUP_PLACEMENTS, ESCAPE_KEY } from '../../constants';
 
 class PopupBase extends React.Component {
-    static checkDOMPath(domElem, checkIsTarget) {
-        let currentElem = domElem;
-        while (currentElem && currentElem !== document) {
-            if (checkIsTarget(currentElem)) return true;
-            currentElem = currentElem.parentElement;
-        }
-        return false;
-    }
-
     constructor(props) {
         super(props);
         const { anchorRef, popupRef } = props;
 
-        this.state = { isOpened: false };
+        this.state = { isOpen: false };
         this.popper = undefined;
         this.anchorRef = anchorRef || React.createRef();
         this.popupRef = popupRef || React.createRef();
@@ -34,11 +25,11 @@ class PopupBase extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        const { isOpened } = this.state;
-        if (isOpened && !prevState.isOpened) {
+        const { isOpen } = this.state;
+        if (isOpen && !prevState.isOpen) {
             this.createPopperInstance();
         }
-        if (!isOpened && prevState.isOpened) {
+        if (!isOpen && prevState.isOpen) {
             this.destroyPopperIstance();
         }
     }
@@ -49,32 +40,31 @@ class PopupBase extends React.Component {
     }
 
     setPopupVisibility(shouldBeOpen) {
-        const { isOpened } = this.state;
-        if (shouldBeOpen !== isOpened) {
-            this.setState({ isOpened: shouldBeOpen });
+        const { isOpen } = this.state;
+        if (shouldBeOpen !== isOpen) {
+            this.setState({ isOpen: shouldBeOpen });
         }
     }
 
     getArgs() {
-        const { isOpened } = this.state;
+        const { isOpen } = this.state;
         return {
             setPopupVisibility: this.setPopupVisibility,
-            isOpened,
+            isOpen,
         };
     }
 
     handleWindowClick(event) {
-        if (!this.popupRef.current) return;
-        const wasPopupClicked = PopupBase.checkDOMPath(
-            event.target,
-            elem => elem.dataset && !!elem.dataset.popup
-        );
-        const wasOutsideClicked = !this.popupRef.current.contains(event.target);
+        const { isOpen } = this.state;
+        if (isOpen) {
+            const wasPopupClicked =
+                this.popupRef.current && this.popupRef.current.contains(event.target);
+            const wasAnchorClicked =
+                this.anchorRef.current && this.anchorRef.current.contains(event.target);
 
-        const wasAnchorClicked =
-            this.anchorRef.current && this.anchorRef.current.contains(event.target);
-        if (!wasPopupClicked && wasOutsideClicked && !wasAnchorClicked) {
-            this.close();
+            if (!wasPopupClicked && !wasAnchorClicked) {
+                this.close();
+            }
         }
     }
 
@@ -85,25 +75,27 @@ class PopupBase extends React.Component {
     }
 
     close() {
-        const { isOpened } = this.state;
-        if (isOpened === true) {
-            this.setState({ isOpened: false });
+        const { isOpen } = this.state;
+        if (isOpen) {
+            this.setState({ isOpen: false });
         }
     }
 
     createPopperInstance() {
-        if (!this.anchorRef.current || !this.popupRef.current) return;
-        const { placement } = this.props;
-        this.destroyPopperIstance();
-        this.popper = new PopperJS(this.anchorRef.current, this.popupRef.current, {
-            placement,
-        });
+        if (this.anchorRef.current && this.popupRef.current) {
+            const { placement } = this.props;
+            this.destroyPopperIstance();
+            this.popper = new PopperJS(this.anchorRef.current, this.popupRef.current, {
+                placement,
+            });
+        }
     }
 
     destroyPopperIstance() {
-        if (!this.popper) return;
-        this.popper.destroy();
-        this.popper = undefined;
+        if (this.popper) {
+            this.popper.destroy();
+            this.popper = undefined;
+        }
     }
 
     renderAnchor() {
@@ -113,15 +105,19 @@ class PopupBase extends React.Component {
     }
 
     renderPopup() {
-        const { isOpened } = this.state;
-        if (!isOpened) return null;
-        const { popupRenderer } = this.props;
-        const popupElem = popupRenderer(this.getArgs());
-        const popupElemWithProps = React.cloneElement(popupElem, {
-            ref: this.popupRef,
-            'data-popup': 'true',
-        });
-        return ReactDOM.createPortal(popupElemWithProps, document.body);
+        const { isOpen } = this.state;
+        if (isOpen) {
+            const { popupRenderer } = this.props;
+            const popupElem = popupRenderer(this.getArgs());
+            const popupElemWithProps = React.cloneElement(popupElem, {
+                ref: this.popupRef,
+                'data-popup': 'true',
+            });
+
+            return ReactDOM.createPortal(popupElemWithProps, document.body);
+        }
+
+        return null;
     }
 
     render() {
@@ -141,7 +137,7 @@ PopupBase.propTypes = {
      * Function, that returns an element that triggers popup.
      * It will be called with a single object as argument that contains:
      *      * setPopupVisibility {function} - can be called with true/false to show/hide the popup
-     *      * isOpened {boolean} - the current state of the popup
+     *      * isOpen {boolean} - the current state of the popup
      * NOTE: The returned element should support refForward, but should not have it set.
      *     If you need to access the ref, pass the ref with anchorRef prop (see below)
      */
@@ -150,7 +146,7 @@ PopupBase.propTypes = {
      * Function, that returns popup element.
      * It will be called with a single object as argument that contains:
      *      * setPopupVisibility {function} - can be called with true/false to show/hide the popup
-     *      * isOpened {boolean} - the current state of the popup
+     *      * isOpen {boolean} - the current state of the popup
      * NOTE: The returned element should support refForward, but should not have it set.
      *     If you need to access the ref, pass the ref with popupRef prop (see below)
      */
