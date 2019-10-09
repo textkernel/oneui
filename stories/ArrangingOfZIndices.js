@@ -5,11 +5,11 @@ storiesOf('Concepts|Arrangment of z-indices', module).add('Arrangment of z-indic
         text: `
             ## Declared layers for arranging components:
 
-            [0-400] — regular components
+            [0-399] — regular components
 
-            [401-700] — pop-ups, tooltips
+            [400-699] — pop-ups, tooltips
 
-            ..>701 — modal windows, top-layer pop-ups
+            [700-999] — modal windows, top-layer pop-ups
             `,
         source: null,
     },

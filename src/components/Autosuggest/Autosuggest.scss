@@ -9,7 +9,7 @@
         transition-property: box-shadow, transform, border-color;
         transition-duration: var(--transition-duration);
         border-radius: var(--border-radius);
-        z-index: 100;
+        z-index: 200;
 
         &--focused {
             position: absolute;
