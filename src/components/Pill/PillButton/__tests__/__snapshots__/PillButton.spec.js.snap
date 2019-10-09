@@ -6,7 +6,7 @@ exports[`<PillButton> component in active, collapsed state (with content prop) s
   isOpen={false}
   name="Pill name"
   onClear={[MockFunction]}
-  togglePopup={[MockFunction]}
+  toggleDropdown={[MockFunction]}
 >
   <div
     className="PillButton"
@@ -49,7 +49,7 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
   isOpen={true}
   name="Pill name"
   onClear={[MockFunction]}
-  togglePopup={[MockFunction]}
+  toggleDropdown={[MockFunction]}
 >
   <div
     className="PillButton"
@@ -73,7 +73,7 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
         className="PillButton__button PillButton__button--isActive PillButton__button--isOpen"
         type="button"
       >
-        <IoIosArrowUp
+        <IoIosArrowDown
           className="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
         >
           <IconBase
@@ -100,12 +100,12 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
+                d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
                 key="0"
               />
             </svg>
           </IconBase>
-        </IoIosArrowUp>
+        </IoIosArrowDown>
       </button>
     </div>
   </div>
@@ -118,7 +118,7 @@ exports[`<PillButton> component in inactive, collapsed state (with minimal props
   isOpen={false}
   name="Pill name"
   onClear={[MockFunction]}
-  togglePopup={[MockFunction]}
+  toggleDropdown={[MockFunction]}
 >
   <div
     className="PillButton"
@@ -185,7 +185,7 @@ exports[`<PillButton> component in inactive, open state (isOpen prop) should ren
   isOpen={true}
   name="Pill name"
   onClear={[MockFunction]}
-  togglePopup={[MockFunction]}
+  toggleDropdown={[MockFunction]}
 >
   <div
     className="PillButton"
@@ -207,7 +207,7 @@ exports[`<PillButton> component in inactive, open state (isOpen prop) should ren
         className="PillButton__button PillButton__button--isOpen"
         type="button"
       >
-        <IoIosArrowUp
+        <IoIosArrowDown
           className="PillButton__buttonIcon PillButton__buttonIcon--isOpen"
         >
           <IconBase
@@ -234,12 +234,12 @@ exports[`<PillButton> component in inactive, open state (isOpen prop) should ren
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
+                d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
                 key="0"
               />
             </svg>
           </IconBase>
-        </IoIosArrowUp>
+        </IoIosArrowDown>
       </button>
     </div>
   </div>

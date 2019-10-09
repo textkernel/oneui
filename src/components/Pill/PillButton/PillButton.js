@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
-import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowDown } from 'react-icons/io';
 import { CROSS_CHAR, ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
 
@@ -12,7 +12,7 @@ const { block, elem } = bem({
 });
 
 const PillButton = React.forwardRef((props, ref) => {
-    const { isOpen, togglePopup, onClear, name, content, ...rest } = props;
+    const { isOpen, toggleDropdown, onClear, name, content, ...rest } = props;
     const isActive = !!content;
     const propsForBem = { ...props, isActive };
 
@@ -34,16 +34,12 @@ const PillButton = React.forwardRef((props, ref) => {
         }
     }, [isActive, labelRef, pillMinWidth, pillRef]);
 
-    let buttonIcon;
+    let buttonIcon = <IoIosArrowDown {...elem('buttonIcon', propsForBem)} />;
     let isButtonClickable = false;
 
-    if (isOpen) {
-        buttonIcon = <IoIosArrowUp {...elem('buttonIcon', propsForBem)} />;
-    } else if (isActive) {
+    if (isActive && !isOpen) {
         buttonIcon = <span {...elem('buttonIcon', propsForBem)}>{CROSS_CHAR}</span>;
         isButtonClickable = true;
-    } else {
-        buttonIcon = <IoIosArrowDown {...elem('buttonIcon', propsForBem)} />;
     }
 
     const buttonClick = isButtonClickable
@@ -65,7 +61,7 @@ const PillButton = React.forwardRef((props, ref) => {
     const handleKeyDownOnPill = e => {
         if (e.key === ENTER_KEY) {
             e.preventDefault();
-            togglePopup();
+            toggleDropdown();
         }
     };
 
@@ -78,7 +74,7 @@ const PillButton = React.forwardRef((props, ref) => {
                 ref={pillRef}
                 {...elem('pill', propsForBem)}
                 style={pillMinWidth ? { minWidth: pillMinWidth } : undefined}
-                onClick={togglePopup}
+                onClick={toggleDropdown}
                 onKeyDown={handleKeyDownOnPill}
                 tabIndex="0"
                 role="button"
@@ -100,10 +96,10 @@ const PillButton = React.forwardRef((props, ref) => {
 PillButton.displayName = 'PillButton';
 
 PillButton.propTypes = {
-    /** Wether the popup is open or closed */
+    /** Wether the dropdown is open or closed */
     isOpen: PropTypes.bool,
-    /** a function to be called when popup should be toggled */
-    togglePopup: PropTypes.func.isRequired,
+    /** a function to be called when dropdown should be toggled */
+    toggleDropdown: PropTypes.func.isRequired,
     /** a function to be called to clear the pill/filter content */
     onClear: PropTypes.func.isRequired,
     /** name describing the pill/filter */
