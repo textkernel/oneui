@@ -12,6 +12,7 @@ import './Link';
 import './List';
 import './Map';
 import './Modal';
+import './PopupBase';
 import './ProgressBar';
 import './Slider';
 import './Tabs';

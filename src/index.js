@@ -19,6 +19,7 @@ export { Tabs, Tab, TabContent, TabItem, TabMenu } from './components/Tabs';
 export { Text, MarkedText } from './components/Text';
 export { default as TextArea } from './components/TextArea';
 export { PageWidthRestrictor, BlockWidthRestrictor } from './components/WidthRestrictor';
+export { default as PopupBase } from './components/PopupBase';
 // Molecules
 export { default as Alert } from './components/Alert';
 export { default as ButtonGroup } from './components/ButtonGroup';

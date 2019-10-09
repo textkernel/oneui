@@ -50,6 +50,7 @@
         "css-vars-ponyfill": "1.16.4",
         "downshift": "3.2.10",
         "fast-memoize": "2.5.1",
+        "popper.js": "1.15.0",
         "prop-types": "^15.7.2",
         "rc-slider": "8.6.13",
         "react-modal": "3.9.1"
