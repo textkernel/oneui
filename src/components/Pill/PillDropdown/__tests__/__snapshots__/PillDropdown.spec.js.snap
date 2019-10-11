@@ -3,7 +3,7 @@
 exports[`<PillDropdown> component should render correctly 1`] = `
 <PillDropdown
   close={[MockFunction]}
-  innerPadding="6px"
+  noPadding={false}
 >
   <div
     className="PillDropdown"

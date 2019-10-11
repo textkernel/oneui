@@ -12,6 +12,8 @@ const Pill = props => {
         content,
         children,
         dropdownRef: dropdownRefFromProps,
+        noPaddingInDropdown,
+        additionalDropdownProps,
         ...rest
     } = props;
 
@@ -40,7 +42,11 @@ const Pill = props => {
 
     // eslint-disable-next-line react/display-name, react/prop-types
     const dropdownRenderer = ({ setPopupVisibility }) => (
-        <PillDropdown close={() => setPopupVisibility(false)} innerPadding="var(--spacing-3x)">
+        <PillDropdown
+            close={() => setPopupVisibility(false)}
+            noPadding={noPaddingInDropdown}
+            {...additionalDropdownProps}
+        >
             {children}
         </PillDropdown>
     );
@@ -73,12 +79,21 @@ Pill.propTypes = {
     ref: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** ref for pill dropdown */
     dropdownRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+    /** whether or not to add a padding to the dropdown container.
+     * It is useful if you need to add elements that stretch to the edge of the container.
+     * You can use the CSS variable --pill-dropdown-padding to add padding as required.
+     * */
+    noPaddingInDropdown: PropTypes.bool,
+    /** other props that need to be applied to the dropdown container */
+    additionalDropdownProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 Pill.defaultProps = {
     content: null,
     ref: null,
     dropdownRef: null,
+    noPaddingInDropdown: false,
+    additionalDropdownProps: {},
 };
 
 export default Pill;

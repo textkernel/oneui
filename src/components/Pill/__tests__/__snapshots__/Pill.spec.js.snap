@@ -2,9 +2,11 @@
 
 exports[`<Pill> component should open dropdown when button is clicked 1`] = `
 <Pill
+  additionalDropdownProps={Object {}}
   content="Pill content"
   dropdownRef={null}
   name="Pill name"
+  noPaddingInDropdown={false}
   onClear={[MockFunction]}
   ref={null}
 >
@@ -132,7 +134,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
     <PillDropdown
       close={[Function]}
       data-popup="true"
-      innerPadding="var(--spacing-3x)"
+      noPadding={false}
     >
       <div
         className="PillDropdown"
@@ -145,9 +147,11 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
 
 exports[`<Pill> component should render correctly 1`] = `
 <Pill
+  additionalDropdownProps={Object {}}
   content="Pill content"
   dropdownRef={null}
   name="Pill name"
+  noPaddingInDropdown={false}
   onClear={[MockFunction]}
   ref={null}
 >
