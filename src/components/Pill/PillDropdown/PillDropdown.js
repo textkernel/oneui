@@ -9,11 +9,11 @@ const { block } = bem({
 });
 
 const PillDropdown = React.forwardRef((props, ref) => {
-    const { close, innerPadding } = props;
+    const { close, innerPadding, children, ...rest } = props;
 
     return (
-        <div ref={ref} {...block(props)}>
-            {props.children({
+        <div ref={ref} {...rest} {...block(props)}>
+            {children({
                 close,
                 innerPadding,
             })}
