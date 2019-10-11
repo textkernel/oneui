@@ -30,7 +30,7 @@ class PopupBase extends React.Component {
             this.createPopperInstance();
         }
         if (!isOpen && prevState.isOpen) {
-            this.destroyPopperIstance();
+            this.destroyPopperInstance();
         }
     }
 
@@ -84,14 +84,14 @@ class PopupBase extends React.Component {
     createPopperInstance() {
         if (this.anchorRef.current && this.popupRef.current) {
             const { placement } = this.props;
-            this.destroyPopperIstance();
+            this.destroyPopperInstance();
             this.popper = new PopperJS(this.anchorRef.current, this.popupRef.current, {
                 placement,
             });
         }
     }
 
-    destroyPopperIstance() {
+    destroyPopperInstance() {
         if (this.popper) {
             this.popper.destroy();
             this.popper = undefined;
@@ -105,6 +105,7 @@ class PopupBase extends React.Component {
     }
 
     renderPopup() {
+        const { renderInPortal } = this.props;
         const { isOpen } = this.state;
         if (isOpen) {
             const { popupRenderer } = this.props;
@@ -114,7 +115,9 @@ class PopupBase extends React.Component {
                 'data-popup': 'true',
             });
 
-            return ReactDOM.createPortal(popupElemWithProps, document.body);
+            return renderInPortal
+                ? ReactDOM.createPortal(popupElemWithProps, document.body)
+                : popupElemWithProps;
         }
 
         return null;
@@ -157,12 +160,15 @@ PopupBase.propTypes = {
     popupRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** placement of the popup dialog relative to anchor */
     placement: PropTypes.oneOf(POPUP_PLACEMENTS),
+    /** To render the popup in a portal. Useful if the anchor element has overflow hidden and similar cases */
+    renderInPortal: PropTypes.bool,
 };
 
 PopupBase.defaultProps = {
     anchorRef: null,
     popupRef: null,
     placement: 'bottom-start',
+    renderInPortal: false,
 };
 
 export default PopupBase;
