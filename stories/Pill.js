@@ -35,7 +35,7 @@ storiesOf('Molecules|Pill', module)
     .add('Pill', () => {
         const DummyComponent = React.forwardRef(({ close, className, innerPadding }, ref) => (
             <div ref={ref} className={className} style={{ padding: innerPadding }}>
-                <p>This is some content for the pill</p>
+                <p>{text('dropdown text', 'This is some content for the pil')}l</p>
                 <button onClick={close}>Close me</button>
             </div>
         ));
@@ -49,12 +49,8 @@ storiesOf('Molecules|Pill', module)
                     name={text('Name of the pill', 'Pill name')}
                     content={text('Label for pill content', 'This pill is used')}
                 >
-                    {({ close, className, innerPadding }) => (
-                        <DummyComponent
-                            close={close}
-                            className={className}
-                            innerPadding={innerPadding}
-                        />
+                    {({ close, innerPadding }) => (
+                        <DummyComponent close={close} innerPadding={innerPadding} />
                     )}
                 </Pill>
             </div>
