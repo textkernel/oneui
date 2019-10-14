@@ -6,7 +6,12 @@ exports[`<PillDropdown> component should render correctly 1`] = `
   noPadding={false}
 >
   <div
-    className="PillDropdown"
-  />
+    role="presentation"
+  >
+    <div
+      className="PillDropdown"
+      role="dialog"
+    />
+  </div>
 </PillDropdown>
 `;

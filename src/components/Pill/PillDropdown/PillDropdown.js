@@ -13,8 +13,10 @@ const PillDropdown = React.forwardRef((props, ref) => {
     const { close, noPadding, children, ...rest } = props;
 
     return (
-        <div ref={ref} {...rest} {...block(props)}>
-            {children({ close })}
+        <div ref={ref} role="presentation">
+            <div role="dialog" {...rest} {...block(props)}>
+                {children({ close })}
+            </div>
         </div>
     );
 });
