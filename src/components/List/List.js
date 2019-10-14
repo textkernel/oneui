@@ -1,9 +1,11 @@
 import React from 'react';
+// import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import bem from 'bem';
 import ListItem from './ListItem';
 import styles from './List.scss';
 import { LIST_NAVIGATION_DIRECTIONS, ENTER_KEY } from '../../constants';
+import scrollIntoViewIfNeeded from '../../utils/scrollIntoViewIfNeeded';
 
 const { block, elem } = bem({
     name: 'List',
@@ -17,36 +19,37 @@ const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1,
 };
 
-const SCROLL_INTO_VIEW_SETTINGS = {
-    block: 'nearest',
-};
-
 export const NOT_LIST_CHILD = 'data-list-exception';
 export const LIST_CHILD = 'data-list-child';
 
 const List = React.forwardRef((props, ref) => {
-    const [selectedIndex, setSelectedIndex] = React.useState(null);
-    const [highlightedWithKeyboard, setHighlightedWithKeyboard] = React.useState(false);
-
-    const highlightedListItem = React.useRef(null);
-
     const { children, isDivided, doSelectOnNavigate, isControlledNavigation, ...rest } = props;
 
-    /**
-     * Scroll list if it's necessary to make the highlighted item visible
-     * every time selectedIndex was changed with the keyboard navigation
-     */
-    React.useEffect(() => {
-        const hasScrollIntoViewFunction =
-            highlightedListItem &&
-            highlightedListItem.current &&
-            highlightedListItem.current.scrollIntoView;
+    const [selectedIndex, setSelectedIndex] = React.useState(null);
+    const [lastNavDirection, setLastNavDirection] = React.useState(null);
+    const navigationElementRef = React.createRef();
 
-        if (highlightedWithKeyboard && hasScrollIntoViewFunction) {
-            highlightedListItem.current.scrollIntoView(SCROLL_INTO_VIEW_SETTINGS);
-            setHighlightedWithKeyboard(false);
+    // set selectedIndex to first selectedItem that we can find
+    React.useEffect(() => {
+        if (!children) return;
+
+        // eslint-disable-next-line no-plusplus
+        for (let i = 0; i < children.length; i++) {
+            const child = children[i];
+            if (!child.props[NOT_LIST_CHILD] && child.props.isSelected) {
+                setSelectedIndex(i);
+                break;
+            }
         }
-    }, [highlightedWithKeyboard, selectedIndex]);
+    }, [children]);
+
+    // Scroll list if it's necessary to make the current item visible after keyboard navigation
+    React.useLayoutEffect(() => {
+        if (lastNavDirection) {
+            scrollIntoViewIfNeeded(navigationElementRef.current, lastNavDirection);
+        }
+        setLastNavDirection(null);
+    }, [navigationElementRef, lastNavDirection]);
 
     const getNextSelectedIndex = keyCode => {
         const stepValue = NAVIGATION_STEP_VALUES[keyCode];
@@ -66,6 +69,12 @@ const List = React.forwardRef((props, ref) => {
         return nextSelectedIndex;
     };
 
+    const callOnClick = (index, e) => {
+        if (children[index] && children[index].props && children[index].props.onClick) {
+            children[index].props.onClick(e);
+        }
+    };
+
     const handleKeyDown = e => {
         // Update selectedIndex with arrow navigation and make onNavigate function callback
         if (e.key === LIST_NAVIGATION_DIRECTIONS.UP || e.key === LIST_NAVIGATION_DIRECTIONS.DOWN) {
@@ -74,30 +83,20 @@ const List = React.forwardRef((props, ref) => {
             if (selectedIndex !== nextSelectedIndex) {
                 e.preventDefault();
                 setSelectedIndex(nextSelectedIndex);
-                setHighlightedWithKeyboard(true);
+
+                const direction = e.key === LIST_NAVIGATION_DIRECTIONS.UP ? 'top' : 'bottom';
+                setLastNavDirection(direction);
+
+                if (doSelectOnNavigate) {
+                    callOnClick(nextSelectedIndex, e);
+                }
             }
         }
 
-        // Imitate onClick event for the selected highlighted item
-        if (e.key === ENTER_KEY || doSelectOnNavigate) {
-            if (
-                children[selectedIndex] &&
-                children[selectedIndex].props &&
-                children[selectedIndex].props.onClick
-            ) {
-                children[selectedIndex].props.onClick(e);
-            }
+        if (e.key === ENTER_KEY) {
+            callOnClick(selectedIndex, e);
         }
     };
-
-    const handleMouseEnter = React.useCallback(
-        index => {
-            if (selectedIndex !== index) {
-                setSelectedIndex(index);
-            }
-        },
-        [selectedIndex]
-    );
 
     return isControlledNavigation ? (
         <ul {...rest} ref={ref} {...block(props)}>
@@ -119,9 +118,8 @@ const List = React.forwardRef((props, ref) => {
                         ? child
                         : React.cloneElement(child, {
                               ...elem('item', props, child.props.className),
-                              ref: index === selectedIndex ? highlightedListItem : null,
+                              ref: index === selectedIndex ? navigationElementRef : null,
                               isHighlighted: index === selectedIndex,
-                              onMouseEnter: () => handleMouseEnter(index),
                           });
                 }
                 return null;

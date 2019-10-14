@@ -8,7 +8,10 @@ import { CONTEXTS } from '../src/constants';
 storiesOf('Atoms|List', module)
     .addDecorator(withKnobs)
     .add('List', () => (
-        <List isDivided={boolean('Add dividers between items', true)}>
+        <List
+            isDivided={boolean('Add dividers between items', true)}
+            doSelectOnNavigate={boolean('Select item on keyboard navigation', true)}
+        >
             <ListItem highlightContext={select('Highlight context', ['default', ...CONTEXTS])}>
                 First item passed as string{' '}
                 <ListActions>
@@ -49,9 +52,9 @@ storiesOf('Atoms|List', module)
         </List>
     ))
     .add('List showing results', () => {
-        const onClickJob = e => {
+        const onClickJob = item => e => {
             e.preventDefault();
-            alert('Item was selected'); // eslint-disable-line no-alert, no-undef
+            alert(`${item} item was selected`); // eslint-disable-line no-alert, no-undef
         };
         const onClickAction = e => {
             e.preventDefault();
@@ -61,8 +64,11 @@ storiesOf('Atoms|List', module)
 
         return (
             <div style={{ width: '500px' }}>
-                <List isDivided>
-                    <ListItem onClick={onClickJob}>
+                <List
+                    isDivided
+                    doSelectOnNavigate={boolean('Select item on keyboard navigation', true)}
+                >
+                    <ListItem onClick={onClickJob('First')}>
                         <Teaser
                             title="My first job"
                             location="Melbourne"
@@ -75,7 +81,7 @@ storiesOf('Atoms|List', module)
                             </Button>
                         </ListActions>
                     </ListItem>
-                    <ListItem onClick={onClickJob}>
+                    <ListItem onClick={onClickJob('Second')}>
                         <Teaser
                             title="Job with a very, very, very long title to be truncated by css"
                             location="Melbourne"
@@ -88,7 +94,7 @@ storiesOf('Atoms|List', module)
                             </Button>
                         </ListActions>
                     </ListItem>
-                    <ListItem onClick={onClickJob}>
+                    <ListItem onClick={onClickJob('Third')}>
                         <Teaser title="An other job with a very, very, very long title to be truncated by css if it doesn't fit" />
                         <ListActions>
                             <Button context="link" onClick={onClickAction} isInline>
