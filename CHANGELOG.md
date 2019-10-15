@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.1.0](https://github.com/textkernel/oneui/compare/8.0.1...8.1.0) (2019-10-15)
+
+
+### Bug Fixes
+
+* refactor and arrange components z-index prop ([#177](https://github.com/textkernel/oneui/issues/177)) ([fe2addc](https://github.com/textkernel/oneui/commit/fe2addc))
+* **List:** keyboard navigation bugs ([#180](https://github.com/textkernel/oneui/issues/180)) ([31189d9](https://github.com/textkernel/oneui/commit/31189d9))
+
+
+### Features
+
+* **Pill:** new component PillButton ([#174](https://github.com/textkernel/oneui/issues/174)) ([ee8d0ee](https://github.com/textkernel/oneui/commit/ee8d0ee))
+* new Pill component ([#179](https://github.com/textkernel/oneui/issues/179)) ([8ea4a84](https://github.com/textkernel/oneui/commit/8ea4a84))
+* new PopupBase component ([#178](https://github.com/textkernel/oneui/issues/178)) ([da5c077](https://github.com/textkernel/oneui/commit/da5c077))
+
+
+
 ### [8.0.1](https://github.com/textkernel/oneui/compare/8.0.0...8.0.1) (2019-10-03)
 
 
