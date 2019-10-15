@@ -31,7 +31,7 @@ export { default as LoadingSpinner } from './components/LoadingSpinner';
 export { default as LocationCard } from './components/LocationCard';
 export { NavBar, NavItem } from './components/Navigation';
 export { default as Pagination } from './components/Pagination';
-export { PillButton } from './components/Pill';
+export { Pill, PillButton, PillDropdown } from './components/Pill';
 export { default as RadioButton } from './components/RadioButton';
 export { default as Teaser } from './components/Teaser';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';

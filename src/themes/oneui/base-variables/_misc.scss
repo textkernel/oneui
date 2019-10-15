@@ -1,4 +1,5 @@
-$transition-duration: .3s;
+$transition-duration-quick: 0.1s !default;
+$transition-duration: 0.3s !default;
 
 // ProgressBar variables
 $progress-background-color: var(--color-neutral-25) !default;
@@ -13,15 +14,16 @@ $drawer-expand-active-background-color: #797777 !default;
 $drawer-expand-hover-background-color: #565656 !default;
 
 :root {
-    --transition-duration: #{ $transition-duration };
+    --transition-duration-quick: #{$transition-duration-quick};
+    --transition-duration: #{$transition-duration};
 
-    --progress-background-color: #{ $progress-background-color };
-    --progress-font-size: #{ $progress-font-size };
-    --progress-label-color: #{ $progress-label-color };
+    --progress-background-color: #{$progress-background-color};
+    --progress-font-size: #{$progress-font-size};
+    --progress-label-color: #{$progress-label-color};
 
-    --drawer-width: #{ $drawer-width };
-    --drawer-z-index: #{ $drawer-z-index };
-    --drawer-head-background-color: #{ $drawer-head-background-color };
-    --drawer-expand-active-background-color: #{ $drawer-expand-active-background-color };
-    --drawer-expand-hover-background-color: #{ $drawer-expand-hover-background-color };
+    --drawer-width: #{$drawer-width};
+    --drawer-z-index: #{$drawer-z-index};
+    --drawer-head-background-color: #{$drawer-head-background-color};
+    --drawer-expand-active-background-color: #{$drawer-expand-active-background-color};
+    --drawer-expand-hover-background-color: #{$drawer-expand-hover-background-color};
 }

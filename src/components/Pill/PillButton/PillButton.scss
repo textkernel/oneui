@@ -96,6 +96,8 @@ $half-pill-height: $pill-height / 2;
         }
 
         &--isOpen {
+            transform: rotate(180deg);
+
             &:hover {
                 background-color: transparent;
             }

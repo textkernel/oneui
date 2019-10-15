@@ -4,7 +4,7 @@ import PillButton from '../PillButton';
 import { CROSS_CHAR, ENTER_KEY } from '../../../../constants';
 
 describe('<PillButton> component', () => {
-    const togglePopupMock = jest.fn();
+    const toggleDropdownMock = jest.fn();
     const onClearMock = jest.fn();
     const name = 'Pill name';
     const content = 'This pill is in use';
@@ -18,7 +18,7 @@ describe('<PillButton> component', () => {
     describe('in inactive, collapsed state (with minimal props)', () => {
         beforeEach(() => {
             wrapper = mount(
-                <PillButton togglePopup={togglePopupMock} onClear={onClearMock} name={name} />
+                <PillButton toggleDropdown={toggleDropdownMock} onClear={onClearMock} name={name} />
             );
         });
 
@@ -29,28 +29,28 @@ describe('<PillButton> component', () => {
         });
         it('should trigger toggle state once when clicked', () => {
             wrapper.find('.PillButton__pill').simulate('click');
-            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
         it('should trigger toggle state once on keyboard interaction', () => {
             wrapper
                 .find('.PillButton__pill')
                 .simulate('focus')
                 .simulate('keyDown', { key: ENTER_KEY });
-            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
         it('should have arrow down label', () => {
             expect(wrapper.find('IoIosArrowDown')).toHaveLength(1);
         });
         it('should trigger toggle state once when button is clicked', () => {
             wrapper.find('button').simulate('click');
-            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
         it('should trigger toggle state once on keyboard interaction with button', () => {
             wrapper
                 .find('button')
                 .simulate('focus')
                 .simulate('keyDown', { key: ENTER_KEY });
-            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
     });
 
@@ -58,7 +58,7 @@ describe('<PillButton> component', () => {
         beforeEach(() => {
             wrapper = mount(
                 <PillButton
-                    togglePopup={togglePopupMock}
+                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     isOpen
@@ -72,18 +72,18 @@ describe('<PillButton> component', () => {
             expect(wrapper.find('.PillButton__pill--isOpen')).toHaveLength(1);
         });
         it('should have arrow up label', () => {
-            expect(wrapper.find('IoIosArrowUp')).toHaveLength(1);
+            expect(wrapper.find('IoIosArrowDown.PillButton__buttonIcon--isOpen')).toHaveLength(1);
         });
         it('should trigger toggle state once when button is clicked', () => {
             wrapper.find('button').simulate('click');
-            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
         it('should trigger toggle state once on keyboard interaction with button', () => {
             wrapper
                 .find('button')
                 .simulate('focus')
                 .simulate('keyDown', { key: ENTER_KEY });
-            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
     });
 
@@ -91,7 +91,7 @@ describe('<PillButton> component', () => {
         beforeEach(() => {
             wrapper = mount(
                 <PillButton
-                    togglePopup={togglePopupMock}
+                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     content={content}
@@ -110,7 +110,7 @@ describe('<PillButton> component', () => {
         it('should not trigger toggle state but onClear only when button is clicked', () => {
             wrapper.find('.PillButton__button').simulate('click');
             expect(onClearMock).toHaveBeenCalledTimes(1);
-            expect(togglePopupMock).toHaveBeenCalledTimes(0);
+            expect(toggleDropdownMock).toHaveBeenCalledTimes(0);
         });
         it('should not trigger toggle state but onClear only on keyboard interaction with button', () => {
             wrapper
@@ -118,14 +118,14 @@ describe('<PillButton> component', () => {
                 .simulate('focus')
                 .simulate('keyDown', { key: ENTER_KEY });
             expect(onClearMock).toHaveBeenCalledTimes(1);
-            expect(togglePopupMock).toHaveBeenCalledTimes(0);
+            expect(toggleDropdownMock).toHaveBeenCalledTimes(0);
         });
     });
     describe('in active, open state (content and isOpen prop)', () => {
         beforeEach(() => {
             wrapper = mount(
                 <PillButton
-                    togglePopup={togglePopupMock}
+                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     content={content}
@@ -140,18 +140,18 @@ describe('<PillButton> component', () => {
             expect(wrapper.find('.PillButton__pill--isOpen')).toHaveLength(1);
         });
         it('should have arrow up label', () => {
-            expect(wrapper.find('IoIosArrowUp')).toHaveLength(1);
+            expect(wrapper.find('IoIosArrowDown.PillButton__buttonIcon--isOpen')).toHaveLength(1);
         });
         it('should trigger toggle state once when button is clicked', () => {
             wrapper.find('button').simulate('click');
-            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
         it('should trigger toggle state once on keyboard interaction with button', () => {
             wrapper
                 .find('button')
                 .simulate('focus')
                 .simulate('keyDown', { key: ENTER_KEY });
-            expect(togglePopupMock).toHaveBeenCalledTimes(1);
+            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
     });
 });

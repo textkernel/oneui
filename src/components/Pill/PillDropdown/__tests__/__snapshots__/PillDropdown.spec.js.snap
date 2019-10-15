@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PillDropdown> component should render correctly 1`] = `
+<PillDropdown
+  close={[MockFunction]}
+  noPadding={false}
+>
+  <div
+    role="presentation"
+  >
+    <div
+      className="PillDropdown"
+      role="dialog"
+    />
+  </div>
+</PillDropdown>
+`;
