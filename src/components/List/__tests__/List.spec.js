@@ -165,33 +165,6 @@ describe('List component', () => {
 
             expect(getListItemAt(itemNumbersArray.length - 1).props().isHighlighted).toBe(true);
         });
-
-        it('should highlight an item by hovering on it', () => {
-            expect(getListItemAt(0).props().isHighlighted).toBe(false);
-
-            getListItemAt(0).simulate('mouseenter');
-
-            expect(getListItemAt(0).props().isHighlighted).toBe(true);
-        });
-
-        it('should highlight items by using the combination of keyboard navigation and mouse enter event properly', () => {
-            const itemIndexToHover = 3;
-
-            listComponent.simulate('click');
-            navigateDown();
-
-            expect(getListItemAt(0).props().isHighlighted).toBe(true);
-
-            getListItemAt(itemIndexToHover).simulate('mouseenter');
-
-            expect(getListItemAt(0).props().isHighlighted).toBe(false);
-            expect(getListItemAt(itemIndexToHover).props().isHighlighted).toBe(true);
-
-            navigateDown();
-
-            expect(getListItemAt(itemIndexToHover).props().isHighlighted).toBe(false);
-            expect(getListItemAt(itemIndexToHover + 1).props().isHighlighted).toBe(true);
-        });
     });
 
     describe('Callbacks', () => {
@@ -242,7 +215,7 @@ describe('List component', () => {
             navigateDown();
             listComponent.simulate('keyDown', { key: 'Enter' });
 
-            expect(mockOnClick).toHaveBeenCalledTimes(3);
+            expect(mockOnClick).toHaveBeenCalledTimes(4);
         });
     });
 });
