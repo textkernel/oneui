@@ -36,11 +36,15 @@ $icon-size: 26px;
     }
 
     &__headTitle {
-        font-weight: 200;
         color: var(--color-neutral-10);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        font: {
+            family: var(--font-family-primary);
+            size: var(--h4-font-size);
+            weight: var(--font-weight-light);
+        }
     }
 
     &__headButtons {
