@@ -1,16 +1,17 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import ReactModal from 'react-modal';
 import Modal from '../Modal';
 
 describe('Modal', () => {
     it('should render correctly', () => {
-        const wrapper = shallow(
+        const { container } = render(
             <Modal isOpen contentLabel="Content label">
                 Some children
             </Modal>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
     it('should set app element via react-modal', () => {
         const setElSpy = jest.spyOn(ReactModal, 'setAppElement');

@@ -1,11 +1,12 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import Tabs from '../Tabs';
 import Tab from '../Tab';
 
 describe('<Tabs> that renders tab container with some tabs', () => {
     it('should render simple tabs', () => {
-        const wrapper = mount(
+        const { container } = render(
             <Tabs activeTabId="1">
                 <Tab id="1" label="First">
                     Some content
@@ -15,13 +16,13 @@ describe('<Tabs> that renders tab container with some tabs', () => {
                 </Tab>
             </Tabs>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 
     it('should switch tabs correctly', () => {
         const onChange = jest.fn();
 
-        const wrapper = mount(
+        const { container } = render(
             <Tabs activeTabId="1" onChange={onChange}>
                 <Tab id="1" label="First">
                     Some content
@@ -31,12 +32,13 @@ describe('<Tabs> that renders tab container with some tabs', () => {
                 </Tab>
             </Tabs>
         );
-        wrapper
+
+        container
             .find('TabMenu')
             .find('TabItem')
             .at(1)
             .simulate('click');
-        expect(wrapper.state().activeTabId).toBe('2');
+        expect(container.activeTabId).toBe('2');
         expect(onChange).toHaveBeenCalledWith('2');
     });
 

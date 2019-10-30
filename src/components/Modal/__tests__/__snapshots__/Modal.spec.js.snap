@@ -1,35 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal should render correctly 1`] = `
-<Modal
-  ariaHideApp={true}
-  bodyOpenClassName="ReactModal__Body--open"
-  className={
-    Object {
-      "afterOpen": "Modal__content--entered",
-      "base": "Modal__content ",
-      "beforeClose": "Modal__content--exited",
-    }
-  }
-  closeTimeoutMS={300}
-  contentLabel="Content label"
-  isOpen={true}
-  onRequestClose={null}
-  overlayClassName={
-    Object {
-      "afterOpen": "Modal__overlay--entered",
-      "base": "Modal__overlay",
-      "beforeClose": "Modal__overlay--exited",
-    }
-  }
-  parentSelector={[Function]}
-  portalClassName="ReactModalPortal"
-  role="dialog"
-  shouldCloseOnEsc={true}
-  shouldCloseOnOverlayClick={true}
-  shouldFocusAfterRender={true}
-  shouldReturnFocusAfterClose={true}
->
-  Some children
-</Modal>
-`;
+exports[`Modal should render correctly 1`] = `<div />`;

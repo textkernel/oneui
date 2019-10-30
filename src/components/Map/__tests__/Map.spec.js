@@ -1,5 +1,7 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
+// import toJson from 'enzyme-to-json';
 import stabGoogleApi, {
     fitBoundsMock,
     setZoomMock,
@@ -27,11 +29,11 @@ describe('<Map/> that renders a Map with markers', () => {
     };
 
     it('should render with default props', () => {
-        const wrapper = mount(<Map />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const { container } = render(<Map />);
+        expect(container).toMatchSnapshot();
     });
     it('should set center and zoom when rendered with default props', () => {
-        mount(<Map />);
+        render(<Map />);
         expect(setZoomMock).toHaveBeenCalledTimes(1);
         expect(setCenterMock).toHaveBeenCalledTimes(1);
     });
@@ -39,7 +41,7 @@ describe('<Map/> that renders a Map with markers', () => {
         geocodeMock.mockImplementationOnce((req, cb) => {
             cb(geocodeResponse.results, geocodeResponse.status);
         });
-        mount(<Map defaultArea={{ address: 'nl' }} />);
+        render(<Map defaultArea={{ address: 'nl' }} />);
         expect(geocodeMock).toHaveBeenCalledTimes(1);
         expect(fitBoundsMock).toHaveBeenCalledTimes(1);
     });
@@ -49,20 +51,20 @@ describe('<Map/> that renders a Map with markers', () => {
         expect(wrapper.find('Circle')).toHaveLength(1);
     });
     it('should fit map to markers', () => {
-        mount(<Map markers={[pointMarker, regionMarker]} />);
+        render(<Map markers={[pointMarker, regionMarker]} />);
         // call fitBounds for each marker
         expect(fitBoundsMock).toHaveBeenCalledTimes(2);
     });
     it('should fit map when new marker is added', () => {
-        const wrapper = mount(<Map markers={[pointMarker]} />);
+        const { rerender } = render(<Map markers={[pointMarker]} />);
         expect(fitBoundsMock).toHaveBeenCalledTimes(1);
-        wrapper.setProps({ markers: [pointMarker, regionMarker] });
+        rerender(<Map markers={[pointMarker, regionMarker]} />);
         // call count = original call + again for each marker
         expect(fitBoundsMock).toHaveBeenCalledTimes(3);
     });
     it('should fit to default center and zoom if markers removed', () => {
-        const wrapper = mount(<Map markers={[pointMarker, regionMarker]} />);
-        wrapper.setProps({ markers: [] });
+        const { rerender } = render(<Map markers={[pointMarker, regionMarker]} />);
+        rerender(<Map markers={[]} />);
         expect(setZoomMock).toHaveBeenCalledTimes(1);
         expect(setCenterMock).toHaveBeenCalledTimes(1);
     });

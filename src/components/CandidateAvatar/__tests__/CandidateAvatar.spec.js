@@ -50,10 +50,9 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
     });
 
     it('should add classes when props are changed', () => {
-        const { container, debug } = render(
+        const { container } = render(
             <CandidateAvatar showPercentageOnHover matchPercentage={10} size={58} />
         );
-        debug();
         expect(container.querySelector('text')).toBeVisible();
         expect(container.querySelector('text').textContent).toBe('10%');
         expect(container.querySelector('circle')).toHaveAttribute('stroke-width', '2');

@@ -1,15 +1,16 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import Slider from '../Slider';
 
 describe('Slider component', () => {
     it('should render component correctly', () => {
-        const wrapper = mount(<Slider />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const { container } = render(<Slider />);
+        expect(container).toMatchSnapshot();
     });
     it('should render correctly with ref', () => {
         const ref = React.createRef();
-        mount(<Slider ref={ref} />);
+        render(<Slider ref={ref} />);
 
         expect(ref.current.props.Component.displayName).toEqual('Slider');
     });

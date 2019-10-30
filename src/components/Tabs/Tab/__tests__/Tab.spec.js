@@ -1,14 +1,15 @@
+import '@testing-library/jest-dom/extend-expect';
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import Tab from '../Tab';
 
 describe('<Tab> that renders tab content', () => {
     it('should render a tab', () => {
-        const wrapper = mount(
+        const { container } = render(
             <Tab label="My tab" id="myTab">
                 Some content
             </Tab>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
     });
 });

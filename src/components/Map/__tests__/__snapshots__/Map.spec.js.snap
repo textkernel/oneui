@@ -1,49 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Map/> that renders a Map with markers should render with default props 1`] = `
-<Map
-  defaultArea={
-    Object {
-      "center": Object {
-        "lat": 52.3922288,
-        "lng": 4.9338793,
-      },
-      "zoom": 7,
-    }
-  }
-  mapContainerStyle={
-    Object {
-      "height": "100%",
-      "width": "100%",
-    }
-  }
-  markers={Array []}
->
-  <GoogleMap
-    mapContainerStyle={
-      Object {
-        "height": "100%",
-        "width": "100%",
-      }
-    }
-    onLoad={[Function]}
-    options={
-      Object {
-        "fullscreenControl": false,
-        "mapTypeControl": false,
-        "rotateControl": false,
-        "streetViewControl": false,
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "height": "100%",
-          "width": "100%",
-        }
-      }
-    />
-  </GoogleMap>
-</Map>
+<div>
+  <div
+    style="height: 100%; width: 100%;"
+  />
+</div>
 `;

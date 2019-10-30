@@ -26,8 +26,7 @@ describe('<Input> that renders an input field', () => {
     });
 
     it('should call change callback correctly', () => {
-        const { container, debug } = render(<Input onChange={onChangeMock} />);
-        debug(container.querySelector('input'));
+        const { container } = render(<Input onChange={onChangeMock} />);
         fireEvent.change(container.querySelector('input'), changeOptions);
         expect(onChangeMock).toHaveBeenCalled();
     });
