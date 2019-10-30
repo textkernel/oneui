@@ -16,6 +16,10 @@ storiesOf('Molecules|Pill', module)
         <div style={{ display: 'flex' }}>
             <PillButton
                 isOpen={boolean('Pill is open', false)}
+                isContentDefault={boolean(
+                    'Pill content is its default and cannot be cleared',
+                    false
+                )}
                 toggleDropdown={() => {
                     console.log('toggleDropdown has been called');
                 }}
@@ -27,7 +31,11 @@ storiesOf('Molecules|Pill', module)
             />
             &nbsp;&nbsp;
             <PillButton
-                isOpen={boolean('Pill is open 2', false)}
+                isOpen={boolean('Pill 2 is open', false)}
+                isContentDefault={boolean(
+                    'Pill 2 content is its default and cannot be cleared',
+                    false
+                )}
                 toggleDropdown={() => {
                     console.log('toggleDropdown 2 has been called');
                 }}
@@ -45,6 +53,7 @@ storiesOf('Molecules|Pill', module)
             close={() => {
                 console.log('Close was called');
             }}
+            doneLabel={text('Done button label', 'Done')}
         >
             {({ close }) => <DummyComponent close={close} />}
         </PillDropdown>
@@ -58,8 +67,13 @@ storiesOf('Molecules|Pill', module)
                         onClear={() => {
                             console.log('onClear has been called');
                         }}
+                        doneLabel={text('Done button label', 'Done')}
                         name={text('Name of the pill', 'Pill name')}
                         content={text('Label for pill content', 'This pill is used')}
+                        isContentDefault={boolean(
+                            'Pill content is its default and cannot be cleared',
+                            false
+                        )}
                         noPaddingInDropdown={boolean('no padding in dropdown', false)}
                     >
                         {({ close }) => <DummyComponent close={close} />}

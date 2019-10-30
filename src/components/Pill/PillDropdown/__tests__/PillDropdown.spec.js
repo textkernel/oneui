@@ -9,7 +9,11 @@ describe('<PillDropdown> component', () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = mount(<PillDropdown close={closeMock}>{childrenMock}</PillDropdown>);
+        wrapper = mount(
+            <PillDropdown close={closeMock} doneLabel="Done">
+                {childrenMock}
+            </PillDropdown>
+        );
     });
 
     afterEach(() => {
@@ -23,7 +27,7 @@ describe('<PillDropdown> component', () => {
         wrapper.setProps({ noPadding: true });
         wrapper.update();
 
-        expect(wrapper.find('.PillDropdown--noPadding')).toHaveLength(1);
+        expect(wrapper.find('.PillDropdown__content--noPadding')).toHaveLength(1);
     });
     it('should call children function with close as arguments', () => {
         expect(childrenMock).toHaveBeenCalledWith({

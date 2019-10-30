@@ -3,6 +3,7 @@
 exports[`<PillDropdown> component should render correctly 1`] = `
 <PillDropdown
   close={[MockFunction]}
+  doneLabel="Done"
   noPadding={false}
 >
   <div
@@ -11,7 +12,34 @@ exports[`<PillDropdown> component should render correctly 1`] = `
     <div
       className="PillDropdown"
       role="dialog"
-    />
+    >
+      <div
+        className="PillDropdown__content"
+      />
+      <div
+        className="PillDropdown__footer"
+      >
+        <Button
+          context="primary"
+          disabled={false}
+          href={null}
+          isBlock={false}
+          isInline={false}
+          onClick={[Function]}
+          size="small"
+          type="button"
+        >
+          <button
+            className="Button Button--context_primary Button--size_small"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Done
+          </button>
+        </Button>
+      </div>
+    </div>
   </div>
 </PillDropdown>
 `;
