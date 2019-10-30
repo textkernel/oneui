@@ -9,7 +9,12 @@ const { block, elem } = bem({
 });
 
 const RadioButtonGroup = forwardRef((props, ref) => {
-    const { children, name, ...rest } = props;
+    const { children, name, onChange, ...rest } = props;
+
+    const childProps = { name };
+    if (onChange) {
+        childProps.onChange = onChange;
+    }
 
     return (
         <div ref={ref} {...rest} {...block(props)}>
@@ -17,7 +22,7 @@ const RadioButtonGroup = forwardRef((props, ref) => {
                 if (child) {
                     return React.cloneElement(child, {
                         ...elem('option', props, child.props.className),
-                        name,
+                        ...childProps,
                     });
                 }
                 return null;
@@ -31,8 +36,14 @@ RadioButtonGroup.displayName = 'RadioButtonGroup';
 RadioButtonGroup.propTypes = {
     /** The name of the group this radio button belongs to */
     name: PropTypes.string.isRequired,
+    /** common onChange handler that will be passed to all children */
+    onChange: PropTypes.func,
     /** The radio buttons */
     children: PropTypes.node.isRequired,
+};
+
+RadioButtonGroup.defaultProps = {
+    onChange: null,
 };
 
 export default RadioButtonGroup;

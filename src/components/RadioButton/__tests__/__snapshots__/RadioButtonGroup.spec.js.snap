@@ -3,6 +3,7 @@
 exports[`<RadioButtonGroup> that renders a group of radio buttons should render correctly 1`] = `
 <RadioButtonGroup
   name="group_name"
+  onChange={null}
 >
   <div>
     <RadioButton
@@ -11,6 +12,7 @@ exports[`<RadioButtonGroup> that renders a group of radio buttons should render 
       id="o1"
       key=".0"
       name="group_name"
+      onChange={[MockFunction]}
     >
       <div
         className="RadioButtonGroup__option"
@@ -20,6 +22,7 @@ exports[`<RadioButtonGroup> that renders a group of radio buttons should render 
           disabled={false}
           id="o1"
           name="group_name"
+          onChange={[MockFunction]}
           type="radio"
         />
         <label

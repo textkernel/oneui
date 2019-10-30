@@ -6,7 +6,12 @@ import { RadioButton, RadioButtonGroup } from '@textkernel/oneui';
 storiesOf('Molecules|RadioButton', module)
     .addDecorator(withKnobs)
     .add('RadioButton', () => (
-        <RadioButtonGroup name="my-group">
+        <RadioButtonGroup
+            name="my-group"
+            onChange={e =>
+                console.log('onChange was called with event.target.value: ', e.target.value)
+            }
+        >
             <RadioButton
                 disabled={boolean('Disabled 1', false)}
                 value="option1"
