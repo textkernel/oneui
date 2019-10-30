@@ -125,6 +125,10 @@ $half-pill-height: $pill-height / 2;
 
         &--isActive {
             transform: translateY(-1px);
+
+            &.PillButton__buttonIcon--isContentDefault {
+                transform: translateY(1px);
+            }
         }
 
         &--isOpen {

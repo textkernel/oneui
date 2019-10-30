@@ -12,7 +12,7 @@ describe('<Pill> component', () => {
 
     beforeEach(() => {
         wrapper = mount(
-            <Pill onClear={onClearMock} name={nameMock} content={contentMock}>
+            <Pill onClear={onClearMock} name={nameMock} content={contentMock} doneLabel="Done">
                 {childrenMock}
             </Pill>
         );

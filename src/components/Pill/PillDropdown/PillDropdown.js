@@ -1,21 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from 'bem';
+import { Button } from '../../../index';
 import styles from './PillDropdown.scss';
 
-const { block } = bem({
+const { block, elem } = bem({
     name: 'PillDropdown',
     classnames: styles,
     propsToMods: ['noPadding'],
 });
 
 const PillDropdown = React.forwardRef((props, ref) => {
-    const { close, noPadding, children, ...rest } = props;
+    const { close, doneLabel, noPadding, children, ...rest } = props;
+
+    const handleDoneClick = () => {
+        close();
+    };
 
     return (
         <div ref={ref} role="presentation">
             <div role="dialog" {...rest} {...block(props)}>
-                {children({ close })}
+                <div {...elem('content', props)}>{children({ close })}</div>
+                <div {...elem('footer', props)}>
+                    <Button context="primary" size="small" onClick={handleDoneClick}>
+                        {doneLabel}
+                    </Button>
+                </div>
             </div>
         </div>
     );
@@ -30,6 +40,8 @@ PillDropdown.propTypes = {
     children: PropTypes.func.isRequired,
     /** function that closes the dropdown */
     close: PropTypes.func,
+    /** label for the Done button */
+    doneLabel: PropTypes.string.isRequired,
     /** whether or not to add a padding to the dropdown container.
      * It is useful if you need to add elements that stretch to the edge of the container.
      * You can use the CSS variable --pill-dropdown-padding to add padding as required.

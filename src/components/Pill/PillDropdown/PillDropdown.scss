@@ -16,7 +16,6 @@
 .PillDropdown {
     background: var(--color-background);
     margin: var(--spacing-2x) 0;
-    padding: var(--pill-dropdown-padding);
     border-radius: var(--border-radius);
     border: 1px solid var(--color-neutral);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -24,7 +23,18 @@
     animation: dropdownAppear var(--transition-duration-quick) forwards;
     animation-timing-function: linear;
 
-    &--noPadding {
-        padding: 0;
+    &__content {
+        padding: var(--pill-dropdown-padding);
+
+        &--noPadding {
+            padding: 0;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        border-top: solid 1px var(--color-neutral-40);
+        justify-content: flex-end;
+        padding: var(--pill-dropdown-padding);
     }
 }

@@ -7,6 +7,8 @@ import PillDropdown from './PillDropdown';
 const Pill = props => {
     const {
         onClear,
+        doneLabel,
+        isContentDefault,
         name,
         ref,
         content,
@@ -33,6 +35,7 @@ const Pill = props => {
                 name={name}
                 content={content}
                 isOpen={isOpen}
+                isContentDefault={isContentDefault}
                 toggleDropdown={toggleDropdown}
                 onClear={onClear}
                 {...rest}
@@ -45,6 +48,7 @@ const Pill = props => {
         <PillDropdown
             close={() => setPopupVisibility(false)}
             noPadding={noPaddingInDropdown}
+            doneLabel={doneLabel}
             {...additionalDropdownProps}
         >
             {children}
@@ -75,6 +79,10 @@ Pill.propTypes = {
     name: PropTypes.string.isRequired,
     /** label describing the content of an active filter/pill */
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    /** If pill is in default state, meaning it has content but cannot be reset. */
+    isContentDefault: PropTypes.bool,
+    /** label for the Done button */
+    doneLabel: PropTypes.string.isRequired,
     /** ref for pill button */
     ref: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** ref for pill dropdown */
@@ -90,6 +98,7 @@ Pill.propTypes = {
 
 Pill.defaultProps = {
     content: null,
+    isContentDefault: false,
     ref: null,
     dropdownRef: null,
     noPaddingInDropdown: false,

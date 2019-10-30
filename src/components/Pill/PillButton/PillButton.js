@@ -8,11 +8,11 @@ import styles from './PillButton.scss';
 const { block, elem } = bem({
     name: 'PillButton',
     classnames: styles,
-    propsToMods: ['isActive', 'isOpen'],
+    propsToMods: ['isActive', 'isOpen', 'isContentDefault'],
 });
 
 const PillButton = React.forwardRef((props, ref) => {
-    const { isOpen, toggleDropdown, onClear, name, content, ...rest } = props;
+    const { isOpen, isContentDefault, toggleDropdown, onClear, name, content, ...rest } = props;
     const isActive = !!content;
     const propsForBem = { ...props, isActive };
 
@@ -37,7 +37,7 @@ const PillButton = React.forwardRef((props, ref) => {
     let buttonIcon = <IoIosArrowDown {...elem('buttonIcon', propsForBem)} />;
     let isButtonClickable = false;
 
-    if (isActive && !isOpen) {
+    if (isActive && !isOpen && !isContentDefault) {
         buttonIcon = <span {...elem('buttonIcon', propsForBem)}>{CROSS_CHAR}</span>;
         isButtonClickable = true;
     }
@@ -98,6 +98,8 @@ PillButton.displayName = 'PillButton';
 PillButton.propTypes = {
     /** Wether the dropdown is open or closed */
     isOpen: PropTypes.bool,
+    /** If pill is in default state, meaning it has content but cannot be reset. */
+    isContentDefault: PropTypes.bool,
     /** a function to be called when dropdown should be toggled */
     toggleDropdown: PropTypes.func.isRequired,
     /** a function to be called to clear the pill/filter content */
@@ -110,6 +112,7 @@ PillButton.propTypes = {
 
 PillButton.defaultProps = {
     isOpen: false,
+    isContentDefault: false,
     content: null,
 };
 
