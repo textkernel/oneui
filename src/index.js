@@ -32,7 +32,7 @@ export { default as LocationCard } from './components/LocationCard';
 export { NavBar, NavItem } from './components/Navigation';
 export { default as Pagination } from './components/Pagination';
 export { Pill, PillButton, PillDropdown } from './components/Pill';
-export { default as RadioButton } from './components/RadioButton';
+export { RadioButton, RadioButtonGroup } from './components/RadioButton';
 export { default as Teaser } from './components/Teaser';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
 // Organisms
