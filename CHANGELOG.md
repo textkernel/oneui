@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.2.0](https://github.com/textkernel/oneui/compare/8.1.1...8.2.0) (2019-10-31)
+
+
+### Features
+
+* **Pill:** extend PillDropdown with Done button and handle detault state in PillButton ([#183](https://github.com/textkernel/oneui/issues/183)) ([93d4884](https://github.com/textkernel/oneui/commit/93d4884))
+* new RadioButtonGroup component ([#182](https://github.com/textkernel/oneui/issues/182)) ([557cd2f](https://github.com/textkernel/oneui/commit/557cd2f))
+
+
+
 ### [8.1.1](https://github.com/textkernel/oneui/compare/8.1.0...8.1.1) (2019-10-24)
 
 
