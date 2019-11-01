@@ -18,8 +18,8 @@ const PillDropdown = React.forwardRef((props, ref) => {
     };
 
     return (
-        <div ref={ref} role="presentation">
-            <div role="dialog" {...rest} {...block(props)}>
+        <div ref={ref} role="presentation" {...rest} {...block(props)}>
+            <div role="dialog" {...elem('dialog', props)}>
                 <div {...elem('content', props)}>{children({ close })}</div>
                 <div {...elem('footer', props)}>
                     <Button context="primary" size="small" onClick={handleDoneClick}>
