@@ -14,14 +14,18 @@
 }
 
 .PillDropdown {
-    background: var(--color-background);
-    margin: var(--spacing-2x) 0;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--color-neutral);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    transform-origin: top left;
-    animation: dropdownAppear var(--transition-duration-quick) forwards;
-    animation-timing-function: linear;
+    z-index: 500;
+
+    &__dialog {
+        background: var(--color-background);
+        margin: var(--spacing-2x) 0;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--color-neutral);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        transform-origin: top left;
+        animation: dropdownAppear var(--transition-duration-quick) forwards;
+        animation-timing-function: linear;
+    }
 
     &__content {
         padding: var(--pill-dropdown-padding);

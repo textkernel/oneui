@@ -59,11 +59,12 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
     popupRef={
       Object {
         "current": <div
+          class="PillDropdown"
+          data-popup="true"
           role="presentation"
         >
           <div
-            class="PillDropdown"
-            data-popup="true"
+            class="PillDropdown__dialog"
             role="dialog"
           >
             <div
@@ -160,11 +161,12 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
       noPadding={false}
     >
       <div
+        className="PillDropdown"
+        data-popup="true"
         role="presentation"
       >
         <div
-          className="PillDropdown"
-          data-popup="true"
+          className="PillDropdown__dialog"
           role="dialog"
         >
           <div
