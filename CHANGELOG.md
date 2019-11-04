@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.2.1](https://github.com/textkernel/oneui/compare/8.2.0...8.2.1) (2019-11-04)
+
+
+### Bug Fixes
+
+* **PillDropdown:** add z-index so that it always appears on top ([#184](https://github.com/textkernel/oneui/issues/184)) ([9f537bd](https://github.com/textkernel/oneui/commit/9f537bd))
+
+
+
 ## [8.2.0](https://github.com/textkernel/oneui/compare/8.1.1...8.2.0) (2019-10-31)
 
 
