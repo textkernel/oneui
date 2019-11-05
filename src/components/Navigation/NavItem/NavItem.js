@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './NavItem.scss';
 
-const { block, elem } = bem({
-    name: 'NavItem',
-    classnames: styles,
-    propsToMods: ['active', 'pullRight'],
-});
+const { block, elem } = bem('NavItem', styles);
 
 const NavItem = props => {
     const { active, pullRight, useActiveClass, children, ...rest } = props;

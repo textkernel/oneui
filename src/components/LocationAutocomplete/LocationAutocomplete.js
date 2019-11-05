@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import bem from '../../utils/bem';
 import { Autosuggest, Alert, ListItem, MarkedText } from '../../index';
 import useDebounce from '../../hooks/useDebounce';
 import POWERED_BY_GOOGLE_ON_WHITE from './images/powered_by_google_on_white.png';
@@ -9,10 +9,7 @@ import POWERED_BY_GOOGLE_ON_WHITE_2X from './images/powered_by_google_on_white@2
 import POWERED_BY_GOOGLE_ON_WHITE_3X from './images/powered_by_google_on_white@3x.png';
 import styles from './LocationAutocomplete.scss';
 
-const { elem } = bem({
-    name: 'LocationAutocomplete',
-    classnames: styles,
-});
+const { elem } = bem('LocationAutocomplete', styles);
 
 const DEBOUNCE_DELAY = 350;
 const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];

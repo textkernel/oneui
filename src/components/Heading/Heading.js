@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './Heading.scss';
 import { HEADING_SIZES } from '../../constants';
 
-const { block } = bem({
-    name: 'Heading',
-    classnames: styles,
-    propsToMods: ['align', 'level'],
-});
+const { block } = bem('Heading', styles);
 
 const Heading = props => {
     const { align, children, level, ...rest } = props;

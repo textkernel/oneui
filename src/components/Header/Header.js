@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Header.scss';
 
-const { block, elem } = bem({
-    name: 'Header',
-    classnames: styles,
-});
+const { block, elem } = bem('Header', styles);
 
 const Header = props => {
     const { logo, children, ...rest } = props;

@@ -1,13 +1,9 @@
 import React, { cloneElement, Children } from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './TabMenu.scss';
 
-const { block } = bem({
-    name: 'TabMenu',
-    classnames: styles,
-    propsToMods: ['gutters'],
-});
+const { block } = bem('TabMenu', styles);
 
 const TabMenu = props => {
     const { activeTabId, children, gutters, onChange, ...rest } = props;

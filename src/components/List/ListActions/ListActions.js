@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './ListActions.scss';
 
-const { block } = bem({
-    name: 'ListActions',
-    classnames: styles,
-});
+const { block } = bem('ListActions', styles);
 
 const ListActions = props => {
     const { children, ...rest } = props;

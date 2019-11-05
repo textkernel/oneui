@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './ProgressBar.scss';
 import { CONTEXTS } from '../../constants';
 
-const { block, elem } = bem({
-    name: 'ProgressBar',
-    classnames: styles,
-    propsToMods: ['animated', 'context', 'hidden', 'small'],
-});
+const { block, elem } = bem('ProgressBar', styles);
 
 const ProgressBar = props => {
     const { animated, children, context, hidden, percentage, small, ...rest } = props;

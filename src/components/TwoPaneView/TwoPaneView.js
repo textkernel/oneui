@@ -1,5 +1,5 @@
 import React from 'react';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import { BlockWidthRestrictor } from '../../index';
 import LeftPane from './LeftPane';
 import RightPane from './RightPane';
@@ -7,10 +7,7 @@ import styles from './TwoPaneView.scss';
 
 const isNotPane = element => element && element.type !== RightPane && element.type !== LeftPane;
 
-const { block } = bem({
-    name: 'TwoPaneView',
-    classnames: styles,
-});
+const { block } = bem('TwoPaneView', styles);
 
 const TwoPaneView = props => {
     const { children, ...rest } = props;

@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './ContentPlaceholder.scss';
 
-const { block, elem } = bem({
-    name: 'ContentPlaceholder',
-    classnames: styles,
-    propsToMods: ['withoutMargin'],
-});
+const { block, elem } = bem('ContentPlaceholder', styles);
 
 const calcDuration = seconds => `${seconds}s`;
 

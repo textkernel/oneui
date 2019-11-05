@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './Link.scss';
 
-const { block } = bem({
-    name: 'Link',
-    classnames: styles,
-});
+const { block } = bem('Link', styles);
 
 const Link = props => {
     const { children, ...rest } = props;

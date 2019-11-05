@@ -1,12 +1,9 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './RadioButtonGroup.scss';
 
-const { block, elem } = bem({
-    name: 'RadioButtonGroup',
-    classnames: styles,
-});
+const { block, elem } = bem('RadioButtonGroup', styles);
 
 const RadioButtonGroup = forwardRef((props, ref) => {
     const { children, name, onChange, ...rest } = props;
@@ -21,7 +18,10 @@ const RadioButtonGroup = forwardRef((props, ref) => {
             {React.Children.map(children, child => {
                 if (child) {
                     return React.cloneElement(child, {
-                        ...elem('option', props, child.props.className),
+                        ...elem('option', {
+                            ...props,
+                            elemClassName: child.props.className,
+                        }),
                         ...childProps,
                     });
                 }

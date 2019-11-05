@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import { Button } from '../../index';
 import styles from './FieldWrapper.scss';
 
-const { block, elem } = bem({
-    name: 'FieldWrapper',
-    classnames: styles,
-    propsToMods: ['isFocused'],
-});
+const { block, elem } = bem('FieldWrapper', styles);
 
 const FieldWrapper = React.forwardRef((props, ref) => {
     const handleClear = e => {

@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import { Text } from '../Text';
 import styles from './LoadingSpinner.scss';
 import { CONTEXTS } from '../../constants';
 
-const { block, elem } = bem({
-    name: 'LoadingSpinner',
-    classnames: styles,
-    propsToMods: ['centerIn', 'context', 'hidden'],
-});
+const { block, elem } = bem('LoadingSpinner', styles);
 
 const LoadingSpinner = props => {
     const { centerIn, children, context, hidden, size, ...rest } = props;

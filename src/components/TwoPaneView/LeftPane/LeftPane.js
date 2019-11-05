@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './LeftPane.scss';
 
-const { block } = bem({
-    name: 'LeftPane',
-    classnames: styles,
-});
+const { block } = bem('LeftPane', styles);
 
 const LeftPane = React.forwardRef((props, ref) => {
     const { children, ...rest } = props;

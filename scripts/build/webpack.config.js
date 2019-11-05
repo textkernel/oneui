@@ -80,6 +80,5 @@ module.exports = {
     PROJECT_ROOT_PATH,
     SOURCE_PATH,
     DIST_PATH,
-    PACKAGES_PATH,
     NODE_MODULES_PATH,
 };

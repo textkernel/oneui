@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import Text from '../Text';
 import styles from './MarkedText.scss';
 
-const { block, elem } = bem({
-    name: 'MarkedText',
-    classnames: styles,
-});
+const { block, elem } = bem('MarkedText', styles);
 
 const MarkedText = props => {
     const { marker, children, ...rest } = props;

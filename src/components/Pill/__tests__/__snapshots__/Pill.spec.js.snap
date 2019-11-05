@@ -24,7 +24,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
             Pill name
           </div>
           <div
-            class="PillButton__pill PillButton__pill--isActive PillButton__pill--isOpen"
+            class="PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive"
             role="button"
             tabindex="0"
           >
@@ -32,11 +32,11 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
               Pill content
             </span>
             <button
-              class="PillButton__button PillButton__button--isActive PillButton__button--isOpen"
+              class="PillButton__button PillButton__button--isOpen PillButton__button--isActive"
               type="button"
             >
               <svg
-                class="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
+                class="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
                 fill="currentColor"
                 height="1em"
                 stroke="currentColor"
@@ -104,7 +104,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
           Pill name
         </div>
         <div
-          className="PillButton__pill PillButton__pill--isActive PillButton__pill--isOpen"
+          className="PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="button"
@@ -114,11 +114,11 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
             Pill content
           </span>
           <button
-            className="PillButton__button PillButton__button--isActive PillButton__button--isOpen"
+            className="PillButton__button PillButton__button--isOpen PillButton__button--isActive"
             type="button"
           >
             <IoIosArrowDown
-              className="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
+              className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
             >
               <IconBase
                 attr={
@@ -126,10 +126,10 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
                     "viewBox": "0 0 512 512",
                   }
                 }
-                className="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
+                className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
               >
                 <svg
-                  className="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
+                  className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
                   fill="currentColor"
                   height="1em"
                   stroke="currentColor"

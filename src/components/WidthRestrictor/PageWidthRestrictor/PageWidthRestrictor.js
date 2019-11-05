@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './PageWidthRestrictor.scss';
 
-const { block } = bem({
-    name: 'PageWidthRestrictor',
-    classnames: styles,
-});
+const { block } = bem('PageWidthRestrictor', styles);
 
 const PageWidthRestrictor = props => {
     const { children, ...rest } = props;

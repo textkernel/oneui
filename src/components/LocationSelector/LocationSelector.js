@@ -1,17 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import bem from '../../utils/bem';
 import { Text, Modal, FieldWrapper } from '../../index';
 import LocationSelectorDialogWithGoogleLoader from './LocationSelectorDialogWithGoogleLoader';
 import { findCenter, getRadiusInMeters } from './utils';
 import styles from './LocationSelector.scss';
 
-const { block, elem } = bem({
-    name: 'LocationSelector',
-    classnames: styles,
-    propsToMods: ['muted'],
-});
+const { block, elem } = bem('LocationSelector', styles);
 
 function LocationSelector(props) {
     const {

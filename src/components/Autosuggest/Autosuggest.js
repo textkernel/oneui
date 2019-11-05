@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
 import Downshift from 'downshift';
 import memoize from 'fast-memoize';
+import bem from '../../utils/bem';
 import { List, ListItem, ContentPlaceholder, Text, MarkedText, FieldWrapper } from '../../index';
 import ItemTag from './ItemTag';
 import styles from './Autosuggest.scss';
@@ -14,11 +14,7 @@ import {
     ENTER_KEY,
 } from '../../constants';
 
-const { block, elem } = bem({
-    name: 'Autosuggest',
-    classnames: styles,
-    propsToMods: ['focused', 'isProminent'],
-});
+const { block, elem } = bem('Autosuggest', styles);
 
 class Autosuggest extends React.Component {
     constructor(props) {
@@ -318,7 +314,9 @@ class Autosuggest extends React.Component {
                                     {iconNode &&
                                         React.cloneElement(
                                             iconNode,
-                                            elem('spacedElem', {}, iconNode.props.className)
+                                            elem('spacedElem', {
+                                                elemClassName: iconNode.props.className,
+                                            })
                                         )}
                                     {this.renderTags()}
                                     <input

@@ -1,14 +1,10 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './Input.scss';
 import { CONTEXTS, INPUT_TYPES, SIZES } from '../../constants';
 
-const { block } = bem({
-    name: 'Input',
-    classnames: styles,
-    propsToMods: ['context', 'isBlock', 'size'],
-});
+const { block } = bem('Input', styles);
 
 const Input = forwardRef((props, ref) => {
     const { children, context, disabled, isBlock, size, type, value, ...rest } = props;

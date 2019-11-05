@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './Chip.scss';
 
-const { block } = bem({
-    name: 'Chip',
-    classnames: styles,
-});
+const { block } = bem('Chip', styles);
 
 const Chip = props => {
     const { children, ...rest } = props;

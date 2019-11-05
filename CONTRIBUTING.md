@@ -71,8 +71,11 @@ Try to make components as descriptive as possible to increase accessibility for 
 ### Component Showcases
 Each distinct component should come with an example, for which we use [Storybook](https://textkernel.github.io/oneui/). When creating new component stories, use [addon knobs](https://github.com/storybooks/storybook/tree/master/addons/knobs) to allow users to try out different prop values. Prop descriptions should appear automatically when properly defined in the code.
 
+## CSS classes naming convention
+OneUI uses [@textkernel/bem library](https://github.com/textkernel/bem) that auto-generates and applies CSS classes on the basis of component name and its props. @textkernel/bem requires CSS written in the BEM paradigm. Detailed instructions with regard to how to use the utility [can be found here](https://github.com/textkernel/bem/blob/master/README.md).
+
 ## Theming Compatibility
-OneUI comes with a [BEM-utility](https://github.com/textkernel/oneui/tree/master/src/packages/bem) that auto-generates and applies CSS classes on the basis of the component name and its props that affect styling. Detailed instructions with regard to how to use the utility [can be found here](https://github.com/textkernel/oneui/blob/master/src/packages/bem/README.md). The most important rule is that any CSS property values that should be affected by themes need to be defined as CSS variables. Each CSS variable should come with a default value, defined by the base theme. Any static CSS property values _will not be affected_ when using custom themes.
+OneUI components must be themeable. The most important rule is that any CSS property values that should be affected by themes need to be defined as CSS variables. Each CSS variable should come with a default value, defined by the base theme. Any static CSS property values _will not be affected_ when using custom themes.
 
 ## Testing
 Each implementation should be thoroughly covered with tests. DOM structure can in general be covered using Jest snapshots while additional interactivity / behaviour needs to be explicitly tested through assertions - don’t overdo on snapshot tests. Always strive for 100% code coverage. Component tests are to be put close to the implementation in a `__tests__` folder. Before rounding up your implementation make sure that the complete test suite is passing. In short:

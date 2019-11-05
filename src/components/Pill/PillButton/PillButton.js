@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
 import { IoIosArrowDown } from 'react-icons/io';
+import bem from '../../../utils/bem';
 import { CROSS_CHAR, ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
 
-const { block, elem } = bem({
-    name: 'PillButton',
-    classnames: styles,
-    propsToMods: ['isActive', 'isOpen', 'isContentDefault'],
-});
+const { block, elem } = bem('PillButton', styles);
 
 const PillButton = React.forwardRef((props, ref) => {
     const { isOpen, isContentDefault, toggleDropdown, onClear, name, content, ...rest } = props;

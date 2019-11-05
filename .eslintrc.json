@@ -9,7 +9,7 @@
         "import/no-unresolved": [
             2,
             {
-                "ignore": ["bem", "@textkernel/oneui"]
+                "ignore": ["@textkernel/oneui"]
             }
         ],
         "jsx-a11y/label-has-for": 0,

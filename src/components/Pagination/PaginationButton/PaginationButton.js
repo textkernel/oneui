@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './PaginationButton.scss';
 import { Button } from '../../Buttons';
 
-const { block } = bem({
-    name: 'PaginationButton',
-    classnames: styles,
-    propsToMods: ['isActive'],
-});
+const { block } = bem('PaginationButton', styles);
 
 const PaginationButton = props => {
     const { children, isActive, ...rest } = props;

@@ -62,7 +62,7 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
       Pill name
     </div>
     <div
-      className="PillButton__pill PillButton__pill--isActive PillButton__pill--isOpen"
+      className="PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive"
       onClick={[MockFunction]}
       onKeyDown={[Function]}
       role="button"
@@ -72,11 +72,11 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
         This pill is in use
       </span>
       <button
-        className="PillButton__button PillButton__button--isActive PillButton__button--isOpen"
+        className="PillButton__button PillButton__button--isOpen PillButton__button--isActive"
         type="button"
       >
         <IoIosArrowDown
-          className="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
+          className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
         >
           <IconBase
             attr={
@@ -84,10 +84,10 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
                 "viewBox": "0 0 512 512",
               }
             }
-            className="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
+            className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
           >
             <svg
-              className="PillButton__buttonIcon PillButton__buttonIcon--isActive PillButton__buttonIcon--isOpen"
+              className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
               fill="currentColor"
               height="1em"
               stroke="currentColor"

@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Footer.scss';
 import { LogoTextkernel } from '../Icon';
 
-const { block, elem } = bem({
-    name: 'Footer',
-    classnames: styles,
-});
+const { block, elem } = bem('Footer', styles);
 
 const Footer = props => {
     const { copyright, children, ...rest } = props;

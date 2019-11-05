@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import ListItem from './ListItem';
 import styles from './List.scss';
 import { LIST_NAVIGATION_DIRECTIONS, ENTER_KEY } from '../../constants';
 import scrollIntoViewIfNeeded from '../../utils/scrollIntoViewIfNeeded';
 
-const { block, elem } = bem({
-    name: 'List',
-    classnames: styles,
-    propsToMods: ['isDivided'],
-});
+const { block, elem } = bem('List', styles);
 
 const isNotListItem = element => element && element.type !== ListItem && element.type !== 'li';
 const NAVIGATION_STEP_VALUES = {
@@ -96,14 +92,19 @@ const List = React.forwardRef((props, ref) => {
             callOnClick(selectedIndex, e);
         }
     };
-
     return isControlledNavigation ? (
         <ul {...rest} ref={ref} {...block(props)}>
             {React.Children.map(children, child => {
                 if (child) {
                     return child.props[NOT_LIST_CHILD]
                         ? child
-                        : React.cloneElement(child, elem('item', props, child.props.className));
+                        : React.cloneElement(
+                              child,
+                              elem('item', {
+                                  ...props,
+                                  elemClassName: child.props.className,
+                              })
+                          );
                 }
                 return null;
             })}
@@ -116,7 +117,10 @@ const List = React.forwardRef((props, ref) => {
                     return child.props[NOT_LIST_CHILD]
                         ? child
                         : React.cloneElement(child, {
-                              ...elem('item', props, child.props.className),
+                              ...elem('item', {
+                                  ...props,
+                                  elemClassName: child.props.className,
+                              }),
                               ref: index === selectedIndex ? navigationElementRef : null,
                               isHighlighted: index === selectedIndex,
                           });

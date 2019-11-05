@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './IconBase.scss';
 import { CONTEXTS } from '../../constants';
 
-const { block, elem } = bem({
-    name: 'IconBase',
-    classnames: styles,
-    propsToMods: ['context', 'margin'],
-});
+const { block, elem } = bem('IconBase', styles);
 
 const adjustSize = (size, preserveAspectRatio) => {
     if (!size) {

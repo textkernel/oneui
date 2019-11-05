@@ -1,13 +1,10 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
 import { FaSearch } from 'react-icons/fa';
+import bem from '../../../utils/bem';
 import styles from './SearchButton.scss';
 
-const { block } = bem({
-    name: 'SearchButton',
-    classnames: styles,
-});
+const { block } = bem('SearchButton', styles);
 
 const SearchButton = forwardRef((props, ref) => {
     const { disabled, type, ...rest } = props;

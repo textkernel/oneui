@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './TabItem.scss';
 
-const { block } = bem({
-    name: 'TabItem',
-    classnames: styles,
-    propsToMods: ['isActive'],
-});
+const { block } = bem('TabItem', styles);
 
 const TabItem = props => {
     const { href, isActive, label, ...rest } = props;
