@@ -19,7 +19,7 @@ addParameters({
 });
 
 function loadStories() {
-    require('../stories/index.js');
+    require('../stories/index.ts');
 }
 
 OneUI.init().then(() => {

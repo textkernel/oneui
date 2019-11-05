@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LoadScriptNext } from '@react-google-maps/api';
-import { LoadingSpinner } from '../../../index';
+import LoadingSpinner from '../../LoadingSpinner';
 import Map from '../Map/Map';
 
 const MapWithGoogleLoader = React.forwardRef((props, ref) => {

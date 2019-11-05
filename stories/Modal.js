@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
+import { withInfo } from '@storybook/addon-info'; // eslint-disable-line import/no-unresolved,
 import { Modal, Button } from '@textkernel/oneui';
 import withStore from '../src/packages/storybook/withStore';
 

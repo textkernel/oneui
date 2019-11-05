@@ -8,6 +8,14 @@ function getRuleJS({ includePaths }) {
     };
 }
 
+function getRuleTS({ includePaths }) {
+    return {
+        test: /\.(ts|tsx)$/,
+        include: includePaths,
+        use: ['ts-loader'],
+    };
+}
+
 function getRuleCSS({ styleLoader, localIdentName, includePaths, context }) {
     return {
         test: /\.scss$/,
@@ -51,6 +59,7 @@ function getRuleFiles({ fileLoader }) {
 
 module.exports = {
     getRuleJS,
+    getRuleTS,
     getRuleCSS,
     getRuleFiles,
 };

@@ -5,10 +5,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { getRuleJS, getRuleCSS, getRuleFiles } = require('./utils');
+const { getRuleJS, getRuleTS, getRuleCSS, getRuleFiles } = require('./utils');
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
 const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
+const STORIES_PATH = path.resolve(PROJECT_ROOT_PATH, 'stories');
 const DIST_PATH = path.resolve(PROJECT_ROOT_PATH, 'dist');
 const NODE_MODULES_PATH = path.resolve(SOURCE_PATH, '../node_modules');
 
@@ -39,6 +40,9 @@ const getRules = (env = 'prod') => ({
     js: getRuleJS({
         includePaths: [SOURCE_PATH],
     }),
+    ts: getRuleTS({
+        includePaths: env === 'prod' ? [SOURCE_PATH] : [SOURCE_PATH, STORIES_PATH],
+    }),
     styles: getRuleCSS({
         styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
         localIdentName: env === 'prod' ? '[local]--[hash:base64:10]' : '[local]',
@@ -54,7 +58,7 @@ const baseConfig = {
     context: SOURCE_PATH,
 
     entry: {
-        main: './index.js',
+        main: './index.ts',
     },
 
     output: {
@@ -78,6 +82,7 @@ module.exports = {
     LIBRARY_NAME,
     PROJECT_ROOT_PATH,
     SOURCE_PATH,
+    STORIES_PATH,
     DIST_PATH,
     NODE_MODULES_PATH,
 };
