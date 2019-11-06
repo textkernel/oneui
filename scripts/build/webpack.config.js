@@ -10,7 +10,6 @@ const { getRuleJS, getRuleCSS, getRuleFiles } = require('./utils');
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
 const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
 const DIST_PATH = path.resolve(PROJECT_ROOT_PATH, 'dist');
-const PACKAGES_PATH = path.resolve(SOURCE_PATH, 'packages');
 const NODE_MODULES_PATH = path.resolve(SOURCE_PATH, '../node_modules');
 
 const { oneui } = require('../../package.json');
@@ -67,8 +66,8 @@ const baseConfig = {
     },
 
     resolve: {
-        modules: [PACKAGES_PATH, NODE_MODULES_PATH],
-        extensions: ['.js'],
+        modules: [NODE_MODULES_PATH],
+        extensions: ['.js', '.ts', '.tsx'],
     },
 };
 

@@ -8,10 +8,6 @@ module.exports = {
     // A list of paths to directories that Jest should use to search for files in
     roots: ['<rootDir>/src'],
 
-    // An array of directory names to be searched recursively up from the requiring module's
-    // location
-    moduleDirectories: ['node_modules', 'src/packages'],
-
     // The path to a module that runs some code to configure or set up the testing framework
     // before each test
     setupFiles: ['<rootDir>scripts/test/enzyme.setup.js'],
