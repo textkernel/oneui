@@ -1,14 +1,10 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './TextArea.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 
-const { block } = bem({
-    name: 'TextArea',
-    classnames: styles,
-    propsToMods: ['context', 'isBlock', 'size'],
-});
+const { block } = bem('TextArea', styles);
 
 const TextArea = forwardRef((props, ref) => {
     const { context, disabled, isBlock, size, ...rest } = props;

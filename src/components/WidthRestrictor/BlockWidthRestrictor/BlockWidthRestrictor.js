@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './BlockWidthRestrictor.scss';
 
-const { block } = bem({
-    name: 'BlockWidthRestrictor',
-    classnames: styles,
-});
+const { block } = bem('BlockWidthRestrictor', styles);
 
 const BlockWidthRestrictor = React.forwardRef((props, ref) => {
     const { children, As, ...rest } = props;

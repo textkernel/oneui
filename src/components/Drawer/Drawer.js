@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
-import bem from 'bem';
 import { IoIosArrowUp } from 'react-icons/io';
+import bem from '../../utils/bem';
 import { ENTER_KEY } from '../../constants';
 import styles from './Drawer.scss';
 
@@ -12,11 +12,7 @@ const TRANSITION_DURATION = {
     exit: 300,
 };
 
-const { block, elem } = bem({
-    name: 'Drawer',
-    classnames: styles,
-    propsToMods: ['isShownAndExpanded', 'isShownAndClosed', 'isExpanded'],
-});
+const { block, elem } = bem('Drawer', styles);
 
 const Drawer = props => {
     const {

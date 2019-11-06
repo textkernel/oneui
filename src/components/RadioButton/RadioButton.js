@@ -1,15 +1,11 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import { Text } from '../Text';
 import styles from './RadioButton.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 
-const { block, elem } = bem({
-    name: 'RadioButton',
-    classnames: styles,
-    propsToMods: ['disabled'],
-});
+const { block, elem } = bem('RadioButton', styles);
 
 const RadioButton = forwardRef((props, ref) => {
     const { id, children, viewbox, disabled, name, ...rest } = props;

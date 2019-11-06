@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import { BlockWidthRestrictor } from '../../WidthRestrictor';
 import styles from './NavBar.scss';
 
-const { block, elem } = bem({
-    name: 'NavBar',
-    classnames: styles,
-});
+const { block, elem } = bem('NavBar', styles);
 
 const NavBar = props => {
     const { children, ...rest } = props;

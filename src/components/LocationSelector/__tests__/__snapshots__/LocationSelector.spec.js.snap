@@ -129,7 +129,7 @@ exports[`LocationSelector component should render LocationSelector properly when
           type="button"
         >
           <button
-            className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
+            className="Button Button--isInline Button--context_link FieldWrapper__clearButton"
             disabled={false}
             onClick={[Function]}
             type="button"
@@ -534,7 +534,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
           type="button"
         >
           <button
-            className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
+            className="Button Button--isInline Button--context_link FieldWrapper__clearButton"
             disabled={false}
             onClick={[Function]}
             type="button"

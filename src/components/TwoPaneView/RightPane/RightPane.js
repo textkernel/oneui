@@ -1,12 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './RightPane.scss';
 
-const { block } = bem({
-    name: 'RightPane',
-    classnames: styles,
-});
+const { block } = bem('RightPane', styles);
 
 const RightPane = props => {
     const { children, ...rest } = props;

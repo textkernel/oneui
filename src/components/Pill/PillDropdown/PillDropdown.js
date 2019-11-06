@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import { Button } from '../../../index';
 import styles from './PillDropdown.scss';
 
-const { block, elem } = bem({
-    name: 'PillDropdown',
-    classnames: styles,
-    propsToMods: ['noPadding'],
-});
+const { block, elem } = bem('PillDropdown', styles);
 
 const PillDropdown = React.forwardRef((props, ref) => {
     const { close, doneLabel, noPadding, children, ...rest } = props;

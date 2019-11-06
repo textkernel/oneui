@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './CandidateAvatar.scss';
 
-const { block, elem } = bem({
-    name: 'CandidateAvatar',
-    classnames: styles,
-    propsToMods: ['context'],
-});
+const { block, elem } = bem('CandidateAvatar', styles);
 
 const context = percentage => {
     if (percentage <= 33) {

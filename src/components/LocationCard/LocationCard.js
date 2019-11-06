@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import { Slider, Text } from '../../index';
 import { CROSS_CHAR, SIZES } from '../../constants';
 import styles from './LocationCard.scss';
 
-const { block, elem } = bem({
-    name: 'LocationCard',
-    classnames: styles,
-});
+const { block, elem } = bem('LocationCard', styles);
 
 const LocationCard = props => {
     const {

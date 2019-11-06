@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './ItemTag.scss';
 import { CROSS_CHAR } from '../../../constants';
 
-const { block, elem } = bem({
-    name: 'ItemTag',
-    classnames: styles,
-});
+const { block, elem } = bem('ItemTag', styles);
 
 const ItemTag = props => {
     const { children, onClick, ...rest } = props;

@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import { Text } from '../Text';
 import styles from './Teaser.scss';
 
-const { block, elem } = bem({
-    name: 'Teaser',
-    classnames: styles,
-});
+const { block, elem } = bem('Teaser', styles);
 
 const Teaser = props => {
     const { title, subTitle, location, details, ...rest } = props;

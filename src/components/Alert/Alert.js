@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import { Button } from '../Buttons';
 import styles from './Alert.scss';
 import { CONTEXTS } from '../../constants';
 
-const { block, elem } = bem({
-    name: 'Alert',
-    classnames: styles,
-    propsToMods: ['context'],
-});
+const { block, elem } = bem('Alert', styles);
 
 const Alert = props => {
     const { action, children, context, title, ...rest } = props;

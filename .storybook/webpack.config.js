@@ -1,5 +1,5 @@
 const path = require('path');
-const { getRules, PACKAGES_PATH } = require('../scripts/build/webpack.config');
+const { baseConfig, getRules } = require('../scripts/build/webpack.config');
 
 module.exports = ({ config: storybookBaseConfig }) => {
 
@@ -9,8 +9,11 @@ module.exports = ({ config: storybookBaseConfig }) => {
     // Add support to SASS
     storybookBaseConfig.module.rules.push(getRules('dev').styles);
 
-    // Resolve BEM as Module
-    storybookBaseConfig.resolve.modules.push(PACKAGES_PATH);
+    // Merge resolvers setup
+    storybookBaseConfig.resolve.modules = [
+        ...storybookBaseConfig.resolve.modules,
+        ...baseConfig.resolve.modules,
+    ];
 
     // Return the altered config
     return storybookBaseConfig;

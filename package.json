@@ -47,6 +47,7 @@
     "dependencies": {
         "@babel/polyfill": "7.0.0",
         "@react-google-maps/api": "1.5.4",
+        "@textkernel/bem": "0.2.4",
         "css-vars-ponyfill": "1.16.4",
         "downshift": "3.2.10",
         "fast-memoize": "2.5.1",

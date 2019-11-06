@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../../utils/bem';
 import styles from './TabContent.scss';
 
-const { block } = bem({
-    name: 'TabContent',
-    classnames: styles,
-    propsToMods: [],
-});
+const { block } = bem('TabContent', styles);
 
 const TabContent = props => {
     const { children, ...rest } = props;

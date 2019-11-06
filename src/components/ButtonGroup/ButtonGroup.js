@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './ButtonGroup.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 
-const { block, elem } = bem({
-    name: 'ButtonGroup',
-    classnames: styles,
-    propsToMods: ['size', 'isBlock', 'context'],
-});
+const { block, elem } = bem('ButtonGroup', styles);
 
 const ButtonGroup = props => {
     const { children, context, size, isBlock, ...rest } = props;

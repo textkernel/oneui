@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
 import { MdClose } from 'react-icons/md';
+import bem from '../../utils/bem';
 import { CONTEXTS } from '../../constants';
 import styles from './Callout.scss';
 
-const { block, elem } = bem({
-    name: 'Callout',
-    classnames: styles,
-    propsToMods: ['context'],
-});
+const { block, elem } = bem('Callout', styles);
 
 const Callout = props => {
     const { status, onRequestClose, lineHeightStyle, children, ...rest } = props;

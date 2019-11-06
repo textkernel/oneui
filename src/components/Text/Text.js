@@ -1,14 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import bem from 'bem';
+import bem from '../../utils/bem';
 import styles from './Text.scss';
 import { SIZES, CONTEXTS } from '../../constants';
 
-const { block } = bem({
-    name: 'Text',
-    classnames: styles,
-    propsToMods: ['context', 'size'],
-});
+const { block } = bem('Text', styles);
 
 const Text = props => {
     const { children, context, inline, size, ...rest } = props;
