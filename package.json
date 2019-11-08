@@ -6,7 +6,7 @@
     "version": "8.2.1",
     "description": "Library of reusable React components with theming support",
     "main": "dist/oneui.min.js",
-    "types": "dist/bem.d.ts",
+    "types": "dist/dts/src/index.d.ts",
     "scripts": {
         "storybook": "start-storybook -s ./stories/static -p 9001 -c .storybook",
         "storybook:build": "build-storybook -s ./stories/static -c .storybook -o .out",
@@ -16,6 +16,7 @@
         "lint": "npm run lint:ci -- --fix",
         "lint:ci": "eslint .",
         "lint:styles": "stylelint 'src/**/*.s(a|c)ss'",
+        "tsc": "tsc --noEmit --skipLibCheck",
         "test": "jest --config scripts/test/jest.config.js",
         "test:coverage": "jest --config scripts/test/jest.config.js --coverage",
         "prepublishOnly": "npm test && npm run lint:ci && npm run lint:styles && npm run build:prod",

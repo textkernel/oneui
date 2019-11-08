@@ -37,9 +37,10 @@
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/no-unused-vars": "off",
-        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }],
-        "@typescript-eslint/ban-ts-ignore": "error"
+        "@typescript-eslint/no-unused-vars": ["error", {
+            "ignoreRestSiblings": true
+        }],
+        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }]
     },
     "overrides": [
         {
