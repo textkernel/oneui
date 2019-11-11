@@ -17,8 +17,9 @@
         "@textkernel/oneui/*": ["src/*"]
        },
     },
-    "exclude": [
-      "node_modules/",
-      "build"
+    "include": [
+      "src",
+      "stories",
+      "scripts"
     ]
 }

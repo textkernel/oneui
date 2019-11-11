@@ -33,7 +33,12 @@ const plugins = {
         analyzerMode: 'static',
         reportFilename: '../reports/bundle-size.html',
     }),
-    cleanWebpackPlugin: new CleanWebpackPlugin({ verbose: true }),
+    cleanWebpackPlugin: new CleanWebpackPlugin({
+        verbose: true,
+        protectWebpackAssets: false,
+        // Remove stories declaration
+        cleanAfterEveryBuildPatterns: ['**/stories/**'],
+    }),
 };
 
 const getRules = (env = 'prod') => ({
