@@ -75,7 +75,8 @@ storiesOf('Organisms|Autosuggest', module)
         };
 
         const getSelectedPlaceholder = () => {
-            const numOfItems = store.get('selectedSuggestions').length;
+            const items = store.get('selectedSuggestions');
+            const numOfItems = items ? items.length : 0;
             if (!numOfItems) {
                 return '';
             }
