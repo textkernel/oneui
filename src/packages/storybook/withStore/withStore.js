@@ -52,9 +52,12 @@ class StoreInjector {
     }
 }
 
-const storeInjector = new StoreInjector();
+const storeInjectors = [];
 
 export { StoreInjector };
 export default function(injectedStore) {
-    return storeInjector.withStore(injectedStore);
+    const injector = new StoreInjector();
+    const index = storeInjectors.length;
+    storeInjectors.push(injector);
+    return storeInjectors[index].withStore(injectedStore);
 }
