@@ -8,16 +8,11 @@ const { block, elem } = bem('SearchButton', styles);
 
 const SearchButton = forwardRef((props, ref) => {
     const { disabled, children, type, ...rest } = props;
+    const propsForBem = { ...props, withLabel: !!children };
 
     return (
-        <button
-            {...rest}
-            {...block({ ...props, withLabel: !!children })}
-            ref={ref}
-            type={type}
-            disabled={disabled}
-        >
-            <FaSearch {...elem('searchIcon', { ...props, withLabel: !!children })} />
+        <button {...rest} {...block(propsForBem)} ref={ref} type={type} disabled={disabled}>
+            <FaSearch {...elem('searchIcon', propsForBem)} />
             {children}
         </button>
     );
