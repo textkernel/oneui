@@ -1,3 +1,4 @@
+/* eslint-disable react/no-children-prop */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
@@ -26,6 +27,7 @@ storiesOf('Atoms|Button', module)
         <SearchButton
             type={select('Type', ['submit', 'button'], 'submit')}
             disabled={boolean('Disabled', false)}
+            children={text('Label', '')}
             onClick={e => {
                 console.log('Clicked button', e);
             }}
