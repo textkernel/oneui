@@ -1,4 +1,4 @@
-import injectStore, { StoreInjector, storeInjectors } from '../withStore';
+import injectStore, { StoreInjector } from '../withStore';
 
 jest.mock('@storybook/addons', () => ({
     getChannel: () => ({
@@ -55,13 +55,13 @@ describe('StoreInjector class', () => {
 
 describe('Storybook|injectStore decorator', () => {
     it('should create a separate store instance each time it is called', () => {
-        expect(storeInjectors).toHaveLength(0);
+        expect(StoreInjector.stores).toHaveLength(0);
 
         injectStore({ id: 1 });
         injectStore({ id: 2 });
 
-        expect(storeInjectors).toHaveLength(2);
-        expect(storeInjectors[0].initialStore.id).toEqual(1);
-        expect(storeInjectors[1].initialStore.id).toEqual(2);
+        expect(StoreInjector.stores).toHaveLength(2);
+        expect(StoreInjector.stores[0].initialStore.id).toEqual(1);
+        expect(StoreInjector.stores[1].initialStore.id).toEqual(2);
     });
 });
