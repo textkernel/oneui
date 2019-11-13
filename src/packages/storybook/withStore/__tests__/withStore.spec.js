@@ -1,4 +1,4 @@
-import { StoreInjector } from '../withStore';
+import withStore, { StoreInjector } from '../withStore';
 
 jest.mock('@storybook/addons', () => ({
     getChannel: () => ({
@@ -7,14 +7,12 @@ jest.mock('@storybook/addons', () => ({
     }),
 }));
 
-let withStore;
-
 describe('Storybook|injectStore decorator', () => {
     beforeEach(() => {
-        withStore = injectedStore => new StoreInjector().withStore(injectedStore);
+        StoreInjector.stores = [];
     });
 
-    it('should expos the puplic API', () => {
+    it('should expos the public API', () => {
         const instance = withStore();
         expect(typeof instance.getStore).toBe('function');
         expect(typeof instance.resetStore).toBe('function');
@@ -51,5 +49,16 @@ describe('Storybook|injectStore decorator', () => {
         instance.resetStore();
         expect(instance.getStore().get('string')).toBe('test');
         expect(instance.getStore().get('number')).toBe(1);
+    });
+
+    it('should create a separate store instance each time it is called', () => {
+        expect(StoreInjector.stores).toHaveLength(0);
+
+        withStore({ id: 1 });
+        withStore({ id: 2 });
+
+        expect(StoreInjector.stores).toHaveLength(2);
+        expect(StoreInjector.stores[0].initialStore.id).toEqual(1);
+        expect(StoreInjector.stores[1].initialStore.id).toEqual(2);
     });
 });
