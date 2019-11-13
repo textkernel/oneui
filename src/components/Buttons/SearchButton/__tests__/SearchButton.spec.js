@@ -14,4 +14,10 @@ describe('<SearchButton> that renders a search button', () => {
         wrapper.find('button').simulate('click');
         expect(onClickMock).toHaveBeenCalled();
     });
+    it('should render a button with a label correctly', () => {
+        const label = 'Search';
+        const wrapper = mount(<SearchButton>{label}</SearchButton>);
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('button').text()).toEqual(label);
+    });
 });

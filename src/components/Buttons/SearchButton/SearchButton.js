@@ -4,14 +4,16 @@ import { FaSearch } from 'react-icons/fa';
 import bem from '../../../utils/bem';
 import styles from './SearchButton.scss';
 
-const { block } = bem('SearchButton', styles);
+const { block, elem } = bem('SearchButton', styles);
 
 const SearchButton = forwardRef((props, ref) => {
-    const { disabled, type, ...rest } = props;
+    const { disabled, children, type, ...rest } = props;
+    const propsForBem = { ...props, withLabel: !!children };
 
     return (
-        <button {...rest} {...block(props)} ref={ref} type={type} disabled={disabled}>
-            <FaSearch />
+        <button {...rest} {...block(propsForBem)} ref={ref} type={type} disabled={disabled}>
+            <FaSearch {...elem('searchIcon', propsForBem)} />
+            {children}
         </button>
     );
 });
