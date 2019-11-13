@@ -9,7 +9,27 @@ import { Store } from '@sambego/storybook-state'; // eslint-disable-line import/
  */
 class StoreInjector {
     /**
-     * Used for keep store
+     * Used to store all store from all stories in storybook
+     */
+    static stores = [];
+
+    /**
+     * Used for injected store in Storybook
+     */
+    static withStore(injectedStore) {
+        const store = new StoreInjector();
+        StoreInjector.stores.push(store);
+
+        store.initialStore = injectedStore;
+        store.createStore(injectedStore);
+        return {
+            getStore: () => store.globalStore,
+            resetStore: () => store.createStore(injectedStore),
+        };
+    }
+
+    /**
+     * Used for keep a store
      */
     globalStore = {};
 
@@ -38,28 +58,7 @@ class StoreInjector {
         });
         addons.getChannel().emit(FORCE_RE_RENDER);
     }
-
-    /**
-     * Used for injected store in Storybook
-     */
-    withStore(injectedStore) {
-        this.initialStore = injectedStore;
-        this.createStore(injectedStore);
-        return {
-            getStore: () => this.globalStore,
-            resetStore: () => this.createStore(injectedStore),
-        };
-    }
 }
 
-StoreInjector.stores = [];
-
-StoreInjector.initStore = injectedStore => {
-    const injector = new StoreInjector();
-    const index = StoreInjector.stores.length;
-    StoreInjector.stores.push(injector);
-    return StoreInjector.stores[index].withStore(injectedStore);
-};
-
 export { StoreInjector };
-export default StoreInjector.initStore;
+export default StoreInjector.withStore;
