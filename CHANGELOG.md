@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.3.0](https://github.com/textkernel/oneui/compare/8.2.1...8.3.0) (2019-11-13)
+
+
+### Build System
+
+* implemented script that checks npm access before publishing the package ([a847cb8](https://github.com/textkernel/oneui/commit/a847cb8))
+
+
+### Features
+
+* **SearchButton:** Extend SearchButton with an optional label ([#189](https://github.com/textkernel/oneui/issues/189)) ([a831b8d](https://github.com/textkernel/oneui/commit/a831b8d))
+
+
+
 ### [8.2.1](https://github.com/textkernel/oneui/compare/8.2.0...8.2.1) (2019-11-04)
 
 
