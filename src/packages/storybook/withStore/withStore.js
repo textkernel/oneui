@@ -17,21 +17,21 @@ class StoreInjector {
      * Used for injected store in Storybook
      */
     static withStore(injectedStore) {
-        const store = new StoreInjector();
-        StoreInjector.stores.push(store);
+        const storeInstance = new StoreInjector();
+        StoreInjector.stores.push(storeInstance);
 
-        store.initialStore = injectedStore;
-        store.createStore(injectedStore);
+        storeInstance.initialStore = injectedStore;
+        storeInstance.createStore(injectedStore);
         return {
-            getStore: () => store.globalStore,
-            resetStore: () => store.createStore(injectedStore),
+            getStore: () => storeInstance.store,
+            resetStore: () => storeInstance.createStore(injectedStore),
         };
     }
 
     /**
      * Used for keep a store
      */
-    globalStore = {};
+    store = {};
 
     /**
      * Used for keep initial store
@@ -50,8 +50,8 @@ class StoreInjector {
      * Used for create store
      */
     createStore(injectedStore) {
-        this.globalStore = new Store(injectedStore);
-        this.globalStore.subscribe(state => {
+        this.store = new Store(injectedStore);
+        this.store.subscribe(state => {
             // Enforce rerender stories when store was changed
             addons.getChannel().emit(FORCE_RE_RENDER);
             return state;
