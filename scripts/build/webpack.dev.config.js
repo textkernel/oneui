@@ -14,6 +14,6 @@ module.exports = {
         plugins.cleanWebpackPlugin,
     ],
     module: {
-        rules: [rules.js, rules.ts, rules.styles, rules.files],
+        rules: [rules.js, rules.ts, rules.tsDoc, rules.styles, rules.files],
     },
 };

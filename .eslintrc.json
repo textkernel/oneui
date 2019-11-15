@@ -40,7 +40,8 @@
         "@typescript-eslint/no-unused-vars": ["error", {
             "ignoreRestSiblings": true
         }],
-        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }]
+        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }],
+        "@typescript-eslint/prefer-interface": "on"
     },
     "overrides": [
         {

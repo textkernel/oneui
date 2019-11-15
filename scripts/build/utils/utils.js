@@ -16,6 +16,22 @@ function getRuleTS({ includePaths }) {
     };
 }
 
+function getRuleTSDoc({ includePaths }) {
+    return {
+        test: /\.(ts|tsx)$/,
+        include: includePaths,
+        use: [
+            {
+                loader: 'react-docgen-typescript-loader',
+                options: {
+                    // Including prop that just was defined directly except extended props
+                    propFilter: propsInfo => propsInfo.parent.name === 'Props',
+                },
+            },
+        ],
+    };
+}
+
 function getRuleCSS({ styleLoader, localIdentName, includePaths, context }) {
     return {
         test: /\.scss$/,
@@ -60,6 +76,7 @@ function getRuleFiles({ fileLoader }) {
 module.exports = {
     getRuleJS,
     getRuleTS,
+    getRuleTSDoc,
     getRuleCSS,
     getRuleFiles,
 };
