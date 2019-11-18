@@ -42,7 +42,6 @@ Input.defaultProps = {
     isBlock: false,
     type: 'text',
     size: 'normal',
-    value: undefined,
 };
 
 export default Input;

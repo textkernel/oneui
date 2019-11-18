@@ -59,7 +59,7 @@ Button.propTypes = {
 ### TypeScript
 
 ### Type definitions for Props and States
-Always use `interface` for type definitions Props and States. Interfaces are more “extendable” due to the support of declaration merging. It is useful when components supports native HTML props, for example:
+Always use `interface` when defining types for props and states. Interfaces are more "extendable" because of support for declaration merging. This is useful when components support native HTML props, for example:
 
 ```javascript
 interface Props extends <HTMLInputElement> {
@@ -69,7 +69,7 @@ interface Props extends <HTMLInputElement> {
 ```
 
 ### Using Type
-Types are useful for union types. So its are more “composable” :
+Types are useful for union types, meaning they are more "composable":
 
 ```javascript
 type MyType = TypeA | TypeB
