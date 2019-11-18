@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from '../../utils/bem';
-import { Slider, Text } from '../../index';
+import Slider from '../Slider';
+import { Text } from '../Text';
 import { CROSS_CHAR, SIZES } from '../../constants';
 import styles from './LocationCard.scss';
 

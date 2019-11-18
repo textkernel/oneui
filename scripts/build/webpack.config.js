@@ -5,12 +5,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { getRuleJS, getRuleCSS, getRuleFiles } = require('./utils');
+const { getRuleJS, getRuleTS, getRuleTSDoc, getRuleCSS, getRuleFiles } = require('./utils');
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
 const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
+const STORIES_PATH = path.resolve(PROJECT_ROOT_PATH, 'stories');
 const DIST_PATH = path.resolve(PROJECT_ROOT_PATH, 'dist');
-const PACKAGES_PATH = path.resolve(SOURCE_PATH, 'packages');
 const NODE_MODULES_PATH = path.resolve(SOURCE_PATH, '../node_modules');
 
 const { oneui } = require('../../package.json');
@@ -33,12 +33,23 @@ const plugins = {
         analyzerMode: 'static',
         reportFilename: '../reports/bundle-size.html',
     }),
-    cleanWebpackPlugin: new CleanWebpackPlugin({ verbose: true }),
+    cleanWebpackPlugin: new CleanWebpackPlugin({
+        verbose: true,
+        protectWebpackAssets: false,
+        // Remove stories declaration
+        cleanAfterEveryBuildPatterns: ['**/stories/**'],
+    }),
 };
 
 const getRules = (env = 'prod') => ({
     js: getRuleJS({
         includePaths: [SOURCE_PATH],
+    }),
+    ts: getRuleTS({
+        includePaths: env === 'prod' ? [SOURCE_PATH] : [SOURCE_PATH, STORIES_PATH],
+    }),
+    tsDoc: getRuleTSDoc({
+        includePaths: env === 'prod' ? [SOURCE_PATH] : [SOURCE_PATH, STORIES_PATH],
     }),
     styles: getRuleCSS({
         styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
@@ -55,7 +66,7 @@ const baseConfig = {
     context: SOURCE_PATH,
 
     entry: {
-        main: './index.js',
+        main: './index.ts',
     },
 
     output: {
@@ -67,8 +78,8 @@ const baseConfig = {
     },
 
     resolve: {
-        modules: [PACKAGES_PATH, NODE_MODULES_PATH],
-        extensions: ['.js'],
+        modules: [NODE_MODULES_PATH],
+        extensions: ['.js', '.ts', '.tsx'],
     },
 };
 
@@ -79,6 +90,7 @@ module.exports = {
     LIBRARY_NAME,
     PROJECT_ROOT_PATH,
     SOURCE_PATH,
+    STORIES_PATH,
     DIST_PATH,
     NODE_MODULES_PATH,
 };

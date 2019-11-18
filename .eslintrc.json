@@ -1,10 +1,19 @@
 {
-    "extends": ["airbnb", "prettier", "prettier/react"],
-    "plugins": ["react", "prettier", "react-hooks"],
+    "extends": ["airbnb", "prettier", "prettier/react", "plugin:@typescript-eslint/recommended"],
+    "plugins": ["react", "prettier", "react-hooks", "@typescript-eslint"],
     "env": {
         "jest": true
     },
-    "parser": "babel-eslint",
+    "parser": "@typescript-eslint/parser",
+    "parserOptions":  {
+        "warnOnUnsupportedTypeScriptVersion": false,
+        "project": "tsconfig.json",
+        "ecmaVersion":  2018,
+        "sourceType":  "module",
+        "ecmaFeatures":  {
+            "jsx": true
+        }
+    },
     "rules": {
         "import/no-unresolved": [
             2,
@@ -26,7 +35,39 @@
             }
         ],
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/exhaustive-deps": "warn",
+        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/no-unused-vars": ["error", {
+            "ignoreRestSiblings": true
+        }],
+        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }],
+        "@typescript-eslint/prefer-interface": "on"
+    },
+    "overrides": [
+        {
+            "files": ["scripts/**/*"],
+            "rules": {
+                "@typescript-eslint/no-var-requires": "off"
+            }
+        },
+        {
+            "files": [
+                "**/__tests__/**/*",
+                "**/__mocks__/**/*"
+            ],
+            "rules": {
+                "@typescript-eslint/camelcase": "off",
+                "@typescript-eslint/no-empty-function": "off",
+                "@typescript-eslint/class-name-casing": "off"
+            }
+        }
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+            }
+        }
     },
     "globals": {
         "describe": false,

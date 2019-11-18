@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 import memoize from 'fast-memoize';
 import bem from '../../utils/bem';
-import { List, ListItem, ContentPlaceholder, Text, MarkedText, FieldWrapper } from '../../index';
+import { Text, MarkedText } from '../Text';
+import FieldWrapper from '../FieldWrapper';
+import ContentPlaceholder from '../ContentPlaceholder';
+import { List, ListItem } from '../List';
 import ItemTag from './ItemTag';
 import styles from './Autosuggest.scss';
 import {

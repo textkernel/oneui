@@ -1,6 +1,6 @@
 import React from 'react';
 import bem from '../../utils/bem';
-import { BlockWidthRestrictor } from '../../index';
+import BlockWidthRestrictor from '../WidthRestrictor/BlockWidthRestrictor';
 import LeftPane from './LeftPane';
 import RightPane from './RightPane';
 import styles from './TwoPaneView.scss';

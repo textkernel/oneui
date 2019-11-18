@@ -56,6 +56,25 @@ Button.propTypes = {
 };
 ```
 
+### TypeScript
+
+### Type definitions for Props and States
+Always use `interface` when defining types for props and states. Interfaces are more "extendable" because of support for declaration merging. This is useful when components support native HTML props, for example:
+
+```javascript
+interface Props extends <HTMLInputElement> {
+    /** Description of this props  */
+    context: string;
+}
+```
+
+### Using Type
+Types are useful for union types, meaning they are more "composable":
+
+```javascript
+type MyType = TypeA | TypeB
+```
+
 ### Accessibility
 We strive for a high level of accessibility for all components that come with OneUI. An overview of best practices specific to React [can be found here](https://reactjs.org/docs/accessibility.html). At least consider the points below.
 

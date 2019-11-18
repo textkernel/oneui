@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from '../../../utils/bem';
-import { Button } from '../../../index';
+import Button from '../../Buttons/Button';
 import styles from './PillDropdown.scss';
 
 const { block, elem } = bem('PillDropdown', styles);

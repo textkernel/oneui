@@ -17,7 +17,9 @@ export const INPUT_TYPES = [
     'search',
     'time',
     'week',
-];
+] as const;
+
+export type InputTypes = typeof INPUT_TYPES[number];
 
 /** List */
 export const LIST_NAVIGATION_DIRECTIONS = {

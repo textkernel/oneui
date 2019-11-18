@@ -8,10 +8,6 @@ module.exports = {
     // A list of paths to directories that Jest should use to search for files in
     roots: ['<rootDir>/src'],
 
-    // An array of directory names to be searched recursively up from the requiring module's
-    // location
-    moduleDirectories: ['node_modules', 'src/packages'],
-
     // The path to a module that runs some code to configure or set up the testing framework
     // before each test
     setupFiles: ['<rootDir>scripts/test/enzyme.setup.js'],
@@ -23,6 +19,7 @@ module.exports = {
     // A transformer is a module that provides a synchronous function for transforming source files.
     transform: {
         '^.+\\.jsx?$': 'babel-jest',
+        '^.+\\.tsx?$': 'ts-jest',
         '^.+\\.scss$': 'jest-css-modules-transform',
     },
 
@@ -30,7 +27,7 @@ module.exports = {
     // collected. If a file matches the specified glob pattern, coverage information will be
     // collected for it even if no tests exist for this file and it's never required in the test
     // suite.
-    collectCoverageFrom: ['**/*.{js,jsx}'],
+    collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}'],
 
     // A map from regular expressions to module names that allow to stub out resources with a single module
     moduleNameMapper: {

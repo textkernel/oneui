@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import bem from '../../../utils/bem';
-import { Map, Button, LocationCard, LocationAutocomplete } from '../../../index';
+import LocationCard from '../../LocationCard';
+import Button from '../../Buttons/Button';
+import { LocationAutocomplete } from '../../LocationAutocomplete';
+import { Map } from '../../Map';
 import styles from './LocationSelectorDialog.scss';
 
 const { elem } = bem('LocationSelectorDialog', styles);

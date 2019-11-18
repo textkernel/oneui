@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+      "declaration": true,
+      "target": "es5",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "noImplicitAny": false,
+      "jsx": "react",
+      "strict": true,
+      "baseUrl": ".",
+      "resolveJsonModule": true,
+      "outDir": "./dist",
+      "declarationDir": "./dist/dts",
+      "paths": {
+        "@textkernel/oneui": ["src"],
+        "@textkernel/oneui/*": ["src/*"]
+       },
+    },
+    "include": [
+      "src",
+      "stories",
+      "scripts"
+    ]
+}
