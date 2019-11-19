@@ -22,6 +22,7 @@ const LocationAutocomplete = props => {
     const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
 
     const {
+        inputRef,
         isFocused,
         onSelectionChange,
         inputPlaceholder,
@@ -149,6 +150,7 @@ const LocationAutocomplete = props => {
             onSelectionChange={handleSelection}
             iconNode={<FaMapMarkerAlt {...elem('icon', props)} />}
             {...rest}
+            inputRef={inputRef}
         />
     );
 };
@@ -156,6 +158,8 @@ const LocationAutocomplete = props => {
 LocationAutocomplete.displayName = 'LocationAutocomplete';
 
 LocationAutocomplete.propTypes = {
+    /** input field ref */
+    inputRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: PropTypes.string.isRequired,
     /** to be shown when no suggestions are available */
@@ -183,6 +187,7 @@ LocationAutocomplete.propTypes = {
 };
 
 LocationAutocomplete.defaultProps = {
+    inputRef: null,
     country: null,
     placeTypes: ['(regions)'],
     isFocused: false,

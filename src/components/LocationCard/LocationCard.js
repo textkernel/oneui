@@ -24,7 +24,10 @@ const LocationCard = props => {
 
     const handleRadiusChange = radius => onRadiusChange(locationId, radius);
 
-    const handleDelete = () => onDelete(locationId);
+    const handleDelete = event => {
+        event.stopPropagation();
+        onDelete(locationId);
+    };
 
     return (
         <As {...rest} {...block(props)}>

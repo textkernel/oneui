@@ -55,10 +55,23 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       country="NL"
       hidePoweredByGoogleLogo={true}
       inputPlaceholder="inputPlaceholder"
+      inputRef={
+        Object {
+          "current": <input
+            aria-autocomplete="list"
+            aria-labelledby="downshift-0-label"
+            autocomplete="off"
+            class="Autosuggest__input"
+            id="downshift-0-input"
+            placeholder="inputPlaceholder"
+            value=""
+          />,
+        }
+      }
       isFocused={true}
       noSuggestionsPlaceholder="noSuggestionsPlaceholder"
       onError={[MockFunction]}
-      onSelectionChange={[MockFunction]}
+      onSelectionChange={[Function]}
       placeTypes={
         Array [
           "(regions)",
@@ -76,16 +89,31 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           />
         }
         inputPlaceholder="inputPlaceholder"
+        inputRef={
+          Object {
+            "current": <input
+              aria-autocomplete="list"
+              aria-labelledby="downshift-0-label"
+              autocomplete="off"
+              class="Autosuggest__input"
+              id="downshift-0-input"
+              placeholder="inputPlaceholder"
+              value=""
+            />,
+          }
+        }
         isFocused={true}
         isLoading={false}
         isMultiselect={false}
         isProminent={false}
+        listRef={null}
         listRenderer={[Function]}
         noSuggestionsPlaceholder="noSuggestionsPlaceholder"
         onBlur={[Function]}
         onClearAllSelected={null}
         onInputValueChange={[Function]}
         onSelectionChange={[Function]}
+        rootRef={null}
         selectedPlaceholder=""
         selectedSuggestions={null}
         showClearButton={false}
@@ -185,6 +213,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                         id="downshift-0-input"
                         onBlur={[Function]}
                         onChange={[Function]}
+                        onFocus={[Function]}
                         onKeyDown={[Function]}
                         placeholder="inputPlaceholder"
                         value=""
@@ -250,7 +279,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         locationTitle="Amsterdam"
         maxRadius={100}
         minRadius={1}
-        onDelete={[MockFunction]}
+        onDelete={[Function]}
         onRadiusChange={[MockFunction]}
         radiusStep={1}
         sliderLabel="+ 42 km"
@@ -446,7 +475,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         locationTitle="Utrecht"
         maxRadius={100}
         minRadius={1}
-        onDelete={[MockFunction]}
+        onDelete={[Function]}
         onRadiusChange={[MockFunction]}
         radiusStep={1}
         sliderLabel="+ 20 km"

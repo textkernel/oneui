@@ -5,6 +5,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
   country={null}
   hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
+  inputRef={null}
   isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
@@ -213,16 +214,19 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
       />
     }
     inputPlaceholder="Location..."
+    inputRef={null}
     isFocused={false}
     isLoading={false}
     isMultiselect={false}
     isProminent={false}
+    listRef={null}
     listRenderer={[Function]}
     noSuggestionsPlaceholder="No suggestions..."
     onBlur={[Function]}
     onClearAllSelected={null}
     onInputValueChange={[Function]}
     onSelectionChange={[Function]}
+    rootRef={null}
     selectedPlaceholder=""
     selectedSuggestions={null}
     showClearButton={false}
@@ -322,6 +326,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     id="downshift-4-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    onFocus={[Function]}
                     onKeyDown={[Function]}
                     placeholder="Location..."
                     value="Tonga"
@@ -592,6 +597,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   country={null}
   hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
+  inputRef={null}
   isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
@@ -612,16 +618,19 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
       />
     }
     inputPlaceholder="Location..."
+    inputRef={null}
     isFocused={false}
     isLoading={false}
     isMultiselect={false}
     isProminent={false}
+    listRef={null}
     listRenderer={[Function]}
     noSuggestionsPlaceholder="No suggestions..."
     onBlur={[Function]}
     onClearAllSelected={null}
     onInputValueChange={[Function]}
     onSelectionChange={[Function]}
+    rootRef={null}
     selectedPlaceholder=""
     selectedSuggestions={null}
     showClearButton={false}
@@ -721,6 +730,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
                     id="downshift-0-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    onFocus={[Function]}
                     onKeyDown={[Function]}
                     placeholder="Location..."
                     value=""

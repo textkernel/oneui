@@ -19,18 +19,20 @@ const { block, elem } = bem('Autosuggest', styles);
 class Autosuggest extends React.Component {
     constructor(props) {
         super(props);
-        this.inputRef = React.createRef();
-        this.rootRef = React.createRef();
-        this.listRef = React.createRef();
+
+        this.inputRef = props.inputRef || React.createRef();
+        this.rootRef = props.rootRef || React.createRef();
+        this.listRef = props.listRef || React.createRef();
+
+        this.handleTagDeleteClick = memoize(this.handleTagDeleteClick);
+        this.handleWrapperClick = memoize(this.handleWrapperClick);
+        this.handleWrapperKeyDown = memoize(this.handleWrapperKeyDown);
+
         this.state = {
             inputValue: '',
             inputValueRecall: '',
             focused: props.isFocused,
         };
-
-        this.handleTagDeleteClick = memoize(this.handleTagDeleteClick);
-        this.handleWrapperClick = memoize(this.handleWrapperClick);
-        this.handleWrapperKeyDown = memoize(this.handleWrapperKeyDown);
     }
 
     componentDidMount() {
@@ -38,6 +40,31 @@ class Autosuggest extends React.Component {
 
         if (isFocused) {
             this.inputRef.current.focus();
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        const { inputRef, rootRef, listRef } = this.props;
+
+        if (inputRef) {
+            const isInputFocused = inputRef.current === document.activeElement;
+
+            if (prevProps.inputRef === inputRef) {
+                this.inputRef = inputRef;
+            }
+
+            if (prevState.focused !== isInputFocused) {
+                // eslint-disable-next-line react/no-did-update-set-state
+                this.setState({ focused: isInputFocused });
+            }
+        }
+
+        if (rootRef && prevProps.rootRef === rootRef) {
+            this.rootRef = rootRef;
+        }
+
+        if (listRef && prevProps.listRef === listRef) {
+            this.listRef = listRef;
         }
     }
 
@@ -90,6 +117,10 @@ class Autosuggest extends React.Component {
             }
         }
     };
+
+    handleInputFocus = () => this.setState({ focused: true });
+
+    handleInputBlur = () => this.setState({ focused: false });
 
     handleClearSelectedSuggestions = e => {
         const { onClearAllSelected } = this.props;
@@ -265,6 +296,9 @@ class Autosuggest extends React.Component {
             onSelectionChange,
             onInputValueChange,
             onClearAllSelected,
+            inputRef,
+            rootRef,
+            listRef,
             isMultiselect,
             isProminent,
             listRenderer,
@@ -322,10 +356,12 @@ class Autosuggest extends React.Component {
                                     <input
                                         {...getInputProps({
                                             ref: this.inputRef,
-                                            onKeyDown: this.handleInputKeyDown,
                                             placeholder: hideInputPlaceholder
                                                 ? ''
                                                 : inputPlaceholder,
+                                            onFocus: this.handleInputFocus,
+                                            onKeyDown: this.handleInputKeyDown,
+                                            onBlur: this.handleInputBlur,
                                             ...elem('input', stateAndProps),
                                         })}
                                     />
@@ -374,6 +410,12 @@ Autosuggest.propTypes = {
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** to be shown as clear button title */
     clearTitle: PropTypes.string,
+    /** input field ref */
+    inputRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+    /** root wrapper ref */
+    rootRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+    /** suggestions list ref */
+    listRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** onBlur() is called when the component is blurred */
     onBlur: PropTypes.func,
     /** onSelectionChange() called when a suggestion is selected or removed. Can be used to implement the component as controlled component */
@@ -399,6 +441,9 @@ Autosuggest.defaultProps = {
     selectedSuggestions: null,
     isLoading: false,
     isFocused: false,
+    inputRef: null,
+    rootRef: null,
+    listRef: null,
     onBlur: null,
     onInputValueChange: null,
     onClearAllSelected: null,

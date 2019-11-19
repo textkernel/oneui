@@ -7,6 +7,8 @@ import styles from './LocationSelectorDialog.scss';
 const { elem } = bem('LocationSelectorDialog', styles);
 
 const LocationSelectorDialog = props => {
+    const locationInputRef = React.createRef();
+
     const {
         /** FieldWrapper props */
         inputPlaceholder,
@@ -34,15 +36,26 @@ const LocationSelectorDialog = props => {
         onCloseModal,
     } = props;
 
+    function handleAddLocation(location) {
+        setTimeout(() => locationInputRef.current.focus());
+        onAddLocation(location);
+    }
+
+    function handleRemoveLocation(locationId) {
+        setTimeout(() => locationInputRef.current.focus());
+        onRemoveLocation(locationId);
+    }
+
     return (
         <>
             <div {...elem('inputLine', props)}>
                 <LocationAutocomplete
                     {...elem('searchField', props)}
                     isFocused
+                    inputRef={locationInputRef}
                     inputPlaceholder={inputPlaceholder}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
-                    onSelectionChange={onAddLocation}
+                    onSelectionChange={handleAddLocation}
                     country={country}
                     placeTypes={placeTypes}
                     showCountryInSuggestions={showCountryInSuggestions}
@@ -69,7 +82,7 @@ const LocationSelectorDialog = props => {
                                 maxRadius={maxRadius}
                                 radiusStep={radiusStep}
                                 onRadiusChange={onUpdateLocation}
-                                onDelete={onRemoveLocation}
+                                onDelete={handleRemoveLocation}
                             />
                         ))}
                     </ul>
