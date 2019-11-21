@@ -57,7 +57,15 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       inputPlaceholder="inputPlaceholder"
       inputRef={
         Object {
-          "current": null,
+          "current": <input
+            aria-autocomplete="list"
+            aria-labelledby="downshift-0-label"
+            autocomplete="off"
+            class="Autosuggest__input"
+            id="downshift-0-input"
+            placeholder="inputPlaceholder"
+            value=""
+          />,
         }
       }
       isFocused={true}
@@ -83,7 +91,15 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         inputPlaceholder="inputPlaceholder"
         inputRef={
           Object {
-            "current": null,
+            "current": <input
+              aria-autocomplete="list"
+              aria-labelledby="downshift-0-label"
+              autocomplete="off"
+              class="Autosuggest__input"
+              id="downshift-0-input"
+              placeholder="inputPlaceholder"
+              value=""
+            />,
           }
         }
         isFocused={true}

@@ -22,7 +22,7 @@ class Autosuggest extends React.Component {
     constructor(props) {
         super(props);
 
-        this.inputRef = React.createRef();
+        this.inputRef = props.inputRef || React.createRef();
         this.rootRef = props.rootRef || React.createRef();
         this.listRef = props.listRef || React.createRef();
 
@@ -48,10 +48,6 @@ class Autosuggest extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         const { inputRef, rootRef, listRef } = this.props;
 
-        if (inputRef && inputRef !== this.inputRef) {
-            this.inputRef = inputRef;
-        }
-
         if (inputRef && inputRef.current) {
             const isInputFocused = inputRef.current === document.activeElement;
 
@@ -61,11 +57,15 @@ class Autosuggest extends React.Component {
             }
         }
 
-        if (rootRef && prevProps.rootRef === rootRef) {
+        if (inputRef && inputRef !== this.inputRef) {
+            this.inputRef = inputRef;
+        }
+
+        if (rootRef && rootRef !== this.rootRef) {
             this.rootRef = rootRef;
         }
 
-        if (listRef && prevProps.listRef === listRef) {
+        if (listRef && listRef !== this.listRef) {
             this.listRef = listRef;
         }
     }
