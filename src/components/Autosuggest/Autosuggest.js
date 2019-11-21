@@ -14,13 +14,15 @@ import {
     ENTER_KEY,
 } from '../../constants';
 
+const FOCUS_DELAY = 250;
+
 const { block, elem } = bem('Autosuggest', styles);
 
 class Autosuggest extends React.Component {
     constructor(props) {
         super(props);
 
-        this.inputRef = props.inputRef || React.createRef();
+        this.inputRef = React.createRef();
         this.rootRef = props.rootRef || React.createRef();
         this.listRef = props.listRef || React.createRef();
 
@@ -46,16 +48,16 @@ class Autosuggest extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         const { inputRef, rootRef, listRef } = this.props;
 
-        if (inputRef) {
-            const isInputFocused = inputRef.current === document.activeElement;
+        if (inputRef && inputRef !== this.inputRef) {
+            this.inputRef = inputRef;
+        }
 
-            if (prevProps.inputRef === inputRef) {
-                this.inputRef = inputRef;
-            }
+        if (inputRef && inputRef.current) {
+            const isInputFocused = inputRef.current === document.activeElement;
 
             if (prevState.focused !== isInputFocused) {
                 // eslint-disable-next-line react/no-did-update-set-state
-                this.setState({ focused: isInputFocused });
+                setTimeout(() => this.setState({ focused: isInputFocused }), FOCUS_DELAY);
             }
         }
 
