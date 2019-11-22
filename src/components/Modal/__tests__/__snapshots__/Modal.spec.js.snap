@@ -7,7 +7,7 @@ exports[`Modal should render correctly 1`] = `
   className={
     Object {
       "afterOpen": "Modal__content--entered",
-      "base": "Modal__content ",
+      "base": "Modal__content",
       "beforeClose": "Modal__content--exited",
     }
   }
