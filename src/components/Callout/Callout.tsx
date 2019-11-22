@@ -1,14 +1,24 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { MdClose } from 'react-icons/md';
 import bem from '../../utils/bem';
-import { CONTEXTS } from '../../constants';
+import { ContextTypes } from '../../constants';
 import styles from './Callout.scss';
+
+interface Props {
+    /** The Callout context (e.g. brand, primary, bad, good etc. - defaults to info) */
+    context: ContextTypes;
+    /** A property specifies the height of a line. */
+    lineHeightStyle: number;
+    /** Content to be rendered inside the container */
+    children: Node;
+    /** A function to be called when close button was clicked */
+    onRequestClose: () => void;
+};
 
 const { block, elem } = bem('Callout', styles);
 
-const Callout = props => {
-    const { status, onRequestClose, lineHeightStyle, children, ...rest } = props;
+const Callout = (props: Props) => {
+    const { onRequestClose, lineHeightStyle, children, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)}>
@@ -22,17 +32,6 @@ const Callout = props => {
             )}
         </div>
     );
-};
-
-Callout.propTypes = {
-    /** The Callout context (e.g. brand, primary, bad, good etc. - defaults to info) */
-    context: PropTypes.oneOf(CONTEXTS),
-    /** A function to be called when close button was clicked */
-    onRequestClose: PropTypes.func,
-    /** A property specifies the height of a line. */
-    lineHeightStyle: PropTypes.number,
-    /** Content to be rendered inside the container */
-    children: PropTypes.node.isRequired,
 };
 
 Callout.defaultProps = {

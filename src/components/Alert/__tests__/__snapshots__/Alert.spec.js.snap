@@ -48,19 +48,11 @@ exports[`<Alert> that renders an alert should have a button that works 1`] = `
     >
       <Button
         context="link"
-        disabled={false}
-        href={null}
-        isBlock={false}
-        isInline={false}
         onClick={[MockFunction]}
-        size="normal"
-        type="button"
       >
         <button
           className="Button Button--context_link"
-          disabled={false}
           onClick={[MockFunction]}
-          type="button"
         >
           Click me
         </button>

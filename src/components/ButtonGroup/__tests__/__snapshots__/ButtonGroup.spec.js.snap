@@ -13,18 +13,11 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
     <Button
       className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
       context="neutral"
-      disabled={false}
-      href={null}
-      isBlock={false}
-      isInline={false}
       key=".0"
       size="large"
-      type="button"
     >
       <button
         className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
-        disabled={false}
-        type="button"
       >
         A button
       </button>
@@ -32,18 +25,11 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
     <Button
       className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
       context="neutral"
-      disabled={false}
-      href={null}
-      isBlock={false}
-      isInline={false}
       key=".1"
       size="large"
-      type="button"
     >
       <button
         className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
-        disabled={false}
-        type="button"
       >
         Another button
       </button>
@@ -65,18 +51,11 @@ exports[`<ButtonGroup> that renders a button should render default button correc
     <Button
       className="ButtonGroup__button ButtonGroup__button--context_neutral"
       context="neutral"
-      disabled={false}
-      href={null}
-      isBlock={false}
-      isInline={false}
       key=".0"
       size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral"
-        disabled={false}
-        type="button"
       >
         A button
       </button>
@@ -84,18 +63,11 @@ exports[`<ButtonGroup> that renders a button should render default button correc
     <Button
       className="ButtonGroup__button ButtonGroup__button--context_neutral"
       context="neutral"
-      disabled={false}
-      href={null}
-      isBlock={false}
-      isInline={false}
       key=".1"
       size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral"
-        disabled={false}
-        type="button"
       >
         Another button
       </button>

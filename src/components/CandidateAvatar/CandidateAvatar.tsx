@@ -1,21 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import bem from '../../utils/bem';
 import styles from './CandidateAvatar.scss';
 
-const { block, elem } = bem('CandidateAvatar', styles);
-
-const context = percentage => {
-    if (percentage <= 33) {
-        return 'bad';
-    }
-    if (percentage <= 66) {
-        return 'warning';
-    }
-    return 'good';
+interface Props {
+    /** Path to the avatar image resource */
+    imageUrl: string;
+    /** The match percentage; ranging from 0 (bad) - 100 (good) */
+    matchPercentage: number;
+    /** Whether to show the match percentage when hovering the image */
+    showPercentageOnHover: boolean;
+    /** Avatar size (1:1 aspect ratio); should be even number */
+    size: number;
 };
 
-const CandidateAvatar = props => {
+const { block, elem } = bem('CandidateAvatar', styles);
+
+const CandidateAvatar = (props: Props) => {
+    function getContext(percentage: number): string {
+        if (percentage <= 33) {
+            return 'bad';
+        }
+        if (percentage <= 66) {
+            return 'warning';
+        }
+        return 'good';
+    }
+
     const { imageUrl, matchPercentage, showPercentageOnHover, size, ...rest } = props;
 
     const constrainedSize = Math.round(Math.max(32, size));
@@ -72,7 +82,7 @@ const CandidateAvatar = props => {
                         strokeWidth={strokeWidth}
                         {...elem('circle', {
                             ...props,
-                            context: context(percentage),
+                            context: getContext(percentage),
                         })}
                         style={{
                             strokeDasharray,
@@ -85,17 +95,6 @@ const CandidateAvatar = props => {
 };
 
 CandidateAvatar.displayName = 'CandidateAvatar';
-
-CandidateAvatar.propTypes = {
-    /** Path to the avatar image resource */
-    imageUrl: PropTypes.string,
-    /** The match percentage, ranging from 0 (bad) - 100 (good) */
-    matchPercentage: PropTypes.number,
-    /** Whether to show the match percentage when hovering the image */
-    showPercentageOnHover: PropTypes.bool,
-    /** Avatar size (1:1 aspect ratio), should be even number */
-    size: PropTypes.number,
-};
 
 CandidateAvatar.defaultProps = {
     imageUrl: null,

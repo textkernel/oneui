@@ -217,19 +217,11 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
     <Button
       className="LocationSelectorDialog__button"
       context="brand"
-      disabled={false}
-      href={null}
-      isBlock={false}
-      isInline={false}
       onClick={[MockFunction]}
-      size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_brand LocationSelectorDialog__button"
-        disabled={false}
         onClick={[MockFunction]}
-        type="button"
       >
         doneLabel
       </button>
