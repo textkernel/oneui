@@ -10,11 +10,19 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   renderInPortal={true}
 >
   <Button
+    context="neutral"
+    disabled={false}
+    isBlock={false}
+    isInline={false}
     onClick={[Function]}
+    size="normal"
+    type="button"
   >
     <button
-      className="Button"
+      className="Button Button--context_neutral"
+      disabled={false}
       onClick={[Function]}
+      type="button"
     >
       Toggle popup
     </button>
@@ -32,7 +40,8 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
             Can be a form or anything.
           </p>
           <button
-            class="Button"
+            class="Button Button--context_neutral"
+            type="button"
           >
             Close me!
           </button>
@@ -62,11 +71,19 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
           Can be a form or anything.
         </p>
         <Button
+          context="neutral"
+          disabled={false}
+          isBlock={false}
+          isInline={false}
           onClick={[Function]}
+          size="normal"
+          type="button"
         >
           <button
-            className="Button"
+            className="Button Button--context_neutral"
+            disabled={false}
             onClick={[Function]}
+            type="button"
           >
             Close me!
           </button>
@@ -87,11 +104,19 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   renderInPortal={false}
 >
   <Button
+    context="neutral"
+    disabled={false}
+    isBlock={false}
+    isInline={false}
     onClick={[Function]}
+    size="normal"
+    type="button"
   >
     <button
-      className="Button"
+      className="Button Button--context_neutral"
+      disabled={false}
       onClick={[Function]}
+      type="button"
     >
       Toggle popup
     </button>
@@ -118,11 +143,19 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
         Can be a form or anything.
       </p>
       <Button
+        context="neutral"
+        disabled={false}
+        isBlock={false}
+        isInline={false}
         onClick={[Function]}
+        size="normal"
+        type="button"
       >
         <button
-          className="Button"
+          className="Button Button--context_neutral"
+          disabled={false}
           onClick={[Function]}
+          type="button"
         >
           Close me!
         </button>
@@ -142,11 +175,19 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   renderInPortal={false}
 >
   <Button
+    context="neutral"
+    disabled={false}
+    isBlock={false}
+    isInline={false}
     onClick={[Function]}
+    size="normal"
+    type="button"
   >
     <button
-      className="Button"
+      className="Button Button--context_neutral"
+      disabled={false}
       onClick={[Function]}
+      type="button"
     >
       Toggle popup
     </button>

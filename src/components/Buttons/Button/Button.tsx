@@ -5,7 +5,7 @@ import { ButtonTypes, ContextTypes, SizesTypes } from '../../../constants';
 
 // Any other attributes (onClick, onFocus etc.) are
 // supported although not defined in propTypes
-interface Props extends Omit<React.InputHTMLAttributes<HTMLButtonElement>, 'size'> {
+interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
     /** The label of the button */
     children: [string, Node];
     /** The button context (e.g. brand, primary, bad, good etc. - defaults to neutral) */
@@ -21,7 +21,7 @@ interface Props extends Omit<React.InputHTMLAttributes<HTMLButtonElement>, 'size
     /** Type of the button */
     type: ButtonTypes;
     /** Providing an href will render an <a> element, styled as a button. */
-    href: string;
+    href?: string;
 }
 
 const { block } = bem('Button', styles);
@@ -45,5 +45,14 @@ const Button: React.FC<Props> = React.forwardRef((props, ref?: React.Ref<HTMLBut
 });
 
 Button.displayName = 'Button';
+
+Button.defaultProps = {
+    context: 'neutral',
+    size: 'normal',
+    isBlock: false,
+    isInline: false,
+    disabled: false,
+    type: 'button',
+};
 
 export default Button;
