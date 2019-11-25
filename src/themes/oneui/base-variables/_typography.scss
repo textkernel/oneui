@@ -18,8 +18,10 @@ $h5-font-size: 12px !default;
 $h6-font-size: 10px !default;
 
 // font family
-$font-family-primary: 'Open Sans', sans-serif !default;
-$font-family-secondary: 'Open Sans', sans-serif !default;
+$font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Droid Sans', 'Helvetica Neue', sans-serif !default;
+$font-family-secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Droid Sans', 'Helvetica Neue', sans-serif !default;
 
 // font weight
 $font-weight-light: 200 !default;
