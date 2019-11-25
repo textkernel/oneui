@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { MdClose } from 'react-icons/md';
 import bem from '../../utils/bem';
-import { ContextType } from '../../constants';
+import { Context } from '../../constants';
 import styles from './Callout.scss';
 
 interface Props {
     /** The Callout context (e.g. brand, primary, bad, good etc. - defaults to info) */
-    context: ContextType;
+    context: Context;
     /** A property specifies the height of a line. */
     lineHeightStyle: number;
     /** Content to be rendered inside the container */
