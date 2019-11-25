@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import bem from '../../utils/bem';
 import styles from './CandidateAvatar.scss';
 
@@ -16,7 +16,7 @@ interface Props {
 const { block, elem } = bem('CandidateAvatar', styles);
 
 const CandidateAvatar = (props: Props) => {
-    function getContext(percentage: number): string {
+    const getContext = (percentage: number): 'bad' | 'warning' | 'good' => {
         if (percentage <= 33) {
             return 'bad';
         }

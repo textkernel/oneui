@@ -1,17 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import bem from '../../../utils/bem';
 import styles from './Button.scss';
-import { ButtonTypes, ContextTypes, SizesTypes } from '../../../constants';
+import { ButtonType, ContextType, SizeType } from '../../../constants';
 
 // Any other attributes (onClick, onFocus etc.) are
 // supported although not defined in propTypes
 interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
     /** The label of the button */
-    children: [string, Node];
+    children: string | React.ReactNode;
     /** The button context (e.g. brand, primary, bad, good etc. - defaults to neutral) */
-    context: ContextTypes | 'link';
+    context: ContextType | 'link';
     /** The size of the button */
-    size: SizesTypes;
+    size: SizeType;
     /** Whether or not to show block-level button (full width) */
     isBlock: boolean;
     /** Whether or not to show inline button (without padding) */
@@ -19,7 +19,7 @@ interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'siz
     /** Should button be disabled or not */
     disabled: boolean;
     /** Type of the button */
-    type: ButtonTypes;
+    type: ButtonType;
     /** Providing an href will render an <a> element, styled as a button. */
     href?: string;
 }
