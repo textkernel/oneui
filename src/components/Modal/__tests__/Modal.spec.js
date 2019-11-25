@@ -12,6 +12,24 @@ describe('Modal', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+    it('should apply classnames from props correctly', () => {
+        const wrapper = shallow(
+            <Modal
+                isOpen
+                contentLabel="Content label"
+                className="content-class"
+                overlayClassName="overlay-class"
+                portalClassName="portal-class"
+            >
+                Some children
+            </Modal>
+        );
+
+        expect(wrapper.find('Modal').prop('className').base).toContain('content-class');
+        expect(wrapper.find('Modal').prop('portalClassName')).not.toContain('content-class');
+        expect(wrapper.find('Modal').prop('portalClassName')).toContain('portal-class');
+        expect(wrapper.find('Modal').prop('overlayClassName').base).toContain('overlay-class');
+    });
     it('should set app element via react-modal', () => {
         const setElSpy = jest.spyOn(ReactModal, 'setAppElement');
         setElSpy.mockImplementationOnce(key => key);

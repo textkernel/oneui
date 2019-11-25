@@ -145,6 +145,8 @@ exports[`LocationSelector component should render LocationSelector properly when
       contentLabel="Location selection dialog"
       isOpen={true}
       onRequestClose={[Function]}
+      overlayClassName={null}
+      portalClassName={null}
     >
       <Modal
         ariaHideApp={false}
@@ -168,7 +170,7 @@ exports[`LocationSelector component should render LocationSelector properly when
           }
         }
         parentSelector={[Function]}
-        portalClassName="LocationSelector__modal"
+        portalClassName="ReactModalPortal"
         role="dialog"
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
@@ -178,7 +180,7 @@ exports[`LocationSelector component should render LocationSelector properly when
         <Portal
           containerInfo={
             <div
-              class="LocationSelector__modal"
+              class="ReactModalPortal"
             >
               <div
                 class="Modal__overlay Modal__overlay--entered"
@@ -262,7 +264,7 @@ exports[`LocationSelector component should render LocationSelector properly when
               }
             }
             parentSelector={[Function]}
-            portalClassName="LocationSelector__modal"
+            portalClassName="ReactModalPortal"
             role="dialog"
             shouldCloseOnEsc={true}
             shouldCloseOnOverlayClick={true}
@@ -550,6 +552,8 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       contentLabel="Location selection dialog"
       isOpen={false}
       onRequestClose={[Function]}
+      overlayClassName={null}
+      portalClassName={null}
     >
       <Modal
         ariaHideApp={false}
@@ -573,7 +577,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
           }
         }
         parentSelector={[Function]}
-        portalClassName="LocationSelector__modal"
+        portalClassName="ReactModalPortal"
         role="dialog"
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
@@ -583,7 +587,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
         <Portal
           containerInfo={
             <div
-              class="LocationSelector__modal"
+              class="ReactModalPortal"
             />
           }
         >
@@ -635,7 +639,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
               }
             }
             parentSelector={[Function]}
-            portalClassName="LocationSelector__modal"
+            portalClassName="ReactModalPortal"
             role="dialog"
             shouldCloseOnEsc={true}
             shouldCloseOnOverlayClick={true}

@@ -18,15 +18,16 @@ const Modal = props => {
         ...rest
     } = props;
 
-    const { className: portalClass } = block(props);
-    const { className: overlayClass } = elem('overlay', props);
+    const { className: portalClass } = block({ className: portalClassName, ...rest });
+    const { className: overlayClass } = elem('overlay', {
+        ...props,
+        elemClassName: overlayClassName,
+    });
     const { className: overlayEnteredClass } = elem('overlay--entered', props);
     const { className: overlayExitedClass } = elem('overlay--exited', props);
-    const { className: contentClass } = elem('content', props);
+    const { className: contentClass } = elem('content', { ...props, elemClassName: className });
     const { className: contentEnteredClass } = elem('content--entered', props);
     const { className: contentExitedClass } = elem('content--exited', props);
-
-    const contentClassJoined = [contentClass, className].join(' ');
 
     return (
         <ReactModal
@@ -41,7 +42,7 @@ const Modal = props => {
                 beforeClose: overlayExitedClass,
             }}
             className={{
-                base: contentClassJoined,
+                base: contentClass,
                 afterOpen: contentEnteredClass,
                 beforeClose: contentExitedClass,
             }}
@@ -73,11 +74,17 @@ Modal.propTypes = {
     onRequestClose: PropTypes.func,
     /** Additional class to be applied to the content part */
     className: PropTypes.string,
+    /** Additional class to be applied to the overlay */
+    overlayClassName: PropTypes.string,
+    /** Additional class to be applied to the portal */
+    portalClassName: PropTypes.string,
 };
 
 Modal.defaultProps = {
     onRequestClose: null,
     className: '',
+    overlayClassName: null,
+    portalClassName: null,
 };
 
 export default Modal;
