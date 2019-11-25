@@ -1,19 +1,19 @@
 import * as React from 'react';
 import bem from '../../utils/bem';
 import styles from './Input.scss';
-import { ContextType, InputType, SizeType } from '../../constants';
+import { Context, InputType, Size } from '../../constants';
 
 // Any other attributes (onChange, onKeyUp etc.) are
 // supported although not defined in props type definition
 interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
     /** The input field context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context: ContextType;
+    context: Context;
     /** Should the input field be disabled or not */
     disabled: boolean;
     /** Whether or not to show block-level input field (full width) */
     isBlock: boolean;
     /** The size of the input field */
-    size: SizeType;
+    size: Size;
     /** Type of the input field */
     type: InputType;
 }
