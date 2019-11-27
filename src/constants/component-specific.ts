@@ -3,6 +3,11 @@
 /** Autocomplete */
 export const NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS = 5;
 
+/** Button */
+export const BUTTON_TYPES = ['submit', 'button'] as const;
+
+export type ButtonType = typeof BUTTON_TYPES[number];
+
 /** Input */
 export const INPUT_TYPES = [
     'text',
@@ -19,7 +24,7 @@ export const INPUT_TYPES = [
     'week',
 ] as const;
 
-export type InputTypes = typeof INPUT_TYPES[number];
+export type InputType = typeof INPUT_TYPES[number];
 
 /** List */
 export const LIST_NAVIGATION_DIRECTIONS = {

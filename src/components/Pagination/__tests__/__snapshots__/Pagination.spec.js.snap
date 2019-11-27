@@ -19,7 +19,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
       context="link"
       data-page={5}
       disabled={false}
-      href={null}
       isBlock={false}
       isInline={false}
       onClick={[Function]}
@@ -49,7 +48,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={1}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -85,7 +83,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={3}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -116,7 +113,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={4}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -147,7 +143,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={5}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -178,7 +173,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={6}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -209,7 +203,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={7}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -240,7 +233,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={8}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -271,7 +263,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={9}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -295,7 +286,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
       context="link"
       data-page={7}
       disabled={false}
-      href={null}
       isBlock={false}
       isInline={false}
       onClick={[Function]}
@@ -343,7 +333,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={1}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -374,7 +363,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={2}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -405,7 +393,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={3}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -436,7 +423,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={4}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -467,7 +453,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={5}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -498,7 +483,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={6}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -529,7 +513,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={7}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -560,7 +543,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={8}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -591,7 +573,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={9}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -622,7 +603,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
         context="link"
         data-page={10}
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}

@@ -19,7 +19,6 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
       className="FieldWrapper__clearButton"
       context="link"
       disabled={false}
-      href={null}
       isBlock={false}
       isInline={true}
       onClick={[Function]}

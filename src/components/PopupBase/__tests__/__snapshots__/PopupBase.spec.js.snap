@@ -12,7 +12,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   <Button
     context="neutral"
     disabled={false}
-    href={null}
     isBlock={false}
     isInline={false}
     onClick={[Function]}
@@ -74,7 +73,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
         <Button
           context="neutral"
           disabled={false}
-          href={null}
           isBlock={false}
           isInline={false}
           onClick={[Function]}
@@ -108,7 +106,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   <Button
     context="neutral"
     disabled={false}
-    href={null}
     isBlock={false}
     isInline={false}
     onClick={[Function]}
@@ -148,7 +145,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
       <Button
         context="neutral"
         disabled={false}
-        href={null}
         isBlock={false}
         isInline={false}
         onClick={[Function]}
@@ -181,7 +177,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   <Button
     context="neutral"
     disabled={false}
-    href={null}
     isBlock={false}
     isInline={false}
     onClick={[Function]}

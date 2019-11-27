@@ -4,7 +4,6 @@ exports[`<Button> that renders a button should add classes when props are change
 <Button
   context="primary"
   disabled={false}
-  href={null}
   isBlock={true}
   isInline={false}
   size="large"
@@ -45,7 +44,6 @@ exports[`<Button> that renders a button should render default button correctly 1
 <Button
   context="neutral"
   disabled={false}
-  href={null}
   isBlock={false}
   isInline={false}
   size="normal"

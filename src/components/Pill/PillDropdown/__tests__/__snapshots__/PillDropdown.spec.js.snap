@@ -23,7 +23,6 @@ exports[`<PillDropdown> component should render correctly 1`] = `
         <Button
           context="primary"
           disabled={false}
-          href={null}
           isBlock={false}
           isInline={false}
           onClick={[Function]}

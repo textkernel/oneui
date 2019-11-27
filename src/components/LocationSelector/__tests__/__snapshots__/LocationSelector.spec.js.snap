@@ -121,7 +121,6 @@ exports[`LocationSelector component should render LocationSelector properly when
           className="FieldWrapper__clearButton"
           context="link"
           disabled={false}
-          href={null}
           isBlock={false}
           isInline={true}
           onClick={[Function]}
@@ -528,7 +527,6 @@ exports[`LocationSelector component should render LocationSelector propertly whe
           className="FieldWrapper__clearButton"
           context="link"
           disabled={false}
-          href={null}
           isBlock={false}
           isInline={true}
           onClick={[Function]}
