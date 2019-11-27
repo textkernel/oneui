@@ -37,12 +37,12 @@ const LocationSelectorDialog = props => {
     } = props;
 
     function handleAddLocation(location) {
-        setTimeout(() => locationInputRef.current.focus());
+        locationInputRef.current.focus();
         onAddLocation(location);
     }
 
     function handleRemoveLocation(locationId) {
-        setTimeout(() => locationInputRef.current.focus());
+        locationInputRef.current.focus();
         onRemoveLocation(locationId);
     }
 
