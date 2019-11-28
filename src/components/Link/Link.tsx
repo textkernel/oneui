@@ -1,11 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import bem from '../../utils/bem';
 import styles from './Link.scss';
 
+interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+    /** Link content */
+    children: React.ReactNode;
+}
+
 const { block } = bem('Link', styles);
 
-const Link = props => {
+const Link: React.FC<Props> = props => {
     const { children, ...rest } = props;
     return (
         <a {...rest} {...block(props)}>
@@ -15,10 +19,5 @@ const Link = props => {
 };
 
 Link.displayName = 'Link';
-
-Link.propTypes = {
-    /** Link content */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-};
 
 export default Link;
