@@ -1,13 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import bem from '../../utils/bem';
 import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Footer.scss';
 import { LogoTextkernel } from '../Icon';
 
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+    /** supply copyright text ready to be rendered instead of the default one */
+    copyright?: React.ReactNode;
+    /** Node(s) to be rendered on the right side of the header */
+    children?: React.ReactNode;
+}
+
 const { block, elem } = bem('Footer', styles);
 
-const Footer = props => {
+const Footer: React.FC<Props> = props => {
     const { copyright, children, ...rest } = props;
 
     const tkCopyright = (
@@ -28,17 +34,5 @@ const Footer = props => {
 };
 
 Footer.displayName = 'Footer';
-
-Footer.propTypes = {
-    /** supply copyright text ready to be rendered instead of the default one */
-    copyright: PropTypes.node,
-    /** Node(s) to be rendered on the right side of the header */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-};
-
-Footer.defaultProps = {
-    copyright: null,
-    children: null,
-};
 
 export default Footer;
