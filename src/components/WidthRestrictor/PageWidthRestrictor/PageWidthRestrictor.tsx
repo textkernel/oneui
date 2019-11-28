@@ -1,11 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import bem from '../../../utils/bem';
 import styles from './PageWidthRestrictor.scss';
 
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+    /** Node(s) to be rendered inside the container */
+    children: React.ReactNode;
+}
+
 const { block } = bem('PageWidthRestrictor', styles);
 
-const PageWidthRestrictor = props => {
+const PageWidthRestrictor: React.FC<Props> = props => {
     const { children, ...rest } = props;
 
     return (
@@ -16,10 +20,5 @@ const PageWidthRestrictor = props => {
 };
 
 PageWidthRestrictor.displayName = 'PageWidthRestrictor';
-
-PageWidthRestrictor.propTypes = {
-    /** Node(s) to be rendered inside the container */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-};
 
 export default PageWidthRestrictor;

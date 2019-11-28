@@ -26,13 +26,6 @@ describe('<TwoPaneView> that renders a two pane view', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     describe('children prop validation', () => {
-        it('should warn if no children are passed', () => {
-            mount(<TwoPaneView />);
-            expect(consoleError).toHaveBeenCalled();
-            expect(consoleError.mock.calls[0][0]).toContain(
-                'Failed prop type: The prop `children` is marked as required in `BlockWidthRestrictor`, but its value is'
-            );
-        });
         it('should warn if children are not RightPane or LeftPane', () => {
             mount(
                 <TwoPaneView>
