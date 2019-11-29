@@ -14,7 +14,7 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
     className="CandidateAvatar__image"
     style={
       Object {
-        "backgroundImage": "url(null)",
+        "backgroundImage": "url(undefined)",
       }
     }
   />
@@ -44,7 +44,7 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
     className="CandidateAvatar__image"
     style={
       Object {
-        "backgroundImage": "url(null)",
+        "backgroundImage": "url(undefined)",
       }
     }
   />

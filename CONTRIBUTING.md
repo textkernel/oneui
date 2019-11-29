@@ -70,15 +70,13 @@ Button.propTypes = {
 
 Always use explicit imports instead of default ones. This will prevent bugs, e.g. props types not showing up in Storybook. For example:
 
-**GOOD:**
-
 ```javascript
+// GOOD:
 import * as React from 'react';
 ```
 
-**BAD:**
-
 ```javascript
+// BAD:
 import React from 'react';
 ```
 
@@ -93,7 +91,14 @@ interface Props extends <HTMLInputElement> {
 }
 ```
 
--   Define **optional params** in `defaultProps` only if they have a meaningful value. Those that can be `null | undefined` indicate with `?` as in `propName?: type`. Without setting the prop to optional with `?` it will show us as required in storybook even if its type can be undefined.
+-   Define **optional params** in `defaultProps` only if they have a meaningful value. In FunctionalComponents also mark them with `?` as in `propName?: type`. Without setting the prop to optional with `?` we have 2 problems:
+
+    -   TS will think it is required when the component is used (_last updated: TS 3.7_).
+
+    -   It will show us as required in storybook even if its type can be undefined.
+
+    _Note_: this can lead to annoying situations where you have to add additional type checking in the code, if you really have to make sure that a prop is not null
+
 -   For **optional node** props use `propName?: React.Node` rather then setting the prop to `null` in `defaultProps`.
 -   Tor **required node** props use `React.ReactElement` rather then `JSX.Element` (for sake of consistency, and also because it gives a better explanation in the tooltip in VSCode)
 
