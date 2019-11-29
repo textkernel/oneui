@@ -4,12 +4,12 @@ import styles from './Heading.scss';
 import { HEADING_SIZES } from '../../constants';
 
 interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
-    /** Heading text alignment */
-    align: 'left' | 'center' | 'right';
     /** Heading text */
     children: React.ReactElement;
     /** Heading size (h1, h2, ...) */
-    level: typeof HEADING_SIZES[number];
+    level?: typeof HEADING_SIZES[number];
+    /** Heading text alignment */
+    align?: 'left' | 'center' | 'right';
 }
 
 const { block } = bem('Heading', styles);
@@ -17,6 +17,10 @@ const { block } = bem('Heading', styles);
 const Heading: React.FC<Props> = props => {
     const { align, children, level, ...rest } = props;
     const HtmlNodeType = level;
+
+    if (!HtmlNodeType) {
+        return null;
+    }
 
     return (
         <HtmlNodeType {...rest} {...block(props)}>

@@ -6,23 +6,22 @@ import { Context } from '../../constants';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Center the spinner relative to parent element or viewport */
-    centerIn?: 'parent' | 'viewport'
+    centerIn?: 'parent' | 'viewport';
     /** Loading text */
-    children?: React.ReactNode,
+    children?: React.ReactNode;
     /** The spinner context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context: Context,
+    context?: Context;
     /** Hides the spinner when true */
-    hidden: boolean,
+    hidden?: boolean;
     /** Custom spinner size (will affect both width and height) */
-    size?: number,
-
+    size?: number;
 }
 
 const { block, elem } = bem('LoadingSpinner', styles);
 
 const LoadingSpinner: React.FC<Props> = props => {
     const { centerIn, children, context, hidden, size, ...rest } = props;
-    
+
     return (
         <div {...rest} {...block(props)} role="status" aria-busy={!hidden} aria-hidden={hidden}>
             <svg

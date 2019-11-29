@@ -7,11 +7,11 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Text content */
     children: React.ReactElement;
     /** Text should be rendered inline */
-    inline: boolean;
+    inline?: boolean;
     /** The context of the text, effecting its color (e.g. brand, primary, bad, good etc. 'muted' added as special context here) */
-    context: Context | 'muted' | 'default';
+    context?: Context | 'muted' | 'default';
     /** Custom text sizes */
-    size: Size;
+    size?: Size;
 }
 
 const { block } = bem('Text', styles);
