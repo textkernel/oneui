@@ -20,7 +20,7 @@
         "test": "jest --config scripts/test/jest.config.js",
         "test:coverage": "jest --config scripts/test/jest.config.js --coverage",
         "check-npm-publish-access": "sh scripts/check-npm-publish-access/check-npm-publish-access.sh",
-        "prepublishOnly": "npm run check-npm-publish-access && npm run test && npm run lint:ci && npm run lint:styles && npm run build:prod",
+        "prepublishOnly": "npm run check-npm-publish-access && npm run tsc && npm run test && npm run lint:ci && npm run lint:styles && npm run build:prod",
         "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
         "release": "standard-version -t ''"
     },
@@ -34,7 +34,7 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "npm run test && npm run lint:ci && npm run lint:styles"
+            "pre-commit": "npm run tsc && npm run test && npm run lint:ci && npm run lint:styles"
         }
     },
     "repository": {
