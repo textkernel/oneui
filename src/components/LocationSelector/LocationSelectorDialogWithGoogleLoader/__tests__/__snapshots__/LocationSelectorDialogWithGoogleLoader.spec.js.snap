@@ -38,7 +38,6 @@ exports[`<LocationSelectorDialogWithGoogleLoader/> that loads google api and ren
         centerIn="parent"
         context="brand"
         hidden={false}
-        size={null}
       />
     }
   >
@@ -46,7 +45,6 @@ exports[`<LocationSelectorDialogWithGoogleLoader/> that loads google api and ren
       centerIn="parent"
       context="brand"
       hidden={false}
-      size={null}
     >
       <div
         aria-busy={true}

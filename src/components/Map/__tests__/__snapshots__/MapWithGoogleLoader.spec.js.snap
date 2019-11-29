@@ -12,7 +12,6 @@ exports[`<MapWithGoogleLoader/> that loads google api and renders a Map should r
         centerIn="parent"
         context="brand"
         hidden={false}
-        size={null}
       />
     }
   >
@@ -20,7 +19,6 @@ exports[`<MapWithGoogleLoader/> that loads google api and renders a Map should r
       centerIn="parent"
       context="brand"
       hidden={false}
-      size={null}
     >
       <div
         aria-busy={true}

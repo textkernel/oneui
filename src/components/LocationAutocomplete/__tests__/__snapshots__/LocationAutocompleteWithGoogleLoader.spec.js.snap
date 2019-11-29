@@ -20,7 +20,6 @@ exports[`<LocationAutocompleteWithGoogleLoader/> that loads google api and rende
         centerIn="parent"
         context="brand"
         hidden={false}
-        size={null}
       />
     }
   >
@@ -28,7 +27,6 @@ exports[`<LocationAutocompleteWithGoogleLoader/> that loads google api and rende
       centerIn="parent"
       context="brand"
       hidden={false}
-      size={null}
     >
       <div
         aria-busy={true}

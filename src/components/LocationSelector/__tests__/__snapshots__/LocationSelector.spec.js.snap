@@ -355,7 +355,6 @@ exports[`LocationSelector component should render LocationSelector properly when
                         centerIn="parent"
                         context="brand"
                         hidden={false}
-                        size={null}
                       />
                     }
                   >
@@ -363,7 +362,6 @@ exports[`LocationSelector component should render LocationSelector properly when
                       centerIn="parent"
                       context="brand"
                       hidden={false}
-                      size={null}
                     >
                       <div
                         aria-busy={true}

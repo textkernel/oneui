@@ -1,14 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import bem from '../../utils/bem';
 import { Text } from '../Text';
 import styles from './LoadingSpinner.scss';
-import { CONTEXTS } from '../../constants';
+import { Context } from '../../constants';
+
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+    /** Center the spinner relative to parent element or viewport */
+    centerIn?: 'parent' | 'viewport'
+    /** Loading text */
+    children?: React.ReactNode,
+    /** The spinner context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    context: Context,
+    /** Hides the spinner when true */
+    hidden: boolean,
+    /** Custom spinner size (will affect both width and height) */
+    size?: number,
+
+}
 
 const { block, elem } = bem('LoadingSpinner', styles);
 
-const LoadingSpinner = props => {
+const LoadingSpinner: React.FC<Props> = props => {
     const { centerIn, children, context, hidden, size, ...rest } = props;
+    
     return (
         <div {...rest} {...block(props)} role="status" aria-busy={!hidden} aria-hidden={hidden}>
             <svg
@@ -44,25 +58,9 @@ const LoadingSpinner = props => {
 
 LoadingSpinner.displayName = 'LoadingSpinner';
 
-LoadingSpinner.propTypes = {
-    /** Center the spinner relative to parent element or viewport */
-    centerIn: PropTypes.oneOf(['parent', 'viewport']),
-    /** Loading text */
-    children: PropTypes.node,
-    /** The spinner context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context: PropTypes.oneOf(CONTEXTS),
-    /** Hides the spinner when true */
-    hidden: PropTypes.bool,
-    /** Custom spinner size (will affect both width and height) */
-    size: PropTypes.number,
-};
-
 LoadingSpinner.defaultProps = {
-    centerIn: null,
-    children: null,
     context: 'brand',
     hidden: false,
-    size: null,
 };
 
 export default LoadingSpinner;
