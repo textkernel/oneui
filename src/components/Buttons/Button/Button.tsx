@@ -7,7 +7,7 @@ import { ButtonType, Context, Size } from '../../../constants';
 // supported although not defined in propTypes
 interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
     /** The label of the button */
-    children: string | React.ReactNode;
+    children: React.ReactElement;
     /** The button context (e.g. brand, primary, bad, good etc. - defaults to neutral) */
     context: Context | 'link';
     /** The size of the button */

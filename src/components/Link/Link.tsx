@@ -4,7 +4,7 @@ import styles from './Link.scss';
 
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Link content */
-    children: React.ReactNode;
+    children: React.ReactElement;
 }
 
 const { block } = bem('Link', styles);

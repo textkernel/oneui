@@ -10,10 +10,10 @@ interface Props {
     /** A property specifies the height of a line. */
     lineHeightStyle: number;
     /** Content to be rendered inside the container */
-    children: React.ReactNode;
+    children: React.ReactElement;
     /** A function to be called when close button was clicked */
     onRequestClose: () => void;
-};
+}
 
 const { block, elem } = bem('Callout', styles);
 
