@@ -3,9 +3,7 @@ import bem from '../../utils/bem';
 import styles from './IconBase.scss';
 import { Context } from '../../constants';
 
-export interface Props extends React.HTMLAttributes<HTMLDivElement> {
-    /** The SVG content */
-    children: React.ReactElement;
+export interface IconProps extends React.HTMLAttributes<HTMLDivElement> {
     /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context?: Context;
     /** Adds margin between a given side of the icon and other content */
@@ -17,6 +15,11 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     preserveAspectRatio?: boolean;
     /** Optional icon title */
     title?: string;
+}
+
+export interface Props extends IconProps {
+    /** The SVG content */
+    children: React.ReactElement;
     /** The SVG viewbox */
     viewBox: string;
 }

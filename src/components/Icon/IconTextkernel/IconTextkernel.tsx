@@ -1,7 +1,5 @@
 import * as React from 'react';
-import IconBase, { Props as BaseProps } from '../IconBase';
-
-interface Props extends Omit<Omit<BaseProps, 'children'>, 'viewbox'> {}
+import IconBase, { IconProps as Props } from '../IconBase';
 
 const IconTextkernel: React.FC<Props> = props => (
     <IconBase {...props} viewBox="0 0 369.7 800">
