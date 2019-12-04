@@ -85,6 +85,8 @@ class PopupBase extends React.Component {
         if (this.anchorRef.current && this.popupRef.current) {
             const { placement } = this.props;
             this.destroyPopperInstance();
+            console.log(this.anchorRef);
+            console.log(this.popupRef);
             this.popper = new PopperJS(this.anchorRef.current, this.popupRef.current, {
                 placement,
             });

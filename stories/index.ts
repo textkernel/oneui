@@ -35,6 +35,7 @@ import './Pagination';
 import './Pill';
 import './RadioButton';
 import './Teaser';
+import './Tooltip';
 import './TwoPaneView';
 // Organisms
 import './Autosuggest';
