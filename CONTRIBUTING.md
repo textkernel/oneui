@@ -97,10 +97,13 @@ interface Props extends <HTMLInputElement> {
 
     -   It will show us as required in storybook even if its type can be undefined.
 
-    _Note_: this can lead to annoying situations where you have to add additional type checking in the code, if you really have to make sure that a prop is not null
+    _Note_: this can lead to annoying situations where you have to add additional type checking in the code, if you really have to make sure that a prop is not null, but it seems we will have to live with that for now.
 
--   For **optional node** props use `propName?: React.Node` rather then setting the prop to `null` in `defaultProps`.
--   Tor **required node** props use `React.ReactElement` rather then `JSX.Element` (for sake of consistency, and also because it gives a better explanation in the tooltip in VSCode)
+-   For **children params** use types from `src/types/types.d.ts`
+    -   `RequiredChild`
+    -   `RequiredChildren`
+    -   `OptionalChild`
+    -   `OptionalChildren`
 
 ### Using Type
 

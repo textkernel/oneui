@@ -16,7 +16,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
           }
         | React.ReactElement;
     /** Node(s) to be rendered on the right side of the header */
-    children?: React.ReactNode;
+    children?: OptionalChildren;
 }
 
 const { block, elem } = bem('Header', styles);

@@ -19,7 +19,7 @@ export interface IconProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export interface Props extends IconProps {
     /** The SVG content */
-    children: React.ReactElement;
+    children: RequiredChildren;
     /** The SVG viewbox */
     viewBox: string;
 }
