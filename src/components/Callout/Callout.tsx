@@ -10,14 +10,14 @@ interface Props {
     /** A property specifies the height of a line. */
     lineHeightStyle?: number;
     /** Content to be rendered inside the container */
-    children: string | React.ReactElement;
+    children: RequiredChild;
     /** A function to be called when close button was clicked */
-    onRequestClose?: () => void;
+    onRequestClose?: (() => void) | null;
 }
 
 const { block, elem } = bem('Callout', styles);
 
-const Callout = (props: Props) => {
+const Callout: React.FC<Props> = props => {
     const { onRequestClose, lineHeightStyle, children, ...rest } = props;
 
     return (
