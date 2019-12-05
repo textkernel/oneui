@@ -1,0 +1,25 @@
+$element-height: 32px;
+$button-size: 18px;
+$icon-size: 16px;
+
+.SelectedOption {
+    display: flex;
+    align-items: center;
+    height: $element-height;
+
+    &__button {
+        margin-right: var(--spacing-3x);
+        height: $button-size;
+        width: $button-size;
+        background-color: var(--color-neutral-25);
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 0;
+    }
+
+    &__buttonIcon {
+        width: $icon-size;
+        height: $icon-size;
+    }
+}
