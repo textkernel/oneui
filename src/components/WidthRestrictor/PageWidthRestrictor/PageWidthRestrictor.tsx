@@ -4,7 +4,7 @@ import styles from './PageWidthRestrictor.scss';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node(s) to be rendered inside the container */
-    children: RequiredChildren;
+    children: NotEmptyReactNode;
 }
 
 const { block } = bem('PageWidthRestrictor', styles);

@@ -99,11 +99,7 @@ interface Props extends <HTMLInputElement> {
 
     _Note_: this can lead to annoying situations where you have to add additional type checking in the code, if you really have to make sure that a prop is not null, but it seems we will have to live with that for now.
 
--   For **children params** use types from `src/types/types.d.ts`
-    -   `RequiredChild`
-    -   `RequiredChildren`
-    -   `OptionalChild`
-    -   `OptionalChildren`
+-   For **children and other node params** use types from `src/types/types.d.ts`
 
 ### Using Type
 

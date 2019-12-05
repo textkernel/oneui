@@ -5,7 +5,7 @@ import styles from './NavBar.scss';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node(s) to be rendered as navigation */
-    children?: OptionalChildren;
+    children?: ReactNode;
 }
 
 const { block, elem } = bem('NavBar', styles);

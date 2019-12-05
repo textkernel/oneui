@@ -8,7 +8,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** supply copyright text ready to be rendered instead of the default one */
     copyright?: React.ReactNode;
     /** Node(s) to be rendered on the right side of the header */
-    children?: OptionalChildren;
+    children?: ReactNode;
 }
 
 const { block, elem } = bem('Footer', styles);

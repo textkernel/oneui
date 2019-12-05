@@ -10,7 +10,7 @@ interface Props {
     /** A property specifies the height of a line. */
     lineHeightStyle?: number;
     /** Content to be rendered inside the container */
-    children: RequiredChild;
+    children: NonEmptySingleReactNode;
     /** A function to be called when close button was clicked */
     onRequestClose?: (() => void) | null;
 }
