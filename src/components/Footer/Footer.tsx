@@ -6,7 +6,7 @@ import { LogoTextkernel } from '../Icon';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** supply copyright text ready to be rendered instead of the default one */
-    copyright?: React.ReactNode;
+    copyright?: ReactNode;
     /** Node(s) to be rendered on the right side of the header */
     children?: ReactNode;
 }

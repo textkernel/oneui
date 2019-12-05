@@ -26,9 +26,9 @@ const CandidateAvatar = (props: Props) => {
         return 'good';
     };
 
-    const { imageUrl, matchPercentage, showPercentageOnHover, size, ...rest } = props;
+    const { imageUrl, matchPercentage, showPercentageOnHover, size = 72, ...rest } = props;
 
-    const constrainedSize = Math.round(Math.max(32, Number(size)));
+    const constrainedSize = Math.round(Math.max(32, size));
     const fixedSize = constrainedSize % 2 === 0 ? constrainedSize : constrainedSize + 1; // force even number
     const isSmall = fixedSize < 60;
     const strokeWidth = isSmall ? 2 : 4;

@@ -6,14 +6,14 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Node(s) to be rendered inside the container */
     children: NotEmptyReactNode;
     /** HTML tag to be used to render the container */
-    As: string;
+    As?: string;
 }
 
 const { block } = bem('BlockWidthRestrictor', styles);
 
 const BlockWidthRestrictor: React.FC<Props> = React.forwardRef(
     (props, ref?: React.Ref<HTMLElement>) => {
-        const { children, As, ...rest } = props;
+        const { children, As = 'div', ...rest } = props;
 
         return (
             <As {...rest} ref={ref} {...block(props)}>
