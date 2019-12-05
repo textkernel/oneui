@@ -5,7 +5,7 @@ import { ButtonType, Context, Size } from '../../../constants';
 
 interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
     /** The label of the button */
-    children: NonEmptySingleReactNode;
+    children: NotEmptySingleReactNode;
     /** The button context (e.g. brand, primary, bad, good etc. - defaults to neutral) */
     context?: Context | 'link';
     /** The size of the button */
