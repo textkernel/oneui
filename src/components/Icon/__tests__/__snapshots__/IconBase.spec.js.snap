@@ -2,7 +2,7 @@
 
 exports[`<IconBase> that renders an SVG wrapper with all options included should render a default icon 1`] = `
 <div
-  className="IconBase IconBase--context_brand IconBase--margin_right"
+  className="IconBase IconBase--margin_right IconBase--context_brand"
 >
   <svg
     aria-labelledby="title"
