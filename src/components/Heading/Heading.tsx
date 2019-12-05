@@ -5,7 +5,7 @@ import { HEADING_SIZES } from '../../constants';
 
 interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
     /** Heading text */
-    children: React.ReactElement;
+    children: NotEmptyReactNode;
     /** Heading size (h1, h2, ...) */
     level?: typeof HEADING_SIZES[number];
     /** Heading text alignment */
@@ -15,12 +15,8 @@ interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
 const { block } = bem('Heading', styles);
 
 const Heading: React.FC<Props> = props => {
-    const { align, children, level, ...rest } = props;
+    const { align, children, level = 'h1', ...rest } = props;
     const HtmlNodeType = level;
-
-    if (!HtmlNodeType) {
-        return null;
-    }
 
     return (
         <HtmlNodeType {...rest} {...block(props)}>

@@ -8,7 +8,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Center the spinner relative to parent element or viewport */
     centerIn?: 'parent' | 'viewport';
     /** Loading text */
-    children?: React.ReactNode;
+    children?: ReactNode;
     /** The spinner context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context?: Context;
     /** Hides the spinner when true */

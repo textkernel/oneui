@@ -5,7 +5,7 @@ import { Size, Context } from '../../constants';
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Text content */
-    children: React.ReactElement;
+    children: NotEmptyReactNode;
     /** Text should be rendered inline */
     inline?: boolean;
     /** The context of the text, effecting its color (e.g. brand, primary, bad, good etc. 'muted' added as special context here) */
