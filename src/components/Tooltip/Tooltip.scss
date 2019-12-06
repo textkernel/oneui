@@ -6,7 +6,8 @@
         padding: var(--spacing-3x);
         border-radius: var(--border-radius);
         max-width: 350px;
-        animation: slide-in 0.3s forwards;
+        opacity: 0;
+        animation: appearing 0.3s forwards;
     }
 
     &__arrow {
@@ -94,7 +95,10 @@
         bottom: var(--spacing-3x);
     }
         
-    @keyframes slide-in {
-        100% { transform: translateX(0) translateY(0); }
+    @keyframes appearing {
+        100% {
+            opacity: 1;
+            transform: translateX(0) translateY(0);
+        }
     }
 }

@@ -7,8 +7,8 @@ import bem from '../../utils/bem';
 const { elem } = bem('Tooltip', styles);
 
 interface Props {
-    children: React.ReactNode;
-    content: React.ReactNode;
+    children: React.ReactElement | string;
+    content: React.ReactElement | string;
     placement?: PopupPlacement;
 }
 
