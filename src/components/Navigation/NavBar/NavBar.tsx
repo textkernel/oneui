@@ -1,12 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import bem from '../../../utils/bem';
 import { BlockWidthRestrictor } from '../../WidthRestrictor';
 import styles from './NavBar.scss';
 
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+    /** Node(s) to be rendered as navigation */
+    children?: ReactNode;
+}
+
 const { block, elem } = bem('NavBar', styles);
 
-const NavBar = props => {
+const NavBar: React.FC<Props> = props => {
     const { children, ...rest } = props;
 
     return (
@@ -19,14 +23,5 @@ const NavBar = props => {
 };
 
 NavBar.displayName = 'NavBar';
-
-NavBar.propTypes = {
-    /** Node(s) to be rendered as navigation */
-    children: PropTypes.node,
-};
-
-NavBar.defaultProps = {
-    children: null,
-};
 
 export default NavBar;

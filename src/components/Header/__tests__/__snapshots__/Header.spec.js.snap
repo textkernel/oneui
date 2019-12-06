@@ -6,12 +6,7 @@ exports[`Header component that renders a website header with a logo on the left 
     <a
       href="/test"
     >
-      <IconTextkernel
-        context={null}
-        margin={null}
-        size={null}
-        title={null}
-      />
+      <IconTextkernel />
     </a>
   }
 >
@@ -29,18 +24,9 @@ exports[`Header component that renders a website header with a logo on the left 
           className="Header__logo"
           href="/test"
         >
-          <IconTextkernel
-            context={null}
-            margin={null}
-            size={null}
-            title={null}
-          >
+          <IconTextkernel>
             <IconBase
-              context={null}
-              margin={null}
               preserveAspectRatio={false}
-              size={null}
-              title={null}
               viewBox="0 0 369.7 800"
             >
               <div

@@ -6,18 +6,18 @@ import styles from './Callout.scss';
 
 interface Props {
     /** The Callout context (e.g. brand, primary, bad, good etc. - defaults to info) */
-    context: Context;
+    context?: Context;
     /** A property specifies the height of a line. */
-    lineHeightStyle: number;
+    lineHeightStyle?: number;
     /** Content to be rendered inside the container */
-    children: React.ReactNode;
+    children: NonEmptySingleReactNode;
     /** A function to be called when close button was clicked */
-    onRequestClose: () => void;
-};
+    onRequestClose?: (() => void) | null;
+}
 
 const { block, elem } = bem('Callout', styles);
 
-const Callout = (props: Props) => {
+const Callout: React.FC<Props> = props => {
     const { onRequestClose, lineHeightStyle, children, ...rest } = props;
 
     return (

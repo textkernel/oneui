@@ -8,10 +8,10 @@ interface Props {
     /** The match percentage; ranging from 0 (bad) - 100 (good) */
     matchPercentage: number;
     /** Whether to show the match percentage when hovering the image */
-    showPercentageOnHover: boolean;
+    showPercentageOnHover?: boolean;
     /** Avatar size (1:1 aspect ratio); should be even number */
-    size: number;
-};
+    size?: number;
+}
 
 const { block, elem } = bem('CandidateAvatar', styles);
 
@@ -24,9 +24,9 @@ const CandidateAvatar = (props: Props) => {
             return 'warning';
         }
         return 'good';
-    }
+    };
 
-    const { imageUrl, matchPercentage, showPercentageOnHover, size, ...rest } = props;
+    const { imageUrl, matchPercentage, showPercentageOnHover, size = 72, ...rest } = props;
 
     const constrainedSize = Math.round(Math.max(32, size));
     const fixedSize = constrainedSize % 2 === 0 ? constrainedSize : constrainedSize + 1; // force even number
@@ -97,8 +97,6 @@ const CandidateAvatar = (props: Props) => {
 CandidateAvatar.displayName = 'CandidateAvatar';
 
 CandidateAvatar.defaultProps = {
-    imageUrl: null,
-    matchPercentage: null,
     showPercentageOnHover: false,
     size: 72,
 };
