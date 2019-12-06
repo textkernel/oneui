@@ -1,6 +1,6 @@
 $element-height: 32px;
 $button-size: 18px;
-$icon-size: 16px;
+$icon-size: 22px;
 
 .SelectedOption {
     display: flex;
@@ -8,6 +8,8 @@ $icon-size: 16px;
     height: $element-height;
 
     &__button {
+        position: relative;
+        outline: none;
         margin-right: var(--spacing-3x);
         height: $button-size;
         width: $button-size;
@@ -19,6 +21,10 @@ $icon-size: 16px;
     }
 
     &__buttonIcon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: $icon-size;
         height: $icon-size;
     }
