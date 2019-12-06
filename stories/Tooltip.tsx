@@ -7,7 +7,7 @@ import { POPUP_PLACEMENTS } from '../src/constants';
 storiesOf('Molecules|Tooltip', module)
     .addDecorator(withKnobs)
     .add('Tooltip', () => (
-        <div style={{ display: 'table', margin: '0 auto' }}>
+        <div style={{ position: 'relative', display: 'table', margin: '0 auto' }}>
             <Tooltip
                 placement={select('Placement', POPUP_PLACEMENTS, 'bottom')}
                 content={text('Tooltip text', 'this is my tooltip text')}

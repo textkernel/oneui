@@ -6,16 +6,19 @@ import bem from '../../utils/bem';
 
 const { elem } = bem('Tooltip', styles);
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLElement> {
+    /** Anchor component */
     children: NonEmptySingleReactNode;
+    /** Popup component */
     content: NonEmptySingleReactNode;
+    /** Placement of the popup dialog relative to anchor */
     placement?: PopupPlacement;
 }
 
 const Tooltip: React.FC<Props> = props => {
-    const { placement, content, children } = props;
+    const { placement, content, children, style, ...rest } = props;
 
-    const createMouseEnterHandler = setPopupVisibility => () => {
+    const createMouseOverHandler = setPopupVisibility => () => {
         setPopupVisibility(true);
     };
 
@@ -23,18 +26,23 @@ const Tooltip: React.FC<Props> = props => {
         setPopupVisibility(false);
     };
 
-    const renderAnchor = ({ setPopupVisibility }) => (
-        <div
-            onMouseEnter={createMouseEnterHandler(setPopupVisibility)}
-            onMouseLeave={createMouseLeaveHandler(setPopupVisibility)}
-        >
-            {children}
-        </div>
-    );
+    const renderAnchor = ({ setPopupVisibility }) => {
+        const mouseEventHandlers = {
+            ...rest,
+            onMouseOver: createMouseOverHandler(setPopupVisibility),
+            onMouseLeave: createMouseLeaveHandler(setPopupVisibility),
+        };
+
+        if (React.isValidElement(children)) {
+            return React.cloneElement(children, mouseEventHandlers);
+        }
+
+        return <span {...mouseEventHandlers}>{children}</span>;
+    };
 
     const renderPopup = () => (
         <div>
-            <div {...elem('container', props)}>
+            <div {...elem('container', props)} style={style}>
                 {content}
                 <div {...elem('arrow', props)} />
             </div>

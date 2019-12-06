@@ -18,7 +18,7 @@ describe('<Tooltip> that renders a Tooltip', () => {
             </Tooltip>
         );
 
-        wrapper.childAt(0).simulate('mouseenter');
+        wrapper.childAt(0).simulate('mouseover');
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('div[data-popup="true"]')).toHaveLength(1);
     });
@@ -30,7 +30,7 @@ describe('<Tooltip> that renders a Tooltip', () => {
             </Tooltip>
         );
 
-        wrapper.childAt(0).simulate('mouseenter');
+        wrapper.childAt(0).simulate('mouseover');
         expect(
             wrapper
                 .childAt(0)
@@ -45,7 +45,7 @@ describe('<Tooltip> that renders a Tooltip', () => {
             </Tooltip>
         );
 
-        wrapper.childAt(0).simulate('mouseenter');
+        wrapper.childAt(0).simulate('mouseover');
         wrapper.childAt(0).simulate('mouseleave');
         expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
     });
