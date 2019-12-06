@@ -16,7 +16,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 }
 
 const Tooltip: React.FC<Props> = props => {
-    const { placement, content, children, style, ...rest } = props;
+    const { placement, content, children, ...rest } = props;
 
     const createMouseOverHandler = setPopupVisibility => () => {
         setPopupVisibility(true);
@@ -28,7 +28,6 @@ const Tooltip: React.FC<Props> = props => {
 
     const renderAnchor = ({ setPopupVisibility }) => {
         const mouseEventHandlers = {
-            ...rest,
             onMouseOver: createMouseOverHandler(setPopupVisibility),
             onMouseLeave: createMouseLeaveHandler(setPopupVisibility),
         };
@@ -42,7 +41,7 @@ const Tooltip: React.FC<Props> = props => {
 
     const renderPopup = () => (
         <div>
-            <div {...elem('container', props)} style={style}>
+            <div {...elem('container', props)} {...rest}>
                 {content}
                 <div {...elem('arrow', props)} />
             </div>
