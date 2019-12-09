@@ -34,6 +34,7 @@ export { default as Pagination } from './components/Pagination';
 export { Pill, PillButton, PillDropdown } from './components/Pill';
 export { RadioButton, RadioButtonGroup } from './components/RadioButton';
 export { default as Teaser } from './components/Teaser';
+export { default as Tooltip } from './components/Tooltip';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
 // Organisms
 export { Autosuggest, ItemTag } from './components/Autosuggest';

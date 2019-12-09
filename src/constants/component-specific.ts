@@ -49,4 +49,6 @@ export const POPUP_PLACEMENTS = [
     'left',
     'left-start',
     'left-end',
-];
+] as const;
+
+export type PopupPlacement = typeof POPUP_PLACEMENTS[number];
