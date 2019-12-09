@@ -4,7 +4,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should add cla
 <div
   aria-busy={false}
   aria-hidden={true}
-  className="LoadingSpinner LoadingSpinner--centerIn_viewport LoadingSpinner--hidden"
+  className="LoadingSpinner LoadingSpinner--hidden LoadingSpinner--centerIn_viewport"
   role="status"
 >
   <svg
