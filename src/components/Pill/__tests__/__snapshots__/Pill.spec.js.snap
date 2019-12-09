@@ -10,6 +10,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
   name="Pill name"
   noPaddingInDropdown={false}
   onClear={[MockFunction]}
+  onClose={[MockFunction]}
   ref={null}
 >
   <PopupBase
@@ -55,6 +56,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
       }
     }
     anchorRenderer={[Function]}
+    onClose={[MockFunction]}
     placement="bottom-start"
     popupRef={
       Object {
@@ -211,6 +213,7 @@ exports[`<Pill> component should render correctly 1`] = `
   name="Pill name"
   noPaddingInDropdown={false}
   onClear={[MockFunction]}
+  onClose={[MockFunction]}
   ref={null}
 >
   <PopupBase
@@ -247,6 +250,7 @@ exports[`<Pill> component should render correctly 1`] = `
       }
     }
     anchorRenderer={[Function]}
+    onClose={[MockFunction]}
     placement="bottom-start"
     popupRef={
       Object {

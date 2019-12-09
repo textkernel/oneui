@@ -16,6 +16,7 @@ const Pill = props => {
         dropdownRef: dropdownRefFromProps,
         noPaddingInDropdown,
         additionalDropdownProps,
+        onClose,
         ...rest
     } = props;
 
@@ -27,6 +28,9 @@ const Pill = props => {
     // eslint-disable-next-line react/display-name, react/prop-types
     const buttonRenderer = ({ setPopupVisibility, isOpen }) => {
         const toggleDropdown = () => {
+            if (isOpen && onClose) {
+                onClose();
+            }
             setPopupVisibility(!isOpen);
         };
 
@@ -43,10 +47,17 @@ const Pill = props => {
         );
     };
 
+    const closeDropdown = setPopupVisibility => {
+        setPopupVisibility(false);
+        if (onClose) {
+            onClose();
+        }
+    };
+
     // eslint-disable-next-line react/display-name, react/prop-types
     const dropdownRenderer = ({ setPopupVisibility }) => (
         <PillDropdown
-            close={() => setPopupVisibility(false)}
+            close={() => closeDropdown(setPopupVisibility)}
             noPadding={noPaddingInDropdown}
             doneLabel={doneLabel}
             {...additionalDropdownProps}
@@ -61,6 +72,7 @@ const Pill = props => {
             popupRenderer={dropdownRenderer}
             anchorRef={buttonRef}
             popupRef={dropdownRef}
+            onClose={onClose}
         />
     );
 };
@@ -94,6 +106,8 @@ Pill.propTypes = {
     noPaddingInDropdown: PropTypes.bool,
     /** other props that need to be applied to the dropdown container */
     additionalDropdownProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+    /** a function that is called when the dropdown closes via done-button-click, window-click or ESC */
+    onClose: PropTypes.func,
 };
 
 Pill.defaultProps = {
@@ -103,6 +117,7 @@ Pill.defaultProps = {
     dropdownRef: null,
     noPaddingInDropdown: false,
     additionalDropdownProps: {},
+    onClose: null,
 };
 
 export default Pill;
