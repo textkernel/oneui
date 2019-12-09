@@ -22,9 +22,7 @@ exports[`<Tooltip> that renders a Tooltip should display a tooltip on hover 1`] 
     <div
       data-popup="true"
     >
-      <div
-        className="Tooltip__container"
-      >
+      <div>
         content
         <div
           className="Tooltip__arrow"

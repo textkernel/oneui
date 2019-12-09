@@ -4,7 +4,7 @@ import PopupBase from '../PopupBase';
 import styles from './Tooltip.scss';
 import bem from '../../utils/bem';
 
-const { elem } = bem('Tooltip', styles);
+const { block, elem } = bem('Tooltip', styles);
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Anchor component */
@@ -41,7 +41,7 @@ const Tooltip: React.FC<Props> = props => {
 
     const renderPopup = () => (
         <div>
-            <div {...elem('container', props)} {...rest}>
+            <div {...rest} {...block('container', props)}>
                 {content}
                 <div {...elem('arrow', props)} />
             </div>
