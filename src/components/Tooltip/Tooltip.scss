@@ -1,20 +1,18 @@
 .Tooltip {
-    &__container {
-        background-color: var(--color-neutral-90);
-        color: var(--color-background);
-        box-sizing: border-box;
-        padding: var(--spacing-3x);
-        border-radius: var(--border-radius);
-        max-width: 350px;
-        opacity: 0;
-        animation: appearing 0.3s forwards;
-    }
+    background-color: var(--color-neutral-90);
+    color: var(--color-background);
+    box-sizing: border-box;
+    padding: var(--spacing-3x);
+    border-radius: var(--border-radius);
+    max-width: 350px;
+    opacity: 0;
+    animation: appearing 0.3s forwards;
 
     &__arrow {
         position: absolute;
     }
 
-    [x-placement^="top"] &__container {
+    [x-placement^="top"] & {
         margin-bottom: var(--spacing-5x);
         transform: translateY(-20px);
     }
@@ -34,7 +32,7 @@
         left: auto;
         right: var(--spacing-3x);
     }
-    [x-placement^="bottom"] &__container {
+    [x-placement^="bottom"] & {
         margin-top: var(--spacing-5x);
         transform: translateY(20px);
     }
@@ -54,7 +52,7 @@
         left: auto;
         right: var(--spacing-3x);
     }
-    [x-placement^="right"] &__container  {
+    [x-placement^="right"] & {
         margin-left: var(--spacing-5x);
         transform: translateX(20px);
     }
@@ -74,7 +72,7 @@
         top: auto;
         bottom: var(--spacing-3x);
     }
-    [x-placement^="left"] &__container {
+    [x-placement^="left"] & {
         margin-right: var(--spacing-5x);
         transform: translateX(-20px);
     }

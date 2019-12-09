@@ -40,8 +40,8 @@ const Tooltip: React.FC<Props> = props => {
     };
 
     const renderPopup = () => (
-        <div {...block(props)}>
-            <div {...rest} {...elem('container', props)}>
+        <div>
+            <div {...rest} {...block(props)}>
                 {content}
                 <div {...elem('arrow', props)} />
             </div>
