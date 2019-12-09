@@ -9,9 +9,21 @@ describe('<SelectedOption>', () => {
         jest.clearAllMocks();
     });
 
-    it('should render default props correctly', () => {
+    it('should render default props correctly with string as child', () => {
         const wrapper = mount(<SelectedOption onDelete={onDeleteMock}>My option</SelectedOption>);
         expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('span')).toHaveLength(1);
+    });
+
+    it('should render default props correctly with string as child', () => {
+        const wrapper = mount(
+            <SelectedOption onDelete={onDeleteMock}>
+                <p>My option</p>
+            </SelectedOption>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('span')).toHaveLength(0);
+        expect(wrapper.find('p')).toHaveLength(1);
     });
 
     it('should render in appropriate HTML tag', () => {

@@ -8,6 +8,7 @@ $icon-size: 22px;
     height: $element-height;
 
     &__button {
+        flex-shrink: 0;
         position: relative;
         outline: none;
         margin-right: var(--spacing-3x);
@@ -27,5 +28,11 @@ $icon-size: 22px;
         transform: translate(-50%, -50%);
         width: $icon-size;
         height: $icon-size;
+    }
+
+    &__label {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }

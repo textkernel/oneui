@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SelectedOption> should render default props correctly 1`] = `
+exports[`<SelectedOption> should render default props correctly with string as child 1`] = `
 <SelectedOption
   As="div"
   onDelete={[MockFunction]}
@@ -47,7 +47,65 @@ exports[`<SelectedOption> should render default props correctly 1`] = `
         </IconBase>
       </IoIosClose>
     </button>
-    My option
+    <span
+      className="SelectedOption__label"
+    >
+      My option
+    </span>
+  </div>
+</SelectedOption>
+`;
+
+exports[`<SelectedOption> should render default props correctly with string as child 2`] = `
+<SelectedOption
+  As="div"
+  onDelete={[MockFunction]}
+>
+  <div
+    className="SelectedOption"
+  >
+    <button
+      className="SelectedOption__button"
+      onClick={[MockFunction]}
+      onKeyDown={[Function]}
+    >
+      <IoIosClose
+        className="SelectedOption__buttonIcon"
+      >
+        <IconBase
+          attr={
+            Object {
+              "viewBox": "0 0 512 512",
+            }
+          }
+          className="SelectedOption__buttonIcon"
+        >
+          <svg
+            className="SelectedOption__buttonIcon"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"
+              key="0"
+            />
+          </svg>
+        </IconBase>
+      </IoIosClose>
+    </button>
+    <p>
+      My option
+    </p>
   </div>
 </SelectedOption>
 `;

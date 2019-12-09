@@ -24,12 +24,19 @@ const SelectedOption: React.FC<Props> = React.forwardRef((props, ref?: React.Ref
         }
     };
 
+    const renderChildren = () => {
+        if (React.isValidElement(children)) {
+            return children;
+        }
+        return <span {...elem('label')}>{children}</span>
+    }
+
     return (
         <As {...rest} ref={ref} {...block(props)}>
             <button {...elem('button', props)} onClick={onDelete} onKeyDown={handleKeyDown}>
                 <IoIosClose {...elem('buttonIcon', props)} />
             </button>
-            {children}
+            {renderChildren()}
         </As>
     );
 });
