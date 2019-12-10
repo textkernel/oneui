@@ -6,13 +6,13 @@ import cssVarsPonyfill from 'css-vars-ponyfill';
  * */
 interface PonyfillOptions {
     /** Targets */
-    rootElement?: HTMLElement|Node;
+    rootElement?: HTMLElement | Node;
     shadowDOM?: boolean;
 
     /** Sources */
-    include?: string,
-    exclude?: string,
-    variables?: { [key: string]: string },
+    include?: string;
+    exclude?: string;
+    variables?: { [key: string]: string };
 
     /** Options */
     onlyLegacy?: boolean;
@@ -48,27 +48,31 @@ const isInternetExplorer11 = () => {
 const DEFAULT_LOADING_TIMEOUT = 2000;
 
 class OneUI {
-    static init({ themeURL, maxTime = DEFAULT_LOADING_TIMEOUT, ponyfillOptions = {} }: InitConfig = {}) {
+    static init({
+        themeURL = '',
+        maxTime = DEFAULT_LOADING_TIMEOUT,
+        ponyfillOptions = {},
+    }: InitConfig = {}) {
         const loadTheme = Promise.all([
             OneUI.applyTheme(themeURL),
             OneUI.applyCssVarsPonyfill(ponyfillOptions),
         ]);
 
-        const timeout = new Promise((resolve, reject) =>
+        const timeout: Promise<Error> = new Promise((resolve, reject) =>
             setTimeout(
                 () => reject(new Error(`Theme "${themeURL}" not loaded. Loading time expired`)),
                 maxTime
             )
         );
 
-        return Promise.race([loadTheme, timeout]);
+        return Promise.race<Promise<[void, void] | Error>>([loadTheme, timeout]);
     }
 
     /**
      * Loads the CSS Vars ponyfill in case the browser is Internet Explorer 11. It can also
      * forces to load in modern browsers in case the user passes `onlyLegacy` property as false
      */
-    static applyCssVarsPonyfill(ponyfillOptions: PonyfillOptions = {}) {
+    static applyCssVarsPonyfill(ponyfillOptions: PonyfillOptions = {}): Promise<void> {
         return new Promise((resolve, reject) => {
             const shouldForcePonyfill = ponyfillOptions.onlyLegacy === false;
 
@@ -97,7 +101,7 @@ class OneUI {
         });
     }
 
-    static applyTheme(themeURL) {
+    static applyTheme(themeURL: string): Promise<void> {
         return new Promise((resolve, reject) => {
             if (!themeURL) {
                 resolve();
