@@ -1,5 +1,25 @@
 import cssVarsPonyfill from 'css-vars-ponyfill';
 
+interface PonyfillOptions {
+    onlyLegacy?: boolean;
+    onComplete?: (cssText, node, url) => void;
+    onError?: (message, node, xhr, url) => void;
+}
+
+/**
+ * Loads the theme and the CSS vars ponyfill if necessary
+ *
+ * @param {Object} themeConfig - Object that contains the configuration to initialize the theme
+ * @param {string} themeConfig.themeURL - URL that serves the theme file
+ * @param {number} themeConfig.maxTime - Max time to wait for the theme to be loaded
+ * @param {Object} themeConfig.ponyfillOptions - Set of options that can be used to configure the ponyfill. Options: https://www.npmjs.com/package/css-vars-ponyfill#options
+ */
+interface ThemeConfig {
+    themeURL?: string;
+    maxTime?: number;
+    ponyfillOptions?: PonyfillOptions;
+}
+
 const isInternetExplorer11 = () => {
     const ua = window.navigator.userAgent;
     return ua.indexOf('Trident/') > 0;
@@ -8,18 +28,10 @@ const isInternetExplorer11 = () => {
 const DEFAULT_LOADING_TIMEOUT = 2000;
 
 class OneUI {
-    /**
-     * Loads the theme and the CSS vars ponyfill if necessary
-     *
-     * @param {Object} themeConfig - Object that contains the configuration to initialize the theme
-     * @param {string} themeConfig.themeURL - URL that serves the theme file
-     * @param {number} themeConfig.maxTime - Max time to wait for the theme to be loaded
-     * @param {Object} themeConfig.ponyfillOptions - Set of options that can be used to configure the ponyfill. Options: https://www.npmjs.com/package/css-vars-ponyfill#options
-     */
-    static init({ themeURL = '', maxTime = DEFAULT_LOADING_TIMEOUT, ponyfillOptions } = {}) {
+    static init({ themeURL, maxTime = DEFAULT_LOADING_TIMEOUT, ponyfillOptions }: ThemeConfig) {
         const loadTheme = Promise.all([
             OneUI.applyTheme(themeURL),
-            OneUI.applyCssVarsPonyfill(ponyfillOptions),
+            OneUI.applyCssVarsPonyfill({ ...ponyfillOptions }),
         ]);
 
         const timeout = new Promise((resolve, reject) =>
@@ -36,7 +48,7 @@ class OneUI {
      * Loads the CSS Vars ponyfill in case the browser is Internet Explorer 11. It can also
      * forces to load in modern browsers in case the user passes `onlyLegacy` property as false
      */
-    static applyCssVarsPonyfill(ponyfillOptions = {}) {
+    static applyCssVarsPonyfill(ponyfillOptions: PonyfillOptions) {
         return new Promise((resolve, reject) => {
             const shouldForcePonyfill = ponyfillOptions.onlyLegacy === false;
 
