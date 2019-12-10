@@ -26,6 +26,7 @@ const LocationSelectorDialog = props => {
 
         /** LocationAutocomplete props */
         country,
+        initialMapAddress,
         placeTypes,
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
@@ -90,7 +91,10 @@ const LocationSelectorDialog = props => {
                         ))}
                     </ul>
                 )}
-                <Map defaultArea={{ address: country }} markers={getMarkers()} />
+                <Map
+                    defaultArea={{ address: initialMapAddress || country }}
+                    markers={getMarkers()}
+                />
             </div>
         </>
     );
@@ -121,6 +125,8 @@ LocationSelectorDialog.propTypes = {
     radiusStep: PropTypes.number.isRequired,
     /** country where search can take place */
     country: PropTypes.string.isRequired,
+    /** address to make initial map centering more specific */
+    initialMapAddress: PropTypes.string,
     /**
      * type of locations that should be searched for.
      * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
