@@ -8,9 +8,9 @@ const { block, elem } = bem('Tooltip', styles);
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Anchor component */
-    children: NonEmptySingleReactNode;
+    children: NotEmptySingleReactNode;
     /** Popup component */
-    content: NonEmptySingleReactNode;
+    content: NotEmptySingleReactNode;
     /** Placement of the popup dialog relative to anchor */
     placement?: PopupPlacement;
 }
