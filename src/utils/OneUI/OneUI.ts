@@ -48,7 +48,7 @@ const isInternetExplorer11 = () => {
 const DEFAULT_LOADING_TIMEOUT = 2000;
 
 class OneUI {
-    /** Init themes and polyfields for OneUI */
+    /** Init themes and ponyfill for css variables support */
     static init({
         themeURL = '',
         maxTime = DEFAULT_LOADING_TIMEOUT,
@@ -102,6 +102,7 @@ class OneUI {
         });
     }
 
+    /** Injects OneUI theme into <head> */
     static applyTheme(themeURL: string): Promise<void> {
         return new Promise((resolve, reject) => {
             if (!themeURL) {
