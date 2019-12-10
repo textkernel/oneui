@@ -75,6 +75,9 @@ storiesOf('Molecules|Pill', module)
                             false
                         )}
                         noPaddingInDropdown={boolean('no padding in dropdown', false)}
+                        onClose={() => {
+                            console.log('onClose has been called');
+                        }}
                     >
                         {({ close }) => <DummyComponent close={close} />}
                     </Pill>

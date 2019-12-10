@@ -8,6 +8,7 @@ exports[`<Tooltip> that renders a Tooltip should display a tooltip on hover 1`] 
   <PopupBase
     anchorRef={null}
     anchorRenderer={[Function]}
+    onClose={null}
     placement="bottom"
     popupRef={null}
     popupRenderer={[Function]}
@@ -43,6 +44,7 @@ exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctl
   <PopupBase
     anchorRef={null}
     anchorRenderer={[Function]}
+    onClose={null}
     placement="bottom"
     popupRef={null}
     popupRenderer={[Function]}

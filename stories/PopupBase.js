@@ -21,6 +21,9 @@ storiesOf('Atoms|PopupBase', module)
                     POPUP_PLACEMENTS,
                     'bottom-start'
                 )}
+                onClose={() => {
+                    console.log('onClose has been called');
+                }}
             />
         </div>
     ));

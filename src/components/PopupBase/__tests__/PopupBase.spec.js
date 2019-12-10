@@ -62,6 +62,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
     describe('click and keydown event handling', () => {
         let togglePopup;
+        const onCloseMock = jest.fn();
 
         // see: https://medium.com/@DavideRama/testing-global-event-listener-within-a-react-component-b9d661e59953
         const mockDocumentEventListener = {};
@@ -71,7 +72,11 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
         beforeEach(() => {
             wrapper = mount(
-                <PopupBase anchorRenderer={anchorRendererMock} popupRenderer={popupRendererMock} />
+                <PopupBase
+                    anchorRenderer={anchorRendererMock}
+                    popupRenderer={popupRendererMock}
+                    onClose={onCloseMock}
+                />
             );
 
             togglePopup = () => {
@@ -82,6 +87,10 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             };
         });
 
+        afterEach(() => {
+            onCloseMock.mockReset();
+        });
+
         it('should close open popup if outside is clicked', () => {
             togglePopup();
             expect(wrapper.find('Popover')).toHaveLength(1);
@@ -90,6 +99,14 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             wrapper.update();
 
             expect(wrapper.find('Popover')).toHaveLength(0);
+        });
+        it('should call onClose if outside is clicked', () => {
+            togglePopup();
+
+            mockDocumentEventListener.click({ target: document.body });
+            wrapper.update();
+
+            expect(onCloseMock).toHaveBeenCalled();
         });
         it('should not close open popup if popup is clicked', () => {
             togglePopup();
@@ -131,6 +148,14 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             wrapper.update();
 
             expect(wrapper.find('Popover')).toHaveLength(0);
+        });
+        it('should call onClose on Escape press', () => {
+            togglePopup();
+
+            mockDocumentEventListener.keydown({ key: ESCAPE_KEY });
+            wrapper.update();
+
+            expect(onCloseMock).toHaveBeenCalled();
         });
     });
 });

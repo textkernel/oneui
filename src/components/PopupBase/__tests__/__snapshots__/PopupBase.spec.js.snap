@@ -4,6 +4,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 <PopupBase
   anchorRef={null}
   anchorRenderer={[Function]}
+  onClose={null}
   placement="bottom-start"
   popupRef={null}
   popupRenderer={[Function]}
@@ -98,6 +99,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 <PopupBase
   anchorRef={null}
   anchorRenderer={[Function]}
+  onClose={null}
   placement="bottom-start"
   popupRef={null}
   popupRenderer={[Function]}
@@ -169,6 +171,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 <PopupBase
   anchorRef={null}
   anchorRenderer={[Function]}
+  onClose={null}
   placement="bottom-start"
   popupRef={null}
   popupRenderer={[Function]}

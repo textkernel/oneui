@@ -75,9 +75,14 @@ class PopupBase extends React.Component {
     }
 
     close() {
+        const { onClose } = this.props;
         const { isOpen } = this.state;
+
         if (isOpen) {
             this.setState({ isOpen: false });
+            if (onClose) {
+                onClose();
+            }
         }
     }
 
@@ -162,6 +167,8 @@ PopupBase.propTypes = {
     placement: PropTypes.oneOf(POPUP_PLACEMENTS),
     /** To render the popup in a portal. Useful if the anchor element has overflow hidden and similar cases */
     renderInPortal: PropTypes.bool,
+    /** a function to be called when the popup closes */
+    onClose: PropTypes.func,
 };
 
 PopupBase.defaultProps = {
@@ -169,6 +176,7 @@ PopupBase.defaultProps = {
     popupRef: null,
     placement: 'bottom-start',
     renderInPortal: false,
+    onClose: null,
 };
 
 export default PopupBase;
