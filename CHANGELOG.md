@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [8.4.0](https://github.com/textkernel/oneui/compare/8.3.0...8.4.0) (2019-12-11)
+
+
+### Bug Fixes
+
+* **LocationSelector:** fix input focus ([#190](https://github.com/textkernel/oneui/issues/190)) ([f57e27c](https://github.com/textkernel/oneui/commit/f57e27c))
+* **Modal:** ensure that classNames from props are applied as intended ([#193](https://github.com/textkernel/oneui/issues/193)) ([eada768](https://github.com/textkernel/oneui/commit/eada768))
+* **storybook:** fix error in Autosuggest story ([#187](https://github.com/textkernel/oneui/issues/187)) ([0b36343](https://github.com/textkernel/oneui/commit/0b36343))
+
+
+### Build System
+
+* **typescript:** migrated build pipeline to typescript ([#186](https://github.com/textkernel/oneui/issues/186)) ([79aa25d](https://github.com/textkernel/oneui/commit/79aa25d))
+
+
+### Features
+
+* **fonts:** change default font-family to use system fonts ([#192](https://github.com/textkernel/oneui/issues/192)) ([6c2cf4b](https://github.com/textkernel/oneui/commit/6c2cf4b))
+* **Pill:** add onClose prop ([#198](https://github.com/textkernel/oneui/issues/198)) ([ccd928e](https://github.com/textkernel/oneui/commit/ccd928e))
+* **Tooltip:** add tooltip component ([#196](https://github.com/textkernel/oneui/issues/196)) ([38f01d8](https://github.com/textkernel/oneui/commit/38f01d8))
+* new SelectedOption component ([#197](https://github.com/textkernel/oneui/issues/197)) ([77bdf1c](https://github.com/textkernel/oneui/commit/77bdf1c))
+
+
+
 ## [8.3.0](https://github.com/textkernel/oneui/compare/8.2.1...8.3.0) (2019-11-13)
 
 
