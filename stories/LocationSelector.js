@@ -45,6 +45,7 @@ storiesOf('Organisms|LocationSelector', module)
                 selectedLocations={selectedLocations}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
+                initialMapAddress={text('Initial map address', '')}
                 radiusUnits="km"
                 renderRadiusLabel={r => `+ ${r} km`}
                 minRadius={number('Min radius', 1)}
@@ -115,6 +116,7 @@ storiesOf('Organisms|LocationSelector', module)
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
+                initialMapAddress={text('Initial map address', '')}
                 radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
                 renderRadiusLabel={r => `+ ${r} km`}
                 minRadius={number('Min radius', 1)}

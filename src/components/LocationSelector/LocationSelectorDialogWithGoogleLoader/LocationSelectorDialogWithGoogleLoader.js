@@ -24,6 +24,7 @@ function LocationSelectorDialogWithGoogleLoader(props) {
 
         /** LocationAutocomplete props */
         country,
+        initialMapAddress,
         placeTypes,
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
@@ -56,6 +57,7 @@ function LocationSelectorDialogWithGoogleLoader(props) {
                 onRemoveLocation={onRemoveLocation}
                 doneLabel={doneLabel}
                 country={country}
+                initialMapAddress={initialMapAddress}
                 placeTypes={placeTypes}
                 noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                 showCountryInSuggestions={showCountryInSuggestions}

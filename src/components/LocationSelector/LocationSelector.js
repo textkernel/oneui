@@ -38,6 +38,7 @@ function LocationSelector(props) {
 
         /** LocationAutocomplete props */
         country,
+        initialMapAddress,
         placeTypes,
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
@@ -142,6 +143,7 @@ function LocationSelector(props) {
                     onRemoveLocation={onRemoveLocation}
                     doneLabel={doneLabel}
                     country={country}
+                    initialMapAddress={initialMapAddress}
                     placeTypes={placeTypes}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     showCountryInSuggestions={showCountryInSuggestions}
@@ -196,6 +198,8 @@ LocationSelector.propTypes = {
     radiusStep: PropTypes.number,
     /** country where search can take place */
     country: PropTypes.string.isRequired,
+    /** address to make initial map centering more specific */
+    initialMapAddress: PropTypes.string,
     /**
      * type of locations that should be searched for.
      * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
@@ -234,6 +238,7 @@ LocationSelector.defaultProps = {
     minRadius: 1,
     maxRadius: 100,
     radiusStep: 1,
+    initialMapAddress: undefined,
     showCountryInSuggestions: true,
     onBlur: () => null,
     additionalGoogleProps: {},
