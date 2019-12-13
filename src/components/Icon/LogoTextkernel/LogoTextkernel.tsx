@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import IconBase, { IconProps as Props } from '../IconBase';
 
 const LogoTextkernel: React.FC<Props> = props => (

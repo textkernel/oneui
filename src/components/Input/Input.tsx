@@ -7,15 +7,15 @@ import { Context, InputType, Size } from '../../constants';
 // supported although not defined in props type definition
 interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
     /** The input field context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context: Context;
+    context?: Context;
     /** Should the input field be disabled or not */
-    disabled: boolean;
+    disabled?: boolean;
     /** Whether or not to show block-level input field (full width) */
-    isBlock: boolean;
+    isBlock?: boolean;
     /** The size of the input field */
-    size: Size;
+    size?: Size;
     /** Type of the input field */
-    type: InputType;
+    type?: InputType;
 }
 
 const { block } = bem('Input', styles);
