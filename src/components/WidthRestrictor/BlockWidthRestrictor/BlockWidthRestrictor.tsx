@@ -2,7 +2,7 @@ import * as React from 'react';
 import bem from '../../../utils/bem';
 import styles from './BlockWidthRestrictor.scss';
 
-interface Props extends React.HTMLAttributes<HTMLElement> {
+export interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Node(s) to be rendered inside the container */
     children: NotEmptyReactNode;
     /** HTML tag to be used to render the container */

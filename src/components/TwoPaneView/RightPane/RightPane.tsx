@@ -1,11 +1,15 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import bem from '../../../utils/bem';
 import styles from './RightPane.scss';
 
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
+    /** Node(s) to be rendered in the right pane */
+    children?: ReactNode;
+}
+
 const { block } = bem('RightPane', styles);
 
-const RightPane = props => {
+const RightPane: React.FC<Props> = props => {
     const { children, ...rest } = props;
 
     return (
@@ -16,10 +20,5 @@ const RightPane = props => {
 };
 
 RightPane.displayName = 'RightPane';
-
-RightPane.propTypes = {
-    /** Node(s) to be rendered in the right pane */
-    children: PropTypes.node.isRequired,
-};
 
 export default RightPane;
