@@ -1,11 +1,15 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import bem from '../../utils/bem';
 import styles from './Chip.scss';
 
+interface Props extends React.HTMLAttributes<HTMLSpanElement> {
+    /** The content of the chip: it is expected to be short text possibly accompanied by an icon */
+    children: NotEmptyReactNode;
+}
+
 const { block } = bem('Chip', styles);
 
-const Chip = props => {
+const Chip: React.FC<Props> = props => {
     const { children, ...rest } = props;
 
     return (
@@ -16,10 +20,5 @@ const Chip = props => {
 };
 
 Chip.displayName = 'Chip';
-
-Chip.propTypes = {
-    /** The content of the chip: it is expected to be short text possibly accompanied by an icon */
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-};
 
 export default Chip;
