@@ -312,9 +312,6 @@ exports[`<Pagination> that renders a pagination component should render correctl
   align="center"
   currentPage={1}
   maxPageButtons={10}
-  nextLabel={null}
-  onClick={null}
-  prevLabel={null}
   totalPages={20}
 >
   <nav
