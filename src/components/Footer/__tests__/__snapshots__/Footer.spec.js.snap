@@ -16,18 +16,12 @@ exports[`Footer component that renders a copyright text on the left and optional
           © 2019 
           <LogoTextkernel
             className="Footer__logo"
-            context={null}
             margin="left"
-            size={null}
-            title={null}
           >
             <IconBase
               className="Footer__logo"
-              context={null}
               margin="left"
               preserveAspectRatio={true}
-              size={null}
-              title={null}
               viewBox="0 0 442.8 77.3"
             >
               <div
