@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, number, select } from '@storybook/addon-knobs';
 import { Callout } from '@textkernel/oneui';
