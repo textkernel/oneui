@@ -47,6 +47,7 @@
         "url": "https://github.com/textkernel/oneui/issues"
     },
     "homepage": "https://github.com/textkernel/oneui#readme",
+    "sideEffects": false,
     "dependencies": {
         "@babel/polyfill": "7.0.0",
         "@react-google-maps/api": "1.5.4",

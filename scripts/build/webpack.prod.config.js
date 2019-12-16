@@ -22,6 +22,7 @@ module.exports = {
         rules: [rules.js, rules.ts, rules.styles, rules.files],
     },
     optimization: {
+        usedExports: true,
         minimizer: [
             new TerserPlugin({
                 terserOptions: {

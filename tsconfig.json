@@ -1,25 +1,21 @@
 {
     "compilerOptions": {
-      "declaration": true,
-      "target": "es5",
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "esModuleInterop": true,
-      "noImplicitAny": false,
-      "jsx": "react",
-      "strict": true,
-      "baseUrl": ".",
-      "resolveJsonModule": true,
-      "outDir": "./dist",
-      "declarationDir": "./dist/dts",
-      "paths": {
-        "@textkernel/oneui": ["src"],
-        "@textkernel/oneui/*": ["src/*"]
-       },
+        "declaration": true,
+        "target": "es5",
+        "module": "es6",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "jsx": "react",
+        "strict": true,
+        "baseUrl": ".",
+        "resolveJsonModule": true,
+        "outDir": "./dist",
+        "declarationDir": "./dist/dts",
+        "paths": {
+            "@textkernel/oneui": ["src"],
+            "@textkernel/oneui/*": ["src/*"]
+        }
     },
-    "include": [
-      "src",
-      "stories",
-      "scripts"
-    ]
+    "include": ["src", "stories", "scripts"]
 }
