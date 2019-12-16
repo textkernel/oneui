@@ -4,13 +4,13 @@ import styles from './ContentPlaceholder.scss';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Animation duration in seconds */
-    duration?: number,
+    duration?: number;
     /** Custom height in pixels for the content placeholder */
-    height?: number,
+    height?: number;
     /** Width of the content placeholder, relative to its parent */
-    width?: number,
+    width?: number;
     /** Renders placeholder without its default margin */
-    withoutMargin?: boolean,
+    withoutMargin?: boolean;
 }
 
 const { block, elem } = bem('ContentPlaceholder', styles);
@@ -21,7 +21,7 @@ const calcMaskWidth = width => ({
     width: `${100 - Math.max(Math.min(width, 100), 0)}%`,
 });
 
-const ContentPlaceholder = props => {
+const ContentPlaceholder: React.FC<Props> = props => {
     const { duration, height, width, withoutMargin, ...rest } = props;
 
     return (
