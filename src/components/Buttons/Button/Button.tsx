@@ -3,7 +3,7 @@ import bem from '../../../utils/bem';
 import styles from './Button.scss';
 import { ButtonType, Context, Size } from '../../../constants';
 
-interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
+export interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
     /** The label of the button */
     children: NotEmptySingleReactNode;
     /** The button context (e.g. brand, primary, bad, good etc. - defaults to neutral) */
