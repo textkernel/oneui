@@ -29,7 +29,9 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
             role="button"
             tabindex="0"
           >
-            <span>
+            <span
+              class="PillButton__pillLabel"
+            >
               Pill content
             </span>
             <button
@@ -37,7 +39,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
               type="button"
             >
               <svg
-                class="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
+                class="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
                 fill="currentColor"
                 height="1em"
                 stroke="currentColor"
@@ -112,7 +114,9 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
           role="button"
           tabIndex="0"
         >
-          <span>
+          <span
+            className="PillButton__pillLabel"
+          >
             Pill content
           </span>
           <button
@@ -120,7 +124,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
             type="button"
           >
             <IoIosArrowDown
-              className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
+              className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
             >
               <IconBase
                 attr={
@@ -128,10 +132,10 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
                     "viewBox": "0 0 512 512",
                   }
                 }
-                className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
+                className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
               >
                 <svg
-                  className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
+                  className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
                   fill="currentColor"
                   height="1em"
                   stroke="currentColor"
@@ -232,18 +236,28 @@ exports[`<Pill> component should render correctly 1`] = `
             role="button"
             tabindex="0"
           >
-            <span>
+            <span
+              class="PillButton__pillLabel"
+            >
               Pill content
             </span>
             <button
               class="PillButton__button PillButton__button--isActive"
               type="button"
             >
-              <span
-                class="PillButton__buttonIcon PillButton__buttonIcon--isActive"
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                ×
-              </span>
+                <path
+                  d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"
+                />
+              </svg>
             </button>
           </div>
         </div>,
@@ -283,7 +297,9 @@ exports[`<Pill> component should render correctly 1`] = `
           role="button"
           tabIndex="0"
         >
-          <span>
+          <span
+            className="PillButton__pillLabel"
+          >
             Pill content
           </span>
           <button
@@ -292,11 +308,35 @@ exports[`<Pill> component should render correctly 1`] = `
             onKeyDown={[Function]}
             type="button"
           >
-            <span
-              className="PillButton__buttonIcon PillButton__buttonIcon--isActive"
-            >
-              ×
-            </span>
+            <IoMdClose>
+              <IconBase
+                attr={
+                  Object {
+                    "viewBox": "0 0 512 512",
+                  }
+                }
+              >
+                <svg
+                  fill="currentColor"
+                  height="1em"
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 512 512"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"
+                    key="0"
+                  />
+                </svg>
+              </IconBase>
+            </IoMdClose>
           </button>
         </div>
       </div>

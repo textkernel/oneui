@@ -34,6 +34,11 @@ $half-pill-height: $pill-height / 2;
         }
     }
 
+    &__pillLabel {
+        display: inline-block;
+        padding-bottom: 1px;
+    }
+
     &__pill {
         display: flex;
         justify-content: space-between;
@@ -42,7 +47,8 @@ $half-pill-height: $pill-height / 2;
         height: $pill-height;
         border-radius: $half-pill-height;
         border: 1px solid var(--color-brand-40);
-        padding: var(--spacing-2x) var(--spacing-2x) var(--spacing-2x) $half-pill-height;
+        padding-right: var(--spacing-2x);
+        padding-left: $half-pill-height;
         color: var(--color-brand);
         cursor: pointer;
         transition: all var(--transition-duration) ease;
@@ -77,10 +83,10 @@ $half-pill-height: $pill-height / 2;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: $pill-button-size;
-        height: $pill-button-size;
-        padding: 0;
-        font-size: var(--font-size-large);
+        position: relative;
+        left: 1px;
+        padding: 2px;
+        font-size: 16px;
         border: 1px solid transparent;
         border-radius: 50%;
         margin-left: var(--spacing-2x);
@@ -120,19 +126,11 @@ $half-pill-height: $pill-height / 2;
         }
     }
 
-    &__buttonIcon {
+    &__arrowIcon {
         transform: translateY(1px);
 
-        &--isActive {
-            transform: translateY(-1px);
-
-            &.PillButton__buttonIcon--isContentDefault {
-                transform: translateY(1px);
-            }
-        }
-
         &--isOpen {
-            transform: translateY(0);
+            transform: translateY(0px);
         }
     }
 }

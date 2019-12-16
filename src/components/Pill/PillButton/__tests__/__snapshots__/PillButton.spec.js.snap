@@ -24,7 +24,9 @@ exports[`<PillButton> component in active, collapsed state (with content prop) s
       role="button"
       tabIndex="0"
     >
-      <span>
+      <span
+        className="PillButton__pillLabel"
+      >
         This pill is in use
       </span>
       <button
@@ -33,11 +35,35 @@ exports[`<PillButton> component in active, collapsed state (with content prop) s
         onKeyDown={[Function]}
         type="button"
       >
-        <span
-          className="PillButton__buttonIcon PillButton__buttonIcon--isActive"
-        >
-          ×
-        </span>
+        <IoMdClose>
+          <IconBase
+            attr={
+              Object {
+                "viewBox": "0 0 512 512",
+              }
+            }
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"
+                key="0"
+              />
+            </svg>
+          </IconBase>
+        </IoMdClose>
       </button>
     </div>
   </div>
@@ -68,7 +94,9 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
       role="button"
       tabIndex="0"
     >
-      <span>
+      <span
+        className="PillButton__pillLabel"
+      >
         This pill is in use
       </span>
       <button
@@ -76,7 +104,7 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
         type="button"
       >
         <IoIosArrowDown
-          className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
+          className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
         >
           <IconBase
             attr={
@@ -84,10 +112,10 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
                 "viewBox": "0 0 512 512",
               }
             }
-            className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
+            className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
           >
             <svg
-              className="PillButton__buttonIcon PillButton__buttonIcon--isOpen PillButton__buttonIcon--isActive"
+              className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
               fill="currentColor"
               height="1em"
               stroke="currentColor"
@@ -136,7 +164,9 @@ exports[`<PillButton> component in inactive, collapsed state (with minimal props
       role="button"
       tabIndex="0"
     >
-      <span>
+      <span
+        className="PillButton__pillLabel"
+      >
         Pill name
       </span>
       <button
@@ -144,7 +174,7 @@ exports[`<PillButton> component in inactive, collapsed state (with minimal props
         type="button"
       >
         <IoIosArrowDown
-          className="PillButton__buttonIcon"
+          className="PillButton__arrowIcon"
         >
           <IconBase
             attr={
@@ -152,10 +182,10 @@ exports[`<PillButton> component in inactive, collapsed state (with minimal props
                 "viewBox": "0 0 512 512",
               }
             }
-            className="PillButton__buttonIcon"
+            className="PillButton__arrowIcon"
           >
             <svg
-              className="PillButton__buttonIcon"
+              className="PillButton__arrowIcon"
               fill="currentColor"
               height="1em"
               stroke="currentColor"
@@ -204,7 +234,9 @@ exports[`<PillButton> component in inactive, open state (isOpen prop) should ren
       role="button"
       tabIndex="0"
     >
-      <span>
+      <span
+        className="PillButton__pillLabel"
+      >
         Pill name
       </span>
       <button
@@ -212,7 +244,7 @@ exports[`<PillButton> component in inactive, open state (isOpen prop) should ren
         type="button"
       >
         <IoIosArrowDown
-          className="PillButton__buttonIcon PillButton__buttonIcon--isOpen"
+          className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
         >
           <IconBase
             attr={
@@ -220,10 +252,10 @@ exports[`<PillButton> component in inactive, open state (isOpen prop) should ren
                 "viewBox": "0 0 512 512",
               }
             }
-            className="PillButton__buttonIcon PillButton__buttonIcon--isOpen"
+            className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
           >
             <svg
-              className="PillButton__buttonIcon PillButton__buttonIcon--isOpen"
+              className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
               fill="currentColor"
               height="1em"
               stroke="currentColor"
