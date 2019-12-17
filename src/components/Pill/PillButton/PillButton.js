@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowDown, IoMdClose } from 'react-icons/io';
 import bem from '../../../utils/bem';
-import { CROSS_CHAR, ENTER_KEY } from '../../../constants';
+import { ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
 
 const { block, elem } = bem('PillButton', styles);
@@ -30,11 +30,11 @@ const PillButton = React.forwardRef((props, ref) => {
         }
     }, [isActive, labelRef, pillMinWidth, pillRef]);
 
-    let buttonIcon = <IoIosArrowDown {...elem('buttonIcon', propsForBem)} />;
+    let buttonIcon = <IoIosArrowDown {...elem('arrowIcon', propsForBem)} />;
     let isButtonClickable = false;
 
     if (isActive && !isOpen && !isContentDefault) {
-        buttonIcon = <span {...elem('buttonIcon', propsForBem)}>{CROSS_CHAR}</span>;
+        buttonIcon = <IoMdClose />;
         isButtonClickable = true;
     }
 

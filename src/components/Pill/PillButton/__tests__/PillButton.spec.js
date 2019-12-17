@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import PillButton from '../PillButton';
-import { CROSS_CHAR, ENTER_KEY } from '../../../../constants';
+import { ENTER_KEY } from '../../../../constants';
 
 describe('<PillButton> component', () => {
     const toggleDropdownMock = jest.fn();
@@ -72,7 +72,7 @@ describe('<PillButton> component', () => {
             expect(wrapper.find('.PillButton__pill--isOpen')).toHaveLength(1);
         });
         it('should have arrow up label', () => {
-            expect(wrapper.find('IoIosArrowDown.PillButton__buttonIcon--isOpen')).toHaveLength(1);
+            expect(wrapper.find('IoIosArrowDown.PillButton__arrowIcon--isOpen')).toHaveLength(1);
         });
         it('should trigger toggle state once when button is clicked', () => {
             wrapper.find('button').simulate('click');
@@ -103,9 +103,6 @@ describe('<PillButton> component', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('.PillButton__pill--isActive')).toHaveLength(1);
             expect(wrapper.find('.PillButton__pill--isOpen')).toHaveLength(0);
-        });
-        it('should have x label', () => {
-            expect(wrapper.find('button').text()).toBe(CROSS_CHAR);
         });
         it('should not trigger toggle state but onClear only when button is clicked', () => {
             wrapper.find('.PillButton__button').simulate('click');
@@ -140,7 +137,7 @@ describe('<PillButton> component', () => {
             expect(wrapper.find('.PillButton__pill--isOpen')).toHaveLength(1);
         });
         it('should have arrow up label', () => {
-            expect(wrapper.find('IoIosArrowDown.PillButton__buttonIcon--isOpen')).toHaveLength(1);
+            expect(wrapper.find('IoIosArrowDown.PillButton__arrowIcon--isOpen')).toHaveLength(1);
         });
         it('should trigger toggle state once when button is clicked', () => {
             wrapper.find('button').simulate('click');
