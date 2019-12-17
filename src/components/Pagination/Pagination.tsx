@@ -1,17 +1,33 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import bem from '../../utils/bem';
 import styles from './Pagination.scss';
 import { Button } from '../Buttons';
 import PaginationButton from './PaginationButton';
 
+interface Props extends Omit<React.HTMLAttributes<HTMLElement>, 'onClick'> {
+    /** How the buttons should be aligned in the pagination container */
+    align?: 'left' | 'center'| 'right'
+    /** Current page number */
+    currentPage?: number,
+    /** Max. number of pages to list (excluding prev / next / last) Recommended to use even number */
+    maxPageButtons?: number,
+    /** Total number of available pages */
+    totalPages: number,
+    /** Label for 'Previous page' button (required for button to show) */
+    prevLabel?: string,
+    /** Label for 'Next page' button (required for button to show) */
+    nextLabel?: string,
+    /** Callback function on page / prev/ next click */
+    onClick?: (e: Event, page: number) => void,   
+}
+
 const { block, elem } = bem('Pagination', styles);
 
-const Pagination = props => {
+const Pagination: React.FC<Props> = props => {
     const {
         align,
-        currentPage,
-        maxPageButtons,
+        currentPage = 1,
+        maxPageButtons = 10,
         totalPages,
         prevLabel,
         nextLabel,
@@ -36,7 +52,7 @@ const Pagination = props => {
             Math.min(currentPage - showBefore, totalPages - maxPageButtons + 2)
         );
         const end = Math.min(totalPages, start + maxPageButtons - 2);
-        const range = new Array(end - start + 1).fill().map((_, i) => start + i);
+        const range = new Array(end - start + 1).fill(0).map((_, i) => start + i);
 
         return range;
     };
@@ -114,30 +130,10 @@ const Pagination = props => {
 
 Pagination.displayName = 'Pagination';
 
-Pagination.propTypes = {
-    /** How the buttons should be aligned in the pagination container */
-    align: PropTypes.oneOf(['left', 'center', 'right']),
-    /** Current page number */
-    currentPage: PropTypes.number,
-    /** Max. number of pages to list (excluding prev / next / last) Recommended to use even number */
-    maxPageButtons: PropTypes.number,
-    /** Total number of available pages */
-    totalPages: PropTypes.number.isRequired,
-    /** Label for 'Previous page' button (required for button to show) */
-    prevLabel: PropTypes.string,
-    /** Label for 'Next page' button (required for button to show) */
-    nextLabel: PropTypes.string,
-    /** Callback function on page / prev/ next click */
-    onClick: PropTypes.func,
-};
-
 Pagination.defaultProps = {
     align: 'center',
     currentPage: 1,
     maxPageButtons: 10,
-    prevLabel: null,
-    nextLabel: null,
-    onClick: null,
 };
 
 export default Pagination;

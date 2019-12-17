@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, text, select, boolean, withKnobs } from '@storybook/addon-knobs';
 import { LocationSelector } from '@textkernel/oneui';

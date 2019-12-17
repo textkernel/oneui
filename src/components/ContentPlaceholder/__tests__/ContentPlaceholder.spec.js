@@ -8,7 +8,7 @@ describe('<ContentPlaceholder> that renders a content placeholder', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.props().style).toEqual({
             animationDuration: '1s',
-            height: null,
+            height: undefined,
         });
         expect(wrapper.childAt(1).props().style).toEqual({
             width: '0%',

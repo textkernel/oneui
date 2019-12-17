@@ -6,7 +6,7 @@ exports[`<ContentPlaceholder> that renders a content placeholder should render d
   style={
     Object {
       "animationDuration": "1s",
-      "height": null,
+      "height": undefined,
     }
   }
 >

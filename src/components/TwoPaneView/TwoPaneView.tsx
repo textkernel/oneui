@@ -1,15 +1,18 @@
-import React from 'react';
+import * as React from 'react';
 import bem from '../../utils/bem';
-import BlockWidthRestrictor from '../WidthRestrictor/BlockWidthRestrictor';
-import LeftPane from './LeftPane';
-import RightPane from './RightPane';
+import { BlockWidthRestrictor, BlockWidthRestrictorProps } from '../WidthRestrictor';
+import { LeftPaneProps } from './LeftPane';
+import { RightPane, RightPaneProps } from './RightPane';
 import styles from './TwoPaneView.scss';
 
-const isNotPane = element => element && element.type !== RightPane && element.type !== LeftPane;
+interface Props extends Omit<BlockWidthRestrictorProps, 'children'> {
+    /** 2 nodes to be rendered in the left and right pane */
+    children: [React.ReactElement<LeftPaneProps>, React.ReactElement<RightPaneProps>];
+}
 
 const { block } = bem('TwoPaneView', styles);
 
-const TwoPaneView = props => {
+const TwoPaneView: React.FC<Props> = props => {
     const { children, ...rest } = props;
 
     const [rightTop, setRightTop] = React.useState(0);
@@ -17,10 +20,17 @@ const TwoPaneView = props => {
     const [rightWidth, setRightWidth] = React.useState(600);
     const [doDisplayRightPane, setDoDisplayRightPane] = React.useState(true);
 
-    const leftRef = React.createRef();
-    const blockRef = React.createRef();
+    const leftRef: React.Ref<HTMLDivElement> = React.createRef();
+    const blockRef: React.Ref<HTMLDivElement> = React.createRef();
 
-    const handleScroll = (e, leftEl = leftRef.current) => {
+    const handleScroll = (
+        e: Event | null = null,
+        leftEl: HTMLDivElement | null = leftRef.current
+    ) => {
+        if (!leftEl) {
+            return;
+        }
+
         const leftDimensions = leftEl.getBoundingClientRect();
         const top = leftDimensions.top > 0 ? 0 : -leftDimensions.top;
 
@@ -34,8 +44,12 @@ const TwoPaneView = props => {
         setDoDisplayRightPane(doDisplay);
     };
 
-    const handleResize = e => {
+    const handleResize = (e: Event | null = null) => {
         const blockEl = blockRef.current;
+        if (!blockEl) {
+            return;
+        }
+
         const { width: fullWidth } = blockEl.getBoundingClientRect();
         const blockStyle = window.getComputedStyle(blockEl, null);
         const paddingRight = parseInt(blockStyle.getPropertyValue('padding-right'), 10);
@@ -65,7 +79,7 @@ const TwoPaneView = props => {
     return (
         <BlockWidthRestrictor {...rest} ref={blockRef} {...block(props)}>
             {React.Children.map(children, child => {
-                if (child) {
+                if (React.isValidElement(child)) {
                     const childStyle = child.props.style;
                     return child.type === RightPane
                         ? React.cloneElement(child, {
@@ -88,26 +102,5 @@ const TwoPaneView = props => {
 };
 
 TwoPaneView.displayName = 'TwoPaneView';
-
-TwoPaneView.propTypes = {
-    /** 2 nodes to be rendered in the left and right pane */
-    children: (props, propName, componentName) => {
-        const prop = props[propName];
-
-        let error = null;
-        React.Children.forEach(prop, child => {
-            if (isNotPane(child)) {
-                error = new Error(
-                    `'${componentName}' children should be of type 'RightPane' or 'LeftPane'.`
-                );
-            }
-        });
-        return error;
-    },
-};
-
-TwoPaneView.defaultProps = {
-    children: null,
-};
 
 export default TwoPaneView;

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
 import { LocationAutocompleteWithGoogleLoader, LocationAutocomplete } from '@textkernel/oneui';

@@ -419,10 +419,6 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
   iconNode={
     <IconMatch
       className="test"
-      context={null}
-      margin={null}
-      size={null}
-      title={null}
     />
   }
   inputPlaceholder="type here..."
@@ -497,18 +493,10 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
               >
                 <IconMatch
                   className="Autosuggest__spacedElem test"
-                  context={null}
-                  margin={null}
-                  size={null}
-                  title={null}
                 >
                   <IconBase
                     className="Autosuggest__spacedElem test"
-                    context={null}
-                    margin={null}
                     preserveAspectRatio={false}
-                    size={null}
-                    title={null}
                     viewBox="0 0 107.17 92.73"
                   >
                     <div
