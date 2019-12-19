@@ -1,4 +1,3 @@
-const TerserPlugin = require('terser-webpack-plugin'); // eslint-disable-line import/no-extraneous-dependencies
 const { baseConfig, LIBRARY_NAME, plugins, getRules } = require('./webpack.config');
 
 const rules = getRules('prod');
@@ -23,13 +22,6 @@ module.exports = {
     },
     optimization: {
         usedExports: true,
-        minimizer: [
-            new TerserPlugin({
-                terserOptions: {
-                    mangle: false,
-                },
-            }),
-        ],
     },
     externals: {
         // Don't bundle react or react-dom
