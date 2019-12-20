@@ -18,6 +18,7 @@ exports[`<TabsBar> should render tabs bar with minimal correctly 1`] = `
         aria-selected={false}
         className="TabItem"
         onClick={[Function]}
+        onKeyDown={[Function]}
         role="tab"
         tabIndex={0}
       >
@@ -34,6 +35,7 @@ exports[`<TabsBar> should render tabs bar with minimal correctly 1`] = `
         aria-selected={false}
         className="TabItem"
         onClick={[Function]}
+        onKeyDown={[Function]}
         role="tab"
         tabIndex={0}
       >

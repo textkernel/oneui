@@ -1,5 +1,6 @@
 import * as React from 'react';
 import bem from '../../../utils/bem';
+import { ENTER_KEY } from '../../../constants';
 import styles from './TabItem.scss';
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
@@ -27,6 +28,12 @@ const TabItem: React.FC<Props> = props => {
         }
     };
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === ENTER_KEY) {
+            handleClick();
+        }
+    };
+
     return (
         <div
             tabIndex={0}
@@ -35,6 +42,7 @@ const TabItem: React.FC<Props> = props => {
             role="tab"
             aria-selected={isActive}
             onClick={handleClick}
+            onKeyDown={handleKeyDown}
         >
             {children}
         </div>

@@ -13,12 +13,16 @@ storiesOf('Atoms|Tabs', module)
     )
     .add('Props in TabsBar', () => {
         const tabs = [1, 2, 3];
+        const handleSelect = tabId => {
+            // IE11 errors on string concatenation inside console.log. So let's do it outside of it.
+            const msg = `TabItem with tabId: '${tabId}' was clicked`;
+            console.log(msg);
+        };
+
         return (
             <TabsBar
                 activeTabId={select('Active tab', tabs.map(tab => tab), tabs[0])}
-                onSelect={tabId => {
-                    console.log(`TabItem with tabId: '${tabId}' was clicked`);
-                }}
+                onSelect={handleSelect}
                 isBlock={boolean('Equally spaced items', false)}
             >
                 {tabs.map(tab => (
@@ -36,15 +40,19 @@ storiesOf('Atoms|Tabs', module)
     .add('Props in items', () => {
         const tabs = [1, 2, 3];
         const initActive = [true, false, false];
+        const handleSelect = tabId => {
+            // IE11 errors on string concatenation inside console.log. So let's do it outside of it.
+            const msg = `TabItem with tabId: '${tabId}' was clicked`;
+            console.log(msg);
+        };
+
         return (
             <TabsBar isBlock={boolean('Equally spaced items', false)}>
                 {tabs.map((tab, i) => (
                     <TabItem
                         tabId={tab}
                         key={tab}
-                        onSelect={tabId => {
-                            console.log(`TabItem with tabId: '${tabId}' was clicked`);
-                        }}
+                        onSelect={handleSelect}
                         isActive={boolean(`Tab ${tab} is active`, initActive[i])}
                         disabled={boolean(`Tab ${tab} is disabled`, false)}
                     >
@@ -58,7 +66,9 @@ storiesOf('Atoms|Tabs', module)
         const store = parameters.getStore();
 
         const handleSelect = tabId => {
-            console.log(`TabItem with tabId: '${tabId}' was clicked`);
+            // IE11 errors on string concatenation inside console.log. So let's do it outside of it.
+            const msg = `TabItem with tabId: '${tabId}' was clicked`;
+            console.log(msg);
             store.set({ activeId: tabId });
         };
 

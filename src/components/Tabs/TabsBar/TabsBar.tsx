@@ -14,6 +14,12 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
     isBlock?: boolean;
 }
 
+interface PropsToPassToChild {
+    isActive?: boolean;
+    onSelect?: Props['onSelect'];
+    isBlock?: Props['isBlock'];
+}
+
 const { block } = bem('TabsBar', styles);
 
 const TabsBar: React.FC<Props> = props => {
@@ -22,11 +28,7 @@ const TabsBar: React.FC<Props> = props => {
     const extendWithProps = (tab: Props['children']) => {
         if (React.isValidElement(tab) && tab.type === TabItem) {
             const { tabId } = tab.props;
-            const extendProps: {
-                isBlock?: boolean;
-                isActive?: boolean;
-                onSelect?: (selectedTabID: number | string) => void;
-            } = { isBlock };
+            const extendProps: PropsToPassToChild = { isBlock };
             if (activeTabId) {
                 extendProps.isActive = tabId === activeTabId;
             }

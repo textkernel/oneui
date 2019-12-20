@@ -5,6 +5,7 @@ exports[`<TabItem> should render a tab item correctly with minimum props 1`] = `
   aria-selected={false}
   className="TabItem"
   onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
   tabIndex={0}
 >
@@ -17,6 +18,7 @@ exports[`<TabItem> should render correctly with all props 1`] = `
   aria-selected={true}
   className="TabItem TabItem--isActive TabItem--isBlock"
   onClick={[Function]}
+  onKeyDown={[Function]}
   role="tab"
   tabIndex={0}
 >
