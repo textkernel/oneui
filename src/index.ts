@@ -16,7 +16,7 @@ export { default as ProgressBar } from './components/ProgressBar';
 export { default as SelectedOption } from './components/SelectedOption';
 export { default as Slider } from './components/Slider';
 export { default as Drawer } from './components/Drawer';
-export { Tabs, Tab, TabContent, TabItem, TabMenu } from './components/Tabs';
+export { TabItem, TabsBar } from './components/Tabs';
 export { Text, MarkedText } from './components/Text';
 export { default as TextArea } from './components/TextArea';
 export { PageWidthRestrictor, BlockWidthRestrictor } from './components/WidthRestrictor';

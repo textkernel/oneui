@@ -1,49 +1,36 @@
 .TabItem {
-    background-color: var(--color-neutral-25);
-    border: {
-        color: var(--color-neutral);
-        style: solid;
-        top-left-radius: var(--border-radius);
-        top-right-radius: var(--border-radius);
-        width: var(--line-normal);
-        bottom-width: 0;
-    }
     color: var(--link-color-normal);
     cursor: pointer;
-    font: {
-        family: var(--font-family-primary);
-        size: var(--font-size-normal);
-    }
-    margin: {
-        top: var(--margin);
-        right: var(--margin);
-        left: var(--margin);
-    };
     outline: none;
     padding: var(--spacing-2x) var(--spacing-4x);
-    line-height: var(--line-height-normal);
     text-decoration: none;
-    transition: border-color var(--transition-duration);
+    transition: all var(--transition-duration);
+    text-align: center;
+    border-bottom: 4px solid transparent;
+    margin-bottom: -1px;
 
     &:hover {
-        border-color: var(--color-neutral-60);
-    }
-
-    &:first-child {
-        margin-left: 0;
-    }
-
-    &:last-child {
-        margin-right: 0;
+        border-bottom: 4px solid var(--color-neutral-25);
+        color: var(--link-color-hover);
     }
 
     &--isActive {
-        background-color: var(--color-background);
+        cursor: default;
         color: var(--color-foreground);
-        margin-bottom: -1px;
+        border-bottom: 4px solid var(--color-brand);
 
         &:hover {
-            border-color: var(--color-neutral);
+            color: var(--color-foreground);
+            border-bottom: 4px solid var(--color-brand);
         }
+    }
+
+    &--isBlock {
+        flex-grow: 1;
+    }
+
+    &--disabled {
+        cursor: not-allowed;
+        color: var(--color-muted);
     }
 }
