@@ -41,19 +41,15 @@ To apply a specific theme on top of the library components, the OneUI utility ca
 import OneUI from '@textkernel/oneui';
 
 OneUI.init({
-    themeURL: 'http://theme-cdn.com/my-theme.css'
-}).then(() => ReactDOM.render(
-    <MyApp />,
-    document.getElementById('root')
-));
+    themeURL: 'http://theme-cdn.com/my-theme.css',
+}).then(() => ReactDOM.render(<MyApp />, document.getElementById('root')));
 ```
 
 The utility can take three optional arguments:
 
-* `themeURL`: URL that provides the file containing the CSS variables that will be used instead of the default ones.
-* `maxTime`:  The maximum amount of time in milliseconds that the loader will wait to parse the external theme, otherwise it will fallback to the default library theme. By default, the timeout is set to 2000 milliseconds.
-* `ponyfillOptions`: Allow the developer to override the default [css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill ) configuration.
-
+-   `themeURL`: URL that provides the file containing the CSS variables that will be used instead of the default ones.
+-   `maxTime`: The maximum amount of time in milliseconds that the loader will wait to parse the external theme, otherwise it will fallback to the default library theme. By default, the timeout is set to 2000 milliseconds.
+-   `ponyfillOptions`: Allow the developer to override the default [css-vars-ponyfill](https://www.npmjs.com/package/css-vars-ponyfill) configuration.
 
 #### IE11 support
 
@@ -62,10 +58,13 @@ OneUI relies on browser support for CSS variables. Support for older browsers su
 ## Using components
 
 1. Import the desired UI component(s) from the library, e.g.:
+
 ```javascript
 import { Alert } from '@textkernel/oneui';
 ```
+
 2. Include the component on your page:
+
 ```jsx
 <Alert context="info" title="Hey there!">
     This is some information for you
@@ -76,7 +75,7 @@ import { Alert } from '@textkernel/oneui';
 
 Please note that any properties that are not documented in the component prop types definition are applied to the top level HTML element unless mentioned otherwise. These undocumented props are also not described in Storybook.
 
-# Examples & Testing
+# Examples
 
 ## Storybook
 
@@ -85,20 +84,17 @@ OneUI comes with a Storybook of examples for all components. [Click here](https:
 In order to run it yourself locally...
 
 1. Make sure you have Storybook installed (globally):
+
 ```bash
 $ npm i -g @storybook/cli
 ```
+
 2. Within the OneUI root, run `npm run storybook`
 3. Go to http://localhost:9001 to check out examples of all OneUI components
 
-## Example of implementation
+## Example implementation
 
 An implementation example can be found in the example directory, along with instructions on how to run it.
-
-## Testing
-
-* Run tests: `npm test`
-* Coverage report: `npm run test:coverage`
 
 # Theming
 
@@ -112,9 +108,9 @@ All CSS variables (‘[custom properties](https://developer.mozilla.org/en-US/do
 
 # Contributing
 
-* Did you find a bug or do you have a feature proposal? Please open a new issue.
-* If your IDE does not support [EditorConfig](https://editorconfig.org/), please install a plugin (e.g. for VS Code).
-* Please make sure to read the [developer guidelines](CONTRIBUTING.md) before contributing.
+-   Did you find a bug or do you have a feature proposal? Please open a new issue.
+-   If your IDE does not support [EditorConfig](https://editorconfig.org/), please install a plugin (e.g. for VS Code).
+-   Please make sure to read the [developer guidelines](CONTRIBUTING.md) before contributing.
 
 # Copyright
 
