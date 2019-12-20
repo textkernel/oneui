@@ -4,7 +4,7 @@ exports[`<TabsBar> should render tabs bar with minimal correctly 1`] = `
 <TabsBar
   isBlock={false}
 >
-  <nav
+  <div
     className="TabsBar"
     role="tablist"
   >
@@ -42,6 +42,6 @@ exports[`<TabsBar> should render tabs bar with minimal correctly 1`] = `
         Another tab
       </div>
     </TabItem>
-  </nav>
+  </div>
 </TabsBar>
 `;

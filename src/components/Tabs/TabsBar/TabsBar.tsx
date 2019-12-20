@@ -42,11 +42,11 @@ const TabsBar: React.FC<Props> = props => {
     };
 
     return (
-        <nav {...rest} {...block(props)} role="tablist">
+        <div {...rest} {...block(props)} role="tablist">
             {activeTabId || onSelect || isBlock
                 ? React.Children.map(children, tab => extendWithProps(tab))
                 : children}
-        </nav>
+        </div>
     );
 };
 
