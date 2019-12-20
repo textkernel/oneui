@@ -36,6 +36,7 @@ const TabsBar: React.FC<Props> = props => {
 
             return React.cloneElement(tab, extendProps);
         }
+        return tab;
     };
 
     return (
