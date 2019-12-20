@@ -106,24 +106,6 @@ All CSS variables (‘[custom properties](https://developer.mozilla.org/en-US/do
 --font-size-base: 12px;
 ```
 
-# Testing your application when using OneUI
-
-Currently OneUI exports only ES module bundle. This should allow your bundle to tree-shake parts of this library that are not used by you. However it might create problems if you don't transform it to commonJS modules when it is used in e.g. NodeJS. For example if you are using Jest to test your application you might have to tell babel to compile OneUI along with the rest of your code into commonJS modules. You can do that in the following way:
-
-```js
-// Jest configuration to recompile libraries
-const librariesToRecompile = [
-    '@textkernel/oneui',
-    // other libraries you might need to recompile
-].join('|');
-
-const config = {
-    transformIgnorePatterns: [`[\\\/]node_modules[\\\/](?!(${librariesToRecompile})).*$`],
-};
-```
-
-The above RegEx will tell jest to exclude all node_modules (default behavior) but the ones listed in the array above.
-
 # Contributing
 
 -   Did you find a bug or do you have a feature proposal? Please open a new issue.
