@@ -55,7 +55,6 @@ storiesOf('Atoms|Tabs', module)
         );
     })
     .add('Example implementation', ({ parameters }) => {
-        const tabs = [1, 2, 3];
         const store = parameters.getStore();
 
         const handleSelect = tabId => {
@@ -77,7 +76,7 @@ storiesOf('Atoms|Tabs', module)
                     <span style={{ color: 'grey', fontWeight: 400 }}> (2)</span>
                 </TabItem>
                 <TabItem tabId={3} key={3} disabled={boolean(`Tab 3 is disabled`, false)}>
-                    <Tooltip content="some additional information">
+                    <Tooltip content="some additional information" placement="top">
                         {text(`Tab 3 label`, `Tab with Tooltip`)}
                     </Tooltip>
                 </TabItem>
