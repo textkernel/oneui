@@ -8,6 +8,7 @@
     text-align: center;
     border-bottom: 4px solid transparent;
     margin-bottom: -1px;
+    font-weight: var(--font-weight-bold);
 
     &:hover {
         border-bottom: 4px solid var(--color-neutral-25);
@@ -32,5 +33,10 @@
     &--disabled {
         cursor: not-allowed;
         color: var(--color-muted);
+
+        &:hover {
+            border-bottom: 4px solid transparent;
+            color: var(--color-muted);
+        }
     }
 }
