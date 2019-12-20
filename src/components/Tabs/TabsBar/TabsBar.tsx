@@ -9,7 +9,7 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
     /** The tabs */
     children: React.ReactElement<TabItemProps> | React.ReactElement<TabItemProps>[];
     /** Callback function, fired when switching tabs by clicking. This will overwrite onSelect on children, if defined */
-    onSelect?: (selectedTabID: number | string) => void;
+    onSelect?: (selectedTabId: number | string) => void;
     /** to render the tabs so they cover the full width of the available space */
     isBlock?: boolean;
 }
