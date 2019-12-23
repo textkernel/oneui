@@ -4,19 +4,16 @@ $icon-size: 16px;
 
 .Callout {
     display: flex;
-    padding: 0 var(--spacing-5x);
-    align-items: center;
-
-    &__content {
-        padding-right: var(--spacing-5x);
-    }
+    padding: var(--spacing-5x);
+    align-items: flex-start;
 
     &__closeButton {
-        display: inline-block;
+        display: block;
         flex-shrink: 0;
-        height: $icon-size;
-        width: $icon-size;
+        height: var(--icon-size);
+        width: var(--icon-size);
         padding: 0;
+        padding-left: var(--spacing-5x);
         margin-left: auto;
         cursor: pointer;
         background-color: var(--transparent);
