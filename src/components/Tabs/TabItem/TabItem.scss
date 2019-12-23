@@ -20,7 +20,9 @@
     &:active {
         color: var(--color-foreground);
         border-bottom: 4px solid var(--color-brand);
+    }
 
+    &--isActive {
         &:hover,
         &:focus {
             color: var(--color-foreground);
