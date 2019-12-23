@@ -5,26 +5,21 @@ import { Context } from '../../constants';
 import styles from './Callout.scss';
 
 interface Props {
+    /** Content to be rendered inside the container */
+    children: NotEmptyReactNode;
     /** The Callout context (e.g. brand, primary, bad, good etc. - defaults to info) */
     context?: Context;
-    /** A property specifies the height of a line. */
-    lineHeightStyle?: number;
-    /** Content to be rendered inside the container */
-    children: NotEmptySingleReactNode;
     /** A function to be called when close button was clicked */
-    onRequestClose?: (() => void) | null;
+    onRequestClose?: (event: React.SyntheticEvent<HTMLButtonElement>) => void;
 }
 
 const { block, elem } = bem('Callout', styles);
 
 const Callout: React.FC<Props> = props => {
-    const { onRequestClose, lineHeightStyle, children, ...rest } = props;
-
+    const { onRequestClose, children, context, ...rest } = props;
     return (
         <div {...rest} {...block(props)}>
-            <p {...elem('content', props)} style={{ lineHeight: `${lineHeightStyle}px` }}>
-                {children}
-            </p>
+            <div {...elem('content', props)}>{children}</div>
             {onRequestClose && (
                 <button {...elem('closeButton', props)} type="button" onClick={onRequestClose}>
                     <MdClose {...elem('closeIcon', props)} />
@@ -36,8 +31,6 @@ const Callout: React.FC<Props> = props => {
 
 Callout.defaultProps = {
     context: 'info',
-    onRequestClose: null,
-    lineHeightStyle: 22,
 };
 
 Callout.displayName = 'Callout';
