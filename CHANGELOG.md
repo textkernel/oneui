@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/textkernel/oneui/compare/8.4.0...9.0.0) (2019-12-27)
+
+
+### Bug Fixes
+
+* **Autosuggest:** cannot delete item tags by clicking them ([#206](https://github.com/textkernel/oneui/issues/206)) ([b9ae2f7](https://github.com/textkernel/oneui/commit/b9ae2f7))
+* **Callout:** add HTML attributes to props ([#207](https://github.com/textkernel/oneui/issues/207)) ([6b90459](https://github.com/textkernel/oneui/commit/6b90459))
+
+
+### Build System
+
+* bundle size improvements ([#203](https://github.com/textkernel/oneui/issues/203)) ([81a6e26](https://github.com/textkernel/oneui/commit/81a6e26))
+
+
+### Features
+
+* **Callout:** changed `<p>` to `<div>` for content element, removed `lineHeightStyle` ([d0685da](https://github.com/textkernel/oneui/commit/d0685da))
+* **Tabs:** Rewrite Tabs API ([#204](https://github.com/textkernel/oneui/issues/204)) ([558d46f](https://github.com/textkernel/oneui/commit/558d46f))
+
+
+### BREAKING CHANGES
+
+* **Tabs:** Tabs, Tab, TabMenu, TabContent were deprecated along with some of their features in favour of TabsBar and TabItem
+* **Callout:** `lineHeightStyle` removed. This property was
+  redundant. Styling must be handled by passing a className.
+
+
+
 ## [8.4.0](https://github.com/textkernel/oneui/compare/8.3.0...8.4.0) (2019-12-11)
 
 
