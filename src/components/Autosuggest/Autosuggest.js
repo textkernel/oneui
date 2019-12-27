@@ -125,8 +125,6 @@ class Autosuggest extends React.Component {
 
     handleInputFocus = () => this.setState({ focused: true });
 
-    handleInputBlur = () => this.setState({ focused: false });
-
     handleClearSelectedSuggestions = e => {
         const { onClearAllSelected } = this.props;
 
@@ -366,7 +364,6 @@ class Autosuggest extends React.Component {
                                                 : inputPlaceholder,
                                             onFocus: this.handleInputFocus,
                                             onKeyDown: this.handleInputKeyDown,
-                                            onBlur: this.handleInputBlur,
                                             ...elem('input', stateAndProps),
                                         })}
                                     />
