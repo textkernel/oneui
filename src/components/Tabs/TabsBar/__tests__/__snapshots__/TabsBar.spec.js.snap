@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TabsBar> should render tabs bar with minimal correctly 1`] = `
+<TabsBar
+  isBlock={false}
+>
+  <div
+    className="TabsBar"
+    role="tablist"
+  >
+    <TabItem
+      disabled={false}
+      isActive={false}
+      isBlock={false}
+      tabId="1"
+    >
+      <div
+        aria-selected={false}
+        className="TabItem"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="tab"
+        tabIndex={0}
+      >
+        Some tab
+      </div>
+    </TabItem>
+    <TabItem
+      disabled={false}
+      isActive={false}
+      isBlock={false}
+      tabId="2"
+    >
+      <div
+        aria-selected={false}
+        className="TabItem"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="tab"
+        tabIndex={0}
+      >
+        Another tab
+      </div>
+    </TabItem>
+  </div>
+</TabsBar>
+`;

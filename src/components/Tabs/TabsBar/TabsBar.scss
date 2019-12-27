@@ -1,0 +1,12 @@
+.TabsBar {
+    border-bottom: 1px solid var(--color-neutral-25);
+    display: flex;
+    justify-content: flex-start;
+    padding: {
+        top: var(--spacing-2x);
+    }
+
+    &--isBlock {
+        justify-content: space-evenly;
+    }
+}
