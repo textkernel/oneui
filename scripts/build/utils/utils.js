@@ -16,6 +16,23 @@ function getRuleTS({ includePaths }) {
     };
 }
 
+function getRuleTSCommonJS({ includePaths }) {
+    return {
+        test: /\.(ts|tsx)$/,
+        include: includePaths,
+        use: [
+            {
+                loader: 'ts-loader',
+                options: {
+                    compilerOptions: {
+                        module: 'commonjs',
+                    },
+                },
+            },
+        ],
+    };
+}
+
 function getRuleTSDoc({ includePaths }) {
     return {
         test: /\.(ts|tsx)$/,
@@ -79,4 +96,5 @@ module.exports = {
     getRuleTSDoc,
     getRuleCSS,
     getRuleFiles,
+    getRuleTSCommonJS,
 };
