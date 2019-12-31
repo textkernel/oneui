@@ -1,8 +1,23 @@
 const path = require('path');
-const { getRules } = require('../scripts/build/webpack.config');
+const { getRules, SOURCE_PATH, STORIES_PATH } = require('../scripts/build/webpack.config');
 const devConfig = require('../scripts/build/webpack.dev.config');
 
 const rules = getRules('dev');
+
+const tsCommonJSRule = {
+    test: /\.(ts|tsx)$/,
+    include: [SOURCE_PATH, STORIES_PATH],
+    use: [
+        {
+            loader: 'ts-loader',
+            options: {
+                compilerOptions: {
+                    module: 'commonjs',
+                },
+            },
+        },
+    ],
+};
 
 module.exports = ({ config: storybookBaseConfig }) => {
     // Resolve OneUI package
@@ -12,7 +27,7 @@ module.exports = ({ config: storybookBaseConfig }) => {
     storybookBaseConfig.module.rules = [
         ...storybookBaseConfig.module.rules,
         rules.js,
-        rules.tsCommonJS, // Storybook supports only commonJS module
+        tsCommonJSRule, // Storybook supports only commonJS module
         rules.styles,
         rules.files,
     ];
