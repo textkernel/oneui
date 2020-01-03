@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { IoIosClose } from 'react-icons/io';
 import bem from '../../utils/bem';
 import { ENTER_KEY } from '../../constants';
-import { IoIosClose } from 'react-icons/io';
 import styles from './SelectedOption.scss';
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
@@ -26,6 +26,7 @@ const SelectedOption: React.FC<Props> = React.forwardRef((props, ref) => {
         }
     };
 
+    // eslint-disable-next-line react/display-name
     const renderChildren = () => {
         if (React.isValidElement(children)) {
             return children;

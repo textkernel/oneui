@@ -6,19 +6,19 @@ import PaginationButton from './PaginationButton';
 
 interface Props extends Omit<React.HTMLAttributes<HTMLElement>, 'onClick'> {
     /** How the buttons should be aligned in the pagination container */
-    align?: 'left' | 'center'| 'right'
+    align?: 'left' | 'center' | 'right';
     /** Current page number */
-    currentPage?: number,
+    currentPage?: number;
     /** Max. number of pages to list (excluding prev / next / last) Recommended to use even number */
-    maxPageButtons?: number,
+    maxPageButtons?: number;
     /** Total number of available pages */
-    totalPages: number,
+    totalPages: number;
     /** Label for 'Previous page' button (required for button to show) */
-    prevLabel?: string,
+    prevLabel?: string;
     /** Label for 'Next page' button (required for button to show) */
-    nextLabel?: string,
+    nextLabel?: string;
     /** Callback function on page / prev/ next click */
-    onClick?: (e: Event, page: number) => void,   
+    onClick?: (e: Event, page: number) => void;
 }
 
 const { block, elem } = bem('Pagination', styles);
