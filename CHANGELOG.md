@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.0.1](https://github.com/textkernel/oneui/compare/9.0.0...9.0.1) (2020-01-03)
+
+
+### Bug Fixes
+
+* **storybook:** added ts docgen rule to storybook webpack config ([#211](https://github.com/textkernel/oneui/issues/211)) ([f260081](https://github.com/textkernel/oneui/commit/f260081))
+* **storybook:** moved storybook on commonjs module ([#209](https://github.com/textkernel/oneui/issues/209)) ([2af04db](https://github.com/textkernel/oneui/commit/2af04db))
+* **TypeScript:** declaration of forward ref components ([#212](https://github.com/textkernel/oneui/issues/212)) ([0afea09](https://github.com/textkernel/oneui/commit/0afea09))
+
+
+### Build System
+
+* **deps:** bump handlebars from 4.1.2 to 4.5.3 in /example ([9620e09](https://github.com/textkernel/oneui/commit/9620e09))
+
+
+
 ## [9.0.0](https://github.com/textkernel/oneui/compare/8.4.0...9.0.0) (2019-12-27)
 
 
