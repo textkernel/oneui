@@ -19,6 +19,20 @@ const tsCommonJSRule = {
     ],
 };
 
+const tsDocRule = {
+    test: /\.tsx$/,
+    include: [SOURCE_PATH],
+    use: [
+        {
+            loader: 'react-docgen-typescript-loader',
+            options: {
+                // Including prop that just was defined directly except extended props
+                propFilter: propsInfo => propsInfo.parent.name === 'Props',
+            },
+        },
+    ],
+};
+
 module.exports = ({ config: storybookBaseConfig }) => {
     // Resolve OneUI package
     storybookBaseConfig.resolve.alias['@textkernel/oneui'] = path.resolve(__dirname, '../src');
@@ -28,6 +42,7 @@ module.exports = ({ config: storybookBaseConfig }) => {
         ...storybookBaseConfig.module.rules,
         rules.js,
         tsCommonJSRule, // Storybook supports only commonJS module
+        tsDocRule, // Generate docgen information from Typescript React components
         rules.styles,
         rules.files,
     ];
