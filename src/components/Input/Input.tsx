@@ -20,7 +20,7 @@ interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'
 
 const { block } = bem('Input', styles);
 
-const Input: React.FC<Props> = React.forwardRef((props, ref?: React.Ref<HTMLInputElement>) => {
+const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     const { children, context, disabled, isBlock, size, type, value, ...rest } = props;
     return (
         <input

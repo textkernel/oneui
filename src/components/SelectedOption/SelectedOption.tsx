@@ -15,7 +15,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block, elem } = bem('SelectedOption', styles);
 
-const SelectedOption: React.FC<Props> = React.forwardRef((props, ref?: React.Ref<HTMLElement>) => {
+const SelectedOption = React.forwardRef<HTMLElement, Props>((props, ref) => {
     const { As = 'div', children, onDelete, ...rest } = props;
 
     const handleKeyDown = e => {
@@ -28,8 +28,8 @@ const SelectedOption: React.FC<Props> = React.forwardRef((props, ref?: React.Ref
         if (React.isValidElement(children)) {
             return children;
         }
-        return <span {...elem('label')}>{children}</span>
-    }
+        return <span {...elem('label')}>{children}</span>;
+    };
 
     return (
         <As {...rest} ref={ref} {...block(props)}>

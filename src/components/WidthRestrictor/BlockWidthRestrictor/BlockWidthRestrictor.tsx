@@ -11,17 +11,15 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block } = bem('BlockWidthRestrictor', styles);
 
-const BlockWidthRestrictor: React.FC<Props> = React.forwardRef(
-    (props, ref?: React.Ref<HTMLElement>) => {
-        const { children, As = 'div', ...rest } = props;
+const BlockWidthRestrictor = React.forwardRef<HTMLElement, Props>((props, ref?) => {
+    const { children, As = 'div', ...rest } = props;
 
-        return (
-            <As {...rest} ref={ref} {...block(props)}>
-                {children}
-            </As>
-        );
-    }
-);
+    return (
+        <As {...rest} ref={ref} {...block(props)}>
+            {children}
+        </As>
+    );
+});
 
 BlockWidthRestrictor.displayName = 'BlockWidthRestrictor';
 
