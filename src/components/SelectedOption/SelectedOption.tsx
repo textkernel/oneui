@@ -11,11 +11,13 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
     onDelete: () => void;
     /** the text to be shown */
     children: NotEmptyReactNode;
+    /** Ref to access the wrapper element */
+    ref?: React.RefObject<HTMLElement>;
 }
 
 const { block, elem } = bem('SelectedOption', styles);
 
-const SelectedOption: React.FC<Props> = React.forwardRef((props, ref?: React.Ref<HTMLElement>) => {
+const SelectedOption: React.FC<Props> = React.forwardRef((props, ref) => {
     const { As = 'div', children, onDelete, ...rest } = props;
 
     const handleKeyDown = e => {
@@ -28,8 +30,8 @@ const SelectedOption: React.FC<Props> = React.forwardRef((props, ref?: React.Ref
         if (React.isValidElement(children)) {
             return children;
         }
-        return <span {...elem('label')}>{children}</span>
-    }
+        return <span {...elem('label')}>{children}</span>;
+    };
 
     return (
         <As {...rest} ref={ref} {...block(props)}>

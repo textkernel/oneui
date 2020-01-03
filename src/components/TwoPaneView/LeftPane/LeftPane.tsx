@@ -5,12 +5,14 @@ import styles from './LeftPane.scss';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node(s) to be rendered in the left pane */
     children?: ReactNode;
+    /** Ref to access the element */
+    ref?: React.RefObject<HTMLDivElement>;
 }
 
 const { block } = bem('LeftPane', styles);
 
 const LeftPane: React.FC<Props> = React.forwardRef(
-    (props: Props, ref?: React.Ref<HTMLDivElement>): React.ReactElement => {
+    (props, ref): React.ReactElement => {
         const { children, ...rest } = props;
 
         return (

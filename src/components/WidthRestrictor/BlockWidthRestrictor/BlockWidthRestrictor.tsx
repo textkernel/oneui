@@ -7,21 +7,21 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
     children: NotEmptyReactNode;
     /** HTML tag to be used to render the container */
     As?: string;
+    /** Ref to access the main wrapper element */
+    ref?: React.RefObject<HTMLElement>;
 }
 
 const { block } = bem('BlockWidthRestrictor', styles);
 
-const BlockWidthRestrictor: React.FC<Props> = React.forwardRef(
-    (props, ref?: React.Ref<HTMLElement>) => {
-        const { children, As = 'div', ...rest } = props;
+const BlockWidthRestrictor: React.FC<Props> = React.forwardRef((props, ref) => {
+    const { children, As = 'div', ...rest } = props;
 
-        return (
-            <As {...rest} ref={ref} {...block(props)}>
-                {children}
-            </As>
-        );
-    }
-);
+    return (
+        <As {...rest} ref={ref} {...block(props)}>
+            {children}
+        </As>
+    );
+});
 
 BlockWidthRestrictor.displayName = 'BlockWidthRestrictor';
 
