@@ -90,7 +90,7 @@ const Pagination: React.FC<Props> = props => {
                 </Button>
             )}
             {showButton1 && (
-                <React.Fragment>
+                <>
                     <PaginationButton
                         onClick={handleClick}
                         isActive={currentPage === 1}
@@ -100,7 +100,7 @@ const Pagination: React.FC<Props> = props => {
                         {1}
                     </PaginationButton>
                     {range[0] > 2 && <div {...elem('gap', props)}>&hellip;</div>}
-                </React.Fragment>
+                </>
             )}
             {range.map(page => (
                 <PaginationButton

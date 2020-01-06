@@ -8,7 +8,7 @@ import { CHECKBOX_VIEWBOX } from '../../constants';
 const { block, elem } = bem('RadioButton', styles);
 
 const RadioButton = forwardRef((props, ref) => {
-    const { id, children, viewbox, disabled, name, ...rest } = props;
+    const { id, children, disabled, name, ...rest } = props;
 
     return (
         <div {...block(props)}>

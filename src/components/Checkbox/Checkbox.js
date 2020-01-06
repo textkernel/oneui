@@ -8,7 +8,7 @@ import { CHECKBOX_VIEWBOX } from '../../constants';
 const { block, elem } = bem('Checkbox', styles);
 
 const Checkbox = forwardRef((props, ref) => {
-    const { id, children, viewbox, disabled, ...rest } = props;
+    const { id, children, disabled, ...rest } = props;
 
     return (
         <div {...block(props)}>

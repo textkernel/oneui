@@ -23,6 +23,8 @@ SearchButton.displayName = 'SearchButton';
 // Any other attributes (onClick, onFocus etc.) are
 // supported although not defined in propTypes
 SearchButton.propTypes = {
+    /** Label for the button */
+    children: PropTypes.string,
     /** Should button be disabled or not */
     disabled: PropTypes.bool,
     /** Type of the button */
@@ -30,6 +32,7 @@ SearchButton.propTypes = {
 };
 
 SearchButton.defaultProps = {
+    children: '',
     disabled: false,
     type: 'button',
 };

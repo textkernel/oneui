@@ -150,11 +150,15 @@ LocationSelectorDialog.propTypes = {
     onRemoveLocation: PropTypes.func.isRequired,
     /** function to calculate marker positions in Map  */
     getMarkers: PropTypes.func.isRequired,
+    /** function to be called when teh Done button is clicked */
+    onCloseModal: PropTypes.func,
 };
 
 LocationSelectorDialog.defaultProps = {
     showCountryInSuggestions: false,
     onLocationAutocompleteError: null,
+    onCloseModal: () => null,
+    initialMapAddress: null,
 };
 
 export default LocationSelectorDialog;

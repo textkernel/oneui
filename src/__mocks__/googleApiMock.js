@@ -1,4 +1,4 @@
-/* eslint-disable class-methods-use-this */
+/* eslint-disable class-methods-use-this, max-classes-per-file */
 // This is an incolplete stubbing of google API, based on bits and pieces.
 // Feel free to extend it as required.
 const noop = () => {};

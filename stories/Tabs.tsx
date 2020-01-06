@@ -78,16 +78,16 @@ storiesOf('Atoms|Tabs', module)
                 onSelect={handleSelect}
                 isBlock={boolean('Equally spaced items', false)}
             >
-                <TabItem tabId={1} key={1} disabled={boolean(`Tab 1 is disabled`, false)}>
-                    {text(`Tab 1 label`, `Simple tab`)}
+                <TabItem tabId={1} key={1} disabled={boolean('Tab 1 is disabled', false)}>
+                    {text('Tab 1 label', 'Simple tab')}
                 </TabItem>
-                <TabItem tabId={2} key={2} disabled={boolean(`Tab 2 is disabled`, false)}>
-                    {text(`Tab 2 label`, `Tab with styled count`)}
+                <TabItem tabId={2} key={2} disabled={boolean('Tab 2 is disabled', false)}>
+                    {text('Tab 2 label', 'Tab with styled count')}
                     <span style={{ color: 'grey', fontWeight: 400 }}> (2)</span>
                 </TabItem>
-                <TabItem tabId={3} key={3} disabled={boolean(`Tab 3 is disabled`, false)}>
+                <TabItem tabId={3} key={3} disabled={boolean('Tab 3 is disabled', false)}>
                     <Tooltip content="some additional information" placement="top">
-                        {text(`Tab 3 label`, `Tab with Tooltip`)}
+                        {text('Tab 3 label', 'Tab with Tooltip')}
                     </Tooltip>
                 </TabItem>
             </TabsBar>

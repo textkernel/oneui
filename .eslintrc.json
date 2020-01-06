@@ -1,16 +1,21 @@
 {
-    "extends": ["airbnb", "prettier", "prettier/react", "plugin:@typescript-eslint/recommended"],
+    "extends": [
+        "airbnb-typescript",
+        "prettier",
+        "prettier/react",
+        "plugin:@typescript-eslint/recommended"
+    ],
     "plugins": ["react", "prettier", "react-hooks", "@typescript-eslint"],
     "env": {
         "jest": true
     },
     "parser": "@typescript-eslint/parser",
-    "parserOptions":  {
+    "parserOptions": {
         "warnOnUnsupportedTypeScriptVersion": false,
         "project": "tsconfig.json",
-        "ecmaVersion":  2018,
-        "sourceType":  "module",
-        "ecmaFeatures":  {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "ecmaFeatures": {
             "jsx": true
         }
     },
@@ -28,6 +33,7 @@
         "experimentalDecorators": 0,
         "react/jsx-indent": [2, 4],
         "react/button-has-type": 0,
+        "react/prop-types": 0,
         "react/display-name": [
             2,
             {
@@ -36,12 +42,16 @@
         ],
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
+        "react/jsx-props-no-spreading": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/no-unused-vars": ["error", {
-            "ignoreRestSiblings": true
-        }],
-        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }],
-        "@typescript-eslint/prefer-interface": "on"
+        "@typescript-eslint/indent": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "ignoreRestSiblings": true
+            }
+        ],
+        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }]
     },
     "overrides": [
         {
@@ -51,14 +61,27 @@
             }
         },
         {
-            "files": [
-                "**/__tests__/**/*",
-                "**/__mocks__/**/*"
-            ],
+            "files": ["**/__tests__/**/*", "**/__mocks__/**/*"],
             "rules": {
                 "@typescript-eslint/camelcase": "off",
                 "@typescript-eslint/no-empty-function": "off",
                 "@typescript-eslint/class-name-casing": "off"
+            }
+        },
+        {
+            "files": ["**/*.js"],
+            "rules": {
+                "react/prop-types": 2
+            }
+        },
+        {
+            "files": ["stories/**/*"],
+            "rules": {
+                "import/extensions": ["off", "ignorePackages"],
+                "react/display-name": "off",
+                "react/destructuring-assignment": "off",
+                "react/prop-types": "off",
+                "react/jsx-curly-newline": "off"
             }
         }
     ],
