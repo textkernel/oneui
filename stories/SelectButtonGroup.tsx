@@ -10,8 +10,8 @@ storiesOf('Atoms|SelectButtonGroup', module)
             isMultiselect={boolean('Multiselect group', false)}
             isBlock={boolean('Display as block', false)}
             isEqualWidth={boolean('Make all buttons the same width', false)}
-            onSelect={value => {
-                const msg = `onSelect was called with value ${value}`;
+            onChange={value => {
+                const msg = `onSelect was called with values ${value}`;
                 console.log(msg);
             }}
         >
