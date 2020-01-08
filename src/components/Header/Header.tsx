@@ -28,18 +28,16 @@ const Header: React.FC<Props> = props => {
 
     if (React.isValidElement(logo)) {
         renderedLogo = React.cloneElement(logo, { ...elem('logo', props) });
+    } else if (logo.link) {
+        renderedLogo = (
+            <a href={logo.link}>
+                <img src={logo.src} alt={logo.title} {...elem('logo', props)} />
+            </a>
+        );
     } else {
-        if (logo.link) {
-            renderedLogo = (
-                <a href={logo.link}>
-                    <img src={logo.src} alt={logo.title} {...elem('logo', props)} />
-                </a>
-            );
-        } else {
-            renderedLogo = (
-                <img src={logo.src} alt={logo.title || 'our logo'} {...elem('logo', props)} />
-            );
-        }
+        renderedLogo = (
+            <img src={logo.src} alt={logo.title || 'our logo'} {...elem('logo', props)} />
+        );
     }
 
     return (

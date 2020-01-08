@@ -6,7 +6,7 @@ import { Chip, IconMatch } from '@textkernel/oneui';
 storiesOf('Atoms|Chip', module)
     .addDecorator(withKnobs)
     .add('Chip', () => (
-        <React.Fragment>
+        <>
             <Chip title={text('Title', 'This is a title that uses native browser functionality')}>
                 {text('Content', 'Chip with title')}
             </Chip>
@@ -15,5 +15,5 @@ storiesOf('Atoms|Chip', module)
                 &nbsp;
                 {text('Content 2', 'Chip with Icon as child')}
             </Chip>
-        </React.Fragment>
+        </>
     ));

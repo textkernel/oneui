@@ -24,6 +24,7 @@ const TwoPaneView: React.FC<Props> = props => {
     const blockRef: React.Ref<HTMLDivElement> = React.createRef();
 
     const handleScroll = (
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         e: Event | null = null,
         leftEl: HTMLDivElement | null = leftRef.current
     ) => {

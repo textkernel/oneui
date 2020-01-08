@@ -71,6 +71,8 @@ LocationCard.propTypes = {
      * Must be greater than zero, and max - min should be evenly divisible by the step value.
      */
     radiusStep: PropTypes.number,
+    /** The value to be displayed in the slider */
+    distanceRadius: PropTypes.number.isRequired,
     /** Slider value change callback */
     onRadiusChange: PropTypes.func,
     /** Location card delete callback */

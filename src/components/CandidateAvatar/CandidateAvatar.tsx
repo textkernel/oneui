@@ -15,7 +15,7 @@ interface Props {
 
 const { block, elem } = bem('CandidateAvatar', styles);
 
-const CandidateAvatar = (props: Props) => {
+const CandidateAvatar: React.FC<Props> = props => {
     const getContext = (percentage: number): 'bad' | 'warning' | 'good' => {
         if (percentage <= 33) {
             return 'bad';
