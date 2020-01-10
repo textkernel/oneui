@@ -36,6 +36,10 @@ const SelectButtonGroup: React.FC<Props> = props => {
 
     const [selectedValues, setSelectedValues] = React.useState(initiallySelectedValues);
 
+    React.useEffect(() => {
+        onChange?.(selectedValues)
+    }, [selectedValues]);
+
     const handleSelectionChangeForValue = (value: string) => {
         if (!isMultiselect) {
             setSelectedValues([value]);
@@ -46,8 +50,6 @@ const SelectButtonGroup: React.FC<Props> = props => {
                 setSelectedValues([...selectedValues, value]);
             }
         }
-
-        onChange?.(selectedValues)
     };
 
     return (
