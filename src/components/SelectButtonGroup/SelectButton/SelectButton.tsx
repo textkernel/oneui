@@ -7,7 +7,9 @@ import styles from './SelectButton.scss';
 interface InternalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /** A function to be called if a button is pressed. */
     onChange?: (value: string) => void;
-    /** is this button has same width as its siblings */
+    /** If this component a child of a full block with container  */
+    isBlock?: boolean;
+    /** If this button has same width as its siblings */
     isEqualWidth?: boolean;
 }
 
@@ -22,26 +24,42 @@ export interface Props extends InternalProps {
     selectedContext?: 'neutral' | 'brand';
 }
 
-const {block } = bem('SelectButton', styles)
+const { block } = bem('SelectButton', styles);
 
 export const SelectButton: React.FC<Props> = props => {
-    const {children, value, onChange, isEqualWidth, selectedContext, isSelected, ...rest } = props;
+    const {
+        children,
+        value,
+        onChange,
+        isEqualWidth,
+        isBlock,
+        selectedContext,
+        isSelected,
+        ...rest
+    } = props;
 
     const handleClick = () => {
-        onChange?.(value)
-    }
+        onChange?.(value);
+    };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
         if (e.key === ENTER_KEY) {
-            handleClick()
+            handleClick();
         }
-    }
+    };
 
     return (
-        <div role="button" tabIndex={0} {...rest} onKeyPress={handleKeyPress} onClick={handleClick} {...block(props)}>
+        <div
+            role="button"
+            tabIndex={0}
+            {...rest}
+            onKeyPress={handleKeyPress}
+            onClick={handleClick}
+            {...block(props)}
+        >
             {children}
         </div>
-    )
+    );
 };
 
 SelectButton.displayName = 'SelectButton';

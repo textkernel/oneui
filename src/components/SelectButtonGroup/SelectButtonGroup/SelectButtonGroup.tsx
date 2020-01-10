@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem'
+import bem from '../../../utils/bem';
 import { SelectButtonProps } from '../SelectButton';
 import styles from './SelectButtonGroup.scss';
 
@@ -16,7 +16,7 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /** should the component take up all the width available */
     isBlock?: boolean;
     /** Color context for selected buttons */
-    selectedContext?: 'neutral' | 'brand'
+    selectedContext?: 'neutral' | 'brand';
     /** should children have equal width */
     isEqualWidth?: boolean;
 }
@@ -24,7 +24,15 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
 const { block } = bem('SelectButtonGroup', styles);
 
 const SelectButtonGroup: React.FC<Props> = props => {
-    const { children, isMultiselect, isEqualWidth, isBlock, selectedContext, onChange, ...rest } = props;
+    const {
+        children,
+        isMultiselect,
+        isEqualWidth,
+        isBlock,
+        selectedContext,
+        onChange,
+        ...rest
+    } = props;
 
     const initiallySelectedValues: string[] = [];
     children.forEach(child => {
@@ -37,18 +45,16 @@ const SelectButtonGroup: React.FC<Props> = props => {
     const [selectedValues, setSelectedValues] = React.useState(initiallySelectedValues);
 
     React.useEffect(() => {
-        onChange?.(selectedValues)
-    }, [selectedValues]);
+        onChange?.(selectedValues);
+    }, [onChange, selectedValues]);
 
     const handleSelectionChangeForValue = (value: string) => {
         if (!isMultiselect) {
             setSelectedValues([value]);
+        } else if (selectedValues.includes(value)) {
+            setSelectedValues(selectedValues.filter(v => v !== value));
         } else {
-            if (selectedValues.includes(value)) {
-                setSelectedValues(selectedValues.filter(v => v !== value));
-            } else {
-                setSelectedValues([...selectedValues, value]);
-            }
+            setSelectedValues([...selectedValues, value]);
         }
     };
 
@@ -56,10 +62,11 @@ const SelectButtonGroup: React.FC<Props> = props => {
         <div {...rest} {...block(props)}>
             {children.map(child =>
                 React.cloneElement(child, {
+                    isBlock,
                     isEqualWidth,
                     isSelected: selectedValues.includes(child.props.value),
                     onChange: handleSelectionChangeForValue,
-                    selectedContext: child.props.selectedContext || selectedContext
+                    selectedContext: child.props.selectedContext || selectedContext,
                 })
             )}
         </div>
@@ -72,7 +79,7 @@ SelectButtonGroup.defaultProps = {
     isMultiselect: false,
     isBlock: false,
     isEqualWidth: false,
-    selectedContext: 'brand'
+    selectedContext: 'brand',
 };
 
 export default SelectButtonGroup;

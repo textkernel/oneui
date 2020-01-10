@@ -21,7 +21,11 @@ storiesOf('Atoms|Tabs', module)
 
         return (
             <TabsBar
-                activeTabId={select('Active tab', tabs.map(tab => tab), tabs[0])}
+                activeTabId={select(
+                    'Active tab',
+                    tabs.map(tab => tab),
+                    tabs[0]
+                )}
                 onSelect={handleSelect}
                 isBlock={boolean('Equally spaced items', false)}
             >

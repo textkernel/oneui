@@ -28,6 +28,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
     className="SelectButtonGroup"
   >
     <SelectButton
+      isBlock={false}
       isEqualWidth={false}
       isSelected={true}
       key="1"
@@ -46,6 +47,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
+      isBlock={false}
       isEqualWidth={false}
       isSelected={false}
       key="2"
@@ -64,6 +66,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
+      isBlock={false}
       isEqualWidth={false}
       isSelected={false}
       key="3"
