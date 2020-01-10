@@ -28,7 +28,7 @@ const SelectButtonGroup: React.FC<Props> = props => {
 
     const initiallySelectedValues: string[] = [];
     children.forEach(child => {
-        const { value, isSelected = false } = child.props;
+        const { value, isSelected } = child.props;
         if (isSelected) {
             initiallySelectedValues.push(value);
         }
