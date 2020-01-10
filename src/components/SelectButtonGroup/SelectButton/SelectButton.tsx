@@ -25,7 +25,7 @@ export interface Props extends InternalProps {
 const {block } = bem('SelectButton', styles)
 
 export const SelectButton: React.FC<Props> = props => {
-    const {children, value, onChange, isEqualWidth, selectedContext, ...rest } = props;
+    const {children, value, onChange, isEqualWidth, selectedContext, isSelected, ...rest } = props;
 
     const handleClick = () => {
         onChange?.(value)

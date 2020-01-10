@@ -22,6 +22,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
         >
             <SelectButton
                 value="button 1"
+                key="button 1"
                 isSelected={boolean('Button 1 is selected', true)}
                 selectedContext={select(
                     'Selected color context for button 1',
@@ -32,6 +33,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
                 {text('Option label 1', 'Option 1')}
             </SelectButton>
             <SelectButton
+                key="button 2"
                 value="button 2"
                 isSelected={boolean('Button 2 is selected', false)}
                 selectedContext={select(
@@ -43,6 +45,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
                 {text('Option label 2', 'Option 2')}
             </SelectButton>
             <SelectButton
+                key="button 3"
                 value="button 3"
                 isSelected={boolean('Button 3 is selected', false)}
                 selectedContext={select(

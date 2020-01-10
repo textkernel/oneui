@@ -1,5 +1,7 @@
 import * as React from 'react';
+import bem from '../../../utils/bem'
 import { SelectButtonProps } from '../SelectButton';
+import styles from './SelectButtonGroup.scss';
 
 interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /** SelectButton components */
@@ -18,6 +20,8 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /** should children have equal width */
     isEqualWidth?: boolean;
 }
+
+const { block } = bem('SelectButtonGroup', styles);
 
 const SelectButtonGroup: React.FC<Props> = props => {
     const { children, isMultiselect, isEqualWidth, isBlock, selectedContext, onChange, ...rest } = props;
@@ -47,7 +51,7 @@ const SelectButtonGroup: React.FC<Props> = props => {
     };
 
     return (
-        <div {...rest}>
+        <div {...rest} {...block(props)}>
             {children.map(child =>
                 React.cloneElement(child, {
                     isEqualWidth,
