@@ -39,6 +39,8 @@ const FieldWrapper = React.forwardRef((props, ref) => {
 FieldWrapper.displayName = 'FieldWrapper';
 
 FieldWrapper.propTypes = {
+    /** content of the wrapper */
+    children: PropTypes.node.isRequired,
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton: PropTypes.bool,
     /** clear button label */

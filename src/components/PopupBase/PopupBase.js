@@ -130,10 +130,10 @@ class PopupBase extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
+            <>
                 {this.renderAnchor()}
                 {this.renderPopup()}
-            </React.Fragment>
+            </>
         );
     }
 }

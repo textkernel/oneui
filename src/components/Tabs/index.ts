@@ -1,2 +1,2 @@
 export { TabItem } from './TabItem';
-export { TabsBar } from './TabsBar';
+export { default as TabsBar } from './TabsBar';

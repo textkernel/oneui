@@ -5,6 +5,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
   country="NL"
   doneLabel="doneLabel"
   getMarkers={[Function]}
+  initialMapAddress={null}
   inputPlaceholder="inputPlaceholder"
   maxRadius={100}
   minRadius={1}

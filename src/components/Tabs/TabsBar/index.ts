@@ -1,1 +1,1 @@
-export { default as TabsBar } from './TabsBar';
+export { default } from './TabsBar';
