@@ -1,7 +1,10 @@
 import * as React from 'react';
+import bem from '../../../utils/bem';
+import { ENTER_KEY } from '../../../constants';
+import styles from './SelectButton.scss';
 
 // These props will be passed by the parent <SelectButtonGroup>
-interface InternalProps {
+interface InternalProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /** A function to be called if a button is pressed. */
     onChange?: (value: string) => void;
     /** is this button has same width as its siblings */
@@ -19,14 +22,31 @@ export interface Props extends InternalProps {
     selectedContext?: 'neutral' | 'brand';
 }
 
-const SelectButton: React.FC<Props> = props => <div></div>;
+const {block } = bem('SelectButton', styles)
+
+export const SelectButton: React.FC<Props> = props => {
+    const {children, value, onChange, isEqualWidth, selectedContext, ...rest } = props;
+
+    const handleClick = () => {
+        onChange?.(value)
+    }
+
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === ENTER_KEY) {
+            handleClick()
+        }
+    }
+
+    return (
+        <div role="button" tabIndex={0} {...rest} onKeyPress={handleKeyPress} onClick={handleClick} {...block(props)}>
+            {children}
+        </div>
+    )
+};
 
 SelectButton.displayName = 'SelectButton';
 
 SelectButton.defaultProps = {
     isSelected: false,
-    selectedContext: 'brand',
     isEqualWidth: false,
 };
-
-export default SelectButton;

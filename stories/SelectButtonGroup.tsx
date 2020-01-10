@@ -10,6 +10,11 @@ storiesOf('Atoms|SelectButtonGroup', module)
             isMultiselect={boolean('Multiselect group', false)}
             isBlock={boolean('Display as block', false)}
             isEqualWidth={boolean('Make all buttons the same width', false)}
+            selectedContext={select(
+                'Default selected color context',
+                ['brand', 'neutral', undefined],
+                'brand'
+            )}
             onChange={value => {
                 const msg = `onSelect was called with values ${value}`;
                 console.log(msg);
@@ -20,8 +25,8 @@ storiesOf('Atoms|SelectButtonGroup', module)
                 isSelected={boolean('Button 1 is selected', true)}
                 selectedContext={select(
                     'Selected color context for button 1',
-                    ['brand', 'neutral'],
-                    'brand'
+                    ['brand', 'neutral', undefined],
+                    undefined
                 )}
             >
                 {text('Option label 1', 'Option 1')}
@@ -31,11 +36,22 @@ storiesOf('Atoms|SelectButtonGroup', module)
                 isSelected={boolean('Button 2 is selected', false)}
                 selectedContext={select(
                     'Selected color context for button 2',
-                    ['brand', 'neutral'],
-                    'brand'
+                    ['brand', 'neutral', undefined],
+                    undefined
                 )}
             >
                 {text('Option label 2', 'Option 2')}
+            </SelectButton>
+            <SelectButton
+                value="button 3"
+                isSelected={boolean('Button 3 is selected', false)}
+                selectedContext={select(
+                    'Selected color context for button 3',
+                    ['brand', 'neutral', undefined],
+                    'neutral'
+                )}
+            >
+                {text('Option label 3', 'Option 3')}
             </SelectButton>
         </SelectButtonGroup>
     ));
