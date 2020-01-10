@@ -41,12 +41,16 @@ const LocationSelectorDialog = props => {
     } = props;
 
     function handleAddLocation(location) {
-        locationInputRef.current.focus();
+        if (locationInputRef.current) {
+            locationInputRef.current.focus();
+        }
         onAddLocation(location);
     }
 
     function handleRemoveLocation(locationId) {
-        locationInputRef.current.focus();
+        if (locationInputRef.current) {
+            locationInputRef.current.focus();
+        }
         onRemoveLocation(locationId);
     }
 

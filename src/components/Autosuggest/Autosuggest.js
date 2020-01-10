@@ -54,7 +54,7 @@ class Autosuggest extends React.Component {
         if (inputRef && inputRef.current) {
             const isInputFocused = inputRef.current === document.activeElement;
 
-            if (prevState.focused !== isInputFocused) {
+            if (!prevState.focused && isInputFocused) {
                 // eslint-disable-next-line react/no-did-update-set-state
                 setTimeout(() => this.setState({ focused: isInputFocused }), FOCUS_DELAY);
             }
@@ -122,8 +122,6 @@ class Autosuggest extends React.Component {
             }
         }
     };
-
-    handleInputFocus = () => this.setState({ focused: true });
 
     handleClearSelectedSuggestions = e => {
         const { onClearAllSelected } = this.props;
@@ -362,7 +360,6 @@ class Autosuggest extends React.Component {
                                             placeholder: hideInputPlaceholder
                                                 ? ''
                                                 : inputPlaceholder,
-                                            onFocus: this.handleInputFocus,
                                             onKeyDown: this.handleInputKeyDown,
                                             ...elem('input', stateAndProps),
                                         })}

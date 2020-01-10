@@ -214,7 +214,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                         id="downshift-0-input"
                         onBlur={[Function]}
                         onChange={[Function]}
-                        onFocus={[Function]}
                         onKeyDown={[Function]}
                         placeholder="inputPlaceholder"
                         value=""
