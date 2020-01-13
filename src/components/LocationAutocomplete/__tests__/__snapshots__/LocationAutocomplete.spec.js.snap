@@ -326,7 +326,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     id="downshift-4-input"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    onFocus={[Function]}
                     onKeyDown={[Function]}
                     placeholder="Location..."
                     value="Tonga"
@@ -730,7 +729,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
                     id="downshift-0-input"
                     onBlur={[Function]}
                     onChange={[Function]}
-                    onFocus={[Function]}
                     onKeyDown={[Function]}
                     placeholder="Location..."
                     value=""
