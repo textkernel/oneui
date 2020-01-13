@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.0.2](https://github.com/textkernel/oneui/compare/9.0.1...9.0.2) (2020-01-13)
+
+
+### Bug Fixes
+
+* **Autosuggest:** make sure it blurs when needed ([#215](https://github.com/textkernel/oneui/issues/215)) ([5adaf90](https://github.com/textkernel/oneui/commit/5adaf90))
+* **Slider:** Fix slider appearing ([#216](https://github.com/textkernel/oneui/issues/216)) ([243ae11](https://github.com/textkernel/oneui/commit/243ae11))
+
+
+
 ### [9.0.1](https://github.com/textkernel/oneui/compare/9.0.0...9.0.1) (2020-01-03)
 
 
