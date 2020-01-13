@@ -43,6 +43,7 @@ function getRuleCSS({ styleLoader, localIdentName, includePaths, context }) {
                 },
             },
         ],
+        sideEffects: true,
     };
 }
 
@@ -54,6 +55,7 @@ function getRuleFiles({ fileLoader }) {
                 loader: fileLoader,
             },
         ],
+        sideEffects: true,
     };
 }
 
