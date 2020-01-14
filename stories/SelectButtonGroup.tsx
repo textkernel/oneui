@@ -22,7 +22,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
             <SelectButton
                 value="button 1"
                 key="button 1"
-                isInitiallySelected={boolean('Button 1 is selected', true)}
+                isInitiallySelected
                 selectedContext={
                     select('Selected color context for button 1', [null, 'brand', 'neutral']) ||
                     undefined
@@ -33,7 +33,6 @@ storiesOf('Atoms|SelectButtonGroup', module)
             <SelectButton
                 key="button 2"
                 value="button 2"
-                isInitiallySelected={boolean('Button 2 is selected', false)}
                 selectedContext={
                     select('Selected color context for button 2', [null, 'brand', 'neutral']) ||
                     undefined
@@ -44,7 +43,6 @@ storiesOf('Atoms|SelectButtonGroup', module)
             <SelectButton
                 key="button 3"
                 value="button 3"
-                isInitiallySelected={boolean('Button 3 is selected', false)}
                 selectedContext={
                     select('Selected color context for button 3', [null, 'brand', 'neutral']) ||
                     undefined
