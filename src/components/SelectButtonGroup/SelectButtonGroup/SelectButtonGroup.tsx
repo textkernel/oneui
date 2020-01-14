@@ -13,6 +13,8 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     onChange?: (selection: string[]) => void;
     /** is this button part of a multiselect group - when yes will allow more then one option to be selected */
     isMultiselect?: boolean;
+    /** if this component should have at least one selected value (for now it effects only multiselect logic) */
+    isRequired?: boolean;
     /** should the component take up all the width available */
     isBlock?: boolean;
     /** Color context for selected buttons */
@@ -27,6 +29,7 @@ const SelectButtonGroup: React.FC<Props> = props => {
     const {
         children,
         isMultiselect,
+        isRequired,
         isEqualWidth,
         isBlock,
         selectedContext,
@@ -52,7 +55,9 @@ const SelectButtonGroup: React.FC<Props> = props => {
         if (!isMultiselect) {
             setSelectedValues([value]);
         } else if (selectedValues.includes(value)) {
-            setSelectedValues(selectedValues.filter(v => v !== value));
+            if (!(isRequired && selectedValues.length === 1)) {
+                setSelectedValues(selectedValues.filter(v => v !== value));
+            }
         } else {
             setSelectedValues([...selectedValues, value]);
         }
@@ -77,6 +82,7 @@ SelectButtonGroup.displayName = 'SelectButtonGroup';
 
 SelectButtonGroup.defaultProps = {
     isMultiselect: false,
+    isRequired: false,
     isBlock: false,
     isEqualWidth: false,
     selectedContext: 'brand',

@@ -100,6 +100,32 @@ describe('SelectButtonGroup', () => {
             expect(getButton(1).prop('isSelected')).toBeTruthy();
             expect(getButton(2).prop('isSelected')).toBeFalsy();
         });
+        it('should not allow deletion of last value if field is required', () => {
+            wrapper.setProps({ isRequired: true });
+            getButton(0).simulate('click');
+
+            expect(getButton(0).prop('isSelected')).toBeTruthy();
+            expect(getButton(1).prop('isSelected')).toBeFalsy();
+            expect(getButton(2).prop('isSelected')).toBeFalsy();
+
+            getButton(1).simulate('click');
+
+            expect(getButton(0).prop('isSelected')).toBeTruthy();
+            expect(getButton(1).prop('isSelected')).toBeTruthy();
+            expect(getButton(2).prop('isSelected')).toBeFalsy();
+
+            getButton(0).simulate('click');
+
+            expect(getButton(0).prop('isSelected')).toBeFalsy();
+            expect(getButton(1).prop('isSelected')).toBeTruthy();
+            expect(getButton(2).prop('isSelected')).toBeFalsy();
+
+            getButton(1).simulate('click');
+
+            expect(getButton(0).prop('isSelected')).toBeFalsy();
+            expect(getButton(1).prop('isSelected')).toBeTruthy();
+            expect(getButton(2).prop('isSelected')).toBeFalsy();
+        });
         it('should call onChange with correct parameters', () => {
             getButton(1).simulate('click');
             expect(onChangeMock).toHaveBeenLastCalledWith([

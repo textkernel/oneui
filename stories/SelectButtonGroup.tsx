@@ -8,6 +8,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
     .add('SelectButtonGroup', () => (
         <SelectButtonGroup
             isMultiselect={boolean('Multiselect group', false)}
+            isRequired={boolean('Require to have at least 1 selected option', false)}
             isBlock={boolean('Display as block', false)}
             isEqualWidth={boolean('Make all buttons the same width', false)}
             selectedContext={

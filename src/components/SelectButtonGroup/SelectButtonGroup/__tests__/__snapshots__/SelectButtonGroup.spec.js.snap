@@ -5,6 +5,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
   isBlock={false}
   isEqualWidth={false}
   isMultiselect={false}
+  isRequired={false}
   onChange={
     [MockFunction] {
       "calls": Array [
