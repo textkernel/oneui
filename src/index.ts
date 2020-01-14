@@ -48,3 +48,4 @@ export {
     LocationSelectorDialogWithGoogleLoader,
     LocationSelector,
 } from './components/LocationSelector';
+export { AutosuggestMulti, SimpleSelect } from './components/Select';

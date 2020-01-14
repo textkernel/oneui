@@ -42,3 +42,4 @@ import './TwoPaneView';
 import './Autosuggest';
 import './LocationAutocomplete';
 import './LocationSelector';
+import './Select';

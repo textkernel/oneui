@@ -53,7 +53,7 @@
         "@react-google-maps/api": "1.5.4",
         "@textkernel/bem": "0.2.4",
         "css-vars-ponyfill": "1.16.4",
-        "downshift": "3.2.10",
+        "downshift": "4.0.4",
         "fast-memoize": "2.5.1",
         "popper.js": "1.15.0",
         "prop-types": "^15.7.2",
