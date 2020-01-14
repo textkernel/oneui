@@ -96,7 +96,7 @@ const AutosuggestMulti: React.FC<Props> = props => {
         );
     };
 
-    const renderBlurred = getInputProps => (
+    const renderBlurred = ({ getInputProps }) => (
         <div tabIndex="0" role="searchbox" {...elem('wrapper', props)}>
             {selectedPlaceholder && <div {...elem('spacedElem', props)}>{selectedPlaceholder}</div>}
             <input
