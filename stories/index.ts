@@ -16,6 +16,7 @@ import './Map';
 import './Modal';
 import './PopupBase';
 import './ProgressBar';
+import './SelectButtonGroup';
 import './SelectedOption';
 import './Slider';
 import './Tabs';

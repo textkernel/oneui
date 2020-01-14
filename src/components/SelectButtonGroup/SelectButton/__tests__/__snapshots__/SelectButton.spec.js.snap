@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectButton should render correctly 1`] = `
+<SelectButton
+  isEqualWidth={false}
+  isInitiallySelected={false}
+  onChange={[MockFunction]}
+  value="button 1"
+>
+  <div
+    className="SelectButton"
+    onClick={[Function]}
+    onKeyPress={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    Option 1
+  </div>
+</SelectButton>
+`;

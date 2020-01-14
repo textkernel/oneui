@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectButtonGroup should render correctly 1`] = `
+<SelectButtonGroup
+  isBlock={false}
+  isEqualWidth={false}
+  isMultiselect={false}
+  isRequired={false}
+  onChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Array [
+            "button 1",
+          ],
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  selectedContext="brand"
+>
+  <div
+    className="SelectButtonGroup"
+  >
+    <SelectButton
+      isBlock={false}
+      isEqualWidth={false}
+      isInitiallySelected={true}
+      isSelected={true}
+      key="1"
+      onChange={[Function]}
+      selectedContext="brand"
+      value="button 1"
+    >
+      <div
+        className="SelectButton SelectButton--isSelected SelectButton--selectedContext_brand"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        Option 1
+      </div>
+    </SelectButton>
+    <SelectButton
+      isBlock={false}
+      isEqualWidth={false}
+      isInitiallySelected={false}
+      isSelected={false}
+      key="2"
+      onChange={[Function]}
+      selectedContext="brand"
+      value="button 2"
+    >
+      <div
+        className="SelectButton SelectButton--selectedContext_brand"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        Option 2
+      </div>
+    </SelectButton>
+    <SelectButton
+      isBlock={false}
+      isEqualWidth={false}
+      isInitiallySelected={false}
+      isSelected={false}
+      key="3"
+      onChange={[Function]}
+      selectedContext="brand"
+      value="button 3"
+    >
+      <div
+        className="SelectButton SelectButton--selectedContext_brand"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        Option 3
+      </div>
+    </SelectButton>
+  </div>
+</SelectButtonGroup>
+`;
