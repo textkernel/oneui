@@ -31,6 +31,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
     <SelectButton
       isBlock={false}
       isEqualWidth={false}
+      isInitiallySelected={true}
       isSelected={true}
       key="1"
       onChange={[Function]}
@@ -50,6 +51,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
     <SelectButton
       isBlock={false}
       isEqualWidth={false}
+      isInitiallySelected={false}
       isSelected={false}
       key="2"
       onChange={[Function]}
@@ -69,6 +71,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
     <SelectButton
       isBlock={false}
       isEqualWidth={false}
+      isInitiallySelected={false}
       isSelected={false}
       key="3"
       onChange={[Function]}

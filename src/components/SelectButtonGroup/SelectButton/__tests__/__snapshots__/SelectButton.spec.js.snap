@@ -3,7 +3,7 @@
 exports[`SelectButton should render correctly 1`] = `
 <SelectButton
   isEqualWidth={false}
-  isSelected={false}
+  isInitiallySelected={false}
   onChange={[MockFunction]}
   value="button 1"
 >

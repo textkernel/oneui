@@ -11,7 +11,7 @@ describe('SelectButtonGroup', () => {
     beforeEach(() => {
         wrapper = mount(
             <SelectButtonGroup onChange={onChangeMock}>
-                <SelectButton value="button 1" isSelected key="1">
+                <SelectButton value="button 1" isInitiallySelected key="1">
                     Option 1
                 </SelectButton>
                 <SelectButton value="button 2" key="2">
