@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.1.0](https://github.com/textkernel/oneui/compare/9.0.2...9.1.0) (2020-01-15)
+
+
+### Bug Fixes
+
+* **SelectButtonGroup:** remove knob that doesn't work from story ([#219](https://github.com/textkernel/oneui/issues/219)) ([5e1e386](https://github.com/textkernel/oneui/commit/5e1e386))
+
+
+### Build System
+
+* **linting:** update prettier ([#217](https://github.com/textkernel/oneui/issues/217)) ([f848691](https://github.com/textkernel/oneui/commit/f848691))
+
+
+### Features
+
+* **SelectButtonGroup:** new components ([#213](https://github.com/textkernel/oneui/issues/213)) ([0367577](https://github.com/textkernel/oneui/commit/0367577))
+
+
+
 ### [9.0.2](https://github.com/textkernel/oneui/compare/9.0.1...9.0.2) (2020-01-13)
 
 
