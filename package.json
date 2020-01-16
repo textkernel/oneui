@@ -3,7 +3,7 @@
     "oneui": {
         "libraryName": "oneui"
     },
-    "version": "9.1.0",
+    "version": "9.2.0",
     "description": "Library of reusable React components with theming support",
     "main": "dist/oneui.min.js",
     "types": "dist/dts/src/index.d.ts",

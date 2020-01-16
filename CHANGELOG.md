@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.2.0](https://github.com/textkernel/oneui/compare/9.1.0...9.2.0) (2020-01-16)
+
+
+### Features
+
+* **SelectButtonGroup:** improve API ([#220](https://github.com/textkernel/oneui/issues/220)) ([691a474](https://github.com/textkernel/oneui/commit/691a474))
+
+
+
 ## [9.1.0](https://github.com/textkernel/oneui/compare/9.0.2...9.1.0) (2020-01-15)
 
 
