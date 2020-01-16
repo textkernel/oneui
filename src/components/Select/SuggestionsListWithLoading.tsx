@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import * as React from 'react';
 import bem from '../../utils/bem';
 import { ListItem } from '../List';
@@ -7,29 +6,33 @@ import SuggestionsList, { Props as SuggestionsListProps } from './SuggestionsLis
 import { NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS } from '../../constants';
 import styles from './SelectBase.scss';
 
-interface Props extends SuggestionsListProps {
+interface Props<S> extends SuggestionsListProps<S> {
     isLoading: boolean;
 }
 
 const { elem } = bem('SuggestionsListWithLoading', styles);
 
-// @ts-ignore
-const SuggestionsListWithLoading: React.FC<Props> = props => {
+function SuggestionsListWithLoading<S>(props: Props<S>) {
     const { isLoading } = props;
 
     if (isLoading) {
-        return new Array(NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS).fill('').map((el, i) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <ListItem key={i}>
-                <div {...elem('loaderContainer', props)}>
-                    <ContentPlaceholder />
-                </div>
-            </ListItem>
-        ));
+        // <> is needed because of https://github.com/DefinitelyTyped/DefinitelyTyped/issues/20356
+        return (
+            <>
+                {new Array(NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS).fill('').map((el, i) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <ListItem key={i}>
+                        <div {...elem('loaderContainer', props)}>
+                            <ContentPlaceholder />
+                        </div>
+                    </ListItem>
+                ))}
+            </>
+        );
     }
 
     return <SuggestionsList {...props} />;
-};
+}
 
 SuggestionsListWithLoading.displayName = 'SuggestionsListWithLoading';
 

@@ -7,11 +7,11 @@ import { ENTER_KEY } from '../../constants';
 import { Props as ListRendererProps } from './SuggestionsList';
 import styles from './SelectBase.scss';
 
-export interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props<S> extends React.HTMLAttributes<HTMLDivElement> {
     /** an array of objects that will be used to render the suggestions list. */
-    suggestions: object[];
+    suggestions: S[];
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
-    suggestionToString: (suggestions?: object | null) => string;
+    suggestionToString: (suggestions?: S | null) => string;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: string;
     /** to be shown as clear button title */
@@ -25,7 +25,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** onBlur() is called when the component is blurred */
     onBlur?: () => void;
     /** onSelectionChange() called when a suggestion is selected or removed */
-    onSelectionChange: (item: object) => void;
+    onSelectionChange: (item: S) => void;
     /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
     onInputValueChange: (value: string) => void;
     /** function to be called if FieldWrapper clear button is clicked */
@@ -35,24 +35,24 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** should this component stay focused after a selection made. Useful to implement multi-select components */
     keepExpandedAfterSelection?: boolean;
     /** will be called when list of suggestions should be rendered */
-    listRenderer: (props: ListRendererProps) => ReactNode;
+    listRenderer: (props: ListRendererProps<S>) => ReactNode;
     /** a function that renders the top part of the component when it is focused  */
     focusedRenderer: (helpers: {
-        getInputProps: (options: GetItemPropsOptions<object>) => object;
+        getInputProps: (options: GetItemPropsOptions<S>) => object;
         getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
         onBlur: () => void;
         inputValue: string;
     }) => ReactNode;
     /** a function that renders the top part of the component when it is blurred  */
     blurredRenderer: (helpers: {
-        getInputProps: (options: GetItemPropsOptions<object>) => object;
+        getInputProps: (options: GetItemPropsOptions<S>) => object;
         getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
     }) => ReactNode;
 }
 
 const { block, elem } = bem('SelectBase', styles);
 
-const SelectBase: React.FC<Props> = props => {
+function SelectBase<S>(props: Props<S>) {
     const {
         suggestions,
         suggestionToString,
@@ -256,7 +256,7 @@ const SelectBase: React.FC<Props> = props => {
             </Downshift>
         </div>
     );
-};
+}
 
 SelectBase.defaultProps = {
     showClearButton: false,

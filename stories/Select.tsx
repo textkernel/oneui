@@ -8,6 +8,8 @@ import {
     SUGGESTION_TO_STRING,
 } from '../src/components/Autosuggest/__mocks__/suggestions';
 
+type TSuggestion = { name: string };
+
 storiesOf('Organisms|Select', module)
     .addDecorator(withKnobs)
     .addParameters(
@@ -19,18 +21,18 @@ storiesOf('Organisms|Select', module)
     )
     .add('Simple select', ({ parameters }) => {
         const store = parameters.getStore();
-        const getSuggestions = () => {
+        const getSuggestions = (): TSuggestion[] => {
             return SUGGESTIONS.filter(item =>
                 item.name.toLocaleLowerCase().includes(store.get('inputValue').toLocaleLowerCase())
             );
         };
 
-        const onInputValueChange = value => {
+        const onInputValueChange = (value: string) => {
             console.log(`onInputValueChange was called with ${value}`);
             store.set({ inputValue: value });
         };
 
-        const onSelectionChange = item => {
+        const onSelectionChange = (item: TSuggestion) => {
             console.log(`onSelectionChange was called with {name: ${item?.name}}`);
             if (store.get('selectedSuggestion')?.name === item.name) {
                 store.set({ selectedSuggestion: null });
@@ -50,7 +52,7 @@ storiesOf('Organisms|Select', module)
         };
 
         return (
-            <SimpleSelect
+            <SimpleSelect<TSuggestion>
                 style={{ width: '650px' }}
                 selectedSuggestion={store.get('selectedSuggestion')}
                 inputPlaceholder={text('Input placeholder', 'Select something...')}
@@ -67,7 +69,7 @@ storiesOf('Organisms|Select', module)
     })
     .add('Autosuggest multi select', ({ parameters }) => {
         const store = parameters.getStore();
-        const getSuggestions = () => {
+        const getSuggestions = (): TSuggestion[] => {
             if (!store.get('inputValue').length) return [];
             return SUGGESTIONS.filter(
                 item => !store.get('selectedSuggestions').includes(item)
@@ -76,12 +78,12 @@ storiesOf('Organisms|Select', module)
             );
         };
 
-        const onInputValueChange = value => {
+        const onInputValueChange = (value: string) => {
             console.log(`onInputValueChange was called with ${value}`);
             store.set({ inputValue: value });
         };
 
-        const getSelectedPlaceholder = () => {
+        const getSelectedPlaceholder = (): string => {
             const numOfItems = store.get('selectedSuggestions').length;
             if (!numOfItems) {
                 return '';
@@ -95,7 +97,7 @@ storiesOf('Organisms|Select', module)
                 1} more`;
         };
 
-        const onSelectionChange = item => {
+        const onSelectionChange = (item: TSuggestion) => {
             console.log(`onSelectionChange was called with {name: ${item.name}}`);
             if (store.get('selectedSuggestions').includes(item)) {
                 const newSelection = store
@@ -118,7 +120,7 @@ storiesOf('Organisms|Select', module)
         };
 
         return (
-            <AutosuggestMulti
+            <AutosuggestMulti<TSuggestion>
                 style={{ width: '650px' }}
                 selectedSuggestions={
                     boolean('Add selectedSuggestions', true)

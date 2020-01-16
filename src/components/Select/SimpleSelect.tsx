@@ -7,18 +7,18 @@ import SuggestionsList from './SuggestionsList';
 import styles from './SimpleSelect.scss';
 import { ESCAPE_KEY, TAB_KEY } from '../../constants';
 
-interface Props
+interface Props<S>
     extends Omit<
-        Omit<Omit<SelectBaseProps, 'listRenderer'>, 'focusedRenderer'>,
+        Omit<Omit<SelectBaseProps<S>, 'listRenderer'>, 'focusedRenderer'>,
         'blurredRenderer'
     > {
-    selectedSuggestion?: object | null;
+    selectedSuggestion?: S | null;
     inputPlaceholder: string;
 }
 
 const { elem } = bem('SimpleSelect', styles);
 
-const SimpleSelect: React.FC<Props> = props => {
+function SimpleSelect<S>(props: Props<S>) {
     const {
         onSelectionChange,
         inputRef: inputRefFromProps,
@@ -118,7 +118,7 @@ const SimpleSelect: React.FC<Props> = props => {
             blurredRenderer={renderBlurred}
         />
     );
-};
+}
 
 SimpleSelect.defaultProps = {
     showClearButton: false,

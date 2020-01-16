@@ -7,21 +7,21 @@ import SuggestionsListWithLoading from './SuggestionsListWithLoading';
 import styles from './SelectBase.scss';
 import { BACKSPACE_KEY, ESCAPE_KEY, TAB_KEY } from '../../constants';
 
-interface Props
+interface Props<S>
     extends Omit<
-        Omit<Omit<SelectBaseProps, 'listRenderer'>, 'focusedRenderer'>,
+        Omit<Omit<SelectBaseProps<S>, 'listRenderer'>, 'focusedRenderer'>,
         'blurredRenderer'
     > {
     isLoading: boolean;
     selectedPlaceholder: string;
-    selectedSuggestions: object[];
+    selectedSuggestions: S[];
     isProminent?: boolean;
     inputPlaceholder: string;
 }
 
 const { elem } = bem('SelectBase', styles);
 
-const AutosuggestMulti: React.FC<Props> = props => {
+function AutosuggestMulti<S>(props: Props<S>) {
     const {
         onSelectionChange,
         inputRef: inputRefFromProps,
@@ -133,7 +133,7 @@ const AutosuggestMulti: React.FC<Props> = props => {
             blurredRenderer={renderBlurred}
         />
     );
-};
+}
 
 AutosuggestMulti.defaultProps = {
     isLoading: false,
