@@ -6,7 +6,7 @@ import { SelectButtonGroup, SelectButton } from '@textkernel/oneui';
 storiesOf('Atoms|SelectButtonGroup', module)
     .addDecorator(withKnobs)
     .add('SelectButtonGroup', () => (
-        <SelectButtonGroup
+        <SelectButtonGroup<string>
             isMultiselect={boolean('Multiselect group', false)}
             isRequired={boolean('Require to have at least 1 selected option', false)}
             isBlock={boolean('Display as block', false)}
@@ -19,7 +19,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
                 console.log(msg);
             }}
         >
-            <SelectButton
+            <SelectButton<string>
                 value="button 1"
                 key="button 1"
                 isInitiallySelected
@@ -30,7 +30,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
             >
                 {text('Option label 1', 'Option 1')}
             </SelectButton>
-            <SelectButton
+            <SelectButton<string>
                 key="button 2"
                 value="button 2"
                 selectedContext={
@@ -40,7 +40,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
             >
                 {text('Option label 2', 'Option 2')}
             </SelectButton>
-            <SelectButton
+            <SelectButton<string>
                 key="button 3"
                 value="button 3"
                 selectedContext={

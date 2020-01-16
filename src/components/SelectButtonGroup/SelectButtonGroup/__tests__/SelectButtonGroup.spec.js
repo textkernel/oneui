@@ -1,6 +1,6 @@
 import * as React from 'react';
 import toJson from 'enzyme-to-json';
-import SelectButtonGroup from '../SelectButtonGroup';
+import { SelectButtonGroup } from '../SelectButtonGroup';
 import { SelectButton } from '../../SelectButton';
 
 describe('SelectButtonGroup', () => {
@@ -46,6 +46,21 @@ describe('SelectButtonGroup', () => {
             expect(getButton(1).prop('isSelected')).toBeTruthy();
             expect(getButton(2).prop('isSelected')).toBeFalsy();
         });
+        it('should allow empty selection if field is not required', () => {
+            getButton(0).simulate('click');
+
+            expect(getButton(0).prop('isSelected')).toBeFalsy();
+            expect(getButton(1).prop('isSelected')).toBeFalsy();
+            expect(getButton(2).prop('isSelected')).toBeFalsy();
+        });
+        it('should not allow empty selection if field is required', () => {
+            wrapper.setProps({ isRequired: true });
+            getButton(0).simulate('click');
+
+            expect(getButton(0).prop('isSelected')).toBeTruthy();
+            expect(getButton(1).prop('isSelected')).toBeFalsy();
+            expect(getButton(2).prop('isSelected')).toBeFalsy();
+        });
         it('should call onChange with correct parameters', () => {
             getButton(1).simulate('click');
             expect(onChangeMock).toHaveBeenLastCalledWith([getButton(1).prop('value')]);
@@ -54,7 +69,7 @@ describe('SelectButtonGroup', () => {
             expect(onChangeMock).toHaveBeenLastCalledWith([getButton(0).prop('value')]);
 
             getButton(0).simulate('click');
-            expect(onChangeMock).toHaveBeenLastCalledWith([getButton(0).prop('value')]);
+            expect(onChangeMock).toHaveBeenLastCalledWith([]);
         });
     });
     describe('Multi select mode', () => {

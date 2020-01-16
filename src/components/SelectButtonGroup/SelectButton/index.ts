@@ -1,2 +1,1 @@
-export { SelectButton } from './SelectButton';
-export { Props as SelectButtonProps } from './SelectButton';
+export { SelectButton, Props as SelectButtonProps } from './SelectButton';
