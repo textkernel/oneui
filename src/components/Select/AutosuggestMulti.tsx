@@ -137,7 +137,6 @@ const AutosuggestMulti: React.FC<Props> = props => {
 
 AutosuggestMulti.defaultProps = {
     isLoading: false,
-    isInitiallyFocused: false,
     showClearButton: false,
     selectedPlaceholder: '',
     isProminent: false,

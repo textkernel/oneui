@@ -12,8 +12,6 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     suggestions: object[];
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestions?: object | null) => string;
-    /** trigger of the initial focus of the input field */
-    isInitiallyFocused?: boolean;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: string;
     /** to be shown as clear button title */
@@ -58,7 +56,6 @@ const SelectBase: React.FC<Props> = props => {
     const {
         suggestions,
         suggestionToString,
-        isInitiallyFocused,
         clearTitle,
         showClearButton,
         noSuggestionsPlaceholder,
@@ -88,7 +85,7 @@ const SelectBase: React.FC<Props> = props => {
 
     const [inputValue, setInputValue] = React.useState('');
     const [inputValueRecall, setInputValueRecall] = React.useState('');
-    const [focused, setFocused] = React.useState(isInitiallyFocused);
+    const [focused, setFocused] = React.useState(false);
 
     // focus input field if component is focused
     React.useEffect(() => {
@@ -262,7 +259,6 @@ const SelectBase: React.FC<Props> = props => {
 };
 
 SelectBase.defaultProps = {
-    isInitiallyFocused: false,
     showClearButton: false,
     keepExpandedAfterSelection: false,
     clearTitle: '',

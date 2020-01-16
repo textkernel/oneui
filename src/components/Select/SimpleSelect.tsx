@@ -121,7 +121,6 @@ const SimpleSelect: React.FC<Props> = props => {
 };
 
 SimpleSelect.defaultProps = {
-    isInitiallyFocused: false,
     showClearButton: false,
 };
 
