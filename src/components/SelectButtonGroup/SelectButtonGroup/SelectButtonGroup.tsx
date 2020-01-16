@@ -53,7 +53,11 @@ export function SelectButtonGroup<V>(props: Props<V>) {
 
     const handleSelectionChangeForValue = (value: V) => {
         if (!isMultiselect) {
-            setSelectedValues([value]);
+            if (isRequired || selectedValues[0] !== value) {
+                setSelectedValues([value]);
+            } else {
+                setSelectedValues([]);
+            }
         } else if (selectedValues.includes(value)) {
             if (!(isRequired && selectedValues.length === 1)) {
                 setSelectedValues(selectedValues.filter(v => v !== value));
