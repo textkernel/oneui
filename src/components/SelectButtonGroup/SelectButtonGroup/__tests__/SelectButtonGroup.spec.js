@@ -1,6 +1,6 @@
 import * as React from 'react';
 import toJson from 'enzyme-to-json';
-import SelectButtonGroup from '../SelectButtonGroup';
+import { SelectButtonGroup } from '../SelectButtonGroup';
 import { SelectButton } from '../../SelectButton';
 
 describe('SelectButtonGroup', () => {

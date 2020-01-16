@@ -1,2 +1,2 @@
 export { SelectButton } from './SelectButton';
-export { default as SelectButtonGroup } from './SelectButtonGroup';
+export { SelectButtonGroup } from './SelectButtonGroup';
