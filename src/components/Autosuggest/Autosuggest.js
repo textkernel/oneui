@@ -73,17 +73,22 @@ class Autosuggest extends React.Component {
         }
     }
 
-    handleChange = selectedItem => {
+    handleChange = (selectedItem, downshift) => {
         const { onSelectionChange, isMultiselect } = this.props;
+        const { clearSelection, openMenu } = downshift;
 
         this.setState({ inputValue: '' });
+        clearSelection();
 
         if (selectedItem) {
             onSelectionChange(selectedItem);
         }
 
         if (!isMultiselect) {
+            this.inputRef.current.blur();
             this.handleBlur();
+        } else {
+            openMenu();
         }
     };
 
