@@ -278,6 +278,29 @@ describe('Autosuggest', () => {
 
                 expect(mockOnSelectionChange).toHaveBeenCalled();
             });
+            it('should be called also when clicking on a suggestion the second time in a row', () => {
+                suggestionsList = SUGGESTIONS.slice(1, 20);
+                setFocusOnInput();
+
+                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+
+                wrapper
+                    .find('li')
+                    .first()
+                    .children()
+                    .simulate('click');
+
+                expect(mockOnSelectionChange).toHaveBeenCalledTimes(1);
+
+                setFocusOnInput();
+                wrapper
+                    .find('li')
+                    .first()
+                    .children()
+                    .simulate('click');
+
+                expect(mockOnSelectionChange).toHaveBeenCalledTimes(2);
+            });
             it('should be called on deleting a suggestion by clicking on the x button next to it', () => {
                 selectedSuggestions = SUGGESTIONS.slice(0, 5);
                 wrapper.setProps({ selectedSuggestions });
