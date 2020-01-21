@@ -1,13 +1,29 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import bem from '../../../utils/bem';
 import { Text } from '../../Text';
-import { CONTEXTS } from '../../../constants';
+import { Context } from '../../../constants';
 import styles from './ListItem.scss';
+
+interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
+    /** List Items */
+    children?: ReactNode;
+    /** A function to be called if the item is clicked */
+    onClick?: (e: React.SyntheticEvent<HTMLDivElement>) => void;
+    /** Formats this item as selected  */
+    isSelected?: boolean;
+    /** Formats this item as selected  */
+    isHighlighted?: boolean;
+    /** Format this item as disabled */
+    disabled?: boolean;
+    /** formatting context when hovered or selected */
+    highlightContext?: Context | 'default';
+    /** Ref to access the li element */
+    ref?: React.RefObject<HTMLLIElement>;
+}
 
 const { block, elem } = bem('ListItem', styles);
 
-const ListItem = React.forwardRef((props, ref) => {
+const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
     const {
         children,
         isSelected,
@@ -32,24 +48,7 @@ const ListItem = React.forwardRef((props, ref) => {
 
 ListItem.displayName = 'ListItem';
 
-ListItem.propTypes = {
-    /** List Items */
-    children: PropTypes.node,
-    /** A function to be called if the item is clicked */
-    onClick: PropTypes.func,
-    /** Formats this item as selected  */
-    isSelected: PropTypes.bool,
-    /** Formats this item as selected  */
-    isHighlighted: PropTypes.bool,
-    /** Format this item as disabled */
-    disabled: PropTypes.bool,
-    /** formatting context when hovered or selected */
-    highlightContext: PropTypes.oneOf([...CONTEXTS, 'default']),
-};
-
 ListItem.defaultProps = {
-    children: null,
-    onClick: null,
     isSelected: false,
     isHighlighted: false,
     disabled: false,

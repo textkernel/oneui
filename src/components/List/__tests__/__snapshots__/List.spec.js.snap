@@ -18,14 +18,12 @@ exports[`List component Initial rendering should render List correctly 1`] = `
       isHighlighted={false}
       isSelected={false}
       key=".0"
-      onClick={null}
     >
       <li
         className="ListItem List__item"
       >
         <div
           className="ListItem__container"
-          onClick={null}
           role="presentation"
         >
           <Text
@@ -48,14 +46,12 @@ exports[`List component Initial rendering should render List correctly 1`] = `
       isHighlighted={false}
       isSelected={false}
       key=".1"
-      onClick={null}
     >
       <li
         className="ListItem List__item"
       >
         <div
           className="ListItem__container"
-          onClick={null}
           role="presentation"
         >
           <Text
@@ -91,14 +87,12 @@ exports[`List component Initial rendering should render List correctly without k
       isHighlighted={false}
       isSelected={false}
       key=".0"
-      onClick={null}
     >
       <li
         className="ListItem List__item"
       >
         <div
           className="ListItem__container"
-          onClick={null}
           role="presentation"
         >
           <Text
@@ -121,14 +115,12 @@ exports[`List component Initial rendering should render List correctly without k
       isHighlighted={false}
       isSelected={false}
       key=".1"
-      onClick={null}
     >
       <li
         className="ListItem List__item"
       >
         <div
           className="ListItem__container"
-          onClick={null}
           role="presentation"
         >
           <Text
