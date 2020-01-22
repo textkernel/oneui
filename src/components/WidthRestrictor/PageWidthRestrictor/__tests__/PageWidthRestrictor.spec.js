@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import PageWidthRestrictor from '../PageWidthRestrictor';
+import { PageWidthRestrictor } from '../PageWidthRestrictor';
 
 describe('PageWidthRestrictor', () => {
     it('should render correctly', () => {

@@ -1,1 +1,1 @@
-export { default } from './LogoTextkernel';
+export { LogoTextkernel } from './LogoTextkernel';

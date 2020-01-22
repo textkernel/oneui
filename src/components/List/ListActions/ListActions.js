@@ -1,11 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils/bem';
 import styles from './ListActions.scss';
 
 const { block } = bem('ListActions', styles);
 
-const ListActions = props => {
+export const ListActions = props => {
     const { children, ...rest } = props;
 
     return (
@@ -25,5 +25,3 @@ ListActions.propTypes = {
 ListActions.defaultProps = {
     children: null,
 };
-
-export default ListActions;

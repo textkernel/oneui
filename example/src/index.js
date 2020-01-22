@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import OneUI from '@textkernel/oneui';
+import { OneUI } from '@textkernel/oneui';
 import '@textkernel/oneui/dist/oneui.min.css';
 
 const renderApplication = () => ReactDOM.render(<App />, document.getElementById('root'));

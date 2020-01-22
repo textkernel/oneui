@@ -1,12 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils/bem';
 import { Button } from '../../Buttons';
 import styles from './PillDropdown.scss';
 
 const { block, elem } = bem('PillDropdown', styles);
 
-const PillDropdown = React.forwardRef((props, ref) => {
+export const PillDropdown = React.forwardRef((props, ref) => {
     const { close, doneLabel, noPadding, children, ...rest } = props;
 
     const handleDoneClick = () => {
@@ -49,5 +49,3 @@ PillDropdown.defaultProps = {
     close: null,
     noPadding: false,
 };
-
-export default PillDropdown;

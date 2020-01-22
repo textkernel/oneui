@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import MarkedText from '../MarkedText';
+import { MarkedText } from '../MarkedText';
 
 describe('<MarkedText> that renders a text block while marking matched substrings', () => {
     it('should render correctly when there are no matches', () => {

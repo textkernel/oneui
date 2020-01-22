@@ -1,12 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils/bem';
 import styles from './PaginationButton.scss';
 import { Button } from '../../Buttons';
 
 const { block } = bem('PaginationButton', styles);
 
-const PaginationButton = props => {
+export const PaginationButton = props => {
     const { children, isActive, ...rest } = props;
 
     return (
@@ -26,5 +26,3 @@ PaginationButton.propTypes = {
 PaginationButton.defaultProps = {
     isActive: false,
 };
-
-export default PaginationButton;

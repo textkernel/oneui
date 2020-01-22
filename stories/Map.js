@@ -2,7 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs';
 import { MapWithGoogleLoader } from '@textkernel/oneui';
-import ensureApiKey from './utils/ensureApiKey';
+import { ensureApiKey } from './utils/ensureApiKey';
 
 storiesOf('Atoms|Map', module)
     .addDecorator(withKnobs)

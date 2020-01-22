@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Drawer from '../Drawer';
+import { Drawer } from '../Drawer';
 
 jest.mock('react-transition-group', () => {
     const FakeTransition = jest.fn(({ children }) => children({ state: 'entered' }));

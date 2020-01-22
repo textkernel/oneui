@@ -335,6 +335,6 @@ export const google = {
     },
 };
 
-export default () => {
+export const stabGoogleApi = () => {
     global.window.google = google;
 };

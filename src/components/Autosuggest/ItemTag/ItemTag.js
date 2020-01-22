@@ -1,12 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils/bem';
 import styles from './ItemTag.scss';
 import { CROSS_CHAR } from '../../../constants';
 
 const { block, elem } = bem('ItemTag', styles);
 
-const ItemTag = props => {
+export const ItemTag = props => {
     const { children, onClick, ...rest } = props;
 
     return (
@@ -33,5 +33,3 @@ ItemTag.defaultProps = {
 };
 
 ItemTag.displayName = 'ItemTag';
-
-export default ItemTag;

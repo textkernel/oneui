@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import styles from './Link.scss';
 
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -9,7 +9,7 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 
 const { block } = bem('Link', styles);
 
-const Link: React.FC<Props> = props => {
+export const Link: React.FC<Props> = props => {
     const { children, ...rest } = props;
     return (
         <a {...rest} {...block(props)}>
@@ -19,5 +19,3 @@ const Link: React.FC<Props> = props => {
 };
 
 Link.displayName = 'Link';
-
-export default Link;

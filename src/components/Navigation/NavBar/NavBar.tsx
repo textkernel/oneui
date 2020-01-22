@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils/bem';
 import { BlockWidthRestrictor } from '../../WidthRestrictor';
 import styles from './NavBar.scss';
 
@@ -10,7 +10,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('NavBar', styles);
 
-const NavBar: React.FC<Props> = props => {
+export const NavBar: React.FC<Props> = props => {
     const { children, ...rest } = props;
 
     return (
@@ -23,5 +23,3 @@ const NavBar: React.FC<Props> = props => {
 };
 
 NavBar.displayName = 'NavBar';
-
-export default NavBar;

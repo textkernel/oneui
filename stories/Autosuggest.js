@@ -2,11 +2,13 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
 import { Autosuggest, IconMatch } from '@textkernel/oneui';
-import withStore from '../src/packages/storybook/withStore';
+import { StoreInjector } from '../src/packages/storybook/withStore';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
 } from '../src/components/Autosuggest/__mocks__/suggestions';
+
+const { withStore } = StoreInjector;
 
 storiesOf('Organisms|Autosuggest', module)
     .addDecorator(withKnobs)

@@ -1,7 +1,7 @@
 import { create } from '@storybook/theming';
 import brandImage from './textkernel.svg';
 
-export default create({
+export const OneUITheme = create({
     base: 'light',
 
     // Branding

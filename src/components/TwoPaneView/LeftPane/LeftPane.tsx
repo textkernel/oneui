@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils/bem';
 import styles from './LeftPane.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -11,7 +11,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block } = bem('LeftPane', styles);
 
-const LeftPane: React.FC<Props> = React.forwardRef(
+export const LeftPane: React.FC<Props> = React.forwardRef(
     (props, ref): React.ReactElement => {
         const { children, ...rest } = props;
 
@@ -24,5 +24,3 @@ const LeftPane: React.FC<Props> = React.forwardRef(
 );
 
 LeftPane.displayName = 'LeftPane';
-
-export default LeftPane;

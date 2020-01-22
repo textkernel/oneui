@@ -1,17 +1,17 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import { Text } from '../Text';
-import Modal from '../Modal';
-import FieldWrapper from '../FieldWrapper';
-import LocationSelectorDialogWithGoogleLoader from './LocationSelectorDialogWithGoogleLoader';
+import { Modal } from '../Modal';
+import { FieldWrapper } from '../FieldWrapper';
+import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
 import { findCenter, getRadiusInMeters } from './utils';
 import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
 
-function LocationSelector(props) {
+export function LocationSelector(props) {
     const {
         /** Google props */
         apiKey,
@@ -247,5 +247,3 @@ LocationSelector.defaultProps = {
     placeTypes: ['(regions)'],
     onLocationAutocompleteError: () => null,
 };
-
-export default LocationSelector;

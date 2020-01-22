@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Header.scss';
 
@@ -21,7 +21,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('Header', styles);
 
-const Header: React.FC<Props> = props => {
+export const Header: React.FC<Props> = props => {
     const { logo, children, ...rest } = props;
 
     let renderedLogo: unknown = null;
@@ -51,5 +51,3 @@ const Header: React.FC<Props> = props => {
 };
 
 Header.displayName = 'Header';
-
-export default Header;

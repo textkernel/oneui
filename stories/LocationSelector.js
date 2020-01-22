@@ -2,8 +2,8 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { number, text, select, boolean, withKnobs } from '@storybook/addon-knobs';
 import { LocationSelector } from '@textkernel/oneui';
-import ensureApiKey from './utils/ensureApiKey';
-import withStore from '../src/packages/storybook/withStore';
+import { ensureApiKey } from './utils/ensureApiKey';
+import { StoreInjector } from '../src/packages/storybook/withStore';
 
 const selectedLocations = [
     {
@@ -31,7 +31,7 @@ const selectedLocations = [
 storiesOf('Organisms|LocationSelector', module)
     .addDecorator(withKnobs)
     .addParameters(
-        withStore({
+        StoreInjector.withStore({
             selectedLocations: [],
             radiusUnits: 'km',
         })

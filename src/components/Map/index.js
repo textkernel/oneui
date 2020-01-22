@@ -1,2 +1,2 @@
-export { default as MapWithGoogleLoader } from './MapWithGoogleLoader/MapWithGoogleLoader';
-export { default as Map } from './Map/Map';
+export { MapWithGoogleLoader } from './MapWithGoogleLoader/MapWithGoogleLoader';
+export { Map } from './Map/Map';

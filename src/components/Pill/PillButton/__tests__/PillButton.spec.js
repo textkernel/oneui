@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import PillButton from '../PillButton';
+import { PillButton } from '../PillButton';
 import { ENTER_KEY } from '../../../../constants';
 
 describe('<PillButton> component', () => {

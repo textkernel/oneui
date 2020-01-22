@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import styles from './CandidateAvatar.scss';
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 
 const { block, elem } = bem('CandidateAvatar', styles);
 
-const CandidateAvatar: React.FC<Props> = props => {
+export const CandidateAvatar: React.FC<Props> = props => {
     const getContext = (percentage: number): 'bad' | 'warning' | 'good' => {
         if (percentage <= 33) {
             return 'bad';
@@ -100,5 +100,3 @@ CandidateAvatar.defaultProps = {
     showPercentageOnHover: false,
     size: 72,
 };
-
-export default CandidateAvatar;

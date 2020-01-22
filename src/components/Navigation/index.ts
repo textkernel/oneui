@@ -1,2 +1,2 @@
-export { default as NavBar } from './NavBar/NavBar';
-export { default as NavItem } from './NavItem/NavItem';
+export { NavBar } from './NavBar/NavBar';
+export { NavItem } from './NavItem/NavItem';

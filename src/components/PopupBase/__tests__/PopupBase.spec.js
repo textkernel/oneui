@@ -3,8 +3,8 @@ import React from 'react';
 import toJson from 'enzyme-to-json';
 import { Button } from '../../..';
 import { ESCAPE_KEY } from '../../../constants';
-import PopupBase from '../PopupBase';
-import PopoverDummy from '../__mocks__/PopoverDummy';
+import { PopupBase } from '../PopupBase';
+import { PopoverDummy } from '../__mocks__/PopoverDummy';
 
 describe('<PopupBase> that adds basic anchor/popup functionality to rendered components', () => {
     const anchorRendererMock = ({ setPopupVisibility, isOpen }) => (

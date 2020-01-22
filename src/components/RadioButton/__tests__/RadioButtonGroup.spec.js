@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import RadioButton from '../RadioButton';
-import RadioButtonGroup from '../RadioButtonGroup';
+import { RadioButton } from '../RadioButton';
+import { RadioButtonGroup } from '../RadioButtonGroup';
 
 describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
     let wrapper;

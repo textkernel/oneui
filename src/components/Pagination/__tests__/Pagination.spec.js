@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Pagination from '../Pagination';
+import { Pagination } from '../Pagination';
 
 describe('<Pagination> that renders a pagination component', () => {
     const CURRENT_PAGE = 6;

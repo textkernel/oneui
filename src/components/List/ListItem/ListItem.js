@@ -1,13 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils/bem';
 import { Text } from '../../Text';
 import { CONTEXTS } from '../../../constants';
 import styles from './ListItem.scss';
 
 const { block, elem } = bem('ListItem', styles);
 
-const ListItem = React.forwardRef((props, ref) => {
+export const ListItem = React.forwardRef((props, ref) => {
     const {
         children,
         isSelected,
@@ -55,5 +55,3 @@ ListItem.defaultProps = {
     disabled: false,
     highlightContext: 'default',
 };
-
-export default ListItem;

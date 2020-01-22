@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Link from '../Link';
+import { Link } from '../Link';
 
 describe('<Link> that renders a link', () => {
     it('should render default link correctly', () => {

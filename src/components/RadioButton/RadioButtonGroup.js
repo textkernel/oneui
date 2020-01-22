@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import styles from './RadioButtonGroup.scss';
 
 const { block, elem } = bem('RadioButtonGroup', styles);
 
-const RadioButtonGroup = forwardRef((props, ref) => {
+export const RadioButtonGroup = forwardRef((props, ref) => {
     const { children, name, onChange, ...rest } = props;
 
     const childProps = { name };
@@ -45,5 +45,3 @@ RadioButtonGroup.propTypes = {
 RadioButtonGroup.defaultProps = {
     onChange: null,
 };
-
-export default RadioButtonGroup;

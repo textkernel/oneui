@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils/bem';
 import { ENTER_KEY } from '../../../constants';
 import styles from './TabItem.scss';
 
@@ -20,7 +20,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSel
 
 const { block } = bem('TabItem', styles);
 
-const TabItem: React.FC<Props> = props => {
+export const TabItem: React.FC<Props> = props => {
     const { tabId, isActive, onSelect, disabled, isBlock, children, ...rest } = props;
     const handleClick = () => {
         if (!isActive && !disabled && onSelect) {
@@ -56,5 +56,3 @@ TabItem.defaultProps = {
     isBlock: false,
     disabled: false,
 };
-
-export default TabItem;

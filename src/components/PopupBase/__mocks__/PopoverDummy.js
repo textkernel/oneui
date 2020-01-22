@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from '../../..';
 
-const PopoverDummy = React.forwardRef((props, ref) => {
+export const PopoverDummy = React.forwardRef((props, ref) => {
     const { setPopupVisibility } = props;
     const popupStyle = {
         backgroundColor: '#FFEEDD',
@@ -25,5 +25,3 @@ PopoverDummy.propTypes = {
 };
 
 PopoverDummy.displayName = 'Popover';
-
-export default PopoverDummy;

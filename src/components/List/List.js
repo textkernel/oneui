@@ -1,10 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../utils/bem';
-import ListItem from './ListItem';
-import styles from './List.scss';
+import { bem } from '../../utils/bem';
+import { ListItem } from './ListItem';
 import { LIST_NAVIGATION_DIRECTIONS, ENTER_KEY } from '../../constants';
-import scrollIntoViewIfNeeded from '../../utils/scrollIntoViewIfNeeded';
+import { scrollIntoViewIfNeeded } from '../../utils/scrollIntoViewIfNeeded';
+import styles from './List.scss';
 
 const { block, elem } = bem('List', styles);
 
@@ -17,7 +17,7 @@ const NAVIGATION_STEP_VALUES = {
 export const NOT_LIST_CHILD = 'data-list-exception';
 export const LIST_CHILD = 'data-list-child';
 
-const List = React.forwardRef((props, ref) => {
+export const List = React.forwardRef((props, ref) => {
     const { children, isDivided, doSelectOnNavigate, isControlledNavigation, ...rest } = props;
 
     const [selectedIndex, setSelectedIndex] = React.useState(null);
@@ -166,5 +166,3 @@ List.defaultProps = {
     doSelectOnNavigate: false,
     isControlledNavigation: false,
 };
-
-export default List;

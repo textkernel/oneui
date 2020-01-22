@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { MdClose } from 'react-icons/md';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import { Context } from '../../constants';
 import styles from './Callout.scss';
 
@@ -15,7 +15,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('Callout', styles);
 
-const Callout: React.FC<Props> = props => {
+export const Callout: React.FC<Props> = props => {
     const { onRequestClose, children, context, ...rest } = props;
     return (
         <div {...rest} {...block(props)}>
@@ -34,5 +34,3 @@ Callout.defaultProps = {
 };
 
 Callout.displayName = 'Callout';
-
-export default Callout;

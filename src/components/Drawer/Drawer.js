@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import { IoIosArrowUp } from 'react-icons/io';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import { ENTER_KEY } from '../../constants';
 import styles from './Drawer.scss';
 
@@ -14,7 +14,7 @@ const TRANSITION_DURATION = {
 
 const { block, elem } = bem('Drawer', styles);
 
-const Drawer = props => {
+export const Drawer = props => {
     const {
         title,
         isShown,
@@ -126,5 +126,3 @@ Drawer.defaultProps = {
 };
 
 Drawer.displayName = 'Drawer';
-
-export default Drawer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import ListItem from '../ListItem';
-import List, { NOT_LIST_CHILD, LIST_CHILD } from '../List';
+import { ListItem } from '../ListItem';
+import { List, NOT_LIST_CHILD, LIST_CHILD } from '../List';
 
 describe('List component', () => {
     let consoleError;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils/bem';
 import styles from './BlockWidthRestrictor.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLElement> {
@@ -13,7 +13,7 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block } = bem('BlockWidthRestrictor', styles);
 
-const BlockWidthRestrictor: React.FC<Props> = React.forwardRef((props, ref) => {
+export const BlockWidthRestrictor: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, As = 'div', ...rest } = props;
 
     return (
@@ -28,5 +28,3 @@ BlockWidthRestrictor.displayName = 'BlockWidthRestrictor';
 BlockWidthRestrictor.defaultProps = {
     As: 'div',
 };
-
-export default BlockWidthRestrictor;

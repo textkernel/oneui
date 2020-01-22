@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import RCSlider from 'rc-slider/lib/Slider';
 import './Slider.scss';
 
-const Slider = React.forwardRef((props, ref) => <RCSlider {...props} ref={ref} />);
+export const Slider = React.forwardRef((props, ref) => <RCSlider {...props} ref={ref} />);
 
 Slider.displayName = 'Slider';
 
@@ -27,5 +27,3 @@ Slider.defaultProps = {
     max: 100,
     step: 1,
 };
-
-export default Slider;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import styles from './ButtonGroup.scss';
 import { Context, Size } from '../../constants';
 import { ButtonProps } from '../Buttons';
@@ -17,7 +17,7 @@ interface Props {
 
 const { block, elem } = bem('ButtonGroup', styles);
 
-const ButtonGroup: React.FC<Props> = props => {
+export const ButtonGroup: React.FC<Props> = props => {
     const { children, context, size, isBlock, ...rest } = props;
 
     return (
@@ -45,5 +45,3 @@ ButtonGroup.defaultProps = {
     size: 'normal',
     isBlock: false,
 };
-
-export default ButtonGroup;

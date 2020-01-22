@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import { Text } from '../Text';
 import styles from './LoadingSpinner.scss';
 import { Context } from '../../constants';
@@ -19,7 +19,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('LoadingSpinner', styles);
 
-const LoadingSpinner: React.FC<Props> = props => {
+export const LoadingSpinner: React.FC<Props> = props => {
     const { centerIn, children, context, hidden, size, ...rest } = props;
 
     return (
@@ -61,5 +61,3 @@ LoadingSpinner.defaultProps = {
     context: 'brand',
     hidden: false,
 };
-
-export default LoadingSpinner;

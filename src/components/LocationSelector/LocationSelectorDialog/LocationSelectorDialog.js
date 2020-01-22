@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../../utils/bem';
-import LocationCard from '../../LocationCard';
+import { bem } from '../../../utils/bem';
+import { LocationCard } from '../../LocationCard';
 import { Button } from '../../Buttons';
 import { LocationAutocomplete } from '../../LocationAutocomplete';
 import { Map } from '../../Map';
@@ -9,7 +9,7 @@ import styles from './LocationSelectorDialog.scss';
 
 const { elem } = bem('LocationSelectorDialog', styles);
 
-const LocationSelectorDialog = props => {
+export const LocationSelectorDialog = props => {
     const locationInputRef = React.createRef();
 
     const {
@@ -164,5 +164,3 @@ LocationSelectorDialog.defaultProps = {
     onCloseModal: () => null,
     initialMapAddress: null,
 };
-
-export default LocationSelectorDialog;

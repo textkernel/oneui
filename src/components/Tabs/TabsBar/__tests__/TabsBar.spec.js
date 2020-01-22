@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import TabsBar from '../TabsBar';
+import { TabsBar } from '../TabsBar';
 import { TabItem } from '../../TabItem';
 
 describe('<TabsBar>', () => {

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import { Button } from '../Buttons';
 import styles from './Alert.scss';
 import { CONTEXTS } from '../../constants';
 
 const { block, elem } = bem('Alert', styles);
 
-const Alert = props => {
+export const Alert = props => {
     const { action, children, context, title, ...rest } = props;
 
     return (
@@ -49,5 +49,3 @@ Alert.defaultProps = {
     context: 'brand',
     title: null,
 };
-
-export default Alert;

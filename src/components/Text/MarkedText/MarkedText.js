@@ -1,12 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../../utils/bem';
-import Text from '../Text';
+import { bem } from '../../../utils/bem';
+import { Text } from '../Text';
 import styles from './MarkedText.scss';
 
 const { block, elem } = bem('MarkedText', styles);
 
-const MarkedText = props => {
+export const MarkedText = props => {
     const { marker, children, ...rest } = props;
 
     let result = children;
@@ -39,5 +39,3 @@ MarkedText.propTypes = {
     /** The text that should be marked if found within the children */
     marker: PropTypes.string.isRequired,
 };
-
-export default MarkedText;

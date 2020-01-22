@@ -1,12 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import styles from './ProgressBar.scss';
 import { CONTEXTS } from '../../constants';
 
 const { block, elem } = bem('ProgressBar', styles);
 
-const ProgressBar = props => {
+export const ProgressBar = props => {
     const { animated, children, context, hidden, percentage, small, ...rest } = props;
     const percentageAdjusted = Math.max(0, Math.min(percentage, 100));
 
@@ -56,5 +56,3 @@ ProgressBar.defaultProps = {
     hidden: false,
     small: false,
 };
-
-export default ProgressBar;

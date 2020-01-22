@@ -1,12 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../utils/bem';
+import { bem } from '../../utils/bem';
 import { Text } from '../Text';
 import styles from './Teaser.scss';
 
 const { block, elem } = bem('Teaser', styles);
 
-const Teaser = props => {
+export const Teaser = props => {
     const { title, subTitle, location, details, ...rest } = props;
 
     return (
@@ -53,5 +53,3 @@ Teaser.defaultProps = {
     subTitle: '',
     details: '',
 };
-
-export default Teaser;

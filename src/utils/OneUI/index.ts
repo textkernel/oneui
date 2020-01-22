@@ -1,1 +1,1 @@
-export { default } from './OneUI';
+export { OneUI } from './OneUI';
