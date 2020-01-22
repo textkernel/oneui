@@ -1,12 +1,22 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { bem } from '../../utils/bem';
 import { Text } from '../Text';
 import styles from './Teaser.scss';
 
+interface Props extends React.HTMLAttributes<HTMLParagraphElement> {
+    /** The title of entity */
+    title: string;
+    /** The subtitle of the entity */
+    subTitle?: string;
+    /** The location of the entity */
+    location?: string;
+    /** Details related to the entity */
+    details?: string;
+}
+
 const { block, elem } = bem('Teaser', styles);
 
-export const Teaser = props => {
+export const Teaser: React.FC<Props> = props => {
     const { title, subTitle, location, details, ...rest } = props;
 
     return (
@@ -36,17 +46,6 @@ export const Teaser = props => {
 };
 
 Teaser.displayName = 'Teaser';
-
-Teaser.propTypes = {
-    /** The title of entity */
-    title: PropTypes.string.isRequired,
-    /** The subtitle of the entity */
-    subTitle: PropTypes.string,
-    /** The location of the entity */
-    location: PropTypes.string,
-    /** Details related to the entity */
-    details: PropTypes.string,
-};
 
 Teaser.defaultProps = {
     location: '',

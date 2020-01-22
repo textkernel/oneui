@@ -1,27 +1,38 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { bem } from '../../utils/bem';
-import { ListItem } from './ListItem';
 import { LIST_NAVIGATION_DIRECTIONS, ENTER_KEY } from '../../constants';
 import { scrollIntoViewIfNeeded } from '../../utils/scrollIntoViewIfNeeded';
 import styles from './List.scss';
 
+interface Props extends React.HTMLAttributes<HTMLUListElement> {
+    /** List items. They should be ListItem or li.
+     * If you want to add an element that is not part of the list, but should be rendered within it
+     * (e.g. an image to decorate the list) use `data-list-exception` as a prop to that child
+     */
+    children: React.ReactElement[] | null;
+    /** Adds dividing lines between the list items */
+    isDivided?: boolean;
+    /** Defines if selection should be made on navigate */
+    doSelectOnNavigate?: boolean;
+    /** manage keyboard navigation externally */
+    isControlledNavigation?: boolean;
+    /** Ref to access the li element */
+    ref?: React.RefObject<HTMLUListElement>;
+}
+
 const { block, elem } = bem('List', styles);
 
-const isNotListItem = element => element && element.type !== ListItem && element.type !== 'li';
+export const NOT_LIST_CHILD = 'data-list-exception';
 const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.UP]: -1,
     [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1,
 };
 
-export const NOT_LIST_CHILD = 'data-list-exception';
-export const LIST_CHILD = 'data-list-child';
-
-export const List = React.forwardRef((props, ref) => {
+export const List: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, isDivided, doSelectOnNavigate, isControlledNavigation, ...rest } = props;
 
-    const [selectedIndex, setSelectedIndex] = React.useState(null);
-    const [lastNavDirection, setLastNavDirection] = React.useState(null);
+    const [selectedIndex, setSelectedIndex] = React.useState<number>(-1);
+    const [lastNavDirection, setLastNavDirection] = React.useState<'top' | 'bottom' | null>(null);
     const navigationElementRef = React.createRef();
 
     // set selectedIndex to first selectedItem that we can find
@@ -47,11 +58,15 @@ export const List = React.forwardRef((props, ref) => {
     }, [navigationElementRef, lastNavDirection]);
 
     const getNextSelectedIndex = keyCode => {
+        if (!children) {
+            return -1;
+        }
+
         const stepValue = NAVIGATION_STEP_VALUES[keyCode];
         const nextSelectedIndex = selectedIndex + stepValue;
 
         // Return 0 index if nextSelectedIndex has negative value or selectedIndex hasn't been updated before
-        if (nextSelectedIndex < 0 || selectedIndex === null) {
+        if (nextSelectedIndex < 0 || selectedIndex === -1) {
             return 0;
         }
 
@@ -65,6 +80,10 @@ export const List = React.forwardRef((props, ref) => {
     };
 
     const callOnClick = (index, e) => {
+        if (!children) {
+            return;
+        }
+
         if (children[index] && children[index].props && children[index].props.onClick) {
             children[index].props.onClick(e);
         }
@@ -92,6 +111,7 @@ export const List = React.forwardRef((props, ref) => {
             callOnClick(selectedIndex, e);
         }
     };
+
     return isControlledNavigation ? (
         <ul {...rest} ref={ref} {...block(props)}>
             {React.Children.map(children, child => {
@@ -133,35 +153,9 @@ export const List = React.forwardRef((props, ref) => {
 
 List.displayName = 'List';
 
-List.propTypes = {
-    /** List items. They should be ListItem or li.
-     * If you sure using other element will work for you, you can bypass validation by adding `data-list-item` as a prop to the child
-     * If you want to add an element that is not part of the list, but should be rendered within it
-     * (e.g. an image to decorate the list) use `data-list-exception` as a prop to that child
-     */
-    children: (props, propName, componentName) => {
-        const prop = props[propName];
-
-        let error = null;
-        React.Children.forEach(prop, child => {
-            if (isNotListItem(child) && !child.props[LIST_CHILD] && !child.props[NOT_LIST_CHILD]) {
-                error = new Error(
-                    `'${componentName}' children should be of type 'ListItem' or 'li' or have '${LIST_CHILD}' or '${NOT_LIST_CHILD}' attribute.`
-                );
-            }
-        });
-        return error;
-    },
-    /** Adds dividing lines between the list items */
-    isDivided: PropTypes.bool,
-    /** Defines if selection should be made on navigate */
-    doSelectOnNavigate: PropTypes.bool,
-    /** manage keyboard navigation externally */
-    isControlledNavigation: PropTypes.bool,
-};
+List.propTypes = {};
 
 List.defaultProps = {
-    children: null,
     isDivided: false,
     doSelectOnNavigate: false,
     isControlledNavigation: false,
