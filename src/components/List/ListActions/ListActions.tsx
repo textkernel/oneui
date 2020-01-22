@@ -9,15 +9,11 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block } = bem('ListActions', styles);
 
-const ListActions: React.FC<Props> = props => {
-    const { children, ...rest } = props;
-
-    return (
-        <div {...rest} {...block(props)}>
-            {children}
-        </div>
-    );
-};
+const ListActions: React.FC<Props> = ({ children, ...rest }) => (
+    <div {...rest} {...block(rest)}>
+        {children}
+    </div>
+);
 
 ListActions.displayName = 'ListActions';
 
