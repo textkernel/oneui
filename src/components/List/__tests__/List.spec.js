@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import ListItem from '../ListItem';
-import List, { NOT_LIST_CHILD, LIST_CHILD } from '../List';
+import List, { NOT_LIST_CHILD } from '../List';
 
 describe('List component', () => {
     let consoleError;
@@ -78,40 +78,6 @@ describe('List component', () => {
                     </List>
                 );
                 expect(wrapper.find('li').props().className).not.toContain('List__item');
-            });
-        });
-        describe('children prop validation', () => {
-            it('should warn if children are not ListItem nor li', () => {
-                mount(
-                    <List>
-                        <a href="/">Item 1</a>
-                        <a href="/">Item 2</a>
-                    </List>
-                );
-                expect(consoleError).toHaveBeenCalled();
-                expect(consoleError.mock.calls[0][0]).toContain(
-                    "Failed prop type: 'List' children should be of type 'ListItem' or 'li'"
-                );
-            });
-            it(`should not warn if children marked with ${LIST_CHILD}`, () => {
-                mount(
-                    <List>
-                        <a href="/" data-list-child>
-                            Item 1
-                        </a>
-                    </List>
-                );
-                expect(consoleError).not.toHaveBeenCalled();
-            });
-            it(`should not warn if children marked with ${NOT_LIST_CHILD}`, () => {
-                mount(
-                    <List>
-                        <a href="/" data-list-exception>
-                            Item 1
-                        </a>
-                    </List>
-                );
-                expect(consoleError).not.toHaveBeenCalled();
             });
         });
     });

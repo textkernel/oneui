@@ -6,14 +6,12 @@ exports[`ListItem component should render ListItem correctly 1`] = `
   highlightContext="default"
   isHighlighted={false}
   isSelected={false}
-  onClick={null}
 >
   <li
     className="ListItem"
   >
     <div
       className="ListItem__container"
-      onClick={null}
       role="presentation"
     >
       <Text
