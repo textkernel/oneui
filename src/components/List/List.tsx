@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { bem } from '../../utils/bem';
+import { bem, scrollIntoViewIfNeeded } from '../../utils';
 import { LIST_NAVIGATION_DIRECTIONS, ENTER_KEY } from '../../constants';
-import { scrollIntoViewIfNeeded } from '../../utils/scrollIntoViewIfNeeded';
 import styles from './List.scss';
 
 interface Props extends React.HTMLAttributes<HTMLUListElement> {

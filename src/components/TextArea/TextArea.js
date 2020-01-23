@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { bem } from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './TextArea.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 

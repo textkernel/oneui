@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { bem } from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './ButtonGroup.scss';
 import { Context, Size } from '../../constants';
 import { ButtonProps } from '../Buttons';

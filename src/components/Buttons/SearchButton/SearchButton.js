@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { FaSearch } from 'react-icons/fa';
-import { bem } from '../../../utils/bem';
+import { bem } from '../../../utils';
 import styles from './SearchButton.scss';
 
 const { block, elem } = bem('SearchButton', styles);

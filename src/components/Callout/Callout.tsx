@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { MdClose } from 'react-icons/md';
-import { bem } from '../../utils/bem';
+import { bem } from '../../utils';
 import { Context } from '../../constants';
 import styles from './Callout.scss';
 

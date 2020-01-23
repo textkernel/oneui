@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { bem } from '../../../utils/bem';
+import { bem } from '../../../utils';
 import { LocationCard } from '../../LocationCard';
 import { Button } from '../../Buttons';
 import { LocationAutocomplete } from '../../LocationAutocomplete';

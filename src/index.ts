@@ -1,4 +1,5 @@
-export { OneUI } from './utils/OneUI';
+// eslint-disable-next-line import/no-default-export
+export { default } from './utils/OneUI';
 // Atoms
 export { Button, SearchButton } from './components/Buttons';
 export { Callout } from './components/Callout';

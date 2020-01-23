@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { bem } from '../../utils/bem';
+import { bem } from '../../utils';
 import { BlockWidthRestrictor, BlockWidthRestrictorProps } from '../WidthRestrictor';
 import { LeftPaneProps } from './LeftPane';
 import { RightPane, RightPaneProps } from './RightPane';

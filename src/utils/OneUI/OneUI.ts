@@ -47,7 +47,7 @@ const isInternetExplorer11 = () => {
 
 const DEFAULT_LOADING_TIMEOUT = 2000;
 
-export class OneUI {
+class OneUI {
     /** Init themes and ponyfill for css variables support */
     static init({
         themeURL = '',
@@ -122,3 +122,6 @@ export class OneUI {
         });
     }
 }
+
+// eslint-disable-next-line import/no-default-export
+export default OneUI;

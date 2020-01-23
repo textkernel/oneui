@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import { bem } from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './Modal.scss';
 
 const { block, elem } = bem('Modal', styles);

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { bem } from '../../utils/bem';
+import { bem } from '../../utils';
 import { Slider } from '../Slider';
 import { Text } from '../Text';
 import { CROSS_CHAR, SIZES } from '../../constants';

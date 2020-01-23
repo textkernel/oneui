@@ -38,7 +38,7 @@ To enable support for older browsers that don’t support CSS variables natively
 To apply a specific theme on top of the library components, the OneUI utility can be used to parse the provided theme file:
 
 ```javascript
-import { OneUI } from '@textkernel/oneui';
+import OneUI from '@textkernel/oneui';
 
 OneUI.init({
     themeURL: 'http://theme-cdn.com/my-theme.css',

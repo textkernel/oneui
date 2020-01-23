@@ -2,7 +2,7 @@ import * as React from 'react';
 import { PopupPlacement } from '../../constants';
 import { PopupBase } from '../PopupBase';
 import styles from './Tooltip.scss';
-import { bem } from '../../utils/bem';
+import { bem } from '../../utils';
 
 const { block, elem } = bem('Tooltip', styles);
 

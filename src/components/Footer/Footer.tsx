@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { bem } from '../../utils/bem';
+import { bem } from '../../utils';
 import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Footer.scss';
 import { LogoTextkernel } from '../Icon';

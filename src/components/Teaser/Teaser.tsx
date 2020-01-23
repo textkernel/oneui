@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { bem } from '../../utils/bem';
+import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './Teaser.scss';
 

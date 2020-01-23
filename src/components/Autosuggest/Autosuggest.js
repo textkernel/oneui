@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 import memoize from 'fast-memoize';
-import { bem } from '../../utils/bem';
+import { bem } from '../../utils';
 import { Text, MarkedText } from '../Text';
 import { FieldWrapper } from '../FieldWrapper';
 import { ContentPlaceholder } from '../ContentPlaceholder';
