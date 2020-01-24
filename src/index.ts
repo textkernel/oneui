@@ -29,6 +29,7 @@ export { default as Checkbox } from './components/Checkbox';
 export { default as Footer } from './components/Footer';
 export { default as Header } from './components/Header';
 export { default as FieldWrapper } from './components/FieldWrapper';
+export { FieldWithValidation } from './components/FieldWithValidation';
 export { default as LoadingSpinner } from './components/LoadingSpinner';
 export { default as LocationCard } from './components/LocationCard';
 export { NavBar, NavItem } from './components/Navigation';

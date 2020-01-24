@@ -7,9 +7,15 @@
         @each $context in (brand, primary, accent, info, good, warning, bad) {
             &_#{ $context } {
                 &:focus {
-                    border-color: var(--color-#{ $context });
-                    box-shadow: 0 0 0 var(--outline-size) var(--color-#{ $context }-25);
+                    border-color: var(--color-#{$context});
+                    box-shadow: 0 0 0 var(--outline-size) var(--color-#{$context}-25);
                 }
+            }
+        }
+        @each $context in (warning, bad) {
+            &_#{ $context } {
+                border-color: var(--color-#{$context});
+                box-shadow: 0 0 0 var(--outline-size) var(--color-#{$context}-25);
             }
         }
     }
