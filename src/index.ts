@@ -40,6 +40,7 @@ export { default as Tooltip } from './components/Tooltip';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
 // Organisms
 export { Autosuggest, ItemTag } from './components/Autosuggest';
+export { ComboboxBase } from './components/ComboboxMulti';
 export {
     LocationAutocompleteWithGoogleLoader,
     LocationAutocomplete,
