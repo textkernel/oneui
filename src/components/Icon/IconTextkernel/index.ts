@@ -1,1 +1,1 @@
-export { default } from './IconTextkernel';
+export { IconTextkernel } from './IconTextkernel';

@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import ProgressBar from '../ProgressBar';
+import { ProgressBar } from '../ProgressBar';
 
 describe('<ProgressBar> that renders a horizontal progress bar', () => {
     it('should render a default progress bar correctly', () => {

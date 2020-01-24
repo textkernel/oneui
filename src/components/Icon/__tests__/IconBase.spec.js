@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import IconBase from '../IconBase';
+import { IconBase } from '../IconBase';
 
 describe('<IconBase> that renders an SVG wrapper with all options included', () => {
     it('should render a default icon', () => {

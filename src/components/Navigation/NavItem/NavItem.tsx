@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils';
 import styles from './NavItem.scss';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,7 +15,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('NavItem', styles);
 
-const NavItem: React.FC<Props> = props => {
+export const NavItem: React.FC<Props> = props => {
     const { active, pullRight, useActiveClass, children, ...rest } = props;
     const ariaProp = active ? { 'aria-current': 'page' } : {};
     const newProps = { ...ariaProp, ...rest, ...block(props) };
@@ -39,5 +39,3 @@ NavItem.defaultProps = {
     pullRight: false,
     useActiveClass: false,
 };
-
-export default NavItem;

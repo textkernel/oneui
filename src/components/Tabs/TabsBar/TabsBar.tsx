@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils';
 import { TabItem, TabItemProps } from '../TabItem';
 import styles from './TabsBar.scss';
 
@@ -22,7 +22,7 @@ interface PropsToPassToChild {
 
 const { block } = bem('TabsBar', styles);
 
-const TabsBar: React.FC<Props> = props => {
+export const TabsBar: React.FC<Props> = props => {
     const { activeTabId, children, onSelect, isBlock, ...rest } = props;
 
     const extendWithProps = (tab: Props['children']) => {
@@ -55,5 +55,3 @@ TabsBar.displayName = 'TabsBar';
 TabsBar.defaultProps = {
     isBlock: false,
 };
-
-export default TabsBar;

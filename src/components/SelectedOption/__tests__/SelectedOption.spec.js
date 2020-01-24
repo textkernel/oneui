@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import SelectedOption from '../SelectedOption';
+import { SelectedOption } from '../SelectedOption';
 
 describe('<SelectedOption>', () => {
     const onDeleteMock = jest.fn();

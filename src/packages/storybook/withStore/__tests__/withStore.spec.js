@@ -1,4 +1,6 @@
-import withStore, { StoreInjector } from '../withStore';
+import { StoreInjector } from '../withStore';
+
+const { withStore } = StoreInjector;
 
 jest.mock('@storybook/addons', () => ({
     getChannel: () => ({

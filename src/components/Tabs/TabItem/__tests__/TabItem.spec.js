@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import TabItem from '../TabItem';
+import { TabItem } from '../TabItem';
 
 describe('<TabItem>', () => {
     const onSelectMock = jest.fn();

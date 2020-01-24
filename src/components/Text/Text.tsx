@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './Text.scss';
 import { Size, Context } from '../../constants';
 
@@ -16,7 +16,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block } = bem('Text', styles);
 
-const Text: React.FC<Props> = props => {
+export const Text: React.FC<Props> = props => {
     const { children, context, inline, size, ...rest } = props;
     const HtmlNodeType = inline ? 'span' : 'p';
 
@@ -34,5 +34,3 @@ Text.defaultProps = {
     context: 'default',
     size: 'normal',
 };
-
-export default Text;

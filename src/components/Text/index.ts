@@ -1,2 +1,2 @@
-export { default as Text } from './Text';
-export { default as MarkedText } from './MarkedText';
+export { Text } from './Text';
+export { MarkedText } from './MarkedText';

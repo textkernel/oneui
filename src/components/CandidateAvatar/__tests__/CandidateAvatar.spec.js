@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import CandidateAvatar from '../CandidateAvatar';
+import { CandidateAvatar } from '../CandidateAvatar';
 
 describe('<CandidateAvatar> that renders a candidate profile image with match indication', () => {
     it('should render a default avatar', () => {

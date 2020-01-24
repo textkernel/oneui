@@ -1,13 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { LoadScriptNext } from '@react-google-maps/api';
-import LoadingSpinner from '../LoadingSpinner';
-import LocationAutocomplete from './LocationAutocomplete';
+import { LoadingSpinner } from '../LoadingSpinner';
+import { LocationAutocomplete } from './LocationAutocomplete';
 
 // for details see: https://developers.google.com/maps/documentation/javascript/libraries
 const GOOGLE_API_LIBRARIES = ['places'];
 
-const LocationAutocompleteWithGoogleLoader = props => {
+export const LocationAutocompleteWithGoogleLoader = props => {
     const { apiKey, language, region, additionalGoogleProps, ...rest } = props;
 
     return (
@@ -47,5 +47,3 @@ LocationAutocompleteWithGoogleLoader.defaultProps = {
     language: undefined,
     region: undefined,
 };
-
-export default LocationAutocompleteWithGoogleLoader;

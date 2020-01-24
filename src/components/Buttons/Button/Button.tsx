@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils';
 import styles from './Button.scss';
 import { ButtonType, Context, Size } from '../../../constants';
 
@@ -26,7 +26,7 @@ export interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement
 
 const { block } = bem('Button', styles);
 
-const Button: React.FC<Props> = React.forwardRef((props, ref) => {
+export const Button: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, context, disabled, isBlock, isInline, type, href, size, ...rest } = props;
 
     if (href) {
@@ -54,5 +54,3 @@ Button.defaultProps = {
     disabled: false,
     type: 'button',
 };
-
-export default Button;

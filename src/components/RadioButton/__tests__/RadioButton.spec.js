@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import RadioButton from '../RadioButton';
+import { RadioButton } from '../RadioButton';
 
 describe('<RadioButton> that renders a radio button', () => {
     it('should render default radio button correctly', () => {

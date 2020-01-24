@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import SearchButton from '../SearchButton';
+import { SearchButton } from '../SearchButton';
 
 describe('<SearchButton> that renders a search button', () => {
     it('should render default button correctly', () => {

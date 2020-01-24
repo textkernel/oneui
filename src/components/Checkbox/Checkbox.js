@@ -1,13 +1,13 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './Checkbox.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 
 const { block, elem } = bem('Checkbox', styles);
 
-const Checkbox = forwardRef((props, ref) => {
+export const Checkbox = forwardRef((props, ref) => {
     const { id, children, disabled, ...rest } = props;
 
     return (
@@ -56,5 +56,3 @@ Checkbox.defaultProps = {
     disabled: false,
     children: null,
 };
-
-export default Checkbox;

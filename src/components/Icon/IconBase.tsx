@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './IconBase.scss';
 import { Context } from '../../constants';
 
@@ -43,7 +43,7 @@ const adjustSize = (preserveAspectRatio: boolean, size?: number) => {
     };
 };
 
-const IconBase: React.FC<Props> = props => {
+export const IconBase: React.FC<Props> = props => {
     const { children, context, margin, size, preserveAspectRatio, title, viewBox, ...rest } = props;
 
     return (
@@ -68,5 +68,3 @@ IconBase.displayName = 'IconBase';
 IconBase.defaultProps = {
     preserveAspectRatio: false,
 };
-
-export default IconBase;

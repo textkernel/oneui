@@ -1,1 +1,1 @@
-export { default } from './LocationSelectorDialogWithGoogleLoader';
+export { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';

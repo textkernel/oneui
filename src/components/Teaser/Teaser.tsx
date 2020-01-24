@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './Teaser.scss';
 
@@ -16,7 +16,7 @@ interface Props extends React.HTMLAttributes<HTMLParagraphElement> {
 
 const { block, elem } = bem('Teaser', styles);
 
-const Teaser: React.FC<Props> = props => {
+export const Teaser: React.FC<Props> = props => {
     const { title, subTitle, location, details, ...rest } = props;
 
     return (
@@ -52,5 +52,3 @@ Teaser.defaultProps = {
     subTitle: '',
     details: '',
 };
-
-export default Teaser;

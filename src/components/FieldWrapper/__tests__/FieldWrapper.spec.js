@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import FieldWrapper from '../FieldWrapper';
+import { FieldWrapper } from '../FieldWrapper';
 
 describe('FieldWrapper', () => {
     it('should render correctly', () => {

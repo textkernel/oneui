@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Checkbox from '../Checkbox';
+import { Checkbox } from '../Checkbox';
 
 describe('<Checkbox> that renders a checkbox', () => {
     it('should render default checkbox correctly', () => {

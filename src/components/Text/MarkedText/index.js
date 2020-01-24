@@ -1,1 +1,1 @@
-export { default } from './MarkedText';
+export { MarkedText } from './MarkedText';

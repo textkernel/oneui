@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import BlockWidthRestrictor from '../BlockWidthRestrictor';
+import { BlockWidthRestrictor } from '../BlockWidthRestrictor';
 
 describe('BlockWidthRestrictor', () => {
     it('should render correctly', () => {

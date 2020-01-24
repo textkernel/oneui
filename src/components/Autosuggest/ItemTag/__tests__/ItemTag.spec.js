@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import ItemTag from '../ItemTag';
+import { ItemTag } from '../ItemTag';
 
 describe('ItemTag', () => {
     it('should render correctly', () => {

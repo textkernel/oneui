@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import LocationCard from '../LocationCard';
+import { LocationCard } from '../LocationCard';
 
 describe('LocationCard component', () => {
     let wrapper;

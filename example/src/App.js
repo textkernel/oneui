@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Heading, Button } from '@textkernel/oneui'; // eslint-disable-line import/no-unresolved, import/no-extraneous-dependencies
-import ButtonContainer from './components/ButtonContainer';
+import { ButtonContainer } from './components/ButtonContainer';
 import './App.css';
 
-class App extends Component {
+export class App extends Component {
     constructor() {
         super();
         this.state = {
@@ -53,5 +53,3 @@ class App extends Component {
         );
     }
 }
-
-export default App;

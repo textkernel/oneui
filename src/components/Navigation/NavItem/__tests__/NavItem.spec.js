@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import { NavLink, BrowserRouter } from 'react-router-dom';
-import NavItem from '../NavItem';
+import { NavItem } from '../NavItem';
 
 describe('NavItem that renders a single navigation item', () => {
     it('should render correctly with default props', () => {

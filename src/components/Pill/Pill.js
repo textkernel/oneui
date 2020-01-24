@@ -1,10 +1,10 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import PopupBase from '../PopupBase';
-import PillButton from './PillButton';
-import PillDropdown from './PillDropdown';
+import { PropTypes } from 'prop-types';
+import { PopupBase } from '../PopupBase';
+import { PillButton } from './PillButton';
+import { PillDropdown } from './PillDropdown';
 
-const Pill = props => {
+export const Pill = props => {
     const {
         onClear,
         doneLabel,
@@ -119,5 +119,3 @@ Pill.defaultProps = {
     additionalDropdownProps: {},
     onClose: null,
 };
-
-export default Pill;

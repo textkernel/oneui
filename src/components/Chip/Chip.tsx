@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './Chip.scss';
 
 interface Props extends React.HTMLAttributes<HTMLSpanElement> {
@@ -9,7 +9,7 @@ interface Props extends React.HTMLAttributes<HTMLSpanElement> {
 
 const { block } = bem('Chip', styles);
 
-const Chip: React.FC<Props> = props => {
+export const Chip: React.FC<Props> = props => {
     const { children, ...rest } = props;
 
     return (
@@ -20,5 +20,3 @@ const Chip: React.FC<Props> = props => {
 };
 
 Chip.displayName = 'Chip';
-
-export default Chip;

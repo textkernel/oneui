@@ -1,1 +1,1 @@
-export { default } from './IconHarvester';
+export { IconHarvester } from './IconHarvester';

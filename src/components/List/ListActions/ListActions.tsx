@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils';
 import styles from './ListActions.scss';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -9,12 +9,10 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block } = bem('ListActions', styles);
 
-const ListActions: React.FC<Props> = ({ children, ...rest }) => (
+export const ListActions: React.FC<Props> = ({ children, ...rest }) => (
     <div {...rest} {...block(rest)}>
         {children}
     </div>
 );
 
 ListActions.displayName = 'ListActions';
-
-export default ListActions;

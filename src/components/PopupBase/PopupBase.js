@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import PopperJS from 'popper.js';
 import { POPUP_PLACEMENTS, ESCAPE_KEY } from '../../constants';
 
-class PopupBase extends React.Component {
+export class PopupBase extends React.Component {
     constructor(props) {
         super(props);
         const { anchorRef, popupRef } = props;
@@ -178,5 +178,3 @@ PopupBase.defaultProps = {
     renderInPortal: false,
     onClose: null,
 };
-
-export default PopupBase;

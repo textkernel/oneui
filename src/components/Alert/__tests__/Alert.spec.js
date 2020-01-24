@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Alert from '../Alert';
+import { Alert } from '../Alert';
 
 describe('<Alert> that renders an alert', () => {
     it('should render default alert correctly', () => {

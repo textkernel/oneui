@@ -1,1 +1,1 @@
-export { default } from './IconMatch';
+export { IconMatch } from './IconMatch';

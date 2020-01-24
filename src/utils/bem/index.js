@@ -1,1 +1,1 @@
-export { default } from './bem';
+export { bem } from './bem';

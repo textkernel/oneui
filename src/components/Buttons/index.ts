@@ -1,2 +1,2 @@
 export { Button, ButtonProps } from './Button';
-export { default as SearchButton } from './SearchButton';
+export { SearchButton } from './SearchButton';

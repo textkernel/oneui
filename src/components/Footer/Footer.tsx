@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Footer.scss';
 import { LogoTextkernel } from '../Icon';
@@ -13,7 +13,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('Footer', styles);
 
-const Footer: React.FC<Props> = props => {
+export const Footer: React.FC<Props> = props => {
     const { copyright, children, ...rest } = props;
 
     const tkCopyright = (
@@ -34,5 +34,3 @@ const Footer: React.FC<Props> = props => {
 };
 
 Footer.displayName = 'Footer';
-
-export default Footer;

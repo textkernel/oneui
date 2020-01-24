@@ -1,7 +1,7 @@
 import * as React from 'react';
-import IconBase, { IconProps as Props } from '../IconBase';
+import { IconBase, IconProps as Props } from '../IconBase';
 
-const LogoTextkernel: React.FC<Props> = props => (
+export const LogoTextkernel: React.FC<Props> = props => (
     <IconBase {...props} preserveAspectRatio viewBox="0 0 442.8 77.3">
         <path d="M29,77.3C17.6,74.4,7.8,67.1,7.8,55.1V29.4H0v-9h7.8V7.9h11.6v12.5h11v9h-11V56c0,6.7,4.9,9.5,12.7,11.4L29,77.3z" />
         <path d="M49.6,48.4c0.9,7.5,4.8,11.7,11.3,11.7c4.4,0,9.7-1.5,14.7-4l3.8,8.9c-5.6,2.6-12.8,3.7-19.3,3.7c-15.2,0-22.7-11.3-22.7-24.3c0-10.9,4.9-25.2,22.2-25.2c16.3,0,22.1,9.6,22.1,29.2H49.6z M59.6,28.1c-3.8,0-9.5,2.3-9.9,12h21C70.1,31.2,65.6,28.1,59.6,28.1z" />
@@ -17,5 +17,3 @@ const LogoTextkernel: React.FC<Props> = props => (
 );
 
 LogoTextkernel.displayName = 'LogoTextkernel';
-
-export default LogoTextkernel;

@@ -1,14 +1,14 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../utils/bem';
-import Slider from '../Slider';
+import { bem } from '../../utils';
+import { Slider } from '../Slider';
 import { Text } from '../Text';
 import { CROSS_CHAR, SIZES } from '../../constants';
 import styles from './LocationCard.scss';
 
 const { block, elem } = bem('LocationCard', styles);
 
-const LocationCard = props => {
+export const LocationCard = props => {
     const {
         As,
         locationId,
@@ -91,5 +91,3 @@ LocationCard.defaultProps = {
     onDelete: () => null,
     As: 'div',
 };
-
-export default LocationCard;

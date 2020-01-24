@@ -1,12 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './Modal.scss';
 
 const { block, elem } = bem('Modal', styles);
 
-const Modal = props => {
+export const Modal = props => {
     const {
         children,
         isOpen,
@@ -86,5 +86,3 @@ Modal.defaultProps = {
     overlayClassName: null,
     portalClassName: null,
 };
-
-export default Modal;

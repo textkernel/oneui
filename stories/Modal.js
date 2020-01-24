@@ -3,13 +3,13 @@ import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { withInfo } from '@storybook/addon-info';
 import { Modal, Button } from '@textkernel/oneui';
-import withStore from '../src/packages/storybook/withStore';
+import { StoreInjector } from '../src/packages/storybook/withStore';
 
 storiesOf('Atoms|Modal', module)
     .addDecorator(withKnobs)
     .addDecorator(withInfo)
     .addParameters(
-        withStore({
+        StoreInjector.withStore({
             isOpen: false,
         })
     )

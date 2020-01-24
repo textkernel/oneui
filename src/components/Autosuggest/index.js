@@ -1,2 +1,2 @@
-export { default as Autosuggest } from './Autosuggest';
-export { default as ItemTag } from './ItemTag';
+export { Autosuggest } from './Autosuggest';
+export { ItemTag } from './ItemTag';

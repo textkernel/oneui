@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Header from '../Header';
+import { Header } from '../Header';
 import { IconTextkernel } from '../../Icon';
 
 describe('Header component that renders a website header with a logo on the left and optional children on the right side', () => {
