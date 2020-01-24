@@ -1,7 +1,7 @@
 import * as React from 'react';
 import toJson from 'enzyme-to-json';
 import { FieldWithValidation } from '../FieldWithValidation';
-import Input from '../../Input';
+import { Input } from '../../Input';
 
 describe('FieldWithValidation', () => {
     let wrapper;
