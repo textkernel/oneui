@@ -1,6 +1,8 @@
 import * as React from 'react';
+import { bem } from '../../utils';
 import { Tooltip } from '../Tooltip';
 import { Text } from '../Text';
+import styles from './FieldWithValidation.scss';
 
 interface Props {
     /** a single form field, e.g. Input, TextArea, etc. It should support context=”bad” prop */
@@ -11,8 +13,10 @@ interface Props {
     useTooltip?: boolean;
 }
 
+const { block } = bem('FieldWithValidation', styles);
+
 export const FieldWithValidation: React.FC<Props> = props => {
-    const { children, errorMessage, useTooltip } = props;
+    const { children, errorMessage, useTooltip, ...rest } = props;
 
     if (!errorMessage) {
         return children;
@@ -21,11 +25,13 @@ export const FieldWithValidation: React.FC<Props> = props => {
     const clonedChild = React.cloneElement(children, { context: 'bad' });
 
     return useTooltip ? (
-        <Tooltip content={errorMessage}>{clonedChild}</Tooltip>
+        <Tooltip {...rest} content={errorMessage}>
+            {clonedChild}
+        </Tooltip>
     ) : (
         <>
             {clonedChild}
-            <Text context="bad" size="small">
+            <Text {...rest} {...block(props)} context="bad" size="small">
                 {errorMessage}
             </Text>
         </>
