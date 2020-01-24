@@ -1,12 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import { Autosuggest } from '../Autosuggest';
-import Alert from '../Alert';
-import ListItem from '../List/ListItem';
+import { Alert } from '../Alert';
+import { ListItem } from '../List/ListItem';
 import { MarkedText } from '../Text';
-import useDebounce from '../../hooks/useDebounce';
+import { useDebounce } from '../../hooks';
 import POWERED_BY_GOOGLE_ON_WHITE from './images/powered_by_google_on_white.png';
 import POWERED_BY_GOOGLE_ON_WHITE_2X from './images/powered_by_google_on_white@2x.png';
 import POWERED_BY_GOOGLE_ON_WHITE_3X from './images/powered_by_google_on_white@3x.png';
@@ -17,7 +17,7 @@ const { elem } = bem('LocationAutocomplete', styles);
 const DEBOUNCE_DELAY = 350;
 const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
-const LocationAutocomplete = props => {
+export const LocationAutocomplete = props => {
     const [storage] = React.useState({ latestInputValue: '' });
     const [suggestionsList, setSuggestionsList] = React.useState(null);
     const [isLoading, setIsLoading] = React.useState(false);
@@ -198,5 +198,3 @@ LocationAutocomplete.defaultProps = {
     onError: null,
     hidePoweredByGoogleLogo: false,
 };
-
-export default LocationAutocomplete;

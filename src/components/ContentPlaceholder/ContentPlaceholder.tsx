@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './ContentPlaceholder.scss';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -21,7 +21,7 @@ const calcMaskWidth = width => ({
     width: `${100 - Math.max(Math.min(width, 100), 0)}%`,
 });
 
-const ContentPlaceholder: React.FC<Props> = props => {
+export const ContentPlaceholder: React.FC<Props> = props => {
     const { duration, height, width, withoutMargin, ...rest } = props;
 
     return (
@@ -46,5 +46,3 @@ ContentPlaceholder.defaultProps = {
     width: 100,
     withoutMargin: false,
 };
-
-export default ContentPlaceholder;

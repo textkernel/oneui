@@ -1,12 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { LoadScriptNext } from '@react-google-maps/api';
-import LoadingSpinner from '../../LoadingSpinner';
-import LocationSelectorDialog from '../LocationSelectorDialog';
+import { LoadingSpinner } from '../../LoadingSpinner';
+import { LocationSelectorDialog } from '../LocationSelectorDialog';
 
 const GOOGLE_API_LIBRARIES = ['places'];
 
-function LocationSelectorDialogWithGoogleLoader(props) {
+export function LocationSelectorDialogWithGoogleLoader(props) {
     const {
         /** Google props */
         apiKey,
@@ -94,5 +94,3 @@ LocationSelectorDialogWithGoogleLoader.defaultProps = {
     region: undefined,
     // ...LocationSelectorDialog.defaultProps,
 };
-
-export default LocationSelectorDialogWithGoogleLoader;

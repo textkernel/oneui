@@ -1,1 +1,1 @@
-export { default } from './Drawer';
+export { Drawer } from './Drawer';

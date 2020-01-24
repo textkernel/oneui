@@ -1,1 +1,1 @@
-export { default } from './PillButton';
+export { PillButton } from './PillButton';

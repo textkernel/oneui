@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import LoadingSpinner from '../LoadingSpinner';
+import { LoadingSpinner } from '../LoadingSpinner';
 
 describe('<LoadingSpinner> that renders a circular loading spinner', () => {
     it('should render a default spinner correctly', () => {

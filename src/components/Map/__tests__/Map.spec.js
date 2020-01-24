@@ -1,10 +1,11 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import stabGoogleApi, {
+import {
     fitBoundsMock,
     setZoomMock,
     setCenterMock,
     geocodeMock,
+    stabGoogleApi,
 } from '../../../__mocks__/googleApiMock';
 import geocodeResponse from '../__mocks__/geocodeResponse.json';
 import { Map } from '..';

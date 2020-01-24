@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import ButtonGroup from '../ButtonGroup';
+import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../../Buttons';
 
 describe('<ButtonGroup> that renders a button', () => {

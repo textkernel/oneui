@@ -18,7 +18,7 @@
 //     return getScrollParent(el.parentElement) || document.body;
 // };
 
-const scrollIntoViewIfNeeded = (el, alignTo = 'bottom') => {
+export const scrollIntoViewIfNeeded = (el, alignTo = 'bottom') => {
     // check if we can scroll at all
     if (!el || !el.scrollIntoView) {
         return;
@@ -37,5 +37,3 @@ const scrollIntoViewIfNeeded = (el, alignTo = 'bottom') => {
         el.scrollIntoView(alignToTop);
     }
 };
-
-export default scrollIntoViewIfNeeded;

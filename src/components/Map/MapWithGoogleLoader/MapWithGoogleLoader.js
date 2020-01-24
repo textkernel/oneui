@@ -1,10 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { LoadScriptNext } from '@react-google-maps/api';
-import LoadingSpinner from '../../LoadingSpinner';
-import Map from '../Map/Map';
+import { LoadingSpinner } from '../../LoadingSpinner';
+import { Map } from '../Map/Map';
 
-const MapWithGoogleLoader = React.forwardRef((props, ref) => {
+export const MapWithGoogleLoader = React.forwardRef((props, ref) => {
     const { apiKey, language, region, additionalGoogleProps, ...rest } = props;
 
     return (
@@ -42,5 +42,3 @@ MapWithGoogleLoader.defaultProps = {
     language: undefined,
     region: undefined,
 };
-
-export default MapWithGoogleLoader;

@@ -16,7 +16,7 @@ const circleOptions = radius => ({
     zIndex: 1,
 });
 
-const Map = React.forwardRef((props, ref) => {
+export const Map = React.forwardRef((props, ref) => {
     const { defaultArea, markers, mapContainerStyle, ...rest } = props;
     const mapRef = ref || React.createRef();
 
@@ -148,5 +148,3 @@ Map.defaultProps = {
         width: '100%',
     },
 };
-
-export default Map;

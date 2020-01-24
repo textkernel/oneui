@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import PaginationButton from '../PaginationButton';
+import { PaginationButton } from '../PaginationButton';
 
 describe('<PaginationButton> that renders a page button', () => {
     it('should render correctly with default props', () => {

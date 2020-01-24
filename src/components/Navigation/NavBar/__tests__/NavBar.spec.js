@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import NavBar from '../NavBar';
+import { NavBar } from '../NavBar';
 
 describe('NavBar that renders a container for navigation', () => {
     it('should render correctly', () => {

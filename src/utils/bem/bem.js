@@ -1,6 +1,6 @@
 import make from '@textkernel/bem';
 
-export default make({
+export const bem = make({
     elemPrefix: '__',
     modPrefix: '--',
     valuePrefix: '_',

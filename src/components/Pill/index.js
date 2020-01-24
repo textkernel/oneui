@@ -1,3 +1,3 @@
-export { default as PillButton } from './PillButton';
-export { default as PillDropdown } from './PillDropdown';
-export { default as Pill } from './Pill';
+export { PillButton } from './PillButton';
+export { PillDropdown } from './PillDropdown';
+export { Pill } from './Pill';

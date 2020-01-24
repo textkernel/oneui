@@ -2,12 +2,12 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { TabItem, TabsBar, Tooltip } from '@textkernel/oneui';
-import withStore from '../src/packages/storybook/withStore';
+import { StoreInjector } from '../src/packages/storybook/withStore';
 
 storiesOf('Atoms|Tabs', module)
     .addDecorator(withKnobs)
     .addParameters(
-        withStore({
+        StoreInjector.withStore({
             activeId: 1,
         })
     )

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './Pagination.scss';
 import { Button } from '../Buttons';
-import PaginationButton from './PaginationButton';
+import { PaginationButton } from './PaginationButton';
 
 interface Props extends Omit<React.HTMLAttributes<HTMLElement>, 'onClick'> {
     /** How the buttons should be aligned in the pagination container */
@@ -23,7 +23,7 @@ interface Props extends Omit<React.HTMLAttributes<HTMLElement>, 'onClick'> {
 
 const { block, elem } = bem('Pagination', styles);
 
-const Pagination: React.FC<Props> = props => {
+export const Pagination: React.FC<Props> = props => {
     const {
         align,
         currentPage = 1,
@@ -135,5 +135,3 @@ Pagination.defaultProps = {
     currentPage: 1,
     maxPageButtons: 10,
 };
-
-export default Pagination;

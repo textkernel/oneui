@@ -1,13 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { IoIosArrowDown, IoMdClose } from 'react-icons/io';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
 
 const { block, elem } = bem('PillButton', styles);
 
-const PillButton = React.forwardRef((props, ref) => {
+export const PillButton = React.forwardRef((props, ref) => {
     const { isOpen, isContentDefault, toggleDropdown, onClear, name, content, ...rest } = props;
     const isActive = !!content;
     const propsForBem = { ...props, isActive };
@@ -111,5 +111,3 @@ PillButton.defaultProps = {
     isContentDefault: false,
     content: null,
 };
-
-export default PillButton;

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import { Button } from '../Buttons';
 import styles from './FieldWrapper.scss';
 
 const { block, elem } = bem('FieldWrapper', styles);
 
-const FieldWrapper = React.forwardRef((props, ref) => {
+export const FieldWrapper = React.forwardRef((props, ref) => {
     const handleClear = e => {
         const { onClear } = props;
 
@@ -57,5 +57,3 @@ FieldWrapper.defaultProps = {
     onClear: null,
     isFocused: false,
 };
-
-export default FieldWrapper;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './Input.scss';
 import { Context, InputType, Size } from '../../constants';
 
@@ -22,7 +22,7 @@ interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'
 
 const { block } = bem('Input', styles);
 
-const Input: React.FC<Props> = React.forwardRef((props, ref) => {
+export const Input: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, context, disabled, isBlock, size, type, value, ...rest } = props;
     return (
         <input
@@ -45,5 +45,3 @@ Input.defaultProps = {
     type: 'text',
     size: 'normal',
 };
-
-export default Input;

@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import TwoPaneView from '../TwoPaneView';
+import { TwoPaneView } from '../TwoPaneView';
 import { LeftPane } from '../LeftPane';
 import { RightPane } from '../RightPane';
 

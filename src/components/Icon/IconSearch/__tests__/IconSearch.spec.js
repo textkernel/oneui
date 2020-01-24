@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import IconSearch from '../IconSearch';
+import { IconSearch } from '../IconSearch';
 
 describe('<IconSearch>', () => {
     it('should render a Search! icon', () => {

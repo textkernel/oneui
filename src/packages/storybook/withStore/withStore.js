@@ -7,7 +7,7 @@ import { Store } from '@sambego/storybook-state'; // eslint-disable-line import/
  * For inject store use Storybook API `addParameters`
  * Example: `.addParameters(injectStore({ param: 'one' }))`
  */
-class StoreInjector {
+export class StoreInjector {
     /**
      * Used to store all store from all stories in storybook
      */
@@ -59,6 +59,3 @@ class StoreInjector {
         addons.getChannel().emit(FORCE_RE_RENDER);
     }
 }
-
-export { StoreInjector };
-export default StoreInjector.withStore;

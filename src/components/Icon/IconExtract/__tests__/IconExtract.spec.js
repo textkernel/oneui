@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import IconExtract from '../IconExtract';
+import { IconExtract } from '../IconExtract';
 
 describe('<IconExtract>', () => {
     it('should render an Extract icon', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Input from '../Input';
+import { Input } from '../Input';
 
 describe('<Input> that renders an input field', () => {
     const data = {

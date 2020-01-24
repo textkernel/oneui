@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import ListItem from '../ListItem';
+import { ListItem } from '../ListItem';
 import { Text } from '../../../Text';
 
 describe('ListItem component', () => {
