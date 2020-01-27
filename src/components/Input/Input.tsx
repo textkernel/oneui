@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './Input.scss';
-import { Context, InputType, Size } from '../../constants';
+import { ValidationContext, InputType, Size } from '../../constants';
 
 // Any other attributes (onChange, onKeyUp etc.) are
 // supported although not defined in props type definition
 interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
     /** The input field context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context?: Context;
+    context?: ValidationContext;
     /** Should the input field be disabled or not */
     disabled?: boolean;
     /** Whether or not to show block-level input field (full width) */
@@ -39,7 +39,6 @@ export const Input: React.FC<Props> = React.forwardRef((props, ref) => {
 Input.displayName = 'Input';
 
 Input.defaultProps = {
-    context: 'brand',
     disabled: false,
     isBlock: false,
     type: 'text',

@@ -1,5 +1,5 @@
 %input {
-    background-color: #FFF;
+    background-color: #fff;
     border: {
         color: var(--color-neutral);
         radius: var(--border-radius);
@@ -19,8 +19,8 @@
     transition: border-color var(--transition-duration);
 
     &:focus {
-        border-color: var(--color-neutral);
-        box-shadow: 0 0 0 var(--outline-size) var(--color-neutral-25);
+        border-color: var(--color-brand);
+        box-shadow: 0 0 0 var(--outline-size) var(--color-brand-25);
         z-index: 1;
     }
 

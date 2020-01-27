@@ -5,14 +5,13 @@ exports[`FieldWithValidation when error message is not defined should simply ren
   useTooltip={false}
 >
   <Input
-    context="brand"
     disabled={false}
     isBlock={false}
     size="normal"
     type="text"
   >
     <input
-      className="Input Input--context_brand"
+      className="Input"
       disabled={false}
       type="text"
     />
