@@ -235,7 +235,7 @@ export function SelectBase<S>(props: Props<S>) {
                             <List
                                 {...getMenuProps({
                                     ...elem('list', stateAndProps),
-                                    ref: listRef,
+                                    ref: listRef.current,
                                     isControlledNavigation: true,
                                 })}
                             >

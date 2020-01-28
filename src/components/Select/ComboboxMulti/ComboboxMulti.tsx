@@ -16,7 +16,7 @@ interface Props<S>
 
 const { elem } = bem('ComboboxMulti', styles);
 
-function ComboboxMulti<S>(props: Props<S>) {
+export function ComboboxMulti<S>(props: Props<S>) {
     const {
         onSelectionChange,
         inputRef: inputRefFromProps,
@@ -32,6 +32,7 @@ function ComboboxMulti<S>(props: Props<S>) {
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
 
+    // eslint-disable-next-line react/display-name
     const renderFocused = ({ getInputProps, getToggleButtonProps, onBlur: blur }) => {
         const handleInputKeyDown = event => {
             if (event.key === TAB_KEY) {
@@ -63,6 +64,7 @@ function ComboboxMulti<S>(props: Props<S>) {
         );
     };
 
+    // eslint-disable-next-line react/display-name
     const renderBlurred = ({ getInputProps, getToggleButtonProps }) => (
         <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
             <input
@@ -83,8 +85,6 @@ function ComboboxMulti<S>(props: Props<S>) {
             </div>
         </div>
     );
-
-    renderBlurred.displayName = 'ComboboxMulti';
 
     return (
         <SelectBase
@@ -110,5 +110,3 @@ ComboboxMulti.defaultProps = {
 };
 
 ComboboxMulti.displayName = 'ComboboxMulti';
-
-export default ComboboxMulti;

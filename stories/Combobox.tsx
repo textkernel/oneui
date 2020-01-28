@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
-import { ComboboxBase } from '@textkernel/oneui';
+import { ComboboxMulti } from '@textkernel/oneui';
 import withStore from '../src/packages/storybook/withStore';
 import {
     SUGGESTIONS,
@@ -14,9 +14,7 @@ storiesOf('Organisms|Select', module)
     .addDecorator(withKnobs)
     .addParameters(
         withStore({
-            selectedSuggestions: [],
             inputValue: '',
-            selectedSuggestion: null,
         })
     )
     .add('Simple select', ({ parameters }) => {
@@ -52,9 +50,8 @@ storiesOf('Organisms|Select', module)
         };
 
         return (
-            <ComboboxBase<TSuggestion>
+            <ComboboxMulti<TSuggestion>
                 style={{ width: '650px' }}
-                selectedSuggestion={store.get('selectedSuggestion')}
                 inputPlaceholder={text('Input placeholder', 'Select something...')}
                 noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
                 clearTitle={text('Remove button label', 'Clear')}
