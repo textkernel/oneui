@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FieldWithValidation when error message is not defined should simply render the child as it is 1`] = `
+<FieldWithValidation
+  useTooltip={false}
+>
+  <Input
+    disabled={false}
+    isBlock={false}
+    size="normal"
+    type="text"
+  >
+    <input
+      className="Input"
+      disabled={false}
+      type="text"
+    />
+  </Input>
+</FieldWithValidation>
+`;

@@ -10,7 +10,7 @@ exports[`<Input> that renders an input field should add classes when props are c
 
 exports[`<Input> that renders an input field should render default input correctly 1`] = `
 <input
-  className="Input Input--context_brand"
+  className="Input"
   disabled={false}
   type="text"
   value="Some value"
