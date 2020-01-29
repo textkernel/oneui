@@ -21,7 +21,7 @@ export const FieldWithValidation: React.FC<Props> = props => {
     const clonedChild = errorMessage ? React.cloneElement(children, { context: 'bad' }) : children;
 
     return useTooltip ? (
-        <Tooltip {...rest} content={errorMessage || ''}>
+        <Tooltip {...rest} content={errorMessage}>
             {clonedChild}
         </Tooltip>
     ) : (
