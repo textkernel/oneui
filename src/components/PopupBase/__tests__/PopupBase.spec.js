@@ -49,6 +49,17 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             expect(wrapper.find('Popover')).toHaveLength(1);
             expect(wrapper.find('Portal')).toHaveLength(1);
         });
+        it('should support no popup content from renderer', () => {
+            wrapper = mount(
+                <PopupBase anchorRenderer={anchorRendererMock} popupRenderer={() => null} />
+            );
+
+            // trigger setPopupVisibility(true) through our dummy component
+            wrapper.find('button').simulate('click');
+
+            expect(toJson(wrapper)).toMatchSnapshot();
+            expect(wrapper.find('Popover')).toHaveLength(0);
+        });
         it('should close popup when requested', () => {
             // trigger setPopupVisibility(true) through our dummy component
             const triggerButton = wrapper.find('button');
