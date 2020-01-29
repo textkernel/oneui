@@ -21,12 +21,12 @@ describe('FieldWithValidation', () => {
             expect(wrapper.find('Text')).toHaveLength(0);
             expect(toJson(wrapper)).toMatchSnapshot();
         });
-        it('should simply render the child as it is, even if useTooltip is set to true', () => {
+        it('should render the tooltip, if useTooltip is set to true', () => {
             wrapper.setProps({ useTooltip: true });
             wrapper.update();
 
             expect(wrapper.find('Input')).toHaveLength(1);
-            expect(wrapper.find('Tooltip')).toHaveLength(0);
+            expect(wrapper.find('Tooltip')).toHaveLength(1);
             expect(wrapper.find('Text')).toHaveLength(0);
         });
     });

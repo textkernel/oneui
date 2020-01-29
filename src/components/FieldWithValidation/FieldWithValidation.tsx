@@ -18,22 +18,20 @@ const { block } = bem('FieldWithValidation', styles);
 export const FieldWithValidation: React.FC<Props> = props => {
     const { children, errorMessage, useTooltip, ...rest } = props;
 
-    if (!errorMessage) {
-        return children;
-    }
-
-    const clonedChild = React.cloneElement(children, { context: 'bad' });
+    const clonedChild = errorMessage ? React.cloneElement(children, { context: 'bad' }) : children;
 
     return useTooltip ? (
-        <Tooltip {...rest} content={errorMessage}>
+        <Tooltip {...rest} content={errorMessage || ''}>
             {clonedChild}
         </Tooltip>
     ) : (
         <>
             {clonedChild}
-            <Text {...rest} {...block(props)} context="bad" size="small">
-                {errorMessage}
-            </Text>
+            {errorMessage && (
+                <Text {...rest} {...block(props)} context="bad" size="small">
+                    {errorMessage}
+                </Text>
+            )}
         </>
     );
 };
