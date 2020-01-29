@@ -10,7 +10,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Anchor component */
     children: NotEmptySingleReactNode;
     /** Popup component */
-    content: NotEmptySingleReactNode;
+    content?: SingleReactNode;
     /** Placement of the popup dialog relative to anchor */
     placement?: PopupPlacement;
 }
@@ -42,14 +42,15 @@ export const Tooltip: React.FC<Props> = props => {
     };
 
     // eslint-disable-next-line react/display-name
-    const renderPopup = () => (
-        <div>
-            <div {...rest} {...block(props)}>
-                {content}
-                <div {...elem('arrow', props)} />
+    const renderPopup = () =>
+        content ? (
+            <div>
+                <div {...rest} {...block(props)}>
+                    {content}
+                    <div {...elem('arrow', props)} />
+                </div>
             </div>
-        </div>
-    );
+        ) : null;
 
     return (
         <PopupBase

@@ -22,6 +22,12 @@ describe('<Tooltip> that renders a Tooltip', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('div[data-popup="true"]')).toHaveLength(1);
     });
+    it('should not display a tooltip on hover if there is no content defined', () => {
+        const wrapper = mount(<Tooltip placement="bottom">Hover me</Tooltip>);
+
+        wrapper.childAt(0).simulate('mouseover');
+        expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
+    });
     it('should display proper text inside a tooltip', () => {
         const tooltipText = 'Tooltip text';
         const wrapper = mount(
