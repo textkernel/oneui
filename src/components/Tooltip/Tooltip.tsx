@@ -13,11 +13,13 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
     content?: SingleReactNode;
     /** Placement of the popup dialog relative to anchor */
     placement?: PopupPlacement;
+    /** If set to true will show the tooltip regardless of mouse position. When false, will show only on hover */
+    alwaysVisible?: boolean;
 }
 
 export const Tooltip: React.FC<Props> = props => {
     // eslint-disable-next-line react/prop-types
-    const { placement, content, children, ...rest } = props;
+    const { placement, content, children, alwaysVisible, ...rest } = props;
 
     const createMouseOverHandler = setPopupVisibility => () => {
         setPopupVisibility(true);
@@ -29,6 +31,11 @@ export const Tooltip: React.FC<Props> = props => {
 
     // eslint-disable-next-line react/display-name
     const renderAnchor = ({ setPopupVisibility }) => {
+        if (alwaysVisible) {
+            setPopupVisibility(true);
+            return React.isValidElement(children) ? children : <span>{children}</span>;
+        }
+
         const mouseEventHandlers = {
             onMouseOver: createMouseOverHandler(setPopupVisibility),
             onMouseLeave: createMouseLeaveHandler(setPopupVisibility),
@@ -65,4 +72,5 @@ Tooltip.displayName = 'Tooltip';
 
 Tooltip.defaultProps = {
     placement: 'bottom',
+    alwaysVisible: false,
 };

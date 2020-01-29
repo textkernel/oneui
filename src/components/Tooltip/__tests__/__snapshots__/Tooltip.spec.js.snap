@@ -1,7 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Tooltip> that renders a Tooltip should display a tooltip on hover 1`] = `
+exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctly 1`] = `
 <Tooltip
+  alwaysVisible={false}
+  content="content"
+  placement="bottom"
+>
+  <PopupBase
+    anchorRef={null}
+    anchorRenderer={[Function]}
+    onClose={null}
+    placement="bottom"
+    popupRef={null}
+    popupRenderer={[Function]}
+    renderInPortal={false}
+  >
+    <span
+      onMouseLeave={[Function]}
+      onMouseOver={[Function]}
+    >
+      Hover me
+    </span>
+  </PopupBase>
+</Tooltip>
+`;
+
+exports[`<Tooltip> that renders a Tooltip tooltip on hover should display a tooltip on hover 1`] = `
+<Tooltip
+  alwaysVisible={false}
   content="content"
   placement="bottom"
 >
@@ -32,30 +58,6 @@ exports[`<Tooltip> that renders a Tooltip should display a tooltip on hover 1`] 
         />
       </div>
     </div>
-  </PopupBase>
-</Tooltip>
-`;
-
-exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctly 1`] = `
-<Tooltip
-  content="content"
-  placement="bottom"
->
-  <PopupBase
-    anchorRef={null}
-    anchorRenderer={[Function]}
-    onClose={null}
-    placement="bottom"
-    popupRef={null}
-    popupRenderer={[Function]}
-    renderInPortal={false}
-  >
-    <span
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
-    >
-      Hover me
-    </span>
   </PopupBase>
 </Tooltip>
 `;
