@@ -21,6 +21,14 @@ export const Tooltip: React.FC<Props> = props => {
     // eslint-disable-next-line react/prop-types
     const { placement, content, children, alwaysVisible, ...rest } = props;
 
+    let openCall: (isOpen: boolean) => void = () => null;
+
+    React.useEffect(() => {
+        if (alwaysVisible) {
+            openCall(!!content);
+        }
+    }, [content, alwaysVisible]);
+
     const createMouseOverHandler = setPopupVisibility => () => {
         setPopupVisibility(true);
     };
@@ -31,8 +39,8 @@ export const Tooltip: React.FC<Props> = props => {
 
     // eslint-disable-next-line react/display-name
     const renderAnchor = ({ setPopupVisibility }) => {
+        openCall = setPopupVisibility;
         if (alwaysVisible) {
-            setPopupVisibility(true);
             return React.isValidElement(children) ? children : <span>{children}</span>;
         }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
+import { PopupBase } from '../../PopupBase';
 import { Tooltip } from '../Tooltip';
 
 describe('<Tooltip> that renders a Tooltip', () => {
@@ -76,6 +77,31 @@ describe('<Tooltip> that renders a Tooltip', () => {
             );
 
             expect(wrapper.find('div[data-popup="true"]')).toHaveLength(1);
+        });
+        it('should correctly open and close the tooltip if content changes', () => {
+            const wrapper = mount(
+                <Tooltip placement="bottom" alwaysVisible>
+                    I have a tooltip
+                </Tooltip>
+            );
+            expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
+
+            // Since popper.js is mocked, we cannot see the popup properties such as placement in the wrapper
+            // instead we are going to spy on it to see if it was correctly opened/closed
+            const visibilitySpy = jest.spyOn(
+                wrapper.find('PopupBase').instance(),
+                'setPopupVisibility'
+            );
+
+            wrapper.setProps({ content: 'content' });
+            wrapper.update();
+            expect(visibilitySpy).toHaveBeenLastCalledWith(true);
+            expect(wrapper.find('div[data-popup="true"]')).toHaveLength(1);
+
+            wrapper.setProps({ content: undefined });
+            wrapper.update();
+            expect(visibilitySpy).toHaveBeenLastCalledWith(false);
+            expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
         });
     });
 });
