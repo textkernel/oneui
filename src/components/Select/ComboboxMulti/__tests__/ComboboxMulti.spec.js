@@ -135,12 +135,6 @@ describe('ComboboxMulti', () => {
 
             wrapper.find('input').simulate('keyDown', { key: 'Tab' });
 
-            /**
-             * This line makes test fail.
-             * According to that the component doesn't lose the 'focused' property, but in fact it does.
-             * The reason is JSDom rendered here has no other tabular element.
-             * expect(wrapper.state('focused')).toBeFalsy();
-             */
             expect(blurSpy).toHaveBeenCalled();
             expect(mockOnBlur).toHaveBeenCalled();
         });
