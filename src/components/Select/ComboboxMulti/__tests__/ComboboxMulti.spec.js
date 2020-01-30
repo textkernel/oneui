@@ -13,21 +13,21 @@ describe('ComboboxMulti', () => {
     const mockOnClearAllSelected = jest.fn();
     const mockOnBlur = jest.fn();
 
-    let suggestionsList = SUGGESTIONS;
+    const suggestions = SUGGESTIONS;
 
     let wrapper;
-    let instance;
+    let inputNode;
 
     const setFocusOnInput = () =>
         wrapper
             .find('.SelectBase__field')
-            .at(0)
+            .first()
             .simulate('click');
 
     beforeEach(() => {
         wrapper = mount(
             <ComboboxMulti
-                suggestions={suggestionsList}
+                suggestions={suggestions}
                 suggestionToString={suggestionToString}
                 inputPlaceholder={inputPlaceholder}
                 clearTitle={clearTitle}
@@ -36,27 +36,23 @@ describe('ComboboxMulti', () => {
                 onInputValueChange={mockOnInputValueChange}
                 onBlur={mockOnBlur}
                 onClearAllSelected={mockOnClearAllSelected}
-                showClearButton
             />
         );
-        instance = wrapper.find('ComboboxMulti').instance();
-    });
-
-    afterEach(() => {
-        suggestionsList = null;
-        wrapper.unmount();
+        inputNode = wrapper.find('input').getDOMNode();
     });
 
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
         });
-        it('should render empty component correctly when focused', () => {
+        it('should set focus on the input field', () => {
+            wrapper.setProps({ suggestions: [] });
             setFocusOnInput();
             expect(wrapper.find('li')).toHaveLength(0);
-            // expect(wrapper.state('focused')).toBeTruthy();
+            expect(inputNode).toBe(document.activeElement);
         });
         it('should render noSuggestions placeholder when empty suggestions list is passed', () => {
+            wrapper.setProps({ suggestions: [] });
             wrapper.find('input').simulate('change', { target: { value: 'driver' } });
             setFocusOnInput();
 
@@ -70,12 +66,10 @@ describe('ComboboxMulti', () => {
             ).toEqual(noSuggestionsPlaceholder);
         });
         it('should render all suggestions from the list', () => {
-            suggestionsList = SUGGESTIONS.slice(0, 4);
-            wrapper.setProps({ suggestions: suggestionsList });
             setFocusOnInput();
 
             expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('li')).toHaveLength(suggestionsList.length);
+            expect(wrapper.find('li')).toHaveLength(suggestions.length);
         });
         it('should render selection placeholder when component is not focused', () => {
             expect(wrapper.find('input').props().placeholder).toEqual(inputPlaceholder);
@@ -83,24 +77,21 @@ describe('ComboboxMulti', () => {
     });
     describe('focusing and blurring the search field', () => {
         it('should set focus when wrapper element is clicked', () => {
-            const inputEl = instance.inputRef.current;
-            const focusSpy = jest.spyOn(inputEl, 'focus');
+            const focusSpy = jest.spyOn(inputNode, 'focus');
 
-            expect(wrapper.state('focused')).toBeFalsy();
+            expect(inputNode).not.toBe(document.activeElement);
             expect(focusSpy).not.toHaveBeenCalled();
 
             setFocusOnInput();
 
-            expect(wrapper.state('focused')).toBeTruthy();
-            expect(focusSpy).toHaveBeenCalledTimes(1);
+            expect(inputNode).toBe(document.activeElement);
+            expect(focusSpy).toHaveBeenCalled();
         });
         it('should stay focused when suggestion is selected', () => {
-            suggestionsList = SUGGESTIONS.slice(1, 20);
-
-            expect(wrapper.state('focused')).toBeFalsy();
+            expect(inputNode).not.toBe(document.activeElement);
 
             setFocusOnInput();
-            expect(wrapper.state('focused')).toBeTruthy();
+            expect(inputNode).toBe(document.activeElement);
 
             wrapper
                 .find('li')
@@ -108,20 +99,19 @@ describe('ComboboxMulti', () => {
                 .childAt(0)
                 .simulate('click');
 
-            expect(wrapper.state('focused')).toBeTruthy();
+            expect(inputNode).toBe(document.activeElement);
             expect(wrapper.find('li')).not.toHaveLength(0);
         });
         it('should blur on pressing Escape button', () => {
-            const inputEl = instance.inputRef.current;
-            const blurSpy = jest.spyOn(inputEl, 'blur');
+            const blurSpy = jest.spyOn(inputNode, 'blur');
 
             setFocusOnInput();
 
-            expect(wrapper.state('focused')).toBeTruthy();
+            expect(inputNode).toBe(document.activeElement);
 
             wrapper.find('input').simulate('keyDown', { key: 'Escape' });
 
-            expect(wrapper.state('focused')).toBeFalsy();
+            expect(inputNode).not.toBe(document.activeElement);
             expect(blurSpy).toHaveBeenCalled();
             expect(mockOnBlur).toHaveBeenCalled();
         });
@@ -137,12 +127,11 @@ describe('ComboboxMulti', () => {
             expect(wrapper.find('input').props().value).toEqual('');
         });
         it('should blur on pressing Tab button', () => {
-            const inputEl = instance.inputRef.current;
-            const blurSpy = jest.spyOn(inputEl, 'blur');
+            const blurSpy = jest.spyOn(inputNode, 'blur');
 
             setFocusOnInput();
 
-            expect(wrapper.state('focused')).toBeTruthy();
+            expect(inputNode).toBe(document.activeElement);
 
             wrapper.find('input').simulate('keyDown', { key: 'Tab' });
 
@@ -159,8 +148,6 @@ describe('ComboboxMulti', () => {
     describe('callbacks', () => {
         describe('onSelectionChange', () => {
             it('should be called on clicking on a suggestion', () => {
-                suggestionsList = SUGGESTIONS.slice(0, 4);
-                wrapper.setProps({ suggestions: suggestionsList });
                 setFocusOnInput();
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
@@ -184,8 +171,6 @@ describe('ComboboxMulti', () => {
         });
         it('should not clear the input field when a suggestion was selected', () => {
             const textInputValue = 'driver';
-            suggestionsList = SUGGESTIONS.slice(0, 4);
-            wrapper.setProps({ suggestions: suggestionsList });
             wrapper.find('input').simulate('change', { target: { value: textInputValue } });
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);

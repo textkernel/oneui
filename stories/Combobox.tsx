@@ -54,7 +54,6 @@ storiesOf('Organisms|Select', module)
                 style={{ width: '650px' }}
                 inputPlaceholder={text('Input placeholder', 'Select something...')}
                 noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
-                clearTitle={text('Remove button label', 'Clear')}
                 suggestions={getSuggestions()}
                 suggestionToString={SUGGESTION_TO_STRING}
                 onBlur={onBlur}

@@ -169,13 +169,8 @@ export function SelectBase<S>(props: Props<S>) {
 
     const stateReducer = (state, changes) => {
         switch (changes.type) {
-            case Downshift.stateChangeTypes.keyDownEnter:
-                return {
-                    ...changes,
-                    highlightedIndex: state.highlightedIndex,
-                    isOpen: keepExpandedAfterSelection,
-                };
             case Downshift.stateChangeTypes.clickItem:
+            case Downshift.stateChangeTypes.keyDownEnter:
                 return {
                     ...changes,
                     highlightedIndex: state.highlightedIndex,
@@ -193,6 +188,12 @@ export function SelectBase<S>(props: Props<S>) {
     };
 
     const stateAndProps = { props, focused };
+
+    const getInputPropsWithUpdatedRef = getInputProps => inputProps => {
+        return inputRefFromProps
+            ? getInputProps(inputProps)
+            : getInputProps({ ...inputProps, ref: inputRef });
+    };
 
     return (
         <div {...rest} ref={rootRef} {...block(stateAndProps)}>
@@ -226,7 +227,7 @@ export function SelectBase<S>(props: Props<S>) {
                         >
                             {focused
                                 ? focusedRenderer({
-                                      getInputProps,
+                                      getInputProps: getInputPropsWithUpdatedRef(getInputProps),
                                       getToggleButtonProps,
                                       onBlur: handleBlur,
                                       inputValue,

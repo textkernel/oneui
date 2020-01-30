@@ -9,7 +9,7 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
   onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
-  showClearButton={true}
+  showClearButton={false}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -24,6 +24,21 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
       },
       Object {
         "name": "Venus",
+      },
+      Object {
+        "name": "Earth",
+      },
+      Object {
+        "name": "Mars",
+      },
+      Object {
+        "name": "Jupiter",
+      },
+      Object {
+        "name": "Saturn",
+      },
+      Object {
+        "name": "Neptun",
       },
     ]
   }
@@ -69,6 +84,21 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
         },
         Object {
           "name": "Venus",
+        },
+        Object {
+          "name": "Earth",
+        },
+        Object {
+          "name": "Mars",
+        },
+        Object {
+          "name": "Jupiter",
+        },
+        Object {
+          "name": "Saturn",
+        },
+        Object {
+          "name": "Neptun",
         },
       ]
     }
@@ -234,6 +264,21 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
                           },
                           Object {
                             "name": "Venus",
+                          },
+                          Object {
+                            "name": "Earth",
+                          },
+                          Object {
+                            "name": "Mars",
+                          },
+                          Object {
+                            "name": "Jupiter",
+                          },
+                          Object {
+                            "name": "Saturn",
+                          },
+                          Object {
+                            "name": "Neptun",
                           },
                         ]
                       }
@@ -414,6 +459,226 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
                           </div>
                         </li>
                       </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-10-item-4"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Earth"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-10-item-4"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Earth
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-10-item-5"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Mars"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-10-item-5"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Mars
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-10-item-6"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Jupiter"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-10-item-6"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Jupiter
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-10-item-7"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Saturn"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-10-item-7"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Saturn
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-10-item-8"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Neptun"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-10-item-8"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Neptun
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
                     </SuggestionsList>
                   </ul>
                 </List>
@@ -436,7 +701,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
   onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
-  showClearButton={true}
+  showClearButton={false}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -687,7 +952,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
   onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
-  showClearButton={true}
+  showClearButton={false}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -702,6 +967,21 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
       },
       Object {
         "name": "Venus",
+      },
+      Object {
+        "name": "Earth",
+      },
+      Object {
+        "name": "Mars",
+      },
+      Object {
+        "name": "Jupiter",
+      },
+      Object {
+        "name": "Saturn",
+      },
+      Object {
+        "name": "Neptun",
       },
     ]
   }
@@ -747,6 +1027,21 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
         },
         Object {
           "name": "Venus",
+        },
+        Object {
+          "name": "Earth",
+        },
+        Object {
+          "name": "Mars",
+        },
+        Object {
+          "name": "Jupiter",
+        },
+        Object {
+          "name": "Saturn",
+        },
+        Object {
+          "name": "Neptun",
         },
       ]
     }
@@ -912,6 +1207,21 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           },
                           Object {
                             "name": "Venus",
+                          },
+                          Object {
+                            "name": "Earth",
+                          },
+                          Object {
+                            "name": "Mars",
+                          },
+                          Object {
+                            "name": "Jupiter",
+                          },
+                          Object {
+                            "name": "Saturn",
+                          },
+                          Object {
+                            "name": "Neptun",
                           },
                         ]
                       }
@@ -1092,6 +1402,226 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           </div>
                         </li>
                       </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-4"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Earth"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-4"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Earth
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-5"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Mars"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-5"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Mars
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-6"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Jupiter"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-6"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Jupiter
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-7"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Saturn"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-7"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Saturn
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-8"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Neptun"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-8"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Neptun
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
                     </SuggestionsList>
                   </ul>
                 </List>
@@ -1128,9 +1658,9 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
     }
   }
   onSelectionChange={[MockFunction]}
-  showClearButton={true}
+  showClearButton={false}
   suggestionToString={[Function]}
-  suggestions={null}
+  suggestions={Array []}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -1174,7 +1704,7 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
     onSelectionChange={[MockFunction]}
     showClearButton={false}
     suggestionToString={[Function]}
-    suggestions={null}
+    suggestions={Array []}
   >
     <div
       className="SelectBase"
@@ -1324,7 +1854,7 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
                       key=".0"
                       noSuggestionsPlaceholder="No suggestions..."
                       suggestionToString={[Function]}
-                      suggestions={null}
+                      suggestions={Array []}
                     >
                       <ListItem
                         disabled={true}
