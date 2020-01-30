@@ -1,6 +1,5 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { PopupBase } from '../../PopupBase';
 import { Tooltip } from '../Tooltip';
 
 describe('<Tooltip> that renders a Tooltip', () => {
