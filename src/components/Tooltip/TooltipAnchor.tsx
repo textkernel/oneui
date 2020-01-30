@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { usePrevious } from '../../hooks';
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Anchor component */
@@ -16,13 +17,16 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 export const TooltipAnchor: React.FC<Props> = React.forwardRef((props, ref) => {
     // eslint-disable-next-line react/prop-types
     const { hasTooltipContent, children, alwaysVisible, setPopupVisibility } = props;
+    const prevAlwaysVisible = usePrevious(alwaysVisible);
 
     /** Behavior related to tooltip that is always open */
     React.useEffect(() => {
         if (alwaysVisible) {
             setPopupVisibility(hasTooltipContent);
+        } else if (prevAlwaysVisible) {
+            setPopupVisibility(false);
         }
-    }, [hasTooltipContent, alwaysVisible]);
+    }, [hasTooltipContent, alwaysVisible, prevAlwaysVisible, setPopupVisibility]);
 
     if (alwaysVisible) {
         return React.isValidElement(children) ? (

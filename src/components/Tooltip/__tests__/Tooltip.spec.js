@@ -104,5 +104,30 @@ describe('<Tooltip> that renders a Tooltip', () => {
             expect(visibilitySpy).toHaveBeenLastCalledWith(false);
             expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
         });
+        it('should remove / reopen tooltip if alwaysVisible prop changes', () => {
+            const wrapper = mount(
+                <Tooltip placement="bottom" content="content" alwaysVisible>
+                    I have a tooltip
+                </Tooltip>
+            );
+            expect(wrapper.find('div[data-popup="true"]')).toHaveLength(1);
+
+            // Since popper.js is mocked, we cannot see the popup properties such as placement in the wrapper
+            // instead we are going to spy on it to see if it was correctly opened/closed
+            const visibilitySpy = jest.spyOn(
+                wrapper.find('PopupBase').instance(),
+                'setPopupVisibility'
+            );
+
+            wrapper.setProps({ alwaysVisible: false });
+            wrapper.update();
+            expect(visibilitySpy).toHaveBeenLastCalledWith(false);
+            expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
+
+            wrapper.setProps({ alwaysVisible: true });
+            wrapper.update();
+            expect(visibilitySpy).toHaveBeenLastCalledWith(true);
+            expect(wrapper.find('div[data-popup="true"]')).toHaveLength(1);
+        });
     });
 });
