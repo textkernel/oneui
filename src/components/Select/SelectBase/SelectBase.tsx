@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Downshift, { GetItemPropsOptions, GetToggleButtonPropsOptions } from 'downshift';
-import bem from '../../../utils/bem';
-import FieldWrapper from '../../FieldWrapper';
+import { bem } from '../../../utils/bem';
+import { FieldWrapper } from '../../FieldWrapper';
 import { List } from '../../List';
 import { ENTER_KEY } from '../../../constants';
 import { Props as ListRendererProps } from '../SuggestionsList/SuggestionsList';

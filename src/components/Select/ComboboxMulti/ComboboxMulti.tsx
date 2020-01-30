@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
-import bem from '../../../utils/bem/bem';
+import { bem } from '../../../utils/bem/bem';
 import { Props as SelectBaseProps, SelectBase } from '../SelectBase';
 import { SuggestionsList } from '../SuggestionsList';
 import styles from './ComboboxMulti.scss';

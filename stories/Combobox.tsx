@@ -2,7 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { ComboboxMulti } from '@textkernel/oneui';
-import withStore from '../src/packages/storybook/withStore';
+import { StoreInjector } from '../src/packages/storybook/withStore';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
@@ -13,7 +13,7 @@ type TSuggestion = { name: string };
 storiesOf('Organisms|Select', module)
     .addDecorator(withKnobs)
     .addParameters(
-        withStore({
+        StoreInjector.withStore({
             inputValue: '',
         })
     )
