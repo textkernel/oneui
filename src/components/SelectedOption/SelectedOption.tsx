@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { IoIosClose } from 'react-icons/io';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import { ENTER_KEY } from '../../constants';
 import styles from './SelectedOption.scss';
 
@@ -17,7 +17,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block, elem } = bem('SelectedOption', styles);
 
-const SelectedOption: React.FC<Props> = React.forwardRef((props, ref) => {
+export const SelectedOption: React.FC<Props> = React.forwardRef((props, ref) => {
     const { As = 'div', children, onDelete, ...rest } = props;
 
     const handleKeyDown = e => {
@@ -49,5 +49,3 @@ SelectedOption.displayName = 'SelectedOption';
 SelectedOption.defaultProps = {
     As: 'div',
 };
-
-export default SelectedOption;

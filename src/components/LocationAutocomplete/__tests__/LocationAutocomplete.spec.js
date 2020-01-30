@@ -1,9 +1,9 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import toJson from 'enzyme-to-json';
-import stabGoogleApi, { getPlacePredictionsMock } from '../../../__mocks__/googleApiMock';
+import { stabGoogleApi, getPlacePredictionsMock } from '../../../__mocks__/googleApiMock';
 import predictionsMock from '../__mocks__/predictions.json';
-import LocationAutocomplete from '../LocationAutocomplete';
+import { LocationAutocomplete } from '../LocationAutocomplete';
 
 stabGoogleApi();
 

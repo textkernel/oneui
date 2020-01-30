@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { FaSearch } from 'react-icons/fa';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils';
 import styles from './SearchButton.scss';
 
 const { block, elem } = bem('SearchButton', styles);
 
-const SearchButton = forwardRef((props, ref) => {
+export const SearchButton = forwardRef((props, ref) => {
     const { disabled, children, type, ...rest } = props;
     const propsForBem = { ...props, withLabel: !!children };
 
@@ -36,5 +36,3 @@ SearchButton.defaultProps = {
     disabled: false,
     type: 'button',
 };
-
-export default SearchButton;

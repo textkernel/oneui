@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Autosuggest from '../Autosuggest';
+import { Autosuggest } from '../Autosuggest';
 import { IconMatch } from '../../Icon';
 import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../__mocks__/suggestions';
 import { NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS } from '../../../constants';

@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Callout from '../Callout';
+import { Callout } from '../Callout';
 
 describe('Callout', () => {
     it('should render correctly', () => {

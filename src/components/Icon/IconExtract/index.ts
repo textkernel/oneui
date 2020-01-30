@@ -1,1 +1,1 @@
-export { default } from './IconExtract';
+export { IconExtract } from './IconExtract';

@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import styles from './TextArea.scss';
 import { CONTEXTS, SIZES } from '../../constants';
 
 const { block } = bem('TextArea', styles);
 
-const TextArea = forwardRef((props, ref) => {
+export const TextArea = forwardRef((props, ref) => {
     const { context, disabled, isBlock, size, ...rest } = props;
     return <textarea {...rest} {...block(props)} ref={ref} disabled={disabled} />;
 });
@@ -32,5 +32,3 @@ TextArea.defaultProps = {
     isBlock: false,
     size: 'normal',
 };
-
-export default TextArea;

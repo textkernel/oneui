@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import LogoTextkernel from '../LogoTextkernel';
+import { LogoTextkernel } from '../LogoTextkernel';
 
 describe('<LogoTextkernel>', () => {
     it('should render an Textkernel icon', () => {

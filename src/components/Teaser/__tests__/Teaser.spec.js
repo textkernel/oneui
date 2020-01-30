@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Teaser from '../Teaser';
+import { Teaser } from '../Teaser';
 
 describe('Teaser', () => {
     it('should render correctly with just a title', () => {

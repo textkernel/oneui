@@ -1,2 +1,2 @@
-export { default as LeftPane } from './LeftPane';
+export { LeftPane } from './LeftPane';
 export { Props as LeftPaneProps } from './LeftPane';

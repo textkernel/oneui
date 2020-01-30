@@ -1,13 +1,13 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './RadioButton.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 
 const { block, elem } = bem('RadioButton', styles);
 
-const RadioButton = forwardRef((props, ref) => {
+export const RadioButton = forwardRef((props, ref) => {
     const { id, children, disabled, name, ...rest } = props;
 
     return (
@@ -60,5 +60,3 @@ RadioButton.defaultProps = {
     disabled: false,
     children: null,
 };
-
-export default RadioButton;

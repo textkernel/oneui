@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { PopupPlacement } from '../../constants';
-import PopupBase from '../PopupBase';
+import { PopupBase } from '../PopupBase';
 import styles from './Tooltip.scss';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 
 const { block, elem } = bem('Tooltip', styles);
 
@@ -15,7 +15,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
     placement?: PopupPlacement;
 }
 
-const Tooltip: React.FC<Props> = props => {
+export const Tooltip: React.FC<Props> = props => {
     // eslint-disable-next-line react/prop-types
     const { placement, content, children, ...rest } = props;
 
@@ -65,5 +65,3 @@ Tooltip.displayName = 'Tooltip';
 Tooltip.defaultProps = {
     placement: 'bottom',
 };
-
-export default Tooltip;

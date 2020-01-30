@@ -1,1 +1,1 @@
-export { default } from './IconJobfeed';
+export { IconJobfeed } from './IconJobfeed';

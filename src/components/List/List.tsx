@@ -1,8 +1,7 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
-import styles from './List.scss';
+import { bem, scrollIntoViewIfNeeded } from '../../utils';
 import { LIST_NAVIGATION_DIRECTIONS, ENTER_KEY } from '../../constants';
-import scrollIntoViewIfNeeded from '../../utils/scrollIntoViewIfNeeded';
+import styles from './List.scss';
 
 interface Props extends React.HTMLAttributes<HTMLUListElement> {
     /** List items. They should be ListItem or li.
@@ -28,7 +27,7 @@ const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1,
 };
 
-const List: React.FC<Props> = React.forwardRef((props, ref) => {
+export const List: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, isDivided, doSelectOnNavigate, isControlledNavigation, ...rest } = props;
 
     const [selectedIndex, setSelectedIndex] = React.useState<number>(-1);
@@ -160,5 +159,3 @@ List.defaultProps = {
     doSelectOnNavigate: false,
     isControlledNavigation: false,
 };
-
-export default List;

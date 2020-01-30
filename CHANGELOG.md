@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.3.1](https://github.com/textkernel/oneui/compare/9.3.0...9.3.1) (2020-01-28)
+
+
+
+## [9.3.0](https://github.com/textkernel/oneui/compare/9.2.0...9.3.0) (2020-01-28)
+
+
+### Bug Fixes
+
+* **Autosuggest:** allow selection of same item twice in a row ([#221](https://github.com/textkernel/oneui/issues/221)) ([8a7d2b7](https://github.com/textkernel/oneui/commit/8a7d2b7))
+
+
+### Features
+
+* **FieldWithValidation:** new component ([#225](https://github.com/textkernel/oneui/issues/225)) ([803980c](https://github.com/textkernel/oneui/commit/803980c))
+
+
+
 ## [9.2.0](https://github.com/textkernel/oneui/compare/9.1.0...9.2.0) (2020-01-16)
 
 

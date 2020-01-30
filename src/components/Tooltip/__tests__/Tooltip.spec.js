@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import Tooltip from '../Tooltip';
+import { Tooltip } from '../Tooltip';
 
 describe('<Tooltip> that renders a Tooltip', () => {
     it('should render default Tooltip correctly', () => {

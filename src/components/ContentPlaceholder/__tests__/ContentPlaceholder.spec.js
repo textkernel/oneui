@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import ContentPlaceholder from '../ContentPlaceholder';
+import { ContentPlaceholder } from '../ContentPlaceholder';
 
 describe('<ContentPlaceholder> that renders a content placeholder', () => {
     it('should render default placeholder', () => {

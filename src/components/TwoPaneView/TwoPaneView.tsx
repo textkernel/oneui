@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import { BlockWidthRestrictor, BlockWidthRestrictorProps } from '../WidthRestrictor';
 import { LeftPaneProps } from './LeftPane';
 import { RightPane, RightPaneProps } from './RightPane';
@@ -12,7 +12,7 @@ interface Props extends Omit<BlockWidthRestrictorProps, 'children'> {
 
 const { block } = bem('TwoPaneView', styles);
 
-const TwoPaneView: React.FC<Props> = props => {
+export const TwoPaneView: React.FC<Props> = props => {
     const { children, ...rest } = props;
 
     const [rightTop, setRightTop] = React.useState(0);
@@ -103,5 +103,3 @@ const TwoPaneView: React.FC<Props> = props => {
 };
 
 TwoPaneView.displayName = 'TwoPaneView';
-
-export default TwoPaneView;

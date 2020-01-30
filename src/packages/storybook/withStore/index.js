@@ -1,1 +1,1 @@
-export { default, StoreInjector } from './withStore';
+export { StoreInjector } from './withStore';

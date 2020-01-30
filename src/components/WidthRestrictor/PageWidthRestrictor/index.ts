@@ -1,1 +1,1 @@
-export { default } from './PageWidthRestrictor';
+export { PageWidthRestrictor } from './PageWidthRestrictor';

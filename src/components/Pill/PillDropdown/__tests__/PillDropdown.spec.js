@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import PillDropdown from '../PillDropdown';
+import { PillDropdown } from '../PillDropdown';
 
 describe('<PillDropdown> component', () => {
     const childrenMock = jest.fn();

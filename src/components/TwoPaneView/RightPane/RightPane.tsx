@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils';
 import styles from './RightPane.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -9,7 +9,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block } = bem('RightPane', styles);
 
-const RightPane: React.FC<Props> = props => {
+export const RightPane: React.FC<Props> = props => {
     const { children, ...rest } = props;
 
     return (
@@ -20,5 +20,3 @@ const RightPane: React.FC<Props> = props => {
 };
 
 RightPane.displayName = 'RightPane';
-
-export default RightPane;

@@ -2,12 +2,12 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Downshift from 'downshift';
 import memoize from 'fast-memoize';
-import bem from '../../utils/bem';
+import { bem } from '../../utils';
 import { Text, MarkedText } from '../Text';
-import FieldWrapper from '../FieldWrapper';
-import ContentPlaceholder from '../ContentPlaceholder';
+import { FieldWrapper } from '../FieldWrapper';
+import { ContentPlaceholder } from '../ContentPlaceholder';
 import { List, ListItem } from '../List';
-import ItemTag from './ItemTag';
+import { ItemTag } from './ItemTag';
 import styles from './Autosuggest.scss';
 import {
     NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS,
@@ -21,7 +21,7 @@ const FOCUS_DELAY = 250;
 
 const { block, elem } = bem('Autosuggest', styles);
 
-class Autosuggest extends React.Component {
+export class Autosuggest extends React.Component {
     constructor(props) {
         super(props);
 
@@ -461,5 +461,3 @@ Autosuggest.defaultProps = {
 };
 
 Autosuggest.displayName = 'Autosuggest';
-
-export default Autosuggest;

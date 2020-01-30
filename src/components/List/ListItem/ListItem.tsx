@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils';
 import { Text } from '../../Text';
 import { Context } from '../../../constants';
 import styles from './ListItem.scss';
@@ -23,7 +23,7 @@ interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
 
 const { block, elem } = bem('ListItem', styles);
 
-const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
+export const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
     const {
         children,
         isSelected,
@@ -54,5 +54,3 @@ ListItem.defaultProps = {
     disabled: false,
     highlightContext: 'default',
 };
-
-export default ListItem;

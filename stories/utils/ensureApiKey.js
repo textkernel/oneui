@@ -1,4 +1,4 @@
-export default function ensureApiKey(library = null) {
+export function ensureApiKey(library = null) {
     let apiKey = window.localStorage.getItem('storybook_google_api_key');
 
     if (

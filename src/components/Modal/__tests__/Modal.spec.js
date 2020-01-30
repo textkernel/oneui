@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import ReactModal from 'react-modal';
-import Modal from '../Modal';
+import { Modal } from '../Modal';
 
 describe('Modal', () => {
     it('should render correctly', () => {

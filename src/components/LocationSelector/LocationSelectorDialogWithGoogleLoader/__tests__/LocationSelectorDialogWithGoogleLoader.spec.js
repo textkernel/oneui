@@ -1,6 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import LocationSelectorDialogWithGoogleLoader from '..';
+import { LocationSelectorDialogWithGoogleLoader } from '..';
 
 describe('<LocationSelectorDialogWithGoogleLoader/> that loads google api and renders a Location selector dialog', () => {
     it('should render with default props', () => {

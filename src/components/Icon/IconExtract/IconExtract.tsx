@@ -1,7 +1,7 @@
 import * as React from 'react';
-import IconBase, { IconProps as Props } from '../IconBase';
+import { IconBase, IconProps as Props } from '../IconBase';
 
-const IconExtract: React.FC<Props> = props => (
+export const IconExtract: React.FC<Props> = props => (
     <IconBase {...props} viewBox="0 0 77.36 93.32">
         <path d="M5.17,87.36l-.46,4c0,1,2.14,1.91,4.71,1.91H67.93c2.58,0,4.71-.9,4.71-1.91l-.45-4Z" />
         <path d="M2.81,78.6l-.45,3.71c0,1.12,2.25,2,5.05,2H70c2.81,0,5-.9,5-2l-.56-3.71Z" />
@@ -11,5 +11,3 @@ const IconExtract: React.FC<Props> = props => (
 );
 
 IconExtract.displayName = 'IconExtract';
-
-export default IconExtract;

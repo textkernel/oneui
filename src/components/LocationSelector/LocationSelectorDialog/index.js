@@ -1,1 +1,1 @@
-export { default } from './LocationSelectorDialog';
+export { LocationSelectorDialog } from './LocationSelectorDialog';

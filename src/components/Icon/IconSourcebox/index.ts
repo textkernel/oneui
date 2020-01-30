@@ -1,1 +1,1 @@
-export { default } from './IconSourcebox';
+export { IconSourcebox } from './IconSourcebox';

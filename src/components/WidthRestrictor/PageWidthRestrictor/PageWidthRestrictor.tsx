@@ -1,5 +1,5 @@
 import * as React from 'react';
-import bem from '../../../utils/bem';
+import { bem } from '../../../utils';
 import styles from './PageWidthRestrictor.scss';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -9,7 +9,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block } = bem('PageWidthRestrictor', styles);
 
-const PageWidthRestrictor: React.FC<Props> = props => {
+export const PageWidthRestrictor: React.FC<Props> = props => {
     const { children, ...rest } = props;
 
     return (
@@ -20,5 +20,3 @@ const PageWidthRestrictor: React.FC<Props> = props => {
 };
 
 PageWidthRestrictor.displayName = 'PageWidthRestrictor';
-
-export default PageWidthRestrictor;

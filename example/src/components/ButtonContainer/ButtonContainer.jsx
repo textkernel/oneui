@@ -8,10 +8,8 @@ import './ButtonContainer.css'
  * This component is also customizable since its CSS uses variables from the
  * application theme ( ./public/default-app-theme.css).
  */
-const ButtonContainer = ({ children }) => (
+export const ButtonContainer = ({ children }) => (
     <div className="button-container">
         {children}
     </div>
 );
-
-export default ButtonContainer;

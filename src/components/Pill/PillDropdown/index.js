@@ -1,1 +1,1 @@
-export { default } from './PillDropdown';
+export { PillDropdown } from './PillDropdown';
