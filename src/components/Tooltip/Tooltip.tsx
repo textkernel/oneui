@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { PopupPlacement } from '../../constants';
 import { PopupBase } from '../PopupBase';
+import { TooltipAnchor } from './TooltipAnchor';
 import styles from './Tooltip.scss';
 import { bem } from '../../utils';
 
@@ -21,40 +22,16 @@ export const Tooltip: React.FC<Props> = props => {
     // eslint-disable-next-line react/prop-types
     const { placement, content, children, alwaysVisible, ...rest } = props;
 
-    let openCall: (isOpen: boolean) => void = () => null;
-
-    React.useEffect(() => {
-        if (alwaysVisible) {
-            openCall(!!content);
-        }
-    }, [content, alwaysVisible]);
-
-    const createMouseOverHandler = setPopupVisibility => () => {
-        setPopupVisibility(true);
-    };
-
-    const createMouseLeaveHandler = setPopupVisibility => () => {
-        setPopupVisibility(false);
-    };
-
     // eslint-disable-next-line react/display-name
-    const renderAnchor = ({ setPopupVisibility }) => {
-        openCall = setPopupVisibility;
-        if (alwaysVisible) {
-            return React.isValidElement(children) ? children : <span>{children}</span>;
-        }
-
-        const mouseEventHandlers = {
-            onMouseOver: createMouseOverHandler(setPopupVisibility),
-            onMouseLeave: createMouseLeaveHandler(setPopupVisibility),
-        };
-
-        if (React.isValidElement(children)) {
-            return React.cloneElement(children, mouseEventHandlers);
-        }
-
-        return <span {...mouseEventHandlers}>{children}</span>;
-    };
+    const renderAnchor = ({ setPopupVisibility }) => (
+        <TooltipAnchor
+            alwaysVisible={alwaysVisible}
+            hasTooltipContent={!!content}
+            setPopupVisibility={setPopupVisibility}
+        >
+            {children}
+        </TooltipAnchor>
+    );
 
     // eslint-disable-next-line react/display-name
     const renderPopup = () =>

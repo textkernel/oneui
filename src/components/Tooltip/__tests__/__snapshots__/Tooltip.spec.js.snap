@@ -15,12 +15,18 @@ exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctl
     popupRenderer={[Function]}
     renderInPortal={false}
   >
-    <span
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
+    <TooltipAnchor
+      alwaysVisible={false}
+      hasTooltipContent={true}
+      setPopupVisibility={[Function]}
     >
-      Hover me
-    </span>
+      <span
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+      >
+        Hover me
+      </span>
+    </TooltipAnchor>
   </PopupBase>
 </Tooltip>
 `;
@@ -40,12 +46,18 @@ exports[`<Tooltip> that renders a Tooltip tooltip on hover should display a tool
     popupRenderer={[Function]}
     renderInPortal={false}
   >
-    <span
-      onMouseLeave={[Function]}
-      onMouseOver={[Function]}
+    <TooltipAnchor
+      alwaysVisible={false}
+      hasTooltipContent={true}
+      setPopupVisibility={[Function]}
     >
-      Hover me
-    </span>
+      <span
+        onMouseLeave={[Function]}
+        onMouseOver={[Function]}
+      >
+        Hover me
+      </span>
+    </TooltipAnchor>
     <div
       data-popup="true"
     >

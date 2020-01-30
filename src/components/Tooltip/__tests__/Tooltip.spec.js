@@ -53,8 +53,10 @@ describe('<Tooltip> that renders a Tooltip', () => {
                 </Tooltip>
             );
 
-            wrapper.childAt(0).simulate('mouseover');
-            wrapper.childAt(0).simulate('mouseleave');
+            wrapper
+                .childAt(0)
+                .simulate('mouseover')
+                .simulate('mouseleave');
             expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
         });
     });
