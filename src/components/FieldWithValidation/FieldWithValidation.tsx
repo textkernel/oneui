@@ -17,23 +17,46 @@ const { block } = bem('FieldWithValidation', styles);
 
 export const FieldWithValidation: React.FC<Props> = props => {
     const { children, errorMessage, useTooltip, ...rest } = props;
+    const [isChildInFocus, setIsChildInFocus] = React.useState(false);
 
-    const clonedChild = errorMessage ? React.cloneElement(children, { context: 'bad' }) : children;
+    const handleFocus = () => {
+        setIsChildInFocus(true);
+    };
 
-    return useTooltip ? (
-        <Tooltip {...rest} content={errorMessage}>
-            {clonedChild}
-        </Tooltip>
-    ) : (
-        <>
-            {clonedChild}
-            {errorMessage && (
+    const handleBlur = () => {
+        setIsChildInFocus(false);
+    };
+
+    if (useTooltip) {
+        const clonedChild = errorMessage
+            ? React.cloneElement(children, {
+                  context: 'bad',
+                  onFocus: handleFocus,
+                  onBlur: handleBlur,
+              })
+            : children;
+
+        return (
+            <Tooltip {...rest} content={errorMessage} alwaysVisible={isChildInFocus}>
+                {clonedChild}
+            </Tooltip>
+        );
+    }
+
+    if (errorMessage) {
+        const clonedChild = React.cloneElement(children, { context: 'bad' });
+
+        return (
+            <>
+                {clonedChild}
                 <Text {...rest} {...block(props)} context="bad" size="small">
                     {errorMessage}
                 </Text>
-            )}
-        </>
-    );
+            </>
+        );
+    }
+
+    return children;
 };
 
 FieldWithValidation.defaultProps = {

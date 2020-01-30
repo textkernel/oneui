@@ -6,11 +6,17 @@ import { FieldWithValidation, Input, TextArea } from '@textkernel/oneui';
 const Example = () => {
     const [inputValue, setValue] = React.useState('');
     const [errMsg, setErrMsg] = React.useState<string>();
-    const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    // eslint-disable-next-line no-useless-escape
+    const EMAIL_REGEX = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
     React.useEffect(() => {
-        console.log(inputValue);
-        setErrMsg(inputValue.match(EMAIL_REGEX) ? undefined : 'This is not a valid email address');
+        if (!inputValue) {
+            setErrMsg('This field is required');
+        } else {
+            setErrMsg(
+                inputValue.match(EMAIL_REGEX) ? undefined : 'This is not a valid email address'
+            );
+        }
     }, [inputValue, EMAIL_REGEX]);
 
     return (
