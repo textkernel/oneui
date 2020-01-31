@@ -115,6 +115,10 @@ export class PopupBase extends React.Component {
         if (isOpen) {
             const { popupRenderer } = this.props;
             const popupElem = popupRenderer(this.getArgs());
+            if (!popupElem) {
+                return null;
+            }
+
             const popupElemWithProps = React.cloneElement(popupElem, {
                 ref: this.popupRef,
                 'data-popup': 'true',
