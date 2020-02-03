@@ -119,14 +119,6 @@ describe('SelectBase', () => {
             const clearTitle = 'Clear';
             wrapper.setProps({ clearTitle, showClearButton: true });
 
-            setFocusOnInput();
-            wrapper
-                .find('li')
-                .first()
-                .children()
-                .simulate('click');
-            wrapper.find('input').simulate('blur');
-
             wrapper.find('Button').simulate('click');
             expect(mockOnClearAllSelected).toHaveBeenCalled();
         });

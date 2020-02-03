@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IoIosArrowUp, IoIosArrowDown } from 'react-icons/io';
+import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { bem } from '../../../utils/bem/bem';
 import { Props as SelectBaseProps, SelectBase } from '../SelectBase';
 import { SuggestionsList } from '../SuggestionsList';
@@ -56,7 +56,10 @@ export function ComboboxMulti<S>(props: Props<S>) {
                         ...elem('input', { ...props }),
                     })}
                 />
-                <IoIosArrowUp {...getToggleButtonProps()} />
+                <IoMdArrowDropup
+                    {...elem('dropdownIcon', { ...props })}
+                    {...getToggleButtonProps()}
+                />
             </div>
         );
     };
@@ -71,7 +74,8 @@ export function ComboboxMulti<S>(props: Props<S>) {
                     ...elem('input', { ...props }),
                 })}
             />
-            <IoIosArrowDown
+            <IoMdArrowDropdown
+                {...elem('dropdownIcon', { ...props })}
                 {...getToggleButtonProps({
                     onClick: e => {
                         e?.stopPropagation();

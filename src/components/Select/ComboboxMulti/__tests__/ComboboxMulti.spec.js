@@ -50,7 +50,6 @@ describe('ComboboxMulti', () => {
             wrapper.find('input').simulate('change', { target: { value: 'driver' } });
             setFocusOnInput();
 
-            expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('li')).toHaveLength(1);
             expect(
                 wrapper
@@ -139,7 +138,6 @@ describe('ComboboxMulti', () => {
                 setFocusOnInput();
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
-                expect(toJson(wrapper)).toMatchSnapshot();
 
                 wrapper
                     .find('li')

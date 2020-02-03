@@ -29,4 +29,11 @@
             color: var(--color-muted);
         }
     }
+
+    &__dropdownIcon {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 20px;
+        margin-right: var(--spacing-normal);
+    }
 }
