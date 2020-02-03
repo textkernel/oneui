@@ -66,8 +66,8 @@ storiesOf('Atoms|Tabs', module)
             </TabsBar>
         );
     })
-    .add('Example implementation', ({ parameters }) => {
-        const store = parameters.getStore();
+    .add('Example implementation', parameters => {
+        const store = parameters?.parameters.getStore();
 
         const handleSelect = tabId => {
             // IE11 errors on string concatenation inside console.log. So let's do it outside of it.

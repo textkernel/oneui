@@ -2,13 +2,20 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { Input } from '@textkernel/oneui';
-import { VALIDATION_CONTEXTS, INPUT_TYPES, SIZES } from '@textkernel/oneui/constants';
+import { INPUT_TYPES, SIZES } from '@textkernel/oneui/constants';
+
+const validationContextOptions = {
+    None: undefined,
+    Good: 'good',
+    Bad: 'bad',
+    Warning: 'warning',
+} as const;
 
 storiesOf('Atoms|Input', module)
     .addDecorator(withKnobs)
     .add('Default behavior', () => (
         <Input
-            context={select('Context', [null, ...VALIDATION_CONTEXTS], null)}
+            context={select('Context', validationContextOptions, undefined)}
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
             onChange={e => {
@@ -22,7 +29,7 @@ storiesOf('Atoms|Input', module)
     ))
     .add('Controlled component', () => (
         <Input
-            context={select('Context', [null, ...VALIDATION_CONTEXTS], null)}
+            context={select('Context', validationContextOptions, undefined)}
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
             onChange={e => {

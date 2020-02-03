@@ -3,6 +3,12 @@ import { storiesOf } from '@storybook/react';
 import { text, boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { SelectButtonGroup, SelectButton } from '@textkernel/oneui';
 
+const selectedContexts = {
+    Default: undefined,
+    Brand: 'brand',
+    Neutral: 'neutral',
+} as const;
+
 storiesOf('Atoms|SelectButtonGroup', module)
     .addDecorator(withKnobs)
     .add('SelectButtonGroup', () => (
@@ -11,9 +17,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
             isRequired={boolean('Require to have at least 1 selected option', false)}
             isBlock={boolean('Display as block', false)}
             isEqualWidth={boolean('Make all buttons the same width', false)}
-            selectedContext={
-                select('Default selected color context', [null, 'brand', 'neutral']) || undefined
-            }
+            selectedContext={select('Default selected color context', selectedContexts, undefined)}
             onChange={value => {
                 const msg = `onSelect was called with values ${value}`;
                 console.log(msg);
@@ -24,7 +28,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
                 key="button 1"
                 isInitiallySelected
                 selectedContext={
-                    select('Selected color context for button 1', [null, 'brand', 'neutral']) ||
+                    select('Selected color context for button 1', selectedContexts, undefined) ||
                     undefined
                 }
             >
@@ -34,7 +38,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
                 key="button 2"
                 value="button 2"
                 selectedContext={
-                    select('Selected color context for button 2', [null, 'brand', 'neutral']) ||
+                    select('Selected color context for button 2', selectedContexts, undefined) ||
                     undefined
                 }
             >
@@ -44,7 +48,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
                 key="button 3"
                 value="button 3"
                 selectedContext={
-                    select('Selected color context for button 3', [null, 'brand', 'neutral']) ||
+                    select('Selected color context for button 3', selectedContexts, undefined) ||
                     undefined
                 }
             >

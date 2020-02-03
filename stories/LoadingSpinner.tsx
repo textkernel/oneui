@@ -12,15 +12,15 @@ storiesOf('Molecules|LoadingSpinner', module)
             <LoadingSpinner
                 context={select('Context', CONTEXTS, CONTEXTS[1])}
                 hidden={boolean('Hidden', false)}
-                size={number('Size', null)}
+                size={number('Size', 0) || undefined}
                 centerIn={select(
                     'Center in...',
                     {
-                        '': null,
+                        Nothing: undefined,
                         'Parent element': 'parent',
                         Viewport: 'viewport',
                     },
-                    null
+                    undefined
                 )}
             >
                 {label}
