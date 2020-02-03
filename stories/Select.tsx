@@ -31,7 +31,6 @@ storiesOf('Organisms|Select', module)
         };
 
         const onSelectionChange = (item: TSuggestion) => {
-            store.set({ inputValue: '' });
             console.log(`onSelectionChange was called with {name: ${item?.name}}`);
         };
 
