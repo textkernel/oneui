@@ -42,6 +42,6 @@ import './Tooltip';
 import './TwoPaneView';
 // Organisms
 import './Autosuggest';
-import './Combobox';
+import './Select';
 import './LocationAutocomplete';
 import './LocationSelector';

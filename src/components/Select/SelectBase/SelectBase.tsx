@@ -121,8 +121,11 @@ export function SelectBase<S>(props: Props<S>) {
         onBlur?.();
     };
 
-    const handleChange = selectedItem => {
+    const handleChange = (selectedItem, downshift) => {
+        const { clearSelection, openMenu } = downshift;
+
         setInputValue('');
+        clearSelection();
 
         if (selectedItem) {
             onSelectionChange(selectedItem);
@@ -130,6 +133,8 @@ export function SelectBase<S>(props: Props<S>) {
 
         if (!keepExpandedAfterSelection) {
             handleBlur();
+        } else {
+            openMenu();
         }
     };
 
@@ -152,7 +157,7 @@ export function SelectBase<S>(props: Props<S>) {
 
     const focus = openMenu => {
         openMenu();
-        inputRef.current?.focus();
+        setFocused(true);
     };
 
     const handleWrapperClick = openMenu => () => {

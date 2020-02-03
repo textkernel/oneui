@@ -26,7 +26,6 @@ export function ComboboxMulti<S>(props: Props<S>) {
         noSuggestionsPlaceholder,
         onBlur,
         onInputValueChange,
-        onClearAllSelected,
         inputPlaceholder,
         ...rest
     } = props;
@@ -57,9 +56,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
                         ...elem('input', { ...props }),
                     })}
                 />
-                <div {...elem('buttons', { ...props })}>
-                    <IoIosArrowUp {...getToggleButtonProps()} />
-                </div>
+                <IoIosArrowUp {...getToggleButtonProps()} />
             </div>
         );
     };
@@ -74,15 +71,13 @@ export function ComboboxMulti<S>(props: Props<S>) {
                     ...elem('input', { ...props }),
                 })}
             />
-            <div {...elem('buttons', { ...props })}>
-                <IoIosArrowDown
-                    {...getToggleButtonProps({
-                        onClick: e => {
-                            e?.stopPropagation();
-                        },
-                    })}
-                />
-            </div>
+            <IoIosArrowDown
+                {...getToggleButtonProps({
+                    onClick: e => {
+                        e?.stopPropagation();
+                    },
+                })}
+            />
         </div>
     );
 
@@ -96,7 +91,6 @@ export function ComboboxMulti<S>(props: Props<S>) {
             onBlur={onBlur}
             onSelectionChange={onSelectionChange}
             onInputValueChange={onInputValueChange}
-            onClearAllSelected={onClearAllSelected}
             listRenderer={listProps => <SuggestionsList {...listProps} />}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}

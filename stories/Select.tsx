@@ -17,7 +17,7 @@ storiesOf('Organisms|Select', module)
             inputValue: '',
         })
     )
-    .add('Simple select', ({ parameters }) => {
+    .add('ComboboxMulti', ({ parameters }) => {
         const store = parameters.getStore();
         const getSuggestions = (): TSuggestion[] => {
             return SUGGESTIONS.filter(item =>
@@ -32,11 +32,6 @@ storiesOf('Organisms|Select', module)
 
         const onSelectionChange = (item: TSuggestion) => {
             console.log(`onSelectionChange was called with {name: ${item?.name}}`);
-            if (store.get('selectedSuggestion')?.name === item.name) {
-                store.set({ selectedSuggestion: null });
-            } else {
-                store.set({ selectedSuggestion: item });
-            }
         };
 
         const onBlur = () => {
@@ -46,7 +41,6 @@ storiesOf('Organisms|Select', module)
 
         const onClearAllSelected = () => {
             console.log('onClearAllSelected was called');
-            store.set({ selectedSuggestion: null });
         };
 
         return (

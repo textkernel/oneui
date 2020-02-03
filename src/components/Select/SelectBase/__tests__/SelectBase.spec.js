@@ -49,64 +49,15 @@ describe('SelectBase', () => {
         it('should initially render empty component correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
         });
-        it('should render empty component correctly when focused', () => {
-            setFocusOnInput();
-            wrapper.setProps({ suggestions: [] });
-            expect(wrapper.find('li')).toHaveLength(0);
-            expect(inputNode).toBe(document.activeElement);
-        });
-        it('should render noSuggestions placeholder when empty suggestions list is passed', () => {
-            wrapper.setProps({ suggestions: [] });
-            wrapper.find('input').simulate('change', { target: { value: 'driver' } });
-            setFocusOnInput();
-
-            expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('li')).toHaveLength(1);
-            expect(
-                wrapper
-                    .find('li')
-                    .childAt(0)
-                    .text()
-            ).toEqual(noSuggestionsPlaceholder);
-        });
-        it('should render all suggestions from the list', () => {
-            setFocusOnInput();
-
-            expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('li')).toHaveLength(suggestions.length);
-        });
-        it('should use alternative list render function if passed', () => {
-            const listRendererMock = jest.fn(() => <li>My list</li>);
-
-            wrapper.setProps({ listRenderer: listRendererMock });
-            setFocusOnInput();
-
-            expect(listRendererMock).toHaveBeenCalledWith(
-                expect.objectContaining({
-                    getItemProps: expect.any(Function),
-                    inputValue: expect.any(String),
-                    noSuggestionsPlaceholder: expect.any(String),
-                    highlightedIndex: expect.any(Number),
-                    suggestionToString: expect.any(Function),
-                    suggestions: expect.any(Array),
-                })
-            );
-            expect(wrapper.find('li')).toHaveLength(1);
-        });
         it('should render Clear button when showClearButton is set to true', () => {
             const clearTitle = 'Clear';
             wrapper.setProps({ clearTitle, showClearButton: true });
 
-            setFocusOnInput();
-            wrapper
-                .find('li')
-                .first()
-                .children()
-                .simulate('click');
-            wrapper.find('input').simulate('blur');
-
             expect(wrapper.find('Button').text()).toBe(clearTitle);
-            expect(wrapper.find('li')).toHaveLength(0);
+
+            setFocusOnInput();
+
+            expect(wrapper.find('Button')).toHaveLength(0);
         });
     });
     describe('focusing and blurring the search field', () => {

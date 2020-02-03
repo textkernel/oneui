@@ -7,10 +7,8 @@ describe('ComboboxMulti', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     const inputPlaceholder = 'type here...';
     const noSuggestionsPlaceholder = 'No suggestions...';
-    const clearTitle = 'Clear';
     const mockOnSelectionChange = jest.fn();
     const mockOnInputValueChange = jest.fn();
-    const mockOnClearAllSelected = jest.fn();
     const mockOnBlur = jest.fn();
 
     const suggestions = SUGGESTIONS;
@@ -30,12 +28,10 @@ describe('ComboboxMulti', () => {
                 suggestions={suggestions}
                 suggestionToString={suggestionToString}
                 inputPlaceholder={inputPlaceholder}
-                clearTitle={clearTitle}
                 noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                 onSelectionChange={mockOnSelectionChange}
                 onInputValueChange={mockOnInputValueChange}
                 onBlur={mockOnBlur}
-                onClearAllSelected={mockOnClearAllSelected}
             />
         );
         inputNode = wrapper.find('input').getDOMNode();
@@ -46,9 +42,7 @@ describe('ComboboxMulti', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
         });
         it('should set focus on the input field', () => {
-            wrapper.setProps({ suggestions: [] });
             setFocusOnInput();
-            expect(wrapper.find('li')).toHaveLength(0);
             expect(inputNode).toBe(document.activeElement);
         });
         it('should render noSuggestions placeholder when empty suggestions list is passed', () => {

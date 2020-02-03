@@ -2,11 +2,9 @@
 
 exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking on a suggestion 1`] = `
 <ComboboxMulti
-  clearTitle="Clear"
   inputPlaceholder="type here..."
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
-  onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   showClearButton={false}
@@ -45,7 +43,7 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
 >
   <SelectBase
     blurredRenderer={[Function]}
-    clearTitle="Clear"
+    clearTitle=""
     focusedRenderer={[Function]}
     inputRef={
       Object {
@@ -66,7 +64,6 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
     listRenderer={[Function]}
     noSuggestionsPlaceholder="No suggestions..."
     onBlur={[MockFunction]}
-    onClearAllSelected={[MockFunction]}
     onInputValueChange={[MockFunction]}
     onSelectionChange={[MockFunction]}
     showClearButton={false}
@@ -134,7 +131,7 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel="Clear"
+            clearLabel=""
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
@@ -168,10 +165,25 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
                     placeholder="type here..."
                     value=""
                   />
-                  <div>
-                    <IoIosArrowUp
+                  <IoIosArrowUp
+                    aria-haspopup={true}
+                    aria-label="close menu"
+                    data-toggle={true}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <IconBase
                       aria-haspopup={true}
                       aria-label="close menu"
+                      attr={
+                        Object {
+                          "viewBox": "0 0 512 512",
+                        }
+                      }
                       data-toggle={true}
                       onBlur={[Function]}
                       onClick={[Function]}
@@ -180,53 +192,36 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
                       role="button"
                       type="button"
                     >
-                      <IconBase
+                      <svg
                         aria-haspopup={true}
                         aria-label="close menu"
-                        attr={
-                          Object {
-                            "viewBox": "0 0 512 512",
-                          }
-                        }
                         data-toggle={true}
+                        fill="currentColor"
+                        height="1em"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onKeyDown={[Function]}
                         onKeyUp={[Function]}
                         role="button"
-                        type="button"
-                      >
-                        <svg
-                          aria-haspopup={true}
-                          aria-label="close menu"
-                          data-toggle={true}
-                          fill="currentColor"
-                          height="1em"
-                          onBlur={[Function]}
-                          onClick={[Function]}
-                          onKeyDown={[Function]}
-                          onKeyUp={[Function]}
-                          role="button"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
                           }
-                          type="button"
-                          viewBox="0 0 512 512"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
-                            key="0"
-                          />
-                        </svg>
-                      </IconBase>
-                    </IoIosArrowUp>
-                  </div>
+                        }
+                        type="button"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </IoIosArrowUp>
                 </div>
                 <List
                   aria-labelledby="downshift-10-label"
@@ -694,11 +689,9 @@ exports[`ComboboxMulti callbacks onSelectionChange should be called on clicking 
 
 exports[`ComboboxMulti rendering should initially render empty component correctly 1`] = `
 <ComboboxMulti
-  clearTitle="Clear"
   inputPlaceholder="type here..."
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
-  onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   showClearButton={false}
@@ -737,7 +730,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
 >
   <SelectBase
     blurredRenderer={[Function]}
-    clearTitle="Clear"
+    clearTitle=""
     focusedRenderer={[Function]}
     inputRef={
       Object {
@@ -756,7 +749,6 @@ exports[`ComboboxMulti rendering should initially render empty component correct
     listRenderer={[Function]}
     noSuggestionsPlaceholder="No suggestions..."
     onBlur={[MockFunction]}
-    onClearAllSelected={[MockFunction]}
     onInputValueChange={[MockFunction]}
     onSelectionChange={[MockFunction]}
     showClearButton={false}
@@ -824,7 +816,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel="Clear"
+            clearLabel=""
             isFocused={false}
             onClear={[Function]}
             onClick={[Function]}
@@ -858,10 +850,25 @@ exports[`ComboboxMulti rendering should initially render empty component correct
                     placeholder="type here..."
                     value=""
                   />
-                  <div>
-                    <IoIosArrowDown
+                  <IoIosArrowDown
+                    aria-haspopup={true}
+                    aria-label="open menu"
+                    data-toggle={true}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <IconBase
                       aria-haspopup={true}
                       aria-label="open menu"
+                      attr={
+                        Object {
+                          "viewBox": "0 0 512 512",
+                        }
+                      }
                       data-toggle={true}
                       onBlur={[Function]}
                       onClick={[Function]}
@@ -870,53 +877,36 @@ exports[`ComboboxMulti rendering should initially render empty component correct
                       role="button"
                       type="button"
                     >
-                      <IconBase
+                      <svg
                         aria-haspopup={true}
                         aria-label="open menu"
-                        attr={
-                          Object {
-                            "viewBox": "0 0 512 512",
-                          }
-                        }
                         data-toggle={true}
+                        fill="currentColor"
+                        height="1em"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onKeyDown={[Function]}
                         onKeyUp={[Function]}
                         role="button"
-                        type="button"
-                      >
-                        <svg
-                          aria-haspopup={true}
-                          aria-label="open menu"
-                          data-toggle={true}
-                          fill="currentColor"
-                          height="1em"
-                          onBlur={[Function]}
-                          onClick={[Function]}
-                          onKeyDown={[Function]}
-                          onKeyUp={[Function]}
-                          role="button"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
                           }
-                          type="button"
-                          viewBox="0 0 512 512"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                            key="0"
-                          />
-                        </svg>
-                      </IconBase>
-                    </IoIosArrowDown>
-                  </div>
+                        }
+                        type="button"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </IoIosArrowDown>
                 </div>
                 <List
                   aria-labelledby="downshift-0-label"
@@ -945,11 +935,9 @@ exports[`ComboboxMulti rendering should initially render empty component correct
 
 exports[`ComboboxMulti rendering should render all suggestions from the list 1`] = `
 <ComboboxMulti
-  clearTitle="Clear"
   inputPlaceholder="type here..."
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
-  onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   showClearButton={false}
@@ -988,7 +976,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
 >
   <SelectBase
     blurredRenderer={[Function]}
-    clearTitle="Clear"
+    clearTitle=""
     focusedRenderer={[Function]}
     inputRef={
       Object {
@@ -1009,7 +997,6 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
     listRenderer={[Function]}
     noSuggestionsPlaceholder="No suggestions..."
     onBlur={[MockFunction]}
-    onClearAllSelected={[MockFunction]}
     onInputValueChange={[MockFunction]}
     onSelectionChange={[MockFunction]}
     showClearButton={false}
@@ -1077,7 +1064,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel="Clear"
+            clearLabel=""
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
@@ -1111,10 +1098,25 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                     placeholder="type here..."
                     value=""
                   />
-                  <div>
-                    <IoIosArrowUp
+                  <IoIosArrowUp
+                    aria-haspopup={true}
+                    aria-label="close menu"
+                    data-toggle={true}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <IconBase
                       aria-haspopup={true}
                       aria-label="close menu"
+                      attr={
+                        Object {
+                          "viewBox": "0 0 512 512",
+                        }
+                      }
                       data-toggle={true}
                       onBlur={[Function]}
                       onClick={[Function]}
@@ -1123,53 +1125,36 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       role="button"
                       type="button"
                     >
-                      <IconBase
+                      <svg
                         aria-haspopup={true}
                         aria-label="close menu"
-                        attr={
-                          Object {
-                            "viewBox": "0 0 512 512",
-                          }
-                        }
                         data-toggle={true}
+                        fill="currentColor"
+                        height="1em"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onKeyDown={[Function]}
                         onKeyUp={[Function]}
                         role="button"
-                        type="button"
-                      >
-                        <svg
-                          aria-haspopup={true}
-                          aria-label="close menu"
-                          data-toggle={true}
-                          fill="currentColor"
-                          height="1em"
-                          onBlur={[Function]}
-                          onClick={[Function]}
-                          onKeyDown={[Function]}
-                          onKeyUp={[Function]}
-                          role="button"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
                           }
-                          type="button"
-                          viewBox="0 0 512 512"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
-                            key="0"
-                          />
-                        </svg>
-                      </IconBase>
-                    </IoIosArrowUp>
-                  </div>
+                        }
+                        type="button"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </IoIosArrowUp>
                 </div>
                 <List
                   aria-labelledby="downshift-3-label"
@@ -1637,11 +1622,9 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
 
 exports[`ComboboxMulti rendering should render noSuggestions placeholder when empty suggestions list is passed 1`] = `
 <ComboboxMulti
-  clearTitle="Clear"
   inputPlaceholder="type here..."
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
-  onClearAllSelected={[MockFunction]}
   onInputValueChange={
     [MockFunction] {
       "calls": Array [
@@ -1664,7 +1647,7 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
 >
   <SelectBase
     blurredRenderer={[Function]}
-    clearTitle="Clear"
+    clearTitle=""
     focusedRenderer={[Function]}
     inputRef={
       Object {
@@ -1685,7 +1668,6 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
     listRenderer={[Function]}
     noSuggestionsPlaceholder="No suggestions..."
     onBlur={[MockFunction]}
-    onClearAllSelected={[MockFunction]}
     onInputValueChange={
       [MockFunction] {
         "calls": Array [
@@ -1737,7 +1719,7 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel="Clear"
+            clearLabel=""
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
@@ -1771,10 +1753,25 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
                     placeholder="type here..."
                     value="driver"
                   />
-                  <div>
-                    <IoIosArrowUp
+                  <IoIosArrowUp
+                    aria-haspopup={true}
+                    aria-label="close menu"
+                    data-toggle={true}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    role="button"
+                    type="button"
+                  >
+                    <IconBase
                       aria-haspopup={true}
                       aria-label="close menu"
+                      attr={
+                        Object {
+                          "viewBox": "0 0 512 512",
+                        }
+                      }
                       data-toggle={true}
                       onBlur={[Function]}
                       onClick={[Function]}
@@ -1783,53 +1780,36 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
                       role="button"
                       type="button"
                     >
-                      <IconBase
+                      <svg
                         aria-haspopup={true}
                         aria-label="close menu"
-                        attr={
-                          Object {
-                            "viewBox": "0 0 512 512",
-                          }
-                        }
                         data-toggle={true}
+                        fill="currentColor"
+                        height="1em"
                         onBlur={[Function]}
                         onClick={[Function]}
                         onKeyDown={[Function]}
                         onKeyUp={[Function]}
                         role="button"
-                        type="button"
-                      >
-                        <svg
-                          aria-haspopup={true}
-                          aria-label="close menu"
-                          data-toggle={true}
-                          fill="currentColor"
-                          height="1em"
-                          onBlur={[Function]}
-                          onClick={[Function]}
-                          onKeyDown={[Function]}
-                          onKeyUp={[Function]}
-                          role="button"
-                          stroke="currentColor"
-                          strokeWidth="0"
-                          style={
-                            Object {
-                              "color": undefined,
-                            }
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
                           }
-                          type="button"
-                          viewBox="0 0 512 512"
-                          width="1em"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
-                            key="0"
-                          />
-                        </svg>
-                      </IconBase>
-                    </IoIosArrowUp>
-                  </div>
+                        }
+                        type="button"
+                        viewBox="0 0 512 512"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M256 217.9L383 345c9.4 9.4 24.6 9.4 33.9 0 9.4-9.4 9.3-24.6 0-34L273 167c-9.1-9.1-23.7-9.3-33.1-.7L95 310.9c-4.7 4.7-7 10.9-7 17s2.3 12.3 7 17c9.4 9.4 24.6 9.4 33.9 0l127.1-127z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </IoIosArrowUp>
                 </div>
                 <List
                   aria-labelledby="downshift-2-label"

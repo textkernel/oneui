@@ -10,8 +10,11 @@ export interface Props<S> {
     suggestionToString: (suggestions: S) => string;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: string;
+    /** a function which gets props for the item in the list */
     getItemProps: (options: GetItemPropsOptions<S>) => object;
+    /** index of the item from the list to be highlighted */
     highlightedIndex: number | null;
+    /** input field value to be highlighted in the item from the list */
     inputValue: string;
 }
 
