@@ -8,7 +8,7 @@ storiesOf('Atoms|Text', module)
     .addDecorator(withKnobs)
     .add('Text', () => (
         <Text
-            context={select('Context', ['default', 'muted', ...CONTEXTS])}
+            context={select('Context', ['default', 'muted', ...CONTEXTS], 'default')}
             size={select('Size', SIZES, 'normal')}
         >
             {text('Content', 'This is some text content')}
@@ -16,7 +16,7 @@ storiesOf('Atoms|Text', module)
     ))
     .add('Marked text', () => (
         <MarkedText
-            context={select('Context', ['default', 'muted', ...CONTEXTS])}
+            context={select('Context', ['default', 'muted', ...CONTEXTS], 'default')}
             size={select('Size', SIZES, 'normal')}
             marker={text('Marker', 'so')}
         >
