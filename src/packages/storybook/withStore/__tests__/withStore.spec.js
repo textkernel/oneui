@@ -3,6 +3,7 @@ import { StoreInjector } from '../withStore';
 const { withStore } = StoreInjector;
 
 jest.mock('@storybook/addons', () => ({
+    makeDecorator: () => null,
     getChannel: () => ({
         on: () => {},
         emit: () => {},

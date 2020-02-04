@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text } from '@storybook/addon-knobs';
+import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
 import { Tooltip } from '@textkernel/oneui';
 import { POPUP_PLACEMENTS } from '../src/constants';
 
@@ -11,6 +11,7 @@ storiesOf('Molecules|Tooltip', module)
             <Tooltip
                 placement={select('Placement', POPUP_PLACEMENTS, 'bottom')}
                 content={text('Tooltip text', 'this is my tooltip text')}
+                alwaysVisible={boolean('Always show tooltip', false)}
             >
                 hover here to see the tooltip
             </Tooltip>

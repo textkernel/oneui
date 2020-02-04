@@ -16,10 +16,18 @@ Version numbers should not be prefixed (e.g. 1.2.3, **not** v1.2.3).
 
 ## Release Procedure
 
-**First**, make sure your master branch is up to date and do a dry-run to verify that the expected version number will be used:
+**First** make sure that storybooks runs well on prod build
 
 ```bash
 (master)$ git pull
+(master)$ npm run storybook:build
+```
+
+You can open storybook from `./out/index.html` (see also comment at end of terminal output)
+
+**Then**, make sure your master branch is up to date and do a dry-run to verify that the expected version number will be used:
+
+```bash
 (master)$ npm run release -- --dry-run
 ```
 
@@ -30,6 +38,7 @@ Version numbers should not be prefixed (e.g. 1.2.3, **not** v1.2.3).
 ```
 
 The release script will...
+
 1. ...auto determine a new version number on the basis of commit messages since last tag.
 2. ...update the version number in metadata files (package[-lock].json).
 3. ...generate an updated [CHANGELOG.md](CHANGELOG.md) on the basis of commit messages since last tag.

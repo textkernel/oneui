@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.3.2](https://github.com/textkernel/oneui/compare/9.3.1...9.3.2) (2020-01-31)
+
+
+### Bug Fixes
+
+* **FieldWithValidation:** change logic when using tooltip ([#227](https://github.com/textkernel/oneui/issues/227)) ([b564256](https://github.com/textkernel/oneui/commit/b564256))
+
+
+
 ### [9.3.1](https://github.com/textkernel/oneui/compare/9.3.0...9.3.1) (2020-01-28)
 
 

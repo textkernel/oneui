@@ -1,56 +1,58 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { List, ListItem, ListActions, Teaser, Text, Button, Checkbox } from '@textkernel/oneui';
 import { CONTEXTS } from '../src/constants';
 
 storiesOf('Atoms|List', module)
     .addDecorator(withKnobs)
-    .add('List', () => (
-        <List
-            isDivided={boolean('Add dividers between items', true)}
-            doSelectOnNavigate={boolean('Select item on keyboard navigation', true)}
-        >
-            <ListItem highlightContext={select('Highlight context', ['default', ...CONTEXTS])}>
-                First item passed as string{' '}
-                <ListActions>
-                    <Button context="link" isInline>
-                        Action
-                    </Button>
-                </ListActions>
-            </ListItem>
-            <ListItem highlightContext={select('Highlight context', ['default', ...CONTEXTS])}>
-                <Checkbox id="item2" />
-                <div>
-                    <Text>Item passed as Text component</Text>
-                    <Text>It has multiple lines</Text>
-                </div>
-            </ListItem>
-            <ListItem
-                isSelected={boolean('Select item', true)}
-                highlightContext={select('Highlight context', ['default', ...CONTEXTS])}
+    .add('List', () => {
+        const highlightContext = select('Highlight context', ['default', ...CONTEXTS], 'default');
+        return (
+            <List
+                isDivided={boolean('Add dividers between items', true)}
+                doSelectOnNavigate={boolean('Select item on keyboard navigation', true)}
             >
-                <Text inline>Item selectable via props</Text>
-            </ListItem>
-            <ListItem
-                disabled={boolean('Disable item', true)}
-                highlightContext={select('Highlight context', ['default', ...CONTEXTS])}
-            >
-                <Text inline>Disabled item</Text>
-            </ListItem>
-            <ListItem
-                onClick={e => {
-                    e.preventDefault();
-                    alert('Item was selected'); // eslint-disable-line no-alert, no-undef
-                }}
-                highlightContext={select('Highlight context', ['default', ...CONTEXTS])}
-            >
-                <Checkbox id="item4" />
-                Clickable item
-            </ListItem>
-        </List>
-    ))
+                <ListItem highlightContext={highlightContext}>
+                    First item passed as string{' '}
+                    <ListActions>
+                        <Button context="link" isInline>
+                            Action
+                        </Button>
+                    </ListActions>
+                </ListItem>
+                <ListItem highlightContext={highlightContext}>
+                    <Checkbox id="item2" />
+                    <div>
+                        <Text>Item passed as Text component</Text>
+                        <Text>It has multiple lines</Text>
+                    </div>
+                </ListItem>
+                <ListItem
+                    isSelected={boolean('Select item', true)}
+                    highlightContext={highlightContext}
+                >
+                    <Text inline>Item selectable via props</Text>
+                </ListItem>
+                <ListItem
+                    disabled={boolean('Disable item', true)}
+                    highlightContext={highlightContext}
+                >
+                    <Text inline>Disabled item</Text>
+                </ListItem>
+                <ListItem
+                    onClick={e => {
+                        e.preventDefault();
+                        alert('Item was selected'); // eslint-disable-line no-alert, no-undef
+                    }}
+                    highlightContext={highlightContext}
+                >
+                    <Checkbox id="item4" />
+                    Clickable item
+                </ListItem>
+            </List>
+        );
+    })
     .add('List showing results', () => {
         const onClickJob = item => e => {
             e.preventDefault();
