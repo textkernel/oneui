@@ -60,7 +60,6 @@ exports[`ComboboxMulti rendering should initially render empty component correct
     }
     keepExpandedAfterSelection={true}
     listRenderer={[Function]}
-    noSuggestionsPlaceholder="No suggestions..."
     onBlur={[MockFunction]}
     onInputValueChange={[MockFunction]}
     onSelectionChange={[MockFunction]}
@@ -311,7 +310,6 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
     }
     keepExpandedAfterSelection={true}
     listRenderer={[Function]}
-    noSuggestionsPlaceholder="No suggestions..."
     onBlur={[MockFunction]}
     onInputValueChange={[MockFunction]}
     onSelectionChange={[MockFunction]}

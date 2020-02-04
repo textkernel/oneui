@@ -1,20 +1,19 @@
 import * as React from 'react';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { bem } from '../../../utils/bem/bem';
-import { Props as SelectBaseProps, SelectBase } from '../SelectBase';
+import { SelectBase, CommonProps } from '../SelectBase';
 import { SuggestionsList } from '../SuggestionsList';
 import styles from './ComboboxMulti.scss';
 import { ESCAPE_KEY, TAB_KEY } from '../../../constants';
 
-interface Props<S>
-    extends Omit<
-        Omit<Omit<SelectBaseProps<S>, 'listRenderer'>, 'focusedRenderer'>,
-        'blurredRenderer'
-    > {
-    inputPlaceholder: string;
-}
-
 const { elem } = bem('ComboboxMulti', styles);
+
+interface Props<S> extends CommonProps<S> {
+    /** to be shown in the input field when no value is typed */
+    inputPlaceholder: string;
+    /** to be shown when no suggestions are available */
+    noSuggestionsPlaceholder: string;
+}
 
 export function ComboboxMulti<S>(props: Props<S>) {
     const {
@@ -22,7 +21,6 @@ export function ComboboxMulti<S>(props: Props<S>) {
         inputRef: inputRefFromProps,
         suggestions,
         suggestionToString,
-        showClearButton,
         noSuggestionsPlaceholder,
         onBlur,
         onInputValueChange,
@@ -90,12 +88,16 @@ export function ComboboxMulti<S>(props: Props<S>) {
             {...rest}
             suggestions={suggestions}
             suggestionToString={suggestionToString}
-            noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             inputRef={inputRef}
             onBlur={onBlur}
             onSelectionChange={onSelectionChange}
             onInputValueChange={onInputValueChange}
-            listRenderer={listProps => <SuggestionsList {...listProps} />}
+            listRenderer={listProps => (
+                <SuggestionsList
+                    {...listProps}
+                    noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+                />
+            )}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
             keepExpandedAfterSelection

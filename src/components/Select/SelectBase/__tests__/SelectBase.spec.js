@@ -54,10 +54,6 @@ describe('SelectBase', () => {
             wrapper.setProps({ clearTitle, showClearButton: true });
 
             expect(wrapper.find('Button').text()).toBe(clearTitle);
-
-            setFocusOnInput();
-
-            expect(wrapper.find('Button')).toHaveLength(0);
         });
     });
     describe('focusing and blurring the search field', () => {
@@ -72,31 +68,29 @@ describe('SelectBase', () => {
             expect(inputNode).toBe(document.activeElement);
             expect(focusSpy).toHaveBeenCalled();
         });
-        it('should implement direct control functionality with a ref passed from the outside', () => {
+        it('should be able to get a component by ref sent as a prop', () => {
             wrapper.setProps({
                 ref: inputRef,
                 focusedRenderer: mockRenderWithRef,
                 blurredRenderer: mockRenderWithRef,
             });
             wrapper.update();
-            const focusSpy = jest.spyOn(inputNode, 'focus');
 
+            expect(wrapper.find('input').getElement().ref).toBeTruthy();
+        });
+        it('should lose focus when suggestion is selected', () => {
             expect(inputNode).not.toBe(document.activeElement);
-            expect(focusSpy).not.toHaveBeenCalled();
 
             setFocusOnInput();
+
             wrapper
                 .find('li')
-                .first()
+                .at(0)
                 .children()
                 .simulate('click');
 
-            expect(inputNode).toBe(document.activeElement);
-            expect(focusSpy).toHaveBeenCalled();
-
-            wrapper.find('input').simulate('blur');
-
-            expect(mockOnBlur).toHaveBeenCalled();
+            expect(wrapper.find('li')).toHaveLength(0);
+            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
         });
     });
     describe('callbacks', () => {
@@ -126,25 +120,12 @@ describe('SelectBase', () => {
             setFocusOnInput();
             wrapper
                 .find('li')
-                .first()
-                .children()
+                .at(0)
+                .childAt(0)
                 .simulate('click');
-            wrapper.find('input').simulate('blur');
+            wrapper.find('SelectBase').simulate('blur');
 
             expect(mockOnBlur).toHaveBeenCalled();
-        });
-        it('should lose focus when suggestion is selected', () => {
-            expect(inputNode).not.toBe(document.activeElement);
-
-            setFocusOnInput();
-
-            wrapper
-                .find('li')
-                .at(0)
-                .children()
-                .simulate('click');
-
-            expect(wrapper.find('li')).toHaveLength(0);
         });
         it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', () => {
             wrapper.setProps({ keepExpandedAfterSelection: true });
@@ -159,7 +140,6 @@ describe('SelectBase', () => {
                 .childAt(0)
                 .simulate('click');
 
-            expect(inputNode).toBe(document.activeElement);
             expect(wrapper.find('li')).toHaveLength(suggestions.length);
         });
         it('should call onInputValueChange when typing into input field', () => {
@@ -169,7 +149,7 @@ describe('SelectBase', () => {
 
             expect(mockOnInputValueChange).toHaveBeenCalled();
         });
-        it('should not clear the input field when a suggestion was selected', () => {
+        it('should clear the input field when a suggestion was selected', () => {
             const textInputValue = 'driver';
             wrapper.find('input').simulate('change', { target: { value: textInputValue } });
 

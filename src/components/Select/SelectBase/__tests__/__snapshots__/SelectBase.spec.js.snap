@@ -104,6 +104,7 @@ exports[`SelectBase rendering should initially render empty component correctly 
 >
   <div
     className="SelectBase"
+    noSuggestionsPlaceholder="No suggestions..."
   >
     <Downshift
       defaultHighlightedIndex={0}

@@ -1,1 +1,2 @@
-export { SelectBase, Props } from './SelectBase';
+export { SelectBase } from './SelectBase';
+export { CommonProps, CommonPropsWithClear, Props } from './interfaces';

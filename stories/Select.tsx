@@ -39,10 +39,6 @@ storiesOf('Organisms|Select', module)
             store.set({ inputValue: '' });
         };
 
-        const onClearAllSelected = () => {
-            console.log('onClearAllSelected was called');
-        };
-
         return (
             <ComboboxMulti<TSuggestion>
                 style={{ width: '650px' }}
@@ -52,7 +48,6 @@ storiesOf('Organisms|Select', module)
                 suggestionToString={SUGGESTION_TO_STRING}
                 onBlur={onBlur}
                 onSelectionChange={onSelectionChange}
-                onClearAllSelected={onClearAllSelected}
                 onInputValueChange={onInputValueChange}
             />
         );
