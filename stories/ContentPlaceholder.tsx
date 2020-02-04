@@ -11,7 +11,7 @@ storiesOf('Atoms|ContentPlaceholder', module)
 
         return (
             <div style={{ width: 400 }}>
-                <ContentPlaceholder duration={duration} height={height} />
+                <ContentPlaceholder duration={duration || undefined} height={height || undefined} />
                 <ContentPlaceholder
                     duration={duration || undefined}
                     height={height || undefined}
@@ -32,7 +32,7 @@ storiesOf('Atoms|ContentPlaceholder', module)
         return (
             <div style={{ width: number('Container width in pixels', 400) }}>
                 <div style={{ lineHeight: '12px', marginBottom: '5px' }}>
-                    <ContentPlaceholder duration={duration} withoutMargin />
+                    <ContentPlaceholder duration={duration || undefined} withoutMargin />
                 </div>
                 <div style={{ lineHeight: '14px', marginBottom: '5px' }}>
                     <ContentPlaceholder
