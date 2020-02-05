@@ -11,7 +11,8 @@ const Example = () => {
 
     React.useEffect(() => {
         if (!inputValue) {
-            setErrMsg('This field is required');
+            setErrMsg(undefined);
+            // setErrMsg('This field is required');
         } else {
             setErrMsg(
                 inputValue.match(EMAIL_REGEX) ? undefined : 'This is not a valid email address'
@@ -21,10 +22,7 @@ const Example = () => {
 
     return (
         <div style={{ marginBottom: '10px' }}>
-            <FieldWithValidation
-                errorMessage={errMsg}
-                useTooltip={boolean('Use tooltip for input field', false)}
-            >
+            <FieldWithValidation errorMessage={errMsg} useTooltip>
                 <Input
                     value={inputValue}
                     onChange={e => {
@@ -59,4 +57,20 @@ storiesOf('Molecules|FieldWithValidation', module)
             </div>
         </>
     ))
-    .add('Example implementation', () => <Example />);
+    .add('Example implementation', () => <Example />)
+    .add('test', () => {
+        const FlexExample = () => {
+            const [fields, setFields] = React.useState([1]);
+
+            return (
+                <div>
+                    {fields.map(() => (
+                        <Example />
+                    ))}
+                    <button onClick={() => setFields([...fields, fields.length])}>Add more</button>
+                </div>
+            );
+        };
+
+        return <FlexExample />;
+    });
