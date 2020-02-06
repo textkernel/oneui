@@ -22,27 +22,21 @@ beforeEach(() => {
 });
 
 describe('SuggestionsList', () => {
-    it('should initially render empty component correctly', () => {
+    it('should initially render component correctly', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-    it('should render empty component correctly when focused', () => {
+    it('should render empty component correctly', () => {
         wrapper.setProps({ suggestions: [] });
-        expect(wrapper.find('li')).toHaveLength(0);
+        expect(wrapper.find('li')).toHaveLength(1);
     });
     it('should render noSuggestions placeholder when empty suggestions list is passed', () => {
-        wrapper.setProps({ suggestions: [], inputValue: 'test' });
+        wrapper.setProps({ suggestions: [] });
 
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('li')).toHaveLength(1);
         expect(
             wrapper
                 .find('li')
                 .childAt(0)
                 .text()
         ).toEqual(noSuggestionsPlaceholder);
-    });
-    it('should render all suggestions from the list', () => {
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('li')).toHaveLength(SUGGESTIONS.length);
     });
 });

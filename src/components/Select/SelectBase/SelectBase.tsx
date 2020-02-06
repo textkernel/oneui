@@ -10,6 +10,7 @@ import styles from './SelectBase.scss';
 const { block, elem } = bem('SelectBase', styles);
 
 export function SelectBase<S>(props: Props<S>) {
+    console.log(props);
     const {
         suggestions,
         suggestionToString,

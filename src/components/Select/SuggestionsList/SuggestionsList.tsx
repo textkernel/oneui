@@ -29,11 +29,11 @@ export function SuggestionsList<S>(props: Props<S>) {
     } = props;
 
     if (!suggestions || !suggestions.length) {
-        return inputValue ? (
+        return (
             <ListItem disabled>
                 <Text context="muted">{noSuggestionsPlaceholder}</Text>
             </ListItem>
-        ) : null;
+        );
     }
 
     // <> is needed because of https://github.com/DefinitelyTyped/DefinitelyTyped/issues/20356

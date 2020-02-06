@@ -1,5 +1,4 @@
 import { GetItemPropsOptions, GetToggleButtonPropsOptions } from 'downshift';
-import { Props as ListRendererProps } from '../SuggestionsList/SuggestionsList';
 
 export interface CommonProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     /** an array of objects that will be used to render the suggestions list. */
@@ -32,7 +31,18 @@ export interface CommonPropsWithClear<S> extends CommonProps<S> {
 export interface Props<S> extends CommonPropsWithClear<S> {
     keepExpandedAfterSelection?: boolean;
     /** will be called when list of suggestions should be rendered */
-    listRenderer: (props: Omit<ListRendererProps<S>, 'noSuggestionsPlaceholder'>) => ReactNode;
+    listRenderer: (props: {
+        /** An array of objects that will be used to render the suggestions list. */
+        suggestions: S[];
+        /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
+        suggestionToString: (suggestions: S) => string;
+        /** a function which gets props for the item in the list */
+        getItemProps: (options: GetItemPropsOptions<S>) => object;
+        /** index of the item from the list to be highlighted */
+        highlightedIndex: number | null;
+        /** input field value to be highlighted in the item from the list */
+        inputValue: string;
+    }) => ReactNode;
     /** a function that renders the top part of the component when it is focused  */
     focusedRenderer: (helpers: {
         getInputProps: (options: GetItemPropsOptions<S>) => object;

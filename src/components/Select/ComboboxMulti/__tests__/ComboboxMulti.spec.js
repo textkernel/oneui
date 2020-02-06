@@ -47,7 +47,6 @@ describe('ComboboxMulti', () => {
         });
         it('should render noSuggestions placeholder when empty suggestions list is passed', () => {
             wrapper.setProps({ suggestions: [] });
-            wrapper.find('input').simulate('change', { target: { value: 'driver' } });
             setFocusOnInput();
 
             expect(wrapper.find('li')).toHaveLength(1);
