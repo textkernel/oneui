@@ -90,6 +90,21 @@ describe('SelectBase', () => {
             expect(wrapper.find('li')).toHaveLength(0);
             expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
         });
+        it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', () => {
+            wrapper.setProps({ keepExpandedAfterSelection: true });
+            expect(inputNode).not.toBe(document.activeElement);
+
+            setFocusOnInput();
+            expect(inputNode).toBe(document.activeElement);
+
+            wrapper
+                .find('li')
+                .at(0)
+                .childAt(0)
+                .simulate('click');
+
+            expect(wrapper.find('li')).toHaveLength(suggestions.length);
+        });
     });
     describe('callbacks', () => {
         describe('onSelectionChange', () => {
@@ -121,21 +136,6 @@ describe('SelectBase', () => {
             wrapper.find('SelectBase').simulate('blur');
 
             expect(mockOnBlur).toHaveBeenCalled();
-        });
-        it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', () => {
-            wrapper.setProps({ keepExpandedAfterSelection: true });
-            expect(inputNode).not.toBe(document.activeElement);
-
-            setFocusOnInput();
-            expect(inputNode).toBe(document.activeElement);
-
-            wrapper
-                .find('li')
-                .at(0)
-                .childAt(0)
-                .simulate('click');
-
-            expect(wrapper.find('li')).toHaveLength(suggestions.length);
         });
         it('should call onInputValueChange when typing into input field', () => {
             expect(mockOnInputValueChange).not.toHaveBeenCalled();
