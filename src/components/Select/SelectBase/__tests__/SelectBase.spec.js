@@ -8,7 +8,6 @@ describe('SelectBase', () => {
     const inputRef = React.createRef();
     const suggestions = SUGGESTIONS;
     const suggestionToString = SUGGESTION_TO_STRING;
-    const noSuggestionsPlaceholder = 'No suggestions...';
     const mockOnSelectionChange = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnClearAllSelected = jest.fn();
@@ -32,7 +31,6 @@ describe('SelectBase', () => {
             <SelectBase
                 suggestions={suggestions}
                 suggestionToString={suggestionToString}
-                noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                 listRenderer={listProps => <SuggestionsList {...listProps} />}
                 focusedRenderer={mockRender}
                 blurredRenderer={mockRender}
