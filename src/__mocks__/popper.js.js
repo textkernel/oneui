@@ -1,8 +1,8 @@
-import PopperJs from 'popper.js';
+import { placements } from '@popperjs/core';
 
 // eslint-disable-next-line import/no-default-export
 export default class Popper {
-    static placements = PopperJs.placements;
+    static placements = placements;
 
     constructor() {
         return {

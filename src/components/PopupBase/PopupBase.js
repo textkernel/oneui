@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import PopperJS from 'popper.js';
+import { createPopper } from '@popperjs/core';
 import { POPUP_PLACEMENTS, ESCAPE_KEY } from '../../constants';
 
 export class PopupBase extends React.Component {
@@ -90,7 +90,7 @@ export class PopupBase extends React.Component {
         if (this.anchorRef.current && this.popupRef.current) {
             const { placement } = this.props;
             this.destroyPopperInstance();
-            this.popper = new PopperJS(this.anchorRef.current, this.popupRef.current, {
+            this.popper = createPopper(this.anchorRef.current, this.popupRef.current, {
                 placement,
             });
         }

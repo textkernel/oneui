@@ -66,6 +66,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
           class="PillDropdown"
           data-popup="true"
           role="presentation"
+          style="position: absolute; left: 0px; top: 0px; margin: 0px;"
         >
           <div
             class="PillDropdown__dialog"

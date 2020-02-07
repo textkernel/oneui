@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
-import { Tooltip, Chip } from '@textkernel/oneui';
+import { Tooltip } from '@textkernel/oneui';
 import { POPUP_PLACEMENTS } from '../src/constants';
 
 storiesOf('Molecules|Tooltip', module)
@@ -13,9 +13,7 @@ storiesOf('Molecules|Tooltip', module)
                 content={text('Tooltip text', 'this is my tooltip text')}
                 alwaysVisible={boolean('Always show tooltip', false)}
             >
-                <Chip>
-                    Content
-                </Chip>
+                hover here to see the tooltip
             </Tooltip>
         </div>
     ));
