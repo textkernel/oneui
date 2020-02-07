@@ -17,8 +17,8 @@ storiesOf('Organisms|Select', module)
             inputValue: '',
         })
     )
-    .add('ComboboxMulti', ({ parameters }) => {
-        const store = parameters.getStore();
+    .add('ComboboxMulti', storyContext => {
+        const store = storyContext?.parameters.getStore();
         const getSuggestions = (): TSuggestion[] => {
             return SUGGESTIONS.filter(item =>
                 item.name.toLocaleLowerCase().includes(store.get('inputValue').toLocaleLowerCase())
