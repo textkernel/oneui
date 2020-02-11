@@ -15,13 +15,18 @@ storiesOf('Organisms|Select', module)
     .addParameters(
         StoreInjector.withStore({
             inputValue: '',
+            selectedSuggestions: [],
         })
     )
     .add('ComboboxMulti', storyContext => {
         const store = storyContext?.parameters.getStore();
         const getSuggestions = (): TSuggestion[] => {
-            return SUGGESTIONS.filter(item =>
-                item.name.toLocaleLowerCase().includes(store.get('inputValue').toLocaleLowerCase())
+            return SUGGESTIONS.filter(
+                item =>
+                    !store.get('selectedSuggestions').includes(item) &&
+                    item.name
+                        .toLocaleLowerCase()
+                        .includes(store.get('inputValue').toLocaleLowerCase())
             );
         };
 
@@ -32,6 +37,7 @@ storiesOf('Organisms|Select', module)
 
         const onSelectionChange = (item: TSuggestion) => {
             console.log(`onSelectionChange was called with {name: ${item?.name}}`);
+            store.set({ selectedSuggestions: [...store.get('selectedSuggestions'), item] });
         };
 
         const onBlur = () => {
@@ -40,15 +46,22 @@ storiesOf('Organisms|Select', module)
         };
 
         return (
-            <ComboboxMulti<TSuggestion>
-                style={{ width: '650px' }}
-                inputPlaceholder={text('Input placeholder', 'Select something...')}
-                noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
-                suggestions={getSuggestions()}
-                suggestionToString={SUGGESTION_TO_STRING}
-                onBlur={onBlur}
-                onSelectionChange={onSelectionChange}
-                onInputValueChange={onInputValueChange}
-            />
+            <>
+                <ComboboxMulti<TSuggestion>
+                    style={{ width: '650px' }}
+                    inputPlaceholder={text('Input placeholder', 'Select something...')}
+                    noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
+                    suggestions={getSuggestions()}
+                    suggestionToString={SUGGESTION_TO_STRING}
+                    onBlur={onBlur}
+                    onSelectionChange={onSelectionChange}
+                    onInputValueChange={onInputValueChange}
+                />
+                <ul>
+                    {store.get('selectedSuggestions').map(item => (
+                        <li key={item.name}>{item.name}</li>
+                    ))}
+                </ul>
+            </>
         );
     });
