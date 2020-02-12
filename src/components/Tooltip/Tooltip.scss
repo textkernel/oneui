@@ -13,6 +13,7 @@
     }
 
     [data-popper-placement^="top"] & {
+        margin-bottom: var(--spacing-5x);
         transform: translateY(-20px);
     }
     [data-popper-placement^="top"] &__arrow {
