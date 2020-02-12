@@ -56,9 +56,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
                 />
                 <IoMdArrowDropup
                     {...elem('dropdownIcon', { ...props })}
-                    {...getToggleButtonProps({
-                        onClick: () => blur,
-                    })}
+                    {...getToggleButtonProps({ onClick: blur })}
                 />
             </div>
         );
