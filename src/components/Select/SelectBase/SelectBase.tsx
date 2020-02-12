@@ -80,7 +80,6 @@ export function SelectBase<S>(props: Props<S>) {
     const handleChange = (selectedItem, downshift) => {
         const { clearSelection, openMenu } = downshift;
 
-        setInputValue('');
         clearSelection();
 
         if (selectedItem) {

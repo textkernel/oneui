@@ -166,7 +166,7 @@ describe('ComboboxMulti', () => {
                 .children()
                 .simulate('click');
 
-            expect(wrapper.find('input').props().value).toEqual('');
+            expect(wrapper.find('input').props().value).toEqual(textInputValue);
         });
     });
 });

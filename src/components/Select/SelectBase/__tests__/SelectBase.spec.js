@@ -54,7 +54,7 @@ describe('SelectBase', () => {
             expect(wrapper.find('Button').text()).toBe(clearTitle);
         });
     });
-    describe('focusing and blurring the search field', () => {
+    describe('search field interactions', () => {
         it('should set focus when wrapper element is clicked', () => {
             const focusSpy = jest.spyOn(inputNode, 'focus');
 
@@ -105,6 +105,36 @@ describe('SelectBase', () => {
 
             expect(wrapper.find('li')).toHaveLength(suggestions.length);
         });
+        it('should clear the input field when a suggestion was selected', () => {
+            const textInputValue = 'driver';
+            wrapper.find('input').simulate('change', { target: { value: textInputValue } });
+
+            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+
+            wrapper
+                .find('li')
+                .first()
+                .children()
+                .simulate('click');
+
+            expect(wrapper.find('input').props().value).toEqual('');
+        });
+        it('should clear the input field when a suggestion was selected with keepExpandedAfterSelection set to true', () => {
+            const textInputValue = 'driver';
+
+            wrapper.setProps({ keepExpandedAfterSelection: true });
+            wrapper.find('input').simulate('change', { target: { value: textInputValue } });
+
+            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+
+            wrapper
+                .find('li')
+                .first()
+                .children()
+                .simulate('click');
+
+            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+        });
     });
     describe('callbacks', () => {
         describe('onSelectionChange', () => {
@@ -143,20 +173,6 @@ describe('SelectBase', () => {
             wrapper.find('input').simulate('change', { target: { value: 'driver' } });
 
             expect(mockOnInputValueChange).toHaveBeenCalled();
-        });
-        it('should clear the input field when a suggestion was selected', () => {
-            const textInputValue = 'driver';
-            wrapper.find('input').simulate('change', { target: { value: textInputValue } });
-
-            expect(wrapper.find('input').props().value).toEqual(textInputValue);
-
-            wrapper
-                .find('li')
-                .first()
-                .children()
-                .simulate('click');
-
-            expect(wrapper.find('input').props().value).toEqual('');
         });
     });
 });
