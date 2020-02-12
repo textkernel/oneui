@@ -47,6 +47,11 @@ storiesOf('Organisms|Select', module)
 
         return (
             <>
+                <ul>
+                    {store.get('selectedSuggestions').map(item => (
+                        <li key={item.name}>{item.name}</li>
+                    ))}
+                </ul>
                 <ComboboxMulti<TSuggestion>
                     style={{ width: '650px' }}
                     inputPlaceholder={text('Input placeholder', 'Select something...')}
@@ -57,11 +62,6 @@ storiesOf('Organisms|Select', module)
                     onSelectionChange={onSelectionChange}
                     onInputValueChange={onInputValueChange}
                 />
-                <ul>
-                    {store.get('selectedSuggestions').map(item => (
-                        <li key={item.name}>{item.name}</li>
-                    ))}
-                </ul>
             </>
         );
     });
