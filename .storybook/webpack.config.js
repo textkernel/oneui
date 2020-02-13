@@ -27,7 +27,13 @@ const tsDocRule = {
             loader: 'react-docgen-typescript-loader',
             options: {
                 // Including prop that just was defined directly except extended props
-                propFilter: propsInfo => propsInfo.parent.name === 'Props',
+                propFilter: propsInfo => {
+                    if (propsInfo.parent) {
+                        return !propsInfo.parent.fileName.includes('node_modules');
+                    }
+                    
+                    return true;
+                },
             },
         },
     ],
