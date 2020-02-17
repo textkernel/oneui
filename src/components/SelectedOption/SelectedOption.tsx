@@ -36,7 +36,12 @@ export const SelectedOption: React.FC<Props> = React.forwardRef((props, ref) => 
 
     return (
         <As {...rest} ref={ref} {...block(props)}>
-            <button {...elem('button', props)} onClick={onDelete} onKeyDown={handleKeyDown}>
+            <button
+                {...elem('button', props)}
+                type="button"
+                onClick={onDelete}
+                onKeyDown={handleKeyDown}
+            >
                 <IoIosClose {...elem('buttonIcon', props)} />
             </button>
             {renderChildren()}

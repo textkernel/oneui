@@ -12,6 +12,7 @@ exports[`<SelectedOption> should render default props correctly with string as c
       className="SelectedOption__button"
       onClick={[MockFunction]}
       onKeyDown={[Function]}
+      type="button"
     >
       <IoIosClose
         className="SelectedOption__buttonIcon"
@@ -68,6 +69,7 @@ exports[`<SelectedOption> should render default props correctly with string as c
       className="SelectedOption__button"
       onClick={[MockFunction]}
       onKeyDown={[Function]}
+      type="button"
     >
       <IoIosClose
         className="SelectedOption__buttonIcon"
