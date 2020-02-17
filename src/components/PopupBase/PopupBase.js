@@ -79,10 +79,10 @@ export class PopupBase extends React.Component {
         const { isOpen } = this.state;
 
         if (isOpen) {
-            this.setState({ isOpen: false });
             if (onClose) {
                 onClose();
             }
+            this.setState({ isOpen: false });
         }
     }
 
