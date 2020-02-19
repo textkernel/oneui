@@ -37,7 +37,7 @@ export const FieldWithValidation: React.FC<Props> = props => {
             : children;
 
         return (
-            <Tooltip {...rest} content={errorMessage} alwaysVisible={isChildInFocus}>
+            <Tooltip {...rest} content={children} visible={isChildInFocus}>
                 {clonedChild}
             </Tooltip>
         );

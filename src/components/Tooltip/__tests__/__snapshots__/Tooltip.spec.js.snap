@@ -1,75 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctly 1`] = `
-<Tooltip
-  alwaysVisible={false}
+<ForwardRef(TippyWrapper)
+  animation="shift-toward"
   content="content"
   placement="bottom"
 >
-  <PopupBase
-    anchorRef={null}
-    anchorRenderer={[Function]}
-    onClose={null}
-    placement="bottom"
-    popupRef={null}
-    popupRenderer={[Function]}
-    renderInPortal={false}
-  >
-    <TooltipAnchor
-      alwaysVisible={false}
-      hasTooltipContent={true}
-      setPopupVisibility={[Function]}
-    >
-      <span
-        onMouseLeave={[Function]}
-        onMouseOver={[Function]}
-      >
-        Hover me
-      </span>
-    </TooltipAnchor>
-  </PopupBase>
-</Tooltip>
-`;
-
-exports[`<Tooltip> that renders a Tooltip tooltip on hover should display a tooltip on hover 1`] = `
-<Tooltip
-  alwaysVisible={false}
-  content="content"
-  placement="bottom"
->
-  <PopupBase
-    anchorRef={null}
-    anchorRenderer={[Function]}
-    onClose={null}
-    placement="bottom"
-    popupRef={null}
-    popupRenderer={[Function]}
-    renderInPortal={false}
-  >
-    <TooltipAnchor
-      alwaysVisible={false}
-      hasTooltipContent={true}
-      setPopupVisibility={[Function]}
-    >
-      <span
-        onMouseLeave={[Function]}
-        onMouseOver={[Function]}
-      >
-        Hover me
-      </span>
-    </TooltipAnchor>
-    <div
-      data-popup="true"
-    >
-      <div
-        className="Tooltip"
-      >
-        content
-        <div
-          className="Tooltip__arrow"
-        />
-      </div>
-    </div>
-  </PopupBase>
-</Tooltip>
+  Hover me
+</ForwardRef(TippyWrapper)>
 `;
