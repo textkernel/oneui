@@ -26,6 +26,7 @@ $font-family-secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
 // font weight
 $font-weight-light: 200 !default;
 $font-weight-normal: 400 !default;
+$font-weight-medium: 500 !default;
 $font-weight-bold: 600 !default;
 
 // decoration
@@ -60,6 +61,7 @@ $heading-font-weight: $font-weight-bold !default;
 
     --font-weight-light: #{$font-weight-light};
     --font-weight-normal: #{$font-weight-normal};
+    --font-weight-medium: #{$font-weight-medium};
     --font-weight-bold: #{$font-weight-bold};
 
     --link-decoration-normal: #{$link-decoration-normal};
