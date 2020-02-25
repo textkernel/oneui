@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.5.0](https://github.com/textkernel/oneui/compare/9.4.0...9.5.0) (2020-02-25)
+
+
+### Bug Fixes
+
+* put onClose invocation before closing the dropdown for PopupBase component ([6801656](https://github.com/textkernel/oneui/commit/6801656)), closes [#ONEUI-164](https://github.com/textkernel/oneui/issues/ONEUI-164)
+
+
+### Features
+
+* **Input:** Add an optional label ([1b31281](https://github.com/textkernel/oneui/commit/1b31281))
+
+
+
 ## [9.4.0](https://github.com/textkernel/oneui/compare/9.3.2...9.4.0) (2020-02-14)
 
 
