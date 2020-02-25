@@ -1,36 +1,44 @@
 @import '../../themes/oneui/oneui.scss';
 
 .Input {
-    @extend %input;
+    &__field {
+        @extend %input;
 
-    &--context {
-        @each $context in (good, warning, bad) {
-            &_#{ $context } {
-                border-color: var(--color-#{$context});
-                box-shadow: 0 0 0 var(--outline-size) var(--color-#{$context}-25);
-
-                &:focus {
+        &--context {
+            @each $context in (good, warning, bad) {
+                &_#{ $context } {
                     border-color: var(--color-#{$context});
                     box-shadow: 0 0 0 var(--outline-size) var(--color-#{$context}-25);
+
+                    &:focus {
+                        border-color: var(--color-#{$context});
+                        box-shadow: 0 0 0 var(--outline-size) var(--color-#{$context}-25);
+                    }
                 }
+            }
+        }
+
+        &--isBlock {
+            width: 100%;
+        }
+
+        &--size {
+            &_small {
+                font-size: var(--font-size-small);
+                line-height: var(--line-height-small);
+                padding: var(--spacing-normal);
+            }
+            &_large {
+                font-size: var(--font-size-large);
+                line-height: var(--line-height-large);
+                padding: var(--spacing-3x);
             }
         }
     }
 
-    &--isBlock {
-        width: 100%;
-    }
-
-    &--size {
-        &_small {
-            font-size: var(--font-size-small);
-            line-height: var(--line-height-small);
-            padding: var(--spacing-normal);
-        }
-        &_large {
-            font-size: var(--font-size-large);
-            line-height: var(--line-height-large);
-            padding: var(--spacing-3x);
-        }
+    &__label {
+        margin: 0;
+        margin-bottom: var(--spacing-3x);
+        font-weight: var(--font-weight-medium);
     }
 }
