@@ -10,10 +10,13 @@ exports[`FieldWithValidation when rendering message as text with no error messag
     size="normal"
     type="text"
   >
-    <input
-      disabled={false}
-      type="text"
-    />
+    <div>
+      <input
+        className="Input__field"
+        disabled={false}
+        type="text"
+      />
+    </div>
   </Input>
 </FieldWithValidation>
 `;

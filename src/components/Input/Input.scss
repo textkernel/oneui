@@ -35,4 +35,10 @@
             }
         }
     }
+
+    &__label {
+        margin: 0;
+        margin-bottom: var(--spacing-3x);
+        font-weight: var(--font-weight-medium);
+    }
 }
