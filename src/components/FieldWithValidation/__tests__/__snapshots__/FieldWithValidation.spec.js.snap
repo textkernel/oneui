@@ -11,6 +11,7 @@ exports[`FieldWithValidation when rendering message as text with no error messag
     type="text"
   >
     <input
+      className="Input"
       disabled={false}
       type="text"
     />
