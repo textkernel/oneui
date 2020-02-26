@@ -16,7 +16,6 @@ storiesOf('Atoms|Input', module)
     .add('Default behavior', () => (
         <Input
             context={select('Context', validationContextOptions, undefined)}
-            labelText={text('Label', 'Label')}
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
             onChange={e => {
@@ -31,7 +30,6 @@ storiesOf('Atoms|Input', module)
     .add('Controlled component', () => (
         <Input
             context={select('Context', validationContextOptions, undefined)}
-            labelText={text('Label', 'Label')}
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
             onChange={e => {
