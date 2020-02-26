@@ -12,10 +12,11 @@ type Props = {
 };
 
 export const Field: React.FC<Props> = ({ labelText, children }) => (
-    <div {...block()}>
+    // eslint-disable-next-line jsx-a11y/label-has-associated-control
+    <label {...block()}>
         <p {...elem('label')}>{labelText}</p>
         {children}
-    </div>
+    </label>
 );
 
 Field.displayName = 'Field';
