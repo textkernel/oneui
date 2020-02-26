@@ -14,12 +14,6 @@ describe('<Input> that renders an input field', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
-    it('should render input with a label when it was passed', () => {
-        const labelText = 'labelText';
-        const wrapper = mount(<Input labelText={labelText} />);
-        expect(wrapper.find('p').text()).toEqual(labelText);
-    });
-
     it('should add classes when props are changed', () => {
         const wrapper = shallow(<Input context="bad" size="large" isBlock disabled />);
         expect(toJson(wrapper)).toMatchSnapshot();

@@ -29,6 +29,7 @@ export { ButtonGroup } from './components/ButtonGroup';
 export { Checkbox } from './components/Checkbox';
 export { Footer } from './components/Footer';
 export { Header } from './components/Header';
+export { Field } from './components/Field';
 export { FieldWithValidation } from './components/FieldWithValidation';
 export { FieldWrapper } from './components/FieldWrapper';
 export { LoadingSpinner } from './components/LoadingSpinner';

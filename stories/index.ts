@@ -27,6 +27,7 @@ import './WidthRestrictor';
 import './Alert';
 import './ButtonGroup';
 import './Checkbox';
+import './Field';
 import './FieldWithValidation';
 import './FieldWrapper';
 import './Footer';
