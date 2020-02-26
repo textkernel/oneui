@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.6.0](https://github.com/textkernel/oneui/compare/9.5.0...9.6.0) (2020-02-26)
+
+
+### Features
+
+* **Field:** Add new component ([#235](https://github.com/textkernel/oneui/issues/235)) ([1572e4f](https://github.com/textkernel/oneui/commit/1572e4f))
+
+
+
 ## [9.5.0](https://github.com/textkernel/oneui/compare/9.4.0...9.5.0) (2020-02-25)
 
 
