@@ -1,0 +1,39 @@
+.ComboboxMulti {
+    &__wrapper {
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        min-height: 30px;
+        height: 30px; // make IE happier
+        outline: none;
+        padding: var(--spacing-normal);
+
+        &--focused {
+            height: auto;
+        }
+    }
+
+    &__input {
+        border: 0;
+        margin: var(--spacing-normal);
+        flex: 1;
+        font-size: var(--font-size-normal);
+        min-width: 150px;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: var(--color-muted);
+        }
+    }
+
+    &__dropdownIcon {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 20px;
+        margin-right: var(--spacing-normal);
+    }
+}

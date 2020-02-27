@@ -27,6 +27,7 @@ import './WidthRestrictor';
 import './Alert';
 import './ButtonGroup';
 import './Checkbox';
+import './Field';
 import './FieldWithValidation';
 import './FieldWrapper';
 import './Footer';
@@ -42,5 +43,6 @@ import './Tooltip';
 import './TwoPaneView';
 // Organisms
 import './Autosuggest';
+import './Select';
 import './LocationAutocomplete';
 import './LocationSelector';

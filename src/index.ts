@@ -29,6 +29,7 @@ export { ButtonGroup } from './components/ButtonGroup';
 export { Checkbox } from './components/Checkbox';
 export { Footer } from './components/Footer';
 export { Header } from './components/Header';
+export { Field } from './components/Field';
 export { FieldWithValidation } from './components/FieldWithValidation';
 export { FieldWrapper } from './components/FieldWrapper';
 export { LoadingSpinner } from './components/LoadingSpinner';
@@ -42,6 +43,9 @@ export { Tooltip } from './components/Tooltip';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
 // Organisms
 export { Autosuggest, ItemTag } from './components/Autosuggest';
+export { SelectBase } from './components/Select/SelectBase';
+export { ComboboxMulti } from './components/Select/ComboboxMulti';
+export { SuggestionsList } from './components/Select/SuggestionsList';
 export {
     LocationAutocompleteWithGoogleLoader,
     LocationAutocomplete,

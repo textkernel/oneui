@@ -21,7 +21,6 @@
     &:focus {
         border-color: var(--color-brand);
         box-shadow: 0 0 0 var(--outline-size) var(--color-brand-25);
-        z-index: 1;
     }
 
     &[disabled] {

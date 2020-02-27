@@ -1,0 +1,47 @@
+.SelectBase {
+    position: relative;
+    min-height: 38px;
+
+    &__main {
+        position: relative;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+        background-color: var(--color-background);
+        transition-property: box-shadow, transform, border-color;
+        transition-duration: var(--transition-duration);
+        border-radius: var(--border-radius);
+        z-index: 400;
+
+        &--focused {
+            position: absolute;
+            width: 100%;
+        }
+
+        &--isProminent {
+            transform-origin: left top;
+
+            &.Autosuggest__main--focused {
+                transform: scale(1.1);
+                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
+            }
+        }
+    }
+
+    &__field {
+        padding: 0;
+    }
+
+    &__spacedElem {
+        margin: var(--spacing-normal);
+    }
+
+    &__list--focused {
+        max-height: 214px;
+        overflow: auto;
+        border-top: 1px solid var(--border-color-light);
+        margin-top: -1px;
+    }
+
+    &__loaderContainer {
+        width: 250px;
+    }
+}

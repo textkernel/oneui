@@ -48,10 +48,10 @@ export const Pill = props => {
     };
 
     const closeDropdown = setPopupVisibility => {
-        setPopupVisibility(false);
         if (onClose) {
             onClose();
         }
+        setPopupVisibility(false);
     };
 
     // eslint-disable-next-line react/display-name, react/prop-types

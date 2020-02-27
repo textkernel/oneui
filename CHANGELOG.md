@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.6.0](https://github.com/textkernel/oneui/compare/9.5.0...9.6.0) (2020-02-26)
+
+
+### Features
+
+* **Field:** Add new component ([#235](https://github.com/textkernel/oneui/issues/235)) ([1572e4f](https://github.com/textkernel/oneui/commit/1572e4f))
+
+
+
+## [9.5.0](https://github.com/textkernel/oneui/compare/9.4.0...9.5.0) (2020-02-25)
+
+
+### Bug Fixes
+
+* put onClose invocation before closing the dropdown for PopupBase component ([6801656](https://github.com/textkernel/oneui/commit/6801656)), closes [#ONEUI-164](https://github.com/textkernel/oneui/issues/ONEUI-164)
+
+
+### Features
+
+* **Input:** Add an optional label ([1b31281](https://github.com/textkernel/oneui/commit/1b31281))
+
+
+
+## [9.4.0](https://github.com/textkernel/oneui/compare/9.3.2...9.4.0) (2020-02-14)
+
+
+### Bug Fixes
+
+* **Input:** remove z-index when focused ([#229](https://github.com/textkernel/oneui/issues/229)) ([90e7d7e](https://github.com/textkernel/oneui/commit/90e7d7e))
+* **pill:** run pill callback before close dropdown ([#231](https://github.com/textkernel/oneui/issues/231)) ([7a96032](https://github.com/textkernel/oneui/commit/7a96032))
+
+
+### Build System
+
+* **deps:** migrate popper.js to v2 ([#230](https://github.com/textkernel/oneui/issues/230)) ([6c06bef](https://github.com/textkernel/oneui/commit/6c06bef))
+* **storybook:** update to latest version ([#228](https://github.com/textkernel/oneui/issues/228)) ([1c289dd](https://github.com/textkernel/oneui/commit/1c289dd))
+
+
+### Features
+
+* **ComboboxMulti:** Add new component ([#226](https://github.com/textkernel/oneui/issues/226)) ([1741223](https://github.com/textkernel/oneui/commit/1741223))
+
+
+
 ### [9.3.2](https://github.com/textkernel/oneui/compare/9.3.1...9.3.2) (2020-01-31)
 
 
