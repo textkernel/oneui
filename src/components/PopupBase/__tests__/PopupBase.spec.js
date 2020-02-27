@@ -106,7 +106,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             togglePopup();
             expect(wrapper.find('Popover')).toHaveLength(1);
 
-            mockDocumentEventListener.click({ target: document.body });
+            mockDocumentEventListener.click({ path: [document.body] });
             wrapper.update();
 
             expect(wrapper.find('Popover')).toHaveLength(0);
@@ -114,7 +114,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
         it('should call onClose if outside is clicked', () => {
             togglePopup();
 
-            mockDocumentEventListener.click({ target: document.body });
+            mockDocumentEventListener.click({ path: [document.body] });
             wrapper.update();
 
             expect(onCloseMock).toHaveBeenCalled();
@@ -125,11 +125,13 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
             // clicking directly in the element won't trigger global listener, hence we use our magic mock
             mockDocumentEventListener.click({
-                target: wrapper
-                    .find('Popover')
-                    .find('p')
-                    .at(0)
-                    .getDOMNode(),
+                path: [
+                    wrapper
+                        .find('Popover')
+                        .find('p')
+                        .at(0)
+                        .getDOMNode(),
+                ],
             });
             wrapper.update();
 
