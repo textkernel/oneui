@@ -1,436 +1,157 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SuggestionsList should initially render component correctly 1`] = `
-<SuggestionsList
-  getItemProps={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          Object {
-            "index": 0,
-            "item": Object {
-              "name": "Sun",
-            },
-          },
-        ],
-        Array [
-          Object {
-            "index": 1,
-            "item": Object {
-              "name": "Moon",
-            },
-          },
-        ],
-        Array [
-          Object {
-            "index": 2,
-            "item": Object {
-              "name": "Mercury",
-            },
-          },
-        ],
-        Array [
-          Object {
-            "index": 3,
-            "item": Object {
-              "name": "Venus",
-            },
-          },
-        ],
-        Array [
-          Object {
-            "index": 4,
-            "item": Object {
-              "name": "Earth",
-            },
-          },
-        ],
-        Array [
-          Object {
-            "index": 5,
-            "item": Object {
-              "name": "Mars",
-            },
-          },
-        ],
-        Array [
-          Object {
-            "index": 6,
-            "item": Object {
-              "name": "Jupiter",
-            },
-          },
-        ],
-        Array [
-          Object {
-            "index": 7,
-            "item": Object {
-              "name": "Saturn",
-            },
-          },
-        ],
-        Array [
-          Object {
-            "index": 8,
-            "item": Object {
-              "name": "Neptun",
-            },
-          },
-        ],
-      ],
-      "results": Array [
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-      ],
-    }
-  }
-  highlightedIndex={1}
-  noSuggestionsPlaceholder="noSuggestionsPlaceholder"
-  suggestionToString={[Function]}
-  suggestions={
-    Array [
-      Object {
-        "name": "Sun",
-      },
-      Object {
-        "name": "Moon",
-      },
-      Object {
-        "name": "Mercury",
-      },
-      Object {
-        "name": "Venus",
-      },
-      Object {
-        "name": "Earth",
-      },
-      Object {
-        "name": "Mars",
-      },
-      Object {
-        "name": "Jupiter",
-      },
-      Object {
-        "name": "Saturn",
-      },
-      Object {
-        "name": "Neptun",
-      },
-    ]
-  }
+<div
+  style="overflow:visible;height:0;width:0"
 >
-  <ListItem
-    disabled={false}
-    highlightContext="brand"
-    isHighlighted={false}
-    isSelected={false}
-    key="Sun"
+  <div
+    aria-label="grid"
+    aria-readonly="true"
+    class="ReactVirtualized__Grid ReactVirtualized__List"
+    role="grid"
+    style="box-sizing:border-box;direction:ltr;height:800px;position:relative;width:800px;-webkit-overflow-scrolling:touch;will-change:transform;overflow-x:hidden;overflow-y:hidden"
+    tabindex="0"
   >
-    <li
-      className="ListItem ListItem--highlightContext_brand"
+    <div
+      class="ReactVirtualized__Grid__innerScrollContainer"
+      role="rowgroup"
+      style="width:auto;height:270px;max-width:800px;max-height:270px;overflow:hidden;pointer-events:;position:relative"
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <li
+        class="ListItem ListItem--highlightContext_brand"
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
       >
-        <MarkedText
-          inline={true}
-          key=".0"
+        <div
+          class="ListItem__container"
+          role="presentation"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Sun
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
-    </li>
-  </ListItem>
-  <ListItem
-    disabled={false}
-    highlightContext="brand"
-    isHighlighted={true}
-    isSelected={false}
-    key="Moon"
+          <span>
+            Sun
+          </span>
+        </div>
+      </li>
+      <li
+        class="ListItem ListItem--isHighlighted ListItem--highlightContext_brand"
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
+        <div
+          class="ListItem__container"
+          role="presentation"
+        >
+          <span>
+            Moon
+          </span>
+        </div>
+      </li>
+      <li
+        class="ListItem ListItem--highlightContext_brand"
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
+        <div
+          class="ListItem__container"
+          role="presentation"
+        >
+          <span>
+            Mercury
+          </span>
+        </div>
+      </li>
+      <li
+        class="ListItem ListItem--highlightContext_brand"
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
+        <div
+          class="ListItem__container"
+          role="presentation"
+        >
+          <span>
+            Venus
+          </span>
+        </div>
+      </li>
+      <li
+        class="ListItem ListItem--highlightContext_brand"
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
+        <div
+          class="ListItem__container"
+          role="presentation"
+        >
+          <span>
+            Earth
+          </span>
+        </div>
+      </li>
+      <li
+        class="ListItem ListItem--highlightContext_brand"
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
+        <div
+          class="ListItem__container"
+          role="presentation"
+        >
+          <span>
+            Mars
+          </span>
+        </div>
+      </li>
+      <li
+        class="ListItem ListItem--highlightContext_brand"
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
+        <div
+          class="ListItem__container"
+          role="presentation"
+        >
+          <span>
+            Jupiter
+          </span>
+        </div>
+      </li>
+      <li
+        class="ListItem ListItem--highlightContext_brand"
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
+        <div
+          class="ListItem__container"
+          role="presentation"
+        >
+          <span>
+            Saturn
+          </span>
+        </div>
+      </li>
+      <li
+        class="ListItem ListItem--highlightContext_brand"
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
+        <div
+          class="ListItem__container"
+          role="presentation"
+        >
+          <span>
+            Neptun
+          </span>
+        </div>
+      </li>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SuggestionsList should render empty component correctly 1`] = `
+<li
+  class="ListItem"
+>
+  <div
+    class="ListItem__container"
+    role="presentation"
   >
-    <li
-      className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand"
+    <p
+      class="Text--context_muted"
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
-      >
-        <MarkedText
-          inline={true}
-          key=".0"
-        >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Moon
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
-    </li>
-  </ListItem>
-  <ListItem
-    disabled={false}
-    highlightContext="brand"
-    isHighlighted={false}
-    isSelected={false}
-    key="Mercury"
-  >
-    <li
-      className="ListItem ListItem--highlightContext_brand"
-    >
-      <div
-        className="ListItem__container"
-        role="presentation"
-      >
-        <MarkedText
-          inline={true}
-          key=".0"
-        >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Mercury
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
-    </li>
-  </ListItem>
-  <ListItem
-    disabled={false}
-    highlightContext="brand"
-    isHighlighted={false}
-    isSelected={false}
-    key="Venus"
-  >
-    <li
-      className="ListItem ListItem--highlightContext_brand"
-    >
-      <div
-        className="ListItem__container"
-        role="presentation"
-      >
-        <MarkedText
-          inline={true}
-          key=".0"
-        >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Venus
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
-    </li>
-  </ListItem>
-  <ListItem
-    disabled={false}
-    highlightContext="brand"
-    isHighlighted={false}
-    isSelected={false}
-    key="Earth"
-  >
-    <li
-      className="ListItem ListItem--highlightContext_brand"
-    >
-      <div
-        className="ListItem__container"
-        role="presentation"
-      >
-        <MarkedText
-          inline={true}
-          key=".0"
-        >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Earth
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
-    </li>
-  </ListItem>
-  <ListItem
-    disabled={false}
-    highlightContext="brand"
-    isHighlighted={false}
-    isSelected={false}
-    key="Mars"
-  >
-    <li
-      className="ListItem ListItem--highlightContext_brand"
-    >
-      <div
-        className="ListItem__container"
-        role="presentation"
-      >
-        <MarkedText
-          inline={true}
-          key=".0"
-        >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Mars
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
-    </li>
-  </ListItem>
-  <ListItem
-    disabled={false}
-    highlightContext="brand"
-    isHighlighted={false}
-    isSelected={false}
-    key="Jupiter"
-  >
-    <li
-      className="ListItem ListItem--highlightContext_brand"
-    >
-      <div
-        className="ListItem__container"
-        role="presentation"
-      >
-        <MarkedText
-          inline={true}
-          key=".0"
-        >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Jupiter
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
-    </li>
-  </ListItem>
-  <ListItem
-    disabled={false}
-    highlightContext="brand"
-    isHighlighted={false}
-    isSelected={false}
-    key="Saturn"
-  >
-    <li
-      className="ListItem ListItem--highlightContext_brand"
-    >
-      <div
-        className="ListItem__container"
-        role="presentation"
-      >
-        <MarkedText
-          inline={true}
-          key=".0"
-        >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Saturn
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
-    </li>
-  </ListItem>
-  <ListItem
-    disabled={false}
-    highlightContext="brand"
-    isHighlighted={false}
-    isSelected={false}
-    key="Neptun"
-  >
-    <li
-      className="ListItem ListItem--highlightContext_brand"
-    >
-      <div
-        className="ListItem__container"
-        role="presentation"
-      >
-        <MarkedText
-          inline={true}
-          key=".0"
-        >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Neptun
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
-    </li>
-  </ListItem>
-</SuggestionsList>
+      noSuggestionsPlaceholder
+    </p>
+  </div>
+</li>
 `;

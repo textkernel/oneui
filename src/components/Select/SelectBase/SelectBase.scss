@@ -9,10 +9,10 @@
         transition-property: box-shadow, transform, border-color;
         transition-duration: var(--transition-duration);
         border-radius: var(--border-radius);
-        z-index: 400;
 
         &--focused {
             position: absolute;
+            z-index: 400;
             width: 100%;
         }
 
@@ -35,7 +35,7 @@
     }
 
     &__list--focused {
-        max-height: 214px;
+        height: 214px;
         overflow: auto;
         border-top: 1px solid var(--border-color-light);
         margin-top: -1px;
