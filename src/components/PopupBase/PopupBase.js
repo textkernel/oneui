@@ -54,15 +54,31 @@ export class PopupBase extends React.Component {
         };
     }
 
+    wasPopupClicked(event) {
+        if (event.path && this.anchorRef.current) {
+            return Array.from(event.path).some(node => {
+                // Must be Element node
+                if (node.nodeType === 1) {
+                    return this.popupRef.current.contains(node);
+                }
+                return false;
+            });
+        }
+        return false;
+    }
+
+    wasAnchorClicked(event) {
+        if (this.anchorRef.current) {
+            return this.anchorRef.current.contains(event.target);
+        }
+        return false;
+    }
+
     handleWindowClick(event) {
         const { isOpen } = this.state;
-        if (isOpen) {
-            const wasPopupClicked =
-                this.popupRef.current && this.popupRef.current.contains(event.target);
-            const wasAnchorClicked =
-                this.anchorRef.current && this.anchorRef.current.contains(event.target);
 
-            if (!wasPopupClicked && !wasAnchorClicked) {
+        if (isOpen) {
+            if (!this.wasPopupClicked(event) && !this.wasAnchorClicked(event)) {
                 this.close();
             }
         }
