@@ -13,8 +13,6 @@ interface Props<S> extends CommonProps<S> {
     inputPlaceholder: string;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: string;
-    /** props for configuration ListOptimizer component */
-    listOptimizerProps?: object;
 }
 
 export function ComboboxMulti<S>(props: Props<S>) {
@@ -27,7 +25,6 @@ export function ComboboxMulti<S>(props: Props<S>) {
         onBlur,
         onInputValueChange,
         inputPlaceholder,
-        listOptimizerProps,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -98,7 +95,6 @@ export function ComboboxMulti<S>(props: Props<S>) {
             listRenderer={listProps => (
                 <SuggestionsList
                     {...listProps}
-                    {...listOptimizerProps}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                 />
             )}

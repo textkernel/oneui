@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GetItemPropsOptions } from 'downshift';
 import { Text, MarkedText } from '../../Text';
-import { ListOptimizer, ListItem } from '../../List';
+import { ListItem } from '../../List';
 
 export interface Props<S> {
     /** An array of objects that will be used to render the suggestions list. */
@@ -16,8 +16,6 @@ export interface Props<S> {
     highlightedIndex: number | null;
     /** input field value to be highlighted in the item from the list */
     inputValue: string;
-    /** props for configuration ListOptimizer component */
-    listOptimizerProps?: object;
 }
 
 export function SuggestionsList<S>(props: Props<S>) {
@@ -28,7 +26,6 @@ export function SuggestionsList<S>(props: Props<S>) {
         getItemProps,
         highlightedIndex,
         inputValue,
-        listOptimizerProps,
     } = props;
 
     if (!suggestions || !suggestions.length) {
@@ -39,25 +36,25 @@ export function SuggestionsList<S>(props: Props<S>) {
         );
     }
 
+    // <> is needed because of https://github.com/DefinitelyTyped/DefinitelyTyped/issues/20356
     return (
-        <ListOptimizer {...listOptimizerProps} rowCount={suggestions.length}>
-            {({ key, index, style }) => (
+        <>
+            {suggestions.map((item, index) => (
                 <ListItem
-                    key={key}
-                    style={style}
+                    key={suggestionToString(item)}
                     {...getItemProps({
-                        item: suggestions[index],
+                        item,
                         index,
                     })}
                     isHighlighted={highlightedIndex === index}
                     highlightContext="brand"
                 >
                     <MarkedText marker={inputValue} inline>
-                        {suggestionToString(suggestions[index])}
+                        {suggestionToString(item)}
                     </MarkedText>
                 </ListItem>
-            )}
-        </ListOptimizer>
+            ))}
+        </>
     );
 }
 

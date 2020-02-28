@@ -1,16 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, select, number, withKnobs } from '@storybook/addon-knobs';
-import {
-    List,
-    ListItem,
-    ListActions,
-    ListOptimizer,
-    Teaser,
-    Text,
-    Button,
-    Checkbox,
-} from '@textkernel/oneui';
+import { boolean, select, withKnobs } from '@storybook/addon-knobs';
+import { List, ListItem, ListActions, Teaser, Text, Button, Checkbox } from '@textkernel/oneui';
 import { CONTEXTS } from '../src/constants';
 
 storiesOf('Atoms|List', module)
@@ -115,23 +106,5 @@ storiesOf('Atoms|List', module)
                     </ListItem>
                 </List>
             </div>
-        );
-    })
-    .add('ListOptimizer', () => {
-        const numberItems = number('Number items', 1000);
-        return (
-            <List>
-                {[
-                    <div style={{ height: '300px', border: '1px solid #d0d1d5' }}>
-                        <ListOptimizer rowCount={numberItems}>
-                            {({ key, index, style }) => (
-                                <ListItem key={key} style={style} highlightContext="default">
-                                    <Teaser title={`Item ${index + 1}`} />
-                                </ListItem>
-                            )}
-                        </ListOptimizer>
-                    </div>,
-                ]}
-            </List>
         );
     });

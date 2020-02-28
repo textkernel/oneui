@@ -1,37 +1,184 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SelectBase rendering should initially render empty component correctly 1`] = `
-<div
-  class="SelectBase"
+<SelectBase
+  blurredRenderer={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "getInputProps": [Function],
+            "getToggleButtonProps": [Function],
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls={null}
+            aria-labelledby="downshift-0-label"
+            autoComplete="off"
+            id="downshift-0-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            value=""
+          />,
+        },
+      ],
+    }
+  }
+  clearTitle=""
+  focusedRenderer={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "getInputProps": [Function],
+            "getToggleButtonProps": [Function],
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": <input
+            aria-activedescendant={null}
+            aria-autocomplete="list"
+            aria-controls={null}
+            aria-labelledby="downshift-0-label"
+            autoComplete="off"
+            id="downshift-0-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            value=""
+          />,
+        },
+      ],
+    }
+  }
+  keepExpandedAfterSelection={false}
+  listRenderer={[Function]}
+  onBlur={[MockFunction]}
+  onClearAllSelected={[MockFunction]}
+  onInputValueChange={[MockFunction]}
+  onSelectionChange={[MockFunction]}
+  showClearButton={false}
+  suggestionToString={[Function]}
+  suggestions={
+    Array [
+      Object {
+        "name": "Sun",
+      },
+      Object {
+        "name": "Moon",
+      },
+      Object {
+        "name": "Mercury",
+      },
+      Object {
+        "name": "Venus",
+      },
+      Object {
+        "name": "Earth",
+      },
+      Object {
+        "name": "Mars",
+      },
+      Object {
+        "name": "Jupiter",
+      },
+      Object {
+        "name": "Saturn",
+      },
+      Object {
+        "name": "Neptun",
+      },
+    ]
+  }
 >
   <div
-    aria-expanded="false"
-    aria-haspopup="listbox"
-    aria-labelledby="downshift-0-label"
-    class="SelectBase__main"
-    role="combobox"
+    className="SelectBase"
   >
-    <div
-      class="FieldWrapper SelectBase__field"
+    <Downshift
+      defaultHighlightedIndex={0}
+      defaultIsOpen={false}
+      environment={[Window]}
+      getA11yStatusMessage={[Function]}
+      inputValue=""
+      itemToString={[Function]}
+      onChange={[Function]}
+      onInputValueChange={[Function]}
+      onOuterClick={[Function]}
+      onSelect={[Function]}
+      onStateChange={[Function]}
+      onUserAction={[Function]}
+      scrollIntoView={[Function]}
+      selectedItemChanged={[Function]}
+      stateReducer={[Function]}
+      suppressRefError={false}
     >
       <div
-        class="FieldWrapper__content"
+        aria-expanded={false}
+        aria-haspopup="listbox"
+        aria-labelledby="downshift-0-label"
+        aria-owns={null}
+        className="SelectBase__main"
+        role="combobox"
       >
-        <input
-          aria-autocomplete="list"
-          aria-labelledby="downshift-0-label"
-          autocomplete="off"
-          id="downshift-0-input"
-          value=""
-        />
-        <ul
-          aria-labelledby="downshift-0-label"
-          class="List"
-          id="downshift-0-menu"
-          role="listbox"
-        />
+        <FieldWrapper
+          className="SelectBase__field"
+          clearLabel=""
+          isFocused={false}
+          onClear={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          showClearButton={false}
+        >
+          <div
+            className="FieldWrapper SelectBase__field"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <div
+              className="FieldWrapper__content"
+            >
+              <input
+                aria-activedescendant={null}
+                aria-autocomplete="list"
+                aria-controls={null}
+                aria-labelledby="downshift-0-label"
+                autoComplete="off"
+                id="downshift-0-input"
+                onBlur={[Function]}
+                onChange={[Function]}
+                onKeyDown={[Function]}
+                value=""
+              />
+              <List
+                aria-labelledby="downshift-0-label"
+                doSelectOnNavigate={false}
+                id="downshift-0-menu"
+                isControlledNavigation={true}
+                isDivided={false}
+                role="listbox"
+              >
+                <ul
+                  aria-labelledby="downshift-0-label"
+                  className="List"
+                  id="downshift-0-menu"
+                  role="listbox"
+                />
+              </List>
+            </div>
+          </div>
+        </FieldWrapper>
       </div>
-    </div>
+    </Downshift>
   </div>
-</div>
+</SelectBase>
 `;

@@ -3,12 +3,6 @@
 exports[`ComboboxMulti rendering should initially render empty component correctly 1`] = `
 <ComboboxMulti
   inputPlaceholder="type here..."
-  listOptimizerProps={
-    Object {
-      "defaultHeight": 800,
-      "defaultWidth": 800,
-    }
-  }
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
@@ -257,12 +251,6 @@ exports[`ComboboxMulti rendering should initially render empty component correct
 exports[`ComboboxMulti rendering should render all suggestions from the list 1`] = `
 <ComboboxMulti
   inputPlaceholder="type here..."
-  listOptimizerProps={
-    Object {
-      "defaultHeight": 800,
-      "defaultWidth": 800,
-    }
-  }
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
@@ -502,8 +490,6 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                   >
                     <SuggestionsList
                       className="List__item"
-                      defaultHeight={800}
-                      defaultWidth={800}
                       getItemProps={[Function]}
                       highlightedIndex={0}
                       inputValue=""
@@ -542,145 +528,402 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         ]
                       }
                     >
-                      <ListOptimizer
-                        rowCount={9}
+                      <ListItem
+                        aria-selected={true}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-0"
+                        isHighlighted={true}
+                        isSelected={false}
+                        key="Sun"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
                       >
-                        <AutoSizer
-                          disableHeight={false}
-                          disableWidth={false}
-                          onResize={[Function]}
-                          style={Object {}}
+                        <li
+                          aria-selected={true}
+                          className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-0"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
                         >
                           <div
-                            style={
-                              Object {
-                                "height": 0,
-                                "overflow": "visible",
-                                "width": 0,
-                              }
-                            }
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
                           >
-                            <List
-                              autoHeight={false}
-                              deferredMeasurementCache={
-                                CellMeasurerCache {
-                                  "_cellHeightCache": Object {},
-                                  "_cellWidthCache": Object {},
-                                  "_columnCount": 0,
-                                  "_columnWidthCache": Object {},
-                                  "_defaultHeight": 30,
-                                  "_defaultWidth": 100,
-                                  "_hasFixedHeight": false,
-                                  "_hasFixedWidth": true,
-                                  "_keyMapper": [Function],
-                                  "_minHeight": 0,
-                                  "_minWidth": 0,
-                                  "_rowCount": 0,
-                                  "_rowHeightCache": Object {},
-                                  "columnWidth": [Function],
-                                  "rowHeight": [Function],
-                                }
-                              }
-                              estimatedRowSize={30}
-                              height={0}
-                              noRowsRenderer={[Function]}
-                              onRowsRendered={[Function]}
-                              onScroll={[Function]}
-                              overscanIndicesGetter={[Function]}
-                              overscanRowCount={10}
-                              rowCount={9}
-                              rowHeight={[Function]}
-                              rowRenderer={[Function]}
-                              scrollToAlignment="auto"
-                              scrollToIndex={-1}
-                              style={Object {}}
-                              width={0}
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
                             >
-                              <Grid
-                                aria-label="grid"
-                                aria-readonly={true}
-                                autoContainerWidth={true}
-                                autoHeight={false}
-                                autoWidth={false}
-                                cellRangeRenderer={[Function]}
-                                cellRenderer={[Function]}
-                                className="ReactVirtualized__List"
-                                columnCount={1}
-                                columnWidth={0}
-                                containerRole="rowgroup"
-                                containerStyle={Object {}}
-                                deferredMeasurementCache={
-                                  CellMeasurerCache {
-                                    "_cellHeightCache": Object {},
-                                    "_cellWidthCache": Object {},
-                                    "_columnCount": 0,
-                                    "_columnWidthCache": Object {},
-                                    "_defaultHeight": 30,
-                                    "_defaultWidth": 100,
-                                    "_hasFixedHeight": false,
-                                    "_hasFixedWidth": true,
-                                    "_keyMapper": [Function],
-                                    "_minHeight": 0,
-                                    "_minWidth": 0,
-                                    "_rowCount": 0,
-                                    "_rowHeightCache": Object {},
-                                    "columnWidth": [Function],
-                                    "rowHeight": [Function],
-                                  }
-                                }
-                                estimatedColumnSize={100}
-                                estimatedRowSize={30}
-                                getScrollbarSize={[Function]}
-                                height={0}
-                                isScrollingOptOut={false}
-                                noContentRenderer={[Function]}
-                                noRowsRenderer={[Function]}
-                                onRowsRendered={[Function]}
-                                onScroll={[Function]}
-                                onScrollbarPresenceChange={[Function]}
-                                onSectionRendered={[Function]}
-                                overscanColumnCount={0}
-                                overscanIndicesGetter={[Function]}
-                                overscanRowCount={10}
-                                role="grid"
-                                rowCount={9}
-                                rowHeight={[Function]}
-                                rowRenderer={[Function]}
-                                scrollToAlignment="auto"
-                                scrollToColumn={-1}
-                                scrollToIndex={-1}
-                                scrollToRow={-1}
-                                scrollingResetTimeInterval={150}
-                                style={Object {}}
-                                tabIndex={0}
-                                width={0}
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
                               >
-                                <div
-                                  aria-label="grid"
-                                  aria-readonly={true}
-                                  className="ReactVirtualized__Grid ReactVirtualized__List"
-                                  onScroll={[Function]}
-                                  role="grid"
-                                  style={
-                                    Object {
-                                      "WebkitOverflowScrolling": "touch",
-                                      "boxSizing": "border-box",
-                                      "direction": "ltr",
-                                      "height": 0,
-                                      "overflowX": "hidden",
-                                      "overflowY": "auto",
-                                      "position": "relative",
-                                      "width": 0,
-                                      "willChange": "transform",
-                                    }
-                                  }
-                                  tabIndex={0}
-                                />
-                              </Grid>
-                            </List>
+                                <span>
+                                  Sun
+                                </span>
+                              </Text>
+                            </MarkedText>
                           </div>
-                        </AutoSizer>
-                      </ListOptimizer>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-1"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Moon"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-1"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Moon
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-2"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Mercury"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-2"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Mercury
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-3"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Venus"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-3"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Venus
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-4"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Earth"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-4"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Earth
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-5"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Mars"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-5"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Mars
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-6"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Jupiter"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-6"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Jupiter
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-7"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Saturn"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-7"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Saturn
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="brand"
+                        id="downshift-3-item-8"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Neptun"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          id="downshift-3-item-8"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Neptun
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
                     </SuggestionsList>
                   </ul>
                 </List>

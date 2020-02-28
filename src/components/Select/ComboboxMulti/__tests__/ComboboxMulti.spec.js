@@ -32,10 +32,6 @@ describe('ComboboxMulti', () => {
                 onSelectionChange={mockOnSelectionChange}
                 onInputValueChange={mockOnInputValueChange}
                 onBlur={mockOnBlur}
-                listOptimizerProps={{
-                    defaultHeight: 800,
-                    defaultWidth: 800,
-                }}
             />
         );
         inputNode = wrapper.find('input').getDOMNode();
@@ -65,6 +61,7 @@ describe('ComboboxMulti', () => {
             setFocusOnInput();
 
             expect(toJson(wrapper)).toMatchSnapshot();
+            expect(wrapper.find('li')).toHaveLength(suggestions.length);
         });
         it('should render selection placeholder when component is not focused', () => {
             expect(wrapper.find('input').props().placeholder).toEqual(inputPlaceholder);
@@ -82,7 +79,7 @@ describe('ComboboxMulti', () => {
             expect(inputNode).toBe(document.activeElement);
             expect(focusSpy).toHaveBeenCalled();
         });
-        it.skip('should stay focused when suggestion is selected', () => {
+        it('should stay focused when suggestion is selected', () => {
             expect(inputNode).not.toBe(document.activeElement);
 
             setFocusOnInput();
@@ -95,6 +92,7 @@ describe('ComboboxMulti', () => {
                 .simulate('click');
 
             expect(inputNode).toBe(document.activeElement);
+            expect(wrapper.find('li')).not.toHaveLength(0);
         });
         it('should blur on pressing Escape button', () => {
             const blurSpy = jest.spyOn(inputNode, 'blur');
@@ -135,7 +133,7 @@ describe('ComboboxMulti', () => {
     });
     describe('callbacks', () => {
         describe('onSelectionChange', () => {
-            it.skip('should be called on clicking on a suggestion', () => {
+            it('should be called on clicking on a suggestion', () => {
                 setFocusOnInput();
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
@@ -156,7 +154,7 @@ describe('ComboboxMulti', () => {
 
             expect(mockOnInputValueChange).toHaveBeenCalled();
         });
-        it.skip('should not clear the input field when a suggestion was selected', () => {
+        it('should not clear the input field when a suggestion was selected', () => {
             const textInputValue = 'driver';
             wrapper.find('input').simulate('change', { target: { value: textInputValue } });
 
