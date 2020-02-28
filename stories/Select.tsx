@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { text, boolean, withKnobs } from '@storybook/addon-knobs';
 import { ComboboxMulti } from '@textkernel/oneui';
 import { StoreInjector } from '../src/packages/storybook/withStore';
 import {
@@ -54,6 +54,10 @@ storiesOf('Organisms|Select', module)
                 </ul>
                 <ComboboxMulti<TSuggestion>
                     style={{ width: '650px' }}
+                    useOptimizeListRender={boolean(
+                        'Use optimize list render (ListOptimizer)',
+                        false
+                    )}
                     inputPlaceholder={text('Input placeholder', 'Select something...')}
                     noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
                     suggestions={getSuggestions()}
