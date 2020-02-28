@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.7.0](https://github.com/textkernel/oneui/compare/9.6.0...9.7.0) (2020-02-28)
+
+
+### Bug Fixes
+
+* **popup:** changed close detection logic ([#236](https://github.com/textkernel/oneui/issues/236)) ([1a014e7](https://github.com/textkernel/oneui/commit/1a014e7))
+* **styles:** adjusted styles for input, textarea, select ([#237](https://github.com/textkernel/oneui/issues/237)) ([0679624](https://github.com/textkernel/oneui/commit/0679624))
+
+
+### Features
+
+* **component:** added listoptimizer component ([10c84af](https://github.com/textkernel/oneui/commit/10c84af))
+* **component:** listoptimizer component ([#239](https://github.com/textkernel/oneui/issues/239)) ([ccc9b88](https://github.com/textkernel/oneui/commit/ccc9b88))
+
+
+
 ## [9.6.0](https://github.com/textkernel/oneui/compare/9.5.0...9.6.0) (2020-02-26)
 
 
