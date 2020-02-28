@@ -13,6 +13,8 @@ interface Props<S> extends CommonProps<S> {
     inputPlaceholder: string;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: string;
+    /** Enable ListOptimizer component for decreasing render time */
+    useOptimizeListRender?: boolean;
 }
 
 export function ComboboxMulti<S>(props: Props<S>) {
@@ -25,6 +27,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
         onBlur,
         onInputValueChange,
         inputPlaceholder,
+        useOptimizeListRender,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -95,6 +98,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
             listRenderer={listProps => (
                 <SuggestionsList
                     {...listProps}
+                    useOptimizeRender={useOptimizeListRender}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                 />
             )}
@@ -107,6 +111,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
 
 ComboboxMulti.defaultProps = {
     showClearButton: false,
+    useOptimizeListRender: false,
 };
 
 ComboboxMulti.displayName = 'ComboboxMulti';
