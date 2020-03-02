@@ -100,6 +100,7 @@
         "expect": false,
         "shallow": false,
         "mount": false,
+        "render": false,
         "window": true,
         "document": true
     }

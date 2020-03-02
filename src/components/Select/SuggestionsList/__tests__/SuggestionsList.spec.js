@@ -29,6 +29,10 @@ describe('SuggestionsList', () => {
         wrapper.setProps({ suggestions: [] });
         expect(wrapper.find('li')).toHaveLength(1);
     });
+    it('should render optimization list correctly', () => {
+        wrapper.setProps({ useOptimizeRender: true });
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
     it('should render noSuggestions placeholder when empty suggestions list is passed', () => {
         wrapper.setProps({ suggestions: [] });
 

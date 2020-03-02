@@ -40,6 +40,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
       },
     ]
   }
+  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -288,6 +289,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
       },
     ]
   }
+  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -527,6 +529,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           },
                         ]
                       }
+                      useOptimizeRender={false}
                     >
                       <ListItem
                         aria-selected={true}
@@ -540,6 +543,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
                         role="option"
+                        style={Object {}}
                       >
                         <li
                           aria-selected={true}
@@ -548,6 +552,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
+                          style={Object {}}
                         >
                           <div
                             className="ListItem__container"
@@ -584,6 +589,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
                         role="option"
+                        style={Object {}}
                       >
                         <li
                           aria-selected={false}
@@ -592,6 +598,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
+                          style={Object {}}
                         >
                           <div
                             className="ListItem__container"
@@ -628,6 +635,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
                         role="option"
+                        style={Object {}}
                       >
                         <li
                           aria-selected={false}
@@ -636,6 +644,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
+                          style={Object {}}
                         >
                           <div
                             className="ListItem__container"
@@ -672,6 +681,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
                         role="option"
+                        style={Object {}}
                       >
                         <li
                           aria-selected={false}
@@ -680,6 +690,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
+                          style={Object {}}
                         >
                           <div
                             className="ListItem__container"
@@ -716,6 +727,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
                         role="option"
+                        style={Object {}}
                       >
                         <li
                           aria-selected={false}
@@ -724,6 +736,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
+                          style={Object {}}
                         >
                           <div
                             className="ListItem__container"
@@ -760,6 +773,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
                         role="option"
+                        style={Object {}}
                       >
                         <li
                           aria-selected={false}
@@ -768,6 +782,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
+                          style={Object {}}
                         >
                           <div
                             className="ListItem__container"
@@ -804,6 +819,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
                         role="option"
+                        style={Object {}}
                       >
                         <li
                           aria-selected={false}
@@ -812,6 +828,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
+                          style={Object {}}
                         >
                           <div
                             className="ListItem__container"
@@ -848,6 +865,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
                         role="option"
+                        style={Object {}}
                       >
                         <li
                           aria-selected={false}
@@ -856,6 +874,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
+                          style={Object {}}
                         >
                           <div
                             className="ListItem__container"
@@ -892,6 +911,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
                         role="option"
+                        style={Object {}}
                       >
                         <li
                           aria-selected={false}
@@ -900,6 +920,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
+                          style={Object {}}
                         >
                           <div
                             className="ListItem__container"

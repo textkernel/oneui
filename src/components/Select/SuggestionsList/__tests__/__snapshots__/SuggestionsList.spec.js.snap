@@ -152,6 +152,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
       },
     ]
   }
+  useOptimizeRender={false}
 >
   <ListItem
     disabled={false}
@@ -159,9 +160,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Sun"
+    style={Object {}}
   >
     <li
       className="ListItem ListItem--highlightContext_brand"
+      style={Object {}}
     >
       <div
         className="ListItem__container"
@@ -190,9 +193,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={true}
     isSelected={false}
     key="Moon"
+    style={Object {}}
   >
     <li
       className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand"
+      style={Object {}}
     >
       <div
         className="ListItem__container"
@@ -221,9 +226,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Mercury"
+    style={Object {}}
   >
     <li
       className="ListItem ListItem--highlightContext_brand"
+      style={Object {}}
     >
       <div
         className="ListItem__container"
@@ -252,9 +259,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Venus"
+    style={Object {}}
   >
     <li
       className="ListItem ListItem--highlightContext_brand"
+      style={Object {}}
     >
       <div
         className="ListItem__container"
@@ -283,9 +292,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Earth"
+    style={Object {}}
   >
     <li
       className="ListItem ListItem--highlightContext_brand"
+      style={Object {}}
     >
       <div
         className="ListItem__container"
@@ -314,9 +325,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Mars"
+    style={Object {}}
   >
     <li
       className="ListItem ListItem--highlightContext_brand"
+      style={Object {}}
     >
       <div
         className="ListItem__container"
@@ -345,9 +358,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Jupiter"
+    style={Object {}}
   >
     <li
       className="ListItem ListItem--highlightContext_brand"
+      style={Object {}}
     >
       <div
         className="ListItem__container"
@@ -376,9 +391,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Saturn"
+    style={Object {}}
   >
     <li
       className="ListItem ListItem--highlightContext_brand"
+      style={Object {}}
     >
       <div
         className="ListItem__container"
@@ -407,9 +424,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Neptun"
+    style={Object {}}
   >
     <li
       className="ListItem ListItem--highlightContext_brand"
+      style={Object {}}
     >
       <div
         className="ListItem__container"
@@ -432,5 +451,305 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
       </div>
     </li>
   </ListItem>
+</SuggestionsList>
+`;
+
+exports[`SuggestionsList should render optimization list correctly 1`] = `
+<SuggestionsList
+  getItemProps={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "index": 0,
+            "item": Object {
+              "name": "Sun",
+            },
+          },
+        ],
+        Array [
+          Object {
+            "index": 1,
+            "item": Object {
+              "name": "Moon",
+            },
+          },
+        ],
+        Array [
+          Object {
+            "index": 2,
+            "item": Object {
+              "name": "Mercury",
+            },
+          },
+        ],
+        Array [
+          Object {
+            "index": 3,
+            "item": Object {
+              "name": "Venus",
+            },
+          },
+        ],
+        Array [
+          Object {
+            "index": 4,
+            "item": Object {
+              "name": "Earth",
+            },
+          },
+        ],
+        Array [
+          Object {
+            "index": 5,
+            "item": Object {
+              "name": "Mars",
+            },
+          },
+        ],
+        Array [
+          Object {
+            "index": 6,
+            "item": Object {
+              "name": "Jupiter",
+            },
+          },
+        ],
+        Array [
+          Object {
+            "index": 7,
+            "item": Object {
+              "name": "Saturn",
+            },
+          },
+        ],
+        Array [
+          Object {
+            "index": 8,
+            "item": Object {
+              "name": "Neptun",
+            },
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  highlightedIndex={1}
+  noSuggestionsPlaceholder="noSuggestionsPlaceholder"
+  suggestionToString={[Function]}
+  suggestions={
+    Array [
+      Object {
+        "name": "Sun",
+      },
+      Object {
+        "name": "Moon",
+      },
+      Object {
+        "name": "Mercury",
+      },
+      Object {
+        "name": "Venus",
+      },
+      Object {
+        "name": "Earth",
+      },
+      Object {
+        "name": "Mars",
+      },
+      Object {
+        "name": "Jupiter",
+      },
+      Object {
+        "name": "Saturn",
+      },
+      Object {
+        "name": "Neptun",
+      },
+    ]
+  }
+  useOptimizeRender={true}
+>
+  <div
+    className="SuggestionsList__optimizerWrapper"
+  >
+    <ListOptimizer
+      rowCount={9}
+    >
+      <AutoSizer
+        disableHeight={false}
+        disableWidth={false}
+        onResize={[Function]}
+        style={Object {}}
+      >
+        <div
+          style={
+            Object {
+              "height": 0,
+              "overflow": "visible",
+              "width": 0,
+            }
+          }
+        >
+          <List
+            autoHeight={false}
+            deferredMeasurementCache={
+              CellMeasurerCache {
+                "_cellHeightCache": Object {},
+                "_cellWidthCache": Object {},
+                "_columnCount": 0,
+                "_columnWidthCache": Object {},
+                "_defaultHeight": 30,
+                "_defaultWidth": 100,
+                "_hasFixedHeight": false,
+                "_hasFixedWidth": true,
+                "_keyMapper": [Function],
+                "_minHeight": 0,
+                "_minWidth": 0,
+                "_rowCount": 0,
+                "_rowHeightCache": Object {},
+                "columnWidth": [Function],
+                "rowHeight": [Function],
+              }
+            }
+            estimatedRowSize={30}
+            height={0}
+            noRowsRenderer={[Function]}
+            onRowsRendered={[Function]}
+            onScroll={[Function]}
+            overscanIndicesGetter={[Function]}
+            overscanRowCount={10}
+            rowCount={9}
+            rowHeight={[Function]}
+            rowRenderer={[Function]}
+            scrollToAlignment="auto"
+            scrollToIndex={-1}
+            style={Object {}}
+            width={0}
+          >
+            <Grid
+              aria-label="grid"
+              aria-readonly={true}
+              autoContainerWidth={true}
+              autoHeight={false}
+              autoWidth={false}
+              cellRangeRenderer={[Function]}
+              cellRenderer={[Function]}
+              className="ReactVirtualized__List"
+              columnCount={1}
+              columnWidth={0}
+              containerRole="rowgroup"
+              containerStyle={Object {}}
+              deferredMeasurementCache={
+                CellMeasurerCache {
+                  "_cellHeightCache": Object {},
+                  "_cellWidthCache": Object {},
+                  "_columnCount": 0,
+                  "_columnWidthCache": Object {},
+                  "_defaultHeight": 30,
+                  "_defaultWidth": 100,
+                  "_hasFixedHeight": false,
+                  "_hasFixedWidth": true,
+                  "_keyMapper": [Function],
+                  "_minHeight": 0,
+                  "_minWidth": 0,
+                  "_rowCount": 0,
+                  "_rowHeightCache": Object {},
+                  "columnWidth": [Function],
+                  "rowHeight": [Function],
+                }
+              }
+              estimatedColumnSize={100}
+              estimatedRowSize={30}
+              getScrollbarSize={[Function]}
+              height={0}
+              isScrollingOptOut={false}
+              noContentRenderer={[Function]}
+              noRowsRenderer={[Function]}
+              onRowsRendered={[Function]}
+              onScroll={[Function]}
+              onScrollbarPresenceChange={[Function]}
+              onSectionRendered={[Function]}
+              overscanColumnCount={0}
+              overscanIndicesGetter={[Function]}
+              overscanRowCount={10}
+              role="grid"
+              rowCount={9}
+              rowHeight={[Function]}
+              rowRenderer={[Function]}
+              scrollToAlignment="auto"
+              scrollToColumn={-1}
+              scrollToIndex={-1}
+              scrollToRow={-1}
+              scrollingResetTimeInterval={150}
+              style={Object {}}
+              tabIndex={0}
+              width={0}
+            >
+              <div
+                aria-label="grid"
+                aria-readonly={true}
+                className="ReactVirtualized__Grid ReactVirtualized__List"
+                onScroll={[Function]}
+                role="grid"
+                style={
+                  Object {
+                    "WebkitOverflowScrolling": "touch",
+                    "boxSizing": "border-box",
+                    "direction": "ltr",
+                    "height": 0,
+                    "overflowX": "hidden",
+                    "overflowY": "auto",
+                    "position": "relative",
+                    "width": 0,
+                    "willChange": "transform",
+                  }
+                }
+                tabIndex={0}
+              />
+            </Grid>
+          </List>
+        </div>
+      </AutoSizer>
+    </ListOptimizer>
+  </div>
 </SuggestionsList>
 `;
