@@ -3,7 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
 import { Tooltip } from '@textkernel/oneui';
 import { POPUP_PLACEMENTS } from '../src/constants';
-import '../src/components/Tooltip/Tooltip.scss';
 
 storiesOf('Molecules|Tooltip', module)
     .addDecorator(withKnobs)
