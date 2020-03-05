@@ -50,7 +50,7 @@ function getRuleCSS({ styleLoader, localIdentName, includePaths, context }) {
 function getRuleSCSS() {
     return {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: ['postcss-loader', 'css-loader'],
     };
 }
 
