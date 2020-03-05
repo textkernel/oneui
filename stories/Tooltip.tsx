@@ -6,14 +6,29 @@ import { POPUP_PLACEMENTS } from '../src/constants';
 
 storiesOf('Molecules|Tooltip', module)
     .addDecorator(withKnobs)
-    .add('Tooltip', () => (
-        <div style={{ position: 'relative', display: 'table', margin: '0 auto' }}>
-            <Tooltip
-                placement={select('Placement', POPUP_PLACEMENTS, 'bottom')}
-                content={text('Tooltip text', 'this is my tooltip text')}
-                alwaysVisible={boolean('Always show tooltip', false)}
-            >
-                hover here to see the tooltip
-            </Tooltip>
-        </div>
-    ));
+    .add(
+        'Tooltip',
+        () => (
+            <div style={{ position: 'relative', display: 'table', margin: '0 auto' }}>
+                <Tooltip
+                    placement={select('Placement', POPUP_PLACEMENTS, 'bottom')}
+                    content={text('Tooltip text', 'this is my tooltip text')}
+                    arrow={boolean('Arrow', true)}
+                >
+                    <div>hover here to see the tooltip</div>
+                </Tooltip>
+            </div>
+        ),
+        {
+            info: {
+                text: `
+                ## Usage information
+
+                This component is a wrapper around [tippy.js/react](https://github.com/atomiks/tippy.js-react#-usage).
+
+                * You can pass other props according to their definition, apart from the one listed below.
+                * Full list of props available can be found [here](https://atomiks.github.io/tippyjs/all-props/).
+                `,
+            },
+        }
+    );

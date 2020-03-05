@@ -49,7 +49,7 @@ module.exports = ({ config: storybookBaseConfig }) => {
         rules.js,
         tsCommonJSRule, // Storybook supports only commonJS module
         tsDocRule, // Generate docgen information from Typescript React components
-        rules.styles,
+        rules.scss,
     ];
 
     // Merge resolvers config

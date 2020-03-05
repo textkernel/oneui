@@ -27,7 +27,7 @@ export const FieldWithValidation: React.FC<Props> = props => {
         setIsChildInFocus(false);
     };
 
-    if (useTooltip) {
+    if (errorMessage && useTooltip) {
         const clonedChild = errorMessage
             ? React.cloneElement(children, {
                   context: 'bad',
@@ -37,7 +37,7 @@ export const FieldWithValidation: React.FC<Props> = props => {
             : children;
 
         return (
-            <Tooltip {...rest} content={errorMessage} alwaysVisible={isChildInFocus}>
+            <Tooltip {...rest} content={errorMessage} visible={isChildInFocus}>
                 {clonedChild}
             </Tooltip>
         );

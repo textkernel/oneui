@@ -36,6 +36,7 @@ describe('FieldWithValidation', () => {
             it('should set context to bad on child', () => {
                 expect(wrapper.find('Input').prop('context')).toBe('bad');
             });
+
             it('should render the message as text', () => {
                 expect(wrapper.find('Tooltip')).toHaveLength(0);
                 expect(wrapper.find('Text')).toHaveLength(1);
@@ -53,21 +54,22 @@ describe('FieldWithValidation', () => {
                 );
             });
 
-            it('should render the tooltip, but without content', () => {
+            it('should not render a tooltip with no error message', () => {
                 wrapper.update();
 
                 expect(wrapper.find('Input')).toHaveLength(1);
-                expect(wrapper.find('Tooltip')).toHaveLength(1);
+                wrapper.find('input').simulate('mouseover');
+                expect(wrapper.find('Tooltip')).toHaveLength(0);
                 expect(wrapper.find('Text')).toHaveLength(0);
 
                 wrapper.find('input').simulate('mouseover');
-                expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
+                expect(wrapper.find('Tooltip')).toHaveLength(0);
             });
         });
         describe('when error message is defined', () => {
             const message = 'invalid field';
             beforeEach(() => {
-                wrapper = mount(
+                wrapper = shallow(
                     <FieldWithValidation errorMessage={message} useTooltip>
                         <Input />
                     </FieldWithValidation>
@@ -77,35 +79,19 @@ describe('FieldWithValidation', () => {
             it('should set context to bad on child', () => {
                 expect(wrapper.find('Input').prop('context')).toBe('bad');
             });
-            it('should render the message on mouse over', () => {
-                expect(wrapper.find('Text')).toHaveLength(0);
-                expect(wrapper.find('Tooltip')).toHaveLength(1);
-                expect(wrapper.find('Tooltip').prop('content')).toBe(message);
-
-                wrapper.find('input').simulate('mouseover');
-                expect(wrapper.find('div[data-popup="true"]')).toHaveLength(1);
-                expect(wrapper.find('div[data-popup="true"]').text()).toBe(message);
-            });
-            it('should remove the message on mouse leave', () => {
-                wrapper.find('input').simulate('mouseover');
-                expect(wrapper.find('div[data-popup="true"]').text()).toBe(message);
-
-                wrapper.find('input').simulate('mouseleave');
-                expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
-            });
             it('should render the message when field is focused', () => {
-                expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
+                expect(wrapper.find('Tooltip').props().visible).toBeFalsy();
 
-                wrapper.find('input').simulate('focus');
-                expect(wrapper.find('div[data-popup="true"]')).toHaveLength(1);
-                expect(wrapper.find('div[data-popup="true"]').text()).toBe(message);
+                wrapper.find('Input').simulate('focus');
+                expect(wrapper.find('Tooltip').props().visible).toBeTruthy();
+                expect(wrapper.find('Tooltip').props().content).toBe(message);
             });
             it('should remove the message when field is blurred', () => {
-                wrapper.find('input').simulate('focus');
-                expect(wrapper.find('div[data-popup="true"]').text()).toBe(message);
+                wrapper.find('Input').simulate('focus');
+                expect(wrapper.find('Tooltip').props().content).toBe(message);
 
-                wrapper.find('input').simulate('blur');
-                expect(wrapper.find('div[data-popup="true"]')).toHaveLength(0);
+                wrapper.find('Input').simulate('blur');
+                expect(wrapper.find('Tooltip').props().visible).toBeFalsy();
             });
         });
     });

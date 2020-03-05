@@ -16,7 +16,20 @@ function getRuleTS({ includePaths }) {
     };
 }
 
-function getRuleCSS({ styleLoader, localIdentName, includePaths, context }) {
+function getRuleCSS({ styleLoader, includePaths }) {
+    return {
+        test: /\.css$/,
+        include: includePaths,
+        use: [
+            styleLoader,
+            {
+                loader: 'css-loader',
+            },
+        ],
+    };
+}
+
+function getRuleSCSS({ styleLoader, localIdentName, includePaths, context }) {
     return {
         test: /\.scss$/,
         use: [
@@ -63,5 +76,6 @@ module.exports = {
     getRuleJS,
     getRuleTS,
     getRuleCSS,
+    getRuleSCSS,
     getRuleFiles,
 };
