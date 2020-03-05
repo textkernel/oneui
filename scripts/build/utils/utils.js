@@ -18,7 +18,7 @@ function getRuleTS({ includePaths }) {
 
 function getRuleCSS({ styleLoader, localIdentName, includePaths, context }) {
     return {
-        test: /\.s?css$/,
+        test: /\.scss$/,
         use: [
             styleLoader,
             {
