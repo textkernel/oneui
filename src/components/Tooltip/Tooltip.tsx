@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
 import * as React from 'react';
 import Tippy, { TippyProps } from '@tippy.js/react';
 import 'tippy.js/dist/tippy.css';

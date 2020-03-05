@@ -48,13 +48,16 @@ const getRules = (env = 'prod') => ({
     ts: getRuleTS({
         includePaths: env === 'prod' ? [SOURCE_PATH] : [SOURCE_PATH, STORIES_PATH],
     }),
-    styles: getRuleCSS({
+    externalCss: getRuleCSS({
+        styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
+        includePaths: [NODE_MODULES_PATH],
+    }),
+    scss: getRuleSCSS({
         styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
         localIdentName: env === 'prod' ? '[local]--[hash:base64:10]' : '[local]',
         includePaths: [SOURCE_PATH],
         context: DIST_PATH, // https://github.com/webpack-contrib/css-loader/issues/464
     }),
-    scss: getRuleSCSS(),
     files: getRuleFiles({
         fileLoader: 'file-loader',
     }),

@@ -16,7 +16,21 @@ function getRuleTS({ includePaths }) {
     };
 }
 
-function getRuleCSS({ styleLoader, localIdentName, includePaths, context }) {
+function getRuleCSS({ styleLoader, includePaths }) {
+    return {
+        test: /\.css$/,
+        include: includePaths,
+        resourceQuery: /external/,
+        use: [
+            styleLoader,
+            {
+                loader: 'css-loader',
+            },
+        ],
+    };
+}
+
+function getRuleSCSS({ styleLoader, localIdentName, includePaths, context }) {
     return {
         test: /\.scss$/,
         use: [
@@ -44,14 +58,6 @@ function getRuleCSS({ styleLoader, localIdentName, includePaths, context }) {
             },
         ],
         sideEffects: true,
-    };
-}
-
-function getRuleSCSS() {
-    return {
-        test: /\.css$/,
-        exclude: '/node_modules/',
-        use: ['postcss-loader', 'css-loader'],
     };
 }
 
