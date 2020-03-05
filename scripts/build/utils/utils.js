@@ -20,7 +20,6 @@ function getRuleCSS({ styleLoader, includePaths }) {
     return {
         test: /\.css$/,
         include: includePaths,
-        resourceQuery: /external/,
         use: [
             styleLoader,
             {
