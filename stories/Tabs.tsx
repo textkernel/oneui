@@ -91,7 +91,7 @@ storiesOf('Atoms|Tabs', module)
                 </TabItem>
                 <TabItem tabId={3} key={3} disabled={boolean('Tab 3 is disabled', false)}>
                     <Tooltip content="some additional information" placement="top">
-                        {text('Tab 3 label', 'Tab with Tooltip')}
+                        <div>{text('Tab 3 label', 'Tab with Tooltip')}</div>
                     </Tooltip>
                 </TabItem>
             </TabsBar>

@@ -32,5 +32,6 @@ module.exports = {
     // A map from regular expressions to module names that allow to stub out resources with a single module
     moduleNameMapper: {
         '.+\\.(svg|png|jpe?g|gif)$': '<rootDir>/src/__mocks__/testFileMock.js',
+        '.+\\.css\\?external$': 'jest-css-modules-transform',
     },
 };
