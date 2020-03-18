@@ -6,7 +6,7 @@ describe('<Field> that renders an input field', () => {
     it('should render a component with a label properly', () => {
         const labelText = 'labelText';
         const wrapper = shallow(
-            <Field labelText={labelText}>
+            <Field labelText={labelText} className="customClass">
                 <input />
             </Field>
         );
