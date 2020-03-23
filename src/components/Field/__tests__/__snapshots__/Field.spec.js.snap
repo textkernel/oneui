@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Field> that renders an input field should render a component with a label properly 1`] = `
-<label>
+<label
+  className="customClass"
+>
   <p
     className="Field__label"
   >
