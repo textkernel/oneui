@@ -25,7 +25,7 @@ exports[`<TwoPaneView> that renders a two pane view should render correctly 1`] 
             "display": "none",
             "height": 0,
             "top": -0,
-            "width": NaN,
+            "width": 0,
           }
         }
       >
@@ -36,7 +36,7 @@ exports[`<TwoPaneView> that renders a two pane view should render correctly 1`] 
               "display": "none",
               "height": 0,
               "top": -0,
-              "width": NaN,
+              "width": 0,
             }
           }
         >

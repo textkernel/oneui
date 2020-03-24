@@ -81,6 +81,7 @@ export function SuggestionsList<S>(props: Props<S>) {
 
 SuggestionsList.defaultProps = {
     useOptimizeRender: false,
+    inputValue: '',
 };
 
 SuggestionsList.displayName = 'SuggestionsList';
