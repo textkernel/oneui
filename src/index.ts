@@ -43,6 +43,7 @@ export { Tooltip } from './components/Tooltip';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
 // Organisms
 export { Autosuggest, ItemTag } from './components/Autosuggest';
+export { AutosuggestMulti, SuggestionTag } from './components/AutosuggestMulti';
 export { SelectBase } from './components/Select/SelectBase';
 export { ComboboxMulti } from './components/Select/ComboboxMulti';
 export { SuggestionsList } from './components/Select/SuggestionsList';

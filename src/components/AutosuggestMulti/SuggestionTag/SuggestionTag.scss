@@ -1,0 +1,42 @@
+.SuggestionTag {
+    display: inline-flex;
+    height: 26px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-size-small);
+    padding: 0 var(--spacing-2x);
+    background-color: var(--color-neutral-25);
+    border-radius: var(--border-radius);
+    margin: var(--margin) var(--spacing-normal);
+    max-width: 200px;
+    min-width: 15px;
+    cursor: default;
+
+    &--isStretched {
+        flex: 1 1 auto;
+    }
+
+    &--isBounded {
+        flex: 1 0 auto;
+        max-width: 35px;
+    }
+
+    &__label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0 var(--spacing-2x) 0;
+    }
+
+    &__button {
+        border: 0;
+        cursor: pointer;
+        background-color: var(--transparent);
+        padding: 0;
+
+        svg {
+            font-size: var(--font-size-large);
+            vertical-align: middle;
+        }
+    }
+}

@@ -19,7 +19,7 @@
         &--isProminent {
             transform-origin: left top;
 
-            &.Autosuggest__main--focused {
+            &.SelectBase__main--focused {
                 transform: scale(1.1);
                 box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
             }

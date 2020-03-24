@@ -15,7 +15,7 @@ export interface Props<S> {
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestions: S) => string;
     /** to be shown when no suggestions are available */
-    noSuggestionsPlaceholder: string;
+    noSuggestionsPlaceholder?: string;
     /** a function which gets props for the item in the list */
     getItemProps: (options: GetItemPropsOptions<S>) => object;
     /** index of the item from the list to be highlighted */
@@ -35,7 +35,7 @@ export function SuggestionsList<S>(props: Props<S>) {
         inputValue,
     } = props;
 
-    if (!suggestions || !suggestions.length) {
+    if (noSuggestionsPlaceholder && (!suggestions || !suggestions.length)) {
         return (
             <ListItem disabled>
                 <Text context="muted">{noSuggestionsPlaceholder}</Text>
@@ -80,6 +80,7 @@ export function SuggestionsList<S>(props: Props<S>) {
 }
 
 SuggestionsList.defaultProps = {
+    noSuggestionsPlaceholder: '',
     useOptimizeRender: false,
 };
 

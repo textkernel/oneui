@@ -26,6 +26,8 @@ export function SelectBase<S>(props: Props<S>) {
         focusedRenderer,
         blurredRenderer,
         keepExpandedAfterSelection,
+        clearInputAfterSelection,
+        isProminent,
         ...rest
     } = props;
 
@@ -84,6 +86,12 @@ export function SelectBase<S>(props: Props<S>) {
 
         if (selectedItem) {
             onSelectionChange(selectedItem);
+        }
+
+        if (clearInputAfterSelection) {
+            setInputValue('');
+            setInputValueRecall('');
+            onInputValueChange?.('');
         }
 
         if (!keepExpandedAfterSelection) {
@@ -147,7 +155,7 @@ export function SelectBase<S>(props: Props<S>) {
         }
     };
 
-    const stateAndProps = { props, focused };
+    const stateAndProps = { ...props, focused, isProminent };
 
     const getInputPropsWithUpdatedRef = (getInputProps) => (inputProps) => {
         return inputRefFromProps
@@ -221,6 +229,7 @@ export function SelectBase<S>(props: Props<S>) {
 SelectBase.defaultProps = {
     showClearButton: false,
     keepExpandedAfterSelection: false,
+    clearInputAfterSelection: false,
     clearTitle: '',
 };
 

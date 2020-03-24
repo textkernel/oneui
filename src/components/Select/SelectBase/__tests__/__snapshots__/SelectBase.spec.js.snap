@@ -31,6 +31,7 @@ exports[`SelectBase rendering should initially render empty component correctly 
       ],
     }
   }
+  clearInputAfterSelection={false}
   clearTitle=""
   focusedRenderer={
     [MockFunction] {
