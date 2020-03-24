@@ -7,9 +7,7 @@ describe('<ListOptimizer> that optimally renders list items', () => {
     it('should render small part of list due to small height of block', () => {
         const wrapper = render(
             <ListOptimizer defaultHeight={10} defaultWidth={10} rowCount={20}>
-                {({ key, index, styles }) => (
-                    <span key={key} styles={styles}>{`Item ${index}`}</span>
-                )}
+                {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -18,9 +16,7 @@ describe('<ListOptimizer> that optimally renders list items', () => {
     it('should render part of list items due to middle height of block', () => {
         const wrapper = render(
             <ListOptimizer defaultHeight={150} defaultWidth={10} rowCount={20}>
-                {({ key, index, styles }) => (
-                    <span key={key} styles={styles}>{`Item ${index}`}</span>
-                )}
+                {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -28,9 +24,7 @@ describe('<ListOptimizer> that optimally renders list items', () => {
     it('should render full list on maximum height', () => {
         const wrapper = render(
             <ListOptimizer defaultHeight={2000} defaultWidth={10} rowCount={20}>
-                {({ key, index, styles }) => (
-                    <span key={key} styles={styles}>{`Item ${index}`}</span>
-                )}
+                {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
         expect(toJson(wrapper)).toMatchSnapshot();

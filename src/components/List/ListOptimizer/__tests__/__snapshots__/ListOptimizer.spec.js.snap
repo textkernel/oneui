@@ -17,64 +17,104 @@ exports[`<ListOptimizer> that optimally renders list items should render full li
       role="rowgroup"
       style="width:auto;height:600px;max-width:10px;max-height:600px;overflow:hidden;pointer-events:;position:relative"
     >
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 0
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 1
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 2
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 3
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 4
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 5
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 6
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 7
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 8
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 9
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 10
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 11
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 12
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 13
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 14
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 15
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 16
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 17
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 18
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 19
       </span>
     </div>
@@ -99,49 +139,79 @@ exports[`<ListOptimizer> that optimally renders list items should render part of
       role="rowgroup"
       style="width:auto;height:600px;max-width:10px;max-height:600px;overflow:hidden;pointer-events:;position:relative"
     >
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 0
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 1
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 2
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 3
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 4
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 5
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 6
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 7
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 8
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 9
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 10
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 11
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 12
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 13
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 14
       </span>
     </div>
@@ -166,37 +236,59 @@ exports[`<ListOptimizer> that optimally renders list items should render small p
       role="rowgroup"
       style="width:auto;height:600px;max-width:10px;max-height:600px;overflow:hidden;pointer-events:;position:relative"
     >
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 0
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 1
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 2
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 3
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 4
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 5
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 6
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 7
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 8
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 9
       </span>
-      <span>
+      <span
+        style="height:auto;left:0;position:absolute;top:0;width:100%"
+      >
         Item 10
       </span>
     </div>
