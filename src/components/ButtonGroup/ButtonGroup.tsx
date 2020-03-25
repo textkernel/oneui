@@ -17,12 +17,12 @@ interface Props {
 
 const { block, elem } = bem('ButtonGroup', styles);
 
-export const ButtonGroup: React.FC<Props> = props => {
+export const ButtonGroup: React.FC<Props> = (props) => {
     const { children, context, size, isBlock, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)} role="group">
-            {React.Children.map(children, button => {
+            {React.Children.map(children, (button) => {
                 if (!React.isValidElement(button)) {
                     return button;
                 }

@@ -7,7 +7,7 @@ import { LocationAutocomplete } from './LocationAutocomplete';
 // for details see: https://developers.google.com/maps/documentation/javascript/libraries
 const GOOGLE_API_LIBRARIES = ['places'];
 
-export const LocationAutocompleteWithGoogleLoader = props => {
+export const LocationAutocompleteWithGoogleLoader = (props) => {
     const { apiKey, language, region, additionalGoogleProps, ...rest } = props;
 
     return (

@@ -13,7 +13,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('Footer', styles);
 
-export const Footer: React.FC<Props> = props => {
+export const Footer: React.FC<Props> = (props) => {
     const { copyright, children, ...rest } = props;
 
     const tkCopyright = (

@@ -32,7 +32,7 @@ describe('Modal', () => {
     });
     it('should set app element via react-modal', () => {
         const setElSpy = jest.spyOn(ReactModal, 'setAppElement');
-        setElSpy.mockImplementationOnce(key => key);
+        setElSpy.mockImplementationOnce((key) => key);
 
         Modal.setAppElement('main');
         expect(setElSpy).toHaveBeenCalledWith('main');

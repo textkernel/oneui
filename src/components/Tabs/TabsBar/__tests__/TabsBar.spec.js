@@ -22,14 +22,8 @@ describe('<TabsBar>', () => {
             </TabsBar>
         );
 
-        const tab1Props = wrapper
-            .find('TabItem')
-            .first()
-            .props();
-        const tab2Props = wrapper
-            .find('TabItem')
-            .at(1)
-            .props();
+        const tab1Props = wrapper.find('TabItem').first().props();
+        const tab2Props = wrapper.find('TabItem').at(1).props();
         const otherChildProps = wrapper.find('span').props();
 
         expect(tab1Props.isBlock).toBeTruthy();
@@ -44,14 +38,8 @@ describe('<TabsBar>', () => {
             </TabsBar>
         );
 
-        const tab1Props = wrapper
-            .find('TabItem')
-            .first()
-            .props();
-        const tab2Props = wrapper
-            .find('TabItem')
-            .at(1)
-            .props();
+        const tab1Props = wrapper.find('TabItem').first().props();
+        const tab2Props = wrapper.find('TabItem').at(1).props();
 
         expect(tab1Props.isActive).toBeTruthy();
         expect(tab2Props.isActive).toBeFalsy();
@@ -65,14 +53,8 @@ describe('<TabsBar>', () => {
             </TabsBar>
         );
 
-        const tab1Props = wrapper
-            .find('TabItem')
-            .first()
-            .props();
-        const tab2Props = wrapper
-            .find('TabItem')
-            .at(1)
-            .props();
+        const tab1Props = wrapper.find('TabItem').first().props();
+        const tab2Props = wrapper.find('TabItem').at(1).props();
 
         expect(tab1Props.onSelect).toEqual(onSelectMock);
         expect(tab2Props.onSelect).toEqual(onSelectMock);

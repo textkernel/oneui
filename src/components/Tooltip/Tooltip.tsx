@@ -4,7 +4,7 @@ import Tippy, { TippyProps } from '@tippy.js/react';
 import 'tippy.js/dist/tippy.css?external';
 import 'tippy.js/animations/shift-toward.css?external';
 
-export const Tooltip: React.FC<TippyProps> = props => {
+export const Tooltip: React.FC<TippyProps> = (props) => {
     const { content, children, ...rest } = props;
 
     return (

@@ -15,7 +15,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('NavItem', styles);
 
-export const NavItem: React.FC<Props> = props => {
+export const NavItem: React.FC<Props> = (props) => {
     const { active, pullRight, useActiveClass, children, ...rest } = props;
     const ariaProp = active ? { 'aria-current': 'page' } : {};
     const newProps = { ...ariaProp, ...rest, ...block(props) };

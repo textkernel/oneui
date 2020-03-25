@@ -71,8 +71,8 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
     });
 
     it('should call the onComplete callback function when ponyfill is loaded', () => {
-        cssVarsPonyfill.mockImplementationOnce(ponyfillOptions =>
-            setTimeout(ponyfillOptions.onComplete, 10)
+        cssVarsPonyfill.mockImplementationOnce(
+            (ponyfillOptions) => setTimeout(ponyfillOptions.onComplete, 10) // eslint-disable-line @typescript-eslint/no-implied-eval
         );
 
         const ieUserAgent = 'Mozilla/5.0(Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
@@ -92,8 +92,8 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
     });
 
     it('should call the onError callback function when ponyfill isnt loaded', () => {
-        cssVarsPonyfill.mockImplementationOnce(ponyfillOptions =>
-            setTimeout(ponyfillOptions.onError, 10)
+        cssVarsPonyfill.mockImplementationOnce(
+            (ponyfillOptions) => setTimeout(ponyfillOptions.onError, 10) // eslint-disable-line @typescript-eslint/no-implied-eval
         );
 
         const ieUserAgent = 'Mozilla/5.0(Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';

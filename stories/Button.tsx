@@ -15,7 +15,7 @@ storiesOf('Atoms|Button', module)
             isInline={boolean('isInline', false)}
             type={select('Type', ['submit', 'button'], 'submit')}
             disabled={boolean('Disabled', false)}
-            onClick={e => {
+            onClick={(e) => {
                 console.log('Clicked button', e);
             }}
             href={text('Href (will render an anchor)', '')}
@@ -28,7 +28,7 @@ storiesOf('Atoms|Button', module)
             type={select('Type', ['submit', 'button'], 'submit')}
             disabled={boolean('Disabled', false)}
             children={text('Label', '')}
-            onClick={e => {
+            onClick={(e) => {
                 console.log('Clicked button', e);
             }}
         />

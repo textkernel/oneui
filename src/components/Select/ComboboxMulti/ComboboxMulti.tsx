@@ -34,7 +34,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
 
     // eslint-disable-next-line react/display-name
     const renderFocused = ({ getInputProps, getToggleButtonProps, onBlur: blur }) => {
-        const handleInputKeyDown = event => {
+        const handleInputKeyDown = (event) => {
             if (event.key === TAB_KEY) {
                 inputRef.current?.blur();
                 blur();
@@ -78,7 +78,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
             <IoMdArrowDropdown
                 {...elem('dropdownIcon', { ...props })}
                 {...getToggleButtonProps({
-                    onClick: e => {
+                    onClick: (e) => {
                         e?.stopPropagation();
                     },
                 })}
@@ -95,7 +95,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
             onBlur={onBlur}
             onSelectionChange={onSelectionChange}
             onInputValueChange={onInputValueChange}
-            listRenderer={listProps => (
+            listRenderer={(listProps) => (
                 <SuggestionsList
                     {...listProps}
                     useOptimizeRender={useOptimizeListRender}

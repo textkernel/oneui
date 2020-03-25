@@ -6,7 +6,7 @@ import { CONTEXTS } from '../../constants';
 
 const { block, elem } = bem('ProgressBar', styles);
 
-export const ProgressBar = props => {
+export const ProgressBar = (props) => {
     const { animated, children, context, hidden, percentage, small, ...rest } = props;
     const percentageAdjusted = Math.max(0, Math.min(percentage, 100));
 

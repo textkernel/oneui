@@ -38,7 +38,7 @@ export const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
     return (
         <li {...rest} ref={ref} {...block({ ...props, ...customBlockMod })}>
             <div onClick={onClick} role="presentation" {...elem('container', props)}>
-                {React.Children.map(children, child =>
+                {React.Children.map(children, (child) =>
                     typeof child === 'string' ? <Text inline>{child}</Text> : child
                 )}
             </div>

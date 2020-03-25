@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { GoogleMap, Marker, Circle } from '@react-google-maps/api';
 
-const circleOptions = radius => ({
+const circleOptions = (radius) => ({
     strokeColor: 'transparent',
     strokeOpacity: 1,
     strokeWeight: 0,
@@ -28,7 +28,7 @@ export const Map = React.forwardRef((props, ref) => {
 
         if (markers.length) {
             const bounds = new LatLngBounds();
-            markers.forEach(marker => {
+            markers.forEach((marker) => {
                 if (marker.radius) {
                     const circle = new CircleClass({
                         center: marker.center,
@@ -73,7 +73,7 @@ export const Map = React.forwardRef((props, ref) => {
             {...rest}
         >
             {!!markers.length &&
-                markers.map(marker => {
+                markers.map((marker) => {
                     const { center: mCenter, radius } = marker;
                     const positionStr = `${mCenter.lat}-${mCenter.lng}`;
 

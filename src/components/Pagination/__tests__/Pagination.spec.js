@@ -67,7 +67,7 @@ describe('<Pagination> that renders a pagination component', () => {
         it('should be set correctly on Prev button', () => {
             expect(
                 wrapper
-                    .findWhere(el => el.text() === '\u2039 Previous')
+                    .findWhere((el) => el.text() === '\u2039 Previous')
                     .find('button')
                     .prop('data-page')
             ).toBe(CURRENT_PAGE - 1);
@@ -75,7 +75,7 @@ describe('<Pagination> that renders a pagination component', () => {
         it('should be set correctly on Next button', () => {
             expect(
                 wrapper
-                    .findWhere(el => el.text() === 'Next \u203a')
+                    .findWhere((el) => el.text() === 'Next \u203a')
                     .find('button')
                     .prop('data-page')
             ).toBe(CURRENT_PAGE + 1);
@@ -83,7 +83,7 @@ describe('<Pagination> that renders a pagination component', () => {
         it('should be set correctly on "page 1" button', () => {
             expect(
                 wrapper
-                    .findWhere(el => el.text() === '1')
+                    .findWhere((el) => el.text() === '1')
                     .find('button')
                     .prop('data-page')
             ).toBe(1);

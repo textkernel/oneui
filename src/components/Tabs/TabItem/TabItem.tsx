@@ -20,7 +20,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSel
 
 const { block } = bem('TabItem', styles);
 
-export const TabItem: React.FC<Props> = props => {
+export const TabItem: React.FC<Props> = (props) => {
     const { tabId, isActive, onSelect, disabled, isBlock, children, ...rest } = props;
     const handleClick = () => {
         if (!isActive && !disabled && onSelect) {

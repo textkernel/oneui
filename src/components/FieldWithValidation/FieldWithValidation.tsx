@@ -15,7 +15,7 @@ interface Props {
 
 const { block } = bem('FieldWithValidation', styles);
 
-export const FieldWithValidation: React.FC<Props> = props => {
+export const FieldWithValidation: React.FC<Props> = (props) => {
     const { children, errorMessage, useTooltip, ...rest } = props;
     const [isChildInFocus, setIsChildInFocus] = React.useState(false);
 

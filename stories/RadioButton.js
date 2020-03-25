@@ -8,7 +8,7 @@ storiesOf('Molecules|RadioButton', module)
     .add('RadioButton', () => (
         <RadioButtonGroup
             name="my-group"
-            onChange={e =>
+            onChange={(e) =>
                 console.log('onChange was called with event.target.value: ', e.target.value)
             }
         >

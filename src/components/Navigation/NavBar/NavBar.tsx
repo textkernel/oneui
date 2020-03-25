@@ -10,7 +10,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('NavBar', styles);
 
-export const NavBar: React.FC<Props> = props => {
+export const NavBar: React.FC<Props> = (props) => {
     const { children, ...rest } = props;
 
     return (

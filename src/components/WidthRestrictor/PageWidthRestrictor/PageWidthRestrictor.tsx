@@ -9,7 +9,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block } = bem('PageWidthRestrictor', styles);
 
-export const PageWidthRestrictor: React.FC<Props> = props => {
+export const PageWidthRestrictor: React.FC<Props> = (props) => {
     const { children, ...rest } = props;
 
     return (

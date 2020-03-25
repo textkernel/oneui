@@ -33,7 +33,7 @@ export const ListOptimizer: React.FC<Props> = ({
                     width={width}
                     rowCount={rowCount}
                     rowHeight={cellMeasurerCache.current.rowHeight}
-                    rowRenderer={args => (
+                    rowRenderer={(args) => (
                         <CellMeasurer
                             cache={cellMeasurerCache.current}
                             columnIndex={args.columnIndex}

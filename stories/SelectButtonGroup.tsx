@@ -18,7 +18,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
             isBlock={boolean('Display as block', false)}
             isEqualWidth={boolean('Make all buttons the same width', false)}
             selectedContext={select('Default selected color context', selectedContexts, undefined)}
-            onChange={value => {
+            onChange={(value) => {
                 const msg = `onSelect was called with values ${value}`;
                 console.log(msg);
             }}

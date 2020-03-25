@@ -46,10 +46,7 @@ describe('<PillButton> component', () => {
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
         it('should trigger toggle state once on keyboard interaction with button', () => {
-            wrapper
-                .find('button')
-                .simulate('focus')
-                .simulate('keyDown', { key: ENTER_KEY });
+            wrapper.find('button').simulate('focus').simulate('keyDown', { key: ENTER_KEY });
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
     });
@@ -79,10 +76,7 @@ describe('<PillButton> component', () => {
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
         it('should trigger toggle state once on keyboard interaction with button', () => {
-            wrapper
-                .find('button')
-                .simulate('focus')
-                .simulate('keyDown', { key: ENTER_KEY });
+            wrapper.find('button').simulate('focus').simulate('keyDown', { key: ENTER_KEY });
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
     });
@@ -110,10 +104,7 @@ describe('<PillButton> component', () => {
             expect(toggleDropdownMock).toHaveBeenCalledTimes(0);
         });
         it('should not trigger toggle state but onClear only on keyboard interaction with button', () => {
-            wrapper
-                .find('button')
-                .simulate('focus')
-                .simulate('keyDown', { key: ENTER_KEY });
+            wrapper.find('button').simulate('focus').simulate('keyDown', { key: ENTER_KEY });
             expect(onClearMock).toHaveBeenCalledTimes(1);
             expect(toggleDropdownMock).toHaveBeenCalledTimes(0);
         });
@@ -144,10 +135,7 @@ describe('<PillButton> component', () => {
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
         it('should trigger toggle state once on keyboard interaction with button', () => {
-            wrapper
-                .find('button')
-                .simulate('focus')
-                .simulate('keyDown', { key: ENTER_KEY });
+            wrapper.find('button').simulate('focus').simulate('keyDown', { key: ENTER_KEY });
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
     });

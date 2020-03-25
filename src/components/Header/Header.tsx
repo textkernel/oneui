@@ -21,7 +21,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('Header', styles);
 
-export const Header: React.FC<Props> = props => {
+export const Header: React.FC<Props> = (props) => {
     const { logo, children, ...rest } = props;
 
     let renderedLogo: unknown = null;

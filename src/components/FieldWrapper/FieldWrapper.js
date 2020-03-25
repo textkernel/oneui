@@ -7,7 +7,7 @@ import styles from './FieldWrapper.scss';
 const { block, elem } = bem('FieldWrapper', styles);
 
 export const FieldWrapper = React.forwardRef((props, ref) => {
-    const handleClear = e => {
+    const handleClear = (e) => {
         const { onClear } = props;
 
         e.stopPropagation();

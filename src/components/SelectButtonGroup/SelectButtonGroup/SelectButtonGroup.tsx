@@ -38,7 +38,7 @@ export function SelectButtonGroup<V>(props: Props<V>) {
     } = props;
 
     const initiallySelectedValues: V[] = [];
-    children.forEach(child => {
+    children.forEach((child) => {
         const { value, isInitiallySelected } = child.props;
         if (isInitiallySelected) {
             initiallySelectedValues.push(value);
@@ -60,7 +60,7 @@ export function SelectButtonGroup<V>(props: Props<V>) {
             }
         } else if (selectedValues.includes(value)) {
             if (!(isRequired && selectedValues.length === 1)) {
-                setSelectedValues(selectedValues.filter(v => v !== value));
+                setSelectedValues(selectedValues.filter((v) => v !== value));
             }
         } else {
             setSelectedValues([...selectedValues, value]);
@@ -69,7 +69,7 @@ export function SelectButtonGroup<V>(props: Props<V>) {
 
     return (
         <div {...rest} {...block(props)}>
-            {children.map(child =>
+            {children.map((child) =>
                 React.cloneElement(child, {
                     isBlock,
                     isEqualWidth,

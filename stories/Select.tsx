@@ -18,11 +18,11 @@ storiesOf('Organisms|Select', module)
             selectedSuggestions: [],
         })
     )
-    .add('ComboboxMulti', storyContext => {
+    .add('ComboboxMulti', (storyContext) => {
         const store = storyContext?.parameters.getStore();
         const getSuggestions = (): TSuggestion[] => {
             return SUGGESTIONS.filter(
-                item =>
+                (item) =>
                     !store.get('selectedSuggestions').includes(item) &&
                     item.name
                         .toLocaleLowerCase()
@@ -48,7 +48,7 @@ storiesOf('Organisms|Select', module)
         return (
             <>
                 <ul>
-                    {store.get('selectedSuggestions').map(item => (
+                    {store.get('selectedSuggestions').map((item) => (
                         <li key={item.name}>{item.name}</li>
                     ))}
                 </ul>

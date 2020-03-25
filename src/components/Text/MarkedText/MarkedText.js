@@ -6,7 +6,7 @@ import styles from './MarkedText.scss';
 
 const { block, elem } = bem('MarkedText', styles);
 
-export const MarkedText = props => {
+export const MarkedText = (props) => {
     const { marker, children, ...rest } = props;
 
     let result = children;

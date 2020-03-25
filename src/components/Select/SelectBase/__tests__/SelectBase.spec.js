@@ -20,18 +20,14 @@ describe('SelectBase', () => {
     let wrapper;
     let inputNode;
 
-    const setFocusOnInput = () =>
-        wrapper
-            .find('.SelectBase__field')
-            .at(1)
-            .simulate('click');
+    const setFocusOnInput = () => wrapper.find('.SelectBase__field').at(1).simulate('click');
 
     beforeEach(() => {
         wrapper = mount(
             <SelectBase
                 suggestions={suggestions}
                 suggestionToString={suggestionToString}
-                listRenderer={listProps => <SuggestionsList {...listProps} />}
+                listRenderer={(listProps) => <SuggestionsList {...listProps} />}
                 focusedRenderer={mockRender}
                 blurredRenderer={mockRender}
                 onSelectionChange={mockOnSelectionChange}
@@ -81,11 +77,7 @@ describe('SelectBase', () => {
 
             setFocusOnInput();
 
-            wrapper
-                .find('li')
-                .at(0)
-                .children()
-                .simulate('click');
+            wrapper.find('li').at(0).children().simulate('click');
 
             expect(wrapper.find('li')).toHaveLength(0);
             expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
@@ -97,11 +89,7 @@ describe('SelectBase', () => {
             setFocusOnInput();
             expect(inputNode).toBe(document.activeElement);
 
-            wrapper
-                .find('li')
-                .at(0)
-                .childAt(0)
-                .simulate('click');
+            wrapper.find('li').at(0).childAt(0).simulate('click');
 
             expect(wrapper.find('li')).toHaveLength(suggestions.length);
         });
@@ -111,11 +99,7 @@ describe('SelectBase', () => {
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
 
-            wrapper
-                .find('li')
-                .first()
-                .children()
-                .simulate('click');
+            wrapper.find('li').first().children().simulate('click');
 
             expect(wrapper.find('input').props().value).toEqual('');
         });
@@ -127,11 +111,7 @@ describe('SelectBase', () => {
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
 
-            wrapper
-                .find('li')
-                .first()
-                .children()
-                .simulate('click');
+            wrapper.find('li').first().children().simulate('click');
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
         });
@@ -143,11 +123,7 @@ describe('SelectBase', () => {
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
 
-                wrapper
-                    .find('li')
-                    .first()
-                    .children()
-                    .simulate('click');
+                wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalled();
             });

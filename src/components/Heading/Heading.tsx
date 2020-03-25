@@ -14,7 +14,7 @@ interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
 
 const { block } = bem('Heading', styles);
 
-export const Heading: React.FC<Props> = props => {
+export const Heading: React.FC<Props> = (props) => {
     const { align, children, level = 'h1', ...rest } = props;
     const HtmlNodeType = level;
 

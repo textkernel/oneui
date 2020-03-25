@@ -16,11 +16,7 @@ describe('ComboboxMulti', () => {
     let wrapper;
     let inputNode;
 
-    const setFocusOnInput = () =>
-        wrapper
-            .find('.SelectBase__field')
-            .first()
-            .simulate('click');
+    const setFocusOnInput = () => wrapper.find('.SelectBase__field').first().simulate('click');
 
     beforeEach(() => {
         wrapper = mount(
@@ -50,12 +46,7 @@ describe('ComboboxMulti', () => {
             setFocusOnInput();
 
             expect(wrapper.find('li')).toHaveLength(1);
-            expect(
-                wrapper
-                    .find('li')
-                    .childAt(0)
-                    .text()
-            ).toEqual(noSuggestionsPlaceholder);
+            expect(wrapper.find('li').childAt(0).text()).toEqual(noSuggestionsPlaceholder);
         });
         it('should render all suggestions from the list', () => {
             setFocusOnInput();
@@ -85,11 +76,7 @@ describe('ComboboxMulti', () => {
             setFocusOnInput();
             expect(inputNode).toBe(document.activeElement);
 
-            wrapper
-                .find('li')
-                .at(0)
-                .childAt(0)
-                .simulate('click');
+            wrapper.find('li').at(0).childAt(0).simulate('click');
 
             expect(inputNode).toBe(document.activeElement);
             expect(wrapper.find('li')).not.toHaveLength(0);
@@ -138,11 +125,7 @@ describe('ComboboxMulti', () => {
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
 
-                wrapper
-                    .find('li')
-                    .first()
-                    .children()
-                    .simulate('click');
+                wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalled();
             });
@@ -160,11 +143,7 @@ describe('ComboboxMulti', () => {
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
 
-            wrapper
-                .find('li')
-                .first()
-                .children()
-                .simulate('click');
+            wrapper.find('li').first().children().simulate('click');
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
         });

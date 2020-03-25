@@ -27,10 +27,12 @@ storiesOf('Organisms|Autosuggest', module)
             noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
             clearTitle={text('Remove button label', 'Clear')}
             onBlur={() => console.log('onBlur was called')}
-            onSelectionChange={item =>
+            onSelectionChange={(item) =>
                 console.log(`onSelectionChange was called with ${item.name} object`)
             }
-            onInputValueChange={value => console.log(`onInputValueChange was called with ${value}`)}
+            onInputValueChange={(value) =>
+                console.log(`onInputValueChange was called with ${value}`)
+            }
             onClearAllSelected={() => console.log('onClearAllSelected was called')}
             showClearButton={boolean('Show clear button', true)}
             iconNode={<IconMatch />}
@@ -49,10 +51,12 @@ storiesOf('Organisms|Autosuggest', module)
             noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
             clearTitle={text('Remove button label', 'Clear')}
             onBlur={() => console.log('onBlur was called')}
-            onSelectionChange={item =>
+            onSelectionChange={(item) =>
                 console.log(`onSelectionChange was called with "${item.name}" object`)
             }
-            onInputValueChange={value => console.log(`onInputValueChange was called with ${value}`)}
+            onInputValueChange={(value) =>
+                console.log(`onInputValueChange was called with ${value}`)
+            }
             onClearAllSelected={() => console.log('onClearAllSelected was called')}
             showClearButton={boolean('Show clear button', true)}
             isMultiselect={boolean('Multiselect mode', true)}
@@ -65,13 +69,13 @@ storiesOf('Organisms|Autosuggest', module)
         const getSuggestions = () => {
             if (!store.get('inputValue').length) return [];
             return SUGGESTIONS.filter(
-                item => !store.get('selectedSuggestions').includes(item)
-            ).filter(item =>
+                (item) => !store.get('selectedSuggestions').includes(item)
+            ).filter((item) =>
                 item.name.toLocaleLowerCase().includes(store.get('inputValue').toLocaleLowerCase())
             );
         };
 
-        const onInputValueChange = value => {
+        const onInputValueChange = (value) => {
             console.log(`onInputValueChange was called with ${value}`);
             store.set({ inputValue: value });
         };
@@ -86,16 +90,17 @@ storiesOf('Organisms|Autosuggest', module)
                 return SUGGESTION_TO_STRING(store.get('selectedSuggestions')[0]);
             }
 
-            return `${SUGGESTION_TO_STRING(store.get('selectedSuggestions')[0])} + ${numOfItems -
-                1} more`;
+            return `${SUGGESTION_TO_STRING(store.get('selectedSuggestions')[0])} + ${
+                numOfItems - 1
+            } more`;
         };
 
-        const onSelectionChange = item => {
+        const onSelectionChange = (item) => {
             console.log(`onSelectionChange was called with {name: ${item.name}}`);
             if (store.get('selectedSuggestions').includes(item)) {
                 const newSelection = store
                     .get('selectedSuggestions')
-                    .filter(el => el.name !== item.name);
+                    .filter((el) => el.name !== item.name);
                 store.set({ selectedSuggestions: newSelection });
             } else {
                 store.set({ selectedSuggestions: [...store.get('selectedSuggestions'), item] });

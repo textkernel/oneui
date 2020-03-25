@@ -15,7 +15,7 @@ export const RadioButtonGroup = forwardRef((props, ref) => {
 
     return (
         <div ref={ref} {...rest} {...block(props)}>
-            {React.Children.map(children, child => {
+            {React.Children.map(children, (child) => {
                 if (child) {
                     return React.cloneElement(child, {
                         ...elem('option', {
