@@ -1,20 +1,18 @@
 .SuggestionTag {
     display: inline-flex;
-    height: 26px;
+    height: 24px;
     justify-content: space-between;
     align-items: center;
     font-size: var(--font-size-normal);
-    padding: 0 var(--spacing-2x);
+    padding: 0 var(--spacing-normal);
     background-color: var(--color-neutral-25);
     border-radius: var(--border-radius);
-    margin: var(--spacing-normal) var(--spacing-normal) var(--margin) var(--spacing-2x);
+    margin: var(--spacing-normal);
+    margin-top: var(--margin);
+    margin-bottom: 4px;
     max-width: 200px;
     min-width: 15px;
     cursor: default;
-
-    &:first-child {
-        margin-left: var(--margin);
-    }
 
     &--isStretched {
         flex: 1 1 auto;
@@ -22,7 +20,7 @@
 
     &--isBounded {
         flex: 1 0 auto;
-        max-width: 35px;
+        max-width: 36px;
     }
 
     &__label {
