@@ -69,6 +69,7 @@ storiesOf('Organisms|AutosuggestMulti', module)
 
         const onBlur = () => {
             console.log('onBlur was called');
+            store.set({ inputValue: '' });
         };
 
         return (

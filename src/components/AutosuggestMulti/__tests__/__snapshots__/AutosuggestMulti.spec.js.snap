@@ -149,14 +149,14 @@ exports[`AutosuggestMulti callbacks onSelectionChange should be called on clicki
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
               onClick={[Function]}
               onKeyDown={[Function]}
+              role="searchbox"
+              tabIndex={0}
             >
               <div
                 className="FieldWrapper__content"
               >
                 <div
-                  className="AutosuggestMulti__wrapper"
-                  role="searchbox"
-                  tabIndex={0}
+                  className="AutosuggestMulti__wrapper AutosuggestMulti__wrapper--isFocused"
                 >
                   <input
                     aria-activedescendant="downshift-5-item-0"
@@ -707,14 +707,14 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
               className="FieldWrapper SelectBase__field"
               onClick={[Function]}
               onKeyDown={[Function]}
+              role="searchbox"
+              tabIndex={0}
             >
               <div
                 className="FieldWrapper__content"
               >
                 <div
                   className="AutosuggestMulti__wrapper"
-                  role="searchbox"
-                  tabIndex={0}
                 >
                   <input
                     aria-activedescendant={null}
@@ -837,14 +837,14 @@ exports[`AutosuggestMulti rendering should render empty component correctly when
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
               onClick={[Function]}
               onKeyDown={[Function]}
+              role="searchbox"
+              tabIndex={0}
             >
               <div
                 className="FieldWrapper__content"
               >
                 <div
-                  className="AutosuggestMulti__wrapper"
-                  role="searchbox"
-                  tabIndex={0}
+                  className="AutosuggestMulti__wrapper AutosuggestMulti__wrapper--isFocused"
                 >
                   <input
                     aria-activedescendant="downshift-1-item-0"

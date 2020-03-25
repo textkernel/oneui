@@ -94,14 +94,14 @@ export function AutosuggestMulti<S>(props: Props<S>) {
 
     // eslint-disable-next-line react/display-name
     const renderFocused: FocusedRendererHelpers<S> = ({ getInputProps, onBlur: blur }) => (
-        <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
+        <div {...elem('wrapper', { isFocused: true })}>
             {renderFullTagsList()}
             <input
                 {...getInputProps({
                     ref: inputRef,
                     placeholder: inputPlaceholder,
                     onKeyDown: handleInputKeyDown(blur),
-                    ...elem('input', { ...props }),
+                    ...elem('input'),
                 })}
             />
         </div>
@@ -109,14 +109,14 @@ export function AutosuggestMulti<S>(props: Props<S>) {
 
     // eslint-disable-next-line react/display-name
     const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps }) => (
-        <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
+        <div {...elem('wrapper')}>
             {renderShortTagsList()}
             {selectedSuggestions.length === 0 && (
                 <input
                     {...getInputProps({
                         ref: inputRef,
                         placeholder: inputPlaceholder,
-                        ...elem('input', { ...props }),
+                        ...elem('input'),
                     })}
                 />
             )}

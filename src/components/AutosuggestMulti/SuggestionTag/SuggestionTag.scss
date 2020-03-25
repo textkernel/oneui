@@ -3,14 +3,18 @@
     height: 26px;
     justify-content: space-between;
     align-items: center;
-    font-size: var(--font-size-small);
+    font-size: var(--font-size-normal);
     padding: 0 var(--spacing-2x);
     background-color: var(--color-neutral-25);
     border-radius: var(--border-radius);
-    margin: var(--margin) var(--spacing-normal);
+    margin: var(--spacing-normal) var(--spacing-normal) var(--margin) var(--spacing-2x);
     max-width: 200px;
     min-width: 15px;
     cursor: default;
+
+    &:first-child {
+        margin-left: var(--margin);
+    }
 
     &--isStretched {
         flex: 1 1 auto;

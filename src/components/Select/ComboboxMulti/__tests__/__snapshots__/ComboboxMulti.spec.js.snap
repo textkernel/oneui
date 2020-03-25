@@ -141,6 +141,8 @@ exports[`ComboboxMulti rendering should initially render empty component correct
               className="FieldWrapper SelectBase__field"
               onClick={[Function]}
               onKeyDown={[Function]}
+              role="searchbox"
+              tabIndex={0}
             >
               <div
                 className="FieldWrapper__content"
@@ -393,6 +395,8 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
               onClick={[Function]}
               onKeyDown={[Function]}
+              role="searchbox"
+              tabIndex={0}
             >
               <div
                 className="FieldWrapper__content"

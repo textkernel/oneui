@@ -9,6 +9,8 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
 >
   <div
     className="FieldWrapper"
+    role="searchbox"
+    tabIndex={0}
   >
     <div
       className="FieldWrapper__content"
@@ -47,6 +49,8 @@ exports[`FieldWrapper should render correctly 1`] = `
 >
   <div
     className="FieldWrapper"
+    role="searchbox"
+    tabIndex={0}
   >
     <div
       className="FieldWrapper__content"

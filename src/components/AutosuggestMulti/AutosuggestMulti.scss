@@ -2,15 +2,18 @@
     &__wrapper {
         cursor: pointer;
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         flex-direction: row;
         align-items: stretch;
         overflow: hidden;
-        min-height: 30px;
+        height: 36px;
+        box-sizing: border-box;
         outline: none;
         padding: var(--spacing-normal);
+        padding-top: var(--margin);
 
         &--isFocused {
+            min-height: 36px;
             height: auto;
             flex-wrap: wrap;
         }
@@ -19,9 +22,11 @@
     &__input {
         border: 0;
         margin: var(--spacing-normal);
+        margin-top: 4px;
         flex: 1;
         font-size: var(--font-size-normal);
         min-width: 100px;
+        height: 22px;
 
         &:focus {
             outline: none;
