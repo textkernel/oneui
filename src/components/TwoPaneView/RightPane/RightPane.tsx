@@ -9,7 +9,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block } = bem('RightPane', styles);
 
-export const RightPane: React.FC<Props> = props => {
+export const RightPane: React.FC<Props> = (props) => {
     const { children, ...rest } = props;
 
     return (

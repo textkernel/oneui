@@ -22,7 +22,7 @@ interface PropsToPassToChild {
 
 const { block } = bem('TabsBar', styles);
 
-export const TabsBar: React.FC<Props> = props => {
+export const TabsBar: React.FC<Props> = (props) => {
     const { activeTabId, children, onSelect, isBlock, ...rest } = props;
 
     const extendWithProps = (tab: Props['children']) => {
@@ -44,7 +44,7 @@ export const TabsBar: React.FC<Props> = props => {
     return (
         <div {...rest} {...block(props)} role="tablist">
             {activeTabId || onSelect || isBlock
-                ? React.Children.map(children, tab => extendWithProps(tab))
+                ? React.Children.map(children, (tab) => extendWithProps(tab))
                 : children}
         </div>
     );

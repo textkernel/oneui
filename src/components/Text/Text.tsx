@@ -16,7 +16,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block } = bem('Text', styles);
 
-export const Text: React.FC<Props> = props => {
+export const Text: React.FC<Props> = (props) => {
     const { children, context, inline, size, ...rest } = props;
     const HtmlNodeType = inline ? 'span' : 'p';
 

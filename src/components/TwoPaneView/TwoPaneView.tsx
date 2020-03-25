@@ -12,7 +12,7 @@ interface Props extends Omit<BlockWidthRestrictorProps, 'children'> {
 
 const { block } = bem('TwoPaneView', styles);
 
-export const TwoPaneView: React.FC<Props> = props => {
+export const TwoPaneView: React.FC<Props> = (props) => {
     const { children, ...rest } = props;
 
     const [rightTop, setRightTop] = React.useState(0);
@@ -79,7 +79,7 @@ export const TwoPaneView: React.FC<Props> = props => {
 
     return (
         <BlockWidthRestrictor {...rest} ref={blockRef} {...block(props)}>
-            {React.Children.map(children, child => {
+            {React.Children.map(children, (child) => {
                 if (React.isValidElement(child)) {
                     const childStyle = child.props.style;
                     return child.type === RightPane

@@ -9,7 +9,7 @@ interface Props extends React.HTMLAttributes<HTMLSpanElement> {
 
 const { block } = bem('Chip', styles);
 
-export const Chip: React.FC<Props> = props => {
+export const Chip: React.FC<Props> = (props) => {
     const { children, ...rest } = props;
 
     return (

@@ -14,7 +14,7 @@ storiesOf('Molecules|LocationCard', module)
             minRadius={number('Min radius', 1)}
             maxRadius={number('Max radius', 100)}
             radiusStep={number('Step', 1)}
-            onRadiusChange={value => console.log(value)}
-            onDelete={id => console.log(`onDelete is called for ${id}`)}
+            onRadiusChange={(value) => console.log(value)}
+            onDelete={(id) => console.log(`onDelete is called for ${id}`)}
         />
     ));

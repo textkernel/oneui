@@ -39,7 +39,7 @@ export const PillButton = React.forwardRef((props, ref) => {
     }
 
     const buttonClick = isButtonClickable
-        ? e => {
+        ? (e) => {
               e.stopPropagation();
               e.preventDefault();
               onClear();
@@ -47,14 +47,14 @@ export const PillButton = React.forwardRef((props, ref) => {
         : undefined;
 
     const handleKeyDownOnButton = isButtonClickable
-        ? e => {
+        ? (e) => {
               if (e.key === ENTER_KEY) {
                   buttonClick(e);
               }
           }
         : undefined;
 
-    const handleKeyDownOnPill = e => {
+    const handleKeyDownOnPill = (e) => {
         if (e.key === ENTER_KEY) {
             e.preventDefault();
             toggleDropdown();

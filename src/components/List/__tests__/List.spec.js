@@ -11,7 +11,7 @@ describe('List component', () => {
     const itemNumbersArray = [0, 1, 2, 3, 4];
     const mockOnClick = jest.fn();
 
-    const getListItemAt = index => wrapper.children().childAt(index);
+    const getListItemAt = (index) => wrapper.children().childAt(index);
 
     const navigateUp = () => wrapper.children().simulate('keyDown', { key: 'ArrowUp' });
     const navigateDown = () => wrapper.children().simulate('keyDown', { key: 'ArrowDown' });
@@ -86,7 +86,7 @@ describe('List component', () => {
         beforeEach(() => {
             wrapper = mount(
                 <List>
-                    {itemNumbersArray.map(number => (
+                    {itemNumbersArray.map((number) => (
                         <ListItem>Item ${number}</ListItem>
                     ))}
                 </List>
@@ -95,7 +95,7 @@ describe('List component', () => {
         });
 
         it('should not have any item highlighted from the start', () => {
-            itemNumbersArray.forEach(number => {
+            itemNumbersArray.forEach((number) => {
                 expect(getListItemAt(number).props().isHighlighted).toBe(false);
             });
         });
@@ -137,7 +137,7 @@ describe('List component', () => {
         beforeEach(() => {
             wrapper = mount(
                 <List>
-                    {itemNumbersArray.map(number => (
+                    {itemNumbersArray.map((number) => (
                         <ListItem onClick={() => mockOnClick(number)}>Item ${number}</ListItem>
                     ))}
                 </List>
@@ -168,7 +168,7 @@ describe('List component', () => {
         it('should call onClick after navigating to the next highlighted item with doSelectOnNavigate enabled', () => {
             wrapper = mount(
                 <List doSelectOnNavigate>
-                    {itemNumbersArray.map(number => (
+                    {itemNumbersArray.map((number) => (
                         <ListItem onClick={() => mockOnClick(number)}>Item ${number}</ListItem>
                     ))}
                 </List>

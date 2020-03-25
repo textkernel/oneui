@@ -36,11 +36,6 @@ describe('SuggestionsList', () => {
     it('should render noSuggestions placeholder when empty suggestions list is passed', () => {
         wrapper.setProps({ suggestions: [] });
 
-        expect(
-            wrapper
-                .find('li')
-                .childAt(0)
-                .text()
-        ).toEqual(noSuggestionsPlaceholder);
+        expect(wrapper.find('li').childAt(0).text()).toEqual(noSuggestionsPlaceholder);
     });
 });

@@ -15,13 +15,13 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('ContentPlaceholder', styles);
 
-const calcDuration = seconds => `${seconds}s`;
+const calcDuration = (seconds) => `${seconds}s`;
 
-const calcMaskWidth = width => ({
+const calcMaskWidth = (width) => ({
     width: `${100 - Math.max(Math.min(width, 100), 0)}%`,
 });
 
-export const ContentPlaceholder: React.FC<Props> = props => {
+export const ContentPlaceholder: React.FC<Props> = (props) => {
     const { duration, height, width, withoutMargin, ...rest } = props;
 
     return (

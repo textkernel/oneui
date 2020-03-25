@@ -15,7 +15,7 @@ storiesOf('Molecules|Alert', module)
                     hasAction
                         ? {
                               label: 'Dismiss',
-                              onClick: e => {
+                              onClick: (e) => {
                                   console.log('Clicked alert action', e);
                               },
                           }

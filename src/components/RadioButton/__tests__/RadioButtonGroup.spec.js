@@ -24,17 +24,11 @@ describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
     it('should pass name prop to children', () => {
         wrapper
             .find('RadioButton')
-            .forEach(option => expect(option.prop('name')).toEqual('group_name'));
+            .forEach((option) => expect(option.prop('name')).toEqual('group_name'));
     });
     it('should not modify onChange prop of children if they are no defined on the group level', () => {
-        const child1OnChange = wrapper
-            .find('RadioButton')
-            .first()
-            .prop('onChange');
-        const child2OnChange = wrapper
-            .find('RadioButton')
-            .at(1)
-            .prop('onChange');
+        const child1OnChange = wrapper.find('RadioButton').first().prop('onChange');
+        const child2OnChange = wrapper.find('RadioButton').at(1).prop('onChange');
 
         expect(child1OnChange).toEqual(onChangeChildMock);
         expect(child2OnChange).toEqual(undefined);
@@ -44,14 +38,8 @@ describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
         wrapper.setProps({ onChange: onChangeGlobalMock });
         wrapper.update();
 
-        const child1OnChange = wrapper
-            .find('RadioButton')
-            .first()
-            .prop('onChange');
-        const child2OnChange = wrapper
-            .find('RadioButton')
-            .at(1)
-            .prop('onChange');
+        const child1OnChange = wrapper.find('RadioButton').first().prop('onChange');
+        const child2OnChange = wrapper.find('RadioButton').at(1).prop('onChange');
 
         expect(child1OnChange).toEqual(onChangeGlobalMock);
         expect(child2OnChange).toEqual(onChangeGlobalMock);

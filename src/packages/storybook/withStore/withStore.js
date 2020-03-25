@@ -51,7 +51,7 @@ export class StoreInjector {
      */
     createStore(injectedStore) {
         this.store = new Store(injectedStore);
-        this.store.subscribe(state => {
+        this.store.subscribe((state) => {
             // Enforce rerender stories when store was changed
             addons.getChannel().emit(FORCE_RE_RENDER);
             return state;

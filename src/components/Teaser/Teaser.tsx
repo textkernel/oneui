@@ -16,7 +16,7 @@ interface Props extends React.HTMLAttributes<HTMLParagraphElement> {
 
 const { block, elem } = bem('Teaser', styles);
 
-export const Teaser: React.FC<Props> = props => {
+export const Teaser: React.FC<Props> = (props) => {
     const { title, subTitle, location, details, ...rest } = props;
 
     return (

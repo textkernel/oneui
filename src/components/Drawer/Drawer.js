@@ -14,7 +14,7 @@ const TRANSITION_DURATION = {
 
 const { block, elem } = bem('Drawer', styles);
 
-export const Drawer = props => {
+export const Drawer = (props) => {
     const {
         title,
         isShown,
@@ -69,7 +69,7 @@ export const Drawer = props => {
 
     return ReactDOM.createPortal(
         <Transition appear unmountOnExit in={isShown} timeout={TRANSITION_DURATION}>
-            {state => (
+            {(state) => (
                 <div
                     {...block({ [getStatus()]: state !== 'entering' })}
                     aria-hidden={!isShown}

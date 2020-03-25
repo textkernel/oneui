@@ -91,10 +91,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             );
 
             togglePopup = () => {
-                wrapper
-                    .find('button')
-                    .at(0)
-                    .simulate('click');
+                wrapper.find('button').at(0).simulate('click');
             };
         });
 
@@ -125,13 +122,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
             // clicking directly in the element won't trigger global listener, hence we use our magic mock
             mockDocumentEventListener.click({
-                path: [
-                    wrapper
-                        .find('Popover')
-                        .find('p')
-                        .at(0)
-                        .getDOMNode(),
-                ],
+                path: [wrapper.find('Popover').find('p').at(0).getDOMNode()],
             });
             wrapper.update();
 
@@ -144,10 +135,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             // clicking directly in the element won't trigger global listener, hence we use our magic mock
             // this also ensures that event handlers defined by the renderer prop are not triggered.
             mockDocumentEventListener.click({
-                target: wrapper
-                    .find('button')
-                    .at(0)
-                    .getDOMNode(),
+                target: wrapper.find('button').at(0).getDOMNode(),
             });
             wrapper.update();
 

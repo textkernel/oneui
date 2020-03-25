@@ -113,11 +113,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
             jest.runAllTimers();
         });
         focusField();
-        wrapper
-            .find('li')
-            .at(0)
-            .children()
-            .simulate('click');
+        wrapper.find('li').at(0).children().simulate('click');
 
         expect(onSelectionMock).toHaveBeenCalled();
     });
@@ -129,12 +125,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         });
         focusField();
 
-        expect(
-            wrapper
-                .find('MarkedText')
-                .at(0)
-                .text()
-        ).not.toContain(' UK');
+        expect(wrapper.find('MarkedText').at(0).text()).not.toContain(' UK');
     });
     it('should display country information in list if showCountryInSuggestions is true', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
@@ -145,12 +136,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         });
         focusField();
 
-        expect(
-            wrapper
-                .find('MarkedText')
-                .at(0)
-                .text()
-        ).toContain(' UK');
+        expect(wrapper.find('MarkedText').at(0).text()).toContain(' UK');
     });
     it('should display latest results only, even if reply is delayed on previous requests', () => {
         getPlacePredictionsMock

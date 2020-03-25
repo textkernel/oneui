@@ -6,7 +6,7 @@ import { CROSS_CHAR } from '../../../constants';
 
 const { block, elem } = bem('ItemTag', styles);
 
-export const ItemTag = props => {
+export const ItemTag = (props) => {
     const { children, onClick, ...rest } = props;
 
     return (

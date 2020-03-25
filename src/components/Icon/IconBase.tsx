@@ -43,7 +43,7 @@ const adjustSize = (preserveAspectRatio: boolean, size?: number) => {
     };
 };
 
-export const IconBase: React.FC<Props> = props => {
+export const IconBase: React.FC<Props> = (props) => {
     const { children, context, margin, size, preserveAspectRatio, title, viewBox, ...rest } = props;
 
     return (

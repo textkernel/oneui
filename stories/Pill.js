@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-e
 import { boolean, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
 import { PillButton, PillDropdown, Pill } from '@textkernel/oneui';
 
-const DummyComponent = props => (
+const DummyComponent = (props) => (
     <>
         <p>{text('dropdown text', 'This is some content for the pil')}l</p>
         <button onClick={props.close}>Close me</button>

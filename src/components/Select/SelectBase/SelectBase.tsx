@@ -105,23 +105,23 @@ export function SelectBase<S>(props: Props<S>) {
         }
     };
 
-    const handleClearSelectedSuggestions = e => {
+    const handleClearSelectedSuggestions = (e) => {
         e.stopPropagation();
         onClearAllSelected?.();
     };
 
-    const focus = openMenu => {
+    const focus = (openMenu) => {
         openMenu();
         setFocused(true);
     };
 
-    const handleWrapperClick = openMenu => () => {
+    const handleWrapperClick = (openMenu) => () => {
         if (!focused) {
             focus(openMenu);
         }
     };
 
-    const handleWrapperKeyDown = openMenu => e => {
+    const handleWrapperKeyDown = (openMenu) => (e) => {
         if (!focused && e.key === ENTER_KEY) {
             focus(openMenu);
         }
@@ -149,7 +149,7 @@ export function SelectBase<S>(props: Props<S>) {
 
     const stateAndProps = { props, focused };
 
-    const getInputPropsWithUpdatedRef = getInputProps => inputProps => {
+    const getInputPropsWithUpdatedRef = (getInputProps) => (inputProps) => {
         return inputRefFromProps
             ? getInputProps(inputProps)
             : getInputProps({ ...inputProps, ref: inputRef });

@@ -47,7 +47,7 @@ storiesOf('Organisms|LocationSelector', module)
                 language={text('Language', 'EN')}
                 initialMapAddress={text('Initial map address', '')}
                 radiusUnits="km"
-                renderRadiusLabel={r => `+ ${r} km`}
+                renderRadiusLabel={(r) => `+ ${r} km`}
                 minRadius={number('Min radius', 1)}
                 maxRadius={number('Max radius', 100)}
                 radiusStep={number('Radius steps', 1)}
@@ -60,7 +60,9 @@ storiesOf('Organisms|LocationSelector', module)
                 selectionPlaceholder="selectionPlaceholder"
                 doneLabel={text('Label for Done button', 'Done')}
                 clearLabel={text('Label for clear button', 'Clear')}
-                onAddLocation={location => console.log('onAddLocation was called with:', location)}
+                onAddLocation={(location) =>
+                    console.log('onAddLocation was called with:', location)
+                }
                 onUpdateLocation={() => console.log('onUpdateLocation was called')}
                 onRemoveLocation={() => console.log('onRemoveLocation was called')}
                 onRemoveAllLocations={() => console.log('onRemoveAllLocations was called')}
@@ -74,14 +76,14 @@ storiesOf('Organisms|LocationSelector', module)
         const apiKey = ensureApiKey();
         const store = parameters.getStore();
 
-        const handleAddLocation = location => {
+        const handleAddLocation = (location) => {
             console.log('onAddLocation was called with:', location);
             store.set({ selectedLocations: [...store.get('selectedLocations'), location] });
         };
 
         const handleUpdateLocation = (id, radius) => {
             console.log('onUpdateLocation was called', id, radius);
-            const newSelection = store.get('selectedLocations').map(loc => {
+            const newSelection = store.get('selectedLocations').map((loc) => {
                 if (loc.id === id) {
                     loc.radius = radius; // eslint-disable-line no-param-reassign
                 }
@@ -90,10 +92,10 @@ storiesOf('Organisms|LocationSelector', module)
             store.set({ selectedLocations: newSelection });
         };
 
-        const handleRemoveLocation = id => {
+        const handleRemoveLocation = (id) => {
             console.log('onRemoveLocation was called', id);
             store.set({
-                selectedLocations: store.get('selectedLocations').filter(l => l.id !== id),
+                selectedLocations: store.get('selectedLocations').filter((l) => l.id !== id),
             });
         };
 
@@ -105,7 +107,7 @@ storiesOf('Organisms|LocationSelector', module)
         const getPlaceholder = () => {
             const selection = store.get('selectedLocations');
             const selectedLocationsText = selection
-                .map(item => item.structured_formatting.main_text)
+                .map((item) => item.structured_formatting.main_text)
                 .join(', ');
             return selectedLocationsText || null;
         };
@@ -118,7 +120,7 @@ storiesOf('Organisms|LocationSelector', module)
                 language={text('Language', 'EN')}
                 initialMapAddress={text('Initial map address', '')}
                 radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
-                renderRadiusLabel={r => `+ ${r} km`}
+                renderRadiusLabel={(r) => `+ ${r} km`}
                 minRadius={number('Min radius', 1)}
                 maxRadius={number('Max radius', 100)}
                 radiusDefaultValue={number('Radius default value', 5)}

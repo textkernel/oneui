@@ -27,7 +27,7 @@ const Example = () => {
             >
                 <Input
                     value={inputValue}
-                    onChange={e => {
+                    onChange={(e) => {
                         const { value } = e.target;
                         setValue(value);
                     }}

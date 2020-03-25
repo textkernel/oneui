@@ -56,7 +56,7 @@ export const List: React.FC<Props> = React.forwardRef((props, ref) => {
         setLastNavDirection(null);
     }, [navigationElementRef, lastNavDirection]);
 
-    const getNextSelectedIndex = keyCode => {
+    const getNextSelectedIndex = (keyCode) => {
         if (!children) {
             return -1;
         }
@@ -88,7 +88,7 @@ export const List: React.FC<Props> = React.forwardRef((props, ref) => {
         }
     };
 
-    const handleKeyDown = e => {
+    const handleKeyDown = (e) => {
         // Update selectedIndex with arrow navigation and make onNavigate function callback
         if (e.key === LIST_NAVIGATION_DIRECTIONS.UP || e.key === LIST_NAVIGATION_DIRECTIONS.DOWN) {
             const nextSelectedIndex = getNextSelectedIndex(e.key);
@@ -113,7 +113,7 @@ export const List: React.FC<Props> = React.forwardRef((props, ref) => {
 
     return isControlledNavigation ? (
         <ul {...rest} ref={ref} {...block(props)}>
-            {React.Children.map(children, child => {
+            {React.Children.map(children, (child) => {
                 if (child) {
                     return child.props[NOT_LIST_CHILD]
                         ? child

@@ -50,7 +50,7 @@ storiesOf('Atoms|List', module)
                     <Text inline>Disabled item</Text>
                 </ListItem>
                 <ListItem
-                    onClick={e => {
+                    onClick={(e) => {
                         e.preventDefault();
                         alert('Item was selected'); // eslint-disable-line no-alert, no-undef
                     }}
@@ -63,11 +63,11 @@ storiesOf('Atoms|List', module)
         );
     })
     .add('List showing results', () => {
-        const onClickJob = item => e => {
+        const onClickJob = (item) => (e) => {
             e.preventDefault();
             alert(`${item} item was selected`); // eslint-disable-line no-alert, no-undef
         };
-        const onClickAction = e => {
+        const onClickAction = (e) => {
             e.preventDefault();
             e.stopPropagation();
             alert('Action button was clicked'); // eslint-disable-line no-alert, no-undef

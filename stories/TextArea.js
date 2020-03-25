@@ -12,7 +12,7 @@ storiesOf('Atoms|TextArea', module)
             defaultValue="This is a default value"
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
-            onChange={e => {
+            onChange={(e) => {
                 const { value } = e.target;
                 console.log(value);
             }}
@@ -25,7 +25,7 @@ storiesOf('Atoms|TextArea', module)
             context={select('Context', CONTEXTS, CONTEXTS[1])}
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
-            onChange={e => {
+            onChange={(e) => {
                 const { value } = e.target;
                 console.log(value);
             }}

@@ -15,7 +15,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('Callout', styles);
 
-export const Callout: React.FC<Props> = props => {
+export const Callout: React.FC<Props> = (props) => {
     const { onRequestClose, children, context, ...rest } = props;
     return (
         <div {...rest} {...block(props)}>

@@ -9,7 +9,7 @@ import styles from './LocationSelectorDialog.scss';
 
 const { elem } = bem('LocationSelectorDialog', styles);
 
-export const LocationSelectorDialog = props => {
+export const LocationSelectorDialog = (props) => {
     const locationInputRef = React.createRef();
 
     const {
@@ -77,7 +77,7 @@ export const LocationSelectorDialog = props => {
             <div {...elem('locationsWrapper', props)}>
                 {!!selectedLocations.length && (
                     <ul {...elem('locationCardsContainer', props)}>
-                        {selectedLocations.map(location => (
+                        {selectedLocations.map((location) => (
                             <LocationCard
                                 {...elem('locationCard', props)}
                                 As="li"

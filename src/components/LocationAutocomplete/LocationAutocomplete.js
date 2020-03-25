@@ -17,7 +17,7 @@ const { elem } = bem('LocationAutocomplete', styles);
 const DEBOUNCE_DELAY = 350;
 const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
-export const LocationAutocomplete = props => {
+export const LocationAutocomplete = (props) => {
     const [storage] = React.useState({ latestInputValue: '' });
     const [suggestionsList, setSuggestionsList] = React.useState(null);
     const [isLoading, setIsLoading] = React.useState(false);
@@ -40,7 +40,7 @@ export const LocationAutocomplete = props => {
 
     // Suggestion functions
     const resetSuggestionsList = () => setSuggestionsList(null);
-    const suggestionToString = suggestion => (suggestion ? suggestion.description : '');
+    const suggestionToString = (suggestion) => (suggestion ? suggestion.description : '');
 
     React.useEffect(() => {
         if (debouncedInputValue) {
@@ -87,7 +87,7 @@ export const LocationAutocomplete = props => {
         );
     }
 
-    const handleInputValueChange = value => {
+    const handleInputValueChange = (value) => {
         setInputValue(value);
         if (value) {
             setIsLoading(true);
@@ -97,7 +97,7 @@ export const LocationAutocomplete = props => {
         }
     };
 
-    const handleSelection = value => {
+    const handleSelection = (value) => {
         resetSuggestionsList();
         setInputValue('');
         onSelectionChange(value);

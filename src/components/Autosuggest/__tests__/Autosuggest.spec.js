@@ -68,12 +68,7 @@ describe('Autosuggest', () => {
 
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('li')).toHaveLength(1);
-            expect(
-                wrapper
-                    .find('li')
-                    .childAt(0)
-                    .text()
-            ).toEqual(noSuggestionsPlaceholder);
+            expect(wrapper.find('li').childAt(0).text()).toEqual(noSuggestionsPlaceholder);
         });
         it('should render all suggestions from the list', () => {
             suggestionsList = SUGGESTIONS.slice(0, 4);
@@ -219,11 +214,7 @@ describe('Autosuggest', () => {
                 setFocusOnInput();
                 expect(wrapper.state('focused')).toBeTruthy();
 
-                wrapper
-                    .find('li')
-                    .at(0)
-                    .childAt(0)
-                    .simulate('click');
+                wrapper.find('li').at(0).childAt(0).simulate('click');
 
                 expect(wrapper.state('focused')).toBeFalsy();
                 expect(wrapper.find('li')).toHaveLength(0);
@@ -239,11 +230,7 @@ describe('Autosuggest', () => {
                 setFocusOnInput();
                 expect(wrapper.state('focused')).toBeTruthy();
 
-                wrapper
-                    .find('li')
-                    .at(0)
-                    .childAt(0)
-                    .simulate('click');
+                wrapper.find('li').at(0).childAt(0).simulate('click');
 
                 expect(wrapper.state('focused')).toBeTruthy();
                 expect(wrapper.find('li')).not.toHaveLength(0);
@@ -270,11 +257,7 @@ describe('Autosuggest', () => {
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
 
-                wrapper
-                    .find('li')
-                    .first()
-                    .children()
-                    .simulate('click');
+                wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalled();
             });
@@ -284,20 +267,12 @@ describe('Autosuggest', () => {
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
 
-                wrapper
-                    .find('li')
-                    .first()
-                    .children()
-                    .simulate('click');
+                wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalledTimes(1);
 
                 setFocusOnInput();
-                wrapper
-                    .find('li')
-                    .first()
-                    .children()
-                    .simulate('click');
+                wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalledTimes(2);
             });
@@ -309,11 +284,7 @@ describe('Autosuggest', () => {
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
                 expect(wrapper.find('ItemTag')).toHaveLength(selectedSuggestions.length);
 
-                wrapper
-                    .find('ItemTag')
-                    .at(2)
-                    .find('button')
-                    .simulate('click');
+                wrapper.find('ItemTag').at(2).find('button').simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalledWith(selectedSuggestions[2]);
             });
@@ -353,10 +324,7 @@ describe('Autosuggest', () => {
             wrapper.setProps({ selectedSuggestions });
             expect(mockOnClearAllSelected).not.toHaveBeenCalled();
 
-            wrapper
-                .find('.FieldWrapper__clearButton')
-                .at(1)
-                .simulate('click');
+            wrapper.find('.FieldWrapper__clearButton').at(1).simulate('click');
 
             expect(mockOnClearAllSelected).toHaveBeenCalled();
         });
@@ -367,11 +335,7 @@ describe('Autosuggest', () => {
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
 
-            wrapper
-                .find('li')
-                .first()
-                .children()
-                .simulate('click');
+            wrapper.find('li').first().children().simulate('click');
 
             expect(wrapper.find('input').props().value).toEqual('');
         });

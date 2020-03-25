@@ -23,7 +23,7 @@ interface Props extends Omit<React.HTMLAttributes<HTMLElement>, 'onClick'> {
 
 const { block, elem } = bem('Pagination', styles);
 
-export const Pagination: React.FC<Props> = props => {
+export const Pagination: React.FC<Props> = (props) => {
     const {
         align,
         currentPage = 1,
@@ -62,7 +62,7 @@ export const Pagination: React.FC<Props> = props => {
     const isNextDisabled = currentPage === totalPages;
     const range = defineRange();
 
-    const handleClick = e => {
+    const handleClick = (e) => {
         const {
             dataset: { page = null },
         } = e.target;
@@ -102,7 +102,7 @@ export const Pagination: React.FC<Props> = props => {
                     {range[0] > 2 && <div {...elem('gap', props)}>&hellip;</div>}
                 </>
             )}
-            {range.map(page => (
+            {range.map((page) => (
                 <PaginationButton
                     onClick={handleClick}
                     isActive={page === currentPage}

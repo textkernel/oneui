@@ -7,7 +7,7 @@ import { CONTEXTS } from '../../constants';
 
 const { block, elem } = bem('Alert', styles);
 
-export const Alert = props => {
+export const Alert = (props) => {
     const { action, children, context, title, ...rest } = props;
 
     return (

@@ -81,7 +81,7 @@ export function LocationSelector(props) {
         const geocoder = new Geocoder();
 
         return findCenter(geocoder, location.place_id)
-            .then(center => {
+            .then((center) => {
                 const locationToAdd = {
                     ...location,
                     center: {
@@ -92,7 +92,7 @@ export function LocationSelector(props) {
                 };
 
                 const isLocationSelected = selectedLocations
-                    .map(item => item.id)
+                    .map((item) => item.id)
                     .includes(location.id);
 
                 if (!isLocationSelected) {
@@ -103,7 +103,7 @@ export function LocationSelector(props) {
     }
 
     function getMarkers() {
-        return selectedLocations.map(location => ({
+        return selectedLocations.map((location) => ({
             center: location.center,
             radius: getRadiusInMeters(location.radius, radiusUnits),
         }));

@@ -35,7 +35,7 @@ describe('LocationSelector component', () => {
     const maxRadius = 100;
     const radiusStep = 1;
     const radiusDefaultValue = 2;
-    const renderRadiusLabel = r => `+ ${r} km`;
+    const renderRadiusLabel = (r) => `+ ${r} km`;
     const country = 'NL';
     const placeTypes = ['(regions)'];
 
@@ -91,38 +91,19 @@ describe('LocationSelector component', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should open and close modal when requested', () => {
-        expect(
-            wrapper
-                .find('Modal')
-                .at(0)
-                .props().isOpen
-        ).toBeFalsy();
+        expect(wrapper.find('Modal').at(0).props().isOpen).toBeFalsy();
 
         wrapper.find('FieldWrapper').simulate('click');
-        expect(
-            wrapper
-                .find('Modal')
-                .at(0)
-                .props().isOpen
-        ).toBeTruthy();
+        expect(wrapper.find('Modal').at(0).props().isOpen).toBeTruthy();
 
         // Since JSDom cannot click outside of component,
         // and because LocationSelectorDialog is not rendered due to LoadScriptNext not resolving
         // we hack the callback by calling it directly on Modal
         act(() => {
-            wrapper
-                .find('Modal')
-                .at(0)
-                .props()
-                .onRequestClose();
+            wrapper.find('Modal').at(0).props().onRequestClose();
         });
 
-        expect(
-            wrapper
-                .find('Modal')
-                .at(0)
-                .props().isOpen
-        ).toBeTruthy();
+        expect(wrapper.find('Modal').at(0).props().isOpen).toBeTruthy();
     });
     it('should add locations correctly', async () => {
         geocodeMock.mockImplementationOnce((req, cb) => {
@@ -145,7 +126,7 @@ describe('LocationSelector component', () => {
         });
     });
     it('should get markers correctly', () => {
-        const expectedResponse = selectedLocations.map(location => ({
+        const expectedResponse = selectedLocations.map((location) => ({
             center: {
                 lat: location.center.lat,
                 lng: location.center.lng,
@@ -156,11 +137,8 @@ describe('LocationSelector component', () => {
 
         // Since LocationSelectorDialog is not rendered due to LoadScriptNext not resolving
         // we hack the callback by calling it directly on LocationSelectorDialogWithGoogleLoader
-        expect(
-            wrapper
-                .find('LocationSelectorDialogWithGoogleLoader')
-                .props()
-                .getMarkers()
-        ).toEqual(expectedResponse);
+        expect(wrapper.find('LocationSelectorDialogWithGoogleLoader').props().getMarkers()).toEqual(
+            expectedResponse
+        );
     });
 });

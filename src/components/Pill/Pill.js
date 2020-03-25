@@ -4,7 +4,7 @@ import { PopupBase } from '../PopupBase';
 import { PillButton } from './PillButton';
 import { PillDropdown } from './PillDropdown';
 
-export const Pill = props => {
+export const Pill = (props) => {
     const {
         onClear,
         doneLabel,
@@ -47,7 +47,7 @@ export const Pill = props => {
         );
     };
 
-    const closeDropdown = setPopupVisibility => {
+    const closeDropdown = (setPopupVisibility) => {
         if (onClose) {
             onClose();
         }

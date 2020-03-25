@@ -9,7 +9,7 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 
 const { block } = bem('Link', styles);
 
-export const Link: React.FC<Props> = props => {
+export const Link: React.FC<Props> = (props) => {
     const { children, ...rest } = props;
     return (
         <a {...rest} {...block(props)}>

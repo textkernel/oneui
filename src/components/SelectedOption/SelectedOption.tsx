@@ -20,7 +20,7 @@ const { block, elem } = bem('SelectedOption', styles);
 export const SelectedOption: React.FC<Props> = React.forwardRef((props, ref) => {
     const { As = 'div', children, onDelete, ...rest } = props;
 
-    const handleKeyDown = e => {
+    const handleKeyDown = (e) => {
         if (e.key === ENTER_KEY) {
             onDelete();
         }

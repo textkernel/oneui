@@ -8,7 +8,7 @@ import styles from './LocationCard.scss';
 
 const { block, elem } = bem('LocationCard', styles);
 
-export const LocationCard = props => {
+export const LocationCard = (props) => {
     const {
         As,
         locationId,
@@ -23,7 +23,7 @@ export const LocationCard = props => {
         ...rest
     } = props;
 
-    const handleRadiusChange = radius => onRadiusChange(locationId, radius);
+    const handleRadiusChange = (radius) => onRadiusChange(locationId, radius);
 
     const handleDelete = () => onDelete(locationId);
 

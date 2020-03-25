@@ -9,12 +9,12 @@ storiesOf('Organisms|LocationAutocomplete', module)
     .add(
         'LocationAutocomplete',
         () => {
-            const onSelectionChange = value => {
+            const onSelectionChange = (value) => {
                 console.log('onSelectionChange was called with:');
                 console.log(value);
             };
 
-            const onError = error => {
+            const onError = (error) => {
                 if (error === 'REQUEST_DENIED') {
                     // eslint-disable-next-line no-alert
                     window.alert(

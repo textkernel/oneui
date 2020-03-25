@@ -6,7 +6,7 @@ import styles from './Modal.scss';
 
 const { block, elem } = bem('Modal', styles);
 
-export const Modal = props => {
+export const Modal = (props) => {
     const {
         children,
         isOpen,
@@ -57,7 +57,7 @@ export const Modal = props => {
  * Inits ReactModal and sets global params for it.
  * @param {string} selector - css selector for the app element
  */
-Modal.setAppElement = selector => {
+Modal.setAppElement = (selector) => {
     ReactModal.setAppElement(selector);
 };
 

@@ -22,7 +22,7 @@ describe('SelectButtonGroup', () => {
                 </SelectButton>
             </SelectButtonGroup>
         );
-        getButton = number => wrapper.find('SelectButton').at(number);
+        getButton = (number) => wrapper.find('SelectButton').at(number);
     });
 
     afterEach(() => {

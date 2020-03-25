@@ -92,7 +92,7 @@ export class Autosuggest extends React.Component {
         }
     };
 
-    handleInputKeyDown = event => {
+    handleInputKeyDown = (event) => {
         const { onSelectionChange, selectedSuggestions } = this.props;
 
         if (
@@ -128,7 +128,7 @@ export class Autosuggest extends React.Component {
         }
     };
 
-    handleClearSelectedSuggestions = e => {
+    handleClearSelectedSuggestions = (e) => {
         const { onClearAllSelected } = this.props;
 
         e.stopPropagation();
@@ -146,24 +146,24 @@ export class Autosuggest extends React.Component {
         }
     };
 
-    handleTagDeleteClick = item => {
+    handleTagDeleteClick = (item) => {
         const { onSelectionChange } = this.props;
 
-        return e => {
+        return (e) => {
             e.stopPropagation();
             onSelectionChange(item);
             this.inputRef.current.focus();
         };
     };
 
-    handleWrapperClick = openMenu => () => {
+    handleWrapperClick = (openMenu) => () => {
         const { focused } = this.state;
         if (!focused) {
             this.focus(openMenu);
         }
     };
 
-    handleWrapperKeyDown = openMenu => e => {
+    handleWrapperKeyDown = (openMenu) => (e) => {
         const { focused } = this.state;
         if (!focused && e.key === ENTER_KEY) {
             this.focus(openMenu);
@@ -216,7 +216,7 @@ export class Autosuggest extends React.Component {
         }
 
         if (selectedSuggestions && !!selectedSuggestions.length) {
-            return selectedSuggestions.map(item => (
+            return selectedSuggestions.map((item) => (
                 <ItemTag key={suggestionToString(item)} onClick={this.handleTagDeleteClick(item)}>
                     {suggestionToString(item)}
                 </ItemTag>
@@ -373,7 +373,7 @@ export class Autosuggest extends React.Component {
                                 <List
                                     {...getMenuProps({
                                         ...elem('list', stateAndProps),
-                                        ref: e => {
+                                        ref: (e) => {
                                             this.listRef.current = e;
                                         },
                                         isControlledNavigation: true,

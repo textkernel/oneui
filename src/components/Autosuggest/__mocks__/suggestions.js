@@ -10,4 +10,4 @@ export const SUGGESTIONS = [
     { name: 'Neptun' },
 ];
 
-export const SUGGESTION_TO_STRING = item => (item ? item.name : '');
+export const SUGGESTION_TO_STRING = (item) => (item ? item.name : '');

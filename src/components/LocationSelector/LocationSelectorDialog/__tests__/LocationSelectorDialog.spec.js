@@ -34,7 +34,7 @@ describe('LocationSelectorDialog component', () => {
     const minRadius = 1;
     const maxRadius = 100;
     const radiusStep = 1;
-    const renderRadiusLabel = r => `+ ${r} km`;
+    const renderRadiusLabel = (r) => `+ ${r} km`;
     const country = 'NL';
     const placeTypes = ['(regions)'];
 
@@ -97,24 +97,14 @@ describe('LocationSelectorDialog component', () => {
         expect(wrapper.find('Autosuggest').find('li')).toHaveLength(5);
         expect(onAddLocationMock).not.toHaveBeenCalled();
 
-        wrapper
-            .find('Autosuggest')
-            .find('li')
-            .at(0)
-            .childAt(0)
-            .simulate('click');
+        wrapper.find('Autosuggest').find('li').at(0).childAt(0).simulate('click');
 
         expect(onAddLocationMock).toHaveBeenCalledTimes(1);
     });
     it('should call onRemoveLocation by clicking on Close button of the selected location item', () => {
         expect(onRemoveLocationMock).not.toHaveBeenCalled();
 
-        wrapper
-            .find('ul')
-            .at(1)
-            .childAt(0)
-            .find('button')
-            .simulate('click');
+        wrapper.find('ul').at(1).childAt(0).find('button').simulate('click');
 
         expect(onRemoveLocationMock).toHaveBeenCalledTimes(1);
     });

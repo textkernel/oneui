@@ -18,7 +18,7 @@ storiesOf('Atoms|Input', module)
             context={select('Context', validationContextOptions, undefined)}
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
-            onChange={e => {
+            onChange={(e) => {
                 const { value } = e.target;
                 console.log(value);
             }}
@@ -32,7 +32,7 @@ storiesOf('Atoms|Input', module)
             context={select('Context', validationContextOptions, undefined)}
             disabled={boolean('Disabled', false)}
             isBlock={boolean('isBlock', false)}
-            onChange={e => {
+            onChange={(e) => {
                 const { value } = e.target;
                 console.log(value);
             }}

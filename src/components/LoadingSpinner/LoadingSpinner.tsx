@@ -19,14 +19,14 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('LoadingSpinner', styles);
 
-export const LoadingSpinner: React.FC<Props> = props => {
+export const LoadingSpinner: React.FC<Props> = (props) => {
     const { centerIn, children, context, hidden, size, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)} role="status" aria-busy={!hidden} aria-hidden={hidden}>
             <svg
                 viewBox={[0, 0, 44, 44]}
-                style={(s => {
+                style={((s) => {
                     if (!s) {
                         return null;
                     }

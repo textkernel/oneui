@@ -9,7 +9,7 @@ storiesOf('Molecules|Checkbox', module)
         <Checkbox
             disabled={boolean('Disabled', false)}
             id={text('Id', 'checkbox-1')}
-            onChange={e => {
+            onChange={(e) => {
                 console.log('Checkbox state changed', e);
             }}
         >
@@ -20,7 +20,7 @@ storiesOf('Molecules|Checkbox', module)
         <Checkbox
             disabled={boolean('Disabled', false)}
             id={text('Id', 'checkbox-1')}
-            onChange={e => console.log('Checkbox state changed', e)}
+            onChange={(e) => console.log('Checkbox state changed', e)}
             defaultChecked
         >
             {text('Checkbox label', 'Select me!')}

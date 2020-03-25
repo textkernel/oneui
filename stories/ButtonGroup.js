@@ -14,7 +14,7 @@ storiesOf('Molecules|ButtonGroup', module)
         >
             <Button
                 href="#"
-                onClick={e => {
+                onClick={(e) => {
                     e.preventDefault();
                 }}
             >

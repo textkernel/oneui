@@ -6,7 +6,7 @@ import { Button } from '../../Buttons';
 
 const { block } = bem('PaginationButton', styles);
 
-export const PaginationButton = props => {
+export const PaginationButton = (props) => {
     const { children, isActive, ...rest } = props;
 
     return (
