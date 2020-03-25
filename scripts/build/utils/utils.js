@@ -37,10 +37,8 @@ function getRuleSCSS({ styleLoader, localIdentName, includePaths, context }) {
             {
                 loader: 'css-loader',
                 options: {
-                    modules: true,
+                    modules: { context, localIdentName },
                     importLoaders: 1,
-                    localIdentName,
-                    context,
                 },
             },
             {
@@ -52,7 +50,7 @@ function getRuleSCSS({ styleLoader, localIdentName, includePaths, context }) {
             {
                 loader: 'sass-loader',
                 options: {
-                    includePaths,
+                    sassOptions: { includePaths },
                 },
             },
         ],
