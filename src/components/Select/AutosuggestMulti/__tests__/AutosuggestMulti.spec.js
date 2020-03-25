@@ -1,7 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import { AutosuggestMulti } from '../AutosuggestMulti';
-import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../Autosuggest/__mocks__/suggestions';
+import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../Autosuggest/__mocks__/suggestions';
 
 describe('AutosuggestMulti', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
@@ -81,11 +81,7 @@ describe('AutosuggestMulti', () => {
 
                 expect(toJson(wrapper)).toMatchSnapshot();
 
-                wrapper
-                    .find('li')
-                    .first()
-                    .children()
-                    .simulate('click');
+                wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalled();
             });
@@ -96,20 +92,12 @@ describe('AutosuggestMulti', () => {
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
 
-                wrapper
-                    .find('li')
-                    .first()
-                    .children()
-                    .simulate('click');
+                wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalledTimes(1);
 
                 setFocusOnAutosuggest();
-                wrapper
-                    .find('li')
-                    .first()
-                    .children()
-                    .simulate('click');
+                wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalledTimes(2);
             });
@@ -121,11 +109,7 @@ describe('AutosuggestMulti', () => {
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
                 expect(wrapper.find('SuggestionTag')).toHaveLength(selectedSuggestions.length);
 
-                wrapper
-                    .find('SuggestionTag')
-                    .at(2)
-                    .find('button')
-                    .simulate('click');
+                wrapper.find('SuggestionTag').at(2).find('button').simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalledWith(selectedSuggestions[2]);
             });
@@ -169,11 +153,7 @@ describe('AutosuggestMulti', () => {
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
 
-            wrapper
-                .find('li')
-                .first()
-                .children()
-                .simulate('click');
+            wrapper.find('li').first().children().simulate('click');
 
             expect(wrapper.find('input').props().value).toEqual('');
         });

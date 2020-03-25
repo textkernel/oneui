@@ -65,6 +65,7 @@ exports[`AutosuggestMulti callbacks onSelectionChange should be called on clicki
           aria-labelledby="downshift-5-label"
           autocomplete="off"
           class="AutosuggestMulti__input"
+          data-lpignore="true"
           id="downshift-5-input"
           placeholder="type here..."
           value="a"
@@ -165,6 +166,7 @@ exports[`AutosuggestMulti callbacks onSelectionChange should be called on clicki
                     aria-labelledby="downshift-5-label"
                     autoComplete="off"
                     className="AutosuggestMulti__input"
+                    data-lpignore={true}
                     id="downshift-5-input"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -650,6 +652,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
           aria-labelledby="downshift-0-label"
           autocomplete="off"
           class="AutosuggestMulti__input"
+          data-lpignore="true"
           id="downshift-0-input"
           placeholder="type here..."
           value=""
@@ -723,6 +726,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
                     aria-labelledby="downshift-0-label"
                     autoComplete="off"
                     className="AutosuggestMulti__input"
+                    data-lpignore={true}
                     id="downshift-0-input"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -780,6 +784,7 @@ exports[`AutosuggestMulti rendering should render empty component correctly when
           aria-labelledby="downshift-1-label"
           autocomplete="off"
           class="AutosuggestMulti__input"
+          data-lpignore="true"
           id="downshift-1-input"
           placeholder="type here..."
           value=""
@@ -853,6 +858,7 @@ exports[`AutosuggestMulti rendering should render empty component correctly when
                     aria-labelledby="downshift-1-label"
                     autoComplete="off"
                     className="AutosuggestMulti__input"
+                    data-lpignore={true}
                     id="downshift-1-input"
                     onBlur={[Function]}
                     onChange={[Function]}

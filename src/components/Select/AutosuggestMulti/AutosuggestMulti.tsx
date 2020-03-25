@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { bem } from '../../utils';
+import { bem } from '../../../utils';
 import { SuggestionTag } from './SuggestionTag';
-import { SuggestionsList } from '../Select/SuggestionsList';
+import { SuggestionsList } from '../SuggestionsList';
 import {
     SelectBase,
     CommonProps,
     FocusedRendererHelpers,
     BlurredRendererHelpers,
-} from '../Select/SelectBase';
+} from '../SelectBase';
 import styles from './AutosuggestMulti.scss';
-import { BACKSPACE_KEY, ESCAPE_KEY, TAB_KEY } from '../../constants';
+import { BACKSPACE_KEY, ESCAPE_KEY, TAB_KEY } from '../../../constants';
 
 interface Props<S> extends CommonProps<S> {
     /** array of already selected suggestions */
@@ -46,7 +46,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     };
 
     const renderFullTagsList = () => {
-        return selectedSuggestions.map(item => (
+        return selectedSuggestions.map((item) => (
             <SuggestionTag key={suggestionToString(item)} onClick={() => onSelectionChange(item)}>
                 {suggestionToString(item)}
             </SuggestionTag>
@@ -57,14 +57,16 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         const shownTags = selectedSuggestions.slice(0, numberOfShownTags);
         const hiddenTags = selectedSuggestions.slice(numberOfShownTags);
         const numberOfHiddenTags = hiddenTags.length;
-        const shownTagsList = shownTags.map(item => (
+        const shownTagsList = shownTags.map((item) => (
             <SuggestionTag isStretched={numberOfHiddenTags > 0} key={suggestionToString(item)}>
                 {suggestionToString(item)}
             </SuggestionTag>
         ));
 
         if (numberOfHiddenTags > 0) {
-            const counter = <SuggestionTag isBounded>{`+${numberOfHiddenTags}`}</SuggestionTag>;
+            const counter = (
+                <SuggestionTag key="counter" isBounded>{`+${numberOfHiddenTags}`}</SuggestionTag>
+            );
             return [...shownTagsList, counter];
         }
 
@@ -101,6 +103,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     ref: inputRef,
                     placeholder: inputPlaceholder,
                     onKeyDown: handleInputKeyDown(blur),
+                    'data-lpignore': true,
                     ...elem('input'),
                 })}
             />
@@ -116,6 +119,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     {...getInputProps({
                         ref: inputRef,
                         placeholder: inputPlaceholder,
+                        'data-lpignore': true,
                         ...elem('input'),
                     })}
                 />
@@ -132,7 +136,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             onBlur={onBlur}
             onSelectionChange={onSelectionChange}
             onInputValueChange={handleInputValueChange}
-            listRenderer={listProps => (
+            listRenderer={(listProps) => (
                 <SuggestionsList {...listProps} useOptimizeRender={useOptimizeListRender} />
             )}
             focusedRenderer={renderFocused}

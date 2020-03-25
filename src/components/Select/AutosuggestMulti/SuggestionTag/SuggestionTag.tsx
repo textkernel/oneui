@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { MdClose } from 'react-icons/md';
-import { bem } from '../../../utils';
+import { bem } from '../../../../utils';
 import styles from './SuggestionTag.scss';
 
 const { block, elem } = bem('SuggestionTag', styles);
@@ -16,7 +16,7 @@ type Props = {
     children: NotEmptyReactNode;
 };
 
-export const SuggestionTag: React.FC<Props> = props => {
+export const SuggestionTag: React.FC<Props> = (props) => {
     const { children, isBounded, isStretched, onClick, ...rest } = props;
 
     return (

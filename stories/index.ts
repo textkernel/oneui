@@ -43,7 +43,6 @@ import './Tooltip';
 import './TwoPaneView';
 // Organisms
 import './Autosuggest';
-import './AutosuggestMulti';
 import './Select';
 import './LocationAutocomplete';
 import './LocationSelector';
