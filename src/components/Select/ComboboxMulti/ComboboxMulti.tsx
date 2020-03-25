@@ -54,6 +54,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
                         ref: inputRef,
                         placeholder: inputPlaceholder,
                         onKeyDown: handleInputKeyDown,
+                        'data-lpignore': true,
                         ...elem('input', { ...props }),
                     })}
                 />
@@ -72,6 +73,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
                 {...getInputProps({
                     ref: inputRef,
                     placeholder: inputPlaceholder,
+                    'data-lpignore': true,
                     ...elem('input', { ...props }),
                 })}
             />
