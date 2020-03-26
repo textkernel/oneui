@@ -10,11 +10,7 @@ describe('SuggestionTag', () => {
         expect(wrapper.find('button')).toHaveLength(0);
     });
     it('should render correctly with styles modifier', () => {
-        const wrapper = mount(
-            <SuggestionTag isBounded isStretched>
-                tag
-            </SuggestionTag>
-        );
+        const wrapper = mount(<SuggestionTag width="block">tag</SuggestionTag>);
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });

@@ -14,11 +14,11 @@
     min-width: 15px;
     cursor: default;
 
-    &--isStretched {
+    &--block {
         flex: 1 1 auto;
     }
 
-    &--isBounded {
+    &--small {
         flex: 1 0 auto;
         max-width: 36px;
     }

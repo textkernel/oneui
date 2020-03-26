@@ -90,7 +90,6 @@ export function SelectBase<S>(props: Props<S>) {
 
         if (clearInputAfterSelection) {
             setInputValue('');
-            setInputValueRecall('');
             onInputValueChange?.('');
         }
 

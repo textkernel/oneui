@@ -35,12 +35,15 @@ export function SuggestionsList<S>(props: Props<S>) {
         inputValue,
     } = props;
 
-    if (noSuggestionsPlaceholder && (!suggestions || !suggestions.length)) {
-        return (
-            <ListItem disabled>
-                <Text context="muted">{noSuggestionsPlaceholder}</Text>
-            </ListItem>
-        );
+    if (!suggestions || !suggestions.length) {
+        if (noSuggestionsPlaceholder) {
+            return (
+                <ListItem disabled>
+                    <Text context="muted">{noSuggestionsPlaceholder}</Text>
+                </ListItem>
+            );
+        }
+        return null;
     }
 
     // eslint-disable-next-line react/display-name

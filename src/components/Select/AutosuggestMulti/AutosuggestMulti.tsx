@@ -14,8 +14,8 @@ import { BACKSPACE_KEY, ESCAPE_KEY, TAB_KEY } from '../../../constants';
 interface Props<S> extends CommonProps<S> {
     /** array of already selected suggestions */
     selectedSuggestions: S[];
-    /** number of shown tags in blur mode */
-    numberOfShownTags?: number;
+    /** number of visible tags in blur mode */
+    numberOfVisibleTags: number;
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: string;
     /** Enable ListOptimizer component for decreasing render time */
@@ -33,7 +33,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         inputPlaceholder,
         useOptimizeListRender,
         suggestions,
-        numberOfShownTags = 3,
+        numberOfVisibleTags,
         onBlur,
         ...rest
     } = props;
@@ -54,23 +54,28 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     };
 
     const renderShortTagsList = () => {
-        const shownTags = selectedSuggestions.slice(0, numberOfShownTags);
-        const hiddenTags = selectedSuggestions.slice(numberOfShownTags);
+        const visibleTags = selectedSuggestions.slice(0, numberOfVisibleTags);
+        const hiddenTags = selectedSuggestions.slice(numberOfVisibleTags);
         const numberOfHiddenTags = hiddenTags.length;
-        const shownTagsList = shownTags.map((item) => (
-            <SuggestionTag isStretched={numberOfHiddenTags > 0} key={suggestionToString(item)}>
+        const visibleTagsList = visibleTags.map((item) => (
+            <SuggestionTag
+                key={suggestionToString(item)}
+                width={numberOfHiddenTags > 0 ? 'block' : 'auto'}
+            >
                 {suggestionToString(item)}
             </SuggestionTag>
         ));
 
         if (numberOfHiddenTags > 0) {
             const counter = (
-                <SuggestionTag key="counter" isBounded>{`+${numberOfHiddenTags}`}</SuggestionTag>
+                <SuggestionTag key="counter" width="small">
+                    {`+${numberOfHiddenTags}`}
+                </SuggestionTag>
             );
-            return [...shownTagsList, counter];
+            return [...visibleTagsList, counter];
         }
 
-        return shownTagsList;
+        return visibleTagsList;
     };
 
     const handleInputKeyDown = (blur: () => void) => (event: KeyboardEvent) => {
@@ -83,12 +88,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             blur();
             inputRef.current?.parentElement?.focus();
             event.stopPropagation();
-        } else if (
-            event.key === BACKSPACE_KEY &&
-            !inputValue &&
-            selectedSuggestions &&
-            !!selectedSuggestions.length
-        ) {
+        } else if (event.key === BACKSPACE_KEY && !inputValue && !!selectedSuggestions.length) {
             const lastItem = selectedSuggestions[selectedSuggestions.length - 1];
             onSelectionChange(lastItem);
         }
@@ -148,3 +148,8 @@ export function AutosuggestMulti<S>(props: Props<S>) {
 }
 
 AutosuggestMulti.displayName = 'AutosuggestMulti';
+
+AutosuggestMulti.defaultProps = {
+    numberOfVisibleTags: 3,
+    selectedSuggestions: [],
+};

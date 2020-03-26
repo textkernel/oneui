@@ -3,6 +3,7 @@
 exports[`AutosuggestMulti callbacks onSelectionChange should be called on clicking on a suggestion 1`] = `
 <AutosuggestMulti
   inputPlaceholder="type here..."
+  numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={
     [MockFunction] {
@@ -633,6 +634,7 @@ exports[`AutosuggestMulti callbacks onSelectionChange should be called on clicki
 exports[`AutosuggestMulti rendering should initially render empty component correctly 1`] = `
 <AutosuggestMulti
   inputPlaceholder="type here..."
+  numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
@@ -763,6 +765,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
 exports[`AutosuggestMulti rendering should render empty component correctly when focused 1`] = `
 <AutosuggestMulti
   inputPlaceholder="type here..."
+  numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}

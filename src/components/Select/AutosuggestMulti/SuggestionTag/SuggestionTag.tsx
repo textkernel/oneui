@@ -5,25 +5,23 @@ import styles from './SuggestionTag.scss';
 
 const { block, elem } = bem('SuggestionTag', styles);
 
-type Props = {
-    /** Tag Stretches on full width */
-    isStretched?: boolean;
-    /** Tag has restricted width */
-    isBounded?: boolean;
+interface Props {
+    /** Defines with behavior for tag */
+    width?: 'block' | 'small' | 'auto';
     /** Clicked on delete button */
     onClick?: (e: React.MouseEvent) => void;
     /** Tag content */
     children: NotEmptyReactNode;
-};
+}
 
 export const SuggestionTag: React.FC<Props> = (props) => {
-    const { children, isBounded, isStretched, onClick, ...rest } = props;
+    const { width, children, onClick, ...rest } = props;
 
     return (
-        <div {...rest} {...block({ isBounded, isStretched })}>
-            <span title={children} {...elem('label')}>
+        <div {...rest} {...block({ [width || 'auto']: true })}>
+            <div title={children} {...elem('label')}>
                 {children}
-            </span>
+            </div>
             {onClick ? (
                 <button onClick={onClick} type="button" {...elem('button')}>
                     <MdClose />
@@ -31,6 +29,10 @@ export const SuggestionTag: React.FC<Props> = (props) => {
             ) : null}
         </div>
     );
+};
+
+SuggestionTag.defaultProps = {
+    width: 'auto',
 };
 
 SuggestionTag.displayName = 'SuggestionTag';
