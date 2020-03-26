@@ -323,6 +323,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     aria-labelledby="downshift-4-label"
                     autoComplete="off"
                     className="Autosuggest__input"
+                    data-lpignore={true}
                     id="downshift-4-input"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -726,6 +727,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
                     aria-labelledby="downshift-0-label"
                     autoComplete="off"
                     className="Autosuggest__input"
+                    data-lpignore={true}
                     id="downshift-0-input"
                     onBlur={[Function]}
                     onChange={[Function]}

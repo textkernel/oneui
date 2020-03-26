@@ -24,6 +24,7 @@ const { block } = bem('Input', styles);
 
 export const Input: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, context, disabled, isBlock, size, type, value, ...rest } = props;
+    const isLastPassDisabled = type !== 'password';
     return (
         <input
             {...rest}
@@ -32,6 +33,7 @@ export const Input: React.FC<Props> = React.forwardRef((props, ref) => {
             type={type}
             disabled={disabled}
             value={value}
+            data-lpignore={isLastPassDisabled}
         />
     );
 });

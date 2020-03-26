@@ -12,6 +12,7 @@ exports[`FieldWithValidation when rendering message as text with no error messag
   >
     <input
       className="Input"
+      data-lpignore={true}
       disabled={false}
       type="text"
     />

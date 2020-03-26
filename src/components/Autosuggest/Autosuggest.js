@@ -365,6 +365,7 @@ export class Autosuggest extends React.Component {
                                             placeholder: hideInputPlaceholder
                                                 ? ''
                                                 : inputPlaceholder,
+                                            'data-lpignore': true,
                                             onKeyDown: this.handleInputKeyDown,
                                             ...elem('input', stateAndProps),
                                         })}

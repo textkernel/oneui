@@ -53,6 +53,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
           aria-labelledby="downshift-0-label"
           autocomplete="off"
           class="ComboboxMulti__input"
+          data-lpignore="true"
           id="downshift-0-input"
           placeholder="type here..."
           value=""
@@ -156,6 +157,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
                     aria-labelledby="downshift-0-label"
                     autoComplete="off"
                     className="ComboboxMulti__input"
+                    data-lpignore={true}
                     id="downshift-0-input"
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -304,6 +306,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
           aria-labelledby="downshift-3-label"
           autocomplete="off"
           class="ComboboxMulti__input"
+          data-lpignore="true"
           id="downshift-3-input"
           placeholder="type here..."
           value=""
@@ -407,6 +410,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                     aria-labelledby="downshift-3-label"
                     autoComplete="off"
                     className="ComboboxMulti__input"
+                    data-lpignore={true}
                     id="downshift-3-input"
                     onBlur={[Function]}
                     onChange={[Function]}
