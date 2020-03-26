@@ -6,6 +6,7 @@ import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../Autosuggest/__mocks_
 describe('AutosuggestMulti', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     const inputPlaceholder = 'type here...';
+    const numberOfVisibleTags = 3;
     const mockOnSelectionChange = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnBlur = jest.fn();
@@ -26,6 +27,7 @@ describe('AutosuggestMulti', () => {
                 inputPlaceholder={inputPlaceholder}
                 onSelectionChange={mockOnSelectionChange}
                 onInputValueChange={mockOnInputValueChange}
+                numberOfVisibleTags={numberOfVisibleTags}
                 onBlur={mockOnBlur}
             />
         );
@@ -43,7 +45,8 @@ describe('AutosuggestMulti', () => {
         });
         it('should render empty component correctly when focused', async () => {
             setFocusOnAutosuggest();
-            expect(toJson(wrapper)).toMatchSnapshot();
+            const inputNode = wrapper.find('input').getDOMNode();
+            expect(document.activeElement).toBe(inputNode);
         });
         it('should render tag for each selected selection when component is focused', () => {
             selectedSuggestions = SUGGESTIONS.slice(0, 5);
@@ -51,6 +54,12 @@ describe('AutosuggestMulti', () => {
             setFocusOnAutosuggest();
 
             expect(wrapper.find('SuggestionTag')).toHaveLength(selectedSuggestions.length);
+        });
+        it('should render tag for each selected selection when component is blurred', () => {
+            selectedSuggestions = SUGGESTIONS.slice(0, 5);
+            wrapper.setProps({ selectedSuggestions });
+
+            expect(wrapper.find('SuggestionTag')).toHaveLength(numberOfVisibleTags + 1);
         });
     });
     describe('focusing and blurring the search field', () => {
@@ -78,9 +87,6 @@ describe('AutosuggestMulti', () => {
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
 
                 wrapper.find('input').simulate('change', { target: { value: 'a' } });
-
-                expect(toJson(wrapper)).toMatchSnapshot();
-
                 wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalled();

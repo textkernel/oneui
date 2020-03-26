@@ -79,29 +79,33 @@ storiesOf('Organisms|Select', module)
         const store = parameters.getStore();
         searchFor.name = `Search for "${store.get('inputValue')}"`;
         searchFor.value = store.get('inputValue');
-        const getSuggestions = () => {
+        const getSuggestions = (): TSuggestion[] => {
             if (!store.get('inputValue').length) return [];
             const suggestions = SUGGESTIONS.filter(
-                (item) => !store.get('selectedSuggestions').includes(item)
-            ).filter((item) =>
+                (item: TSuggestion) => !store.get('selectedSuggestions').includes(item)
+            ).filter((item: TSuggestion) =>
                 item.name.toLocaleLowerCase().includes(store.get('inputValue').toLocaleLowerCase())
             );
             return [searchFor, ...suggestions];
         };
 
-        const onInputValueChange = (value) => {
+        const onInputValueChange = (value: string) => {
             console.log(`onInputValueChange was called with ${value}`);
             store.set({ inputValue: value });
         };
 
-        const onSelectionChange = (item) => {
+        const onSelectionChange = (item: TSuggestion) => {
             console.log(`onSelectionChange was called with {name: ${item.name}}`);
             let selectedItem = { ...item };
             if (item === searchFor) {
-                selectedItem = { name: item.value };
+                selectedItem = { name: (item as typeof searchFor).value };
             }
             // Add new item
-            if (!store.get('selectedSuggestions').some((i) => i.name === selectedItem.name)) {
+            if (
+                !store
+                    .get('selectedSuggestions')
+                    .some((i: TSuggestion) => i.name === selectedItem.name)
+            ) {
                 const selectedSuggestions = [...store.get('selectedSuggestions'), selectedItem];
                 store.set({
                     selectedSuggestions,
@@ -111,7 +115,7 @@ storiesOf('Organisms|Select', module)
             if (!store.get('inputValue')) {
                 const selectedSuggestions = store
                     .get('selectedSuggestions')
-                    .filter((i) => i.name !== selectedItem.name);
+                    .filter((i: TSuggestion) => i.name !== selectedItem.name);
                 store.set({
                     selectedSuggestions,
                 });
