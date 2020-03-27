@@ -11,7 +11,8 @@ export const MarkedText = (props) => {
 
     let result = children;
     if (marker) {
-        const re = new RegExp(`(${marker})`, 'gi');
+        const escapedMarker = marker.replace(/[-[\]{}()*+?.,\\^$|#\\s]/g, '\\$&');
+        const re = new RegExp(`(${escapedMarker})`, 'gi');
         result = children.split(re).map((part, i) =>
             part.toLowerCase() === marker.toLowerCase() ? (
                 // eslint-disable-next-line react/no-array-index-key

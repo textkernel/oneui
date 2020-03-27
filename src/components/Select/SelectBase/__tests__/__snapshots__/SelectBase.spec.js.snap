@@ -31,6 +31,7 @@ exports[`SelectBase rendering should initially render empty component correctly 
       ],
     }
   }
+  clearInputAfterSelection={false}
   clearTitle=""
   focusedRenderer={
     [MockFunction] {
@@ -143,6 +144,8 @@ exports[`SelectBase rendering should initially render empty component correctly 
             className="FieldWrapper SelectBase__field"
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="searchbox"
+            tabIndex={0}
           >
             <div
               className="FieldWrapper__content"

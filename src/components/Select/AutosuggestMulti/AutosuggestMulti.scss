@@ -1,0 +1,37 @@
+.AutosuggestMulti {
+    &__wrapper {
+        cursor: pointer;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: stretch;
+        overflow: hidden;
+        height: 34px;
+        box-sizing: border-box;
+        outline: none;
+        padding: var(--spacing-normal);
+        padding-bottom: var(--margin);
+
+        &--isFocused {
+            min-height: 34px;
+            height: auto;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__input {
+        border: 0;
+        margin: var(--spacing-normal);
+        flex: 1;
+        font-size: var(--font-size-normal);
+        min-width: 100px;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: var(--color-muted);
+        }
+    }
+}

@@ -17,6 +17,10 @@ export interface CommonProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     onSelectionChange: (item: S) => void;
     /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
     onInputValueChange: (value: string) => void;
+    /** clean up input value after selected item */
+    clearInputAfterSelection?: boolean;
+    /** enable transform animation on focus */
+    isProminent?: boolean;
 }
 
 export interface CommonPropsWithClear<S> extends CommonProps<S> {
@@ -27,6 +31,18 @@ export interface CommonPropsWithClear<S> extends CommonProps<S> {
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton?: boolean;
 }
+
+export type FocusedRendererHelpers<S> = (helpers: {
+    getInputProps: (options: GetItemPropsOptions<S>) => object;
+    getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
+    onBlur: () => void;
+    inputValue: string;
+}) => ReactNode;
+
+export type BlurredRendererHelpers<S> = (helpers: {
+    getInputProps: (options: GetItemPropsOptions<S>) => object;
+    getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
+}) => ReactNode;
 
 export interface Props<S> extends CommonPropsWithClear<S> {
     keepExpandedAfterSelection?: boolean;
@@ -44,15 +60,7 @@ export interface Props<S> extends CommonPropsWithClear<S> {
         inputValue: string;
     }) => ReactNode;
     /** a function that renders the top part of the component when it is focused  */
-    focusedRenderer: (helpers: {
-        getInputProps: (options: GetItemPropsOptions<S>) => object;
-        getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
-        onBlur: () => void;
-        inputValue: string;
-    }) => ReactNode;
+    focusedRenderer: FocusedRendererHelpers<S>;
     /** a function that renders the top part of the component when it is blurred  */
-    blurredRenderer: (helpers: {
-        getInputProps: (options: GetItemPropsOptions<S>) => object;
-        getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
-    }) => ReactNode;
+    blurredRenderer: BlurredRendererHelpers<S>;
 }

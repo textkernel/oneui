@@ -66,6 +66,8 @@ exports[`Autosuggest rendering should initially render empty component correctly
             className="FieldWrapper Autosuggest__field"
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="searchbox"
+            tabIndex={0}
           >
             <div
               className="FieldWrapper__content"
@@ -181,6 +183,8 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
             className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="searchbox"
+            tabIndex={0}
           >
             <div
               className="FieldWrapper__content"
@@ -482,6 +486,8 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
             className="FieldWrapper Autosuggest__field"
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="searchbox"
+            tabIndex={0}
           >
             <div
               className="FieldWrapper__content"
@@ -649,6 +655,8 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
             className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="searchbox"
+            tabIndex={0}
           >
             <div
               className="FieldWrapper__content"
@@ -811,6 +819,8 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
             className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
             onClick={[Function]}
             onKeyDown={[Function]}
+            role="searchbox"
+            tabIndex={0}
           >
             <div
               className="FieldWrapper__content"

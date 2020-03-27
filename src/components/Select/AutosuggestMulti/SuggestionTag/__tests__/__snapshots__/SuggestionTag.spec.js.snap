@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuggestionTag should render correctly 1`] = `
+<SuggestionTag
+  width="auto"
+>
+  <div
+    className="SuggestionTag"
+  >
+    <div
+      className="SuggestionTag__label"
+      title="tag"
+    >
+      tag
+    </div>
+  </div>
+</SuggestionTag>
+`;
+
+exports[`SuggestionTag should render correctly with styles modifier 1`] = `
+<SuggestionTag
+  width="block"
+>
+  <div
+    className="SuggestionTag SuggestionTag--block"
+  >
+    <div
+      className="SuggestionTag__label"
+      title="tag"
+    >
+      tag
+    </div>
+  </div>
+</SuggestionTag>
+`;

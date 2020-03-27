@@ -1,0 +1,1 @@
+export { SuggestionTag } from './SuggestionTag';

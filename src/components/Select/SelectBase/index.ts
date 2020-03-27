@@ -1,2 +1,8 @@
 export { SelectBase } from './SelectBase';
-export { CommonProps, CommonPropsWithClear, Props } from './interfaces';
+export {
+    CommonProps,
+    CommonPropsWithClear,
+    Props,
+    FocusedRendererHelpers,
+    BlurredRendererHelpers,
+} from './interfaces';
