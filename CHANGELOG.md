@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0](https://github.com/textkernel/oneui/compare/9.6.0...10.0.0) (2020-03-27)
+
+
+### Bug Fixes
+
+* **Field:** Add rest parameter ([#240](https://github.com/textkernel/oneui/issues/240)) ([d67a405](https://github.com/textkernel/oneui/commit/d67a405))
+* **Input:** Disable LastPass suggesting for Input components ([#244](https://github.com/textkernel/oneui/issues/244)) ([c40d65c](https://github.com/textkernel/oneui/commit/c40d65c))
+* **popup:** changed close detection logic ([#236](https://github.com/textkernel/oneui/issues/236)) ([1a014e7](https://github.com/textkernel/oneui/commit/1a014e7))
+* **styles:** adjusted styles for input, textarea, select ([#237](https://github.com/textkernel/oneui/issues/237)) ([0679624](https://github.com/textkernel/oneui/commit/0679624))
+
+
+### Features
+
+* **component:** added listoptimizer component ([10c84af](https://github.com/textkernel/oneui/commit/10c84af))
+* **component:** added new AutosuggestMulti component ([#241](https://github.com/textkernel/oneui/issues/241)) ([41db267](https://github.com/textkernel/oneui/commit/41db267))
+* **component:** listoptimizer component ([#239](https://github.com/textkernel/oneui/issues/239)) ([ccc9b88](https://github.com/textkernel/oneui/commit/ccc9b88))
+* **Tooltip:** Migrate component to tippy.js library ([#233](https://github.com/textkernel/oneui/issues/233)) ([13543e7](https://github.com/textkernel/oneui/commit/13543e7))
+
+
+### BREAKING CHANGES
+
+* **Tooltip:** prop `alwaysVisible` was renamed to `visible`
+
+
+
 ## [9.7.0](https://github.com/textkernel/oneui/compare/9.6.0...9.7.0) (2020-02-28)
 
 
