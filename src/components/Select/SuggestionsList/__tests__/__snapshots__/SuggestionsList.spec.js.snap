@@ -119,6 +119,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     }
   }
   highlightedIndex={1}
+  inputValue=""
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
   suggestionToString={[Function]}
   suggestions={
@@ -173,6 +174,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         <MarkedText
           inline={true}
           key=".0"
+          marker=""
         >
           <Text
             context="default"
@@ -206,6 +208,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         <MarkedText
           inline={true}
           key=".0"
+          marker=""
         >
           <Text
             context="default"
@@ -239,6 +242,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         <MarkedText
           inline={true}
           key=".0"
+          marker=""
         >
           <Text
             context="default"
@@ -272,6 +276,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         <MarkedText
           inline={true}
           key=".0"
+          marker=""
         >
           <Text
             context="default"
@@ -305,6 +310,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         <MarkedText
           inline={true}
           key=".0"
+          marker=""
         >
           <Text
             context="default"
@@ -338,6 +344,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         <MarkedText
           inline={true}
           key=".0"
+          marker=""
         >
           <Text
             context="default"
@@ -371,6 +378,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         <MarkedText
           inline={true}
           key=".0"
+          marker=""
         >
           <Text
             context="default"
@@ -404,6 +412,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         <MarkedText
           inline={true}
           key=".0"
+          marker=""
         >
           <Text
             context="default"
@@ -437,6 +446,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         <MarkedText
           inline={true}
           key=".0"
+          marker=""
         >
           <Text
             context="default"
@@ -573,6 +583,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
     }
   }
   highlightedIndex={1}
+  inputValue=""
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
   suggestionToString={[Function]}
   suggestions={
