@@ -82,7 +82,10 @@ storiesOf('Organisms|Select', module)
         const getSuggestions = (): TSuggestion[] => {
             if (!store.get('inputValue').length) return [];
             const suggestions = SUGGESTIONS.filter(
-                (item: TSuggestion) => !store.get('selectedSuggestions').includes(item)
+                (item: TSuggestion) =>
+                    !store
+                        .get('selectedSuggestions')
+                        .some((sug: TSuggestion) => sug.name === item.name)
             ).filter((item: TSuggestion) =>
                 item.name.toLocaleLowerCase().includes(store.get('inputValue').toLocaleLowerCase())
             );
@@ -127,6 +130,11 @@ storiesOf('Organisms|Select', module)
             store.set({ inputValue: '' });
         };
 
+        const onClearAllSelected = () => {
+            console.log('onClearAllSelected was called');
+            store.set({ selectedSuggestions: [] });
+        };
+
         return (
             <div style={{ width: '500px' }}>
                 <AutosuggestMulti
@@ -138,6 +146,9 @@ storiesOf('Organisms|Select', module)
                     onSelectionChange={onSelectionChange}
                     isProminent={boolean('Use prominent styling', true)}
                     onInputValueChange={onInputValueChange}
+                    showClearButton={boolean('Show clear button', true)}
+                    clearTitle={text('Clear button label', 'Clear')}
+                    onClearAllSelected={onClearAllSelected}
                 />
             </div>
         );

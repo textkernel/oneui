@@ -4,14 +4,14 @@ import { SuggestionTag } from './SuggestionTag';
 import { SuggestionsList } from '../SuggestionsList';
 import {
     SelectBase,
-    CommonProps,
+    CommonPropsWithClear,
     FocusedRendererHelpers,
     BlurredRendererHelpers,
 } from '../SelectBase';
 import styles from './AutosuggestMulti.scss';
 import { BACKSPACE_KEY, ESCAPE_KEY, TAB_KEY } from '../../../constants';
 
-interface Props<S> extends CommonProps<S> {
+interface Props<S> extends CommonPropsWithClear<S> {
     /** array of already selected suggestions */
     selectedSuggestions: S[];
     /** number of visible tags in blur mode */
@@ -35,6 +35,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         suggestions,
         numberOfVisibleTags,
         onBlur,
+        showClearButton,
         ...rest
     } = props;
     const inputRef = React.createRef<HTMLInputElement>();
@@ -141,6 +142,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             )}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
+            showClearButton={showClearButton && selectedSuggestions.length > 0}
             keepExpandedAfterSelection
             clearInputAfterSelection
         />

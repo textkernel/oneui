@@ -11,9 +11,14 @@
 
     &__clearButton {
         display: none;
+        max-width: 30%;
+        margin-left: auto;
+        flex-shrink: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         background-color: var(--color-background);
         transition: all var(--transition-duration);
-        margin-left: auto;
     }
 
     &__content {
@@ -22,6 +27,10 @@
 
     &:hover {
         border-color: var(--color-brand);
+
+        & .FieldWrapper__content {
+            overflow: hidden;
+        }
 
         & .FieldWrapper__clearButton {
             display: block;
