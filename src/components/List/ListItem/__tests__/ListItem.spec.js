@@ -13,7 +13,6 @@ describe('ListItem component', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
-        expect(ref.current.props.Component.displayName).toEqual('ListItem');
     });
 
     it('should turn string items to Text', () => {

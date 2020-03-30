@@ -49,17 +49,6 @@ describe('List component', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('ul').props()).not.toHaveProperty('onKeyDown');
         });
-        it('should render correctly with ref', () => {
-            const ref = React.createRef();
-            mount(
-                <List ref={ref}>
-                    <ListItem>Item 1</ListItem>
-                    <ListItem>Item 2</ListItem>
-                </List>
-            );
-
-            expect(ref.current.props.Component.displayName).toEqual('List');
-        });
         describe('enriching children with props', () => {
             it('should not overwrite classes on children', () => {
                 wrapper = mount(
