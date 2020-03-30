@@ -6,7 +6,7 @@ import cssVarsPonyfill from 'css-vars-ponyfill';
  * */
 interface PonyfillOptions {
     /** Targets */
-    rootElement?: HTMLElement | Node;
+    rootElement?: HTMLElement | Document;
     shadowDOM?: boolean;
 
     /** Sources */
