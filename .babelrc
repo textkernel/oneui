@@ -2,19 +2,19 @@
     "env": {
         "development": {
             "presets": [
-                ["@babel/preset-env", { "useBuiltIns": "entry", "corejs": "3", "modules": false }],
+                ["@babel/preset-env", { "useBuiltIns": "entry", "corejs": "2", "modules": false }],
                 "@babel/preset-react"
             ]
         },
         "production": {
             "presets": [
-                ["@babel/preset-env", { "useBuiltIns": "entry", "corejs": "3", "modules": false }],
+                ["@babel/preset-env", { "useBuiltIns": "entry", "corejs": "2", "modules": false }],
                 "@babel/preset-react"
             ]
         },
         "test": {
             "presets": [
-                ["@babel/preset-env", { "useBuiltIns": "entry", "corejs": "3" }],
+                ["@babel/preset-env", { "useBuiltIns": "entry", "corejs": "2" }],
                 "@babel/preset-react"
             ]
         }
