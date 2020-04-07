@@ -349,6 +349,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                 onChange={[Function]}
                 prefixCls="rc-slider"
                 railStyle={Object {}}
+                reverse={false}
                 step={1}
                 trackStyle={
                   Array [
@@ -376,6 +377,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     included={true}
                     length={41.41414141414141}
                     offset={0}
+                    reverse={false}
                     style={Object {}}
                     vertical={false}
                   >
@@ -384,6 +386,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                       style={
                         Object {
                           "left": "0%",
+                          "right": "auto",
                           "width": "41.41414141414141%",
                         }
                       }
@@ -399,6 +402,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     max={100}
                     min={1}
                     prefixCls="rc-slider"
+                    reverse={false}
                     step={1}
                     upperBound={42}
                     vertical={false}
@@ -415,6 +419,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     min={1}
                     offset={41.41414141414141}
                     prefixCls="rc-slider"
+                    reverse={false}
                     style={Object {}}
                     value={42}
                     vertical={false}
@@ -432,6 +437,8 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                       style={
                         Object {
                           "left": "41.41414141414141%",
+                          "right": "auto",
+                          "transform": "translateX(-50%)",
                         }
                       }
                       tabIndex={0}
@@ -445,6 +452,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     max={100}
                     min={1}
                     onClickLabel={[Function]}
+                    reverse={false}
                     upperBound={42}
                     vertical={false}
                   >
@@ -545,6 +553,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                 onChange={[Function]}
                 prefixCls="rc-slider"
                 railStyle={Object {}}
+                reverse={false}
                 step={1}
                 trackStyle={
                   Array [
@@ -572,6 +581,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     included={true}
                     length={19.19191919191919}
                     offset={0}
+                    reverse={false}
                     style={Object {}}
                     vertical={false}
                   >
@@ -580,6 +590,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                       style={
                         Object {
                           "left": "0%",
+                          "right": "auto",
                           "width": "19.19191919191919%",
                         }
                       }
@@ -595,6 +606,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     max={100}
                     min={1}
                     prefixCls="rc-slider"
+                    reverse={false}
                     step={1}
                     upperBound={20}
                     vertical={false}
@@ -611,6 +623,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     min={1}
                     offset={19.19191919191919}
                     prefixCls="rc-slider"
+                    reverse={false}
                     style={Object {}}
                     value={20}
                     vertical={false}
@@ -628,6 +641,8 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                       style={
                         Object {
                           "left": "19.19191919191919%",
+                          "right": "auto",
+                          "transform": "translateX(-50%)",
                         }
                       }
                       tabIndex={0}
@@ -641,6 +656,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     max={100}
                     min={1}
                     onClickLabel={[Function]}
+                    reverse={false}
                     upperBound={20}
                     vertical={false}
                   >

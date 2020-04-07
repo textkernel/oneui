@@ -74,6 +74,7 @@ exports[`LocationCard component should render component correctly 1`] = `
           onChange={[Function]}
           prefixCls="rc-slider"
           railStyle={Object {}}
+          reverse={false}
           step={1}
           trackStyle={
             Array [
@@ -101,6 +102,7 @@ exports[`LocationCard component should render component correctly 1`] = `
               included={true}
               length={41.41414141414141}
               offset={0}
+              reverse={false}
               style={Object {}}
               vertical={false}
             >
@@ -109,6 +111,7 @@ exports[`LocationCard component should render component correctly 1`] = `
                 style={
                   Object {
                     "left": "0%",
+                    "right": "auto",
                     "width": "41.41414141414141%",
                   }
                 }
@@ -124,6 +127,7 @@ exports[`LocationCard component should render component correctly 1`] = `
               max={100}
               min={1}
               prefixCls="rc-slider"
+              reverse={false}
               step={1}
               upperBound={42}
               vertical={false}
@@ -140,6 +144,7 @@ exports[`LocationCard component should render component correctly 1`] = `
               min={1}
               offset={41.41414141414141}
               prefixCls="rc-slider"
+              reverse={false}
               style={Object {}}
               value={42}
               vertical={false}
@@ -157,6 +162,8 @@ exports[`LocationCard component should render component correctly 1`] = `
                 style={
                   Object {
                     "left": "41.41414141414141%",
+                    "right": "auto",
+                    "transform": "translateX(-50%)",
                   }
                 }
                 tabIndex={0}
@@ -170,6 +177,7 @@ exports[`LocationCard component should render component correctly 1`] = `
               max={100}
               min={1}
               onClickLabel={[Function]}
+              reverse={false}
               upperBound={42}
               vertical={false}
             >
