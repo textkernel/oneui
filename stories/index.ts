@@ -8,6 +8,7 @@ import './Chip';
 import './ContentPlaceholder';
 import './Drawer';
 import './Heading';
+import './Highlighter';
 import './Icon';
 import './Input';
 import './Link';
