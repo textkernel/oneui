@@ -39,7 +39,7 @@ export const StringHighlighter: React.FC<Props> = (props) => {
 StringHighlighter.displayName = 'StringHighlighter';
 
 StringHighlighter.defaultProps = {
-    accuracy: 'exactly',
+    accuracy: 'exact',
     ignoreDiacritics: true,
     ignoreCase: true,
 };

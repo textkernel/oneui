@@ -6,7 +6,7 @@ import { StringHighlighter, HighlighterCoreAccuracy } from '@textkernel/oneui';
 storiesOf('Atoms|Highlighter', module)
     .addDecorator(withKnobs)
     .add('Highlighter', () => {
-        const ACCURACY = ['exactly', 'partially'];
+        const ACCURACY = ['exact', 'partial'];
         const someText = text(
             'Placeholder',
             'We are looking for php, java and javascript developer'

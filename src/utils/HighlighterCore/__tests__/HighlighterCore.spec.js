@@ -163,7 +163,7 @@ describe('HighlighterCore', () => {
         it('should highlight partially characters when it enabled', () => {
             const highlighter = new HighlighterCore({
                 searchTerms: ['dev', 'Jav'],
-                accuracy: 'partially',
+                accuracy: 'partial',
             });
             expect(highlighter.find(text)).toEqual([
                 { highlighted: false, substring: 'php and ' },

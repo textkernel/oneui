@@ -1,6 +1,6 @@
 import removeAccents from 'remove-accents';
 
-export type HighlighterCoreAccuracy = 'partially' | 'exactly';
+export type HighlighterCoreAccuracy = 'exact' | 'partial';
 
 type Substring = {
     highlighted: boolean;
@@ -63,10 +63,10 @@ export class HighlighterCore {
         let flags = 'gm';
 
         switch (accuracy) {
-            case 'partially':
+            case 'partial':
                 source = `(${searchString})`;
                 break;
-            case 'exactly':
+            case 'exact':
             default:
                 source = `(\\b)(${searchString})(?=$|\\s|\\b)`;
                 break;
@@ -169,7 +169,7 @@ export class HighlighterCore {
 
     constructor({
         searchTerms,
-        accuracy = 'exactly',
+        accuracy = 'exact',
         ignoreDiacritics = true,
         ignoreCase = true,
     }: HighlighterCoreOptions) {

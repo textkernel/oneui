@@ -2,7 +2,7 @@
 
 exports[`StringHighlighter highlighted should highlight case sensitive terms by default 1`] = `
 <StringHighlighter
-  accuracy="exactly"
+  accuracy="exact"
   highlightRenderer={[Function]}
   ignoreCase={true}
   ignoreDiacritics={true}
@@ -31,7 +31,7 @@ exports[`StringHighlighter highlighted should highlight case sensitive terms by 
 
 exports[`StringHighlighter highlighted should highlight list of terms 1`] = `
 <StringHighlighter
-  accuracy="exactly"
+  accuracy="exact"
   highlightRenderer={[Function]}
   ignoreCase={true}
   ignoreDiacritics={true}
@@ -67,7 +67,7 @@ exports[`StringHighlighter highlighted should highlight list of terms 1`] = `
 
 exports[`StringHighlighter highlighted should highlight overlapping terms correctly 1`] = `
 <StringHighlighter
-  accuracy="exactly"
+  accuracy="exact"
   highlightRenderer={[Function]}
   ignoreCase={true}
   ignoreDiacritics={true}
@@ -90,7 +90,7 @@ exports[`StringHighlighter highlighted should highlight overlapping terms correc
 
 exports[`StringHighlighter highlighted should highlight terms with diacritics by default 1`] = `
 <StringHighlighter
-  accuracy="exactly"
+  accuracy="exact"
   highlightRenderer={[Function]}
   ignoreCase={true}
   ignoreDiacritics={true}
@@ -112,7 +112,7 @@ exports[`StringHighlighter highlighted should highlight terms with diacritics by
 
 exports[`StringHighlighter not highlighted should initially render empty component correctly 1`] = `
 <StringHighlighter
-  accuracy="exactly"
+  accuracy="exact"
   highlightRenderer={[Function]}
   ignoreCase={true}
   ignoreDiacritics={true}
@@ -123,7 +123,7 @@ exports[`StringHighlighter not highlighted should initially render empty compone
 
 exports[`StringHighlighter not highlighted should not highlight case sensitive terms if ignoreCase is false 1`] = `
 <StringHighlighter
-  accuracy="exactly"
+  accuracy="exact"
   highlightRenderer={[Function]}
   ignoreCase={false}
   ignoreDiacritics={true}
@@ -141,7 +141,7 @@ exports[`StringHighlighter not highlighted should not highlight case sensitive t
 
 exports[`StringHighlighter not highlighted should not highlight not existed terms 1`] = `
 <StringHighlighter
-  accuracy="exactly"
+  accuracy="exact"
   highlightRenderer={[Function]}
   ignoreCase={true}
   ignoreDiacritics={true}
@@ -160,7 +160,7 @@ exports[`StringHighlighter not highlighted should not highlight not existed term
 
 exports[`StringHighlighter not highlighted should not highlight terms with diacritics if ignoreDiacritics is false 1`] = `
 <StringHighlighter
-  accuracy="exactly"
+  accuracy="exact"
   highlightRenderer={[Function]}
   ignoreCase={true}
   ignoreDiacritics={false}
