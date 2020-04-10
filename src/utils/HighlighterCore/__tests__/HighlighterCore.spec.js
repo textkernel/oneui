@@ -126,6 +126,16 @@ describe('HighlighterCore', () => {
                 { highlighted: true, substring: 'javascript' },
             ]);
         });
+        it('should highlight all occurrences when it starts from the same index', () => {
+            const highlighter = new HighlighterCore({
+                searchTerms: ['JavaScript', 'JavaScript developer'],
+                ignoreCase: true,
+            });
+            expect(highlighter.find(text)).toEqual([
+                { highlighted: false, substring: 'php and ' },
+                { highlighted: true, substring: 'JavaScript developer' },
+            ]);
+        });
         it('should highlight repeated terms correctly', () => {
             const highlighter = new HighlighterCore({
                 searchTerms: ['php', 'developer', 'developer'],

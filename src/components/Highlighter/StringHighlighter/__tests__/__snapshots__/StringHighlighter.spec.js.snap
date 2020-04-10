@@ -73,8 +73,8 @@ exports[`StringHighlighter highlighted should highlight overlapping terms correc
   ignoreDiacritics={true}
   searchTerms={
     Array [
-      "javascript developer",
       "java and javascript",
+      "javascript developer",
     ]
   }
   string="We are looking for php, java and javascript developer"

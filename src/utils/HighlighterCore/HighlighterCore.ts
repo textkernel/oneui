@@ -30,8 +30,8 @@ export interface HighlighterCoreOptions {
     /**
      * Define the accuracy of search
      * Supported options:
-     * partially - when searching for "lor" only "lor" inside "lorem" will be marked
-     * exactly - When searching for "lor" only those exact words with a word boundary will be marked.
+     * partial - when searching for "lor" only "lor" inside "lorem" will be marked
+     * exact - When searching for "lor" only those exact words with a word boundary will be marked.
      * regexp - When searching for "lor" only those exact words with a word boundary will be marked.
      */
     accuracy?: HighlighterCoreAccuracy;
@@ -95,6 +95,7 @@ export class HighlighterCore {
 
     static termsToString(terms: string[], ignoreDiacritics: boolean) {
         return terms
+            .sort((a, b) => b.split(' ').length - a.split(' ').length)
             .map((string) =>
                 HighlighterCore.normalize({
                     string,
