@@ -4,7 +4,7 @@ export {
     HighlighterCore,
     HighlighterCoreOptions,
     HighlighterCoreAccuracy,
-} from './utils/HighlighterCore';
+} from './packages/HighlighterCore';
 // Atoms
 export { Button, SearchButton } from './components/Buttons';
 export { Callout } from './components/Callout';
