@@ -7,10 +7,10 @@ exports[`Teaser should render correctly with just a title 1`] = `
   subTitle=""
   title="some title"
 >
-  <p
+  <div
     className="Teaser"
   >
-    <span
+    <div
       className="Teaser__titleLine"
     >
       <Text
@@ -18,17 +18,15 @@ exports[`Teaser should render correctly with just a title 1`] = `
         context="brand"
         inline={true}
         size="normal"
-        title="some title"
       >
         <span
           className="Text--context_brand Teaser__title"
-          title="some title"
         >
           some title
         </span>
       </Text>
-    </span>
-  </p>
+    </div>
+  </div>
 </Teaser>
 `;
 
@@ -39,10 +37,10 @@ exports[`Teaser should render with all props defined 1`] = `
   subTitle="Organization"
   title="A job title"
 >
-  <p
+  <div
     className="Teaser"
   >
-    <span
+    <div
       className="Teaser__titleLine"
     >
       <Text
@@ -50,11 +48,9 @@ exports[`Teaser should render with all props defined 1`] = `
         context="brand"
         inline={true}
         size="normal"
-        title="A job title"
       >
         <span
           className="Text--context_brand Teaser__title"
-          title="A job title"
         >
           A job title
         </span>
@@ -71,17 +67,15 @@ exports[`Teaser should render with all props defined 1`] = `
           location
         </span>
       </Text>
-    </span>
+    </div>
     <Text
       className="Teaser__subTitle"
       context="accent"
       inline={true}
       size="normal"
-      title="Organization"
     >
       <span
         className="Text--context_accent Teaser__subTitle"
-        title="Organization"
       >
         Organization
       </span>
@@ -97,6 +91,6 @@ exports[`Teaser should render with all props defined 1`] = `
         details about this job
       </span>
     </Text>
-  </p>
+  </div>
 </Teaser>
 `;

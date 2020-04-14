@@ -3,15 +3,15 @@ import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './Teaser.scss';
 
-interface Props extends React.HTMLAttributes<HTMLParagraphElement> {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
     /** The title of entity */
-    title: string;
+    title: SingleReactNode;
     /** The subtitle of the entity */
-    subTitle?: string;
+    subTitle?: SingleReactNode;
     /** The location of the entity */
-    location?: string;
+    location?: SingleReactNode;
     /** Details related to the entity */
-    details?: string;
+    details?: SingleReactNode;
 }
 
 const { block, elem } = bem('Teaser', styles);
@@ -20,9 +20,9 @@ export const Teaser: React.FC<Props> = (props) => {
     const { title, subTitle, location, details, ...rest } = props;
 
     return (
-        <p {...rest} {...block(props)}>
-            <span {...elem('titleLine', props)}>
-                <Text inline context="brand" title={title} {...elem('title', props)}>
+        <div {...rest} {...block(props)}>
+            <div {...elem('titleLine', props)}>
+                <Text inline context="brand" {...elem('title', props)}>
                     {title}
                 </Text>
                 {location && (
@@ -30,9 +30,9 @@ export const Teaser: React.FC<Props> = (props) => {
                         {location}
                     </Text>
                 )}
-            </span>
+            </div>
             {subTitle && (
-                <Text inline context="accent" title={subTitle} {...elem('subTitle', props)}>
+                <Text inline context="accent" {...elem('subTitle', props)}>
                     {subTitle}
                 </Text>
             )}
@@ -41,7 +41,7 @@ export const Teaser: React.FC<Props> = (props) => {
                     {details}
                 </Text>
             )}
-        </p>
+        </div>
     );
 };
 
