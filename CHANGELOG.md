@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.1.0](https://github.com/textkernel/oneui/compare/10.0.0...10.1.0) (2020-04-15)
+
+
+### Features
+
+* **component:** added HighlighterCore and StringHighlighter ([#249](https://github.com/textkernel/oneui/issues/249)) ([bedbc05](https://github.com/textkernel/oneui/commit/bedbc05bac8d08558c6d96f1157ec6486fa07299))
+
+
+### Bug Fixes
+
+* fixed all console errors and warnings when running tests ([#242](https://github.com/textkernel/oneui/issues/242)) ([b8c91e1](https://github.com/textkernel/oneui/commit/b8c91e1925b3023c62ed25b55b3763b0c0dd0eb5))
+
 ## [10.0.0](https://github.com/textkernel/oneui/compare/9.6.0...10.0.0) (2020-03-27)
 
 
