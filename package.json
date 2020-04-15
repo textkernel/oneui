@@ -59,7 +59,8 @@
         "prop-types": "~15.7.2",
         "rc-slider": "~9.2.0",
         "react-modal": "~3.11.2",
-        "react-virtualized": "~9.21.2"
+        "react-virtualized": "~9.21.2",
+        "remove-accents": "~0.4.2"
     },
     "peerDependencies": {
         "react": "^16.8.6",

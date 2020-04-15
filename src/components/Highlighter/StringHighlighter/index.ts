@@ -1,0 +1,1 @@
+export { StringHighlighter } from './StringHighlighter';

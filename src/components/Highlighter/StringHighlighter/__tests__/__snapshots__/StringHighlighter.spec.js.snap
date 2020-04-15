@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StringHighlighter highlighted should highlight case sensitive terms by default 1`] = `
+<StringHighlighter
+  accuracy="exact"
+  highlightRenderer={[Function]}
+  ignoreCase={true}
+  ignoreDiacritics={true}
+  searchTerms={
+    Array [
+      "DEVELOPER",
+      "Php",
+    ]
+  }
+  string="We are looking for php, java and javascript developer"
+>
+  We are looking for 
+  <b
+    key="1"
+  >
+    php
+  </b>
+  , java and javascript 
+  <b
+    key="3"
+  >
+    developer
+  </b>
+</StringHighlighter>
+`;
+
+exports[`StringHighlighter highlighted should highlight list of terms 1`] = `
+<StringHighlighter
+  accuracy="exact"
+  highlightRenderer={[Function]}
+  ignoreCase={true}
+  ignoreDiacritics={true}
+  searchTerms={
+    Array [
+      "javascript developer",
+      "php",
+      "java",
+    ]
+  }
+  string="We are looking for php, java and javascript developer"
+>
+  We are looking for 
+  <b
+    key="1"
+  >
+    php
+  </b>
+  , 
+  <b
+    key="3"
+  >
+    java
+  </b>
+   and 
+  <b
+    key="5"
+  >
+    javascript developer
+  </b>
+</StringHighlighter>
+`;
+
+exports[`StringHighlighter highlighted should highlight overlapping terms correctly 1`] = `
+<StringHighlighter
+  accuracy="exact"
+  highlightRenderer={[Function]}
+  ignoreCase={true}
+  ignoreDiacritics={true}
+  searchTerms={
+    Array [
+      "java and javascript",
+      "javascript developer",
+    ]
+  }
+  string="We are looking for php, java and javascript developer"
+>
+  We are looking for php, 
+  <b
+    key="1"
+  >
+    java and javascript developer
+  </b>
+</StringHighlighter>
+`;
+
+exports[`StringHighlighter highlighted should highlight terms with diacritics by default 1`] = `
+<StringHighlighter
+  accuracy="exact"
+  highlightRenderer={[Function]}
+  ignoreCase={true}
+  ignoreDiacritics={true}
+  searchTerms={
+    Array [
+      "dévéloper",
+    ]
+  }
+  string="We are looking for php, java and javascript developer"
+>
+  We are looking for php, java and javascript 
+  <b
+    key="1"
+  >
+    developer
+  </b>
+</StringHighlighter>
+`;
+
+exports[`StringHighlighter not highlighted should initially render empty component correctly 1`] = `
+<StringHighlighter
+  accuracy="exact"
+  highlightRenderer={[Function]}
+  ignoreCase={true}
+  ignoreDiacritics={true}
+  searchTerms={Array []}
+  string=""
+/>
+`;
+
+exports[`StringHighlighter not highlighted should not highlight case sensitive terms if ignoreCase is false 1`] = `
+<StringHighlighter
+  accuracy="exact"
+  highlightRenderer={[Function]}
+  ignoreCase={false}
+  ignoreDiacritics={true}
+  searchTerms={
+    Array [
+      "DEVELOPER",
+      "Php",
+    ]
+  }
+  string="We are looking for php, java and javascript developer"
+>
+  We are looking for php, java and javascript developer
+</StringHighlighter>
+`;
+
+exports[`StringHighlighter not highlighted should not highlight not existed terms 1`] = `
+<StringHighlighter
+  accuracy="exact"
+  highlightRenderer={[Function]}
+  ignoreCase={true}
+  ignoreDiacritics={true}
+  searchTerms={
+    Array [
+      "notExisting",
+      "dev",
+      "a",
+    ]
+  }
+  string="We are looking for php, java and javascript developer"
+>
+  We are looking for php, java and javascript developer
+</StringHighlighter>
+`;
+
+exports[`StringHighlighter not highlighted should not highlight terms with diacritics if ignoreDiacritics is false 1`] = `
+<StringHighlighter
+  accuracy="exact"
+  highlightRenderer={[Function]}
+  ignoreCase={true}
+  ignoreDiacritics={false}
+  searchTerms={
+    Array [
+      "dévéloper",
+    ]
+  }
+  string="We are looking for php, java and javascript developer"
+>
+  We are looking for php, java and javascript developer
+</StringHighlighter>
+`;
