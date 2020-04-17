@@ -7,6 +7,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
+  onSubmit={[MockFunction]}
   selectedSuggestions={Array []}
   suggestionToString={[Function]}
   suggestions={Array []}
@@ -26,6 +27,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
           data-lpignore="true"
           id="downshift-0-input"
           placeholder="type here..."
+          tabindex="-1"
           value=""
         />,
       }
@@ -35,6 +37,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionChange={[MockFunction]}
+    selectOnTabPress={true}
     showClearButton={false}
     suggestionToString={[Function]}
     suggestions={Array []}
@@ -103,6 +106,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
                     onChange={[Function]}
                     onKeyDown={[Function]}
                     placeholder="type here..."
+                    tabIndex={-1}
                     value=""
                   />
                 </div>

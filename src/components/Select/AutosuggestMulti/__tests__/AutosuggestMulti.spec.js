@@ -10,6 +10,7 @@ describe('AutosuggestMulti', () => {
     const mockOnSelectionChange = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnBlur = jest.fn();
+    const mockOnSubmit = jest.fn();
 
     let suggestionsList = [];
     let selectedSuggestions = [];
@@ -29,6 +30,7 @@ describe('AutosuggestMulti', () => {
                 onInputValueChange={mockOnInputValueChange}
                 numberOfVisibleTags={numberOfVisibleTags}
                 onBlur={mockOnBlur}
+                onSubmit={mockOnSubmit}
             />
         );
     });
@@ -91,7 +93,19 @@ describe('AutosuggestMulti', () => {
 
                 expect(mockOnSelectionChange).toHaveBeenCalled();
             });
-            it('should be called also when clicking on a suggestion the second time in a row', () => {
+            it('should be called by pressing Tab button', () => {
+                suggestionsList = SUGGESTIONS.slice(1, 20);
+                wrapper.setProps({ suggestions: suggestionsList });
+                setFocusOnAutosuggest();
+
+                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+
+                wrapper.find('input').simulate('change', { target: { value: 'driver' } });
+                wrapper.find('input').simulate('keyDown', { key: 'Tab' });
+
+                expect(mockOnSelectionChange).toHaveBeenCalled();
+            });
+            it('should be called by clicking on a suggestion the second time in a row', () => {
                 suggestionsList = SUGGESTIONS.slice(1, 20);
                 wrapper.setProps({ suggestions: suggestionsList });
                 setFocusOnAutosuggest();
@@ -149,6 +163,13 @@ describe('AutosuggestMulti', () => {
             wrapper.find('input').simulate('change', { target: { value: 'driver' } });
 
             expect(mockOnInputValueChange).toHaveBeenCalled();
+        });
+        it('should call onSubmit when hit Enter an empty input field', () => {
+            setFocusOnAutosuggest();
+
+            expect(mockOnSubmit).not.toHaveBeenCalled();
+            wrapper.find('input').simulate('keyDown', { key: 'Enter' });
+            expect(mockOnSubmit).toHaveBeenCalled();
         });
         it('should clear the input field when a suggestion was selected', () => {
             const textInputValue = 'driver';

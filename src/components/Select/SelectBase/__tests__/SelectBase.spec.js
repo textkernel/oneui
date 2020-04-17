@@ -128,6 +128,18 @@ describe('SelectBase', () => {
                 expect(mockOnSelectionChange).toHaveBeenCalled();
             });
         });
+        describe('onSelectionChange', () => {
+            it('should be called on selecting an item by pressing Tab', () => {
+                const textInputValue = 'driver';
+
+                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+
+                wrapper.find('input').simulate('change', { target: { value: textInputValue } });
+                wrapper.find('input').simulate('keyDown', { key: 'Tab' });
+
+                expect(mockOnSelectionChange).toHaveBeenCalled();
+            });
+        });
         it('should call onClearAllSelected on Clear button click', () => {
             const clearTitle = 'Clear';
             wrapper.setProps({ clearTitle, showClearButton: true });

@@ -3,18 +3,23 @@ import Downshift from 'downshift';
 import { bem } from '../../../utils/bem';
 import { FieldWrapper } from '../../FieldWrapper';
 import { List } from '../../List';
-import { ENTER_KEY } from '../../../constants';
+import { ENTER_KEY, TAB_KEY } from '../../../constants';
 import { Props } from './interfaces';
 import styles from './SelectBase.scss';
 
 const { block, elem } = bem('SelectBase', styles);
 
-export function SelectBase<S>(props: Props<S>) {
+interface SelectBaseProps<P> extends Props<P> {
+    selectOnTabPress?: boolean;
+}
+
+export function SelectBase<S>(props: SelectBaseProps<S>) {
     const {
         suggestions,
         suggestionToString,
         clearTitle,
         showClearButton,
+        selectOnTabPress,
         onBlur,
         onSelectionChange,
         onInputValueChange,
@@ -84,6 +89,10 @@ export function SelectBase<S>(props: Props<S>) {
 
         clearSelection();
 
+        if (!inputValue) {
+            handleBlur();
+        }
+
         if (selectedItem) {
             onSelectionChange(selectedItem);
         }
@@ -112,14 +121,17 @@ export function SelectBase<S>(props: Props<S>) {
         }
     };
 
-    const handleClearSelectedSuggestions = (e) => {
-        e.stopPropagation();
-        onClearAllSelected?.();
-    };
-
     const focus = (openMenu) => {
         openMenu();
         setFocused(true);
+    };
+
+    const handleClearSelectedSuggestions = (openMenu) => () => {
+        onClearAllSelected?.();
+
+        if (!focused) {
+            focus(openMenu);
+        }
     };
 
     const handleWrapperClick = (openMenu) => () => {
@@ -143,6 +155,14 @@ export function SelectBase<S>(props: Props<S>) {
                     highlightedIndex: state.highlightedIndex,
                     isOpen: keepExpandedAfterSelection,
                 };
+            case Downshift.stateChangeTypes.blurInput:
+                if (selectOnTabPress) {
+                    return {
+                        ...changes,
+                        selectedItem: suggestions[state.highlightedIndex],
+                    };
+                }
+                return changes;
             default:
                 return changes;
         }
@@ -185,7 +205,7 @@ export function SelectBase<S>(props: Props<S>) {
                     <div {...elem('main', stateAndProps)}>
                         <FieldWrapper
                             clearLabel={clearTitle}
-                            onClear={handleClearSelectedSuggestions}
+                            onClear={handleClearSelectedSuggestions(openMenu)}
                             showClearButton={!focused && showClearButton}
                             isFocused={focused}
                             onClick={handleWrapperClick(openMenu)}
@@ -227,6 +247,7 @@ export function SelectBase<S>(props: Props<S>) {
 
 SelectBase.defaultProps = {
     showClearButton: false,
+    selectOnTabPress: false,
     keepExpandedAfterSelection: false,
     clearInputAfterSelection: false,
     clearTitle: '',

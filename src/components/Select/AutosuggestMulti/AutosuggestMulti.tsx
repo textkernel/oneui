@@ -9,7 +9,7 @@ import {
     BlurredRendererHelpers,
 } from '../SelectBase';
 import styles from './AutosuggestMulti.scss';
-import { BACKSPACE_KEY, ESCAPE_KEY, TAB_KEY } from '../../../constants';
+import { BACKSPACE_KEY, ESCAPE_KEY, TAB_KEY, ENTER_KEY } from '../../../constants';
 
 interface Props<S> extends CommonPropsWithClear<S> {
     /** array of already selected suggestions */
@@ -20,6 +20,8 @@ interface Props<S> extends CommonPropsWithClear<S> {
     inputPlaceholder: string;
     /** Enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
+    /** submit function */
+    onSubmit?: () => void;
 }
 
 const { elem } = bem('AutosuggestMulti', styles);
@@ -35,6 +37,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         suggestions,
         numberOfVisibleTags,
         onBlur,
+        onSubmit,
         showClearButton,
         ...rest
     } = props;
@@ -82,11 +85,16 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     const handleInputKeyDown = (blur: () => void) => (event: KeyboardEvent) => {
         if (event.key === TAB_KEY) {
             inputRef.current?.blur();
-            blur();
+            inputRef.current?.parentElement?.focus();
+        } else if (event.key === ENTER_KEY && !inputValue) {
+            inputRef.current?.blur();
+            inputRef.current?.parentElement?.focus();
+            onSubmit?.();
+            event.stopPropagation();
         } else if (event.key === ESCAPE_KEY) {
             // prevents key propagation and sets the focus on parent component
-            inputRef.current?.blur();
             blur();
+            inputRef.current?.blur();
             inputRef.current?.parentElement?.focus();
             event.stopPropagation();
         } else if (event.key === BACKSPACE_KEY && !inputValue && !!selectedSuggestions.length) {
@@ -105,6 +113,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     placeholder: inputPlaceholder,
                     onKeyDown: handleInputKeyDown(blur),
                     'data-lpignore': true,
+                    tabIndex: -1,
                     ...elem('input'),
                 })}
             />
@@ -121,6 +130,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                         ref: inputRef,
                         placeholder: inputPlaceholder,
                         'data-lpignore': true,
+                        tabIndex: -1,
                         ...elem('input'),
                     })}
                 />
@@ -143,6 +153,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
             showClearButton={showClearButton && selectedSuggestions.length > 0}
+            selectOnTabPress
             keepExpandedAfterSelection
             clearInputAfterSelection
         />
