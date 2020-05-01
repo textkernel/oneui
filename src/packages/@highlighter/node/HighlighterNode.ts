@@ -57,7 +57,7 @@ export class HighlighterNode {
         return HighlighterNode.unwrapDomElement(wrapper);
     }
 
-    public find(node: Node, styles: CSSStyleDeclaration, onMatch: (node: HTMLElement) => void) {
+    public find(node: Node, onMatch: (node: HTMLElement) => void) {
         if (!node.textContent || !this.highlighterCore) return;
 
         const result = this.highlighterCore.find(node.textContent);
@@ -66,7 +66,6 @@ export class HighlighterNode {
             if (highlighted) {
                 const newNode = this.createWrappedNode(substring);
                 if (newNode instanceof HTMLElement) {
-                    HighlighterNode.applyStylesForNode(newNode, styles);
                     wrapper.appendChild(newNode);
                     onMatch(newNode);
                 }

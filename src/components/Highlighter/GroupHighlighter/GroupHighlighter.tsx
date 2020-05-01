@@ -96,8 +96,9 @@ export const GroupHighlighter: React.FC<Props> = React.memo((props) => {
                     highlighterCore,
                 });
                 highlighterControl.findKeywordInNodes(term, (node, onMatch) => {
-                    highlighterNode.find(node, styles, (highlightedNode) => {
-                        onMatch(highlightedNode);
+                    highlighterNode.find(node, (matchedNode) => {
+                        HighlighterNode.applyStylesForNode(matchedNode, styles);
+                        onMatch(matchedNode);
                     });
                 });
                 result[term] = {

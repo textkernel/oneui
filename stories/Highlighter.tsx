@@ -29,7 +29,7 @@ storiesOf('Atoms|Highlighter', module)
             />
         );
     })
-    .add('Atoms|GroupHighlighter', () => {
+    .add('GroupHighlighter', () => {
         const ACCURACY = ['exact', 'partial'];
         const keywords = text(
             'keywords',
