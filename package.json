@@ -57,6 +57,7 @@
         "downshift": "~5.0.0",
         "fast-memoize": "~2.5.2",
         "prop-types": "~15.7.2",
+        "randomcolor": "~0.5.4",
         "rc-slider": "~9.2.0",
         "react-modal": "~3.11.2",
         "react-virtualized": "~9.21.2",
