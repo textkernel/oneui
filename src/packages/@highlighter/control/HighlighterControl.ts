@@ -18,7 +18,7 @@ export interface HighlightControlScrollArgs {
 export interface HighlightOptions {
     /** Defines scope where you want find and scroll highlight keywords */
     root: HTMLElement;
-    /** Function responsibe for scrolling */
+    /** Function responsible for scrolling */
     scrollFunction?: (values: HighlightControlScrollArgs) => void;
     /** Defines DOM element that has scrolling */
     scrollableElement?: Window | HTMLElement;
@@ -32,6 +32,8 @@ const KEYWORD_ATTRIBUTE = 'data-highlight-keyword';
 const SELECTED_ATTRIBUTE = 'data-highlight-selected';
 
 export class HighlighterControl {
+    private root: HTMLElement;
+
     private scrollFunction?: (values: HighlightControlScrollArgs) => void;
 
     private scrollableElement?: Window | HTMLElement;
@@ -67,16 +69,6 @@ export class HighlighterControl {
         return nodes.sort(HighlighterControl.comparePositionTwoNodes);
     }
 
-    static keywordNodes(keyword: string) {
-        return document.querySelectorAll<HTMLElement>(`[${KEYWORD_ATTRIBUTE}="${keyword}"]`);
-    }
-
-    static get selectedNode() {
-        return document.querySelector<HTMLElement>(
-            `[${SELECTED_ATTRIBUTE}="${SelectionStatus.selected}"]`
-        );
-    }
-
     constructor({
         root,
         scrollFunction,
@@ -84,6 +76,7 @@ export class HighlighterControl {
         onSelection,
         onRemoveSelection,
     }: HighlightOptions) {
+        this.root = root;
         this.scrollFunction = scrollFunction;
         this.scrollableElement = scrollableElement;
         this.onSelection = onSelection;
@@ -94,10 +87,20 @@ export class HighlighterControl {
         });
     }
 
+    private keywordNodes(keyword: string) {
+        return this.root.querySelectorAll<HTMLElement>(`[${KEYWORD_ATTRIBUTE}="${keyword}"]`);
+    }
+
+    private get selectedNode() {
+        return this.root.querySelector<HTMLElement>(
+            `[${SELECTED_ATTRIBUTE}="${SelectionStatus.selected}"]`
+        );
+    }
+
     private triggerSelection(keyword: string) {
         let nextIndex = 0;
-        const keywordNodes = Array.from(HighlighterControl.keywordNodes(keyword));
-        const prevNode = HighlighterControl.selectedNode;
+        const keywordNodes = Array.from(this.keywordNodes(keyword));
+        const prevNode = this.selectedNode;
         const sortedKeywordNodes = HighlighterControl.sortNodesByAppearance(keywordNodes);
 
         if (prevNode) {
@@ -121,21 +124,22 @@ export class HighlighterControl {
     }
 
     private scrollToSelectedKeyword() {
-        const { selectedNode } = HighlighterControl;
+        const { selectedNode } = this;
         if (selectedNode && this.scrollableElement) {
             const nodeTopPosition = selectedNode.getBoundingClientRect().top;
-            let heightViewport = 0;
-            let scrollTop = 0;
-
-            if (this.scrollableElement instanceof Window) {
-                heightViewport = this.scrollableElement.innerHeight;
-                scrollTop = this.scrollableElement.pageYOffset;
-            }
-
-            if (this.scrollableElement instanceof HTMLElement) {
-                heightViewport = this.scrollableElement.clientHeight || 0;
-                scrollTop = this.scrollableElement.scrollTop;
-            }
+            /**
+             * Below we can't use `instanceOf` because `this.scrollableElement`
+             * can be created in another instance.
+             * for example, `this.scrollableElement` mounted inside iframe
+             */
+            const heightViewport =
+                (this.scrollableElement as any).innerHeight ||
+                (this.scrollableElement as any).clientHeight ||
+                0;
+            const scrollTop =
+                (this.scrollableElement as any).pageYOffset ||
+                (this.scrollableElement as any).scrollTop ||
+                0;
 
             if (this.scrollFunction) {
                 this.scrollFunction({
