@@ -101,12 +101,16 @@ export class HighlighterControl {
         let nextIndex = 0;
         const keywordNodes = Array.from(this.keywordNodes(keyword));
         const prevNode = this.selectedNode;
+
+        if (prevNode && this.onRemoveSelection) {
+            this.onRemoveSelection(prevNode);
+        }
+
         const sortedKeywordNodes = HighlighterControl.sortNodesByAppearance(keywordNodes);
 
         if (prevNode) {
             const indexPrevNode = sortedKeywordNodes.indexOf(prevNode);
             prevNode.setAttribute(SELECTED_ATTRIBUTE, SelectionStatus.notSelected);
-            if (this.onRemoveSelection) this.onRemoveSelection(prevNode);
 
             nextIndex = indexPrevNode + 1;
 

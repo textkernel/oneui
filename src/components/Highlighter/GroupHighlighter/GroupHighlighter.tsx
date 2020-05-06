@@ -107,7 +107,15 @@ export const GroupHighlighter: React.FC<Props> = React.memo((props) => {
             });
             onComplete(highlighterControl, result);
         }
-    }, [elementRef]);
+    }, [
+        elementRef,
+        accuracy,
+        highlightRenderer,
+        ignoreCase,
+        ignoreDiacritics,
+        onComplete,
+        searchTerms,
+    ]);
 
     return (
         <div key={key} ref={elementRef}>
