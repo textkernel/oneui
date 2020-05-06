@@ -1,7 +1,7 @@
 import randomcolor from 'randomcolor';
 import { HighlighterCore } from '../core';
 
-export type HighlighterNodeRenderer = (keyword: string) => string;
+export type HighlighterNodeRenderer = (keyword: string) => HTMLElement;
 
 export interface HighlighterNodeOptions {
     /** Function is called on render founded keyword */
@@ -39,22 +39,9 @@ export class HighlighterNode {
         });
     }
 
-    static unwrapDomElement(wrapper: HTMLElement) {
-        return wrapper && wrapper.firstChild ? wrapper.firstChild.cloneNode(true) : null;
-    }
-
     constructor({ highlightRenderer, highlighterCore }: HighlighterNodeOptions) {
         this.highlightRenderer = highlightRenderer;
         this.highlighterCore = highlighterCore;
-    }
-
-    private createWrappedNode(string: string) {
-        const wrapper = document.createElement('span');
-        const compiled = this.highlightRenderer(string);
-
-        wrapper.innerHTML = compiled;
-
-        return HighlighterNode.unwrapDomElement(wrapper);
     }
 
     public find(node: Node, onMatch: (node: HTMLElement) => void) {
@@ -64,7 +51,7 @@ export class HighlighterNode {
         const wrapper = document.createDocumentFragment();
         result.forEach(({ substring, highlighted }) => {
             if (highlighted) {
-                const newNode = this.createWrappedNode(substring);
+                const newNode = this.highlightRenderer(substring);
                 if (newNode instanceof HTMLElement) {
                     wrapper.appendChild(newNode);
                     onMatch(newNode);

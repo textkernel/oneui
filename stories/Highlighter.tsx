@@ -40,7 +40,11 @@ storiesOf('Atoms|Highlighter', module)
         return (
             <GroupHighlighter
                 searchTerms={keywords}
-                highlightRenderer={(keyword) => `<mark>${keyword}</mark>`}
+                highlightRenderer={(keyword) => {
+                    const node = document.createElement('mark');
+                    node.innerText = keyword;
+                    return node;
+                }}
                 accuracy={select('Accuracy', ACCURACY, ACCURACY[0]) as HighlighterCoreAccuracy}
                 ignoreCase={boolean('ignoreCase', true)}
                 ignoreDiacritics={boolean('ignoreDiacritics', true)}
