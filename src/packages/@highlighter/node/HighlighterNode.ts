@@ -45,23 +45,23 @@ export class HighlighterNode {
     }
 
     public find(node: Node, onMatch?: (node: HTMLElement) => void) {
-        if (!node.textContent || !this.highlighterCore) return;
-
-        const result = this.highlighterCore.find(node.textContent);
-        const wrapper = document.createDocumentFragment();
-        result.forEach(({ substring, highlighted }) => {
-            if (highlighted) {
-                const newNode = this.highlightRenderer(substring);
-                if (newNode instanceof HTMLElement) {
-                    wrapper.appendChild(newNode);
-                    if (onMatch) {
-                        onMatch(newNode);
+        if (node.textContent && this.highlighterCore) {
+            const result = this.highlighterCore.find(node.textContent);
+            const wrapper = document.createDocumentFragment();
+            result.forEach(({ substring, highlighted }) => {
+                if (highlighted) {
+                    const newNode = this.highlightRenderer(substring);
+                    if (newNode instanceof HTMLElement) {
+                        wrapper.appendChild(newNode);
+                        if (onMatch) {
+                            onMatch(newNode);
+                        }
                     }
+                } else {
+                    wrapper.appendChild(document.createTextNode(substring));
                 }
-            } else {
-                wrapper.appendChild(document.createTextNode(substring));
-            }
-        });
-        (node as HTMLElement).replaceWith(wrapper);
+            });
+            (node as HTMLElement).replaceWith(wrapper);
+        }
     }
 }

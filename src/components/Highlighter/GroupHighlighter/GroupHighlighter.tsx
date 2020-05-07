@@ -37,7 +37,7 @@ interface Props {
 /**
  * Defines styles for highlighted node
  */
-const HIGHLIGHTED_NODE_STYLES: CSSStyleDeclaration = {
+const HIGHLIGHTED_NODE_STYLES = {
     borderRadius: '2px',
 } as CSSStyleDeclaration;
 
@@ -52,7 +52,7 @@ const SELECTED_NODE_STYLES = {
 /**
  * Defines styles for cleaning selection for node
  */
-const RESET_SELECTED_NODE_STYLES: CSSStyleDeclaration = {
+const RESET_SELECTED_NODE_STYLES = {
     boxShadow: '',
     position: 'initial',
 } as CSSStyleDeclaration;
