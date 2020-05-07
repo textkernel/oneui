@@ -23,10 +23,16 @@ export const Map = React.forwardRef((props, ref) => {
     const fitBounds = React.useCallback(() => {
         if (!mapRef.current || !mapRef.current.state.map) return;
         const { map } = mapRef.current.state;
+        const { LatLngBounds, Circle: CircleClass, Geocoder } = window.google.maps;
+        const geocoder = new Geocoder();
 
-        const { LatLngBounds, Circle: CircleClass } = window.google.maps;
-
-        if (markers.length) {
+        if (markers.length === 1 && markers[0]?.description) {
+            geocoder.geocode({ address: markers[0]?.description }, (result, status) => {
+                if (status === 'OK') {
+                    map.fitBounds(result[0].geometry.viewport);
+                }
+            });
+        } else if (markers.length) {
             const bounds = new LatLngBounds();
             markers.forEach((marker) => {
                 if (marker.radius) {
@@ -41,9 +47,6 @@ export const Map = React.forwardRef((props, ref) => {
                 map.fitBounds(bounds);
             });
         } else if (defaultArea.address) {
-            const { Geocoder } = window.google.maps;
-            const geocoder = new Geocoder();
-
             geocoder.geocode({ address: defaultArea.address }, (result, status) => {
                 if (status === 'OK') {
                     map.fitBounds(result[0].geometry.viewport);

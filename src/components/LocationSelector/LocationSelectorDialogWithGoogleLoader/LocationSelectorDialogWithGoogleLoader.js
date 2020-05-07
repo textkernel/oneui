@@ -15,6 +15,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
         additionalGoogleProps,
 
         /** LocationCard props */
+        hasRadius,
         minRadius,
         maxRadius,
         radiusStep,
@@ -50,6 +51,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
         >
             <LocationSelectorDialog
                 inputPlaceholder={inputPlaceholder}
+                hasRadius={hasRadius}
                 minRadius={minRadius}
                 maxRadius={maxRadius}
                 radiusStep={radiusStep}

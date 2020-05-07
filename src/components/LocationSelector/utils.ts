@@ -1,6 +1,16 @@
 const METER_TO_KM = 1000;
 const METER_TO_MI = 1609.34;
 
+export type Location = {
+    id: string;
+    description: string;
+    center: {
+        lng: number;
+        lat: number;
+    };
+    radius: number;
+};
+
 export const getRadiusInMeters = (radius, radiusUnits) => {
     if (radiusUnits === 'km') {
         return radius * METER_TO_KM;

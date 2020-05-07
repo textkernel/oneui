@@ -17,6 +17,7 @@ export const LocationSelectorDialog = (props) => {
         inputPlaceholder,
 
         /** LocationCard props */
+        hasRadius,
         minRadius,
         maxRadius,
         radiusStep,
@@ -86,6 +87,7 @@ export const LocationSelectorDialog = (props) => {
                                 locationTitle={location.description}
                                 distanceRadius={location.radius}
                                 sliderLabel={renderRadiusLabel(location.radius)}
+                                hasRadiusSlider={hasRadius}
                                 minRadius={minRadius}
                                 maxRadius={maxRadius}
                                 radiusStep={radiusStep}
@@ -121,6 +123,8 @@ LocationSelectorDialog.propTypes = {
     ).isRequired,
     /** radius label renderer e.g. radius => `+ ${radius} km` */
     renderRadiusLabel: PropTypes.func.isRequired,
+    /** defines if selector has an option to control the radius for a marker */
+    hasRadius: PropTypes.bool.isRequired,
     /** min radius value of the slider component */
     minRadius: PropTypes.number.isRequired,
     /** max radius value of the slider component */

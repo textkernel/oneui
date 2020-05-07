@@ -13,6 +13,7 @@ export const LocationCard = (props) => {
         As,
         locationId,
         locationTitle,
+        hasRadiusSlider,
         distanceRadius,
         sliderLabel,
         minRadius,
@@ -37,18 +38,20 @@ export const LocationCard = (props) => {
                     {CROSS_CHAR}
                 </button>
             </div>
-            <div {...elem('slider', props)}>
-                <Slider
-                    value={distanceRadius}
-                    min={minRadius}
-                    max={maxRadius}
-                    step={radiusStep}
-                    onChange={handleRadiusChange}
-                />
-                <Text size={SIZES[0]} {...elem('slider-label', props)}>
-                    {sliderLabel}
-                </Text>
-            </div>
+            {hasRadiusSlider && (
+                <div {...elem('slider', props)}>
+                    <Slider
+                        value={distanceRadius}
+                        min={minRadius}
+                        max={maxRadius}
+                        step={radiusStep}
+                        onChange={handleRadiusChange}
+                    />
+                    <Text size={SIZES[0]} {...elem('slider-label', props)}>
+                        {sliderLabel}
+                    </Text>
+                </div>
+            )}
         </As>
     );
 };
@@ -60,6 +63,8 @@ LocationCard.propTypes = {
     locationId: PropTypes.string,
     /** Location card title */
     locationTitle: PropTypes.string.isRequired,
+    /** Defines if location card has a radius slider */
+    hasRadiusSlider: PropTypes.bool,
     /** Slider indication string for displaying its formatted value */
     sliderLabel: PropTypes.string,
     /** The minimum value of the distance slider */
@@ -83,6 +88,7 @@ LocationCard.propTypes = {
 
 LocationCard.defaultProps = {
     locationId: null,
+    hasRadiusSlider: true,
     sliderLabel: '',
     minRadius: 1,
     maxRadius: 100,

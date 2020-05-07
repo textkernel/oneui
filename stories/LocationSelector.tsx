@@ -72,7 +72,8 @@ storiesOf('Organisms|LocationSelector', module)
             />
         );
     })
-    .add('Example implementation', ({ parameters }) => {
+    // eslint-disable-next-line
+    .add('Example implementation', ({ parameters }: any) => {
         const apiKey = ensureApiKey();
         const store = parameters.getStore();
 
@@ -121,6 +122,7 @@ storiesOf('Organisms|LocationSelector', module)
                 initialMapAddress={text('Initial map address', '')}
                 radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
                 renderRadiusLabel={(r) => `+ ${r} km`}
+                hasRadius={boolean('Has radius', true)}
                 minRadius={number('Min radius', 1)}
                 maxRadius={number('Max radius', 100)}
                 radiusDefaultValue={number('Radius default value', 5)}
