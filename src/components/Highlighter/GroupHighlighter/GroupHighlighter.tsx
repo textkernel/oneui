@@ -4,6 +4,7 @@ import { HighlighterControl } from '../../../packages/@highlighter/control';
 import { HighlighterNode, HighlighterNodeRenderer } from '../../../packages/@highlighter/node';
 
 type GroupHighlighterTermResult = {
+    term: string;
     styles: CSSStyleDeclaration;
 };
 interface Props {
@@ -28,7 +29,8 @@ interface Props {
     /** Fired after finishing highlighting */
     onComplete: (
         instance: HighlighterControl,
-        result: DictionaryOf<GroupHighlighterTermResult>
+        result: GroupHighlighterTermResult[],
+        rootNode: HTMLElement
     ) => void;
 }
 
@@ -70,7 +72,7 @@ export const GroupHighlighter: React.FC<Props> = React.memo((props) => {
 
     React.useEffect(() => {
         if (elementRef.current) {
-            const result: DictionaryOf<GroupHighlighterTermResult> = {};
+            const result: GroupHighlighterTermResult[] = [];
             const sortedSearchTerms = HighlighterCore.sortTerms(searchTerms);
             const highlighterControl = new HighlighterControl({
                 root: elementRef.current,
@@ -101,11 +103,12 @@ export const GroupHighlighter: React.FC<Props> = React.memo((props) => {
                         onMatch(matchedNode);
                     });
                 });
-                result[term] = {
+                result.push({
+                    term,
                     styles,
-                };
+                });
             });
-            onComplete(highlighterControl, result);
+            onComplete(highlighterControl, result, elementRef.current);
         }
     }, [
         elementRef,

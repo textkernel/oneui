@@ -17,7 +17,7 @@ interface NodeIteratorOptions {
 export class NodeIterator {
     private root: HTMLElement;
 
-    private whatToShow: number | undefined;
+    private whatToShow?: number;
 
     constructor({ root, whatToShow }: NodeIteratorOptions) {
         this.root = root;

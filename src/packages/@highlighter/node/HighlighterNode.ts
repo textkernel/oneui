@@ -44,7 +44,7 @@ export class HighlighterNode {
         this.highlighterCore = highlighterCore;
     }
 
-    public find(node: Node, onMatch: (node: HTMLElement) => void) {
+    public find(node: Node, onMatch?: (node: HTMLElement) => void) {
         if (!node.textContent || !this.highlighterCore) return;
 
         const result = this.highlighterCore.find(node.textContent);
@@ -54,7 +54,9 @@ export class HighlighterNode {
                 const newNode = this.highlightRenderer(substring);
                 if (newNode instanceof HTMLElement) {
                     wrapper.appendChild(newNode);
-                    onMatch(newNode);
+                    if (onMatch) {
+                        onMatch(newNode);
+                    }
                 }
             } else {
                 wrapper.appendChild(document.createTextNode(substring));
