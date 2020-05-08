@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.2.0](https://github.com/textkernel/oneui/compare/10.1.0...10.2.0) (2020-05-08)
+
+
+### Features
+
+* **component:** added highlighter packages ([#253](https://github.com/textkernel/oneui/issues/253)) ([dc0435f](https://github.com/textkernel/oneui/commit/dc0435f5739aaeda2839253bbe01cc658b40ef5b))
+
+
+### Bug Fixes
+
+* fixed z-index of autosuggest input ([#252](https://github.com/textkernel/oneui/issues/252)) ([5eb2a92](https://github.com/textkernel/oneui/commit/5eb2a9237f73b2e291c20703f7c07f17bc1410ab))
+
 ## [10.1.0](https://github.com/textkernel/oneui/compare/10.0.0...10.1.0) (2020-04-15)
 
 
