@@ -58,6 +58,10 @@ export class HighlighterCore {
         return removeAccents(string);
     }
 
+    static sortTerms(terms: string[]) {
+        return terms.sort((a, b) => b.split(' ').length - a.split(' ').length);
+    }
+
     static buildRegExp({ searchString, accuracy, ignoreCase }: RegExpBuilder) {
         let source: string | RegExp = '';
         let flags = 'gm';
@@ -94,8 +98,7 @@ export class HighlighterCore {
     }
 
     static termsToString(terms: string[], ignoreDiacritics: boolean) {
-        return terms
-            .sort((a, b) => b.split(' ').length - a.split(' ').length)
+        return HighlighterCore.sortTerms(terms)
             .map((string) =>
                 HighlighterCore.normalize({
                     string,
