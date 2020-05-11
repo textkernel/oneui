@@ -25,15 +25,28 @@ export const Map = React.forwardRef((props, ref) => {
         const { map } = mapRef.current.state;
         const { LatLngBounds, Circle: CircleClass, Geocoder } = window.google.maps;
         const geocoder = new Geocoder();
+        const bounds = new LatLngBounds();
 
-        if (markers.length === 1 && markers[0]?.description) {
-            geocoder.geocode({ address: markers[0]?.description }, (result, status) => {
-                if (status === 'OK') {
-                    map.fitBounds(result[0].geometry.viewport);
-                }
-            });
+        if (markers.length === 1 && markers[0].description) {
+            const marker = markers[0];
+            if (marker.radius) {
+                const circle = new CircleClass({
+                    center: marker.center,
+                    radius: marker.radius,
+                });
+                bounds.union(circle.getBounds());
+                map.fitBounds(bounds);
+            } else if (marker.description) {
+                geocoder.geocode({ address: marker.description }, (result, status) => {
+                    if (status === 'OK') {
+                        map.fitBounds(result[0].geometry.viewport);
+                    }
+                });
+            } else {
+                bounds.extend(marker.center);
+                map.fitBounds(bounds);
+            }
         } else if (markers.length) {
-            const bounds = new LatLngBounds();
             markers.forEach((marker) => {
                 if (marker.radius) {
                     const circle = new CircleClass({
@@ -126,6 +139,7 @@ Map.propTypes = {
                 lat: PropTypes.number.isRequired,
             }),
             radius: PropTypes.number,
+            description: PropTypes.string,
         })
     ),
     /** The style of the map container. It has to have explicit width and height (requirement from Google).

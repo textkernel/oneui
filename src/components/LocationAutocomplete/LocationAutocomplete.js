@@ -32,6 +32,7 @@ export const LocationAutocomplete = (props) => {
         noSuggestionsPlaceholder,
         country,
         placeTypes,
+        singleLocation,
         showCountryInSuggestions,
         onError,
         hidePoweredByGoogleLogo,
@@ -99,8 +100,9 @@ export const LocationAutocomplete = (props) => {
 
     const handleSelection = (value) => {
         resetSuggestionsList();
-        setInputValue('');
+        setInputValue(singleLocation ? value : '');
         onSelectionChange(value);
+        inputRef.current.value = 'MEME';
     };
 
     // eslint-disable-next-line react/display-name
@@ -169,6 +171,8 @@ LocationAutocomplete.propTypes = {
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** trigger of the initial focus of the input field */
     isFocused: PropTypes.bool,
+    /**  */
+    singleLocation: PropTypes.bool.isRequired,
     /** callback to be called with selected value.
      * Value is of type AutocompletePrediction: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction
      */

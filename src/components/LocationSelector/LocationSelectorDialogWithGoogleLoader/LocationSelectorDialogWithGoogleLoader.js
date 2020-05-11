@@ -32,6 +32,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
         onLocationAutocompleteError,
 
         /** Internal use */
+        withoutLocationCards,
         onCloseModal,
         onAddLocation,
         onUpdateLocation,
@@ -59,6 +60,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
                 onRemoveLocation={onRemoveLocation}
                 doneLabel={doneLabel}
                 country={country}
+                withoutLocationCards={withoutLocationCards}
                 initialMapAddress={initialMapAddress}
                 placeTypes={placeTypes}
                 noSuggestionsPlaceholder={noSuggestionsPlaceholder}

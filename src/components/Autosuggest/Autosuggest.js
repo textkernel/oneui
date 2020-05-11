@@ -140,7 +140,7 @@ export class Autosuggest extends React.Component {
     handleBlur = () => {
         const { onBlur } = this.props;
 
-        this.setState({ inputValue: '', inputValueRecall: '' });
+        // this.setState({ inputValue: '', inputValueRecall: '' });
         if (onBlur) {
             onBlur();
         }

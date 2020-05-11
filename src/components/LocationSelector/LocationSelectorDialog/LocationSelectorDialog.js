@@ -2,9 +2,12 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { bem } from '../../../utils';
 import { LocationCard } from '../../LocationCard';
+import { Text } from '../../Text';
+import { Slider } from '../../Slider';
 import { Button } from '../../Buttons';
 import { LocationAutocomplete } from '../../LocationAutocomplete';
 import { Map } from '../../Map';
+import { SIZES } from '../../../constants';
 import styles from './LocationSelectorDialog.scss';
 
 const { elem } = bem('LocationSelectorDialog', styles);
@@ -34,6 +37,7 @@ export const LocationSelectorDialog = (props) => {
         onLocationAutocompleteError,
 
         /** Internal use */
+        withoutLocationCards,
         onUpdateLocation,
         selectedLocations,
         getMarkers,
@@ -55,6 +59,10 @@ export const LocationSelectorDialog = (props) => {
         onRemoveLocation(locationId);
     }
 
+    function handleRadiusChange(radius) {
+        onUpdateLocation(selectedLocations[0].id, radius);
+    }
+
     return (
         <>
             <div {...elem('inputLine', props)}>
@@ -71,12 +79,26 @@ export const LocationSelectorDialog = (props) => {
                     onError={onLocationAutocompleteError}
                     hidePoweredByGoogleLogo
                 />
+                {hasRadius && withoutLocationCards && selectedLocations.length === 1 && (
+                    <div {...elem('slider', props)}>
+                        <Slider
+                            value={selectedLocations[0]?.radius}
+                            min={minRadius}
+                            max={maxRadius}
+                            step={radiusStep}
+                            onChange={handleRadiusChange}
+                        />
+                        <Text size={SIZES[0]} {...elem('slider-label', props)}>
+                            {renderRadiusLabel(selectedLocations[0].radius)}
+                        </Text>
+                    </div>
+                )}
                 <Button {...elem('button', props)} onClick={onCloseModal} context="brand">
                     {doneLabel}
                 </Button>
             </div>
             <div {...elem('locationsWrapper', props)}>
-                {!!selectedLocations.length && (
+                {!withoutLocationCards && selectedLocations.length > 0 && (
                     <ul {...elem('locationCardsContainer', props)}>
                         {selectedLocations.map((location) => (
                             <LocationCard
@@ -109,6 +131,8 @@ export const LocationSelectorDialog = (props) => {
 LocationSelectorDialog.displayName = 'LocationSelectorDialog';
 
 LocationSelectorDialog.propTypes = {
+    /**  */
+    withoutLocationCards: PropTypes.bool.isRequired,
     /** stores an array of selected location objects */
     selectedLocations: PropTypes.arrayOf(
         PropTypes.shape({

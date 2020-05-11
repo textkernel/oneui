@@ -79,7 +79,7 @@ storiesOf('Organisms|LocationSelector', module)
 
         const handleAddLocation = (location) => {
             console.log('onAddLocation was called with:', location);
-            store.set({ selectedLocations: [...store.get('selectedLocations'), location] });
+            store.set({ selectedLocations: [location] });
         };
 
         const handleUpdateLocation = (id, radius) => {
@@ -122,6 +122,7 @@ storiesOf('Organisms|LocationSelector', module)
                 initialMapAddress={text('Initial map address', '')}
                 radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
                 renderRadiusLabel={(r) => `+ ${r} km`}
+                withoutLocationCards={boolean('Without location card list', false)}
                 hasRadius={boolean('Has radius', true)}
                 minRadius={number('Min radius', 1)}
                 maxRadius={number('Max radius', 100)}

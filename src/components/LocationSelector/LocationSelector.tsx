@@ -4,8 +4,8 @@ import { bem } from '../../utils';
 import { Text } from '../Text';
 import { Modal } from '../Modal';
 import { FieldWrapper } from '../FieldWrapper';
-import { MultiLocationSelector } from './MultiLocationSelector';
-import { Location } from './utils';
+import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
+import { Location, findCenter, getRadiusInMeters } from './utils';
 import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
@@ -21,8 +21,6 @@ interface Props {
     region?: string;
     /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
     additionalGoogleProps?: object; // eslint-disable-line react/forbid-prop-types
-    /** */
-    singleLocation?: boolean;
     /** stores an array of selected location objects */
     selectedLocations: Location[];
     /** defines if selector has an option to control the radius for a marker */
@@ -39,6 +37,8 @@ interface Props {
     maxRadius?: number;
     /** radius step value of the slider component */
     radiusStep?: number;
+    /** defines if selector has a list of locations cards to render */
+    withoutLocationCards: boolean;
     /** country where search can take place */
     country: string;
     /** address to make initial map centering more specific */
@@ -110,10 +110,10 @@ export const LocationSelector: React.FC<Props> = (props) => {
         onLocationAutocompleteError,
 
         /** Internal use */
-        singleLocation,
         selectedLocations,
         radiusDefaultValue,
         radiusUnits,
+        withoutLocationCards,
         onAddLocation,
         onUpdateLocation,
         onRemoveLocation,
@@ -138,6 +138,46 @@ export const LocationSelector: React.FC<Props> = (props) => {
         }
     }
 
+    /**
+     * Fetch additional information for the selected place and
+     * add it along with passed location object to the selectedLocations array
+     * if this location was not selected yet
+     */
+    function handleAddLocation(location) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const { Geocoder } = (window as any).google.maps;
+        const geocoder = new Geocoder();
+
+        return findCenter(geocoder, location.place_id)
+            .then((center: any) => {
+                const locationToAdd = {
+                    ...location,
+                    center: {
+                        lng: typeof center.lng === 'function' ? center.lng() : center.lng,
+                        lat: typeof center.lat === 'function' ? center.lat() : center.lat,
+                    },
+                    radius: hasRadius ? radiusDefaultValue : 0,
+                };
+
+                const isLocationSelected = selectedLocations
+                    .map((item) => item.id)
+                    .includes(location.id);
+
+                if (!isLocationSelected) {
+                    onAddLocation(locationToAdd);
+                }
+            })
+            .catch(/* TODO: add error handling */);
+    }
+
+    function getMarkers() {
+        return selectedLocations.map((location) => ({
+            description: location.description,
+            center: location.center,
+            radius: hasRadius ? getRadiusInMeters(location.radius, radiusUnits) : 0,
+        }));
+    }
+
     return (
         <div {...rest} {...block(props)}>
             <FieldWrapper
@@ -159,7 +199,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                 onRequestClose={handleCloseModal}
                 contentLabel={modalContentLabel}
             >
-                <MultiLocationSelector
+                <LocationSelectorDialogWithGoogleLoader
                     apiKey={apiKey}
                     language={language}
                     region={region}
@@ -169,12 +209,11 @@ export const LocationSelector: React.FC<Props> = (props) => {
                     minRadius={minRadius}
                     maxRadius={maxRadius}
                     radiusStep={radiusStep}
-                    radiusDefaultValue={radiusDefaultValue}
-                    radiusUnits={radiusUnits}
                     renderRadiusLabel={renderRadiusLabel}
                     onRemoveLocation={onRemoveLocation}
                     doneLabel={doneLabel}
                     country={country}
+                    withoutLocationCards={withoutLocationCards}
                     initialMapAddress={initialMapAddress}
                     placeTypes={placeTypes}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
@@ -182,7 +221,8 @@ export const LocationSelector: React.FC<Props> = (props) => {
                     onLocationAutocompleteError={onLocationAutocompleteError}
                     onUpdateLocation={onUpdateLocation}
                     selectedLocations={selectedLocations}
-                    onAddLocation={onAddLocation}
+                    getMarkers={getMarkers}
+                    onAddLocation={handleAddLocation}
                     onCloseModal={handleCloseModal}
                 />
             </Modal>
@@ -198,7 +238,7 @@ LocationSelector.defaultProps = {
     minRadius: 1,
     maxRadius: 100,
     radiusStep: 1,
-    singleLocation: false,
+    withoutLocationCards: false,
     initialMapAddress: undefined,
     selectedLocations: [],
     showCountryInSuggestions: true,
