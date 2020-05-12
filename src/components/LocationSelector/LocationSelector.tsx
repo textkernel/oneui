@@ -220,6 +220,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                     showCountryInSuggestions={showCountryInSuggestions}
                     onLocationAutocompleteError={onLocationAutocompleteError}
                     onUpdateLocation={onUpdateLocation}
+                    onRemoveAllLocations={onRemoveAllLocations}
                     selectedLocations={selectedLocations}
                     getMarkers={getMarkers}
                     onAddLocation={handleAddLocation}

@@ -42,6 +42,7 @@ export const LocationSelectorDialog = (props) => {
         selectedLocations,
         getMarkers,
         onAddLocation,
+        onRemoveAllLocations,
         onCloseModal,
     } = props;
 
@@ -77,6 +78,7 @@ export const LocationSelectorDialog = (props) => {
                     placeTypes={placeTypes}
                     singleLocation={withoutLocationCards}
                     showCountryInSuggestions={showCountryInSuggestions}
+                    onRemoveAllLocations={onRemoveAllLocations}
                     onError={onLocationAutocompleteError}
                     hidePoweredByGoogleLogo
                 />
@@ -181,6 +183,8 @@ LocationSelectorDialog.propTypes = {
     onUpdateLocation: PropTypes.func.isRequired,
     /** function with a locationId as an argument to be removed */
     onRemoveLocation: PropTypes.func.isRequired,
+    /** function to remove all locations */
+    onRemoveAllLocations: PropTypes.func.isRequired,
     /** function to calculate marker positions in Map  */
     getMarkers: PropTypes.func.isRequired,
     /** function to be called when teh Done button is clicked */

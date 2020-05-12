@@ -34,6 +34,7 @@ export const LocationAutocomplete = (props) => {
         placeTypes,
         singleLocation,
         showCountryInSuggestions,
+        onRemoveAllLocations,
         onError,
         hidePoweredByGoogleLogo,
         ...rest
@@ -94,6 +95,10 @@ export const LocationAutocomplete = (props) => {
         } else {
             setIsLoading(false);
             resetSuggestionsList();
+
+            if (singleLocation) {
+                onRemoveAllLocations();
+            }
         }
     };
 
@@ -186,6 +191,8 @@ LocationAutocomplete.propTypes = {
     placeTypes: PropTypes.arrayOf(PropTypes.string),
     /** show state and country in suggestions list */
     showCountryInSuggestions: PropTypes.bool,
+    /** function to remove all locations */
+    onRemoveAllLocations: PropTypes.func.isRequired,
     /** function to be executed if error occurs while fetching suggestions */
     onError: PropTypes.func,
     /** To hide powered by google logo. For legal reasons only set it to true if Google map is displayed on the same screen as this component! */

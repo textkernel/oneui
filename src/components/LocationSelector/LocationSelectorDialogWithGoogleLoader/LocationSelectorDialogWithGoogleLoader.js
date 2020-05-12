@@ -36,6 +36,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
         onCloseModal,
         onAddLocation,
         onUpdateLocation,
+        onRemoveAllLocations,
         selectedLocations,
         inputPlaceholder,
         getMarkers,
@@ -70,6 +71,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
                 selectedLocations={selectedLocations}
                 getMarkers={getMarkers}
                 onAddLocation={onAddLocation}
+                onRemoveAllLocations={onRemoveAllLocations}
                 onCloseModal={onCloseModal}
             />
         </LoadScriptNext>
