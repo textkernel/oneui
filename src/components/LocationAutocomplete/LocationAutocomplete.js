@@ -89,7 +89,6 @@ export const LocationAutocomplete = (props) => {
     }
 
     const handleInputValueChange = (value) => {
-        setInputValue(value);
         if (value) {
             setIsLoading(true);
         } else {
@@ -102,7 +101,6 @@ export const LocationAutocomplete = (props) => {
         resetSuggestionsList();
         setInputValue(singleLocation ? value : '');
         onSelectionChange(value);
-        inputRef.current.value = 'MEME';
     };
 
     // eslint-disable-next-line react/display-name
@@ -150,6 +148,7 @@ export const LocationAutocomplete = (props) => {
             inputPlaceholder={inputPlaceholder}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             listRenderer={renderListPoweredByGoogle}
+            saveSelectedValueToInput={singleLocation}
             onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
             onSelectionChange={handleSelection}

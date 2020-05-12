@@ -74,22 +74,25 @@ export class Autosuggest extends React.Component {
     }
 
     handleChange = (selectedItem, downshift) => {
-        const { onSelectionChange, isMultiselect } = this.props;
+        const { onSelectionChange, saveSelectedValueToInput, isMultiselect } = this.props;
         const { clearSelection, openMenu } = downshift;
 
-        this.setState({ inputValue: '' });
         clearSelection();
+        this.setState({ inputValue: '' }, () => {
+            if (selectedItem) {
+                if (saveSelectedValueToInput) {
+                    this.setState({ inputValue: selectedItem.description });
+                }
+                onSelectionChange(selectedItem);
+            }
 
-        if (selectedItem) {
-            onSelectionChange(selectedItem);
-        }
-
-        if (!isMultiselect) {
-            this.inputRef.current.blur();
-            this.handleBlur();
-        } else {
-            openMenu();
-        }
+            if (!isMultiselect) {
+                this.inputRef.current.blur();
+                this.handleBlur();
+            } else {
+                openMenu();
+            }
+        });
     };
 
     handleInputKeyDown = (event) => {
@@ -431,6 +434,8 @@ Autosuggest.propTypes = {
     onClearAllSelected: PropTypes.func,
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton: PropTypes.bool,
+    /** display selected value as input value */
+    saveSelectedValueToInput: PropTypes.bool,
     /** an icon or other node to always be rendered as a first element inside the input box */
     iconNode: PropTypes.node,
     /** should this component behave as a multiselect (e.g. no collapse after selection made) */
@@ -453,6 +458,7 @@ Autosuggest.defaultProps = {
     onInputValueChange: null,
     onClearAllSelected: null,
     showClearButton: false,
+    saveSelectedValueToInput: false,
     selectedPlaceholder: '',
     iconNode: null,
     isMultiselect: false,

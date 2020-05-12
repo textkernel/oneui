@@ -75,6 +75,7 @@ export const LocationSelectorDialog = (props) => {
                     onSelectionChange={handleAddLocation}
                     country={country}
                     placeTypes={placeTypes}
+                    singleLocation={withoutLocationCards}
                     showCountryInSuggestions={showCountryInSuggestions}
                     onError={onLocationAutocompleteError}
                     hidePoweredByGoogleLogo
