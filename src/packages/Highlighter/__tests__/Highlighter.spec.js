@@ -1,6 +1,6 @@
-import { HighlighterControl } from '../HighlighterControl';
+import { Highlighter } from '../Highlighter';
 
-describe('HighlighterControl', () => {
+describe('Highlighter', () => {
     window.scrollTo = () => {};
     const createOnMatchCallback = (keyword) => {
         return (node, onMatch) => {
@@ -28,7 +28,7 @@ describe('HighlighterControl', () => {
     describe('#constructor()', () => {
         it('should create an instance with default options', () => {
             const root = document.createElement('div');
-            expect(() => new HighlighterControl({ root })).not.toThrow();
+            expect(() => new Highlighter({ root })).not.toThrow();
         });
     });
     describe('#comparePositionTwoNodes()', () => {
@@ -43,10 +43,8 @@ describe('HighlighterControl', () => {
                 top: 20,
                 left: 10,
             }));
-            HighlighterControl.comparePositionTwoNodes(firstNode, secondNode);
-            expect(
-                HighlighterControl.comparePositionTwoNodes(firstNode, secondNode) > 0
-            ).toBeFalsy();
+            Highlighter.comparePositionTwoNodes(firstNode, secondNode);
+            expect(Highlighter.comparePositionTwoNodes(firstNode, secondNode) > 0).toBeFalsy();
         });
         it('should correct compare vertical position in nodes in different order', () => {
             const firstNode = document.createElement('div');
@@ -59,10 +57,8 @@ describe('HighlighterControl', () => {
                 top: 10,
                 left: 10,
             }));
-            HighlighterControl.comparePositionTwoNodes(firstNode, secondNode);
-            expect(
-                HighlighterControl.comparePositionTwoNodes(firstNode, secondNode) > 0
-            ).toBeTruthy();
+            Highlighter.comparePositionTwoNodes(firstNode, secondNode);
+            expect(Highlighter.comparePositionTwoNodes(firstNode, secondNode) > 0).toBeTruthy();
         });
         it('should correct compare horizontal position', () => {
             const firstNode = document.createElement('div');
@@ -75,10 +71,8 @@ describe('HighlighterControl', () => {
                 top: 10,
                 left: 10,
             }));
-            HighlighterControl.comparePositionTwoNodes(firstNode, secondNode);
-            expect(
-                HighlighterControl.comparePositionTwoNodes(firstNode, secondNode) > 0
-            ).toBeTruthy();
+            Highlighter.comparePositionTwoNodes(firstNode, secondNode);
+            expect(Highlighter.comparePositionTwoNodes(firstNode, secondNode) > 0).toBeTruthy();
         });
     });
     describe('#sortNodesByAppearance()', () => {
@@ -98,25 +92,46 @@ describe('HighlighterControl', () => {
                 top: 30,
                 left: 20,
             }));
-            expect(
-                HighlighterControl.sortNodesByAppearance([firstNode, secondNode, thirdNode])
-            ).toEqual([secondNode, thirdNode, firstNode]);
+            expect(Highlighter.sortNodesByAppearance([firstNode, secondNode, thirdNode])).toEqual([
+                secondNode,
+                thirdNode,
+                firstNode,
+            ]);
         });
     });
-    describe('#findKeywordInNodes()', () => {
-        it('should iterate through nodes correctly', () => {
-            const callback = jest.fn();
+    describe('#createHighlightWrapper()', () => {
+        it('should correct create highlighted node', () => {
+            expect(
+                Highlighter.createHighlightWrapper('term', {
+                    padding: '2px',
+                    color: 'red',
+                }).outerHTML
+            ).toBe('<mark style="padding: 2px; color: red;"></mark>');
+        });
+    });
+    describe('#generateHighlightStyles()', () => {
+        it('should correct create highlighted node', () => {
+            expect(Highlighter.generateHighlightStyles(1)).toBeInstanceOf(Object);
+        });
+    });
+    describe('#find()', () => {
+        it('should return correct result', () => {
             const root = document.createElement('div');
             root.innerHTML = html;
-            const highlighterControl = new HighlighterControl({ root });
-            highlighterControl.findKeywordInNodes('python', callback);
-            expect(callback).toBeCalledTimes(15);
+            const highlighter = new Highlighter({ root });
+            const [matchedTerms, notMatchedTerms] = highlighter.find(['python', 'notExist']);
+            expect(matchedTerms.length).toEqual(1);
+            expect(matchedTerms[0].amount).toBe(6);
+            expect(matchedTerms[0].term).toBe('python');
+            expect(notMatchedTerms.length).toBe(1);
+            expect(notMatchedTerms[0].amount).toBe(0);
+            expect(notMatchedTerms[0].term).toBe('notExist');
         });
         it('should highlight nodes correctly', () => {
             const root = document.createElement('div');
             root.innerHTML = html;
-            const highlighterControl = new HighlighterControl({ root });
-            highlighterControl.findKeywordInNodes('python', createOnMatchCallback('python'));
+            const highlighter = new Highlighter({ root });
+            highlighter.findKeywordInNodes('python', createOnMatchCallback('python'));
             const highlightedItems = root.querySelectorAll('[data-highlight-keyword="python"]');
             expect(highlightedItems.length).toBe(2);
             expect(highlightedItems[0].textContent).toBe('python');
@@ -127,8 +142,8 @@ describe('HighlighterControl', () => {
         it('should select highlight in correct order', () => {
             const root = document.createElement('div');
             root.innerHTML = html;
-            const highlighterControl = new HighlighterControl({ root });
-            highlighterControl.findKeywordInNodes('python', createOnMatchCallback('python'));
+            const highlighter = new Highlighter({ root, scrollFunction: () => {} });
+            highlighter.findKeywordInNodes('python', createOnMatchCallback('python'));
             const highlightedItems = root.querySelectorAll('[data-highlight-keyword="python"]');
             highlightedItems[0].getBoundingClientRect = jest.fn(() => ({
                 top: 30,
@@ -138,15 +153,15 @@ describe('HighlighterControl', () => {
                 top: 20,
                 left: 10,
             }));
-            highlighterControl.selectKeyword('python');
+            highlighter.selectKeyword('python');
             expect(highlightedItems[0].getAttribute('data-highlight-selected')).toBe(null);
             expect(highlightedItems[1].getAttribute('data-highlight-selected')).toBe('selected');
-            highlighterControl.selectKeyword('python');
+            highlighter.selectKeyword('python');
             expect(highlightedItems[0].getAttribute('data-highlight-selected')).toBe('selected');
             expect(highlightedItems[1].getAttribute('data-highlight-selected')).toBe(
                 'not_selected'
             );
-            highlighterControl.selectKeyword('python');
+            highlighter.selectKeyword('python');
             expect(highlightedItems[0].getAttribute('data-highlight-selected')).toBe(
                 'not_selected'
             );
@@ -157,8 +172,8 @@ describe('HighlighterControl', () => {
         it("should unselect highlight if keyword doesn't exist", () => {
             const root = document.createElement('div');
             root.innerHTML = html;
-            const highlighterControl = new HighlighterControl({ root });
-            highlighterControl.findKeywordInNodes('python', createOnMatchCallback('python'));
+            const highlighter = new Highlighter({ root, scrollFunction: () => {} });
+            highlighter.findKeywordInNodes('python', createOnMatchCallback('python'));
             const highlightedItems = root.querySelectorAll('[data-highlight-keyword="python"]');
             highlightedItems[0].getBoundingClientRect = jest.fn(() => ({
                 top: 30,
@@ -168,10 +183,10 @@ describe('HighlighterControl', () => {
                 top: 20,
                 left: 10,
             }));
-            highlighterControl.selectKeyword('python');
+            highlighter.selectKeyword('python');
             expect(highlightedItems[0].getAttribute('data-highlight-selected')).toBe(null);
             expect(highlightedItems[1].getAttribute('data-highlight-selected')).toBe('selected');
-            highlighterControl.selectKeyword('not_exist');
+            highlighter.selectKeyword('not_exist');
             expect(highlightedItems[0].getAttribute('data-highlight-selected')).toBe(null);
             expect(highlightedItems[1].getAttribute('data-highlight-selected')).toBe(
                 'not_selected'

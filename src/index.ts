@@ -1,16 +1,7 @@
 // eslint-disable-next-line import/no-default-export
 export { default } from './utils/OneUI';
-export {
-    HighlighterCore,
-    HighlighterCoreOptions,
-    HighlighterCoreAccuracy,
-} from './packages/@highlighter/core';
-export { HighlighterControl, HighlightControlScrollArgs } from './packages/@highlighter/control';
-export {
-    HighlighterNode,
-    HighlighterNodeOptions,
-    HighlighterNodeRenderer,
-} from './packages/@highlighter/node';
+export * from './packages/Highlighter';
+
 // Atoms
 export { Button, SearchButton } from './components/Buttons';
 export { Callout } from './components/Callout';
@@ -18,7 +9,7 @@ export { CandidateAvatar } from './components/CandidateAvatar';
 export { Chip } from './components/Chip';
 export { ContentPlaceholder } from './components/ContentPlaceholder';
 export { Heading } from './components/Heading';
-export { StringHighlighter, GroupHighlighter } from './components/Highlighter';
+export { StringHighlighter, ReactElementHighlighter } from './components/Highlighter';
 export * from './components/Icon';
 export { Input } from './components/Input';
 export { Link } from './components/Link';
