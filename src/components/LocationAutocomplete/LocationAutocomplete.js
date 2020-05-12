@@ -90,6 +90,7 @@ export const LocationAutocomplete = (props) => {
     }
 
     const handleInputValueChange = (value) => {
+        setInputValue(value);
         if (value) {
             setIsLoading(true);
         } else {

@@ -34,6 +34,7 @@ storiesOf('Organisms|LocationSelector', module)
         StoreInjector.withStore({
             selectedLocations: [],
             radiusUnits: 'km',
+            withoutLocationCards: false,
         })
     )
     .add('Basic component', () => {
@@ -73,7 +74,7 @@ storiesOf('Organisms|LocationSelector', module)
         );
     })
     // eslint-disable-next-line
-    .add('Example implementation', ({ parameters }: any) => {
+    .add('Example single select implementation', ({ parameters }: any) => {
         const apiKey = ensureApiKey();
         const store = parameters.getStore();
 
@@ -116,13 +117,92 @@ storiesOf('Organisms|LocationSelector', module)
         return (
             <LocationSelector
                 apiKey={apiKey}
+                withoutLocationCards
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
                 initialMapAddress={text('Initial map address', '')}
                 radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
                 renderRadiusLabel={(r) => `+ ${r} km`}
-                withoutLocationCards={boolean('Without location card list', false)}
+                hasRadius={boolean('Has radius', true)}
+                minRadius={number('Min radius', 1)}
+                maxRadius={number('Max radius', 100)}
+                radiusDefaultValue={number('Radius default value', 5)}
+                radiusStep={number('Radius steps', 1)}
+                placeTypes={['(regions)']}
+                showCountryInSuggestions={boolean('Show country in suggestions', true)}
+                modalContentLabel={text(
+                    'Modal content title for screen readers',
+                    'Location selection'
+                )}
+                inputPlaceholder={text('Input placeholder', 'Location...')}
+                noSuggestionsPlaceholder="noSuggestionsPlaceholder"
+                selectionPlaceholder={getPlaceholder()}
+                doneLabel={text('Label for Done button', 'Done')}
+                clearLabel={text('Label for clear button', 'Clear')}
+                onAddLocation={handleAddLocation}
+                onUpdateLocation={handleUpdateLocation}
+                onRemoveLocation={handleRemoveLocation}
+                onRemoveAllLocations={handleRemoveAllLocations}
+                onBlur={() => {
+                    console.log('onBlur was called');
+                }}
+                onLocationAutocompleteError={() =>
+                    console.log('onLocationAutocompleteError was called')
+                }
+            />
+        );
+    })
+    // eslint-disable-next-line
+    .add('Example multi select implementation', ({ parameters }: any) => {
+        const apiKey = ensureApiKey();
+        const store = parameters.getStore();
+
+        const handleAddLocation = (location) => {
+            console.log('onAddLocation was called with:', location);
+            store.set({ selectedLocations: [...store.get('selectedLocations'), location] });
+        };
+
+        const handleUpdateLocation = (id, radius) => {
+            console.log('onUpdateLocation was called', id, radius);
+            const newSelection = store.get('selectedLocations').map((loc) => {
+                if (loc.id === id) {
+                    loc.radius = radius; // eslint-disable-line no-param-reassign
+                }
+                return loc;
+            });
+            store.set({ selectedLocations: newSelection });
+        };
+
+        const handleRemoveLocation = (id) => {
+            console.log('onRemoveLocation was called', id);
+            store.set({
+                selectedLocations: store.get('selectedLocations').filter((l) => l.id !== id),
+            });
+        };
+
+        const handleRemoveAllLocations = () => {
+            console.log('onRemoveAllLocations was called');
+            store.set({ selectedLocations: [] });
+        };
+
+        const getPlaceholder = () => {
+            const selection = store.get('selectedLocations');
+            const selectedLocationsText = selection
+                .map((item) => item.structured_formatting.main_text)
+                .join(', ');
+            return selectedLocationsText || null;
+        };
+
+        return (
+            <LocationSelector
+                apiKey={apiKey}
+                selectedLocations={store.get('selectedLocations')}
+                country={text('country', 'NL')}
+                language={text('Language', 'EN')}
+                initialMapAddress={text('Initial map address', '')}
+                radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
+                renderRadiusLabel={(r) => `+ ${r} km`}
                 hasRadius={boolean('Has radius', true)}
                 minRadius={number('Min radius', 1)}
                 maxRadius={number('Max radius', 100)}
