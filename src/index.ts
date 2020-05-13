@@ -4,7 +4,13 @@ export {
     HighlighterCore,
     HighlighterCoreOptions,
     HighlighterCoreAccuracy,
-} from './packages/HighlighterCore';
+} from './packages/@highlighter/core';
+export { HighlighterControl, HighlightControlScrollArgs } from './packages/@highlighter/control';
+export {
+    HighlighterNode,
+    HighlighterNodeOptions,
+    HighlighterNodeRenderer,
+} from './packages/@highlighter/node';
 // Atoms
 export { Button, SearchButton } from './components/Buttons';
 export { Callout } from './components/Callout';
@@ -12,7 +18,7 @@ export { CandidateAvatar } from './components/CandidateAvatar';
 export { Chip } from './components/Chip';
 export { ContentPlaceholder } from './components/ContentPlaceholder';
 export { Heading } from './components/Heading';
-export { StringHighlighter } from './components/Highlighter';
+export { StringHighlighter, GroupHighlighter } from './components/Highlighter';
 export * from './components/Icon';
 export { Input } from './components/Input';
 export { Link } from './components/Link';

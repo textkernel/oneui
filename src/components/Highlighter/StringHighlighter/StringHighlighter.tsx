@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HighlighterCore, HighlighterCoreAccuracy } from '../../../packages/HighlighterCore';
+import { HighlighterCore, HighlighterCoreAccuracy } from '../../../packages/@highlighter/core';
 
 export type HighlighterRenderer = ({ key: number, substring }) => ReactNode;
 
