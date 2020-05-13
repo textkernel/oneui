@@ -120,7 +120,7 @@ export const LocationSelectorDialog = (props) => {
                                 locationTitle={location.description}
                                 distanceRadius={location.radius}
                                 sliderLabel={renderRadiusLabel(location.radius)}
-                                hasRadiusSlider={hasRadius}
+                                hasRadius={hasRadius}
                                 minRadius={minRadius}
                                 maxRadius={maxRadius}
                                 radiusStep={radiusStep}
@@ -143,7 +143,7 @@ LocationSelectorDialog.displayName = 'LocationSelectorDialog';
 
 LocationSelectorDialog.propTypes = {
     /**  */
-    withoutLocationCards: PropTypes.bool.isRequired,
+    withoutLocationCards: PropTypes.bool,
     /** stores an array of selected location objects */
     selectedLocations: PropTypes.arrayOf(
         PropTypes.shape({
@@ -159,7 +159,7 @@ LocationSelectorDialog.propTypes = {
     /** radius label renderer e.g. radius => `+ ${radius} km` */
     renderRadiusLabel: PropTypes.func.isRequired,
     /** defines if selector has an option to control the radius for a marker */
-    hasRadius: PropTypes.bool.isRequired,
+    hasRadius: PropTypes.bool,
     /** min radius value of the slider component */
     minRadius: PropTypes.number.isRequired,
     /** max radius value of the slider component */
@@ -192,7 +192,7 @@ LocationSelectorDialog.propTypes = {
     /** function with a locationId as an argument to be removed */
     onRemoveLocation: PropTypes.func.isRequired,
     /** function to remove all locations */
-    onRemoveAllLocations: PropTypes.func.isRequired,
+    onRemoveAllLocations: PropTypes.func,
     /** function to calculate marker positions in Map  */
     getMarkers: PropTypes.func.isRequired,
     /** function to be called when teh Done button is clicked */
@@ -200,8 +200,11 @@ LocationSelectorDialog.propTypes = {
 };
 
 LocationSelectorDialog.defaultProps = {
+    hasRadius: false,
+    withoutLocationCards: false,
     showCountryInSuggestions: false,
+    initialMapAddress: null,
     onLocationAutocompleteError: null,
     onCloseModal: () => null,
-    initialMapAddress: null,
+    onRemoveAllLocations: () => null,
 };

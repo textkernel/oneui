@@ -4,7 +4,7 @@ exports[`LocationCard component should render component correctly 1`] = `
 <LocationCard
   As="div"
   distanceRadius={42}
-  hasRadiusSlider={true}
+  hasRadius={true}
   locationId={null}
   locationTitle="London"
   maxRadius={100}

@@ -24,7 +24,7 @@ interface Props {
     /** stores an array of selected location objects */
     selectedLocations: Location[];
     /** defines if selector has an option to control the radius for a marker */
-    hasRadius: boolean;
+    hasRadius?: boolean;
     /** default radius value */
     radiusDefaultValue?: number;
     /** radius measurement unit */
@@ -38,7 +38,7 @@ interface Props {
     /** radius step value of the slider component */
     radiusStep?: number;
     /** defines if selector has a list of locations cards to render */
-    withoutLocationCards: boolean;
+    withoutLocationCards?: boolean;
     /** country where search can take place */
     country: string;
     /** address to make initial map centering more specific */

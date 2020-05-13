@@ -9,6 +9,7 @@ describe('Autosuggest', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     let selectedPlaceholder = '';
     const inputPlaceholder = 'type here...';
+    const defaultInputValue = 'default value';
     const noSuggestionsPlaceholder = 'No suggestions...';
     const clearTitle = 'Clear';
     const mockOnSelectionChange = jest.fn();
@@ -55,6 +56,26 @@ describe('Autosuggest', () => {
         it('should initially render empty component correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.state('focused')).toBeFalsy();
+        });
+        it('should render a component with default value', () => {
+            wrapper = mount(
+                <Autosuggest
+                    selectedSuggestions={selectedSuggestions}
+                    getSuggestions={getSuggestions}
+                    suggestionToString={suggestionToString}
+                    selectedPlaceholder={selectedPlaceholder}
+                    inputPlaceholder={inputPlaceholder}
+                    defaultInputValue={defaultInputValue}
+                    clearTitle={clearTitle}
+                    noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+                    onSelectionChange={mockOnSelectionChange}
+                    onInputValueChange={mockOnInputValueChange}
+                    onBlur={mockOnBlur}
+                    onClearAllSelected={mockOnClearAllSelected}
+                    showClearButton
+                />
+            );
+            expect(wrapper.find('input').props().value).toEqual(defaultInputValue);
         });
         it('should render empty component correctly when focused', () => {
             setFocusOnInput();
@@ -184,6 +205,18 @@ describe('Autosuggest', () => {
             wrapper.find('input').simulate('keyDown', { key: 'Escape' });
 
             expect(wrapper.find('input').props().value).toEqual('');
+        });
+        it.only('should not clear input value on pressing Escape button with saveSelectedValueToInput set to true', () => {
+            wrapper.setProps({ saveSelectedValueToInput: true });
+            const textInputValue = 'driver';
+
+            wrapper.find('input').simulate('change', { target: { value: textInputValue } });
+
+            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+
+            wrapper.find('input').simulate('keyDown', { key: 'Escape' });
+
+            expect(wrapper.find('input').props().value).toEqual(textInputValue);
         });
         it('should blur on pressing Tab button', () => {
             const inputEl = instance.inputRef.current;

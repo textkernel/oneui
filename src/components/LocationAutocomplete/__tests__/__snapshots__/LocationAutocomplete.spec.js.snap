@@ -10,6 +10,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
   isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
+  onRemoveAllLocations={[Function]}
   onSelectionChange={[MockFunction]}
   placeTypes={
     Array [
@@ -17,6 +18,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
     ]
   }
   showCountryInSuggestions={false}
+  singleLocation={false}
 >
   <Autosuggest
     clearTitle=""
@@ -237,7 +239,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
   >
     <div
       className="Autosuggest"
-      saveSelectedValueToInput={false}
     >
       <Downshift
         defaultHighlightedIndex={0}
@@ -608,6 +609,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
+  onRemoveAllLocations={[Function]}
   onSelectionChange={[MockFunction]}
   placeTypes={
     Array [
@@ -615,6 +617,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
     ]
   }
   showCountryInSuggestions={false}
+  singleLocation={false}
 >
   <Autosuggest
     clearTitle=""
@@ -647,7 +650,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   >
     <div
       className="Autosuggest"
-      saveSelectedValueToInput={false}
     >
       <Downshift
         defaultHighlightedIndex={0}

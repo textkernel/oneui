@@ -141,9 +141,12 @@ export class Autosuggest extends React.Component {
     };
 
     handleBlur = () => {
-        const { onBlur } = this.props;
+        const { saveSelectedValueToInput, onBlur } = this.props;
 
-        // this.setState({ inputValue: '', inputValueRecall: '' });
+        if (!saveSelectedValueToInput) {
+            this.setState({ inputValue: '', inputValueRecall: '' });
+        }
+
         if (onBlur) {
             onBlur();
         }
@@ -301,6 +304,7 @@ export class Autosuggest extends React.Component {
             getSuggestions,
             isLoading,
             isFocused,
+            saveSelectedValueToInput,
             noSuggestionsPlaceholder,
             onBlur,
             onSelectionChange,
@@ -414,7 +418,7 @@ Autosuggest.propTypes = {
     /** a string or function (to be called with selectedValues) that represents the selected values when the component is blurred */
     selectedPlaceholder: PropTypes.string,
     /** default input value */
-    defaultInputValue: PropTypes.string.isRequired,
+    defaultInputValue: PropTypes.string,
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: PropTypes.string.isRequired,
     /** to be shown when no suggestions are available */
@@ -462,6 +466,7 @@ Autosuggest.defaultProps = {
     onClearAllSelected: null,
     showClearButton: false,
     saveSelectedValueToInput: false,
+    defaultInputValue: '',
     selectedPlaceholder: '',
     iconNode: null,
     isMultiselect: false,

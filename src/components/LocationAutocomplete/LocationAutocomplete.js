@@ -181,7 +181,7 @@ LocationAutocomplete.propTypes = {
     /** trigger of the initial focus of the input field */
     isFocused: PropTypes.bool,
     /** defines if there's a single location to select in component */
-    singleLocation: PropTypes.bool.isRequired,
+    singleLocation: PropTypes.bool,
     /** callback to be called with selected value.
      * Value is of type AutocompletePrediction: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction
      */
@@ -197,7 +197,7 @@ LocationAutocomplete.propTypes = {
     /** show state and country in suggestions list */
     showCountryInSuggestions: PropTypes.bool,
     /** function to remove all locations */
-    onRemoveAllLocations: PropTypes.func.isRequired,
+    onRemoveAllLocations: PropTypes.func,
     /** function to be executed if error occurs while fetching suggestions */
     onError: PropTypes.func,
     /** To hide powered by google logo. For legal reasons only set it to true if Google map is displayed on the same screen as this component! */
@@ -206,11 +206,13 @@ LocationAutocomplete.propTypes = {
 
 LocationAutocomplete.defaultProps = {
     inputRef: null,
+    singleLocation: false,
     defaultInputValue: '',
     country: null,
     placeTypes: ['(regions)'],
     isFocused: false,
     showCountryInSuggestions: false,
     onError: null,
+    onRemoveAllLocations: () => {},
     hidePoweredByGoogleLogo: false,
 };
