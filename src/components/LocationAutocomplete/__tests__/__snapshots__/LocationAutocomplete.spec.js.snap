@@ -3,6 +3,7 @@
 exports[`<LocationAutocomplete/> that renders a location search field should pass predictions to Autosuggest 1`] = `
 <LocationAutocomplete
   country={null}
+  defaultInputValue=""
   hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
   inputRef={null}
@@ -19,6 +20,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
 >
   <Autosuggest
     clearTitle=""
+    defaultInputValue=""
     getSuggestions={
       Array [
         Object {
@@ -227,6 +229,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
     onInputValueChange={[Function]}
     onSelectionChange={[Function]}
     rootRef={null}
+    saveSelectedValueToInput={false}
     selectedPlaceholder=""
     selectedSuggestions={null}
     showClearButton={false}
@@ -234,6 +237,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
   >
     <div
       className="Autosuggest"
+      saveSelectedValueToInput={false}
     >
       <Downshift
         defaultHighlightedIndex={0}
@@ -597,6 +601,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
 exports[`<LocationAutocomplete/> that renders a location search field should render with minimal props 1`] = `
 <LocationAutocomplete
   country={null}
+  defaultInputValue=""
   hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
   inputRef={null}
@@ -613,6 +618,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
 >
   <Autosuggest
     clearTitle=""
+    defaultInputValue=""
     getSuggestions={null}
     iconNode={
       <FaMapMarkerAlt
@@ -633,6 +639,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
     onInputValueChange={[Function]}
     onSelectionChange={[Function]}
     rootRef={null}
+    saveSelectedValueToInput={false}
     selectedPlaceholder=""
     selectedSuggestions={null}
     showClearButton={false}
@@ -640,6 +647,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   >
     <div
       className="Autosuggest"
+      saveSelectedValueToInput={false}
     >
       <Downshift
         defaultHighlightedIndex={0}

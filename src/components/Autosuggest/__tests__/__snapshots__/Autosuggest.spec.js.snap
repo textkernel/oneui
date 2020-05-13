@@ -19,6 +19,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   rootRef={null}
+  saveSelectedValueToInput={false}
   selectedPlaceholder=""
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -26,6 +27,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
 >
   <div
     className="Autosuggest"
+    saveSelectedValueToInput={false}
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -136,6 +138,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   rootRef={null}
+  saveSelectedValueToInput={false}
   selectedPlaceholder=""
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -143,6 +146,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
 >
   <div
     className="Autosuggest"
+    saveSelectedValueToInput={false}
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -439,6 +443,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   rootRef={null}
+  saveSelectedValueToInput={false}
   selectedPlaceholder="Current selection"
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -446,6 +451,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
 >
   <div
     className="Autosuggest"
+    saveSelectedValueToInput={false}
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -608,6 +614,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
   }
   onSelectionChange={[MockFunction]}
   rootRef={null}
+  saveSelectedValueToInput={false}
   selectedPlaceholder=""
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -615,6 +622,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
 >
   <div
     className="Autosuggest"
+    saveSelectedValueToInput={false}
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -772,6 +780,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   rootRef={null}
+  saveSelectedValueToInput={false}
   selectedPlaceholder=""
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -779,6 +788,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
 >
   <div
     className="Autosuggest"
+    saveSelectedValueToInput={false}
   >
     <Downshift
       defaultHighlightedIndex={0}

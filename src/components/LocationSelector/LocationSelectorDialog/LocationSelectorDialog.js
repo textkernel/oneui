@@ -46,6 +46,8 @@ export const LocationSelectorDialog = (props) => {
         onCloseModal,
     } = props;
 
+    const [firstSelectedLocation] = selectedLocations;
+
     function handleAddLocation(location) {
         if (locationInputRef.current) {
             locationInputRef.current.focus();
@@ -61,7 +63,7 @@ export const LocationSelectorDialog = (props) => {
     }
 
     function handleRadiusChange(radius) {
-        onUpdateLocation(selectedLocations[0].id, radius);
+        onUpdateLocation(firstSelectedLocation.id, radius);
     }
 
     return (
@@ -71,6 +73,11 @@ export const LocationSelectorDialog = (props) => {
                     {...elem('searchField', props)}
                     isFocused
                     inputRef={locationInputRef}
+                    defaultInputValue={
+                        withoutLocationCards && firstSelectedLocation
+                            ? firstSelectedLocation.description
+                            : ''
+                    }
                     inputPlaceholder={inputPlaceholder}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     onSelectionChange={handleAddLocation}
@@ -85,14 +92,15 @@ export const LocationSelectorDialog = (props) => {
                 {hasRadius && withoutLocationCards && selectedLocations.length === 1 && (
                     <div {...elem('slider', props)}>
                         <Slider
-                            value={selectedLocations[0]?.radius}
+                            value={firstSelectedLocation.radius}
                             min={minRadius}
                             max={maxRadius}
                             step={radiusStep}
+                            railStyle={{ backgroundColor: 'var(--color-neutral-25)' }}
                             onChange={handleRadiusChange}
                         />
                         <Text size={SIZES[0]} {...elem('slider-label', props)}>
-                            {renderRadiusLabel(selectedLocations[0].radius)}
+                            {renderRadiusLabel(firstSelectedLocation.radius)}
                         </Text>
                     </div>
                 )}

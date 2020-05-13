@@ -17,6 +17,7 @@ $slider-indication-width: 90px;
     
     &__slider {
         width: 50%;
+        max-width: 400px;
         flex-direction: row;
         display: flex;
         margin: var(--spacing-5x) 5px var(--spacing-5x) 25px;

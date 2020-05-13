@@ -54,6 +54,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
     <LocationAutocomplete
       className="LocationSelectorDialog__searchField"
       country="NL"
+      defaultInputValue=""
       hidePoweredByGoogleLogo={true}
       inputPlaceholder="inputPlaceholder"
       inputRef={
@@ -84,6 +85,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       <Autosuggest
         className="LocationSelectorDialog__searchField"
         clearTitle=""
+        defaultInputValue=""
         getSuggestions={null}
         iconNode={
           <FaMapMarkerAlt
@@ -117,6 +119,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         onInputValueChange={[Function]}
         onSelectionChange={[Function]}
         rootRef={null}
+        saveSelectedValueToInput={false}
         selectedPlaceholder=""
         selectedSuggestions={null}
         showClearButton={false}
@@ -124,6 +127,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       >
         <div
           className="Autosuggest LocationSelectorDialog__searchField"
+          saveSelectedValueToInput={false}
         >
           <Downshift
             defaultHighlightedIndex={0}
@@ -278,6 +282,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         As="li"
         className="LocationSelectorDialog__locationCard"
         distanceRadius={42}
+        hasRadiusSlider={true}
         key="ajdo-219a-j19v-0491"
         locationId="ajdo-219a-j19v-0491"
         locationTitle="Amsterdam"
@@ -482,6 +487,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         As="li"
         className="LocationSelectorDialog__locationCard"
         distanceRadius={20}
+        hasRadiusSlider={true}
         key="ajdo-219a-j19v-0492"
         locationId="ajdo-219a-j19v-0492"
         locationTitle="Utrecht"

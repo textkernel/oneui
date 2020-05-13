@@ -7,6 +7,7 @@ exports[`LocationSelector component should render LocationSelector properly when
   clearLabel="Clear"
   country="NL"
   doneLabel="doneLabel"
+  hasRadius={true}
   inputPlaceholder="inputPlaceholder"
   language="en"
   maxRadius={100}
@@ -52,8 +53,8 @@ exports[`LocationSelector component should render LocationSelector properly when
       },
     ]
   }
-  selectionPlaceholder={null}
   showCountryInSuggestions={true}
+  withoutLocationCards={false}
 >
   <div>
     <FieldWrapper
@@ -301,6 +302,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                   country="NL"
                   doneLabel="doneLabel"
                   getMarkers={[Function]}
+                  hasRadius={true}
                   inputPlaceholder="inputPlaceholder"
                   language="en"
                   maxRadius={100}
@@ -309,6 +311,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                   onAddLocation={[Function]}
                   onCloseModal={[Function]}
                   onLocationAutocompleteError={[MockFunction]}
+                  onRemoveAllLocations={[MockFunction]}
                   onRemoveLocation={[MockFunction]}
                   onUpdateLocation={[MockFunction]}
                   placeTypes={
@@ -343,6 +346,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                     ]
                   }
                   showCountryInSuggestions={true}
+                  withoutLocationCards={false}
                 >
                   <Memo(LoadScriptNext)
                     googleMapsApiKey="apiKey"
@@ -413,6 +417,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
   clearLabel="Clear"
   country="NL"
   doneLabel="doneLabel"
+  hasRadius={true}
   inputPlaceholder="inputPlaceholder"
   language="en"
   maxRadius={100}
@@ -458,8 +463,8 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       },
     ]
   }
-  selectionPlaceholder={null}
   showCountryInSuggestions={true}
+  withoutLocationCards={false}
 >
   <div>
     <FieldWrapper

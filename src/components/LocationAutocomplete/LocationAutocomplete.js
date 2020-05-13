@@ -18,16 +18,11 @@ const DEBOUNCE_DELAY = 350;
 const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
 export const LocationAutocomplete = (props) => {
-    const [storage] = React.useState({ latestInputValue: '' });
-    const [suggestionsList, setSuggestionsList] = React.useState(null);
-    const [isLoading, setIsLoading] = React.useState(false);
-    const [inputValue, setInputValue] = React.useState('');
-    const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
-
     const {
         inputRef,
         isFocused,
         onSelectionChange,
+        defaultInputValue,
         inputPlaceholder,
         noSuggestionsPlaceholder,
         country,
@@ -39,6 +34,12 @@ export const LocationAutocomplete = (props) => {
         hidePoweredByGoogleLogo,
         ...rest
     } = props;
+
+    const [storage] = React.useState({ latestInputValue: '' });
+    const [suggestionsList, setSuggestionsList] = React.useState(null);
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [inputValue, setInputValue] = React.useState('');
+    const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
 
     // Suggestion functions
     const resetSuggestionsList = () => setSuggestionsList(null);
@@ -151,6 +152,7 @@ export const LocationAutocomplete = (props) => {
             suggestionToString={suggestionToString}
             isLoading={isLoading}
             isFocused={isFocused}
+            defaultInputValue={defaultInputValue}
             inputPlaceholder={inputPlaceholder}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             listRenderer={renderListPoweredByGoogle}
@@ -172,11 +174,13 @@ LocationAutocomplete.propTypes = {
     inputRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: PropTypes.string.isRequired,
+    /** default input value */
+    defaultInputValue: PropTypes.string,
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** trigger of the initial focus of the input field */
     isFocused: PropTypes.bool,
-    /**  */
+    /** defines if there's a single location to select in component */
     singleLocation: PropTypes.bool.isRequired,
     /** callback to be called with selected value.
      * Value is of type AutocompletePrediction: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction
@@ -202,6 +206,7 @@ LocationAutocomplete.propTypes = {
 
 LocationAutocomplete.defaultProps = {
     inputRef: null,
+    defaultInputValue: '',
     country: null,
     placeTypes: ['(regions)'],
     isFocused: false,

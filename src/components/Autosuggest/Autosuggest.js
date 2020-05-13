@@ -34,7 +34,7 @@ export class Autosuggest extends React.Component {
         this.handleWrapperKeyDown = memoize(this.handleWrapperKeyDown);
 
         this.state = {
-            inputValue: '',
+            inputValue: props.defaultInputValue,
             inputValueRecall: '',
             focused: props.isFocused,
         };
@@ -254,7 +254,7 @@ export class Autosuggest extends React.Component {
             typeof getSuggestions === 'function' ? getSuggestions(inputValue) : getSuggestions;
 
         if (!suggestions || !suggestions.length) {
-            return inputValue ? (
+            return inputValue && inputValueRecall === inputValue ? (
                 <ListItem disabled>
                     <Text context="muted">{noSuggestionsPlaceholder}</Text>
                 </ListItem>
@@ -292,6 +292,7 @@ export class Autosuggest extends React.Component {
         const {
             selectedPlaceholder,
             suggestionToString,
+            defaultInputValue,
             inputPlaceholder,
             clearTitle,
             showClearButton,
@@ -412,6 +413,8 @@ Autosuggest.propTypes = {
     isFocused: PropTypes.bool,
     /** a string or function (to be called with selectedValues) that represents the selected values when the component is blurred */
     selectedPlaceholder: PropTypes.string,
+    /** default input value */
+    defaultInputValue: PropTypes.string.isRequired,
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: PropTypes.string.isRequired,
     /** to be shown when no suggestions are available */
