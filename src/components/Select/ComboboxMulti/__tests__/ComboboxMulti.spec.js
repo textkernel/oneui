@@ -16,7 +16,7 @@ describe('ComboboxMulti', () => {
     let wrapper;
     let inputNode;
 
-    const setFocusOnInput = () => wrapper.find('.SelectBase__field').first().simulate('click');
+    const setFocusOnInput = () => wrapper.find('input').simulate('click');
 
     beforeEach(() => {
         wrapper = mount(
@@ -106,15 +106,8 @@ describe('ComboboxMulti', () => {
             expect(wrapper.find('input').props().value).toEqual('');
         });
         it('should blur on pressing Tab button', () => {
-            const blurSpy = jest.spyOn(inputNode, 'blur');
-
             setFocusOnInput();
-
-            expect(inputNode).toBe(document.activeElement);
-
             wrapper.find('input').simulate('keyDown', { key: 'Tab' });
-
-            expect(blurSpy).toHaveBeenCalled();
             expect(mockOnBlur).toHaveBeenCalled();
         });
     });

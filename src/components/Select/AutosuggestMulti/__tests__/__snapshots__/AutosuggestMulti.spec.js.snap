@@ -7,6 +7,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
+  onSelectionRemove={[MockFunction]}
   selectedSuggestions={Array []}
   suggestionToString={[Function]}
   suggestions={Array []}
@@ -24,7 +25,6 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
           autocomplete="off"
           class="AutosuggestMulti__input"
           data-lpignore="true"
-          id="downshift-0-input"
           placeholder="type here..."
           value=""
         />,
@@ -35,6 +35,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionChange={[MockFunction]}
+    selectOnTabPress={true}
     showClearButton={false}
     suggestionToString={[Function]}
     suggestions={Array []}
@@ -74,15 +75,11 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
             isFocused={false}
             onClear={[Function]}
             onClick={[Function]}
-            onKeyDown={[Function]}
             showClearButton={false}
           >
             <div
               className="FieldWrapper SelectBase__field"
               onClick={[Function]}
-              onKeyDown={[Function]}
-              role="searchbox"
-              tabIndex={0}
             >
               <div
                 className="FieldWrapper__content"
@@ -98,9 +95,9 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
                     autoComplete="off"
                     className="AutosuggestMulti__input"
                     data-lpignore={true}
-                    id="downshift-0-input"
                     onBlur={[Function]}
                     onChange={[Function]}
+                    onFocus={[Function]}
                     onKeyDown={[Function]}
                     placeholder="type here..."
                     value=""

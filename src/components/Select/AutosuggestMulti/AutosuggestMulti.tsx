@@ -9,9 +9,11 @@ import {
     BlurredRendererHelpers,
 } from '../SelectBase';
 import styles from './AutosuggestMulti.scss';
-import { BACKSPACE_KEY, ESCAPE_KEY, TAB_KEY } from '../../../constants';
+import { BACKSPACE_KEY, ESCAPE_KEY, TAB_KEY, ENTER_KEY } from '../../../constants';
 
 interface Props<S> extends CommonPropsWithClear<S> {
+    /** define id for input element */
+    id?: string;
     /** array of already selected suggestions */
     selectedSuggestions: S[];
     /** number of visible tags in blur mode */
@@ -20,12 +22,15 @@ interface Props<S> extends CommonPropsWithClear<S> {
     inputPlaceholder: string;
     /** Enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
+    /** onSelectionChange() called when a suggestion is removed  */
+    onSelectionRemove: (item: S) => void;
 }
 
 const { elem } = bem('AutosuggestMulti', styles);
 
 export function AutosuggestMulti<S>(props: Props<S>) {
     const {
+        id,
         onInputValueChange,
         onSelectionChange,
         selectedSuggestions,
@@ -36,6 +41,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         numberOfVisibleTags,
         onBlur,
         showClearButton,
+        onSelectionRemove,
         ...rest
     } = props;
     const inputRef = React.createRef<HTMLInputElement>();
@@ -48,7 +54,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
 
     const renderFullTagsList = () => {
         return selectedSuggestions.map((item) => (
-            <SuggestionTag key={suggestionToString(item)} onClick={() => onSelectionChange(item)}>
+            <SuggestionTag key={suggestionToString(item)} onClick={() => onSelectionRemove(item)}>
                 {suggestionToString(item)}
             </SuggestionTag>
         ));
@@ -79,19 +85,22 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         return visibleTagsList;
     };
 
-    const handleInputKeyDown = (blur: () => void) => (event: KeyboardEvent) => {
+    const handleInputKeyDown = (blur: () => void) => (event: React.KeyboardEvent<HTMLElement>) => {
         if (event.key === TAB_KEY) {
-            inputRef.current?.blur();
             blur();
+        } else if (event.key === ENTER_KEY && !inputValue) {
+            /**
+             * Prevent the default Downshift handler behavior
+             * That need for submitting form
+             */
+            // eslint-disable-next-line no-param-reassign, dot-notation
+            event.nativeEvent['preventDownshiftDefault'] = true;
         } else if (event.key === ESCAPE_KEY) {
-            // prevents key propagation and sets the focus on parent component
             inputRef.current?.blur();
             blur();
-            inputRef.current?.parentElement?.focus();
-            event.stopPropagation();
         } else if (event.key === BACKSPACE_KEY && !inputValue && !!selectedSuggestions.length) {
             const lastItem = selectedSuggestions[selectedSuggestions.length - 1];
-            onSelectionChange(lastItem);
+            onSelectionRemove(lastItem);
         }
     };
 
@@ -101,6 +110,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             {renderFullTagsList()}
             <input
                 {...getInputProps({
+                    id,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
                     onKeyDown: handleInputKeyDown(blur),
@@ -112,19 +122,19 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     );
 
     // eslint-disable-next-line react/display-name
-    const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps }) => (
+    const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps, onFocus }) => (
         <div {...elem('wrapper')}>
             {renderShortTagsList()}
-            {selectedSuggestions.length === 0 && (
-                <input
-                    {...getInputProps({
-                        ref: inputRef,
-                        placeholder: inputPlaceholder,
-                        'data-lpignore': true,
-                        ...elem('input'),
-                    })}
-                />
-            )}
+            <input
+                {...getInputProps({
+                    id,
+                    ref: inputRef,
+                    placeholder: selectedSuggestions.length === 0 ? inputPlaceholder : '',
+                    'data-lpignore': true,
+                    onFocus,
+                    ...elem('input', { hidden: selectedSuggestions.length > 0 }),
+                })}
+            />
         </div>
     );
 
@@ -144,6 +154,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             blurredRenderer={renderBlurred}
             showClearButton={showClearButton && selectedSuggestions.length > 0}
             keepExpandedAfterSelection
+            selectOnTabPress
             clearInputAfterSelection
         />
     );

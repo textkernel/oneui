@@ -47,7 +47,7 @@ storiesOf('Organisms|Select', module)
 
         const onBlur = () => {
             console.log('onBlur was called');
-            store.set({ inputValue: '' });
+            setTimeout(() => store.set({ inputValue: '' }), 200);
         };
 
         return (
@@ -114,6 +114,11 @@ storiesOf('Organisms|Select', module)
                     selectedSuggestions,
                 });
             }
+        };
+
+        const onSelectionRemove = (item: TSuggestion) => {
+            console.log(`onSelectionRemove was called with {name: ${item.name}}`);
+            const selectedItem = { ...item };
             // Delete item
             if (!store.get('inputValue')) {
                 const selectedSuggestions = store
@@ -127,7 +132,7 @@ storiesOf('Organisms|Select', module)
 
         const onBlur = () => {
             console.log('onBlur was called');
-            store.set({ inputValue: '' });
+            setTimeout(() => store.set({ inputValue: '' }), 500);
         };
 
         const onClearAllSelected = () => {
@@ -138,12 +143,14 @@ storiesOf('Organisms|Select', module)
         return (
             <div style={{ width: '500px' }}>
                 <AutosuggestMulti
+                    id="test"
                     selectedSuggestions={store.get('selectedSuggestions')}
                     inputPlaceholder={text('Input placeholder', 'Select something...')}
                     suggestions={getSuggestions()}
                     suggestionToString={SUGGESTION_TO_STRING}
                     onBlur={onBlur}
                     onSelectionChange={onSelectionChange}
+                    onSelectionRemove={onSelectionRemove}
                     isProminent={boolean('Use prominent styling', true)}
                     onInputValueChange={onInputValueChange}
                     showClearButton={boolean('Show clear button', true)}

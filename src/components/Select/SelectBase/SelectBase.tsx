@@ -3,18 +3,22 @@ import Downshift from 'downshift';
 import { bem } from '../../../utils/bem';
 import { FieldWrapper } from '../../FieldWrapper';
 import { List } from '../../List';
-import { ENTER_KEY } from '../../../constants';
 import { Props } from './interfaces';
 import styles from './SelectBase.scss';
 
+interface SelectBaseProps<P> extends Props<P> {
+    selectOnTabPress?: boolean;
+}
+
 const { block, elem } = bem('SelectBase', styles);
 
-export function SelectBase<S>(props: Props<S>) {
+export function SelectBase<S>(props: SelectBaseProps<S>) {
     const {
         suggestions,
         suggestionToString,
         clearTitle,
         showClearButton,
+        selectOnTabPress,
         onBlur,
         onSelectionChange,
         onInputValueChange,
@@ -128,8 +132,8 @@ export function SelectBase<S>(props: Props<S>) {
         }
     };
 
-    const handleWrapperKeyDown = (openMenu) => (e) => {
-        if (!focused && e.key === ENTER_KEY) {
+    const handleInputOnFocus = (openMenu) => () => {
+        if (!focused) {
             focus(openMenu);
         }
     };
@@ -143,6 +147,14 @@ export function SelectBase<S>(props: Props<S>) {
                     highlightedIndex: state.highlightedIndex,
                     isOpen: keepExpandedAfterSelection,
                 };
+            case Downshift.stateChangeTypes.blurInput:
+                if (selectOnTabPress) {
+                    return {
+                        ...changes,
+                        selectedItem: suggestions[state.highlightedIndex],
+                    };
+                }
+                return changes;
             default:
                 return changes;
         }
@@ -189,7 +201,6 @@ export function SelectBase<S>(props: Props<S>) {
                             showClearButton={!focused && showClearButton}
                             isFocused={focused}
                             onClick={handleWrapperClick(openMenu)}
-                            onKeyDown={handleWrapperKeyDown(openMenu)}
                             {...elem('field', stateAndProps)}
                         >
                             {focused
@@ -199,7 +210,11 @@ export function SelectBase<S>(props: Props<S>) {
                                       onBlur: handleBlur,
                                       inputValue,
                                   })
-                                : blurredRenderer({ getInputProps, getToggleButtonProps })}
+                                : blurredRenderer({
+                                      getInputProps,
+                                      getToggleButtonProps,
+                                      onFocus: handleInputOnFocus(openMenu),
+                                  })}
                             <List
                                 {...getMenuProps({
                                     ...elem('list', stateAndProps),

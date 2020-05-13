@@ -42,6 +42,7 @@ export type FocusedRendererHelpers<S> = (helpers: {
 export type BlurredRendererHelpers<S> = (helpers: {
     getInputProps: (options: GetItemPropsOptions<S>) => object;
     getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
+    onFocus: (callback: () => void) => void;
 }) => ReactNode;
 
 export interface Props<S> extends CommonPropsWithClear<S> {

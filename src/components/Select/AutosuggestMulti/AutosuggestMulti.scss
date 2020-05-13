@@ -26,6 +26,11 @@
         font-size: var(--font-size-normal);
         min-width: 100px;
 
+        &--hidden {
+            position: absolute;
+            opacity: 0;
+        }
+
         &:focus {
             outline: none;
         }
