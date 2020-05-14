@@ -64,18 +64,26 @@ describe('AutosuggestMulti', () => {
         });
     });
     describe('focusing and blurring the search field', () => {
-        it('should clear input value on pressing Escape button', () => {
+        it('should clear input value on pressing Escape button', (done) => {
             const textInputValue = 'driver';
             setFocusOnInput();
             wrapper.find('input').simulate('change', { target: { value: textInputValue } });
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
-            wrapper.find('input').simulate('keyDown', { key: 'Escape' });
-            expect(wrapper.find('input').props().value).toEqual('');
+            wrapper.find('input').simulate('blur').simulate('keyDown', { key: 'Escape' });
+            setTimeout(() => {
+                wrapper.update();
+                expect(wrapper.find('input').props().value).toEqual('');
+                done();
+            }, 0);
         });
-        it('should blur on pressing Tab button', () => {
+        it('should blur on pressing Tab button', (done) => {
             setFocusOnInput();
-            wrapper.find('input').simulate('keyDown', { key: 'Tab' });
-            expect(mockOnBlur).toHaveBeenCalled();
+            wrapper.find('input').simulate('blur').simulate('keyDown', { key: 'Tab' });
+            setTimeout(() => {
+                wrapper.update();
+                expect(mockOnBlur).toHaveBeenCalled();
+                done();
+            }, 0);
         });
     });
     describe('callbacks', () => {

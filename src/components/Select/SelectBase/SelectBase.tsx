@@ -7,7 +7,7 @@ import { Props } from './interfaces';
 import styles from './SelectBase.scss';
 
 interface SelectBaseProps<P> extends Props<P> {
-    selectOnBlur?: boolean;
+    selectOnTab?: boolean;
 }
 
 const { block, elem } = bem('SelectBase', styles);
@@ -18,7 +18,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         suggestionToString,
         clearTitle,
         showClearButton,
-        selectOnBlur,
+        selectOnTab,
         onBlur,
         onSelectionChange,
         onInputValueChange,
@@ -81,7 +81,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         setFocused(false);
         setInputValue('');
         setInputValueRecall('');
-        onBlur?.();
+        if (focused) onBlur?.();
     };
 
     const handleChange = (selectedItem, downshift) => {
@@ -140,13 +140,22 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     };
 
     const stateUpdater = (change, state) => {
-        if (change.type === Downshift.stateChangeTypes.changeInput && state.isOpen !== focused) {
+        if (change.type === Downshift.stateChangeTypes.blurInput) {
+            handleBlur();
+        } else if (
+            change.type === Downshift.stateChangeTypes.changeInput &&
+            state.isOpen !== focused
+        ) {
             setFocused(state.isOpen);
         }
     };
 
-    const stateReducer = (state, changes) => {
-        switch (changes.type) {
+    const stateReducer = (state, newChanges) => {
+        const changes = {
+            ...newChanges,
+            isEscapeAction: false,
+        };
+        switch (newChanges.type) {
             case Downshift.stateChangeTypes.clickItem:
             case Downshift.stateChangeTypes.keyDownEnter:
                 return {
@@ -154,8 +163,14 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
                     highlightedIndex: state.highlightedIndex,
                     isOpen: keepExpandedAfterSelection,
                 };
+            case Downshift.stateChangeTypes.keyDownEscape:
+                return {
+                    ...changes,
+                    isOpen: false,
+                    isEscapeAction: true,
+                };
             case Downshift.stateChangeTypes.blurInput:
-                if (selectOnBlur) {
+                if (selectOnTab && !state.isEscapeAction) {
                     return {
                         ...changes,
                         selectedItem: suggestions[state.highlightedIndex],

@@ -4,7 +4,7 @@ import { bem } from '../../../utils/bem/bem';
 import { SelectBase, CommonProps } from '../SelectBase';
 import { SuggestionsList } from '../SuggestionsList';
 import styles from './ComboboxMulti.scss';
-import { ESCAPE_KEY, TAB_KEY } from '../../../constants';
+import { ESCAPE_KEY } from '../../../constants';
 
 const { elem } = bem('ComboboxMulti', styles);
 
@@ -38,11 +38,8 @@ export function ComboboxMulti<S>(props: Props<S>) {
     // eslint-disable-next-line react/display-name
     const renderFocused = ({ getInputProps, getToggleButtonProps, onBlur: blur }) => {
         const handleInputKeyDown = (event) => {
-            if (event.key === TAB_KEY) {
-                blur();
-            } else if (event.key === ESCAPE_KEY) {
+            if (event.key === ESCAPE_KEY) {
                 inputRef.current?.blur();
-                blur();
             }
         };
 

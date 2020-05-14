@@ -132,7 +132,7 @@ storiesOf('Organisms|Select', module)
 
         const onBlur = () => {
             console.log('onBlur was called');
-            setTimeout(() => store.set({ inputValue: '' }), 500);
+            store.set({ inputValue: '' });
         };
 
         const onClearAllSelected = () => {

@@ -35,7 +35,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionChange={[MockFunction]}
-    selectOnBlur={false}
+    selectOnTab={true}
     showClearButton={false}
     suggestionToString={[Function]}
     suggestions={Array []}

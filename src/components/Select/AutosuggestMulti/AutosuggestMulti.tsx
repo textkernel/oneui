@@ -9,7 +9,7 @@ import {
     BlurredRendererHelpers,
 } from '../SelectBase';
 import styles from './AutosuggestMulti.scss';
-import { BACKSPACE_KEY, ESCAPE_KEY, TAB_KEY, ENTER_KEY } from '../../../constants';
+import { BACKSPACE_KEY, ESCAPE_KEY, ENTER_KEY } from '../../../constants';
 
 interface Props<S> extends CommonPropsWithClear<S> {
     /** define id for input element */
@@ -46,7 +46,6 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     } = props;
     const inputRef = React.createRef<HTMLInputElement>();
     const [inputValue, setInputValue] = React.useState('');
-    const [selectOnBlur, setSelectOnBlur] = React.useState(false);
 
     const handleInputValueChange = (value: string) => {
         onInputValueChange(value);
@@ -86,11 +85,8 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         return visibleTagsList;
     };
 
-    const handleInputKeyDown = (blur: () => void) => (event: React.KeyboardEvent<HTMLElement>) => {
-        if (event.key === TAB_KEY) {
-            setSelectOnBlur(true);
-            blur();
-        } else if (event.key === ENTER_KEY && !inputValue) {
+    const handleInputKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+        if (event.key === ENTER_KEY && !inputValue) {
             /**
              * Prevent the default Downshift handler behavior
              * That need for submitting form
@@ -98,9 +94,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             // eslint-disable-next-line no-param-reassign, dot-notation
             event.nativeEvent['preventDownshiftDefault'] = true;
         } else if (event.key === ESCAPE_KEY) {
-            setSelectOnBlur(false);
             inputRef.current?.blur();
-            blur();
         } else if (event.key === BACKSPACE_KEY && !inputValue && !!selectedSuggestions.length) {
             const lastItem = selectedSuggestions[selectedSuggestions.length - 1];
             onSelectionRemove(lastItem);
@@ -108,7 +102,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     };
 
     // eslint-disable-next-line react/display-name
-    const renderFocused: FocusedRendererHelpers<S> = ({ getInputProps, onBlur: blur }) => (
+    const renderFocused: FocusedRendererHelpers<S> = ({ getInputProps }) => (
         <div {...elem('wrapper', { isFocused: true })}>
             {renderFullTagsList()}
             <input
@@ -116,7 +110,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     id,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
-                    onKeyDown: handleInputKeyDown(blur),
+                    onKeyDown: handleInputKeyDown,
                     'data-lpignore': true,
                     ...elem('input'),
                 })}
@@ -157,7 +151,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             blurredRenderer={renderBlurred}
             showClearButton={showClearButton && selectedSuggestions.length > 0}
             keepExpandedAfterSelection
-            selectOnBlur={selectOnBlur}
+            selectOnTab
             clearInputAfterSelection
         />
     );

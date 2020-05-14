@@ -81,34 +81,46 @@ describe('ComboboxMulti', () => {
             expect(inputNode).toBe(document.activeElement);
             expect(wrapper.find('li')).not.toHaveLength(0);
         });
-        it('should blur on pressing Escape button', () => {
+        it('should blur on pressing Escape button', (done) => {
             const blurSpy = jest.spyOn(inputNode, 'blur');
 
             setFocusOnInput();
 
             expect(inputNode).toBe(document.activeElement);
 
-            wrapper.find('input').simulate('keyDown', { key: 'Escape' });
+            wrapper.find('input').simulate('blur').simulate('keyDown', { key: 'Escape' });
 
-            expect(inputNode).not.toBe(document.activeElement);
-            expect(blurSpy).toHaveBeenCalled();
-            expect(mockOnBlur).toHaveBeenCalled();
+            setTimeout(() => {
+                wrapper.update();
+                expect(inputNode).not.toBe(document.activeElement);
+                expect(blurSpy).toHaveBeenCalled();
+                expect(mockOnBlur).toHaveBeenCalled();
+                done();
+            }, 0);
         });
-        it('should clear input value on pressing Escape button', () => {
+        it('should clear input value on pressing Escape button', (done) => {
             const textInputValue = 'driver';
 
             wrapper.find('input').simulate('change', { target: { value: textInputValue } });
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
 
-            wrapper.find('input').simulate('keyDown', { key: 'Escape' });
+            wrapper.find('input').simulate('blur').simulate('keyDown', { key: 'Escape' });
 
-            expect(wrapper.find('input').props().value).toEqual('');
+            setTimeout(() => {
+                wrapper.update();
+                expect(wrapper.find('input').props().value).toEqual('');
+                done();
+            }, 0);
         });
-        it('should blur on pressing Tab button', () => {
+        it('should blur on pressing Tab button', (done) => {
             setFocusOnInput();
-            wrapper.find('input').simulate('keyDown', { key: 'Tab' });
-            expect(mockOnBlur).toHaveBeenCalled();
+            wrapper.find('input').simulate('blur').simulate('keyDown', { key: 'Tab' });
+            setTimeout(() => {
+                wrapper.update();
+                expect(mockOnBlur).toHaveBeenCalled();
+                done();
+            }, 0);
         });
     });
     describe('callbacks', () => {
