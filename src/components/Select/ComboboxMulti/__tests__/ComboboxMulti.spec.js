@@ -96,7 +96,7 @@ describe('ComboboxMulti', () => {
                 expect(blurSpy).toHaveBeenCalled();
                 expect(mockOnBlur).toHaveBeenCalled();
                 done();
-            }, 0);
+            });
         });
         it('should clear input value on pressing Escape button', (done) => {
             const textInputValue = 'driver';
@@ -111,7 +111,7 @@ describe('ComboboxMulti', () => {
                 wrapper.update();
                 expect(wrapper.find('input').props().value).toEqual('');
                 done();
-            }, 0);
+            });
         });
         it('should blur on pressing Tab button', (done) => {
             setFocusOnInput();
@@ -120,7 +120,7 @@ describe('ComboboxMulti', () => {
                 wrapper.update();
                 expect(mockOnBlur).toHaveBeenCalled();
                 done();
-            }, 0);
+            });
         });
     });
     describe('callbacks', () => {

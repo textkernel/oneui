@@ -74,7 +74,7 @@ describe('AutosuggestMulti', () => {
                 wrapper.update();
                 expect(wrapper.find('input').props().value).toEqual('');
                 done();
-            }, 0);
+            });
         });
         it('should blur on pressing Tab button', (done) => {
             setFocusOnInput();
@@ -83,7 +83,7 @@ describe('AutosuggestMulti', () => {
                 wrapper.update();
                 expect(mockOnBlur).toHaveBeenCalled();
                 done();
-            }, 0);
+            });
         });
     });
     describe('callbacks', () => {
