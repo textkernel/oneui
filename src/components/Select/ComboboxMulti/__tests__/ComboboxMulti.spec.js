@@ -132,6 +132,7 @@ describe('ComboboxMulti', () => {
         });
         it('should not clear the input field when a suggestion was selected', () => {
             const textInputValue = 'driver';
+            setFocusOnInput();
             wrapper.find('input').simulate('change', { target: { value: textInputValue } });
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);

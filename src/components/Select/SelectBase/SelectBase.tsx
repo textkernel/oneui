@@ -7,7 +7,7 @@ import { Props } from './interfaces';
 import styles from './SelectBase.scss';
 
 interface SelectBaseProps<P> extends Props<P> {
-    selectOnTabPress?: boolean;
+    selectOnBlur?: boolean;
 }
 
 const { block, elem } = bem('SelectBase', styles);
@@ -18,7 +18,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         suggestionToString,
         clearTitle,
         showClearButton,
-        selectOnTabPress,
+        selectOnBlur,
         onBlur,
         onSelectionChange,
         onInputValueChange,
@@ -78,6 +78,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     }, [rootRefFromProps]);
 
     const handleBlur = () => {
+        setFocused(false);
         setInputValue('');
         setInputValueRecall('');
         onBlur?.();
@@ -138,6 +139,12 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         }
     };
 
+    const stateUpdater = (change, state) => {
+        if (change.type === Downshift.stateChangeTypes.changeInput && state.isOpen !== focused) {
+            setFocused(state.isOpen);
+        }
+    };
+
     const stateReducer = (state, changes) => {
         switch (changes.type) {
             case Downshift.stateChangeTypes.clickItem:
@@ -148,21 +155,16 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
                     isOpen: keepExpandedAfterSelection,
                 };
             case Downshift.stateChangeTypes.blurInput:
-                if (selectOnTabPress) {
+                if (selectOnBlur) {
                     return {
                         ...changes,
                         selectedItem: suggestions[state.highlightedIndex],
+                        isOpen: false,
                     };
                 }
                 return changes;
             default:
                 return changes;
-        }
-    };
-
-    const stateUpdater = (change, state) => {
-        if (state.isOpen !== focused) {
-            setFocused(state.isOpen);
         }
     };
 

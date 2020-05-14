@@ -46,6 +46,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     } = props;
     const inputRef = React.createRef<HTMLInputElement>();
     const [inputValue, setInputValue] = React.useState('');
+    const [selectOnBlur, setSelectOnBlur] = React.useState(false);
 
     const handleInputValueChange = (value: string) => {
         onInputValueChange(value);
@@ -87,6 +88,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
 
     const handleInputKeyDown = (blur: () => void) => (event: React.KeyboardEvent<HTMLElement>) => {
         if (event.key === TAB_KEY) {
+            setSelectOnBlur(true);
             blur();
         } else if (event.key === ENTER_KEY && !inputValue) {
             /**
@@ -96,6 +98,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             // eslint-disable-next-line no-param-reassign, dot-notation
             event.nativeEvent['preventDownshiftDefault'] = true;
         } else if (event.key === ESCAPE_KEY) {
+            setSelectOnBlur(false);
             inputRef.current?.blur();
             blur();
         } else if (event.key === BACKSPACE_KEY && !inputValue && !!selectedSuggestions.length) {
@@ -154,7 +157,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             blurredRenderer={renderBlurred}
             showClearButton={showClearButton && selectedSuggestions.length > 0}
             keepExpandedAfterSelection
-            selectOnTabPress
+            selectOnBlur={selectOnBlur}
             clearInputAfterSelection
         />
     );
