@@ -206,7 +206,7 @@ describe('Autosuggest', () => {
 
             expect(wrapper.find('input').props().value).toEqual('');
         });
-        it.only('should not clear input value on pressing Escape button with saveSelectedValueToInput set to true', () => {
+        it('should not clear input value on pressing Escape button with saveSelectedValueToInput set to true', () => {
             wrapper.setProps({ saveSelectedValueToInput: true });
             const textInputValue = 'driver';
 
