@@ -45,6 +45,7 @@ describe('LocationSelectorDialog component', () => {
     const onAddLocationMock = jest.fn();
     const onUpdateLocationMock = jest.fn();
     const onRemoveLocationMock = jest.fn();
+    const onRemoveAllLocationsMock = jest.fn();
     const onLocationAutocompleteErrorMock = jest.fn();
     const onCloseModal = jest.fn();
 
@@ -70,6 +71,7 @@ describe('LocationSelectorDialog component', () => {
                 getMarkers={() => []}
                 onAddLocation={onAddLocationMock}
                 onCloseModal={onCloseModal}
+                onRemoveAllLocations={onRemoveAllLocationsMock}
             />
         );
     });

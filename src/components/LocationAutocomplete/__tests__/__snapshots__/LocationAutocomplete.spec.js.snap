@@ -10,7 +10,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
   isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
-  onRemoveAllLocations={[Function]}
+  onRemoveAllLocations={[MockFunction]}
   onSelectionChange={[MockFunction]}
   placeTypes={
     Array [
@@ -609,7 +609,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
-  onRemoveAllLocations={[Function]}
+  onRemoveAllLocations={[MockFunction]}
   onSelectionChange={[MockFunction]}
   placeTypes={
     Array [

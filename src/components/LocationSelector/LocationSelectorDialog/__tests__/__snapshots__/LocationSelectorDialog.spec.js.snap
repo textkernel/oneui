@@ -14,7 +14,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
   onAddLocation={[MockFunction]}
   onCloseModal={[MockFunction]}
   onLocationAutocompleteError={[MockFunction]}
-  onRemoveAllLocations={[Function]}
+  onRemoveAllLocations={[MockFunction]}
   onRemoveLocation={[MockFunction]}
   onUpdateLocation={[MockFunction]}
   placeTypes={
@@ -77,7 +77,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       isFocused={true}
       noSuggestionsPlaceholder="noSuggestionsPlaceholder"
       onError={[MockFunction]}
-      onRemoveAllLocations={[Function]}
+      onRemoveAllLocations={[MockFunction]}
       onSelectionChange={[Function]}
       placeTypes={
         Array [
