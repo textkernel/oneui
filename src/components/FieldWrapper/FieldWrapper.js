@@ -19,7 +19,7 @@ export const FieldWrapper = React.forwardRef((props, ref) => {
     const { children, clearLabel, showClearButton, onClear, isFocused, ...rest } = props;
 
     return (
-        <div tabIndex={0} role="searchbox" ref={ref} {...rest} {...block(props)}>
+        <div ref={ref} {...rest} {...block(props)}>
             <div {...elem('content', props)}>{children}</div>
 
             {showClearButton && (

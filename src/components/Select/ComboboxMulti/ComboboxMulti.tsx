@@ -4,11 +4,13 @@ import { bem } from '../../../utils/bem/bem';
 import { SelectBase, CommonProps } from '../SelectBase';
 import { SuggestionsList } from '../SuggestionsList';
 import styles from './ComboboxMulti.scss';
-import { ESCAPE_KEY, TAB_KEY } from '../../../constants';
+import { ESCAPE_KEY } from '../../../constants';
 
 const { elem } = bem('ComboboxMulti', styles);
 
 interface Props<S> extends CommonProps<S> {
+    /** define id for input element */
+    id?: string;
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: string;
     /** to be shown when no suggestions are available */
@@ -19,6 +21,7 @@ interface Props<S> extends CommonProps<S> {
 
 export function ComboboxMulti<S>(props: Props<S>) {
     const {
+        id,
         onSelectionChange,
         inputRef: inputRefFromProps,
         suggestions,
@@ -35,15 +38,8 @@ export function ComboboxMulti<S>(props: Props<S>) {
     // eslint-disable-next-line react/display-name
     const renderFocused = ({ getInputProps, getToggleButtonProps, onBlur: blur }) => {
         const handleInputKeyDown = (event) => {
-            if (event.key === TAB_KEY) {
+            if (event.key === ESCAPE_KEY) {
                 inputRef.current?.blur();
-                blur();
-            } else if (event.key === ESCAPE_KEY) {
-                // prevents key propagation and sets the focus on parent component
-                inputRef.current?.blur();
-                blur();
-                inputRef.current?.parentElement?.focus();
-                event.stopPropagation();
             }
         };
 
@@ -51,6 +47,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
             <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
                 <input
                     {...getInputProps({
+                        id,
                         ref: inputRef,
                         placeholder: inputPlaceholder,
                         onKeyDown: handleInputKeyDown,
@@ -67,12 +64,14 @@ export function ComboboxMulti<S>(props: Props<S>) {
     };
 
     // eslint-disable-next-line react/display-name
-    const renderBlurred = ({ getInputProps, getToggleButtonProps }) => (
+    const renderBlurred = ({ getInputProps, getToggleButtonProps, onFocus }) => (
         <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
             <input
                 {...getInputProps({
+                    id,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
+                    onFocus,
                     'data-lpignore': true,
                     ...elem('input', { ...props }),
                 })}

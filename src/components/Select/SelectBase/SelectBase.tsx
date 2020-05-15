@@ -3,18 +3,22 @@ import Downshift from 'downshift';
 import { bem } from '../../../utils/bem';
 import { FieldWrapper } from '../../FieldWrapper';
 import { List } from '../../List';
-import { ENTER_KEY } from '../../../constants';
 import { Props } from './interfaces';
 import styles from './SelectBase.scss';
 
+interface SelectBaseProps<P> extends Props<P> {
+    selectOnTab?: boolean;
+}
+
 const { block, elem } = bem('SelectBase', styles);
 
-export function SelectBase<S>(props: Props<S>) {
+export function SelectBase<S>(props: SelectBaseProps<S>) {
     const {
         suggestions,
         suggestionToString,
         clearTitle,
         showClearButton,
+        selectOnTab,
         onBlur,
         onSelectionChange,
         onInputValueChange,
@@ -74,9 +78,10 @@ export function SelectBase<S>(props: Props<S>) {
     }, [rootRefFromProps]);
 
     const handleBlur = () => {
+        setFocused(false);
         setInputValue('');
         setInputValueRecall('');
-        onBlur?.();
+        if (focused) onBlur?.();
     };
 
     const handleChange = (selectedItem, downshift) => {
@@ -128,14 +133,29 @@ export function SelectBase<S>(props: Props<S>) {
         }
     };
 
-    const handleWrapperKeyDown = (openMenu) => (e) => {
-        if (!focused && e.key === ENTER_KEY) {
+    const handleInputOnFocus = (openMenu) => () => {
+        if (!focused) {
             focus(openMenu);
         }
     };
 
-    const stateReducer = (state, changes) => {
-        switch (changes.type) {
+    const stateUpdater = (change, state) => {
+        if (change.type === Downshift.stateChangeTypes.blurInput) {
+            handleBlur();
+        } else if (
+            change.type === Downshift.stateChangeTypes.changeInput &&
+            state.isOpen !== focused
+        ) {
+            setFocused(state.isOpen);
+        }
+    };
+
+    const stateReducer = (state, newChanges) => {
+        const changes = {
+            ...newChanges,
+            isEscapeAction: false,
+        };
+        switch (newChanges.type) {
             case Downshift.stateChangeTypes.clickItem:
             case Downshift.stateChangeTypes.keyDownEnter:
                 return {
@@ -143,14 +163,23 @@ export function SelectBase<S>(props: Props<S>) {
                     highlightedIndex: state.highlightedIndex,
                     isOpen: keepExpandedAfterSelection,
                 };
+            case Downshift.stateChangeTypes.keyDownEscape:
+                return {
+                    ...changes,
+                    isOpen: false,
+                    isEscapeAction: true,
+                };
+            case Downshift.stateChangeTypes.blurInput:
+                if (selectOnTab && !state.isEscapeAction) {
+                    return {
+                        ...changes,
+                        selectedItem: suggestions[state.highlightedIndex],
+                        isOpen: false,
+                    };
+                }
+                return changes;
             default:
                 return changes;
-        }
-    };
-
-    const stateUpdater = (change, state) => {
-        if (state.isOpen !== focused) {
-            setFocused(state.isOpen);
         }
     };
 
@@ -189,7 +218,6 @@ export function SelectBase<S>(props: Props<S>) {
                             showClearButton={!focused && showClearButton}
                             isFocused={focused}
                             onClick={handleWrapperClick(openMenu)}
-                            onKeyDown={handleWrapperKeyDown(openMenu)}
                             {...elem('field', stateAndProps)}
                         >
                             {focused
@@ -199,7 +227,11 @@ export function SelectBase<S>(props: Props<S>) {
                                       onBlur: handleBlur,
                                       inputValue,
                                   })
-                                : blurredRenderer({ getInputProps, getToggleButtonProps })}
+                                : blurredRenderer({
+                                      getInputProps,
+                                      getToggleButtonProps,
+                                      onFocus: handleInputOnFocus(openMenu),
+                                  })}
                             <List
                                 {...getMenuProps({
                                     ...elem('list', stateAndProps),

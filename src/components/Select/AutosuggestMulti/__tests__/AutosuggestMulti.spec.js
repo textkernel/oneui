@@ -8,6 +8,7 @@ describe('AutosuggestMulti', () => {
     const inputPlaceholder = 'type here...';
     const numberOfVisibleTags = 3;
     const mockOnSelectionChange = jest.fn();
+    const mockOnSelectionRemove = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnBlur = jest.fn();
 
@@ -15,8 +16,7 @@ describe('AutosuggestMulti', () => {
     let selectedSuggestions = [];
 
     let wrapper;
-    const setFocusOnAutosuggest = () =>
-        wrapper.find('[role="searchbox"]').simulate('keyDown', { key: 'Enter' });
+    const setFocusOnInput = () => wrapper.find('input').simulate('click');
 
     beforeEach(() => {
         wrapper = mount(
@@ -26,6 +26,7 @@ describe('AutosuggestMulti', () => {
                 suggestionToString={suggestionToString}
                 inputPlaceholder={inputPlaceholder}
                 onSelectionChange={mockOnSelectionChange}
+                onSelectionRemove={mockOnSelectionRemove}
                 onInputValueChange={mockOnInputValueChange}
                 numberOfVisibleTags={numberOfVisibleTags}
                 onBlur={mockOnBlur}
@@ -44,14 +45,14 @@ describe('AutosuggestMulti', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
         });
         it('should render empty component correctly when focused', async () => {
-            setFocusOnAutosuggest();
+            setFocusOnInput();
             const inputNode = wrapper.find('input').getDOMNode();
             expect(document.activeElement).toBe(inputNode);
         });
         it('should render tag for each selected selection when component is focused', () => {
             selectedSuggestions = SUGGESTIONS.slice(0, 5);
             wrapper.setProps({ selectedSuggestions });
-            setFocusOnAutosuggest();
+            setFocusOnInput();
 
             expect(wrapper.find('SuggestionTag')).toHaveLength(selectedSuggestions.length);
         });
@@ -63,18 +64,26 @@ describe('AutosuggestMulti', () => {
         });
     });
     describe('focusing and blurring the search field', () => {
-        it('should clear input value on pressing Escape button', () => {
+        it('should clear input value on pressing Escape button', (done) => {
             const textInputValue = 'driver';
-            setFocusOnAutosuggest();
+            setFocusOnInput();
             wrapper.find('input').simulate('change', { target: { value: textInputValue } });
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
-            wrapper.find('input').simulate('keyDown', { key: 'Escape' });
-            expect(wrapper.find('input').props().value).toEqual('');
+            wrapper.find('input').simulate('blur').simulate('keyDown', { key: 'Escape' });
+            setTimeout(() => {
+                wrapper.update();
+                expect(wrapper.find('input').props().value).toEqual('');
+                done();
+            });
         });
-        it('should blur on pressing Tab button', () => {
-            setFocusOnAutosuggest();
-            wrapper.find('input').simulate('keyDown', { key: 'Tab' });
-            expect(mockOnBlur).toHaveBeenCalled();
+        it('should blur on pressing Tab button', (done) => {
+            setFocusOnInput();
+            wrapper.find('input').simulate('blur').simulate('keyDown', { key: 'Tab' });
+            setTimeout(() => {
+                wrapper.update();
+                expect(mockOnBlur).toHaveBeenCalled();
+                done();
+            });
         });
     });
     describe('callbacks', () => {
@@ -82,7 +91,7 @@ describe('AutosuggestMulti', () => {
             it('should be called on clicking on a suggestion', () => {
                 suggestionsList = SUGGESTIONS.slice(1, 20);
                 wrapper.setProps({ suggestions: suggestionsList });
-                setFocusOnAutosuggest();
+                setFocusOnInput();
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
 
@@ -94,7 +103,7 @@ describe('AutosuggestMulti', () => {
             it('should be called also when clicking on a suggestion the second time in a row', () => {
                 suggestionsList = SUGGESTIONS.slice(1, 20);
                 wrapper.setProps({ suggestions: suggestionsList });
-                setFocusOnAutosuggest();
+                setFocusOnInput();
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
 
@@ -102,7 +111,7 @@ describe('AutosuggestMulti', () => {
 
                 expect(mockOnSelectionChange).toHaveBeenCalledTimes(1);
 
-                setFocusOnAutosuggest();
+                setFocusOnInput();
                 wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionChange).toHaveBeenCalledTimes(2);
@@ -110,37 +119,37 @@ describe('AutosuggestMulti', () => {
             it('should be called on deleting a suggestion by clicking on the x button next to it', () => {
                 selectedSuggestions = SUGGESTIONS.slice(0, 5);
                 wrapper.setProps({ selectedSuggestions });
-                setFocusOnAutosuggest();
+                setFocusOnInput();
 
                 expect(mockOnSelectionChange).not.toHaveBeenCalled();
                 expect(wrapper.find('SuggestionTag')).toHaveLength(selectedSuggestions.length);
 
                 wrapper.find('SuggestionTag').at(2).find('button').simulate('click');
 
-                expect(mockOnSelectionChange).toHaveBeenCalledWith(selectedSuggestions[2]);
+                expect(mockOnSelectionRemove).toHaveBeenCalledWith(selectedSuggestions[2]);
             });
             it('should be called on deleting a suggestion by hitting backspace in the empty input field', () => {
                 selectedSuggestions = SUGGESTIONS.slice(0, 5);
                 wrapper.setProps({ selectedSuggestions });
-                setFocusOnAutosuggest();
+                setFocusOnInput();
 
-                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+                expect(mockOnSelectionRemove).not.toHaveBeenCalled();
 
                 wrapper.find('input').simulate('keyDown', { key: 'Backspace' });
 
-                expect(mockOnSelectionChange).toHaveBeenCalled();
+                expect(mockOnSelectionRemove).toHaveBeenCalled();
             });
             it('should not be called on deleting a suggestion by hitting backspace in an input field with value', () => {
                 selectedSuggestions = SUGGESTIONS.slice(0, 5);
                 wrapper.setProps({ selectedSuggestions });
-                setFocusOnAutosuggest();
+                setFocusOnInput();
                 wrapper.find('input').simulate('change', { target: { value: 'driver' } });
 
-                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+                expect(mockOnSelectionRemove).not.toHaveBeenCalled();
 
                 wrapper.find('input').simulate('keyDown', { key: 'Backspace' });
 
-                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+                expect(mockOnSelectionRemove).not.toHaveBeenCalled();
             });
         });
         it('should call onInputValueChange when typing into input field', () => {
@@ -155,7 +164,7 @@ describe('AutosuggestMulti', () => {
             suggestionsList = SUGGESTIONS.slice(1, 20);
             wrapper.setProps({ suggestions: suggestionsList });
             wrapper.find('input').simulate('change', { target: { value: textInputValue } });
-            setFocusOnAutosuggest();
+            setFocusOnInput();
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
 

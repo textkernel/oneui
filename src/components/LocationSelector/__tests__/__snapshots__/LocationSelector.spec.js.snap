@@ -67,8 +67,6 @@ exports[`LocationSelector component should render LocationSelector properly when
       <div
         className="FieldWrapper LocationSelector__mainTextInputWrapper"
         onClick={[Function]}
-        role="searchbox"
-        tabIndex={0}
       >
         <div
           className="FieldWrapper__content"
@@ -473,8 +471,6 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       <div
         className="FieldWrapper LocationSelector__mainTextInputWrapper"
         onClick={[Function]}
-        role="searchbox"
-        tabIndex={0}
       >
         <div
           className="FieldWrapper__content"
