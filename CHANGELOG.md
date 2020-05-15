@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.0.0](https://github.com/textkernel/oneui/compare/10.2.0...11.0.0) (2020-05-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **component:** logic with deleting selection was moved to onSelectionRemove callback in AutosuggestMulti
+* **highlight:** changed HighlighterCore API
+
+### Features
+
+* **component:** polishing autocompletemulti ([#256](https://github.com/textkernel/oneui/issues/256)) ([f5127f7](https://github.com/textkernel/oneui/commit/f5127f70525fc37d483776e8e8d785691699cadf))
+* **highlight:** reduced exposed interface of Highlighter module ([#254](https://github.com/textkernel/oneui/issues/254)) ([82f5b4b](https://github.com/textkernel/oneui/commit/82f5b4b5b9ca86dab8255df4a6360896b65a5384))
+
 ## [10.2.0](https://github.com/textkernel/oneui/compare/10.1.0...10.2.0) (2020-05-08)
 
 
