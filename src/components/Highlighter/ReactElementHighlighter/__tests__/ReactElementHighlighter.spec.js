@@ -1,12 +1,12 @@
 import React from 'react';
-import { HighlighterControl } from '../../../../packages/@highlighter/control';
-import { GroupHighlighter } from '../GroupHighlighter';
+import { Highlighter } from '../../../../packages/Highlighter';
+import { ReactElementHighlighter } from '../ReactElementHighlighter';
 
-describe('GroupHighlighter', () => {
+describe('ReactElementHighlighter', () => {
     const keywords = ['lorem', 'officia', 'dolore', 'dolor', 'irure dolor', 'qui officia deserunt'];
     const renderComponent = (props) => {
         return mount(
-            <GroupHighlighter
+            <ReactElementHighlighter
                 searchTerms={keywords}
                 highlightRenderer={(keyword) => {
                     const node = document.createElement('mark');
@@ -27,7 +27,7 @@ describe('GroupHighlighter', () => {
                         officia deserunt mollit anim id est laborum.
                     </p>
                 </>
-            </GroupHighlighter>
+            </ReactElementHighlighter>
         );
     };
 
@@ -35,8 +35,9 @@ describe('GroupHighlighter', () => {
         renderComponent({
             onComplete: (highlighter, result, root) => {
                 expect(root.outerHTML).toMatchSnapshot();
-                expect(result.length).toBe(6);
-                expect(highlighter).toBeInstanceOf(HighlighterControl);
+                expect(result[0].length).toBe(5);
+                expect(result[1].length).toBe(1);
+                expect(highlighter).toBeInstanceOf(Highlighter);
                 done();
             },
         });

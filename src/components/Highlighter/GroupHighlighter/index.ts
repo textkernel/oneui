@@ -1,1 +1,0 @@
-export { GroupHighlighter } from './GroupHighlighter';

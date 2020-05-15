@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import intersection from 'lodash/intersection';
-import { HighlighterCore } from '../../core';
+import { HighlighterCore } from '../../HighlighterCore';
 import { HighlighterNode } from '../HighlighterNode';
 
 describe('HighlighterNode', () => {
@@ -11,7 +11,7 @@ describe('HighlighterNode', () => {
     };
     describe('#constructor()', () => {
         it('should create an instance with default options', () => {
-            const highlighterCore = new HighlighterCore({ searchTerms: [] });
+            const highlighterCore = new HighlighterCore([]);
             expect(() => new HighlighterNode({ highlightRenderer, highlighterCore })).not.toThrow();
         });
     });
@@ -56,7 +56,7 @@ describe('HighlighterNode', () => {
     });
     describe('#find()', () => {
         it('should highlight keyword if it exist in node', () => {
-            const highlighterCore = new HighlighterCore({ searchTerms: ['ipsum', 'dolor'] });
+            const highlighterCore = new HighlighterCore(['ipsum', 'dolor']);
             const onMatch = jest.fn();
             const wrapper = document.createElement('div');
             wrapper.innerHTML = 'Lorem ipsum dolor sit amet';
@@ -66,7 +66,7 @@ describe('HighlighterNode', () => {
             expect(wrapper.innerHTML).toBe('Lorem <mark>ipsum</mark> <mark>dolor</mark> sit amet');
         });
         it("should not highlight keyword if it doesn't exist in node", () => {
-            const highlighterCore = new HighlighterCore({ searchTerms: ['ipsum', 'dolor'] });
+            const highlighterCore = new HighlighterCore(['ipsum', 'dolor']);
             const wrapper = document.createElement('div');
             const onMatch = jest.fn();
             wrapper.innerHTML = 'Excepteur sint occaecat cupidatat non proident';

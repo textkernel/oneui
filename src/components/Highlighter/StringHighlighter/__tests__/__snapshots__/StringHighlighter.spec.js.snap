@@ -2,10 +2,8 @@
 
 exports[`StringHighlighter highlighted should highlight case sensitive terms by default 1`] = `
 <StringHighlighter
-  accuracy="exact"
   highlightRenderer={[Function]}
-  ignoreCase={true}
-  ignoreDiacritics={true}
+  highlighterCoreOptions={true}
   searchTerms={
     Array [
       "DEVELOPER",
@@ -31,10 +29,8 @@ exports[`StringHighlighter highlighted should highlight case sensitive terms by 
 
 exports[`StringHighlighter highlighted should highlight list of terms 1`] = `
 <StringHighlighter
-  accuracy="exact"
   highlightRenderer={[Function]}
-  ignoreCase={true}
-  ignoreDiacritics={true}
+  highlighterCoreOptions={true}
   searchTerms={
     Array [
       "javascript developer",
@@ -67,10 +63,8 @@ exports[`StringHighlighter highlighted should highlight list of terms 1`] = `
 
 exports[`StringHighlighter highlighted should highlight overlapping terms correctly 1`] = `
 <StringHighlighter
-  accuracy="exact"
   highlightRenderer={[Function]}
-  ignoreCase={true}
-  ignoreDiacritics={true}
+  highlighterCoreOptions={true}
   searchTerms={
     Array [
       "java and javascript",
@@ -90,10 +84,8 @@ exports[`StringHighlighter highlighted should highlight overlapping terms correc
 
 exports[`StringHighlighter highlighted should highlight terms with diacritics by default 1`] = `
 <StringHighlighter
-  accuracy="exact"
   highlightRenderer={[Function]}
-  ignoreCase={true}
-  ignoreDiacritics={true}
+  highlighterCoreOptions={true}
   searchTerms={
     Array [
       "dévéloper",
@@ -112,10 +104,8 @@ exports[`StringHighlighter highlighted should highlight terms with diacritics by
 
 exports[`StringHighlighter not highlighted should initially render empty component correctly 1`] = `
 <StringHighlighter
-  accuracy="exact"
   highlightRenderer={[Function]}
-  ignoreCase={true}
-  ignoreDiacritics={true}
+  highlighterCoreOptions={true}
   searchTerms={Array []}
   string=""
 />
@@ -123,10 +113,12 @@ exports[`StringHighlighter not highlighted should initially render empty compone
 
 exports[`StringHighlighter not highlighted should not highlight case sensitive terms if ignoreCase is false 1`] = `
 <StringHighlighter
-  accuracy="exact"
   highlightRenderer={[Function]}
-  ignoreCase={false}
-  ignoreDiacritics={true}
+  highlighterCoreOptions={
+    Object {
+      "ignoreCase": false,
+    }
+  }
   searchTerms={
     Array [
       "DEVELOPER",
@@ -141,10 +133,8 @@ exports[`StringHighlighter not highlighted should not highlight case sensitive t
 
 exports[`StringHighlighter not highlighted should not highlight not existed terms 1`] = `
 <StringHighlighter
-  accuracy="exact"
   highlightRenderer={[Function]}
-  ignoreCase={true}
-  ignoreDiacritics={true}
+  highlighterCoreOptions={true}
   searchTerms={
     Array [
       "notExisting",
@@ -160,10 +150,12 @@ exports[`StringHighlighter not highlighted should not highlight not existed term
 
 exports[`StringHighlighter not highlighted should not highlight terms with diacritics if ignoreDiacritics is false 1`] = `
 <StringHighlighter
-  accuracy="exact"
   highlightRenderer={[Function]}
-  ignoreCase={true}
-  ignoreDiacritics={false}
+  highlighterCoreOptions={
+    Object {
+      "ignoreDiacritics": false,
+    }
+  }
   searchTerms={
     Array [
       "dévéloper",

@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
-import { StringHighlighter, GroupHighlighter, HighlighterCoreAccuracy } from '@textkernel/oneui';
+import {
+    StringHighlighter,
+    ReactElementHighlighter,
+    HighlighterCoreAccuracy,
+} from '@textkernel/oneui';
 
 storiesOf('Atoms|Highlighter', module)
     .addDecorator(withKnobs)
@@ -18,9 +22,11 @@ storiesOf('Atoms|Highlighter', module)
             <StringHighlighter
                 string={someText}
                 searchTerms={keywords}
-                accuracy={select('Accuracy', ACCURACY, ACCURACY[0]) as HighlighterCoreAccuracy}
-                ignoreCase={boolean('ignoreCase', true)}
-                ignoreDiacritics={boolean('ignoreDiacritics', true)}
+                highlighterCoreOptions={{
+                    accuracy: select('Accuracy', ACCURACY, ACCURACY[0]) as HighlighterCoreAccuracy,
+                    ignoreCase: boolean('ignoreCase', true),
+                    ignoreDiacritics: boolean('ignoreDiacritics', true),
+                }}
                 highlightRenderer={({ substring, ...substringProps }) => (
                     <b {...substringProps} style={{ backgroundColor: 'lightyellow' }}>
                         {substring}
@@ -29,7 +35,7 @@ storiesOf('Atoms|Highlighter', module)
             />
         );
     })
-    .add('GroupHighlighter', () => {
+    .add('ReactElementHighlighter', () => {
         const ACCURACY = ['exact', 'partial'];
         const keywords = text(
             'keywords',
@@ -38,16 +44,13 @@ storiesOf('Atoms|Highlighter', module)
             .split('|')
             .filter((i) => i !== '');
         return (
-            <GroupHighlighter
+            <ReactElementHighlighter
                 searchTerms={keywords}
-                highlightRenderer={(keyword) => {
-                    const node = document.createElement('mark');
-                    node.innerText = keyword;
-                    return node;
+                highlighterCoreOptions={{
+                    accuracy: select('Accuracy', ACCURACY, ACCURACY[0]) as HighlighterCoreAccuracy,
+                    ignoreCase: boolean('ignoreCase', true),
+                    ignoreDiacritics: boolean('ignoreDiacritics', true),
                 }}
-                accuracy={select('Accuracy', ACCURACY, ACCURACY[0]) as HighlighterCoreAccuracy}
-                ignoreCase={boolean('ignoreCase', true)}
-                ignoreDiacritics={boolean('ignoreDiacritics', true)}
                 onComplete={(highlighter, result) => {
                     console.log('highlighter', highlighter);
                     console.log('result', result);
@@ -64,6 +67,6 @@ storiesOf('Atoms|Highlighter', module)
                         officia deserunt mollit anim id est laborum.
                     </p>
                 </>
-            </GroupHighlighter>
+            </ReactElementHighlighter>
         );
     });

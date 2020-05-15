@@ -4,11 +4,11 @@ describe('HighlighterCore', () => {
     const text = 'php and JavaScript developer';
 
     it('should create an instance with default options', () => {
-        expect(() => new HighlighterCore({ searchTerms: [] })).not.toThrow();
+        expect(() => new HighlighterCore([])).not.toThrow();
     });
     describe('not highlighted ', () => {
         it('should not highlight if search terms is empty', () => {
-            const highlighter = new HighlighterCore({ searchTerms: [] });
+            const highlighter = new HighlighterCore([]);
             expect(highlighter.find(text)).toEqual([
                 {
                     highlighted: false,
@@ -17,7 +17,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should empty string while passed empty arguments', () => {
-            const highlighter = new HighlighterCore({ searchTerms: [] });
+            const highlighter = new HighlighterCore([]);
             expect(highlighter.find('')).toEqual([
                 {
                     highlighted: false,
@@ -26,9 +26,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should not highlight not existed terms', () => {
-            const highlighter = new HighlighterCore({
-                searchTerms: ['notExistingTerm', 'develop', 'ph', 'a'],
-            });
+            const highlighter = new HighlighterCore(['notExistingTerm', 'develop', 'ph', 'a']);
             expect(highlighter.find(text)).toEqual([
                 {
                     highlighted: false,
@@ -37,8 +35,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should not highlight case sensitive terms if this option disabled', () => {
-            const highlighter = new HighlighterCore({
-                searchTerms: ['DEVELOPER', 'Php'],
+            const highlighter = new HighlighterCore(['DEVELOPER', 'Php'], {
                 ignoreCase: false,
             });
             expect(highlighter.find(text)).toEqual([
@@ -49,8 +46,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should not highlight diacritics terms if this option disabled', () => {
-            const highlighter = new HighlighterCore({
-                searchTerms: ['dévéloper'],
+            const highlighter = new HighlighterCore(['dévéloper'], {
                 ignoreDiacritics: false,
             });
             expect(highlighter.find(text)).toEqual([
@@ -63,7 +59,7 @@ describe('HighlighterCore', () => {
     });
     describe('highlighted', () => {
         it('should highlight one word', () => {
-            const highlighter = new HighlighterCore({ searchTerms: ['word'] });
+            const highlighter = new HighlighterCore(['word']);
             expect(highlighter.find('word')).toEqual([
                 {
                     highlighted: true,
@@ -72,21 +68,21 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should highlight start of the sentence', () => {
-            const highlighter = new HighlighterCore({ searchTerms: ['php'] });
+            const highlighter = new HighlighterCore(['php']);
             expect(highlighter.find(text)).toEqual([
                 { highlighted: true, substring: 'php' },
                 { highlighted: false, substring: ' and JavaScript developer' },
             ]);
         });
         it('should highlight end of the sentence', () => {
-            const highlighter = new HighlighterCore({ searchTerms: ['developer'] });
+            const highlighter = new HighlighterCore(['developer']);
             expect(highlighter.find(text)).toEqual([
                 { highlighted: false, substring: 'php and JavaScript ' },
                 { highlighted: true, substring: 'developer' },
             ]);
         });
         it('should highlight list of the terms', () => {
-            const highlighter = new HighlighterCore({ searchTerms: ['php', 'developer'] });
+            const highlighter = new HighlighterCore(['php', 'developer']);
             expect(highlighter.find(text)).toEqual([
                 { highlighted: true, substring: 'php' },
                 { highlighted: false, substring: ' and JavaScript ' },
@@ -94,7 +90,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should highlight two words', () => {
-            const highlighter = new HighlighterCore({ searchTerms: ['php and', 'developer'] });
+            const highlighter = new HighlighterCore(['php and', 'developer']);
             expect(highlighter.find(text)).toEqual([
                 { highlighted: true, substring: 'php and' },
                 { highlighted: false, substring: ' JavaScript ' },
@@ -102,8 +98,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should highlight different passed string', () => {
-            const highlighter = new HighlighterCore({
-                searchTerms: ['javascript'],
+            const highlighter = new HighlighterCore(['javascript'], {
                 ignoreCase: true,
             });
             expect(highlighter.find(text)).toEqual([
@@ -117,8 +112,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should highlight case sensitive terms by default', () => {
-            const highlighter = new HighlighterCore({
-                searchTerms: ['JavaScript'],
+            const highlighter = new HighlighterCore(['JavaScript'], {
                 ignoreCase: true,
             });
             expect(highlighter.find('php and javascript')).toEqual([
@@ -127,8 +121,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should highlight all occurrences when it starts from the same index', () => {
-            const highlighter = new HighlighterCore({
-                searchTerms: ['JavaScript', 'JavaScript developer'],
+            const highlighter = new HighlighterCore(['JavaScript', 'JavaScript developer'], {
                 ignoreCase: true,
             });
             expect(highlighter.find(text)).toEqual([
@@ -137,9 +130,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should highlight repeated terms correctly', () => {
-            const highlighter = new HighlighterCore({
-                searchTerms: ['php', 'developer', 'developer'],
-            });
+            const highlighter = new HighlighterCore(['php', 'developer', 'developer'], {});
             expect(highlighter.find(text)).toEqual([
                 { highlighted: true, substring: 'php' },
                 { highlighted: false, substring: ' and JavaScript ' },
@@ -156,8 +147,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should highlight diacritics by default', () => {
-            const highlighter = new HighlighterCore({
-                searchTerms: ['dévéloper', 'Sao Paulo', 'Gottingen'],
+            const highlighter = new HighlighterCore(['dévéloper', 'Sao Paulo', 'Gottingen'], {
                 ignoreDiacritics: true,
             });
             expect(highlighter.find('php developer')).toEqual([
@@ -171,8 +161,7 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should highlight partially characters when it enabled', () => {
-            const highlighter = new HighlighterCore({
-                searchTerms: ['dev', 'Jav'],
+            const highlighter = new HighlighterCore(['dev', 'Jav'], {
                 accuracy: 'partial',
             });
             expect(highlighter.find(text)).toEqual([
@@ -184,14 +173,14 @@ describe('HighlighterCore', () => {
             ]);
         });
         it('should highlight overlapping terms correctly', () => {
-            const highlighter = new HighlighterCore({ searchTerms: ['php and', 'and javascript'] });
+            const highlighter = new HighlighterCore(['php and', 'and javascript']);
             expect(highlighter.find(text)).toEqual([
                 { highlighted: true, substring: 'php and JavaScript' },
                 { highlighted: false, substring: ' developer' },
             ]);
         });
         it('should highlight RegExp term', () => {
-            const highlighter = new HighlighterCore({ searchTerms: /php/gim });
+            const highlighter = new HighlighterCore(/php/gim);
             expect(highlighter.find(text)).toEqual([
                 { highlighted: true, substring: 'php' },
                 { highlighted: false, substring: ' and JavaScript developer' },

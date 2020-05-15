@@ -2,6 +2,9 @@ import removeAccents from 'remove-accents';
 
 export type HighlighterCoreAccuracy = 'exact' | 'partial';
 
+/** Array of words or RegExp that is used for search */
+export type HighlighterCoreTerm = string[] | RegExp;
+
 type Substring = {
     highlighted: boolean;
     substring: string;
@@ -25,8 +28,6 @@ interface StringNormalizer {
 }
 
 export interface HighlighterCoreOptions {
-    /** Array of words or RegExp that is used for search */
-    searchTerms: string[] | RegExp;
     /**
      * Define the accuracy of search
      * Supported options:
@@ -171,12 +172,14 @@ export class HighlighterCore {
         return substrings;
     }
 
-    constructor({
-        searchTerms,
-        accuracy = 'exact',
-        ignoreDiacritics = true,
-        ignoreCase = true,
-    }: HighlighterCoreOptions) {
+    constructor(
+        searchTerms: HighlighterCoreTerm,
+        {
+            accuracy = 'exact',
+            ignoreDiacritics = true,
+            ignoreCase = true,
+        }: HighlighterCoreOptions = {}
+    ) {
         this.accuracy = accuracy;
         this.ignoreDiacritics = ignoreDiacritics;
         this.ignoreCase = ignoreCase;

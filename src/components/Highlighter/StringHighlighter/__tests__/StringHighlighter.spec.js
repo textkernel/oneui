@@ -15,8 +15,7 @@ describe('StringHighlighter', () => {
             <StringHighlighter
                 string={string}
                 searchTerms={searchTerms}
-                ignoreDiacritics={ignoreDiacritics}
-                ignoreCase={ignoreCase}
+                highlighterCoreOptions={(ignoreDiacritics, ignoreCase)}
                 highlightRenderer={highlightRenderer}
                 {...props}
             />
@@ -39,14 +38,18 @@ describe('StringHighlighter', () => {
         it('should not highlight case sensitive terms if ignoreCase is false', () => {
             const wrapper = renderComponent({
                 searchTerms: ['DEVELOPER', 'Php'],
-                ignoreCase: false,
+                highlighterCoreOptions: {
+                    ignoreCase: false,
+                },
             });
             expect(toJson(wrapper)).toMatchSnapshot();
         });
         it('should not highlight terms with diacritics if ignoreDiacritics is false', () => {
             const wrapper = renderComponent({
                 searchTerms: ['dévéloper'],
-                ignoreDiacritics: false,
+                highlighterCoreOptions: {
+                    ignoreDiacritics: false,
+                },
             });
             expect(toJson(wrapper)).toMatchSnapshot();
         });

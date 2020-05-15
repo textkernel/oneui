@@ -1,5 +1,5 @@
 import randomcolor from 'randomcolor';
-import { HighlighterCore } from '../core';
+import { HighlighterCore } from '../HighlighterCore';
 
 export type HighlighterNodeRenderer = (keyword: string) => HTMLElement;
 
