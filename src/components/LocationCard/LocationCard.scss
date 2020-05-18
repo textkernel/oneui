@@ -23,6 +23,8 @@ $slider-indication-width: 110px;
     }
 
     &__delete-button {
+        position: relative;
+        bottom: var(--spacing-normal);
         width: $close-button-width;
         height: $close-button-height;
         margin: 0;

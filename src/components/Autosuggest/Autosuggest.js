@@ -44,7 +44,7 @@ export class Autosuggest extends React.Component {
         const { isFocused } = this.props;
 
         if (isFocused) {
-            this.inputRef.current.focus();
+            this.inputRef.current?.focus();
         }
     }
 
@@ -158,7 +158,7 @@ export class Autosuggest extends React.Component {
         return (e) => {
             e.stopPropagation();
             onSelectionChange(item);
-            this.inputRef.current.focus();
+            this.inputRef.current?.focus();
         };
     };
 
@@ -206,7 +206,7 @@ export class Autosuggest extends React.Component {
 
     focus(openMenu) {
         openMenu();
-        this.inputRef.current.focus();
+        this.inputRef.current?.focus();
     }
 
     renderTags() {

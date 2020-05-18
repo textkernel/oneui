@@ -32,11 +32,12 @@ $slider-indication-width: 90px;
     &__button {
         flex-basis: 20%;
         margin-left: var(--spacing-4x);
+        height: 38px;
     }
 
     &__locationsWrapper {
         display: flex;
-        height: 100%;
+        height: calc(100% - #{$input-line-height});
     }
 
     &__locationCardsContainer {
@@ -46,6 +47,7 @@ $slider-indication-width: 90px;
         min-width: $location-card-width;
         padding-right: calc(var(--spacing-4x) - 1px);
         overflow: auto;
+        height: 100%;
     }
 
     &__locationCard:not(:last-child) {
