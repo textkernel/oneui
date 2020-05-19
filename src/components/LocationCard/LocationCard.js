@@ -34,7 +34,7 @@ export const LocationCard = (props) => {
                 <Text title={locationTitle} size={SIZES[2]} {...elem('title', props)}>
                     {locationTitle}
                 </Text>
-                <button onClick={handleDelete} type="button" {...elem('delete-button', props)}>
+                <button onClick={handleDelete} type="button" {...elem('deleteButton', props)}>
                     {CROSS_CHAR}
                 </button>
             </div>
@@ -47,7 +47,7 @@ export const LocationCard = (props) => {
                         step={radiusStep}
                         onChange={handleRadiusChange}
                     />
-                    <Text size={SIZES[0]} {...elem('slider-label', props)}>
+                    <Text size={SIZES[0]} {...elem('sliderLabel', props)}>
                         {sliderLabel}
                     </Text>
                 </div>

@@ -74,25 +74,29 @@ export class Autosuggest extends React.Component {
     }
 
     handleChange = (selectedItem, downshift) => {
-        const { onSelectionChange, saveSelectedValueToInput, isMultiselect } = this.props;
+        const {
+            suggestionToString,
+            onSelectionChange,
+            saveSelectedValueToInput,
+            isMultiselect,
+        } = this.props;
         const { clearSelection, openMenu } = downshift;
 
         clearSelection();
-        this.setState({ inputValue: '' }, () => {
-            if (selectedItem) {
-                if (saveSelectedValueToInput) {
-                    this.setState({ inputValue: selectedItem.description });
-                }
-                onSelectionChange(selectedItem);
-            }
 
-            if (!isMultiselect) {
-                this.inputRef.current.blur();
-                this.handleBlur();
-            } else {
-                openMenu();
-            }
-        });
+        if (selectedItem) {
+            this.setState({
+                inputValue: saveSelectedValueToInput ? suggestionToString(selectedItem) : '',
+            });
+            onSelectionChange(selectedItem);
+        }
+
+        if (!isMultiselect) {
+            this.inputRef.current.blur();
+            this.handleBlur();
+        } else {
+            openMenu();
+        }
     };
 
     handleInputKeyDown = (event) => {

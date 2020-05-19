@@ -318,7 +318,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
               </p>
             </Text>
             <button
-              className="LocationCard__delete-button"
+              className="LocationCard__deleteButton"
               onClick={[Function]}
               type="button"
             >
@@ -363,7 +363,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
               </p>
             </Text>
             <button
-              className="LocationCard__delete-button"
+              className="LocationCard__deleteButton"
               onClick={[Function]}
               type="button"
             >

@@ -35,7 +35,7 @@ exports[`LocationCard component should render component correctly 1`] = `
         </p>
       </Text>
       <button
-        className="LocationCard__delete-button"
+        className="LocationCard__deleteButton"
         onClick={[Function]}
         type="button"
       >
@@ -190,13 +190,13 @@ exports[`LocationCard component should render component correctly 1`] = `
         </ComponentEnhancer(undefined)>
       </Slider>
       <Text
-        className="LocationCard__slider-label"
+        className="LocationCard__sliderLabel"
         context="default"
         inline={false}
         size="small"
       >
         <p
-          className="Text--size_small LocationCard__slider-label"
+          className="Text--size_small LocationCard__sliderLabel"
         >
           +42 km
         </p>
@@ -241,7 +241,7 @@ exports[`LocationCard component should render component correctly without radius
         </p>
       </Text>
       <button
-        className="LocationCard__delete-button"
+        className="LocationCard__deleteButton"
         onClick={[Function]}
         type="button"
       >

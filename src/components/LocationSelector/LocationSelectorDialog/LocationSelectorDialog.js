@@ -99,7 +99,7 @@ export const LocationSelectorDialog = (props) => {
                             railStyle={{ backgroundColor: 'var(--color-neutral-25)' }}
                             onChange={handleRadiusChange}
                         />
-                        <Text size={SIZES[0]} {...elem('slider-label', props)}>
+                        <Text size={SIZES[0]} {...elem('sliderLabel', props)}>
                             {renderRadiusLabel(firstSelectedLocation.radius)}
                         </Text>
                     </div>
@@ -142,7 +142,7 @@ export const LocationSelectorDialog = (props) => {
 LocationSelectorDialog.displayName = 'LocationSelectorDialog';
 
 LocationSelectorDialog.propTypes = {
-    /**  */
+    /** defines if location cards should be rendered or not */
     withoutLocationCards: PropTypes.bool,
     /** stores an array of selected location objects */
     selectedLocations: PropTypes.arrayOf(

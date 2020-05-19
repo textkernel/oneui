@@ -252,6 +252,16 @@ describe('Autosuggest', () => {
                 expect(wrapper.state('focused')).toBeFalsy();
                 expect(wrapper.find('li')).toHaveLength(0);
             });
+            it('should put selected value to the input with saveSelectedValueToInput set to true', () => {
+                suggestionsList = SUGGESTIONS.slice(1, 20);
+                const expectedItemIndex = 2;
+                const expectedValue = SUGGESTION_TO_STRING(SUGGESTION_TO_STRING[expectedItemIndex]);
+
+                setFocusOnInput();
+                wrapper.find('li').at(2).childAt(0).simulate('click');
+
+                expect(wrapper.find('input').props().value).toEqual(expectedValue);
+            });
         });
         describe('in multiselect mode', () => {
             it('should stay focused when suggestion is selected', () => {

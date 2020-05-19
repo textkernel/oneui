@@ -22,7 +22,7 @@ $slider-indication-width: 110px;
         text-overflow: ellipsis;
     }
 
-    &__delete-button {
+    &__deleteButton {
         position: relative;
         bottom: var(--spacing-normal);
         width: $close-button-width;
@@ -44,7 +44,7 @@ $slider-indication-width: 110px;
         margin: var(--spacing-5x) 0px;
     }
 
-    &__slider-label {
+    &__sliderLabel {
         width: $slider-indication-width;
         margin: 0;
         text-align: right;
