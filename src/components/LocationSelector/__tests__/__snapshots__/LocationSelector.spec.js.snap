@@ -58,15 +58,15 @@ exports[`LocationSelector component should render LocationSelector properly when
 >
   <div>
     <FieldWrapper
-      className="LocationSelector__mainTextInputWrapper"
+      className="LocationSelector__mainTextButtonWrapper"
       clearLabel="Clear"
-      isFocused={false}
+      isFocused={true}
       onClear={[MockFunction]}
       onClick={[Function]}
       showClearButton={true}
     >
       <div
-        className="FieldWrapper LocationSelector__mainTextInputWrapper"
+        className="FieldWrapper FieldWrapper--isFocused LocationSelector__mainTextButtonWrapper"
         onClick={[Function]}
       >
         <div
@@ -105,18 +105,14 @@ exports[`LocationSelector component should render LocationSelector properly when
               </svg>
             </IconBase>
           </FaMapMarkerAlt>
-          <Text
-            className="LocationSelector__mainTextInput LocationSelector__mainTextInput--muted"
-            context="default"
-            inline={false}
-            size="normal"
+          <button
+            className="LocationSelector__mainTextButton LocationSelector__mainTextButton--muted"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyUp={[Function]}
           >
-            <p
-              className="LocationSelector__mainTextInput LocationSelector__mainTextInput--muted"
-            >
-              inputPlaceholder
-            </p>
-          </Text>
+            inputPlaceholder
+          </button>
         </div>
         <Button
           className="FieldWrapper__clearButton"
@@ -466,7 +462,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
 >
   <div>
     <FieldWrapper
-      className="LocationSelector__mainTextInputWrapper"
+      className="LocationSelector__mainTextButtonWrapper"
       clearLabel="Clear"
       isFocused={false}
       onClear={[MockFunction]}
@@ -474,7 +470,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       showClearButton={true}
     >
       <div
-        className="FieldWrapper LocationSelector__mainTextInputWrapper"
+        className="FieldWrapper LocationSelector__mainTextButtonWrapper"
         onClick={[Function]}
       >
         <div
@@ -513,18 +509,14 @@ exports[`LocationSelector component should render LocationSelector propertly whe
               </svg>
             </IconBase>
           </FaMapMarkerAlt>
-          <Text
-            className="LocationSelector__mainTextInput LocationSelector__mainTextInput--muted"
-            context="default"
-            inline={false}
-            size="normal"
+          <button
+            className="LocationSelector__mainTextButton LocationSelector__mainTextButton--muted"
+            onBlur={[Function]}
+            onFocus={[Function]}
+            onKeyUp={[Function]}
           >
-            <p
-              className="LocationSelector__mainTextInput LocationSelector__mainTextInput--muted"
-            >
-              inputPlaceholder
-            </p>
-          </Text>
+            inputPlaceholder
+          </button>
         </div>
         <Button
           className="FieldWrapper__clearButton"
