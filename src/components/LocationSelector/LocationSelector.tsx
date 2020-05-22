@@ -1,16 +1,18 @@
 import * as React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { bem } from '../../utils';
-import { Text } from '../Text';
 import { Modal } from '../Modal';
 import { FieldWrapper } from '../FieldWrapper';
 import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
 import { Location, findCenter, getRadiusInMeters, getAddressComponents } from './utils';
+import { TAB_KEY, ESCAPE_KEY } from '../../constants';
 import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
 
 interface Props {
+    /** define id for input element */
+    id: number;
     /** Google api key */
     apiKey: string;
     /** language in which suggestions should be displayed */
@@ -87,6 +89,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
         additionalGoogleProps,
 
         /** FieldWrapper props */
+        id,
         clearLabel,
         onRemoveAllLocations,
         inputPlaceholder,
@@ -125,19 +128,37 @@ export const LocationSelector: React.FC<Props> = (props) => {
     } = props;
 
     const [isOpen, setIsOpen] = React.useState(false);
+    const [isWrapperFocused, setIsWrapperFocused] = React.useState(false);
+    const buttonRef = React.useRef<HTMLButtonElement>();
 
     const hasLocationsSelected = selectedLocations && selectedLocations.length > 0;
 
     function handleOpenModal() {
-        if (!isOpen) {
+        if (!isOpen && !isWrapperFocused) {
+            buttonRef.current?.focus();
             setIsOpen(true);
         }
+        setIsWrapperFocused(true);
     }
 
     function handleCloseModal() {
         if (isOpen) {
             setIsOpen(false);
             onBlur();
+        }
+    }
+
+    function handleButtonKeyPress(e: React.KeyboardEvent<HTMLButtonElement>) {
+        if (e.key === ESCAPE_KEY) {
+            buttonRef.current?.blur();
+        } else if (!(e.key === TAB_KEY || e.key === ESCAPE_KEY)) {
+            setIsOpen(true);
+        }
+    }
+
+    function handleButtonBlur() {
+        if (!isOpen) {
+            setIsWrapperFocused(false);
         }
     }
 
@@ -188,16 +209,24 @@ export const LocationSelector: React.FC<Props> = (props) => {
     return (
         <div {...rest} {...block(props)}>
             <FieldWrapper
-                {...elem('mainTextInputWrapper', props)}
+                {...elem('mainTextButtonWrapper', props)}
+                isFocused={isWrapperFocused}
                 showClearButton={hasLocationsSelected}
                 clearLabel={clearLabel}
                 onClick={handleOpenModal}
                 onClear={onRemoveAllLocations}
             >
                 <FaMapMarkerAlt {...elem('icon', props)} />
-                <Text {...elem('mainTextInput', { ...props, muted: !selectionPlaceholder })}>
+                <button
+                    id={id}
+                    ref={buttonRef}
+                    {...elem('mainTextButton', { ...props, muted: !selectionPlaceholder })}
+                    onFocus={handleOpenModal}
+                    onBlur={handleButtonBlur}
+                    onKeyUp={handleButtonKeyPress}
+                >
                     {selectionPlaceholder || inputPlaceholder}
-                </Text>
+                </button>
             </FieldWrapper>
             <Modal
                 {...elem('modal', props)}
