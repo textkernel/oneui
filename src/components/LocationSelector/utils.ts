@@ -19,7 +19,7 @@ export const getRadiusInMeters = (radius, radiusUnits) => {
 };
 
 export const findCenter = (geocoder, placeId) =>
-    new Promise(function geocoderPromise(resolve, reject) {
+    new Promise((resolve, reject) => {
         geocoder.geocode({ placeId }, (results, status) => {
             if (status === 'OK') {
                 if (results[0]) {
@@ -34,7 +34,7 @@ export const findCenter = (geocoder, placeId) =>
     });
 
 export const getAddressComponents = (geocoder, location) =>
-    new Promise(function geocoderPromise(resolve, reject) {
+    new Promise((resolve, reject) => {
         geocoder.geocode({ location }, (results, status) => {
             if (status === 'OK') {
                 if (results[0]) {

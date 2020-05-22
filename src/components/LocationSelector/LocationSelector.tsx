@@ -164,14 +164,14 @@ export const LocationSelector: React.FC<Props> = (props) => {
                     radius: hasRadius ? radiusDefaultValue : 0,
                 };
 
-                if (shouldGetAddressInfo) {
-                    getAddressComponents(geocoder, { lat, lng }).then((addressComponents: any) => {
-                        if (!isLocationSelected) {
+                if (!isLocationSelected) {
+                    if (shouldGetAddressInfo) {
+                        getAddressComponents(geocoder, { lat, lng }).then((addressComponents) => {
                             onAddLocation({ ...locationToAdd, addressComponents });
-                        }
-                    });
-                } else if (!isLocationSelected) {
-                    onAddLocation(locationToAdd);
+                        });
+                    } else {
+                        onAddLocation(locationToAdd);
+                    }
                 }
             })
             .catch(/* TODO: add error handling */);
