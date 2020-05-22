@@ -12,7 +12,7 @@ const { block, elem } = bem('LocationSelector', styles);
 
 interface Props {
     /** define id for input element */
-    id: number;
+    id?: string;
     /** Google api key */
     apiKey: string;
     /** language in which suggestions should be displayed */
