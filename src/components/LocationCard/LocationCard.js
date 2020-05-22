@@ -13,6 +13,7 @@ export const LocationCard = (props) => {
         As,
         locationId,
         locationTitle,
+        hasRadius,
         distanceRadius,
         sliderLabel,
         minRadius,
@@ -33,22 +34,24 @@ export const LocationCard = (props) => {
                 <Text title={locationTitle} size={SIZES[2]} {...elem('title', props)}>
                     {locationTitle}
                 </Text>
-                <button onClick={handleDelete} type="button" {...elem('delete-button', props)}>
+                <button onClick={handleDelete} type="button" {...elem('deleteButton', props)}>
                     {CROSS_CHAR}
                 </button>
             </div>
-            <div {...elem('slider', props)}>
-                <Slider
-                    value={distanceRadius}
-                    min={minRadius}
-                    max={maxRadius}
-                    step={radiusStep}
-                    onChange={handleRadiusChange}
-                />
-                <Text size={SIZES[0]} {...elem('slider-label', props)}>
-                    {sliderLabel}
-                </Text>
-            </div>
+            {hasRadius && (
+                <div {...elem('slider', props)}>
+                    <Slider
+                        value={distanceRadius}
+                        min={minRadius}
+                        max={maxRadius}
+                        step={radiusStep}
+                        onChange={handleRadiusChange}
+                    />
+                    <Text size={SIZES[0]} {...elem('sliderLabel', props)}>
+                        {sliderLabel}
+                    </Text>
+                </div>
+            )}
         </As>
     );
 };
@@ -60,6 +63,8 @@ LocationCard.propTypes = {
     locationId: PropTypes.string,
     /** Location card title */
     locationTitle: PropTypes.string.isRequired,
+    /** Defines if location card has a radius slider */
+    hasRadius: PropTypes.bool,
     /** Slider indication string for displaying its formatted value */
     sliderLabel: PropTypes.string,
     /** The minimum value of the distance slider */
@@ -83,6 +88,7 @@ LocationCard.propTypes = {
 
 LocationCard.defaultProps = {
     locationId: null,
+    hasRadius: true,
     sliderLabel: '',
     minRadius: 1,
     maxRadius: 100,

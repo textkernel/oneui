@@ -11,6 +11,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
     let wrapper;
     const onSelectionMock = jest.fn();
     const onErrorMock = jest.fn();
+    const onRemoveAllLocationsMock = jest.fn();
 
     const focusField = () => wrapper.find('input').simulate('click');
 
@@ -21,6 +22,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
                 noSuggestionsPlaceholder="No suggestions..."
                 onSelectionChange={onSelectionMock}
                 onError={onErrorMock}
+                onRemoveAllLocations={onRemoveAllLocationsMock}
             />
         );
         jest.useFakeTimers();
@@ -116,6 +118,22 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         wrapper.find('li').at(0).children().simulate('click');
 
         expect(onSelectionMock).toHaveBeenCalled();
+    });
+    it('should call onRemoveAllLocations when selected suggestion is cleared with singleLocation set to true', () => {
+        wrapper.setProps({ singleLocation: true });
+        getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
+        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
+        act(() => {
+            jest.runAllTimers();
+        });
+        focusField();
+        wrapper.find('li').at(0).children().simulate('click');
+
+        expect(onSelectionMock).toHaveBeenCalled();
+
+        wrapper.find('input').simulate('change', { target: { value: '' } });
+
+        expect(onRemoveAllLocationsMock).toHaveBeenCalled();
     });
     it('should not display country information in list', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));

@@ -1,5 +1,6 @@
 $input-line-height: 67px;
 $location-card-width: 300px;
+$slider-indication-width: 90px;
 
 .LocationSelectorDialog {
     &__inputLine {
@@ -13,15 +14,30 @@ $location-card-width: 300px;
         flex-basis: 80%;
         min-width: 100px;
     }
+    
+    &__slider {
+        width: 50%;
+        max-width: 400px;
+        flex-direction: row;
+        display: flex;
+        margin: var(--spacing-5x) 5px var(--spacing-5x) 25px;
+    }
+
+    &__sliderLabel {
+        width: $slider-indication-width;
+        margin: 0;
+        text-align: right;
+    }
 
     &__button {
         flex-basis: 20%;
         margin-left: var(--spacing-4x);
+        height: 38px;
     }
 
     &__locationsWrapper {
         display: flex;
-        height: 100%;
+        height: calc(100% - #{$input-line-height});
     }
 
     &__locationCardsContainer {
@@ -31,6 +47,7 @@ $location-card-width: 300px;
         min-width: $location-card-width;
         padding-right: calc(var(--spacing-4x) - 1px);
         overflow: auto;
+        height: 100%;
     }
 
     &__locationCard:not(:last-child) {

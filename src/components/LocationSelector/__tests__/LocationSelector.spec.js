@@ -131,6 +131,7 @@ describe('LocationSelector component', () => {
                 lat: location.center.lat,
                 lng: location.center.lng,
             },
+            description: location.description,
             radius: location.radius * 1000,
         }));
         wrapper.find('FieldWrapper').simulate('click');

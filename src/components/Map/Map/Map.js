@@ -21,39 +21,52 @@ export const Map = React.forwardRef((props, ref) => {
     const mapRef = ref || React.createRef();
 
     const fitBounds = React.useCallback(() => {
-        if (!mapRef.current || !mapRef.current.state.map) return;
-        const { map } = mapRef.current.state;
-
-        const { LatLngBounds, Circle: CircleClass } = window.google.maps;
-
-        if (markers.length) {
-            const bounds = new LatLngBounds();
-            markers.forEach((marker) => {
-                if (marker.radius) {
-                    const circle = new CircleClass({
-                        center: marker.center,
-                        radius: marker.radius,
-                    });
-                    bounds.union(circle.getBounds());
-                } else {
-                    bounds.extend(marker.center);
-                }
-                map.fitBounds(bounds);
-            });
-        } else if (defaultArea.address) {
-            const { Geocoder } = window.google.maps;
+        if (mapRef.current && mapRef.current.state.map) {
+            const { map } = mapRef.current.state;
+            const { LatLngBounds, Circle: CircleClass, Geocoder } = window.google.maps;
             const geocoder = new Geocoder();
+            const bounds = new LatLngBounds();
 
-            geocoder.geocode({ address: defaultArea.address }, (result, status) => {
-                if (status === 'OK') {
-                    map.fitBounds(result[0].geometry.viewport);
+            const fitBoundsByAddress = (address) => {
+                geocoder.geocode({ address }, (result, status) => {
+                    if (status === 'OK') {
+                        map.fitBounds(result[0].geometry.viewport);
+                    } else {
+                        // TODO: add error handling
+                    }
+                });
+            };
+
+            /**
+             * if there's a single marker without radius, fits it into the map borders
+             * else if there're any markers passed, create radius circles for them and fits them into the map borders
+             * else if there's address for default area, fits it into the map borders
+             * else centers the map on the default area and zooms on it
+             */
+            if (markers.length === 1 && !markers[0].radius) {
+                const [firstMarker] = markers;
+                if (firstMarker.description) {
+                    fitBoundsByAddress(firstMarker.description);
                 } else {
-                    // TODO: add error handling
+                    bounds.extend(firstMarker.center);
+                    map.fitBounds(bounds);
                 }
-            });
-        } else {
-            map.setCenter(defaultArea.center);
-            map.setZoom(defaultArea.zoom);
+            } else if (markers.length) {
+                markers.forEach(({ center, radius }) => {
+                    if (radius) {
+                        const circle = new CircleClass({ center, radius });
+                        bounds.union(circle.getBounds());
+                    } else {
+                        bounds.extend(center);
+                    }
+                    map.fitBounds(bounds);
+                });
+            } else if (defaultArea.address) {
+                fitBoundsByAddress(defaultArea.address);
+            } else {
+                map.setCenter(defaultArea.center);
+                map.setZoom(defaultArea.zoom);
+            }
         }
     }, [defaultArea, mapRef, markers]);
 
@@ -123,6 +136,7 @@ Map.propTypes = {
                 lat: PropTypes.number.isRequired,
             }),
             radius: PropTypes.number,
+            description: PropTypes.string,
         })
     ),
     /** The style of the map container. It has to have explicit width and height (requirement from Google).

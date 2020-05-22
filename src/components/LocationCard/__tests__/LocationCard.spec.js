@@ -29,6 +29,11 @@ describe('LocationCard component', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
+    it('should render component correctly without radius slider', () => {
+        wrapper.setProps({ hasRadius: false });
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
     describe('Callbacks', () => {
         it('should call onDelete callback', () => {
             expect(mockOnDelete).not.toHaveBeenCalled();

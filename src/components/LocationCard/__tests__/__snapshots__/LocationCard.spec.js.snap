@@ -4,6 +4,7 @@ exports[`LocationCard component should render component correctly 1`] = `
 <LocationCard
   As="div"
   distanceRadius={42}
+  hasRadius={true}
   locationId={null}
   locationTitle="London"
   maxRadius={100}
@@ -34,7 +35,7 @@ exports[`LocationCard component should render component correctly 1`] = `
         </p>
       </Text>
       <button
-        className="LocationCard__delete-button"
+        className="LocationCard__deleteButton"
         onClick={[Function]}
         type="button"
       >
@@ -189,17 +190,63 @@ exports[`LocationCard component should render component correctly 1`] = `
         </ComponentEnhancer(undefined)>
       </Slider>
       <Text
-        className="LocationCard__slider-label"
+        className="LocationCard__sliderLabel"
         context="default"
         inline={false}
         size="small"
       >
         <p
-          className="Text--size_small LocationCard__slider-label"
+          className="Text--size_small LocationCard__sliderLabel"
         >
           +42 km
         </p>
       </Text>
+    </div>
+  </div>
+</LocationCard>
+`;
+
+exports[`LocationCard component should render component correctly without radius slider 1`] = `
+<LocationCard
+  As="div"
+  distanceRadius={42}
+  hasRadius={false}
+  locationId={null}
+  locationTitle="London"
+  maxRadius={100}
+  minRadius={1}
+  onDelete={[MockFunction]}
+  onRadiusChange={[Function]}
+  radiusStep={1}
+  sliderLabel="+42 km"
+>
+  <div
+    className="LocationCard"
+  >
+    <div
+      className="LocationCard__header"
+    >
+      <Text
+        className="LocationCard__title"
+        context="default"
+        inline={false}
+        size="large"
+        title="London"
+      >
+        <p
+          className="Text--size_large LocationCard__title"
+          title="London"
+        >
+          London
+        </p>
+      </Text>
+      <button
+        className="LocationCard__deleteButton"
+        onClick={[Function]}
+        type="button"
+      >
+        ×
+      </button>
     </div>
   </div>
 </LocationCard>

@@ -15,6 +15,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
         additionalGoogleProps,
 
         /** LocationCard props */
+        hasRadius,
         minRadius,
         maxRadius,
         radiusStep,
@@ -31,9 +32,11 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
         onLocationAutocompleteError,
 
         /** Internal use */
+        withoutLocationCards,
         onCloseModal,
         onAddLocation,
         onUpdateLocation,
+        onRemoveAllLocations,
         selectedLocations,
         inputPlaceholder,
         getMarkers,
@@ -50,6 +53,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
         >
             <LocationSelectorDialog
                 inputPlaceholder={inputPlaceholder}
+                hasRadius={hasRadius}
                 minRadius={minRadius}
                 maxRadius={maxRadius}
                 radiusStep={radiusStep}
@@ -57,6 +61,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
                 onRemoveLocation={onRemoveLocation}
                 doneLabel={doneLabel}
                 country={country}
+                withoutLocationCards={withoutLocationCards}
                 initialMapAddress={initialMapAddress}
                 placeTypes={placeTypes}
                 noSuggestionsPlaceholder={noSuggestionsPlaceholder}
@@ -66,6 +71,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
                 selectedLocations={selectedLocations}
                 getMarkers={getMarkers}
                 onAddLocation={onAddLocation}
+                onRemoveAllLocations={onRemoveAllLocations}
                 onCloseModal={onCloseModal}
             />
         </LoadScriptNext>

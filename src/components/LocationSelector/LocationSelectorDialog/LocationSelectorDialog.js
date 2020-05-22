@@ -2,9 +2,12 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { bem } from '../../../utils';
 import { LocationCard } from '../../LocationCard';
+import { Text } from '../../Text';
+import { Slider } from '../../Slider';
 import { Button } from '../../Buttons';
 import { LocationAutocomplete } from '../../LocationAutocomplete';
 import { Map } from '../../Map';
+import { SIZES } from '../../../constants';
 import styles from './LocationSelectorDialog.scss';
 
 const { elem } = bem('LocationSelectorDialog', styles);
@@ -17,6 +20,7 @@ export const LocationSelectorDialog = (props) => {
         inputPlaceholder,
 
         /** LocationCard props */
+        hasRadius,
         minRadius,
         maxRadius,
         radiusStep,
@@ -33,12 +37,16 @@ export const LocationSelectorDialog = (props) => {
         onLocationAutocompleteError,
 
         /** Internal use */
+        withoutLocationCards,
         onUpdateLocation,
         selectedLocations,
         getMarkers,
         onAddLocation,
+        onRemoveAllLocations,
         onCloseModal,
     } = props;
+
+    const [firstSelectedLocation] = selectedLocations;
 
     function handleAddLocation(location) {
         if (locationInputRef.current) {
@@ -54,6 +62,10 @@ export const LocationSelectorDialog = (props) => {
         onRemoveLocation(locationId);
     }
 
+    function handleRadiusChange(radius) {
+        onUpdateLocation(firstSelectedLocation.id, radius);
+    }
+
     return (
         <>
             <div {...elem('inputLine', props)}>
@@ -61,21 +73,43 @@ export const LocationSelectorDialog = (props) => {
                     {...elem('searchField', props)}
                     isFocused
                     inputRef={locationInputRef}
+                    defaultInputValue={
+                        withoutLocationCards && firstSelectedLocation
+                            ? firstSelectedLocation.description
+                            : ''
+                    }
                     inputPlaceholder={inputPlaceholder}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     onSelectionChange={handleAddLocation}
                     country={country}
                     placeTypes={placeTypes}
+                    singleLocation={withoutLocationCards}
                     showCountryInSuggestions={showCountryInSuggestions}
+                    onRemoveAllLocations={onRemoveAllLocations}
                     onError={onLocationAutocompleteError}
                     hidePoweredByGoogleLogo
                 />
+                {hasRadius && withoutLocationCards && selectedLocations.length === 1 && (
+                    <div {...elem('slider', props)}>
+                        <Slider
+                            value={firstSelectedLocation.radius}
+                            min={minRadius}
+                            max={maxRadius}
+                            step={radiusStep}
+                            railStyle={{ backgroundColor: 'var(--color-neutral-25)' }}
+                            onChange={handleRadiusChange}
+                        />
+                        <Text size={SIZES[0]} {...elem('sliderLabel', props)}>
+                            {renderRadiusLabel(firstSelectedLocation.radius)}
+                        </Text>
+                    </div>
+                )}
                 <Button {...elem('button', props)} onClick={onCloseModal} context="brand">
                     {doneLabel}
                 </Button>
             </div>
             <div {...elem('locationsWrapper', props)}>
-                {!!selectedLocations.length && (
+                {!withoutLocationCards && selectedLocations.length > 0 && (
                     <ul {...elem('locationCardsContainer', props)}>
                         {selectedLocations.map((location) => (
                             <LocationCard
@@ -86,6 +120,7 @@ export const LocationSelectorDialog = (props) => {
                                 locationTitle={location.description}
                                 distanceRadius={location.radius}
                                 sliderLabel={renderRadiusLabel(location.radius)}
+                                hasRadius={hasRadius}
                                 minRadius={minRadius}
                                 maxRadius={maxRadius}
                                 radiusStep={radiusStep}
@@ -107,6 +142,8 @@ export const LocationSelectorDialog = (props) => {
 LocationSelectorDialog.displayName = 'LocationSelectorDialog';
 
 LocationSelectorDialog.propTypes = {
+    /** defines if location cards should be rendered or not */
+    withoutLocationCards: PropTypes.bool,
     /** stores an array of selected location objects */
     selectedLocations: PropTypes.arrayOf(
         PropTypes.shape({
@@ -121,6 +158,8 @@ LocationSelectorDialog.propTypes = {
     ).isRequired,
     /** radius label renderer e.g. radius => `+ ${radius} km` */
     renderRadiusLabel: PropTypes.func.isRequired,
+    /** defines if selector has an option to control the radius for a marker */
+    hasRadius: PropTypes.bool,
     /** min radius value of the slider component */
     minRadius: PropTypes.number.isRequired,
     /** max radius value of the slider component */
@@ -152,6 +191,8 @@ LocationSelectorDialog.propTypes = {
     onUpdateLocation: PropTypes.func.isRequired,
     /** function with a locationId as an argument to be removed */
     onRemoveLocation: PropTypes.func.isRequired,
+    /** function to remove all locations */
+    onRemoveAllLocations: PropTypes.func,
     /** function to calculate marker positions in Map  */
     getMarkers: PropTypes.func.isRequired,
     /** function to be called when teh Done button is clicked */
@@ -159,8 +200,11 @@ LocationSelectorDialog.propTypes = {
 };
 
 LocationSelectorDialog.defaultProps = {
+    hasRadius: false,
+    withoutLocationCards: false,
     showCountryInSuggestions: false,
+    initialMapAddress: null,
     onLocationAutocompleteError: null,
     onCloseModal: () => null,
-    initialMapAddress: null,
+    onRemoveAllLocations: () => null,
 };

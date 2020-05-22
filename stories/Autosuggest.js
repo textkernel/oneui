@@ -33,6 +33,7 @@ storiesOf('Organisms|Autosuggest', module)
             onInputValueChange={(value) =>
                 console.log(`onInputValueChange was called with ${value}`)
             }
+            saveSelectedValueToInput={boolean('Save selected value', false)}
             onClearAllSelected={() => console.log('onClearAllSelected was called')}
             showClearButton={boolean('Show clear button', true)}
             iconNode={<IconMatch />}

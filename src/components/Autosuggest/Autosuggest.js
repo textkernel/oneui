@@ -34,7 +34,7 @@ export class Autosuggest extends React.Component {
         this.handleWrapperKeyDown = memoize(this.handleWrapperKeyDown);
 
         this.state = {
-            inputValue: '',
+            inputValue: props.defaultInputValue,
             inputValueRecall: '',
             focused: props.isFocused,
         };
@@ -44,7 +44,7 @@ export class Autosuggest extends React.Component {
         const { isFocused } = this.props;
 
         if (isFocused) {
-            this.inputRef.current.focus();
+            this.inputRef.current?.focus();
         }
     }
 
@@ -74,13 +74,20 @@ export class Autosuggest extends React.Component {
     }
 
     handleChange = (selectedItem, downshift) => {
-        const { onSelectionChange, isMultiselect } = this.props;
+        const {
+            suggestionToString,
+            onSelectionChange,
+            saveSelectedValueToInput,
+            isMultiselect,
+        } = this.props;
         const { clearSelection, openMenu } = downshift;
 
-        this.setState({ inputValue: '' });
         clearSelection();
 
         if (selectedItem) {
+            this.setState({
+                inputValue: saveSelectedValueToInput ? suggestionToString(selectedItem) : '',
+            });
             onSelectionChange(selectedItem);
         }
 
@@ -138,9 +145,12 @@ export class Autosuggest extends React.Component {
     };
 
     handleBlur = () => {
-        const { onBlur } = this.props;
+        const { saveSelectedValueToInput, onBlur } = this.props;
 
-        this.setState({ inputValue: '', inputValueRecall: '' });
+        if (!saveSelectedValueToInput) {
+            this.setState({ inputValue: '', inputValueRecall: '' });
+        }
+
         if (onBlur) {
             onBlur();
         }
@@ -152,7 +162,7 @@ export class Autosuggest extends React.Component {
         return (e) => {
             e.stopPropagation();
             onSelectionChange(item);
-            this.inputRef.current.focus();
+            this.inputRef.current?.focus();
         };
     };
 
@@ -200,7 +210,7 @@ export class Autosuggest extends React.Component {
 
     focus(openMenu) {
         openMenu();
-        this.inputRef.current.focus();
+        this.inputRef.current?.focus();
     }
 
     renderTags() {
@@ -251,7 +261,7 @@ export class Autosuggest extends React.Component {
             typeof getSuggestions === 'function' ? getSuggestions(inputValue) : getSuggestions;
 
         if (!suggestions || !suggestions.length) {
-            return inputValue ? (
+            return inputValue && inputValueRecall === inputValue ? (
                 <ListItem disabled>
                     <Text context="muted">{noSuggestionsPlaceholder}</Text>
                 </ListItem>
@@ -289,6 +299,7 @@ export class Autosuggest extends React.Component {
         const {
             selectedPlaceholder,
             suggestionToString,
+            defaultInputValue,
             inputPlaceholder,
             clearTitle,
             showClearButton,
@@ -297,6 +308,7 @@ export class Autosuggest extends React.Component {
             getSuggestions,
             isLoading,
             isFocused,
+            saveSelectedValueToInput,
             noSuggestionsPlaceholder,
             onBlur,
             onSelectionChange,
@@ -409,6 +421,8 @@ Autosuggest.propTypes = {
     isFocused: PropTypes.bool,
     /** a string or function (to be called with selectedValues) that represents the selected values when the component is blurred */
     selectedPlaceholder: PropTypes.string,
+    /** default input value */
+    defaultInputValue: PropTypes.string,
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: PropTypes.string.isRequired,
     /** to be shown when no suggestions are available */
@@ -431,6 +445,8 @@ Autosuggest.propTypes = {
     onClearAllSelected: PropTypes.func,
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton: PropTypes.bool,
+    /** display selected value as input value */
+    saveSelectedValueToInput: PropTypes.bool,
     /** an icon or other node to always be rendered as a first element inside the input box */
     iconNode: PropTypes.node,
     /** should this component behave as a multiselect (e.g. no collapse after selection made) */
@@ -453,6 +469,8 @@ Autosuggest.defaultProps = {
     onInputValueChange: null,
     onClearAllSelected: null,
     showClearButton: false,
+    saveSelectedValueToInput: false,
+    defaultInputValue: '',
     selectedPlaceholder: '',
     iconNode: null,
     isMultiselect: false,

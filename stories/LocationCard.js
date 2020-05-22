@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { number, text, withKnobs } from '@storybook/addon-knobs';
+import { number, text, withKnobs, boolean } from '@storybook/addon-knobs';
 import { LocationCard } from '@textkernel/oneui';
 
 storiesOf('Molecules|LocationCard', module)
@@ -9,6 +9,7 @@ storiesOf('Molecules|LocationCard', module)
         <LocationCard
             locationId="ajdo-219a-j19v-0491"
             locationTitle={text('Location title', 'London')}
+            hasRadiusSlider={boolean('Has slider label', true)}
             distanceRadius={number('Distance radius', 42)}
             sliderLabel={text('Slider label', '+42 km')}
             minRadius={number('Min radius', 1)}

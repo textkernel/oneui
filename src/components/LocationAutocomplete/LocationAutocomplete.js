@@ -18,25 +18,28 @@ const DEBOUNCE_DELAY = 350;
 const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
 export const LocationAutocomplete = (props) => {
+    const {
+        inputRef,
+        isFocused,
+        onSelectionChange,
+        defaultInputValue,
+        inputPlaceholder,
+        noSuggestionsPlaceholder,
+        country,
+        placeTypes,
+        singleLocation,
+        showCountryInSuggestions,
+        onRemoveAllLocations,
+        onError,
+        hidePoweredByGoogleLogo,
+        ...rest
+    } = props;
+
     const [storage] = React.useState({ latestInputValue: '' });
     const [suggestionsList, setSuggestionsList] = React.useState(null);
     const [isLoading, setIsLoading] = React.useState(false);
     const [inputValue, setInputValue] = React.useState('');
     const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
-
-    const {
-        inputRef,
-        isFocused,
-        onSelectionChange,
-        inputPlaceholder,
-        noSuggestionsPlaceholder,
-        country,
-        placeTypes,
-        showCountryInSuggestions,
-        onError,
-        hidePoweredByGoogleLogo,
-        ...rest
-    } = props;
 
     // Suggestion functions
     const resetSuggestionsList = () => setSuggestionsList(null);
@@ -94,12 +97,16 @@ export const LocationAutocomplete = (props) => {
         } else {
             setIsLoading(false);
             resetSuggestionsList();
+
+            if (singleLocation) {
+                onRemoveAllLocations();
+            }
         }
     };
 
     const handleSelection = (value) => {
         resetSuggestionsList();
-        setInputValue('');
+        setInputValue(singleLocation ? value : '');
         onSelectionChange(value);
     };
 
@@ -145,9 +152,11 @@ export const LocationAutocomplete = (props) => {
             suggestionToString={suggestionToString}
             isLoading={isLoading}
             isFocused={isFocused}
+            defaultInputValue={defaultInputValue}
             inputPlaceholder={inputPlaceholder}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             listRenderer={renderListPoweredByGoogle}
+            saveSelectedValueToInput={singleLocation}
             onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
             onSelectionChange={handleSelection}
@@ -165,10 +174,14 @@ LocationAutocomplete.propTypes = {
     inputRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: PropTypes.string.isRequired,
+    /** default input value */
+    defaultInputValue: PropTypes.string,
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** trigger of the initial focus of the input field */
     isFocused: PropTypes.bool,
+    /** defines if there's a single location to select in component */
+    singleLocation: PropTypes.bool,
     /** callback to be called with selected value.
      * Value is of type AutocompletePrediction: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction
      */
@@ -183,6 +196,8 @@ LocationAutocomplete.propTypes = {
     placeTypes: PropTypes.arrayOf(PropTypes.string),
     /** show state and country in suggestions list */
     showCountryInSuggestions: PropTypes.bool,
+    /** function to remove all locations */
+    onRemoveAllLocations: PropTypes.func,
     /** function to be executed if error occurs while fetching suggestions */
     onError: PropTypes.func,
     /** To hide powered by google logo. For legal reasons only set it to true if Google map is displayed on the same screen as this component! */
@@ -191,10 +206,13 @@ LocationAutocomplete.propTypes = {
 
 LocationAutocomplete.defaultProps = {
     inputRef: null,
+    singleLocation: false,
+    defaultInputValue: '',
     country: null,
     placeTypes: ['(regions)'],
     isFocused: false,
     showCountryInSuggestions: false,
     onError: null,
+    onRemoveAllLocations: () => {},
     hidePoweredByGoogleLogo: false,
 };

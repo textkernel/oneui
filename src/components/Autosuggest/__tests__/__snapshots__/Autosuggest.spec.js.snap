@@ -3,6 +3,7 @@
 exports[`Autosuggest rendering should initially render empty component correctly 1`] = `
 <Autosuggest
   clearTitle="Clear"
+  defaultInputValue=""
   getSuggestions={[Function]}
   iconNode={null}
   inputPlaceholder="type here..."
@@ -19,6 +20,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   rootRef={null}
+  saveSelectedValueToInput={false}
   selectedPlaceholder=""
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -118,6 +120,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
 exports[`Autosuggest rendering should render all suggestions from the list 1`] = `
 <Autosuggest
   clearTitle="Clear"
+  defaultInputValue=""
   getSuggestions={[Function]}
   iconNode={null}
   inputPlaceholder="type here..."
@@ -134,6 +137,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   rootRef={null}
+  saveSelectedValueToInput={false}
   selectedPlaceholder=""
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -163,8 +167,8 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
       <div
         aria-expanded={true}
         aria-haspopup="listbox"
-        aria-labelledby="downshift-3-label"
-        aria-owns="downshift-3-menu"
+        aria-labelledby="downshift-5-label"
+        aria-owns="downshift-5-menu"
         className="Autosuggest__main Autosuggest__main--focused"
         role="combobox"
       >
@@ -191,14 +195,14 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                 tabIndex="0"
               >
                 <input
-                  aria-activedescendant="downshift-3-item-0"
+                  aria-activedescendant="downshift-5-item-0"
                   aria-autocomplete="list"
-                  aria-controls="downshift-3-menu"
-                  aria-labelledby="downshift-3-label"
+                  aria-controls="downshift-5-menu"
+                  aria-labelledby="downshift-5-label"
                   autoComplete="off"
                   className="Autosuggest__input"
                   data-lpignore={true}
-                  id="downshift-3-input"
+                  id="downshift-5-input"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onKeyDown={[Function]}
@@ -207,18 +211,18 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                 />
               </div>
               <List
-                aria-labelledby="downshift-3-label"
+                aria-labelledby="downshift-5-label"
                 className="Autosuggest__list--focused"
                 doSelectOnNavigate={false}
-                id="downshift-3-menu"
+                id="downshift-5-menu"
                 isControlledNavigation={true}
                 isDivided={false}
                 role="listbox"
               >
                 <ul
-                  aria-labelledby="downshift-3-label"
+                  aria-labelledby="downshift-5-label"
                   className="List Autosuggest__list--focused"
-                  id="downshift-3-menu"
+                  id="downshift-5-menu"
                   role="listbox"
                 >
                   <ListItem
@@ -226,7 +230,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     className="List__item"
                     disabled={false}
                     highlightContext="brand"
-                    id="downshift-3-item-0"
+                    id="downshift-5-item-0"
                     isHighlighted={true}
                     isSelected={false}
                     key=".$Sun"
@@ -238,7 +242,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     <li
                       aria-selected={true}
                       className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable List__item"
-                      id="downshift-3-item-0"
+                      id="downshift-5-item-0"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -271,7 +275,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     className="List__item"
                     disabled={false}
                     highlightContext="brand"
-                    id="downshift-3-item-1"
+                    id="downshift-5-item-1"
                     isHighlighted={false}
                     isSelected={false}
                     key=".$Moon"
@@ -283,7 +287,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
-                      id="downshift-3-item-1"
+                      id="downshift-5-item-1"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -316,7 +320,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     className="List__item"
                     disabled={false}
                     highlightContext="brand"
-                    id="downshift-3-item-2"
+                    id="downshift-5-item-2"
                     isHighlighted={false}
                     isSelected={false}
                     key=".$Mercury"
@@ -328,7 +332,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
-                      id="downshift-3-item-2"
+                      id="downshift-5-item-2"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -361,7 +365,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     className="List__item"
                     disabled={false}
                     highlightContext="brand"
-                    id="downshift-3-item-3"
+                    id="downshift-5-item-3"
                     isHighlighted={false}
                     isSelected={false}
                     key=".$Venus"
@@ -373,7 +377,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
-                      id="downshift-3-item-3"
+                      id="downshift-5-item-3"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -415,6 +419,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
 exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
 <Autosuggest
   clearTitle="Clear"
+  defaultInputValue=""
   getSuggestions={[Function]}
   iconNode={
     <IconMatch
@@ -435,6 +440,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   rootRef={null}
+  saveSelectedValueToInput={false}
   selectedPlaceholder="Current selection"
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -464,7 +470,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
       <div
         aria-expanded={false}
         aria-haspopup="listbox"
-        aria-labelledby="downshift-10-label"
+        aria-labelledby="downshift-12-label"
         aria-owns={null}
         className="Autosuggest__main"
         role="combobox"
@@ -533,11 +539,11 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
                   aria-activedescendant={null}
                   aria-autocomplete="list"
                   aria-controls={null}
-                  aria-labelledby="downshift-10-label"
+                  aria-labelledby="downshift-12-label"
                   autoComplete="off"
                   className="Autosuggest__input"
                   data-lpignore={true}
-                  id="downshift-10-input"
+                  id="downshift-12-input"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onKeyDown={[Function]}
@@ -546,17 +552,17 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
                 />
               </div>
               <List
-                aria-labelledby="downshift-10-label"
+                aria-labelledby="downshift-12-label"
                 doSelectOnNavigate={false}
-                id="downshift-10-menu"
+                id="downshift-12-menu"
                 isControlledNavigation={true}
                 isDivided={false}
                 role="listbox"
               >
                 <ul
-                  aria-labelledby="downshift-10-label"
+                  aria-labelledby="downshift-12-label"
                   className="List"
-                  id="downshift-10-menu"
+                  id="downshift-12-menu"
                   role="listbox"
                 />
               </List>
@@ -572,6 +578,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
 exports[`Autosuggest rendering should render noSuggestions placeholder when empty suggestions list is passed 1`] = `
 <Autosuggest
   clearTitle="Clear"
+  defaultInputValue=""
   getSuggestions={[Function]}
   iconNode={null}
   inputPlaceholder="type here..."
@@ -602,6 +609,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
   }
   onSelectionChange={[MockFunction]}
   rootRef={null}
+  saveSelectedValueToInput={false}
   selectedPlaceholder=""
   selectedSuggestions={Array []}
   showClearButton={true}
@@ -616,168 +624,6 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
       environment={[Window]}
       getA11yStatusMessage={[Function]}
       inputValue="driver"
-      itemToString={[Function]}
-      onChange={[Function]}
-      onInputValueChange={[Function]}
-      onOuterClick={[Function]}
-      onSelect={[Function]}
-      onStateChange={[Function]}
-      onUserAction={[Function]}
-      scrollIntoView={[Function]}
-      selectedItemChanged={[Function]}
-      stateReducer={[Function]}
-      suppressRefError={false}
-    >
-      <div
-        aria-expanded={true}
-        aria-haspopup="listbox"
-        aria-labelledby="downshift-2-label"
-        aria-owns="downshift-2-menu"
-        className="Autosuggest__main Autosuggest__main--focused"
-        role="combobox"
-      >
-        <FieldWrapper
-          className="Autosuggest__field"
-          clearLabel="Clear"
-          isFocused={true}
-          onClear={[Function]}
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          showClearButton={false}
-        >
-          <div
-            className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-          >
-            <div
-              className="FieldWrapper__content"
-            >
-              <div
-                className="Autosuggest__wrapper Autosuggest__wrapper--focused"
-                role="searchbox"
-                tabIndex="0"
-              >
-                <input
-                  aria-activedescendant="downshift-2-item-0"
-                  aria-autocomplete="list"
-                  aria-controls="downshift-2-menu"
-                  aria-labelledby="downshift-2-label"
-                  autoComplete="off"
-                  className="Autosuggest__input"
-                  data-lpignore={true}
-                  id="downshift-2-input"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onKeyDown={[Function]}
-                  placeholder="type here..."
-                  value="driver"
-                />
-              </div>
-              <List
-                aria-labelledby="downshift-2-label"
-                className="Autosuggest__list--focused"
-                doSelectOnNavigate={false}
-                id="downshift-2-menu"
-                isControlledNavigation={true}
-                isDivided={false}
-                role="listbox"
-              >
-                <ul
-                  aria-labelledby="downshift-2-label"
-                  className="List Autosuggest__list--focused"
-                  id="downshift-2-menu"
-                  role="listbox"
-                >
-                  <ListItem
-                    className="List__item"
-                    disabled={true}
-                    highlightContext="default"
-                    isHighlighted={false}
-                    isSelected={false}
-                    key=".0"
-                  >
-                    <li
-                      className="ListItem List__item"
-                    >
-                      <div
-                        className="ListItem__container"
-                        role="presentation"
-                      >
-                        <Text
-                          context="muted"
-                          inline={false}
-                          key=".0"
-                          size="normal"
-                        >
-                          <p
-                            className="Text--context_muted"
-                          >
-                            No suggestions...
-                          </p>
-                        </Text>
-                      </div>
-                    </li>
-                  </ListItem>
-                </ul>
-              </List>
-            </div>
-          </div>
-        </FieldWrapper>
-      </div>
-    </Downshift>
-  </div>
-</Autosuggest>
-`;
-
-exports[`Autosuggest rendering should render suggestions also if it passed as an array, and not a function 1`] = `
-<Autosuggest
-  clearTitle="Clear"
-  getSuggestions={
-    Array [
-      Object {
-        "name": "Sun",
-      },
-      Object {
-        "name": "Moon",
-      },
-      Object {
-        "name": "Mercury",
-      },
-      Object {
-        "name": "Venus",
-      },
-    ]
-  }
-  iconNode={null}
-  inputPlaceholder="type here..."
-  inputRef={null}
-  isFocused={false}
-  isLoading={false}
-  isMultiselect={false}
-  isProminent={false}
-  listRef={null}
-  listRenderer={null}
-  noSuggestionsPlaceholder="No suggestions..."
-  onBlur={[MockFunction]}
-  onClearAllSelected={[MockFunction]}
-  onInputValueChange={[MockFunction]}
-  onSelectionChange={[MockFunction]}
-  rootRef={null}
-  selectedPlaceholder=""
-  selectedSuggestions={Array []}
-  showClearButton={true}
-  suggestionToString={[Function]}
->
-  <div
-    className="Autosuggest"
-  >
-    <Downshift
-      defaultHighlightedIndex={0}
-      defaultIsOpen={false}
-      environment={[Window]}
-      getA11yStatusMessage={[Function]}
-      inputValue=""
       itemToString={[Function]}
       onChange={[Function]}
       onInputValueChange={[Function]}
@@ -833,7 +679,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                   onChange={[Function]}
                   onKeyDown={[Function]}
                   placeholder="type here..."
-                  value=""
+                  value="driver"
                 />
               </div>
               <List
@@ -852,11 +698,175 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                   role="listbox"
                 >
                   <ListItem
+                    className="List__item"
+                    disabled={true}
+                    highlightContext="default"
+                    isHighlighted={false}
+                    isSelected={false}
+                    key=".0"
+                  >
+                    <li
+                      className="ListItem List__item"
+                    >
+                      <div
+                        className="ListItem__container"
+                        role="presentation"
+                      >
+                        <Text
+                          context="muted"
+                          inline={false}
+                          key=".0"
+                          size="normal"
+                        >
+                          <p
+                            className="Text--context_muted"
+                          >
+                            No suggestions...
+                          </p>
+                        </Text>
+                      </div>
+                    </li>
+                  </ListItem>
+                </ul>
+              </List>
+            </div>
+          </div>
+        </FieldWrapper>
+      </div>
+    </Downshift>
+  </div>
+</Autosuggest>
+`;
+
+exports[`Autosuggest rendering should render suggestions also if it passed as an array, and not a function 1`] = `
+<Autosuggest
+  clearTitle="Clear"
+  defaultInputValue=""
+  getSuggestions={
+    Array [
+      Object {
+        "name": "Sun",
+      },
+      Object {
+        "name": "Moon",
+      },
+      Object {
+        "name": "Mercury",
+      },
+      Object {
+        "name": "Venus",
+      },
+    ]
+  }
+  iconNode={null}
+  inputPlaceholder="type here..."
+  inputRef={null}
+  isFocused={false}
+  isLoading={false}
+  isMultiselect={false}
+  isProminent={false}
+  listRef={null}
+  listRenderer={null}
+  noSuggestionsPlaceholder="No suggestions..."
+  onBlur={[MockFunction]}
+  onClearAllSelected={[MockFunction]}
+  onInputValueChange={[MockFunction]}
+  onSelectionChange={[MockFunction]}
+  rootRef={null}
+  saveSelectedValueToInput={false}
+  selectedPlaceholder=""
+  selectedSuggestions={Array []}
+  showClearButton={true}
+  suggestionToString={[Function]}
+>
+  <div
+    className="Autosuggest"
+  >
+    <Downshift
+      defaultHighlightedIndex={0}
+      defaultIsOpen={false}
+      environment={[Window]}
+      getA11yStatusMessage={[Function]}
+      inputValue=""
+      itemToString={[Function]}
+      onChange={[Function]}
+      onInputValueChange={[Function]}
+      onOuterClick={[Function]}
+      onSelect={[Function]}
+      onStateChange={[Function]}
+      onUserAction={[Function]}
+      scrollIntoView={[Function]}
+      selectedItemChanged={[Function]}
+      stateReducer={[Function]}
+      suppressRefError={false}
+    >
+      <div
+        aria-expanded={true}
+        aria-haspopup="listbox"
+        aria-labelledby="downshift-6-label"
+        aria-owns="downshift-6-menu"
+        className="Autosuggest__main Autosuggest__main--focused"
+        role="combobox"
+      >
+        <FieldWrapper
+          className="Autosuggest__field"
+          clearLabel="Clear"
+          isFocused={true}
+          onClear={[Function]}
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          showClearButton={false}
+        >
+          <div
+            className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+          >
+            <div
+              className="FieldWrapper__content"
+            >
+              <div
+                className="Autosuggest__wrapper Autosuggest__wrapper--focused"
+                role="searchbox"
+                tabIndex="0"
+              >
+                <input
+                  aria-activedescendant="downshift-6-item-0"
+                  aria-autocomplete="list"
+                  aria-controls="downshift-6-menu"
+                  aria-labelledby="downshift-6-label"
+                  autoComplete="off"
+                  className="Autosuggest__input"
+                  data-lpignore={true}
+                  id="downshift-6-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  placeholder="type here..."
+                  value=""
+                />
+              </div>
+              <List
+                aria-labelledby="downshift-6-label"
+                className="Autosuggest__list--focused"
+                doSelectOnNavigate={false}
+                id="downshift-6-menu"
+                isControlledNavigation={true}
+                isDivided={false}
+                role="listbox"
+              >
+                <ul
+                  aria-labelledby="downshift-6-label"
+                  className="List Autosuggest__list--focused"
+                  id="downshift-6-menu"
+                  role="listbox"
+                >
+                  <ListItem
                     aria-selected={true}
                     className="List__item"
                     disabled={false}
                     highlightContext="brand"
-                    id="downshift-4-item-0"
+                    id="downshift-6-item-0"
                     isHighlighted={true}
                     isSelected={false}
                     key=".$Sun"
@@ -868,7 +878,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     <li
                       aria-selected={true}
                       className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable List__item"
-                      id="downshift-4-item-0"
+                      id="downshift-6-item-0"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -901,7 +911,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     className="List__item"
                     disabled={false}
                     highlightContext="brand"
-                    id="downshift-4-item-1"
+                    id="downshift-6-item-1"
                     isHighlighted={false}
                     isSelected={false}
                     key=".$Moon"
@@ -913,7 +923,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
-                      id="downshift-4-item-1"
+                      id="downshift-6-item-1"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -946,7 +956,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     className="List__item"
                     disabled={false}
                     highlightContext="brand"
-                    id="downshift-4-item-2"
+                    id="downshift-6-item-2"
                     isHighlighted={false}
                     isSelected={false}
                     key=".$Mercury"
@@ -958,7 +968,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
-                      id="downshift-4-item-2"
+                      id="downshift-6-item-2"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -991,7 +1001,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     className="List__item"
                     disabled={false}
                     highlightContext="brand"
-                    id="downshift-4-item-3"
+                    id="downshift-6-item-3"
                     isHighlighted={false}
                     isSelected={false}
                     key=".$Venus"
@@ -1003,7 +1013,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
-                      id="downshift-4-item-3"
+                      id="downshift-6-item-3"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"

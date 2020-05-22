@@ -1,17 +1,82 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import { Modal } from '../Modal';
 import { FieldWrapper } from '../FieldWrapper';
 import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
-import { findCenter, getRadiusInMeters } from './utils';
+import { Location, findCenter, getRadiusInMeters } from './utils';
 import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
 
-export function LocationSelector(props) {
+interface Props {
+    /** Google api key */
+    apiKey: string;
+    /** language in which suggestions should be displayed */
+    language: string;
+    /** Regional setting for the map. By default Google uses US.
+     * For details see: https://developers.google.com/maps/documentation/javascript/localization#Region
+     */
+    region?: string;
+    /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
+    additionalGoogleProps?: object; // eslint-disable-line react/forbid-prop-types
+    /** stores an array of selected location objects */
+    selectedLocations: Location[];
+    /** defines if selector has an option to control the radius for a marker */
+    hasRadius?: boolean;
+    /** default radius value */
+    radiusDefaultValue?: number;
+    /** radius measurement unit */
+    radiusUnits: 'km' | 'mi';
+    /** radius label renderer e.g. radius => `+ ${radius} km` */
+    renderRadiusLabel: (string) => string;
+    /** min radius value of the slider component */
+    minRadius?: number;
+    /** max radius value of the slider component */
+    maxRadius?: number;
+    /** radius step value of the slider component */
+    radiusStep?: number;
+    /** defines if selector has a list of locations cards to render */
+    withoutLocationCards?: boolean;
+    /** country where search can take place */
+    country: string;
+    /** address to make initial map centering more specific */
+    initialMapAddress?: string;
+    /**
+     * type of locations that should be searched for.
+     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
+     */
+    placeTypes?: string[];
+    /** show country name in autocomplete suggestions */
+    showCountryInSuggestions?: boolean;
+    /** A title for the modal that will be used by screenreaders */
+    modalContentLabel: string;
+    /** placeholder for both main field and autocomplete field in modal */
+    inputPlaceholder: string;
+    /** placeholder for empty LocationAutocomplete list */
+    noSuggestionsPlaceholder: string;
+    /** function to be executed if error occurs while fetching suggestions */
+    onLocationAutocompleteError: () => void;
+    /** string to be displayed in FieldWrapper when the modal is closed, but locations are selected */
+    selectionPlaceholder?: string;
+    /** label for the Done button */
+    doneLabel: string;
+    /** label to be used on the clear all button */
+    clearLabel: string;
+    /** function called with location object as an argument when it is selected from the suggestions */
+    onAddLocation: (Location) => void;
+    /** function called with a location details as an argument to be changed */
+    onUpdateLocation: (Location) => void;
+    /** function with a locationId as an argument to be removed */
+    onRemoveLocation: (Location) => void;
+    /** callback function for the Clear button click */
+    onRemoveAllLocations: () => void;
+    /** callback function for closed modal */
+    onBlur: () => void;
+}
+
+export const LocationSelector: React.FC<Props> = (props) => {
     const {
         /** Google props */
         apiKey,
@@ -29,11 +94,11 @@ export function LocationSelector(props) {
         modalContentLabel,
 
         /** LocationCard props */
+        hasRadius,
         minRadius,
         maxRadius,
         radiusStep,
         renderRadiusLabel,
-        onRemoveLocation,
         doneLabel,
 
         /** LocationAutocomplete props */
@@ -45,12 +110,14 @@ export function LocationSelector(props) {
         onLocationAutocompleteError,
 
         /** Internal use */
-        onAddLocation,
-        onUpdateLocation,
-        onBlur,
         selectedLocations,
         radiusDefaultValue,
         radiusUnits,
+        withoutLocationCards,
+        onAddLocation,
+        onUpdateLocation,
+        onRemoveLocation,
+        onBlur,
         ...rest
     } = props;
 
@@ -77,18 +144,19 @@ export function LocationSelector(props) {
      * if this location was not selected yet
      */
     function handleAddLocation(location) {
-        const { Geocoder } = window.google.maps;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const { Geocoder } = (window as any).google.maps;
         const geocoder = new Geocoder();
 
         return findCenter(geocoder, location.place_id)
-            .then((center) => {
+            .then((center: any) => {
                 const locationToAdd = {
                     ...location,
                     center: {
                         lng: typeof center.lng === 'function' ? center.lng() : center.lng,
                         lat: typeof center.lat === 'function' ? center.lat() : center.lat,
                     },
-                    radius: radiusDefaultValue,
+                    radius: hasRadius ? radiusDefaultValue : 0,
                 };
 
                 const isLocationSelected = selectedLocations
@@ -104,8 +172,9 @@ export function LocationSelector(props) {
 
     function getMarkers() {
         return selectedLocations.map((location) => ({
+            description: location.description,
             center: location.center,
-            radius: getRadiusInMeters(location.radius, radiusUnits),
+            radius: hasRadius ? getRadiusInMeters(location.radius, radiusUnits) : 0,
         }));
     }
 
@@ -136,6 +205,7 @@ export function LocationSelector(props) {
                     region={region}
                     {...additionalGoogleProps}
                     inputPlaceholder={inputPlaceholder}
+                    hasRadius={hasRadius}
                     minRadius={minRadius}
                     maxRadius={maxRadius}
                     radiusStep={radiusStep}
@@ -143,12 +213,14 @@ export function LocationSelector(props) {
                     onRemoveLocation={onRemoveLocation}
                     doneLabel={doneLabel}
                     country={country}
+                    withoutLocationCards={withoutLocationCards}
                     initialMapAddress={initialMapAddress}
                     placeTypes={placeTypes}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     showCountryInSuggestions={showCountryInSuggestions}
                     onLocationAutocompleteError={onLocationAutocompleteError}
                     onUpdateLocation={onUpdateLocation}
+                    onRemoveAllLocations={onRemoveAllLocations}
                     selectedLocations={selectedLocations}
                     getMarkers={getMarkers}
                     onAddLocation={handleAddLocation}
@@ -157,93 +229,23 @@ export function LocationSelector(props) {
             </Modal>
         </div>
     );
-}
+};
 
 LocationSelector.displayName = 'LocationSelector';
 
-LocationSelector.propTypes = {
-    /** Google api key */
-    apiKey: PropTypes.string.isRequired,
-    /** language in which suggestions should be displayed */
-    language: PropTypes.string.isRequired,
-    /** Regional setting for the map. By default Google uses US.
-     * For details see: https://developers.google.com/maps/documentation/javascript/localization#Region
-     */
-    region: PropTypes.string,
-    /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
-    additionalGoogleProps: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    /** stores an array of selected location objects */
-    selectedLocations: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
-            center: PropTypes.shape({
-                lng: PropTypes.number.isRequired,
-                lat: PropTypes.number.isRequired,
-            }).isRequired,
-            radius: PropTypes.number.isRequired,
-        })
-    ).isRequired,
-    /** default radius value */
-    radiusDefaultValue: PropTypes.number,
-    /** radius measurement unit */
-    radiusUnits: PropTypes.oneOf(['km', 'mi']).isRequired,
-    /** radius label renderer e.g. radius => `+ ${radius} km` */
-    renderRadiusLabel: PropTypes.func.isRequired,
-    /** min radius value of the slider component */
-    minRadius: PropTypes.number,
-    /** max radius value of the slider component */
-    maxRadius: PropTypes.number,
-    /** radius step value of the slider component */
-    radiusStep: PropTypes.number,
-    /** country where search can take place */
-    country: PropTypes.string.isRequired,
-    /** address to make initial map centering more specific */
-    initialMapAddress: PropTypes.string,
-    /**
-     * type of locations that should be searched for.
-     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
-     */
-    placeTypes: PropTypes.arrayOf(PropTypes.string),
-    /** show country name in autocomplete suggestions */
-    showCountryInSuggestions: PropTypes.bool,
-    /** A title for the modal that will be used by screenreaders */
-    modalContentLabel: PropTypes.string.isRequired,
-    /** placeholder for both main field and autocomplete field in modal */
-    inputPlaceholder: PropTypes.string.isRequired,
-    /** placeholder for empty LocationAutocomplete list */
-    noSuggestionsPlaceholder: PropTypes.string.isRequired,
-    /** function to be executed if error occurs while fetching suggestions */
-    onLocationAutocompleteError: PropTypes.func,
-    /** string to be displayed in FieldWrapper when the modal is closed, but locations are selected */
-    selectionPlaceholder: PropTypes.string,
-    /** label for the Done button */
-    doneLabel: PropTypes.string.isRequired,
-    /** label to be used on the clear all button */
-    clearLabel: PropTypes.string.isRequired,
-    /** function called with location object as an argument when it is selected from the suggestions */
-    onAddLocation: PropTypes.func.isRequired,
-    /** function called with a location details as an argument to be changed */
-    onUpdateLocation: PropTypes.func.isRequired,
-    /** function with a locationId as an argument to be removed */
-    onRemoveLocation: PropTypes.func.isRequired,
-    /** callback function for the Clear button click */
-    onRemoveAllLocations: PropTypes.func.isRequired,
-    /** callback function for closed modal */
-    onBlur: PropTypes.func,
-};
-
 LocationSelector.defaultProps = {
+    hasRadius: true,
     radiusDefaultValue: 1,
     minRadius: 1,
     maxRadius: 100,
     radiusStep: 1,
+    withoutLocationCards: false,
     initialMapAddress: undefined,
+    selectedLocations: [],
     showCountryInSuggestions: true,
     onBlur: () => null,
     additionalGoogleProps: {},
     region: undefined,
-    selectionPlaceholder: null,
     placeTypes: ['(regions)'],
     onLocationAutocompleteError: () => null,
 };

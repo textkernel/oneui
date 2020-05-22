@@ -9,6 +9,7 @@ describe('Autosuggest', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     let selectedPlaceholder = '';
     const inputPlaceholder = 'type here...';
+    const defaultInputValue = 'default value';
     const noSuggestionsPlaceholder = 'No suggestions...';
     const clearTitle = 'Clear';
     const mockOnSelectionChange = jest.fn();
@@ -55,6 +56,26 @@ describe('Autosuggest', () => {
         it('should initially render empty component correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.state('focused')).toBeFalsy();
+        });
+        it('should render a component with default value', () => {
+            wrapper = mount(
+                <Autosuggest
+                    selectedSuggestions={selectedSuggestions}
+                    getSuggestions={getSuggestions}
+                    suggestionToString={suggestionToString}
+                    selectedPlaceholder={selectedPlaceholder}
+                    inputPlaceholder={inputPlaceholder}
+                    defaultInputValue={defaultInputValue}
+                    clearTitle={clearTitle}
+                    noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+                    onSelectionChange={mockOnSelectionChange}
+                    onInputValueChange={mockOnInputValueChange}
+                    onBlur={mockOnBlur}
+                    onClearAllSelected={mockOnClearAllSelected}
+                    showClearButton
+                />
+            );
+            expect(wrapper.find('input').props().value).toEqual(defaultInputValue);
         });
         it('should render empty component correctly when focused', () => {
             setFocusOnInput();
@@ -185,6 +206,18 @@ describe('Autosuggest', () => {
 
             expect(wrapper.find('input').props().value).toEqual('');
         });
+        it('should not clear input value on pressing Escape button with saveSelectedValueToInput set to true', () => {
+            wrapper.setProps({ saveSelectedValueToInput: true });
+            const textInputValue = 'driver';
+
+            wrapper.find('input').simulate('change', { target: { value: textInputValue } });
+
+            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+
+            wrapper.find('input').simulate('keyDown', { key: 'Escape' });
+
+            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+        });
         it('should blur on pressing Tab button', () => {
             const inputEl = instance.inputRef.current;
             const blurSpy = jest.spyOn(inputEl, 'blur');
@@ -218,6 +251,16 @@ describe('Autosuggest', () => {
 
                 expect(wrapper.state('focused')).toBeFalsy();
                 expect(wrapper.find('li')).toHaveLength(0);
+            });
+            it('should put selected value to the input with saveSelectedValueToInput set to true', () => {
+                suggestionsList = SUGGESTIONS.slice(1, 20);
+                const expectedItemIndex = 2;
+                const expectedValue = SUGGESTION_TO_STRING(SUGGESTION_TO_STRING[expectedItemIndex]);
+
+                setFocusOnInput();
+                wrapper.find('li').at(2).childAt(0).simulate('click');
+
+                expect(wrapper.find('input').props().value).toEqual(expectedValue);
             });
         });
         describe('in multiselect mode', () => {
