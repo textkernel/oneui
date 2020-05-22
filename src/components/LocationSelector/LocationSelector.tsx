@@ -5,7 +5,7 @@ import { Modal } from '../Modal';
 import { FieldWrapper } from '../FieldWrapper';
 import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
 import { Location, findCenter, getRadiusInMeters } from './utils';
-import { TAB_KEY } from '../../constants';
+import { TAB_KEY, ESCAPE_KEY } from '../../constants';
 import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
@@ -146,7 +146,9 @@ export const LocationSelector: React.FC<Props> = (props) => {
     }
 
     function handleButtonKeyPress(e: React.KeyboardEvent<HTMLButtonElement>) {
-        if (e.key !== TAB_KEY) {
+        if (e.key === ESCAPE_KEY) {
+            buttonRef.current?.blur();
+        } else if (!(e.key === TAB_KEY || e.key === ESCAPE_KEY)) {
             setIsOpen(true);
         }
     }
