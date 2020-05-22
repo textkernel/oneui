@@ -32,3 +32,22 @@ export const findCenter = (geocoder, placeId) =>
             }
         });
     });
+
+export const getAddressComponents = (geocoder, location) =>
+    new Promise(function geocoderPromise(resolve, reject) {
+        geocoder.geocode({ location }, (results, status) => {
+            if (status === 'OK') {
+                if (results[0]) {
+                    resolve(results[0].address_components);
+                } else {
+                    reject(
+                        new Error(
+                            `No results found when searching for coordinates ${location.lat}, ${location.lng}`
+                        )
+                    );
+                }
+            } else {
+                reject(new Error(`Geocoder failed due to: ${status}`));
+            }
+        });
+    });
