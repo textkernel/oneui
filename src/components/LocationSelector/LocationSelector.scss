@@ -7,13 +7,15 @@ $modal-min-width: 2 * $location-card-width;
 $modal-min-height: 400px;
 
 .LocationSelector {
-    &__mainTextInputWrapper {
+    &__mainTextButtonWrapper {
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
         height: $text-input-height;
     }
 
-    &__mainTextInput {
+    &__mainTextButton {
         display: inline-block;
+        text-align: left;
+        padding-left: 0;
         border: 0;
         margin: var(--spacing-normal);
         font-size: var(--font-size-normal);
@@ -22,6 +24,8 @@ $modal-min-height: 400px;
         vertical-align: middle;
         text-overflow: ellipsis;
         width: calc(100% - 40px);
+        outline: none;
+        pointer-events: none;
 
         &--muted {
             color: var(--color-muted);
