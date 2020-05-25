@@ -151,7 +151,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
     function handleButtonKeyPress(e: React.KeyboardEvent<HTMLButtonElement>) {
         if (e.key === ESCAPE_KEY) {
             buttonRef.current?.blur();
-        } else if (!(e.key === TAB_KEY || e.key === ESCAPE_KEY)) {
+        } else if (e.key !== TAB_KEY && e.key !== ESCAPE_KEY) {
             setIsOpen(true);
         }
     }
