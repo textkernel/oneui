@@ -130,6 +130,7 @@ storiesOf('Organisms|LocationSelector', module)
                 radiusDefaultValue={number('Radius default value', 5)}
                 radiusStep={number('Radius steps', 1)}
                 placeTypes={['(regions)']}
+                shouldGetAddressInfo={boolean('Fetch address information', false)}
                 showCountryInSuggestions={boolean('Show country in suggestions', true)}
                 modalContentLabel={text(
                     'Modal content title for screen readers',
@@ -209,6 +210,7 @@ storiesOf('Organisms|LocationSelector', module)
                 radiusDefaultValue={number('Radius default value', 5)}
                 radiusStep={number('Radius steps', 1)}
                 placeTypes={['(regions)']}
+                shouldGetAddressInfo={boolean('Fetch address information', false)}
                 showCountryInSuggestions={boolean('Show country in suggestions', true)}
                 modalContentLabel={text(
                     'Modal content title for screen readers',

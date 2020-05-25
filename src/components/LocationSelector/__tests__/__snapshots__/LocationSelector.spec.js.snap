@@ -53,6 +53,7 @@ exports[`LocationSelector component should render LocationSelector properly when
       },
     ]
   }
+  shouldGetAddressInfo={false}
   showCountryInSuggestions={true}
   withoutLocationCards={false}
 >
@@ -461,6 +462,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       },
     ]
   }
+  shouldGetAddressInfo={false}
   showCountryInSuggestions={true}
   withoutLocationCards={false}
 >

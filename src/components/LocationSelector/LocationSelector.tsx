@@ -5,7 +5,7 @@ import { Text } from '../Text';
 import { Modal } from '../Modal';
 import { FieldWrapper } from '../FieldWrapper';
 import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
-import { Location, findCenter, getRadiusInMeters } from './utils';
+import { Location, findCenter, getRadiusInMeters, getAddressComponents } from './utils';
 import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
@@ -50,6 +50,8 @@ interface Props {
     placeTypes?: string[];
     /** show country name in autocomplete suggestions */
     showCountryInSuggestions?: boolean;
+    /** defines if an additional request should be done in order to get address information for selected location */
+    shouldGetAddressInfo?: boolean;
     /** A title for the modal that will be used by screenreaders */
     modalContentLabel: string;
     /** placeholder for both main field and autocomplete field in modal */
@@ -113,6 +115,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
         selectedLocations,
         radiusDefaultValue,
         radiusUnits,
+        shouldGetAddressInfo,
         withoutLocationCards,
         onAddLocation,
         onUpdateLocation,
@@ -150,21 +153,25 @@ export const LocationSelector: React.FC<Props> = (props) => {
 
         return findCenter(geocoder, location.place_id)
             .then((center: any) => {
-                const locationToAdd = {
-                    ...location,
-                    center: {
-                        lng: typeof center.lng === 'function' ? center.lng() : center.lng,
-                        lat: typeof center.lat === 'function' ? center.lat() : center.lat,
-                    },
-                    radius: hasRadius ? radiusDefaultValue : 0,
-                };
-
+                const lng = typeof center.lng === 'function' ? center.lng() : center.lng;
+                const lat = typeof center.lat === 'function' ? center.lat() : center.lat;
                 const isLocationSelected = selectedLocations
                     .map((item) => item.id)
                     .includes(location.id);
+                const locationToAdd = {
+                    ...location,
+                    center: { lat, lng },
+                    radius: hasRadius ? radiusDefaultValue : 0,
+                };
 
                 if (!isLocationSelected) {
-                    onAddLocation(locationToAdd);
+                    if (shouldGetAddressInfo) {
+                        getAddressComponents(geocoder, { lat, lng }).then((addressComponents) => {
+                            onAddLocation({ ...locationToAdd, addressComponents });
+                        });
+                    } else {
+                        onAddLocation(locationToAdd);
+                    }
                 }
             })
             .catch(/* TODO: add error handling */);
@@ -243,6 +250,7 @@ LocationSelector.defaultProps = {
     initialMapAddress: undefined,
     selectedLocations: [],
     showCountryInSuggestions: true,
+    shouldGetAddressInfo: false,
     onBlur: () => null,
     additionalGoogleProps: {},
     region: undefined,
