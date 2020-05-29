@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.1.0](https://github.com/textkernel/oneui/compare/11.0.0...11.1.0) (2020-05-29)
+
+
+### Features
+
+* **LocationSelector:** Added an option of fetching postal code of selected location ([#258](https://github.com/textkernel/oneui/issues/258)) ([3008bb9](https://github.com/textkernel/oneui/commit/3008bb946eb992fd0d289b35e97eeb510242f873))
+* **LocationSelector:** Added supporting of single selection, updated radius changing interactions ([#255](https://github.com/textkernel/oneui/issues/255)) ([240c54a](https://github.com/textkernel/oneui/commit/240c54a053edba4f41f423814eded655421be29f))
+* **LocationSelector:** tab navigation ([#261](https://github.com/textkernel/oneui/issues/261)) ([03f302a](https://github.com/textkernel/oneui/commit/03f302a6aba175ec5118b5c283fc1fac8a3f753e))
+* **slider:** add slider handle focus styling ([#260](https://github.com/textkernel/oneui/issues/260)) ([2b63793](https://github.com/textkernel/oneui/commit/2b63793b18267fec08ff9ab63ff7697000d12d02))
+
+
+### Bug Fixes
+
+* **deps:** pin dependencies ([#262](https://github.com/textkernel/oneui/issues/262)) ([9a1ca45](https://github.com/textkernel/oneui/commit/9a1ca45a8a518c1451379358b3d4df56ae06bdd6))
+
 ## [11.0.0](https://github.com/textkernel/oneui/compare/10.2.0...11.0.0) (2020-05-15)
 
 
