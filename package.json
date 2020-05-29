@@ -50,7 +50,7 @@
     "sideEffects": false,
     "dependencies": {
         "@popperjs/core": "~2.1.1",
-        "@react-google-maps/api": "~1.8.6",
+        "@react-google-maps/api": "~1.9.0",
         "@textkernel/bem": "~0.2.4",
         "@tippy.js/react": "~3.1.1",
         "css-vars-ponyfill": "~2.2.1",
