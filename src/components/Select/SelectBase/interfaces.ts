@@ -5,6 +5,10 @@ export interface CommonProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     suggestions: S[];
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestions?: S | null) => string;
+    /** render function for suggestion list item */
+    suggestionItemRenderer?: (suggestions?: S | null) => ReactNode;
+    /** if suggestions are still loading, i.e. display placeholders */
+    isLoading?: boolean;
     /** input field ref */
     inputRef?: React.RefObject<HTMLInputElement>;
     /** root wrapper ref */
@@ -37,6 +41,7 @@ export type FocusedRendererHelpers<S> = (helpers: {
     getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
     onBlur: () => void;
     inputValue: string;
+    highlightedIndex: number | null;
 }) => ReactNode;
 
 export type BlurredRendererHelpers<S> = (helpers: {
@@ -64,4 +69,6 @@ export interface Props<S> extends CommonPropsWithClear<S> {
     focusedRenderer: FocusedRendererHelpers<S>;
     /** a function that renders the top part of the component when it is blurred  */
     blurredRenderer: BlurredRendererHelpers<S>;
+    /** highlighting for first item will be added if input is empty */
+    highlightOnEmptyInput?: boolean;
 }

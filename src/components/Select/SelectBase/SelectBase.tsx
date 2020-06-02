@@ -32,6 +32,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         keepExpandedAfterSelection,
         clearInputAfterSelection,
         isProminent,
+        highlightOnEmptyInput,
         ...rest
     } = props;
 
@@ -155,7 +156,13 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
             ...newChanges,
             isEscapeAction: false,
         };
+
         switch (newChanges.type) {
+            case Downshift.stateChangeTypes.changeInput:
+                return {
+                    ...changes,
+                    highlightedIndex: highlightOnEmptyInput || newChanges.inputValue ? 0 : -1,
+                };
             case Downshift.stateChangeTypes.clickItem:
             case Downshift.stateChangeTypes.keyDownEnter:
                 return {
@@ -201,7 +208,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
                 onStateChange={stateUpdater}
                 onInputValueChange={handleInputValueChange}
                 inputValue={inputValue}
-                defaultHighlightedIndex={0}
+                defaultHighlightedIndex={highlightOnEmptyInput ? 0 : -1}
             >
                 {({
                     getInputProps,
@@ -225,6 +232,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
                                       getInputProps: getInputPropsWithUpdatedRef(getInputProps),
                                       getToggleButtonProps,
                                       onBlur: handleBlur,
+                                      highlightedIndex,
                                       inputValue,
                                   })
                                 : blurredRenderer({
@@ -261,6 +269,7 @@ SelectBase.defaultProps = {
     showClearButton: false,
     keepExpandedAfterSelection: false,
     clearInputAfterSelection: false,
+    highlightOnEmptyInput: true,
     clearTitle: '',
 };
 

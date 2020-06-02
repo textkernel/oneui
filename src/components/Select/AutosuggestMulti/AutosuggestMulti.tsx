@@ -35,9 +35,11 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         onSelectionChange,
         selectedSuggestions,
         suggestionToString,
+        suggestionItemRenderer,
         inputPlaceholder,
         useOptimizeListRender,
         suggestions,
+        isLoading,
         numberOfVisibleTags,
         onBlur,
         showClearButton,
@@ -85,8 +87,12 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         return visibleTagsList;
     };
 
-    const handleInputKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
-        if (event.key === ENTER_KEY && !inputValue) {
+    const handleInputKeyDown = (
+        event: React.KeyboardEvent<HTMLElement>,
+        highlightedIndex: number | null
+    ) => {
+        const isHighlighted = highlightedIndex !== null && highlightedIndex > -1;
+        if (event.key === ENTER_KEY && !inputValue && !isHighlighted) {
             /**
              * Prevent the default Downshift handler behavior
              * That need for submitting form
@@ -102,7 +108,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     };
 
     // eslint-disable-next-line react/display-name
-    const renderFocused: FocusedRendererHelpers<S> = ({ getInputProps }) => (
+    const renderFocused: FocusedRendererHelpers<S> = ({ getInputProps, highlightedIndex }) => (
         <div {...elem('wrapper', { isFocused: true })}>
             {renderFullTagsList()}
             <input
@@ -110,7 +116,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     id,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
-                    onKeyDown: handleInputKeyDown,
+                    onKeyDown: (e) => handleInputKeyDown(e, highlightedIndex),
                     'data-lpignore': true,
                     ...elem('input'),
                 })}
@@ -145,11 +151,17 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             onSelectionChange={onSelectionChange}
             onInputValueChange={handleInputValueChange}
             listRenderer={(listProps) => (
-                <SuggestionsList {...listProps} useOptimizeRender={useOptimizeListRender} />
+                <SuggestionsList
+                    {...listProps}
+                    isLoading={isLoading}
+                    useOptimizeRender={useOptimizeListRender}
+                    suggestionItemRenderer={suggestionItemRenderer}
+                />
             )}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
             showClearButton={showClearButton && selectedSuggestions.length > 0}
+            highlightOnEmptyInput={false}
             keepExpandedAfterSelection
             selectOnTab
             clearInputAfterSelection

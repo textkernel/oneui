@@ -63,6 +63,7 @@ storiesOf('Organisms|Select', module)
                         'Use optimize list render (ListOptimizer)',
                         false
                     )}
+                    isLoading={boolean('isLoading', false)}
                     inputPlaceholder={text('Input placeholder', 'Select something...')}
                     noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
                     suggestions={getSuggestions()}
@@ -152,6 +153,7 @@ storiesOf('Organisms|Select', module)
                     onSelectionChange={onSelectionChange}
                     onSelectionRemove={onSelectionRemove}
                     isProminent={boolean('Use prominent styling', true)}
+                    isLoading={boolean('isLoading', false)}
                     onInputValueChange={onInputValueChange}
                     showClearButton={boolean('Show clear button', true)}
                     clearTitle={text('Clear button label', 'Clear')}

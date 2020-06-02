@@ -12,6 +12,7 @@ let wrapper;
 beforeEach(() => {
     wrapper = mount(
         <SuggestionsList
+            isLoading={false}
             suggestions={SUGGESTIONS}
             suggestionToString={SUGGESTION_TO_STRING}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
@@ -37,5 +38,15 @@ describe('SuggestionsList', () => {
         wrapper.setProps({ suggestions: [] });
 
         expect(wrapper.find('li').childAt(0).text()).toEqual(noSuggestionsPlaceholder);
+    });
+    it('should render isLoading state', () => {
+        wrapper.setProps({ isLoading: true });
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+    it('should run suggestionItemRenderer function correctly', () => {
+        // eslint-disable-next-line react/display-name
+        const suggestionItemRenderer = () => <span>some item text</span>;
+        wrapper.setProps({ suggestionItemRenderer });
+        expect(toJson(wrapper)).toMatchSnapshot();
     });
 });
