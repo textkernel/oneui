@@ -81,16 +81,20 @@ storiesOf('Organisms|Select', module)
         searchFor.name = `Search for "${store.get('inputValue')}"`;
         searchFor.value = store.get('inputValue');
         const getSuggestions = (): TSuggestion[] => {
-            if (!store.get('inputValue').length) return [];
             const suggestions = SUGGESTIONS.filter(
                 (item: TSuggestion) =>
+                    item.name.toLocaleLowerCase() !== store.get('inputValue').toLocaleLowerCase() &&
+                    item.name
+                        .toLocaleLowerCase()
+                        .includes(store.get('inputValue').toLocaleLowerCase()) &&
                     !store
                         .get('selectedSuggestions')
-                        .some((sug: TSuggestion) => sug.name === item.name)
-            ).filter((item: TSuggestion) =>
-                item.name.toLocaleLowerCase().includes(store.get('inputValue').toLocaleLowerCase())
+                        .some((i) => item.name.toLocaleLowerCase() === i.name.toLocaleLowerCase())
             );
-            return [searchFor, ...suggestions];
+            if (store.get('inputValue').length) {
+                return [searchFor, ...suggestions];
+            }
+            return suggestions;
         };
 
         const onInputValueChange = (value: string) => {
@@ -119,6 +123,7 @@ storiesOf('Organisms|Select', module)
 
         const onSelectionRemove = (item: TSuggestion) => {
             console.log(`onSelectionRemove was called with {name: ${item.name}}`);
+            store.set({ inputValue: '' });
             const selectedItem = { ...item };
             // Delete item
             if (!store.get('inputValue')) {
