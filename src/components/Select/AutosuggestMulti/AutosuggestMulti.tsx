@@ -24,6 +24,8 @@ interface Props<S> extends CommonPropsWithClear<S> {
     useOptimizeListRender?: boolean;
     /** onSelectionChange() called when a suggestion is removed  */
     onSelectionRemove: (item: S) => void;
+    /** function is called on submitting form */
+    onSubmit?: () => void;
 }
 
 const { elem } = bem('AutosuggestMulti', styles);
@@ -41,7 +43,9 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         suggestions,
         isLoading,
         numberOfVisibleTags,
+        onFocus,
         onBlur,
+        onSubmit,
         showClearButton,
         onSelectionRemove,
         ...rest
@@ -99,6 +103,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
              */
             // eslint-disable-next-line no-param-reassign, dot-notation
             event.nativeEvent['preventDownshiftDefault'] = true;
+            onSubmit?.();
         } else if (event.key === ESCAPE_KEY) {
             inputRef.current?.blur();
         } else if (event.key === BACKSPACE_KEY && !inputValue && !!selectedSuggestions.length) {
@@ -125,7 +130,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     );
 
     // eslint-disable-next-line react/display-name
-    const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps, onFocus }) => (
+    const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps, onFocus: onFocusInput }) => (
         <div {...elem('wrapper')}>
             {renderShortTagsList()}
             <input
@@ -134,7 +139,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     ref: inputRef,
                     placeholder: selectedSuggestions.length === 0 ? inputPlaceholder : '',
                     'data-lpignore': true,
-                    onFocus,
+                    onFocus: onFocusInput,
                     ...elem('input', { hidden: selectedSuggestions.length > 0 }),
                 })}
             />
@@ -147,6 +152,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             suggestions={suggestions}
             suggestionToString={suggestionToString}
             inputRef={inputRef}
+            onFocus={onFocus}
             onBlur={onBlur}
             onSelectionChange={onSelectionChange}
             onInputValueChange={handleInputValueChange}

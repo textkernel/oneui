@@ -19,6 +19,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         clearTitle,
         showClearButton,
         selectOnTab,
+        onFocus,
         onBlur,
         onSelectionChange,
         onInputValueChange,
@@ -137,6 +138,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     const handleInputOnFocus = (openMenu) => () => {
         if (!focused) {
             focus(openMenu);
+            onFocus?.();
         }
     };
 

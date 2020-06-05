@@ -45,6 +45,10 @@ storiesOf('Organisms|Select', module)
             store.set({ selectedSuggestions: [...store.get('selectedSuggestions'), item] });
         };
 
+        const onFocus = () => {
+            console.log('onFocus was called');
+        };
+
         const onBlur = () => {
             console.log('onBlur was called');
             setTimeout(() => store.set({ inputValue: '' }), 200);
@@ -68,6 +72,7 @@ storiesOf('Organisms|Select', module)
                     noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
                     suggestions={getSuggestions()}
                     suggestionToString={SUGGESTION_TO_STRING}
+                    onFocus={onFocus}
                     onBlur={onBlur}
                     onSelectionChange={onSelectionChange}
                     onInputValueChange={onInputValueChange}
@@ -146,6 +151,14 @@ storiesOf('Organisms|Select', module)
             store.set({ selectedSuggestions: [] });
         };
 
+        const onFocus = () => {
+            console.log('onFocus was called');
+        };
+
+        const onSubmit = () => {
+            console.log('onSubmit was called');
+        };
+
         return (
             <div style={{ width: '500px' }}>
                 <AutosuggestMulti
@@ -155,6 +168,8 @@ storiesOf('Organisms|Select', module)
                     suggestions={getSuggestions()}
                     suggestionToString={SUGGESTION_TO_STRING}
                     onBlur={onBlur}
+                    onFocus={onFocus}
+                    onSubmit={onSubmit}
                     onSelectionChange={onSelectionChange}
                     onSelectionRemove={onSelectionRemove}
                     isProminent={boolean('Use prominent styling', true)}

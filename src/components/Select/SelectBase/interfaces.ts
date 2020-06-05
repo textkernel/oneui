@@ -15,6 +15,8 @@ export interface CommonProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     rootRef?: React.RefObject<HTMLDivElement>;
     /** suggestions list ref */
     listRef?: React.RefObject<HTMLUListElement>;
+    /** onFocus() is called when the component is focussed */
+    onFocus?: () => void;
     /** onBlur() is called when the component is blurred */
     onBlur?: () => void;
     /** onSelectionChange() called when a suggestion is selected or removed */
