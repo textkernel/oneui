@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.2.0](https://github.com/textkernel/oneui/compare/11.1.0...11.2.0) (2020-06-08)
+
+
+### Features
+
+* **AutosuggestMulti:** improved component to autosuggest requirements ([#296](https://github.com/textkernel/oneui/issues/296)) ([0529198](https://github.com/textkernel/oneui/commit/0529198b662bac597c0318fcc35c71c3c2612add))
+
 ## [11.1.0](https://github.com/textkernel/oneui/compare/11.0.0...11.1.0) (2020-05-29)
 
 
