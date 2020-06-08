@@ -15,7 +15,7 @@ export interface CommonProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     rootRef?: React.RefObject<HTMLDivElement>;
     /** suggestions list ref */
     listRef?: React.RefObject<HTMLUListElement>;
-    /** onFocus() is called when the component is focussed */
+    /** onFocus() is called when the component is focused */
     onFocus?: () => void;
     /** onBlur() is called when the component is blurred */
     onBlur?: () => void;
@@ -42,6 +42,7 @@ export type FocusedRendererHelpers<S> = (helpers: {
     getInputProps: (options: GetItemPropsOptions<S>) => object;
     getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
     onBlur: () => void;
+    onFocus: (callback: () => void) => void;
     inputValue: string;
     highlightedIndex: number | null;
 }) => ReactNode;

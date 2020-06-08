@@ -138,8 +138,8 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     const handleInputOnFocus = (openMenu) => () => {
         if (!focused) {
             focus(openMenu);
-            onFocus?.();
         }
+        onFocus?.();
     };
 
     const stateUpdater = (change, state) => {
@@ -234,6 +234,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
                                       getInputProps: getInputPropsWithUpdatedRef(getInputProps),
                                       getToggleButtonProps,
                                       onBlur: handleBlur,
+                                      onFocus: handleInputOnFocus(openMenu),
                                       highlightedIndex,
                                       inputValue,
                                   })

@@ -113,7 +113,11 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     };
 
     // eslint-disable-next-line react/display-name
-    const renderFocused: FocusedRendererHelpers<S> = ({ getInputProps, highlightedIndex }) => (
+    const renderFocused: FocusedRendererHelpers<S> = ({
+        getInputProps,
+        onFocus: onFocusInput,
+        highlightedIndex,
+    }) => (
         <div {...elem('wrapper', { isFocused: true })}>
             {renderFullTagsList()}
             <input
@@ -121,6 +125,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     id,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
+                    onFocus: onFocusInput,
                     onKeyDown: (e) => handleInputKeyDown(e, highlightedIndex),
                     'data-lpignore': true,
                     ...elem('input'),
