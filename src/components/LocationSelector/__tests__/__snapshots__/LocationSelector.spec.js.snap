@@ -61,14 +61,14 @@ exports[`LocationSelector component should render LocationSelector properly when
     <FieldWrapper
       className="LocationSelector__mainTextButtonWrapper"
       clearLabel="Clear"
-      isFocused={true}
+      isFocused={false}
       onClear={[MockFunction]}
-      onClick={[Function]}
+      onMouseUp={[Function]}
       showClearButton={true}
     >
       <div
-        className="FieldWrapper FieldWrapper--isFocused LocationSelector__mainTextButtonWrapper"
-        onClick={[Function]}
+        className="FieldWrapper LocationSelector__mainTextButtonWrapper"
+        onMouseUp={[Function]}
       >
         <div
           className="FieldWrapper__content"
@@ -140,7 +140,7 @@ exports[`LocationSelector component should render LocationSelector properly when
       ariaHideApp={false}
       className="LocationSelector__modal"
       contentLabel="Location selection dialog"
-      isOpen={true}
+      isOpen={false}
       onRequestClose={[Function]}
       overlayClassName={null}
       portalClassName={null}
@@ -157,7 +157,7 @@ exports[`LocationSelector component should render LocationSelector properly when
         }
         closeTimeoutMS={300}
         contentLabel="Location selection dialog"
-        isOpen={true}
+        isOpen={false}
         onRequestClose={[Function]}
         overlayClassName={
           Object {
@@ -178,39 +178,7 @@ exports[`LocationSelector component should render LocationSelector properly when
           containerInfo={
             <div
               class="ReactModalPortal"
-            >
-              <div
-                class="Modal__overlay Modal__overlay--entered"
-              >
-                <div
-                  aria-label="Location selection dialog"
-                  class="Modal__content LocationSelector__modal Modal__content--entered"
-                  role="dialog"
-                  tabindex="-1"
-                >
-                  <div
-                    aria-busy="true"
-                    aria-hidden="false"
-                    class="LoadingSpinner LoadingSpinner--centerIn_parent"
-                    role="status"
-                  >
-                    <svg
-                      class="LoadingSpinner__svg"
-                      viewBox="0,0,44,44"
-                    >
-                      <circle
-                        class="LoadingSpinner__path LoadingSpinner__path--context_brand"
-                        cx="22"
-                        cy="22"
-                        fill="none"
-                        r="20"
-                        stroke-width="4"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
+            />
           }
         >
           <ModalPortal
@@ -251,7 +219,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                 },
               }
             }
-            isOpen={true}
+            isOpen={false}
             onRequestClose={[Function]}
             overlayClassName={
               Object {
@@ -273,131 +241,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                 "overlay": Object {},
               }
             }
-          >
-            <div
-              className="Modal__overlay Modal__overlay--entered"
-              onClick={[Function]}
-              onMouseDown={[Function]}
-              style={Object {}}
-            >
-              <div
-                aria-label="Location selection dialog"
-                className="Modal__content LocationSelector__modal Modal__content--entered"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                onMouseDown={[Function]}
-                onMouseUp={[Function]}
-                role="dialog"
-                style={Object {}}
-                tabIndex="-1"
-              >
-                <LocationSelectorDialogWithGoogleLoader
-                  additionalGoogleProps={Object {}}
-                  apiKey="apiKey"
-                  country="NL"
-                  doneLabel="doneLabel"
-                  getMarkers={[Function]}
-                  hasRadius={true}
-                  inputPlaceholder="inputPlaceholder"
-                  language="en"
-                  maxRadius={100}
-                  minRadius={1}
-                  noSuggestionsPlaceholder="noSuggestionsPlaceholder"
-                  onAddLocation={[Function]}
-                  onCloseModal={[Function]}
-                  onLocationAutocompleteError={[MockFunction]}
-                  onRemoveAllLocations={[MockFunction]}
-                  onRemoveLocation={[MockFunction]}
-                  onUpdateLocation={[MockFunction]}
-                  placeTypes={
-                    Array [
-                      "(regions)",
-                    ]
-                  }
-                  radiusStep={1}
-                  renderRadiusLabel={[Function]}
-                  selectedLocations={
-                    Array [
-                      Object {
-                        "center": Object {
-                          "lat": 52.3666969,
-                          "lng": 4.894539799999961,
-                        },
-                        "description": "Amsterdam",
-                        "id": "ajdo-219a-j19v-0491",
-                        "radius": 42,
-                        "sliderLabel": "42km",
-                      },
-                      Object {
-                        "center": Object {
-                          "lat": 52.09073739999999,
-                          "lng": 5.121420100000023,
-                        },
-                        "description": "Utrecht",
-                        "id": "ajdo-219a-j19v-0492",
-                        "radius": 20,
-                        "sliderLabel": "20km",
-                      },
-                    ]
-                  }
-                  showCountryInSuggestions={true}
-                  withoutLocationCards={false}
-                >
-                  <Memo(LoadScriptNext)
-                    googleMapsApiKey="apiKey"
-                    language="en"
-                    libraries={
-                      Array [
-                        "places",
-                      ]
-                    }
-                    loadingElement={
-                      <LoadingSpinner
-                        centerIn="parent"
-                        context="brand"
-                        hidden={false}
-                      />
-                    }
-                  >
-                    <LoadingSpinner
-                      centerIn="parent"
-                      context="brand"
-                      hidden={false}
-                    >
-                      <div
-                        aria-busy={true}
-                        aria-hidden={false}
-                        className="LoadingSpinner LoadingSpinner--centerIn_parent"
-                        role="status"
-                      >
-                        <svg
-                          className="LoadingSpinner__svg"
-                          style={null}
-                          viewBox={
-                            Array [
-                              0,
-                              0,
-                              44,
-                              44,
-                            ]
-                          }
-                        >
-                          <circle
-                            className="LoadingSpinner__path LoadingSpinner__path--context_brand"
-                            cx="22"
-                            cy="22"
-                            fill="none"
-                            r="20"
-                            strokeWidth="4"
-                          />
-                        </svg>
-                      </div>
-                    </LoadingSpinner>
-                  </Memo(LoadScriptNext)>
-                </LocationSelectorDialogWithGoogleLoader>
-              </div>
-            </div>
-          </ModalPortal>
+          />
         </Portal>
       </Modal>
     </Modal>
@@ -468,12 +312,12 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       clearLabel="Clear"
       isFocused={false}
       onClear={[MockFunction]}
-      onClick={[Function]}
+      onMouseUp={[Function]}
       showClearButton={true}
     >
       <div
         className="FieldWrapper LocationSelector__mainTextButtonWrapper"
-        onClick={[Function]}
+        onMouseUp={[Function]}
       >
         <div
           className="FieldWrapper__content"
