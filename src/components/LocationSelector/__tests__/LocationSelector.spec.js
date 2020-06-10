@@ -87,7 +87,7 @@ describe('LocationSelector component', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should render LocationSelector properly when modal is open', () => {
-        wrapper.find('.FieldWrapper').simulate('click');
+        wrapper.find('.FieldWrapper').simulate('mouseUp');
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should open and close modal when requested', () => {
