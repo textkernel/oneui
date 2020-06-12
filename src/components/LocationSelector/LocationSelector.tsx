@@ -69,11 +69,11 @@ interface Props {
     /** label to be used on the clear all button */
     clearLabel: string;
     /** function called with location object as an argument when it is selected from the suggestions */
-    onAddLocation: (Location) => void;
+    onAddLocation: (location: Location) => void;
     /** function called with a location details as an argument to be changed */
-    onUpdateLocation: (Location) => void;
+    onUpdateLocation: (location: Location) => void;
     /** function with a locationId as an argument to be removed */
-    onRemoveLocation: (Location) => void;
+    onRemoveLocation: (location: Location) => void;
     /** callback function for the Clear button click */
     onRemoveAllLocations: () => void;
     /** callback function for closed modal */
