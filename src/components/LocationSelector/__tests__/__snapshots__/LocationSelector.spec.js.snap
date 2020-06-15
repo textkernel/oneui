@@ -63,12 +63,12 @@ exports[`LocationSelector component should render LocationSelector properly when
       clearLabel="Clear"
       isFocused={true}
       onClear={[MockFunction]}
-      onClick={[Function]}
+      onMouseUp={[Function]}
       showClearButton={true}
     >
       <div
         className="FieldWrapper FieldWrapper--isFocused LocationSelector__mainTextButtonWrapper"
-        onClick={[Function]}
+        onMouseUp={[Function]}
       >
         <div
           className="FieldWrapper__content"
@@ -468,12 +468,12 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       clearLabel="Clear"
       isFocused={false}
       onClear={[MockFunction]}
-      onClick={[Function]}
+      onMouseUp={[Function]}
       showClearButton={true}
     >
       <div
         className="FieldWrapper LocationSelector__mainTextButtonWrapper"
-        onClick={[Function]}
+        onMouseUp={[Function]}
       >
         <div
           className="FieldWrapper__content"
