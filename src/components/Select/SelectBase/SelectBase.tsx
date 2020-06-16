@@ -50,6 +50,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     const [inputValue, setInputValue] = React.useState('');
     const [inputValueRecall, setInputValueRecall] = React.useState('');
     const [focused, setFocused] = React.useState(false);
+    const [isBrowserTabVisible, setIsBrowserTabVisible] = React.useState(true);
 
     // focus input field if component is focused
     React.useEffect(() => {
@@ -79,11 +80,29 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         }
     }, [rootRefFromProps]);
 
+    React.useEffect(() => {
+        const handleFocushandleVisibilityChange = () => {
+            if (document.hidden) {
+                setIsBrowserTabVisible(false);
+            } else {
+                setTimeout(() => setIsBrowserTabVisible(true), 250);
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleFocushandleVisibilityChange);
+
+        return () => {
+            document.removeEventListener('visibilitychange', handleFocushandleVisibilityChange);
+        };
+    });
+
     const handleBlur = () => {
-        setFocused(false);
-        setInputValue('');
-        setInputValueRecall('');
-        if (focused) onBlur?.();
+        if (isBrowserTabVisible) {
+            setFocused(false);
+            setInputValue('');
+            setInputValueRecall('');
+            if (focused) onBlur?.();
+        }
     };
 
     const handleChange = (selectedItem, downshift) => {
@@ -139,7 +158,10 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         if (!focused) {
             focus(openMenu);
         }
-        onFocus?.();
+
+        if (isBrowserTabVisible) {
+            onFocus?.();
+        }
     };
 
     const stateUpdater = (change, state) => {
@@ -179,7 +201,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
                     isEscapeAction: true,
                 };
             case Downshift.stateChangeTypes.blurInput:
-                if (selectOnTab && !state.isEscapeAction) {
+                if (selectOnTab && !state.isEscapeAction && isBrowserTabVisible) {
                     return {
                         ...changes,
                         selectedItem: suggestions[state.highlightedIndex],

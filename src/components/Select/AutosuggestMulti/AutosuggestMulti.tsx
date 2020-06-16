@@ -14,12 +14,16 @@ import { BACKSPACE_KEY, ESCAPE_KEY, ENTER_KEY } from '../../../constants';
 interface Props<S> extends CommonPropsWithClear<S> {
     /** define id for input element */
     id?: string;
+    /** makes a key to be used for a suggestion item */
+    suggestionToKey?: (suggestions: S) => string;
     /** array of already selected suggestions */
     selectedSuggestions: S[];
     /** number of visible tags in blur mode */
     numberOfVisibleTags: number;
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: string;
+    /** Defines if the first item of suggestions list is always visible */
+    isFirstItemAlwaysVisible?: boolean;
     /** Enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
     /** onSelectionChange() called when a suggestion is removed  */
@@ -37,12 +41,14 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         onSelectionChange,
         selectedSuggestions,
         suggestionToString,
+        suggestionToKey,
         suggestionItemRenderer,
         inputPlaceholder,
         useOptimizeListRender,
         suggestions,
         isLoading,
         numberOfVisibleTags,
+        isFirstItemAlwaysVisible,
         onFocus,
         onBlur,
         onSubmit,
@@ -60,7 +66,10 @@ export function AutosuggestMulti<S>(props: Props<S>) {
 
     const renderFullTagsList = () => {
         return selectedSuggestions.map((item) => (
-            <SuggestionTag key={suggestionToString(item)} onClick={() => onSelectionRemove(item)}>
+            <SuggestionTag
+                key={suggestionToKey ? suggestionToKey(item) : suggestionToString(item)}
+                onClick={() => onSelectionRemove(item)}
+            >
                 {suggestionToString(item)}
             </SuggestionTag>
         ));
@@ -164,6 +173,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             listRenderer={(listProps) => (
                 <SuggestionsList
                     {...listProps}
+                    isFirstItemAlwaysVisible={isFirstItemAlwaysVisible}
                     isLoading={isLoading}
                     useOptimizeRender={useOptimizeListRender}
                     suggestionItemRenderer={suggestionItemRenderer}
@@ -185,4 +195,6 @@ AutosuggestMulti.displayName = 'AutosuggestMulti';
 AutosuggestMulti.defaultProps = {
     numberOfVisibleTags: 3,
     selectedSuggestions: [],
+    suggestionToKey: null,
+    isFirstItemAlwaysVisible: false,
 };

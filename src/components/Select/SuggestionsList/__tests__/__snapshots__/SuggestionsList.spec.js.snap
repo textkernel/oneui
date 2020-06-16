@@ -120,6 +120,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   }
   highlightedIndex={1}
   inputValue=""
+  isFirstItemAlwaysVisible={false}
   isLoading={false}
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
   suggestionToString={[Function]}
@@ -585,6 +586,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   }
   highlightedIndex={1}
   inputValue=""
+  isFirstItemAlwaysVisible={false}
   isLoading={true}
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
   suggestionToString={[Function]}
@@ -979,6 +981,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
   }
   highlightedIndex={1}
   inputValue=""
+  isFirstItemAlwaysVisible={false}
   isLoading={false}
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
   suggestionToString={[Function]}
@@ -1389,6 +1392,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   }
   highlightedIndex={1}
   inputValue=""
+  isFirstItemAlwaysVisible={false}
   isLoading={false}
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
   suggestionItemRenderer={[Function]}
