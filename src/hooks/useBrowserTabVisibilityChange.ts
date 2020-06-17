@@ -8,7 +8,9 @@ export function useBrowserTabVisibilityChange() {
             if (document.hidden) {
                 setIsBrowserTabVisible(false);
             } else {
-                setTimeout(() => setIsBrowserTabVisible(true), 250);
+                // once the tab is switched back synced setIsBrowserTabVisible sets new value
+                // before any component was focused what may cause unexpected behavior
+                setTimeout(() => setIsBrowserTabVisible(true));
             }
         };
 
