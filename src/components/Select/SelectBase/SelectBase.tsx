@@ -81,7 +81,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     }, [rootRefFromProps]);
 
     React.useEffect(() => {
-        const handleFocushandleVisibilityChange = () => {
+        const handleFocusHandleVisibilityChange = () => {
             if (document.hidden) {
                 setIsBrowserTabVisible(false);
             } else {
@@ -89,10 +89,10 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
             }
         };
 
-        document.addEventListener('visibilitychange', handleFocushandleVisibilityChange);
+        document.addEventListener('visibilitychange', handleFocusHandleVisibilityChange);
 
         return () => {
-            document.removeEventListener('visibilitychange', handleFocushandleVisibilityChange);
+            document.removeEventListener('visibilitychange', handleFocusHandleVisibilityChange);
         };
     });
 

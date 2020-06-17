@@ -69,7 +69,6 @@ describe('AutosuggestMulti', () => {
             });
             setFocusOnInput();
             wrapper.find('input').simulate('change', { target: { value: 'driver' } });
-            expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('span')).toHaveLength(1);
             expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(4);
         });
