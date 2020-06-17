@@ -6,6 +6,7 @@ import { FieldWrapper } from '../FieldWrapper';
 import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
 import { Location, findCenter, getRadiusInMeters, getAddressComponents } from './utils';
 import { TAB_KEY, ESCAPE_KEY } from '../../constants';
+import { useBrowserTabVisibilityChange } from '../../hooks';
 import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
@@ -129,26 +130,10 @@ export const LocationSelector: React.FC<Props> = (props) => {
 
     const [isOpen, setIsOpen] = React.useState(false);
     const [isWrapperFocused, setIsWrapperFocused] = React.useState(false);
-    const [isBrowserTabVisible, setIsBrowserTabVisible] = React.useState(true);
+    const isBrowserTabVisible = useBrowserTabVisibilityChange();
     const buttonRef = React.useRef<HTMLButtonElement>();
 
     const hasLocationsSelected = selectedLocations && selectedLocations.length > 0;
-
-    React.useEffect(() => {
-        const handleFocushandleVisibilityChange = () => {
-            if (document.hidden) {
-                setIsBrowserTabVisible(false);
-            } else {
-                setTimeout(() => setIsBrowserTabVisible(true), 250);
-            }
-        };
-
-        document.addEventListener('visibilitychange', handleFocushandleVisibilityChange);
-
-        return () => {
-            document.removeEventListener('visibilitychange', handleFocushandleVisibilityChange);
-        };
-    });
 
     function handleOpenModal() {
         if (!isOpen && !isWrapperFocused && isBrowserTabVisible) {
