@@ -16,7 +16,7 @@ export function useBrowserTabVisibilityChange() {
         return () => {
             document.removeEventListener('visibilitychange', handleFocusHandleVisibilityChange);
         };
-    });
+    }, []);
 
     return isBrowserTabVisible;
 }
