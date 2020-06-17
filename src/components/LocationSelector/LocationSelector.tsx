@@ -129,12 +129,29 @@ export const LocationSelector: React.FC<Props> = (props) => {
 
     const [isOpen, setIsOpen] = React.useState(false);
     const [isWrapperFocused, setIsWrapperFocused] = React.useState(false);
+    const [isBrowserTabVisible, setIsBrowserTabVisible] = React.useState(true);
     const buttonRef = React.useRef<HTMLButtonElement>();
 
     const hasLocationsSelected = selectedLocations && selectedLocations.length > 0;
 
+    React.useEffect(() => {
+        const handleFocushandleVisibilityChange = () => {
+            if (document.hidden) {
+                setIsBrowserTabVisible(false);
+            } else {
+                setTimeout(() => setIsBrowserTabVisible(true), 250);
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleFocushandleVisibilityChange);
+
+        return () => {
+            document.removeEventListener('visibilitychange', handleFocushandleVisibilityChange);
+        };
+    });
+
     function handleOpenModal() {
-        if (!isOpen && !isWrapperFocused) {
+        if (!isOpen && !isWrapperFocused && isBrowserTabVisible) {
             buttonRef.current?.focus();
             setIsOpen(true);
         }
@@ -142,7 +159,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
     }
 
     function handleCloseModal() {
-        if (isOpen) {
+        if (isOpen && isBrowserTabVisible) {
             setIsOpen(false);
             onBlur();
         }
