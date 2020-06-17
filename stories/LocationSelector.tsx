@@ -196,47 +196,41 @@ storiesOf('Organisms|LocationSelector', module)
         };
 
         return (
-            <form>
-                <input value="asdasdsa" />
-                <input value="asdasdsa" />
-                <input value="asdasdsa" />
-                <input value="asdasdsa" />
-                <LocationSelector
-                    apiKey={apiKey}
-                    selectedLocations={store.get('selectedLocations')}
-                    country={text('country', 'NL')}
-                    language={text('Language', 'EN')}
-                    initialMapAddress={text('Initial map address', '')}
-                    radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
-                    renderRadiusLabel={(r) => `+ ${r} km`}
-                    hasRadius={boolean('Has radius', true)}
-                    minRadius={number('Min radius', 1)}
-                    maxRadius={number('Max radius', 100)}
-                    radiusDefaultValue={number('Radius default value', 5)}
-                    radiusStep={number('Radius steps', 1)}
-                    placeTypes={['(regions)']}
-                    shouldGetAddressInfo={boolean('Fetch address information', false)}
-                    showCountryInSuggestions={boolean('Show country in suggestions', true)}
-                    modalContentLabel={text(
-                        'Modal content title for screen readers',
-                        'Location selection'
-                    )}
-                    inputPlaceholder={text('Input placeholder', 'Location...')}
-                    noSuggestionsPlaceholder="noSuggestionsPlaceholder"
-                    selectionPlaceholder={getPlaceholder()}
-                    doneLabel={text('Label for Done button', 'Done')}
-                    clearLabel={text('Label for clear button', 'Clear')}
-                    onAddLocation={handleAddLocation}
-                    onUpdateLocation={handleUpdateLocation}
-                    onRemoveLocation={handleRemoveLocation}
-                    onRemoveAllLocations={handleRemoveAllLocations}
-                    onBlur={() => {
-                        console.log('onBlur was called');
-                    }}
-                    onLocationAutocompleteError={() =>
-                        console.log('onLocationAutocompleteError was called')
-                    }
-                />
-            </form>
+            <LocationSelector
+                apiKey={apiKey}
+                selectedLocations={store.get('selectedLocations')}
+                country={text('country', 'NL')}
+                language={text('Language', 'EN')}
+                initialMapAddress={text('Initial map address', '')}
+                radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
+                renderRadiusLabel={(r) => `+ ${r} km`}
+                hasRadius={boolean('Has radius', true)}
+                minRadius={number('Min radius', 1)}
+                maxRadius={number('Max radius', 100)}
+                radiusDefaultValue={number('Radius default value', 5)}
+                radiusStep={number('Radius steps', 1)}
+                placeTypes={['(regions)']}
+                shouldGetAddressInfo={boolean('Fetch address information', false)}
+                showCountryInSuggestions={boolean('Show country in suggestions', true)}
+                modalContentLabel={text(
+                    'Modal content title for screen readers',
+                    'Location selection'
+                )}
+                inputPlaceholder={text('Input placeholder', 'Location...')}
+                noSuggestionsPlaceholder="noSuggestionsPlaceholder"
+                selectionPlaceholder={getPlaceholder()}
+                doneLabel={text('Label for Done button', 'Done')}
+                clearLabel={text('Label for clear button', 'Clear')}
+                onAddLocation={handleAddLocation}
+                onUpdateLocation={handleUpdateLocation}
+                onRemoveLocation={handleRemoveLocation}
+                onRemoveAllLocations={handleRemoveAllLocations}
+                onBlur={() => {
+                    console.log('onBlur was called');
+                }}
+                onLocationAutocompleteError={() =>
+                    console.log('onLocationAutocompleteError was called')
+                }
+            />
         );
     });
