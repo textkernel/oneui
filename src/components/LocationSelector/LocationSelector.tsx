@@ -6,6 +6,7 @@ import { FieldWrapper } from '../FieldWrapper';
 import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
 import { Location, findCenter, getRadiusInMeters, getAddressComponents } from './utils';
 import { TAB_KEY, ESCAPE_KEY } from '../../constants';
+import { useBrowserTabVisibilityChange } from '../../hooks';
 import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
@@ -129,12 +130,13 @@ export const LocationSelector: React.FC<Props> = (props) => {
 
     const [isOpen, setIsOpen] = React.useState(false);
     const [isWrapperFocused, setIsWrapperFocused] = React.useState(false);
+    const isBrowserTabVisible = useBrowserTabVisibilityChange();
     const buttonRef = React.useRef<HTMLButtonElement>();
 
     const hasLocationsSelected = selectedLocations && selectedLocations.length > 0;
 
     function handleOpenModal() {
-        if (!isOpen && !isWrapperFocused) {
+        if (!isOpen && !isWrapperFocused && isBrowserTabVisible) {
             buttonRef.current?.focus();
             setIsOpen(true);
         }
@@ -142,7 +144,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
     }
 
     function handleCloseModal() {
-        if (isOpen) {
+        if (isOpen && isBrowserTabVisible) {
             setIsOpen(false);
             onBlur();
         }

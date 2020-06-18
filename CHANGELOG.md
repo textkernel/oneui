@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [11.2.1](https://github.com/textkernel/oneui/compare/11.2.0...11.2.1) (2020-06-15)
+
+
+### Bug Fixes
+
+* **LocationSelector:** fix modal opening on form submitting ([#299](https://github.com/textkernel/oneui/issues/299)) ([1159942](https://github.com/textkernel/oneui/commit/11599422461add300872f4ff40aa471e8e9993f9))
+
 ## [11.2.0](https://github.com/textkernel/oneui/compare/11.1.0...11.2.0) (2020-06-08)
 
 
