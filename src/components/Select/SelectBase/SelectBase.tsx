@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Downshift from 'downshift';
 import { bem } from '../../../utils/bem';
+import { useBrowserTabVisibilityChange } from '../../../hooks';
 import { FieldWrapper } from '../../FieldWrapper';
 import { List } from '../../List';
 import { Props } from './interfaces';
@@ -50,7 +51,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     const [inputValue, setInputValue] = React.useState('');
     const [inputValueRecall, setInputValueRecall] = React.useState('');
     const [focused, setFocused] = React.useState(false);
-    const [isBrowserTabVisible, setIsBrowserTabVisible] = React.useState(true);
+    const isBrowserTabVisible = useBrowserTabVisibilityChange();
 
     // focus input field if component is focused
     React.useEffect(() => {
@@ -79,22 +80,6 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
             setRootRef(rootRefFromProps);
         }
     }, [rootRefFromProps]);
-
-    React.useEffect(() => {
-        const handleFocusHandleVisibilityChange = () => {
-            if (document.hidden) {
-                setIsBrowserTabVisible(false);
-            } else {
-                setTimeout(() => setIsBrowserTabVisible(true), 250);
-            }
-        };
-
-        document.addEventListener('visibilitychange', handleFocusHandleVisibilityChange);
-
-        return () => {
-            document.removeEventListener('visibilitychange', handleFocusHandleVisibilityChange);
-        };
-    });
 
     const handleBlur = () => {
         if (isBrowserTabVisible) {
