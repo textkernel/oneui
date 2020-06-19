@@ -18,6 +18,8 @@ export interface Props<S> {
     useOptimizeRender?: boolean;
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestion: S) => string;
+    /** suggestionToKey(suggestion) makes a key to be used for a suggestion item */
+    suggestionToKey?: (suggestion: S) => string;
     /** render function for suggestion list item */
     suggestionItemRenderer?: (suggestion: S) => ReactNode;
     /** to be shown when no suggestions are available */
@@ -42,6 +44,7 @@ export function SuggestionsList<S>(props: Props<S>) {
         noSuggestionsPlaceholder,
         getItemProps,
         highlightedIndex,
+        suggestionToKey,
         suggestionItemRenderer,
         inputValue,
     } = props;
@@ -111,7 +114,9 @@ export function SuggestionsList<S>(props: Props<S>) {
             ) : (
                 <>
                     {suggestions.map((item, index) => {
-                        const key = suggestionToString(item);
+                        const key = suggestionToKey
+                            ? suggestionToKey(item)
+                            : suggestionToString(item);
                         return renderItem({ key, index });
                     })}
                 </>

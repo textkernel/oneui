@@ -333,6 +333,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder=""
+                      suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={
                         Array [
@@ -892,6 +893,7 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
                       isLoading={true}
                       key=".0"
                       noSuggestionsPlaceholder=""
+                      suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={Array []}
                       useOptimizeRender={false}

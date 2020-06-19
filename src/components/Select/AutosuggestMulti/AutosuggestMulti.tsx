@@ -66,10 +66,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
 
     const renderFullTagsList = () => {
         return selectedSuggestions.map((item) => (
-            <SuggestionTag
-                key={suggestionToKey ? suggestionToKey(item) : suggestionToString(item)}
-                onClick={() => onSelectionRemove(item)}
-            >
+            <SuggestionTag key={suggestionToString(item)} onClick={() => onSelectionRemove(item)}>
                 {suggestionToString(item)}
             </SuggestionTag>
         ));
@@ -176,6 +173,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     isFirstItemAlwaysVisible={isFirstItemAlwaysVisible}
                     isLoading={isLoading}
                     useOptimizeRender={useOptimizeListRender}
+                    suggestionToKey={suggestionToKey}
                     suggestionItemRenderer={suggestionItemRenderer}
                 />
             )}
