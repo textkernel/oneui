@@ -18,7 +18,7 @@
     }
     line-height: var(--line-height-normal);
     outline: none;
-    padding: var(--spacing-2x);
+    padding: var(--spacing-2x) var(--spacing-3x);
     transition: border-color var(--transition-duration);
 
     &:focus,
