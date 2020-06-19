@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Downshift from 'downshift';
 import { bem } from '../../../utils/bem';
+import { useBrowserTabVisibilityChange } from '../../../hooks';
 import { FieldWrapper } from '../../FieldWrapper';
 import { List } from '../../List';
 import { Props } from './interfaces';
@@ -50,6 +51,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     const [inputValue, setInputValue] = React.useState('');
     const [inputValueRecall, setInputValueRecall] = React.useState('');
     const [focused, setFocused] = React.useState(false);
+    const isBrowserTabVisible = useBrowserTabVisibilityChange();
 
     // focus input field if component is focused
     React.useEffect(() => {
@@ -80,10 +82,12 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     }, [rootRefFromProps]);
 
     const handleBlur = () => {
-        setFocused(false);
-        setInputValue('');
-        setInputValueRecall('');
-        if (focused) onBlur?.();
+        if (isBrowserTabVisible) {
+            setFocused(false);
+            setInputValue('');
+            setInputValueRecall('');
+            if (focused) onBlur?.();
+        }
     };
 
     const handleChange = (selectedItem, downshift) => {
@@ -139,7 +143,10 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         if (!focused) {
             focus(openMenu);
         }
-        onFocus?.();
+
+        if (isBrowserTabVisible) {
+            onFocus?.();
+        }
     };
 
     const stateUpdater = (change, state) => {
@@ -179,7 +186,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
                     isEscapeAction: true,
                 };
             case Downshift.stateChangeTypes.blurInput:
-                if (selectOnTab && !state.isEscapeAction) {
+                if (selectOnTab && !state.isEscapeAction && isBrowserTabVisible) {
                     return {
                         ...changes,
                         selectedItem: suggestions[state.highlightedIndex],

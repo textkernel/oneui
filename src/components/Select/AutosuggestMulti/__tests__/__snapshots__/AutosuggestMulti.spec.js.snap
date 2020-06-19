@@ -3,6 +3,7 @@
 exports[`AutosuggestMulti rendering should initially render empty component correctly 1`] = `
 <AutosuggestMulti
   inputPlaceholder="type here..."
+  isFirstItemAlwaysVisible={false}
   isLoading={false}
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
@@ -10,6 +11,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
   onSelectionChange={[MockFunction]}
   onSelectionRemove={[MockFunction]}
   selectedSuggestions={Array []}
+  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={Array []}
 >
@@ -133,6 +135,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
 exports[`AutosuggestMulti rendering should render component with suggestions 1`] = `
 <AutosuggestMulti
   inputPlaceholder="type here..."
+  isFirstItemAlwaysVisible={false}
   isLoading={false}
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
@@ -154,6 +157,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
   onSelectionChange={[MockFunction]}
   onSelectionRemove={[MockFunction]}
   selectedSuggestions={Array []}
+  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -325,9 +329,11 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                       getItemProps={[Function]}
                       highlightedIndex={0}
                       inputValue="driver"
+                      isFirstItemAlwaysVisible={false}
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder=""
+                      suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={
                         Array [
@@ -743,6 +749,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
 exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
 <AutosuggestMulti
   inputPlaceholder="type here..."
+  isFirstItemAlwaysVisible={false}
   isLoading={true}
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
@@ -764,6 +771,7 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
   onSelectionChange={[MockFunction]}
   onSelectionRemove={[MockFunction]}
   selectedSuggestions={Array []}
+  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={Array []}
 >
@@ -881,9 +889,11 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
                       getItemProps={[Function]}
                       highlightedIndex={0}
                       inputValue="driver"
+                      isFirstItemAlwaysVisible={false}
                       isLoading={true}
                       key=".0"
                       noSuggestionsPlaceholder=""
+                      suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={Array []}
                       useOptimizeRender={false}

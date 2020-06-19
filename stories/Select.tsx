@@ -170,6 +170,10 @@ storiesOf('Organisms|Select', module)
                     onBlur={onBlur}
                     onFocus={onFocus}
                     onSubmit={onSubmit}
+                    isFirstItemAlwaysVisible={
+                        boolean('First item is always visible', false) &&
+                        !!store.get('inputValue').length
+                    }
                     onSelectionChange={onSelectionChange}
                     onSelectionRemove={onSelectionRemove}
                     isProminent={boolean('Use prominent styling', true)}

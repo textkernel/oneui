@@ -18,10 +18,14 @@ export interface Props<S> {
     useOptimizeRender?: boolean;
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestion: S) => string;
+    /** suggestionToKey(suggestion) makes a key to be used for a suggestion item */
+    suggestionToKey?: (suggestion: S) => string;
     /** render function for suggestion list item */
     suggestionItemRenderer?: (suggestion: S) => ReactNode;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder?: string;
+    /** Defines if the first item of suggestions list is always visible */
+    isFirstItemAlwaysVisible?: boolean;
     /** a function which gets props for the item in the list */
     getItemProps: (options: GetItemPropsOptions<S>) => object;
     /** index of the item from the list to be highlighted */
@@ -36,9 +40,11 @@ export function SuggestionsList<S>(props: Props<S>) {
         useOptimizeRender,
         suggestions,
         isLoading,
+        isFirstItemAlwaysVisible,
         noSuggestionsPlaceholder,
         getItemProps,
         highlightedIndex,
+        suggestionToKey,
         suggestionItemRenderer,
         inputValue,
     } = props;
@@ -69,14 +75,20 @@ export function SuggestionsList<S>(props: Props<S>) {
     const renderLoadingPlaceholders = () =>
         Array(NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS)
             .fill('')
-            .map((el, i) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <ListItem key={i}>
-                    <div {...elem('loaderItem')}>
-                        <ContentPlaceholder />
-                    </div>
-                </ListItem>
-            ));
+            .map((el, i) => {
+                if (isFirstItemAlwaysVisible && i === 0) {
+                    return renderItem({ key: 'firstItem', index: 0 });
+                }
+
+                return (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <ListItem key={i}>
+                        <div {...elem('loaderItem')}>
+                            <ContentPlaceholder />
+                        </div>
+                    </ListItem>
+                );
+            });
 
     if (isLoading) {
         return <>{renderLoadingPlaceholders()}</>;
@@ -102,7 +114,9 @@ export function SuggestionsList<S>(props: Props<S>) {
             ) : (
                 <>
                     {suggestions.map((item, index) => {
-                        const key = suggestionToString(item);
+                        const key = suggestionToKey
+                            ? suggestionToKey(item)
+                            : suggestionToString(item);
                         return renderItem({ key, index });
                     })}
                 </>
@@ -115,6 +129,7 @@ SuggestionsList.defaultProps = {
     noSuggestionsPlaceholder: '',
     useOptimizeRender: false,
     isLoading: false,
+    isFirstItemAlwaysVisible: false,
     inputValue: '',
 };
 
