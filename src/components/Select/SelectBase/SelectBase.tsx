@@ -82,8 +82,8 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     }, [rootRefFromProps]);
 
     const handleBlur = () => {
+        setFocused(false);
         if (isBrowserTabVisible) {
-            setFocused(false);
             setInputValue('');
             setInputValueRecall('');
             if (focused) onBlur?.();
