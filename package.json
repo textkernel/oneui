@@ -53,7 +53,7 @@
         "@react-google-maps/api": "~1.8.6",
         "@textkernel/bem": "~0.2.4",
         "@tippy.js/react": "~3.1.1",
-        "css-vars-ponyfill": "~2.2.1",
+        "css-vars-ponyfill": "~2.3.0",
         "downshift": "~5.2.7",
         "fast-memoize": "~2.5.2",
         "prop-types": "~15.7.2",
