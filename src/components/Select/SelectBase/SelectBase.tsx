@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Downshift from 'downshift';
 import { bem } from '../../../utils/bem';
+import { useBrowserTabVisibilityChange } from '../../../hooks';
 import { FieldWrapper } from '../../FieldWrapper';
 import { List } from '../../List';
 import { Props } from './interfaces';
@@ -19,6 +20,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         clearTitle,
         showClearButton,
         selectOnTab,
+        onFocus,
         onBlur,
         onSelectionChange,
         onInputValueChange,
@@ -32,6 +34,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         keepExpandedAfterSelection,
         clearInputAfterSelection,
         isProminent,
+        highlightOnEmptyInput,
         ...rest
     } = props;
 
@@ -48,6 +51,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
     const [inputValue, setInputValue] = React.useState('');
     const [inputValueRecall, setInputValueRecall] = React.useState('');
     const [focused, setFocused] = React.useState(false);
+    const isBrowserTabVisible = useBrowserTabVisibilityChange();
 
     // focus input field if component is focused
     React.useEffect(() => {
@@ -79,9 +83,11 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
 
     const handleBlur = () => {
         setFocused(false);
-        setInputValue('');
-        setInputValueRecall('');
-        if (focused) onBlur?.();
+        if (isBrowserTabVisible) {
+            setInputValue('');
+            setInputValueRecall('');
+            if (focused) onBlur?.();
+        }
     };
 
     const handleChange = (selectedItem, downshift) => {
@@ -137,6 +143,10 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
         if (!focused) {
             focus(openMenu);
         }
+
+        if (isBrowserTabVisible) {
+            onFocus?.();
+        }
     };
 
     const stateUpdater = (change, state) => {
@@ -155,7 +165,13 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
             ...newChanges,
             isEscapeAction: false,
         };
+
         switch (newChanges.type) {
+            case Downshift.stateChangeTypes.changeInput:
+                return {
+                    ...changes,
+                    highlightedIndex: highlightOnEmptyInput || newChanges.inputValue ? 0 : -1,
+                };
             case Downshift.stateChangeTypes.clickItem:
             case Downshift.stateChangeTypes.keyDownEnter:
                 return {
@@ -170,7 +186,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
                     isEscapeAction: true,
                 };
             case Downshift.stateChangeTypes.blurInput:
-                if (selectOnTab && !state.isEscapeAction) {
+                if (selectOnTab && !state.isEscapeAction && isBrowserTabVisible) {
                     return {
                         ...changes,
                         selectedItem: suggestions[state.highlightedIndex],
@@ -201,7 +217,7 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
                 onStateChange={stateUpdater}
                 onInputValueChange={handleInputValueChange}
                 inputValue={inputValue}
-                defaultHighlightedIndex={0}
+                defaultHighlightedIndex={highlightOnEmptyInput ? 0 : -1}
             >
                 {({
                     getInputProps,
@@ -225,6 +241,8 @@ export function SelectBase<S>(props: SelectBaseProps<S>) {
                                       getInputProps: getInputPropsWithUpdatedRef(getInputProps),
                                       getToggleButtonProps,
                                       onBlur: handleBlur,
+                                      onFocus: handleInputOnFocus(openMenu),
+                                      highlightedIndex,
                                       inputValue,
                                   })
                                 : blurredRenderer({
@@ -261,6 +279,7 @@ SelectBase.defaultProps = {
     showClearButton: false,
     keepExpandedAfterSelection: false,
     clearInputAfterSelection: false,
+    highlightOnEmptyInput: true,
     clearTitle: '',
 };
 

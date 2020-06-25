@@ -34,6 +34,7 @@ describe('SelectBase', () => {
                 onInputValueChange={mockOnInputValueChange}
                 onClearAllSelected={mockOnClearAllSelected}
                 onBlur={mockOnBlur}
+                highlightOnEmptyInput
             />
         );
         inputNode = wrapper.find('input').getDOMNode();
@@ -114,6 +115,12 @@ describe('SelectBase', () => {
             wrapper.find('li').first().children().simulate('click');
 
             expect(wrapper.find('input').props().value).toEqual(textInputValue);
+        });
+    });
+    describe('highlighting', () => {
+        it('should highlight first item', () => {
+            setFocusOnInput();
+            expect(wrapper.find('li').at(0).prop('aria-selected')).toEqual(true);
         });
     });
     describe('callbacks', () => {

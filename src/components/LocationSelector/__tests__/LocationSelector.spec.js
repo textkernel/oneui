@@ -87,13 +87,13 @@ describe('LocationSelector component', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should render LocationSelector properly when modal is open', () => {
-        wrapper.find('.FieldWrapper').simulate('click');
+        wrapper.find('.FieldWrapper').simulate('mouseUp');
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should open and close modal when requested', () => {
         expect(wrapper.find('Modal').at(0).props().isOpen).toBeFalsy();
 
-        wrapper.find('FieldWrapper').simulate('click');
+        wrapper.find('FieldWrapper').simulate('mouseUp');
         expect(wrapper.find('Modal').at(0).props().isOpen).toBeTruthy();
 
         // Since JSDom cannot click outside of component,
@@ -110,7 +110,7 @@ describe('LocationSelector component', () => {
             cb(geocodeResponse.results, geocodeResponse.status);
         });
 
-        wrapper.find('FieldWrapper').simulate('click');
+        wrapper.find('FieldWrapper').simulate('mouseUp');
 
         // Since LocationSelectorDialog is not rendered due to LoadScriptNext not resolving
         // we hack the callback by calling it directly on LocationSelectorDialogWithGoogleLoader
@@ -134,7 +134,7 @@ describe('LocationSelector component', () => {
             description: location.description,
             radius: location.radius * 1000,
         }));
-        wrapper.find('FieldWrapper').simulate('click');
+        wrapper.find('FieldWrapper').simulate('mouseUp');
 
         // Since LocationSelectorDialog is not rendered due to LoadScriptNext not resolving
         // we hack the callback by calling it directly on LocationSelectorDialogWithGoogleLoader

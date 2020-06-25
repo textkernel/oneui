@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.3.0](https://github.com/textkernel/oneui/compare/11.2.1...11.3.0) (2020-06-22)
+
+
+### Features
+
+* **AutosuggestMulti:** usability of the component was improved ([#304](https://github.com/textkernel/oneui/issues/304)) ([bd5b2dc](https://github.com/textkernel/oneui/commit/bd5b2dc716d68df25b11009dd388222f6f0c224c))
+* **SelectBase:** aligned spaces between input and Autossugest ([#306](https://github.com/textkernel/oneui/issues/306)) ([061e148](https://github.com/textkernel/oneui/commit/061e1483face2ece251f70e83a8062d4b14d193d))
+
+
+### Bug Fixes
+
+* fixed input focusing after the tab was switched ([#307](https://github.com/textkernel/oneui/issues/307)) ([d723e30](https://github.com/textkernel/oneui/commit/d723e3042a5e6f2f8160f1931537792708bc052e))
+* **LocationSelector:** fixed a bug where a modal got opened during tab switching ([#305](https://github.com/textkernel/oneui/issues/305)) ([35e2153](https://github.com/textkernel/oneui/commit/35e2153d0376f3ebb059cd7eaf9b460af7433f57))
+
+### [11.2.1](https://github.com/textkernel/oneui/compare/11.2.0...11.2.1) (2020-06-15)
+
+
+### Bug Fixes
+
+* **LocationSelector:** fix modal opening on form submitting ([#299](https://github.com/textkernel/oneui/issues/299)) ([1159942](https://github.com/textkernel/oneui/commit/11599422461add300872f4ff40aa471e8e9993f9))
+
+## [11.2.0](https://github.com/textkernel/oneui/compare/11.1.0...11.2.0) (2020-06-08)
+
+
+### Features
+
+* **AutosuggestMulti:** improved component to autosuggest requirements ([#296](https://github.com/textkernel/oneui/issues/296)) ([0529198](https://github.com/textkernel/oneui/commit/0529198b662bac597c0318fcc35c71c3c2612add))
+
 ## [11.1.0](https://github.com/textkernel/oneui/compare/11.0.0...11.1.0) (2020-05-29)
 
 

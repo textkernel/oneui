@@ -6,6 +6,7 @@ import { FieldWrapper } from '../FieldWrapper';
 import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
 import { Location, findCenter, getRadiusInMeters, getAddressComponents } from './utils';
 import { TAB_KEY, ESCAPE_KEY } from '../../constants';
+import { useBrowserTabVisibilityChange } from '../../hooks';
 import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
@@ -69,11 +70,11 @@ interface Props {
     /** label to be used on the clear all button */
     clearLabel: string;
     /** function called with location object as an argument when it is selected from the suggestions */
-    onAddLocation: (Location) => void;
+    onAddLocation: (location: Location) => void;
     /** function called with a location details as an argument to be changed */
-    onUpdateLocation: (Location) => void;
+    onUpdateLocation: (location: Location) => void;
     /** function with a locationId as an argument to be removed */
-    onRemoveLocation: (Location) => void;
+    onRemoveLocation: (location: Location) => void;
     /** callback function for the Clear button click */
     onRemoveAllLocations: () => void;
     /** callback function for closed modal */
@@ -129,12 +130,13 @@ export const LocationSelector: React.FC<Props> = (props) => {
 
     const [isOpen, setIsOpen] = React.useState(false);
     const [isWrapperFocused, setIsWrapperFocused] = React.useState(false);
+    const isBrowserTabVisible = useBrowserTabVisibilityChange();
     const buttonRef = React.useRef<HTMLButtonElement>();
 
     const hasLocationsSelected = selectedLocations && selectedLocations.length > 0;
 
     function handleOpenModal() {
-        if (!isOpen && !isWrapperFocused) {
+        if (!isOpen && !isWrapperFocused && isBrowserTabVisible) {
             buttonRef.current?.focus();
             setIsOpen(true);
         }
@@ -142,7 +144,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
     }
 
     function handleCloseModal() {
-        if (isOpen) {
+        if (isOpen && isBrowserTabVisible) {
             setIsOpen(false);
             onBlur();
         }
@@ -213,7 +215,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                 isFocused={isWrapperFocused}
                 showClearButton={hasLocationsSelected}
                 clearLabel={clearLabel}
-                onClick={handleOpenModal}
+                onMouseUp={handleOpenModal}
                 onClear={onRemoveAllLocations}
             >
                 <FaMapMarkerAlt {...elem('icon', props)} />

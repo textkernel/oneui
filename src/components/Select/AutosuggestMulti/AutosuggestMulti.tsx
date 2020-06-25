@@ -14,16 +14,22 @@ import { BACKSPACE_KEY, ESCAPE_KEY, ENTER_KEY } from '../../../constants';
 interface Props<S> extends CommonPropsWithClear<S> {
     /** define id for input element */
     id?: string;
+    /** makes a key to be used for a suggestion item */
+    suggestionToKey?: (suggestions: S) => string;
     /** array of already selected suggestions */
     selectedSuggestions: S[];
     /** number of visible tags in blur mode */
     numberOfVisibleTags: number;
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: string;
+    /** Defines if the first item of suggestions list is always visible */
+    isFirstItemAlwaysVisible?: boolean;
     /** Enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
     /** onSelectionChange() called when a suggestion is removed  */
     onSelectionRemove: (item: S) => void;
+    /** function is called on submitting form */
+    onSubmit?: () => void;
 }
 
 const { elem } = bem('AutosuggestMulti', styles);
@@ -35,11 +41,17 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         onSelectionChange,
         selectedSuggestions,
         suggestionToString,
+        suggestionToKey,
+        suggestionItemRenderer,
         inputPlaceholder,
         useOptimizeListRender,
         suggestions,
+        isLoading,
         numberOfVisibleTags,
+        isFirstItemAlwaysVisible,
+        onFocus,
         onBlur,
+        onSubmit,
         showClearButton,
         onSelectionRemove,
         ...rest
@@ -85,14 +97,19 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         return visibleTagsList;
     };
 
-    const handleInputKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
-        if (event.key === ENTER_KEY && !inputValue) {
+    const handleInputKeyDown = (
+        event: React.KeyboardEvent<HTMLElement>,
+        highlightedIndex: number | null
+    ) => {
+        const isHighlighted = highlightedIndex !== null && highlightedIndex > -1;
+        if (event.key === ENTER_KEY && !inputValue && !isHighlighted) {
             /**
              * Prevent the default Downshift handler behavior
              * That need for submitting form
              */
             // eslint-disable-next-line no-param-reassign, dot-notation
             event.nativeEvent['preventDownshiftDefault'] = true;
+            onSubmit?.();
         } else if (event.key === ESCAPE_KEY) {
             inputRef.current?.blur();
         } else if (event.key === BACKSPACE_KEY && !inputValue && !!selectedSuggestions.length) {
@@ -102,7 +119,11 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     };
 
     // eslint-disable-next-line react/display-name
-    const renderFocused: FocusedRendererHelpers<S> = ({ getInputProps }) => (
+    const renderFocused: FocusedRendererHelpers<S> = ({
+        getInputProps,
+        onFocus: onFocusInput,
+        highlightedIndex,
+    }) => (
         <div {...elem('wrapper', { isFocused: true })}>
             {renderFullTagsList()}
             <input
@@ -110,7 +131,8 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     id,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
-                    onKeyDown: handleInputKeyDown,
+                    onFocus: onFocusInput,
+                    onKeyDown: (e) => handleInputKeyDown(e, highlightedIndex),
                     'data-lpignore': true,
                     ...elem('input'),
                 })}
@@ -119,7 +141,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     );
 
     // eslint-disable-next-line react/display-name
-    const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps, onFocus }) => (
+    const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps, onFocus: onFocusInput }) => (
         <div {...elem('wrapper')}>
             {renderShortTagsList()}
             <input
@@ -128,7 +150,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     ref: inputRef,
                     placeholder: selectedSuggestions.length === 0 ? inputPlaceholder : '',
                     'data-lpignore': true,
-                    onFocus,
+                    onFocus: onFocusInput,
                     ...elem('input', { hidden: selectedSuggestions.length > 0 }),
                 })}
             />
@@ -141,15 +163,24 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             suggestions={suggestions}
             suggestionToString={suggestionToString}
             inputRef={inputRef}
+            onFocus={onFocus}
             onBlur={onBlur}
             onSelectionChange={onSelectionChange}
             onInputValueChange={handleInputValueChange}
             listRenderer={(listProps) => (
-                <SuggestionsList {...listProps} useOptimizeRender={useOptimizeListRender} />
+                <SuggestionsList
+                    {...listProps}
+                    isFirstItemAlwaysVisible={isFirstItemAlwaysVisible}
+                    isLoading={isLoading}
+                    useOptimizeRender={useOptimizeListRender}
+                    suggestionToKey={suggestionToKey}
+                    suggestionItemRenderer={suggestionItemRenderer}
+                />
             )}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
             showClearButton={showClearButton && selectedSuggestions.length > 0}
+            highlightOnEmptyInput={false}
             keepExpandedAfterSelection
             selectOnTab
             clearInputAfterSelection
@@ -162,4 +193,6 @@ AutosuggestMulti.displayName = 'AutosuggestMulti';
 AutosuggestMulti.defaultProps = {
     numberOfVisibleTags: 3,
     selectedSuggestions: [],
+    suggestionToKey: null,
+    isFirstItemAlwaysVisible: false,
 };

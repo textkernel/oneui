@@ -26,6 +26,8 @@ export function ComboboxMulti<S>(props: Props<S>) {
         inputRef: inputRefFromProps,
         suggestions,
         suggestionToString,
+        suggestionItemRenderer,
+        isLoading,
         noSuggestionsPlaceholder,
         onBlur,
         onInputValueChange,
@@ -99,8 +101,10 @@ export function ComboboxMulti<S>(props: Props<S>) {
             listRenderer={(listProps) => (
                 <SuggestionsList
                     {...listProps}
+                    isLoading={isLoading}
                     useOptimizeRender={useOptimizeListRender}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+                    suggestionItemRenderer={suggestionItemRenderer}
                 />
             )}
             focusedRenderer={renderFocused}

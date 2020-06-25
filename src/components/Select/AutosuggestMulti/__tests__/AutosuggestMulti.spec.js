@@ -21,6 +21,7 @@ describe('AutosuggestMulti', () => {
     beforeEach(() => {
         wrapper = mount(
             <AutosuggestMulti
+                isLoading={false}
                 selectedSuggestions={selectedSuggestions}
                 suggestions={suggestionsList}
                 suggestionToString={suggestionToString}
@@ -43,6 +44,33 @@ describe('AutosuggestMulti', () => {
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
+        });
+        it('should render component with suggestions', () => {
+            suggestionsList = SUGGESTIONS.slice(1, 20);
+            wrapper.setProps({ suggestions: suggestionsList });
+            setFocusOnInput();
+            wrapper.find('input').simulate('change', { target: { value: 'driver' } });
+            expect(toJson(wrapper)).toMatchSnapshot();
+        });
+        it('should render isLoading state', () => {
+            suggestionsList = SUGGESTIONS.slice(1, 20);
+            wrapper.setProps({ suggestions: [], isLoading: true });
+            setFocusOnInput();
+            wrapper.find('input').simulate('change', { target: { value: 'driver' } });
+            expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(5);
+            expect(toJson(wrapper)).toMatchSnapshot();
+        });
+        it('should render the first item with isLoading set to true', () => {
+            suggestionsList = SUGGESTIONS.slice(1, 20);
+            wrapper.setProps({
+                suggestions: suggestionsList,
+                isLoading: true,
+                isFirstItemAlwaysVisible: true,
+            });
+            setFocusOnInput();
+            wrapper.find('input').simulate('change', { target: { value: 'driver' } });
+            expect(wrapper.find('span')).toHaveLength(1);
+            expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(4);
         });
         it('should render empty component correctly when focused', async () => {
             setFocusOnInput();
