@@ -364,7 +364,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       aria-selected={true}
                       className="List__item"
                       disabled={false}
-                      highlightContext="brand"
+                      highlightContext="default"
                       id="downshift-4-item-0"
                       isHighlighted={true}
                       isSelected={false}
@@ -376,7 +376,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     >
                       <li
                         aria-selected={true}
-                        className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable List__item"
+                        className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                         id="downshift-4-item-0"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -409,7 +409,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       aria-selected={false}
                       className="List__item"
                       disabled={false}
-                      highlightContext="brand"
+                      highlightContext="default"
                       id="downshift-4-item-1"
                       isHighlighted={false}
                       isSelected={false}
@@ -421,7 +421,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     >
                       <li
                         aria-selected={false}
-                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                        className="ListItem ListItem--clickable List__item"
                         id="downshift-4-item-1"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -454,7 +454,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       aria-selected={false}
                       className="List__item"
                       disabled={false}
-                      highlightContext="brand"
+                      highlightContext="default"
                       id="downshift-4-item-2"
                       isHighlighted={false}
                       isSelected={false}
@@ -466,7 +466,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     >
                       <li
                         aria-selected={false}
-                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                        className="ListItem ListItem--clickable List__item"
                         id="downshift-4-item-2"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -499,7 +499,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       aria-selected={false}
                       className="List__item"
                       disabled={false}
-                      highlightContext="brand"
+                      highlightContext="default"
                       id="downshift-4-item-3"
                       isHighlighted={false}
                       isSelected={false}
@@ -511,7 +511,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     >
                       <li
                         aria-selected={false}
-                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                        className="ListItem ListItem--clickable List__item"
                         id="downshift-4-item-3"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -544,7 +544,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       aria-selected={false}
                       className="List__item"
                       disabled={false}
-                      highlightContext="brand"
+                      highlightContext="default"
                       id="downshift-4-item-4"
                       isHighlighted={false}
                       isSelected={false}
@@ -556,7 +556,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     >
                       <li
                         aria-selected={false}
-                        className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                        className="ListItem ListItem--clickable List__item"
                         id="downshift-4-item-4"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}

@@ -59,7 +59,6 @@ export function SuggestionsList<S>(props: Props<S>) {
                 index,
             })}
             isHighlighted={highlightedIndex === index}
-            highlightContext="brand"
         >
             {suggestionItemRenderer ? (
                 suggestionItemRenderer(suggestions[index])
