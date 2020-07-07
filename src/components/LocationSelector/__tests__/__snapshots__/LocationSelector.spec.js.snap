@@ -123,14 +123,14 @@ exports[`LocationSelector component should render LocationSelector properly when
           disabled={false}
           isBlock={false}
           isInline={true}
-          onClick={[Function]}
+          onMouseUp={[Function]}
           size="normal"
           type="button"
         >
           <button
             className="Button Button--isInline Button--context_link FieldWrapper__clearButton"
             disabled={false}
-            onClick={[Function]}
+            onMouseUp={[Function]}
             type="button"
           >
             Clear
@@ -530,14 +530,14 @@ exports[`LocationSelector component should render LocationSelector propertly whe
           disabled={false}
           isBlock={false}
           isInline={true}
-          onClick={[Function]}
+          onMouseUp={[Function]}
           size="normal"
           type="button"
         >
           <button
             className="Button Button--isInline Button--context_link FieldWrapper__clearButton"
             disabled={false}
-            onClick={[Function]}
+            onMouseUp={[Function]}
             type="button"
           >
             Clear

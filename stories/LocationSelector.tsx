@@ -118,6 +118,7 @@ storiesOf('Organisms|LocationSelector', module)
             <LocationSelector
                 apiKey={apiKey}
                 withoutLocationCards
+                openOnEnterPress={boolean('Open on Enter press', true)}
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
@@ -199,6 +200,7 @@ storiesOf('Organisms|LocationSelector', module)
         return (
             <LocationSelector
                 apiKey={apiKey}
+                openOnEnterPress={boolean('Open on Enter press', true)}
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
