@@ -27,7 +27,7 @@ describe('FieldWrapper', () => {
             </FieldWrapper>
         );
 
-        wrapper.find('button').simulate('click');
+        wrapper.find('button').simulate('mouseup');
 
         expect(onClearMock).toHaveBeenCalledTimes(1);
     });

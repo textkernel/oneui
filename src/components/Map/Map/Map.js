@@ -151,10 +151,10 @@ Map.propTypes = {
 Map.defaultProps = {
     defaultArea: {
         center: {
-            lat: 52.3922288,
-            lng: 4.9338793,
+            lat: 30,
+            lng: 0,
         },
-        zoom: 7,
+        zoom: 2,
     },
     markers: [],
     mapContainerStyle: {

@@ -48,6 +48,14 @@ export const LocationSelectorDialog = (props) => {
 
     const [firstSelectedLocation] = selectedLocations;
 
+    function getDefaultArea() {
+        if (initialMapAddress || country) {
+            return { address: initialMapAddress || country };
+        }
+
+        return undefined;
+    }
+
     function handleAddLocation(location) {
         if (locationInputRef.current) {
             locationInputRef.current.focus();
@@ -130,10 +138,7 @@ export const LocationSelectorDialog = (props) => {
                         ))}
                     </ul>
                 )}
-                <Map
-                    defaultArea={{ address: initialMapAddress || country }}
-                    markers={getMarkers()}
-                />
+                <Map defaultArea={getDefaultArea()} markers={getMarkers()} />
             </div>
         </>
     );

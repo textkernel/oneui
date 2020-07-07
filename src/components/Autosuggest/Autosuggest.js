@@ -185,12 +185,8 @@ export class Autosuggest extends React.Component {
 
         switch (changes.type) {
             case Downshift.stateChangeTypes.keyDownEnter:
-                return {
-                    ...changes,
-                    highlightedIndex: state.highlightedIndex,
-                    isOpen: isMultiselect,
-                };
             case Downshift.stateChangeTypes.clickItem:
+                setTimeout(() => this.inputRef.current?.parentElement.focus());
                 return {
                     ...changes,
                     highlightedIndex: state.highlightedIndex,

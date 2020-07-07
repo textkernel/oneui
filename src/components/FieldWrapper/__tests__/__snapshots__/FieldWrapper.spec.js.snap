@@ -21,14 +21,14 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
       disabled={false}
       isBlock={false}
       isInline={true}
-      onClick={[Function]}
+      onMouseUp={[Function]}
       size="normal"
       type="button"
     >
       <button
         className="Button Button--isInline Button--context_link FieldWrapper__clearButton"
         disabled={false}
-        onClick={[Function]}
+        onMouseUp={[Function]}
         type="button"
       >
         Clear
