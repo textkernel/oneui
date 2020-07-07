@@ -118,7 +118,6 @@ storiesOf('Organisms|LocationSelector', module)
             <LocationSelector
                 apiKey={apiKey}
                 withoutLocationCards
-                openOnEnterPress={boolean('Open on Enter press', true)}
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
@@ -131,6 +130,7 @@ storiesOf('Organisms|LocationSelector', module)
                 radiusDefaultValue={number('Radius default value', 5)}
                 radiusStep={number('Radius steps', 1)}
                 placeTypes={['(regions)']}
+                openOnEnterPress={boolean('Open on Enter press', true)}
                 shouldGetAddressInfo={boolean('Fetch address information', false)}
                 showCountryInSuggestions={boolean('Show country in suggestions', true)}
                 modalContentLabel={text(
@@ -199,7 +199,6 @@ storiesOf('Organisms|LocationSelector', module)
         return (
             <LocationSelector
                 apiKey={apiKey}
-                openOnEnterPress={boolean('Open on Enter press', true)}
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
@@ -212,6 +211,7 @@ storiesOf('Organisms|LocationSelector', module)
                 radiusDefaultValue={number('Radius default value', 5)}
                 radiusStep={number('Radius steps', 1)}
                 placeTypes={['(regions)']}
+                openOnEnterPress={boolean('Open on Enter press', true)}
                 shouldGetAddressInfo={boolean('Fetch address information', false)}
                 showCountryInSuggestions={boolean('Show country in suggestions', true)}
                 modalContentLabel={text(
