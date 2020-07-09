@@ -26,7 +26,7 @@ export const FieldWrapper = React.forwardRef((props, ref) => {
                 <Button
                     isInline
                     context="link"
-                    onMouseUp={handleClear}
+                    onClick={handleClear}
                     {...elem('clearButton', props)}
                 >
                     {clearLabel}

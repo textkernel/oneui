@@ -367,7 +367,7 @@ describe('Autosuggest', () => {
             wrapper.setProps({ selectedSuggestions });
             expect(mockOnClearAllSelected).not.toHaveBeenCalled();
 
-            wrapper.find('.FieldWrapper__clearButton').at(1).simulate('mouseup');
+            wrapper.find('.FieldWrapper__clearButton').at(1).simulate('click');
 
             expect(mockOnClearAllSelected).toHaveBeenCalled();
         });
