@@ -218,13 +218,14 @@ export const LocationSelector: React.FC<Props> = (props) => {
                 isFocused={isWrapperFocused}
                 showClearButton={hasLocationsSelected}
                 clearLabel={clearLabel}
-                onMouseUp={handleOpenModal}
+                onClick={handleOpenModal}
                 onClear={onRemoveAllLocations}
             >
                 <FaMapMarkerAlt {...elem('icon', props)} />
                 <button
                     id={id}
                     ref={buttonRef}
+                    type="button"
                     {...elem('mainTextButton', { ...props, muted: !selectionPlaceholder })}
                     onFocus={handleOpenModal}
                     onBlur={handleButtonBlur}

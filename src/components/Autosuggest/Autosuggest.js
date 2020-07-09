@@ -25,6 +25,7 @@ export class Autosuggest extends React.Component {
     constructor(props) {
         super(props);
 
+        this.inputWrapperRef = React.createRef();
         this.inputRef = props.inputRef || React.createRef();
         this.rootRef = props.rootRef || React.createRef();
         this.listRef = props.listRef || React.createRef();
@@ -55,8 +56,10 @@ export class Autosuggest extends React.Component {
             const isInputFocused = inputRef.current === document.activeElement;
 
             if (!prevState.focused && isInputFocused) {
-                // eslint-disable-next-line react/no-did-update-set-state
-                setTimeout(() => this.setState({ focused: isInputFocused }), FOCUS_DELAY);
+                setTimeout(() => {
+                    // eslint-disable-next-line react/no-did-update-set-state
+                    this.setState({ focused: isInputFocused });
+                }, FOCUS_DELAY);
             }
         }
 
@@ -92,7 +95,7 @@ export class Autosuggest extends React.Component {
         }
 
         if (!isMultiselect) {
-            this.inputRef.current.blur();
+            this.inputWrapperRef?.current.focus();
             this.handleBlur();
         } else {
             openMenu();
@@ -186,7 +189,6 @@ export class Autosuggest extends React.Component {
         switch (changes.type) {
             case Downshift.stateChangeTypes.keyDownEnter:
             case Downshift.stateChangeTypes.clickItem:
-                setTimeout(() => this.inputRef.current?.parentElement.focus());
                 return {
                     ...changes,
                     highlightedIndex: state.highlightedIndex,
@@ -356,6 +358,7 @@ export class Autosuggest extends React.Component {
                                 <div
                                     tabIndex="0"
                                     role="searchbox"
+                                    ref={this.inputWrapperRef}
                                     {...elem('wrapper', stateAndProps)}
                                 >
                                     {iconNode &&

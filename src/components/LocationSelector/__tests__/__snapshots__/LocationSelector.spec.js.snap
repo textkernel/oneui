@@ -64,12 +64,12 @@ exports[`LocationSelector component should render LocationSelector properly when
       clearLabel="Clear"
       isFocused={true}
       onClear={[MockFunction]}
-      onMouseUp={[Function]}
+      onClick={[Function]}
       showClearButton={true}
     >
       <div
         className="FieldWrapper FieldWrapper--isFocused LocationSelector__mainTextButtonWrapper"
-        onMouseUp={[Function]}
+        onClick={[Function]}
       >
         <div
           className="FieldWrapper__content"
@@ -112,6 +112,7 @@ exports[`LocationSelector component should render LocationSelector properly when
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyUp={[Function]}
+            type="button"
           >
             inputPlaceholder
           </button>
@@ -122,14 +123,14 @@ exports[`LocationSelector component should render LocationSelector properly when
           disabled={false}
           isBlock={false}
           isInline={true}
-          onMouseUp={[Function]}
+          onClick={[Function]}
           size="normal"
           type="button"
         >
           <button
             className="Button Button--isInline Button--context_link FieldWrapper__clearButton"
             disabled={false}
-            onMouseUp={[Function]}
+            onClick={[Function]}
             type="button"
           >
             Clear
@@ -470,12 +471,12 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       clearLabel="Clear"
       isFocused={false}
       onClear={[MockFunction]}
-      onMouseUp={[Function]}
+      onClick={[Function]}
       showClearButton={true}
     >
       <div
         className="FieldWrapper LocationSelector__mainTextButtonWrapper"
-        onMouseUp={[Function]}
+        onClick={[Function]}
       >
         <div
           className="FieldWrapper__content"
@@ -518,6 +519,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyUp={[Function]}
+            type="button"
           >
             inputPlaceholder
           </button>
@@ -528,14 +530,14 @@ exports[`LocationSelector component should render LocationSelector propertly whe
           disabled={false}
           isBlock={false}
           isInline={true}
-          onMouseUp={[Function]}
+          onClick={[Function]}
           size="normal"
           type="button"
         >
           <button
             className="Button Button--isInline Button--context_link FieldWrapper__clearButton"
             disabled={false}
-            onMouseUp={[Function]}
+            onClick={[Function]}
             type="button"
           >
             Clear

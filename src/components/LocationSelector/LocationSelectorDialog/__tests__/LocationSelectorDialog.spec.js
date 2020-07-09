@@ -122,7 +122,7 @@ describe('LocationSelectorDialog component', () => {
             .simulate('mouseover')
             .simulate('mousedown')
             .simulate('mousemove')
-            .simulate('mouseup');
+            .simulate('click');
 
         expect(onUpdateLocationMock).toHaveBeenCalled();
     });

@@ -139,7 +139,7 @@ describe('SelectBase', () => {
             const clearTitle = 'Clear';
             wrapper.setProps({ clearTitle, showClearButton: true });
 
-            wrapper.find('Button').simulate('mouseup');
+            wrapper.find('Button').simulate('click');
             expect(mockOnClearAllSelected).toHaveBeenCalled();
         });
         // Despite everything is working good in real-case scenario,

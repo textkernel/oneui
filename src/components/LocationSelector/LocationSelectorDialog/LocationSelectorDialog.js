@@ -74,9 +74,15 @@ export const LocationSelectorDialog = (props) => {
         onUpdateLocation(firstSelectedLocation.id, radius);
     }
 
+    function handleInputFormSubmit(e) {
+        onCloseModal();
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
     return (
         <>
-            <div {...elem('inputLine', props)}>
+            <form {...elem('inputLine', props)} onSubmit={handleInputFormSubmit}>
                 <LocationAutocomplete
                     {...elem('searchField', props)}
                     isFocused
@@ -115,7 +121,7 @@ export const LocationSelectorDialog = (props) => {
                 <Button {...elem('button', props)} onClick={onCloseModal} context="brand">
                     {doneLabel}
                 </Button>
-            </div>
+            </form>
             <div {...elem('locationsWrapper', props)}>
                 {!withoutLocationCards && selectedLocations.length > 0 && (
                     <ul {...elem('locationCardsContainer', props)}>
