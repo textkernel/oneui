@@ -85,7 +85,7 @@
         "@storybook/storybook-deployer": "2.8.6",
         "@types/jest": "24.9.1",
         "@types/node": "12.12.47",
-        "@types/react": "16.9.41",
+        "@types/react": "16.9.43",
         "@types/react-virtualized": "9.21.10",
         "@typescript-eslint/eslint-plugin": "2.34.0",
         "@typescript-eslint/parser": "2.34.0",
