@@ -229,7 +229,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     aria-selected={true}
                     className="List__item"
                     disabled={false}
-                    highlightContext="brand"
+                    highlightContext="default"
                     id="downshift-5-item-0"
                     isHighlighted={true}
                     isSelected={false}
@@ -241,7 +241,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                   >
                     <li
                       aria-selected={true}
-                      className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable List__item"
+                      className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                       id="downshift-5-item-0"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -274,7 +274,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     aria-selected={false}
                     className="List__item"
                     disabled={false}
-                    highlightContext="brand"
+                    highlightContext="default"
                     id="downshift-5-item-1"
                     isHighlighted={false}
                     isSelected={false}
@@ -286,7 +286,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                   >
                     <li
                       aria-selected={false}
-                      className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                      className="ListItem ListItem--clickable List__item"
                       id="downshift-5-item-1"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -319,7 +319,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     aria-selected={false}
                     className="List__item"
                     disabled={false}
-                    highlightContext="brand"
+                    highlightContext="default"
                     id="downshift-5-item-2"
                     isHighlighted={false}
                     isSelected={false}
@@ -331,7 +331,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                   >
                     <li
                       aria-selected={false}
-                      className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                      className="ListItem ListItem--clickable List__item"
                       id="downshift-5-item-2"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -364,7 +364,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                     aria-selected={false}
                     className="List__item"
                     disabled={false}
-                    highlightContext="brand"
+                    highlightContext="default"
                     id="downshift-5-item-3"
                     isHighlighted={false}
                     isSelected={false}
@@ -376,7 +376,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                   >
                     <li
                       aria-selected={false}
-                      className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                      className="ListItem ListItem--clickable List__item"
                       id="downshift-5-item-3"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -865,7 +865,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     aria-selected={true}
                     className="List__item"
                     disabled={false}
-                    highlightContext="brand"
+                    highlightContext="default"
                     id="downshift-6-item-0"
                     isHighlighted={true}
                     isSelected={false}
@@ -877,7 +877,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                   >
                     <li
                       aria-selected={true}
-                      className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable List__item"
+                      className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                       id="downshift-6-item-0"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -910,7 +910,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     aria-selected={false}
                     className="List__item"
                     disabled={false}
-                    highlightContext="brand"
+                    highlightContext="default"
                     id="downshift-6-item-1"
                     isHighlighted={false}
                     isSelected={false}
@@ -922,7 +922,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                   >
                     <li
                       aria-selected={false}
-                      className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                      className="ListItem ListItem--clickable List__item"
                       id="downshift-6-item-1"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -955,7 +955,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     aria-selected={false}
                     className="List__item"
                     disabled={false}
-                    highlightContext="brand"
+                    highlightContext="default"
                     id="downshift-6-item-2"
                     isHighlighted={false}
                     isSelected={false}
@@ -967,7 +967,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                   >
                     <li
                       aria-selected={false}
-                      className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                      className="ListItem ListItem--clickable List__item"
                       id="downshift-6-item-2"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -1000,7 +1000,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                     aria-selected={false}
                     className="List__item"
                     disabled={false}
-                    highlightContext="brand"
+                    highlightContext="default"
                     id="downshift-6-item-3"
                     isHighlighted={false}
                     isSelected={false}
@@ -1012,7 +1012,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                   >
                     <li
                       aria-selected={false}
-                      className="ListItem ListItem--highlightContext_brand ListItem--clickable List__item"
+                      className="ListItem ListItem--clickable List__item"
                       id="downshift-6-item-3"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}

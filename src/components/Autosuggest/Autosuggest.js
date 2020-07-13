@@ -276,7 +276,6 @@ export class Autosuggest extends React.Component {
                         item,
                         index,
                         isHighlighted: highlightedIndex === index,
-                        highlightContext: 'brand',
                     })}
                 >
                     <MarkedText marker={inputValueRecall} inline>

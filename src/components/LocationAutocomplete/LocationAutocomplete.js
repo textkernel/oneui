@@ -119,7 +119,6 @@ export const LocationAutocomplete = (props) => {
                     item,
                     index,
                     isHighlighted: highlightedIndex === index,
-                    highlightContext: 'brand',
                 })}
             >
                 <MarkedText marker={listInputValue} inline>

@@ -159,14 +159,14 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
 >
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Sun"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -193,14 +193,14 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={true}
     isSelected={false}
     key="Moon"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand"
+      className="ListItem ListItem--isHighlighted"
       style={Object {}}
     >
       <div
@@ -227,14 +227,14 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Mercury"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -261,14 +261,14 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Venus"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -295,14 +295,14 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Earth"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -329,14 +329,14 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Mars"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -363,14 +363,14 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Jupiter"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -397,14 +397,14 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Saturn"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -431,14 +431,14 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Neptun"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -1432,14 +1432,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
 >
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Sun"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -1456,14 +1456,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={true}
     isSelected={false}
     key="Moon"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand"
+      className="ListItem ListItem--isHighlighted"
       style={Object {}}
     >
       <div
@@ -1480,14 +1480,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Mercury"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -1504,14 +1504,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Venus"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -1528,14 +1528,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Earth"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -1552,14 +1552,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Mars"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -1576,14 +1576,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Jupiter"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -1600,14 +1600,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Saturn"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div
@@ -1624,14 +1624,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="brand"
+    highlightContext="default"
     isHighlighted={false}
     isSelected={false}
     key="Neptun"
     style={Object {}}
   >
     <li
-      className="ListItem ListItem--highlightContext_brand"
+      className="ListItem"
       style={Object {}}
     >
       <div

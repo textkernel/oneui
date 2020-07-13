@@ -537,7 +537,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       <ListItem
                         aria-selected={true}
                         disabled={false}
-                        highlightContext="brand"
+                        highlightContext="default"
                         id="downshift-3-item-0"
                         isHighlighted={true}
                         isSelected={false}
@@ -550,7 +550,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       >
                         <li
                           aria-selected={true}
-                          className="ListItem ListItem--isHighlighted ListItem--highlightContext_brand ListItem--clickable"
+                          className="ListItem ListItem--isHighlighted ListItem--clickable"
                           id="downshift-3-item-0"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -583,7 +583,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="brand"
+                        highlightContext="default"
                         id="downshift-3-item-1"
                         isHighlighted={false}
                         isSelected={false}
@@ -596,7 +596,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       >
                         <li
                           aria-selected={false}
-                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          className="ListItem ListItem--clickable"
                           id="downshift-3-item-1"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -629,7 +629,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="brand"
+                        highlightContext="default"
                         id="downshift-3-item-2"
                         isHighlighted={false}
                         isSelected={false}
@@ -642,7 +642,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       >
                         <li
                           aria-selected={false}
-                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          className="ListItem ListItem--clickable"
                           id="downshift-3-item-2"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -675,7 +675,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="brand"
+                        highlightContext="default"
                         id="downshift-3-item-3"
                         isHighlighted={false}
                         isSelected={false}
@@ -688,7 +688,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       >
                         <li
                           aria-selected={false}
-                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          className="ListItem ListItem--clickable"
                           id="downshift-3-item-3"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -721,7 +721,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="brand"
+                        highlightContext="default"
                         id="downshift-3-item-4"
                         isHighlighted={false}
                         isSelected={false}
@@ -734,7 +734,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       >
                         <li
                           aria-selected={false}
-                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          className="ListItem ListItem--clickable"
                           id="downshift-3-item-4"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -767,7 +767,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="brand"
+                        highlightContext="default"
                         id="downshift-3-item-5"
                         isHighlighted={false}
                         isSelected={false}
@@ -780,7 +780,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       >
                         <li
                           aria-selected={false}
-                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          className="ListItem ListItem--clickable"
                           id="downshift-3-item-5"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -813,7 +813,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="brand"
+                        highlightContext="default"
                         id="downshift-3-item-6"
                         isHighlighted={false}
                         isSelected={false}
@@ -826,7 +826,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       >
                         <li
                           aria-selected={false}
-                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          className="ListItem ListItem--clickable"
                           id="downshift-3-item-6"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -859,7 +859,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="brand"
+                        highlightContext="default"
                         id="downshift-3-item-7"
                         isHighlighted={false}
                         isSelected={false}
@@ -872,7 +872,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       >
                         <li
                           aria-selected={false}
-                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          className="ListItem ListItem--clickable"
                           id="downshift-3-item-7"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -905,7 +905,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="brand"
+                        highlightContext="default"
                         id="downshift-3-item-8"
                         isHighlighted={false}
                         isSelected={false}
@@ -918,7 +918,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       >
                         <li
                           aria-selected={false}
-                          className="ListItem ListItem--highlightContext_brand ListItem--clickable"
+                          className="ListItem ListItem--clickable"
                           id="downshift-3-item-8"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}

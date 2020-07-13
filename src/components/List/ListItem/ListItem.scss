@@ -1,8 +1,6 @@
 $contexts: (neutral, brand, primary, accent, info, good, warning, bad);
 
 .ListItem {
-    transition: background-color var(--transition-duration);
-
     &__container {
         display: flex;
         align-items: baseline;
