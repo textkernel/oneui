@@ -1,3 +1,4 @@
+/* eslint-disable react/default-props-match-prop-types */
 import * as React from 'react';
 import Downshift from 'downshift';
 import { bem } from '../../../utils/bem';
@@ -281,6 +282,7 @@ SelectBase.defaultProps = {
     clearInputAfterSelection: false,
     highlightOnEmptyInput: true,
     clearTitle: '',
+    selectOnTab: false,
 };
 
 SelectBase.displayName = 'SelectBase';
