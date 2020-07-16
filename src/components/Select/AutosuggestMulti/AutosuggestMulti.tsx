@@ -22,6 +22,8 @@ interface Props<S> extends CommonPropsWithClear<S> {
     numberOfVisibleTags?: number;
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: string;
+    /** to be shown when no suggestions are available */
+    noSuggestionsPlaceholder?: string;
     /** Defines if the first item of suggestions list is always visible */
     isFirstItemAlwaysVisible?: boolean;
     /** Enable ListOptimizer component for decreasing render time */
@@ -44,6 +46,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         suggestionToKey,
         suggestionItemRenderer,
         inputPlaceholder,
+        noSuggestionsPlaceholder,
         useOptimizeListRender,
         suggestions,
         isLoading,
@@ -175,6 +178,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
                     useOptimizeRender={useOptimizeListRender}
                     suggestionToKey={suggestionToKey}
                     suggestionItemRenderer={suggestionItemRenderer}
+                    noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                 />
             )}
             focusedRenderer={renderFocused}
@@ -199,4 +203,5 @@ AutosuggestMulti.defaultProps = {
     useOptimizeListRender: false,
     onSubmit: null,
     onSelectionRemove: null,
+    noSuggestionsPlaceholder: '',
 };

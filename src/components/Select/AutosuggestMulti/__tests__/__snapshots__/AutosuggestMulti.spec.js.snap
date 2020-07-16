@@ -5,6 +5,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
   inputPlaceholder="type here..."
   isFirstItemAlwaysVisible={false}
   isLoading={false}
+  noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
@@ -139,6 +140,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
   inputPlaceholder="type here..."
   isFirstItemAlwaysVisible={false}
   isLoading={false}
+  noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={
@@ -755,6 +757,7 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
   inputPlaceholder="type here..."
   isFirstItemAlwaysVisible={false}
   isLoading={true}
+  noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={
