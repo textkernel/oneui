@@ -12,25 +12,25 @@ import styles from './AutosuggestMulti.scss';
 import { BACKSPACE_KEY, ESCAPE_KEY, ENTER_KEY } from '../../../constants';
 
 interface Props<S> extends CommonPropsWithClear<S> {
-    /** define id for input element */
+    /** HTML id for the input element */
     id?: string;
-    /** makes a key to be used for a suggestion item */
+    /** Creates a unique (React) key for a suggestion item. If undefined suggestionToString will be used */
     suggestionToKey?: (suggestions: S) => string;
-    /** array of already selected suggestions */
+    /** An array of already selected suggestions */
     selectedSuggestions?: S[];
-    /** number of visible tags in blur mode */
+    /** Number of visible tags in blur mode */
     numberOfVisibleTags?: number;
-    /** to be shown in the input field when no value is typed */
+    /** String to be shown in the input field when no value is typed */
     inputPlaceholder: string;
-    /** to be shown when no suggestions are available */
+    /** String to be shown when no suggestions are available */
     noSuggestionsPlaceholder?: string;
-    /** Defines if the first item of suggestions list is always visible */
+    /** Defines if the first item of suggestions list is visible even while loading other elements */
     isFirstItemAlwaysVisible?: boolean;
     /** Enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
-    /** onSelectionChange() called when a suggestion is removed  */
+    /** Function to be called when a suggestion is removed  */
     onSelectionRemove?: (item: S) => void;
-    /** function is called on submitting form */
+    /** Function to be called on submitting form */
     onSubmit?: () => void;
 }
 
