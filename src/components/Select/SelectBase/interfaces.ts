@@ -19,8 +19,8 @@ export interface CommonProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     onFocus?: () => void;
     /** onBlur() is called when the component is blurred */
     onBlur?: () => void;
-    /** onSelectionChange() called when a suggestion is selected or removed */
-    onSelectionChange: (item: S) => void;
+    /** onSelectionAdd() called when a suggestion is selected or removed */
+    onSelectionAdd: (item: S) => void;
     /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
     onInputValueChange: (value: string) => void;
     /** clean up input value after selected item */

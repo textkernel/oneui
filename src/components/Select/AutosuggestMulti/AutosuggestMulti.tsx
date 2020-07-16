@@ -38,7 +38,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     const {
         id,
         onInputValueChange,
-        onSelectionChange,
+        onSelectionAdd,
         selectedSuggestions = [],
         suggestionToString,
         suggestionToKey,
@@ -165,7 +165,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             inputRef={inputRef}
             onFocus={onFocus}
             onBlur={onBlur}
-            onSelectionChange={onSelectionChange}
+            onSelectionAdd={onSelectionAdd}
             onInputValueChange={handleInputValueChange}
             listRenderer={(listProps) => (
                 <SuggestionsList

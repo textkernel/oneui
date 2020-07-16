@@ -6,7 +6,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
-  onSelectionChange={[MockFunction]}
+  onSelectionAdd={[MockFunction]}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -64,7 +64,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
     listRenderer={[Function]}
     onBlur={[MockFunction]}
     onInputValueChange={[MockFunction]}
-    onSelectionChange={[MockFunction]}
+    onSelectionAdd={[MockFunction]}
     selectOnTab={false}
     showClearButton={false}
     suggestionToString={[Function]}
@@ -256,7 +256,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
-  onSelectionChange={[MockFunction]}
+  onSelectionAdd={[MockFunction]}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -316,8 +316,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
     listRenderer={[Function]}
     onBlur={[MockFunction]}
     onInputValueChange={[MockFunction]}
-    onSelectionChange={[MockFunction]}
-    selectOnTab={false}
+    onSelectionAdd={[MockFunction]}
     showClearButton={false}
     suggestionToString={[Function]}
     suggestions={

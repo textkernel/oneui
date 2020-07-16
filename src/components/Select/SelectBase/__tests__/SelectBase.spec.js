@@ -8,7 +8,7 @@ describe('SelectBase', () => {
     const inputRef = React.createRef();
     const suggestions = SUGGESTIONS;
     const suggestionToString = SUGGESTION_TO_STRING;
-    const mockOnSelectionChange = jest.fn();
+    const mockOnSelectionAdd = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnClearAllSelected = jest.fn();
     const mockOnBlur = jest.fn();
@@ -30,7 +30,7 @@ describe('SelectBase', () => {
                 listRenderer={(listProps) => <SuggestionsList {...listProps} />}
                 focusedRenderer={mockRender}
                 blurredRenderer={mockRender}
-                onSelectionChange={mockOnSelectionChange}
+                onSelectionAdd={mockOnSelectionAdd}
                 onInputValueChange={mockOnInputValueChange}
                 onClearAllSelected={mockOnClearAllSelected}
                 onBlur={mockOnBlur}
@@ -124,15 +124,15 @@ describe('SelectBase', () => {
         });
     });
     describe('callbacks', () => {
-        describe('onSelectionChange', () => {
+        describe('onSelectionAdd', () => {
             it('should be called on clicking on a suggestion', () => {
                 setFocusOnInput();
 
-                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+                expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
                 wrapper.find('li').first().children().simulate('click');
 
-                expect(mockOnSelectionChange).toHaveBeenCalled();
+                expect(mockOnSelectionAdd).toHaveBeenCalled();
             });
         });
         it('should call onClearAllSelected on Clear button click', () => {

@@ -18,7 +18,7 @@ export function SelectBase<S>(props: Props<S>) {
         selectOnTab,
         onFocus,
         onBlur,
-        onSelectionChange,
+        onSelectionAdd,
         onInputValueChange,
         onClearAllSelected,
         inputRef: inputRefFromProps,
@@ -92,7 +92,7 @@ export function SelectBase<S>(props: Props<S>) {
         clearSelection();
 
         if (selectedItem) {
-            onSelectionChange(selectedItem);
+            onSelectionAdd(selectedItem);
         }
 
         if (clearInputAfterSelection) {

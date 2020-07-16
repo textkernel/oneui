@@ -40,8 +40,8 @@ storiesOf('Organisms|Select', module)
             store.set({ inputValue: value });
         };
 
-        const onSelectionChange = (item: TSuggestion) => {
-            console.log(`onSelectionChange was called with {name: ${item?.name}}`);
+        const onSelectionAdd = (item: TSuggestion) => {
+            console.log(`onSelectionAdd was called with {name: ${item?.name}}`);
             store.set({ selectedSuggestions: [...store.get('selectedSuggestions'), item] });
         };
 
@@ -74,7 +74,7 @@ storiesOf('Organisms|Select', module)
                     suggestionToString={SUGGESTION_TO_STRING}
                     onFocus={onFocus}
                     onBlur={onBlur}
-                    onSelectionChange={onSelectionChange}
+                    onSelectionAdd={onSelectionAdd}
                     onInputValueChange={onInputValueChange}
                 />
             </>
@@ -107,8 +107,8 @@ storiesOf('Organisms|Select', module)
             store.set({ inputValue: value });
         };
 
-        const onSelectionChange = (item: TSuggestion) => {
-            console.log(`onSelectionChange was called with {name: ${item.name}}`);
+        const onSelectionAdd = (item: TSuggestion) => {
+            console.log(`onSelectionAdd was called with {name: ${item.name}}`);
             let selectedItem = { ...item };
             if (item === searchFor) {
                 selectedItem = { name: (item as typeof searchFor).value };
@@ -174,7 +174,7 @@ storiesOf('Organisms|Select', module)
                         boolean('First item is always visible', false) &&
                         !!store.get('inputValue').length
                     }
-                    onSelectionChange={onSelectionChange}
+                    onSelectionAdd={onSelectionAdd}
                     onSelectionRemove={onSelectionRemove}
                     isProminent={boolean('Use prominent styling', true)}
                     isLoading={boolean('isLoading', false)}

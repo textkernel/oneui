@@ -70,7 +70,7 @@ exports[`SelectBase rendering should initially render empty component correctly 
   onBlur={[MockFunction]}
   onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
-  onSelectionChange={[MockFunction]}
+  onSelectionAdd={[MockFunction]}
   selectOnTab={false}
   showClearButton={false}
   suggestionToString={[Function]}
