@@ -122,6 +122,8 @@ export class Autosuggest extends React.Component {
             this.handleBlur();
             this.inputRef.current.parentElement.focus();
             event.stopPropagation();
+        } else if (event.key === ENTER_KEY) {
+            event.stopPropagation();
         }
     };
 

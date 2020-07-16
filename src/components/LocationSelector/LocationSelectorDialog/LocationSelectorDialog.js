@@ -7,7 +7,7 @@ import { Slider } from '../../Slider';
 import { Button } from '../../Buttons';
 import { LocationAutocomplete } from '../../LocationAutocomplete';
 import { Map } from '../../Map';
-import { SIZES } from '../../../constants';
+import { SIZES, ENTER_KEY } from '../../../constants';
 import styles from './LocationSelectorDialog.scss';
 
 const { elem } = bem('LocationSelectorDialog', styles);
@@ -75,14 +75,19 @@ export const LocationSelectorDialog = (props) => {
     }
 
     function handleInputFormSubmit(e) {
-        onCloseModal();
-        e.preventDefault();
-        e.stopPropagation();
+        if (e.key === ENTER_KEY) {
+            e.stopPropagation();
+            onCloseModal();
+        }
     }
 
     return (
         <>
-            <form {...elem('inputLine', props)} onSubmit={handleInputFormSubmit}>
+            <div
+                {...elem('inputLine', props)}
+                role="presentation"
+                onKeyDown={handleInputFormSubmit}
+            >
                 <LocationAutocomplete
                     {...elem('searchField', props)}
                     isFocused
@@ -121,7 +126,7 @@ export const LocationSelectorDialog = (props) => {
                 <Button {...elem('button', props)} onClick={onCloseModal} context="brand">
                     {doneLabel}
                 </Button>
-            </form>
+            </div>
             <div {...elem('locationsWrapper', props)}>
                 {!withoutLocationCards && selectedLocations.length > 0 && (
                     <ul {...elem('locationCardsContainer', props)}>

@@ -51,9 +51,10 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
   showCountryInSuggestions={true}
   withoutLocationCards={false}
 >
-  <form
+  <div
     className="LocationSelectorDialog__inputLine"
-    onSubmit={[Function]}
+    onKeyDown={[Function]}
+    role="presentation"
   >
     <LocationAutocomplete
       className="LocationSelectorDialog__searchField"
@@ -274,7 +275,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         doneLabel
       </button>
     </Button>
-  </form>
+  </div>
   <div
     className="LocationSelectorDialog__locationsWrapper"
   >
