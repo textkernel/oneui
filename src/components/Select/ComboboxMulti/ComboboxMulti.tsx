@@ -1,4 +1,3 @@
-/* eslint-disable react/default-props-match-prop-types */
 import * as React from 'react';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { bem } from '../../../utils/bem/bem';
@@ -116,7 +115,6 @@ export function ComboboxMulti<S>(props: Props<S>) {
 }
 
 ComboboxMulti.defaultProps = {
-    showClearButton: false,
     useOptimizeListRender: false,
     id: undefined,
 };

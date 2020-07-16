@@ -1,4 +1,3 @@
-/* eslint-disable react/default-props-match-prop-types */
 import * as React from 'react';
 import Downshift from 'downshift';
 import { bem } from '../../../utils/bem';
@@ -8,13 +7,9 @@ import { List } from '../../List';
 import { Props } from './interfaces';
 import styles from './SelectBase.scss';
 
-interface SelectBaseProps<P> extends Props<P> {
-    selectOnTab?: boolean;
-}
-
 const { block, elem } = bem('SelectBase', styles);
 
-export function SelectBase<S>(props: SelectBaseProps<S>) {
+export function SelectBase<S>(props: Props<S>) {
     const {
         suggestions,
         suggestionToString,
