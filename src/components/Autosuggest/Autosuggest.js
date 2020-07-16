@@ -103,7 +103,7 @@ export class Autosuggest extends React.Component {
     };
 
     handleInputKeyDown = (event) => {
-        const { onSelectionChange, selectedSuggestions } = this.props;
+        const { onSelectionChange, getSuggestions, selectedSuggestions } = this.props;
 
         if (
             event.key === BACKSPACE_KEY &&
@@ -123,7 +123,10 @@ export class Autosuggest extends React.Component {
             this.inputRef.current.parentElement.focus();
             event.stopPropagation();
         } else if (event.key === ENTER_KEY) {
-            event.stopPropagation();
+            // prevents key propagation when there are suggestions in the dropdown
+            if (Array.isArray(getSuggestions) && getSuggestions.length > 0) {
+                event.stopPropagation();
+            }
         }
     };
 
