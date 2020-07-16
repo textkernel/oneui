@@ -27,7 +27,7 @@ interface Props<S> extends CommonPropsWithClear<S> {
     /** Enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
     /** onSelectionChange() called when a suggestion is removed  */
-    onSelectionRemove: (item: S) => void;
+    onSelectionRemove?: (item: S) => void;
     /** function is called on submitting form */
     onSubmit?: () => void;
 }
@@ -66,7 +66,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
 
     const renderFullTagsList = () => {
         return selectedSuggestions.map((item) => (
-            <SuggestionTag key={suggestionToString(item)} onClick={() => onSelectionRemove(item)}>
+            <SuggestionTag key={suggestionToString(item)} onClick={() => onSelectionRemove?.(item)}>
                 {suggestionToString(item)}
             </SuggestionTag>
         ));
@@ -114,7 +114,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             inputRef.current?.blur();
         } else if (event.key === BACKSPACE_KEY && !inputValue && !!selectedSuggestions.length) {
             const lastItem = selectedSuggestions[selectedSuggestions.length - 1];
-            onSelectionRemove(lastItem);
+            onSelectionRemove?.(lastItem);
         }
     };
 
@@ -198,4 +198,5 @@ AutosuggestMulti.defaultProps = {
     isFirstItemAlwaysVisible: false,
     useOptimizeListRender: false,
     onSubmit: null,
+    onSelectionRemove: null,
 };
