@@ -115,8 +115,8 @@ export function ComboboxMulti<S>(props: Props<S>) {
 }
 
 ComboboxMulti.defaultProps = {
-    showClearButton: false,
     useOptimizeListRender: false,
+    id: undefined,
 };
 
 ComboboxMulti.displayName = 'ComboboxMulti';

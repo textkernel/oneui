@@ -10,10 +10,12 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
   onInputValueChange={[MockFunction]}
   onSelectionChange={[MockFunction]}
   onSelectionRemove={[MockFunction]}
+  onSubmit={null}
   selectedSuggestions={Array []}
   suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={Array []}
+  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -156,6 +158,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
   }
   onSelectionChange={[MockFunction]}
   onSelectionRemove={[MockFunction]}
+  onSubmit={null}
   selectedSuggestions={Array []}
   suggestionToKey={null}
   suggestionToString={[Function]}
@@ -187,6 +190,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
       },
     ]
   }
+  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -770,10 +774,12 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
   }
   onSelectionChange={[MockFunction]}
   onSelectionRemove={[MockFunction]}
+  onSubmit={null}
   selectedSuggestions={Array []}
   suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={Array []}
+  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}

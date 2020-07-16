@@ -17,9 +17,9 @@ interface Props<S> extends CommonPropsWithClear<S> {
     /** makes a key to be used for a suggestion item */
     suggestionToKey?: (suggestions: S) => string;
     /** array of already selected suggestions */
-    selectedSuggestions: S[];
+    selectedSuggestions?: S[];
     /** number of visible tags in blur mode */
-    numberOfVisibleTags: number;
+    numberOfVisibleTags?: number;
     /** to be shown in the input field when no value is typed */
     inputPlaceholder: string;
     /** Defines if the first item of suggestions list is always visible */
@@ -39,7 +39,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         id,
         onInputValueChange,
         onSelectionChange,
-        selectedSuggestions,
+        selectedSuggestions = [],
         suggestionToString,
         suggestionToKey,
         suggestionItemRenderer,
@@ -191,8 +191,11 @@ export function AutosuggestMulti<S>(props: Props<S>) {
 AutosuggestMulti.displayName = 'AutosuggestMulti';
 
 AutosuggestMulti.defaultProps = {
+    id: undefined,
     numberOfVisibleTags: 3,
     selectedSuggestions: [],
     suggestionToKey: null,
     isFirstItemAlwaysVisible: false,
+    useOptimizeListRender: false,
+    onSubmit: null,
 };

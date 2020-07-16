@@ -90,4 +90,5 @@ SelectButtonGroup.defaultProps = {
     isBlock: false,
     isEqualWidth: false,
     selectedContext: 'brand',
+    onChange: null,
 };

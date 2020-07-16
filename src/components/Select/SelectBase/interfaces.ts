@@ -74,4 +74,6 @@ export interface Props<S> extends CommonPropsWithClear<S> {
     blurredRenderer: BlurredRendererHelpers<S>;
     /** highlighting for first item will be added if input is empty */
     highlightOnEmptyInput?: boolean;
+    /** select highlighted item when blurring out of the component */
+    selectOnTab?: boolean;
 }
