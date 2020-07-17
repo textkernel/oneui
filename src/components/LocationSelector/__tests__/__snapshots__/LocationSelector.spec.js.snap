@@ -20,6 +20,7 @@ exports[`LocationSelector component should render LocationSelector properly when
   onRemoveAllLocations={[MockFunction]}
   onRemoveLocation={[MockFunction]}
   onUpdateLocation={[MockFunction]}
+  openOnEnterPress={true}
   placeTypes={
     Array [
       "(regions)",
@@ -63,12 +64,12 @@ exports[`LocationSelector component should render LocationSelector properly when
       clearLabel="Clear"
       isFocused={true}
       onClear={[MockFunction]}
-      onMouseUp={[Function]}
+      onClick={[Function]}
       showClearButton={true}
     >
       <div
         className="FieldWrapper FieldWrapper--isFocused LocationSelector__mainTextButtonWrapper"
-        onMouseUp={[Function]}
+        onClick={[Function]}
       >
         <div
           className="FieldWrapper__content"
@@ -111,6 +112,7 @@ exports[`LocationSelector component should render LocationSelector properly when
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyUp={[Function]}
+            type="button"
           >
             inputPlaceholder
           </button>
@@ -425,6 +427,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
   onRemoveAllLocations={[MockFunction]}
   onRemoveLocation={[MockFunction]}
   onUpdateLocation={[MockFunction]}
+  openOnEnterPress={true}
   placeTypes={
     Array [
       "(regions)",
@@ -468,12 +471,12 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       clearLabel="Clear"
       isFocused={false}
       onClear={[MockFunction]}
-      onMouseUp={[Function]}
+      onClick={[Function]}
       showClearButton={true}
     >
       <div
         className="FieldWrapper LocationSelector__mainTextButtonWrapper"
-        onMouseUp={[Function]}
+        onClick={[Function]}
       >
         <div
           className="FieldWrapper__content"
@@ -516,6 +519,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyUp={[Function]}
+            type="button"
           >
             inputPlaceholder
           </button>

@@ -7,7 +7,7 @@ import { Slider } from '../../Slider';
 import { Button } from '../../Buttons';
 import { LocationAutocomplete } from '../../LocationAutocomplete';
 import { Map } from '../../Map';
-import { SIZES } from '../../../constants';
+import { SIZES, ENTER_KEY } from '../../../constants';
 import styles from './LocationSelectorDialog.scss';
 
 const { elem } = bem('LocationSelectorDialog', styles);
@@ -48,6 +48,14 @@ export const LocationSelectorDialog = (props) => {
 
     const [firstSelectedLocation] = selectedLocations;
 
+    function getDefaultArea() {
+        if (initialMapAddress || country) {
+            return { address: initialMapAddress || country };
+        }
+
+        return undefined;
+    }
+
     function handleAddLocation(location) {
         if (locationInputRef.current) {
             locationInputRef.current.focus();
@@ -66,9 +74,20 @@ export const LocationSelectorDialog = (props) => {
         onUpdateLocation(firstSelectedLocation.id, radius);
     }
 
+    function handleInputFormSubmit(e) {
+        if (e.key === ENTER_KEY) {
+            e.stopPropagation();
+            onCloseModal();
+        }
+    }
+
     return (
         <>
-            <div {...elem('inputLine', props)}>
+            <div
+                {...elem('inputLine', props)}
+                role="presentation"
+                onKeyDown={handleInputFormSubmit}
+            >
                 <LocationAutocomplete
                     {...elem('searchField', props)}
                     isFocused
@@ -130,10 +149,7 @@ export const LocationSelectorDialog = (props) => {
                         ))}
                     </ul>
                 )}
-                <Map
-                    defaultArea={{ address: initialMapAddress || country }}
-                    markers={getMarkers()}
-                />
+                <Map defaultArea={getDefaultArea()} markers={getMarkers()} />
             </div>
         </>
     );

@@ -53,6 +53,8 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
 >
   <div
     className="LocationSelectorDialog__inputLine"
+    onKeyDown={[Function]}
+    role="presentation"
   >
     <LocationAutocomplete
       className="LocationSelectorDialog__searchField"

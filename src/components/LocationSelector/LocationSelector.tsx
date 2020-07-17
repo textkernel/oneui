@@ -5,7 +5,7 @@ import { Modal } from '../Modal';
 import { FieldWrapper } from '../FieldWrapper';
 import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
 import { Location, findCenter, getRadiusInMeters, getAddressComponents } from './utils';
-import { TAB_KEY, ESCAPE_KEY } from '../../constants';
+import { ENTER_KEY, ESCAPE_KEY } from '../../constants';
 import { useBrowserTabVisibilityChange } from '../../hooks';
 import styles from './LocationSelector.scss';
 
@@ -24,6 +24,8 @@ interface Props {
     region?: string;
     /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
     additionalGoogleProps?: object; // eslint-disable-line react/forbid-prop-types
+    /** defines if selector has an option of opening the modal window by pressing Enter button */
+    openOnEnterPress: boolean;
     /** stores an array of selected location objects */
     selectedLocations: Location[];
     /** defines if selector has an option to control the radius for a marker */
@@ -43,7 +45,7 @@ interface Props {
     /** defines if selector has a list of locations cards to render */
     withoutLocationCards?: boolean;
     /** country where search can take place */
-    country: string;
+    country?: string;
     /** address to make initial map centering more specific */
     initialMapAddress?: string;
     /**
@@ -116,6 +118,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
         onLocationAutocompleteError,
 
         /** Internal use */
+        openOnEnterPress,
         selectedLocations,
         radiusDefaultValue,
         radiusUnits,
@@ -153,8 +156,18 @@ export const LocationSelector: React.FC<Props> = (props) => {
     function handleButtonKeyPress(e: React.KeyboardEvent<HTMLButtonElement>) {
         if (e.key === ESCAPE_KEY) {
             buttonRef.current?.blur();
-        } else if (e.key !== TAB_KEY && e.key !== ESCAPE_KEY) {
-            setIsOpen(true);
+        } else if (e.key === ENTER_KEY) {
+            if (openOnEnterPress && selectedLocations.length === 0) {
+                setIsOpen(true);
+            } else {
+                // the snippet below looks up for a wrapping form which allows the component
+                // to submit it by hitting Enter and to behave like a real input
+                const target = e.target as HTMLButtonElement;
+                if (target.form) {
+                    const form = target.form as HTMLElement;
+                    (form.querySelector('[type="submit"]') as HTMLButtonElement).click();
+                }
+            }
         }
     }
 
@@ -215,13 +228,14 @@ export const LocationSelector: React.FC<Props> = (props) => {
                 isFocused={isWrapperFocused}
                 showClearButton={hasLocationsSelected}
                 clearLabel={clearLabel}
-                onMouseUp={handleOpenModal}
+                onClick={handleOpenModal}
                 onClear={onRemoveAllLocations}
             >
                 <FaMapMarkerAlt {...elem('icon', props)} />
                 <button
                     id={id}
                     ref={buttonRef}
+                    type="button"
                     {...elem('mainTextButton', { ...props, muted: !selectionPlaceholder })}
                     onFocus={handleOpenModal}
                     onBlur={handleButtonBlur}
@@ -273,7 +287,9 @@ LocationSelector.displayName = 'LocationSelector';
 
 LocationSelector.defaultProps = {
     hasRadius: true,
+    openOnEnterPress: true,
     radiusDefaultValue: 1,
+    country: undefined,
     minRadius: 1,
     maxRadius: 100,
     radiusStep: 1,
