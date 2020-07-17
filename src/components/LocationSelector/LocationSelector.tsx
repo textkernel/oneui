@@ -134,6 +134,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [isWrapperFocused, setIsWrapperFocused] = React.useState(false);
     const isBrowserTabVisible = useBrowserTabVisibilityChange();
+    const buttonType = isWrapperFocused && !openOnEnterPress ? 'submit' : 'button';
     const buttonRef = React.useRef<HTMLButtonElement>();
 
     const hasLocationsSelected = selectedLocations && selectedLocations.length > 0;
@@ -235,7 +236,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                 <button
                     id={id}
                     ref={buttonRef}
-                    type="button"
+                    type={buttonType}
                     {...elem('mainTextButton', { ...props, muted: !selectionPlaceholder })}
                     onFocus={handleOpenModal}
                     onBlur={handleButtonBlur}
