@@ -134,7 +134,6 @@ export const LocationSelector: React.FC<Props> = (props) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [isWrapperFocused, setIsWrapperFocused] = React.useState(false);
     const isBrowserTabVisible = useBrowserTabVisibilityChange();
-    const buttonType = isWrapperFocused && !openOnEnterPress ? 'submit' : 'button';
     const buttonRef = React.useRef<HTMLButtonElement>();
 
     const hasLocationsSelected = selectedLocations && selectedLocations.length > 0;
@@ -157,8 +156,16 @@ export const LocationSelector: React.FC<Props> = (props) => {
     function handleButtonKeyPress(e: React.KeyboardEvent<HTMLButtonElement>) {
         if (e.key === ESCAPE_KEY) {
             buttonRef.current?.blur();
-        } else if (e.key === ENTER_KEY && openOnEnterPress) {
-            setIsOpen(true);
+        } else if (e.key === ENTER_KEY) {
+            if (openOnEnterPress && selectedLocations.length === 0) {
+                setIsOpen(true);
+            } else {
+                const target = e.target as HTMLButtonElement;
+                if (target.form) {
+                    const form = target.form as HTMLElement;
+                    (form.querySelector('[type="submit"]') as HTMLButtonElement).click();
+                }
+            }
         }
     }
 
@@ -226,7 +233,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                 <button
                     id={id}
                     ref={buttonRef}
-                    type={buttonType}
+                    type="button"
                     {...elem('mainTextButton', { ...props, muted: !selectionPlaceholder })}
                     onFocus={handleOpenModal}
                     onBlur={handleButtonBlur}
