@@ -114,4 +114,4 @@ All CSS variables (‘[custom properties](https://developer.mozilla.org/en-US/do
 
 # Copyright
 
-Code and documentation © 2019 Textkernel B.V.
+Code and documentation © 2020 Textkernel B.V.
