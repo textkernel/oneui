@@ -160,6 +160,8 @@ export const LocationSelector: React.FC<Props> = (props) => {
             if (openOnEnterPress && selectedLocations.length === 0) {
                 setIsOpen(true);
             } else {
+                // the snippet below looks up for a wrapping form which allows the component
+                // to submit it by hitting Enter and to behave like a real input
                 const target = e.target as HTMLButtonElement;
                 if (target.form) {
                     const form = target.form as HTMLElement;
