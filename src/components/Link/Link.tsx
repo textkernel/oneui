@@ -5,12 +5,14 @@ import styles from './Link.scss';
 interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Link content */
     children: NotEmptyReactNode;
+    /** Color context */
+    context?: 'brand' | 'muted';
 }
 
 const { block } = bem('Link', styles);
 
 export const Link: React.FC<Props> = (props) => {
-    const { children, ...rest } = props;
+    const { children, context, ...rest } = props;
     return (
         <a {...rest} {...block(props)}>
             {children}
@@ -19,3 +21,7 @@ export const Link: React.FC<Props> = (props) => {
 };
 
 Link.displayName = 'Link';
+
+Link.defaultProps = {
+    context: 'brand',
+};
