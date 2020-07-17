@@ -20,7 +20,7 @@ export interface Props<S> {
     suggestionToString: (suggestion: S) => string;
     /** suggestionToKey(suggestion) makes a key to be used for a suggestion item */
     suggestionToKey?: (suggestion: S) => string;
-    /** render function for suggestion list item */
+    /** render function for suggestion list item. If undefined `suggestionToString` will be used */
     suggestionItemRenderer?: (suggestion: S) => ReactNode;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder?: string;

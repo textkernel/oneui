@@ -7,7 +7,7 @@ describe('AutosuggestMulti', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     const inputPlaceholder = 'type here...';
     const numberOfVisibleTags = 3;
-    const mockOnSelectionChange = jest.fn();
+    const mockOnSelectionAdd = jest.fn();
     const mockOnSelectionRemove = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnBlur = jest.fn();
@@ -26,7 +26,7 @@ describe('AutosuggestMulti', () => {
                 suggestions={suggestionsList}
                 suggestionToString={suggestionToString}
                 inputPlaceholder={inputPlaceholder}
-                onSelectionChange={mockOnSelectionChange}
+                onSelectionAdd={mockOnSelectionAdd}
                 onSelectionRemove={mockOnSelectionRemove}
                 onInputValueChange={mockOnInputValueChange}
                 numberOfVisibleTags={numberOfVisibleTags}
@@ -115,41 +115,41 @@ describe('AutosuggestMulti', () => {
         });
     });
     describe('callbacks', () => {
-        describe('onSelectionChange', () => {
+        describe('onSelectionAdd', () => {
             it('should be called on clicking on a suggestion', () => {
                 suggestionsList = SUGGESTIONS.slice(1, 20);
                 wrapper.setProps({ suggestions: suggestionsList });
                 setFocusOnInput();
 
-                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+                expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
                 wrapper.find('input').simulate('change', { target: { value: 'a' } });
                 wrapper.find('li').first().children().simulate('click');
 
-                expect(mockOnSelectionChange).toHaveBeenCalled();
+                expect(mockOnSelectionAdd).toHaveBeenCalled();
             });
             it('should be called also when clicking on a suggestion the second time in a row', () => {
                 suggestionsList = SUGGESTIONS.slice(1, 20);
                 wrapper.setProps({ suggestions: suggestionsList });
                 setFocusOnInput();
 
-                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+                expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
                 wrapper.find('li').first().children().simulate('click');
 
-                expect(mockOnSelectionChange).toHaveBeenCalledTimes(1);
+                expect(mockOnSelectionAdd).toHaveBeenCalledTimes(1);
 
                 setFocusOnInput();
                 wrapper.find('li').first().children().simulate('click');
 
-                expect(mockOnSelectionChange).toHaveBeenCalledTimes(2);
+                expect(mockOnSelectionAdd).toHaveBeenCalledTimes(2);
             });
             it('should be called on deleting a suggestion by clicking on the x button next to it', () => {
                 selectedSuggestions = SUGGESTIONS.slice(0, 5);
                 wrapper.setProps({ selectedSuggestions });
                 setFocusOnInput();
 
-                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+                expect(mockOnSelectionAdd).not.toHaveBeenCalled();
                 expect(wrapper.find('SuggestionTag')).toHaveLength(selectedSuggestions.length);
 
                 wrapper.find('SuggestionTag').at(2).find('button').simulate('click');

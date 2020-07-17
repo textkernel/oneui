@@ -5,7 +5,7 @@ export interface CommonProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     suggestions: S[];
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestions?: S | null) => string;
-    /** render function for suggestion list item */
+    /** render function for suggestion list item. If undefined, suggestionToString will be used. */
     suggestionItemRenderer?: (suggestions?: S | null) => ReactNode;
     /** if suggestions are still loading, i.e. display placeholders */
     isLoading?: boolean;
@@ -19,8 +19,8 @@ export interface CommonProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     onFocus?: () => void;
     /** onBlur() is called when the component is blurred */
     onBlur?: () => void;
-    /** onSelectionChange() called when a suggestion is selected or removed */
-    onSelectionChange: (item: S) => void;
+    /** onSelectionAdd() called when a suggestion is selected */
+    onSelectionAdd: (item: S) => void;
     /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
     onInputValueChange: (value: string) => void;
     /** clean up input value after selected item */

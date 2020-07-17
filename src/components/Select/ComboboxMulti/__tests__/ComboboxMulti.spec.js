@@ -7,7 +7,7 @@ describe('ComboboxMulti', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     const inputPlaceholder = 'type here...';
     const noSuggestionsPlaceholder = 'No suggestions...';
-    const mockOnSelectionChange = jest.fn();
+    const mockOnSelectionAdd = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnBlur = jest.fn();
 
@@ -25,7 +25,7 @@ describe('ComboboxMulti', () => {
                 suggestionToString={suggestionToString}
                 inputPlaceholder={inputPlaceholder}
                 noSuggestionsPlaceholder={noSuggestionsPlaceholder}
-                onSelectionChange={mockOnSelectionChange}
+                onSelectionAdd={mockOnSelectionAdd}
                 onInputValueChange={mockOnInputValueChange}
                 onBlur={mockOnBlur}
             />
@@ -124,15 +124,15 @@ describe('ComboboxMulti', () => {
         });
     });
     describe('callbacks', () => {
-        describe('onSelectionChange', () => {
+        describe('onSelectionAdd', () => {
             it('should be called on clicking on a suggestion', () => {
                 setFocusOnInput();
 
-                expect(mockOnSelectionChange).not.toHaveBeenCalled();
+                expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
                 wrapper.find('li').first().children().simulate('click');
 
-                expect(mockOnSelectionChange).toHaveBeenCalled();
+                expect(mockOnSelectionAdd).toHaveBeenCalled();
             });
         });
         it('should call onInputValueChange when typing into input field', () => {

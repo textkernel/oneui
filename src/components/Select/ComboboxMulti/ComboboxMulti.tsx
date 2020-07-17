@@ -22,7 +22,7 @@ interface Props<S> extends CommonProps<S> {
 export function ComboboxMulti<S>(props: Props<S>) {
     const {
         id,
-        onSelectionChange,
+        onSelectionAdd,
         inputRef: inputRefFromProps,
         suggestions,
         suggestionToString,
@@ -96,7 +96,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
             suggestionToString={suggestionToString}
             inputRef={inputRef}
             onBlur={onBlur}
-            onSelectionChange={onSelectionChange}
+            onSelectionAdd={onSelectionAdd}
             onInputValueChange={onInputValueChange}
             listRenderer={(listProps) => (
                 <SuggestionsList
