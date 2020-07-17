@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.0.0](https://github.com/textkernel/oneui/compare/11.3.0...12.0.0) (2020-07-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Select:** * deprecate `onSuggestionChange` in favour of `onSuggestionAdd` in AutosuggestMulti and ComboboxMulti
+
+### Features
+
+* **Chip:** increased Chip font size ([#332](https://github.com/textkernel/oneui/issues/332)) ([8fcebe8](https://github.com/textkernel/oneui/commit/8fcebe8e70667f1676de828d07ecff8fc58ae48f))
+* **Link:** add context muted option ([#333](https://github.com/textkernel/oneui/issues/333)) ([77db9d0](https://github.com/textkernel/oneui/commit/77db9d02da6a22176cb27e6feae91417c258039a))
+* **LocationSelector:** fixed focus issues and map rendering ([#322](https://github.com/textkernel/oneui/issues/322)) ([4668525](https://github.com/textkernel/oneui/commit/4668525926062161d48b24b51973938867780c39))
+* **Select:** make props clearer ([#331](https://github.com/textkernel/oneui/issues/331)) ([219f4e0](https://github.com/textkernel/oneui/commit/219f4e0036b2c9da181ad512f5432e340e7e0924))
+* changed ListItem highlight styles ([#314](https://github.com/textkernel/oneui/issues/314)) ([a1aaa3a](https://github.com/textkernel/oneui/commit/a1aaa3aae26f067745604920788a2f8517020113))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @popperjs/core to ~2.4.0 ([#292](https://github.com/textkernel/oneui/issues/292)) ([6b5e6f1](https://github.com/textkernel/oneui/commit/6b5e6f1f34ce2774ec612da703add84b115bf1cc))
+* **deps:** update dependency @react-google-maps/api to ~1.9.0 ([#293](https://github.com/textkernel/oneui/issues/293)) ([3a1ded9](https://github.com/textkernel/oneui/commit/3a1ded943861eacb91a4db3dc5c4f89c2f4e131f))
+* **deps:** update dependency css-vars-ponyfill to ~2.3.0 ([#294](https://github.com/textkernel/oneui/issues/294)) ([65ed76e](https://github.com/textkernel/oneui/commit/65ed76ed08f33d993c2201aeebfcc70f30d46c21))
+* **deps:** update dependency downshift to ~5.4.0 ([#295](https://github.com/textkernel/oneui/issues/295)) ([7b0cae7](https://github.com/textkernel/oneui/commit/7b0cae77776676b97a0583d97e7ade11d21d962d))
+* **deps:** update dependency rc-slider to ~9.3.0 ([#319](https://github.com/textkernel/oneui/issues/319)) ([08c6ddc](https://github.com/textkernel/oneui/commit/08c6ddc3fa2b4cc645d2a2f229a95fb58e7a4a05))
+* **deps:** update dependency react-scripts to v2.1.8 ([#320](https://github.com/textkernel/oneui/issues/320)) ([cf1b3ad](https://github.com/textkernel/oneui/commit/cf1b3ad900f3a75f8a7e613a42bc9c692efa619a))
+* **deps:** update react monorepo to v16.13.1 ([#321](https://github.com/textkernel/oneui/issues/321)) ([7af7fa3](https://github.com/textkernel/oneui/commit/7af7fa3e2827f48cf6c2292561606a7c4b4d0f04))
+
 ## [11.3.0](https://github.com/textkernel/oneui/compare/11.2.1...11.3.0) (2020-06-22)
 
 
