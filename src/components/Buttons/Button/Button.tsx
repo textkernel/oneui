@@ -26,7 +26,7 @@ export interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement
 
 const { block } = bem('Button', styles);
 
-export const Button = React.forwardRef<HTMLButtonElement, Props>((props, ref) => {
+export const Button: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, context, disabled, isBlock, isInline, type, href, size, ...rest } = props;
 
     if (href) {

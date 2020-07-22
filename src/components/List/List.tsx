@@ -15,6 +15,8 @@ interface Props extends React.HTMLAttributes<HTMLUListElement> {
     doSelectOnNavigate?: boolean;
     /** manage keyboard navigation externally */
     isControlledNavigation?: boolean;
+    /** Ref to access the ul element */
+    ref?: React.RefObject<HTMLUListElement>;
 }
 
 const { block, elem } = bem('List', styles);
@@ -25,7 +27,7 @@ const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1,
 };
 
-export const List: React.FC<Props> = React.forwardRef<HTMLUListElement, Props>((props, ref) => {
+export const List: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, isDivided, doSelectOnNavigate, isControlledNavigation, ...rest } = props;
 
     const [selectedIndex, setSelectedIndex] = React.useState<number>(-1);
