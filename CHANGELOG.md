@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.0.1](https://github.com/textkernel/oneui/compare/12.0.0...12.0.1) (2020-07-22)
+
+
+### Bug Fixes
+
+* downgrade TS version to 3.8 ([#338](https://github.com/textkernel/oneui/issues/338)) ([7bddc39](https://github.com/textkernel/oneui/commit/7bddc39807f5e0cafa7bdf566da48106b9e48555))
+
 ## [12.0.0](https://github.com/textkernel/oneui/compare/11.3.0...12.0.0) (2020-07-17)
 
 
