@@ -12,20 +12,22 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
     context?: Context | 'muted' | 'default';
     /** Custom text sizes */
     size?: Size;
+    /** Ref to access the html element */
+    ref?: React.RefObject<HTMLElement>;
 }
 
 const { block } = bem('Text', styles);
 
-export const Text: React.FC<Props> = (props) => {
+export const Text: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, context, inline, size, ...rest } = props;
     const HtmlNodeType = inline ? 'span' : 'p';
 
     return (
-        <HtmlNodeType {...rest} {...block(props)}>
+        <HtmlNodeType ref={ref} {...rest} {...block(props)}>
             {children}
         </HtmlNodeType>
     );
-};
+});
 
 Text.displayName = 'Text';
 

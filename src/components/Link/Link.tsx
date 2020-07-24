@@ -7,18 +7,20 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     children: NotEmptyReactNode;
     /** Color context */
     context?: 'brand' | 'muted';
+    /** Ref to access the anchor */
+    ref?: React.RefObject<HTMLAnchorElement>;
 }
 
 const { block } = bem('Link', styles);
 
-export const Link: React.FC<Props> = (props) => {
+export const Link: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, context, ...rest } = props;
     return (
-        <a {...rest} {...block(props)}>
+        <a ref={ref} {...rest} {...block(props)}>
             {children}
         </a>
     );
-};
+});
 
 Link.displayName = 'Link';
 

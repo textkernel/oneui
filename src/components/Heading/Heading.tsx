@@ -10,20 +10,22 @@ interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
     level?: typeof HEADING_SIZES[number];
     /** Heading text alignment */
     align?: 'left' | 'center' | 'right';
+    /** Ref to access the span element */
+    ref?: React.RefObject<HTMLElement>;
 }
 
 const { block } = bem('Heading', styles);
 
-export const Heading: React.FC<Props> = (props) => {
+export const Heading: React.FC<Props> = React.forwardRef((props, ref) => {
     const { align, children, level = 'h1', ...rest } = props;
     const HtmlNodeType = level;
 
     return (
-        <HtmlNodeType {...rest} {...block(props)}>
+        <HtmlNodeType ref={ref} {...rest} {...block(props)}>
             {children}
         </HtmlNodeType>
     );
-};
+});
 
 Heading.displayName = 'Heading';
 

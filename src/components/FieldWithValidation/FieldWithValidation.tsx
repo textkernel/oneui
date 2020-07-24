@@ -5,7 +5,8 @@ import { Text } from '../Text';
 import styles from './FieldWithValidation.scss';
 
 interface Props {
-    /** a single form field, e.g. Input, TextArea, etc. It should support context=”bad” prop */
+    /** a single form field, e.g. Input, TextArea, etc. It should support context=”bad” prop.
+     * When useTooltip is set to true, children that are ReactComponents should support forwardRef */
     children: React.ReactElement;
     /** if this is not empty, this message will be rendered and context bad will be applied to the child */
     errorMessage?: string;

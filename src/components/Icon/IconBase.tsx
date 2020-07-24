@@ -22,6 +22,8 @@ export interface Props extends IconProps {
     children: NotEmptyReactNode;
     /** The SVG viewbox */
     viewBox: string;
+    /** Ref to access the icon */
+    ref?: React.RefObject<HTMLDivElement>;
 }
 
 const { block, elem } = bem('IconBase', styles);
@@ -43,11 +45,11 @@ const adjustSize = (preserveAspectRatio: boolean, size?: number) => {
     };
 };
 
-export const IconBase: React.FC<Props> = (props) => {
+export const IconBase: React.FC<Props> = React.forwardRef((props, ref) => {
     const { children, context, margin, size, preserveAspectRatio, title, viewBox, ...rest } = props;
 
     return (
-        <div {...rest} {...block(props)}>
+        <div ref={ref} {...rest} {...block(props)}>
             <svg
                 {...elem('svg', props)}
                 aria-labelledby={title ? 'title' : null}
@@ -61,7 +63,7 @@ export const IconBase: React.FC<Props> = (props) => {
             </svg>
         </div>
     );
-};
+});
 
 IconBase.displayName = 'IconBase';
 
