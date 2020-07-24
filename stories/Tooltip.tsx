@@ -28,6 +28,7 @@ storiesOf('Molecules|Tooltip', module)
 
                 * You can pass other props according to their definition, apart from the one listed below.
                 * Full list of props available can be found [here](https://atomiks.github.io/tippyjs/all-props/).
+                * When using a [React component as children](https://github.com/atomiks/tippyjs-react#component-children), make sure it supports forward ref
                 `,
             },
         }
