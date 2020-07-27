@@ -204,7 +204,7 @@ LocationSelectorDialog.propTypes = {
     /** label for the Done button */
     doneLabel: PropTypes.string.isRequired,
     /** label for the Clear button */
-    clearLabel: PropTypes.string.isRequired,
+    clearLabel: PropTypes.string,
     /** function called with location object as an argument when it is selected from the suggestions */
     onAddLocation: PropTypes.func.isRequired,
     /** function called with a location details as an argument to be changed */
@@ -224,6 +224,7 @@ LocationSelectorDialog.defaultProps = {
     withoutLocationCards: false,
     showCountryInSuggestions: false,
     initialMapAddress: null,
+    clearLabel: '',
     onLocationAutocompleteError: null,
     onCloseModal: () => null,
     onRemoveAllLocations: () => null,
