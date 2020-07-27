@@ -24,6 +24,7 @@ export const LocationAutocomplete = (props) => {
         onSelectionChange,
         defaultInputValue,
         inputPlaceholder,
+        clearLabel,
         noSuggestionsPlaceholder,
         country,
         placeTypes,
@@ -153,6 +154,8 @@ export const LocationAutocomplete = (props) => {
             isFocused={isFocused}
             defaultInputValue={defaultInputValue}
             inputPlaceholder={inputPlaceholder}
+            showClearButton={singleLocation}
+            clearTitle={clearLabel}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             listRenderer={renderListPoweredByGoogle}
             saveSelectedValueToInput={singleLocation}
@@ -179,6 +182,8 @@ LocationAutocomplete.propTypes = {
     noSuggestionsPlaceholder: PropTypes.string.isRequired,
     /** trigger of the initial focus of the input field */
     isFocused: PropTypes.bool,
+    /** label for the Clear button */
+    clearLabel: PropTypes.string,
     /** defines if there's a single location to select in component */
     singleLocation: PropTypes.bool,
     /** callback to be called with selected value.
@@ -207,6 +212,7 @@ LocationAutocomplete.defaultProps = {
     inputRef: null,
     singleLocation: false,
     defaultInputValue: '',
+    clearLabel: '',
     country: null,
     placeTypes: ['(regions)'],
     isFocused: false,

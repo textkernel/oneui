@@ -2,6 +2,7 @@
 
 exports[`<LocationAutocomplete/> that renders a location search field should pass predictions to Autosuggest 1`] = `
 <LocationAutocomplete
+  clearLabel=""
   country={null}
   defaultInputValue=""
   hidePoweredByGoogleLogo={false}
@@ -599,6 +600,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
 
 exports[`<LocationAutocomplete/> that renders a location search field should render with minimal props 1`] = `
 <LocationAutocomplete
+  clearLabel=""
   country={null}
   defaultInputValue=""
   hidePoweredByGoogleLogo={false}

@@ -296,6 +296,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                 <LocationSelectorDialogWithGoogleLoader
                   additionalGoogleProps={Object {}}
                   apiKey="apiKey"
+                  clearLabel="Clear"
                   country="NL"
                   doneLabel="doneLabel"
                   getMarkers={[Function]}
