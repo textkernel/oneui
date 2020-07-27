@@ -27,6 +27,7 @@ export const LocationSelectorDialog = (props) => {
         renderRadiusLabel,
         onRemoveLocation,
         doneLabel,
+        clearLabel,
 
         /** LocationAutocomplete props */
         country,
@@ -98,6 +99,7 @@ export const LocationSelectorDialog = (props) => {
                             : ''
                     }
                     inputPlaceholder={inputPlaceholder}
+                    clearLabel={clearLabel}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     onSelectionChange={handleAddLocation}
                     country={country}
@@ -201,6 +203,8 @@ LocationSelectorDialog.propTypes = {
     onLocationAutocompleteError: PropTypes.func,
     /** label for the Done button */
     doneLabel: PropTypes.string.isRequired,
+    /** label for the Clear button */
+    clearLabel: PropTypes.string.isRequired,
     /** function called with location object as an argument when it is selected from the suggestions */
     onAddLocation: PropTypes.func.isRequired,
     /** function called with a location details as an argument to be changed */

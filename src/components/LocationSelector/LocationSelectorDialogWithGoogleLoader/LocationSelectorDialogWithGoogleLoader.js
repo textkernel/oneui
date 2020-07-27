@@ -22,6 +22,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
         renderRadiusLabel,
         onRemoveLocation,
         doneLabel,
+        clearLabel,
 
         /** LocationAutocomplete props */
         country,
@@ -60,6 +61,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
                 renderRadiusLabel={renderRadiusLabel}
                 onRemoveLocation={onRemoveLocation}
                 doneLabel={doneLabel}
+                clearLabel={clearLabel}
                 country={country}
                 withoutLocationCards={withoutLocationCards}
                 initialMapAddress={initialMapAddress}
