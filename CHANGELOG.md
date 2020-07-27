@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.0.2](https://github.com/textkernel/oneui/compare/12.0.1...12.0.2) (2020-07-27)
+
+
+### Bug Fixes
+
+* **Tooltip:** allow most of our components to be wrapped in Tooltip ([#340](https://github.com/textkernel/oneui/issues/340)) ([26900cd](https://github.com/textkernel/oneui/commit/26900cd5ead2f99489a7989a9d4ae8a92da67b1a))
+
 ### [12.0.1](https://github.com/textkernel/oneui/compare/12.0.0...12.0.1) (2020-07-22)
 
 
