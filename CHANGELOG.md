@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.1.0](https://github.com/textkernel/oneui/compare/12.0.2...12.1.0) (2020-07-28)
+
+
+### Features
+
+* **LocationAutocomplete:** add an optional Clear button, update snapshots ([#347](https://github.com/textkernel/oneui/issues/347)) ([f02a0d3](https://github.com/textkernel/oneui/commit/f02a0d38c3ea26db3d510cf619df142ea74d209e))
+
 ### [12.0.2](https://github.com/textkernel/oneui/compare/12.0.1...12.0.2) (2020-07-27)
 
 
