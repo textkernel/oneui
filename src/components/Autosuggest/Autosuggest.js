@@ -147,6 +147,7 @@ export class Autosuggest extends React.Component {
         const { onClearAllSelected } = this.props;
 
         e.stopPropagation();
+        this.setState({ inputValue: '' });
         if (onClearAllSelected) {
             onClearAllSelected();
         }
@@ -328,8 +329,9 @@ export class Autosuggest extends React.Component {
 
         const stateAndProps = { ...this.props, ...this.state };
         const hideInputPlaceholder = !focused && !!selectedPlaceholder;
-        const doShowClearButton =
-            showClearButton && !!selectedSuggestions && !!selectedSuggestions.length && !focused;
+        const doShowClearButton = saveSelectedValueToInput
+            ? showClearButton && inputValue.length > 0 && !focused
+            : showClearButton && !!selectedSuggestions && !!selectedSuggestions.length && !focused;
 
         return (
             <div {...rest} ref={this.rootRef} {...block(stateAndProps)}>

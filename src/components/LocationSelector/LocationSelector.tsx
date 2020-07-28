@@ -69,7 +69,7 @@ interface Props {
     selectionPlaceholder?: string;
     /** label for the Done button */
     doneLabel: string;
-    /** label to be used on the clear all button */
+    /** label to be used for Clear buttons of the component */
     clearLabel: string;
     /** function called with location object as an argument when it is selected from the suggestions */
     onAddLocation: (location: Location) => void;
@@ -264,6 +264,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                     renderRadiusLabel={renderRadiusLabel}
                     onRemoveLocation={onRemoveLocation}
                     doneLabel={doneLabel}
+                    clearLabel={clearLabel}
                     country={country}
                     withoutLocationCards={withoutLocationCards}
                     initialMapAddress={initialMapAddress}

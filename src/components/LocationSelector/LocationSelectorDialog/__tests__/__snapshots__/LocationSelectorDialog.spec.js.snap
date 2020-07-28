@@ -2,6 +2,7 @@
 
 exports[`LocationSelectorDialog component should render correctly 1`] = `
 <LocationSelectorDialog
+  clearLabel=""
   country="NL"
   doneLabel="doneLabel"
   getMarkers={[Function]}
@@ -58,6 +59,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
   >
     <LocationAutocomplete
       className="LocationSelectorDialog__searchField"
+      clearLabel=""
       country="NL"
       defaultInputValue=""
       hidePoweredByGoogleLogo={true}
