@@ -9,6 +9,7 @@ storiesOf('Atoms|Button', module)
     .addDecorator(withKnobs)
     .add('Button', () => (
         <Button
+            target="_blank"
             context={select('Context', ['link', ...CONTEXTS], CONTEXTS[0])}
             size={select('Size', SIZES, SIZES[1])}
             isBlock={boolean('isBlock', false)}
