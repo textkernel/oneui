@@ -3,10 +3,6 @@ import { bem } from '../../../utils';
 import styles from './Button.scss';
 import { ButtonType, Context, Size } from '../../../constants';
 
-type ButtonProps =
-    | Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'>
-    | React.AnchorHTMLAttributes<HTMLAnchorElement>;
-
 export interface Props
     extends Omit<
         React.ButtonHTMLAttributes<HTMLButtonElement> &
