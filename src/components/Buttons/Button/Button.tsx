@@ -30,7 +30,7 @@ export interface Props
     /** Providing an href will render an <a> element, styled as a button. */
     href?: string;
     /** Ref to access the button */
-    ref?: React.RefObject<HTMLButtonElement> | React.RefObject<HTMLAnchorElement>;
+    ref?: React.RefObject<HTMLButtonElement | HTMLAnchorElement>;
 }
 
 const { block } = bem('Button', styles);
