@@ -121,6 +121,7 @@ describe('LocationSelector component', () => {
 
         expect(onAddLocationMock).toHaveBeenCalledWith({
             center: { lat: 52.132633, lng: 5.291265999999999 },
+            id: 'someId',
             place_id: 'someId',
             radius: radiusDefaultValue,
         });

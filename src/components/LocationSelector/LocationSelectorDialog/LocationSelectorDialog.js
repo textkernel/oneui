@@ -58,8 +58,8 @@ export const LocationSelectorDialog = (props) => {
     }
 
     function handleAddLocation(location) {
-        if (locationInputRef.current) {
-            locationInputRef.current.focus();
+        if (locationInputRef.current && !withoutLocationCards) {
+            setTimeout(() => locationInputRef.current.focus());
         }
         onAddLocation(location);
     }

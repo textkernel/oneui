@@ -192,10 +192,11 @@ export const LocationSelector: React.FC<Props> = (props) => {
                 const lng = typeof center.lng === 'function' ? center.lng() : center.lng;
                 const lat = typeof center.lat === 'function' ? center.lat() : center.lat;
                 const isLocationSelected = selectedLocations
-                    .map((item) => item.id)
-                    .includes(location.id);
+                    .map((item) => item.place_id)
+                    .includes(location.place_id);
                 const locationToAdd = {
                     ...location,
+                    id: location.place_id,
                     center: { lat, lng },
                     radius: hasRadius ? radiusDefaultValue : 0,
                 };
