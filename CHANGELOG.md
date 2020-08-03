@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.1.1](https://github.com/textkernel/oneui/compare/12.1.0...12.1.1) (2020-08-03)
+
+
+### Bug Fixes
+
+* **Button:** add HTMLAnchorElement to Button props ([#348](https://github.com/textkernel/oneui/issues/348)) ([a10020b](https://github.com/textkernel/oneui/commit/a10020b9713eab9c1c4f346cc0a0761d68763e61))
+* **deps:** update dependency randomcolor to ~0.6.0 ([#345](https://github.com/textkernel/oneui/issues/345)) ([fc77554](https://github.com/textkernel/oneui/commit/fc7755432b132afcf830c5ed04f0f634b35708da))
+* **LocationSelector:** fix multiselect mode, fix input field focusing, fix single mode field resetting ([#350](https://github.com/textkernel/oneui/issues/350)) ([19b9385](https://github.com/textkernel/oneui/commit/19b93858e0bf1d069cf9ab42678da5caa87174da))
+
 ## [12.1.0](https://github.com/textkernel/oneui/compare/12.0.2...12.1.0) (2020-07-28)
 
 
