@@ -162,6 +162,7 @@ export const LocationAutocomplete = (props) => {
             onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
             onSelectionChange={handleSelection}
+            onClearAllSelected={onRemoveAllLocations}
             iconNode={<FaMapMarkerAlt {...elem('icon', props)} />}
             {...rest}
             inputRef={inputRef}

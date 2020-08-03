@@ -228,7 +228,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
     listRenderer={[Function]}
     noSuggestionsPlaceholder="No suggestions..."
     onBlur={[Function]}
-    onClearAllSelected={null}
+    onClearAllSelected={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionChange={[Function]}
     rootRef={null}
@@ -638,7 +638,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
     listRenderer={[Function]}
     noSuggestionsPlaceholder="No suggestions..."
     onBlur={[Function]}
-    onClearAllSelected={null}
+    onClearAllSelected={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionChange={[Function]}
     rootRef={null}

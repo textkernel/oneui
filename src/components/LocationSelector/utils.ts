@@ -2,7 +2,7 @@ const METER_TO_KM = 1000;
 const METER_TO_MI = 1609.34;
 
 export type Location = {
-    id: string;
+    place_id: string;
     description: string;
     center: {
         lng: number;

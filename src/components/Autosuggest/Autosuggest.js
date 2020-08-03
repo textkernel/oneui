@@ -52,17 +52,6 @@ export class Autosuggest extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         const { inputRef, rootRef, listRef } = this.props;
 
-        if (inputRef && inputRef.current) {
-            const isInputFocused = inputRef.current === document.activeElement;
-
-            if (!prevState.focused && isInputFocused) {
-                setTimeout(() => {
-                    // eslint-disable-next-line react/no-did-update-set-state
-                    this.setState({ focused: isInputFocused });
-                }, FOCUS_DELAY);
-            }
-        }
-
         if (inputRef && inputRef !== this.inputRef) {
             this.inputRef = inputRef;
         }
@@ -73,6 +62,17 @@ export class Autosuggest extends React.Component {
 
         if (listRef && listRef !== this.listRef) {
             this.listRef = listRef;
+        }
+
+        if (this.inputRef?.current) {
+            const isInputFocused = this.inputRef.current === document.activeElement;
+
+            if (!prevState.focused && isInputFocused) {
+                setTimeout(() => {
+                    // eslint-disable-next-line react/no-did-update-set-state
+                    this.setState({ focused: isInputFocused });
+                }, FOCUS_DELAY);
+            }
         }
     }
 
@@ -148,6 +148,7 @@ export class Autosuggest extends React.Component {
 
         e.stopPropagation();
         this.setState({ inputValue: '' });
+        this.inputWrapperRef?.current.focus();
         if (onClearAllSelected) {
             onClearAllSelected();
         }
@@ -163,6 +164,10 @@ export class Autosuggest extends React.Component {
         if (onBlur) {
             onBlur();
         }
+    };
+
+    handleInputBlur = () => {
+        this.setState({ focused: false });
     };
 
     handleTagDeleteClick = (item) => {
@@ -379,6 +384,7 @@ export class Autosuggest extends React.Component {
                                     <input
                                         {...getInputProps({
                                             ref: this.inputRef,
+                                            onBlur: this.handleInputBlur,
                                             placeholder: hideInputPlaceholder
                                                 ? ''
                                                 : inputPlaceholder,
