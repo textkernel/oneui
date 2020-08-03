@@ -3,7 +3,12 @@ import { bem } from '../../../utils';
 import styles from './Button.scss';
 import { ButtonType, Context, Size } from '../../../constants';
 
-export interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
+export interface Props
+    extends Omit<
+        React.ButtonHTMLAttributes<HTMLButtonElement> &
+            React.AnchorHTMLAttributes<HTMLAnchorElement>,
+        'size'
+    > {
     /** The label of the button */
     children: NotEmptySingleReactNode;
     /** The button context (e.g. brand, primary, bad, good etc. - defaults to neutral) */
@@ -21,7 +26,7 @@ export interface Props extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement
     /** Providing an href will render an <a> element, styled as a button. */
     href?: string;
     /** Ref to access the button */
-    ref?: React.RefObject<HTMLButtonElement>;
+    ref?: React.RefObject<HTMLButtonElement | HTMLAnchorElement>;
 }
 
 const { block } = bem('Button', styles);
