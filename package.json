@@ -135,7 +135,7 @@
         "stylelint-order": "4.1.0",
         "stylelint-scss": "3.18.0",
         "stylelint-webpack-plugin": "2.1.0",
-        "ts-jest": "24.3.0",
+        "ts-jest": "26.1.4",
         "ts-loader": "6.2.2",
         "typescript": "3.8.3",
         "webpack": "4.44.1",
