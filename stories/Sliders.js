@@ -26,12 +26,24 @@ storiesOf('Atoms|Slider', module)
             },
         }
     )
-    .add('Range Slider', () => (
-        <RangeSlider
-            min={number('Min value', 0)}
-            max={number('Max value', 100)}
-            step={number('Step', 1)}
-            defaultValue={[10, 80]}
-            onChange={(value) => console.log(value)}
-        />
-    ));
+    .add(
+        'Range Slider',
+        () => (
+            <RangeSlider
+                min={number('Min value', 0)}
+                max={number('Max value', 100)}
+                step={number('Step', 1)}
+                defaultValue={[10, 80]}
+                onChange={(value) => console.log(value)}
+            />
+        ),
+        {
+            info: {
+                text: `
+            ## Usage information
+            This component is a wrapper around [rc-slider](https://github.com/react-component/slider).
+            
+            Full list of props available to pass you can find [here](https://github.com/react-component/slider#api).`,
+            },
+        }
+    );
