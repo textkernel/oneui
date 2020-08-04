@@ -1,15 +1,13 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import RCSlider from 'rc-slider/lib/Slider';
-import './Slider.scss';
+import Range from 'rc-slider/lib/Range';
+import '../Slider.scss';
 
-export const Slider = React.forwardRef((props, ref) => <RCSlider {...props} ref={ref} />);
+export const RangeSlider = React.forwardRef((props, ref) => <Range ref={ref} {...props} />);
 
-Slider.displayName = 'Slider';
-
-Slider.propTypes = {
-    /** Set initial value of slider */
-    initialValue: PropTypes.number,
+RangeSlider.propTypes = {
+    /** Set initial range of slider [lower, higher] */
+    defaultValue: PropTypes.arrayOf(PropTypes.number),
     /** The minimum value of the slider */
     min: PropTypes.number,
     /** The maximum value of the slider */
@@ -21,8 +19,10 @@ Slider.propTypes = {
     step: PropTypes.number,
 };
 
-Slider.defaultProps = {
-    initialValue: 0,
+RangeSlider.displayName = 'RangeSlider';
+
+RangeSlider.defaultProps = {
+    defaultValue: [0, 100],
     min: 0,
     max: 100,
     step: 1,

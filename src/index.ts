@@ -19,7 +19,7 @@ export { MapWithGoogleLoader, Map } from './components/Map';
 export { ProgressBar } from './components/ProgressBar';
 export { SelectButton, SelectButtonGroup } from './components/SelectButtonGroup';
 export { SelectedOption } from './components/SelectedOption';
-export { Slider } from './components/Slider';
+export { Slider, RangeSlider } from './components/Sliders';
 export { Drawer } from './components/Drawer';
 export { TabItem, TabsBar } from './components/Tabs';
 export { Text, MarkedText } from './components/Text';

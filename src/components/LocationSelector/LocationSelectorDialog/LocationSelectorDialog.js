@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { bem } from '../../../utils';
 import { LocationCard } from '../../LocationCard';
 import { Text } from '../../Text';
-import { Slider } from '../../Slider';
+import { Slider } from '../../Sliders';
 import { Button } from '../../Buttons';
 import { LocationAutocomplete } from '../../LocationAutocomplete';
 import { Map } from '../../Map';

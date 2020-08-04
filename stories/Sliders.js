@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { Slider } from '@textkernel/oneui';
+import { Slider, RangeSlider } from '@textkernel/oneui';
 import { number, withKnobs } from '@storybook/addon-knobs';
 
 storiesOf('Atoms|Slider', module)
@@ -25,4 +25,13 @@ storiesOf('Atoms|Slider', module)
                 Full list of props available to pass you can find [here](https://github.com/react-component/slider#api).`,
             },
         }
-    );
+    )
+    .add('Range Slider', () => (
+        <RangeSlider
+            min={number('Min value', 0)}
+            max={number('Max value', 100)}
+            step={number('Step', 1)}
+            defaultValue={[10, 80]}
+            onChange={(value) => console.log(value)}
+        />
+    ));
