@@ -8,6 +8,9 @@ exports[`RangeSlider component should render component correctly 1`] = `
       100,
     ]
   }
+  max={100}
+  min={0}
+  step={1}
 >
   <ComponentEnhancer(Range)
     activeDotStyle={Object {}}
