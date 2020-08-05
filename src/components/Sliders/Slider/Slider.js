@@ -1,29 +1,14 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import RCSlider from 'rc-slider/lib/Slider';
 import '../Slider.scss';
 
-export const Slider = React.forwardRef((props, ref) => <RCSlider {...props} ref={ref} />);
+// Technical notes:
+// * rc-slider seems not to support forward ref with RefObject,
+//   related errors are visible when using TS
+//   see: https://github.com/react-component/slider/blob/80b0bf61b412d5db06241610ed5e6340a159a2f6/src/common/createSlider.tsx#L246
+// * version 9.3.1 is not JSX/TSX compatible
+//   see: https://github.com/react-component/slider/issues/656
+// * using TS with version 9.2.4 throws at build time, possibly because of old babel dependencies in rc-slider. This deps are upgraded in 9.3.1
+export const Slider = (props) => <RCSlider {...props} />;
 
 Slider.displayName = 'Slider';
-
-Slider.propTypes = {
-    /** Set initial value of slider */
-    defaultValue: PropTypes.number,
-    /** The minimum value of the slider */
-    min: PropTypes.number,
-    /** The maximum value of the slider */
-    max: PropTypes.number,
-    /**
-     * Value to be added or subtracted on each step the slider makes.
-     * Must be greater than zero, and max - min should be evenly divisible by the step value.
-     */
-    step: PropTypes.number,
-};
-
-Slider.defaultProps = {
-    defaultValue: 0,
-    min: 0,
-    max: 100,
-    step: 1,
-};
