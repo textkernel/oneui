@@ -67,7 +67,6 @@ storiesOf('Organisms|Select', module)
                         'Use optimize list render (ListOptimizer)',
                         false
                     )}
-                    isLoading={boolean('isLoading', false)}
                     inputPlaceholder={text('Input placeholder', 'Select something...')}
                     noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
                     suggestions={getSuggestions()}

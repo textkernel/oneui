@@ -146,13 +146,20 @@ export function SelectBase<S>(props: Props<S>) {
     };
 
     const stateUpdater = (change, state) => {
-        if (change.type === Downshift.stateChangeTypes.blurInput) {
-            handleBlur();
-        } else if (
-            change.type === Downshift.stateChangeTypes.changeInput &&
-            state.isOpen !== focused
-        ) {
-            setFocused(state.isOpen);
+        switch (change.type) {
+            case Downshift.stateChangeTypes.blurInput:
+                handleBlur();
+                break;
+            case Downshift.stateChangeTypes.clickButton:
+                setFocused(change.isOpen);
+                break;
+            case Downshift.stateChangeTypes.changeInput:
+                if (state.isOpen !== focused) {
+                    setFocused(state.isOpen);
+                }
+                break;
+            default:
+                break;
         }
     };
 
