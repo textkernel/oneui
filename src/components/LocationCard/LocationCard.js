@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { bem } from '../../utils';
-import { Slider } from '../Slider';
+import { Slider } from '../Sliders';
 import { Text } from '../Text';
 import { CROSS_CHAR, SIZES } from '../../constants';
 import styles from './LocationCard.scss';

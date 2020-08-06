@@ -46,7 +46,6 @@ exports[`LocationCard component should render component correctly 1`] = `
       className="LocationCard__slider"
     >
       <Slider
-        initialValue={0}
         max={100}
         min={1}
         onChange={[Function]}
@@ -66,7 +65,6 @@ exports[`LocationCard component should render component correctly 1`] = `
             ]
           }
           included={true}
-          initialValue={0}
           marks={Object {}}
           max={100}
           min={1}

@@ -58,7 +58,7 @@
         "fast-memoize": "~2.5.2",
         "prop-types": "~15.7.2",
         "randomcolor": "~0.6.0",
-        "rc-slider": "~9.3.0",
+        "rc-slider": "9.2.4",
         "react-modal": "~3.11.2",
         "react-virtualized": "~9.21.2",
         "remove-accents": "~0.4.2"

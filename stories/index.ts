@@ -19,7 +19,7 @@ import './PopupBase';
 import './ProgressBar';
 import './SelectButtonGroup';
 import './SelectedOption';
-import './Slider';
+import './Sliders';
 import './Tabs';
 import './Text';
 import './TextArea';

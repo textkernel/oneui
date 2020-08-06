@@ -1,12 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Slider component should render component correctly 1`] = `
-<Slider
-  initialValue={0}
-  max={100}
-  min={0}
-  step={1}
->
+<Slider>
   <ComponentEnhancer(undefined)
     activeDotStyle={Object {}}
     className=""
@@ -20,7 +15,6 @@ exports[`Slider component should render component correctly 1`] = `
       ]
     }
     included={true}
-    initialValue={0}
     marks={Object {}}
     max={100}
     min={0}
