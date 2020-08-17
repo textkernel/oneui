@@ -4,14 +4,16 @@ import { SuggestionTag } from './SuggestionTag';
 import { SuggestionsList } from '../SuggestionsList';
 import {
     SelectBase,
-    CommonPropsWithClear,
+    BasicSelectProps,
+    WithClearProps,
+    WithInputFieldProps,
     FocusedRendererHelpers,
     BlurredRendererHelpers,
 } from '../SelectBase';
 import styles from './AutosuggestMulti.scss';
 import { BACKSPACE_KEY, ESCAPE_KEY, ENTER_KEY } from '../../../constants';
 
-interface Props<S> extends CommonPropsWithClear<S> {
+interface Props<S> extends BasicSelectProps<S>, WithClearProps, WithInputFieldProps {
     /** HTML id for the input element */
     id?: string;
     /** Creates a unique (React) key for a suggestion item. If undefined suggestionToString will be used */
@@ -32,6 +34,8 @@ interface Props<S> extends CommonPropsWithClear<S> {
     onSelectionRemove?: (item: S) => void;
     /** Function to be called on submitting form */
     onSubmit?: () => void;
+    /** if suggestions are still loading, i.e. display placeholders */
+    isLoading?: boolean;
 }
 
 const { elem } = bem('AutosuggestMulti', styles);
@@ -63,7 +67,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     const [inputValue, setInputValue] = React.useState('');
 
     const handleInputValueChange = (value: string) => {
-        onInputValueChange(value);
+        onInputValueChange?.(value);
         setInputValue(value);
     };
 
@@ -204,4 +208,5 @@ AutosuggestMulti.defaultProps = {
     onSubmit: null,
     onSelectionRemove: null,
     noSuggestionsPlaceholder: '',
+    isLoading: false,
 };

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
-import { ComboboxMulti, AutosuggestMulti } from '@textkernel/oneui';
+import { ComboboxMulti, AutosuggestMulti, Select } from '@textkernel/oneui';
 import { StoreInjector } from '../src/packages/storybook/withStore';
 import {
     SUGGESTIONS,
@@ -23,6 +23,33 @@ storiesOf('Organisms|Select', module)
             selectedSuggestions: [],
         })
     )
+    .add('Select', () => {
+        const onFocus = () => {
+            console.log('onFocus was called');
+        };
+
+        const onBlur = () => {
+            console.log('onBlur was called');
+        };
+
+        const onSelectionAdd = (selection) => {
+            console.log(`onSelectionAdd was called with ${selection}`);
+        };
+
+        return (
+            <>
+                <Select<TSuggestion>
+                    style={{ width: '650px' }}
+                    suggestions={SUGGESTIONS}
+                    suggestionToString={SUGGESTION_TO_STRING}
+                    selectedSuggestion={SUGGESTIONS[0]}
+                    onFocus={onFocus}
+                    onBlur={onBlur}
+                    onSelectionAdd={onSelectionAdd}
+                />
+            </>
+        );
+    })
     .add(
         'ComboboxMulti',
         (storyContext) => {
@@ -77,6 +104,7 @@ storiesOf('Organisms|Select', module)
                         onBlur={onBlur}
                         onSelectionAdd={onSelectionAdd}
                         onInputValueChange={onInputValueChange}
+                        isProminent={boolean('Use prominent styling', false)}
                     />
                 </>
             );
@@ -93,7 +121,9 @@ storiesOf('Organisms|Select', module)
         }
     )
     // eslint-disable-next-line
-    .add('AutosuggestMulti', ({ parameters }: any) => {
+    .add(
+        'AutosuggestMulti',
+        ({ parameters }: any) => {
             const store = parameters.getStore();
             searchFor.name = `Search for "${store.get('inputValue')}"`;
             searchFor.value = store.get('inputValue');

@@ -49,6 +49,7 @@ export { Autosuggest, ItemTag } from './components/Autosuggest';
 export { SelectBase } from './components/Select/SelectBase';
 export { ComboboxMulti } from './components/Select/ComboboxMulti';
 export { AutosuggestMulti } from './components/Select/AutosuggestMulti';
+export { Select } from './components/Select/Select';
 export { SuggestionsList } from './components/Select/SuggestionsList';
 export {
     LocationAutocompleteWithGoogleLoader,

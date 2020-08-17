@@ -1,7 +1,8 @@
 export { SelectBase } from './SelectBase';
 export {
-    CommonProps,
-    CommonPropsWithClear,
+    BasicSelectProps,
+    WithInputFieldProps,
+    WithClearProps,
     Props,
     FocusedRendererHelpers,
     BlurredRendererHelpers,
