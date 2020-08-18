@@ -24,35 +24,48 @@ storiesOf('Organisms|Select', module)
             selectedSuggestion: SUGGESTIONS[0],
         })
     )
-    .add('Select', (storyContext) => {
-        const store = storyContext?.parameters.getStore();
-        const onFocus = () => {
-            console.log('onFocus was called');
-        };
+    .add(
+        'Select',
+        (storyContext) => {
+            const store = storyContext?.parameters.getStore();
+            const onFocus = () => {
+                console.log('onFocus was called');
+            };
 
-        const onBlur = () => {
-            console.log('onBlur was called');
-        };
+            const onBlur = () => {
+                console.log('onBlur was called');
+            };
 
-        const onSelectionAdd = (selection) => {
-            console.log(`onSelectionAdd was called with {name: ${selection.name}}`);
-            store.set({ selectedSuggestion: selection });
-        };
+            const onSelectionAdd = (selection) => {
+                console.log(`onSelectionAdd was called with {name: ${selection.name}}`);
+                store.set({ selectedSuggestion: selection });
+            };
 
-        return (
-            <>
-                <Select<TSuggestion>
-                    style={{ width: '650px' }}
-                    suggestions={SUGGESTIONS}
-                    suggestionToString={SUGGESTION_TO_STRING}
-                    selectedSuggestion={store.get('selectedSuggestion')}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onSelectionAdd={onSelectionAdd}
-                />
-            </>
-        );
-    })
+            return (
+                <>
+                    <Select<TSuggestion>
+                        style={{ width: '650px' }}
+                        suggestions={SUGGESTIONS}
+                        suggestionToString={SUGGESTION_TO_STRING}
+                        selectedSuggestion={store.get('selectedSuggestion')}
+                        onFocus={onFocus}
+                        onBlur={onBlur}
+                        onSelectionAdd={onSelectionAdd}
+                    />
+                </>
+            );
+        },
+        {
+            info: {
+                text: `
+        ## Usage information
+        This component is recommended to use for a simple select component with static known list of values without a need for filtering.
+        The list is shown right away by clicking on the control. The selected item is shown in the top field.
+
+        More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
+            },
+        }
+    )
     .add(
         'ComboboxMulti',
         (storyContext) => {
