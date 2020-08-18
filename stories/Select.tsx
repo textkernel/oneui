@@ -21,9 +21,11 @@ storiesOf('Organisms|Select', module)
         StoreInjector.withStore({
             inputValue: '',
             selectedSuggestions: [],
+            selectedSuggestion: SUGGESTIONS[0],
         })
     )
-    .add('Select', () => {
+    .add('Select', (storyContext) => {
+        const store = storyContext?.parameters.getStore();
         const onFocus = () => {
             console.log('onFocus was called');
         };
@@ -33,7 +35,8 @@ storiesOf('Organisms|Select', module)
         };
 
         const onSelectionAdd = (selection) => {
-            console.log(`onSelectionAdd was called with ${selection}`);
+            console.log(`onSelectionAdd was called with {name: ${selection.name}}`);
+            store.set({ selectedSuggestion: selection });
         };
 
         return (
@@ -42,7 +45,7 @@ storiesOf('Organisms|Select', module)
                     style={{ width: '650px' }}
                     suggestions={SUGGESTIONS}
                     suggestionToString={SUGGESTION_TO_STRING}
-                    selectedSuggestion={SUGGESTIONS[0]}
+                    selectedSuggestion={store.get('selectedSuggestion')}
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onSelectionAdd={onSelectionAdd}
