@@ -5,15 +5,15 @@ import { SuggestionsList } from '../SuggestionsList';
 import {
     SelectBase,
     BasicSelectProps,
-    WithClearProps,
-    WithInputFieldProps,
+    SelectClearButtonProps,
+    SelectInputFieldProps,
     FocusedRendererHelpers,
     BlurredRendererHelpers,
 } from '../SelectBase';
 import styles from './AutosuggestMulti.scss';
 import { BACKSPACE_KEY, ESCAPE_KEY, ENTER_KEY } from '../../../constants';
 
-interface Props<S> extends BasicSelectProps<S>, WithClearProps, WithInputFieldProps {
+interface Props<S> extends BasicSelectProps<S>, SelectClearButtonProps, SelectInputFieldProps {
     /** HTML id for the input element */
     id?: string;
     /** Creates a unique (React) key for a suggestion item. If undefined suggestionToString will be used */

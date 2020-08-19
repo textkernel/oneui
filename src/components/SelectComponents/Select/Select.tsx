@@ -56,22 +56,20 @@ export function Select<S>(props: Props<S>) {
     };
 
     return (
-        <div ref={rootRef} {...rest} {...block({})}>
+        <div ref={rootRef} {...rest} {...block()}>
             <div {...elem('main', { isOpen })}>
-                <FieldWrapper isFocused={isOpen} {...elem('field', {})}>
+                <FieldWrapper isFocused={isOpen} {...elem('field')}>
                     <div
                         tabIndex={0}
                         role="searchbox"
                         {...elem('wrapper', { isOpen })}
                         {...getToggleButtonProps({ onClick: handleToggle })}
                     >
-                        <span {...elem('selected', {})}>
-                            {suggestionToString(selectedSuggestion)}
-                        </span>
+                        <span {...elem('selected')}>{suggestionToString(selectedSuggestion)}</span>
                         {isOpen ? (
-                            <IoMdArrowDropup {...elem('dropdownIcon', {})} />
+                            <IoMdArrowDropup {...elem('dropdownIcon')} />
                         ) : (
-                            <IoMdArrowDropdown {...elem('dropdownIcon', {})} />
+                            <IoMdArrowDropdown {...elem('dropdownIcon')} />
                         )}
                     </div>
                     <List
@@ -79,7 +77,7 @@ export function Select<S>(props: Props<S>) {
                         {...elem('list', { isOpen })}
                         isControlledNavigation
                     >
-                        {isOpen ? (
+                        {isOpen && (
                             <SuggestionsList
                                 suggestionToString={suggestionToString}
                                 suggestionItemRenderer={suggestionItemRenderer}
@@ -87,7 +85,7 @@ export function Select<S>(props: Props<S>) {
                                 getItemProps={getItemProps}
                                 highlightedIndex={highlightedIndex}
                             />
-                        ) : null}
+                        )}
                     </List>
                 </FieldWrapper>
             </div>

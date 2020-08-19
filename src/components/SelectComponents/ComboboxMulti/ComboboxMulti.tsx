@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { bem } from '../../../utils/bem/bem';
-import { SelectBase, BasicSelectProps, WithInputFieldProps } from '../SelectBase';
+import { SelectBase, BasicSelectProps, SelectInputFieldProps } from '../SelectBase';
 import { SuggestionsList } from '../SuggestionsList';
 import styles from './ComboboxMulti.scss';
 import { ESCAPE_KEY } from '../../../constants';
 
 const { elem } = bem('ComboboxMulti', styles);
 
-interface Props<S> extends BasicSelectProps<S>, WithInputFieldProps {
+interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
     /** define id for input element */
     id?: string;
     /** to be shown in the input field when no value is typed */

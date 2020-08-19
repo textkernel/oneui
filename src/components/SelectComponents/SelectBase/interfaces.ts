@@ -21,7 +21,7 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     isProminent?: boolean;
 }
 
-export interface WithInputFieldProps {
+export interface SelectInputFieldProps {
     /** input field ref */
     inputRef?: React.RefObject<HTMLInputElement>;
     /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
@@ -30,7 +30,7 @@ export interface WithInputFieldProps {
     clearInputAfterSelection?: boolean;
 }
 
-export interface WithClearProps {
+export interface SelectClearButtonProps {
     /** to be shown as clear button title */
     clearTitle?: string;
     /** function to be called if FieldWrapper clear button is clicked */
@@ -54,7 +54,10 @@ export type BlurredRendererHelpers<S> = (helpers: {
     onFocus: (callback: () => void) => void;
 }) => ReactNode;
 
-export interface Props<S> extends BasicSelectProps<S>, WithClearProps, WithInputFieldProps {
+export interface Props<S>
+    extends BasicSelectProps<S>,
+        SelectClearButtonProps,
+        SelectInputFieldProps {
     keepExpandedAfterSelection?: boolean;
     /** will be called when list of suggestions should be rendered */
     listRenderer: (props: {
