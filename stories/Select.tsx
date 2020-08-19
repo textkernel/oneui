@@ -15,7 +15,7 @@ const searchFor = {
     value: '',
 };
 
-storiesOf('Organisms|Select', module)
+storiesOf('Organisms|Select Components', module)
     .addDecorator(withKnobs)
     .addParameters(
         StoreInjector.withStore({
