@@ -61,7 +61,7 @@ module.exports = ({ config: storybookBaseConfig }) => {
     // Merge resolver extensions config
     storybookBaseConfig.resolve.extensions = [
         ...storybookBaseConfig.resolve.extensions,
-        ...devConfig.resolve.extensions
+        ...devConfig.resolve.extensions,
     ];
 
     // Return the altered config
