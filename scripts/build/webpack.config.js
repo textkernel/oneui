@@ -56,7 +56,6 @@ const getRules = (env = 'prod') => ({
         styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
         localIdentName: env === 'prod' ? '[local]--[hash:base64:10]' : '[local]',
         includePaths: [SOURCE_PATH],
-        context: DIST_PATH, // https://github.com/webpack-contrib/css-loader/issues/464
     }),
     files: getRuleFiles({
         fileLoader: 'file-loader',

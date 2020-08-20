@@ -29,7 +29,7 @@ function getRuleCSS({ styleLoader, includePaths }) {
     };
 }
 
-function getRuleSCSS({ styleLoader, localIdentName, includePaths, context }) {
+function getRuleSCSS({ styleLoader, localIdentName, includePaths }) {
     return {
         test: /\.scss$/,
         use: [
@@ -37,7 +37,7 @@ function getRuleSCSS({ styleLoader, localIdentName, includePaths, context }) {
             {
                 loader: 'css-loader',
                 options: {
-                    modules: { context, localIdentName },
+                    modules: { localIdentName },
                     importLoaders: 1,
                 },
             },
