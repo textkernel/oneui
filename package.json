@@ -126,7 +126,7 @@
         "react-router-dom": "5.2.0",
         "react-transition-group": "4.4.1",
         "regenerator-runtime": "0.13.7",
-        "sass-loader": "9.0.2",
+        "sass-loader": "9.0.3",
         "standard-version": "8.0.2",
         "style-loader": "1.2.1",
         "stylelint": "13.6.1",
