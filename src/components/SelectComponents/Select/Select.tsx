@@ -4,24 +4,39 @@ import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { bem } from '../../../utils/bem/bem';
 import { FieldWrapper } from '../../FieldWrapper';
 import { List } from '../../List';
-import { BasicSelectProps } from '../SelectBase';
 import { SuggestionsList } from '../SuggestionsList';
 import styles from './Select.scss';
 
 const { block, elem } = bem('Select', styles);
 
-interface Props<S> extends Omit<BasicSelectProps<S>, 'isProminent'> {
-    /** The suggestions that is currently selected */
-    selectedSuggestion: S;
+interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+    /** an array of objects that will be used to render the options list. */
+    items: S[];
+    /** The item that is currently selected */
+    selectedItem: S;
+    /** itemToString(item) should return a string to be displayed in the UI. e.g.: item => item.name */
+    itemToString: (item?: S | null) => string;
+    /** render function for option list item. If undefined, itemToString will be used. */
+    optionItemRenderer?: (item?: S | null) => ReactNode;
+    /** onChange(item) called when an item is selected */
+    onChange: (item: S) => void;
+    /** onFocus() is called when the component is focused */
+    onFocus?: () => void;
+    /** onBlur() is called when the component is blurred */
+    onBlur?: () => void;
+    /** root wrapper ref */
+    rootRef?: React.RefObject<HTMLDivElement>;
+    /** items list ref */
+    listRef?: React.RefObject<HTMLUListElement>;
 }
 
 export function Select<S>(props: Props<S>) {
     const {
-        suggestions,
-        selectedSuggestion,
-        suggestionToString,
-        suggestionItemRenderer,
-        onSelectionAdd,
+        items,
+        selectedItem,
+        itemToString,
+        optionItemRenderer,
+        onChange,
         onBlur,
         onFocus,
         rootRef,
@@ -30,7 +45,7 @@ export function Select<S>(props: Props<S>) {
     } = props;
 
     const handleSelection = (state) => {
-        onSelectionAdd(state.selectedItem);
+        onChange(state.selectedItem);
         onBlur?.();
     };
 
@@ -41,8 +56,8 @@ export function Select<S>(props: Props<S>) {
         highlightedIndex,
         getItemProps,
     } = useSelect({
-        items: suggestions,
-        selectedItem: selectedSuggestion,
+        items,
+        selectedItem,
         onSelectedItemChange: handleSelection,
     });
 
@@ -65,7 +80,7 @@ export function Select<S>(props: Props<S>) {
                         {...elem('wrapper', { isOpen })}
                         {...getToggleButtonProps({ onClick: handleToggle })}
                     >
-                        <span {...elem('selected')}>{suggestionToString(selectedSuggestion)}</span>
+                        <span {...elem('selected')}>{itemToString(selectedItem)}</span>
                         {isOpen ? (
                             <IoMdArrowDropup {...elem('dropdownIcon')} />
                         ) : (
@@ -79,9 +94,9 @@ export function Select<S>(props: Props<S>) {
                     >
                         {isOpen && (
                             <SuggestionsList
-                                suggestionToString={suggestionToString}
-                                suggestionItemRenderer={suggestionItemRenderer}
-                                suggestions={suggestions}
+                                suggestionToString={itemToString}
+                                suggestionItemRenderer={optionItemRenderer}
+                                suggestions={items}
                                 getItemProps={getItemProps}
                                 highlightedIndex={highlightedIndex}
                             />
@@ -94,3 +109,11 @@ export function Select<S>(props: Props<S>) {
 }
 
 Select.displayName = 'Select';
+
+Select.defaultProps = {
+    optionItemRenderer: undefined,
+    onFocus: undefined,
+    onBlur: undefined,
+    rootRef: undefined,
+    listRef: undefined,
+};

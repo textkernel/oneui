@@ -2,16 +2,8 @@
 
 exports[`Select rendering should initially render correctly 1`] = `
 <Select
-  onBlur={[MockFunction]}
-  onFocus={[MockFunction]}
-  onSelectionAdd={[MockFunction]}
-  selectedSuggestion={
-    Object {
-      "name": "Moon",
-    }
-  }
-  suggestionToString={[Function]}
-  suggestions={
+  itemToString={[Function]}
+  items={
     Array [
       Object {
         "name": "Sun",
@@ -41,6 +33,14 @@ exports[`Select rendering should initially render correctly 1`] = `
         "name": "Neptun",
       },
     ]
+  }
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
+  onFocus={[MockFunction]}
+  selectedItem={
+    Object {
+      "name": "Moon",
+    }
   }
 >
   <div
@@ -145,28 +145,8 @@ exports[`Select rendering should initially render correctly 1`] = `
 
 exports[`Select rendering should render focused component correctly 1`] = `
 <Select
-  onBlur={[MockFunction]}
-  onFocus={
-    [MockFunction] {
-      "calls": Array [
-        Array [],
-      ],
-      "results": Array [
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-      ],
-    }
-  }
-  onSelectionAdd={[MockFunction]}
-  selectedSuggestion={
-    Object {
-      "name": "Moon",
-    }
-  }
-  suggestionToString={[Function]}
-  suggestions={
+  itemToString={[Function]}
+  items={
     Array [
       Object {
         "name": "Sun",
@@ -196,6 +176,26 @@ exports[`Select rendering should render focused component correctly 1`] = `
         "name": "Neptun",
       },
     ]
+  }
+  onBlur={[MockFunction]}
+  onChange={[MockFunction]}
+  onFocus={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  selectedItem={
+    Object {
+      "name": "Moon",
+    }
   }
 >
   <div

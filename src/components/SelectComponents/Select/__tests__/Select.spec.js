@@ -4,7 +4,7 @@ import { Select } from '../Select';
 import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../Autosuggest/__mocks__/suggestions';
 
 describe('Select', () => {
-    const mockOnSelectionAdd = jest.fn();
+    const mockOnChange = jest.fn();
     const mockOnBlur = jest.fn();
     const mockOnFocus = jest.fn();
 
@@ -15,10 +15,10 @@ describe('Select', () => {
     beforeEach(() => {
         wrapper = mount(
             <Select
-                suggestions={SUGGESTIONS}
-                suggestionToString={SUGGESTION_TO_STRING}
-                selectedSuggestion={SUGGESTIONS[1]}
-                onSelectionAdd={mockOnSelectionAdd}
+                items={SUGGESTIONS}
+                itemToString={SUGGESTION_TO_STRING}
+                selectedItem={SUGGESTIONS[1]}
+                onChange={mockOnChange}
                 onFocus={mockOnFocus}
                 onBlur={mockOnBlur}
             />
@@ -42,12 +42,12 @@ describe('Select', () => {
             );
         });
     });
-    describe('toggling suggestions list', () => {
+    describe('toggling items list', () => {
         it('should open list when wrapper element is clicked', () => {
             // originally to be closed
             expect(wrapper.find('li')).toHaveLength(0);
 
-            // open suggestions list
+            // open items list
             clickWrapper();
             expect(wrapper.find('li')).toHaveLength(SUGGESTIONS.length);
         });
@@ -55,11 +55,11 @@ describe('Select', () => {
             // originally to be closed
             expect(wrapper.find('li')).toHaveLength(0);
 
-            // open suggestions list
+            // open items list
             wrapper.find('.Select__dropdownIcon').at(0).simulate('click');
             expect(wrapper.find('li')).toHaveLength(SUGGESTIONS.length);
 
-            // close suggestions list
+            // close items list
             wrapper.find('.Select__dropdownIcon').at(0).simulate('click');
             expect(wrapper.find('li')).toHaveLength(0);
         });
@@ -80,7 +80,7 @@ describe('Select', () => {
                 clickWrapper();
                 expect(mockOnBlur).toHaveBeenCalled();
             });
-            it('should be called on clicking when selecting a suggestions', () => {
+            it('should be called on clicking when selecting an item', () => {
                 expect(mockOnBlur).not.toHaveBeenCalled();
                 clickWrapper();
                 expect(mockOnBlur).not.toHaveBeenCalled();
@@ -88,18 +88,18 @@ describe('Select', () => {
                 expect(mockOnBlur).toHaveBeenCalled();
             });
         });
-        describe('onSelectionAdd', () => {
+        describe('onChange', () => {
             it('should be called on clicking on a suggestion', () => {
                 clickWrapper();
-                expect(mockOnSelectionAdd).not.toHaveBeenCalled();
+                expect(mockOnChange).not.toHaveBeenCalled();
                 wrapper.find('li').first().children().simulate('click');
-                expect(mockOnSelectionAdd).toHaveBeenCalled();
+                expect(mockOnChange).toHaveBeenCalled();
             });
             it('should not be called on simply closing the dropdown', () => {
                 clickWrapper();
-                expect(mockOnSelectionAdd).not.toHaveBeenCalled();
+                expect(mockOnChange).not.toHaveBeenCalled();
                 clickWrapper();
-                expect(mockOnSelectionAdd).not.toHaveBeenCalled();
+                expect(mockOnChange).not.toHaveBeenCalled();
             });
         });
     });

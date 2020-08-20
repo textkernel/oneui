@@ -21,7 +21,7 @@ storiesOf('Organisms|Select Components', module)
         StoreInjector.withStore({
             inputValue: '',
             selectedSuggestions: [],
-            selectedSuggestion: SUGGESTIONS[0],
+            selectedItem: SUGGESTIONS[0],
         })
     )
     .add(
@@ -36,21 +36,21 @@ storiesOf('Organisms|Select Components', module)
                 console.log('onBlur was called');
             };
 
-            const onSelectionAdd = (selection) => {
-                console.log(`onSelectionAdd was called with {name: ${selection.name}}`);
-                store.set({ selectedSuggestion: selection });
+            const onChange = (item) => {
+                console.log(`onChange was called with {name: ${item.name}}`);
+                store.set({ selectedItem: item });
             };
 
             return (
                 <>
                     <Select<TSuggestion>
                         style={{ width: '650px' }}
-                        suggestions={SUGGESTIONS}
-                        suggestionToString={SUGGESTION_TO_STRING}
-                        selectedSuggestion={store.get('selectedSuggestion')}
+                        items={SUGGESTIONS}
+                        itemToString={SUGGESTION_TO_STRING}
+                        selectedItem={store.get('selectedItem')}
                         onFocus={onFocus}
                         onBlur={onBlur}
-                        onSelectionAdd={onSelectionAdd}
+                        onChange={onChange}
                     />
                 </>
             );
