@@ -41,7 +41,7 @@ const tsDocRule = {
 
 module.exports = ({ config: storybookBaseConfig }) => {
     // Resolve OneUI package
-    storybookBaseConfig.resolve.alias['@textkernel/oneui'] = path.resolve(__dirname, '../src');
+    storybookBaseConfig.resolve.alias['@textkernel/oneui'] = path.resolve(__dirname, '../dist/oneui');
 
     // Merge loader rules config
     storybookBaseConfig.module.rules = [
