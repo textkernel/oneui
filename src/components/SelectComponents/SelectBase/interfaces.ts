@@ -1,16 +1,12 @@
 import { GetItemPropsOptions, GetToggleButtonPropsOptions } from 'downshift';
 
-export interface CommonProps<S> extends React.HTMLAttributes<HTMLDivElement> {
+export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     /** an array of objects that will be used to render the suggestions list. */
     suggestions: S[];
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestions?: S | null) => string;
     /** render function for suggestion list item. If undefined, suggestionToString will be used. */
     suggestionItemRenderer?: (suggestions?: S | null) => ReactNode;
-    /** if suggestions are still loading, i.e. display placeholders */
-    isLoading?: boolean;
-    /** input field ref */
-    inputRef?: React.RefObject<HTMLInputElement>;
     /** root wrapper ref */
     rootRef?: React.RefObject<HTMLDivElement>;
     /** suggestions list ref */
@@ -21,15 +17,20 @@ export interface CommonProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     onBlur?: () => void;
     /** onSelectionAdd() called when a suggestion is selected */
     onSelectionAdd: (item: S) => void;
-    /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
-    onInputValueChange: (value: string) => void;
-    /** clean up input value after selected item */
-    clearInputAfterSelection?: boolean;
     /** enable transform animation on focus */
     isProminent?: boolean;
 }
 
-export interface CommonPropsWithClear<S> extends CommonProps<S> {
+export interface SelectInputFieldProps {
+    /** input field ref */
+    inputRef?: React.RefObject<HTMLInputElement>;
+    /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
+    onInputValueChange?: (value: string) => void;
+    /** clean up input value after selected item */
+    clearInputAfterSelection?: boolean;
+}
+
+export interface SelectClearButtonProps {
     /** to be shown as clear button title */
     clearTitle?: string;
     /** function to be called if FieldWrapper clear button is clicked */
@@ -53,7 +54,10 @@ export type BlurredRendererHelpers<S> = (helpers: {
     onFocus: (callback: () => void) => void;
 }) => ReactNode;
 
-export interface Props<S> extends CommonPropsWithClear<S> {
+export interface Props<S>
+    extends BasicSelectProps<S>,
+        SelectClearButtonProps,
+        SelectInputFieldProps {
     keepExpandedAfterSelection?: boolean;
     /** will be called when list of suggestions should be rendered */
     listRenderer: (props: {

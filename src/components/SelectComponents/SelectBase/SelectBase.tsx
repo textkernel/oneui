@@ -285,6 +285,7 @@ SelectBase.defaultProps = {
     highlightOnEmptyInput: true,
     clearTitle: '',
     selectOnTab: false,
+    onInputValueChange: () => null,
 };
 
 SelectBase.displayName = 'SelectBase';

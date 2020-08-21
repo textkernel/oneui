@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { bem } from '../../../utils/bem/bem';
-import { SelectBase, CommonProps } from '../SelectBase';
+import { SelectBase, BasicSelectProps, SelectInputFieldProps } from '../SelectBase';
 import { SuggestionsList } from '../SuggestionsList';
 import styles from './ComboboxMulti.scss';
 import { ESCAPE_KEY } from '../../../constants';
 
 const { elem } = bem('ComboboxMulti', styles);
 
-interface Props<S> extends CommonProps<S> {
+interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
     /** define id for input element */
     id?: string;
     /** to be shown in the input field when no value is typed */
@@ -27,7 +27,6 @@ export function ComboboxMulti<S>(props: Props<S>) {
         suggestions,
         suggestionToString,
         suggestionItemRenderer,
-        isLoading,
         noSuggestionsPlaceholder,
         onBlur,
         onInputValueChange,
@@ -101,7 +100,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
             listRenderer={(listProps) => (
                 <SuggestionsList
                     {...listProps}
-                    isLoading={isLoading}
+                    isLoading={false}
                     useOptimizeRender={useOptimizeListRender}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     suggestionItemRenderer={suggestionItemRenderer}

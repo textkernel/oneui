@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
-import { ComboboxMulti, AutosuggestMulti } from '@textkernel/oneui';
+import { ComboboxMulti, AutosuggestMulti, Select } from '@textkernel/oneui';
 import { StoreInjector } from '../src/packages/storybook/withStore';
 import {
     SUGGESTIONS,
@@ -15,13 +15,56 @@ const searchFor = {
     value: '',
 };
 
-storiesOf('Organisms|Select', module)
+storiesOf('Organisms|Select Components', module)
     .addDecorator(withKnobs)
     .addParameters(
         StoreInjector.withStore({
             inputValue: '',
             selectedSuggestions: [],
+            selectedItem: SUGGESTIONS[0],
         })
+    )
+    .add(
+        'Select',
+        (storyContext) => {
+            const store = storyContext?.parameters.getStore();
+            const onFocus = () => {
+                console.log('onFocus was called');
+            };
+
+            const onBlur = () => {
+                console.log('onBlur was called');
+            };
+
+            const onChange = (item) => {
+                console.log(`onChange was called with {name: ${item.name}}`);
+                store.set({ selectedItem: item });
+            };
+
+            return (
+                <>
+                    <Select<TSuggestion>
+                        style={{ width: '650px' }}
+                        items={SUGGESTIONS}
+                        itemToString={SUGGESTION_TO_STRING}
+                        selectedItem={store.get('selectedItem')}
+                        onFocus={onFocus}
+                        onBlur={onBlur}
+                        onChange={onChange}
+                    />
+                </>
+            );
+        },
+        {
+            info: {
+                text: `
+        ## Usage information
+        This component is recommended to use for a simple select component with static known list of values without a need for filtering.
+        The list is shown right away by clicking on the control. The selected item is shown in the top field.
+
+        More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
+            },
+        }
     )
     .add(
         'ComboboxMulti',
@@ -77,6 +120,7 @@ storiesOf('Organisms|Select', module)
                         onBlur={onBlur}
                         onSelectionAdd={onSelectionAdd}
                         onInputValueChange={onInputValueChange}
+                        isProminent={boolean('Use prominent styling', false)}
                     />
                 </>
             );
@@ -93,7 +137,9 @@ storiesOf('Organisms|Select', module)
         }
     )
     // eslint-disable-next-line
-    .add('AutosuggestMulti', ({ parameters }: any) => {
+    .add(
+        'AutosuggestMulti',
+        ({ parameters }: any) => {
             const store = parameters.getStore();
             searchFor.name = `Search for "${store.get('inputValue')}"`;
             searchFor.value = store.get('inputValue');

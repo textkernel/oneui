@@ -1,0 +1,62 @@
+.Select {
+    position: relative;
+    min-height: 34px;
+
+    &__main {
+        position: relative;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+        background-color: var(--color-background);
+        transition-property: box-shadow, transform, border-color;
+        transition-duration: var(--transition-duration);
+        border-radius: var(--border-radius);
+
+        &--isOpen {
+            position: absolute;
+            z-index: 400;
+            width: 100%;
+        }
+    }
+
+    &__field {
+        padding: 0;
+    }
+
+    &__wrapper {
+        cursor: pointer;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        min-height: 30px;
+        height: 30px; // make IE happier
+        outline: none;
+        padding: var(--spacing-normal);
+
+        &--isOpen {
+            height: auto;
+        }
+    }
+
+    &__selected {
+        border: 0;
+        margin: var(--spacing-normal);
+        padding-left: var(--spacing-normal);
+        padding-right: var(--spacing-normal);
+        flex: 1;
+        font-size: var(--font-size-normal);
+        min-width: 150px;
+    }
+
+    &__dropdownIcon {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 20px;
+        margin-right: var(--spacing-normal);
+    }
+
+    &__list--isOpen {
+        max-height: 300px;
+        overflow: auto;
+        border-top: 1px solid var(--border-color-light);
+        margin-top: -1px;
+    }
+}
