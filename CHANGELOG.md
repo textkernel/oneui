@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.2.0](https://github.com/textkernel/oneui/compare/12.1.2...12.2.0) (2020-08-21)
+
+
+### Features
+
+* **RangeSlider:** new component ([#360](https://github.com/textkernel/oneui/issues/360)) ([a849aca](https://github.com/textkernel/oneui/commit/a849aca789aa09d08336abb23bcd413d1f7d79aa))
+* **Select:** new component ([#370](https://github.com/textkernel/oneui/issues/370)) ([c0a2d27](https://github.com/textkernel/oneui/commit/c0a2d27b4c45d8573199fe6ee09458203aa62c28))
+
+
+### Bug Fixes
+
+* **ComboboxMulti:** fix dropdown expanding and minimising by clicking on the icon ([#361](https://github.com/textkernel/oneui/issues/361)) ([73045ec](https://github.com/textkernel/oneui/commit/73045ec5617e17c360028aaf9466e16c0eac140e))
+
 ### [12.1.2](https://github.com/textkernel/oneui/compare/12.1.0...12.1.2) (2020-08-03)
 
 
