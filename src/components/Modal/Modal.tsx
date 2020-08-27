@@ -1,12 +1,34 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import { bem } from '../../utils';
 import styles from './Modal.scss';
 
+interface Props extends ReactModal.Props {
+    /** elements to be rendered within the modal */
+    children: ReactNode;
+    /** The state of the modal */
+    isOpen: boolean;
+    /** A title for the modal that will be used by screenreaders */
+    contentLabel: string;
+    /** A function to be called when the modal is closed */
+    onRequestClose?: (
+        event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>
+    ) => void;
+    /** Additional class to be applied to the content part */
+    className?: string;
+    /** Additional class to be applied to the overlay */
+    overlayClassName?: string;
+    /** Additional class to be applied to the portal */
+    portalClassName?: string;
+}
+
+interface Modal<P> extends React.FunctionComponent<P> {
+    setAppElement: (appElement: string | HTMLElement) => void;
+}
+
 const { block, elem } = bem('Modal', styles);
 
-export const Modal = (props) => {
+export const Modal: Modal<Props> = (props) => {
     const {
         children,
         isOpen,
@@ -62,27 +84,3 @@ Modal.setAppElement = (selector) => {
 };
 
 Modal.displayName = 'Modal';
-
-Modal.propTypes = {
-    /** elements to be rendered within the modal */
-    children: PropTypes.node.isRequired,
-    /** The state of the modal */
-    isOpen: PropTypes.bool.isRequired,
-    /** A title for the modal that will be used by screenreaders */
-    contentLabel: PropTypes.string.isRequired,
-    /** A function to be called when the modal is closed */
-    onRequestClose: PropTypes.func,
-    /** Additional class to be applied to the content part */
-    className: PropTypes.string,
-    /** Additional class to be applied to the overlay */
-    overlayClassName: PropTypes.string,
-    /** Additional class to be applied to the portal */
-    portalClassName: PropTypes.string,
-};
-
-Modal.defaultProps = {
-    onRequestClose: null,
-    className: '',
-    overlayClassName: null,
-    portalClassName: null,
-};

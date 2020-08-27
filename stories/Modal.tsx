@@ -13,8 +13,8 @@ storiesOf('Atoms|Modal', module)
     )
     .add(
         'Modal',
-        ({ parameters }) => {
-            const store = parameters.getStore();
+        (storyContext) => {
+            const store = storyContext?.parameters.getStore();
             const onClose = () => {
                 store.set({ isOpen: false });
                 console.log('Modal was requested to be closed.');

@@ -144,8 +144,6 @@ exports[`LocationSelector component should render LocationSelector properly when
       contentLabel="Location selection dialog"
       isOpen={true}
       onRequestClose={[Function]}
-      overlayClassName={null}
-      portalClassName={null}
     >
       <Modal
         ariaHideApp={false}
@@ -552,8 +550,6 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       contentLabel="Location selection dialog"
       isOpen={false}
       onRequestClose={[Function]}
-      overlayClassName={null}
-      portalClassName={null}
     >
       <Modal
         ariaHideApp={false}
