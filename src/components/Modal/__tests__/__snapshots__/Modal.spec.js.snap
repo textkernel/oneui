@@ -3,7 +3,7 @@
 exports[`Modal should render correctly 1`] = `
 <Modal
   ariaHideApp={true}
-  bodyOpenClassName="ReactModal__Body--open"
+  bodyOpenClassName="Modal__body--open"
   className={
     Object {
       "afterOpen": "Modal__content--entered",
@@ -14,6 +14,8 @@ exports[`Modal should render correctly 1`] = `
   closeTimeoutMS={300}
   contentLabel="Content label"
   isOpen={true}
+  isPositionFixed={false}
+  onAfterOpen={[Function]}
   overlayClassName={
     Object {
       "afterOpen": "Modal__overlay--entered",
@@ -21,6 +23,7 @@ exports[`Modal should render correctly 1`] = `
       "beforeClose": "Modal__overlay--exited",
     }
   }
+  overlayRef={[Function]}
   parentSelector={[Function]}
   portalClassName="ReactModalPortal"
   role="dialog"

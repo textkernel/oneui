@@ -14,6 +14,8 @@ interface Props extends ReactModal.Props {
     onRequestClose?: (
         event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>
     ) => void;
+    /** When true the content of the modal will be scrollable, but the modal itself will stayed fixed inside the viewport */
+    isPositionFixed?: boolean;
     /** Additional class to be applied to the content part */
     className?: string;
     /** Additional class to be applied to the overlay */
@@ -29,6 +31,8 @@ interface Modal<P> extends React.FunctionComponent<P> {
 const { block, elem } = bem('Modal', styles);
 
 export const Modal: Modal<Props> = (props) => {
+    const overlayRef = React.useRef<HTMLDivElement | null>(null);
+
     const {
         children,
         isOpen,
@@ -41,6 +45,7 @@ export const Modal: Modal<Props> = (props) => {
     } = props;
 
     const { className: portalClass } = block({ className: portalClassName, ...rest });
+    const { className: bodyOpenClass } = elem('body--open', props);
     const { className: overlayClass } = elem('overlay', {
         ...props,
         elemClassName: overlayClassName,
@@ -51,12 +56,24 @@ export const Modal: Modal<Props> = (props) => {
     const { className: contentEnteredClass } = elem('content--entered', props);
     const { className: contentExitedClass } = elem('content--exited', props);
 
+    const setOverlayRef = (node) => {
+        overlayRef.current = node;
+    };
+
+    // Make sure overlay is scrolled at top after opening
+    const onAfterOpen = () => {
+        if (overlayRef.current) {
+            overlayRef.current.scrollTop = 0;
+        }
+    };
+
     return (
         <ReactModal
             isOpen={isOpen}
             contentLabel={contentLabel}
             onRequestClose={onRequestClose}
             closeTimeoutMS={300}
+            bodyOpenClassName={bodyOpenClass}
             portalClassName={portalClass}
             overlayClassName={{
                 base: overlayClass,
@@ -68,6 +85,8 @@ export const Modal: Modal<Props> = (props) => {
                 afterOpen: contentEnteredClass,
                 beforeClose: contentExitedClass,
             }}
+            overlayRef={setOverlayRef}
+            onAfterOpen={onAfterOpen}
             {...rest}
         >
             {children}
@@ -84,3 +103,7 @@ Modal.setAppElement = (selector) => {
 };
 
 Modal.displayName = 'Modal';
+
+Modal.defaultProps = {
+    isPositionFixed: false,
+};

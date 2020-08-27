@@ -251,6 +251,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                 ariaHideApp={false}
                 onRequestClose={handleCloseModal}
                 contentLabel={modalContentLabel}
+                isPositionFixed
             >
                 <LocationSelectorDialogWithGoogleLoader
                     apiKey={apiKey}
