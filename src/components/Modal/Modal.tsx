@@ -1,12 +1,38 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import { bem } from '../../utils';
 import styles from './Modal.scss';
 
+interface Props extends ReactModal.Props {
+    /** elements to be rendered within the modal */
+    children: ReactNode;
+    /** The state of the modal */
+    isOpen: boolean;
+    /** A title for the modal that will be used by screenreaders */
+    contentLabel: string;
+    /** A function to be called when the modal is closed */
+    onRequestClose?: (
+        event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>
+    ) => void;
+    /** When true the content of the modal will be scrollable, but the modal itself will stayed fixed inside the viewport */
+    isPositionFixed?: boolean;
+    /** Additional class to be applied to the content part */
+    className?: string;
+    /** Additional class to be applied to the overlay */
+    overlayClassName?: string;
+    /** Additional class to be applied to the portal */
+    portalClassName?: string;
+}
+
+interface Modal<P> extends React.FunctionComponent<P> {
+    setAppElement: (appElement: string | HTMLElement) => void;
+}
+
 const { block, elem } = bem('Modal', styles);
 
-export const Modal = (props) => {
+export const Modal: Modal<Props> = (props) => {
+    const overlayRef = React.useRef<HTMLDivElement | null>(null);
+
     const {
         children,
         isOpen,
@@ -19,6 +45,7 @@ export const Modal = (props) => {
     } = props;
 
     const { className: portalClass } = block({ className: portalClassName, ...rest });
+    const { className: bodyOpenClass } = elem('body', props);
     const { className: overlayClass } = elem('overlay', {
         ...props,
         elemClassName: overlayClassName,
@@ -29,12 +56,24 @@ export const Modal = (props) => {
     const { className: contentEnteredClass } = elem('content--entered', props);
     const { className: contentExitedClass } = elem('content--exited', props);
 
+    const setOverlayRef = (node) => {
+        overlayRef.current = node;
+    };
+
+    // Make sure overlay is scrolled at top after opening
+    const onAfterOpen = () => {
+        if (overlayRef.current) {
+            overlayRef.current.scrollTop = 0;
+        }
+    };
+
     return (
         <ReactModal
             isOpen={isOpen}
             contentLabel={contentLabel}
             onRequestClose={onRequestClose}
             closeTimeoutMS={300}
+            bodyOpenClassName={bodyOpenClass}
             portalClassName={portalClass}
             overlayClassName={{
                 base: overlayClass,
@@ -46,6 +85,8 @@ export const Modal = (props) => {
                 afterOpen: contentEnteredClass,
                 beforeClose: contentExitedClass,
             }}
+            overlayRef={setOverlayRef}
+            onAfterOpen={onAfterOpen}
             {...rest}
         >
             {children}
@@ -63,26 +104,6 @@ Modal.setAppElement = (selector) => {
 
 Modal.displayName = 'Modal';
 
-Modal.propTypes = {
-    /** elements to be rendered within the modal */
-    children: PropTypes.node.isRequired,
-    /** The state of the modal */
-    isOpen: PropTypes.bool.isRequired,
-    /** A title for the modal that will be used by screenreaders */
-    contentLabel: PropTypes.string.isRequired,
-    /** A function to be called when the modal is closed */
-    onRequestClose: PropTypes.func,
-    /** Additional class to be applied to the content part */
-    className: PropTypes.string,
-    /** Additional class to be applied to the overlay */
-    overlayClassName: PropTypes.string,
-    /** Additional class to be applied to the portal */
-    portalClassName: PropTypes.string,
-};
-
 Modal.defaultProps = {
-    onRequestClose: null,
-    className: '',
-    overlayClassName: null,
-    portalClassName: null,
+    isPositionFixed: false,
 };

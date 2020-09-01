@@ -1,10 +1,19 @@
 .Modal {
+    &__body {
+        overflow: hidden;
+    }
+
     &__overlay {
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
+
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+
         background-color: rgba(0, 0, 0, 0.5);
         opacity: 0;
         transition: opacity var(--transition-duration) ease-in-out;
@@ -20,20 +29,27 @@
     }
 
     &__content {
-        position: relative;
-        top: 15vh;
         width: 65vw;
-        height: 65vh;
         margin: auto;
+        margin-top: 15vh;
+        margin-bottom: 15vh;
         max-width: var(--site-container-max-size);
         border: 1px solid var(--border-color-strong);
         border-radius: var(--border-radius);
         background-color: var(--color-background);
         box-shadow: 0 1px 25px 0 rgba(0, 0, 0, 0.8);
-        overflow: auto;
         outline: none;
         transform: translateY(50px);
         transition: transform var(--transition-duration);
+
+        &--isPositionFixed {
+            position: relative;
+            top: 15vh;
+            height: 65vh;
+            margin-top: 0;
+            margin-bottom: 0;
+            overflow: auto;
+        }
     }
 
     &__content--entered {

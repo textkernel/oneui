@@ -143,23 +143,24 @@ exports[`LocationSelector component should render LocationSelector properly when
       className="LocationSelector__modal"
       contentLabel="Location selection dialog"
       isOpen={true}
+      isPositionFixed={true}
       onRequestClose={[Function]}
-      overlayClassName={null}
-      portalClassName={null}
     >
       <Modal
         ariaHideApp={false}
-        bodyOpenClassName="ReactModal__Body--open"
+        bodyOpenClassName="Modal__body"
         className={
           Object {
             "afterOpen": "Modal__content--entered",
-            "base": "Modal__content LocationSelector__modal",
+            "base": "Modal__content Modal__content--isPositionFixed LocationSelector__modal",
             "beforeClose": "Modal__content--exited",
           }
         }
         closeTimeoutMS={300}
         contentLabel="Location selection dialog"
         isOpen={true}
+        isPositionFixed={true}
+        onAfterOpen={[Function]}
         onRequestClose={[Function]}
         overlayClassName={
           Object {
@@ -168,6 +169,7 @@ exports[`LocationSelector component should render LocationSelector properly when
             "beforeClose": "Modal__overlay--exited",
           }
         }
+        overlayRef={[Function]}
         parentSelector={[Function]}
         portalClassName="ReactModalPortal"
         role="dialog"
@@ -186,7 +188,7 @@ exports[`LocationSelector component should render LocationSelector properly when
               >
                 <div
                   aria-label="Location selection dialog"
-                  class="Modal__content LocationSelector__modal Modal__content--entered"
+                  class="Modal__content Modal__content--isPositionFixed LocationSelector__modal Modal__content--entered"
                   role="dialog"
                   tabindex="-1"
                 >
@@ -217,11 +219,11 @@ exports[`LocationSelector component should render LocationSelector properly when
         >
           <ModalPortal
             ariaHideApp={false}
-            bodyOpenClassName="ReactModal__Body--open"
+            bodyOpenClassName="Modal__body"
             className={
               Object {
                 "afterOpen": "Modal__content--entered",
-                "base": "Modal__content LocationSelector__modal",
+                "base": "Modal__content Modal__content--isPositionFixed LocationSelector__modal",
                 "beforeClose": "Modal__content--exited",
               }
             }
@@ -254,6 +256,8 @@ exports[`LocationSelector component should render LocationSelector properly when
               }
             }
             isOpen={true}
+            isPositionFixed={true}
+            onAfterOpen={[Function]}
             onRequestClose={[Function]}
             overlayClassName={
               Object {
@@ -262,6 +266,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                 "beforeClose": "Modal__overlay--exited",
               }
             }
+            overlayRef={[Function]}
             parentSelector={[Function]}
             portalClassName="ReactModalPortal"
             role="dialog"
@@ -284,7 +289,7 @@ exports[`LocationSelector component should render LocationSelector properly when
             >
               <div
                 aria-label="Location selection dialog"
-                className="Modal__content LocationSelector__modal Modal__content--entered"
+                className="Modal__content Modal__content--isPositionFixed LocationSelector__modal Modal__content--entered"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onMouseDown={[Function]}
@@ -551,23 +556,24 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       className="LocationSelector__modal"
       contentLabel="Location selection dialog"
       isOpen={false}
+      isPositionFixed={true}
       onRequestClose={[Function]}
-      overlayClassName={null}
-      portalClassName={null}
     >
       <Modal
         ariaHideApp={false}
-        bodyOpenClassName="ReactModal__Body--open"
+        bodyOpenClassName="Modal__body"
         className={
           Object {
             "afterOpen": "Modal__content--entered",
-            "base": "Modal__content LocationSelector__modal",
+            "base": "Modal__content Modal__content--isPositionFixed LocationSelector__modal",
             "beforeClose": "Modal__content--exited",
           }
         }
         closeTimeoutMS={300}
         contentLabel="Location selection dialog"
         isOpen={false}
+        isPositionFixed={true}
+        onAfterOpen={[Function]}
         onRequestClose={[Function]}
         overlayClassName={
           Object {
@@ -576,6 +582,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
             "beforeClose": "Modal__overlay--exited",
           }
         }
+        overlayRef={[Function]}
         parentSelector={[Function]}
         portalClassName="ReactModalPortal"
         role="dialog"
@@ -593,11 +600,11 @@ exports[`LocationSelector component should render LocationSelector propertly whe
         >
           <ModalPortal
             ariaHideApp={false}
-            bodyOpenClassName="ReactModal__Body--open"
+            bodyOpenClassName="Modal__body"
             className={
               Object {
                 "afterOpen": "Modal__content--entered",
-                "base": "Modal__content LocationSelector__modal",
+                "base": "Modal__content Modal__content--isPositionFixed LocationSelector__modal",
                 "beforeClose": "Modal__content--exited",
               }
             }
@@ -630,6 +637,8 @@ exports[`LocationSelector component should render LocationSelector propertly whe
               }
             }
             isOpen={false}
+            isPositionFixed={true}
+            onAfterOpen={[Function]}
             onRequestClose={[Function]}
             overlayClassName={
               Object {
@@ -638,6 +647,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
                 "beforeClose": "Modal__overlay--exited",
               }
             }
+            overlayRef={[Function]}
             parentSelector={[Function]}
             portalClassName="ReactModalPortal"
             role="dialog"
