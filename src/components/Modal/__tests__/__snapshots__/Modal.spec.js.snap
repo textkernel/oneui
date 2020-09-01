@@ -3,7 +3,7 @@
 exports[`Modal should render correctly 1`] = `
 <Modal
   ariaHideApp={true}
-  bodyOpenClassName="Modal__body--open"
+  bodyOpenClassName="Modal__body"
   className={
     Object {
       "afterOpen": "Modal__content--entered",

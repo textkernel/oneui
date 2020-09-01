@@ -148,7 +148,7 @@ exports[`LocationSelector component should render LocationSelector properly when
     >
       <Modal
         ariaHideApp={false}
-        bodyOpenClassName="Modal__body--open"
+        bodyOpenClassName="Modal__body"
         className={
           Object {
             "afterOpen": "Modal__content--entered",
@@ -219,7 +219,7 @@ exports[`LocationSelector component should render LocationSelector properly when
         >
           <ModalPortal
             ariaHideApp={false}
-            bodyOpenClassName="Modal__body--open"
+            bodyOpenClassName="Modal__body"
             className={
               Object {
                 "afterOpen": "Modal__content--entered",
@@ -561,7 +561,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
     >
       <Modal
         ariaHideApp={false}
-        bodyOpenClassName="Modal__body--open"
+        bodyOpenClassName="Modal__body"
         className={
           Object {
             "afterOpen": "Modal__content--entered",
@@ -600,7 +600,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
         >
           <ModalPortal
             ariaHideApp={false}
-            bodyOpenClassName="Modal__body--open"
+            bodyOpenClassName="Modal__body"
             className={
               Object {
                 "afterOpen": "Modal__content--entered",

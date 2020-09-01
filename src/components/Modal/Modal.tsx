@@ -45,7 +45,7 @@ export const Modal: Modal<Props> = (props) => {
     } = props;
 
     const { className: portalClass } = block({ className: portalClassName, ...rest });
-    const { className: bodyOpenClass } = elem('body--open', props);
+    const { className: bodyOpenClass } = elem('body', props);
     const { className: overlayClass } = elem('overlay', {
         ...props,
         elemClassName: overlayClassName,
