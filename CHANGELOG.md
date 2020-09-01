@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.3.0](https://github.com/textkernel/oneui/compare/12.2.0...12.3.0) (2020-09-01)
+
+
+### Features
+
+* **Modal:** add prop to toggle modal position to scrollable/fixed ([#377](https://github.com/textkernel/oneui/issues/377)) ([d9e4a8e](https://github.com/textkernel/oneui/commit/d9e4a8ecf0ad2817dcbb2d1d7e1d1eabf56dc815))
+
 ## [12.2.0](https://github.com/textkernel/oneui/compare/12.1.2...12.2.0) (2020-08-21)
 
 
