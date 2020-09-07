@@ -1,11 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import { Transition } from 'react-transition-group';
 import { IoIosArrowUp } from 'react-icons/io';
 import { bem } from '../../utils';
 import { ENTER_KEY } from '../../constants';
 import styles from './Drawer.scss';
+
+interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'title'> {
+    /** Drawer title */
+    title: ReactNode;
+    /** Set open/close status for initial state */
+    initialIsExpanded?: boolean;
+    /** Control visibility Drawer component */
+    isShown?: boolean;
+    /** Set open/close status for state */
+    isExpanded?: boolean;
+    /** Fired after click open/close button */
+    onClick?: () => void;
+    /** Node(s) to be rendered inside the container */
+    children: ReactNode;
+}
 
 const TRANSITION_DURATION = {
     enter: 10,
@@ -14,7 +28,7 @@ const TRANSITION_DURATION = {
 
 const { block, elem } = bem('Drawer', styles);
 
-export const Drawer = (props) => {
+export const Drawer: React.FC<Props> = (props) => {
     const {
         title,
         isShown,
@@ -24,10 +38,10 @@ export const Drawer = (props) => {
         children,
         ...rest
     } = props;
-    const [isExpanded, setIsExpanded] = useState(isExpandedProps || initialIsExpanded);
+    const [isExpanded, setIsExpanded] = React.useState(isExpandedProps || initialIsExpanded);
 
-    useEffect(() => {
-        if (isExpandedProps !== null) {
+    React.useEffect(() => {
+        if (isExpandedProps !== undefined) {
             setIsExpanded(isExpandedProps);
         }
     }, [isExpandedProps]);
@@ -55,7 +69,7 @@ export const Drawer = (props) => {
     }
 
     function handleClick(e) {
-        e.preventDefault();
+        e.stopPropagation();
         toggleDrawer();
     }
 
@@ -103,26 +117,8 @@ export const Drawer = (props) => {
     );
 };
 
-Drawer.propTypes = {
-    /** Drawer title */
-    title: PropTypes.string.isRequired,
-    /** Set open/close status for initial state */
-    initialIsExpanded: PropTypes.bool,
-    /** Control visibility Drawer component */
-    isShown: PropTypes.bool,
-    /** Set open/close status for state */
-    isExpanded: PropTypes.bool,
-    /** Fired after click open/close button */
-    onClick: PropTypes.func,
-    /** Node(s) to be rendered inside the container */
-    children: PropTypes.node.isRequired,
-};
-
 Drawer.defaultProps = {
-    initialIsExpanded: false,
     isShown: true,
-    isExpanded: null,
-    onClick: null,
 };
 
 Drawer.displayName = 'Drawer';

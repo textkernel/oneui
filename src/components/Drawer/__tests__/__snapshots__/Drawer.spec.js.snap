@@ -2,10 +2,7 @@
 
 exports[`Drawer should render correctly 1`] = `
 <Drawer
-  initialIsExpanded={false}
-  isExpanded={null}
   isShown={true}
-  onClick={null}
   title="some title"
 >
   <Portal
