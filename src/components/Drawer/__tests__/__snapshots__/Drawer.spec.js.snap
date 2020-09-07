@@ -2,7 +2,6 @@
 
 exports[`Drawer should render correctly 1`] = `
 <Drawer
-  initialIsExpanded={false}
   isShown={true}
   title="some title"
 >

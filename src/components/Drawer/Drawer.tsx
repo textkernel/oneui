@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { Transition } from 'react-transition-group';
 import { IoIosArrowUp } from 'react-icons/io';
@@ -38,9 +38,9 @@ export const Drawer: React.FC<Props> = (props) => {
         children,
         ...rest
     } = props;
-    const [isExpanded, setIsExpanded] = useState(isExpandedProps || initialIsExpanded);
+    const [isExpanded, setIsExpanded] = React.useState(isExpandedProps || initialIsExpanded);
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (isExpandedProps !== undefined) {
             setIsExpanded(isExpandedProps);
         }
@@ -118,7 +118,6 @@ export const Drawer: React.FC<Props> = (props) => {
 };
 
 Drawer.defaultProps = {
-    initialIsExpanded: false,
     isShown: true,
 };
 
