@@ -144,23 +144,17 @@ storiesOf('Organisms|Select Components', module)
             const getSuggestions = (): TSuggestion[] => {
                 const suggestions = SUGGESTIONS.filter(
                     (item: TSuggestion) =>
-                        item.name.toLocaleLowerCase() !==
-                            store.get('inputValue').toLocaleLowerCase() &&
-                        item.name
-                            .toLocaleLowerCase()
-                            .includes(store.get('inputValue').toLocaleLowerCase()) &&
                         !store
                             .get('selectedSuggestions')
                             .some(
                                 (i) => item.name.toLocaleLowerCase() === i.name.toLocaleLowerCase()
                             )
                 );
-                return store.get('inputValue').length ? suggestions : [];
+                return suggestions;
             };
 
             const onInputValueChange = (value: string) => {
                 console.log(`onInputValueChange was called with ${value}`);
-                store.set({ inputValue: value });
             };
 
             const onSelectionAdd = (item: TSuggestion) => {
@@ -181,22 +175,17 @@ storiesOf('Organisms|Select Components', module)
 
             const onSelectionRemove = (item: TSuggestion) => {
                 console.log(`onSelectionRemove was called with {name: ${item.name}}`);
-                store.set({ inputValue: '' });
-                const selectedItem = { ...item };
                 // Delete item
-                if (!store.get('inputValue')) {
-                    const selectedSuggestions = store
-                        .get('selectedSuggestions')
-                        .filter((i: TSuggestion) => i.name !== selectedItem.name);
-                    store.set({
-                        selectedSuggestions,
-                    });
-                }
+                const selectedSuggestions = store
+                    .get('selectedSuggestions')
+                    .filter((i: TSuggestion) => i.name !== item.name);
+                store.set({
+                    selectedSuggestions,
+                });
             };
 
             const onBlur = () => {
                 console.log('onBlur was called');
-                store.set({ inputValue: '' });
             };
 
             const onClearAllSelected = () => {
