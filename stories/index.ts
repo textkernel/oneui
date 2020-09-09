@@ -47,3 +47,5 @@ import './Autosuggest';
 import './Select';
 import './LocationAutocomplete';
 import './LocationSelector';
+// Packages
+import './packages/BooleanQueryTokenizer';
