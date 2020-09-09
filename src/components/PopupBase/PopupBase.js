@@ -55,8 +55,8 @@ export class PopupBase extends React.Component {
     }
 
     wasPopupClicked(event) {
-        if (event.path && this.anchorRef.current) {
-            return Array.from(event.path).some((node) => {
+        if (event.composedPath && this.anchorRef.current) {
+            return Array.from(event.composedPath()).some((node) => {
                 // Must be Element node
                 if (node.nodeType === 1) {
                     return this.popupRef.current.contains(node);
