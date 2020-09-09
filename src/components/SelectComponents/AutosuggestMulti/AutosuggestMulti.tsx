@@ -9,11 +9,15 @@ import {
     SelectInputFieldProps,
     FocusedRendererHelpers,
     BlurredRendererHelpers,
+    ListRendererHelper,
 } from '../SelectBase';
 import styles from './AutosuggestMulti.scss';
 import { BACKSPACE_KEY, ESCAPE_KEY, ENTER_KEY } from '../../../constants';
 
-interface Props<S> extends BasicSelectProps<S>, SelectClearButtonProps, SelectInputFieldProps {
+interface Props<S>
+    extends BasicSelectProps<S>,
+        SelectClearButtonProps,
+        Omit<SelectInputFieldProps, 'clearInputAfterSelection'> {
     /** HTML id for the input element */
     id?: string;
     /** Creates a unique (React) key for a suggestion item. If undefined suggestionToString will be used */
@@ -164,6 +168,22 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         </div>
     );
 
+    const renderList: ListRendererHelper<S> = (listProps) => {
+        const { inputValue: inputToList } = listProps;
+
+        return inputToList ? (
+            <SuggestionsList
+                {...listProps}
+                isFirstItemAlwaysVisible={isFirstItemAlwaysVisible}
+                isLoading={isLoading}
+                useOptimizeRender={useOptimizeListRender}
+                suggestionToKey={suggestionToKey}
+                suggestionItemRenderer={suggestionItemRenderer}
+                noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+            />
+        ) : null;
+    };
+
     return (
         <SelectBase
             {...rest}
@@ -174,17 +194,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             onBlur={onBlur}
             onSelectionAdd={onSelectionAdd}
             onInputValueChange={handleInputValueChange}
-            listRenderer={(listProps) => (
-                <SuggestionsList
-                    {...listProps}
-                    isFirstItemAlwaysVisible={isFirstItemAlwaysVisible}
-                    isLoading={isLoading}
-                    useOptimizeRender={useOptimizeListRender}
-                    suggestionToKey={suggestionToKey}
-                    suggestionItemRenderer={suggestionItemRenderer}
-                    noSuggestionsPlaceholder={noSuggestionsPlaceholder}
-                />
-            )}
+            listRenderer={renderList}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
             showClearButton={showClearButton && selectedSuggestions.length > 0}

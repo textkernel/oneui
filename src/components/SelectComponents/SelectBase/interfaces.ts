@@ -54,24 +54,26 @@ export type BlurredRendererHelpers<S> = (helpers: {
     onFocus: (callback: () => void) => void;
 }) => ReactNode;
 
+export type ListRendererHelper<S> = (props: {
+    /** An array of objects that will be used to render the suggestions list. */
+    suggestions: S[];
+    /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
+    suggestionToString: (suggestions: S) => string;
+    /** a function which gets props for the item in the list */
+    getItemProps: (options: GetItemPropsOptions<S>) => object;
+    /** index of the item from the list to be highlighted */
+    highlightedIndex: number | null;
+    /** input field value to be highlighted in the item from the list */
+    inputValue: string;
+}) => ReactNode;
+
 export interface Props<S>
     extends BasicSelectProps<S>,
         SelectClearButtonProps,
         SelectInputFieldProps {
     keepExpandedAfterSelection?: boolean;
     /** will be called when list of suggestions should be rendered */
-    listRenderer: (props: {
-        /** An array of objects that will be used to render the suggestions list. */
-        suggestions: S[];
-        /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
-        suggestionToString: (suggestions: S) => string;
-        /** a function which gets props for the item in the list */
-        getItemProps: (options: GetItemPropsOptions<S>) => object;
-        /** index of the item from the list to be highlighted */
-        highlightedIndex: number | null;
-        /** input field value to be highlighted in the item from the list */
-        inputValue: string;
-    }) => ReactNode;
+    listRenderer: ListRendererHelper<S>;
     /** a function that renders the top part of the component when it is focused  */
     focusedRenderer: FocusedRendererHelpers<S>;
     /** a function that renders the top part of the component when it is blurred  */
