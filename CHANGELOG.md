@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.3.1](https://github.com/textkernel/oneui/compare/12.3.0...12.3.1) (2020-09-10)
+
+
+### Bug Fixes
+
+* **AutosuggestMulti:** only show noSuggestions if user already started to search ([#389](https://github.com/textkernel/oneui/issues/389)) ([1d40bbe](https://github.com/textkernel/oneui/commit/1d40bbee6d865f7fdecdfd2f42dd39c21b2dc826))
+* **Drawer:** eliminated two callbacks on expand button click ([#388](https://github.com/textkernel/oneui/issues/388)) ([078b7a2](https://github.com/textkernel/oneui/commit/078b7a2f77781bece5467230ae7f7df82a20cccf))
+* **PopupBase:** made PopupBase#wasPopupClicked() work in FF ([1adeada](https://github.com/textkernel/oneui/commit/1adeada6a7bc66dae70f927a321dbb77f814acf5))
+
 ## [12.3.0](https://github.com/textkernel/oneui/compare/12.2.0...12.3.0) (2020-09-01)
 
 
