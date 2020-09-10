@@ -122,7 +122,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
             // clicking directly in the element won't trigger global listener, hence we use our magic mock
             mockDocumentEventListener.click({
-                path: [wrapper.find('Popover').find('p').at(0).getDOMNode()],
+                composedPath: () => [wrapper.find('Popover').find('p').at(0).getDOMNode()],
             });
             wrapper.update();
 
