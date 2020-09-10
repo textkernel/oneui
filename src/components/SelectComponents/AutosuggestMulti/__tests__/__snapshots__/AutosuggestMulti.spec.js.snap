@@ -135,6 +135,143 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
 </AutosuggestMulti>
 `;
 
+exports[`AutosuggestMulti rendering should initially render focused component correctly 1`] = `
+<AutosuggestMulti
+  inputPlaceholder="type here..."
+  isFirstItemAlwaysVisible={false}
+  isLoading={false}
+  noSuggestionsPlaceholder=""
+  numberOfVisibleTags={3}
+  onBlur={[MockFunction]}
+  onInputValueChange={[MockFunction]}
+  onSelectionAdd={[MockFunction]}
+  onSelectionRemove={[MockFunction]}
+  onSubmit={null}
+  selectedSuggestions={Array []}
+  suggestionToKey={null}
+  suggestionToString={[Function]}
+  suggestions={Array []}
+  useOptimizeListRender={false}
+>
+  <SelectBase
+    blurredRenderer={[Function]}
+    clearInputAfterSelection={true}
+    clearTitle=""
+    focusedRenderer={[Function]}
+    highlightOnEmptyInput={false}
+    inputRef={
+      Object {
+        "current": <input
+          aria-autocomplete="list"
+          aria-controls="downshift-1-menu"
+          aria-labelledby="downshift-1-label"
+          autocomplete="off"
+          class="AutosuggestMulti__input"
+          data-lpignore="true"
+          placeholder="type here..."
+          value=""
+        />,
+      }
+    }
+    keepExpandedAfterSelection={true}
+    listRenderer={[Function]}
+    onBlur={[MockFunction]}
+    onInputValueChange={[Function]}
+    onSelectionAdd={[MockFunction]}
+    selectOnTab={true}
+    showClearButton={false}
+    suggestionToString={[Function]}
+    suggestions={Array []}
+  >
+    <div
+      className="SelectBase"
+    >
+      <Downshift
+        defaultHighlightedIndex={-1}
+        defaultIsOpen={false}
+        environment={[Window]}
+        getA11yStatusMessage={[Function]}
+        inputValue=""
+        itemToString={[Function]}
+        onChange={[Function]}
+        onInputValueChange={[Function]}
+        onOuterClick={[Function]}
+        onSelect={[Function]}
+        onStateChange={[Function]}
+        onUserAction={[Function]}
+        scrollIntoView={[Function]}
+        selectedItemChanged={[Function]}
+        stateReducer={[Function]}
+        suppressRefError={false}
+      >
+        <div
+          aria-expanded={true}
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-1-label"
+          aria-owns="downshift-1-menu"
+          className="SelectBase__main SelectBase__main--focused"
+          role="combobox"
+        >
+          <FieldWrapper
+            className="SelectBase__field"
+            clearLabel=""
+            isFocused={true}
+            onClear={[Function]}
+            onClick={[Function]}
+            showClearButton={false}
+          >
+            <div
+              className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+              onClick={[Function]}
+            >
+              <div
+                className="FieldWrapper__content"
+              >
+                <div
+                  className="AutosuggestMulti__wrapper AutosuggestMulti__wrapper--isFocused"
+                >
+                  <input
+                    aria-activedescendant={null}
+                    aria-autocomplete="list"
+                    aria-controls="downshift-1-menu"
+                    aria-labelledby="downshift-1-label"
+                    autoComplete="off"
+                    className="AutosuggestMulti__input"
+                    data-lpignore={true}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="type here..."
+                    value=""
+                  />
+                </div>
+                <List
+                  aria-labelledby="downshift-1-label"
+                  className="SelectBase__list--focused"
+                  doSelectOnNavigate={false}
+                  id="downshift-1-menu"
+                  isControlledNavigation={true}
+                  isDivided={false}
+                  role="listbox"
+                >
+                  <ul
+                    aria-labelledby="downshift-1-label"
+                    className="List SelectBase__list--focused"
+                    id="downshift-1-menu"
+                    role="listbox"
+                  />
+                </List>
+              </div>
+            </div>
+          </FieldWrapper>
+        </div>
+      </Downshift>
+    </div>
+  </SelectBase>
+</AutosuggestMulti>
+`;
+
 exports[`AutosuggestMulti rendering should render component with suggestions 1`] = `
 <AutosuggestMulti
   inputPlaceholder="type here..."
@@ -203,10 +340,10 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
     inputRef={
       Object {
         "current": <input
-          aria-activedescendant="downshift-1-item-0"
+          aria-activedescendant="downshift-2-item-0"
           aria-autocomplete="list"
-          aria-controls="downshift-1-menu"
-          aria-labelledby="downshift-1-label"
+          aria-controls="downshift-2-menu"
+          aria-labelledby="downshift-2-label"
           autocomplete="off"
           class="AutosuggestMulti__input"
           data-lpignore="true"
@@ -276,8 +413,8 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
         <div
           aria-expanded={true}
           aria-haspopup="listbox"
-          aria-labelledby="downshift-1-label"
-          aria-owns="downshift-1-menu"
+          aria-labelledby="downshift-2-label"
+          aria-owns="downshift-2-menu"
           className="SelectBase__main SelectBase__main--focused"
           role="combobox"
         >
@@ -300,10 +437,10 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                   className="AutosuggestMulti__wrapper AutosuggestMulti__wrapper--isFocused"
                 >
                   <input
-                    aria-activedescendant="downshift-1-item-0"
+                    aria-activedescendant="downshift-2-item-0"
                     aria-autocomplete="list"
-                    aria-controls="downshift-1-menu"
-                    aria-labelledby="downshift-1-label"
+                    aria-controls="downshift-2-menu"
+                    aria-labelledby="downshift-2-label"
                     autoComplete="off"
                     className="AutosuggestMulti__input"
                     data-lpignore={true}
@@ -316,18 +453,18 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                   />
                 </div>
                 <List
-                  aria-labelledby="downshift-1-label"
+                  aria-labelledby="downshift-2-label"
                   className="SelectBase__list--focused"
                   doSelectOnNavigate={false}
-                  id="downshift-1-menu"
+                  id="downshift-2-menu"
                   isControlledNavigation={true}
                   isDivided={false}
                   role="listbox"
                 >
                   <ul
-                    aria-labelledby="downshift-1-label"
+                    aria-labelledby="downshift-2-label"
                     className="List SelectBase__list--focused"
-                    id="downshift-1-menu"
+                    id="downshift-2-menu"
                     role="listbox"
                   >
                     <SuggestionsList
@@ -375,7 +512,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         aria-selected={true}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-1-item-0"
+                        id="downshift-2-item-0"
                         isHighlighted={true}
                         isSelected={false}
                         key="Moon"
@@ -388,7 +525,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         <li
                           aria-selected={true}
                           className="ListItem ListItem--isHighlighted ListItem--clickable"
-                          id="downshift-1-item-0"
+                          id="downshift-2-item-0"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -421,7 +558,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-1-item-1"
+                        id="downshift-2-item-1"
                         isHighlighted={false}
                         isSelected={false}
                         key="Mercury"
@@ -434,7 +571,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-1-item-1"
+                          id="downshift-2-item-1"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -467,7 +604,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-1-item-2"
+                        id="downshift-2-item-2"
                         isHighlighted={false}
                         isSelected={false}
                         key="Venus"
@@ -480,7 +617,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-1-item-2"
+                          id="downshift-2-item-2"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -513,7 +650,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-1-item-3"
+                        id="downshift-2-item-3"
                         isHighlighted={false}
                         isSelected={false}
                         key="Earth"
@@ -526,7 +663,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-1-item-3"
+                          id="downshift-2-item-3"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -559,7 +696,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-1-item-4"
+                        id="downshift-2-item-4"
                         isHighlighted={false}
                         isSelected={false}
                         key="Mars"
@@ -572,7 +709,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-1-item-4"
+                          id="downshift-2-item-4"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -605,7 +742,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-1-item-5"
+                        id="downshift-2-item-5"
                         isHighlighted={false}
                         isSelected={false}
                         key="Jupiter"
@@ -618,7 +755,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-1-item-5"
+                          id="downshift-2-item-5"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -651,7 +788,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-1-item-6"
+                        id="downshift-2-item-6"
                         isHighlighted={false}
                         isSelected={false}
                         key="Saturn"
@@ -664,7 +801,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-1-item-6"
+                          id="downshift-2-item-6"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -697,7 +834,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-1-item-7"
+                        id="downshift-2-item-7"
                         isHighlighted={false}
                         isSelected={false}
                         key="Neptun"
@@ -710,7 +847,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-1-item-7"
+                          id="downshift-2-item-7"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -793,10 +930,10 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
     inputRef={
       Object {
         "current": <input
-          aria-activedescendant="downshift-2-item-0"
+          aria-activedescendant="downshift-3-item-0"
           aria-autocomplete="list"
-          aria-controls="downshift-2-menu"
-          aria-labelledby="downshift-2-label"
+          aria-controls="downshift-3-menu"
+          aria-labelledby="downshift-3-label"
           autocomplete="off"
           class="AutosuggestMulti__input"
           data-lpignore="true"
@@ -839,8 +976,8 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
         <div
           aria-expanded={true}
           aria-haspopup="listbox"
-          aria-labelledby="downshift-2-label"
-          aria-owns="downshift-2-menu"
+          aria-labelledby="downshift-3-label"
+          aria-owns="downshift-3-menu"
           className="SelectBase__main SelectBase__main--focused"
           role="combobox"
         >
@@ -863,10 +1000,10 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
                   className="AutosuggestMulti__wrapper AutosuggestMulti__wrapper--isFocused"
                 >
                   <input
-                    aria-activedescendant="downshift-2-item-0"
+                    aria-activedescendant="downshift-3-item-0"
                     aria-autocomplete="list"
-                    aria-controls="downshift-2-menu"
-                    aria-labelledby="downshift-2-label"
+                    aria-controls="downshift-3-menu"
+                    aria-labelledby="downshift-3-label"
                     autoComplete="off"
                     className="AutosuggestMulti__input"
                     data-lpignore={true}
@@ -879,18 +1016,18 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
                   />
                 </div>
                 <List
-                  aria-labelledby="downshift-2-label"
+                  aria-labelledby="downshift-3-label"
                   className="SelectBase__list--focused"
                   doSelectOnNavigate={false}
-                  id="downshift-2-menu"
+                  id="downshift-3-menu"
                   isControlledNavigation={true}
                   isDivided={false}
                   role="listbox"
                 >
                   <ul
-                    aria-labelledby="downshift-2-label"
+                    aria-labelledby="downshift-3-label"
                     className="List SelectBase__list--focused"
-                    id="downshift-2-menu"
+                    id="downshift-3-menu"
                     role="listbox"
                   >
                     <SuggestionsList

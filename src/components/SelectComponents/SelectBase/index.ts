@@ -6,4 +6,5 @@ export {
     Props,
     FocusedRendererHelpers,
     BlurredRendererHelpers,
+    ListRendererHelper,
 } from './interfaces';

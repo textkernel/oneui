@@ -139,8 +139,111 @@ storiesOf('Organisms|Select Components', module)
     // eslint-disable-next-line
     .add(
         'AutosuggestMulti',
-        ({ parameters }: any) => {
-            const store = parameters.getStore();
+        (storyContext) => {
+            const store = storyContext?.parameters.getStore();
+            const getSuggestions = (): TSuggestion[] => {
+                const suggestions = SUGGESTIONS.filter(
+                    (item: TSuggestion) =>
+                        !store
+                            .get('selectedSuggestions')
+                            .some(
+                                (i) => item.name.toLocaleLowerCase() === i.name.toLocaleLowerCase()
+                            )
+                );
+                return suggestions;
+            };
+
+            const onInputValueChange = (value: string) => {
+                console.log(`onInputValueChange was called with ${value}`);
+            };
+
+            const onSelectionAdd = (item: TSuggestion) => {
+                console.log(`onSelectionAdd was called with {name: ${item.name}}`);
+                const selectedItem = { ...item };
+                // Add new item
+                if (
+                    !store
+                        .get('selectedSuggestions')
+                        .some((i: TSuggestion) => i.name === selectedItem.name)
+                ) {
+                    const selectedSuggestions = [...store.get('selectedSuggestions'), selectedItem];
+                    store.set({
+                        selectedSuggestions,
+                    });
+                }
+            };
+
+            const onSelectionRemove = (item: TSuggestion) => {
+                console.log(`onSelectionRemove was called with {name: ${item.name}}`);
+                // Delete item
+                const selectedSuggestions = store
+                    .get('selectedSuggestions')
+                    .filter((i: TSuggestion) => i.name !== item.name);
+                store.set({
+                    selectedSuggestions,
+                });
+            };
+
+            const onBlur = () => {
+                console.log('onBlur was called');
+            };
+
+            const onClearAllSelected = () => {
+                console.log('onClearAllSelected was called');
+                store.set({ selectedSuggestions: [] });
+            };
+
+            const onFocus = () => {
+                console.log('onFocus was called');
+            };
+
+            const onSubmit = () => {
+                console.log('onSubmit was called');
+            };
+
+            return (
+                <div style={{ width: '500px' }}>
+                    <AutosuggestMulti
+                        id="test"
+                        selectedSuggestions={store.get('selectedSuggestions')}
+                        inputPlaceholder={text('Input placeholder', 'Select something...')}
+                        suggestions={getSuggestions()}
+                        suggestionToString={SUGGESTION_TO_STRING}
+                        onBlur={onBlur}
+                        onFocus={onFocus}
+                        onSubmit={onSubmit}
+                        onSelectionAdd={onSelectionAdd}
+                        onSelectionRemove={onSelectionRemove}
+                        isProminent={boolean('Use prominent styling', true)}
+                        isLoading={boolean('isLoading', false)}
+                        onInputValueChange={onInputValueChange}
+                        showClearButton={boolean('Show clear button', true)}
+                        clearTitle={text('Clear button label', 'Clear')}
+                        onClearAllSelected={onClearAllSelected}
+                        noSuggestionsPlaceholder={text(
+                            'No suggestions placeholder',
+                            'No suggestions'
+                        )}
+                    />
+                </div>
+            );
+        },
+        {
+            info: {
+                text: `
+            ## Usage information
+            This component is recommended to use for a dynamic list of values.
+            The list of suggestions is shown once there's a value inside the input.
+
+            More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
+            },
+        }
+    )
+    // eslint-disable-next-line
+    .add(
+        'AutosuggestMulti with selecting input as free text',
+        (storyContext) => {
+            const store = storyContext?.parameters.getStore();
             searchFor.name = `Search for "${store.get('inputValue')}"`;
             searchFor.value = store.get('inputValue');
             const getSuggestions = (): TSuggestion[] => {
@@ -231,10 +334,7 @@ storiesOf('Organisms|Select Components', module)
                         onBlur={onBlur}
                         onFocus={onFocus}
                         onSubmit={onSubmit}
-                        isFirstItemAlwaysVisible={
-                            boolean('First item is always visible', false) &&
-                            !!store.get('inputValue').length
-                        }
+                        isFirstItemAlwaysVisible={!!store.get('inputValue').length}
                         onSelectionAdd={onSelectionAdd}
                         onSelectionRemove={onSelectionRemove}
                         isProminent={boolean('Use prominent styling', true)}

@@ -45,6 +45,11 @@ describe('AutosuggestMulti', () => {
         it('should initially render empty component correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
         });
+        it('should initially render focused component correctly', () => {
+            setFocusOnInput();
+            expect(toJson(wrapper)).toMatchSnapshot();
+            expect(wrapper.find('ListItem')).toHaveLength(0);
+        });
         it('should render component with suggestions', () => {
             suggestionsList = SUGGESTIONS.slice(1, 20);
             wrapper.setProps({ suggestions: suggestionsList });
@@ -135,6 +140,7 @@ describe('AutosuggestMulti', () => {
 
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
+                wrapper.find('input').simulate('change', { target: { value: 'a' } });
                 wrapper.find('li').first().children().simulate('click');
 
                 expect(mockOnSelectionAdd).toHaveBeenCalledTimes(1);
