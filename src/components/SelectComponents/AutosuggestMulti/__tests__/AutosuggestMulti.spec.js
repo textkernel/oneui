@@ -82,12 +82,6 @@ describe('AutosuggestMulti', () => {
             const inputNode = wrapper.find('input').getDOMNode();
             expect(document.activeElement).toBe(inputNode);
         });
-        it('should not set focus on the input field when the component is disabled', () => {
-            wrapper.setProps({ disabled: true });
-            setFocusOnInput();
-            const inputNode = wrapper.find('input').getDOMNode();
-            expect(document.activeElement).not.toBe(inputNode);
-        });
         it('should render tag for each selected selection when component is focused', () => {
             selectedSuggestions = SUGGESTIONS.slice(0, 5);
             wrapper.setProps({ selectedSuggestions });
