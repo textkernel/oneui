@@ -63,6 +63,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         onFocus,
         onBlur,
         onSubmit,
+        disabled,
         showClearButton,
         onSelectionRemove,
         ...rest
@@ -135,17 +136,18 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         onFocus: onFocusInput,
         highlightedIndex,
     }) => (
-        <div {...elem('wrapper', { isFocused: true })}>
+        <div {...elem('wrapper', { disabled, isFocused: true })}>
             {renderFullTagsList()}
             <input
                 {...getInputProps({
                     id,
+                    disabled,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
                     onFocus: onFocusInput,
                     onKeyDown: (e) => handleInputKeyDown(e, highlightedIndex),
                     'data-lpignore': true,
-                    ...elem('input'),
+                    ...elem('input', { disabled }),
                 })}
             />
         </div>
@@ -153,16 +155,17 @@ export function AutosuggestMulti<S>(props: Props<S>) {
 
     // eslint-disable-next-line react/display-name
     const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps, onFocus: onFocusInput }) => (
-        <div {...elem('wrapper')}>
+        <div {...elem('wrapper', { disabled })}>
             {renderShortTagsList()}
             <input
                 {...getInputProps({
                     id,
+                    disabled,
                     ref: inputRef,
                     placeholder: selectedSuggestions.length === 0 ? inputPlaceholder : '',
                     'data-lpignore': true,
                     onFocus: onFocusInput,
-                    ...elem('input', { hidden: selectedSuggestions.length > 0 }),
+                    ...elem('input', { disabled, hidden: selectedSuggestions.length > 0 }),
                 })}
             />
         </div>
@@ -190,6 +193,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             suggestions={suggestions}
             suggestionToString={suggestionToString}
             inputRef={inputRef}
+            disabled={disabled}
             onFocus={onFocus}
             onBlur={onBlur}
             onSelectionAdd={onSelectionAdd}

@@ -52,12 +52,14 @@ exports[`Select rendering should initially render correctly 1`] = `
       <FieldWrapper
         className="Select__field"
         clearLabel=""
+        disabled={false}
         isFocused={false}
         onClear={null}
         showClearButton={false}
       >
         <div
           className="FieldWrapper Select__field"
+          disabled={false}
         >
           <div
             className="FieldWrapper__content"
@@ -207,12 +209,14 @@ exports[`Select rendering should render focused component correctly 1`] = `
       <FieldWrapper
         className="Select__field"
         clearLabel=""
+        disabled={false}
         isFocused={true}
         onClear={null}
         showClearButton={false}
       >
         <div
           className="FieldWrapper FieldWrapper--isFocused Select__field"
+          disabled={false}
         >
           <div
             className="FieldWrapper__content"

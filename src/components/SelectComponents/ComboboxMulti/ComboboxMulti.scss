@@ -12,6 +12,13 @@
         &--focused {
             height: auto;
         }
+
+        &--disabled {
+            cursor: not-allowed;
+            color: var(--color-neutral-75);
+            background-color: var(--color-neutral-25);
+            border-color: var(--color-neutral-25);
+        }
     }
 
     &__input {
@@ -29,6 +36,10 @@
 
         &::placeholder {
             color: var(--color-muted);
+        }
+
+        &--disabled {
+            cursor: not-allowed;
         }
     }
 

@@ -116,6 +116,7 @@ storiesOf('Organisms|Select Components', module)
                         noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
                         suggestions={getSuggestions()}
                         suggestionToString={SUGGESTION_TO_STRING}
+                        disabled={boolean('Disabled', false)}
                         onFocus={onFocus}
                         onBlur={onBlur}
                         onSelectionAdd={onSelectionAdd}
@@ -209,6 +210,7 @@ storiesOf('Organisms|Select Components', module)
                         inputPlaceholder={text('Input placeholder', 'Select something...')}
                         suggestions={getSuggestions()}
                         suggestionToString={SUGGESTION_TO_STRING}
+                        disabled={boolean('Disabled', false)}
                         onBlur={onBlur}
                         onFocus={onFocus}
                         onSubmit={onSubmit}
@@ -331,6 +333,7 @@ storiesOf('Organisms|Select Components', module)
                         inputPlaceholder={text('Input placeholder', 'Select something...')}
                         suggestions={getSuggestions()}
                         suggestionToString={SUGGESTION_TO_STRING}
+                        disabled={boolean('Disabled', false)}
                         onBlur={onBlur}
                         onFocus={onFocus}
                         onSubmit={onSubmit}

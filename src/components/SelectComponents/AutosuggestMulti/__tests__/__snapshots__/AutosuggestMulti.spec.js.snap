@@ -79,6 +79,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
+            disabled={false}
             isFocused={false}
             onClear={[Function]}
             onClick={[Function]}
@@ -86,6 +87,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
           >
             <div
               className="FieldWrapper SelectBase__field"
+              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -215,6 +217,7 @@ exports[`AutosuggestMulti rendering should initially render focused component co
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
+            disabled={false}
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
@@ -222,6 +225,7 @@ exports[`AutosuggestMulti rendering should initially render focused component co
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -421,6 +425,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
+            disabled={false}
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
@@ -428,6 +433,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -984,6 +990,7 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
+            disabled={false}
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
@@ -991,6 +998,7 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+              disabled={false}
               onClick={[Function]}
             >
               <div

@@ -17,6 +17,13 @@
             height: auto;
             flex-wrap: wrap;
         }
+
+        &--disabled {
+            cursor: not-allowed;
+            color: var(--color-neutral-75);
+            background-color: var(--color-neutral-25);
+            border-color: var(--color-neutral-25);
+        }
     }
 
     &__input {
@@ -31,6 +38,10 @@
         &--hidden {
             position: absolute;
             opacity: 0;
+        }
+
+        &--disabled {
+            cursor: not-allowed;
         }
 
         &:focus {

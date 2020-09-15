@@ -49,6 +49,8 @@ FieldWrapper.propTypes = {
     onClear: PropTypes.func,
     /** to style the field as it is focused */
     isFocused: PropTypes.bool,
+    /** defines if the component is disabled */
+    disabled: PropTypes.bool,
 };
 
 FieldWrapper.defaultProps = {
@@ -56,4 +58,5 @@ FieldWrapper.defaultProps = {
     clearLabel: '',
     onClear: null,
     isFocused: false,
+    disabled: false,
 };

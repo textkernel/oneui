@@ -41,6 +41,11 @@ describe('ComboboxMulti', () => {
             setFocusOnInput();
             expect(inputNode).toBe(document.activeElement);
         });
+        it('should not set focus on the input field when the component is disabled', () => {
+            wrapper.setProps({ disabled: true });
+            setFocusOnInput();
+            expect(inputNode).not.toBe(document.activeElement);
+        });
         it('should render noSuggestions placeholder when empty suggestions list is passed', () => {
             wrapper.setProps({ suggestions: [] });
             setFocusOnInput();
@@ -80,6 +85,18 @@ describe('ComboboxMulti', () => {
 
             expect(inputNode).toBe(document.activeElement);
             expect(wrapper.find('li')).not.toHaveLength(0);
+        });
+        it('should not stay focused when suggestion is selected with keepExpandedAfterSelection set to false', () => {
+            wrapper.setProps({ keepExpandedAfterSelection: false });
+            expect(inputNode).not.toBe(document.activeElement);
+
+            setFocusOnInput();
+            expect(inputNode).toBe(document.activeElement);
+
+            wrapper.find('li').at(0).childAt(0).simulate('click');
+
+            expect(inputNode).toBe(document.activeElement);
+            expect(wrapper.find('li')).toHaveLength(0);
         });
         it('should blur on pressing Escape button', (done) => {
             const blurSpy = jest.spyOn(inputNode, 'blur');

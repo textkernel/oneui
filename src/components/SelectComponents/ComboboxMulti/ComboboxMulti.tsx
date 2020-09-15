@@ -15,8 +15,10 @@ interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
     inputPlaceholder: string;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder: string;
-    /** Enable ListOptimizer component for decreasing render time */
+    /** enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
+    /** defines if the suggestion list should be collapsed once an item is selected */
+    keepExpandedAfterSelection?: boolean;
 }
 
 export function ComboboxMulti<S>(props: Props<S>) {
@@ -30,8 +32,10 @@ export function ComboboxMulti<S>(props: Props<S>) {
         noSuggestionsPlaceholder,
         onBlur,
         onInputValueChange,
+        disabled,
         inputPlaceholder,
         useOptimizeListRender,
+        keepExpandedAfterSelection,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -49,6 +53,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
                 <input
                     {...getInputProps({
                         id,
+                        disabled,
                         ref: inputRef,
                         placeholder: inputPlaceholder,
                         onKeyDown: handleInputKeyDown,
@@ -58,7 +63,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
                 />
                 <IoMdArrowDropup
                     {...elem('dropdownIcon', { ...props })}
-                    {...getToggleButtonProps({ onClick: blur })}
+                    {...getToggleButtonProps({ disabled, onClick: blur })}
                 />
             </div>
         );
@@ -70,6 +75,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
             <input
                 {...getInputProps({
                     id,
+                    disabled,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
                     onFocus,
@@ -80,6 +86,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
             <IoMdArrowDropdown
                 {...elem('dropdownIcon', { ...props })}
                 {...getToggleButtonProps({
+                    disabled,
                     onClick: (e) => {
                         e?.stopPropagation();
                     },
@@ -93,6 +100,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
             {...rest}
             suggestions={suggestions}
             suggestionToString={suggestionToString}
+            disabled={disabled}
             inputRef={inputRef}
             onBlur={onBlur}
             onSelectionAdd={onSelectionAdd}
@@ -108,13 +116,14 @@ export function ComboboxMulti<S>(props: Props<S>) {
             )}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
-            keepExpandedAfterSelection
+            keepExpandedAfterSelection={keepExpandedAfterSelection}
         />
     );
 }
 
 ComboboxMulti.defaultProps = {
     useOptimizeListRender: false,
+    keepExpandedAfterSelection: true,
     id: undefined,
 };
 

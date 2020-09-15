@@ -25,7 +25,13 @@
         width: 100%;
     }
 
-    &:hover {
+    &--isFocused,
+    &:focus {
+        border-color: var(--color-brand);
+        outline: none;
+    }
+
+    &:hover:not(.FieldWrapper--disabled) {
         border-color: var(--color-brand);
 
         & .FieldWrapper__content {
@@ -37,9 +43,7 @@
         }
     }
 
-    &--isFocused,
-    &:focus {
-        border-color: var(--color-brand);
-        outline: none;
+    &--disabled {
+        cursor: not-allowed;
     }
 }
