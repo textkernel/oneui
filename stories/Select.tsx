@@ -22,6 +22,7 @@ storiesOf('Organisms|Select Components', module)
             inputValue: '',
             selectedSuggestions: [],
             selectedItem: SUGGESTIONS[0],
+            disabled: false,
         })
     )
     .add(
@@ -88,6 +89,9 @@ storiesOf('Organisms|Select Components', module)
             const onSelectionAdd = (item: TSuggestion) => {
                 console.log(`onSelectionAdd was called with {name: ${item?.name}}`);
                 store.set({ selectedSuggestions: [...store.get('selectedSuggestions'), item] });
+                if (store.get('selectedSuggestions').length === SUGGESTIONS.length) {
+                    store.set({ disabled: true });
+                }
             };
 
             const onFocus = () => {
@@ -116,7 +120,7 @@ storiesOf('Organisms|Select Components', module)
                         noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
                         suggestions={getSuggestions()}
                         suggestionToString={SUGGESTION_TO_STRING}
-                        disabled={boolean('Disabled', false)}
+                        disabled={store.get('disabled')}
                         onFocus={onFocus}
                         onBlur={onBlur}
                         onSelectionAdd={onSelectionAdd}

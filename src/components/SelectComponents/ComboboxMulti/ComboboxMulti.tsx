@@ -17,8 +17,6 @@ interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
     noSuggestionsPlaceholder: string;
     /** enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
-    /** defines if the suggestion list should be collapsed once an item is selected */
-    keepExpandedAfterSelection?: boolean;
 }
 
 export function ComboboxMulti<S>(props: Props<S>) {
@@ -35,7 +33,6 @@ export function ComboboxMulti<S>(props: Props<S>) {
         disabled,
         inputPlaceholder,
         useOptimizeListRender,
-        keepExpandedAfterSelection,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -116,14 +113,13 @@ export function ComboboxMulti<S>(props: Props<S>) {
             )}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
-            keepExpandedAfterSelection={keepExpandedAfterSelection}
+            keepExpandedAfterSelection
         />
     );
 }
 
 ComboboxMulti.defaultProps = {
     useOptimizeListRender: false,
-    keepExpandedAfterSelection: true,
     id: undefined,
 };
 

@@ -3,7 +3,6 @@
 exports[`ComboboxMulti rendering should initially render empty component correctly 1`] = `
 <ComboboxMulti
   inputPlaceholder="type here..."
-  keepExpandedAfterSelection={true}
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
@@ -256,7 +255,6 @@ exports[`ComboboxMulti rendering should initially render empty component correct
 exports[`ComboboxMulti rendering should render all suggestions from the list 1`] = `
 <ComboboxMulti
   inputPlaceholder="type here..."
-  keepExpandedAfterSelection={true}
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}

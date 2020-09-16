@@ -236,12 +236,12 @@ export function SelectBase<S>(props: Props<S>) {
                             clearLabel={clearTitle}
                             onClear={handleClearSelectedSuggestions}
                             showClearButton={!focused && showClearButton}
-                            isFocused={focused}
+                            isFocused={focused && !disabled}
                             disabled={disabled}
                             onClick={handleWrapperClick(openMenu)}
                             {...elem('field', stateAndProps)}
                         >
-                            {focused
+                            {focused && !disabled
                                 ? focusedRenderer({
                                       getInputProps: getInputPropsWithUpdatedRef(getInputProps),
                                       getToggleButtonProps,
@@ -262,7 +262,7 @@ export function SelectBase<S>(props: Props<S>) {
                                     isControlledNavigation: true,
                                 })}
                             >
-                                {focused
+                                {focused && !disabled
                                     ? listRenderer({
                                           suggestionToString,
                                           suggestions,
