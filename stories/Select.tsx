@@ -336,7 +336,6 @@ storiesOf('Organisms|Select Components', module)
                         inputPlaceholder={text('Input placeholder', 'Select something...')}
                         suggestions={getSuggestions()}
                         suggestionToString={SUGGESTION_TO_STRING}
-                        disabled={boolean('Disabled', false)}
                         onBlur={onBlur}
                         onFocus={onFocus}
                         onSubmit={onSubmit}
