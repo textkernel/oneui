@@ -9,6 +9,7 @@ storiesOf('Molecules|FieldWrapper', module)
         return (
             <FieldWrapper
                 clearLabel={text('Clear button label', 'Clear')}
+                disabled={boolean('Disabled', false)}
                 onClear={() => console.log('onClear has been called')}
                 showClearButton={boolean('Show clear button', true)}
                 isFocused={boolean('Is focused', false)}

@@ -1,12 +1,26 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { bem } from '../../utils';
 import { Button } from '../Buttons';
 import styles from './FieldWrapper.scss';
 
 const { block, elem } = bem('FieldWrapper', styles);
 
-export const FieldWrapper = React.forwardRef((props, ref) => {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+    /** content of the wrapper */
+    children: NotEmptyReactNode;
+    /** show Clear button on hover even if there are no selectedSuggestions passed */
+    showClearButton?: boolean;
+    /** clear button label */
+    clearLabel?: string;
+    /** reset the selected suggestions array to it's default value */
+    onClear?: ((e) => void) | null;
+    /** to style the field as it is focused */
+    isFocused?: boolean;
+    /** defines if the component is disabled */
+    disabled?: boolean;
+}
+
+export const FieldWrapper: React.FC<Props> = React.forwardRef((props, ref) => {
     const handleClear = (e) => {
         const { onClear } = props;
 
@@ -37,21 +51,6 @@ export const FieldWrapper = React.forwardRef((props, ref) => {
 });
 
 FieldWrapper.displayName = 'FieldWrapper';
-
-FieldWrapper.propTypes = {
-    /** content of the wrapper */
-    children: PropTypes.node.isRequired,
-    /** show Clear button on hover even if there are no selectedSuggestions passed */
-    showClearButton: PropTypes.bool,
-    /** clear button label */
-    clearLabel: PropTypes.string,
-    /** reset the selected suggestions array to it's default value */
-    onClear: PropTypes.func,
-    /** to style the field as it is focused */
-    isFocused: PropTypes.bool,
-    /** defines if the component is disabled */
-    disabled: PropTypes.bool,
-};
 
 FieldWrapper.defaultProps = {
     showClearButton: false,

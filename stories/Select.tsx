@@ -120,7 +120,7 @@ storiesOf('Organisms|Select Components', module)
                         noSuggestionsPlaceholder={text('No suggestions', 'No suggestions found...')}
                         suggestions={getSuggestions()}
                         suggestionToString={SUGGESTION_TO_STRING}
-                        disabled={store.get('disabled')}
+                        disabled={boolean('Disabled', false) || store.get('disabled')}
                         onFocus={onFocus}
                         onBlur={onBlur}
                         onSelectionAdd={onSelectionAdd}
