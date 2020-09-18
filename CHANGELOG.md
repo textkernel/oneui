@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.4.0](https://github.com/textkernel/oneui/compare/12.3.1...12.4.0) (2020-09-18)
+
+
+### Features
+
+* **Select:** Implement 'disabled' behaviour for ComboboxMulti ([#398](https://github.com/textkernel/oneui/issues/398)) ([bd092c2](https://github.com/textkernel/oneui/commit/bd092c2fce739c2fea94144a54c54207ceb31625))
+* implemented BooleanQueryTokenizer package ([fe78a8d](https://github.com/textkernel/oneui/commit/fe78a8d2975ea80f633379381c35fb9159d98eeb))
+
 ### [12.3.1](https://github.com/textkernel/oneui/compare/12.3.0...12.3.1) (2020-09-10)
 
 
