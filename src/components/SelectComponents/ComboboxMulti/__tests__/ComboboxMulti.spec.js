@@ -41,6 +41,11 @@ describe('ComboboxMulti', () => {
             setFocusOnInput();
             expect(inputNode).toBe(document.activeElement);
         });
+        it('should not set focus on the input field when the component is disabled', () => {
+            wrapper.setProps({ disabled: true });
+            setFocusOnInput();
+            expect(inputNode).not.toBe(document.activeElement);
+        });
         it('should render noSuggestions placeholder when empty suggestions list is passed', () => {
             wrapper.setProps({ suggestions: [] });
             setFocusOnInput();

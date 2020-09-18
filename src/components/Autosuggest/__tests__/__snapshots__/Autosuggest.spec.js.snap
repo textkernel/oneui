@@ -58,6 +58,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
         <FieldWrapper
           className="Autosuggest__field"
           clearLabel="Clear"
+          disabled={false}
           isFocused={false}
           onClear={[Function]}
           onClick={[Function]}
@@ -66,6 +67,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
         >
           <div
             className="FieldWrapper Autosuggest__field"
+            disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -175,6 +177,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
         <FieldWrapper
           className="Autosuggest__field"
           clearLabel="Clear"
+          disabled={false}
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
@@ -183,6 +186,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
         >
           <div
             className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+            disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -478,6 +482,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
         <FieldWrapper
           className="Autosuggest__field"
           clearLabel="Clear"
+          disabled={false}
           isFocused={false}
           onClear={[Function]}
           onClick={[Function]}
@@ -486,6 +491,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
         >
           <div
             className="FieldWrapper Autosuggest__field"
+            disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -647,6 +653,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
         <FieldWrapper
           className="Autosuggest__field"
           clearLabel="Clear"
+          disabled={false}
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
@@ -655,6 +662,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
         >
           <div
             className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+            disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -811,6 +819,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
         <FieldWrapper
           className="Autosuggest__field"
           clearLabel="Clear"
+          disabled={false}
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
@@ -819,6 +828,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
         >
           <div
             className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+            disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
           >

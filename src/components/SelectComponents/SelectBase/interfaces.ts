@@ -11,6 +11,8 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     rootRef?: React.RefObject<HTMLDivElement>;
     /** suggestions list ref */
     listRef?: React.RefObject<HTMLUListElement>;
+    /** defines if the component is disabled */
+    disabled?: boolean;
     /** onFocus() is called when the component is focused */
     onFocus?: () => void;
     /** onBlur() is called when the component is blurred */
@@ -71,6 +73,7 @@ export interface Props<S>
     extends BasicSelectProps<S>,
         SelectClearButtonProps,
         SelectInputFieldProps {
+    /** defines if the suggestion list should be collapsed once an item is selected */
     keepExpandedAfterSelection?: boolean;
     /** will be called when list of suggestions should be rendered */
     listRenderer: ListRendererHelper<S>;

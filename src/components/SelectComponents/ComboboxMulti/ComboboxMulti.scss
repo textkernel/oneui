@@ -12,6 +12,11 @@
         &--focused {
             height: auto;
         }
+
+        &--disabled {
+            cursor: not-allowed;
+            background-color: var(--color-neutral-25);
+        }
     }
 
     &__input {
@@ -30,6 +35,11 @@
         &::placeholder {
             color: var(--color-muted);
         }
+
+        &--disabled {
+            cursor: not-allowed;
+            background-color: var(--color-neutral-25);
+        }
     }
 
     &__dropdownIcon {
@@ -37,5 +47,9 @@
         vertical-align: middle;
         font-size: 20px;
         margin-right: var(--spacing-normal);
+
+        &--disabled {
+            color: var(--color-neutral-75);
+        }
     }
 }

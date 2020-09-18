@@ -270,6 +270,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
           <FieldWrapper
             className="Autosuggest__field"
             clearLabel=""
+            disabled={false}
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
@@ -278,6 +279,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+              disabled={false}
               onClick={[Function]}
               onKeyDown={[Function]}
             >
@@ -680,6 +682,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
           <FieldWrapper
             className="Autosuggest__field"
             clearLabel=""
+            disabled={false}
             isFocused={false}
             onClear={[Function]}
             onClick={[Function]}
@@ -688,6 +691,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
           >
             <div
               className="FieldWrapper Autosuggest__field"
+              disabled={false}
               onClick={[Function]}
               onKeyDown={[Function]}
             >
