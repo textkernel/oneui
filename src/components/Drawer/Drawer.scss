@@ -36,14 +36,14 @@ $icon-size: 26px;
     }
 
     &__headTitle {
-        color: var(--color-neutral-10);
+        color: var(--color-background);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         font: {
             family: var(--font-family-primary);
             size: var(--h4-font-size);
-            weight: var(--font-weight-light);
+            weight: var(--font-weight-normal);
         }
     }
 
