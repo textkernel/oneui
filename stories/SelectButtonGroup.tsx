@@ -2,6 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { SelectButtonGroup, SelectButton } from '@textkernel/oneui';
+import { SIZES } from '../src/constants';
 
 const selectedContexts = {
     Default: undefined,
@@ -18,6 +19,7 @@ storiesOf('Atoms|SelectButtonGroup', module)
             isBlock={boolean('Display as block', false)}
             isEqualWidth={boolean('Make all buttons the same width', false)}
             selectedContext={select('Default selected color context', selectedContexts, undefined)}
+            size={select('Size', SIZES, SIZES[1])}
             onChange={(value) => {
                 const msg = `onSelect was called with values ${value}`;
                 console.log(msg);

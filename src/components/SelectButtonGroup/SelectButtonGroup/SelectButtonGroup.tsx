@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { bem } from '../../../utils';
+import { Size } from '../../../constants';
 import { SelectButtonProps } from '../SelectButton';
 import styles from './SelectButtonGroup.scss';
 
@@ -21,6 +22,8 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
     selectedContext?: 'neutral' | 'brand';
     /** should children have equal width */
     isEqualWidth?: boolean;
+    /** size of the button group */
+    size?: Size;
 }
 
 const { block } = bem('SelectButtonGroup', styles);
@@ -34,6 +37,7 @@ export function SelectButtonGroup<V>(props: Props<V>) {
         isBlock,
         selectedContext,
         onChange,
+        size,
         ...rest
     } = props;
 
@@ -76,6 +80,7 @@ export function SelectButtonGroup<V>(props: Props<V>) {
                     isSelected: selectedValues.includes(child.props.value),
                     onChange: handleSelectionChangeForValue,
                     selectedContext: child.props.selectedContext || selectedContext,
+                    size,
                 })
             )}
         </div>
@@ -90,5 +95,6 @@ SelectButtonGroup.defaultProps = {
     isBlock: false,
     isEqualWidth: false,
     selectedContext: 'brand',
+    size: 'normal',
     onChange: null,
 };
