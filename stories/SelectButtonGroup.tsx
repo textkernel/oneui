@@ -7,6 +7,7 @@ import { SIZES } from '../src/constants';
 const selectedContexts = {
     Default: undefined,
     Brand: 'brand',
+    Good: 'good',
     Neutral: 'neutral',
 } as const;
 

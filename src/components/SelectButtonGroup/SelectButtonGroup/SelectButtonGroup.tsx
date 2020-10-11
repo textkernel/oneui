@@ -19,7 +19,7 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
     /** should the component take up all the width available */
     isBlock?: boolean;
     /** Color context for selected buttons */
-    selectedContext?: 'neutral' | 'brand';
+    selectedContext?: 'neutral' | 'brand' | 'good';
     /** should children have equal width */
     isEqualWidth?: boolean;
     /** size of the button group */

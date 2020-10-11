@@ -1,7 +1,8 @@
 .SelectButton {
-    // height: 38px;
     box-sizing: border-box;
-    padding: var(--spacing-3x) var(--spacing-4x);
+    border: var(--line-normal) solid transparent;
+    padding: var(--spacing-2x) var(--spacing-4x);
+    line-height: var(--line-height-normal);
     white-space: nowrap;
     text-overflow: ellipsis;
     text-align: center;
@@ -28,7 +29,12 @@
         box-shadow: -1px 0 0 0 var(--color-background);
     }
 
+    &[disabled] {
+        cursor: not-allowed;
+    }
+
     &--isSelected.SelectButton--selectedContext_neutral {
+        border-color: var(--color-neutral-60);
         background-color: var(--color-neutral-60);
         color: var(--color-background);
 
@@ -40,11 +46,13 @@
     }
 
     &--isSelected.SelectButton--selectedContext_good {
+        border-color: var(--color-good);
         background-color: var(--color-good);
         color: var(--color-background);
         font-weight: var(--font-weight-bold);
 
         &:hover {
+            border-color: var(--color-good-60);
             background-color: var(--color-good-60);
         }
 
@@ -56,11 +64,13 @@
     }
 
     &--isSelected.SelectButton--selectedContext_brand {
+        border-color: var(--color-brand);
         background-color: var(--color-brand);
         color: var(--color-background);
         font-weight: var(--font-weight-bold);
 
         &:hover {
+            border-color: var(--color-brand-60);
             background-color: var(--color-brand-60);
         }
 
@@ -71,14 +81,17 @@
         }
     }
 
-    &--size_small {
-        font-size: var(--font-size-small);
-        padding: var(--spacing-2x) var(--spacing-2x);
-    }
-
-    &--size_large {
-        font-size: var(--font-size-large);
-        padding: var(--spacing-4x) var(--spacing-5x);
+    &--size {
+        &_small {
+            font-size: var(--font-size-small);
+            line-height: var(--line-height-small);
+            padding: var(--spacing-normal) var(--spacing-2x);
+        }
+        &_large {
+            font-size: var(--font-size-large);
+            line-height: var(--line-height-large);
+            padding: var(--spacing-3x) var(--spacing-5x);
+        }
     }
 
     &--isEqualWidth {
