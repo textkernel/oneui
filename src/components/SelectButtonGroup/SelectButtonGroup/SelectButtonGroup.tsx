@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { bem } from '../../../utils';
-import { Size } from '../../../constants';
+import { Context, Size } from '../../../constants';
 import { SelectButtonProps } from '../SelectButton';
 import styles from './SelectButtonGroup.scss';
 
@@ -19,7 +19,7 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
     /** should the component take up all the width available */
     isBlock?: boolean;
     /** Color context for selected buttons */
-    selectedContext?: 'neutral' | 'brand' | 'good';
+    selectedContext?: Context;
     /** should children have equal width */
     isEqualWidth?: boolean;
     /** size of the button group */

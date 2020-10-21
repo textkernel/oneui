@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { bem } from '../../../utils';
-import { ENTER_KEY, Size } from '../../../constants';
+import { ENTER_KEY, Context, Size } from '../../../constants';
 import styles from './SelectButton.scss';
 
 // These props will be passed by the parent <SelectButtonGroup>
@@ -23,7 +23,7 @@ export interface Props<V> extends InternalProps<V> {
     /** if this button should be in a selected when first rendered */
     isInitiallySelected?: boolean;
     /** the color context to be applied in the selected state */
-    selectedContext?: 'neutral' | 'good' | 'brand';
+    selectedContext?: Context;
     /** size of the button */
     size?: Size;
 }
