@@ -42,6 +42,15 @@ describe('FieldWithValidation', () => {
                 expect(wrapper.find('Text')).toHaveLength(1);
                 expect(wrapper.find('Text').text()).toBe(message);
             });
+            it('should keep focus on the child field if it was focused and props changed', () => {
+                expect(document.activeElement).not.toBe(wrapper.find('input').getDOMNode());
+                wrapper.find('Input').getDOMNode().focus();
+                expect(document.activeElement).toBe(wrapper.find('input').getDOMNode());
+
+                wrapper.setProps({ errorMessage: '' });
+                wrapper.update();
+                expect(document.activeElement).toBe(wrapper.find('input').getDOMNode());
+            });
         });
     });
     describe('when using tooltip', () => {
@@ -55,15 +64,10 @@ describe('FieldWithValidation', () => {
             });
 
             it('should not render a tooltip with no error message', () => {
-                wrapper.update();
-
                 expect(wrapper.find('Input')).toHaveLength(1);
                 wrapper.find('input').simulate('mouseover');
                 expect(wrapper.find('Tooltip')).toHaveLength(0);
                 expect(wrapper.find('Text')).toHaveLength(0);
-
-                wrapper.find('input').simulate('mouseover');
-                expect(wrapper.find('Tooltip')).toHaveLength(0);
             });
         });
         describe('when error message is defined', () => {
@@ -92,6 +96,21 @@ describe('FieldWithValidation', () => {
 
                 wrapper.find('Input').simulate('blur');
                 expect(wrapper.find('Tooltip').props().visible).toBeFalsy();
+            });
+            it.skip('should keep focus on the child field if it was focused and props changed', () => {
+                wrapper = mount(
+                    <FieldWithValidation errorMessage={message} useTooltip>
+                        <Input />
+                    </FieldWithValidation>
+                );
+
+                expect(document.activeElement).not.toBe(wrapper.find('input').getDOMNode());
+                wrapper.find('Input').simulate('focus');
+                expect(document.activeElement).toBe(wrapper.find('input').getDOMNode());
+
+                wrapper.setProps({ errorMessage: '' });
+                wrapper.update();
+                expect(document.activeElement).toBe(wrapper.find('input').getDOMNode());
             });
         });
     });

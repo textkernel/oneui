@@ -16,9 +16,21 @@ interface Props {
 
 const { block } = bem('FieldWithValidation', styles);
 
+function usePrevious<T>(value: T) {
+    const ref = React.useRef<T>();
+    React.useEffect(() => {
+        ref.current = value;
+    });
+    return ref.current;
+}
+
 export const FieldWithValidation: React.FC<Props> = (props) => {
     const { children, errorMessage, useTooltip, ...rest } = props;
     const [isChildInFocus, setIsChildInFocus] = React.useState(false);
+    const prevState: { isChildInFocus: boolean; errorMessage?: string } | undefined = usePrevious({
+        isChildInFocus,
+        errorMessage,
+    });
 
     const handleFocus = () => {
         setIsChildInFocus(true);
@@ -27,6 +39,12 @@ export const FieldWithValidation: React.FC<Props> = (props) => {
     const handleBlur = () => {
         setIsChildInFocus(false);
     };
+
+    React.useLayoutEffect(() => {
+        if (prevState?.isChildInFocus && prevState?.errorMessage !== errorMessage) {
+            // set focus on child here
+        }
+    });
 
     if (errorMessage && useTooltip) {
         const clonedChild = errorMessage
