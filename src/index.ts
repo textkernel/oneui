@@ -30,6 +30,7 @@ export { PageWidthRestrictor, BlockWidthRestrictor } from './components/WidthRes
 export { PopupBase } from './components/PopupBase';
 // Molecules
 export { Alert } from './components/Alert';
+export * from './components/BulkActionsToolbar';
 export { ButtonGroup } from './components/ButtonGroup';
 export { Checkbox } from './components/Checkbox';
 export { Footer } from './components/Footer';
