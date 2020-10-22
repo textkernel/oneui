@@ -24,6 +24,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
     }
   }
   selectedContext="brand"
+  size="normal"
 >
   <div
     className="SelectButtonGroup"
@@ -36,6 +37,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       key="1"
       onChange={[Function]}
       selectedContext="brand"
+      size="normal"
       value="button 1"
     >
       <div
@@ -43,6 +45,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
+        size="normal"
         tabIndex={0}
       >
         Option 1
@@ -56,6 +59,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       key="2"
       onChange={[Function]}
       selectedContext="brand"
+      size="normal"
       value="button 2"
     >
       <div
@@ -63,6 +67,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
+        size="normal"
         tabIndex={0}
       >
         Option 2
@@ -76,6 +81,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       key="3"
       onChange={[Function]}
       selectedContext="brand"
+      size="normal"
       value="button 3"
     >
       <div
@@ -83,6 +89,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
+        size="normal"
         tabIndex={0}
       >
         Option 3

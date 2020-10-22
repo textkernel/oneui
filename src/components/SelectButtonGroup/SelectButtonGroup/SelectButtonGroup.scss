@@ -1,5 +1,7 @@
 .SelectButtonGroup {
+    background-color: var(--color-neutral-10);
     display: inline-flex;
+    border-radius: var(--border-radius);
 
     &--isBlock {
         display: flex;
