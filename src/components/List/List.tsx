@@ -38,8 +38,7 @@ export const List: React.FC<Props> = React.forwardRef((props, ref) => {
     React.useEffect(() => {
         if (!children) return;
 
-        // eslint-disable-next-line no-plusplus
-        for (let i = 0; i < children.length; i++) {
+        for (let i = 0; i < children.length; i += 1) {
             const child = children[i];
             if (!child.props[NOT_LIST_CHILD] && child.props.isSelected) {
                 setSelectedIndex(i);
