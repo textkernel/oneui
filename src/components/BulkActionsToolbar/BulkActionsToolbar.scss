@@ -1,0 +1,54 @@
+.BulkActionsToolbar {
+    padding: var(--spacing-normal) var(--spacing-5x);
+    background-color: var(--color-neutral-10);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    transition: background-color var(--transition-duration) ease;
+
+    &--hasSelection {
+        background-color: var(--color-warning-10);
+    }
+
+    &__counter {
+        padding-right: var(--spacing-5x);
+        color: var(--color-warning-75);
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+
+    &__toggle {
+        padding-right: var(--spacing-5x);
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: row;
+        min-width: 0;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    &__toggleButton,
+    &__action {
+        padding: var(--spacing-2x) var(--spacing-3x);
+    }
+
+    &__actionWrapper {
+        overflow: hidden;
+        display: block;
+    }
+
+    &__action {
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: block;
+    }
+}
+
