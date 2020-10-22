@@ -21,6 +21,7 @@ export { ProgressBar } from './components/ProgressBar';
 export { SelectButton, SelectButtonGroup } from './components/SelectButtonGroup';
 export { SelectedOption } from './components/SelectedOption';
 export { Slider, RangeSlider } from './components/Sliders';
+export * from './components/StickyHeader';
 export { Drawer } from './components/Drawer';
 export { TabItem, TabsBar } from './components/Tabs';
 export { Text, MarkedText } from './components/Text';

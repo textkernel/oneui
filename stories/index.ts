@@ -20,6 +20,7 @@ import './ProgressBar';
 import './SelectButtonGroup';
 import './SelectedOption';
 import './Sliders';
+import './StickyHeader';
 import './Tabs';
 import './Text';
 import './TextArea';
