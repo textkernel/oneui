@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.5.0](https://github.com/textkernel/oneui/compare/12.4.0...12.5.0) (2020-10-23)
+
+
+### Features
+
+* **BulkActionsToolbar:** implement BulkActionsToolbar component ([3416ebc](https://github.com/textkernel/oneui/commit/3416ebc50b981c56ed32ff7922fe3dfb416d388c))
+* **SelectButtonGroup:** restyled component ([#414](https://github.com/textkernel/oneui/issues/414)) ([fc1a561](https://github.com/textkernel/oneui/commit/fc1a5617f27ef588e2638af2ee7261d47e2f7d03))
+* **StickyHeader:** implement StickyHeader component ([7fe9fcc](https://github.com/textkernel/oneui/commit/7fe9fcc79e0912c1e24ea3c4ad422dd12c9321c6))
+
+
+### Bug Fixes
+
+* **Tooltip:** tooltip is automatically disabled if content is empty ([3c4603c](https://github.com/textkernel/oneui/commit/3c4603c34bbfc840d9aacdb60fd4012246749141))
+
 ## [12.4.0](https://github.com/textkernel/oneui/compare/12.3.1...12.4.0) (2020-09-18)
 
 
