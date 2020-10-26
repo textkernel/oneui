@@ -15,6 +15,16 @@ describe('Teaser', () => {
                 location="location"
                 subTitle="Organization"
                 details="details about this job"
+                statuses={[
+                    {
+                        label: 'Viewed',
+                        tooltip: 'Viewed two days ago',
+                    },
+                    {
+                        label: 'Imported',
+                        tooltip: 'Imported five days ago',
+                    },
+                ]}
             />
         );
 
