@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [12.6.0](https://github.com/textkernel/oneui/compare/12.5.0...12.6.0) (2020-10-26)
+
+
+### Features
+
+* add statuses to Teaser ([d9de975](https://github.com/textkernel/oneui/commit/d9de975f63e46d74d3751c9d4800357a2284cfbe))
+
+
+### Bug Fixes
+
+* **BulkActionsToolbar:** fix paddings for BulkActionsToolbar counter ([fd28bb7](https://github.com/textkernel/oneui/commit/fd28bb7318c814dafb3d2463d7ed823663d82953))
+
 ## [12.5.0](https://github.com/textkernel/oneui/compare/12.4.0...12.5.0) (2020-10-23)
 
 
