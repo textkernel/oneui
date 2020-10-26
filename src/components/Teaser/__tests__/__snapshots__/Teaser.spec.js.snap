@@ -11,7 +11,7 @@ exports[`Teaser should render correctly with just a title 1`] = `
     className="Teaser"
   >
     <div
-      className="Teaser__titleLine"
+      className="Teaser__line"
     >
       <Text
         className="Teaser__title"
@@ -26,6 +26,12 @@ exports[`Teaser should render correctly with just a title 1`] = `
         </span>
       </Text>
     </div>
+    <div
+      className="Teaser__line"
+    />
+    <div
+      className="Teaser__line"
+    />
   </div>
 </Teaser>
 `;
@@ -34,6 +40,18 @@ exports[`Teaser should render with all props defined 1`] = `
 <Teaser
   details="details about this job"
   location="location"
+  statuses={
+    Array [
+      Object {
+        "label": "Viewed",
+        "tooltip": "Viewed two days ago",
+      },
+      Object {
+        "label": "Imported",
+        "tooltip": "Imported five days ago",
+      },
+    ]
+  }
   subTitle="Organization"
   title="A job title"
 >
@@ -41,7 +59,7 @@ exports[`Teaser should render with all props defined 1`] = `
     className="Teaser"
   >
     <div
-      className="Teaser__titleLine"
+      className="Teaser__line"
     >
       <Text
         className="Teaser__title"
@@ -68,29 +86,131 @@ exports[`Teaser should render with all props defined 1`] = `
         </span>
       </Text>
     </div>
-    <Text
-      className="Teaser__subTitle"
-      context="accent"
-      inline={true}
-      size="normal"
+    <div
+      className="Teaser__line"
     >
-      <span
-        className="Text--context_accent Teaser__subTitle"
+      <Text
+        className="Teaser__subTitle"
+        context="accent"
+        inline={true}
+        size="normal"
       >
-        Organization
-      </span>
-    </Text>
-    <Text
-      context="muted"
-      inline={true}
-      size="normal"
+        <span
+          className="Text--context_accent Teaser__subTitle"
+        >
+          Organization
+        </span>
+      </Text>
+    </div>
+    <div
+      className="Teaser__line"
     >
-      <span
-        className="Text--context_muted"
+      <Text
+        className="Teaser__details"
+        context="muted"
+        inline={true}
+        size="normal"
       >
-        details about this job
-      </span>
-    </Text>
+        <span
+          className="Text--context_muted Teaser__details"
+        >
+          details about this job
+        </span>
+      </Text>
+      <div
+        className="Teaser__statuses"
+      >
+        <span
+          key="Viewed"
+        >
+          <Tooltip
+            animation="shift-toward"
+            content="Viewed two days ago"
+          >
+            <ForwardRef(TippyWrapper)
+              animation="shift-toward"
+              content="Viewed two days ago"
+            >
+              <Tippy
+                animation="shift-toward"
+                content="Viewed two days ago"
+              >
+                <Text
+                  context="muted"
+                  inline={true}
+                  size="small"
+                >
+                  <span
+                    className="Text--context_muted Text--size_small"
+                  >
+                    Viewed
+                  </span>
+                </Text>
+                <Portal
+                  containerInfo={
+                    <div>
+                      Viewed two days ago
+                    </div>
+                  }
+                >
+                  Viewed two days ago
+                </Portal>
+              </Tippy>
+            </ForwardRef(TippyWrapper)>
+          </Tooltip>
+          <Text
+            context="muted"
+            inline={true}
+            size="small"
+          >
+            <span
+              className="Text--context_muted Text--size_small"
+            >
+               & 
+            </span>
+          </Text>
+        </span>
+        <span
+          key="Imported"
+        >
+          <Tooltip
+            animation="shift-toward"
+            content="Imported five days ago"
+          >
+            <ForwardRef(TippyWrapper)
+              animation="shift-toward"
+              content="Imported five days ago"
+            >
+              <Tippy
+                animation="shift-toward"
+                content="Imported five days ago"
+              >
+                <Text
+                  context="muted"
+                  inline={true}
+                  size="small"
+                >
+                  <span
+                    className="Text--context_muted Text--size_small"
+                  >
+                    Imported
+                  </span>
+                </Text>
+                <Portal
+                  containerInfo={
+                    <div>
+                      Imported five days ago
+                    </div>
+                  }
+                >
+                  Imported five days ago
+                </Portal>
+              </Tippy>
+            </ForwardRef(TippyWrapper)>
+          </Tooltip>
+        </span>
+      </div>
+    </div>
   </div>
 </Teaser>
 `;

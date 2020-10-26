@@ -2,10 +2,20 @@
     min-width: 0;
     margin: 0;
     display: flex;
+    flex: 1;
     flex-direction: column;
+    height: 63px;
 
-    &__titleLine {
+    &__line {
         display: flex;
+        flex: 1;
+        align-items: center;
+        padding-bottom: var(--spacing-2x);
+
+        &:last-child {
+            padding-bottom: 0;
+            justify-content: flex-end;
+        }
     }
 
     &__title {
@@ -28,8 +38,14 @@
         text-overflow: ellipsis;
     }
 
-    &__titleLine:not(:last-child),
-    &__subTitle:not(:last-child) {
-        padding-bottom: var(--spacing-2x);
+    &__details {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__statuses {
+        padding-left: var(--spacing-5x);
     }
 }
