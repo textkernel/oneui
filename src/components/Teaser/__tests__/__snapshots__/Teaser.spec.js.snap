@@ -30,7 +30,7 @@ exports[`Teaser should render correctly with just a title 1`] = `
       className="Teaser__line"
     />
     <div
-      className="Teaser__lastLine"
+      className="Teaser__line"
     />
   </div>
 </Teaser>
@@ -103,7 +103,7 @@ exports[`Teaser should render with all props defined 1`] = `
       </Text>
     </div>
     <div
-      className="Teaser__lastLine"
+      className="Teaser__line"
     >
       <Text
         className="Teaser__details"

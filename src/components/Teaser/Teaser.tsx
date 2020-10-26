@@ -27,6 +27,16 @@ const { block, elem } = bem('Teaser', styles);
 export const Teaser: React.FC<Props> = (props) => {
     const { title, subTitle, location, details, statuses, ...rest } = props;
 
+    const subTitleElement = (
+        <Text inline context="accent" {...elem('subTitle', props)}>
+            {subTitle}
+        </Text>
+    );
+    const detailsElement = (
+        <Text inline context="muted" {...elem('details', props)}>
+            {details}
+        </Text>
+    );
     return (
         <div {...rest} {...block(props)}>
             <div {...elem('line', props)}>
@@ -40,23 +50,11 @@ export const Teaser: React.FC<Props> = (props) => {
                 )}
             </div>
             <div {...elem('line', props)}>
-                {subTitle && (
-                    <Text inline context="accent" {...elem('subTitle', props)}>
-                        {subTitle}
-                    </Text>
-                )}
-                {!subTitle && details && (
-                    <Text inline context="muted" {...elem('details', props)}>
-                        {details}
-                    </Text>
-                )}
+                {subTitle && subTitleElement}
+                {!subTitle && details && detailsElement}
             </div>
-            <div {...elem('lastLine', props)}>
-                {subTitle && details && (
-                    <Text inline context="muted" {...elem('details', props)}>
-                        {details}
-                    </Text>
-                )}
+            <div {...elem('line', props)}>
+                {subTitle && details && detailsElement}
                 {statuses && statuses.length > 0 && (
                     <div {...elem('statuses', props)}>
                         {statuses.map(({ label, tooltip }, index) => (

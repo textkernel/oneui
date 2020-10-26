@@ -5,7 +5,7 @@ import { Teaser } from '@textkernel/oneui';
 
 storiesOf('Molecules|Teaser', module)
     .addDecorator(withKnobs)
-    .add('all fields', () => {
+    .add('With all fields', () => {
         const title = text('Title', 'My first job');
         return (
             <Teaser
@@ -26,7 +26,7 @@ storiesOf('Molecules|Teaser', module)
             />
         );
     })
-    .add('with one status', () => {
+    .add('With one status', () => {
         const title = text('Title', 'My first job');
         return (
             <Teaser
@@ -43,7 +43,7 @@ storiesOf('Molecules|Teaser', module)
             />
         );
     })
-    .add('without statuses', () => {
+    .add('Without statuses', () => {
         const title = text('Title', 'My first job');
         return (
             <Teaser
