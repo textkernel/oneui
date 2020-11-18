@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.6.1](https://github.com/textkernel/oneui/compare/12.6.0...12.6.1) (2020-11-18)
+
+
+### Bug Fixes
+
+* **Heading:** Remove static font color ([#429](https://github.com/textkernel/oneui/issues/429)) ([19ba1f2](https://github.com/textkernel/oneui/commit/19ba1f262a69e90ec8886188e0845b32cc322af1))
+
 ## [12.6.0](https://github.com/textkernel/oneui/compare/12.5.0...12.6.0) (2020-10-26)
 
 
