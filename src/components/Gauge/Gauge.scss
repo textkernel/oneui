@@ -1,0 +1,66 @@
+.Gauge {
+    position: relative;
+
+    &__svg {
+        transform: rotate(180deg);
+    }
+
+    &__circleBackground {
+        stroke: var(--color-neutral-25);
+        stroke-width: var(--spacing-2x);
+        stroke-linecap: round;
+        fill: none;
+    }
+
+    &__circleForeground {
+        stroke: var(--color-brand);
+        stroke-width: var(--spacing-4x);
+        stroke-linecap: round;
+        fill: none;
+        transition: all var(--transition-duration) ease-out;
+
+        &--isLoading {
+            opacity: 0;
+        }
+
+        &--context_primary {
+            stroke: var(--color-primary);
+        }
+    }
+
+    &__contentPlaceholder {
+        margin-bottom: 0;
+    }
+
+    &__valueWrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+
+        &--isLoading {
+            width: 100px;
+        }
+    }
+
+    &__value {
+        font-size: var(--h1-font-size);
+        font-weight: var(--font-weight-bold);
+    }
+
+    &__metric {
+        font-size: 50%;
+        margin-left: var(--spacing-2x);
+    }
+
+    &__bottom {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 100%);
+        color: var(--color-muted);
+        text-transform: uppercase;
+        font-weight: var(--font-weight-bold);
+        font-size: var(--font-size-small);
+    }
+}
