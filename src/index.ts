@@ -36,6 +36,7 @@ export { Checkbox } from './components/Checkbox';
 export { Dropdown } from './components/Dropdown';
 export { Footer } from './components/Footer';
 export { Header } from './components/Header';
+export { Gauge } from './components/Gauge';
 export { Field } from './components/Field';
 export { FieldWithValidation } from './components/FieldWithValidation';
 export { FieldWrapper } from './components/FieldWrapper';

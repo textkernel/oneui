@@ -7,6 +7,7 @@ import './Callout';
 import './Chip';
 import './ContentPlaceholder';
 import './Drawer';
+import './Gauge';
 import './Heading';
 import './Highlighter';
 import './Icon';
