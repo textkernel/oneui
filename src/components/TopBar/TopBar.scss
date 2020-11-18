@@ -1,0 +1,22 @@
+.TopBar {
+    + .TopBar {
+        margin-top: var(--spacing-4x);
+    }
+    &__details {
+        margin-bottom: var(--spacing-2x);
+        height: var(--line-height-normal);
+        line-height: var(--line-height-normal);
+        display: flex;
+        justify-content: space-between;
+    }
+    &__loader {
+        flex-grow: 2;
+    }
+    &__contentPlaceholder {
+        margin-bottom: 0;
+    }
+    &__count {
+        padding: 0;
+        border-width: 0;
+    }
+}
