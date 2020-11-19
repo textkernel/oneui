@@ -35,14 +35,8 @@ export const Pagination: React.FC<Props> = (props) => {
         ...rest
     } = props;
 
-    if (currentPage < 1 || currentPage > totalPages) {
-        throw new Error(
-            'Pagination error: current page should be at least 1 and no more then total available pages.'
-        );
-    }
-
     const defineRange = () => {
-        if (maxPageButtons === 1 && currentPage !== 1) {
+        if (maxPageButtons === 1) {
             return [currentPage];
         }
 
@@ -52,12 +46,15 @@ export const Pagination: React.FC<Props> = (props) => {
             Math.min(currentPage - showBefore, totalPages - maxPageButtons + 2)
         );
         const end = Math.min(totalPages, start + maxPageButtons - 2);
-        const range = new Array(end - start + 1).fill(0).map((_, i) => start + i);
+        const amount = end - start + 1;
+        if (amount < 0) {
+            return [];
+        }
 
-        return range;
+        return new Array(end - start + 1).fill(0).map((_, i) => start + i);
     };
 
-    const showButton1 = maxPageButtons > 1 || currentPage === 1;
+    const showButton1 = maxPageButtons > 1;
     const isPrevDisabled = currentPage === 1;
     const isNextDisabled = currentPage === totalPages;
     const range = defineRange();
