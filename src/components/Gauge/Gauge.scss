@@ -1,3 +1,5 @@
+@import '../../themes/oneui/oneui.scss';
+
 .Gauge {
     position: relative;
 
@@ -13,7 +15,6 @@
     }
 
     &__circleForeground {
-        stroke: var(--color-brand);
         stroke-width: var(--spacing-4x);
         stroke-linecap: round;
         fill: none;
@@ -21,10 +22,6 @@
 
         &--isLoading {
             opacity: 0;
-        }
-
-        &--context_primary {
-            stroke: var(--color-primary);
         }
     }
 
@@ -62,5 +59,15 @@
         text-transform: uppercase;
         font-weight: var(--font-weight-bold);
         font-size: var(--font-size-small);
+    }
+
+    @each $context in ($contexts) {
+        &__gradientStart--#{ $context } {
+            stop-color: var(--color-#{$context});
+        }
+
+        &__gradientEnd--#{ $context } {
+            stop-color: var(--color-#{$context}-25);
+        }
     }
 }

@@ -20,6 +20,10 @@ export const Gauge = (props) => {
     return (
         <div {...rest} {...block(props)}>
             <svg {...elem('svg', props)} width="100%">
+                <linearGradient id={ `Gauge__gradient--${ context }` }>
+                    <stop className={ `Gauge__gradientStart--${ context }` } offset="50%" />
+                    <stop className={ `Gauge__gradientEnd--${ context }` } offset="100%" />
+                </linearGradient>
                 <circle
                     {...elem('circleBackground', props)}
                     r={radius}
@@ -37,6 +41,7 @@ export const Gauge = (props) => {
                     style={{
                         strokeDasharray: strokeDasharrayForeground,
                     }}
+                    stroke={ `url(#Gauge__gradient--${ context })` }
                 />
             </svg>
             <div {...elem('valueWrapper', props)}>
