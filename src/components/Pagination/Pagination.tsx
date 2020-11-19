@@ -42,7 +42,11 @@ export const Pagination: React.FC<Props> = (props) => {
     }
 
     const defineRange = () => {
-        if (maxPageButtons === 1 && currentPage !== 1) {
+        if (maxPageButtons === 0) {
+            return [];
+        }
+
+        if (maxPageButtons === 1) {
             return [currentPage];
         }
 
@@ -57,7 +61,7 @@ export const Pagination: React.FC<Props> = (props) => {
         return range;
     };
 
-    const showButton1 = maxPageButtons > 1 || currentPage === 1;
+    const showButton1 = maxPageButtons > 1;
     const isPrevDisabled = currentPage === 1;
     const isNextDisabled = currentPage === totalPages;
     const range = defineRange();
