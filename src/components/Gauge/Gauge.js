@@ -60,7 +60,7 @@ Gauge.propTypes = {
     context: PropTypes.oneOf(CONTEXTS),
     children: PropTypes.node,
     isLoading: PropTypes.bool,
-    percentage: PropTypes.number.isRequired,
+    percentage: PropTypes.number,
     value: PropTypes.node,
     metric: PropTypes.node,
 };
@@ -69,6 +69,7 @@ Gauge.defaultProps = {
     context: 'brand',
     children: null,
     isLoading: false,
+    percentage: null,
     value: null,
     metric: null,
 };
