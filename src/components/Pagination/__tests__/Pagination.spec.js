@@ -96,12 +96,6 @@ describe('<Pagination> that renders a pagination component', () => {
         });
     });
     describe('edge cases', () => {
-        it('should throw and error if curernt page is 0', () => {
-            expect(() => mount(<Pagination totalPages={20} currentPage={0} />)).toThrow();
-        });
-        it('should throw and error if curernt page is too large', () => {
-            expect(() => mount(<Pagination totalPages={20} currentPage={22} />)).toThrow();
-        });
         it('should not have pages when maxPageButtons is 0', () => {
             wrapper = mount(<Pagination currentPage={1} maxPageButtons={0} totalPages={20} />);
             const pageButtons = wrapper.find('PaginationButton');
