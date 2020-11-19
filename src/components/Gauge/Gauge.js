@@ -10,7 +10,7 @@ const { block, elem } = bem('Gauge', styles);
 export const Gauge = (props) => {
     const { children, context, isLoading, percentage, value, metric, ...rest } = props;
 
-    const progress = isLoading ? 0 : percentage / 100;
+    const progress = isLoading ? 0 : Math.max(0, Math.min(100, percentage)) / 100;
     const radius = 100;
     const circumference = 2 * Math.PI * radius;
     const circumferenceHalf = circumference / 2;
