@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [12.6.2](https://github.com/textkernel/oneui/compare/12.6.1...12.6.2) (2020-11-25)
+
+
+### Bug Fixes
+
+* **Pagination:** fixed ability to set maxPageButtons=0 ([#431](https://github.com/textkernel/oneui/issues/431)) ([98d73f3](https://github.com/textkernel/oneui/commit/98d73f3901a69e7e6fd39ccc58a37eb5e46d4427))
+
 ### [12.6.1](https://github.com/textkernel/oneui/compare/12.6.0...12.6.1) (2020-11-18)
 
 
