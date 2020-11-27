@@ -65,4 +65,4 @@ export {
     LocationSelectorDialog,
     LocationSelectorDialogWithGoogleLoader,
 } from './components/LocationSelector';
-export { WeightedResultBar } from './components/WeightedResultBar';
+export { WeightedResultBar, WeightedResultBarLoader } from './components/WeightedResultBar';
