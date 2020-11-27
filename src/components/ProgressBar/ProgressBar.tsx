@@ -2,11 +2,26 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { bem } from '../../utils';
 import styles from './ProgressBar.scss';
-import { CONTEXTS } from '../../constants';
+import { Context } from '../../constants';
+
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+    /** Percentage of progress bar to be filled */
+    percentage: number;
+    /** Show progress activity with animation */
+    animated?: boolean;
+    /** Text to show instead of percentage */
+    children?: ReactNode;
+    /** The progress bar context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    context?: Context;
+    /** Hides the progress bar if true */
+    hidden?: boolean;
+    /** Renders a narrow bar without label or percentage */
+    small?: boolean;
+}
 
 const { block, elem } = bem('ProgressBar', styles);
 
-export const ProgressBar = (props) => {
+export const ProgressBar: React.FC<Props> = (props) => {
     const { animated, children, context, hidden, percentage, small, ...rest } = props;
     const percentageAdjusted = Math.max(0, Math.min(percentage, 100));
 
@@ -33,21 +48,6 @@ export const ProgressBar = (props) => {
 };
 
 ProgressBar.displayName = 'ProgressBar';
-
-ProgressBar.propTypes = {
-    /** Show progress activity with animation */
-    animated: PropTypes.bool,
-    /** Text to show instead of percentage */
-    children: PropTypes.node,
-    /** The progress bar context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context: PropTypes.oneOf(CONTEXTS),
-    /** Hides the progress bar if true */
-    hidden: PropTypes.bool,
-    /** Percentage of progress bar to be filled */
-    percentage: PropTypes.number.isRequired,
-    /** Renders a narrow bar without label or percentage */
-    small: PropTypes.bool,
-};
 
 ProgressBar.defaultProps = {
     animated: false,
