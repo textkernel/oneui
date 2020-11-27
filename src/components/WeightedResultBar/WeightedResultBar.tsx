@@ -17,7 +17,14 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const WeightedResultBar: React.FC<Props> = (props) => {
-    const { isLoading, children, context, percentage, count, ...rest } = props;
+    const {
+        isLoading = false,
+        children = '',
+        context = 'brand',
+        percentage = 100,
+        count = 0,
+        ...rest
+    } = props;
 
     return <div {...rest}>{children}</div>;
 };
