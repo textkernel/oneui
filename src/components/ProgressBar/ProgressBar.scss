@@ -23,7 +23,7 @@
         size: var(--progress-font-size);
         weight: var(--font-weight-bold);
     }
-    margin: var(--spacing-normal);
+    margin: var(--spacing-normal) 0;
 
     &__fill {
         border-radius: var(--border-radius);
