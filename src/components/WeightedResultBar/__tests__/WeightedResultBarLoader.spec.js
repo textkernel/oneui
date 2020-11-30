@@ -1,5 +1,4 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 import { WeightedResultBarLoader } from '../WeightedResultBarLoader';
 
 describe('WeightedResultBarLoader', () => {
