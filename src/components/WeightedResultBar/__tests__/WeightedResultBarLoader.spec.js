@@ -7,9 +7,10 @@ describe('WeightedResultBarLoader', () => {
         const wrapper = mount(
             <div>
                 <WeightedResultBarLoader />
-                <WeightedResultBarLoader />
             </div>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        // We cannot test for snapshot match because of the random length of the placeholder
+        expect(wrapper.find('ContentPlaceholder')).toHaveLength(1);
+        expect(wrapper.find('ProgressBar')).toHaveLength(1);
     });
 });

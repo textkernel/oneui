@@ -9,7 +9,7 @@ const { block } = bem('WeightedResultBar', styles);
 export const WeightedResultBarLoader: React.FC<React.HTMLAttributes<HTMLDivElement>> = (props) => {
     return (
         <div {...props} {...block(props)}>
-            <ContentPlaceholder height={18} width={Math.floor(Math.random() * 60) + 25} />
+            <ContentPlaceholder height={17} width={Math.floor(Math.random() * 60) + 25} />
             <ProgressBar percentage={100} context="neutral" small />
         </div>
     );
