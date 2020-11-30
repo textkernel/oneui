@@ -44,11 +44,11 @@ import './RadioButton';
 import './Teaser';
 import './Tooltip';
 import './TwoPaneView';
+import './WeightedResultBar';
 // Organisms
 import './Autosuggest';
 import './Select';
 import './LocationAutocomplete';
 import './LocationSelector';
-import './WeightedResultBar';
 // Packages
 import './packages/BooleanQueryTokenizer';
