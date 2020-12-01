@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WeightedResultBar should render correctly in loading state 1`] = `
+exports[`WeightedResultBar should render correctly 1`] = `
 <WeightedResultBar
   context="brand"
+  count={123}
+  percentage={67}
 >
   <div
     className="WeightedResultBar"
@@ -24,20 +26,23 @@ exports[`WeightedResultBar should render correctly in loading state 1`] = `
         inline={true}
         size="normal"
       >
-        <span />
+        <span>
+          123
+        </span>
       </Text>
     </div>
     <ProgressBar
       animated={false}
       context="brand"
       hidden={false}
+      percentage={67}
       small={true}
     >
       <div
         aria-hidden={false}
         aria-valuemax="100"
         aria-valuemin="0"
-        aria-valuenow={NaN}
+        aria-valuenow={67}
         className="ProgressBar ProgressBar--small"
         role="progressbar"
       >
@@ -45,7 +50,7 @@ exports[`WeightedResultBar should render correctly in loading state 1`] = `
           className="ProgressBar__fill ProgressBar__fill--context_brand ProgressBar__fill--small"
           style={
             Object {
-              "width": "NaN%",
+              "width": "67%",
             }
           }
         />
