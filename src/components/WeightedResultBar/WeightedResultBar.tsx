@@ -20,6 +20,14 @@ const { block, elem } = bem('WeightedResultBar', styles);
 
 export const WeightedResultBar: React.FC<Props> = (props) => {
     const { children, percentage, count, context, ...rest } = props;
+    const [percentageToShow, setPercentageToShow] = React.useState(100);
+
+    // simulate prop change on ProgressBar to get a little animation going
+    React.useEffect(() => {
+        setTimeout(() => {
+            setPercentageToShow(percentage);
+        }, 0);
+    }, [percentage]);
 
     return (
         <div {...rest} {...block(props)}>
@@ -27,7 +35,7 @@ export const WeightedResultBar: React.FC<Props> = (props) => {
                 <Text inline>{children}</Text>
                 <Text inline>{count}</Text>
             </div>
-            <ProgressBar percentage={percentage} context={context} small />
+            <ProgressBar percentage={percentageToShow} context={context} small />
         </div>
     );
 };
