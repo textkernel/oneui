@@ -1,0 +1,11 @@
+.WeightedResultBar {
+    + .WeightedResultBar {
+        margin-top: var(--spacing-4x);
+    }
+
+    &__details {
+        margin-bottom: var(--spacing-2x);
+        display: flex;
+        justify-content: space-between;
+    }
+}

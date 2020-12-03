@@ -44,6 +44,7 @@ import './RadioButton';
 import './Teaser';
 import './Tooltip';
 import './TwoPaneView';
+import './WeightedResultBar';
 // Organisms
 import './Autosuggest';
 import './Select';

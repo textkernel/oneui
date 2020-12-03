@@ -47,6 +47,7 @@ export { RadioButton, RadioButtonGroup } from './components/RadioButton';
 export { Teaser } from './components/Teaser';
 export { Tooltip } from './components/Tooltip';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
+export { WeightedResultBar, WeightedResultBarLoader } from './components/WeightedResultBar';
 // Organisms
 export { Autosuggest, ItemTag } from './components/Autosuggest';
 export {
