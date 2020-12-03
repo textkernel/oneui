@@ -14,7 +14,6 @@ const selectedLocations = [
             lat: 52.3666969,
         },
         radius: 42,
-        sliderLabel: '42km',
     },
     {
         id: 'ajdo-219a-j19v-0492',
@@ -24,7 +23,6 @@ const selectedLocations = [
             lat: 52.09073739999999,
         },
         radius: 20,
-        sliderLabel: '20km',
     },
 ];
 

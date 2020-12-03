@@ -7,7 +7,7 @@ import {
     geocodeMock,
     stabGoogleApi,
 } from '../../../__mocks__/googleApiMock';
-import geocodeResponse from '../__mocks__/geocodeResponse.json';
+import { geocodeResponse } from '../__mocks__/geocodeResponse';
 import { Map } from '..';
 
 stabGoogleApi();
