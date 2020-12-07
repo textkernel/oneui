@@ -2,7 +2,7 @@ import React from 'react';
 import toJson from 'enzyme-to-json';
 import { act } from 'react-dom/test-utils';
 import { stabGoogleApi, geocodeMock } from '../../../__mocks__/googleApiMock';
-import geocodeResponse from '../../Map/__mocks__/geocodeResponse.json';
+import { geocodeResponse } from '../../Map/__mocks__/geocodeResponse';
 import { LocationSelector } from '..';
 
 stabGoogleApi();

@@ -65,4 +65,6 @@ export {
     LocationSelector,
     LocationSelectorDialog,
     LocationSelectorDialogWithGoogleLoader,
+    LocationSelectorLocation,
+    LocationSelectorAddressComponent,
 } from './components/LocationSelector';

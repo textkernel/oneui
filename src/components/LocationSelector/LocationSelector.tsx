@@ -4,7 +4,12 @@ import { bem } from '../../utils';
 import { Modal } from '../Modal';
 import { FieldWrapper } from '../FieldWrapper';
 import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
-import { Location, findCenter, getRadiusInMeters, getAddressComponents } from './utils';
+import {
+    findCenter,
+    getRadiusInMeters,
+    getAddressComponents,
+    LocationSelectorLocation,
+} from './utils';
 import { ENTER_KEY, ESCAPE_KEY } from '../../constants';
 import { useBrowserTabVisibilityChange } from '../../hooks';
 import styles from './LocationSelector.scss';
@@ -27,7 +32,7 @@ interface Props {
     /** defines if selector has an option of opening the modal window by pressing Enter button */
     openOnEnterPress: boolean;
     /** stores an array of selected location objects */
-    selectedLocations: Location[];
+    selectedLocations: LocationSelectorLocation[];
     /** defines if selector has an option to control the radius for a marker */
     hasRadius?: boolean;
     /** default radius value */
@@ -72,11 +77,11 @@ interface Props {
     /** label to be used for Clear buttons of the component */
     clearLabel: string;
     /** function called with location object as an argument when it is selected from the suggestions */
-    onAddLocation: (location: Location) => void;
+    onAddLocation: (location: LocationSelectorLocation) => void;
     /** function called with a location details as an argument to be changed */
-    onUpdateLocation: (location: Location) => void;
+    onUpdateLocation: (location: LocationSelectorLocation) => void;
     /** function with a locationId as an argument to be removed */
-    onRemoveLocation: (location: Location) => void;
+    onRemoveLocation: (location: LocationSelectorLocation) => void;
     /** callback function for the Clear button click */
     onRemoveAllLocations: () => void;
     /** callback function for closed modal */
@@ -182,23 +187,23 @@ export const LocationSelector: React.FC<Props> = (props) => {
      * add it along with passed location object to the selectedLocations array
      * if this location was not selected yet
      */
-    function handleAddLocation(location) {
+    function handleAddLocation(location: LocationSelectorLocation) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const { Geocoder } = (window as any).google.maps;
+        const { Geocoder } = window.google.maps;
         const geocoder = new Geocoder();
 
         return findCenter(geocoder, location.place_id)
-            .then((center: any) => {
-                const lng = typeof center.lng === 'function' ? center.lng() : center.lng;
-                const lat = typeof center.lat === 'function' ? center.lat() : center.lat;
+            .then((center) => {
+                const lng = center.lng();
+                const lat = center.lat();
                 const isLocationSelected = selectedLocations
                     .map((item) => item.place_id)
                     .includes(location.place_id);
-                const locationToAdd = {
+                const locationToAdd: LocationSelectorLocation = {
                     ...location,
                     id: location.place_id,
                     center: { lat, lng },
-                    radius: hasRadius ? radiusDefaultValue : 0,
+                    radius: hasRadius && radiusDefaultValue ? radiusDefaultValue : 0,
                 };
 
                 if (!isLocationSelected) {
