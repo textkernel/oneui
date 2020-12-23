@@ -65,9 +65,10 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         onSubmit,
         showClearButton,
         onSelectionRemove,
+        inputRef: inputRefFromProps,
         ...rest
     } = props;
-    const inputRef = React.createRef<HTMLInputElement>();
+    const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
     const [inputValue, setInputValue] = React.useState('');
 
     const handleInputValueChange = (value: string) => {
