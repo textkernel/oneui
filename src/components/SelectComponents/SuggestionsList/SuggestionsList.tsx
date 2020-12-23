@@ -21,7 +21,7 @@ export interface Props<S> {
     /** suggestionToKey(suggestion) makes a key to be used for a suggestion item */
     suggestionToKey?: (suggestion: S) => string;
     /** render function for suggestion list item. If undefined `suggestionToString` will be used */
-    suggestionItemRenderer?: (suggestion: S) => ReactNode;
+    suggestionItemRenderer?: (suggestion: S, index: number, array: S[]) => ReactNode;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder?: string;
     /** Defines if the first item of suggestions list is always visible */
@@ -61,7 +61,7 @@ export function SuggestionsList<S>(props: Props<S>) {
             isHighlighted={highlightedIndex === index}
         >
             {suggestionItemRenderer ? (
-                suggestionItemRenderer(suggestions[index])
+                suggestionItemRenderer(suggestions[index], index, suggestions)
             ) : (
                 <MarkedText marker={inputValue} inline>
                     {suggestionToString(suggestions[index])}

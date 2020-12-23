@@ -6,7 +6,7 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestions?: S | null) => string;
     /** render function for suggestion list item. If undefined, suggestionToString will be used. */
-    suggestionItemRenderer?: (suggestions?: S | null) => ReactNode;
+    suggestionItemRenderer?: (suggestions: S | null, index: number, array: S[]) => ReactNode;
     /** root wrapper ref */
     rootRef?: React.RefObject<HTMLDivElement>;
     /** suggestions list ref */

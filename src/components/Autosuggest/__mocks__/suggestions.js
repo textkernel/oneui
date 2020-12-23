@@ -10,4 +10,16 @@ export const SUGGESTIONS = [
     { name: 'Neptun' },
 ];
 
+export const COMPLEX_SUGGESTIONS = [
+    { name: 'Sun', type: 'star' },
+    { name: 'Moon', type: 'star' },
+    { name: 'Mercury', type: 'planet' },
+    { name: 'Venus', type: 'planet' },
+    { name: 'Earth', type: 'planet' },
+    { name: 'Mars', type: 'planet' },
+    { name: 'Jupiter', type: 'planet' },
+    { name: 'Saturn', type: 'planet' },
+    { name: 'Neptun', type: 'planet' },
+];
+
 export const SUGGESTION_TO_STRING = (item) => (item ? item.name : '');

@@ -6,9 +6,11 @@ import { StoreInjector } from '../src/packages/storybook/withStore';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
+    COMPLEX_SUGGESTIONS,
 } from '../src/components/Autosuggest/__mocks__/suggestions';
 
 type TSuggestion = { name: string };
+type TComplexSuggestion = { name: string; type: string };
 
 const searchFor = {
     name: '',
@@ -214,6 +216,138 @@ storiesOf('Organisms|Select Components', module)
                         inputPlaceholder={text('Input placeholder', 'Select something...')}
                         suggestions={getSuggestions()}
                         suggestionToString={SUGGESTION_TO_STRING}
+                        onBlur={onBlur}
+                        onFocus={onFocus}
+                        onSubmit={onSubmit}
+                        onSelectionAdd={onSelectionAdd}
+                        onSelectionRemove={onSelectionRemove}
+                        isProminent={boolean('Use prominent styling', true)}
+                        isLoading={boolean('isLoading', false)}
+                        onInputValueChange={onInputValueChange}
+                        showClearButton={boolean('Show clear button', true)}
+                        clearTitle={text('Clear button label', 'Clear')}
+                        onClearAllSelected={onClearAllSelected}
+                        noSuggestionsPlaceholder={text(
+                            'No suggestions placeholder',
+                            'No suggestions'
+                        )}
+                    />
+                </div>
+            );
+        },
+        {
+            info: {
+                text: `
+            ## Usage information
+            This component is recommended to use for a dynamic list of values.
+            The list of suggestions is shown once there's a value inside the input.
+
+            More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
+            },
+        }
+    )
+    .add(
+        'AutosuggestMulti with custom item renderer',
+        (storyContext) => {
+            const store = storyContext?.parameters.getStore();
+            const getSuggestions = (): TComplexSuggestion[] => {
+                const suggestions = COMPLEX_SUGGESTIONS.filter(
+                    (item: TComplexSuggestion) =>
+                        !store
+                            .get('selectedSuggestions')
+                            .some(
+                                (i) => item.name.toLocaleLowerCase() === i.name.toLocaleLowerCase()
+                            )
+                );
+                return suggestions;
+            };
+
+            const onInputValueChange = (value: string) => {
+                console.log(`onInputValueChange was called with ${value}`);
+            };
+
+            const onSelectionAdd = (item: TComplexSuggestion) => {
+                console.log(`onSelectionAdd was called with {name: ${item.name}}`);
+                const selectedItem = { ...item };
+                // Add new item
+                if (
+                    !store
+                        .get('selectedSuggestions')
+                        .some((i: TComplexSuggestion) => i.name === selectedItem.name)
+                ) {
+                    const selectedSuggestions = [...store.get('selectedSuggestions'), selectedItem];
+                    store.set({
+                        selectedSuggestions,
+                    });
+                }
+            };
+
+            const onSelectionRemove = (item: TComplexSuggestion) => {
+                console.log(`onSelectionRemove was called with {name: ${item.name}}`);
+                // Delete item
+                const selectedSuggestions = store
+                    .get('selectedSuggestions')
+                    .filter((i: TComplexSuggestion) => i.name !== item.name);
+                store.set({
+                    selectedSuggestions,
+                });
+            };
+
+            const onBlur = () => {
+                console.log('onBlur was called');
+            };
+
+            const onClearAllSelected = () => {
+                console.log('onClearAllSelected was called');
+                store.set({ selectedSuggestions: [] });
+            };
+
+            const onFocus = () => {
+                console.log('onFocus was called');
+            };
+
+            const onSubmit = () => {
+                console.log('onSubmit was called');
+            };
+
+            const suggestionRenderer = (
+                item: TComplexSuggestion | null,
+                i: number,
+                array: TComplexSuggestion[]
+            ) => {
+                if (!item) {
+                    return null;
+                }
+                if (i === 0 || item.type !== array[i - 1].type) {
+                    return (
+                        <div
+                            style={{
+                                borderTop: '1px solid grey',
+                                width: '100%',
+                                margin: '-12px',
+                                padding: '12px',
+                            }}
+                        >
+                            {item.name}
+                            <span
+                                style={{ color: 'grey', marginLeft: '6px' }}
+                            >{`- ${item.type}`}</span>
+                        </div>
+                    );
+                }
+
+                return <div>{item.name}</div>;
+            };
+
+            return (
+                <div style={{ width: '500px' }}>
+                    <AutosuggestMulti
+                        id="test"
+                        selectedSuggestions={store.get('selectedSuggestions')}
+                        inputPlaceholder={text('Input placeholder', 'Select something...')}
+                        suggestions={getSuggestions()}
+                        suggestionToString={SUGGESTION_TO_STRING}
+                        suggestionItemRenderer={suggestionRenderer}
                         onBlur={onBlur}
                         onFocus={onFocus}
                         onSubmit={onSubmit}
