@@ -30,8 +30,8 @@ interface Props<S>
     inputPlaceholder: string;
     /** String to be shown when no suggestions are available */
     noSuggestionsPlaceholder?: string;
-    /** Defines if the first item of suggestions list is visible even while loading other elements */
-    isFirstItemAlwaysVisible?: boolean;
+    /** Defines if suggestions list is visible even while loading other elements */
+    allowMixingSuggestionsAndLoading?: boolean;
     /** Enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
     /** Function to be called when a suggestion is removed  */
@@ -70,7 +70,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         suggestions,
         isLoading,
         numberOfVisibleTags,
-        isFirstItemAlwaysVisible,
+        allowMixingSuggestionsAndLoading,
         onFocus,
         onBlur,
         onSubmit,
@@ -201,7 +201,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         return inputToList ? (
             <SuggestionsList
                 {...listProps}
-                isFirstItemAlwaysVisible={isFirstItemAlwaysVisible}
+                allowMixingSuggestionsAndLoading={allowMixingSuggestionsAndLoading}
                 isLoading={isLoading}
                 useOptimizeRender={useOptimizeListRender}
                 suggestionToKey={suggestionToKey}
@@ -245,7 +245,7 @@ AutosuggestMulti.defaultProps = {
     numberOfVisibleTags: 3,
     selectedSuggestions: [],
     suggestionToKey: null,
-    isFirstItemAlwaysVisible: false,
+    allowMixingSuggestionsAndLoading: false,
     useOptimizeListRender: false,
     onSubmit: null,
     onSelectionRemove: null,

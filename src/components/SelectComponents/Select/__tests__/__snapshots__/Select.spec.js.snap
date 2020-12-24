@@ -297,11 +297,11 @@ exports[`Select rendering should render focused component correctly 1`] = `
                 tabIndex={-1}
               >
                 <SuggestionsList
+                  allowMixingSuggestionsAndLoading={false}
                   className="List__item"
                   getItemProps={[Function]}
                   highlightedIndex={1}
                   inputValue=""
-                  isFirstItemAlwaysVisible={false}
                   isLoading={false}
                   key=".0"
                   noSuggestionsPlaceholder=""

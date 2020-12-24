@@ -496,11 +496,11 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                     role="listbox"
                   >
                     <SuggestionsList
+                      allowMixingSuggestionsAndLoading={false}
                       className="List__item"
                       getItemProps={[Function]}
                       highlightedIndex={0}
                       inputValue=""
-                      isFirstItemAlwaysVisible={false}
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder="No suggestions..."

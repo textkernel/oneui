@@ -2,8 +2,8 @@
 
 exports[`AutosuggestMulti rendering should initially render empty component correctly 1`] = `
 <AutosuggestMulti
+  allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."
-  isFirstItemAlwaysVisible={false}
   isLoading={false}
   noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
@@ -139,8 +139,8 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
 
 exports[`AutosuggestMulti rendering should initially render focused component correctly 1`] = `
 <AutosuggestMulti
+  allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."
-  isFirstItemAlwaysVisible={false}
   isLoading={false}
   noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
@@ -278,8 +278,8 @@ exports[`AutosuggestMulti rendering should initially render focused component co
 
 exports[`AutosuggestMulti rendering should render component with suggestions 1`] = `
 <AutosuggestMulti
+  allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."
-  isFirstItemAlwaysVisible={false}
   isLoading={false}
   noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
@@ -474,11 +474,11 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                     role="listbox"
                   >
                     <SuggestionsList
+                      allowMixingSuggestionsAndLoading={false}
                       className="List__item"
                       getItemProps={[Function]}
                       highlightedIndex={0}
                       inputValue="driver"
-                      isFirstItemAlwaysVisible={false}
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder=""
@@ -897,8 +897,8 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
 
 exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
 <AutosuggestMulti
+  allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."
-  isFirstItemAlwaysVisible={false}
   isLoading={true}
   noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
@@ -1039,11 +1039,11 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
                     role="listbox"
                   >
                     <SuggestionsList
+                      allowMixingSuggestionsAndLoading={false}
                       className="List__item"
                       getItemProps={[Function]}
                       highlightedIndex={0}
                       inputValue="driver"
-                      isFirstItemAlwaysVisible={false}
                       isLoading={true}
                       key=".0"
                       noSuggestionsPlaceholder=""

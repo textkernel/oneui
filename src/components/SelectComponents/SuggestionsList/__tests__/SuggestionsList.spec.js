@@ -49,4 +49,15 @@ describe('SuggestionsList', () => {
         wrapper.setProps({ suggestionItemRenderer });
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+    it('should render mixed suggestions and loading list if requested', () => {
+        const suggestionsList = SUGGESTIONS.slice(1, 3);
+        wrapper.setProps({
+            suggestions: suggestionsList,
+            isLoading: true,
+            allowMixingSuggestionsAndLoading: true,
+        });
+
+        expect(wrapper.find('ListItem')).toHaveLength(7);
+        expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(5);
+    });
 });

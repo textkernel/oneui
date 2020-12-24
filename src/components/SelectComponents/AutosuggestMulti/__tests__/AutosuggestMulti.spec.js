@@ -65,17 +65,17 @@ describe('AutosuggestMulti', () => {
             expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(5);
             expect(toJson(wrapper)).toMatchSnapshot();
         });
-        it('should render the first item with isLoading set to true', () => {
-            suggestionsList = SUGGESTIONS.slice(1, 20);
+        it('should render mix suggestions and loader if allowMixingSuggestionsAndLoading is set to true', () => {
+            suggestionsList = SUGGESTIONS.slice(1, 3);
             wrapper.setProps({
                 suggestions: suggestionsList,
                 isLoading: true,
-                isFirstItemAlwaysVisible: true,
+                allowMixingSuggestionsAndLoading: true,
             });
             setFocusOnInput();
             wrapper.find('input').simulate('change', { target: { value: 'driver' } });
-            expect(wrapper.find('span')).toHaveLength(1);
-            expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(4);
+            expect(wrapper.find('ListItem')).toHaveLength(7);
+            expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(5);
         });
         it('should render empty component correctly when focused', async () => {
             setFocusOnInput();

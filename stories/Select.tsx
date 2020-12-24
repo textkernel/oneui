@@ -475,7 +475,7 @@ storiesOf('Organisms|Select Components', module)
                         onBlur={onBlur}
                         onFocus={onFocus}
                         onSubmit={onSubmit}
-                        isFirstItemAlwaysVisible={!!store.get('inputValue').length}
+                        allowMixingSuggestionsAndLoading={!!store.get('inputValue').length}
                         onSelectionAdd={onSelectionAdd}
                         onSelectionRemove={onSelectionRemove}
                         isProminent={boolean('Use prominent styling', true)}
@@ -621,7 +621,7 @@ storiesOf('Organisms|Select Components', module)
                         onBlur={onBlur}
                         onFocus={onFocus}
                         onSubmit={onSubmit}
-                        isFirstItemAlwaysVisible={!!store.get('inputValue').length}
+                        allowMixingSuggestionsAndLoading={!!store.get('inputValue').length}
                         onSelectionAdd={onSelectionAdd}
                         onSelectionRemove={onSelectionRemove}
                         isLoading={boolean('isLoading', false)}
