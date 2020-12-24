@@ -26,7 +26,7 @@ storiesOf('Organisms|Select Components', module)
             selectedItem: SUGGESTIONS[0],
             disabled: false,
             inputRef: React.createRef(),
-            freeInputSelection: '',
+            singleSelectedText: '',
         })
     )
     .add(
@@ -137,8 +137,8 @@ storiesOf('Organisms|Select Components', module)
             info: {
                 text: `
             ## Usage information
-            This component is recommended to use when there's a static known list of values.
-            The list is shown right away by clicking on the control. Selected components get rendered above the component outside of the main input.
+            This component is recommended to use when there's a static known list of values. The user can filter the list through the input field.
+            The list is shown right away by clicking on the control. Selected options are not rendered by the component itself. The application using this component should rendered them separately, e.g. above this component using SelectedOption.
 
             More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
             },
@@ -146,7 +146,7 @@ storiesOf('Organisms|Select Components', module)
     )
     // eslint-disable-next-line
     .add(
-        'Autosuggest',
+        'Autosuggest as multi-select component',
         (storyContext) => {
             const store = storyContext?.parameters.getStore();
             const getSuggestions = (): TSuggestion[] => {
@@ -240,9 +240,115 @@ storiesOf('Organisms|Select Components', module)
                 text: `
             ## Usage information
             This component is recommended to use for a dynamic list of values.
+            It is geared toward a multi-select usecase, but you can use it in single select more too. See related story for details.
             The list of suggestions is shown once there's a value inside the input.
 
             More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
+            },
+        }
+    )
+    // eslint-disable-next-line
+    .add(
+        'Autosuggest as single-select component',
+        (storyContext) => {
+            const store = storyContext?.parameters.getStore();
+            const inputValue = store.get('inputValue');
+            const inputRef = React.createRef<HTMLInputElement>();
+
+            const getSuggestions = (): TSuggestion[] => {
+                // filtering suggestions from some other source
+                return SUGGESTIONS.filter((item: TSuggestion) =>
+                    // suggestion is relevant to input
+                    item.name.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())
+                );
+            };
+
+            const onInputValueChange = (value: string) => {
+                console.log(`onInputValueChange was called with ${value}`);
+                store.set({ inputValue: value });
+            };
+
+            // most of the magic is happening here
+            const onSelectionAdd = (item: TSuggestion) => {
+                console.log(`onSelectionAdd was called with {name: ${item.name}}`);
+                store.set({ singleSelectedText: item.name });
+                // Force UI behavior to single select - blur the field
+                inputRef.current?.blur();
+            };
+
+            const onBlur = () => {
+                console.log('onBlur was called');
+                // inputValue is used to filter suggestions,
+                // preserve it for free text selection, but not otherwise
+                store.set({ inputValue: store.get('singleSelectedText') || '' });
+            };
+
+            const onClearAllSelected = () => {
+                console.log('onClearAllSelected was called');
+                store.set({ singleSelectedText: '' });
+            };
+
+            const onFocus = () => {
+                console.log('onFocus was called');
+            };
+
+            const onSubmit = () => {
+                console.log('onSubmit was called');
+            };
+
+            // Other magical prop -> will overwrite standard blurred render UI
+            const customBlur = {
+                selectionIndicator: (
+                    <div
+                        style={{
+                            alignSelf: 'center',
+                            marginLeft: '12px',
+                        }}
+                    >
+                        {store.get('singleSelectedText')}
+                    </div>
+                ),
+                isInputHidden: true,
+                showClearButton: true,
+            };
+
+            return (
+                <div style={{ width: '500px' }}>
+                    <Autosuggest
+                        id="test"
+                        inputPlaceholder={text('Input placeholder', 'Select something...')}
+                        suggestions={getSuggestions()}
+                        suggestionToString={SUGGESTION_TO_STRING}
+                        onBlur={onBlur}
+                        onFocus={onFocus}
+                        onSubmit={onSubmit}
+                        onSelectionAdd={onSelectionAdd}
+                        isLoading={boolean('isLoading', false)}
+                        onInputValueChange={onInputValueChange}
+                        showClearButton={boolean('Show clear button', true)}
+                        clearTitle={text('Clear button label', 'Clear')}
+                        onClearAllSelected={onClearAllSelected}
+                        inputRef={inputRef}
+                        // this will trick to UI to pre-fill the in input field when it gets focused again
+                        initInputValue={store.get('singleSelectedText')}
+                        // Here we overwrite the UI default look when we have a selection
+                        customBlurParams={store.get('singleSelectedText') ? customBlur : undefined}
+                    />
+                </div>
+            );
+        },
+        {
+            info: {
+                text: `
+                The Autosuggest component is recommended to use for a dynamic list of values.
+                It is primarily geared toward a multi-select use case. 
+                This story demonstrates how you can add props and function to make it feel like a single select component.
+                
+                The important parts here are:
+                * passing inputRef prop, so we can access the input field from outside
+                * calling inputRef.current.blur() in onSelectionAdd
+                * when something was selected, passing a custom customBlurParams object to alter the look and feel of the blurred component
+                * passing initInputValue so that the input field gets populated when the component receives focus again.`,
             },
         }
     )
@@ -369,11 +475,8 @@ storiesOf('Organisms|Select Components', module)
         {
             info: {
                 text: `
-            ## Usage information
-            This component is recommended to use for a dynamic list of values.
-            The list of suggestions is shown once there's a value inside the input.
-
-            More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
+            The Autosuggest component is recommended to use for a dynamic list of values.
+            This story demonstrates how you can apply a custom render function to adjust the look and feel of the suggestions`,
             },
         }
     )
@@ -487,11 +590,9 @@ storiesOf('Organisms|Select Components', module)
         {
             info: {
                 text: `
-            ## Usage information
-            This component is recommended to use for a dynamic list of values.
-            The list of suggestions is shown once there's a value inside the input.
-
-            More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
+            The Autosuggest component is recommended to use for a dynamic list of values.
+            This story demonstrates how you can mix these dynamic suggestions with static ones (e.g. based on user input), 
+            and how those can be shown during the loading state as well`,
             },
         }
     )
@@ -536,7 +637,7 @@ storiesOf('Organisms|Select Components', module)
                 // Selected option requires single select behavior
                 if (item.type === 'free-text') {
                     // save the value to our 'single select' state
-                    store.set({ freeInputSelection: item.name });
+                    store.set({ singleSelectedText: item.name });
                     // Force UI behavior to single select - blur the field
                     inputRef.current?.blur();
                     // all done
@@ -546,8 +647,8 @@ storiesOf('Organisms|Select Components', module)
                 // a multi selectable option was chosen
                 // it is where the user can replace previously selected free text with something else
                 // remove previously selected free text
-                if (store.get('freeInputSelection')) {
-                    store.set({ freeInputSelection: '' });
+                if (store.get('singleSelectedText')) {
+                    store.set({ singleSelectedText: '' });
                 }
                 // Add new item to multi selection list
                 store.set({
@@ -573,13 +674,13 @@ storiesOf('Organisms|Select Components', module)
                 console.log('onBlur was called');
                 // inputValue is used to filter suggestions,
                 // preserve it for free text selection, but not otherwise
-                store.set({ inputValue: store.get('freeInputSelection') || '' });
+                store.set({ inputValue: store.get('singleSelectedText') || '' });
             };
 
             // Make sure to clear both states that hold selections
             const onClearAllSelected = () => {
                 console.log('onClearAllSelected was called');
-                store.set({ selectedSuggestions: [], freeInputSelection: '' });
+                store.set({ selectedSuggestions: [], singleSelectedText: '' });
             };
 
             const onFocus = () => {
@@ -599,7 +700,7 @@ storiesOf('Organisms|Select Components', module)
                             marginLeft: '12px',
                         }}
                     >
-                        {store.get('freeInputSelection')}
+                        {store.get('singleSelectedText')}
                     </div>
                 ),
                 isInputHidden: true,
@@ -627,9 +728,9 @@ storiesOf('Organisms|Select Components', module)
                         onClearAllSelected={onClearAllSelected}
                         inputRef={inputRef}
                         // this will trick to UI to pre-fill the in input field when it gets focused again
-                        initInputValue={store.get('freeInputSelection')}
+                        initInputValue={store.get('singleSelectedText')}
                         // Here we switch the UI behavior based on our local state
-                        customBlurParams={store.get('freeInputSelection') ? customBlur : undefined}
+                        customBlurParams={store.get('singleSelectedText') ? customBlur : undefined}
                     />
                 </div>
             );
@@ -637,11 +738,23 @@ storiesOf('Organisms|Select Components', module)
         {
             info: {
                 text: `
-            ## Usage information
-            This component is recommended to use for a dynamic list of values.
-            The list of suggestions is shown once there's a value inside the input.
-
-            More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
+            The Autosuggest component is recommended to use for a dynamic list of values.
+            It is primarily geared toward a multi-select use case. 
+            This story demonstrates how you can add props and function to allow mix of single select and multi select options together.
+            
+            The business case we demonstrate here is has the following requirements:
+            
+            * The user can select free text input
+            * When free text input is selected it should behave as a single select component
+            * All other suggestions can be selected in a multi-select fashion.
+            
+            The **important parts** here are:
+            * passing inputRef prop, so we can access the input field from outside
+            * calling inputRef.current.blur() in onSelectionAdded callback when needed
+            
+            when a _single selection happened_:
+            * passing a custom customBlurParams object to alter the look and feel of the blurred component
+            * passing initInputValue so that the input field gets populated when the component receives focus again.`,
             },
         }
     );
