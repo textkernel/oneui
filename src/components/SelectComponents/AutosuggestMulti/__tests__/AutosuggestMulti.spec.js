@@ -95,6 +95,33 @@ describe('AutosuggestMulti', () => {
 
             expect(wrapper.find('SuggestionTag')).toHaveLength(numberOfVisibleTags + 1);
         });
+        it('should set ref on input field, when passed', () => {
+            const inputRef = React.createRef();
+            wrapper.setProps({ inputRef });
+            expect(inputRef.current).not.toBe(null);
+        });
+        it('should set input value to custom value when focuses', () => {
+            const initInputValue = 'custom input value';
+            wrapper.setProps({ initInputValue });
+            setFocusOnInput();
+            expect(wrapper.find('input').getDOMNode().value).toEqual(initInputValue);
+        });
+        it('should render blurred state with custom params', () => {
+            const customTag = <div className="find-me">Custom thing</div>;
+            const anotherInputPlaceholder = 'Something else...';
+            wrapper.setProps({
+                customBlurParams: {
+                    selectionIndicator: customTag,
+                    isInputHidden: false,
+                    showClearButton: true,
+                    inputPlaceholder: anotherInputPlaceholder,
+                },
+            });
+            expect(wrapper.find('.find-me')).toHaveLength(1);
+            expect(wrapper.find('input')).toHaveLength(1);
+            expect(wrapper.find('.AutosuggestMulti__input--hidden')).toHaveLength(0);
+            expect(wrapper.find('input').getDOMNode().placeholder).toEqual(anotherInputPlaceholder);
+        });
     });
     describe('focusing and blurring the search field', () => {
         it('should clear input value on pressing Escape button', (done) => {

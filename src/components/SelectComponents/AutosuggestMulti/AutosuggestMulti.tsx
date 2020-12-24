@@ -38,8 +38,19 @@ interface Props<S>
     onSelectionRemove?: (item: S) => void;
     /** Function to be called on submitting form */
     onSubmit?: () => void;
-    /** if suggestions are still loading, i.e. display placeholders */
+    /** If suggestions are still loading, i.e. display placeholders */
     isLoading?: boolean;
+    /** Means to overwrite the look and feel of the UI in its blurred state */
+    customBlurParams?: {
+        /** React node that will be rendered to indicate the current state of selections */
+        selectionIndicator: ReactNode;
+        /** Should the input field be shown. Normally should set this to true (hide) */
+        isInputHidden: boolean;
+        /** Should a clear button be shown on hover */
+        showClearButton: boolean;
+        /** Placeholder text for the input field if you choose to show it */
+        inputPlaceholder?: string;
+    };
 }
 
 const { elem } = bem('AutosuggestMulti', styles);
@@ -66,6 +77,8 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         showClearButton,
         onSelectionRemove,
         inputRef: inputRefFromProps,
+        customBlurParams,
+        initInputValue,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -153,21 +166,34 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     );
 
     // eslint-disable-next-line react/display-name
-    const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps, onFocus: onFocusInput }) => (
-        <div {...elem('wrapper')}>
-            {renderShortTagsList()}
-            <input
-                {...getInputProps({
-                    id,
-                    ref: inputRef,
-                    placeholder: selectedSuggestions.length === 0 ? inputPlaceholder : '',
-                    'data-lpignore': true,
-                    onFocus: onFocusInput,
-                    ...elem('input', { hidden: selectedSuggestions.length > 0 }),
-                })}
-            />
-        </div>
-    );
+    const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps, onFocus: onFocusInput }) => {
+        const selectionIndicator = customBlurParams?.selectionIndicator || renderShortTagsList();
+        let placeholder = '';
+        if (customBlurParams?.inputPlaceholder) {
+            placeholder = customBlurParams?.inputPlaceholder;
+        } else if (selectedSuggestions.length === 0) {
+            placeholder = inputPlaceholder;
+        }
+        const isHidden = customBlurParams
+            ? customBlurParams.isInputHidden
+            : selectedSuggestions.length > 0;
+
+        return (
+            <div {...elem('wrapper')}>
+                {selectionIndicator}
+                <input
+                    {...getInputProps({
+                        id,
+                        ref: inputRef,
+                        placeholder,
+                        'data-lpignore': true,
+                        onFocus: onFocusInput,
+                        ...elem('input', { hidden: isHidden }),
+                    })}
+                />
+            </div>
+        );
+    };
 
     const renderList: ListRendererHelper<S> = (listProps) => {
         const { inputValue: inputToList } = listProps;
@@ -185,6 +211,10 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         ) : null;
     };
 
+    const isClearButtonShown = customBlurParams
+        ? customBlurParams.showClearButton
+        : showClearButton && selectedSuggestions.length > 0;
+
     return (
         <SelectBase
             {...rest}
@@ -198,10 +228,11 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             listRenderer={renderList}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
-            showClearButton={showClearButton && selectedSuggestions.length > 0}
+            showClearButton={isClearButtonShown}
             highlightOnEmptyInput={false}
             keepExpandedAfterSelection
             selectOnTab
+            initInputValue={initInputValue}
             clearInputAfterSelection
         />
     );
@@ -220,4 +251,5 @@ AutosuggestMulti.defaultProps = {
     onSelectionRemove: null,
     noSuggestionsPlaceholder: '',
     isLoading: false,
+    customBlurParams: undefined,
 };

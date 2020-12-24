@@ -30,6 +30,8 @@ export interface SelectInputFieldProps {
     onInputValueChange?: (value: string) => void;
     /** clean up input value after selected item */
     clearInputAfterSelection?: boolean;
+    /** Initial input value should be shown if input gets focused */
+    initInputValue?: string;
 }
 
 export interface SelectClearButtonProps {
