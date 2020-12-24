@@ -129,7 +129,6 @@ storiesOf('Organisms|Select Components', module)
                         onBlur={onBlur}
                         onSelectionAdd={onSelectionAdd}
                         onInputValueChange={onInputValueChange}
-                        isProminent={boolean('Use prominent styling', false)}
                     />
                 </>
             );
@@ -223,7 +222,6 @@ storiesOf('Organisms|Select Components', module)
                         onSubmit={onSubmit}
                         onSelectionAdd={onSelectionAdd}
                         onSelectionRemove={onSelectionRemove}
-                        isProminent={boolean('Use prominent styling', true)}
                         isLoading={boolean('isLoading', false)}
                         onInputValueChange={onInputValueChange}
                         showClearButton={boolean('Show clear button', true)}
@@ -355,7 +353,6 @@ storiesOf('Organisms|Select Components', module)
                         onSubmit={onSubmit}
                         onSelectionAdd={onSelectionAdd}
                         onSelectionRemove={onSelectionRemove}
-                        isProminent={boolean('Use prominent styling', true)}
                         isLoading={boolean('isLoading', false)}
                         onInputValueChange={onInputValueChange}
                         showClearButton={boolean('Show clear button', true)}
@@ -478,7 +475,6 @@ storiesOf('Organisms|Select Components', module)
                         allowMixingSuggestionsAndLoading={!!store.get('inputValue').length}
                         onSelectionAdd={onSelectionAdd}
                         onSelectionRemove={onSelectionRemove}
-                        isProminent={boolean('Use prominent styling', true)}
                         isLoading={boolean('isLoading', false)}
                         onInputValueChange={onInputValueChange}
                         showClearButton={boolean('Show clear button', true)}

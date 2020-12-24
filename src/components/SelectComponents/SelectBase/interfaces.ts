@@ -19,8 +19,6 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     onBlur?: () => void;
     /** onSelectionAdd() called when a suggestion is selected */
     onSelectionAdd: (item: S) => void;
-    /** enable transform animation on focus */
-    isProminent?: boolean;
 }
 
 export interface SelectInputFieldProps {

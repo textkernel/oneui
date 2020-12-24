@@ -30,7 +30,6 @@ export function SelectBase<S>(props: Props<S>) {
         blurredRenderer,
         keepExpandedAfterSelection,
         clearInputAfterSelection,
-        isProminent,
         highlightOnEmptyInput,
         initInputValue,
         ...rest
@@ -208,7 +207,7 @@ export function SelectBase<S>(props: Props<S>) {
         }
     };
 
-    const stateAndProps = { ...props, focused, isProminent };
+    const stateAndProps = { ...props, focused };
 
     const getInputPropsWithUpdatedRef = (getInputProps) => (inputProps) => {
         return inputRefFromProps
