@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
-import { Autosuggest, IconMatch } from '@textkernel/oneui';
+import { AutosuggestDeprecated, IconMatch } from '@textkernel/oneui';
 import { StoreInjector } from '../src/packages/storybook/withStore';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
-} from '../src/components/Autosuggest/__mocks__/suggestions';
+} from '../src/components/AutosuggestDeprecated/__mocks__/suggestions';
 
 const { withStore } = StoreInjector;
 
-storiesOf('Organisms|Autosuggest - old', module)
+storiesOf('Organisms|AutosuggestDeprecated - old', module)
     .addDecorator(withKnobs)
     .addParameters(
         withStore({
@@ -21,7 +21,7 @@ storiesOf('Organisms|Autosuggest - old', module)
     .add(
         'Single select with icon',
         () => (
-            <Autosuggest
+            <AutosuggestDeprecated
                 getSuggestions={() => SUGGESTIONS}
                 suggestionToString={SUGGESTION_TO_STRING}
                 isLoading={boolean('Loading', false)}
@@ -54,7 +54,7 @@ storiesOf('Organisms|Autosuggest - old', module)
     .add(
         'Multiselect',
         () => (
-            <Autosuggest
+            <AutosuggestDeprecated
                 selectedSuggestions={SUGGESTIONS.slice(2, 4)}
                 getSuggestions={() => SUGGESTIONS}
                 suggestionToString={SUGGESTION_TO_STRING}
@@ -143,7 +143,7 @@ storiesOf('Organisms|Autosuggest - old', module)
             };
 
             return (
-                <Autosuggest
+                <AutosuggestDeprecated
                     style={{ width: '650px' }}
                     selectedSuggestions={
                         boolean('Add selectedSuggestions', true)

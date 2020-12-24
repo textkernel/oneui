@@ -70,7 +70,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
             aria-autocomplete="list"
             aria-labelledby="downshift-0-label"
             autocomplete="off"
-            class="Autosuggest__input"
+            class="AutosuggestDeprecated__input"
             data-lpignore="true"
             id="downshift-0-input"
             placeholder="inputPlaceholder"
@@ -91,7 +91,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       showCountryInSuggestions={true}
       singleLocation={false}
     >
-      <Autosuggest
+      <AutosuggestDeprecated
         className="LocationSelectorDialog__searchField"
         clearTitle=""
         defaultInputValue=""
@@ -108,7 +108,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
               aria-autocomplete="list"
               aria-labelledby="downshift-0-label"
               autocomplete="off"
-              class="Autosuggest__input"
+              class="AutosuggestDeprecated__input"
               data-lpignore="true"
               id="downshift-0-input"
               placeholder="inputPlaceholder"
@@ -135,7 +135,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         suggestionToString={[Function]}
       >
         <div
-          className="Autosuggest LocationSelectorDialog__searchField"
+          className="AutosuggestDeprecated LocationSelectorDialog__searchField"
         >
           <Downshift
             defaultHighlightedIndex={0}
@@ -160,11 +160,11 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
               aria-haspopup="listbox"
               aria-labelledby="downshift-0-label"
               aria-owns={null}
-              className="Autosuggest__main Autosuggest__main--focused"
+              className="AutosuggestDeprecated__main AutosuggestDeprecated__main--focused"
               role="combobox"
             >
               <FieldWrapper
-                className="Autosuggest__field"
+                className="AutosuggestDeprecated__field"
                 clearLabel=""
                 disabled={false}
                 isFocused={true}
@@ -174,7 +174,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                 showClearButton={false}
               >
                 <div
-                  className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+                  className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
                   disabled={false}
                   onClick={[Function]}
                   onKeyDown={[Function]}
@@ -183,12 +183,12 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     className="FieldWrapper__content"
                   >
                     <div
-                      className="Autosuggest__wrapper Autosuggest__wrapper--focused"
+                      className="AutosuggestDeprecated__wrapper AutosuggestDeprecated__wrapper--focused"
                       role="searchbox"
                       tabIndex="0"
                     >
                       <FaMapMarkerAlt
-                        className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                        className="AutosuggestDeprecated__spacedElem LocationAutocomplete__icon"
                       >
                         <IconBase
                           attr={
@@ -196,10 +196,10 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                               "viewBox": "0 0 384 512",
                             }
                           }
-                          className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                          className="AutosuggestDeprecated__spacedElem LocationAutocomplete__icon"
                         >
                           <svg
-                            className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                            className="AutosuggestDeprecated__spacedElem LocationAutocomplete__icon"
                             fill="currentColor"
                             height="1em"
                             stroke="currentColor"
@@ -226,7 +226,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                         aria-controls={null}
                         aria-labelledby="downshift-0-label"
                         autoComplete="off"
-                        className="Autosuggest__input"
+                        className="AutosuggestDeprecated__input"
                         data-lpignore={true}
                         id="downshift-0-input"
                         onBlur={[Function]}
@@ -238,7 +238,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     </div>
                     <List
                       aria-labelledby="downshift-0-label"
-                      className="Autosuggest__list--focused"
+                      className="AutosuggestDeprecated__list--focused"
                       doSelectOnNavigate={false}
                       id="downshift-0-menu"
                       isControlledNavigation={true}
@@ -247,7 +247,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     >
                       <ul
                         aria-labelledby="downshift-0-label"
-                        className="List Autosuggest__list--focused"
+                        className="List AutosuggestDeprecated__list--focused"
                         id="downshift-0-menu"
                         role="listbox"
                       />
@@ -258,7 +258,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
             </div>
           </Downshift>
         </div>
-      </Autosuggest>
+      </AutosuggestDeprecated>
     </LocationAutocomplete>
     <Button
       className="LocationSelectorDialog__button"

@@ -2,7 +2,10 @@ import React from 'react';
 import toJson from 'enzyme-to-json';
 import { SelectBase } from '../SelectBase';
 import { SuggestionsList } from '../../SuggestionsList';
-import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../Autosuggest/__mocks__/suggestions';
+import {
+    SUGGESTIONS,
+    SUGGESTION_TO_STRING,
+} from '../../../AutosuggestDeprecated/__mocks__/suggestions';
 
 describe('SelectBase', () => {
     const inputRef = React.createRef();

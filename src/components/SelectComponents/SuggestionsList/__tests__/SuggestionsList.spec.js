@@ -1,7 +1,10 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import { SuggestionsList } from '..';
-import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../Autosuggest/__mocks__/suggestions';
+import {
+    SUGGESTIONS,
+    SUGGESTION_TO_STRING,
+} from '../../../AutosuggestDeprecated/__mocks__/suggestions';
 
 const noSuggestionsPlaceholder = 'noSuggestionsPlaceholder';
 const getItemProps = jest.fn();

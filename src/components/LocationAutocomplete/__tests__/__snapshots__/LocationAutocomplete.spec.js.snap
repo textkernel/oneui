@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<LocationAutocomplete/> that renders a location search field should pass predictions to Autosuggest 1`] = `
+exports[`<LocationAutocomplete/> that renders a location search field should pass predictions to AutosuggestDeprecated 1`] = `
 <LocationAutocomplete
   clearLabel=""
   country={null}
@@ -21,7 +21,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
   showCountryInSuggestions={false}
   singleLocation={false}
 >
-  <Autosuggest
+  <AutosuggestDeprecated
     clearTitle=""
     defaultInputValue=""
     getSuggestions={
@@ -239,7 +239,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
     suggestionToString={[Function]}
   >
     <div
-      className="Autosuggest"
+      className="AutosuggestDeprecated"
     >
       <Downshift
         defaultHighlightedIndex={0}
@@ -264,11 +264,11 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
           aria-haspopup="listbox"
           aria-labelledby="downshift-4-label"
           aria-owns="downshift-4-menu"
-          className="Autosuggest__main Autosuggest__main--focused"
+          className="AutosuggestDeprecated__main AutosuggestDeprecated__main--focused"
           role="combobox"
         >
           <FieldWrapper
-            className="Autosuggest__field"
+            className="AutosuggestDeprecated__field"
             clearLabel=""
             disabled={false}
             isFocused={true}
@@ -278,7 +278,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
             showClearButton={false}
           >
             <div
-              className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+              className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
               disabled={false}
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -287,12 +287,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                 className="FieldWrapper__content"
               >
                 <div
-                  className="Autosuggest__wrapper Autosuggest__wrapper--focused"
+                  className="AutosuggestDeprecated__wrapper AutosuggestDeprecated__wrapper--focused"
                   role="searchbox"
                   tabIndex="0"
                 >
                   <FaMapMarkerAlt
-                    className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                    className="AutosuggestDeprecated__spacedElem LocationAutocomplete__icon"
                   >
                     <IconBase
                       attr={
@@ -300,10 +300,10 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           "viewBox": "0 0 384 512",
                         }
                       }
-                      className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                      className="AutosuggestDeprecated__spacedElem LocationAutocomplete__icon"
                     >
                       <svg
-                        className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                        className="AutosuggestDeprecated__spacedElem LocationAutocomplete__icon"
                         fill="currentColor"
                         height="1em"
                         stroke="currentColor"
@@ -330,7 +330,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     aria-controls="downshift-4-menu"
                     aria-labelledby="downshift-4-label"
                     autoComplete="off"
-                    className="Autosuggest__input"
+                    className="AutosuggestDeprecated__input"
                     data-lpignore={true}
                     id="downshift-4-input"
                     onBlur={[Function]}
@@ -342,7 +342,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                 </div>
                 <List
                   aria-labelledby="downshift-4-label"
-                  className="Autosuggest__list--focused"
+                  className="AutosuggestDeprecated__list--focused"
                   doSelectOnNavigate={false}
                   id="downshift-4-menu"
                   isControlledNavigation={true}
@@ -351,7 +351,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                 >
                   <ul
                     aria-labelledby="downshift-4-label"
-                    className="List Autosuggest__list--focused"
+                    className="List AutosuggestDeprecated__list--focused"
                     id="downshift-4-menu"
                     role="listbox"
                   >
@@ -596,7 +596,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
         </div>
       </Downshift>
     </div>
-  </Autosuggest>
+  </AutosuggestDeprecated>
 </LocationAutocomplete>
 `;
 
@@ -621,7 +621,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   showCountryInSuggestions={false}
   singleLocation={false}
 >
-  <Autosuggest
+  <AutosuggestDeprecated
     clearTitle=""
     defaultInputValue=""
     getSuggestions={null}
@@ -651,7 +651,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
     suggestionToString={[Function]}
   >
     <div
-      className="Autosuggest"
+      className="AutosuggestDeprecated"
     >
       <Downshift
         defaultHighlightedIndex={0}
@@ -676,11 +676,11 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
           aria-haspopup="listbox"
           aria-labelledby="downshift-0-label"
           aria-owns={null}
-          className="Autosuggest__main"
+          className="AutosuggestDeprecated__main"
           role="combobox"
         >
           <FieldWrapper
-            className="Autosuggest__field"
+            className="AutosuggestDeprecated__field"
             clearLabel=""
             disabled={false}
             isFocused={false}
@@ -690,7 +690,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
             showClearButton={false}
           >
             <div
-              className="FieldWrapper Autosuggest__field"
+              className="FieldWrapper AutosuggestDeprecated__field"
               disabled={false}
               onClick={[Function]}
               onKeyDown={[Function]}
@@ -699,12 +699,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
                 className="FieldWrapper__content"
               >
                 <div
-                  className="Autosuggest__wrapper"
+                  className="AutosuggestDeprecated__wrapper"
                   role="searchbox"
                   tabIndex="0"
                 >
                   <FaMapMarkerAlt
-                    className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                    className="AutosuggestDeprecated__spacedElem LocationAutocomplete__icon"
                   >
                     <IconBase
                       attr={
@@ -712,10 +712,10 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
                           "viewBox": "0 0 384 512",
                         }
                       }
-                      className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                      className="AutosuggestDeprecated__spacedElem LocationAutocomplete__icon"
                     >
                       <svg
-                        className="Autosuggest__spacedElem LocationAutocomplete__icon"
+                        className="AutosuggestDeprecated__spacedElem LocationAutocomplete__icon"
                         fill="currentColor"
                         height="1em"
                         stroke="currentColor"
@@ -742,7 +742,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
                     aria-controls={null}
                     aria-labelledby="downshift-0-label"
                     autoComplete="off"
-                    className="Autosuggest__input"
+                    className="AutosuggestDeprecated__input"
                     data-lpignore={true}
                     id="downshift-0-input"
                     onBlur={[Function]}
@@ -773,6 +773,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
         </div>
       </Downshift>
     </div>
-  </Autosuggest>
+  </AutosuggestDeprecated>
 </LocationAutocomplete>
 `;

@@ -96,10 +96,10 @@ describe('LocationSelectorDialog component', () => {
         });
         wrapper.find('input').simulate('click');
 
-        expect(wrapper.find('Autosuggest').find('li')).toHaveLength(5);
+        expect(wrapper.find('AutosuggestDeprecated').find('li')).toHaveLength(5);
         expect(onAddLocationMock).not.toHaveBeenCalled();
 
-        wrapper.find('Autosuggest').find('li').at(0).childAt(0).simulate('click');
+        wrapper.find('AutosuggestDeprecated').find('li').at(0).childAt(0).simulate('click');
 
         expect(onAddLocationMock).toHaveBeenCalledTimes(1);
     });

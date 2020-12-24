@@ -46,7 +46,7 @@ import './Tooltip';
 import './TwoPaneView';
 import './WeightedResultBar';
 // Organisms
-import './Autosuggest';
+import './AutosuggestDeprecated';
 import './Select';
 import './LocationAutocomplete';
 import './LocationSelector';

@@ -36,20 +36,20 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should set loading to true when user starts typing', () => {
-        expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
+        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
         wrapper.find('input').simulate('change', { target: { value: 'Honolulu' } });
 
-        expect(wrapper.find('Autosuggest').props().isLoading).toBeTruthy();
+        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeTruthy();
     });
     it('should set loading to false when user deletes input value', () => {
-        expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
+        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
         wrapper.find('input').simulate('change', { target: { value: 'Honolulu' } });
 
-        expect(wrapper.find('Autosuggest').props().isLoading).toBeTruthy();
+        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeTruthy();
 
         wrapper.find('input').simulate('change', { target: { value: '' } });
 
-        expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
+        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
     });
     it('should request predictions from API when user types', () => {
         wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
@@ -63,7 +63,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
             expect.any(Function)
         );
     });
-    it('should pass predictions to Autosuggest', () => {
+    it('should pass predictions to AutosuggestDeprecated', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {
@@ -71,7 +71,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         });
         focusField();
 
-        expect(wrapper.find('Autosuggest').props().getSuggestions).toHaveLength(5);
+        expect(wrapper.find('AutosuggestDeprecated').props().getSuggestions).toHaveLength(5);
         expect(getPlacePredictionsMock).toHaveBeenCalled();
         expect(toJson(wrapper)).toMatchSnapshot();
     });

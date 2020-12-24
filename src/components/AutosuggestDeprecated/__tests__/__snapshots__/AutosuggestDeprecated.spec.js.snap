@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Autosuggest rendering should initially render empty component correctly 1`] = `
-<Autosuggest
+exports[`AutosuggestDeprecated rendering should initially render empty component correctly 1`] = `
+<AutosuggestDeprecated
   clearTitle="Clear"
   defaultInputValue=""
   getSuggestions={[Function]}
@@ -27,7 +27,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
   suggestionToString={[Function]}
 >
   <div
-    className="Autosuggest"
+    className="AutosuggestDeprecated"
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -52,11 +52,11 @@ exports[`Autosuggest rendering should initially render empty component correctly
         aria-haspopup="listbox"
         aria-labelledby="downshift-0-label"
         aria-owns={null}
-        className="Autosuggest__main"
+        className="AutosuggestDeprecated__main"
         role="combobox"
       >
         <FieldWrapper
-          className="Autosuggest__field"
+          className="AutosuggestDeprecated__field"
           clearLabel="Clear"
           disabled={false}
           isFocused={false}
@@ -66,7 +66,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
           showClearButton={false}
         >
           <div
-            className="FieldWrapper Autosuggest__field"
+            className="FieldWrapper AutosuggestDeprecated__field"
             disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -75,7 +75,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
               className="FieldWrapper__content"
             >
               <div
-                className="Autosuggest__wrapper"
+                className="AutosuggestDeprecated__wrapper"
                 role="searchbox"
                 tabIndex="0"
               >
@@ -85,7 +85,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
                   aria-controls={null}
                   aria-labelledby="downshift-0-label"
                   autoComplete="off"
-                  className="Autosuggest__input"
+                  className="AutosuggestDeprecated__input"
                   data-lpignore={true}
                   id="downshift-0-input"
                   onBlur={[Function]}
@@ -116,11 +116,11 @@ exports[`Autosuggest rendering should initially render empty component correctly
       </div>
     </Downshift>
   </div>
-</Autosuggest>
+</AutosuggestDeprecated>
 `;
 
-exports[`Autosuggest rendering should render all suggestions from the list 1`] = `
-<Autosuggest
+exports[`AutosuggestDeprecated rendering should render all suggestions from the list 1`] = `
+<AutosuggestDeprecated
   clearTitle="Clear"
   defaultInputValue=""
   getSuggestions={[Function]}
@@ -146,7 +146,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
   suggestionToString={[Function]}
 >
   <div
-    className="Autosuggest"
+    className="AutosuggestDeprecated"
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -171,11 +171,11 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
         aria-haspopup="listbox"
         aria-labelledby="downshift-5-label"
         aria-owns="downshift-5-menu"
-        className="Autosuggest__main Autosuggest__main--focused"
+        className="AutosuggestDeprecated__main AutosuggestDeprecated__main--focused"
         role="combobox"
       >
         <FieldWrapper
-          className="Autosuggest__field"
+          className="AutosuggestDeprecated__field"
           clearLabel="Clear"
           disabled={false}
           isFocused={true}
@@ -185,7 +185,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
           showClearButton={false}
         >
           <div
-            className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+            className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
             disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -194,7 +194,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
               className="FieldWrapper__content"
             >
               <div
-                className="Autosuggest__wrapper Autosuggest__wrapper--focused"
+                className="AutosuggestDeprecated__wrapper AutosuggestDeprecated__wrapper--focused"
                 role="searchbox"
                 tabIndex="0"
               >
@@ -204,7 +204,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
                   aria-controls="downshift-5-menu"
                   aria-labelledby="downshift-5-label"
                   autoComplete="off"
-                  className="Autosuggest__input"
+                  className="AutosuggestDeprecated__input"
                   data-lpignore={true}
                   id="downshift-5-input"
                   onBlur={[Function]}
@@ -216,7 +216,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
               </div>
               <List
                 aria-labelledby="downshift-5-label"
-                className="Autosuggest__list--focused"
+                className="AutosuggestDeprecated__list--focused"
                 doSelectOnNavigate={false}
                 id="downshift-5-menu"
                 isControlledNavigation={true}
@@ -225,7 +225,7 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
               >
                 <ul
                   aria-labelledby="downshift-5-label"
-                  className="List Autosuggest__list--focused"
+                  className="List AutosuggestDeprecated__list--focused"
                   id="downshift-5-menu"
                   role="listbox"
                 >
@@ -417,11 +417,11 @@ exports[`Autosuggest rendering should render all suggestions from the list 1`] =
       </div>
     </Downshift>
   </div>
-</Autosuggest>
+</AutosuggestDeprecated>
 `;
 
-exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
-<Autosuggest
+exports[`AutosuggestDeprecated rendering should render icon correctly if passed 1`] = `
+<AutosuggestDeprecated
   clearTitle="Clear"
   defaultInputValue=""
   getSuggestions={[Function]}
@@ -451,7 +451,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
   suggestionToString={[Function]}
 >
   <div
-    className="Autosuggest"
+    className="AutosuggestDeprecated"
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -476,11 +476,11 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
         aria-haspopup="listbox"
         aria-labelledby="downshift-12-label"
         aria-owns={null}
-        className="Autosuggest__main"
+        className="AutosuggestDeprecated__main"
         role="combobox"
       >
         <FieldWrapper
-          className="Autosuggest__field"
+          className="AutosuggestDeprecated__field"
           clearLabel="Clear"
           disabled={false}
           isFocused={false}
@@ -490,7 +490,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
           showClearButton={false}
         >
           <div
-            className="FieldWrapper Autosuggest__field"
+            className="FieldWrapper AutosuggestDeprecated__field"
             disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -499,20 +499,20 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
               className="FieldWrapper__content"
             >
               <div
-                className="Autosuggest__wrapper"
+                className="AutosuggestDeprecated__wrapper"
                 role="searchbox"
                 tabIndex="0"
               >
                 <IconMatch
-                  className="Autosuggest__spacedElem test"
+                  className="AutosuggestDeprecated__spacedElem test"
                 >
                   <IconBase
-                    className="Autosuggest__spacedElem test"
+                    className="AutosuggestDeprecated__spacedElem test"
                     preserveAspectRatio={false}
                     viewBox="0 0 107.17 92.73"
                   >
                     <div
-                      className="IconBase Autosuggest__spacedElem test"
+                      className="IconBase AutosuggestDeprecated__spacedElem test"
                     >
                       <svg
                         aria-labelledby={null}
@@ -537,7 +537,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
                   </IconBase>
                 </IconMatch>
                 <div
-                  className="Autosuggest__spacedElem"
+                  className="AutosuggestDeprecated__spacedElem"
                 >
                   Current selection
                 </div>
@@ -547,7 +547,7 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
                   aria-controls={null}
                   aria-labelledby="downshift-12-label"
                   autoComplete="off"
-                  className="Autosuggest__input"
+                  className="AutosuggestDeprecated__input"
                   data-lpignore={true}
                   id="downshift-12-input"
                   onBlur={[Function]}
@@ -578,11 +578,11 @@ exports[`Autosuggest rendering should render icon correctly if passed 1`] = `
       </div>
     </Downshift>
   </div>
-</Autosuggest>
+</AutosuggestDeprecated>
 `;
 
-exports[`Autosuggest rendering should render noSuggestions placeholder when empty suggestions list is passed 1`] = `
-<Autosuggest
+exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder when empty suggestions list is passed 1`] = `
+<AutosuggestDeprecated
   clearTitle="Clear"
   defaultInputValue=""
   getSuggestions={[Function]}
@@ -622,7 +622,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
   suggestionToString={[Function]}
 >
   <div
-    className="Autosuggest"
+    className="AutosuggestDeprecated"
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -647,11 +647,11 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
         aria-haspopup="listbox"
         aria-labelledby="downshift-4-label"
         aria-owns="downshift-4-menu"
-        className="Autosuggest__main Autosuggest__main--focused"
+        className="AutosuggestDeprecated__main AutosuggestDeprecated__main--focused"
         role="combobox"
       >
         <FieldWrapper
-          className="Autosuggest__field"
+          className="AutosuggestDeprecated__field"
           clearLabel="Clear"
           disabled={false}
           isFocused={true}
@@ -661,7 +661,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
           showClearButton={false}
         >
           <div
-            className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+            className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
             disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -670,7 +670,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
               className="FieldWrapper__content"
             >
               <div
-                className="Autosuggest__wrapper Autosuggest__wrapper--focused"
+                className="AutosuggestDeprecated__wrapper AutosuggestDeprecated__wrapper--focused"
                 role="searchbox"
                 tabIndex="0"
               >
@@ -680,7 +680,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
                   aria-controls="downshift-4-menu"
                   aria-labelledby="downshift-4-label"
                   autoComplete="off"
-                  className="Autosuggest__input"
+                  className="AutosuggestDeprecated__input"
                   data-lpignore={true}
                   id="downshift-4-input"
                   onBlur={[Function]}
@@ -692,7 +692,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
               </div>
               <List
                 aria-labelledby="downshift-4-label"
-                className="Autosuggest__list--focused"
+                className="AutosuggestDeprecated__list--focused"
                 doSelectOnNavigate={false}
                 id="downshift-4-menu"
                 isControlledNavigation={true}
@@ -701,7 +701,7 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
               >
                 <ul
                   aria-labelledby="downshift-4-label"
-                  className="List Autosuggest__list--focused"
+                  className="List AutosuggestDeprecated__list--focused"
                   id="downshift-4-menu"
                   role="listbox"
                 >
@@ -743,11 +743,11 @@ exports[`Autosuggest rendering should render noSuggestions placeholder when empt
       </div>
     </Downshift>
   </div>
-</Autosuggest>
+</AutosuggestDeprecated>
 `;
 
-exports[`Autosuggest rendering should render suggestions also if it passed as an array, and not a function 1`] = `
-<Autosuggest
+exports[`AutosuggestDeprecated rendering should render suggestions also if it passed as an array, and not a function 1`] = `
+<AutosuggestDeprecated
   clearTitle="Clear"
   defaultInputValue=""
   getSuggestions={
@@ -788,7 +788,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
   suggestionToString={[Function]}
 >
   <div
-    className="Autosuggest"
+    className="AutosuggestDeprecated"
   >
     <Downshift
       defaultHighlightedIndex={0}
@@ -813,11 +813,11 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
         aria-haspopup="listbox"
         aria-labelledby="downshift-6-label"
         aria-owns="downshift-6-menu"
-        className="Autosuggest__main Autosuggest__main--focused"
+        className="AutosuggestDeprecated__main AutosuggestDeprecated__main--focused"
         role="combobox"
       >
         <FieldWrapper
-          className="Autosuggest__field"
+          className="AutosuggestDeprecated__field"
           clearLabel="Clear"
           disabled={false}
           isFocused={true}
@@ -827,7 +827,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
           showClearButton={false}
         >
           <div
-            className="FieldWrapper FieldWrapper--isFocused Autosuggest__field"
+            className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
             disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
@@ -836,7 +836,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
               className="FieldWrapper__content"
             >
               <div
-                className="Autosuggest__wrapper Autosuggest__wrapper--focused"
+                className="AutosuggestDeprecated__wrapper AutosuggestDeprecated__wrapper--focused"
                 role="searchbox"
                 tabIndex="0"
               >
@@ -846,7 +846,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
                   aria-controls="downshift-6-menu"
                   aria-labelledby="downshift-6-label"
                   autoComplete="off"
-                  className="Autosuggest__input"
+                  className="AutosuggestDeprecated__input"
                   data-lpignore={true}
                   id="downshift-6-input"
                   onBlur={[Function]}
@@ -858,7 +858,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
               </div>
               <List
                 aria-labelledby="downshift-6-label"
-                className="Autosuggest__list--focused"
+                className="AutosuggestDeprecated__list--focused"
                 doSelectOnNavigate={false}
                 id="downshift-6-menu"
                 isControlledNavigation={true}
@@ -867,7 +867,7 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
               >
                 <ul
                   aria-labelledby="downshift-6-label"
-                  className="List Autosuggest__list--focused"
+                  className="List AutosuggestDeprecated__list--focused"
                   id="downshift-6-menu"
                   role="listbox"
                 >
@@ -1059,5 +1059,5 @@ exports[`Autosuggest rendering should render suggestions also if it passed as an
       </div>
     </Downshift>
   </div>
-</Autosuggest>
+</AutosuggestDeprecated>
 `;
