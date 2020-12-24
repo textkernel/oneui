@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
-import { ComboboxMulti, AutosuggestMulti, Select } from '@textkernel/oneui';
+import { ComboboxMulti, Autosuggest, Select } from '@textkernel/oneui';
 import { StoreInjector } from '../src/packages/storybook/withStore';
 import {
     SUGGESTIONS,
@@ -146,7 +146,7 @@ storiesOf('Organisms|Select Components', module)
     )
     // eslint-disable-next-line
     .add(
-        'AutosuggestMulti',
+        'Autosuggest',
         (storyContext) => {
             const store = storyContext?.parameters.getStore();
             const getSuggestions = (): TSuggestion[] => {
@@ -211,7 +211,7 @@ storiesOf('Organisms|Select Components', module)
 
             return (
                 <div style={{ width: '500px' }}>
-                    <AutosuggestMulti
+                    <Autosuggest
                         id="test"
                         selectedSuggestions={store.get('selectedSuggestions')}
                         inputPlaceholder={text('Input placeholder', 'Select something...')}
@@ -247,7 +247,7 @@ storiesOf('Organisms|Select Components', module)
         }
     )
     .add(
-        'AutosuggestMulti with custom item renderer',
+        'Autosuggest with custom item renderer',
         (storyContext) => {
             const store = storyContext?.parameters.getStore();
             const getSuggestions = (): TComplexSuggestion[] => {
@@ -341,7 +341,7 @@ storiesOf('Organisms|Select Components', module)
 
             return (
                 <div style={{ width: '500px' }}>
-                    <AutosuggestMulti
+                    <Autosuggest
                         id="test"
                         selectedSuggestions={store.get('selectedSuggestions')}
                         inputPlaceholder={text('Input placeholder', 'Select something...')}
@@ -379,7 +379,7 @@ storiesOf('Organisms|Select Components', module)
     )
     // eslint-disable-next-line
     .add(
-        'AutosuggestMulti with selecting input as free text',
+        'Autosuggest with selecting input as free text',
         (storyContext) => {
             const store = storyContext?.parameters.getStore();
             searchFor.name = `Search for "${store.get('inputValue')}"`;
@@ -463,7 +463,7 @@ storiesOf('Organisms|Select Components', module)
 
             return (
                 <div style={{ width: '500px' }}>
-                    <AutosuggestMulti
+                    <Autosuggest
                         id="test"
                         selectedSuggestions={store.get('selectedSuggestions')}
                         inputPlaceholder={text('Input placeholder', 'Select something...')}
@@ -497,7 +497,7 @@ storiesOf('Organisms|Select Components', module)
     )
     // eslint-disable-next-line
     .add(
-        'AutosuggestMulti as a dance of single and multi-selection',
+        'Autosuggest as a dance of single and multi-selection',
         (storyContext) => {
             const store = storyContext?.parameters.getStore();
             const inputValue = store.get('inputValue');
@@ -608,7 +608,7 @@ storiesOf('Organisms|Select Components', module)
 
             return (
                 <div style={{ width: '500px' }}>
-                    <AutosuggestMulti
+                    <Autosuggest
                         id="test"
                         selectedSuggestions={store.get('selectedSuggestions')}
                         inputPlaceholder={text('Input placeholder', 'Select something...')}

@@ -54,7 +54,7 @@ export {
     SelectBase,
     SuggestionsList,
     ComboboxMulti,
-    AutosuggestMulti,
+    Autosuggest,
     Select,
 } from './components/SelectComponents';
 export {

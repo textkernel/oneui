@@ -1,12 +1,12 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { AutosuggestMulti } from '../AutosuggestMulti';
+import { Autosuggest } from '../Autosuggest';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
 } from '../../../AutosuggestDeprecated/__mocks__/suggestions';
 
-describe('AutosuggestMulti', () => {
+describe('Autosuggest', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     const inputPlaceholder = 'type here...';
     const numberOfVisibleTags = 3;
@@ -23,7 +23,7 @@ describe('AutosuggestMulti', () => {
 
     beforeEach(() => {
         wrapper = mount(
-            <AutosuggestMulti
+            <Autosuggest
                 isLoading={false}
                 selectedSuggestions={selectedSuggestions}
                 suggestions={suggestionsList}
@@ -122,7 +122,7 @@ describe('AutosuggestMulti', () => {
             });
             expect(wrapper.find('.find-me')).toHaveLength(1);
             expect(wrapper.find('input')).toHaveLength(1);
-            expect(wrapper.find('.AutosuggestMulti__input--hidden')).toHaveLength(0);
+            expect(wrapper.find('.Autosuggest__input--hidden')).toHaveLength(0);
             expect(wrapper.find('input').getDOMNode().placeholder).toEqual(anotherInputPlaceholder);
         });
     });

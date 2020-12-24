@@ -11,7 +11,7 @@ import {
     BlurredRendererHelpers,
     ListRendererHelper,
 } from '../SelectBase';
-import styles from './AutosuggestMulti.scss';
+import styles from './Autosuggest.scss';
 import { BACKSPACE_KEY, ESCAPE_KEY, ENTER_KEY } from '../../../constants';
 
 interface Props<S>
@@ -53,9 +53,9 @@ interface Props<S>
     };
 }
 
-const { elem } = bem('AutosuggestMulti', styles);
+const { elem } = bem('Autosuggest', styles);
 
-export function AutosuggestMulti<S>(props: Props<S>) {
+export function Autosuggest<S>(props: Props<S>) {
     const {
         id,
         onInputValueChange,
@@ -238,9 +238,9 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     );
 }
 
-AutosuggestMulti.displayName = 'AutosuggestMulti';
+Autosuggest.displayName = 'Autosuggest';
 
-AutosuggestMulti.defaultProps = {
+Autosuggest.defaultProps = {
     id: undefined,
     numberOfVisibleTags: 3,
     selectedSuggestions: [],
