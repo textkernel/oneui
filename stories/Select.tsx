@@ -302,7 +302,7 @@ storiesOf('Organisms|Select Components', module)
                     <div
                         style={{
                             alignSelf: 'center',
-                            marginLeft: '12px',
+                            marginLeft: '6px',
                         }}
                     >
                         {store.get('singleSelectedText')}
@@ -697,7 +697,7 @@ storiesOf('Organisms|Select Components', module)
                     <div
                         style={{
                             alignSelf: 'center',
-                            marginLeft: '12px',
+                            marginLeft: '6px',
                         }}
                     >
                         {store.get('singleSelectedText')}
