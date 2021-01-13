@@ -2,6 +2,7 @@
 import './ArrangingOfZIndices';
 // Atoms
 import './Button';
+import './ButtonSelect';
 import './CandidateAvatar';
 import './Callout';
 import './Chip';

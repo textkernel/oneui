@@ -32,6 +32,7 @@ $icon-size: 16px;
         }
         &__content--context_#{ $context } {
             color: var(--color-#{$context}-75);
+            flex: 1;
         }
 
         &__closeButton--context_#{ $context } {

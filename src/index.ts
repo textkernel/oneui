@@ -56,6 +56,7 @@ export {
     ComboboxMulti,
     AutosuggestMulti,
     Select,
+    ButtonSelect,
 } from './components/SelectComponents';
 export {
     LocationAutocompleteWithGoogleLoader,
