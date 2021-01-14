@@ -109,20 +109,20 @@ describe('Autosuggest', () => {
             setFocusOnInput();
             expect(wrapper.find('input').getDOMNode().value).toEqual(initInputValue);
         });
-        it('should render blurred state with custom params', () => {
+        it('should render blurred state with custom node', () => {
             const customTag = <div className="find-me">Custom thing</div>;
-            const anotherInputPlaceholder = 'Something else...';
             wrapper.setProps({
-                customBlurParams: {
-                    selectionIndicator: customTag,
-                    isInputHidden: false,
-                    inputPlaceholder: anotherInputPlaceholder,
-                },
+                customSelectionIndicator: customTag,
             });
             expect(wrapper.find('.find-me')).toHaveLength(1);
+        });
+        it('should hide input field in blurred state with custom node', () => {
+            const customTag = <div className="find-me">Custom thing</div>;
+            wrapper.setProps({
+                customSelectionIndicator: customTag,
+            });
             expect(wrapper.find('input')).toHaveLength(1);
-            expect(wrapper.find('.Autosuggest__input--hidden')).toHaveLength(0);
-            expect(wrapper.find('input').getDOMNode().placeholder).toEqual(anotherInputPlaceholder);
+            expect(wrapper.find('.Autosuggest__input--hidden')).toHaveLength(1);
         });
     });
     describe('focusing and blurring the search field', () => {

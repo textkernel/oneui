@@ -297,19 +297,16 @@ storiesOf('Organisms|Select Components', module)
             };
 
             // Other magical prop -> will overwrite standard blurred render UI
-            const customBlur = {
-                selectionIndicator: (
-                    <div
-                        style={{
-                            alignSelf: 'center',
-                            marginLeft: '6px',
-                        }}
-                    >
-                        {store.get('singleSelectedText')}
-                    </div>
-                ),
-                isInputHidden: true,
-            };
+            const customBlur = (
+                <div
+                    style={{
+                        alignSelf: 'center',
+                        marginLeft: '6px',
+                    }}
+                >
+                    {store.get('singleSelectedText')}
+                </div>
+            );
 
             return (
                 <div style={{ width: '500px' }}>
@@ -331,7 +328,9 @@ storiesOf('Organisms|Select Components', module)
                         // this will trick to UI to pre-fill the in input field when it gets focused again
                         initInputValue={store.get('singleSelectedText')}
                         // Here we overwrite the UI default look when we have a selection
-                        customBlurParams={store.get('singleSelectedText') ? customBlur : undefined}
+                        customSelectionIndicator={
+                            store.get('singleSelectedText') ? customBlur : undefined
+                        }
                     />
                 </div>
             );
@@ -346,7 +345,7 @@ storiesOf('Organisms|Select Components', module)
                 The important parts here are:
                 * passing inputRef prop, so we can access the input field from outside
                 * calling inputRef.current.blur() in onSelectionAdd
-                * when something was selected, passing a custom customBlurParams object to alter the look and feel of the blurred component
+                * when something was selected, passing a custom customSelectionIndicator node to alter the look and feel of the blurred component
                 * passing initInputValue so that the input field gets populated when the component receives focus again.`,
             },
         }
@@ -691,19 +690,16 @@ storiesOf('Organisms|Select Components', module)
             };
 
             // Other magical prop -> will overwrite standard blurred render UI
-            const customBlur = {
-                selectionIndicator: (
-                    <div
-                        style={{
-                            alignSelf: 'center',
-                            marginLeft: '6px',
-                        }}
-                    >
-                        {store.get('singleSelectedText')}
-                    </div>
-                ),
-                isInputHidden: true,
-            };
+            const customBlur = (
+                <div
+                    style={{
+                        alignSelf: 'center',
+                        marginLeft: '6px',
+                    }}
+                >
+                    {store.get('singleSelectedText')}
+                </div>
+            );
 
             return (
                 <div style={{ width: '500px' }}>
@@ -728,7 +724,9 @@ storiesOf('Organisms|Select Components', module)
                         // this will trick to UI to pre-fill the in input field when it gets focused again
                         initInputValue={store.get('singleSelectedText')}
                         // Here we switch the UI behavior based on our local state
-                        customBlurParams={store.get('singleSelectedText') ? customBlur : undefined}
+                        customSelectionIndicator={
+                            store.get('singleSelectedText') ? customBlur : undefined
+                        }
                     />
                 </div>
             );
@@ -751,7 +749,7 @@ storiesOf('Organisms|Select Components', module)
             * calling inputRef.current.blur() in onSelectionAdded callback when needed
             
             when a _single selection happened_:
-            * passing a custom customBlurParams object to alter the look and feel of the blurred component
+            * passing a custom customSelectionIndicator node to alter the look and feel of the blurred component
             * passing initInputValue so that the input field gets populated when the component receives focus again.`,
             },
         }
