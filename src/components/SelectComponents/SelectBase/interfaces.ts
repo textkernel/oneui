@@ -6,7 +6,7 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestions?: S | null) => string;
     /** render function for suggestion list item. If undefined, suggestionToString will be used. */
-    suggestionItemRenderer?: (suggestions?: S | null) => ReactNode;
+    suggestionItemRenderer?: (suggestions: S | null, index: number, array: S[]) => ReactNode;
     /** root wrapper ref */
     rootRef?: React.RefObject<HTMLDivElement>;
     /** suggestions list ref */
@@ -19,8 +19,6 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     onBlur?: () => void;
     /** onSelectionAdd() called when a suggestion is selected */
     onSelectionAdd: (item: S) => void;
-    /** enable transform animation on focus */
-    isProminent?: boolean;
 }
 
 export interface SelectInputFieldProps {
@@ -30,6 +28,8 @@ export interface SelectInputFieldProps {
     onInputValueChange?: (value: string) => void;
     /** clean up input value after selected item */
     clearInputAfterSelection?: boolean;
+    /** Initial input value should be shown if input gets focused */
+    initInputValue?: string;
 }
 
 export interface SelectClearButtonProps {

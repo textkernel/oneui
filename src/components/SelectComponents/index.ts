@@ -1,4 +1,4 @@
-export * from './AutosuggestMulti';
+export * from './Autosuggest';
 export * from './ComboboxMulti';
 export * from './Select';
 export * from './SelectBase';

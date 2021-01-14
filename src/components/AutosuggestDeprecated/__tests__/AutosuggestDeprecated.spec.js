@@ -1,11 +1,11 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { Autosuggest } from '../Autosuggest';
+import { AutosuggestDeprecated } from '../AutosuggestDeprecated';
 import { IconMatch } from '../../Icon';
 import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../__mocks__/suggestions';
 import { NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS } from '../../../constants';
 
-describe('Autosuggest', () => {
+describe('AutosuggestDeprecated', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     let selectedPlaceholder = '';
     const inputPlaceholder = 'type here...';
@@ -24,11 +24,11 @@ describe('Autosuggest', () => {
     let wrapper;
     let instance;
 
-    const setFocusOnInput = () => wrapper.find('.Autosuggest__input').simulate('click');
+    const setFocusOnInput = () => wrapper.find('.AutosuggestDeprecated__input').simulate('click');
 
     beforeEach(() => {
         wrapper = mount(
-            <Autosuggest
+            <AutosuggestDeprecated
                 selectedSuggestions={selectedSuggestions}
                 getSuggestions={getSuggestions}
                 suggestionToString={suggestionToString}
@@ -43,7 +43,7 @@ describe('Autosuggest', () => {
                 showClearButton
             />
         );
-        instance = wrapper.find('Autosuggest').instance();
+        instance = wrapper.find('AutosuggestDeprecated').instance();
     });
 
     afterEach(() => {
@@ -59,7 +59,7 @@ describe('Autosuggest', () => {
         });
         it('should render a component with default value', () => {
             wrapper = mount(
-                <Autosuggest
+                <AutosuggestDeprecated
                     selectedSuggestions={selectedSuggestions}
                     getSuggestions={getSuggestions}
                     suggestionToString={suggestionToString}
@@ -109,7 +109,9 @@ describe('Autosuggest', () => {
         it('should render selection placeholder when component is not focused', () => {
             selectedPlaceholder = 'Current selection';
             wrapper.setProps({ selectedPlaceholder });
-            expect(wrapper.find('.Autosuggest__spacedElem').text()).toEqual(selectedPlaceholder);
+            expect(wrapper.find('.AutosuggestDeprecated__spacedElem').text()).toEqual(
+                selectedPlaceholder
+            );
         });
         it('should render tag for each selected selection when component is focused', () => {
             selectedSuggestions = SUGGESTIONS.slice(0, 5);

@@ -49,12 +49,12 @@ export { Tooltip } from './components/Tooltip';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
 export { WeightedResultBar, WeightedResultBarLoader } from './components/WeightedResultBar';
 // Organisms
-export { Autosuggest, ItemTag } from './components/Autosuggest';
+export { AutosuggestDeprecated, ItemTag } from './components/AutosuggestDeprecated';
 export {
     SelectBase,
     SuggestionsList,
     ComboboxMulti,
-    AutosuggestMulti,
+    Autosuggest,
     Select,
 } from './components/SelectComponents';
 export {

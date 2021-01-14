@@ -30,8 +30,8 @@ export function SelectBase<S>(props: Props<S>) {
         blurredRenderer,
         keepExpandedAfterSelection,
         clearInputAfterSelection,
-        isProminent,
         highlightOnEmptyInput,
+        initInputValue,
         ...rest
     } = props;
 
@@ -45,7 +45,7 @@ export function SelectBase<S>(props: Props<S>) {
         listRefFromProps || React.createRef<HTMLUListElement>()
     );
 
-    const [inputValue, setInputValue] = React.useState('');
+    const [inputValue, setInputValue] = React.useState(initInputValue || '');
     const [inputValueRecall, setInputValueRecall] = React.useState('');
     const [focused, setFocused] = React.useState(false);
     const isBrowserTabVisible = useBrowserTabVisibilityChange();
@@ -78,11 +78,15 @@ export function SelectBase<S>(props: Props<S>) {
         }
     }, [rootRefFromProps]);
 
+    React.useEffect(() => {
+        setInputValue(initInputValue || '');
+    }, [setInputValue, initInputValue]);
+
     const handleBlur = () => {
         setFocused(false);
         if (isBrowserTabVisible) {
-            setInputValue('');
-            setInputValueRecall('');
+            setInputValue(initInputValue || '');
+            setInputValueRecall(initInputValue || '');
             if (focused) onBlur?.();
         }
     };
@@ -203,7 +207,7 @@ export function SelectBase<S>(props: Props<S>) {
         }
     };
 
-    const stateAndProps = { ...props, focused, isProminent };
+    const stateAndProps = { ...props, focused };
 
     const getInputPropsWithUpdatedRef = (getInputProps) => (inputProps) => {
         return inputRefFromProps

@@ -21,11 +21,11 @@ export interface Props<S> {
     /** suggestionToKey(suggestion) makes a key to be used for a suggestion item */
     suggestionToKey?: (suggestion: S) => string;
     /** render function for suggestion list item. If undefined `suggestionToString` will be used */
-    suggestionItemRenderer?: (suggestion: S) => ReactNode;
+    suggestionItemRenderer?: (suggestion: S, index: number, array: S[]) => ReactNode;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder?: string;
     /** Defines if the first item of suggestions list is always visible */
-    isFirstItemAlwaysVisible?: boolean;
+    allowMixingSuggestionsAndLoading?: boolean;
     /** a function which gets props for the item in the list */
     getItemProps: (options: GetItemPropsOptions<S>) => object;
     /** index of the item from the list to be highlighted */
@@ -40,7 +40,7 @@ export function SuggestionsList<S>(props: Props<S>) {
         useOptimizeRender,
         suggestions,
         isLoading,
-        isFirstItemAlwaysVisible,
+        allowMixingSuggestionsAndLoading,
         noSuggestionsPlaceholder,
         getItemProps,
         highlightedIndex,
@@ -61,7 +61,7 @@ export function SuggestionsList<S>(props: Props<S>) {
             isHighlighted={highlightedIndex === index}
         >
             {suggestionItemRenderer ? (
-                suggestionItemRenderer(suggestions[index])
+                suggestionItemRenderer(suggestions[index], index, suggestions)
             ) : (
                 <MarkedText marker={inputValue} inline>
                     {suggestionToString(suggestions[index])}
@@ -75,10 +75,6 @@ export function SuggestionsList<S>(props: Props<S>) {
         Array(NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS)
             .fill('')
             .map((el, i) => {
-                if (isFirstItemAlwaysVisible && i === 0) {
-                    return renderItem({ key: 'firstItem', index: 0 });
-                }
-
                 return (
                     // eslint-disable-next-line react/no-array-index-key
                     <ListItem key={i}>
@@ -89,22 +85,8 @@ export function SuggestionsList<S>(props: Props<S>) {
                 );
             });
 
-    if (isLoading) {
-        return <>{renderLoadingPlaceholders()}</>;
-    }
-
-    if (!suggestions || !suggestions.length) {
-        if (noSuggestionsPlaceholder) {
-            return (
-                <ListItem disabled>
-                    <Text context="muted">{noSuggestionsPlaceholder}</Text>
-                </ListItem>
-            );
-        }
-        return null;
-    }
-
-    return (
+    // eslint-disable-next-line react/display-name
+    const renderSuggestionsList = () => (
         <>
             {useOptimizeRender ? (
                 <div {...elem('optimizerWrapper')}>
@@ -122,13 +104,39 @@ export function SuggestionsList<S>(props: Props<S>) {
             )}
         </>
     );
+
+    if (isLoading) {
+        if (!allowMixingSuggestionsAndLoading || !suggestions || !suggestions.length) {
+            return <>{renderLoadingPlaceholders()}</>;
+        }
+
+        return (
+            <>
+                {renderSuggestionsList()}
+                {renderLoadingPlaceholders()}
+            </>
+        );
+    }
+
+    if (!suggestions || !suggestions.length) {
+        if (noSuggestionsPlaceholder) {
+            return (
+                <ListItem disabled>
+                    <Text context="muted">{noSuggestionsPlaceholder}</Text>
+                </ListItem>
+            );
+        }
+        return null;
+    }
+
+    return renderSuggestionsList();
 }
 
 SuggestionsList.defaultProps = {
     noSuggestionsPlaceholder: '',
     useOptimizeRender: false,
     isLoading: false,
-    isFirstItemAlwaysVisible: false,
+    allowMixingSuggestionsAndLoading: false,
     inputValue: '',
 };
 

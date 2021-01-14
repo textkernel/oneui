@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { bem } from '../../utils';
-import { Autosuggest } from '../Autosuggest';
+import { AutosuggestDeprecated } from '../AutosuggestDeprecated';
 import { Alert } from '../Alert';
 import { ListItem } from '../List/ListItem';
 import { MarkedText } from '../Text';
@@ -147,7 +147,7 @@ export const LocationAutocomplete = (props) => {
     };
 
     return (
-        <Autosuggest
+        <AutosuggestDeprecated
             getSuggestions={suggestionsList}
             suggestionToString={suggestionToString}
             isLoading={isLoading}

@@ -1,9 +1,12 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { AutosuggestMulti } from '../AutosuggestMulti';
-import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../Autosuggest/__mocks__/suggestions';
+import { Autosuggest } from '../Autosuggest';
+import {
+    SUGGESTIONS,
+    SUGGESTION_TO_STRING,
+} from '../../../AutosuggestDeprecated/__mocks__/suggestions';
 
-describe('AutosuggestMulti', () => {
+describe('Autosuggest', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     const inputPlaceholder = 'type here...';
     const numberOfVisibleTags = 3;
@@ -20,7 +23,7 @@ describe('AutosuggestMulti', () => {
 
     beforeEach(() => {
         wrapper = mount(
-            <AutosuggestMulti
+            <Autosuggest
                 isLoading={false}
                 selectedSuggestions={selectedSuggestions}
                 suggestions={suggestionsList}
@@ -65,17 +68,17 @@ describe('AutosuggestMulti', () => {
             expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(5);
             expect(toJson(wrapper)).toMatchSnapshot();
         });
-        it('should render the first item with isLoading set to true', () => {
-            suggestionsList = SUGGESTIONS.slice(1, 20);
+        it('should render mix suggestions and loader if allowMixingSuggestionsAndLoading is set to true', () => {
+            suggestionsList = SUGGESTIONS.slice(1, 3);
             wrapper.setProps({
                 suggestions: suggestionsList,
                 isLoading: true,
-                isFirstItemAlwaysVisible: true,
+                allowMixingSuggestionsAndLoading: true,
             });
             setFocusOnInput();
             wrapper.find('input').simulate('change', { target: { value: 'driver' } });
-            expect(wrapper.find('span')).toHaveLength(1);
-            expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(4);
+            expect(wrapper.find('ListItem')).toHaveLength(7);
+            expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(5);
         });
         it('should render empty component correctly when focused', async () => {
             setFocusOnInput();
@@ -94,6 +97,32 @@ describe('AutosuggestMulti', () => {
             wrapper.setProps({ selectedSuggestions });
 
             expect(wrapper.find('SuggestionTag')).toHaveLength(numberOfVisibleTags + 1);
+        });
+        it('should set ref on input field, when passed', () => {
+            const inputRef = React.createRef();
+            wrapper.setProps({ inputRef });
+            expect(inputRef.current).not.toBe(null);
+        });
+        it('should set input value to custom value when focuses', () => {
+            const initInputValue = 'custom input value';
+            wrapper.setProps({ initInputValue });
+            setFocusOnInput();
+            expect(wrapper.find('input').getDOMNode().value).toEqual(initInputValue);
+        });
+        it('should render blurred state with custom node', () => {
+            const customTag = <div className="find-me">Custom thing</div>;
+            wrapper.setProps({
+                customSelectionIndicator: customTag,
+            });
+            expect(wrapper.find('.find-me')).toHaveLength(1);
+        });
+        it('should hide input field in blurred state with custom node', () => {
+            const customTag = <div className="find-me">Custom thing</div>;
+            wrapper.setProps({
+                customSelectionIndicator: customTag,
+            });
+            expect(wrapper.find('input')).toHaveLength(1);
+            expect(wrapper.find('.Autosuggest__input--hidden')).toHaveLength(1);
         });
     });
     describe('focusing and blurring the search field', () => {

@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AutosuggestMulti rendering should initially render empty component correctly 1`] = `
-<AutosuggestMulti
+exports[`Autosuggest rendering should initially render empty component correctly 1`] = `
+<Autosuggest
+  allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."
-  isFirstItemAlwaysVisible={false}
   isLoading={false}
   noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
@@ -30,7 +30,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
           aria-autocomplete="list"
           aria-labelledby="downshift-0-label"
           autocomplete="off"
-          class="AutosuggestMulti__input"
+          class="Autosuggest__input"
           data-lpignore="true"
           placeholder="type here..."
           value=""
@@ -94,7 +94,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
                 className="FieldWrapper__content"
               >
                 <div
-                  className="AutosuggestMulti__wrapper"
+                  className="Autosuggest__wrapper"
                 >
                   <input
                     aria-activedescendant={null}
@@ -102,7 +102,7 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
                     aria-controls={null}
                     aria-labelledby="downshift-0-label"
                     autoComplete="off"
-                    className="AutosuggestMulti__input"
+                    className="Autosuggest__input"
                     data-lpignore={true}
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -134,13 +134,13 @@ exports[`AutosuggestMulti rendering should initially render empty component corr
       </Downshift>
     </div>
   </SelectBase>
-</AutosuggestMulti>
+</Autosuggest>
 `;
 
-exports[`AutosuggestMulti rendering should initially render focused component correctly 1`] = `
-<AutosuggestMulti
+exports[`Autosuggest rendering should initially render focused component correctly 1`] = `
+<Autosuggest
+  allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."
-  isFirstItemAlwaysVisible={false}
   isLoading={false}
   noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
@@ -168,7 +168,7 @@ exports[`AutosuggestMulti rendering should initially render focused component co
           aria-controls="downshift-1-menu"
           aria-labelledby="downshift-1-label"
           autocomplete="off"
-          class="AutosuggestMulti__input"
+          class="Autosuggest__input"
           data-lpignore="true"
           placeholder="type here..."
           value=""
@@ -232,7 +232,7 @@ exports[`AutosuggestMulti rendering should initially render focused component co
                 className="FieldWrapper__content"
               >
                 <div
-                  className="AutosuggestMulti__wrapper AutosuggestMulti__wrapper--isFocused"
+                  className="Autosuggest__wrapper Autosuggest__wrapper--isFocused"
                 >
                   <input
                     aria-activedescendant={null}
@@ -240,7 +240,7 @@ exports[`AutosuggestMulti rendering should initially render focused component co
                     aria-controls="downshift-1-menu"
                     aria-labelledby="downshift-1-label"
                     autoComplete="off"
-                    className="AutosuggestMulti__input"
+                    className="Autosuggest__input"
                     data-lpignore={true}
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -273,13 +273,13 @@ exports[`AutosuggestMulti rendering should initially render focused component co
       </Downshift>
     </div>
   </SelectBase>
-</AutosuggestMulti>
+</Autosuggest>
 `;
 
-exports[`AutosuggestMulti rendering should render component with suggestions 1`] = `
-<AutosuggestMulti
+exports[`Autosuggest rendering should render component with suggestions 1`] = `
+<Autosuggest
+  allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."
-  isFirstItemAlwaysVisible={false}
   isLoading={false}
   noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
@@ -349,7 +349,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
           aria-controls="downshift-2-menu"
           aria-labelledby="downshift-2-label"
           autocomplete="off"
-          class="AutosuggestMulti__input"
+          class="Autosuggest__input"
           data-lpignore="true"
           placeholder="type here..."
           value="driver"
@@ -440,7 +440,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                 className="FieldWrapper__content"
               >
                 <div
-                  className="AutosuggestMulti__wrapper AutosuggestMulti__wrapper--isFocused"
+                  className="Autosuggest__wrapper Autosuggest__wrapper--isFocused"
                 >
                   <input
                     aria-activedescendant="downshift-2-item-0"
@@ -448,7 +448,7 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                     aria-controls="downshift-2-menu"
                     aria-labelledby="downshift-2-label"
                     autoComplete="off"
-                    className="AutosuggestMulti__input"
+                    className="Autosuggest__input"
                     data-lpignore={true}
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -474,11 +474,11 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
                     role="listbox"
                   >
                     <SuggestionsList
+                      allowMixingSuggestionsAndLoading={false}
                       className="List__item"
                       getItemProps={[Function]}
                       highlightedIndex={0}
                       inputValue="driver"
-                      isFirstItemAlwaysVisible={false}
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder=""
@@ -892,13 +892,13 @@ exports[`AutosuggestMulti rendering should render component with suggestions 1`]
       </Downshift>
     </div>
   </SelectBase>
-</AutosuggestMulti>
+</Autosuggest>
 `;
 
-exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
-<AutosuggestMulti
+exports[`Autosuggest rendering should render isLoading state 1`] = `
+<Autosuggest
+  allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."
-  isFirstItemAlwaysVisible={false}
   isLoading={true}
   noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
@@ -941,7 +941,7 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
           aria-controls="downshift-3-menu"
           aria-labelledby="downshift-3-label"
           autocomplete="off"
-          class="AutosuggestMulti__input"
+          class="Autosuggest__input"
           data-lpignore="true"
           placeholder="type here..."
           value="driver"
@@ -1005,7 +1005,7 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
                 className="FieldWrapper__content"
               >
                 <div
-                  className="AutosuggestMulti__wrapper AutosuggestMulti__wrapper--isFocused"
+                  className="Autosuggest__wrapper Autosuggest__wrapper--isFocused"
                 >
                   <input
                     aria-activedescendant="downshift-3-item-0"
@@ -1013,7 +1013,7 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
                     aria-controls="downshift-3-menu"
                     aria-labelledby="downshift-3-label"
                     autoComplete="off"
-                    className="AutosuggestMulti__input"
+                    className="Autosuggest__input"
                     data-lpignore={true}
                     onBlur={[Function]}
                     onChange={[Function]}
@@ -1039,11 +1039,11 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
                     role="listbox"
                   >
                     <SuggestionsList
+                      allowMixingSuggestionsAndLoading={false}
                       className="List__item"
                       getItemProps={[Function]}
                       highlightedIndex={0}
                       inputValue="driver"
-                      isFirstItemAlwaysVisible={false}
                       isLoading={true}
                       key=".0"
                       noSuggestionsPlaceholder=""
@@ -1297,5 +1297,5 @@ exports[`AutosuggestMulti rendering should render isLoading state 1`] = `
       </Downshift>
     </div>
   </SelectBase>
-</AutosuggestMulti>
+</Autosuggest>
 `;

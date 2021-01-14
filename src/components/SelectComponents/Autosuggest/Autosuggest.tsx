@@ -11,7 +11,7 @@ import {
     BlurredRendererHelpers,
     ListRendererHelper,
 } from '../SelectBase';
-import styles from './AutosuggestMulti.scss';
+import styles from './Autosuggest.scss';
 import { BACKSPACE_KEY, ESCAPE_KEY, ENTER_KEY } from '../../../constants';
 
 interface Props<S>
@@ -30,21 +30,24 @@ interface Props<S>
     inputPlaceholder: string;
     /** String to be shown when no suggestions are available */
     noSuggestionsPlaceholder?: string;
-    /** Defines if the first item of suggestions list is visible even while loading other elements */
-    isFirstItemAlwaysVisible?: boolean;
+    /** Defines if suggestions list is visible even while loading other elements */
+    allowMixingSuggestionsAndLoading?: boolean;
     /** Enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
     /** Function to be called when a suggestion is removed  */
     onSelectionRemove?: (item: S) => void;
     /** Function to be called on submitting form */
     onSubmit?: () => void;
-    /** if suggestions are still loading, i.e. display placeholders */
+    /** If suggestions are still loading, i.e. display placeholders */
     isLoading?: boolean;
+    /** Means to overwrite the look and feel of the UI in its blurred state.
+     * It should be null or undefined if there is no selection yet */
+    customSelectionIndicator?: ReactNode;
 }
 
-const { elem } = bem('AutosuggestMulti', styles);
+const { elem } = bem('Autosuggest', styles);
 
-export function AutosuggestMulti<S>(props: Props<S>) {
+export function Autosuggest<S>(props: Props<S>) {
     const {
         id,
         onInputValueChange,
@@ -59,15 +62,18 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         suggestions,
         isLoading,
         numberOfVisibleTags,
-        isFirstItemAlwaysVisible,
+        allowMixingSuggestionsAndLoading,
         onFocus,
         onBlur,
         onSubmit,
         showClearButton,
         onSelectionRemove,
+        inputRef: inputRefFromProps,
+        customSelectionIndicator,
+        initInputValue,
         ...rest
     } = props;
-    const inputRef = React.createRef<HTMLInputElement>();
+    const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
     const [inputValue, setInputValue] = React.useState('');
 
     const handleInputValueChange = (value: string) => {
@@ -152,21 +158,27 @@ export function AutosuggestMulti<S>(props: Props<S>) {
     );
 
     // eslint-disable-next-line react/display-name
-    const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps, onFocus: onFocusInput }) => (
-        <div {...elem('wrapper')}>
-            {renderShortTagsList()}
-            <input
-                {...getInputProps({
-                    id,
-                    ref: inputRef,
-                    placeholder: selectedSuggestions.length === 0 ? inputPlaceholder : '',
-                    'data-lpignore': true,
-                    onFocus: onFocusInput,
-                    ...elem('input', { hidden: selectedSuggestions.length > 0 }),
-                })}
-            />
-        </div>
-    );
+    const renderBlurred: BlurredRendererHelpers<S> = ({ getInputProps, onFocus: onFocusInput }) => {
+        const selectionIndicator = customSelectionIndicator || renderShortTagsList();
+        const placeholder = selectedSuggestions.length === 0 ? inputPlaceholder : '';
+        const isHidden = !!customSelectionIndicator || selectedSuggestions.length > 0;
+
+        return (
+            <div {...elem('wrapper')}>
+                {selectionIndicator}
+                <input
+                    {...getInputProps({
+                        id,
+                        ref: inputRef,
+                        placeholder,
+                        'data-lpignore': true,
+                        onFocus: onFocusInput,
+                        ...elem('input', { hidden: isHidden }),
+                    })}
+                />
+            </div>
+        );
+    };
 
     const renderList: ListRendererHelper<S> = (listProps) => {
         const { inputValue: inputToList } = listProps;
@@ -174,7 +186,7 @@ export function AutosuggestMulti<S>(props: Props<S>) {
         return inputToList ? (
             <SuggestionsList
                 {...listProps}
-                isFirstItemAlwaysVisible={isFirstItemAlwaysVisible}
+                allowMixingSuggestionsAndLoading={allowMixingSuggestionsAndLoading}
                 isLoading={isLoading}
                 useOptimizeRender={useOptimizeListRender}
                 suggestionToKey={suggestionToKey}
@@ -183,6 +195,10 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             />
         ) : null;
     };
+
+    const isClearButtonShown = customSelectionIndicator
+        ? showClearButton
+        : showClearButton && selectedSuggestions.length > 0;
 
     return (
         <SelectBase
@@ -197,26 +213,28 @@ export function AutosuggestMulti<S>(props: Props<S>) {
             listRenderer={renderList}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
-            showClearButton={showClearButton && selectedSuggestions.length > 0}
+            showClearButton={isClearButtonShown}
             highlightOnEmptyInput={false}
             keepExpandedAfterSelection
             selectOnTab
+            initInputValue={initInputValue}
             clearInputAfterSelection
         />
     );
 }
 
-AutosuggestMulti.displayName = 'AutosuggestMulti';
+Autosuggest.displayName = 'Autosuggest';
 
-AutosuggestMulti.defaultProps = {
+Autosuggest.defaultProps = {
     id: undefined,
     numberOfVisibleTags: 3,
     selectedSuggestions: [],
     suggestionToKey: null,
-    isFirstItemAlwaysVisible: false,
+    allowMixingSuggestionsAndLoading: false,
     useOptimizeListRender: false,
     onSubmit: null,
     onSelectionRemove: null,
     noSuggestionsPlaceholder: '',
     isLoading: false,
+    customSelectionIndicator: undefined,
 };

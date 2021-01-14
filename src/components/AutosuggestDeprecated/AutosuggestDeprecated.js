@@ -8,7 +8,7 @@ import { FieldWrapper } from '../FieldWrapper';
 import { ContentPlaceholder } from '../ContentPlaceholder';
 import { List, ListItem } from '../List';
 import { ItemTag } from './ItemTag';
-import styles from './Autosuggest.scss';
+import styles from './AutosuggestDeprecated.scss';
 import {
     NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS,
     BACKSPACE_KEY,
@@ -19,9 +19,9 @@ import {
 
 const FOCUS_DELAY = 250;
 
-const { block, elem } = bem('Autosuggest', styles);
+const { block, elem } = bem('AutosuggestDeprecated', styles);
 
-export class Autosuggest extends React.Component {
+export class AutosuggestDeprecated extends React.Component {
     constructor(props) {
         super(props);
 
@@ -419,7 +419,7 @@ export class Autosuggest extends React.Component {
     }
 }
 
-Autosuggest.propTypes = {
+AutosuggestDeprecated.propTypes = {
     /** array of already selected suggestions */
     selectedSuggestions: PropTypes.array, // eslint-disable-line react/forbid-prop-types
     /** getSuggestions(inputValue) => an array of objects that will be used to render the suggestions list. */
@@ -468,7 +468,7 @@ Autosuggest.propTypes = {
     listRenderer: PropTypes.func,
 };
 
-Autosuggest.defaultProps = {
+AutosuggestDeprecated.defaultProps = {
     getSuggestions: null,
     selectedSuggestions: null,
     isLoading: false,
@@ -490,4 +490,4 @@ Autosuggest.defaultProps = {
     clearTitle: '',
 };
 
-Autosuggest.displayName = 'Autosuggest';
+AutosuggestDeprecated.displayName = 'AutosuggestDeprecated';
