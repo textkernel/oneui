@@ -309,7 +309,6 @@ storiesOf('Organisms|Select Components', module)
                     </div>
                 ),
                 isInputHidden: true,
-                showClearButton: true,
             };
 
             return (
@@ -704,7 +703,6 @@ storiesOf('Organisms|Select Components', module)
                     </div>
                 ),
                 isInputHidden: true,
-                showClearButton: true,
             };
 
             return (

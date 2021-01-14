@@ -116,7 +116,6 @@ describe('Autosuggest', () => {
                 customBlurParams: {
                     selectionIndicator: customTag,
                     isInputHidden: false,
-                    showClearButton: true,
                     inputPlaceholder: anotherInputPlaceholder,
                 },
             });

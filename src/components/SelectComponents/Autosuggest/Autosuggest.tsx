@@ -46,8 +46,6 @@ interface Props<S>
         selectionIndicator: ReactNode;
         /** Should the input field be shown. Normally should set this to true (hide) */
         isInputHidden: boolean;
-        /** Should a clear button be shown on hover */
-        showClearButton: boolean;
         /** Placeholder text for the input field if you choose to show it */
         inputPlaceholder?: string;
     };
@@ -212,7 +210,7 @@ export function Autosuggest<S>(props: Props<S>) {
     };
 
     const isClearButtonShown = customBlurParams
-        ? customBlurParams.showClearButton
+        ? showClearButton
         : showClearButton && selectedSuggestions.length > 0;
 
     return (
