@@ -15,6 +15,8 @@ interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
     isHighlighted?: boolean;
     /** Format this item as disabled */
     disabled?: boolean;
+    /** Format this item as disabled */
+    value?: any;
     /** formatting context when hovered or selected */
     highlightContext?: Context | 'default';
     /** Ref to access the li element */

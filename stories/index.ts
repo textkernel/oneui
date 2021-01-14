@@ -2,7 +2,6 @@
 import './ArrangingOfZIndices';
 // Atoms
 import './Button';
-import './ButtonSelect';
 import './CandidateAvatar';
 import './Callout';
 import './Chip';
@@ -27,6 +26,7 @@ import './Text';
 import './TextArea';
 import './WidthRestrictor';
 // Molecules
+import './ActionsButton';
 import './Alert';
 import './BulkActionsToolbar';
 import './ButtonGroup';
