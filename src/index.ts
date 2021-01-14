@@ -57,6 +57,7 @@ export {
     AutosuggestMulti,
     Select,
     ActionsButton,
+    QuickActions,
 } from './components/SelectComponents';
 export {
     LocationAutocompleteWithGoogleLoader,

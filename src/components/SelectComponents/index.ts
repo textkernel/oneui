@@ -4,3 +4,4 @@ export * from './Select';
 export * from './SelectBase';
 export * from './SuggestionsList';
 export * from './ActionsButton';
+export * from './QuickActions';

@@ -2,8 +2,8 @@
 import './ArrangingOfZIndices';
 // Atoms
 import './Button';
-import './CandidateAvatar';
 import './Callout';
+import './CandidateAvatar';
 import './Chip';
 import './ContentPlaceholder';
 import './Drawer';
@@ -17,6 +17,7 @@ import './Map';
 import './Modal';
 import './PopupBase';
 import './ProgressBar';
+import './QuickAction';
 import './SelectButtonGroup';
 import './SelectedOption';
 import './Sliders';

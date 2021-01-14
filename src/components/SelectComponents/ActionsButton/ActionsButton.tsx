@@ -68,8 +68,8 @@ export function ActionsButton<V>(props: Props<V>) {
     });
 
     return (
-        <div {...rest}>
-            <div ref={setReferenceElement}>
+        <>
+            <div ref={setReferenceElement} {...rest}>
                 {React.cloneElement(button, {
                     ...getToggleButtonProps(),
                 })}
@@ -104,7 +104,7 @@ export function ActionsButton<V>(props: Props<V>) {
                     </List>
                 )}
             </div>
-        </div>
+        </>
     );
 }
 

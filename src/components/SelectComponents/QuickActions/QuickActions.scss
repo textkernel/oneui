@@ -1,0 +1,21 @@
+.QuickActions {
+    &__main {
+        display: flex;
+        align-items: center;
+    }
+    &__actions {
+        display: flex;
+        height: 100%;
+    }
+    &__button {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        margin-right: 1px;
+    }
+    &__arrowButton {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        display: flex;
+        height: 100%;
+    }
+}
