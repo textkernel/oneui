@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MultiActionButton should downshift only by enabled items with value 1`] = `
-<MultiActionsButton
+<MultiActionButton
   button={
     <ForwardRef
       context="brand"
@@ -17,50 +17,62 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
   onChange={[MockFunction]}
   placement="top-start"
 >
-  <div>
-    <Button
+  <Button
+    aria-expanded={true}
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-9-label downshift-9-toggle-button"
+    context="brand"
+    disabled={false}
+    id="downshift-9-toggle-button"
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    size="normal"
+    type="button"
+  >
+    <button
       aria-expanded={true}
       aria-haspopup="listbox"
-      aria-labelledby="downshift-6-label downshift-6-toggle-button"
-      context="brand"
+      aria-labelledby="downshift-9-label downshift-9-toggle-button"
+      className="Button Button--context_brand"
       disabled={false}
-      id="downshift-6-toggle-button"
-      isBlock={false}
-      isInline={false}
+      id="downshift-9-toggle-button"
       onClick={[Function]}
       onKeyDown={[Function]}
-      size="normal"
       type="button"
     >
-      <button
-        aria-expanded={true}
-        aria-haspopup="listbox"
-        aria-labelledby="downshift-6-label downshift-6-toggle-button"
-        className="Button Button--context_brand"
-        disabled={false}
-        id="downshift-6-toggle-button"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        type="button"
-      >
-        Click me!
-      </button>
-    </Button>
-  </div>
-  <div
-    aria-labelledby="downshift-6-label"
-    id="downshift-6-menu"
+      Click me!
+    </button>
+  </Button>
+  <List
+    aria-labelledby="downshift-9-label"
+    className="MultiActionButton__list"
+    doSelectOnNavigate={false}
+    id="downshift-9-menu"
+    isControlledNavigation={true}
+    isDivided={false}
     onBlur={[Function]}
     onKeyDown={[Function]}
     onMouseLeave={[Function]}
     role="listbox"
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
     tabIndex={-1}
   >
-    <List
-      className="MultiActionButton__list"
-      doSelectOnNavigate={false}
-      isControlledNavigation={true}
-      isDivided={false}
+    <ul
+      aria-labelledby="downshift-9-label"
+      className="List MultiActionButton__list"
+      id="downshift-9-menu"
+      onBlur={[Function]}
+      onKeyDown={[Function]}
+      onMouseLeave={[Function]}
+      role="listbox"
       style={
         Object {
           "left": "0",
@@ -68,167 +80,157 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
           "top": "0",
         }
       }
+      tabIndex={-1}
     >
-      <ul
-        className="List MultiActionButton__list"
-        style={
-          Object {
-            "left": "0",
-            "position": "absolute",
-            "top": "0",
-          }
-        }
+      <ListItem
+        className="List__item"
+        disabled={true}
+        highlightContext="default"
+        isHighlighted={false}
+        isSelected={false}
+        key=".$.$key-1"
       >
-        <ListItem
-          className="List__item"
-          disabled={true}
-          highlightContext="default"
-          isHighlighted={false}
-          isSelected={false}
-          key=".$.$key-1"
+        <li
+          className="ListItem List__item"
         >
-          <li
-            className="ListItem List__item"
+          <div
+            className="ListItem__container"
+            role="presentation"
           >
-            <div
-              className="ListItem__container"
-              role="presentation"
+            <Text
+              context="default"
+              inline={true}
+              key=".0"
+              size="normal"
             >
-              <Text
-                context="default"
-                inline={true}
-                key=".0"
-                size="normal"
-              >
-                <span>
-                  Disabled
-                </span>
-              </Text>
-            </div>
-          </li>
-        </ListItem>
-        <ListItem
+              <span>
+                Disabled
+              </span>
+            </Text>
+          </div>
+        </li>
+      </ListItem>
+      <ListItem
+        aria-selected="false"
+        className="List__item"
+        disabled={false}
+        highlightContext="default"
+        id="downshift-9-item-0"
+        isHighlighted={false}
+        isSelected={false}
+        key=".$.$key-2"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        role="option"
+        value="1"
+      >
+        <li
           aria-selected="false"
-          className="List__item"
-          disabled={false}
-          highlightContext="default"
-          id="downshift-6-item-0"
-          isHighlighted={false}
-          isSelected={false}
-          key=".$.$key-2"
-          onClick={[Function]}
+          className="ListItem ListItem--clickable List__item"
+          id="downshift-9-item-0"
           onMouseMove={[Function]}
           role="option"
           value="1"
         >
-          <li
-            aria-selected="false"
-            className="ListItem ListItem--clickable List__item"
-            id="downshift-6-item-0"
-            onMouseMove={[Function]}
-            role="option"
-            value="1"
+          <div
+            className="ListItem__container"
+            onClick={[Function]}
+            role="presentation"
           >
-            <div
-              className="ListItem__container"
-              onClick={[Function]}
-              role="presentation"
+            <Text
+              context="default"
+              inline={true}
+              key=".0"
+              size="normal"
             >
-              <Text
-                context="default"
-                inline={true}
-                key=".0"
-                size="normal"
-              >
-                <span>
-                  With value 1
-                </span>
-              </Text>
-            </div>
-          </li>
-        </ListItem>
-        <ListItem
-          className="List__item"
-          disabled={false}
-          highlightContext="default"
-          isHighlighted={false}
-          isSelected={false}
-          key=".$.$key-3"
+              <span>
+                With value 1
+              </span>
+            </Text>
+          </div>
+        </li>
+      </ListItem>
+      <ListItem
+        className="List__item"
+        disabled={false}
+        highlightContext="default"
+        isHighlighted={false}
+        isSelected={false}
+        key=".$.$key-3"
+      >
+        <li
+          className="ListItem List__item"
         >
-          <li
-            className="ListItem List__item"
+          <div
+            className="ListItem__container"
+            role="presentation"
           >
-            <div
-              className="ListItem__container"
-              role="presentation"
+            <Text
+              context="default"
+              inline={true}
+              key=".0"
+              size="normal"
             >
-              <Text
-                context="default"
-                inline={true}
-                key=".0"
-                size="normal"
-              >
-                <span>
-                  Without value
-                </span>
-              </Text>
-            </div>
-          </li>
-        </ListItem>
-        <div
-          className="List__item customDiv"
-          key=".$.$key-4"
-        >
-          Div
-        </div>
-        <ListItem
+              <span>
+                Without value
+              </span>
+            </Text>
+          </div>
+        </li>
+      </ListItem>
+      <div
+        className="List__item customDiv"
+        key=".$.$key-4"
+      >
+        Div
+      </div>
+      <ListItem
+        aria-selected="false"
+        className="List__item"
+        disabled={false}
+        highlightContext="default"
+        id="downshift-9-item-1"
+        isHighlighted={false}
+        isSelected={false}
+        key=".$.$key-5"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        role="option"
+        value="2"
+      >
+        <li
           aria-selected="false"
-          className="List__item"
-          disabled={false}
-          highlightContext="default"
-          id="downshift-6-item-1"
-          isHighlighted={false}
-          isSelected={false}
-          key=".$.$key-5"
-          onClick={[Function]}
+          className="ListItem ListItem--clickable List__item"
+          id="downshift-9-item-1"
           onMouseMove={[Function]}
           role="option"
           value="2"
         >
-          <li
-            aria-selected="false"
-            className="ListItem ListItem--clickable List__item"
-            id="downshift-6-item-1"
-            onMouseMove={[Function]}
-            role="option"
-            value="2"
+          <div
+            className="ListItem__container"
+            onClick={[Function]}
+            role="presentation"
           >
-            <div
-              className="ListItem__container"
-              onClick={[Function]}
-              role="presentation"
+            <Text
+              context="default"
+              inline={true}
+              key=".0"
+              size="normal"
             >
-              <Text
-                context="default"
-                inline={true}
-                key=".0"
-                size="normal"
-              >
-                <span>
-                  With value 2
-                </span>
-              </Text>
-            </div>
-          </li>
-        </ListItem>
-      </ul>
-    </List>
-  </div>
-</MultiActionsButton>
+              <span>
+                With value 2
+              </span>
+            </Text>
+          </div>
+        </li>
+      </ListItem>
+    </ul>
+  </List>
+</MultiActionButton>
 `;
 
 exports[`MultiActionButton should render correctly closed 1`] = `
-<MultiActionsButton
+<MultiActionButton
   button={
     <ForwardRef
       context="brand"
@@ -244,109 +246,133 @@ exports[`MultiActionButton should render correctly closed 1`] = `
   onChange={[MockFunction]}
   placement="top-start"
 >
-  <div>
-    <Button
+  <Button
+    aria-expanded={false}
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-0-label downshift-0-toggle-button"
+    context="brand"
+    disabled={false}
+    id="downshift-0-toggle-button"
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    size="normal"
+    type="button"
+  >
+    <button
       aria-expanded={false}
       aria-haspopup="listbox"
       aria-labelledby="downshift-0-label downshift-0-toggle-button"
-      context="brand"
+      className="Button Button--context_brand"
       disabled={false}
       id="downshift-0-toggle-button"
-      isBlock={false}
-      isInline={false}
       onClick={[Function]}
       onKeyDown={[Function]}
-      size="normal"
-      type="button"
-    >
-      <button
-        aria-expanded={false}
-        aria-haspopup="listbox"
-        aria-labelledby="downshift-0-label downshift-0-toggle-button"
-        className="Button Button--context_brand"
-        disabled={false}
-        id="downshift-0-toggle-button"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        type="button"
-      >
-        Click me!
-      </button>
-    </Button>
-  </div>
-  <div
-    aria-labelledby="downshift-0-label"
-    id="downshift-0-menu"
-    onBlur={[Function]}
-    onKeyDown={[Function]}
-    onMouseLeave={[Function]}
-    role="listbox"
-    tabIndex={-1}
-  />
-</MultiActionsButton>
-`;
-
-exports[`MultiActionButton should render correctly opened 1`] = `
-<MultiActionsButton
-  button={
-    <ForwardRef
-      context="brand"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      size="normal"
       type="button"
     >
       Click me!
-    </ForwardRef>
-  }
-  onChange={[MockFunction]}
-  placement="top-start"
->
-  <div>
-    <Button
-      aria-expanded={true}
-      aria-haspopup="listbox"
-      aria-labelledby="downshift-2-label downshift-2-toggle-button"
-      context="brand"
-      disabled={false}
-      id="downshift-2-toggle-button"
-      isBlock={false}
-      isInline={false}
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      size="normal"
-      type="button"
-    >
-      <button
-        aria-expanded={true}
-        aria-haspopup="listbox"
-        aria-labelledby="downshift-2-label downshift-2-toggle-button"
-        className="Button Button--context_brand"
-        disabled={false}
-        id="downshift-2-toggle-button"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        type="button"
-      >
-        Click me!
-      </button>
-    </Button>
-  </div>
-  <div
-    aria-labelledby="downshift-2-label"
-    id="downshift-2-menu"
+    </button>
+  </Button>
+  <List
+    aria-labelledby="downshift-0-label"
+    doSelectOnNavigate={false}
+    id="downshift-0-menu"
+    isControlledNavigation={true}
+    isDivided={false}
     onBlur={[Function]}
     onKeyDown={[Function]}
     onMouseLeave={[Function]}
     role="listbox"
     tabIndex={-1}
   >
-    <List
-      className="MultiActionButton__list"
-      doSelectOnNavigate={false}
-      isControlledNavigation={true}
-      isDivided={false}
+    <ul
+      aria-labelledby="downshift-0-label"
+      className="List"
+      id="downshift-0-menu"
+      onBlur={[Function]}
+      onKeyDown={[Function]}
+      onMouseLeave={[Function]}
+      role="listbox"
+      tabIndex={-1}
+    />
+  </List>
+</MultiActionButton>
+`;
+
+exports[`MultiActionButton should render correctly opened 1`] = `
+<MultiActionButton
+  button={
+    <ForwardRef
+      context="brand"
+      disabled={false}
+      isBlock={false}
+      isInline={false}
+      size="normal"
+      type="button"
+    >
+      Click me!
+    </ForwardRef>
+  }
+  onChange={[MockFunction]}
+  placement="top-start"
+>
+  <Button
+    aria-expanded={true}
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-3-label downshift-3-toggle-button"
+    context="brand"
+    disabled={false}
+    id="downshift-3-toggle-button"
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    size="normal"
+    type="button"
+  >
+    <button
+      aria-expanded={true}
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-3-label downshift-3-toggle-button"
+      className="Button Button--context_brand"
+      disabled={false}
+      id="downshift-3-toggle-button"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      type="button"
+    >
+      Click me!
+    </button>
+  </Button>
+  <List
+    aria-labelledby="downshift-3-label"
+    className="MultiActionButton__list"
+    doSelectOnNavigate={false}
+    id="downshift-3-menu"
+    isControlledNavigation={true}
+    isDivided={false}
+    onBlur={[Function]}
+    onKeyDown={[Function]}
+    onMouseLeave={[Function]}
+    role="listbox"
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+    tabIndex={-1}
+  >
+    <ul
+      aria-labelledby="downshift-3-label"
+      className="List MultiActionButton__list"
+      id="downshift-3-menu"
+      onBlur={[Function]}
+      onKeyDown={[Function]}
+      onMouseLeave={[Function]}
+      role="listbox"
       style={
         Object {
           "left": "0",
@@ -354,87 +380,77 @@ exports[`MultiActionButton should render correctly opened 1`] = `
           "top": "0",
         }
       }
+      tabIndex={-1}
     >
-      <ul
-        className="List MultiActionButton__list"
-        style={
-          Object {
-            "left": "0",
-            "position": "absolute",
-            "top": "0",
-          }
-        }
+      <ListItem
+        className="List__item"
+        disabled={true}
+        highlightContext="default"
+        isHighlighted={false}
+        isSelected={false}
+        key=".$.$disabled-key"
       >
-        <ListItem
-          className="List__item"
-          disabled={true}
-          highlightContext="default"
-          isHighlighted={false}
-          isSelected={false}
-          key=".$.$disabled-key"
+        <li
+          className="ListItem List__item"
         >
-          <li
-            className="ListItem List__item"
+          <div
+            className="ListItem__container"
+            role="presentation"
           >
-            <div
-              className="ListItem__container"
-              role="presentation"
+            <Text
+              context="default"
+              inline={true}
+              key=".0"
+              size="normal"
             >
-              <Text
-                context="default"
-                inline={true}
-                key=".0"
-                size="normal"
-              >
-                <span>
-                  Disabled
-                </span>
-              </Text>
-            </div>
-          </li>
-        </ListItem>
-        <ListItem
+              <span>
+                Disabled
+              </span>
+            </Text>
+          </div>
+        </li>
+      </ListItem>
+      <ListItem
+        aria-selected="false"
+        className="List__item"
+        disabled={false}
+        highlightContext="default"
+        id="downshift-3-item-0"
+        isHighlighted={false}
+        isSelected={false}
+        key=".$.$first-key"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        role="option"
+        value="first-value"
+      >
+        <li
           aria-selected="false"
-          className="List__item"
-          disabled={false}
-          highlightContext="default"
-          id="downshift-2-item-0"
-          isHighlighted={false}
-          isSelected={false}
-          key=".$.$first-key"
-          onClick={[Function]}
+          className="ListItem ListItem--clickable List__item"
+          id="downshift-3-item-0"
           onMouseMove={[Function]}
           role="option"
           value="first-value"
         >
-          <li
-            aria-selected="false"
-            className="ListItem ListItem--clickable List__item"
-            id="downshift-2-item-0"
-            onMouseMove={[Function]}
-            role="option"
-            value="first-value"
+          <div
+            className="ListItem__container"
+            onClick={[Function]}
+            role="presentation"
           >
-            <div
-              className="ListItem__container"
-              onClick={[Function]}
-              role="presentation"
+            <Text
+              context="default"
+              inline={true}
+              key=".0"
+              size="normal"
             >
-              <Text
-                context="default"
-                inline={true}
-                key=".0"
-                size="normal"
-              >
-                <span>
-                  With value
-                </span>
-              </Text>
-            </div>
-          </li>
-        </ListItem>
-      </ul>
-    </List>
-  </div>
-</MultiActionsButton>
+              <span>
+                With value
+              </span>
+            </Text>
+          </div>
+        </li>
+      </ListItem>
+    </ul>
+  </List>
+</MultiActionButton>
 `;

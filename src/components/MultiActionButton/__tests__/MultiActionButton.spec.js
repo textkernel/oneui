@@ -27,7 +27,6 @@ describe('MultiActionButton', () => {
             </MultiActionButton>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('List')).toHaveLength(0);
         expect(wrapper.find('ListItem')).toHaveLength(0);
         wrapper.unmount();
     });
