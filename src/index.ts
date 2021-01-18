@@ -39,6 +39,7 @@ export { Field } from './components/Field';
 export { FieldWithValidation } from './components/FieldWithValidation';
 export { FieldWrapper } from './components/FieldWrapper';
 export { LoadingSpinner } from './components/LoadingSpinner';
+export { MultiActionButton } from './components/MultiActionButton';
 export { LocationCard } from './components/LocationCard';
 export { NavBar, NavItem } from './components/Navigation';
 export { Pagination } from './components/Pagination';

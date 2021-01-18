@@ -37,6 +37,7 @@ import './Footer';
 import './Header';
 import './LoadingSpinner';
 import './LocationCard';
+import './MultiActionButton';
 import './Navigation';
 import './Pagination';
 import './Pill';

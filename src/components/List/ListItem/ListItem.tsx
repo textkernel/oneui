@@ -4,7 +4,7 @@ import { Text } from '../../Text';
 import { Context } from '../../../constants';
 import styles from './ListItem.scss';
 
-interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
+export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
     /** List Items */
     children?: ReactNode;
     /** A function to be called if the item is clicked */
@@ -19,6 +19,8 @@ interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
     highlightContext?: Context | 'default';
     /** Ref to access the li element */
     ref?: React.RefObject<HTMLLIElement>;
+    /** Item identifier */
+    value?: any;
 }
 
 const { block, elem } = bem('ListItem', styles);
