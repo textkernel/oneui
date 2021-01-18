@@ -20,7 +20,7 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      */
     children: React.ReactElement<ListItemProps> | React.ReactElement<ListItemProps>[];
     /** {@link Button} element, controlled by current component */
-    button: React.ReactElement<ButtonProps>;
+    button: React.FunctionComponentElement<ButtonProps>;
     /**
      * Callback called on selecting one of the passed as children items.
      * Value parameter it is a `value` attribute of children item ({@link ListItemProps.value}).
@@ -102,7 +102,7 @@ export function MultiActionButton<V>(props: Props<V>) {
             {React.cloneElement(button, {
                 ...rest,
                 ...toggleButtonProps,
-                ref: mergeRefs([setReferenceElement, toggleButtonProps.ref, button.props.ref]),
+                ref: mergeRefs([setReferenceElement, toggleButtonProps.ref, button.ref]),
             })}
             <List
                 {...menuProps}
