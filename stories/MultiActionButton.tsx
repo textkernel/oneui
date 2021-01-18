@@ -38,21 +38,11 @@ storiesOf('Molecules|MultiActionButton', module)
         };
 
         const customButtonsDemo = [
-            (
-                <Button context="brand">
-                    Click me!
-                </Button>
-            ),
-            (
-                <Button context="neutral">
-                    <HiDotsVertical />
-                </Button>
-            ),
-            (
-                <Button context="link">
-                    Select any
-                </Button>
-            )
+            <Button context="brand">Click me!</Button>,
+            <Button context="neutral">
+                <HiDotsVertical />
+            </Button>,
+            <Button context="link">Select any</Button>,
         ];
 
         const buttonIndex = select('customButton', [0, 1, 2], 0);
@@ -76,9 +66,7 @@ storiesOf('Molecules|MultiActionButton', module)
                             <strong>Custom ListItem with value</strong>
                         </div>
                     </ListItem>
-                    <div style={styles.customDiv}>
-                        Just custom div element
-                    </div>
+                    <div style={styles.customDiv}>Just custom div element</div>
                 </MultiActionButton>
             </div>
         );

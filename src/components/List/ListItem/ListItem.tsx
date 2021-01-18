@@ -20,7 +20,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClic
     /** Ref to access the li element */
     ref?: React.RefObject<HTMLLIElement>;
     /** Item identifier */
-    value?: any;
+    value?: string | number | boolean | object;
 }
 
 const { block, elem } = bem('ListItem', styles);

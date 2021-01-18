@@ -25,7 +25,7 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      * Callback called on selecting one of the passed as children items.
      * Value parameter it is a `value` attribute of children item ({@link ListItemProps.value}).
      */
-    onChange: (value: V ) => void;
+    onChange: (value: V) => void;
     /** Popup placement relative to button */
     placement?: PopupPlacement;
 }
@@ -36,40 +36,31 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
  * If you don't need navigation - use PopupBase component.
  */
 export function MultiActionButton<V>(props: Props<V>) {
-    const {
-        button,
-        children,
-        onChange,
+    const { button, children, onChange, placement, ...rest } = props;
+
+    const [referenceElement, setReferenceElement] = useState(null);
+    const [popperElement, setPopperElement] = useState(null);
+
+    const state = usePopper(referenceElement, popperElement, {
         placement,
-        ...rest
-    } = props;
-
-    const [referenceElement, setReferenceElement] = useState<any>(null);
-    const [popperElement, setPopperElement] = useState<any>(null);
-
-    const state = usePopper(
-        referenceElement,
-        popperElement,
-        {
-            placement,
-            modifiers: [
-                {
-                    name: 'offset',
-                    options: { offset: [0, 3] },
-                },
-            ],
-        },
-    );
+        modifiers: [
+            {
+                name: 'offset',
+                options: { offset: [0, 3] },
+            },
+        ],
+    });
 
     const childrenArray = React.Children.toArray(children);
     const valuesAvailableForHighlight: V[] = [];
     childrenArray.forEach((child: NotEmptyReactNode) => {
         if (
-            React.isValidElement(child)
-            && child.props.value
-            && !child.props.disabled
+            React.isValidElement(child) &&
+            child.props.value !== undefined &&
+            child.props.value !== null &&
+            !child.props.disabled
         ) {
-            return valuesAvailableForHighlight.push(child.props.value);
+            valuesAvailableForHighlight.push(child.props.value);
         }
     });
 
@@ -110,24 +101,26 @@ export function MultiActionButton<V>(props: Props<V>) {
                 ref={mergeRefs([isOpen && setPopperElement, menuProps.ref])}
                 isControlledNavigation
             >
-                {isOpen && childrenArray.map((child) => {
-                    if (
-                        React.isValidElement(child)
-                        && valuesAvailableForHighlight.includes(child.props.value)
-                    ) {
-                        const currentValueIndex = valuesAvailableForHighlight
-                            .findIndex(val => val === child.props.value);
+                {isOpen &&
+                    childrenArray.map((child) => {
+                        if (
+                            React.isValidElement(child) &&
+                            valuesAvailableForHighlight.includes(child.props.value)
+                        ) {
+                            const currentValueIndex = valuesAvailableForHighlight.findIndex(
+                                (val) => val === child.props.value
+                            );
 
-                        return React.cloneElement(child, {
-                            ...getItemProps({
-                                index: currentValueIndex,
-                                item: child.props.value,
-                            }),
-                            isHighlighted: highlightedIndex === currentValueIndex,
-                        });
-                    }
-                    return child;
-                })}
+                            return React.cloneElement(child, {
+                                ...getItemProps({
+                                    index: currentValueIndex,
+                                    item: child.props.value,
+                                }),
+                                isHighlighted: highlightedIndex === currentValueIndex,
+                            });
+                        }
+                        return child;
+                    })}
             </List>
         </>
     );

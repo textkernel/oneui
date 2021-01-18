@@ -10,11 +10,7 @@ describe('MultiActionButton', () => {
     it('should render correctly closed', () => {
         const wrapper = mount(
             <MultiActionButton
-                button={(
-                    <Button context="brand">
-                        Click me!
-                    </Button>
-                )}
+                button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >
@@ -34,11 +30,7 @@ describe('MultiActionButton', () => {
     it('should render correctly opened', () => {
         const wrapper = mount(
             <MultiActionButton
-                button={(
-                    <Button context="brand">
-                        Click me!
-                    </Button>
-                )}
+                button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >
@@ -60,11 +52,7 @@ describe('MultiActionButton', () => {
     it('should downshift only by enabled items with value', () => {
         const wrapper = mount(
             <MultiActionButton
-                button={(
-                    <Button context="brand">
-                        Click me!
-                    </Button>
-                )}
+                button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >
@@ -74,9 +62,7 @@ describe('MultiActionButton', () => {
                 <ListItem key="key-2" value="1">
                     With value 1
                 </ListItem>
-                <ListItem key="key-3">
-                    Without value
-                </ListItem>
+                <ListItem key="key-3">Without value</ListItem>
                 <div className="customDiv" key="key-4">
                     Div
                 </div>
@@ -90,8 +76,11 @@ describe('MultiActionButton', () => {
         expect(wrapper.find('ul').children()).toHaveLength(5);
 
         const keyDown = () => wrapper.find('List').simulate('keyDown', { key: 'ArrowDown' });
-        const findHighlighted = () => wrapper.find('ul').children()
-            .filterWhere(component => component.props().isHighlighted === true);
+        const findHighlighted = () =>
+            wrapper
+                .find('ul')
+                .children()
+                .filterWhere((component) => component.props().isHighlighted === true);
 
         // 1 keydown
         keyDown();
@@ -105,7 +94,6 @@ describe('MultiActionButton', () => {
         expect(highlightedItem2).toHaveLength(1);
         expect(highlightedItem2.key()).toContain('key-5');
 
-
         // 3 keydown. Should be again last not disabled with value item => 'key-5'
         keyDown();
         const highlightedItem3 = findHighlighted();
@@ -118,11 +106,7 @@ describe('MultiActionButton', () => {
     it('onChange should return passed value', () => {
         const wrapper = mount(
             <MultiActionButton
-                button={(
-                    <Button context="brand">
-                        Click me!
-                    </Button>
-                )}
+                button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >
@@ -139,7 +123,7 @@ describe('MultiActionButton', () => {
         wrapper.find('List').simulate('keyDown', { key: 'ArrowDown' });
         wrapper.find('List').simulate('keyDown', { key: 'Enter' });
 
-        expect(mockOnChange).toBeCalledWith('testValue')
+        expect(mockOnChange).toBeCalledWith('testValue');
 
         wrapper.unmount();
     });
