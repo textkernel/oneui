@@ -5,7 +5,7 @@ exports[`Callout should render correctly 1`] = `
   className="Callout Callout--context_info"
 >
   <div
-    className="Callout__content--context_info"
+    className="Callout__content Callout__content--context_info"
   >
     some text
   </div>
