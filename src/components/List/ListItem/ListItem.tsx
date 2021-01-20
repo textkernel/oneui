@@ -19,8 +19,8 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClic
     highlightContext?: Context | 'default';
     /** Ref to access the li element */
     ref?: React.RefObject<HTMLLIElement>;
-    /** Item identifier */
-    value?: string | number | boolean | object;
+    /** Item identifier is used in {@link MultiActionButton} to select/navigate through children */
+    value?: unknown;
 }
 
 const { block, elem } = bem('ListItem', styles);
@@ -33,6 +33,7 @@ export const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
         onClick,
         disabled,
         highlightContext,
+        value,
         ...rest
     } = props;
     const customBlockMod = { clickable: typeof onClick === 'function' };

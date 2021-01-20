@@ -6,9 +6,10 @@ import { ListItem } from '../../List';
 
 describe('MultiActionButton', () => {
     const mockOnChange = jest.fn();
+    let wrapper;
 
-    it('should render correctly closed', () => {
-        const wrapper = mount(
+    beforeEach(() => {
+        wrapper = mount(
             <MultiActionButton
                 button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
@@ -22,26 +23,15 @@ describe('MultiActionButton', () => {
                 </ListItem>
             </MultiActionButton>
         );
+    });
+
+    it('should render correctly closed', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('ListItem')).toHaveLength(0);
         wrapper.unmount();
     });
 
     it('should render correctly opened', () => {
-        const wrapper = mount(
-            <MultiActionButton
-                button={<Button context="brand">Click me!</Button>}
-                onChange={mockOnChange}
-                placement="top-start"
-            >
-                <ListItem key="disabled-key" disabled>
-                    Disabled
-                </ListItem>
-                <ListItem key="first-key" value="first-value">
-                    With value
-                </ListItem>
-            </MultiActionButton>
-        );
         wrapper.find('button').simulate('click');
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('List')).toHaveLength(1);
@@ -50,7 +40,7 @@ describe('MultiActionButton', () => {
     });
 
     it('should downshift only by enabled items with value', () => {
-        const wrapper = mount(
+        wrapper = mount(
             <MultiActionButton
                 button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
@@ -104,7 +94,7 @@ describe('MultiActionButton', () => {
     });
 
     it('onChange should return passed value', () => {
-        const wrapper = mount(
+        wrapper = mount(
             <MultiActionButton
                 button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}

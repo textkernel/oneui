@@ -20,10 +20,10 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
   <Button
     aria-expanded={true}
     aria-haspopup="listbox"
-    aria-labelledby="downshift-9-label downshift-9-toggle-button"
+    aria-labelledby="downshift-12-label downshift-12-toggle-button"
     context="brand"
     disabled={false}
-    id="downshift-9-toggle-button"
+    id="downshift-12-toggle-button"
     isBlock={false}
     isInline={false}
     onClick={[Function]}
@@ -34,10 +34,10 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
     <button
       aria-expanded={true}
       aria-haspopup="listbox"
-      aria-labelledby="downshift-9-label downshift-9-toggle-button"
+      aria-labelledby="downshift-12-label downshift-12-toggle-button"
       className="Button Button--context_brand"
       disabled={false}
-      id="downshift-9-toggle-button"
+      id="downshift-12-toggle-button"
       onClick={[Function]}
       onKeyDown={[Function]}
       type="button"
@@ -46,10 +46,10 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
     </button>
   </Button>
   <List
-    aria-labelledby="downshift-9-label"
+    aria-labelledby="downshift-12-label"
     className="MultiActionButton__list"
     doSelectOnNavigate={false}
-    id="downshift-9-menu"
+    id="downshift-12-menu"
     isControlledNavigation={true}
     isDivided={false}
     onBlur={[Function]}
@@ -66,9 +66,9 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
     tabIndex={-1}
   >
     <ul
-      aria-labelledby="downshift-9-label"
+      aria-labelledby="downshift-12-label"
       className="List MultiActionButton__list"
-      id="downshift-9-menu"
+      id="downshift-12-menu"
       onBlur={[Function]}
       onKeyDown={[Function]}
       onMouseLeave={[Function]}
@@ -115,7 +115,7 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
         className="List__item"
         disabled={false}
         highlightContext="default"
-        id="downshift-9-item-0"
+        id="downshift-12-item-0"
         isHighlighted={false}
         isSelected={false}
         key=".$.$key-2"
@@ -127,10 +127,9 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          id="downshift-9-item-0"
+          id="downshift-12-item-0"
           onMouseMove={[Function]}
           role="option"
-          value="1"
         >
           <div
             className="ListItem__container"
@@ -189,7 +188,7 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
         className="List__item"
         disabled={false}
         highlightContext="default"
-        id="downshift-9-item-1"
+        id="downshift-12-item-1"
         isHighlighted={false}
         isSelected={false}
         key=".$.$key-5"
@@ -201,10 +200,9 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          id="downshift-9-item-1"
+          id="downshift-12-item-1"
           onMouseMove={[Function]}
           role="option"
-          value="2"
         >
           <div
             className="ListItem__container"
@@ -430,7 +428,6 @@ exports[`MultiActionButton should render correctly opened 1`] = `
           id="downshift-3-item-0"
           onMouseMove={[Function]}
           role="option"
-          value="first-value"
         >
           <div
             className="ListItem__container"
