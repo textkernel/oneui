@@ -7,6 +7,10 @@ $icon-size: 16px;
     padding: var(--spacing-5x);
     align-items: flex-start;
 
+    &__content {
+        flex-grow: 1;
+    }
+
     &__closeButton {
         display: block;
         flex-shrink: 0;
