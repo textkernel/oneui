@@ -1903,3 +1903,500 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
   </SelectBase>
 </Autosuggest>
 `;
+
+exports[`Autosuggest rendering should show empty suggestion placeholder while results are empty and input has value 1`] = `
+<Autosuggest
+  allowMixingSuggestionsAndLoading={false}
+  inputPlaceholder="type here..."
+  isLoading={false}
+  noSuggestionsPlaceholder="no suggestions"
+  numberOfVisibleTags={3}
+  onBlur={[MockFunction]}
+  onInputValueChange={[MockFunction]}
+  onSelectionAdd={[MockFunction]}
+  onSelectionRemove={[MockFunction]}
+  onSubmit={null}
+  selectedSuggestions={Array []}
+  suggestionToKey={null}
+  suggestionToString={[Function]}
+  suggestions={Array []}
+  useOptimizeListRender={false}
+>
+  <SelectBase
+    blurredRenderer={[Function]}
+    clearInputAfterSelection={true}
+    clearTitle=""
+    focusedRenderer={[Function]}
+    highlightOnEmptyInput={false}
+    inputRef={
+      Object {
+        "current": <input
+          aria-autocomplete="list"
+          aria-controls="downshift-13-menu"
+          aria-labelledby="downshift-13-label"
+          autocomplete="off"
+          class="Autosuggest__input"
+          data-lpignore="true"
+          placeholder="type here..."
+          value=""
+        />,
+      }
+    }
+    keepExpandedAfterSelection={true}
+    listRenderer={[Function]}
+    onBlur={[MockFunction]}
+    onInputValueChange={[Function]}
+    onSelectionAdd={[MockFunction]}
+    selectOnTab={true}
+    showClearButton={false}
+    suggestionToString={[Function]}
+    suggestions={Array []}
+  >
+    <div
+      className="SelectBase"
+    >
+      <Downshift
+        defaultHighlightedIndex={-1}
+        defaultIsOpen={false}
+        environment={[Window]}
+        getA11yStatusMessage={[Function]}
+        inputValue=""
+        itemToString={[Function]}
+        onChange={[Function]}
+        onInputValueChange={[Function]}
+        onOuterClick={[Function]}
+        onSelect={[Function]}
+        onStateChange={[Function]}
+        onUserAction={[Function]}
+        scrollIntoView={[Function]}
+        selectedItemChanged={[Function]}
+        stateReducer={[Function]}
+        suppressRefError={false}
+      >
+        <div
+          aria-expanded={true}
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-13-label"
+          aria-owns="downshift-13-menu"
+          className="SelectBase__main SelectBase__main--focused"
+          role="combobox"
+        >
+          <FieldWrapper
+            className="SelectBase__field"
+            clearLabel=""
+            disabled={false}
+            isFocused={true}
+            onClear={[Function]}
+            onClick={[Function]}
+            showClearButton={false}
+          >
+            <div
+              className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+              disabled={false}
+              onClick={[Function]}
+            >
+              <div
+                className="FieldWrapper__content"
+              >
+                <div
+                  className="Autosuggest__wrapper Autosuggest__wrapper--isFocused"
+                >
+                  <input
+                    aria-activedescendant={null}
+                    aria-autocomplete="list"
+                    aria-controls="downshift-13-menu"
+                    aria-labelledby="downshift-13-label"
+                    autoComplete="off"
+                    className="Autosuggest__input"
+                    data-lpignore={true}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="type here..."
+                    value=""
+                  />
+                </div>
+                <List
+                  aria-labelledby="downshift-13-label"
+                  className="SelectBase__list--focused"
+                  doSelectOnNavigate={false}
+                  id="downshift-13-menu"
+                  isControlledNavigation={true}
+                  isDivided={false}
+                  role="listbox"
+                >
+                  <ul
+                    aria-labelledby="downshift-13-label"
+                    className="List SelectBase__list--focused"
+                    id="downshift-13-menu"
+                    role="listbox"
+                  />
+                </List>
+              </div>
+            </div>
+          </FieldWrapper>
+        </div>
+      </Downshift>
+    </div>
+  </SelectBase>
+</Autosuggest>
+`;
+
+exports[`Autosuggest rendering should show empty suggestion placeholder while results are empty and input has value 2`] = `
+<Autosuggest
+  allowMixingSuggestionsAndLoading={false}
+  inputPlaceholder="type here..."
+  isLoading={false}
+  noSuggestionsPlaceholder="no suggestions"
+  numberOfVisibleTags={3}
+  onBlur={[MockFunction]}
+  onInputValueChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "a",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  onSelectionAdd={[MockFunction]}
+  onSelectionRemove={[MockFunction]}
+  onSubmit={null}
+  selectedSuggestions={Array []}
+  suggestionToKey={null}
+  suggestionToString={[Function]}
+  suggestions={Array []}
+  useOptimizeListRender={false}
+>
+  <SelectBase
+    blurredRenderer={[Function]}
+    clearInputAfterSelection={true}
+    clearTitle=""
+    focusedRenderer={[Function]}
+    highlightOnEmptyInput={false}
+    inputRef={
+      Object {
+        "current": <input
+          aria-activedescendant="downshift-13-item-0"
+          aria-autocomplete="list"
+          aria-controls="downshift-13-menu"
+          aria-labelledby="downshift-13-label"
+          autocomplete="off"
+          class="Autosuggest__input"
+          data-lpignore="true"
+          placeholder="type here..."
+          value="a"
+        />,
+      }
+    }
+    keepExpandedAfterSelection={true}
+    listRenderer={[Function]}
+    onBlur={[MockFunction]}
+    onInputValueChange={[Function]}
+    onSelectionAdd={[MockFunction]}
+    selectOnTab={true}
+    showClearButton={false}
+    suggestionToString={[Function]}
+    suggestions={Array []}
+  >
+    <div
+      className="SelectBase"
+    >
+      <Downshift
+        defaultHighlightedIndex={-1}
+        defaultIsOpen={false}
+        environment={[Window]}
+        getA11yStatusMessage={[Function]}
+        inputValue="a"
+        itemToString={[Function]}
+        onChange={[Function]}
+        onInputValueChange={[Function]}
+        onOuterClick={[Function]}
+        onSelect={[Function]}
+        onStateChange={[Function]}
+        onUserAction={[Function]}
+        scrollIntoView={[Function]}
+        selectedItemChanged={[Function]}
+        stateReducer={[Function]}
+        suppressRefError={false}
+      >
+        <div
+          aria-expanded={true}
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-13-label"
+          aria-owns="downshift-13-menu"
+          className="SelectBase__main SelectBase__main--focused"
+          role="combobox"
+        >
+          <FieldWrapper
+            className="SelectBase__field"
+            clearLabel=""
+            disabled={false}
+            isFocused={true}
+            onClear={[Function]}
+            onClick={[Function]}
+            showClearButton={false}
+          >
+            <div
+              className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+              disabled={false}
+              onClick={[Function]}
+            >
+              <div
+                className="FieldWrapper__content"
+              >
+                <div
+                  className="Autosuggest__wrapper Autosuggest__wrapper--isFocused"
+                >
+                  <input
+                    aria-activedescendant="downshift-13-item-0"
+                    aria-autocomplete="list"
+                    aria-controls="downshift-13-menu"
+                    aria-labelledby="downshift-13-label"
+                    autoComplete="off"
+                    className="Autosuggest__input"
+                    data-lpignore={true}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="type here..."
+                    value="a"
+                  />
+                </div>
+                <List
+                  aria-labelledby="downshift-13-label"
+                  className="SelectBase__list--focused"
+                  doSelectOnNavigate={false}
+                  id="downshift-13-menu"
+                  isControlledNavigation={true}
+                  isDivided={false}
+                  role="listbox"
+                >
+                  <ul
+                    aria-labelledby="downshift-13-label"
+                    className="List SelectBase__list--focused"
+                    id="downshift-13-menu"
+                    role="listbox"
+                  >
+                    <SuggestionsList
+                      allowMixingSuggestionsAndLoading={false}
+                      className="List__item"
+                      getItemProps={[Function]}
+                      highlightedIndex={0}
+                      inputValue="a"
+                      isLoading={false}
+                      key=".0"
+                      noSuggestionsPlaceholder="no suggestions"
+                      suggestionToKey={null}
+                      suggestionToString={[Function]}
+                      suggestions={Array []}
+                      useOptimizeRender={false}
+                    >
+                      <ListItem
+                        disabled={true}
+                        highlightContext="default"
+                        isHighlighted={false}
+                        isSelected={false}
+                      >
+                        <li
+                          className="ListItem"
+                        >
+                          <div
+                            className="ListItem__container"
+                            role="presentation"
+                          >
+                            <Text
+                              context="muted"
+                              inline={false}
+                              key=".0"
+                              size="normal"
+                            >
+                              <p
+                                className="Text--context_muted"
+                              >
+                                no suggestions
+                              </p>
+                            </Text>
+                          </div>
+                        </li>
+                      </ListItem>
+                    </SuggestionsList>
+                  </ul>
+                </List>
+              </div>
+            </div>
+          </FieldWrapper>
+        </div>
+      </Downshift>
+    </div>
+  </SelectBase>
+</Autosuggest>
+`;
+
+exports[`Autosuggest rendering should show empty suggestion placeholder while results are empty and input has value 3`] = `
+<Autosuggest
+  allowMixingSuggestionsAndLoading={false}
+  inputPlaceholder="type here..."
+  isLoading={false}
+  noSuggestionsPlaceholder="no suggestions"
+  numberOfVisibleTags={3}
+  onBlur={[MockFunction]}
+  onInputValueChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          "a",
+        ],
+        Array [
+          "",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  onSelectionAdd={[MockFunction]}
+  onSelectionRemove={[MockFunction]}
+  onSubmit={null}
+  selectedSuggestions={Array []}
+  suggestionToKey={null}
+  suggestionToString={[Function]}
+  suggestions={Array []}
+  useOptimizeListRender={false}
+>
+  <SelectBase
+    blurredRenderer={[Function]}
+    clearInputAfterSelection={true}
+    clearTitle=""
+    focusedRenderer={[Function]}
+    highlightOnEmptyInput={false}
+    inputRef={
+      Object {
+        "current": <input
+          aria-autocomplete="list"
+          aria-controls="downshift-13-menu"
+          aria-labelledby="downshift-13-label"
+          autocomplete="off"
+          class="Autosuggest__input"
+          data-lpignore="true"
+          placeholder="type here..."
+          value=""
+        />,
+      }
+    }
+    keepExpandedAfterSelection={true}
+    listRenderer={[Function]}
+    onBlur={[MockFunction]}
+    onInputValueChange={[Function]}
+    onSelectionAdd={[MockFunction]}
+    selectOnTab={true}
+    showClearButton={false}
+    suggestionToString={[Function]}
+    suggestions={Array []}
+  >
+    <div
+      className="SelectBase"
+    >
+      <Downshift
+        defaultHighlightedIndex={-1}
+        defaultIsOpen={false}
+        environment={[Window]}
+        getA11yStatusMessage={[Function]}
+        inputValue=""
+        itemToString={[Function]}
+        onChange={[Function]}
+        onInputValueChange={[Function]}
+        onOuterClick={[Function]}
+        onSelect={[Function]}
+        onStateChange={[Function]}
+        onUserAction={[Function]}
+        scrollIntoView={[Function]}
+        selectedItemChanged={[Function]}
+        stateReducer={[Function]}
+        suppressRefError={false}
+      >
+        <div
+          aria-expanded={true}
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-13-label"
+          aria-owns="downshift-13-menu"
+          className="SelectBase__main SelectBase__main--focused"
+          role="combobox"
+        >
+          <FieldWrapper
+            className="SelectBase__field"
+            clearLabel=""
+            disabled={false}
+            isFocused={true}
+            onClear={[Function]}
+            onClick={[Function]}
+            showClearButton={false}
+          >
+            <div
+              className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+              disabled={false}
+              onClick={[Function]}
+            >
+              <div
+                className="FieldWrapper__content"
+              >
+                <div
+                  className="Autosuggest__wrapper Autosuggest__wrapper--isFocused"
+                >
+                  <input
+                    aria-activedescendant={null}
+                    aria-autocomplete="list"
+                    aria-controls="downshift-13-menu"
+                    aria-labelledby="downshift-13-label"
+                    autoComplete="off"
+                    className="Autosuggest__input"
+                    data-lpignore={true}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    placeholder="type here..."
+                    value=""
+                  />
+                </div>
+                <List
+                  aria-labelledby="downshift-13-label"
+                  className="SelectBase__list--focused"
+                  doSelectOnNavigate={false}
+                  id="downshift-13-menu"
+                  isControlledNavigation={true}
+                  isDivided={false}
+                  role="listbox"
+                >
+                  <ul
+                    aria-labelledby="downshift-13-label"
+                    className="List SelectBase__list--focused"
+                    id="downshift-13-menu"
+                    role="listbox"
+                  />
+                </List>
+              </div>
+            </div>
+          </FieldWrapper>
+        </div>
+      </Downshift>
+    </div>
+  </SelectBase>
+</Autosuggest>
+`;

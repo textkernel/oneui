@@ -131,6 +131,16 @@ describe('Autosuggest', () => {
             expect(wrapper.find('input')).toHaveLength(1);
             expect(wrapper.find('.Autosuggest__input--hidden')).toHaveLength(1);
         });
+        it('should show empty suggestion placeholder while results are empty and input has value', () => {
+            wrapper.setProps({ noSuggestionsPlaceholder: 'no suggestions' });
+            setFocusOnInput();
+            expect(toJson(wrapper)).toMatchSnapshot();
+            wrapper.find('input').simulate('change', { target: { value: 'a' } });
+            expect(toJson(wrapper)).toMatchSnapshot();
+            setFocusOnInput();
+            wrapper.find('input').simulate('change', { target: { value: '' } });
+            expect(toJson(wrapper)).toMatchSnapshot();
+        });
     });
     describe('focusing and blurring the search field', () => {
         it('should clear input value on pressing Escape button', (done) => {
