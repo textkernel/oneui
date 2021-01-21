@@ -2,7 +2,7 @@ import React from 'react';
 import toJson from 'enzyme-to-json';
 import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../../Buttons';
-import { MultiActionButton } from '../../MultiActionButton';
+import { Dropdown } from '../../Dropdown';
 import { ListItem } from '../../List/ListItem';
 
 describe('<ButtonGroup> that renders a button', () => {
@@ -31,12 +31,9 @@ describe('<ButtonGroup> that renders a button', () => {
             <ButtonGroup size="large" isBlock>
                 <Button>A button</Button>
                 <Button href="#">An anchor</Button>
-                <MultiActionButton
-                    button={<Button>A dropdown button</Button>}
-                    placement="bottom-end"
-                >
+                <Dropdown button={<Button>A dropdown button</Button>} placement="bottom-end">
                     <ListItem key="some-key">A list item</ListItem>
-                </MultiActionButton>
+                </Dropdown>
             </ButtonGroup>
         );
         expect(toJson(wrapper)).toMatchSnapshot();

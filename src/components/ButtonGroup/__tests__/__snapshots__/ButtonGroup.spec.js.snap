@@ -146,7 +146,7 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
         An anchor
       </a>
     </Button>
-    <MultiActionButton
+    <Dropdown
       button={
         <ForwardRef
           context="neutral"
@@ -217,7 +217,7 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
           tabIndex={-1}
         />
       </List>
-    </MultiActionButton>
+    </Dropdown>
   </div>
 </ButtonGroup>
 `;
