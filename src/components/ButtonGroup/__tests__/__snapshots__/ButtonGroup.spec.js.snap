@@ -11,7 +11,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
     role="group"
   >
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
       context="neutral"
       disabled={false}
       isBlock={false}
@@ -21,7 +21,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       type="button"
     >
       <button
-        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
         disabled={false}
         type="button"
       >
@@ -29,7 +29,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       </button>
     </Button>
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
       context="neutral"
       disabled={false}
       isBlock={false}
@@ -39,7 +39,7 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       type="button"
     >
       <button
-        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
         disabled={false}
         type="button"
       >
@@ -61,7 +61,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
     role="group"
   >
     <Button
-      className="ButtonGroup__button ButtonGroup__button--context_neutral"
+      className="ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
       context="neutral"
       disabled={false}
       isBlock={false}
@@ -71,7 +71,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       type="button"
     >
       <button
-        className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral"
+        className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
         disabled={false}
         type="button"
       >
@@ -79,7 +79,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       </button>
     </Button>
     <Button
-      className="ButtonGroup__button ButtonGroup__button--context_neutral"
+      className="ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--last"
       context="neutral"
       disabled={false}
       isBlock={false}
@@ -89,13 +89,135 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       type="button"
     >
       <button
-        className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral"
+        className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--last"
         disabled={false}
         type="button"
       >
         Another button
       </button>
     </Button>
+  </div>
+</ButtonGroup>
+`;
+
+exports[`<ButtonGroup> that renders a button should support mixed element types 1`] = `
+<ButtonGroup
+  context="neutral"
+  isBlock={true}
+  size="large"
+>
+  <div
+    className="ButtonGroup ButtonGroup--isBlock"
+    role="group"
+  >
+    <Button
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      isInline={false}
+      key=".0"
+      size="large"
+      type="button"
+    >
+      <button
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
+        disabled={false}
+        type="button"
+      >
+        A button
+      </button>
+    </Button>
+    <Button
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
+      context="neutral"
+      disabled={false}
+      href="#"
+      isBlock={false}
+      isInline={false}
+      key=".1"
+      size="large"
+      type="button"
+    >
+      <a
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
+        href="#"
+      >
+        An anchor
+      </a>
+    </Button>
+    <MultiActionButton
+      button={
+        <ForwardRef
+          context="neutral"
+          disabled={false}
+          isBlock={false}
+          isInline={false}
+          size="normal"
+          type="button"
+        >
+          A dropdown button
+        </ForwardRef>
+      }
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
+      context="neutral"
+      key=".2"
+      placement="bottom-end"
+      size="large"
+    >
+      <Button
+        aria-expanded={false}
+        aria-haspopup="listbox"
+        aria-labelledby="downshift-0-label downshift-0-toggle-button"
+        className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
+        context="neutral"
+        disabled={false}
+        id="downshift-0-toggle-button"
+        isBlock={false}
+        isInline={false}
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        size="large"
+        type="button"
+      >
+        <button
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-0-label downshift-0-toggle-button"
+          className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
+          disabled={false}
+          id="downshift-0-toggle-button"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          type="button"
+        >
+          A dropdown button
+        </button>
+      </Button>
+      <List
+        aria-labelledby="downshift-0-label"
+        doSelectOnNavigate={false}
+        id="downshift-0-menu"
+        isControlledNavigation={true}
+        isDivided={false}
+        onBlur={[Function]}
+        onKeyDown={[Function]}
+        onMouseLeave={[Function]}
+        role="listbox"
+        tabIndex={-1}
+      >
+        <ul
+          aria-labelledby="downshift-0-label"
+          className="List"
+          id="downshift-0-menu"
+          onBlur={[Function]}
+          onKeyDown={[Function]}
+          onMouseLeave={[Function]}
+          role="listbox"
+          tabIndex={-1}
+        />
+      </List>
+    </MultiActionButton>
   </div>
 </ButtonGroup>
 `;

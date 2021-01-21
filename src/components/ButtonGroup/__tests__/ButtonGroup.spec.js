@@ -2,6 +2,8 @@ import React from 'react';
 import toJson from 'enzyme-to-json';
 import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../../Buttons';
+import { MultiActionButton } from '../../MultiActionButton';
+import { ListItem } from '../../List/ListItem';
 
 describe('<ButtonGroup> that renders a button', () => {
     it('should render default button correctly', () => {
@@ -19,6 +21,22 @@ describe('<ButtonGroup> that renders a button', () => {
             <ButtonGroup size="large" isBlock>
                 <Button>A button</Button>
                 <Button>Another button</Button>
+            </ButtonGroup>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+
+    it('should support mixed element types', () => {
+        const wrapper = mount(
+            <ButtonGroup size="large" isBlock>
+                <Button>A button</Button>
+                <Button href="#">An anchor</Button>
+                <MultiActionButton
+                    button={<Button>A dropdown button</Button>}
+                    placement="bottom-end"
+                >
+                    <ListItem key="some-key">A list item</ListItem>
+                </MultiActionButton>
             </ButtonGroup>
         );
         expect(toJson(wrapper)).toMatchSnapshot();

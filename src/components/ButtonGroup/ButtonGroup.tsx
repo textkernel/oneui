@@ -20,9 +20,11 @@ const { block, elem } = bem('ButtonGroup', styles);
 export const ButtonGroup: React.FC<Props> = (props) => {
     const { children, context, size, isBlock, ...rest } = props;
 
+    const totalNumberOfButtons = React.Children.count(children);
+
     return (
         <div {...rest} {...block(props)} role="group">
-            {React.Children.map(children, (button) => {
+            {React.Children.map(children, (button, i) => {
                 if (!React.isValidElement(button)) {
                     return button;
                 }
@@ -31,7 +33,11 @@ export const ButtonGroup: React.FC<Props> = (props) => {
                     ...button.props,
                     context,
                     size,
-                    ...elem('button', props),
+                    ...elem('button', {
+                        ...props,
+                        first: i === 0,
+                        last: i + 1 === totalNumberOfButtons,
+                    }),
                 });
             })}
         </div>
