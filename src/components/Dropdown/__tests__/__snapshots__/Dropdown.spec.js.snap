@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MultiActionButton should downshift only by enabled items with value 1`] = `
-<MultiActionButton
+exports[`Dropdown should downshift only by enabled items with value 1`] = `
+<Dropdown
   button={
     <ForwardRef
       context="brand"
@@ -47,7 +47,7 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
   </Button>
   <List
     aria-labelledby="downshift-12-label"
-    className="MultiActionButton__list"
+    className="Dropdown__list"
     doSelectOnNavigate={false}
     id="downshift-12-menu"
     isControlledNavigation={true}
@@ -67,7 +67,7 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
   >
     <ul
       aria-labelledby="downshift-12-label"
-      className="List MultiActionButton__list"
+      className="List Dropdown__list"
       id="downshift-12-menu"
       onBlur={[Function]}
       onKeyDown={[Function]}
@@ -224,11 +224,11 @@ exports[`MultiActionButton should downshift only by enabled items with value 1`]
       </ListItem>
     </ul>
   </List>
-</MultiActionButton>
+</Dropdown>
 `;
 
-exports[`MultiActionButton should render correctly closed 1`] = `
-<MultiActionButton
+exports[`Dropdown should render correctly closed 1`] = `
+<Dropdown
   button={
     <ForwardRef
       context="brand"
@@ -295,11 +295,11 @@ exports[`MultiActionButton should render correctly closed 1`] = `
       tabIndex={-1}
     />
   </List>
-</MultiActionButton>
+</Dropdown>
 `;
 
-exports[`MultiActionButton should render correctly opened 1`] = `
-<MultiActionButton
+exports[`Dropdown should render correctly opened 1`] = `
+<Dropdown
   button={
     <ForwardRef
       context="brand"
@@ -345,7 +345,7 @@ exports[`MultiActionButton should render correctly opened 1`] = `
   </Button>
   <List
     aria-labelledby="downshift-3-label"
-    className="MultiActionButton__list"
+    className="Dropdown__list"
     doSelectOnNavigate={false}
     id="downshift-3-menu"
     isControlledNavigation={true}
@@ -365,7 +365,7 @@ exports[`MultiActionButton should render correctly opened 1`] = `
   >
     <ul
       aria-labelledby="downshift-3-label"
-      className="List MultiActionButton__list"
+      className="List Dropdown__list"
       id="downshift-3-menu"
       onBlur={[Function]}
       onKeyDown={[Function]}
@@ -449,5 +449,5 @@ exports[`MultiActionButton should render correctly opened 1`] = `
       </ListItem>
     </ul>
   </List>
-</MultiActionButton>
+</Dropdown>
 `;

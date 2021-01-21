@@ -1,16 +1,16 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { MultiActionButton } from '../MultiActionButton';
+import { Dropdown } from '../Dropdown';
 import { Button } from '../../Buttons';
 import { ListItem } from '../../List';
 
-describe('MultiActionButton', () => {
+describe('Dropdown', () => {
     const mockOnChange = jest.fn();
     let wrapper;
 
     beforeEach(() => {
         wrapper = mount(
-            <MultiActionButton
+            <Dropdown
                 button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
@@ -21,7 +21,7 @@ describe('MultiActionButton', () => {
                 <ListItem key="first-key" value="first-value">
                     With value
                 </ListItem>
-            </MultiActionButton>
+            </Dropdown>
         );
     });
 
@@ -41,7 +41,7 @@ describe('MultiActionButton', () => {
 
     it('should downshift only by enabled items with value', () => {
         wrapper = mount(
-            <MultiActionButton
+            <Dropdown
                 button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
@@ -59,7 +59,7 @@ describe('MultiActionButton', () => {
                 <ListItem key="key-5" value="2">
                     With value 2
                 </ListItem>
-            </MultiActionButton>
+            </Dropdown>
         );
         wrapper.find('button').simulate('click');
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -95,7 +95,7 @@ describe('MultiActionButton', () => {
 
     it('onChange should return passed value', () => {
         wrapper = mount(
-            <MultiActionButton
+            <Dropdown
                 button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
@@ -106,7 +106,7 @@ describe('MultiActionButton', () => {
                 <ListItem key="key-2" value="testValue">
                     With value
                 </ListItem>
-            </MultiActionButton>
+            </Dropdown>
         );
         wrapper.find('button').simulate('click');
 

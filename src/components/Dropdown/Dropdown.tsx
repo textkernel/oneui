@@ -7,9 +7,9 @@ import { PopupPlacement } from '../../constants';
 import { ButtonProps } from '../Buttons';
 import { ListItemProps } from '../List/ListItem';
 import { List } from '../List';
-import styles from './MultiActionButton.scss';
+import styles from './Dropdown.scss';
 
-const { elem } = bem('MultiActionButton', styles);
+const { elem } = bem('Dropdown', styles);
 
 interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /**
@@ -35,7 +35,7 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
  * It allows you to navigate with keyboard across non-disabled actions.
  * If you don't need navigation - use PopupBase component.
  */
-export function MultiActionButton<V>(props: Props<V>) {
+export function Dropdown<V>(props: Props<V>) {
     const { button, children, onChange, placement, ...rest } = props;
 
     const [referenceElement, setReferenceElement] = useState(null);
@@ -126,8 +126,8 @@ export function MultiActionButton<V>(props: Props<V>) {
     );
 }
 
-MultiActionButton.displayName = 'MultiActionButton';
+Dropdown.displayName = 'Dropdown';
 
-MultiActionButton.defaultProps = {
+Dropdown.defaultProps = {
     placement: 'bottom-end',
 };
