@@ -53,6 +53,13 @@ describe('Autosuggest', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('ListItem')).toHaveLength(0);
         });
+        it('should initially render focused component with suggestions list correctly', () => {
+            suggestionsList = SUGGESTIONS.slice(1, 20);
+            wrapper.setProps({ suggestions: suggestionsList });
+            setFocusOnInput();
+            expect(toJson(wrapper)).toMatchSnapshot();
+            expect(wrapper.find('ListItem')).toHaveLength(8);
+        });
         it('should render component with suggestions', () => {
             suggestionsList = SUGGESTIONS.slice(1, 20);
             wrapper.setProps({ suggestions: suggestionsList });
