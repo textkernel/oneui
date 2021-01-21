@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.0.0](https://github.com/textkernel/oneui/compare/12.6.2...13.0.0) (2021-01-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* older Autosuggest component has been renamed to AutosuggestDeprecated;
+AutosuggestMulti has been renamed to Autosuggest;
+isFirstItemAlwaysVisible prop has been renamed to allowMixingSuggestionsAndLoading and will now display all suggestion before rendering loading placeholders;
+isProminent prop has been removed
+* **LocationSelector:** changing attributes of the Location type
+
+Co-authored-by: Oleksii Mukiienko <mukiienko@textkernel.nl>
+
+### Features
+
+* refactor Autosuggest(Multi) so it can behave as single select as well ([#436](https://github.com/textkernel/oneui/issues/436)) ([fa68407](https://github.com/textkernel/oneui/commit/fa68407351df1b6297d253f479d01bdf67e7decb))
+* **LocationSelector:** expose Location type ([#434](https://github.com/textkernel/oneui/issues/434)) ([de31106](https://github.com/textkernel/oneui/commit/de31106233d32d13bac699969df6b4df93d40df4))
+* WeightedResultBar component ([#432](https://github.com/textkernel/oneui/issues/432)) ([73f3ebc](https://github.com/textkernel/oneui/commit/73f3ebcf11ee6d83cb148af29b934e6d8818200d))
+
+
+### Bug Fixes
+
+* **Callout:** stretch content on full width ([#438](https://github.com/textkernel/oneui/issues/438)) ([b1b12e6](https://github.com/textkernel/oneui/commit/b1b12e665ec3b2b1649e1b08188406636adc590b))
+* **ProgressBar:** remove fill minimum width ([#433](https://github.com/textkernel/oneui/issues/433)) ([8945119](https://github.com/textkernel/oneui/commit/8945119b5042f62fc54b9088a15abb66cec9c960))
+
 ### [12.6.2](https://github.com/textkernel/oneui/compare/12.6.1...12.6.2) (2020-11-25)
 
 
