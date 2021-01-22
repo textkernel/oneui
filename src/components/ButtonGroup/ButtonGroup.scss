@@ -6,26 +6,27 @@
     &__button {
         border-radius: 0;
 
-        &:first-child {
+        &--first {
             border-top-left-radius: var(--border-radius);
             border-bottom-left-radius: var(--border-radius);
         }
-        &:last-child {
+
+        &--last {
             border-top-right-radius: var(--border-radius);
             border-bottom-right-radius: var(--border-radius);
         }
 
-        + .ButtonGroup__button {
+        ~ .ButtonGroup__button {
             margin-left: -1px;
         }
 
         &--context {
             @each $context in ($contexts) {
                 &_#{$context} {
-                    &:not(:first-child):not(:focus) {
+                    &:not(.ButtonGroup__button--first):not(:focus) {
                         border-left-color: var(--color-#{$context}-25);
                     }
-                    &:not(:last-child):not(:focus) {
+                    &:not(.ButtonGroup__button--last):not(:focus) {
                         border-right-color: var(--color-#{$context}-25);
                     }
                 }
