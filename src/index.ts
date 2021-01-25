@@ -33,6 +33,7 @@ export { Alert } from './components/Alert';
 export * from './components/BulkActionsToolbar';
 export { ButtonGroup } from './components/ButtonGroup';
 export { Checkbox } from './components/Checkbox';
+export { Dropdown } from './components/Dropdown';
 export { Footer } from './components/Footer';
 export { Header } from './components/Header';
 export { Field } from './components/Field';

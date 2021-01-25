@@ -4,7 +4,7 @@ import { Text } from '../../Text';
 import { Context } from '../../../constants';
 import styles from './ListItem.scss';
 
-interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
+export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
     /** List Items */
     children?: ReactNode;
     /** A function to be called if the item is clicked */
@@ -19,6 +19,8 @@ interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
     highlightContext?: Context | 'default';
     /** Ref to access the li element */
     ref?: React.RefObject<HTMLLIElement>;
+    /** Item identifier is used in {@link Dropdown} to select/navigate through children */
+    value?: unknown;
 }
 
 const { block, elem } = bem('ListItem', styles);
@@ -31,6 +33,7 @@ export const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
         onClick,
         disabled,
         highlightContext,
+        value,
         ...rest
     } = props;
     const customBlockMod = { clickable: typeof onClick === 'function' };

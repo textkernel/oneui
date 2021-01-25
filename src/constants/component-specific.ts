@@ -32,7 +32,7 @@ export const LIST_NAVIGATION_DIRECTIONS = {
     DOWN: 'ArrowDown',
 };
 
-/** PopupBase */
+/** PopupBase, MultiActionButton */
 export const POPUP_PLACEMENTS = [
     'auto',
     'auto-start',

@@ -30,6 +30,7 @@ import './Alert';
 import './BulkActionsToolbar';
 import './ButtonGroup';
 import './Checkbox';
+import './Dropdown';
 import './Field';
 import './FieldWithValidation';
 import './FieldWrapper';
