@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.1.0](https://github.com/textkernel/oneui/compare/13.0.0...13.1.0) (2021-01-25)
+
+
+### Features
+
+* **Dropdown:** new component ([#437](https://github.com/textkernel/oneui/issues/437)) ([c226593](https://github.com/textkernel/oneui/commit/c226593637ecdbc36373910c1cdcd85995b9d5e9))
+
 ## [13.0.0](https://github.com/textkernel/oneui/compare/12.6.2...13.0.0) (2021-01-21)
 
 
