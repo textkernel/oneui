@@ -3,9 +3,10 @@ import { BooleanQueryTokenizer, TokenType } from '..';
 describe('modules/BooleanQueryTokenizer', () => {
     describe('#tokenize()', () => {
         it('should tokenize boolean query respecting all types of tokens', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
             expect(
-                BooleanQueryTokenizer.tokenize(
-                    '-php AND\t\n+c++ +--+ - java* NOT *script ' +
+                booleanQueryTokenizer.tokenize(
+                    '-php AND\t\n+c++ +--+ - java* NOT *script C++ L-3 Yum! ' +
                         'NEAR (rust OR web*hueb) OR -.NET "TO BE OR NOT TO BE"'
                 )
             ).toEqual([
@@ -29,6 +30,12 @@ describe('modules/BooleanQueryTokenizer', () => {
                 { type: TokenType.wildcard, lexeme: '*' },
                 { type: TokenType.word, lexeme: 'script' },
                 { type: TokenType.separator, lexeme: ' ' },
+                { type: TokenType.word, lexeme: 'C++' },
+                { type: TokenType.separator, lexeme: ' ' },
+                { type: TokenType.word, lexeme: 'L-3' },
+                { type: TokenType.separator, lexeme: ' ' },
+                { type: TokenType.word, lexeme: 'Yum!' },
+                { type: TokenType.separator, lexeme: ' ' },
                 { type: TokenType.booleanOperator, lexeme: 'NEAR' },
                 { type: TokenType.separator, lexeme: ' ' },
                 { type: TokenType.parentheses, lexeme: '(' },
@@ -46,11 +53,11 @@ describe('modules/BooleanQueryTokenizer', () => {
                 { type: TokenType.separator, lexeme: ' ' },
                 { type: TokenType.phrase, lexeme: '"TO BE OR NOT TO BE"' },
             ]);
-            expect(BooleanQueryTokenizer.tokenize('web*')).toEqual([
+            expect(booleanQueryTokenizer.tokenize('web*')).toEqual([
                 { type: TokenType.word, lexeme: 'web' },
                 { type: TokenType.wildcard, lexeme: '*' },
             ]);
-            expect(BooleanQueryTokenizer.tokenize('to_be OR')).toEqual([
+            expect(booleanQueryTokenizer.tokenize('to_be OR')).toEqual([
                 { type: TokenType.word, lexeme: 'to_be' },
                 { type: TokenType.separator, lexeme: ' ' },
                 { type: TokenType.booleanOperator, lexeme: 'OR' },
@@ -60,21 +67,24 @@ describe('modules/BooleanQueryTokenizer', () => {
 
     describe('#buildBagOfWords()', () => {
         it('should handle words boundaries correctly', () => {
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases('')).toEqual([]);
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases('   ')).toEqual([]);
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(booleanQueryTokenizer.extractWordsAndPhrases('')).toEqual([]);
+            expect(booleanQueryTokenizer.extractWordsAndPhrases('   ')).toEqual([]);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases('  \n  \n  \t foo     \t bar   \n\n')
+                booleanQueryTokenizer.extractWordsAndPhrases('  \n  \n  \t foo     \t bar   \n\n')
             ).toEqual(['foo', 'bar']);
         });
 
         it('should handle operators correctly', () => {
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases('NEAROP')).toEqual(['NEAROP']);
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases('NEAR')).toEqual([]);
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(booleanQueryTokenizer.extractWordsAndPhrases('NEAROP')).toEqual(['NEAROP']);
+            expect(booleanQueryTokenizer.extractWordsAndPhrases('NEAR')).toEqual([]);
         });
 
         it('should tokenize words properly', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases(`
+                booleanQueryTokenizer.extractWordsAndPhrases(`
                     php c++ canal+ 23AndMe U x THE.BEST.COMPANY 888.com 3M WD40 Forever21
                     360 7/11 1and1 L-3 37signals 20x200 _lodash Macy's Yum!
                 `)
@@ -103,16 +113,18 @@ describe('modules/BooleanQueryTokenizer', () => {
         });
 
         it('should tokenize words that contain non-latin characters', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases(
+                booleanQueryTokenizer.extractWordsAndPhrases(
                     'Düsseldorf Köln "Набережные Челны" Москва 北京市 إسرائيل'
                 )
             ).toEqual(['Düsseldorf', 'Köln', 'Набережные Челны', 'Москва', '北京市', 'إسرائيل']);
         });
 
         it('should tokenize words with modifiers', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases(
+                booleanQueryTokenizer.extractWordsAndPhrases(
                     '-php +c++ d-- +++ -canal+ + Yo!!! -- +23AndMe --- !U !x - !Yum! +.NET'
                 )
             ).toEqual([
@@ -130,34 +142,35 @@ describe('modules/BooleanQueryTokenizer', () => {
         });
 
         it('should respect quoted phrases', () => {
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases('""')).toEqual([]);
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases("''")).toEqual([]);
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(booleanQueryTokenizer.extractWordsAndPhrases('""')).toEqual([]);
+            expect(booleanQueryTokenizer.extractWordsAndPhrases("''")).toEqual([]);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases('"a double-quoted phrase"')
+                booleanQueryTokenizer.extractWordsAndPhrases('"a double-quoted phrase"')
             ).toEqual(['a double-quoted phrase']);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases("'another phrase in single quotes'")
+                booleanQueryTokenizer.extractWordsAndPhrases("'another phrase in single quotes'")
             ).toEqual(['another phrase in single quotes']);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases(
+                booleanQueryTokenizer.extractWordsAndPhrases(
                     '"  phrase with some leading and trailing word separators \t\n  "'
                 )
             ).toEqual(['phrase with some leading and trailing word separators']);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases(
+                booleanQueryTokenizer.extractWordsAndPhrases(
                     '"a +phrase OR with some NOT boolean operators AND"'
                 )
             ).toEqual(['a +phrase OR with some NOT boolean operators AND']);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases('"a +phrase* *with* *some wild*cards"')
+                booleanQueryTokenizer.extractWordsAndPhrases('"a +phrase* *with* *some wild*cards"')
             ).toEqual(['a +phrase with some wildcards']);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases(
+                booleanQueryTokenizer.extractWordsAndPhrases(
                     '& "a phrase & with some - special | characters inside" and * outside'
                 )
             ).toEqual(['a phrase & with some - special | characters inside', 'and', 'outside']);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases(
+                booleanQueryTokenizer.extractWordsAndPhrases(
                     'not only -"a phrase"+ but also some other words AND stuff'
                 )
             ).toEqual([
@@ -174,9 +187,10 @@ describe('modules/BooleanQueryTokenizer', () => {
         });
 
         it('should handle boolean operators and parentheses', () => {
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases('OR java AND')).toEqual(['java']);
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(booleanQueryTokenizer.extractWordsAndPhrases('OR java AND')).toEqual(['java']);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases(`
+                booleanQueryTokenizer.extractWordsAndPhrases(`
                     Rust AND c++ OR (D R Python) OR (web NEAR developer)
                     NOT manager AND [java AND spring] AROUND 5 boot
                     NOT <NOTARIUS AND ANDROID> OR ORGANIST NEAR NEARNESS AROUND 10 AROUNDNESS
@@ -209,30 +223,153 @@ describe('modules/BooleanQueryTokenizer', () => {
         });
 
         it('should respect wildcards', () => {
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases('* * *')).toEqual([]);
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(booleanQueryTokenizer.extractWordsAndPhrases('* * *')).toEqual([]);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases('do you speak english mother* ?')
+                booleanQueryTokenizer.extractWordsAndPhrases('do you speak english mother* ?')
             ).toEqual(['do', 'you', 'speak', 'english', 'mother']);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases(
+                booleanQueryTokenizer.extractWordsAndPhrases(
                     "Fasten your *belts. It's going to be a * night."
                 )
             ).toEqual(['Fasten', 'your', 'belts.', "It's", 'going', 'to', 'be', 'a', 'night.']);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases('people like to * each other')
+                booleanQueryTokenizer.extractWordsAndPhrases('people like to * each other')
             ).toEqual(['people', 'like', 'to', 'each', 'other']);
         });
 
         it('should ignore wildcards inside quotes', () => {
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases('"*"')).toEqual([]);
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases('"yo* "')).toEqual(['yo']);
-            expect(BooleanQueryTokenizer.extractWordsAndPhrases('python "is a *"')).toEqual([
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(booleanQueryTokenizer.extractWordsAndPhrases('"*"')).toEqual([]);
+            expect(booleanQueryTokenizer.extractWordsAndPhrases('"yo* "')).toEqual(['yo']);
+            expect(booleanQueryTokenizer.extractWordsAndPhrases('python "is a *"')).toEqual([
                 'python',
                 'is a',
             ]);
             expect(
-                BooleanQueryTokenizer.extractWordsAndPhrases('"*prog*ramming*   is  fun."')
+                booleanQueryTokenizer.extractWordsAndPhrases('"*prog*ramming*   is  fun."')
             ).toEqual(['programming   is  fun.']);
+        });
+    });
+
+    describe('#extractWords()', () => {
+        it('should filter out terms, phrases negated by NOT', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(
+                booleanQueryTokenizer.extractWords(
+                    'typescript AND NOT lua OR NOT php NOT NOT NOT kotlin java'
+                )
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+            expect(
+                booleanQueryTokenizer.extractWords(
+                    'typescript AND NOT "C sharp" OR NOT"java developer" java'
+                )
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+        });
+
+        it('should filter out groups negated by NOT', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(
+                booleanQueryTokenizer.extractWords(
+                    'typescript NOT(php AND java) java NOT (kotlin VBScript)'
+                )
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+            expect(
+                booleanQueryTokenizer.extractWords(
+                    'typescript NOT((php AND java NOT php) OR (php AND java NOT(foo OR bar))) java'
+                )
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+            expect(
+                booleanQueryTokenizer.extractWords('typescript NOT(((((php AND java))))) java')
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+        });
+
+        it('should filter out terms, phrases negated by minus (-)', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(
+                booleanQueryTokenizer.extractWords('typescript AND -lua OR -php - - -kotlin java')
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+            expect(
+                booleanQueryTokenizer.extractWords(
+                    'typescript AND -"C sharp" OR -"java developer" java'
+                )
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+        });
+
+        it('should filter out groups negated by minus (-)', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(
+                booleanQueryTokenizer.extractWords(
+                    'typescript -(php AND java) java -(kotlin VBScript)'
+                )
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+            expect(
+                booleanQueryTokenizer.extractWords(
+                    'typescript -((php AND java -php) OR (php AND java NOT(foo OR bar))) java'
+                )
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+            expect(
+                booleanQueryTokenizer.extractWords('typescript -(((((php AND java))))) java')
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+        });
+
+        it('should filter out terms, phrases negated by exclamation mark (!)', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(
+                booleanQueryTokenizer.extractWords('typescript AND !lua OR !php ! ! !kotlin java')
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+            expect(
+                booleanQueryTokenizer.extractWords(
+                    'typescript AND !"C sharp" OR !"java developer" java'
+                )
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+        });
+
+        it('should filter out groups negated by exclamation mark (!)', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(
+                booleanQueryTokenizer.extractWords(
+                    'typescript !(php AND java) java !(kotlin VBScript)'
+                )
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+            expect(
+                booleanQueryTokenizer.extractWords(
+                    'typescript !((php AND java !php) OR (php AND java NOT(foo OR bar))) java'
+                )
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
+            expect(
+                booleanQueryTokenizer.extractWords('typescript !(((((php AND java))))) java')
+            ).toEqual({
+                wordsAndPhrases: ['typescript', 'java'],
+            });
         });
     });
 });

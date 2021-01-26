@@ -15,6 +15,7 @@
  * form the keyword. For identifiers and some other tokens, the pattern is more complex
  * structure that is matched by many strings.
  */
+/* eslint-disable class-methods-use-this */
 
 export enum TokenType {
     unknown,
@@ -35,6 +36,9 @@ type TokenPattern = [
 type Token = {
     type: TokenType;
     lexeme: string;
+};
+type Extract = {
+    wordsAndPhrases: string[];
 };
 
 // Character classes
@@ -62,7 +66,7 @@ const separatorOrEnd = `(?:${separator}|$)`;
 const parentheses = '(?:\\(|\\)|\\[|\\]|\\{|\\}|\\<|\\>)';
 const wildcard = '\\*';
 const phrase = '(?:"[^"]*"|\'[^\']*\')';
-const simpleOperator = '(?:OR|AND|NEAR|NOT|\\&|\\!|\\|)';
+const simpleOperator = '(?:OR|AND|NEAR|NOT|\\&|\\|)';
 const andNotOperator = `AND${separator}NOT`;
 const aroundOperator = `AROUND${separator}\\d+`;
 
@@ -79,7 +83,7 @@ export class BooleanQueryTokenizer {
     private static readonly tokenPatterns: TokenPattern[] = [
         [TokenType.separator, new RegExp(`^(?:${separator}|$)`)],
         [TokenType.word, new RegExp(`^${word}`)],
-        [TokenType.modifier, new RegExp(`^${wordModifier}(?=${word})`)],
+        [TokenType.modifier, new RegExp(`^(?:${wordModifier})(?=${phrase}|\\(|${word})`)],
         [
             TokenType.wildcard,
             new RegExp(`^(?:${wildcard}(?=${word})|${wildcard}(?=${separatorOrEnd}))`),
@@ -88,8 +92,10 @@ export class BooleanQueryTokenizer {
         [TokenType.phrase, new RegExp(`^${phrase}`)],
         [
             TokenType.booleanOperator,
+            // Cases like `NOT word`, `NOT(group...`, `AND"a phrase"`
             new RegExp(
-                `^(?:${andNotOperator}|${aroundOperator}|${simpleOperator})(?=${separatorOrEnd})`
+                `^(?:${andNotOperator}|${aroundOperator}|${simpleOperator})` +
+                    `(?=${separatorOrEnd}|\\(|${phrase})`
             ),
         ],
         [TokenType.parentheses, new RegExp(`^${parentheses}`)],
@@ -99,11 +105,11 @@ export class BooleanQueryTokenizer {
      * Tokenizer splits an input text into meaningful chunks and labels each chunk according to its
      * lexical meaning, suchwise producing a list of tokens.
      */
-    public static tokenize(inputString: string): Token[] {
+    public tokenize(inputString: string): Token[] {
         const tokens: Token[] = [];
         let remainingInputString = inputString;
         while (remainingInputString.length > 0) {
-            const token = BooleanQueryTokenizer.tokenizeCurrentChunk(remainingInputString);
+            const token = this.tokenizeCurrentChunk(remainingInputString);
             if (token) {
                 // If token has been found, reduce the `remainingInputString `
                 // on the length of the matched lexeme and add the token to the result.
@@ -129,9 +135,90 @@ export class BooleanQueryTokenizer {
         return tokens;
     }
 
+    /**
+     * @deprecated use BooleanQueryTokenizer#extractWords instead
+     */
+    public extractWordsAndPhrases(inputString: string): string[] {
+        return this.filterWordsAndPhrases(this.tokenize(inputString));
+    }
+
+    /**
+     * Extracts words and phrases from boolean query. Ignores negated words and phrases.
+     * Supports negation of words, phrases, and groups (by parentheses).
+     * If there is not enough closing parentheses, negation is not be applied.
+     * @param inputString - boolean query string
+     */
+    public extractWords(inputString: string): Extract {
+        const tokens = this.tokenize(inputString);
+        for (let i = 0; i < tokens.length; i += 1) {
+            const token = tokens[i];
+            if (this.isNegation(token) && i + 1 < tokens.length) {
+                let j = i + 1;
+                while (j < tokens.length) {
+                    const lookAheadToken = tokens[j];
+                    if (lookAheadToken.type === TokenType.separator) {
+                        j += 1;
+                    } else if (this.isNegationable(lookAheadToken)) {
+                        this.resetSubsequenceToUnknown(tokens, i, j);
+                        i = j;
+                        break;
+                    } else if (this.isParenthesisGroupStart(lookAheadToken)) {
+                        let parenthesisTracker = 0;
+                        for (let k = j; k < tokens.length; k += 1) {
+                            const parenthesisLoopToken = tokens[k];
+                            if (parenthesisLoopToken.type === TokenType.parentheses) {
+                                if (parenthesisLoopToken.lexeme === '(') {
+                                    parenthesisTracker += 1;
+                                } else if (parenthesisLoopToken.lexeme === ')') {
+                                    parenthesisTracker -= 1;
+                                }
+                            }
+                            if (parenthesisTracker === 0) {
+                                this.resetSubsequenceToUnknown(tokens, i, k);
+                                i = k;
+                                break;
+                            }
+                        }
+                        break;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        // Filter only words and phrases
+        return {
+            wordsAndPhrases: this.filterWordsAndPhrases(tokens),
+        };
+    }
+
+    /**
+     * @deprecated use `BooleanQueryTokenizer#tokenize`
+     */
+    public static tokenize(inputString: string): Token[] {
+        const booleanQueryTokenizer = new BooleanQueryTokenizer();
+        return booleanQueryTokenizer.tokenize(inputString);
+    }
+
+    /**
+     * @deprecated use `BooleanQueryTokenizer#extractWords`
+     */
     public static extractWordsAndPhrases(inputString: string): string[] {
+        const booleanQueryTokenizer = new BooleanQueryTokenizer();
+        return booleanQueryTokenizer.extractWordsAndPhrases(inputString);
+    }
+
+    /**
+     * @deprecated use `BooleanQueryTokenizer#extractWords`
+     */
+    public static extractWords(inputString: string): Extract {
+        const booleanQueryTokenizer = new BooleanQueryTokenizer();
+        return booleanQueryTokenizer.extractWords(inputString);
+    }
+
+    private filterWordsAndPhrases(tokens: Token[]): string[] {
         return (
-            BooleanQueryTokenizer.tokenize(inputString)
+            tokens
                 // Filter only words and phrases
                 .filter((token) => token.type === TokenType.word || token.type === TokenType.phrase)
                 .map((wordOrPhrase) => {
@@ -148,11 +235,44 @@ export class BooleanQueryTokenizer {
         );
     }
 
+    private resetSubsequenceToUnknown(tokens: Token[], from: number, to: number): Token[] {
+        tokens.forEach((_token, index) => {
+            if (index >= from && index <= to) {
+                // eslint-disable-next-line no-param-reassign
+                tokens[index] = {
+                    type: TokenType.unknown,
+                    lexeme: '',
+                };
+            }
+        });
+        return tokens;
+    }
+
+    private isNegation(token: Token): boolean {
+        return (
+            (token.type === TokenType.booleanOperator &&
+                (token.lexeme === 'NOT' || token.lexeme === 'AND NOT')) ||
+            (token.type === TokenType.modifier && (token.lexeme === '-' || token.lexeme === '!'))
+        );
+    }
+
+    private isNegationable(token: Token): boolean {
+        return (
+            token.type === TokenType.word ||
+            token.type === TokenType.wildcardWord ||
+            token.type === TokenType.phrase
+        );
+    }
+
+    private isParenthesisGroupStart(token: Token): boolean {
+        return token.type === TokenType.parentheses && token.lexeme === '(';
+    }
+
     /**
      * `tokenizeCurrentChunk` tries to find the best possible match for the current
      * part of the input string
      */
-    private static tokenizeCurrentChunk(remainingInputString: string): Token | undefined {
+    private tokenizeCurrentChunk(remainingInputString: string): Token | undefined {
         let tokenCandidate: Token | undefined;
         BooleanQueryTokenizer.tokenPatterns.forEach((tokenPattern) => {
             const [name, tokenRegExp] = tokenPattern;
