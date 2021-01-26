@@ -13,17 +13,19 @@ const columnStyle = {
     padding: '1em',
 };
 
+const booleanQueryTokenizer = new BooleanQueryTokenizer();
+
 storiesOf('packages|BooleanQueryTokenizer', module).add('BooleanQueryTokenizer', () => {
     const [tokens, setTokens] = React.useState<unknown[]>(
-        BooleanQueryTokenizer.tokenize(initialValue)
+        booleanQueryTokenizer.tokenize(initialValue)
     );
     const [wordsAndPhrases, setWordsAndPhrases] = React.useState(
-        BooleanQueryTokenizer.extractWordsAndPhrases(initialValue)
+        booleanQueryTokenizer.extractWords(initialValue)
     );
     const tokenizeBooleanQuery = (event) => {
         const { value } = event.target;
-        setTokens(BooleanQueryTokenizer.tokenize(value));
-        setWordsAndPhrases(BooleanQueryTokenizer.extractWordsAndPhrases(value));
+        setTokens(booleanQueryTokenizer.tokenize(value));
+        setWordsAndPhrases(booleanQueryTokenizer.extractWords(value));
     };
     return (
         <div style={{ display: 'flex' }}>
@@ -45,7 +47,7 @@ storiesOf('packages|BooleanQueryTokenizer', module).add('BooleanQueryTokenizer',
             </div>
             <div style={columnStyle}>
                 <h3>Words and phrases</h3>
-                <pre>{JSON.stringify(wordsAndPhrases, null, 4)}</pre>
+                <pre>{JSON.stringify(wordsAndPhrases.wordsAndPhrases, null, 4)}</pre>
             </div>
             <div style={columnStyle}>
                 <h3>Tokens</h3>
