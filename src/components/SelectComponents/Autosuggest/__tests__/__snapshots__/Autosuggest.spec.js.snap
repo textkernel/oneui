@@ -294,6 +294,9 @@ exports[`Autosuggest rendering should initially render focused component with su
   suggestions={
     Array [
       Object {
+        "name": "Sun",
+      },
+      Object {
         "name": "Moon",
       },
       Object {
@@ -313,9 +316,6 @@ exports[`Autosuggest rendering should initially render focused component with su
       },
       Object {
         "name": "Saturn",
-      },
-      Object {
-        "name": "Neptun",
       },
     ]
   }
@@ -352,6 +352,9 @@ exports[`Autosuggest rendering should initially render focused component with su
     suggestions={
       Array [
         Object {
+          "name": "Sun",
+        },
+        Object {
           "name": "Moon",
         },
         Object {
@@ -371,9 +374,6 @@ exports[`Autosuggest rendering should initially render focused component with su
         },
         Object {
           "name": "Saturn",
-        },
-        Object {
-          "name": "Neptun",
         },
       ]
     }
@@ -472,6 +472,9 @@ exports[`Autosuggest rendering should initially render focused component with su
                       suggestions={
                         Array [
                           Object {
+                            "name": "Sun",
+                          },
+                          Object {
                             "name": "Moon",
                           },
                           Object {
@@ -492,9 +495,6 @@ exports[`Autosuggest rendering should initially render focused component with su
                           Object {
                             "name": "Saturn",
                           },
-                          Object {
-                            "name": "Neptun",
-                          },
                         ]
                       }
                       useOptimizeRender={false}
@@ -504,6 +504,52 @@ exports[`Autosuggest rendering should initially render focused component with su
                         disabled={false}
                         highlightContext="default"
                         id="downshift-2-item-0"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Sun"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--clickable"
+                          id="downshift-2-item-0"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Sun
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="default"
+                        id="downshift-2-item-1"
                         isHighlighted={false}
                         isSelected={false}
                         key="Moon"
@@ -516,7 +562,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-2-item-0"
+                          id="downshift-2-item-1"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -549,7 +595,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-2-item-1"
+                        id="downshift-2-item-2"
                         isHighlighted={false}
                         isSelected={false}
                         key="Mercury"
@@ -562,7 +608,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-2-item-1"
+                          id="downshift-2-item-2"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -595,7 +641,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-2-item-2"
+                        id="downshift-2-item-3"
                         isHighlighted={false}
                         isSelected={false}
                         key="Venus"
@@ -608,7 +654,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-2-item-2"
+                          id="downshift-2-item-3"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -641,7 +687,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-2-item-3"
+                        id="downshift-2-item-4"
                         isHighlighted={false}
                         isSelected={false}
                         key="Earth"
@@ -654,7 +700,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-2-item-3"
+                          id="downshift-2-item-4"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -687,7 +733,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-2-item-4"
+                        id="downshift-2-item-5"
                         isHighlighted={false}
                         isSelected={false}
                         key="Mars"
@@ -700,7 +746,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-2-item-4"
+                          id="downshift-2-item-5"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -733,7 +779,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-2-item-5"
+                        id="downshift-2-item-6"
                         isHighlighted={false}
                         isSelected={false}
                         key="Jupiter"
@@ -746,7 +792,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-2-item-5"
+                          id="downshift-2-item-6"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -779,56 +825,10 @@ exports[`Autosuggest rendering should initially render focused component with su
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-2-item-6"
-                        isHighlighted={false}
-                        isSelected={false}
-                        key="Saturn"
-                        onClick={[Function]}
-                        onMouseDown={[Function]}
-                        onMouseMove={[Function]}
-                        role="option"
-                        style={Object {}}
-                      >
-                        <li
-                          aria-selected={false}
-                          className="ListItem ListItem--clickable"
-                          id="downshift-2-item-6"
-                          onMouseDown={[Function]}
-                          onMouseMove={[Function]}
-                          role="option"
-                          style={Object {}}
-                        >
-                          <div
-                            className="ListItem__container"
-                            onClick={[Function]}
-                            role="presentation"
-                          >
-                            <MarkedText
-                              inline={true}
-                              key=".0"
-                              marker=""
-                            >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Saturn
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
-                        </li>
-                      </ListItem>
-                      <ListItem
-                        aria-selected={false}
-                        disabled={false}
-                        highlightContext="default"
                         id="downshift-2-item-7"
                         isHighlighted={false}
                         isSelected={false}
-                        key="Neptun"
+                        key="Saturn"
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -860,7 +860,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                                 size="normal"
                               >
                                 <span>
-                                  Neptun
+                                  Saturn
                                 </span>
                               </Text>
                             </MarkedText>
@@ -1904,7 +1904,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
 </Autosuggest>
 `;
 
-exports[`Autosuggest rendering should show empty suggestion placeholder while results are empty and input has value 1`] = `
+exports[`Autosuggest rendering should show "no suggestions" placeholder only if input has value 1`] = `
 <Autosuggest
   allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."
@@ -2043,7 +2043,7 @@ exports[`Autosuggest rendering should show empty suggestion placeholder while re
 </Autosuggest>
 `;
 
-exports[`Autosuggest rendering should show empty suggestion placeholder while results are empty and input has value 2`] = `
+exports[`Autosuggest rendering should show "no suggestions" placeholder only if input has value 2`] = `
 <Autosuggest
   allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."
@@ -2241,7 +2241,7 @@ exports[`Autosuggest rendering should show empty suggestion placeholder while re
 </Autosuggest>
 `;
 
-exports[`Autosuggest rendering should show empty suggestion placeholder while results are empty and input has value 3`] = `
+exports[`Autosuggest rendering should show "no suggestions" placeholder only if input has value 3`] = `
 <Autosuggest
   allowMixingSuggestionsAndLoading={false}
   inputPlaceholder="type here..."

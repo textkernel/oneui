@@ -54,7 +54,7 @@ describe('Autosuggest', () => {
             expect(wrapper.find('ListItem')).toHaveLength(0);
         });
         it('should initially render focused component with suggestions list correctly', () => {
-            suggestionsList = SUGGESTIONS.slice(1, 20);
+            suggestionsList = SUGGESTIONS.slice(0, 8);
             wrapper.setProps({ suggestions: suggestionsList });
             setFocusOnInput();
             expect(toJson(wrapper)).toMatchSnapshot();
@@ -131,14 +131,18 @@ describe('Autosuggest', () => {
             expect(wrapper.find('input')).toHaveLength(1);
             expect(wrapper.find('.Autosuggest__input--hidden')).toHaveLength(1);
         });
-        it('should show empty suggestion placeholder while results are empty and input has value', () => {
+        it('should show "no suggestions" placeholder only if input has value', () => {
             wrapper.setProps({ noSuggestionsPlaceholder: 'no suggestions' });
             setFocusOnInput();
+            expect(wrapper.find('ListItem')).toHaveLength(0);
             expect(toJson(wrapper)).toMatchSnapshot();
             wrapper.find('input').simulate('change', { target: { value: 'a' } });
+            expect(wrapper.find('ListItem')).toHaveLength(1);
+            expect(wrapper.find('ListItem').text()).toBe('no suggestions');
             expect(toJson(wrapper)).toMatchSnapshot();
             setFocusOnInput();
             wrapper.find('input').simulate('change', { target: { value: '' } });
+            expect(wrapper.find('ListItem')).toHaveLength(0);
             expect(toJson(wrapper)).toMatchSnapshot();
         });
     });
