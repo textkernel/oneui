@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.2.0](https://github.com/textkernel/oneui/compare/13.1.0...13.2.0) (2021-01-28)
+
+
+### Features
+
+* **BooleanQueryTokenizer:** make BooleanQueryTokenizer exclude negations from the result ([cfdf975](https://github.com/textkernel/oneui/commit/cfdf975b78b0673743add4f4853ae38c8a971007))
+
+
+### Bug Fixes
+
+* **Autosuggest:** fix showing suggestions on focus input ([#440](https://github.com/textkernel/oneui/issues/440)) ([9145878](https://github.com/textkernel/oneui/commit/9145878132d30b81dbd8b2e320677c04bcab895a))
+
 ## [13.1.0](https://github.com/textkernel/oneui/compare/13.0.0...13.1.0) (2021-01-25)
 
 
