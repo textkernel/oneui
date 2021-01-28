@@ -181,9 +181,7 @@ export function Autosuggest<S>(props: Props<S>) {
     };
 
     const renderList: ListRendererHelper<S> = (listProps) => {
-        const { inputValue: inputToList } = listProps;
-
-        return inputToList ? (
+        return suggestions.length > 0 || inputValue ? (
             <SuggestionsList
                 {...listProps}
                 allowMixingSuggestionsAndLoading={allowMixingSuggestionsAndLoading}

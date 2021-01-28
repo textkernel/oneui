@@ -209,13 +209,15 @@ storiesOf('Organisms|Select Components', module)
                 console.log('onSubmit was called');
             };
 
+            const hasSuggestions = boolean('Component has suggestions available', false);
+
             return (
                 <div style={{ width: '500px' }}>
                     <Autosuggest
                         id="test"
                         selectedSuggestions={store.get('selectedSuggestions')}
                         inputPlaceholder={text('Input placeholder', 'Select something...')}
-                        suggestions={getSuggestions()}
+                        suggestions={hasSuggestions ? getSuggestions() : []}
                         suggestionToString={SUGGESTION_TO_STRING}
                         onBlur={onBlur}
                         onFocus={onFocus}
@@ -308,12 +310,14 @@ storiesOf('Organisms|Select Components', module)
                 </div>
             );
 
+            const hasSuggestions = boolean('Component has suggestions available', false);
+
             return (
                 <div style={{ width: '500px' }}>
                     <Autosuggest
                         id="test"
                         inputPlaceholder={text('Input placeholder', 'Select something...')}
-                        suggestions={getSuggestions()}
+                        suggestions={hasSuggestions ? getSuggestions() : []}
                         suggestionToString={SUGGESTION_TO_STRING}
                         onBlur={onBlur}
                         onFocus={onFocus}
