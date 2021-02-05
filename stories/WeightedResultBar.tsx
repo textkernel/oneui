@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, number } from '@storybook/addon-knobs';
-import { WeightedResultBar, WeightedResultBarLoader, Text } from '@textkernel/oneui';
+import { WeightedResultBar, WeightedResultBarLoader, Button } from '@textkernel/oneui';
 
 storiesOf('Molecules|WeightedResultBar', module)
     .addDecorator(withKnobs)
@@ -32,13 +32,13 @@ storiesOf('Molecules|WeightedResultBar', module)
     })
     .add('With a custom count', () => {
         const ClickableCount = ({ count }) => (
-            <Text
-                inline
+            <Button
+                size="small"
                 context="brand"
                 onClick={() => console.log(`WeightedResultBar count: ${count}`)}
             >
                 {count}
-            </Text>
+            </Button>
         );
 
         return (
