@@ -10,8 +10,8 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
     children: string;
     /** Weight of this result in percentage */
     percentage: number;
-    /** Weight of this result in absolute number */
-    count: number;
+    /** A react node with a weight of this result in absolute number */
+    count: NotEmptySingleReactNode;
     /** Color context for the weighted bar */
     context?: Context;
 }
@@ -33,7 +33,7 @@ export const WeightedResultBar: React.FC<Props> = (props) => {
         <div {...rest} {...block(props)}>
             <div {...elem('details', props)}>
                 <Text inline>{children}</Text>
-                <Text inline>{count}</Text>
+                {['number', 'string'].includes(typeof count) ? <Text inline>{count}</Text> : count}
             </div>
             <ProgressBar percentage={percentageToShow} context={context} small />
         </div>

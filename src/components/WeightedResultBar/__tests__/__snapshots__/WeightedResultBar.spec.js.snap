@@ -59,3 +59,61 @@ exports[`WeightedResultBar should render correctly 1`] = `
   </div>
 </WeightedResultBar>
 `;
+
+exports[`WeightedResultBar should render correctly with a custom count 1`] = `
+<WeightedResultBar
+  context="brand"
+  count={
+    <p>
+      456
+    </p>
+  }
+  percentage={67}
+>
+  <div
+    className="WeightedResultBar"
+  >
+    <div
+      className="WeightedResultBar__details"
+    >
+      <Text
+        context="default"
+        inline={true}
+        size="normal"
+      >
+        <span>
+          Result
+        </span>
+      </Text>
+      <p>
+        456
+      </p>
+    </div>
+    <ProgressBar
+      animated={false}
+      context="brand"
+      hidden={false}
+      percentage={67}
+      small={true}
+    >
+      <div
+        aria-hidden={false}
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow={67}
+        className="ProgressBar ProgressBar--small"
+        role="progressbar"
+      >
+        <div
+          className="ProgressBar__fill ProgressBar__fill--context_brand ProgressBar__fill--small"
+          style={
+            Object {
+              "width": "67%",
+            }
+          }
+        />
+      </div>
+    </ProgressBar>
+  </div>
+</WeightedResultBar>
+`;
