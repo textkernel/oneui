@@ -19,4 +19,17 @@ describe('WeightedResultBar', () => {
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+    it('should render correctly with a custom count', () => {
+        const wrapper = mount(
+            <WeightedResultBar percentage={67} count={<p>456</p>}>
+                Result
+            </WeightedResultBar>
+        );
+        act(() => {
+            jest.runAllTimers();
+            wrapper.update();
+        });
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
 });
