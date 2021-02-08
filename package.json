@@ -80,7 +80,7 @@
         "@babel/preset-react": "7.10.4",
         "@sambego/storybook-state": "2.0.1",
         "@storybook/addon-actions": "5.3.21",
-        "@storybook/addon-console": "1.2.2",
+        "@storybook/addon-console": "1.2.3",
         "@storybook/addon-info": "5.3.21",
         "@storybook/addon-knobs": "5.3.21",
         "@storybook/react": "5.3.21",
