@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.3.0](https://github.com/textkernel/oneui/compare/13.2.0...13.3.0) (2021-02-10)
+
+
+### Features
+
+* **Heading:** add new context prop ([#447](https://github.com/textkernel/oneui/issues/447)) ([74c84e8](https://github.com/textkernel/oneui/commit/74c84e8ce9eb05cde9ca5a39b6fa0c566ee6cbe8))
+* **WeightedResultBar:** extend a component with a custom count ([#445](https://github.com/textkernel/oneui/issues/445)) ([4255874](https://github.com/textkernel/oneui/commit/42558749bfb03f542ad360f9254e18ea460ebb2e))
+
 ## [13.2.0](https://github.com/textkernel/oneui/compare/13.1.0...13.2.0) (2021-01-28)
 
 
