@@ -22,14 +22,16 @@ storiesOf('Atoms|List', module)
                 isDivided={boolean('Add dividers between items', true)}
                 doSelectOnNavigate={boolean('Select item on keyboard navigation', true)}
             >
-                <ListItem highlightContext={highlightContext}>
-                    First item passed as string{' '}
-                    <ListActions>
-                        <Button context="link" isInline>
-                            Action
-                        </Button>
-                    </ListActions>
-                </ListItem>
+                <div>
+                    <ListItem highlightContext={highlightContext}>
+                        First item passed as string{' '}
+                        <ListActions>
+                            <Button context="link" isInline>
+                                Action
+                            </Button>
+                        </ListActions>
+                    </ListItem>
+                </div>
                 <ListItem highlightContext={highlightContext}>
                     <Checkbox id="item2" />
                     <div>
