@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.4.0](https://github.com/textkernel/oneui/compare/13.3.0...13.4.0) (2021-02-11)
+
+
+### Features
+
+* **NavLink:** extend the component with ref prop ([#448](https://github.com/textkernel/oneui/issues/448)) ([de29e12](https://github.com/textkernel/oneui/commit/de29e1282dae29588b8cd96d79663119791b006e))
+
 ## [13.3.0](https://github.com/textkernel/oneui/compare/13.2.0...13.3.0) (2021-02-10)
 
 
