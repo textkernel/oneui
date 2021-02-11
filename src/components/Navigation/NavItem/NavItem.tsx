@@ -9,16 +9,18 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
     pullRight?: boolean;
     /** add activeClassName to the rendered item. You should add this to react-routers NavLink */
     useActiveClass?: boolean;
+    /** Ref to access the wrapper */
+    ref?: React.RefObject<HTMLElement>;
     /** Node to be rendered as a single navigation item. There should be only 1 child */
     children: React.ReactElement;
 }
 
 const { block, elem } = bem('NavItem', styles);
 
-export const NavItem: React.FC<Props> = (props) => {
+export const NavItem: React.FC<Props> = React.forwardRef((props, ref) => {
     const { active, pullRight, useActiveClass, children, ...rest } = props;
     const ariaProp = active ? { 'aria-current': 'page' } : {};
-    const newProps = { ...ariaProp, ...rest, ...block(props) };
+    const newProps = { ...ariaProp, ...rest, ...block(props), ref };
     if (useActiveClass) {
         newProps.activeClassName = elem('active', props).className;
     }
@@ -30,7 +32,7 @@ export const NavItem: React.FC<Props> = (props) => {
     }
 
     return React.cloneElement(children, newProps);
-};
+});
 
 NavItem.displayName = 'NavItem';
 
