@@ -65,6 +65,9 @@ storiesOf('Organisms|ProductTour', module)
             <ProductTour
                 isOpen={boolean('Show tour', true)}
                 checkboxLabel={text('Checkbox label', "Don't show again")}
+                cancelLabel={text('Cancel button label', 'Skip tour')}
+                continueLabel={text('Continue buttom label', 'Next')}
+                finishLabel={text('Finishe buttom label', 'Finish')}
                 onCancel={handleCancel}
                 onFinished={handleFinished}
             >
