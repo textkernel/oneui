@@ -43,6 +43,7 @@ import './Pagination';
 import './Pill';
 import './RadioButton';
 import './Teaser';
+import './Toggle';
 import './Tooltip';
 import './TwoPaneView';
 import './WeightedResultBar';
