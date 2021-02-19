@@ -34,7 +34,6 @@
                     margin: 1px;
                     background-color: white;
                     border-radius: 50%;
-                    box-shadow: 1px 1px 3px rgba(0,0,0,0.5) ;
                     transition: all 300ms ease-in-out;
                 }
 
@@ -54,7 +53,7 @@
     }
 
     &__text {
-        padding-left: var(--spacing-normal);
+        padding-left: var(--spacing-2x);
     }
 
     &--disabled {
