@@ -68,4 +68,8 @@ export {
     LocationSelectorDialogWithGoogleLoader,
     LocationSelectorLocation,
     LocationSelectorAddressComponent,
+    initGoogleMapServices,
+    getRadiusInMeters,
+    findCenter,
+    getAddressComponents,
 } from './components/LocationSelector';

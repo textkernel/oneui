@@ -1,3 +1,5 @@
+import { Loader } from '@googlemaps/js-api-loader';
+
 const METER_TO_KM = 1000;
 const METER_TO_MI = 1609.34;
 
@@ -17,6 +19,15 @@ export type LocationSelectorLocation = {
     radius: number;
     description: string;
     addressComponents?: LocationSelectorAddressComponent[];
+};
+
+export const initGoogleMapServices = (apiKey: string): Promise<unknown> => {
+    if (window.google.maps) {
+        return Promise.resolve();
+    }
+    return new Loader({
+        apiKey,
+    }).load();
 };
 
 export const getRadiusInMeters = (radius: number, radiusUnits: string) => {
