@@ -1,4 +1,4 @@
-import { Loader } from '@googlemaps/js-api-loader';
+import { Loader, LoaderOptions } from '@googlemaps/js-api-loader';
 
 const METER_TO_KM = 1000;
 const METER_TO_MI = 1609.34;
@@ -20,13 +20,15 @@ export type LocationSelectorLocation = {
     description: string;
     addressComponents?: LocationSelectorAddressComponent[];
 };
+export const GOOGLE_API_LIBRARIES = ['places'] as Array<'places'>;
 
-export const initGoogleMapServices = (apiKey: string): Promise<unknown> => {
-    if (window.google.maps) {
+export const initGoogleMapServices = (options: LoaderOptions): Promise<unknown> => {
+    if (window?.google?.maps) {
         return Promise.resolve();
     }
     return new Loader({
-        apiKey,
+        libraries: GOOGLE_API_LIBRARIES,
+        ...options,
     }).load();
 };
 
@@ -37,8 +39,13 @@ export const getRadiusInMeters = (radius: number, radiusUnits: string) => {
     return radius * METER_TO_MI;
 };
 
-export const findCenter = (geocoder: Geocoder, placeId: string) =>
-    new Promise<LatLng>((resolve, reject) => {
+export const findCenter = (placeId: string): Promise<LatLng> => {
+    if (!window?.google?.maps) {
+        return Promise.reject(new Error('Google maps is not initialized'));
+    }
+    const { Geocoder } = window.google.maps;
+    const geocoder = new Geocoder();
+    return new Promise<LatLng>((resolve, reject) => {
         geocoder.geocode({ placeId }, (results, status) => {
             if (status === 'OK') {
                 if (results[0]) {
@@ -51,9 +58,17 @@ export const findCenter = (geocoder: Geocoder, placeId: string) =>
             }
         });
     });
+};
 
-export const getAddressComponents = (geocoder: Geocoder, location: LatLngLiteral) =>
-    new Promise<LocationSelectorAddressComponent[]>((resolve, reject) => {
+export const getAddressComponents = (
+    location: LatLngLiteral
+): Promise<LocationSelectorAddressComponent[]> => {
+    if (!window?.google?.maps) {
+        return Promise.reject(new Error('Google maps is not initialized'));
+    }
+    const { Geocoder } = window.google.maps;
+    const geocoder = new Geocoder();
+    return new Promise<LocationSelectorAddressComponent[]>((resolve, reject) => {
         geocoder.geocode({ location }, (results, status) => {
             if (status === 'OK') {
                 if (results[0]) {
@@ -70,3 +85,4 @@ export const getAddressComponents = (geocoder: Geocoder, location: LatLngLiteral
             }
         });
     });
+};

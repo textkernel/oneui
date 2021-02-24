@@ -53,3 +53,4 @@ import './LocationAutocomplete';
 import './LocationSelector';
 // Packages
 import './packages/BooleanQueryTokenizer';
+import './packages/LocationSelectorUtils';

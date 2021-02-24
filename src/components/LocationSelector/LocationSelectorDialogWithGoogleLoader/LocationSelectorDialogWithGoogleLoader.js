@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { LoadScriptNext } from '@react-google-maps/api';
 import { LoadingSpinner } from '../../LoadingSpinner';
 import { LocationSelectorDialog } from '../LocationSelectorDialog';
-
-const GOOGLE_API_LIBRARIES = ['places'];
+import { GOOGLE_API_LIBRARIES } from '../utils';
 
 export function LocationSelectorDialogWithGoogleLoader(props) {
     const {
