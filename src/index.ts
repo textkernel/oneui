@@ -71,5 +71,6 @@ export {
     initGoogleMapServices,
     getRadiusInMeters,
     findCenter,
-    getAddressComponents,
+    GeocoderResult,
+    convertCoordinatesIntoAddress,
 } from './components/LocationSelector';

@@ -1,6 +1,11 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { initGoogleMapServices, getAddressComponents, Input, Button } from '@textkernel/oneui';
+import {
+    initGoogleMapServices,
+    convertCoordinatesIntoAddress,
+    Input,
+    Button,
+} from '@textkernel/oneui';
 import { ensureApiKey } from '../utils/ensureApiKey';
 
 const columnStyle = {
@@ -8,7 +13,7 @@ const columnStyle = {
     padding: '1em',
 };
 
-storiesOf('packages|LocationSelectorUtils', module).add('getAddressComponents', () => {
+storiesOf('packages|LocationSelectorUtils', module).add('convertCoordinatesIntoAddress', () => {
     const [lat, setLet] = React.useState(52.3675734); // Amsterdam lat
     const [lng, setLng] = React.useState(4.9041389); // Amsterdam lng
     const [address, setAddress] = React.useState({});
@@ -18,7 +23,7 @@ storiesOf('packages|LocationSelectorUtils', module).add('getAddressComponents', 
     });
     const getAddress = async () => {
         setAddress({});
-        const addressResponse = await getAddressComponents({ lat, lng });
+        const addressResponse = await convertCoordinatesIntoAddress({ lat, lng });
         setAddress(addressResponse);
     };
     return (

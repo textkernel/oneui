@@ -5,7 +5,8 @@ export {
     initGoogleMapServices,
     getRadiusInMeters,
     findCenter,
-    getAddressComponents,
+    convertCoordinatesIntoAddress,
+    GeocoderResult,
     LocationSelectorLocation,
     LocationSelectorAddressComponent,
 } from './utils';

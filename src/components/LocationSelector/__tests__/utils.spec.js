@@ -1,7 +1,7 @@
 import {
     initGoogleMapServices,
     getRadiusInMeters,
-    getAddressComponents,
+    convertCoordinatesIntoAddress,
     findCenter,
 } from '../utils';
 import { google, geocodeMock, stabGoogleApi } from '../../../__mocks__/googleApiMock';
@@ -74,28 +74,30 @@ describe('LocationSelector utils', () => {
         });
     });
 
-    describe('getAddressComponents that gets and returns address details from google geocoder based on location', () => {
+    describe('convertCoordinatesIntoAddress that gets and returns address details from google geocoder based on location', () => {
         it('should throw error if response status is not OK', async () => {
             geocodeMock.mockImplementationOnce((req, cb) => {
                 cb([], 'WRONG');
             });
-            await expect(getAddressComponents({ lat: '4.32', lng: '54.1' })).rejects.toThrow(
-                'Geocoder failed due to: WRONG'
-            );
+            await expect(
+                convertCoordinatesIntoAddress({ lat: '4.32', lng: '54.1' })
+            ).rejects.toThrow('Geocoder failed due to: WRONG');
         });
         it('should throw error if no results were returned', async () => {
             geocodeMock.mockImplementationOnce((req, cb) => {
                 cb([], 'OK');
             });
-            await expect(getAddressComponents({ lat: '4.32', lng: '54.1' })).rejects.toThrow(
-                'No results found when searching for coordinates 4.32, 54.1'
-            );
+            await expect(
+                convertCoordinatesIntoAddress({ lat: '4.32', lng: '54.1' })
+            ).rejects.toThrow('No results found when searching for coordinates 4.32, 54.1');
         });
         it('should return the location from the first result', async () => {
             geocodeMock.mockImplementationOnce((req, cb) => {
                 cb([{ address_components: [] }], 'OK');
             });
-            await expect(getAddressComponents({ lat: '4.32', lng: '54.1' })).resolves.toEqual([]);
+            await expect(
+                convertCoordinatesIntoAddress({ lat: '4.32', lng: '54.1' })
+            ).resolves.toEqual({ address_components: [] });
         });
     });
 });

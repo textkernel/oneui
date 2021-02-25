@@ -7,7 +7,7 @@ import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialog
 import {
     findCenter,
     getRadiusInMeters,
-    getAddressComponents,
+    convertCoordinatesIntoAddress,
     LocationSelectorLocation,
 } from './utils';
 import { ENTER_KEY, ESCAPE_KEY } from '../../constants';
@@ -204,9 +204,15 @@ export const LocationSelector: React.FC<Props> = (props) => {
 
                 if (!isLocationSelected) {
                     if (shouldGetAddressInfo) {
-                        getAddressComponents({ lat, lng }).then((addressComponents) => {
-                            onAddLocation({ ...locationToAdd, addressComponents });
-                        });
+                        convertCoordinatesIntoAddress({ lat, lng }).then(
+                            // eslint-disable-next-line @typescript-eslint/camelcase
+                            ({ address_components }) => {
+                                onAddLocation({
+                                    ...locationToAdd,
+                                    addressComponents: address_components,
+                                });
+                            }
+                        );
                     } else {
                         onAddLocation(locationToAdd);
                     }
