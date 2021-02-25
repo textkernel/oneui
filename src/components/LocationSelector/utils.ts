@@ -22,7 +22,7 @@ export type LocationSelectorLocation = {
 };
 export const GOOGLE_API_LIBRARIES = ['places'] as Array<'places'>;
 
-export const initGoogleMapServices = (options: LoaderOptions): Promise<unknown> => {
+export const initGoogleMapServices = (options: LoaderOptions): Promise<void> => {
     if (window?.google?.maps) {
         return Promise.resolve();
     }
