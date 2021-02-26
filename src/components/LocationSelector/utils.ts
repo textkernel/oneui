@@ -3,9 +3,8 @@ import { Loader, LoaderOptions } from '@googlemaps/js-api-loader';
 const METER_TO_KM = 1000;
 const METER_TO_MI = 1609.34;
 
-type LatLngLiteral = google.maps.LatLngLiteral;
-type LatLng = google.maps.LatLng;
-
+export type LatLngLiteral = google.maps.LatLngLiteral;
+export type LatLng = google.maps.LatLng;
 export type GeocoderResult = google.maps.GeocoderResult;
 export type LocationSelectorAddressComponent = google.maps.GeocoderAddressComponent;
 
@@ -84,30 +83,3 @@ export const convertCoordinatesIntoAddress = (location: LatLngLiteral): Promise<
         });
     });
 };
-
-// export const getAddressComponents = (
-//     location: LatLngLiteral
-// ): Promise<LocationSelectorAddressComponent[]> => {
-//     if (!window?.google?.maps) {
-//         return Promise.reject(new Error('Google maps is not initialized'));
-//     }
-//     const { Geocoder } = window.google.maps;
-//     const geocoder = new Geocoder();
-//     return new Promise<LocationSelectorAddressComponent[]>((resolve, reject) => {
-//         geocoder.geocode({ location }, (results, status) => {
-//             if (status === 'OK') {
-//                 if (results[0]) {
-//                     resolve(results[0].address_components);
-//                 } else {
-//                     reject(
-//                         new Error(
-//                             `No results found when searching for coordinates ${location.lat}, ${location.lng}`
-//                         )
-//                     );
-//                 }
-//             } else {
-//                 reject(new Error(`Geocoder failed due to: ${status}`));
-//             }
-//         });
-//     });
-// };

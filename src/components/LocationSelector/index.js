@@ -6,6 +6,8 @@ export {
     getRadiusInMeters,
     findCenter,
     convertCoordinatesIntoAddress,
+    LatLng,
+    LatLngLiteral,
     GeocoderResult,
     LocationSelectorLocation,
     LocationSelectorAddressComponent,
