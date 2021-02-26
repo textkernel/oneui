@@ -32,8 +32,8 @@ export const ProductTour: React.FC<Props> = (props) => {
         isOpen,
         children,
         checkboxLabel,
-        cancelLabel,
-        continueLabel,
+        cancelLabel = '',
+        continueLabel = '',
         finishLabel,
         onCancel,
         onFinished,
@@ -135,10 +135,10 @@ export const ProductTour: React.FC<Props> = (props) => {
                     ) : (
                         <>
                             <Button context="link" onClick={handleCancel}>
-                                {cancelLabel || ''}
+                                {cancelLabel}
                             </Button>
                             <Button context="brand" onClick={handleNext}>
-                                {continueLabel || ''}
+                                {continueLabel}
                             </Button>
                         </>
                     )}
