@@ -30,7 +30,7 @@ interface Modal<P> extends React.FunctionComponent<P> {
 
 const { block, elem } = bem('Modal', styles);
 
-export const Modal: Modal<Props> = (props) => {
+const Modal: Modal<Props> = (props) => {
     const overlayRef = React.useRef<HTMLDivElement | null>(null);
 
     const {
@@ -107,3 +107,5 @@ Modal.displayName = 'Modal';
 Modal.defaultProps = {
     isPositionFixed: false,
 };
+
+export { Modal, Props };

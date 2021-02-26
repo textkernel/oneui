@@ -51,5 +51,6 @@ import './AutosuggestDeprecated';
 import './Select';
 import './LocationAutocomplete';
 import './LocationSelector';
+import './ProductTour';
 // Packages
 import './packages/BooleanQueryTokenizer';

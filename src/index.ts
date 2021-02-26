@@ -69,3 +69,4 @@ export {
     LocationSelectorLocation,
     LocationSelectorAddressComponent,
 } from './components/LocationSelector';
+export { ProductTour } from './components/ProductTour';
