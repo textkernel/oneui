@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.5.0](https://github.com/textkernel/oneui/compare/13.4.0...13.5.0) (2021-03-01)
+
+
+### Features
+
+* **Toggle:** new component ([#450](https://github.com/textkernel/oneui/issues/450)) ([dc20ca2](https://github.com/textkernel/oneui/commit/dc20ca2ad3e37f08740ef542e40f3b62bc3b9201))
+* expose google maps utils ([#451](https://github.com/textkernel/oneui/issues/451)) ([1a09329](https://github.com/textkernel/oneui/commit/1a09329483936fe9d539d874318ffa49f6f009d0))
+* **ProductTour:** new component ([#449](https://github.com/textkernel/oneui/issues/449)) ([143ef95](https://github.com/textkernel/oneui/commit/143ef95da265110a85f9c58da1d01035fc9b8bfc))
+
 ## [13.4.0](https://github.com/textkernel/oneui/compare/13.3.0...13.4.0) (2021-02-11)
 
 
