@@ -53,7 +53,7 @@
     }
 
     &__text {
-        padding-left: var(--spacing-2x);
+        padding: var(--spacing-normal) 0 var(--spacing-normal) var(--spacing-2x);
     }
 
     &--disabled {
