@@ -66,6 +66,12 @@ export {
     LocationSelector,
     LocationSelectorDialog,
     LocationSelectorDialogWithGoogleLoader,
+    initGoogleMapServices,
+    convertCoordinatesIntoAddress,
+    getRadiusInMeters,
+    LatLng,
+    LatLngLiteral,
+    GeocoderResult,
     LocationSelectorLocation,
     LocationSelectorAddressComponent,
 } from './components/LocationSelector';

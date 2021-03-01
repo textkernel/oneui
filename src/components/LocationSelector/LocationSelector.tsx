@@ -7,7 +7,7 @@ import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialog
 import {
     findCenter,
     getRadiusInMeters,
-    getAddressComponents,
+    convertCoordinatesIntoAddress,
     LocationSelectorLocation,
 } from './utils';
 import { ENTER_KEY, ESCAPE_KEY } from '../../constants';
@@ -188,11 +188,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
      * if this location was not selected yet
      */
     function handleAddLocation(location: LocationSelectorLocation) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const { Geocoder } = window.google.maps;
-        const geocoder = new Geocoder();
-
-        return findCenter(geocoder, location.place_id)
+        return findCenter(location.place_id)
             .then((center) => {
                 const lng = center.lng();
                 const lat = center.lat();
@@ -208,9 +204,15 @@ export const LocationSelector: React.FC<Props> = (props) => {
 
                 if (!isLocationSelected) {
                     if (shouldGetAddressInfo) {
-                        getAddressComponents(geocoder, { lat, lng }).then((addressComponents) => {
-                            onAddLocation({ ...locationToAdd, addressComponents });
-                        });
+                        convertCoordinatesIntoAddress({ lat, lng }).then(
+                            // eslint-disable-next-line @typescript-eslint/camelcase
+                            ({ address_components }) => {
+                                onAddLocation({
+                                    ...locationToAdd,
+                                    addressComponents: address_components,
+                                });
+                            }
+                        );
                     } else {
                         onAddLocation(locationToAdd);
                     }

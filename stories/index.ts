@@ -54,3 +54,4 @@ import './LocationSelector';
 import './ProductTour';
 // Packages
 import './packages/BooleanQueryTokenizer';
+import './packages/LocationSelectorUtils';
