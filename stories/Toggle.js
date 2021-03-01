@@ -13,7 +13,7 @@ storiesOf('Molecules|Toggle', module)
                 console.log('Toggle state changed. event.target.checked: ', event.target.checked);
             }}
         >
-            This is title!
+            {text('children', 'This is title!')}
         </Toggle>
     ))
     .add('Toggle without label', () => (
