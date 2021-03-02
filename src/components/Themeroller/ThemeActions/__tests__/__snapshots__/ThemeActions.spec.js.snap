@@ -19,6 +19,7 @@ exports[`ThemeActions component should render component correctly with all actio
       disabled={false}
       isBlock={false}
       isInline={false}
+      isLoading={false}
       onClick={[MockFunction]}
       size="small"
       type="reset"
@@ -146,6 +147,7 @@ exports[`ThemeActions component should render component correctly with all actio
               disabled={true}
               isBlock={false}
               isInline={false}
+              isLoading={false}
               onClick={[MockFunction]}
               size="small"
               type="button"

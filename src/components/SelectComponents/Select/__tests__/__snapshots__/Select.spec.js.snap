@@ -202,6 +202,7 @@ exports[`Select rendering should initially render correctly 1`] = `
                 disabled={false}
                 isBlock={false}
                 isInline={true}
+                isLoading={false}
                 onClick={[Function]}
                 size="normal"
                 title=""

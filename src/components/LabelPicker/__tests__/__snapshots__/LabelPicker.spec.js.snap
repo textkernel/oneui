@@ -33,6 +33,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
       disabled={false}
       isBlock={false}
       isInline={false}
+      isLoading={false}
       onClick={[Function]}
       size="normal"
       type="button"
@@ -106,6 +107,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
       disabled={false}
       isBlock={false}
       isInline={false}
+      isLoading={false}
       onClick={[Function]}
       size="normal"
       type="button"
@@ -465,6 +467,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             disabled={true}
             isBlock={false}
             isInline={false}
+            isLoading={false}
             onClick={[Function]}
             size="small"
             type="button"
@@ -517,6 +520,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
           disabled={false}
           isBlock={true}
           isInline={false}
+          isLoading={false}
           onClick={[Function]}
           size="normal"
           type="button"
