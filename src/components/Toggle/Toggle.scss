@@ -39,15 +39,18 @@
 
             }
 
-            &:checked + .Toggle__toggleButton {
-                background-color: var(--color-good-40);
-                &::before{
-                    margin-left: 17px;
-                }
-            }
+            &:checked {
+                + .Toggle__toggleButton {
+                    background-color: var(--color-good-40);
 
-            &:disabled + .Toggle__toggleButton {
-                background-color: var(--color-neutral);
+                    &::before{
+                        margin-left: 17px;
+                    }
+                }
+
+                &[disabled] + .Toggle__toggleButton {
+                    background-color: var(--color-good-25);
+                }
             }
         }
     }
