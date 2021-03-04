@@ -24,7 +24,8 @@ exports[`<TwoPaneView> that renders a two pane view should render correctly 1`] 
           Object {
             "display": "none",
             "height": 0,
-            "top": -0,
+            "left": 0,
+            "position": "fixed",
             "width": 0,
           }
         }
@@ -35,7 +36,8 @@ exports[`<TwoPaneView> that renders a two pane view should render correctly 1`] 
             Object {
               "display": "none",
               "height": 0,
-              "top": -0,
+              "left": 0,
+              "position": "fixed",
               "width": 0,
             }
           }

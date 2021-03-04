@@ -10,7 +10,7 @@ storiesOf('Molecules|TwoPaneView', module)
             <LeftPane
                 style={{
                     minHeight: text('Height of left pane', '600px'),
-                    backgroundColor: 'var(--color-background)',
+                    backgroundColor: 'var(--color-info-25)',
                     border: 'solid 1px var(--color-neutral-40)',
                     borderRadius: 'var(--border-radius) 0 0 var(--border-radius)',
                 }}
@@ -19,7 +19,7 @@ storiesOf('Molecules|TwoPaneView', module)
             </LeftPane>
             <RightPane
                 style={{
-                    backgroundColor: 'var(--color-background)',
+                    backgroundColor: 'var(--color-good-25)',
                     border: 'solid 1px var(--color-neutral-40)',
                     borderRadius: '0 var(--border-radius) var(--border-radius) 0',
                     borderLeft: 0,

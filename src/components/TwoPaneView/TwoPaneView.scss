@@ -2,26 +2,4 @@
     margin-top: 30px;
     margin-bottom: 30px;
     position: relative;
-
-    &__leftPane,
-    &__rightPane {
-        display: inline-block;
-        box-sizing: border-box;
-        background-color: var(--color-background);
-        border: solid 1px var(--color-neutral-40);
-    }
-
-    &__leftPane {
-        width: 550px;
-        border-radius: var(--border-radius) 0 0 var(--border-radius);
-    }
-
-    &__rightPane {
-        position: absolute;
-        left: 570px;
-        border-radius: 0 var(--border-radius) var(--border-radius) 0;
-        border-left: 0;
-        width: calc(var(--site-container-max-size) - 2 * var(--site-container-padding) - 550px);
-        padding: var(--spacing-normal);
-    }
 }

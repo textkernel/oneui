@@ -1,7 +1,6 @@
 .RightPane {
-    position: absolute;
+    top: 0;
     left: calc(var(--two-pane-left-width) + var(--site-container-padding));
-    display: inline-block;
     box-sizing: border-box;
     overflow: hidden;
 }
