@@ -56,5 +56,7 @@ workflows:
           requires:
             - install
           filters:
+            branches:
+              ignore: /.*/
             tags:
               only: /^v.*/
