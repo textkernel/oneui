@@ -9,6 +9,7 @@ jobs:
   install: # Install and cache project dependencies
     <<: *defaults
     steps:
+      - checkout
       - restore_cache:
           key: oneui-npm-cache-{{ checksum "package-lock.json" }}
       - run:
