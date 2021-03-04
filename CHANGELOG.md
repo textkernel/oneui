@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [13.5.1](https://github.com/textkernel/oneui/compare/13.5.0...13.5.1) (2021-03-04)
+
+
+### Bug Fixes
+
+* **Toggle:** add styles for disabled checked state ([#454](https://github.com/textkernel/oneui/issues/454)) ([454425d](https://github.com/textkernel/oneui/commit/454425de62cada288f8064e143579611b04deaf7))
+
 ## [13.5.0](https://github.com/textkernel/oneui/compare/13.4.0...13.5.0) (2021-03-01)
 
 
