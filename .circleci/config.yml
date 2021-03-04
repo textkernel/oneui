@@ -1,5 +1,8 @@
 version: 2
 
+orbs:
+  coveralls: coveralls/coveralls@1.0.6
+
 default: &defaults
   working_directory: ~/oneui
   docker:
@@ -26,8 +29,6 @@ jobs:
 
   test: # Run tests, build bundle and lint code
     <<: *defaults
-    environment:
-      COVERALLS_REPO_TOKEN: $COVERALLS_REPO_TOKEN
     steps:
       - attach_workspace:
           at: ~/oneui
@@ -35,7 +36,7 @@ jobs:
       - run: npm run build:prod
       - run: npm run lint:ci
       - run: npm run lint:styles
-      - run: npm run coveralls
+      - coveralls/upload
 
   deploy: # Deploy Storybook to Github Pages
     <<: *defaults
