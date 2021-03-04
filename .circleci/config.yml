@@ -32,7 +32,6 @@ jobs:
       - attach_workspace:
           at: ~/oneui
       - run: npm run test:coverage
-      - run: npm run build
       - run: npm run build:prod
       - run: npm run lint:ci
       - run: npm run lint:styles
