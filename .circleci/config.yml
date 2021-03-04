@@ -1,22 +1,35 @@
-version: 2.1
+version: 2
+
+default: &defaults
+  working_directory: ~/oneui
+  docker:
+    - image: circleci/node:lts
 
 jobs:
-  test: # Run tests, build bundle and lint code
-    docker:
-      - image: circleci/node:lts
-    environment:
-      COVERALLS_REPO_TOKEN: $coveralls_repo_token
+  install: # Install and cache project dependencies
+    <<: *defaults
     steps:
-      - checkout
       - restore_cache:
-          key: npm-cache-{{ checksum "package-lock.json" }}
+          key: oneui-npm-cache-{{ checksum "package-lock.json" }}
       - run:
           name: Install dependencies
           command: npm ci
       - save_cache:
-          key: npm-cache-{{ checksum "package-lock.json" }}
+          key: oneui-npm-cache-{{ checksum "package-lock.json" }}
           paths:
-            - /home/circleci/.npm
+            - node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  test: # Run tests, build bundle and lint code
+    <<: *defaults
+    environment:
+      COVERALLS_REPO_TOKEN: $COVERALLS_REPO_TOKEN
+    steps:
+      - attach_workspace:
+          at: ~/oneui
       - run: npm test:coverage
       - run: npm run build
       - run: npm run build:prod
@@ -25,10 +38,10 @@ jobs:
       - run: npm run coveralls
 
   deploy: # Deploy Storybook to Github Pages
-    docker:
-      - image: circleci/node:lts
+    <<: *defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/oneui
       - run:
           name: Deploy Storybook
           command: npm run storybook:deploy -- --ci
@@ -37,7 +50,10 @@ workflows:
   version: 2
   deploy-on-git-tag: # Run deploy job on git tag
     jobs:
+      - install
       - deploy:
+          requires:
+            - install
           filters:
             tags:
               only: /^v.*/
