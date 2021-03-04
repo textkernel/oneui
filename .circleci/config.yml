@@ -52,6 +52,9 @@ workflows:
   deploy-on-git-tag: # Run deploy job on git tag
     jobs:
       - install
+      - test:
+          requires:
+            - install
       - deploy:
           requires:
             - install
