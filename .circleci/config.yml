@@ -1,0 +1,43 @@
+version: 2.1
+
+jobs:
+  test: # Run tests, build bundle and lint code
+    docker:
+      - image: circleci/node:lts
+    environment:
+      COVERALLS_REPO_TOKEN: $coveralls_repo_token
+    steps:
+      - checkout
+      - restore_cache:
+          key: npm-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - save_cache:
+          key: npm-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - /home/circleci/.npm
+      - run: npm test:coverage
+      - run: npm run build
+      - run: npm run build:prod
+      - run: npm run lint:ci
+      - run: npm run lint:styles
+      - run: npm run coveralls
+
+  deploy: # Deploy Storybook to Github Pages
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run:
+          name: Deploy Storybook
+          command: npm run storybook:deploy -- --ci
+
+workflows:
+  version: 2
+  deploy-on-git-tag: # Run deploy job on git tag
+    jobs:
+      - deploy:
+          filters:
+            tags:
+              only: /^v.*/
