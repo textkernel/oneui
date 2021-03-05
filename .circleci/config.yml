@@ -8,6 +8,10 @@ defaults: &defaults
   docker:
     - image: circleci/node:lts
 
+workspace: &workspace
+  - attach_workspace:
+      at: ~/oneui
+
 jobs:
   install: # Install and cache project dependencies
     <<: *defaults
@@ -30,31 +34,27 @@ jobs:
   test: # Run tests, build bundle and lint code
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/oneui
+      <<: *workspace
       - run: npm run test:coverage -- -w 1 # set max workers to 1
       - coveralls/upload
 
   build:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/oneui
+      <<: *workspace
       - run: npm run build:prod
 
   lint:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/oneui
+      <<: *workspace
       - run: npm run lint:ci
       - run: npm run lint:styles
 
   deploy: # Deploy Storybook to Github Pages
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/oneui
+      <<: *workspace
       - run:
           name: Deploy Storybook
           command: npm run storybook:deploy -- --ci
