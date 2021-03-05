@@ -60,7 +60,7 @@ jobs:
           command: npm run storybook:deploy -- --ci
 
 workflows:
-  deploy-on-git-tag: # Run deploy job on git tag
+  default: # Install deps; Test, build and lint code; Deploy Storybook in case of new tag
     jobs:
       - install
       - test:
