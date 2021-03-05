@@ -1,6 +1,6 @@
 version: 2.1
 
-orbs: # load coveralls package
+orbs: # Load coveralls package
   coveralls: coveralls/coveralls@1.0.6
 
 defaults: &defaults
