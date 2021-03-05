@@ -3,7 +3,7 @@ version: 2.1
 orbs: # load coveralls package
   coveralls: coveralls/coveralls@1.0.6
 
-default: &defaults
+defaults: &defaults
   working_directory: ~/oneui
   docker:
     - image: circleci/node:lts
@@ -33,10 +33,22 @@ jobs:
       - attach_workspace:
           at: ~/oneui
       - run: npm run test:coverage -- -w 1 # set max workers to 1
+      - coveralls/upload
+
+  build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/oneui
       - run: npm run build:prod
+
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/oneui
       - run: npm run lint:ci
       - run: npm run lint:styles
-      - coveralls/upload
 
   deploy: # Deploy Storybook to Github Pages
     <<: *defaults
@@ -52,6 +64,12 @@ workflows:
     jobs:
       - install
       - test:
+          requires:
+            - install
+      - build:
+          requires:
+            - install
+      - lint:
           requires:
             - install
       - deploy:
