@@ -47,23 +47,23 @@ storiesOf('Atoms|Slider', module)
             },
         }
     )
-    .add(
-        'Uneven marks',
-        () => {
-            const [range, setRange] = React.useState([0,5])
-            const lowerBound = ['1','10','50','200','500'];
-            const upperBound = ['9','49','199','999','1000+'];
-            return (
-                <>
-                    <RangeSlider
-                        min={number('Min value', 0)}
-                        max={number('Max value', 5)}
-                        step={1}
-                        value={range}
-                        onChange={([lower, upper]) => setRange([Math.min(lower,4), Math.max(upper, 1)])}
-                    />
-                    { lowerBound[range[0]] } - { upperBound[range[1] - 1]}
-                </>
-            );
-        }
-    );
+    .add('Uneven marks', () => {
+        const [range, setRange] = React.useState([0, 5]);
+        const lowerBound = ['1', '10', '50', '200', '500'];
+        const upperBound = ['9', '49', '199', '499', '999', '1000+'];
+        return (
+            <>
+                <RangeSlider
+                    min={number('Min value', 0)}
+                    max={number('Max value', 5)}
+                    allowCross={false}
+                    step={1}
+                    value={range}
+                    onChange={([lower, upper]) =>
+                        setRange([Math.min(lower, upper - 1), Math.max(upper, lower + 1)])
+                    }
+                />
+                {lowerBound[range[0]]} - {upperBound[range[1]]}
+            </>
+        );
+    });
