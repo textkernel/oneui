@@ -33,7 +33,9 @@
         position: absolute;
         top: 50%;
         left: 50%;
+        margin-top: var(--spacing-normal);
         transform: translate(-50%, -100%);
+        text-align: center;
 
         &--isLoading {
             width: 100px;
@@ -46,8 +48,9 @@
     }
 
     &__metric {
-        font-size: var(--font-size-small);
-        margin-left: var(--spacing-2x);
+        display: block;
+        font-size: var(--font-size-normal);
+        font-weight: var(--font-weight-normal);
     }
 
     &__bottom {
