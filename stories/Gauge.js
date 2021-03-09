@@ -15,17 +15,17 @@ storiesOf('Molecules|Gauge', module)
                 <div style={{ width: '33%' }}>
                     <Gauge
                         context={select('Context', CONTEXTS, CONTEXTS[1])}
-                        percentage={number('Percentage', 100)}
-                        value={text('Value', '1,234')}
-                        metric={text('Metric', 'jobs')}
+                        percentage={number('Percentage', 33)}
+                        value={text('Value', '3')}
+                        metric={text('Metric', 'Postings per job')}
                         isLoading={isLoading}
                     >
-                        {isLoading ? '—' : 'High'}
+                        {isLoading ? '—' : 'Low'}
                     </Gauge>
                 </div>
                 <div style={{ width: '33%' }}>
-                    <Gauge percentage={46} value="12" metric="days" isLoading={isLoading}>
-                        {isLoading ? '—' : 'Average'}
+                    <Gauge percentage={46} value="12" metric="Days" isLoading={isLoading}>
+                        {isLoading ? '—' : 'Normal'}
                     </Gauge>
                 </div>
                 <div style={{ width: '33%' }}>
