@@ -59,11 +59,9 @@ storiesOf('Atoms|Slider', module)
                     allowCross={false}
                     step={1}
                     value={range}
-                    onChange={([lower, upper]) =>
-                        setRange([Math.min(lower, upper - 1), Math.max(upper, lower + 1)])
-                    }
+                    onChange={([lower, upper]) => setRange([lower, upper])}
                 />
-                {lowerBound[range[0]]} - {upperBound[range[1]]}
+                {[lowerBound[range[0]], upperBound[range[1]]].filter((n) => !!n).join(' - ')}
             </>
         );
     });
