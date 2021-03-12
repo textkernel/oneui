@@ -5,28 +5,24 @@
     ],
     "packageRules": [
         {
-            "packagePatterns": ["^eslint"],
+            "matchPackagePatterns": ["^eslint"],
             "groupName": "eslint"
         },
         {
-            "packagePatterns": ["^enzyme"],
+            "matchPackagePatterns": ["^enzyme"],
             "groupName": "enzyme"
         },
         {
-            "packagePatterns": ["^stylelint"],
-            "groupName": "stylelint",
-            "automerge": true
+            "matchPackagePatterns": ["^stylelint"],
+            "groupName": "stylelint"
         },
         {
-            "packageNames": ["react-icons"],
-            "groupName": "Icons",
-            "automerge": true
+            "matchPackageNames": ["react-icons"],
+            "groupName": "Icons"
         },
         {
-            "packageNames": ["coveralls", "standard-version"],
+            "matchPackageNames": ["coveralls", "standard-version"],
             "groupName": "CI/CD dependencies",
-            "automerge": true,
-            "automergeType": "branch"
         },
         {
             "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
