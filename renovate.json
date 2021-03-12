@@ -22,7 +22,7 @@
         },
         {
             "matchPackageNames": ["coveralls", "standard-version"],
-            "groupName": "CI/CD dependencies",
+            "groupName": "CI/CD dependencies"
         },
         {
             "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
