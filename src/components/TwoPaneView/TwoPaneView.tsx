@@ -15,7 +15,8 @@ const { block } = bem('TwoPaneView', styles);
 export const TwoPaneView: React.FC<Props> = (props) => {
     const { children, ...rest } = props;
 
-    const [rightTop, setRightTop] = React.useState(0);
+    const [rightPosition, setRightPosition] = React.useState('absolute');
+    const [rightLeft, setRightLeft] = React.useState<number | undefined>(undefined);
     const [rightHeight, setRightHeight] = React.useState(200);
     const [rightWidth, setRightWidth] = React.useState(600);
     const [doDisplayRightPane, setDoDisplayRightPane] = React.useState(true);
@@ -33,14 +34,16 @@ export const TwoPaneView: React.FC<Props> = (props) => {
         }
 
         const leftDimensions = leftEl.getBoundingClientRect();
-        const top = leftDimensions.top > 0 ? 0 : -leftDimensions.top;
+        const position = leftDimensions.top > 0 ? 'absolute' : 'fixed';
+        const left = leftDimensions.top > 0 ? undefined : leftDimensions.right;
 
         const height =
             Math.min(window.innerHeight, leftDimensions.bottom) - Math.max(leftDimensions.top, 0);
 
         const doDisplay = leftDimensions.bottom > 0;
 
-        setRightTop(top);
+        setRightPosition(position);
+        setRightLeft(left);
         setRightHeight(height);
         setDoDisplayRightPane(doDisplay);
     };
@@ -86,7 +89,8 @@ export const TwoPaneView: React.FC<Props> = (props) => {
                         ? React.cloneElement(child, {
                               style: {
                                   ...childStyle,
-                                  top: rightTop,
+                                  position: rightPosition,
+                                  left: rightLeft,
                                   height: rightHeight,
                                   width: rightWidth,
                                   display: doDisplayRightPane ? 'inline-block' : 'none',
