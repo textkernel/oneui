@@ -8,11 +8,11 @@ const { block, elem } = bem('Gauge', styles);
 
 interface Props {
     context?: Context;
-    children: ReactNode;
+    children?: ReactNode;
     isProgressLoading?: boolean;
     isContentLoading?: boolean;
     percentage: number;
-    value?: ReactNode;
+    value: NotEmptyReactNode;
     metric?: ReactNode;
 }
 
@@ -28,11 +28,10 @@ export const Gauge: React.FC<Props> = (props) => {
         ...rest
     } = props;
 
-    const progress = isProgressLoading ? 0 : Math.max(0, Math.min(100, percentage)) / 100;
+    const percentageAdjusted = Math.max(0, Math.min(100, percentage)) / 100;
+    const progress = isProgressLoading ? 0 : percentageAdjusted;
     const circumference = 2 * Math.PI * GAUGE_RADIUS;
     const circumferenceHalf = circumference / 2;
-    const strokeDasharrayBackground = `${circumferenceHalf} ${circumference}`;
-    const strokeDasharrayForeground = `${progress * circumferenceHalf} ${circumference}`;
 
     return (
         <div {...rest} {...block(props)}>
@@ -46,14 +45,14 @@ export const Gauge: React.FC<Props> = (props) => {
                     r={GAUGE_RADIUS}
                     cx="50%"
                     cy="25%"
-                    style={{ strokeDasharray: strokeDasharrayBackground }}
+                    style={{ strokeDasharray: `${circumferenceHalf} ${circumference}` }}
                 />
                 <circle
                     {...elem('circleForeground', props)}
                     r={GAUGE_RADIUS}
                     cx="50%"
                     cy="25%"
-                    style={{ strokeDasharray: strokeDasharrayForeground }}
+                    style={{ strokeDasharray: `${progress * circumferenceHalf} ${circumference}` }}
                     stroke={`url(#Gauge__gradient--${context})`}
                 />
             </svg>
@@ -75,9 +74,9 @@ export const Gauge: React.FC<Props> = (props) => {
 Gauge.displayName = 'Gauge';
 
 Gauge.defaultProps = {
+    children: null,
     context: 'brand',
     isProgressLoading: false,
     isContentLoading: false,
-    value: null,
     metric: null,
 };
