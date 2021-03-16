@@ -8,7 +8,8 @@ import { CONTEXTS } from '@textkernel/oneui/constants';
 storiesOf('Molecules|Gauge', module)
     .addDecorator(withKnobs)
     .add('Gauge', () => {
-        const isLoading = boolean('isLoading', false);
+        const isProgressLoading = boolean('isProgressLoading', false);
+        const isContentLoading = boolean('isContentLoading', false);
 
         return (
             <div style={{ display: 'flex' }}>
@@ -18,19 +19,32 @@ storiesOf('Molecules|Gauge', module)
                         percentage={number('Percentage', 33)}
                         value={text('Value', '3')}
                         metric={text('Metric', 'Postings per job')}
-                        isLoading={isLoading}
+                        isProgressLoading={isProgressLoading}
+                        isContentLoading={isContentLoading}
                     >
-                        {isLoading ? '—' : 'Low'}
+                        {isContentLoading ? '—' : 'Low'}
                     </Gauge>
                 </div>
                 <div style={{ width: '33%' }}>
-                    <Gauge percentage={46} value="12" metric="Days" isLoading={isLoading}>
-                        {isLoading ? '—' : 'Normal'}
+                    <Gauge
+                        percentage={46}
+                        value="12"
+                        metric="Days"
+                        isProgressLoading={isProgressLoading}
+                        isContentLoading={isContentLoading}
+                    >
+                        {isContentLoading ? '—' : 'Normal'}
                     </Gauge>
                 </div>
                 <div style={{ width: '33%' }}>
-                    <Gauge context="primary" percentage={80} value="$54,321" isLoading={isLoading}>
-                        {isLoading ? '—' : 'High'}
+                    <Gauge
+                        context="primary"
+                        percentage={80}
+                        value="$54,321"
+                        isProgressLoading={isProgressLoading}
+                        isContentLoading={isContentLoading}
+                    >
+                        {isContentLoading ? '—' : 'High'}
                     </Gauge>
                 </div>
             </div>

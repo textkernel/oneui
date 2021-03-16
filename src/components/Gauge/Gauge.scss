@@ -20,7 +20,7 @@
         fill: none;
         transition: all var(--transition-duration) ease-out;
 
-        &--isLoading {
+        &--isProgressLoading {
             opacity: 0;
         }
     }
@@ -29,7 +29,7 @@
         margin-bottom: 0;
     }
 
-    &__valueWrapper {
+    &__contentWrapper {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -37,7 +37,7 @@
         transform: translate(-50%, -100%);
         text-align: center;
 
-        &--isLoading {
+        &--isValueLoading {
             width: 100px;
         }
     }

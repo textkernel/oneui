@@ -1,18 +1,35 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { bem } from '../../utils';
 import { ContentPlaceholder } from '../ContentPlaceholder';
-import { CONTEXTS } from '../../constants';
+import { Context, GAUGE_RADIUS } from '../../constants';
 import styles from './Gauge.scss';
 
 const { block, elem } = bem('Gauge', styles);
 
-export const Gauge = (props) => {
-    const { children, context, isLoading, percentage, value, metric, ...rest } = props;
+interface Props {
+    context?: Context;
+    children: ReactNode;
+    isProgressLoading?: boolean;
+    isContentLoading?: boolean;
+    percentage: number;
+    value?: ReactNode;
+    metric?: ReactNode;
+}
 
-    const progress = isLoading ? 0 : Math.max(0, Math.min(100, percentage)) / 100;
-    const radius = 100;
-    const circumference = 2 * Math.PI * radius;
+export const Gauge: React.FC<Props> = (props) => {
+    const {
+        children,
+        percentage,
+        context,
+        value,
+        metric,
+        isProgressLoading,
+        isContentLoading,
+        ...rest
+    } = props;
+
+    const progress = isProgressLoading ? 0 : Math.max(0, Math.min(100, percentage)) / 100;
+    const circumference = 2 * Math.PI * GAUGE_RADIUS;
     const circumferenceHalf = circumference / 2;
     const strokeDasharrayBackground = `${circumferenceHalf} ${circumference}`;
     const strokeDasharrayForeground = `${progress * circumferenceHalf} ${circumference}`;
@@ -26,55 +43,41 @@ export const Gauge = (props) => {
                 </linearGradient>
                 <circle
                     {...elem('circleBackground', props)}
-                    r={radius}
+                    r={GAUGE_RADIUS}
                     cx="50%"
                     cy="25%"
-                    style={{
-                        strokeDasharray: strokeDasharrayBackground,
-                    }}
+                    style={{ strokeDasharray: strokeDasharrayBackground }}
                 />
                 <circle
                     {...elem('circleForeground', props)}
-                    r={radius}
+                    r={GAUGE_RADIUS}
                     cx="50%"
                     cy="25%"
-                    style={{
-                        strokeDasharray: strokeDasharrayForeground,
-                    }}
+                    style={{ strokeDasharray: strokeDasharrayForeground }}
                     stroke={`url(#Gauge__gradient--${context})`}
                 />
             </svg>
-            <div {...elem('valueWrapper', props)}>
-                {isLoading ? (
+            <div {...elem('contentWrapper', props)}>
+                {isContentLoading ? (
                     <ContentPlaceholder height={28} {...elem('contentPlaceholder', props)} />
                 ) : (
                     <span {...elem('value', props)}>
                         {value}
-                        {!!metric && <span {...elem('metric', props)}>{metric}</span>}
+                        {metric ? <span {...elem('metric', props)}>{metric}</span> : null}
                     </span>
                 )}
             </div>
-            {!!children && <div {...elem('bottom', props)}>{children}</div>}
+            {children ? <div {...elem('bottom', props)}>{children}</div> : null}
         </div>
     );
 };
 
 Gauge.displayName = 'Gauge';
 
-Gauge.propTypes = {
-    context: PropTypes.oneOf(CONTEXTS),
-    children: PropTypes.node,
-    isLoading: PropTypes.bool,
-    percentage: PropTypes.number,
-    value: PropTypes.node,
-    metric: PropTypes.node,
-};
-
 Gauge.defaultProps = {
     context: 'brand',
-    children: null,
-    isLoading: false,
-    percentage: null,
+    isProgressLoading: false,
+    isContentLoading: false,
     value: null,
     metric: null,
 };
