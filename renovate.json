@@ -1,26 +1,32 @@
 {
-  "extends": [
-    "config:base",
-    "schedule:earlyMondays"
-  ],
-  "packageRules": [{
-    "packagePatterns": ["^eslint"],
-    "groupName": "eslint"
-  }, {
-    "packagePatterns": ["^enzyme"],
-    "groupName": "enzyme"
-  }, {
-    "packagePatterns": ["^stylelint"],
-    "groupName": "stylelint",
-    "automerge": true
-  }, {
-    "packageNames": ["react-icons"],
-    "groupName": "Icons",
-    "automerge": true
-  }, {
-    "packageNames": ["coveralls", "standard-version"],
-    "groupName": "CI/CD dependencies",
-    "automerge": true,
-    "automergeType": "branch"
-  }]
+    "extends": [
+        "config:base",
+        "schedule:earlyMondays"
+    ],
+    "packageRules": [
+        {
+            "matchPackagePatterns": ["^eslint"],
+            "groupName": "eslint"
+        },
+        {
+            "matchPackagePatterns": ["^enzyme"],
+            "groupName": "enzyme"
+        },
+        {
+            "matchPackagePatterns": ["^stylelint"],
+            "groupName": "stylelint"
+        },
+        {
+            "matchPackageNames": ["react-icons"],
+            "groupName": "Icons"
+        },
+        {
+            "matchPackageNames": ["coveralls", "standard-version"],
+            "groupName": "CI/CD dependencies"
+        },
+        {
+            "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+            "automerge": true
+        }
+    ]
 }
