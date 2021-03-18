@@ -39,7 +39,7 @@ exports[`Gauge should render correctly 1`] = `
       stroke="url(#Gauge__gradient--brand)"
       style={
         Object {
-          "strokeDasharray": "103.67255756846318 628.3185307179587",
+          "strokeDasharray": "0 628.3185307179587",
         }
       }
     />
@@ -47,19 +47,20 @@ exports[`Gauge should render correctly 1`] = `
   <div
     className="Gauge__contentWrapper"
   >
-    <span
+    <div
       className="Gauge__content"
     >
       Some content
-      <span
+      <div
         className="Gauge__metric"
+        title="Metric"
       >
         Metric
-      </span>
-    </span>
+      </div>
+    </div>
   </div>
   <div
-    className="Gauge__bottom"
+    className="Gauge__note"
   >
     Value
   </div>

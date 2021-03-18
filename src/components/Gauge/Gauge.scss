@@ -43,17 +43,22 @@
     }
 
     &__content {
+        display: inline;
         font-size: var(--h1-font-size);
         font-weight: var(--font-weight-bold);
     }
 
     &__metric {
         display: block;
+        width: 150px;
         font-size: var(--font-size-normal);
         font-weight: var(--font-weight-normal);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
-    &__bottom {
+    &__note {
         position: absolute;
         top: 50%;
         left: 50%;

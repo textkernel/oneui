@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, number, text, select, withKnobs } from '@storybook/addon-knobs';
-import { Gauge } from '@textkernel/oneui';
+import { Gauge, IconJobfeed, Tooltip } from '@textkernel/oneui';
 import { CONTEXTS } from '@textkernel/oneui/constants';
 
 storiesOf('Molecules|Gauge', module)
@@ -47,6 +47,48 @@ storiesOf('Molecules|Gauge', module)
                         $54,321
                     </Gauge>
                 </div>
+            </div>
+        );
+    })
+    .add('Gauge with an icon', () => {
+        const isProgressLoading = boolean('isProgressLoading', false);
+        const isContentLoading = boolean('isContentLoading', false);
+
+        return (
+            <div style={{ display: 'flex' }}>
+                <Gauge
+                    context="primary"
+                    percentage={60}
+                    note={isContentLoading ? '—' : 'High'}
+                    isProgressLoading={isProgressLoading}
+                    isContentLoading={isContentLoading}
+                >
+                    <div>
+                        $54,321
+                        <IconJobfeed context="brand" />
+                    </div>
+                </Gauge>
+            </div>
+        );
+    })
+    .add('Gauge with a tooltip', () => {
+        const isProgressLoading = boolean('isProgressLoading', false);
+        const isContentLoading = boolean('isContentLoading', false);
+
+        return (
+            <div style={{ display: 'flex' }}>
+                <Gauge
+                    context="primary"
+                    percentage={35}
+                    metric={isContentLoading ? '—' : "Something long so it doesn't fit"}
+                    note={isContentLoading ? '—' : 'High'}
+                    isProgressLoading={isProgressLoading}
+                    isContentLoading={isContentLoading}
+                >
+                    <Tooltip content="Tooltip content">
+                        <span>Tooltip</span>
+                    </Tooltip>
+                </Gauge>
             </div>
         );
     });

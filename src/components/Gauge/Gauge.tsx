@@ -4,6 +4,8 @@ import { ContentPlaceholder } from '../ContentPlaceholder';
 import { Context, GAUGE_RADIUS } from '../../constants';
 import styles from './Gauge.scss';
 
+const SET_PERCENTAGE_DELAY = 100;
+
 const { block, elem } = bem('Gauge', styles);
 
 interface Props {
@@ -17,9 +19,9 @@ interface Props {
     percentage?: number;
     /** Content component */
     children: NotEmptyReactNode;
-    /** Metric component */
-    metric?: SingleReactNode;
-    /** Note component */
+    /** String value to be used as metric part below the child */
+    metric?: string;
+    /** Note component to be rendered below the gauge */
     note?: SingleReactNode;
 }
 
@@ -34,8 +36,22 @@ export const Gauge: React.FC<Props> = (props) => {
         isContentLoading,
         ...rest
     } = props;
+    const [percentageToShow, setPercentageToShow] = React.useState(0);
 
-    const percentageAdjusted = Math.max(0, Math.min(100, percentage)) / 100;
+    // Simulate a prop change to run the animation on render.
+    // There's a small delay set because of a weird bug
+    // with preventing of the animation being run with a child wrapped up into a Tooltip.
+    React.useEffect(() => {
+        const percentageTimeout = setTimeout(() => {
+            setPercentageToShow(percentage);
+        }, SET_PERCENTAGE_DELAY);
+
+        return () => {
+            clearTimeout(percentageTimeout);
+        };
+    }, [percentage]);
+
+    const percentageAdjusted = Math.max(0, Math.min(100, percentageToShow)) / 100;
     const progress = isProgressLoading ? 0 : percentageAdjusted;
     const circumference = 2 * Math.PI * GAUGE_RADIUS;
     const circumferenceHalf = circumference / 2;
@@ -67,13 +83,17 @@ export const Gauge: React.FC<Props> = (props) => {
                 {isContentLoading ? (
                     <ContentPlaceholder height={28} {...elem('contentPlaceholder', props)} />
                 ) : (
-                    <span {...elem('content', props)}>
+                    <div {...elem('content', props)}>
                         {children}
-                        {metric ? <span {...elem('metric', props)}>{metric}</span> : null}
-                    </span>
+                        {metric ? (
+                            <div {...elem('metric', props)} title={metric}>
+                                {metric}
+                            </div>
+                        ) : null}
+                    </div>
                 )}
             </div>
-            {note ? <div {...elem('bottom', props)}>{note}</div> : null}
+            {note ? <div {...elem('note', props)}>{note}</div> : null}
         </div>
     );
 };
@@ -84,5 +104,5 @@ Gauge.defaultProps = {
     context: 'brand',
     isProgressLoading: false,
     isContentLoading: false,
-    metric: null,
+    metric: '',
 };
