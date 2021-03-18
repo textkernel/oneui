@@ -7,21 +7,28 @@ import styles from './Gauge.scss';
 const { block, elem } = bem('Gauge', styles);
 
 interface Props {
+    /** The gauge context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context?: Context;
-    children?: ReactNode;
+    /** Defines if progress bar is in loading state */
     isProgressLoading?: boolean;
+    /** Defines if content part is in loading state */
     isContentLoading?: boolean;
-    percentage: number;
-    value: NotEmptyReactNode;
-    metric?: ReactNode;
+    /** Percentage of the progress bar to be filled */
+    percentage?: number;
+    /** Content component */
+    children: NotEmptyReactNode;
+    /** Metric component */
+    metric?: SingleReactNode;
+    /** Note component */
+    note?: SingleReactNode;
 }
 
 export const Gauge: React.FC<Props> = (props) => {
     const {
         children,
-        percentage,
+        percentage = 0,
         context,
-        value,
+        note,
         metric,
         isProgressLoading,
         isContentLoading,
@@ -60,13 +67,13 @@ export const Gauge: React.FC<Props> = (props) => {
                 {isContentLoading ? (
                     <ContentPlaceholder height={28} {...elem('contentPlaceholder', props)} />
                 ) : (
-                    <span {...elem('value', props)}>
-                        {value}
+                    <span {...elem('content', props)}>
+                        {children}
                         {metric ? <span {...elem('metric', props)}>{metric}</span> : null}
                     </span>
                 )}
             </div>
-            {children ? <div {...elem('bottom', props)}>{children}</div> : null}
+            {note ? <div {...elem('bottom', props)}>{note}</div> : null}
         </div>
     );
 };
@@ -74,7 +81,6 @@ export const Gauge: React.FC<Props> = (props) => {
 Gauge.displayName = 'Gauge';
 
 Gauge.defaultProps = {
-    children: null,
     context: 'brand',
     isProgressLoading: false,
     isContentLoading: false,

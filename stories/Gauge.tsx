@@ -17,34 +17,34 @@ storiesOf('Molecules|Gauge', module)
                     <Gauge
                         context={select('Context', CONTEXTS, CONTEXTS[1])}
                         percentage={number('Percentage', 33)}
-                        value={text('Value', '3')}
+                        note={isContentLoading ? '—' : 'Low'}
                         metric={text('Metric', 'Postings per job')}
                         isProgressLoading={isProgressLoading}
                         isContentLoading={isContentLoading}
                     >
-                        {isContentLoading ? '—' : 'Low'}
+                        {text('Note', '3')}
                     </Gauge>
                 </div>
                 <div style={{ width: '33%' }}>
                     <Gauge
                         percentage={46}
-                        value="12"
+                        note={isContentLoading ? '—' : 'Normal'}
                         metric="Days"
                         isProgressLoading={isProgressLoading}
                         isContentLoading={isContentLoading}
                     >
-                        {isContentLoading ? '—' : 'Normal'}
+                        12
                     </Gauge>
                 </div>
                 <div style={{ width: '33%' }}>
                     <Gauge
                         context="primary"
                         percentage={80}
-                        value="$54,321"
+                        note={isContentLoading ? '—' : 'High'}
                         isProgressLoading={isProgressLoading}
                         isContentLoading={isContentLoading}
                     >
-                        {isContentLoading ? '—' : 'High'}
+                        $54,321
                     </Gauge>
                 </div>
             </div>

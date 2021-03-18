@@ -48,9 +48,9 @@ exports[`Gauge should render correctly 1`] = `
     className="Gauge__contentWrapper"
   >
     <span
-      className="Gauge__value"
+      className="Gauge__content"
     >
-      Value
+      Some content
       <span
         className="Gauge__metric"
       >
@@ -61,7 +61,7 @@ exports[`Gauge should render correctly 1`] = `
   <div
     className="Gauge__bottom"
   >
-    Some content
+    Value
   </div>
 </div>
 `;

@@ -5,7 +5,7 @@ import { Gauge } from '../Gauge';
 describe('Gauge', () => {
     it('should render correctly', () => {
         const wrapper = shallow(
-            <Gauge percentage={33} value="Value" metric="Metric">
+            <Gauge percentage={33} note="Value" metric="Metric">
                 Some content
             </Gauge>
         );
@@ -14,7 +14,7 @@ describe('Gauge', () => {
 
     it('should render with loading state correctly', () => {
         const wrapper = shallow(
-            <Gauge percentage={33} value="Value" metric="Metric" isContentLoading isProgressLoading>
+            <Gauge metric="Metric" isContentLoading isProgressLoading>
                 Some content
             </Gauge>
         );

@@ -37,12 +37,12 @@
         transform: translate(-50%, -100%);
         text-align: center;
 
-        &--isValueLoading {
+        &--isContentLoading {
             width: 100px;
         }
     }
 
-    &__value {
+    &__content {
         font-size: var(--h1-font-size);
         font-weight: var(--font-weight-bold);
     }
