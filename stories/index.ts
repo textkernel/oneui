@@ -35,6 +35,7 @@ import './Field';
 import './FieldWithValidation';
 import './FieldWrapper';
 import './Footer';
+import './Gauge';
 import './Header';
 import './LoadingSpinner';
 import './LocationCard';

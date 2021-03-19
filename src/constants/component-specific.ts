@@ -52,3 +52,6 @@ export const POPUP_PLACEMENTS = [
 ] as const;
 
 export type PopupPlacement = typeof POPUP_PLACEMENTS[number];
+
+/** Gauge */
+export const GAUGE_RADIUS = 100;

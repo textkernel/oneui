@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gauge should render correctly 1`] = `
+<div
+  className="Gauge"
+>
+  <svg
+    className="Gauge__svg"
+    width="100%"
+  >
+    <linearGradient
+      id="Gauge__gradient--brand"
+    >
+      <stop
+        className="Gauge__gradientStart--brand"
+        offset="50%"
+      />
+      <stop
+        className="Gauge__gradientEnd--brand"
+        offset="100%"
+      />
+    </linearGradient>
+    <circle
+      className="Gauge__circleBackground"
+      cx="50%"
+      cy="25%"
+      r={100}
+      style={
+        Object {
+          "strokeDasharray": "314.1592653589793 628.3185307179587",
+        }
+      }
+    />
+    <circle
+      className="Gauge__circleForeground"
+      cx="50%"
+      cy="25%"
+      r={100}
+      stroke="url(#Gauge__gradient--brand)"
+      style={
+        Object {
+          "strokeDasharray": "0 628.3185307179587",
+        }
+      }
+    />
+  </svg>
+  <div
+    className="Gauge__contentWrapper"
+  >
+    <div
+      className="Gauge__content"
+    >
+      Some content
+      <div
+        className="Gauge__metric"
+        title="Metric"
+      >
+        Metric
+      </div>
+    </div>
+  </div>
+  <div
+    className="Gauge__note"
+  >
+    Value
+  </div>
+</div>
+`;
