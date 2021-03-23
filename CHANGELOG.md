@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.6.0](https://github.com/textkernel/oneui/compare/13.5.1...13.6.0) (2021-03-23)
+
+
+### Features
+
+* **Gauge:** add new component ([#466](https://github.com/textkernel/oneui/issues/466)) ([557b979](https://github.com/textkernel/oneui/commit/557b9798b94445d86359f33082f5f5a524b8b01a))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @popperjs/core to ~2.9.0 ([#412](https://github.com/textkernel/oneui/issues/412)) ([2fd5fec](https://github.com/textkernel/oneui/commit/2fd5fec923d216f14332bd12c6afc79631591fa3))
+* **deps:** update dependency @react-google-maps/api to ~1.13.0 ([70752b9](https://github.com/textkernel/oneui/commit/70752b9f7559385c5512b9ee986125ca8f75f1d6))
+* **deps:** update dependency react-virtualized to ~9.22.0 ([#376](https://github.com/textkernel/oneui/issues/376)) ([c52a72d](https://github.com/textkernel/oneui/commit/c52a72da1cfcf5cdd6143c99536211ed2625be77))
+* **TwoPaneView:** right pane doesn't jump too much on scroll ([#456](https://github.com/textkernel/oneui/issues/456)) ([83e2cc2](https://github.com/textkernel/oneui/commit/83e2cc26043fac5a941a20f017654557e92465c6))
+
 ### [13.5.1](https://github.com/textkernel/oneui/compare/13.5.0...13.5.1) (2021-03-04)
 
 
