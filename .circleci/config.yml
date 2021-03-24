@@ -62,7 +62,10 @@ jobs:
 workflows:
   default: # Install deps; Test, build and lint code; Deploy Storybook in case of new tag
     jobs:
-      - install
+      - install:
+          filters:
+            tags:
+              only: /^[0-9]+\.[0-9]+\.[0-9]+$/
       - test:
           requires:
             - install
@@ -79,4 +82,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+(\.[0-9]+){2}$/
+              only: /^[0-9]+\.[0-9]+\.[0-9]+$/
