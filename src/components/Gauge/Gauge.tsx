@@ -60,8 +60,8 @@ export const Gauge: React.FC<Props> = (props) => {
         <div {...rest} {...block(props)}>
             <svg {...elem('svg', props)} width="100%">
                 <linearGradient id={`Gauge__gradient--${context}`}>
-                    <stop className={`Gauge__gradientStart--${context}`} offset="50%" />
-                    <stop className={`Gauge__gradientEnd--${context}`} offset="100%" />
+                    <stop {...elem('gradientStart', props)} offset="50%" />
+                    <stop {...elem('gradientEnd', props)} offset="100%" />
                 </linearGradient>
                 <circle
                     {...elem('circleBackground', props)}
