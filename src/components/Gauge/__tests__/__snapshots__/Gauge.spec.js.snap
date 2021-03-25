@@ -12,11 +12,11 @@ exports[`Gauge should render correctly 1`] = `
       id="Gauge__gradient--brand"
     >
       <stop
-        className="Gauge__gradientStart--brand"
+        className="Gauge__gradientStart--context_brand"
         offset="50%"
       />
       <stop
-        className="Gauge__gradientEnd--brand"
+        className="Gauge__gradientEnd--context_brand"
         offset="100%"
       />
     </linearGradient>

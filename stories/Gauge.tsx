@@ -10,6 +10,7 @@ storiesOf('Molecules|Gauge', module)
     .add('Gauge', () => {
         const isProgressLoading = boolean('isProgressLoading', false);
         const isContentLoading = boolean('isContentLoading', false);
+        const note = text('Note', 'Low');
 
         return (
             <div style={{ display: 'flex' }}>
@@ -17,12 +18,12 @@ storiesOf('Molecules|Gauge', module)
                     <Gauge
                         context={select('Context', CONTEXTS, CONTEXTS[1])}
                         percentage={number('Percentage', 33)}
-                        note={isContentLoading ? '—' : 'Low'}
+                        note={isContentLoading ? '—' : note}
                         metric={text('Metric', 'Postings per job')}
                         isProgressLoading={isProgressLoading}
                         isContentLoading={isContentLoading}
                     >
-                        {text('Note', '3')}
+                        {text('Children', '3')}
                     </Gauge>
                 </div>
                 <div style={{ width: '33%' }}>
