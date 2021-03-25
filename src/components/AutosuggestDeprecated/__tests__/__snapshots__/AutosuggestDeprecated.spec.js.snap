@@ -714,7 +714,7 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
                     key=".0"
                   >
                     <li
-                      className="ListItem ListItem--disabled List__item"
+                      className="ListItem List__item"
                     >
                       <div
                         className="ListItem__container"

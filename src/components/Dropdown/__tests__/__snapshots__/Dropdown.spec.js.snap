@@ -91,7 +91,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         key=".$.$key-1"
       >
         <li
-          className="ListItem ListItem--disabled List__item"
+          className="ListItem List__item"
         >
           <div
             className="ListItem__container"
@@ -389,7 +389,7 @@ exports[`Dropdown should render correctly opened 1`] = `
         key=".$.$disabled-key"
       >
         <li
-          className="ListItem ListItem--disabled List__item"
+          className="ListItem List__item"
         >
           <div
             className="ListItem__container"
