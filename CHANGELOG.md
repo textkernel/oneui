@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [13.6.1](https://github.com/textkernel/oneui/compare/13.6.0...13.6.1) (2021-03-31)
+
+
+### Bug Fixes
+
+* **Gauge:** use bem for linear gradient stops ([#469](https://github.com/textkernel/oneui/issues/469)) ([ef4dd07](https://github.com/textkernel/oneui/commit/ef4dd0725fd96838debe36ba94161a8d99636503))
+
 ## [13.6.0](https://github.com/textkernel/oneui/compare/13.5.1...13.6.0) (2021-03-23)
 
 
