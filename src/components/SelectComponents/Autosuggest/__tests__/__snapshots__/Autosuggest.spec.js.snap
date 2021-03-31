@@ -2207,7 +2207,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                         isSelected={false}
                       >
                         <li
-                          className="ListItem"
+                          className="ListItem ListItem--disabled"
                         >
                           <div
                             className="ListItem__container"
