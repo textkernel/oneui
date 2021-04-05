@@ -88,7 +88,7 @@
         "@storybook/storybook-deployer": "2.8.7",
         "@types/googlemaps": "3.43.3",
         "@types/jest": "26.0.22",
-        "@types/node": "12.20.6",
+        "@types/node": "12.20.7",
         "@types/react": "16.14.5",
         "@types/react-modal": "3.10.6",
         "@types/react-virtualized": "9.21.11",
