@@ -18,7 +18,10 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      *  and empty/false `disabled` attribute.
      *  Use {@link ListItem} component.
      */
-    children: React.ReactElement<ListItemProps> | React.ReactElement<ListItemProps>[];
+    children:
+        | React.ReactElement<ListItemProps>
+        | React.ReactElement<ListItemProps>[]
+        | (React.ReactElement<ListItemProps> | React.ReactElement<ListItemProps>[])[];
     /** {@link Button} element, controlled by current component */
     button: React.FunctionComponentElement<ButtonProps>;
     /**

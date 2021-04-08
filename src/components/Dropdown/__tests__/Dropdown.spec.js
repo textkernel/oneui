@@ -117,4 +117,27 @@ describe('Dropdown', () => {
 
         wrapper.unmount();
     });
+
+    it('should render correctly with mixed children: array and single ListItem', () => {
+        wrapper = mount(
+            <Dropdown
+                button={<Button context="brand">Click me!</Button>}
+                onChange={mockOnChange}
+                placement="top-start"
+            >
+                <ListItem key="disabled-key" disabled>
+                    Disabled
+                </ListItem>
+                {['one', 'two'].map((value) => (
+                    <ListItem key={value} value={value}>
+                        {value}
+                    </ListItem>
+                ))}
+            </Dropdown>
+        );
+        wrapper.find('button').simulate('click');
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('ListItem')).toHaveLength(3);
+        wrapper.unmount();
+    });
 });
