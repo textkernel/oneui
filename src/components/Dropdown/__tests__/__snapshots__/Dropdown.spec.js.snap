@@ -451,3 +451,196 @@ exports[`Dropdown should render correctly opened 1`] = `
   </List>
 </Dropdown>
 `;
+
+exports[`Dropdown should render correctly with mixed children: array and single ListItem 1`] = `
+<Dropdown
+  button={
+    <ForwardRef
+      context="brand"
+      disabled={false}
+      isBlock={false}
+      isInline={false}
+      size="normal"
+      type="button"
+    >
+      Click me!
+    </ForwardRef>
+  }
+  onChange={[MockFunction]}
+  placement="top-start"
+>
+  <Button
+    aria-expanded={true}
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-41-label downshift-41-toggle-button"
+    context="brand"
+    disabled={false}
+    id="downshift-41-toggle-button"
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    size="normal"
+    type="button"
+  >
+    <button
+      aria-expanded={true}
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-41-label downshift-41-toggle-button"
+      className="Button Button--context_brand"
+      disabled={false}
+      id="downshift-41-toggle-button"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      type="button"
+    >
+      Click me!
+    </button>
+  </Button>
+  <List
+    aria-labelledby="downshift-41-label"
+    className="Dropdown__list"
+    doSelectOnNavigate={false}
+    id="downshift-41-menu"
+    isControlledNavigation={true}
+    isDivided={false}
+    onBlur={[Function]}
+    onKeyDown={[Function]}
+    onMouseLeave={[Function]}
+    role="listbox"
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+    tabIndex={-1}
+  >
+    <ul
+      aria-labelledby="downshift-41-label"
+      className="List Dropdown__list"
+      id="downshift-41-menu"
+      onBlur={[Function]}
+      onKeyDown={[Function]}
+      onMouseLeave={[Function]}
+      role="listbox"
+      style={
+        Object {
+          "left": "0",
+          "position": "absolute",
+          "top": "0",
+        }
+      }
+      tabIndex={-1}
+    >
+      <ListItem
+        className="List__item"
+        disabled={true}
+        highlightContext="default"
+        isHighlighted={false}
+        isSelected={false}
+        key=".$.$disabled-key"
+      >
+        <li
+          className="ListItem ListItem--disabled List__item"
+        >
+          <div
+            className="ListItem__container"
+            role="presentation"
+          >
+            <Text
+              context="default"
+              inline={true}
+              key=".0"
+              size="normal"
+            >
+              <span>
+                Disabled
+              </span>
+            </Text>
+          </div>
+        </li>
+      </ListItem>
+      <ListItem
+        aria-selected="false"
+        className="List__item"
+        disabled={false}
+        highlightContext="default"
+        id="downshift-41-item-0"
+        isHighlighted={false}
+        isSelected={false}
+        key=".$.1=2$one"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        role="option"
+        value="one"
+      >
+        <li
+          aria-selected="false"
+          className="ListItem ListItem--clickable List__item"
+          id="downshift-41-item-0"
+          onMouseMove={[Function]}
+          role="option"
+        >
+          <div
+            className="ListItem__container"
+            onClick={[Function]}
+            role="presentation"
+          >
+            <Text
+              context="default"
+              inline={true}
+              key=".0"
+              size="normal"
+            >
+              <span>
+                one
+              </span>
+            </Text>
+          </div>
+        </li>
+      </ListItem>
+      <ListItem
+        aria-selected="false"
+        className="List__item"
+        disabled={false}
+        highlightContext="default"
+        id="downshift-41-item-1"
+        isHighlighted={false}
+        isSelected={false}
+        key=".$.1=2$two"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        role="option"
+        value="two"
+      >
+        <li
+          aria-selected="false"
+          className="ListItem ListItem--clickable List__item"
+          id="downshift-41-item-1"
+          onMouseMove={[Function]}
+          role="option"
+        >
+          <div
+            className="ListItem__container"
+            onClick={[Function]}
+            role="presentation"
+          >
+            <Text
+              context="default"
+              inline={true}
+              key=".0"
+              size="normal"
+            >
+              <span>
+                two
+              </span>
+            </Text>
+          </div>
+        </li>
+      </ListItem>
+    </ul>
+  </List>
+</Dropdown>
+`;

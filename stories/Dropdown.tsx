@@ -48,6 +48,9 @@ storiesOf('Molecules|Dropdown', module)
             ];
 
             const buttonIndex = select('customButton', [0, 1, 2], 0);
+
+            const customValues = ['ListItem with value 1', 'ListItem with value 2'];
+
             return (
                 <div style={styles.content}>
                     <Dropdown<string>
@@ -62,6 +65,11 @@ storiesOf('Molecules|Dropdown', module)
                         <ListItem key="first-key" value="first-value">
                             ListItem with value
                         </ListItem>
+                        {customValues.map((value) => (
+                            <ListItem key={value} value={value}>
+                                {value}
+                            </ListItem>
+                        ))}
                         <ListItem key="second-key" value="second-value">
                             <div style={styles.customListItem}>
                                 <IconTextkernel context="brand" style={styles.icon} />
