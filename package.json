@@ -74,10 +74,10 @@
     },
     "devDependencies": {
         "@babel/cli": "7.13.14",
-        "@babel/core": "7.13.14",
+        "@babel/core": "7.13.15",
         "@babel/plugin-proposal-class-properties": "7.13.0",
-        "@babel/plugin-proposal-decorators": "7.13.5",
-        "@babel/preset-env": "7.13.12",
+        "@babel/plugin-proposal-decorators": "7.13.15",
+        "@babel/preset-env": "7.13.15",
         "@babel/preset-react": "7.13.13",
         "@sambego/storybook-state": "2.0.1",
         "@storybook/addon-actions": "5.3.21",
