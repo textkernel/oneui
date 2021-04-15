@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<MarkedText> that renders a text block while marking matched substrings should mark special characters 1`] = `
+<MarkedText
+  marker=".?!#$%^&()[]:;\\\\?''"
+>
+  <Text
+    context="default"
+    inline={false}
+    size="normal"
+  >
+    <p>
+      <mark
+        className="MarkedText__marked"
+        key="match0"
+      >
+        .?!#$%^&()[]:;\\?''
+      </mark>
+    </p>
+  </Text>
+</MarkedText>
+`;
+
 exports[`<MarkedText> that renders a text block while marking matched substrings should pass props to Text 1`] = `
 <MarkedText
   context="brand"
