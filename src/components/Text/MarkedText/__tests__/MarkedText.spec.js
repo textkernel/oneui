@@ -24,6 +24,14 @@ describe('<MarkedText> that renders a text block while marking matched substring
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('mark')).toHaveLength(3);
     });
+    it('should mark special characters', () => {
+        const wrapper = mount(
+            // eslint-disable-next-line react/no-unescaped-entities
+            <MarkedText marker=".?!#$%^&()[]:;\?''">.?!#$%^&()[]:;\?''</MarkedText>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('mark')).toHaveLength(1);
+    });
     it('should pass props to Text', () => {
         const wrapper = mount(
             <MarkedText marker="text" inline context="brand">

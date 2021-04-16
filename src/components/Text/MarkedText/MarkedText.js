@@ -11,7 +11,7 @@ export const MarkedText = (props) => {
 
     let result = children;
     if (marker) {
-        const escapedMarker = marker.replace(/[-[\]{}()*+?.,\\^$|#\\s]/g, '\\$&');
+        const escapedMarker = marker.replace(/[-[\]{}()*+?.,^$|#]/g, '\\$&');
         const re = new RegExp(`(${escapedMarker})`, 'gi');
         result = children.split(re).map((part, i) =>
             part.toLowerCase() === marker.toLowerCase() ? (
