@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [13.6.2](https://github.com/textkernel/oneui/compare/13.6.1...13.6.2) (2021-04-19)
+
+
+### Bug Fixes
+
+* **Dropdown:** children type ([#478](https://github.com/textkernel/oneui/issues/478)) ([fd6be4a](https://github.com/textkernel/oneui/commit/fd6be4ac6dbd0c4857e1d95ff808f7b99a92d1ea))
+* **MarkedText:** fix issue with escaping of 's' character ([#481](https://github.com/textkernel/oneui/issues/481)) ([787cd19](https://github.com/textkernel/oneui/commit/787cd196d673e68e03611c14dc802391c0342571))
+
 ### [13.6.1](https://github.com/textkernel/oneui/compare/13.6.0...13.6.1) (2021-03-31)
 
 
