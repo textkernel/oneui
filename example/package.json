@@ -6,7 +6,7 @@
         "@textkernel/oneui": "*",
         "react": "16.14.0",
         "react-dom": "16.14.0",
-        "react-scripts": "2.1.8"
+        "react-scripts": "3.4.2"
     },
     "scripts": {
         "start": "react-scripts start",
