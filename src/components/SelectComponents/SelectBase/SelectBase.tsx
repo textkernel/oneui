@@ -16,6 +16,7 @@ export function SelectBase<S>(props: Props<S>) {
         clearTitle,
         showClearButton,
         selectOnTab,
+        indexToSelectOnOutClick,
         disabled,
         onFocus,
         onBlur,
@@ -194,7 +195,21 @@ export function SelectBase<S>(props: Props<S>) {
                     isEscapeAction: true,
                 };
             case Downshift.stateChangeTypes.blurInput:
+                // on TAB click, if condition is true ensure that highlighted item gets selected
                 if (selectOnTab && !state.isEscapeAction && isBrowserTabVisible) {
+                    return {
+                        ...changes,
+                        selectedItem: suggestions[state.highlightedIndex],
+                        isOpen: false,
+                    };
+                }
+                return changes;
+            case Downshift.stateChangeTypes.mouseUp:
+                // on outer click, if condition is true ensure that highlighted item gets selected
+                if (
+                    state.highlightedIndex > -1 &&
+                    indexToSelectOnOutClick === state.highlightedIndex
+                ) {
                     return {
                         ...changes,
                         selectedItem: suggestions[state.highlightedIndex],
@@ -291,6 +306,7 @@ SelectBase.defaultProps = {
     highlightOnEmptyInput: true,
     clearTitle: '',
     selectOnTab: false,
+    indexToSelectOnOutClick: -1,
     onInputValueChange: () => null,
 };
 

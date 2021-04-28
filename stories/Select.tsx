@@ -585,6 +585,7 @@ storiesOf('Organisms|Select Components', module)
                         showClearButton={boolean('Show clear button', true)}
                         clearTitle={text('Clear button label', 'Clear')}
                         onClearAllSelected={onClearAllSelected}
+                        selectFirstOnOutClick={!!store.get('inputValue').length}
                     />
                 </div>
             );
@@ -727,9 +728,13 @@ storiesOf('Organisms|Select Components', module)
                         inputRef={inputRef}
                         // this will trick to UI to pre-fill the in input field when it gets focused again
                         initInputValue={store.get('singleSelectedText')}
-                        // Here we switch the UI behavior based on our local state
+                        // here we switch the UI behavior based on our local state
                         customSelectionIndicator={
                             store.get('singleSelectedText') ? customBlur : undefined
+                        }
+                        // select the first suggestions (user input) on outer click
+                        selectFirstOnOutClick={
+                            !!inputValue.length && !store.get('selectedSuggestions').length
                         }
                     />
                 </div>
@@ -747,6 +752,7 @@ storiesOf('Organisms|Select Components', module)
             * The user can select free text input
             * When free text input is selected it should behave as a single select component
             * All other suggestions can be selected in a multi-select fashion.
+            * Also: if the user clicks outside the component after typing something, select the free texts as on TAB navigation
             
             The **important parts** here are:
             * passing inputRef prop, so we can access the input field from outside
