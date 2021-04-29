@@ -161,12 +161,16 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
       }
       className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
       context="neutral"
+      items={
+        Array [
+          "",
+        ]
+      }
       key=".2"
       placement="bottom-end"
       size="large"
     >
       <Button
-        aria-expanded={false}
         aria-haspopup="listbox"
         aria-labelledby="downshift-0-label downshift-0-toggle-button"
         className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
@@ -181,7 +185,6 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
         type="button"
       >
         <button
-          aria-expanded={false}
           aria-haspopup="listbox"
           aria-labelledby="downshift-0-label downshift-0-toggle-button"
           className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"

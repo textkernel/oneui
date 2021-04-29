@@ -18,7 +18,7 @@ const styles = {
         height: '40px',
         justifyContent: 'center',
     },
-    customListItem: {
+    listItem: {
         alignItems: 'center',
         display: 'flex',
     },
@@ -32,65 +32,61 @@ const styles = {
 
 storiesOf('Molecules|Dropdown', module)
     .addDecorator(withKnobs)
-    .add(
-        'Dropdown',
-        () => {
-            const onChange = (value) => {
-                console.log(`onChange was called value : ${value}`);
-            };
+    .add('Dropdown', () => {
+        const onChange = (value) => {
+            console.log(`onChange was called value : ${value}`);
+        };
+        const onOpen = () => {
+            console.log('Dropdown was requested to be open.');
+        };
+        const onClose = () => {
+            console.log('Dropdown was requested to be close.');
+        };
 
-            const customButtonsDemo = [
-                <Button context="brand">Click me!</Button>,
-                <Button context="neutral">
-                    <HiDotsVertical />
-                </Button>,
-                <Button context="link">Select any</Button>,
-            ];
+        const customButtonsDemo = [
+            <Button context="brand">Click me!</Button>,
+            <Button context="neutral">
+                <HiDotsVertical />
+            </Button>,
+            <Button context="link">Select any</Button>,
+        ];
 
-            const buttonIndex = select('customButton', [0, 1, 2], 0);
+        const buttonIndex = select('customButton', [0, 1, 2], 0);
 
-            const customValues = ['ListItem with value 1', 'ListItem with value 2'];
+        const customValues = [
+            'ListItem with value 1',
+            'ListItem with value 2',
+            'ListItem with value 3',
+        ];
 
-            return (
-                <div style={styles.content}>
-                    <Dropdown<string>
-                        style={{ width: 'fit-content' }}
-                        button={customButtonsDemo[buttonIndex]}
-                        onChange={onChange}
-                        placement={select('placement', POPUP_PLACEMENTS, 'bottom-end')}
-                    >
-                        <ListItem key="disabled-key" disabled style={styles.divider}>
-                            Disabled ListItem
-                        </ListItem>
-                        <ListItem key="first-key" value="first-value">
-                            ListItem with value
-                        </ListItem>
-                        {customValues.map((value) => (
-                            <ListItem key={value} value={value}>
-                                {value}
-                            </ListItem>
-                        ))}
-                        <ListItem key="second-key" value="second-value">
-                            <div style={styles.customListItem}>
-                                <IconTextkernel context="brand" style={styles.icon} />
-                                <strong>Custom ListItem with value</strong>
-                            </div>
-                        </ListItem>
-                        <div style={styles.customDiv}>Just custom div element</div>
-                    </Dropdown>
-                </div>
-            );
-        },
-        {
-            info: {
-                text: `
-                ## Usage information
-                 
-                Navigation available only through children which have not empty \`value\` attribute
-                and empty/false \`disabled\` attribute (all other children items will be skipped during navigation).
-                
-                Use \`ListItem\` component as child item.
-                `,
-            },
-        }
-    );
+        return (
+            <div style={styles.content}>
+                <Dropdown<string>
+                    items={customValues}
+                    style={{ width: 'fit-content' }}
+                    button={customButtonsDemo[buttonIndex]}
+                    onChange={onChange}
+                    onOpen={onOpen}
+                    onClose={onClose}
+                    placement={select('placement', POPUP_PLACEMENTS, 'bottom-end')}
+                >
+                    {({ getItemPropsByIndex }) => {
+                        return (
+                            <>
+                                <ListItem disabled>Disabled</ListItem>
+                                {customValues.map((value, index) => (
+                                    <ListItem key={value} {...getItemPropsByIndex(index)}>
+                                        <div style={styles.listItem}>
+                                            <IconTextkernel context="brand" style={styles.icon} />
+                                            {value}
+                                        </div>
+                                    </ListItem>
+                                ))}
+                                <div style={styles.customDiv}>Just custom div element</div>
+                            </>
+                        );
+                    }}
+                </Dropdown>
+            </div>
+        );
+    });

@@ -31,8 +31,12 @@ describe('<ButtonGroup> that renders a button', () => {
             <ButtonGroup size="large" isBlock>
                 <Button>A button</Button>
                 <Button href="#">An anchor</Button>
-                <Dropdown button={<Button>A dropdown button</Button>} placement="bottom-end">
-                    <ListItem key="some-key">A list item</ListItem>
+                <Dropdown
+                    items={['']}
+                    button={<Button>A dropdown button</Button>}
+                    placement="bottom-end"
+                >
+                    {() => <ListItem>With value</ListItem>}
                 </Dropdown>
             </ButtonGroup>
         );
