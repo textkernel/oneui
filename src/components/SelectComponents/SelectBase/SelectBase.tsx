@@ -205,14 +205,11 @@ export function SelectBase<S>(props: Props<S>) {
                 }
                 return changes;
             case Downshift.stateChangeTypes.mouseUp:
-                // on outer click, if condition is true ensure that highlighted item gets selected
-                if (
-                    state.highlightedIndex > -1 &&
-                    indexToSelectOnOutClick === state.highlightedIndex
-                ) {
+                // on outer click, select the item and the specified index
+                if (typeof indexToSelectOnOutClick === 'number' && indexToSelectOnOutClick > -1) {
                     return {
                         ...changes,
-                        selectedItem: suggestions[state.highlightedIndex],
+                        selectedItem: suggestions[indexToSelectOnOutClick],
                         isOpen: false,
                     };
                 }
