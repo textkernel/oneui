@@ -48,10 +48,23 @@ describe('Autosuggest', () => {
         it('should initially render empty component correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
         });
+        it('should add additional attributes to input field when component is blurred', () => {
+            wrapper.setProps({ inputAttr: { 'data-test': true, title: 'some title' } });
+            wrapper.update();
+            expect(wrapper.find('input').html()).toMatch('data-test="true"');
+            expect(wrapper.find('input').html()).toMatch('title="some title"');
+        });
         it('should initially render focused component correctly', () => {
             setFocusOnInput();
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('ListItem')).toHaveLength(0);
+        });
+        it('should add additional attributes to input field when component is focused', () => {
+            wrapper.setProps({ inputAttr: { 'data-test': true, title: 'some title' } });
+            wrapper.update();
+            setFocusOnInput();
+            expect(wrapper.find('input').html()).toMatch('data-test="true"');
+            expect(wrapper.find('input').html()).toMatch('title="some title"');
         });
         it('should initially render focused component with suggestions list correctly', () => {
             suggestionsList = SUGGESTIONS.slice(0, 8);

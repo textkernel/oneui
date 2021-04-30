@@ -43,6 +43,8 @@ interface Props<S>
     /** Means to overwrite the look and feel of the UI in its blurred state.
      * It should be null or undefined if there is no selection yet */
     customSelectionIndicator?: ReactNode;
+    /** Additional HTML attributes to be applied to the input element */
+    inputAttr?: DictionaryOf<string | boolean>;
 }
 
 const { elem } = bem('Autosuggest', styles);
@@ -71,6 +73,7 @@ export function Autosuggest<S>(props: Props<S>) {
         inputRef: inputRefFromProps,
         customSelectionIndicator,
         initInputValue,
+        inputAttr,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -151,6 +154,7 @@ export function Autosuggest<S>(props: Props<S>) {
                     onFocus: onFocusInput,
                     onKeyDown: (e) => handleInputKeyDown(e, highlightedIndex),
                     'data-lpignore': true,
+                    ...inputAttr,
                     ...elem('input'),
                 })}
             />
@@ -173,6 +177,7 @@ export function Autosuggest<S>(props: Props<S>) {
                         placeholder,
                         'data-lpignore': true,
                         onFocus: onFocusInput,
+                        ...inputAttr,
                         ...elem('input', { hidden: isHidden }),
                     })}
                 />
@@ -235,4 +240,5 @@ Autosuggest.defaultProps = {
     noSuggestionsPlaceholder: '',
     isLoading: false,
     customSelectionIndicator: undefined,
+    inputAttr: {},
 };
