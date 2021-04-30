@@ -148,13 +148,13 @@ export function Autosuggest<S>(props: Props<S>) {
             {renderFullTagsList()}
             <input
                 {...getInputProps({
+                    ...inputAttr,
                     id,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
                     onFocus: onFocusInput,
                     onKeyDown: (e) => handleInputKeyDown(e, highlightedIndex),
                     'data-lpignore': true,
-                    ...inputAttr,
                     ...elem('input'),
                 })}
             />
@@ -172,12 +172,12 @@ export function Autosuggest<S>(props: Props<S>) {
                 {selectionIndicator}
                 <input
                     {...getInputProps({
+                        ...inputAttr,
                         id,
                         ref: inputRef,
                         placeholder,
                         'data-lpignore': true,
                         onFocus: onFocusInput,
-                        ...inputAttr,
                         ...elem('input', { hidden: isHidden }),
                     })}
                 />

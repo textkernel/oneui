@@ -52,13 +52,13 @@ export function ComboboxMulti<S>(props: Props<S>) {
             <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
                 <input
                     {...getInputProps({
+                        ...inputAttr,
                         id,
                         disabled,
                         ref: inputRef,
                         placeholder: inputPlaceholder,
                         onKeyDown: handleInputKeyDown,
                         'data-lpignore': true,
-                        ...inputAttr,
                         ...elem('input', { ...props }),
                     })}
                 />
@@ -75,13 +75,13 @@ export function ComboboxMulti<S>(props: Props<S>) {
         <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
             <input
                 {...getInputProps({
+                    ...inputAttr,
                     id,
                     disabled,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
                     onFocus,
                     'data-lpignore': true,
-                    ...inputAttr,
                     ...elem('input', { ...props }),
                 })}
             />
