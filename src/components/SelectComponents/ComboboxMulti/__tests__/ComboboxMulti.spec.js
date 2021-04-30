@@ -40,6 +40,12 @@ describe('ComboboxMulti', () => {
         it('should initially render empty component correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
         });
+        it('should add additional attributes to input field when component is blurred', () => {
+            wrapper.setProps({ inputAttr: { 'data-test': true, title: 'some title' } });
+            wrapper.update();
+            expect(wrapper.find('input').html()).toMatch('data-test="true"');
+            expect(wrapper.find('input').html()).toMatch('title="some title"');
+        });
         it('should set focus on the input field', () => {
             setFocusOnInput();
             expect(inputNode).toBe(document.activeElement);
@@ -48,6 +54,14 @@ describe('ComboboxMulti', () => {
             wrapper.setProps({ disabled: true });
             setFocusOnInput();
             expect(inputNode).not.toBe(document.activeElement);
+        });
+        it('should add additional attributes to input field when component is focused', () => {
+            wrapper.setProps({ inputAttr: { 'data-test': true, title: 'some title' } });
+            wrapper.update();
+            setFocusOnInput();
+
+            expect(wrapper.find('input').html()).toMatch('data-test="true"');
+            expect(wrapper.find('input').html()).toMatch('title="some title"');
         });
         it('should render noSuggestions placeholder when empty suggestions list is passed', () => {
             wrapper.setProps({ suggestions: [] });

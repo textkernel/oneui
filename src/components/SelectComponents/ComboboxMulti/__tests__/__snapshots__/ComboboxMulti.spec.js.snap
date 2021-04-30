@@ -2,6 +2,7 @@
 
 exports[`ComboboxMulti rendering should initially render empty component correctly 1`] = `
 <ComboboxMulti
+  inputAttr={Object {}}
   inputPlaceholder="type here..."
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
@@ -254,6 +255,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
 
 exports[`ComboboxMulti rendering should render all suggestions from the list 1`] = `
 <ComboboxMulti
+  inputAttr={Object {}}
   inputPlaceholder="type here..."
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
@@ -302,10 +304,10 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
     inputRef={
       Object {
         "current": <input
-          aria-activedescendant="downshift-4-item-0"
+          aria-activedescendant="downshift-6-item-0"
           aria-autocomplete="list"
-          aria-controls="downshift-4-menu"
-          aria-labelledby="downshift-4-label"
+          aria-controls="downshift-6-menu"
+          aria-labelledby="downshift-6-label"
           autocomplete="off"
           class="ComboboxMulti__input"
           data-lpignore="true"
@@ -378,8 +380,8 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
         <div
           aria-expanded={true}
           aria-haspopup="listbox"
-          aria-labelledby="downshift-4-label"
-          aria-owns="downshift-4-menu"
+          aria-labelledby="downshift-6-label"
+          aria-owns="downshift-6-menu"
           className="SelectBase__main SelectBase__main--focused"
           role="combobox"
         >
@@ -406,10 +408,10 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                   tabIndex={0}
                 >
                   <input
-                    aria-activedescendant="downshift-4-item-0"
+                    aria-activedescendant="downshift-6-item-0"
                     aria-autocomplete="list"
-                    aria-controls="downshift-4-menu"
-                    aria-labelledby="downshift-4-label"
+                    aria-controls="downshift-6-menu"
+                    aria-labelledby="downshift-6-label"
                     autoComplete="off"
                     className="ComboboxMulti__input"
                     data-lpignore={true}
@@ -481,18 +483,18 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                   </IoMdArrowDropup>
                 </div>
                 <List
-                  aria-labelledby="downshift-4-label"
+                  aria-labelledby="downshift-6-label"
                   className="SelectBase__list--focused"
                   doSelectOnNavigate={false}
-                  id="downshift-4-menu"
+                  id="downshift-6-menu"
                   isControlledNavigation={true}
                   isDivided={false}
                   role="listbox"
                 >
                   <ul
-                    aria-labelledby="downshift-4-label"
+                    aria-labelledby="downshift-6-label"
                     className="List SelectBase__list--focused"
-                    id="downshift-4-menu"
+                    id="downshift-6-menu"
                     role="listbox"
                   >
                     <SuggestionsList
@@ -542,7 +544,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         aria-selected={true}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-4-item-0"
+                        id="downshift-6-item-0"
                         isHighlighted={true}
                         isSelected={false}
                         key="Sun"
@@ -555,7 +557,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         <li
                           aria-selected={true}
                           className="ListItem ListItem--isHighlighted ListItem--clickable"
-                          id="downshift-4-item-0"
+                          id="downshift-6-item-0"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -588,7 +590,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-4-item-1"
+                        id="downshift-6-item-1"
                         isHighlighted={false}
                         isSelected={false}
                         key="Moon"
@@ -601,7 +603,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-4-item-1"
+                          id="downshift-6-item-1"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -634,7 +636,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-4-item-2"
+                        id="downshift-6-item-2"
                         isHighlighted={false}
                         isSelected={false}
                         key="Mercury"
@@ -647,7 +649,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-4-item-2"
+                          id="downshift-6-item-2"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -680,7 +682,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-4-item-3"
+                        id="downshift-6-item-3"
                         isHighlighted={false}
                         isSelected={false}
                         key="Venus"
@@ -693,7 +695,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-4-item-3"
+                          id="downshift-6-item-3"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -726,7 +728,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-4-item-4"
+                        id="downshift-6-item-4"
                         isHighlighted={false}
                         isSelected={false}
                         key="Earth"
@@ -739,7 +741,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-4-item-4"
+                          id="downshift-6-item-4"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -772,7 +774,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-4-item-5"
+                        id="downshift-6-item-5"
                         isHighlighted={false}
                         isSelected={false}
                         key="Mars"
@@ -785,7 +787,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-4-item-5"
+                          id="downshift-6-item-5"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -818,7 +820,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-4-item-6"
+                        id="downshift-6-item-6"
                         isHighlighted={false}
                         isSelected={false}
                         key="Jupiter"
@@ -831,7 +833,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-4-item-6"
+                          id="downshift-6-item-6"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -864,7 +866,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-4-item-7"
+                        id="downshift-6-item-7"
                         isHighlighted={false}
                         isSelected={false}
                         key="Saturn"
@@ -877,7 +879,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-4-item-7"
+                          id="downshift-6-item-7"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
@@ -910,7 +912,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         aria-selected={false}
                         disabled={false}
                         highlightContext="default"
-                        id="downshift-4-item-8"
+                        id="downshift-6-item-8"
                         isHighlighted={false}
                         isSelected={false}
                         key="Neptun"
@@ -923,7 +925,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
-                          id="downshift-4-item-8"
+                          id="downshift-6-item-8"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
                           role="option"
