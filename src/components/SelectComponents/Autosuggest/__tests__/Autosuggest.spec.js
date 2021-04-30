@@ -221,12 +221,11 @@ describe('Autosuggest', () => {
                     done();
                 });
             });
-            it.skip('should be called when the first suggestion is highlighted and user clicks outside of component', (done) => {
+            it.skip('should be called with the first suggestion when prop is set, there is user input and user clicks outside of component', (done) => {
                 // outer click navigation is not properly triggered; it works fine in the browser
                 wrapper.setProps({ selectFirstOnOutClick: true });
                 wrapper.update();
                 setFocusOnInput();
-                wrapper.find('input').simulate('keyDown', { key: 'ArrowDown' });
                 // click outside ???
                 setTimeout(() => {
                     wrapper.update();

@@ -585,7 +585,7 @@ storiesOf('Organisms|Select Components', module)
                         showClearButton={boolean('Show clear button', true)}
                         clearTitle={text('Clear button label', 'Clear')}
                         onClearAllSelected={onClearAllSelected}
-                        selectFirstOnOutClick={!!store.get('inputValue').length}
+                        selectFirstOnOutClick
                     />
                 </div>
             );
@@ -594,8 +594,13 @@ storiesOf('Organisms|Select Components', module)
             info: {
                 text: `
             The Autosuggest component is recommended to use for a dynamic list of values.
+
             This story demonstrates how you can mix these dynamic suggestions with static ones (e.g. based on user input), 
-            and how those can be shown during the loading state as well`,
+            and how those can be shown during the loading state as well.
+
+            It also makes use of "selectFirstOnOutClick" so that the input value gets selected on outer click even if the user
+            did not explicitly select it from the suggestions list.
+            `,
             },
         }
     )
@@ -733,9 +738,7 @@ storiesOf('Organisms|Select Components', module)
                             store.get('singleSelectedText') ? customBlur : undefined
                         }
                         // select the first suggestions (user input) on outer click
-                        selectFirstOnOutClick={
-                            !!inputValue.length && !store.get('selectedSuggestions').length
-                        }
+                        selectFirstOnOutClick={!store.get('selectedSuggestions').length}
                     />
                 </div>
             );

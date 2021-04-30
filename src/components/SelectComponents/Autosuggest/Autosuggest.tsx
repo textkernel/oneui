@@ -43,7 +43,7 @@ interface Props<S>
     /** Means to overwrite the look and feel of the UI in its blurred state.
      * It should be null or undefined if there is no selection yet */
     customSelectionIndicator?: ReactNode;
-    /** If highlighted, select the first suggestion on outer click */
+    /** If there is an input value, select the first suggestion on outer click */
     selectFirstOnOutClick?: boolean;
 }
 
@@ -220,7 +220,7 @@ export function Autosuggest<S>(props: Props<S>) {
             selectOnTab
             initInputValue={initInputValue}
             clearInputAfterSelection
-            indexToSelectOnOutClick={selectFirstOnOutClick ? 0 : -1}
+            indexToSelectOnOutClick={inputValue && selectFirstOnOutClick ? 0 : -1}
         />
     );
 }
