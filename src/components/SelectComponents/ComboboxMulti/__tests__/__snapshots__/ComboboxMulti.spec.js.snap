@@ -2,7 +2,7 @@
 
 exports[`ComboboxMulti rendering should initially render empty component correctly 1`] = `
 <ComboboxMulti
-  inputAttr={Object {}}
+  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
@@ -255,7 +255,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
 
 exports[`ComboboxMulti rendering should render all suggestions from the list 1`] = `
 <ComboboxMulti
-  inputAttr={Object {}}
+  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}

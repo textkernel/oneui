@@ -44,7 +44,7 @@ interface Props<S>
      * It should be null or undefined if there is no selection yet */
     customSelectionIndicator?: ReactNode;
     /** Additional HTML attributes to be applied to the input element */
-    inputAttr?: DictionaryOf<string | boolean>;
+    inputAttrs?: DictionaryOf<string | boolean>;
 }
 
 const { elem } = bem('Autosuggest', styles);
@@ -73,7 +73,7 @@ export function Autosuggest<S>(props: Props<S>) {
         inputRef: inputRefFromProps,
         customSelectionIndicator,
         initInputValue,
-        inputAttr,
+        inputAttrs,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -148,7 +148,7 @@ export function Autosuggest<S>(props: Props<S>) {
             {renderFullTagsList()}
             <input
                 {...getInputProps({
-                    ...inputAttr,
+                    ...inputAttrs,
                     id,
                     ref: inputRef,
                     placeholder: inputPlaceholder,
@@ -172,7 +172,7 @@ export function Autosuggest<S>(props: Props<S>) {
                 {selectionIndicator}
                 <input
                     {...getInputProps({
-                        ...inputAttr,
+                        ...inputAttrs,
                         id,
                         ref: inputRef,
                         placeholder,
@@ -240,5 +240,5 @@ Autosuggest.defaultProps = {
     noSuggestionsPlaceholder: '',
     isLoading: false,
     customSelectionIndicator: undefined,
-    inputAttr: {},
+    inputAttrs: {},
 };

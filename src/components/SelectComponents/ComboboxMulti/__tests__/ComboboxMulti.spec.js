@@ -41,7 +41,7 @@ describe('ComboboxMulti', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
         });
         it('should add additional attributes to input field when component is blurred', () => {
-            wrapper.setProps({ inputAttr: { 'data-test': true, title: 'some title' } });
+            wrapper.setProps({ inputAttrs: { 'data-test': true, title: 'some title' } });
             wrapper.update();
             expect(wrapper.find('input').html()).toMatch('data-test="true"');
             expect(wrapper.find('input').html()).toMatch('title="some title"');
@@ -56,7 +56,7 @@ describe('ComboboxMulti', () => {
             expect(inputNode).not.toBe(document.activeElement);
         });
         it('should add additional attributes to input field when component is focused', () => {
-            wrapper.setProps({ inputAttr: { 'data-test': true, title: 'some title' } });
+            wrapper.setProps({ inputAttrs: { 'data-test': true, title: 'some title' } });
             wrapper.update();
             setFocusOnInput();
 

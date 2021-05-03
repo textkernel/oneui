@@ -18,7 +18,7 @@ interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
     /** enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
     /** Additional HTML attributes to be applied to the input element */
-    inputAttr?: DictionaryOf<string | boolean>;
+    inputAttrs?: DictionaryOf<string | boolean>;
 }
 
 export function ComboboxMulti<S>(props: Props<S>) {
@@ -35,7 +35,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
         disabled,
         inputPlaceholder,
         useOptimizeListRender,
-        inputAttr,
+        inputAttrs,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -52,7 +52,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
             <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
                 <input
                     {...getInputProps({
-                        ...inputAttr,
+                        ...inputAttrs,
                         id,
                         disabled,
                         ref: inputRef,
@@ -75,7 +75,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
         <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
             <input
                 {...getInputProps({
-                    ...inputAttr,
+                    ...inputAttrs,
                     id,
                     disabled,
                     ref: inputRef,
@@ -126,7 +126,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
 ComboboxMulti.defaultProps = {
     useOptimizeListRender: false,
     id: undefined,
-    inputAttr: {},
+    inputAttrs: {},
 };
 
 ComboboxMulti.displayName = 'ComboboxMulti';
