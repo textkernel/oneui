@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.7.0](https://github.com/textkernel/oneui/compare/13.6.2...13.7.0) (2021-05-04)
+
+
+### Features
+
+* **Autosuggest, Combobox:** add prop to set HTML attributes on input element ([#495](https://github.com/textkernel/oneui/issues/495)) ([87e3bad](https://github.com/textkernel/oneui/commit/87e3bad28b8e42a3a0cdf114dabf434aadb7236e))
+
 ### [13.6.2](https://github.com/textkernel/oneui/compare/13.6.1...13.6.2) (2021-04-19)
 
 
