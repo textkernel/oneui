@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { GeoJsonObject } from 'geojson';
 import { bem } from '../../utils';
 import { Modal } from '../Modal';
 import { FieldWrapper } from '../FieldWrapper';
@@ -53,6 +54,8 @@ interface Props {
     country?: string;
     /** address to make initial map centering more specific */
     initialMapAddress?: string;
+    /** default highlighting on the map */
+    defaultHighlight?: GeoJsonObject;
     /**
      * type of locations that should be searched for.
      * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
@@ -117,6 +120,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
         /** LocationAutocomplete props */
         country,
         initialMapAddress,
+        defaultHighlight,
         placeTypes,
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
@@ -277,6 +281,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                     country={country}
                     withoutLocationCards={withoutLocationCards}
                     initialMapAddress={initialMapAddress}
+                    defaultHighlight={defaultHighlight}
                     placeTypes={placeTypes}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     showCountryInSuggestions={showCountryInSuggestions}

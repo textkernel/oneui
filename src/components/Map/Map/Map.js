@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { GoogleMap, Marker, Circle } from '@react-google-maps/api';
 
@@ -17,11 +17,14 @@ const circleOptions = (radius) => ({
 });
 
 export const Map = React.forwardRef((props, ref) => {
-    const { defaultArea, markers, mapContainerStyle, ...rest } = props;
+    const { defaultArea, markers, mapContainerStyle, defaultHighlight, ...rest } = props;
     const mapRef = ref || React.createRef();
+    const [highlightFeatures, setHighlightFeatures] = React.useState(null);
 
     const fitBounds = React.useCallback(() => {
+        console.log('fit bounds');
         if (mapRef.current && mapRef.current.state.map) {
+            console.log('fit bounds has map');
             const { map } = mapRef.current.state;
             const { LatLngBounds, Circle: CircleClass, Geocoder } = window.google.maps;
             const geocoder = new Geocoder();
@@ -70,12 +73,37 @@ export const Map = React.forwardRef((props, ref) => {
         }
     }, [defaultArea, mapRef, markers]);
 
-    useEffect(fitBounds);
+    const manageDefaultHighlight = React.useCallback(() => {
+        console.log('effect');
+        if (mapRef.current && mapRef.current.state.map) {
+            console.log('have map');
+            const { map } = mapRef.current.state;
+            if (defaultHighlight && !markers.length && !highlightFeatures) {
+                const highlight = map.data.addGeoJson(defaultHighlight);
+                map.data.setStyle({
+                    fillColor: 'red',
+                    strokeColor: 'red',
+                    strokeWeight: 2,
+                });
+                setHighlightFeatures(highlight);
+            } else if (markers.length && highlightFeatures) {
+                highlightFeatures.forEach((feature) => map.data.remove(feature));
+                setHighlightFeatures(null);
+            }
+        }
+    }, [defaultHighlight, highlightFeatures, mapRef, markers]);
+
+    React.useEffect(fitBounds);
+
+    React.useEffect(manageDefaultHighlight);
 
     return (
         <GoogleMap
             ref={mapRef}
-            onLoad={fitBounds}
+            onLoad={() => {
+                fitBounds();
+                manageDefaultHighlight();
+            }}
             mapContainerStyle={mapContainerStyle}
             options={{
                 fullscreenControl: false,
@@ -126,6 +154,8 @@ Map.propTypes = {
             zoom: PropTypes.number,
         }),
     ]),
+    /** A geoJson description of the area that should be highlighted when there are no other markers present */
+    defaultHighlight: PropTypes.array,
     /** The markers to be shown on the map. When present, map will zoom automatically to display them
      * The radius is in meters on the Earth's surface.
      */
@@ -156,6 +186,7 @@ Map.defaultProps = {
         },
         zoom: 2,
     },
+    defaultHighlight: null,
     markers: [],
     mapContainerStyle: {
         height: '100%',

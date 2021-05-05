@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs';
 import { MapWithGoogleLoader } from '@textkernel/oneui';
 import { ensureApiKey } from './utils/ensureApiKey';
+import NL_PATHS from './static/gadm36_NLD_0.json';
 
 storiesOf('Atoms|Map', module)
     .addDecorator(withKnobs)
@@ -41,9 +42,9 @@ storiesOf('Atoms|Map', module)
                 >
                     <MapWithGoogleLoader
                         apiKey={apiKey}
-                        markers={select('Markers', markers, [defaultMarker])}
+                        markers={select('Markers', markers, [])}
                         defaultArea={
-                            boolean('Use address to set default area', true)
+                            boolean('Use address to set default area', false)
                                 ? {
                                       address: text(
                                           'Address to fit map to when no markers are present',
@@ -57,6 +58,9 @@ storiesOf('Atoms|Map', module)
                                       },
                                       zoom: number('Default zoom', 7),
                                   }
+                        }
+                        defaultHighlight={
+                            boolean('Add default highlight area', true) ? NL_PATHS : null
                         }
                     />
                 </div>
