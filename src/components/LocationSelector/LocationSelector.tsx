@@ -66,6 +66,8 @@ interface Props {
     modalContentLabel: string;
     /** placeholder for both main field and autocomplete field in modal */
     inputPlaceholder: string;
+    /** placeholder for autocomplete field inside the modal. If not given inputPlaceholder will be used */
+    modalInputPlaceholder?: string;
     /** placeholder for empty LocationAutocomplete list */
     noSuggestionsPlaceholder: string;
     /** function to be executed if error occurs while fetching suggestions */
@@ -115,6 +117,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
         doneLabel,
 
         /** LocationAutocomplete props */
+        modalInputPlaceholder,
         country,
         initialMapAddress,
         placeTypes,
@@ -265,7 +268,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                     language={language}
                     region={region}
                     {...additionalGoogleProps}
-                    inputPlaceholder={inputPlaceholder}
+                    inputPlaceholder={modalInputPlaceholder || inputPlaceholder}
                     hasRadius={hasRadius}
                     minRadius={minRadius}
                     maxRadius={maxRadius}
