@@ -48,7 +48,7 @@ storiesOf('Atoms|Map', module)
                                 ? {
                                       address: text(
                                           'Address to fit map to when no markers are present',
-                                          'NL'
+                                          'Netherlands'
                                       ),
                                   }
                                 : {
