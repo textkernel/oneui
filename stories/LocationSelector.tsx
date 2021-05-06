@@ -123,7 +123,7 @@ storiesOf('Organisms|LocationSelector', module)
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
-                initialMapAddress={text('Initial map address', '')}
+                initialMapAddress={text('Initial map address', 'Netherlands')}
                 radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
                 renderRadiusLabel={(r) => `+ ${r} km`}
                 hasRadius={boolean('Has radius', true)}
@@ -207,7 +207,7 @@ storiesOf('Organisms|LocationSelector', module)
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
-                initialMapAddress={text('Initial map address', '')}
+                initialMapAddress={text('Initial map address', 'Netherlands')}
                 radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
                 renderRadiusLabel={(r) => `+ ${r} km`}
                 hasRadius={boolean('Has radius', true)}
