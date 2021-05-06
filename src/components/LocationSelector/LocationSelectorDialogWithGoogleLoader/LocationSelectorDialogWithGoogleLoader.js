@@ -26,11 +26,13 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
         /** LocationAutocomplete props */
         country,
         initialMapAddress,
-        defaultHighlight,
         placeTypes,
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
         onLocationAutocompleteError,
+
+        /** Map props */
+        defaultHighlight,
 
         /** Internal use */
         withoutLocationCards,

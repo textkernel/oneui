@@ -69,7 +69,9 @@ storiesOf('Organisms|LocationSelector', module)
                 onLocationAutocompleteError={() =>
                     console.log('onLocationAutocompleteError was called')
                 }
-                defaultHighlight={boolean('Add default highlight area', true) ? NL_PATHS : null}
+                defaultHighlight={
+                    boolean('Add default highlight area', true) ? NL_PATHS : undefined
+                }
             />
         );
     })
@@ -152,7 +154,9 @@ storiesOf('Organisms|LocationSelector', module)
                 onLocationAutocompleteError={() =>
                     console.log('onLocationAutocompleteError was called')
                 }
-                defaultHighlight={boolean('Add default highlight area', true) ? NL_PATHS : null}
+                defaultHighlight={
+                    boolean('Add default highlight area', true) ? NL_PATHS : undefined
+                }
             />
         );
     })
@@ -234,7 +238,9 @@ storiesOf('Organisms|LocationSelector', module)
                 onLocationAutocompleteError={() =>
                     console.log('onLocationAutocompleteError was called')
                 }
-                defaultHighlight={boolean('Add default highlight area', true) ? NL_PATHS : null}
+                defaultHighlight={
+                    boolean('Add default highlight area', true) ? NL_PATHS : undefined
+                }
             />
         );
     });

@@ -22,9 +22,7 @@ export const Map = React.forwardRef((props, ref) => {
     const [highlightFeatures, setHighlightFeatures] = React.useState(null);
 
     const fitBounds = React.useCallback(() => {
-        console.log('fit bounds');
         if (mapRef.current && mapRef.current.state.map) {
-            console.log('fit bounds has map');
             const { map } = mapRef.current.state;
             const { LatLngBounds, Circle: CircleClass, Geocoder } = window.google.maps;
             const geocoder = new Geocoder();
@@ -74,9 +72,7 @@ export const Map = React.forwardRef((props, ref) => {
     }, [defaultArea, mapRef, markers]);
 
     const manageDefaultHighlight = React.useCallback(() => {
-        console.log('effect');
         if (mapRef.current && mapRef.current.state.map) {
-            console.log('have map');
             const { map } = mapRef.current.state;
             if (defaultHighlight && !markers.length && !highlightFeatures) {
                 const highlight = map.data.addGeoJson(defaultHighlight);
@@ -155,7 +151,7 @@ Map.propTypes = {
         }),
     ]),
     /** A geoJson description of the area that should be highlighted when there are no other markers present */
-    defaultHighlight: PropTypes.array,
+    defaultHighlight: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** The markers to be shown on the map. When present, map will zoom automatically to display them
      * The radius is in meters on the Earth's surface.
      */
@@ -186,7 +182,7 @@ Map.defaultProps = {
         },
         zoom: 2,
     },
-    defaultHighlight: null,
+    defaultHighlight: undefined,
     markers: [],
     mapContainerStyle: {
         height: '100%',
