@@ -53,7 +53,7 @@
         "@popperjs/core": "~2.9.0",
         "@react-google-maps/api": "~1.13.0",
         "@textkernel/bem": "~0.2.4",
-        "@tippyjs/react": "4.2.0",
+        "@tippyjs/react": "4.2.5",
         "css-vars-ponyfill": "~2.3.0",
         "downshift": "~6.0.5",
         "fast-memoize": "~2.5.2",
