@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.8.0](https://github.com/textkernel/oneui/compare/13.7.0...13.8.0) (2021-05-17)
+
+
+### Features
+
+* **LocationSelector:** add prop to set different input placeholder inside the modal ([#501](https://github.com/textkernel/oneui/issues/501)) ([6fb6b26](https://github.com/textkernel/oneui/commit/6fb6b267aa64afa2fef9c1992bb0ad3b87899675))
+* **Map, LocationSelector:** add option to have a default highlighted area on the map ([#500](https://github.com/textkernel/oneui/issues/500)) ([8092854](https://github.com/textkernel/oneui/commit/80928544c2bf606976d9e08c96a58fbbdf77a288))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @googlemaps/js-api-loader to v1.11.4 ([46c1f5e](https://github.com/textkernel/oneui/commit/46c1f5e7801d49747dd02681487044ca7c788928))
+* **deps:** update dependency @tippyjs/react to v4.2.5 ([906da9f](https://github.com/textkernel/oneui/commit/906da9f329851df33ceae5dbc56d61e67f07d626))
+* **deps:** update dependency react-popper to v2.2.5 ([e866561](https://github.com/textkernel/oneui/commit/e866561e183545d4bc7ccbac7e139f315634a9cd))
+
 ## [13.7.0](https://github.com/textkernel/oneui/compare/13.6.2...13.7.0) (2021-05-04)
 
 
