@@ -1,5 +1,5 @@
 /* eslint-disable class-methods-use-this, max-classes-per-file */
-// This is an incolplete stubbing of google API, based on bits and pieces.
+// This is an incomplete stubbing of google API, based on bits and pieces.
 // Feel free to extend it as required.
 const noop = () => {};
 const EMPTY_OBJECT = {};
@@ -10,6 +10,8 @@ export const setZoomMock = jest.fn();
 export const setCenterMock = jest.fn();
 export const getPlacePredictionsMock = jest.fn();
 export const geocodeMock = jest.fn();
+export const addGeoJsonMock = jest.fn(() => [{}]);
+export const removeDataMock = jest.fn();
 
 export class Map {
     fitBounds() {
@@ -62,7 +64,7 @@ export class Map {
 
     data = {
         add: noop,
-        addGeoJson: noop,
+        addGeoJson: addGeoJsonMock,
         contains: noop,
         forEach: noop,
         getControlPosition: noop,
@@ -73,7 +75,7 @@ export class Map {
         getStyle: noop,
         loadGeoJson: noop,
         overrideStyle: noop,
-        remove: noop,
+        remove: removeDataMock,
         revertStyle: noop,
         setControlPosition: noop,
         setControls: noop,

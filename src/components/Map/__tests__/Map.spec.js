@@ -1,14 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import toJson from 'enzyme-to-json';
 import {
     fitBoundsMock,
     setZoomMock,
     setCenterMock,
     geocodeMock,
+    addGeoJsonMock,
+    removeDataMock,
     stabGoogleApi,
 } from '../../../__mocks__/googleApiMock';
 import { geocodeResponse } from '../__mocks__/geocodeResponse';
 import { Map } from '..';
+import NL_PATHS from '../../../../stories/static/gadm36_NLD_0.json';
 
 stabGoogleApi();
 
@@ -43,6 +46,18 @@ describe('<Map/> that renders a Map with markers', () => {
         mount(<Map defaultArea={{ address: 'nl' }} />);
         expect(geocodeMock).toHaveBeenCalledTimes(1);
         expect(fitBoundsMock).toHaveBeenCalledTimes(1);
+    });
+    it('should add default highlight', () => {
+        mount(<Map defaultHighlight={NL_PATHS} />);
+        expect(addGeoJsonMock).toHaveBeenCalledTimes(1);
+    });
+    it('should remove default highlight when markers added', () => {
+        const wrapper = mount(<Map defaultHighlight={NL_PATHS} />);
+        expect(addGeoJsonMock).toHaveBeenCalledTimes(1);
+
+        wrapper.setProps({ markers: [pointMarker, regionMarker] });
+        // will be called as many times as the length of the returned array from addGeoJsonMock
+        expect(removeDataMock).toHaveBeenCalledTimes(1);
     });
     it('should render with markers', () => {
         const wrapper = mount(<Map markers={[pointMarker, regionMarker]} />);

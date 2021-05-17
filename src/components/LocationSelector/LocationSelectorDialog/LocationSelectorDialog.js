@@ -32,6 +32,7 @@ export const LocationSelectorDialog = (props) => {
         /** LocationAutocomplete props */
         country,
         initialMapAddress,
+        defaultHighlight,
         placeTypes,
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
@@ -151,7 +152,11 @@ export const LocationSelectorDialog = (props) => {
                         ))}
                     </ul>
                 )}
-                <Map defaultArea={getDefaultArea()} markers={getMarkers()} />
+                <Map
+                    defaultArea={getDefaultArea()}
+                    markers={getMarkers()}
+                    defaultHighlight={defaultHighlight}
+                />
             </div>
         </>
     );
@@ -217,6 +222,8 @@ LocationSelectorDialog.propTypes = {
     getMarkers: PropTypes.func.isRequired,
     /** function to be called when teh Done button is clicked */
     onCloseModal: PropTypes.func,
+    /** default highlighting on the map - geoJsonObject */
+    defaultHighlight: PropTypes.object, // eslint-disable-line react/forbid-prop-types
 };
 
 LocationSelectorDialog.defaultProps = {
@@ -228,4 +235,5 @@ LocationSelectorDialog.defaultProps = {
     onLocationAutocompleteError: null,
     onCloseModal: () => null,
     onRemoveAllLocations: () => null,
+    defaultHighlight: undefined,
 };

@@ -4,6 +4,7 @@ import { number, text, select, boolean, withKnobs } from '@storybook/addon-knobs
 import { LocationSelector } from '@textkernel/oneui';
 import { ensureApiKey } from './utils/ensureApiKey';
 import { StoreInjector } from '../src/packages/storybook/withStore';
+import NL_PATHS from './static/gadm36_NLD_0.json';
 
 const selectedLocations = [
     {
@@ -69,6 +70,9 @@ storiesOf('Organisms|LocationSelector', module)
                 onLocationAutocompleteError={() =>
                     console.log('onLocationAutocompleteError was called')
                 }
+                defaultHighlight={
+                    boolean('Add default highlight area', true) ? NL_PATHS : undefined
+                }
             />
         );
     })
@@ -120,7 +124,7 @@ storiesOf('Organisms|LocationSelector', module)
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
-                initialMapAddress={text('Initial map address', '')}
+                initialMapAddress={text('Initial map address', 'Netherlands')}
                 radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
                 renderRadiusLabel={(r) => `+ ${r} km`}
                 hasRadius={boolean('Has radius', true)}
@@ -151,6 +155,9 @@ storiesOf('Organisms|LocationSelector', module)
                 }}
                 onLocationAutocompleteError={() =>
                     console.log('onLocationAutocompleteError was called')
+                }
+                defaultHighlight={
+                    boolean('Add default highlight area', true) ? NL_PATHS : undefined
                 }
             />
         );
@@ -202,7 +209,7 @@ storiesOf('Organisms|LocationSelector', module)
                 selectedLocations={store.get('selectedLocations')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
-                initialMapAddress={text('Initial map address', '')}
+                initialMapAddress={text('Initial map address', 'Netherlands')}
                 radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
                 renderRadiusLabel={(r) => `+ ${r} km`}
                 hasRadius={boolean('Has radius', true)}
@@ -233,6 +240,9 @@ storiesOf('Organisms|LocationSelector', module)
                 }}
                 onLocationAutocompleteError={() =>
                     console.log('onLocationAutocompleteError was called')
+                }
+                defaultHighlight={
+                    boolean('Add default highlight area', true) ? NL_PATHS : undefined
                 }
             />
         );
