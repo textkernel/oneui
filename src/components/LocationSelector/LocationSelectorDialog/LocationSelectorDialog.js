@@ -200,7 +200,7 @@ LocationSelectorDialog.propTypes = {
     placeTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
     /** show country name in autocomplete suggestions */
     showCountryInSuggestions: PropTypes.bool,
-    /** placeholder for both main field and autocomplete field in modal */
+    /** placeholder for autocomplete field */
     inputPlaceholder: PropTypes.string.isRequired,
     /** placeholder for empty LocationAutocomplete list */
     noSuggestionsPlaceholder: PropTypes.string.isRequired,

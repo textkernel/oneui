@@ -56,6 +56,7 @@ storiesOf('Organisms|LocationSelector', module)
                     'Location selection'
                 )}
                 inputPlaceholder={text('Input placeholder', 'Location...')}
+                modalInputPlaceholder={text('Input placeholder inside the modal', '')}
                 noSuggestionsPlaceholder="noSuggestionsPlaceholder"
                 selectionPlaceholder="selectionPlaceholder"
                 doneLabel={text('Label for Done button', 'Done')}
@@ -140,6 +141,7 @@ storiesOf('Organisms|LocationSelector', module)
                     'Location selection'
                 )}
                 inputPlaceholder={text('Input placeholder', 'Location...')}
+                modalInputPlaceholder={text('Input placeholder inside the modal', '')}
                 noSuggestionsPlaceholder="noSuggestionsPlaceholder"
                 selectionPlaceholder={getPlaceholder()}
                 doneLabel={text('Label for Done button', 'Done')}
@@ -224,6 +226,7 @@ storiesOf('Organisms|LocationSelector', module)
                     'Location selection'
                 )}
                 inputPlaceholder={text('Input placeholder', 'Location...')}
+                modalInputPlaceholder={text('Input placeholder inside the modal', '')}
                 noSuggestionsPlaceholder="noSuggestionsPlaceholder"
                 selectionPlaceholder={getPlaceholder()}
                 doneLabel={text('Label for Done button', 'Done')}
