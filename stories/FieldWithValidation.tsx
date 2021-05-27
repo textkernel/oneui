@@ -6,8 +6,9 @@ import { FieldWithValidation, Input, TextArea } from '@textkernel/oneui';
 const Example = () => {
     const [inputValue, setValue] = React.useState('');
     const [errMsg, setErrMsg] = React.useState<string>();
-    // eslint-disable-next-line no-useless-escape
-    const EMAIL_REGEX = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    const EMAIL_REGEX =
+        // eslint-disable-next-line no-useless-escape
+        /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
     React.useEffect(() => {
         if (!inputValue) {

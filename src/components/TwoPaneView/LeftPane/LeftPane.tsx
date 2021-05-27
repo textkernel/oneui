@@ -11,16 +11,14 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block } = bem('LeftPane', styles);
 
-export const LeftPane: React.FC<Props> = React.forwardRef(
-    (props, ref): React.ReactElement => {
-        const { children, ...rest } = props;
+export const LeftPane: React.FC<Props> = React.forwardRef((props, ref): React.ReactElement => {
+    const { children, ...rest } = props;
 
-        return (
-            <div {...rest} ref={ref} {...block(props)}>
-                {children}
-            </div>
-        );
-    }
-);
+    return (
+        <div {...rest} ref={ref} {...block(props)}>
+            {children}
+        </div>
+    );
+});
 
 LeftPane.displayName = 'LeftPane';
