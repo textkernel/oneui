@@ -67,22 +67,16 @@ export function Dropdown<V>(props: Props<V>) {
         }
     });
 
-    const {
-        isOpen,
-        getItemProps,
-        getMenuProps,
-        getToggleButtonProps,
-        highlightedIndex,
-        reset,
-    } = useSelect<V>({
-        items: valuesAvailableForHighlight,
-        onSelectedItemChange: ({ selectedItem }) => {
-            if (selectedItem) {
-                onChange(selectedItem);
-                reset();
-            }
-        },
-    });
+    const { isOpen, getItemProps, getMenuProps, getToggleButtonProps, highlightedIndex, reset } =
+        useSelect<V>({
+            items: valuesAvailableForHighlight,
+            onSelectedItemChange: ({ selectedItem }) => {
+                if (selectedItem) {
+                    onChange(selectedItem);
+                    reset();
+                }
+            },
+        });
 
     const menuProps = getMenuProps();
     const toggleButtonProps = getToggleButtonProps();

@@ -77,12 +77,8 @@ export class AutosuggestDeprecated extends React.Component {
     }
 
     handleChange = (selectedItem, downshift) => {
-        const {
-            suggestionToString,
-            onSelectionChange,
-            saveSelectedValueToInput,
-            isMultiselect,
-        } = this.props;
+        const { suggestionToString, onSelectionChange, saveSelectedValueToInput, isMultiselect } =
+            this.props;
         const { clearSelection, openMenu } = downshift;
 
         clearSelection();

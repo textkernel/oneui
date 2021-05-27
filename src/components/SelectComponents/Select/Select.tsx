@@ -49,17 +49,12 @@ export function Select<S>(props: Props<S>) {
         onBlur?.();
     };
 
-    const {
-        isOpen,
-        getToggleButtonProps,
-        getMenuProps,
-        highlightedIndex,
-        getItemProps,
-    } = useSelect({
-        items,
-        selectedItem,
-        onSelectedItemChange: handleSelection,
-    });
+    const { isOpen, getToggleButtonProps, getMenuProps, highlightedIndex, getItemProps } =
+        useSelect({
+            items,
+            selectedItem,
+            onSelectedItemChange: handleSelection,
+        });
 
     const handleToggle = (e) => {
         e?.stopPropagation();
