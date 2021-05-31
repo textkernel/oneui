@@ -130,7 +130,7 @@
         "react-dom": "16.14.0",
         "react-icons": "3.11.0",
         "react-router-dom": "5.2.0",
-        "react-transition-group": "4.4.1",
+        "react-transition-group": "4.4.2",
         "regenerator-runtime": "0.13.7",
         "sass-loader": "10.1.1",
         "standard-version": "9.2.0",
