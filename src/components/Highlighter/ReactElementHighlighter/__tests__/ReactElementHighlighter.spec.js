@@ -42,4 +42,16 @@ describe('ReactElementHighlighter', () => {
             },
         });
     });
+
+    it('should highlight keywords with custom styles', (done) => {
+        renderComponent({
+            highlightStyles: {
+                color: 'lightyellow',
+            },
+            onComplete: (highlighter, result, root) => {
+                expect(root.outerHTML).toMatchSnapshot();
+                done();
+            },
+        });
+    });
 });

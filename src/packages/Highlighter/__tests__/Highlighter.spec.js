@@ -137,6 +137,20 @@ describe('Highlighter', () => {
             expect(highlightedItems[0].textContent).toBe('python');
             expect(highlightedItems[1].textContent).toBe('python');
         });
+        it('should apply custom styles for keywords', () => {
+            const root = document.createElement('div');
+            root.innerHTML = html;
+            const highlighter = new Highlighter({ root }, undefined);
+            highlighter.find(['python'], undefined, { color: 'lightyellow' });
+            const highlightedItems = root.querySelectorAll('[data-highlight-keyword="python"]');
+            expect(highlightedItems.length).toBe(6);
+            expect(highlightedItems[0].style).toMatchObject({ color: 'lightyellow' });
+            expect(highlightedItems[1].style).toMatchObject({ color: 'lightyellow' });
+            expect(highlightedItems[2].style).toMatchObject({ color: 'lightyellow' });
+            expect(highlightedItems[3].style).toMatchObject({ color: 'lightyellow' });
+            expect(highlightedItems[4].style).toMatchObject({ color: 'lightyellow' });
+            expect(highlightedItems[5].style).toMatchObject({ color: 'lightyellow' });
+        });
     });
     describe('#selectKeyword()', () => {
         it('should select highlight in correct order', () => {
