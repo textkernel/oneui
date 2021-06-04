@@ -39,7 +39,7 @@ export const ReactElementHighlighter: React.FC<Props> = (props) => {
             );
             onComplete(highlighter, [matchedTerms, notMatchedTerms], elementRef.current);
         }
-    }, [elementRef, onComplete, searchTerms, highlighterCoreOptions]);
+    }, [elementRef, onComplete, searchTerms, highlighterCoreOptions, highlightStyles]);
 
     return (
         <div key={key} ref={elementRef}>
