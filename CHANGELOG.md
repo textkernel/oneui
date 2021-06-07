@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.9.0](https://github.com/textkernel/oneui/compare/13.8.0...13.9.0) (2021-06-07)
+
+
+### Features
+
+* **Highlighter:** add highlightStyles to find method ([#532](https://github.com/textkernel/oneui/issues/532)) ([a4c559b](https://github.com/textkernel/oneui/commit/a4c559b862e64d10e4d98ba9b06827dbdb5eccf4))
+
 ## [13.8.0](https://github.com/textkernel/oneui/compare/13.7.0...13.8.0) (2021-05-17)
 
 
