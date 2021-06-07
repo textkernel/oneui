@@ -196,14 +196,18 @@ export class Highlighter {
         });
     }
 
-    public find(terms: string[], highlighterCoreOptions?: HighlighterCoreOptions) {
+    public find(
+        terms: string[],
+        highlighterCoreOptions?: HighlighterCoreOptions,
+        highlightStyles?: CSSStyleDeclaration
+    ) {
         const matchedTerms: HighlighterResultItem[] = [];
         const notMatchedTerms: HighlighterResultItem[] = [];
         const sortedTerms = HighlighterCore.sortTerms(terms);
 
         sortedTerms.forEach((term, index) => {
             let amount = 0;
-            const styles = Highlighter.generateHighlightStyles(index);
+            const styles = highlightStyles || Highlighter.generateHighlightStyles(index);
             const highlighterNode = new HighlighterNode({
                 highlighterCore: new HighlighterCore([term], {
                     ...highlighterCoreOptions,
