@@ -15,7 +15,7 @@ interface Props {
     /** Specify styles for highlighted terms */
     highlightStyles?: CSSStyleDeclaration;
     /** Fired after finishing highlighting */
-    onComplete: (
+    onComplete?: (
         instance: Highlighter,
         result: [ReactElementHighlighterTermResult[], ReactElementHighlighterTermResult[]],
         rootNode: HTMLElement
@@ -37,7 +37,9 @@ export const ReactElementHighlighter: React.FC<Props> = (props) => {
                 highlighterCoreOptions,
                 highlightStyles
             );
-            onComplete(highlighter, [matchedTerms, notMatchedTerms], elementRef.current);
+            if (onComplete) {
+                onComplete(highlighter, [matchedTerms, notMatchedTerms], elementRef.current);
+            }
         }
     }, [elementRef, onComplete, searchTerms, highlighterCoreOptions, highlightStyles]);
 
@@ -56,5 +58,4 @@ ReactElementHighlighter.defaultProps = {
         ignoreDiacritics: true,
         ignoreCase: true,
     },
-    highlightStyles: undefined,
 };
