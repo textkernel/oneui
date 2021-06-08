@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [13.10.0](https://github.com/textkernel/oneui/compare/13.9.0...13.10.0) (2021-06-08)
+
+
+### Features
+
+* **component:** make onComplete optional in ReactElementHighlighter ([#539](https://github.com/textkernel/oneui/issues/539)) ([ebb84b2](https://github.com/textkernel/oneui/commit/ebb84b285f737705b1f95bcd19b3ec808d750176))
+
 ## [13.9.0](https://github.com/textkernel/oneui/compare/13.8.0...13.9.0) (2021-06-07)
 
 
