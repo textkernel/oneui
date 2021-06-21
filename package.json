@@ -55,7 +55,7 @@
         "@textkernel/bem": "~0.2.4",
         "@tippyjs/react": "4.2.5",
         "css-vars-ponyfill": "~2.4.0",
-        "downshift": "~6.0.5",
+        "downshift": "~6.1.0",
         "fast-memoize": "~2.5.2",
         "prop-types": "~15.7.2",
         "randomcolor": "~0.6.0",
