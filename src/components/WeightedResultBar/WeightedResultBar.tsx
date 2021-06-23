@@ -28,15 +28,19 @@ export const WeightedResultBar: React.FC<Props> = (props) => {
         <div {...rest} {...block(props)}>
             <div {...elem('details', props)}>
                 {isLoading ? (
-                    <ContentPlaceholder height={15} width={Math.floor(Math.random() * 60) + 25} />
+                    <ContentPlaceholder
+                        {...elem('placeholder', props)}
+                        height={17}
+                        width={Math.floor(Math.random() * 60) + 25}
+                    />
                 ) : (
                     <Text inline>{children}</Text>
                 )}
                 {['number', 'string'].includes(typeof count) ? <Text inline>{count}</Text> : count}
             </div>
             <ProgressBar
-                percentage={isLoading ? 0 : percentage}
-                context={isLoading ? undefined : context}
+                percentage={isLoading ? 100 : percentage}
+                context={isLoading ? 'neutral' : context}
                 small
             />
         </div>

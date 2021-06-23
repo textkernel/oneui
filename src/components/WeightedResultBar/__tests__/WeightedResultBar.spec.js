@@ -36,6 +36,7 @@ describe('WeightedResultBar', () => {
         const wrapper = shallow(<WeightedResultBar isLoading />);
 
         expect(wrapper.find('ContentPlaceholder').length).toBe(1);
-        expect(wrapper.find('ProgressBar').prop('percentage')).toBe(0);
+        expect(wrapper.find('ProgressBar').prop('percentage')).toBe(100);
+        expect(wrapper.find('ProgressBar').prop('context')).toBe('neutral');
     });
 });
