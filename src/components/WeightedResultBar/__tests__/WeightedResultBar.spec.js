@@ -32,4 +32,10 @@ describe('WeightedResultBar', () => {
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+    it('should render correctly in loading state', () => {
+        const wrapper = shallow(<WeightedResultBar isLoading />);
+
+        expect(wrapper.find('ContentPlaceholder').length).toBe(1);
+        expect(wrapper.find('ProgressBar').prop('percentage')).toBe(0);
+    });
 });

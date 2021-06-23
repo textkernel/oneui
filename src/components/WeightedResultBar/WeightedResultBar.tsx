@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import { Context } from '../../constants';
+import { ContentPlaceholder } from '../ContentPlaceholder';
 import { ProgressBar } from '../ProgressBar';
 import { Text } from '../Text';
 import styles from './WeightedResultBar.scss';
@@ -14,28 +15,30 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
     count: NotEmptySingleReactNode;
     /** Color context for the weighted bar */
     context?: Context;
+    /** Whether or not to render loading state */
+    isLoading?: boolean;
 }
 
 const { block, elem } = bem('WeightedResultBar', styles);
 
 export const WeightedResultBar: React.FC<Props> = (props) => {
-    const { children, percentage, count, context, ...rest } = props;
-    const [percentageToShow, setPercentageToShow] = React.useState(100);
-
-    // simulate prop change on ProgressBar to get a little animation going
-    React.useEffect(() => {
-        setTimeout(() => {
-            setPercentageToShow(percentage);
-        }, 0);
-    }, [percentage]);
+    const { children, percentage, count, context, isLoading, ...rest } = props;
 
     return (
         <div {...rest} {...block(props)}>
             <div {...elem('details', props)}>
-                <Text inline>{children}</Text>
+                {isLoading ? (
+                    <ContentPlaceholder height={15} width={Math.floor(Math.random() * 60) + 25} />
+                ) : (
+                    <Text inline>{children}</Text>
+                )}
                 {['number', 'string'].includes(typeof count) ? <Text inline>{count}</Text> : count}
             </div>
-            <ProgressBar percentage={percentageToShow} context={context} small />
+            <ProgressBar
+                percentage={isLoading ? 0 : percentage}
+                context={isLoading ? undefined : context}
+                small
+            />
         </div>
     );
 };
