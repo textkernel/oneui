@@ -4,6 +4,7 @@ exports[`WeightedResultBar should render correctly 1`] = `
 <WeightedResultBar
   context="brand"
   count={123}
+  isLoading={false}
   percentage={67}
 >
   <div
@@ -68,6 +69,7 @@ exports[`WeightedResultBar should render correctly with a custom count 1`] = `
       456
     </p>
   }
+  isLoading={false}
   percentage={67}
 >
   <div
