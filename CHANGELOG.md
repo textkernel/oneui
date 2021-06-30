@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [14.0.0](https://github.com/textkernel/oneui/compare/13.10.0...14.0.0) (2021-06-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* **WeightedResultBar:** The WeightedResultBarLoader component is removed. Use the prop isLoading on WeightedResultBar instead.
+
+### Features
+
+* **WeightedResultBar:** merge WeightedResultBarLoader ([#553](https://github.com/textkernel/oneui/issues/553)) ([72fab67](https://github.com/textkernel/oneui/commit/72fab679469d65e6be5a21ddeacfa18ef7813858))
+
+
+### Bug Fixes
+
+* **deps:** update dependency css-vars-ponyfill to ~2.4.0 ([e88f980](https://github.com/textkernel/oneui/commit/e88f9807bdba832ba3e5cfbac27a7b7e67c9b6ef))
+* **deps:** update dependency downshift to ~6.1.0 ([ea2f8a8](https://github.com/textkernel/oneui/commit/ea2f8a8d5ac4f88790bb3d40af2d660438b37ada))
+
 ## [13.10.0](https://github.com/textkernel/oneui/compare/13.9.0...13.10.0) (2021-06-08)
 
 
