@@ -52,4 +52,5 @@ WeightedResultBar.displayName = 'WeightedResultBar';
 
 WeightedResultBar.defaultProps = {
     context: 'brand',
+    isLoading: false,
 };
