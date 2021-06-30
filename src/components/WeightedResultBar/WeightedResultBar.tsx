@@ -22,7 +22,8 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const { block, elem } = bem('WeightedResultBar', styles);
 
 export const WeightedResultBar: React.FC<Props> = (props) => {
-    const { children, percentage, count, context, isLoading, ...rest } = props;
+    const { children, percentage, count, context = 'brand', isLoading, ...rest } = props;
+    const loaderWidth = React.useRef(Math.floor(Math.random() * 60) + 25);
 
     return (
         <div {...rest} {...block(props)}>
@@ -31,7 +32,7 @@ export const WeightedResultBar: React.FC<Props> = (props) => {
                     <ContentPlaceholder
                         {...elem('placeholder', props)}
                         height={17}
-                        width={Math.floor(Math.random() * 60) + 25}
+                        width={loaderWidth.current}
                     />
                 ) : (
                     <Text inline>{children}</Text>
