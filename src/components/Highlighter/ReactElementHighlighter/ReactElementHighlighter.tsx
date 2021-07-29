@@ -12,8 +12,10 @@ interface Props {
     searchTerms: string[];
     /** Specify HighlighterCore options */
     highlighterCoreOptions?: HighlighterCoreOptions;
+    /** Specify styles for highlighted terms */
+    highlightStyles?: CSSStyleDeclaration;
     /** Fired after finishing highlighting */
-    onComplete: (
+    onComplete?: (
         instance: Highlighter,
         result: [ReactElementHighlighterTermResult[], ReactElementHighlighterTermResult[]],
         rootNode: HTMLElement
@@ -21,7 +23,7 @@ interface Props {
 }
 
 export const ReactElementHighlighter: React.FC<Props> = (props) => {
-    const { children, searchTerms, highlighterCoreOptions, onComplete } = props;
+    const { children, searchTerms, highlighterCoreOptions, highlightStyles, onComplete } = props;
     const elementRef = React.createRef<HTMLDivElement>();
     const key = JSON.stringify({ searchTerms, ...highlighterCoreOptions });
 
@@ -32,11 +34,14 @@ export const ReactElementHighlighter: React.FC<Props> = (props) => {
             });
             const [matchedTerms, notMatchedTerms] = highlighter.find(
                 searchTerms,
-                highlighterCoreOptions
+                highlighterCoreOptions,
+                highlightStyles
             );
-            onComplete(highlighter, [matchedTerms, notMatchedTerms], elementRef.current);
+            if (onComplete) {
+                onComplete(highlighter, [matchedTerms, notMatchedTerms], elementRef.current);
+            }
         }
-    }, [elementRef, onComplete, searchTerms, highlighterCoreOptions]);
+    }, [elementRef, onComplete, searchTerms, highlighterCoreOptions, highlightStyles]);
 
     return (
         <div key={key} ref={elementRef}>

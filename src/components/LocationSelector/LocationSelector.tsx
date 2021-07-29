@@ -53,6 +53,8 @@ interface Props {
     country?: string;
     /** address to make initial map centering more specific */
     initialMapAddress?: string;
+    /** default highlighting on the map */
+    defaultHighlight?: GeoJSON.GeoJsonObject;
     /**
      * type of locations that should be searched for.
      * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
@@ -66,6 +68,8 @@ interface Props {
     modalContentLabel: string;
     /** placeholder for both main field and autocomplete field in modal */
     inputPlaceholder: string;
+    /** placeholder for autocomplete field inside the modal. If not given inputPlaceholder will be used */
+    modalInputPlaceholder?: string;
     /** placeholder for empty LocationAutocomplete list */
     noSuggestionsPlaceholder: string;
     /** function to be executed if error occurs while fetching suggestions */
@@ -115,12 +119,16 @@ export const LocationSelector: React.FC<Props> = (props) => {
         doneLabel,
 
         /** LocationAutocomplete props */
+        modalInputPlaceholder,
         country,
         initialMapAddress,
         placeTypes,
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
         onLocationAutocompleteError,
+
+        /** Map props */
+        defaultHighlight,
 
         /** Internal use */
         openOnEnterPress,
@@ -265,7 +273,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                     language={language}
                     region={region}
                     {...additionalGoogleProps}
-                    inputPlaceholder={inputPlaceholder}
+                    inputPlaceholder={modalInputPlaceholder || inputPlaceholder}
                     hasRadius={hasRadius}
                     minRadius={minRadius}
                     maxRadius={maxRadius}
@@ -277,6 +285,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
                     country={country}
                     withoutLocationCards={withoutLocationCards}
                     initialMapAddress={initialMapAddress}
+                    defaultHighlight={defaultHighlight}
                     placeTypes={placeTypes}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     showCountryInSuggestions={showCountryInSuggestions}
@@ -313,4 +322,5 @@ LocationSelector.defaultProps = {
     region: undefined,
     placeTypes: ['(regions)'],
     onLocationAutocompleteError: () => null,
+    defaultHighlight: undefined,
 };

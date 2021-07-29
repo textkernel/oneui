@@ -2,6 +2,73 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [14.0.2](https://github.com/textkernel/oneui/compare/14.0.0...14.0.2) (2021-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tippy.js to v6.3.1 ([46096b7](https://github.com/textkernel/oneui/commit/46096b7114588713593e402df640bf38b5ae3e75))
+
+### [14.0.1](https://github.com/textkernel/oneui/compare/14.0.0...14.0.1) (2021-07-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency tippy.js to v6.3.1 ([46096b7](https://github.com/textkernel/oneui/commit/46096b7114588713593e402df640bf38b5ae3e75))
+
+## [14.0.0](https://github.com/textkernel/oneui/compare/13.10.0...14.0.0) (2021-06-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* **WeightedResultBar:** The WeightedResultBarLoader component is removed. Use the prop isLoading on WeightedResultBar instead.
+
+### Features
+
+* **WeightedResultBar:** merge WeightedResultBarLoader ([#553](https://github.com/textkernel/oneui/issues/553)) ([72fab67](https://github.com/textkernel/oneui/commit/72fab679469d65e6be5a21ddeacfa18ef7813858))
+
+
+### Bug Fixes
+
+* **deps:** update dependency css-vars-ponyfill to ~2.4.0 ([e88f980](https://github.com/textkernel/oneui/commit/e88f9807bdba832ba3e5cfbac27a7b7e67c9b6ef))
+* **deps:** update dependency downshift to ~6.1.0 ([ea2f8a8](https://github.com/textkernel/oneui/commit/ea2f8a8d5ac4f88790bb3d40af2d660438b37ada))
+
+## [13.10.0](https://github.com/textkernel/oneui/compare/13.9.0...13.10.0) (2021-06-08)
+
+
+### Features
+
+* **component:** make onComplete optional in ReactElementHighlighter ([#539](https://github.com/textkernel/oneui/issues/539)) ([ebb84b2](https://github.com/textkernel/oneui/commit/ebb84b285f737705b1f95bcd19b3ec808d750176))
+
+## [13.9.0](https://github.com/textkernel/oneui/compare/13.8.0...13.9.0) (2021-06-07)
+
+
+### Features
+
+* **Highlighter:** add highlightStyles to find method ([#532](https://github.com/textkernel/oneui/issues/532)) ([a4c559b](https://github.com/textkernel/oneui/commit/a4c559b862e64d10e4d98ba9b06827dbdb5eccf4))
+
+## [13.8.0](https://github.com/textkernel/oneui/compare/13.7.0...13.8.0) (2021-05-17)
+
+
+### Features
+
+* **LocationSelector:** add prop to set different input placeholder inside the modal ([#501](https://github.com/textkernel/oneui/issues/501)) ([6fb6b26](https://github.com/textkernel/oneui/commit/6fb6b267aa64afa2fef9c1992bb0ad3b87899675))
+* **Map, LocationSelector:** add option to have a default highlighted area on the map ([#500](https://github.com/textkernel/oneui/issues/500)) ([8092854](https://github.com/textkernel/oneui/commit/80928544c2bf606976d9e08c96a58fbbdf77a288))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @googlemaps/js-api-loader to v1.11.4 ([46c1f5e](https://github.com/textkernel/oneui/commit/46c1f5e7801d49747dd02681487044ca7c788928))
+* **deps:** update dependency @tippyjs/react to v4.2.5 ([906da9f](https://github.com/textkernel/oneui/commit/906da9f329851df33ceae5dbc56d61e67f07d626))
+* **deps:** update dependency react-popper to v2.2.5 ([e866561](https://github.com/textkernel/oneui/commit/e866561e183545d4bc7ccbac7e139f315634a9cd))
+
+## [13.7.0](https://github.com/textkernel/oneui/compare/13.6.2...13.7.0) (2021-05-04)
+
+
+### Features
+
+* **Autosuggest, Combobox:** add prop to set HTML attributes on input element ([#495](https://github.com/textkernel/oneui/issues/495)) ([87e3bad](https://github.com/textkernel/oneui/commit/87e3bad28b8e42a3a0cdf114dabf434aadb7236e))
+
 ### [13.6.2](https://github.com/textkernel/oneui/compare/13.6.1...13.6.2) (2021-04-19)
 
 

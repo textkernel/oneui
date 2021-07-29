@@ -21,9 +21,10 @@ export const Pill = (props) => {
     } = props;
 
     const buttonRef = React.useMemo(() => ref || React.createRef(), [ref]);
-    const dropdownRef = React.useMemo(() => dropdownRefFromProps || React.createRef(), [
-        dropdownRefFromProps,
-    ]);
+    const dropdownRef = React.useMemo(
+        () => dropdownRefFromProps || React.createRef(),
+        [dropdownRefFromProps]
+    );
 
     // eslint-disable-next-line react/display-name, react/prop-types
     const buttonRenderer = ({ setPopupVisibility, isOpen }) => {

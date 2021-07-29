@@ -32,4 +32,20 @@ describe('WeightedResultBar', () => {
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+    it('should render correctly in loading state', () => {
+        const wrapper = shallow(<WeightedResultBar isLoading />);
+
+        expect(wrapper.find('ContentPlaceholder').length).toBe(1);
+        expect(wrapper.find('ProgressBar').prop('percentage')).toBe(100);
+        expect(wrapper.find('ProgressBar').prop('context')).toBe('neutral');
+    });
+    it('should have consistent width of ContentPlaceholder in loading state, even when the component re-renders', () => {
+        const wrapper = mount(<WeightedResultBar isLoading />);
+        const width = wrapper.find('ContentPlaceholder').prop('width');
+
+        wrapper.setProps({ count: 45 });
+        wrapper.update();
+
+        expect(wrapper.find('ContentPlaceholder').prop('width')).toBe(width);
+    });
 });

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import { Context } from '../../constants';
+import { ContentPlaceholder } from '../ContentPlaceholder';
 import { ProgressBar } from '../ProgressBar';
 import { Text } from '../Text';
 import styles from './WeightedResultBar.scss';
@@ -14,28 +15,35 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
     count: NotEmptySingleReactNode;
     /** Color context for the weighted bar */
     context?: Context;
+    /** Whether or not to render loading state */
+    isLoading?: boolean;
 }
 
 const { block, elem } = bem('WeightedResultBar', styles);
 
 export const WeightedResultBar: React.FC<Props> = (props) => {
-    const { children, percentage, count, context, ...rest } = props;
-    const [percentageToShow, setPercentageToShow] = React.useState(100);
-
-    // simulate prop change on ProgressBar to get a little animation going
-    React.useEffect(() => {
-        setTimeout(() => {
-            setPercentageToShow(percentage);
-        }, 0);
-    }, [percentage]);
+    const { children, percentage, count, context = 'brand', isLoading, ...rest } = props;
+    const loaderWidth = React.useRef(Math.floor(Math.random() * 60) + 25);
 
     return (
         <div {...rest} {...block(props)}>
             <div {...elem('details', props)}>
-                <Text inline>{children}</Text>
+                {isLoading ? (
+                    <ContentPlaceholder
+                        {...elem('placeholder', props)}
+                        height={17}
+                        width={loaderWidth.current}
+                    />
+                ) : (
+                    <Text inline>{children}</Text>
+                )}
                 {['number', 'string'].includes(typeof count) ? <Text inline>{count}</Text> : count}
             </div>
-            <ProgressBar percentage={percentageToShow} context={context} small />
+            <ProgressBar
+                percentage={isLoading ? 100 : percentage}
+                context={isLoading ? 'neutral' : context}
+                small
+            />
         </div>
     );
 };
@@ -44,4 +52,5 @@ WeightedResultBar.displayName = 'WeightedResultBar';
 
 WeightedResultBar.defaultProps = {
     context: 'brand',
+    isLoading: false,
 };

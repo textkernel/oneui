@@ -7,6 +7,10 @@ import {
     HighlighterCoreAccuracy,
 } from '@textkernel/oneui';
 
+const HIGHLIGHT_STYLES = {
+    backgroundColor: 'lightyellow',
+} as CSSStyleDeclaration;
+
 storiesOf('Atoms|Highlighter', module)
     .addDecorator(withKnobs)
     .add('StringHighlighter', () => {
@@ -37,6 +41,7 @@ storiesOf('Atoms|Highlighter', module)
     })
     .add('ReactElementHighlighter', () => {
         const ACCURACY = ['exact', 'partial'];
+        const isCustomStylesUsed = boolean('Use custom styles', false);
         const keywords = text(
             'keywords',
             'lorem|officia|dolore|dolor|irure dolor|qui officia deserunt'
@@ -45,7 +50,9 @@ storiesOf('Atoms|Highlighter', module)
             .filter((i) => i !== '');
         return (
             <ReactElementHighlighter
+                key={`${keywords}${isCustomStylesUsed}`}
                 searchTerms={keywords}
+                highlightStyles={isCustomStylesUsed ? HIGHLIGHT_STYLES : undefined}
                 highlighterCoreOptions={{
                     accuracy: select('Accuracy', ACCURACY, ACCURACY[0]) as HighlighterCoreAccuracy,
                     ignoreCase: boolean('ignoreCase', true),

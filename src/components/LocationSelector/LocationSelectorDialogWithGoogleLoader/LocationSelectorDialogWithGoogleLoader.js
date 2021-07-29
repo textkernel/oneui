@@ -31,6 +31,9 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
         showCountryInSuggestions,
         onLocationAutocompleteError,
 
+        /** Map props */
+        defaultHighlight,
+
         /** Internal use */
         withoutLocationCards,
         onCloseModal,
@@ -64,6 +67,7 @@ export function LocationSelectorDialogWithGoogleLoader(props) {
                 country={country}
                 withoutLocationCards={withoutLocationCards}
                 initialMapAddress={initialMapAddress}
+                defaultHighlight={defaultHighlight}
                 placeTypes={placeTypes}
                 noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                 showCountryInSuggestions={showCountryInSuggestions}
