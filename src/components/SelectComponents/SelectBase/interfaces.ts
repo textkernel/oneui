@@ -85,6 +85,4 @@ export interface Props<S>
     highlightOnEmptyInput?: boolean;
     /** select highlighted item when blurring out of the component */
     selectOnTab?: boolean;
-    /** If highlighted, item at this index will be selected when user clicks outside of the component */
-    indexToSelectOnOutClick?: number;
 }

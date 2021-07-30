@@ -2,20 +2,6 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [14.0.2](https://github.com/textkernel/oneui/compare/14.0.0...14.0.2) (2021-07-26)
-
-
-### Bug Fixes
-
-* **deps:** update dependency tippy.js to v6.3.1 ([46096b7](https://github.com/textkernel/oneui/commit/46096b7114588713593e402df640bf38b5ae3e75))
-
-### [14.0.1](https://github.com/textkernel/oneui/compare/14.0.0...14.0.1) (2021-07-26)
-
-
-### Bug Fixes
-
-* **deps:** update dependency tippy.js to v6.3.1 ([46096b7](https://github.com/textkernel/oneui/commit/46096b7114588713593e402df640bf38b5ae3e75))
-
 ## [14.0.0](https://github.com/textkernel/oneui/compare/13.10.0...14.0.0) (2021-06-30)
 
 
