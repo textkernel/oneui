@@ -45,6 +45,8 @@ interface Props<S>
     customSelectionIndicator?: ReactNode;
     /** Additional HTML attributes to be applied to the input element */
     inputAttrs?: DictionaryOf<string | boolean>;
+    /** If there is an input value, select the first suggestion on outer click */
+    selectFirstOnOutClick?: boolean;
 }
 
 const { elem } = bem('Autosuggest', styles);
@@ -74,6 +76,7 @@ export function Autosuggest<S>(props: Props<S>) {
         customSelectionIndicator,
         initInputValue,
         inputAttrs,
+        selectFirstOnOutClick,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -222,6 +225,7 @@ export function Autosuggest<S>(props: Props<S>) {
             selectOnTab
             initInputValue={initInputValue}
             clearInputAfterSelection
+            indexToSelectOnOutClick={inputValue && selectFirstOnOutClick ? 0 : -1}
         />
     );
 }
@@ -241,4 +245,5 @@ Autosuggest.defaultProps = {
     isLoading: false,
     customSelectionIndicator: undefined,
     inputAttrs: {},
+    selectFirstOnOutClick: false,
 };
