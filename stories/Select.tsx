@@ -606,6 +606,8 @@ storiesOf('Organisms|Select Components', module)
             const inputValue = store.get('inputValue');
             const inputRef = React.createRef<HTMLInputElement>();
 
+            const dancingMultiselect = true;
+
             const getSuggestions = (): TComplexSuggestion[] => {
                 // filtering suggestions from some other source
                 const autoSuggestions = COMPLEX_SUGGESTIONS.filter(
@@ -650,6 +652,7 @@ storiesOf('Organisms|Select Components', module)
                 // it is where the user can replace previously selected free text with something else
                 // remove previously selected free text
                 if (store.get('singleSelectedText')) {
+                    console.log('Fired');
                     store.set({ singleSelectedText: '' });
                 }
                 // Add new item to multi selection list
@@ -662,7 +665,7 @@ storiesOf('Organisms|Select Components', module)
                 console.log(`onSelectionRemove was called with {name: ${item.name}}`);
 
                 // Delete item
-                if (!store.get('inputValue')) {
+                if (!store.get('inputValue') || dancingMultiselect) {
                     const selectedSuggestions = store
                         .get('selectedSuggestions')
                         .filter((i: TSuggestion) => i.name !== item.name);
@@ -731,6 +734,7 @@ storiesOf('Organisms|Select Components', module)
                         customSelectionIndicator={
                             store.get('singleSelectedText') ? customBlur : undefined
                         }
+                        clearInputAfterSelection={!dancingMultiselect}
                     />
                 </div>
             );
