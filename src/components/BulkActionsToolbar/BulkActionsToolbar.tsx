@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Context } from '../../constants';
 import { bem } from '../../utils';
 import { Button } from '../Buttons/Button';
 import { Tooltip } from '../Tooltip';
@@ -24,6 +25,8 @@ export type BulkActionsToolbarAction = {
     label: string;
     tooltip?: string;
     disabled: boolean;
+    /** Default is 'link' */
+    context?: Context | 'link';
     onClick: () => void;
 };
 
@@ -64,15 +67,15 @@ export const BulkActionsToolbar: React.FC<Props> = (props) => {
                 </Tooltip>
             </div>
             <div {...elem('actions')}>
-                {actions.map((action) => {
+                {actions.map((action, index) => {
                     // We have to wrap the button into <span/> in order to
                     // be able to show the tooltip on disabled button.
                     // https://github.com/atomiks/tippyjs-react/issues/123
                     return (
                         <Tooltip key={action.label} content={action.tooltip}>
-                            <span {...elem('actionWrapper')}>
+                            <span {...elem('actionWrapper', { first: index === 0 })}>
                                 <Button
-                                    context="link"
+                                    context={action.context || 'link'}
                                     disabled={action.disabled}
                                     onClick={action.onClick}
                                     {...elem('action')}

@@ -45,6 +45,7 @@ storiesOf('Molecules|BulkActionsToolbar', module)
                     },
                     {
                         label: 'Import',
+                        context: 'primary',
                         tooltip: 'Import selected candidates to your ATS',
                         disabled: false,
                         onClick: () => {
@@ -53,6 +54,7 @@ storiesOf('Molecules|BulkActionsToolbar', module)
                     },
                     {
                         label: 'Mark as viewed',
+                        context: 'brand',
                         disabled: false,
                         onClick: () => {
                             console.log('"Mark as viewed" has been clicked');
