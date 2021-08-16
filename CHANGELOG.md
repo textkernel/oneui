@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [14.1.0](https://github.com/textkernel/oneui/compare/14.0.0...14.1.0) (2021-08-16)
+
+
+### Features
+
+* **Autosuggest:** add prop to select first suggestion on outer click ([#491](https://github.com/textkernel/oneui/issues/491)) ([b44bf55](https://github.com/textkernel/oneui/commit/b44bf55c3cb46da442855b1015935bb21b2d38c9))
+* **BulkActionsToolbar:** enable actions custom button context ([#581](https://github.com/textkernel/oneui/issues/581)) ([1f0a623](https://github.com/textkernel/oneui/commit/1f0a62300a0c73b7ca22ccfa6293f66cf5123b1c))
+
+
+### Bug Fixes
+
+* **deps:** update dependency tippy.js to v6.3.1 ([46096b7](https://github.com/textkernel/oneui/commit/46096b7114588713593e402df640bf38b5ae3e75))
+
 ## [14.0.0](https://github.com/textkernel/oneui/compare/13.10.0...14.0.0) (2021-06-30)
 
 
