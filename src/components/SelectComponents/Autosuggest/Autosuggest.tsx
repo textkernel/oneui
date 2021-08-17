@@ -78,6 +78,7 @@ export function Autosuggest<S>(props: Props<S>) {
         customSelectionIndicator,
         initInputValue,
         inputAttrs,
+        clearInputAfterSelection,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -225,7 +226,7 @@ export function Autosuggest<S>(props: Props<S>) {
             keepExpandedAfterSelection
             selectOnTab
             initInputValue={initInputValue}
-            clearInputAfterSelection
+            clearInputAfterSelection={clearInputAfterSelection}
         />
     );
 }
@@ -245,4 +246,6 @@ Autosuggest.defaultProps = {
     isLoading: false,
     customSelectionIndicator: undefined,
     inputAttrs: {},
+    clearInputAfterSelection: true,
+    selectFirstOnOutClick: false,
 };

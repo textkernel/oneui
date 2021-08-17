@@ -612,7 +612,7 @@ storiesOf('Organisms|Select Components', module)
             const inputValue = store.get('inputValue');
             const inputRef = React.createRef<HTMLInputElement>();
 
-            const dancingMultiselect = true;
+            const isMixOfSoloAndMulti = true;
 
             const getSuggestions = (): TComplexSuggestion[] => {
                 // filtering suggestions from some other source
@@ -671,7 +671,7 @@ storiesOf('Organisms|Select Components', module)
                 console.log(`onSelectionRemove was called with {name: ${item.name}}`);
 
                 // Delete item
-                if (!store.get('inputValue') || dancingMultiselect) {
+                if (!store.get('inputValue') || isMixOfSoloAndMulti) {
                     const selectedSuggestions = store
                         .get('selectedSuggestions')
                         .filter((i: TSuggestion) => i.name !== item.name);
@@ -740,9 +740,9 @@ storiesOf('Organisms|Select Components', module)
                         customSelectionIndicator={
                             store.get('singleSelectedText') ? customBlur : undefined
                         }
+                        clearInputAfterSelection={!isMixOfSoloAndMulti}
                         // select the first suggestions (user input) on outer click
                         selectFirstOnOutClick={!store.get('selectedSuggestions').length}
-                        clearInputAfterSelection={!dancingMultiselect}
                     />
                 </div>
             );
