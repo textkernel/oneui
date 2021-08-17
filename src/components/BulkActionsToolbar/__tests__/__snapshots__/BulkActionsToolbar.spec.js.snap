@@ -33,7 +33,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       key="Compare"
     >
       <span
-        className="BulkActionsToolbar__actionWrapper"
+        className="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
       >
         <Button
           className="BulkActionsToolbar__action"
@@ -58,7 +58,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
+          context="primary"
           disabled={false}
           isBlock={false}
           isInline={false}
@@ -79,7 +79,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
+          context="brand"
           disabled={false}
           isBlock={false}
           isInline={false}
@@ -137,7 +137,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       key="Compare"
     >
       <span
-        className="BulkActionsToolbar__actionWrapper"
+        className="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
       >
         <Button
           className="BulkActionsToolbar__action"
@@ -162,7 +162,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
+          context="primary"
           disabled={false}
           isBlock={false}
           isInline={false}
@@ -183,7 +183,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
+          context="brand"
           disabled={false}
           isBlock={false}
           isInline={false}
@@ -241,7 +241,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       key="Compare"
     >
       <span
-        className="BulkActionsToolbar__actionWrapper"
+        className="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
       >
         <Button
           className="BulkActionsToolbar__action"
@@ -266,7 +266,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
+          context="primary"
           disabled={false}
           isBlock={false}
           isInline={false}
@@ -287,7 +287,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
+          context="brand"
           disabled={false}
           isBlock={false}
           isInline={false}
@@ -345,7 +345,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       key="Compare"
     >
       <span
-        className="BulkActionsToolbar__actionWrapper"
+        className="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
       >
         <Button
           className="BulkActionsToolbar__action"
@@ -370,7 +370,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
+          context="primary"
           disabled={false}
           isBlock={false}
           isInline={false}
@@ -391,7 +391,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
+          context="brand"
           disabled={false}
           isBlock={false}
           isInline={false}

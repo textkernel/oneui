@@ -1,5 +1,5 @@
 .BulkActionsToolbar {
-    padding: var(--spacing-normal);
+    padding: var(--spacing-2x);
     background-color: var(--color-neutral-10);
     border-radius: var(--border-radius);
     display: flex;
@@ -43,6 +43,11 @@
     &__actionWrapper {
         overflow: hidden;
         display: block;
+        margin-left: var(--spacing-normal);
+
+        &--first {
+            margin-left: 0;
+        }
     }
 
     &__action {
