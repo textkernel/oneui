@@ -47,6 +47,8 @@ interface Props<S>
     inputAttrs?: DictionaryOf<string | boolean>;
     /** Should input be cleared after element selection */
     clearInputAfterSelection?: boolean;
+    /** If there is an input value, select the first suggestion on outer click */
+    selectFirstOnOutClick?: boolean;
 }
 
 const { elem } = bem('Autosuggest', styles);
@@ -76,7 +78,6 @@ export function Autosuggest<S>(props: Props<S>) {
         customSelectionIndicator,
         initInputValue,
         inputAttrs,
-        clearInputAfterSelection,
         ...rest
     } = props;
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -224,7 +225,7 @@ export function Autosuggest<S>(props: Props<S>) {
             keepExpandedAfterSelection
             selectOnTab
             initInputValue={initInputValue}
-            clearInputAfterSelection={clearInputAfterSelection}
+            clearInputAfterSelection
         />
     );
 }
@@ -244,5 +245,4 @@ Autosuggest.defaultProps = {
     isLoading: false,
     customSelectionIndicator: undefined,
     inputAttrs: {},
-    clearInputAfterSelection: false,
 };
