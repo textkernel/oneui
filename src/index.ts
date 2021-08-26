@@ -4,7 +4,7 @@ export * from './packages/Highlighter';
 export * from './packages/BooleanQueryTokenizer';
 
 // Atoms
-export { Button, SearchButton } from './components/Buttons';
+export { Button, SearchButton, StepperButton } from './components/Buttons';
 export { Callout } from './components/Callout';
 export { CandidateAvatar } from './components/CandidateAvatar';
 export { Chip } from './components/Chip';

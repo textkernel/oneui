@@ -28,6 +28,9 @@ $two-pane-left-width: 550px !default;
 // SearchButton size
 $search-button-size: 36px !default;
 
+// StepperButton size
+$stepper-button-size: 30px !default;
+
 :root {
     --border-radius: #{$border-radius};
 
@@ -52,4 +55,5 @@ $search-button-size: 36px !default;
     --two-pane-left-width: #{$two-pane-left-width};
 
     --search-button-size: #{$search-button-size};
+    --stepper-button-size: #{$stepper-button-size};
 }

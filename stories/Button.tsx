@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
-import { Button, SearchButton } from '@textkernel/oneui';
+import { Button, SearchButton, StepperButton } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '../src/constants';
 
 storiesOf('Atoms|Button', module)
@@ -43,6 +43,15 @@ storiesOf('Atoms|Button', module)
             type={select('Type', ['submit', 'button'], 'submit')}
             disabled={boolean('Disabled', false)}
             children={text('Label', '')}
+            onClick={(e) => {
+                console.log('Clicked button', e);
+            }}
+        />
+    ))
+    .add('StepperButton', () => (
+        <StepperButton
+            disabled={boolean('Disabled', false)}
+            icon={select('icon', ['plus', 'minus'], 'plus')}
             onClick={(e) => {
                 console.log('Clicked button', e);
             }}
