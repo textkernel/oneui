@@ -7,12 +7,12 @@ export interface Props
     extends Omit<
         React.ButtonHTMLAttributes<HTMLButtonElement> &
             React.AnchorHTMLAttributes<HTMLAnchorElement>,
-        'size'
+        'icon'
     > {
     /** Should button be disabled or not */
     disabled?: boolean;
     /** Icon to show inside button */
-    icon: 'plus' | 'minus'; // TODO: Use boolean here? But semantically text looks better
+    icon: 'plus' | 'minus';
 }
 
 const { block } = bem('StepperButton', styles);

@@ -40,6 +40,7 @@ import './Header';
 import './LoadingSpinner';
 import './LocationCard';
 import './Navigation';
+import './NumericStepper';
 import './Pagination';
 import './Pill';
 import './RadioButton';

@@ -51,6 +51,7 @@ export { Toggle } from './components/Toggle';
 export { Tooltip } from './components/Tooltip';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
 export { WeightedResultBar } from './components/WeightedResultBar';
+export { NumericStepper } from './components/NumericStepper';
 // Organisms
 export { AutosuggestDeprecated, ItemTag } from './components/AutosuggestDeprecated';
 export {
