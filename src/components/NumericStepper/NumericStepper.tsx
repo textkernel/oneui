@@ -47,8 +47,10 @@ export const NumericStepper: React.FC<Props> = (props) => {
         return null; // TODO: Remove this redundant "not-undefined" check
 
     const onValueUpdate = (value: number) => {
-        setCurrentValue(value);
-        onChange(value);
+        if (value !== currentValue) {
+            setCurrentValue(value);
+            onChange(value);
+        }
     };
 
     const handleStepUp = () => {
