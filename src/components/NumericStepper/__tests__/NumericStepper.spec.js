@@ -1,6 +1,7 @@
 import React from 'react';
 import toJson, { createSerializer } from 'enzyme-to-json';
 import { NumericStepper } from '../NumericStepper';
+import { on } from 'events';
 
 describe('<NumericStepper> component', () => {
     let wrapper;
@@ -110,12 +111,15 @@ describe('<NumericStepper> component', () => {
         wrapper.update();
 
         expect(wrapper.find('input').prop('value')).toEqual('3');
+        expect(onChangeMock).toBeCalledTimes(1);
         expect(wrapper.find('StepperButton').at(1).prop('disabled')).toBe(true);
 
         // Simulate two clicks on stepDown button
         wrapper.find('StepperButton').at(0).prop('onClick')();
+        expect(onChangeMock).toBeCalledTimes(2);
         wrapper.update();
         wrapper.find('StepperButton').at(0).prop('onClick')();
+        expect(onChangeMock).toBeCalledTimes(3);
         wrapper.update();
 
         expect(wrapper.find('input').prop('value')).toEqual('1');
