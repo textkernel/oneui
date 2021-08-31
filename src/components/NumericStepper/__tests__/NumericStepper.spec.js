@@ -1,7 +1,6 @@
 import React from 'react';
 import toJson, { createSerializer } from 'enzyme-to-json';
 import { NumericStepper } from '../NumericStepper';
-import { on } from 'events';
 
 describe('<NumericStepper> component', () => {
     let wrapper;
