@@ -24,13 +24,13 @@
     &[type=number] {
     -moz-appearance: textfield;
     }
+  }
 
-    &:hover {
-      border-color: var(--color-neutral);
-    }
+  &:hover &__stepperInput{
+    border-color: var(--color-neutral);
+  }
 
-    &:focus {
-        border-color: var(--color-brand);
-    }
+  &:hover &__stepperInput:focus{
+    border-color: var(--color-brand);
   }
 }
