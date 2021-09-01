@@ -60,15 +60,15 @@ OneUI relies on browser support for CSS variables. Support for older browsers su
 1. Import the desired UI component(s) from the library, e.g.:
 
 ```javascript
-import { Alert } from '@textkernel/oneui';
+import { Button } from '@textkernel/oneui';
 ```
 
 2. Include the component on your page:
 
 ```jsx
-<Alert context="info" title="Hey there!">
-    This is some information for you
-</Alert>
+<Button context="primary" type="submit">
+    This is a button
+</Button>
 ```
 
 ### Undocumented props
