@@ -4,7 +4,7 @@ import styles from './NumericStepper.scss';
 
 import { StepperButton } from '../Buttons';
 
-interface Props {
+interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
     /**
      * Callback is called when user changes component value by using built-in controls
      */
@@ -37,20 +37,23 @@ export const NumericStepper: React.FC<Props> = (props) => {
     const { onChange, step, minValue, maxValue, defaultValue, customWidth } = props;
 
     const [currentValue, setCurrentValue] = React.useState<number>(defaultValue || minValue || 0);
+    const [inputValue, setInputValue] = React.useState<string>(currentValue.toString());
 
+    // TODO: Remove this redundant "not-undefined" check one day
+    // Also without this check Jest also fails to render content sometimes
     if (
         step === undefined ||
         defaultValue === undefined ||
         minValue === undefined ||
         maxValue === undefined
     )
-        return null; // TODO: Remove this redundant "not-undefined" check
+        return null;
 
     const onValueUpdate = (value: number) => {
+        setInputValue(value.toString());
         setCurrentValue(value);
         onChange(value);
     };
-
     const handleStepUp = () => {
         const newValue = currentValue + step;
 
@@ -71,18 +74,27 @@ export const NumericStepper: React.FC<Props> = (props) => {
     };
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
-        setCurrentValue(parseInt(value, 10));
+        setInputValue(value);
     };
     const handleInputBlur = () => {
-        if (currentValue >= minValue && currentValue <= maxValue) {
-            // CASE: Entered value is in between minValue and maxValue
-            onValueUpdate(currentValue);
-        } else if (currentValue < minValue) {
-            // CASE: Entered value is less then minValue
-            onValueUpdate(minValue);
-        } else if (currentValue > maxValue) {
-            // CASE: Entered value is greater then maxValue
-            onValueUpdate(maxValue);
+        const parsedInputValue = parseInt(inputValue, 10);
+
+        if (parsedInputValue !== currentValue) {
+            if (Number.isNaN(parsedInputValue)) {
+                // CASE: Entered value cannot be converted to integer (like empty string)
+                onValueUpdate(currentValue);
+            }
+
+            if (parsedInputValue >= minValue && parsedInputValue <= maxValue) {
+                // CASE: Entered value is in between minValue and maxValue
+                onValueUpdate(parsedInputValue);
+            } else if (parsedInputValue < minValue) {
+                // CASE: Entered value is less then minValue
+                onValueUpdate(minValue);
+            } else if (parsedInputValue > maxValue) {
+                // CASE: Entered value is greater then maxValue
+                onValueUpdate(maxValue);
+            }
         }
     };
 
@@ -98,7 +110,7 @@ export const NumericStepper: React.FC<Props> = (props) => {
                 style={{ width: customWidth }}
                 onChange={handleInputChange}
                 onBlur={handleInputBlur}
-                value={currentValue.toString()}
+                value={inputValue}
                 type="number"
                 step={step}
                 min={minValue}

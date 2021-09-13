@@ -1,4 +1,5 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import toJson, { createSerializer } from 'enzyme-to-json';
 import { NumericStepper } from '../NumericStepper';
 
@@ -69,36 +70,56 @@ describe('<NumericStepper> component', () => {
     it('should react on stepDown click', () => {
         wrapper = mount(<NumericStepper onChange={onChangeMock} step={2} defaultValue={4} />);
 
-        // CASE: Decrease by 2 (to equal to 2) and make sure that number of onChange calls equal to 1
+        // Decrease by 2 (to equal to 2) and make sure that number of onChange calls equal to 1
         wrapper.find('StepperButton').at(0).prop('onClick')();
-        wrapper.update();
+
+        act(() => {
+            wrapper.update();
+        });
+
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(2);
         expect(wrapper.find('input').prop('value')).toEqual('2');
+        expect(onChangeMock).toHaveBeenCalledWith(2);
 
-        // CASE: Decrease by 2 (to equal to 0) and make sure that number of onChange calls equal to 2
+        // Decrease by 2 (to equal to 0) and make sure that number of onChange calls equal to 2
         wrapper.find('StepperButton').at(0).prop('onClick')();
-        wrapper.update();
+
+        act(() => {
+            wrapper.update();
+        });
+
         expect(onChangeMock).toBeCalledTimes(2);
         expect(onChangeMock).toBeCalledWith(0);
         expect(wrapper.find('input').prop('value')).toEqual('0');
+        expect(onChangeMock).toHaveBeenCalledWith(0);
     });
     it('should react on stepUp click', () => {
         wrapper = mount(<NumericStepper onChange={onChangeMock} step={2} />);
 
-        // CASE: Increase by 2 (to equal to 2) and make sure that number of onChange calls equal to 1
+        // Increase by 2 (to equal to 2) and make sure that number of onChange calls equal to 1
         wrapper.find('StepperButton').at(1).prop('onClick')();
-        wrapper.update();
+
+        act(() => {
+            wrapper.update();
+        });
+
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(2);
         expect(wrapper.find('input').prop('value')).toEqual('2');
+        expect(onChangeMock).toHaveBeenCalledWith(2);
 
-        // CASE: Increase by 2 (to equal to 4) and make sure that number of onChange calls equal to 2
+        // Increase by 2 (to equal to 4) and make sure that number of onChange calls equal to 2
         wrapper.find('StepperButton').at(1).prop('onClick')();
-        wrapper.update();
+
+        act(() => {
+            wrapper.update();
+        });
+
         expect(onChangeMock).toBeCalledTimes(2);
         expect(onChangeMock).toBeCalledWith(4);
         expect(wrapper.find('input').prop('value')).toEqual('4');
+        expect(onChangeMock).toHaveBeenCalledWith(4);
     });
     it('should disable buttons when limits are reached', () => {
         wrapper = mount(
@@ -107,19 +128,30 @@ describe('<NumericStepper> component', () => {
 
         // Simulate two clicks on stepUp button
         wrapper.find('StepperButton').at(1).prop('onClick')();
-        wrapper.update();
+
+        act(() => {
+            wrapper.update();
+        });
 
         expect(wrapper.find('input').prop('value')).toEqual('3');
         expect(onChangeMock).toBeCalledTimes(1);
         expect(wrapper.find('StepperButton').at(1).prop('disabled')).toBe(true);
+        expect(onChangeMock).toHaveBeenCalledWith(3);
 
         // Simulate two clicks on stepDown button
         wrapper.find('StepperButton').at(0).prop('onClick')();
         expect(onChangeMock).toBeCalledTimes(2);
-        wrapper.update();
+
+        act(() => {
+            wrapper.update();
+        });
+
         wrapper.find('StepperButton').at(0).prop('onClick')();
         expect(onChangeMock).toBeCalledTimes(3);
-        wrapper.update();
+
+        act(() => {
+            wrapper.update();
+        });
 
         expect(wrapper.find('input').prop('value')).toEqual('1');
         expect(wrapper.find('StepperButton').at(0).prop('disabled')).toBe(true);
@@ -141,6 +173,38 @@ describe('<NumericStepper> component', () => {
         wrapper.find('input').simulate('blur');
 
         expect(wrapper.find('input').prop('value')).toEqual('10');
+    });
+    it('should set top edge value if user enters value above allowed limit', () => {
+        wrapper = mount(<NumericStepper onChange={onChangeMock} maxValue={10} />);
+        const data = { target: { value: '11' } };
+
+        wrapper.find('input').simulate('change', data);
+        wrapper.find('input').simulate('blur');
+
+        expect(wrapper.find('input').prop('value')).toEqual('10');
+    });
+    it('should set value to the previous one when user enters invalid value', () => {
+        wrapper = mount(
+            <NumericStepper onChange={onChangeMock} minValue={2} maxValue={4} defaultValue={3} />
+        );
+
+        wrapper.find('StepperButton').at(1).prop('onClick')();
+
+        act(() => {
+            wrapper.update();
+        });
+
+        expect(onChangeMock).toBeCalledTimes(1);
+        expect(onChangeMock).toBeCalledWith(4);
+        expect(wrapper.find('input').prop('value')).toEqual('4');
+        expect(onChangeMock).toHaveBeenCalledWith(4);
+
+        // Imagine users enters empty string
+        const data = { target: { value: '   ' } };
+        wrapper.find('input').simulate('change', data);
+        wrapper.find('input').simulate('blur');
+
+        expect(wrapper.find('input').prop('value')).toEqual('4');
     });
     it('should react on keyup/keydown press', () => {
         /**
