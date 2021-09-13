@@ -1,36 +1,36 @@
 .NumericStepper {
-  --border-height: 1px;  
+    --border-height: 1px;  
 
-  display: flex;
+    display: flex;
 
-  &__stepperInput {
-    border: none;
-    border-bottom: var(--border-height) solid transparent;
-    outline: none;
-    margin: var(--border-height) 3px 0px 3px;
-    text-align: center;
-    box-sizing: content-box;
-    font-size: var(--font-size-large);
-    transition: border-color var(--transition-duration);
+    &__stepperInput {
+        border: none;
+        border-bottom: var(--border-height) solid transparent;
+        outline: none;
+        margin: var(--border-height) 3px 0px 3px;
+        text-align: center;
+        box-sizing: content-box;
+        font-size: var(--font-size-large);
+        transition: border-color var(--transition-duration);
 
-    // Styling for embedded controls (arrows)
-    /* Chrome, Safari, Edge, Opera */
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+        // Styling for embedded controls (arrows)
+        /* Chrome, Safari, Edge, Opera */
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Firefox */
+        &[type="number"] {
+            -moz-appearance: textfield;
+        }
     }
-    /* Firefox */
-    &[type=number] {
-    -moz-appearance: textfield;
+
+    &:hover &__stepperInput{
+        border-color: var(--color-neutral);
     }
-  }
 
-  &:hover &__stepperInput{
-    border-color: var(--color-neutral);
-  }
-
-  &:hover &__stepperInput:focus{
-    border-color: var(--color-brand);
-  }
+    &:hover &__stepperInput:focus{
+        border-color: var(--color-brand);
+    }
 }
