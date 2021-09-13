@@ -26,10 +26,10 @@ import './Text';
 import './TextArea';
 import './WidthRestrictor';
 // Molecules
-import './Alert';
 import './BulkActionsToolbar';
 import './ButtonGroup';
 import './Checkbox';
+import './Dialogs';
 import './Dropdown';
 import './Field';
 import './FieldWithValidation';
