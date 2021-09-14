@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { bem } from '../../utils';
 import { AutosuggestDeprecated } from '../AutosuggestDeprecated';
-import { Alert } from '../Alert';
 import { ListItem } from '../List/ListItem';
-import { MarkedText } from '../Text';
+import { MarkedText, Text } from '../Text';
 import { useDebounce } from '../../hooks';
 import POWERED_BY_GOOGLE_ON_WHITE from './images/powered_by_google_on_white.png';
 import POWERED_BY_GOOGLE_ON_WHITE_2X from './images/powered_by_google_on_white@2x.png';
@@ -83,11 +82,13 @@ export const LocationAutocomplete = (props) => {
 
     if (!(window.google && window.google.maps && window.google.maps.places)) {
         // TODO: clarify with Carlo how to handle errors
+        const errorMessage =
+            'Google Maps Places API was not found on the page. Before using this component, make sure to load the places API';
+        console.error(errorMessage);
         return (
-            <Alert context="bad" title="No API found">
-                Google Maps Places APi was not found on the page. Before using this component, make
-                sure to load the places API
-            </Alert>
+            <Text context="bad" inline>
+                Error while rendering LocationAutocomplete
+            </Text>
         );
     }
 

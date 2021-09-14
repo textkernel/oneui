@@ -52,8 +52,8 @@ const Dialog: React.FC<AlertProps | ConfirmProps> = (props) => {
             </div>
             <div {...elem('actions', props)}>
                 {isConfirm && (
-                    <Button onClick={cancelButton.onClick} context="link">
-                        {cancelButton.label}
+                    <Button onClick={cancelButton!.onClick} context="link">
+                        {cancelButton!.label}
                     </Button>
                 )}
                 <Button onClick={acceptButton.onClick} context={isConfirm ? 'primary' : 'brand'}>
