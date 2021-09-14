@@ -29,7 +29,6 @@ import './WidthRestrictor';
 import './BulkActionsToolbar';
 import './ButtonGroup';
 import './Checkbox';
-import './Dialogs';
 import './Dropdown';
 import './Field';
 import './FieldWithValidation';
@@ -49,6 +48,7 @@ import './Tooltip';
 import './TwoPaneView';
 import './WeightedResultBar';
 // Organisms
+import './Dialogs';
 import './AutosuggestDeprecated';
 import './Select';
 import './LocationAutocomplete';

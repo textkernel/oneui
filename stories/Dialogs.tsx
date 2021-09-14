@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
-import { Alert, Button } from '@textkernel/oneui';
+import { Alert, Confirm, Button } from '@textkernel/oneui';
 
-storiesOf('Molecules|Dialogs', module)
+storiesOf('Organisms|Dialogs', module)
     .addDecorator(withKnobs)
     .add('Alert', () => {
         const [showAlert, setShowAlert] = React.useState(false);
@@ -21,10 +21,13 @@ storiesOf('Molecules|Dialogs', module)
             <>
                 <Button onClick={handleButtonClick}>Click me to see an alert</Button>
                 <Alert
-                    showAlert={showAlert}
-                    onAccept={handleAccept}
-                    acceptLabel={text('Accept button text', 'Ok')}
+                    isOpen={showAlert}
+                    acceptButton={{
+                        onClick: handleAccept,
+                        label: text('Accept button text', 'Ok'),
+                    }}
                     title={text('Title', 'Hi there!')}
+                    contentLabel="An alert dialog"
                 >
                     {text('Content', 'This is some information for you.')}
                 </Alert>
@@ -51,16 +54,21 @@ storiesOf('Molecules|Dialogs', module)
         return (
             <>
                 <Button onClick={handleButtonClick}>Click me to see a confirm dialog</Button>
-                <Alert
-                    showAlert={showAlert}
-                    onAccept={handleAccept}
-                    onCancel={handleCancel}
-                    acceptLabel={text('Accept button text', 'Ok')}
-                    cancelLabel={text('Cancel button text', 'Cancel')}
+                <Confirm
+                    isOpen={showAlert}
+                    acceptButton={{
+                        onClick: handleAccept,
+                        label: text('Accept button text', 'Ok'),
+                    }}
+                    cancelButton={{
+                        onClick: handleCancel,
+                        label: text('Cancel button text', 'Cancel'),
+                    }}
                     title={text('Title', 'Hi there!')}
+                    contentLabel="A confirm dialog"
                 >
                     {text('Content', 'This is some information for you. Do you want to proceed?')}
-                </Alert>
+                </Confirm>
             </>
         );
     });

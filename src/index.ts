@@ -29,7 +29,7 @@ export { TextArea } from './components/TextArea';
 export { PageWidthRestrictor, BlockWidthRestrictor } from './components/WidthRestrictor';
 export { PopupBase } from './components/PopupBase';
 // Molecules
-export { Alert } from './components/Alert';
+export { Alert, Confirm } from './components/AlertConfirm';
 export * from './components/BulkActionsToolbar';
 export { ButtonGroup } from './components/ButtonGroup';
 export { Checkbox } from './components/Checkbox';
