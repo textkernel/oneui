@@ -43,7 +43,7 @@ export const NumericStepper: React.FC<Props> = (props) => {
         customWidth = '3ch',
     } = props;
 
-    const [currentValue, setCurrentValue] = React.useState<number>(defaultValue || minValue || 0);
+    const [currentValue, setCurrentValue] = React.useState<number>(defaultValue || minValue);
     const [inputValue, setInputValue] = React.useState<string>(currentValue.toString());
 
     const onValueUpdate = (value: number) => {
@@ -54,20 +54,12 @@ export const NumericStepper: React.FC<Props> = (props) => {
     const handleStepUp = () => {
         const newValue = currentValue + step;
 
-        if (newValue > maxValue) {
-            onValueUpdate(maxValue);
-        } else {
-            onValueUpdate(newValue);
-        }
+        onValueUpdate(newValue > maxValue ? maxValue : newValue);
     };
     const handleStepDown = () => {
         const newValue = currentValue - step;
 
-        if (newValue < minValue) {
-            onValueUpdate(minValue);
-        } else {
-            onValueUpdate(newValue);
-        }
+        onValueUpdate(newValue < minValue ? minValue : newValue);
     };
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;

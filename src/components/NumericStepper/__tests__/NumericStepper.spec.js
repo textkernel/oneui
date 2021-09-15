@@ -11,6 +11,14 @@ describe('<NumericStepper> component', () => {
         jest.resetAllMocks();
     });
 
+    const decreaseClick = () => {
+        wrapper.find('StepperButton').at(0).prop('onClick')();
+    };
+
+    const increaseClick = () => {
+        wrapper.find('StepperButton').at(1).prop('onClick')();
+    };
+
     it('should render correctly', () => {
         wrapper = mount(<NumericStepper onChange={onChangeMock} />);
 
@@ -71,11 +79,10 @@ describe('<NumericStepper> component', () => {
         wrapper = mount(<NumericStepper onChange={onChangeMock} step={2} defaultValue={4} />);
 
         // Decrease by 2 (to equal to 2) and make sure that number of onChange calls equal to 1
-        wrapper.find('StepperButton').at(0).prop('onClick')();
-
         act(() => {
-            wrapper.update();
+            decreaseClick();
         });
+        wrapper.update();
 
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(2);
@@ -83,11 +90,10 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toHaveBeenCalledWith(2);
 
         // Decrease by 2 (to equal to 0) and make sure that number of onChange calls equal to 2
-        wrapper.find('StepperButton').at(0).prop('onClick')();
-
         act(() => {
-            wrapper.update();
+            decreaseClick();
         });
+        wrapper.update();
 
         expect(onChangeMock).toBeCalledTimes(2);
         expect(onChangeMock).toBeCalledWith(0);
@@ -98,11 +104,10 @@ describe('<NumericStepper> component', () => {
         wrapper = mount(<NumericStepper onChange={onChangeMock} step={2} />);
 
         // Increase by 2 (to equal to 2) and make sure that number of onChange calls equal to 1
-        wrapper.find('StepperButton').at(1).prop('onClick')();
-
         act(() => {
-            wrapper.update();
+            increaseClick();
         });
+        wrapper.update();
 
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(2);
@@ -110,11 +115,10 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toHaveBeenCalledWith(2);
 
         // Increase by 2 (to equal to 4) and make sure that number of onChange calls equal to 2
-        wrapper.find('StepperButton').at(1).prop('onClick')();
-
         act(() => {
-            wrapper.update();
+            increaseClick();
         });
+        wrapper.update();
 
         expect(onChangeMock).toBeCalledTimes(2);
         expect(onChangeMock).toBeCalledWith(4);
@@ -127,11 +131,10 @@ describe('<NumericStepper> component', () => {
         );
 
         // Simulate two clicks on stepUp button
-        wrapper.find('StepperButton').at(1).prop('onClick')();
-
         act(() => {
-            wrapper.update();
+            increaseClick();
         });
+        wrapper.update();
 
         expect(wrapper.find('input').prop('value')).toEqual('3');
         expect(onChangeMock).toBeCalledTimes(1);
@@ -139,19 +142,17 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toHaveBeenCalledWith(3);
 
         // Simulate two clicks on stepDown button
-        wrapper.find('StepperButton').at(0).prop('onClick')();
+        act(() => {
+            decreaseClick();
+        });
+        wrapper.update();
         expect(onChangeMock).toBeCalledTimes(2);
 
         act(() => {
-            wrapper.update();
+            decreaseClick();
         });
-
-        wrapper.find('StepperButton').at(0).prop('onClick')();
+        wrapper.update();
         expect(onChangeMock).toBeCalledTimes(3);
-
-        act(() => {
-            wrapper.update();
-        });
 
         expect(wrapper.find('input').prop('value')).toEqual('1');
         expect(wrapper.find('StepperButton').at(0).prop('disabled')).toBe(true);
@@ -174,25 +175,15 @@ describe('<NumericStepper> component', () => {
 
         expect(wrapper.find('input').prop('value')).toEqual('10');
     });
-    it('should set top edge value if user enters value above allowed limit', () => {
-        wrapper = mount(<NumericStepper onChange={onChangeMock} maxValue={10} />);
-        const data = { target: { value: '11' } };
-
-        wrapper.find('input').simulate('change', data);
-        wrapper.find('input').simulate('blur');
-
-        expect(wrapper.find('input').prop('value')).toEqual('10');
-    });
     it('should set value to the previous one when user enters invalid value', () => {
         wrapper = mount(
             <NumericStepper onChange={onChangeMock} minValue={2} maxValue={4} defaultValue={3} />
         );
 
-        wrapper.find('StepperButton').at(1).prop('onClick')();
-
         act(() => {
-            wrapper.update();
+            increaseClick();
         });
+        wrapper.update();
 
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(4);
@@ -201,10 +192,41 @@ describe('<NumericStepper> component', () => {
 
         // Imagine users enters empty string
         const data = { target: { value: '   ' } };
-        wrapper.find('input').simulate('change', data);
+        act(() => {
+            wrapper.find('input').simulate('change', data);
+        });
         wrapper.find('input').simulate('blur');
+        wrapper.update();
 
         expect(wrapper.find('input').prop('value')).toEqual('4');
+    });
+    it('should correctly react on increase click when top edge is overstepped', () => {
+        wrapper = mount(
+            <NumericStepper onChange={onChangeMock} step={2} maxValue={4} defaultValue={3} />
+        );
+
+        act(() => {
+            increaseClick();
+        });
+        wrapper.update();
+
+        expect(onChangeMock).toBeCalledWith(4);
+        expect(wrapper.find('input').prop('value')).toEqual('4');
+        expect(onChangeMock).toHaveBeenCalledWith(4);
+    });
+    it('should correctly react on decrease click when bottom edge is overstepped', () => {
+        wrapper = mount(
+            <NumericStepper onChange={onChangeMock} step={2} minValue={3} defaultValue={4} />
+        );
+
+        act(() => {
+            decreaseClick();
+        });
+        wrapper.update();
+
+        expect(onChangeMock).toBeCalledWith(3);
+        expect(wrapper.find('input').prop('value')).toEqual('3');
+        expect(onChangeMock).toHaveBeenCalledWith(3);
     });
     it('should react on keyup/keydown press', () => {
         /**
