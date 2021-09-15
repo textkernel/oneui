@@ -3,15 +3,15 @@ import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './TabItem.scss';
 
-export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
+export interface Props<T> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
     /** Id of this tab */
-    tabId: string | number;
+    tabId: T;
     /** Renders an active tab. This prop will be set by TabsBar if activeTabId is defined there */
     isActive?: boolean;
     /** Disabled tab item */
     disabled?: boolean;
     /** A callback  when the tab is clicked. It will not be called for active or disabled tabs. This prop will be set by TabsBar if onSelect is defined there */
-    onSelect?: (tabId: string | number) => void;
+    onSelect?: (tabId: T) => void;
     /** Label of the tab. Expected to be a string like node. E.g. `label` or `label <span>(3)</span>`  */
     children: ReactNode;
     /** used for styling when TabsBar is full width. Will be set by TabsBar, no need to set manually */
@@ -20,7 +20,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSel
 
 const { block } = bem('TabItem', styles);
 
-export const TabItem: React.FC<Props> = (props) => {
+export function TabItem<T = string | number>(props: Props<T>) {
     const { tabId, isActive, onSelect, disabled, isBlock, children, ...rest } = props;
     const handleClick = () => {
         if (!isActive && !disabled && onSelect) {
@@ -47,7 +47,7 @@ export const TabItem: React.FC<Props> = (props) => {
             {children}
         </div>
     );
-};
+}
 
 TabItem.displayName = 'TabItem';
 

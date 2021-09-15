@@ -66,30 +66,31 @@ storiesOf('Atoms|Tabs', module)
             </TabsBar>
         );
     })
-    .add('Example implementation', (parameters) => {
-        const store = parameters?.parameters.getStore();
+    .add('Example implementation', () => {
+        type Tabs = 't1' | 't2' | 't3';
+        const [activeId, setActiveId] = React.useState<Tabs>('t1');
 
-        const handleSelect = (tabId) => {
+        const handleSelect = (tabId: Tabs) => {
             // IE11 errors on string concatenation inside console.log. So let's do it outside of it.
             const msg = `TabItem with tabId: '${tabId}' was clicked`;
             console.log(msg);
-            store.set({ activeId: tabId });
+            setActiveId(tabId);
         };
 
         return (
-            <TabsBar
-                activeTabId={store.get('activeId')}
+            <TabsBar<Tabs>
+                activeTabId={activeId}
                 onSelect={handleSelect}
                 isBlock={boolean('Equally spaced items', false)}
             >
-                <TabItem tabId={1} key={1} disabled={boolean('Tab 1 is disabled', false)}>
+                <TabItem tabId="t1" key={1} disabled={boolean('Tab 1 is disabled', false)}>
                     {text('Tab 1 label', 'Simple tab')}
                 </TabItem>
-                <TabItem tabId={2} key={2} disabled={boolean('Tab 2 is disabled', false)}>
+                <TabItem tabId="t2" key={2} disabled={boolean('Tab 2 is disabled', false)}>
                     {text('Tab 2 label', 'Tab with styled count')}
                     <span style={{ color: 'grey', fontWeight: 400 }}> (2)</span>
                 </TabItem>
-                <TabItem tabId={3} key={3} disabled={boolean('Tab 3 is disabled', false)}>
+                <TabItem tabId="t3" key={3} disabled={boolean('Tab 3 is disabled', false)}>
                     <Tooltip content="some additional information" placement="top">
                         <div>{text('Tab 3 label', 'Tab with Tooltip')}</div>
                     </Tooltip>
