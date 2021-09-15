@@ -34,20 +34,17 @@ interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onCha
 const { block, elem } = bem('NumericStepper', styles);
 
 export const NumericStepper: React.FC<Props> = (props) => {
-    const { onChange, step, minValue, maxValue, defaultValue, customWidth } = props;
+    const {
+        onChange,
+        step = 1,
+        minValue = 0,
+        maxValue = Number.MAX_SAFE_INTEGER,
+        defaultValue = 0,
+        customWidth = '3ch',
+    } = props;
 
     const [currentValue, setCurrentValue] = React.useState<number>(defaultValue || minValue || 0);
     const [inputValue, setInputValue] = React.useState<string>(currentValue.toString());
-
-    // TODO: Remove this redundant "not-undefined" check one day
-    // Also without this check Jest also fails to render content sometimes
-    if (
-        step === undefined ||
-        defaultValue === undefined ||
-        minValue === undefined ||
-        maxValue === undefined
-    )
-        return null;
 
     const onValueUpdate = (value: number) => {
         setInputValue(value.toString());
