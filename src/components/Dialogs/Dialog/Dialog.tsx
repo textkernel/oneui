@@ -41,7 +41,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
                 {children}
             </div>
             <div {...elem('actions', props)}>
-                {isConfirm && (
+                {isConfirm && ( // TODO: remove ! in next line after TS was upgraded
                     <Button onClick={cancelButton!.onClick} context="link">
                         {cancelButton!.label}
                     </Button>
