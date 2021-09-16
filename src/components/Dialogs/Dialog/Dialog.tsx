@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { bem } from '../../utils';
-import { Heading } from '../Heading';
-import { Button } from '../Buttons';
-import { Modal, ModalProps } from '../Modal';
-import styles from './AlertConfirm.scss';
+import { bem } from '../../../utils';
+import { Heading } from '../../Heading';
+import { Button } from '../../Buttons';
+import { Modal, ModalProps } from '../../Modal';
+import styles from './Dialog.scss';
 
-type ButtonProps = {
+export type ButtonProps = {
     onClick: () => void;
     label: string;
 };
 
-interface DialogProps extends ModalProps {
+export interface DialogProps extends ModalProps {
     /** Should the alert appear */
     isOpen: boolean;
     /** The alert content */
@@ -23,19 +23,9 @@ interface DialogProps extends ModalProps {
     cancelButton?: ButtonProps;
 }
 
-export interface AlertProps extends DialogProps {
-    /** Alerts do not have cancel button */
-    cancelButton?: never;
-}
+const { block, elem } = bem('Dialog', styles);
 
-export interface ConfirmProps extends DialogProps {
-    /** Properties of the cancel button */
-    cancelButton: ButtonProps;
-}
-
-const { block, elem } = bem('Alert', styles);
-
-const Dialog: React.FC<AlertProps | ConfirmProps> = (props) => {
+export const Dialog: React.FC<DialogProps> = (props) => {
     const { isOpen, children, title, acceptButton, cancelButton, ...rest } = props;
 
     const isConfirm = !!cancelButton;
@@ -65,11 +55,3 @@ const Dialog: React.FC<AlertProps | ConfirmProps> = (props) => {
 };
 
 Dialog.displayName = 'Dialog';
-
-export const Alert: React.FC<AlertProps> = (props) => <Dialog {...props} />;
-
-Alert.displayName = 'Alert';
-
-export const Confirm: React.FC<ConfirmProps> = (props) => <Dialog {...props} />;
-
-Confirm.displayName = 'Confirm';

@@ -1,29 +1,23 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { Confirm } from '../AlertConfirm';
+import { Alert } from '../Alert';
 
-describe('Confirm', () => {
+describe('Alert', () => {
     const mockOnAccept = jest.fn();
-    const mockOnCancel = jest.fn();
     let wrapper;
 
     beforeEach(() => {
         wrapper = mount(
-            <Confirm
-                isOpen
-                acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
-                cancelButton={{ onClick: mockOnCancel, label: 'Cancel' }}
-                ariaHideApp={false}
-            >
-                Body of the confirm
-            </Confirm>
+            <Alert isOpen acceptButton={{ onClick: mockOnAccept, label: 'OK' }} ariaHideApp={false}>
+                Body of the alert
+            </Alert>
         );
     });
 
     it('should render correctly', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('Heading')).toHaveLength(0);
-        expect(wrapper.find('Button')).toHaveLength(2);
+        expect(wrapper.find('Button')).toHaveLength(1);
     });
     it('should render correctly with title', () => {
         wrapper.setProps({ title: 'Title' });
@@ -33,11 +27,7 @@ describe('Confirm', () => {
         expect(wrapper.find('Heading')).toHaveLength(1);
     });
     it('should call onAccept cb when button is clicked', () => {
-        wrapper.find('Button').at(1).simulate('click');
+        wrapper.find('Button').simulate('click');
         expect(mockOnAccept).toHaveBeenCalledTimes(1);
-    });
-    it('should call onAccept cb when button is clicked', () => {
-        wrapper.find('Button').at(0).simulate('click');
-        expect(mockOnCancel).toHaveBeenCalledTimes(1);
     });
 });

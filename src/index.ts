@@ -29,7 +29,6 @@ export { TextArea } from './components/TextArea';
 export { PageWidthRestrictor, BlockWidthRestrictor } from './components/WidthRestrictor';
 export { PopupBase } from './components/PopupBase';
 // Molecules
-export { Alert, Confirm } from './components/AlertConfirm';
 export * from './components/BulkActionsToolbar';
 export { ButtonGroup } from './components/ButtonGroup';
 export { Checkbox } from './components/Checkbox';
@@ -52,6 +51,7 @@ export { Tooltip } from './components/Tooltip';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
 export { WeightedResultBar } from './components/WeightedResultBar';
 // Organisms
+export { Alert, Confirm } from './components/Dialogs';
 export { AutosuggestDeprecated, ItemTag } from './components/AutosuggestDeprecated';
 export {
     SelectBase,

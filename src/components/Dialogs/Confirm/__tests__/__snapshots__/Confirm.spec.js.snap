@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Alert should render correctly 1`] = `
-<Alert
+exports[`Confirm should render correctly 1`] = `
+<Confirm
   acceptButton={
     Object {
       "label": "OK",
@@ -9,6 +9,12 @@ exports[`Alert should render correctly 1`] = `
     }
   }
   ariaHideApp={false}
+  cancelButton={
+    Object {
+      "label": "Cancel",
+      "onClick": [MockFunction],
+    }
+  }
   isOpen={true}
 >
   <Dialog
@@ -19,11 +25,17 @@ exports[`Alert should render correctly 1`] = `
       }
     }
     ariaHideApp={false}
+    cancelButton={
+      Object {
+        "label": "Cancel",
+        "onClick": [MockFunction],
+      }
+    }
     isOpen={true}
   >
     <Modal
       ariaHideApp={false}
-      className="Alert"
+      className="Dialog"
       isOpen={true}
       isPositionFixed={false}
     >
@@ -33,7 +45,7 @@ exports[`Alert should render correctly 1`] = `
         className={
           Object {
             "afterOpen": "Modal__content--entered",
-            "base": "Modal__content Alert",
+            "base": "Modal__content Dialog",
             "beforeClose": "Modal__content--exited",
           }
         }
@@ -66,21 +78,27 @@ exports[`Alert should render correctly 1`] = `
                 class="Modal__overlay Modal__overlay--entered"
               >
                 <div
-                  class="Modal__content Alert Modal__content--entered"
+                  class="Modal__content Dialog Modal__content--entered"
                   role="dialog"
                   tabindex="-1"
                 >
                   <div
-                    class="Alert__content"
+                    class="Dialog__content"
                     role="alert"
                   >
-                    Body of the alert
+                    Body of the confirm
                   </div>
                   <div
-                    class="Alert__actions"
+                    class="Dialog__actions"
                   >
                     <button
-                      class="Button Button--context_brand"
+                      class="Button Button--context_link"
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      class="Button Button--context_primary"
                       type="button"
                     >
                       OK
@@ -97,7 +115,7 @@ exports[`Alert should render correctly 1`] = `
             className={
               Object {
                 "afterOpen": "Modal__content--entered",
-                "base": "Modal__content Alert",
+                "base": "Modal__content Dialog",
                 "beforeClose": "Modal__content--exited",
               }
             }
@@ -160,7 +178,7 @@ exports[`Alert should render correctly 1`] = `
               style={Object {}}
             >
               <div
-                className="Modal__content Alert Modal__content--entered"
+                className="Modal__content Dialog Modal__content--entered"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onMouseDown={[Function]}
@@ -170,16 +188,16 @@ exports[`Alert should render correctly 1`] = `
                 tabIndex="-1"
               >
                 <div
-                  className="Alert__content"
+                  className="Dialog__content"
                   role="alert"
                 >
-                  Body of the alert
+                  Body of the confirm
                 </div>
                 <div
-                  className="Alert__actions"
+                  className="Dialog__actions"
                 >
                   <Button
-                    context="brand"
+                    context="link"
                     disabled={false}
                     isBlock={false}
                     isInline={false}
@@ -188,7 +206,25 @@ exports[`Alert should render correctly 1`] = `
                     type="button"
                   >
                     <button
-                      className="Button Button--context_brand"
+                      className="Button Button--context_link"
+                      disabled={false}
+                      onClick={[MockFunction]}
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                  </Button>
+                  <Button
+                    context="primary"
+                    disabled={false}
+                    isBlock={false}
+                    isInline={false}
+                    onClick={[MockFunction]}
+                    size="normal"
+                    type="button"
+                  >
+                    <button
+                      className="Button Button--context_primary"
                       disabled={false}
                       onClick={[MockFunction]}
                       type="button"
@@ -204,11 +240,11 @@ exports[`Alert should render correctly 1`] = `
       </Modal>
     </Modal>
   </Dialog>
-</Alert>
+</Confirm>
 `;
 
-exports[`Alert should render correctly with title 1`] = `
-<Alert
+exports[`Confirm should render correctly with title 1`] = `
+<Confirm
   acceptButton={
     Object {
       "label": "OK",
@@ -216,6 +252,12 @@ exports[`Alert should render correctly with title 1`] = `
     }
   }
   ariaHideApp={false}
+  cancelButton={
+    Object {
+      "label": "Cancel",
+      "onClick": [MockFunction],
+    }
+  }
   isOpen={true}
   title="Title"
 >
@@ -227,12 +269,18 @@ exports[`Alert should render correctly with title 1`] = `
       }
     }
     ariaHideApp={false}
+    cancelButton={
+      Object {
+        "label": "Cancel",
+        "onClick": [MockFunction],
+      }
+    }
     isOpen={true}
     title="Title"
   >
     <Modal
       ariaHideApp={false}
-      className="Alert"
+      className="Dialog"
       isOpen={true}
       isPositionFixed={false}
     >
@@ -242,7 +290,7 @@ exports[`Alert should render correctly with title 1`] = `
         className={
           Object {
             "afterOpen": "Modal__content--entered",
-            "base": "Modal__content Alert",
+            "base": "Modal__content Dialog",
             "beforeClose": "Modal__content--exited",
           }
         }
@@ -275,26 +323,32 @@ exports[`Alert should render correctly with title 1`] = `
                 class="Modal__overlay Modal__overlay--entered"
               >
                 <div
-                  class="Modal__content Alert Modal__content--entered"
+                  class="Modal__content Dialog Modal__content--entered"
                   role="dialog"
                   tabindex="-1"
                 >
                   <div
-                    class="Alert__content"
+                    class="Dialog__content"
                     role="alert"
                   >
                     <h2
-                      class="Heading Heading--level_h2 Alert__title"
+                      class="Heading Heading--level_h2 Dialog__title"
                     >
                       Title
                     </h2>
-                    Body of the alert
+                    Body of the confirm
                   </div>
                   <div
-                    class="Alert__actions"
+                    class="Dialog__actions"
                   >
                     <button
-                      class="Button Button--context_brand"
+                      class="Button Button--context_link"
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      class="Button Button--context_primary"
                       type="button"
                     >
                       OK
@@ -311,7 +365,7 @@ exports[`Alert should render correctly with title 1`] = `
             className={
               Object {
                 "afterOpen": "Modal__content--entered",
-                "base": "Modal__content Alert",
+                "base": "Modal__content Dialog",
                 "beforeClose": "Modal__content--exited",
               }
             }
@@ -374,7 +428,7 @@ exports[`Alert should render correctly with title 1`] = `
               style={Object {}}
             >
               <div
-                className="Modal__content Alert Modal__content--entered"
+                className="Modal__content Dialog Modal__content--entered"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onMouseDown={[Function]}
@@ -384,28 +438,28 @@ exports[`Alert should render correctly with title 1`] = `
                 tabIndex="-1"
               >
                 <div
-                  className="Alert__content"
+                  className="Dialog__content"
                   role="alert"
                 >
                   <Heading
                     align="left"
-                    className="Alert__title"
+                    className="Dialog__title"
                     context="default"
                     level="h2"
                   >
                     <h2
-                      className="Heading Heading--level_h2 Alert__title"
+                      className="Heading Heading--level_h2 Dialog__title"
                     >
                       Title
                     </h2>
                   </Heading>
-                  Body of the alert
+                  Body of the confirm
                 </div>
                 <div
-                  className="Alert__actions"
+                  className="Dialog__actions"
                 >
                   <Button
-                    context="brand"
+                    context="link"
                     disabled={false}
                     isBlock={false}
                     isInline={false}
@@ -414,7 +468,25 @@ exports[`Alert should render correctly with title 1`] = `
                     type="button"
                   >
                     <button
-                      className="Button Button--context_brand"
+                      className="Button Button--context_link"
+                      disabled={false}
+                      onClick={[MockFunction]}
+                      type="button"
+                    >
+                      Cancel
+                    </button>
+                  </Button>
+                  <Button
+                    context="primary"
+                    disabled={false}
+                    isBlock={false}
+                    isInline={false}
+                    onClick={[MockFunction]}
+                    size="normal"
+                    type="button"
+                  >
+                    <button
+                      className="Button Button--context_primary"
                       disabled={false}
                       onClick={[MockFunction]}
                       type="button"
@@ -430,5 +502,5 @@ exports[`Alert should render correctly with title 1`] = `
       </Modal>
     </Modal>
   </Dialog>
-</Alert>
+</Confirm>
 `;
