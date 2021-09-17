@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { Chip, IconMatch } from '@textkernel/oneui';
 
-storiesOf('Atoms|Chip', module)
+storiesOf('Atoms/Chip', module)
     .addDecorator(withKnobs)
     .add('Chip', () => (
         <>

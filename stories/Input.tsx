@@ -11,7 +11,7 @@ const validationContextOptions = {
     Warning: 'warning',
 } as const;
 
-storiesOf('Atoms|Input', module)
+storiesOf('Atoms/Input', module)
     .addDecorator(withKnobs)
     .add('Default behavior', () => (
         <Input

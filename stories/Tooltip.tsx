@@ -4,7 +4,7 @@ import { withKnobs, select, text, boolean } from '@storybook/addon-knobs';
 import { Tooltip } from '@textkernel/oneui';
 import { POPUP_PLACEMENTS } from '../src/constants';
 
-storiesOf('Molecules|Tooltip', module)
+storiesOf('Molecules/Tooltip', module)
     .addDecorator(withKnobs)
     .add(
         'Tooltip',

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { Alert, Confirm, Button } from '@textkernel/oneui';
 
-storiesOf('Organisms|Dialogs', module)
+storiesOf('Organisms/Dialogs', module)
     .addDecorator(withKnobs)
     .add('Alert', () => {
         const [showAlert, setShowAlert] = React.useState(false);

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { BulkActionsToolbar } from '@textkernel/oneui';
 
-storiesOf('Molecules|BulkActionsToolbar', module)
+storiesOf('Molecules/BulkActionsToolbar', module)
     .addDecorator(withKnobs)
     .add('BulkActionsToolbar', () => {
         const hasSelection = boolean('Has selection', true);

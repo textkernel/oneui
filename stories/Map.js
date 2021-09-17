@@ -5,7 +5,7 @@ import { MapWithGoogleLoader } from '@textkernel/oneui';
 import { ensureApiKey } from './utils/ensureApiKey';
 import NL_PATHS from './static/gadm36_NLD_0.json';
 
-storiesOf('Atoms|Map', module)
+storiesOf('Atoms/Map', module)
     .addDecorator(withKnobs)
     .add(
         'Map',

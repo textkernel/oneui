@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { text, select, withKnobs } from '@storybook/addon-knobs';
 import { Link } from '@textkernel/oneui';
 
-storiesOf('Atoms|Link', module)
+storiesOf('Atoms/Link', module)
     .addDecorator(withKnobs)
     .add('Link', () => (
         <Link

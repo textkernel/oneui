@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { FieldWrapper, Text } from '@textkernel/oneui';
 
-storiesOf('Molecules|FieldWrapper', module)
+storiesOf('Molecules/FieldWrapper', module)
     .addDecorator(withKnobs)
     .add('FieldWrapper', () => {
         return (

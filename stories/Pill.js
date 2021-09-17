@@ -10,7 +10,7 @@ const DummyComponent = (props) => (
     </>
 );
 
-storiesOf('Molecules|Pill', module)
+storiesOf('Molecules/Pill', module)
     .addDecorator(withKnobs)
     .add('PillButton', () => (
         <div style={{ display: 'flex' }}>

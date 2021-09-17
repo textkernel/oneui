@@ -4,7 +4,7 @@ import { boolean, number, select, text, withKnobs } from '@storybook/addon-knobs
 import { LoadingSpinner } from '@textkernel/oneui';
 import { CONTEXTS } from '@textkernel/oneui/constants';
 
-storiesOf('Molecules|LoadingSpinner', module)
+storiesOf('Molecules/LoadingSpinner', module)
     .addDecorator(withKnobs)
     .add('LoadingSpinner', () => {
         const label = text('Label', 'Loading...');

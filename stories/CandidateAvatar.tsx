@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 import { CandidateAvatar } from '@textkernel/oneui';
 
-storiesOf('Atoms|CandidateAvatar', module)
+storiesOf('Atoms/CandidateAvatar', module)
     .addDecorator(withKnobs)
     .add('CandidateAvatar', () => (
         <CandidateAvatar

@@ -4,7 +4,7 @@ import { select, text, withKnobs } from '@storybook/addon-knobs';
 import { Heading } from '@textkernel/oneui';
 import { HEADING_SIZES, CONTEXTS } from '@textkernel/oneui/constants';
 
-storiesOf('Atoms|Heading', module)
+storiesOf('Atoms/Heading', module)
     .addDecorator(withKnobs)
     .add('Heading', () => (
         <Heading

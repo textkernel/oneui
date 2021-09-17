@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { TwoPaneView, RightPane, LeftPane } from '@textkernel/oneui';
 
-storiesOf('Molecules|TwoPaneView', module)
+storiesOf('Molecules/TwoPaneView', module)
     .addDecorator(withKnobs)
     .add('TwoPaneView', () => (
         <TwoPaneView>

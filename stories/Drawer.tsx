@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
 import { Drawer } from '@textkernel/oneui';
 
-storiesOf('Atoms|Drawer', module)
+storiesOf('Atoms/Drawer', module)
     .addDecorator(withKnobs)
     .add(
         'Drawer',

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, number, boolean } from '@storybook/addon-knobs';
 import { WeightedResultBar, Button } from '@textkernel/oneui';
 
-storiesOf('Molecules|WeightedResultBar', module)
+storiesOf('Molecules/WeightedResultBar', module)
     .addDecorator(withKnobs)
     .add('WeightedResultBar', () => {
         const loading = boolean('Loading', false);

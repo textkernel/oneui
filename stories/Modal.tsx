@@ -4,7 +4,7 @@ import { text, withKnobs } from '@storybook/addon-knobs';
 import { Modal, Button } from '@textkernel/oneui';
 import { StoreInjector } from '../src/packages/storybook/withStore';
 
-storiesOf('Atoms|Modal', module)
+storiesOf('Atoms/Modal', module)
     .addDecorator(withKnobs)
     .addParameters(
         StoreInjector.withStore({

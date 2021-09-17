@@ -11,7 +11,7 @@ const HIGHLIGHT_STYLES = {
     backgroundColor: 'lightyellow',
 } as CSSStyleDeclaration;
 
-storiesOf('Atoms|Highlighter', module)
+storiesOf('Atoms/Highlighter', module)
     .addDecorator(withKnobs)
     .add('StringHighlighter', () => {
         const ACCURACY = ['exact', 'partial'];

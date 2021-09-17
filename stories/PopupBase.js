@@ -5,7 +5,7 @@ import { PopupBase, Button } from '@textkernel/oneui';
 import { POPUP_PLACEMENTS } from '../src/constants';
 import { PopoverDummy } from '../src/components/PopupBase/__mocks__/PopoverDummy';
 
-storiesOf('Atoms|PopupBase', module)
+storiesOf('Atoms/PopupBase', module)
     .addDecorator(withKnobs)
     .add('PopupBase', () => (
         <div style={{ textAlign: 'center' }}>

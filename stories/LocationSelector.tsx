@@ -27,7 +27,7 @@ const selectedLocations = [
     },
 ];
 
-storiesOf('Organisms|LocationSelector', module)
+storiesOf('Organisms/LocationSelector', module)
     .addDecorator(withKnobs)
     .addParameters(
         StoreInjector.withStore({
