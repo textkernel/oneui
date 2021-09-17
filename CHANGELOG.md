@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.0.0](https://github.com/textkernel/oneui/compare/14.1.0...15.0.0) (2021-09-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Alert:** Alert dialog API has been completely revised.
+
+### Features
+
+* **Alert:** reimplement Alert and add Confirm dialog ([#595](https://github.com/textkernel/oneui/issues/595)) ([a781aaa](https://github.com/textkernel/oneui/commit/a781aaa1e3cd65bed47463f6d913ec520a65d8e2))
+* **NumericStepper:** add NumericStepper component ([#589](https://github.com/textkernel/oneui/issues/589)) ([43b318c](https://github.com/textkernel/oneui/commit/43b318ce716b13745102c6ac580f14e284d02f85))
+* **Tabs:** allow passing custom TS types ([#596](https://github.com/textkernel/oneui/issues/596)) ([be28713](https://github.com/textkernel/oneui/commit/be28713c483552f0c0fe8fbc513e7e574503406f))
+
 ## [14.1.0](https://github.com/textkernel/oneui/compare/14.0.0...14.1.0) (2021-08-16)
 
 
