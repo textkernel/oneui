@@ -26,7 +26,6 @@ import './Text';
 import './TextArea';
 import './WidthRestrictor';
 // Molecules
-import './Alert';
 import './BulkActionsToolbar';
 import './ButtonGroup';
 import './Checkbox';
@@ -49,6 +48,7 @@ import './Tooltip';
 import './TwoPaneView';
 import './WeightedResultBar';
 // Organisms
+import './Dialogs';
 import './AutosuggestDeprecated';
 import './Select';
 import './LocationAutocomplete';
