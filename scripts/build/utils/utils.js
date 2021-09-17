@@ -44,7 +44,9 @@ function getRuleSCSS({ styleLoader, localIdentName, includePaths }) {
             {
                 loader: 'postcss-loader',
                 options: {
-                    plugins: [postcssAutoprefixer],
+                    postcssOptions: {
+                        plugins: [postcssAutoprefixer],
+                    },
                 },
             },
             {
