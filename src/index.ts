@@ -4,7 +4,7 @@ export * from './packages/Highlighter';
 export * from './packages/BooleanQueryTokenizer';
 
 // Atoms
-export { Button, SearchButton } from './components/Buttons';
+export { Button, SearchButton, StepperButton } from './components/Buttons';
 export { Callout } from './components/Callout';
 export { CandidateAvatar } from './components/CandidateAvatar';
 export { Chip } from './components/Chip';
@@ -50,6 +50,7 @@ export { Toggle } from './components/Toggle';
 export { Tooltip } from './components/Tooltip';
 export { RightPane, LeftPane, TwoPaneView } from './components/TwoPaneView';
 export { WeightedResultBar } from './components/WeightedResultBar';
+export { NumericStepper } from './components/NumericStepper';
 // Organisms
 export { Alert, Confirm } from './components/Dialogs';
 export { AutosuggestDeprecated, ItemTag } from './components/AutosuggestDeprecated';
