@@ -39,31 +39,34 @@ const tsDocRule = {
     ],
 };
 
-module.exports = ({ config: storybookBaseConfig }) => {
-    // Resolve OneUI package
-    storybookBaseConfig.resolve.alias['@textkernel/oneui'] = path.resolve(__dirname, '../src');
+module.exports = ({ config: storybookBaseConfig }) => ({
+    ...storybookBaseConfig,
+
+    resolve: {
+        ...storybookBaseConfig.resolve,
+        alias: {
+            ...storybookBaseConfig.resolve.alias,
+            "@textkernel/oneui": path.resolve(__dirname, '../src') // Resolve OneUI package
+        },
+        modules: [
+            ...storybookBaseConfig.resolve.modules,
+            ...devConfig.resolve.modules,
+        ],
+        extensions: [
+            ...storybookBaseConfig.resolve.extensions,
+            ...devConfig.resolve.extensions
+        ]
+    },
 
     // Merge loader rules config
-    storybookBaseConfig.module.rules = [
-        ...storybookBaseConfig.module.rules,
-        rules.js,
-        tsCommonJSRule, // Storybook supports only commonJS module
-        tsDocRule, // Generate docgen information from Typescript React components
-        rules.scss,
-    ];
-
-    // Merge resolvers config
-    storybookBaseConfig.resolve.modules = [
-        ...storybookBaseConfig.resolve.modules,
-        ...devConfig.resolve.modules,
-    ];
-
-    // Merge resolver extensions config
-    storybookBaseConfig.resolve.extensions = [
-        ...storybookBaseConfig.resolve.extensions,
-        ...devConfig.resolve.extensions
-    ];
-
-    // Return the altered config
-    return storybookBaseConfig;
-};
+    module: {
+        ...storybookBaseConfig.module,
+        rules: [
+            ...storybookBaseConfig.module.rules,
+            rules.js,
+            tsCommonJSRule, // Storybook supports only commonJS module
+            tsDocRule, // Generate docgen information from Typescript React components
+            rules.scss,
+        ],
+    }
+});
