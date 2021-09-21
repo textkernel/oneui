@@ -73,11 +73,11 @@
         "react-transition-group": "^4.3.0"
     },
     "devDependencies": {
-        "@babel/cli": "7.15.4",
+        "@babel/cli": "7.15.7",
         "@babel/core": "7.15.5",
         "@babel/plugin-proposal-class-properties": "7.14.5",
         "@babel/plugin-proposal-decorators": "7.15.4",
-        "@babel/preset-env": "7.15.4",
+        "@babel/preset-env": "7.15.6",
         "@babel/preset-react": "7.14.5",
         "@sambego/storybook-state": "2.0.1",
         "@storybook/addon-actions": "5.3.21",
