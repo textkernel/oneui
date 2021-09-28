@@ -2,6 +2,7 @@
 
 exports[`Select rendering should initially render correctly 1`] = `
 <Select
+  className=""
   itemToString={[Function]}
   items={
     Array [
@@ -147,6 +148,7 @@ exports[`Select rendering should initially render correctly 1`] = `
 
 exports[`Select rendering should render focused component correctly 1`] = `
 <Select
+  className=""
   itemToString={[Function]}
   items={
     Array [

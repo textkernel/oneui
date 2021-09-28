@@ -28,6 +28,8 @@ interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
     rootRef?: React.RefObject<HTMLDivElement>;
     /** items list ref */
     listRef?: React.RefObject<HTMLUListElement>;
+    /** a class to be applied to the top level div */
+    className?: string;
 }
 
 export function Select<S>(props: Props<S>) {
@@ -41,6 +43,7 @@ export function Select<S>(props: Props<S>) {
         onFocus,
         rootRef,
         listRef,
+        className,
         ...rest
     } = props;
 
@@ -66,7 +69,7 @@ export function Select<S>(props: Props<S>) {
     };
 
     return (
-        <div ref={rootRef} {...rest} {...block()}>
+        <div ref={rootRef} {...rest} {...block({ className })}>
             <div {...elem('main', { isOpen })}>
                 <FieldWrapper isFocused={isOpen} {...elem('field')}>
                     <div
@@ -111,4 +114,5 @@ Select.defaultProps = {
     onBlur: undefined,
     rootRef: undefined,
     listRef: undefined,
+    className: '',
 };
