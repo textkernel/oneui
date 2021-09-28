@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [15.0.1](https://github.com/textkernel/oneui/compare/15.0.0...15.0.1) (2021-09-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @googlemaps/js-api-loader to v1.12.4 ([3c609d4](https://github.com/textkernel/oneui/commit/3c609d4be5d30bb78c738e1fd53325efa7260300))
+* **deps:** update dependency react-modal to ~3.14.0 ([d86ba36](https://github.com/textkernel/oneui/commit/d86ba36aef622d9bfe1566c3643ae548816b0302))
+* **Select:** correctly handle className prop; small css change ([#603](https://github.com/textkernel/oneui/issues/603)) ([7057289](https://github.com/textkernel/oneui/commit/70572892c3f9517e2042ac5e66f0c67cd70b30d2))
+
 ## [15.0.0](https://github.com/textkernel/oneui/compare/14.1.0...15.0.0) (2021-09-17)
 
 
