@@ -4,7 +4,7 @@ import styles from './NumericStepper.scss';
 
 import { StepperButton } from '../Buttons';
 
-interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /**
      * Callback is called when user changes component value by using built-in controls
      */
@@ -29,6 +29,10 @@ interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onCha
      * De-facto CSS property that sets custom width for input
      */
     customWidth?: string;
+    /**
+     * class to be applied to the component
+     */
+    className?: string;
 }
 
 const { block, elem } = bem('NumericStepper', styles);
@@ -41,6 +45,8 @@ export const NumericStepper: React.FC<Props> = (props) => {
         maxValue = Number.MAX_SAFE_INTEGER,
         defaultValue = 0,
         customWidth = '3ch',
+        className = '',
+        ...rest
     } = props;
 
     const [currentValue, setCurrentValue] = React.useState<number>(defaultValue || minValue);
@@ -110,7 +116,7 @@ export const NumericStepper: React.FC<Props> = (props) => {
     };
 
     return (
-        <div {...block(props)}>
+        <div {...rest} {...block(className)}>
             <StepperButton
                 icon="minus"
                 onClick={handleStepDown}
@@ -144,4 +150,5 @@ NumericStepper.defaultProps = {
     minValue: 0,
     maxValue: Number.MAX_SAFE_INTEGER,
     customWidth: '3ch',
+    className: '',
 };

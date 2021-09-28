@@ -2,6 +2,7 @@
 
 exports[`<NumericStepper> component should render correctly 1`] = `
 <NumericStepper
+  className=""
   customWidth="3ch"
   defaultValue={0}
   maxValue={9007199254740991}
