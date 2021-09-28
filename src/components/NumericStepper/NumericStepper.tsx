@@ -45,7 +45,7 @@ export const NumericStepper: React.FC<Props> = (props) => {
         maxValue = Number.MAX_SAFE_INTEGER,
         defaultValue = 0,
         customWidth = '3ch',
-        className = '',
+        className,
         ...rest
     } = props;
 
@@ -150,5 +150,5 @@ NumericStepper.defaultProps = {
     minValue: 0,
     maxValue: Number.MAX_SAFE_INTEGER,
     customWidth: '3ch',
-    className: '',
+    className: undefined,
 };
