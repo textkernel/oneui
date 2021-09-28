@@ -235,4 +235,38 @@ describe('<NumericStepper> component', () => {
          * I've tried multiple ways to do it, and don't want to spend way more time on that.
          */
     });
+    describe('when props change', () => {
+        beforeEach(() => {
+            wrapper = mount(
+                <NumericStepper
+                    onChange={onChangeMock}
+                    step={2}
+                    minValue={3}
+                    maxValue={10}
+                    defaultValue={6}
+                />
+            );
+        });
+        it('should set the displayed value to the defaultValue', () => {
+            expect(wrapper.find('input').prop('value')).toBe('6');
+
+            wrapper.setProps({ defaultValue: 7 });
+            wrapper.update();
+            expect(wrapper.find('input').prop('value')).toBe('7');
+        });
+        it('should set the displayed value to max allowed if it set to lower then current value', () => {
+            expect(wrapper.find('input').prop('value')).toBe('6');
+
+            wrapper.setProps({ maxValue: 5 });
+            wrapper.update();
+            expect(wrapper.find('input').prop('value')).toBe('5');
+        });
+        it('should set the displayed value to min allowed if it set to higher then current value', () => {
+            expect(wrapper.find('input').prop('value')).toBe('6');
+
+            wrapper.setProps({ minValue: 8 });
+            wrapper.update();
+            expect(wrapper.find('input').prop('value')).toBe('8');
+        });
+    });
 });

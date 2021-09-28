@@ -22,7 +22,7 @@ interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onCha
      */
     maxValue?: number;
     /**
-     * The value stepping starts from
+     * The value stepping starts from, if updated will also reset the current value
      */
     defaultValue?: number;
     /**
@@ -45,6 +45,28 @@ export const NumericStepper: React.FC<Props> = (props) => {
 
     const [currentValue, setCurrentValue] = React.useState<number>(defaultValue || minValue);
     const [inputValue, setInputValue] = React.useState<string>(currentValue.toString());
+
+    // set value to default if prop changes
+    React.useEffect(() => {
+        setCurrentValue(defaultValue || 0);
+        setInputValue((defaultValue || 0).toString());
+    }, [defaultValue]);
+
+    // set value to max if prop changes and current value is higher then allowed
+    React.useEffect(() => {
+        if (currentValue > maxValue) {
+            setCurrentValue(maxValue);
+            setInputValue(maxValue.toString());
+        }
+    }, [maxValue, currentValue]);
+
+    // set value to max if prop changes and current value is higher then allowed
+    React.useEffect(() => {
+        if (currentValue < minValue) {
+            setCurrentValue(minValue);
+            setInputValue(minValue.toString());
+        }
+    }, [minValue, currentValue]);
 
     const onValueUpdate = (value: number) => {
         setInputValue(value.toString());
