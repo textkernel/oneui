@@ -4,7 +4,7 @@ import styles from './NumericStepper.scss';
 
 import { StepperButton } from '../Buttons';
 
-interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /**
      * Callback is called when user changes component value by using built-in controls
      */
@@ -22,13 +22,17 @@ interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onCha
      */
     maxValue?: number;
     /**
-     * The value stepping starts from
+     * The value stepping starts from, if updated will also reset the current value
      */
     defaultValue?: number;
     /**
      * De-facto CSS property that sets custom width for input
      */
     customWidth?: string;
+    /**
+     * class to be applied to the component
+     */
+    className?: string;
 }
 
 const { block, elem } = bem('NumericStepper', styles);
@@ -41,10 +45,34 @@ export const NumericStepper: React.FC<Props> = (props) => {
         maxValue = Number.MAX_SAFE_INTEGER,
         defaultValue = 0,
         customWidth = '3ch',
+        className,
+        ...rest
     } = props;
 
     const [currentValue, setCurrentValue] = React.useState<number>(defaultValue || minValue);
     const [inputValue, setInputValue] = React.useState<string>(currentValue.toString());
+
+    // set value to default if prop changes
+    React.useEffect(() => {
+        setCurrentValue(defaultValue || 0);
+        setInputValue((defaultValue || 0).toString());
+    }, [defaultValue]);
+
+    // set value to max if prop changes and current value is higher then allowed
+    React.useEffect(() => {
+        if (currentValue > maxValue) {
+            setCurrentValue(maxValue);
+            setInputValue(maxValue.toString());
+        }
+    }, [maxValue, currentValue]);
+
+    // set value to max if prop changes and current value is higher then allowed
+    React.useEffect(() => {
+        if (currentValue < minValue) {
+            setCurrentValue(minValue);
+            setInputValue(minValue.toString());
+        }
+    }, [minValue, currentValue]);
 
     const onValueUpdate = (value: number) => {
         setInputValue(value.toString());
@@ -88,7 +116,7 @@ export const NumericStepper: React.FC<Props> = (props) => {
     };
 
     return (
-        <div {...block(props)}>
+        <div {...rest} {...block(className)}>
             <StepperButton
                 icon="minus"
                 onClick={handleStepDown}
@@ -122,4 +150,5 @@ NumericStepper.defaultProps = {
     minValue: 0,
     maxValue: Number.MAX_SAFE_INTEGER,
     customWidth: '3ch',
+    className: undefined,
 };
