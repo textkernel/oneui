@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [15.0.2](https://github.com/textkernel/oneui/compare/15.0.1...15.0.2) (2021-09-29)
+
+
+### Bug Fixes
+
+* **NumericStepper:** update component state if props change ([#604](https://github.com/textkernel/oneui/issues/604)) ([036c9d8](https://github.com/textkernel/oneui/commit/036c9d81e656bb2390e024395e4682747a5a0826))
+
 ### [15.0.1](https://github.com/textkernel/oneui/compare/15.0.0...15.0.1) (2021-09-28)
 
 
