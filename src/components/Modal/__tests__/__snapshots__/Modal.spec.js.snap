@@ -12,7 +12,6 @@ exports[`Modal should render correctly 1`] = `
     }
   }
   closeTimeoutMS={300}
-  contentElement={[Function]}
   contentLabel="Content label"
   isOpen={true}
   isPositionFixed={false}
@@ -24,11 +23,9 @@ exports[`Modal should render correctly 1`] = `
       "beforeClose": "Modal__overlay--exited",
     }
   }
-  overlayElement={[Function]}
   overlayRef={[Function]}
   parentSelector={[Function]}
   portalClassName="ReactModalPortal"
-  preventScroll={false}
   role="dialog"
   shouldCloseOnEsc={true}
   shouldCloseOnOverlayClick={true}

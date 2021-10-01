@@ -159,7 +159,6 @@ exports[`LocationSelector component should render LocationSelector properly when
           }
         }
         closeTimeoutMS={300}
-        contentElement={[Function]}
         contentLabel="Location selection dialog"
         isOpen={true}
         isPositionFixed={true}
@@ -172,11 +171,9 @@ exports[`LocationSelector component should render LocationSelector properly when
             "beforeClose": "Modal__overlay--exited",
           }
         }
-        overlayElement={[Function]}
         overlayRef={[Function]}
         parentSelector={[Function]}
         portalClassName="ReactModalPortal"
-        preventScroll={false}
         role="dialog"
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
@@ -189,12 +186,11 @@ exports[`LocationSelector component should render LocationSelector properly when
               class="ReactModalPortal"
             >
               <div
-                class="Modal__overlay"
+                class="Modal__overlay Modal__overlay--entered"
               >
                 <div
                   aria-label="Location selection dialog"
-                  aria-modal="true"
-                  class="Modal__content Modal__content--isPositionFixed LocationSelector__modal"
+                  class="Modal__content Modal__content--isPositionFixed LocationSelector__modal Modal__content--entered"
                   role="dialog"
                   tabindex="-1"
                 >
@@ -234,7 +230,6 @@ exports[`LocationSelector component should render LocationSelector properly when
               }
             }
             closeTimeoutMS={300}
-            contentElement={[Function]}
             contentLabel="Location selection dialog"
             defaultStyles={
               Object {
@@ -273,11 +268,9 @@ exports[`LocationSelector component should render LocationSelector properly when
                 "beforeClose": "Modal__overlay--exited",
               }
             }
-            overlayElement={[Function]}
             overlayRef={[Function]}
             parentSelector={[Function]}
             portalClassName="ReactModalPortal"
-            preventScroll={false}
             role="dialog"
             shouldCloseOnEsc={true}
             shouldCloseOnOverlayClick={true}
@@ -291,15 +284,14 @@ exports[`LocationSelector component should render LocationSelector properly when
             }
           >
             <div
-              className="Modal__overlay"
+              className="Modal__overlay Modal__overlay--entered"
               onClick={[Function]}
               onMouseDown={[Function]}
               style={Object {}}
             >
               <div
                 aria-label="Location selection dialog"
-                aria-modal={true}
-                className="Modal__content Modal__content--isPositionFixed LocationSelector__modal"
+                className="Modal__content Modal__content--isPositionFixed LocationSelector__modal Modal__content--entered"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onMouseDown={[Function]}
@@ -582,7 +574,6 @@ exports[`LocationSelector component should render LocationSelector propertly whe
           }
         }
         closeTimeoutMS={300}
-        contentElement={[Function]}
         contentLabel="Location selection dialog"
         isOpen={false}
         isPositionFixed={true}
@@ -595,11 +586,9 @@ exports[`LocationSelector component should render LocationSelector propertly whe
             "beforeClose": "Modal__overlay--exited",
           }
         }
-        overlayElement={[Function]}
         overlayRef={[Function]}
         parentSelector={[Function]}
         portalClassName="ReactModalPortal"
-        preventScroll={false}
         role="dialog"
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
@@ -624,7 +613,6 @@ exports[`LocationSelector component should render LocationSelector propertly whe
               }
             }
             closeTimeoutMS={300}
-            contentElement={[Function]}
             contentLabel="Location selection dialog"
             defaultStyles={
               Object {
@@ -663,11 +651,9 @@ exports[`LocationSelector component should render LocationSelector propertly whe
                 "beforeClose": "Modal__overlay--exited",
               }
             }
-            overlayElement={[Function]}
             overlayRef={[Function]}
             parentSelector={[Function]}
             portalClassName="ReactModalPortal"
-            preventScroll={false}
             role="dialog"
             shouldCloseOnEsc={true}
             shouldCloseOnOverlayClick={true}
