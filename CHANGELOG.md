@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [15.0.3](https://github.com/textkernel/oneui/compare/15.0.2...15.0.3) (2021-10-01)
+
+
+### Bug Fixes
+
+* **react-modal:** Revert react modal upgrade ([#606](https://github.com/textkernel/oneui/issues/606)) ([e1368fc](https://github.com/textkernel/oneui/commit/e1368fcf3a9383915f69690beec05894c14cc566))
+
 ### [15.0.2](https://github.com/textkernel/oneui/compare/15.0.1...15.0.2) (2021-09-29)
 
 
