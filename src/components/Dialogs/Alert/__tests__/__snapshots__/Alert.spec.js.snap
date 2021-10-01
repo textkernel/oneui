@@ -38,7 +38,6 @@ exports[`Alert should render correctly 1`] = `
           }
         }
         closeTimeoutMS={300}
-        contentElement={[Function]}
         isOpen={true}
         isPositionFixed={false}
         onAfterOpen={[Function]}
@@ -49,11 +48,9 @@ exports[`Alert should render correctly 1`] = `
             "beforeClose": "Modal__overlay--exited",
           }
         }
-        overlayElement={[Function]}
         overlayRef={[Function]}
         parentSelector={[Function]}
         portalClassName="ReactModalPortal"
-        preventScroll={false}
         role="dialog"
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
@@ -66,11 +63,10 @@ exports[`Alert should render correctly 1`] = `
               class="ReactModalPortal"
             >
               <div
-                class="Modal__overlay"
+                class="Modal__overlay Modal__overlay--entered"
               >
                 <div
-                  aria-modal="true"
-                  class="Modal__content Dialog"
+                  class="Modal__content Dialog Modal__content--entered"
                   role="dialog"
                   tabindex="-1"
                 >
@@ -106,7 +102,6 @@ exports[`Alert should render correctly 1`] = `
               }
             }
             closeTimeoutMS={300}
-            contentElement={[Function]}
             defaultStyles={
               Object {
                 "content": Object {
@@ -143,11 +138,9 @@ exports[`Alert should render correctly 1`] = `
                 "beforeClose": "Modal__overlay--exited",
               }
             }
-            overlayElement={[Function]}
             overlayRef={[Function]}
             parentSelector={[Function]}
             portalClassName="ReactModalPortal"
-            preventScroll={false}
             role="dialog"
             shouldCloseOnEsc={true}
             shouldCloseOnOverlayClick={true}
@@ -161,14 +154,13 @@ exports[`Alert should render correctly 1`] = `
             }
           >
             <div
-              className="Modal__overlay"
+              className="Modal__overlay Modal__overlay--entered"
               onClick={[Function]}
               onMouseDown={[Function]}
               style={Object {}}
             >
               <div
-                aria-modal={true}
-                className="Modal__content Dialog"
+                className="Modal__content Dialog Modal__content--entered"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onMouseDown={[Function]}
@@ -255,7 +247,6 @@ exports[`Alert should render correctly with title 1`] = `
           }
         }
         closeTimeoutMS={300}
-        contentElement={[Function]}
         isOpen={true}
         isPositionFixed={false}
         onAfterOpen={[Function]}
@@ -266,11 +257,9 @@ exports[`Alert should render correctly with title 1`] = `
             "beforeClose": "Modal__overlay--exited",
           }
         }
-        overlayElement={[Function]}
         overlayRef={[Function]}
         parentSelector={[Function]}
         portalClassName="ReactModalPortal"
-        preventScroll={false}
         role="dialog"
         shouldCloseOnEsc={true}
         shouldCloseOnOverlayClick={true}
@@ -283,11 +272,10 @@ exports[`Alert should render correctly with title 1`] = `
               class="ReactModalPortal"
             >
               <div
-                class="Modal__overlay"
+                class="Modal__overlay Modal__overlay--entered"
               >
                 <div
-                  aria-modal="true"
-                  class="Modal__content Dialog"
+                  class="Modal__content Dialog Modal__content--entered"
                   role="dialog"
                   tabindex="-1"
                 >
@@ -328,7 +316,6 @@ exports[`Alert should render correctly with title 1`] = `
               }
             }
             closeTimeoutMS={300}
-            contentElement={[Function]}
             defaultStyles={
               Object {
                 "content": Object {
@@ -365,11 +352,9 @@ exports[`Alert should render correctly with title 1`] = `
                 "beforeClose": "Modal__overlay--exited",
               }
             }
-            overlayElement={[Function]}
             overlayRef={[Function]}
             parentSelector={[Function]}
             portalClassName="ReactModalPortal"
-            preventScroll={false}
             role="dialog"
             shouldCloseOnEsc={true}
             shouldCloseOnOverlayClick={true}
@@ -383,14 +368,13 @@ exports[`Alert should render correctly with title 1`] = `
             }
           >
             <div
-              className="Modal__overlay"
+              className="Modal__overlay Modal__overlay--entered"
               onClick={[Function]}
               onMouseDown={[Function]}
               style={Object {}}
             >
               <div
-                aria-modal={true}
-                className="Modal__content Dialog"
+                className="Modal__content Dialog Modal__content--entered"
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 onMouseDown={[Function]}

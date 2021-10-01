@@ -25,7 +25,6 @@ exports[`ProductTour general rendering of first slide should render correctly wi
         }
       }
       closeTimeoutMS={300}
-      contentElement={[Function]}
       isOpen={true}
       isPositionFixed={true}
       onAfterOpen={[Function]}
@@ -37,11 +36,9 @@ exports[`ProductTour general rendering of first slide should render correctly wi
           "beforeClose": "Modal__overlay--exited",
         }
       }
-      overlayElement={[Function]}
       overlayRef={[Function]}
       parentSelector={[Function]}
       portalClassName="ReactModalPortal"
-      preventScroll={false}
       role="dialog"
       shouldCloseOnEsc={true}
       shouldCloseOnOverlayClick={true}
@@ -54,11 +51,10 @@ exports[`ProductTour general rendering of first slide should render correctly wi
             class="ReactModalPortal"
           >
             <div
-              class="Modal__overlay"
+              class="Modal__overlay Modal__overlay--entered"
             >
               <div
-                aria-modal="true"
-                class="Modal__content Modal__content--isPositionFixed ProductTour"
+                class="Modal__content Modal__content--isPositionFixed ProductTour Modal__content--entered"
                 role="dialog"
                 tabindex="-1"
               >
@@ -102,7 +98,6 @@ exports[`ProductTour general rendering of first slide should render correctly wi
             }
           }
           closeTimeoutMS={300}
-          contentElement={[Function]}
           defaultStyles={
             Object {
               "content": Object {
@@ -140,11 +135,9 @@ exports[`ProductTour general rendering of first slide should render correctly wi
               "beforeClose": "Modal__overlay--exited",
             }
           }
-          overlayElement={[Function]}
           overlayRef={[Function]}
           parentSelector={[Function]}
           portalClassName="ReactModalPortal"
-          preventScroll={false}
           role="dialog"
           shouldCloseOnEsc={true}
           shouldCloseOnOverlayClick={true}
@@ -158,14 +151,13 @@ exports[`ProductTour general rendering of first slide should render correctly wi
           }
         >
           <div
-            className="Modal__overlay"
+            className="Modal__overlay Modal__overlay--entered"
             onClick={[Function]}
             onMouseDown={[Function]}
             style={Object {}}
           >
             <div
-              aria-modal={true}
-              className="Modal__content Modal__content--isPositionFixed ProductTour"
+              className="Modal__content Modal__content--isPositionFixed ProductTour Modal__content--entered"
               onClick={[Function]}
               onKeyDown={[Function]}
               onMouseDown={[Function]}
@@ -248,7 +240,6 @@ exports[`ProductTour general rendering of first slide should render correctly wi
         }
       }
       closeTimeoutMS={300}
-      contentElement={[Function]}
       isOpen={true}
       isPositionFixed={true}
       onAfterOpen={[Function]}
@@ -260,11 +251,9 @@ exports[`ProductTour general rendering of first slide should render correctly wi
           "beforeClose": "Modal__overlay--exited",
         }
       }
-      overlayElement={[Function]}
       overlayRef={[Function]}
       parentSelector={[Function]}
       portalClassName="ReactModalPortal"
-      preventScroll={false}
       role="dialog"
       shouldCloseOnEsc={true}
       shouldCloseOnOverlayClick={true}
@@ -277,11 +266,10 @@ exports[`ProductTour general rendering of first slide should render correctly wi
             class="ReactModalPortal"
           >
             <div
-              class="Modal__overlay"
+              class="Modal__overlay Modal__overlay--entered"
             >
               <div
-                aria-modal="true"
-                class="Modal__content Modal__content--isPositionFixed ProductTour"
+                class="Modal__content Modal__content--isPositionFixed ProductTour Modal__content--entered"
                 role="dialog"
                 tabindex="-1"
               >
@@ -389,7 +377,6 @@ exports[`ProductTour general rendering of first slide should render correctly wi
             }
           }
           closeTimeoutMS={300}
-          contentElement={[Function]}
           defaultStyles={
             Object {
               "content": Object {
@@ -427,11 +414,9 @@ exports[`ProductTour general rendering of first slide should render correctly wi
               "beforeClose": "Modal__overlay--exited",
             }
           }
-          overlayElement={[Function]}
           overlayRef={[Function]}
           parentSelector={[Function]}
           portalClassName="ReactModalPortal"
-          preventScroll={false}
           role="dialog"
           shouldCloseOnEsc={true}
           shouldCloseOnOverlayClick={true}
@@ -445,14 +430,13 @@ exports[`ProductTour general rendering of first slide should render correctly wi
           }
         >
           <div
-            className="Modal__overlay"
+            className="Modal__overlay Modal__overlay--entered"
             onClick={[Function]}
             onMouseDown={[Function]}
             style={Object {}}
           >
             <div
-              aria-modal={true}
-              className="Modal__content Modal__content--isPositionFixed ProductTour"
+              className="Modal__content Modal__content--isPositionFixed ProductTour Modal__content--entered"
               onClick={[Function]}
               onKeyDown={[Function]}
               onMouseDown={[Function]}
