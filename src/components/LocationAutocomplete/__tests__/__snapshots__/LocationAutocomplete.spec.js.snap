@@ -380,6 +380,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       <li
                         aria-selected={true}
                         className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
+                        disabled={false}
                         id="downshift-4-item-0"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -425,6 +426,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       <li
                         aria-selected={false}
                         className="ListItem ListItem--clickable List__item"
+                        disabled={false}
                         id="downshift-4-item-1"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -470,6 +472,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       <li
                         aria-selected={false}
                         className="ListItem ListItem--clickable List__item"
+                        disabled={false}
                         id="downshift-4-item-2"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -515,6 +518,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       <li
                         aria-selected={false}
                         className="ListItem ListItem--clickable List__item"
+                        disabled={false}
                         id="downshift-4-item-3"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -560,6 +564,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       <li
                         aria-selected={false}
                         className="ListItem ListItem--clickable List__item"
+                        disabled={false}
                         id="downshift-4-item-4"
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}

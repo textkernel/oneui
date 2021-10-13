@@ -26,16 +26,8 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClic
 const { block, elem } = bem('ListItem', styles);
 
 export const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
-    const {
-        children,
-        isSelected,
-        isHighlighted,
-        onClick,
-        disabled,
-        highlightContext,
-        value,
-        ...rest
-    } = props;
+    const { children, isSelected, isHighlighted, onClick, highlightContext, value, ...rest } =
+        props;
     const customBlockMod = { clickable: typeof onClick === 'function' };
 
     return (

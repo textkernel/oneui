@@ -21,6 +21,7 @@ exports[`List component Initial rendering should render List correctly 1`] = `
     >
       <li
         className="ListItem List__item"
+        disabled={false}
       >
         <div
           className="ListItem__container"
@@ -49,6 +50,7 @@ exports[`List component Initial rendering should render List correctly 1`] = `
     >
       <li
         className="ListItem List__item"
+        disabled={false}
       >
         <div
           className="ListItem__container"
@@ -90,6 +92,7 @@ exports[`List component Initial rendering should render List correctly without k
     >
       <li
         className="ListItem List__item"
+        disabled={false}
       >
         <div
           className="ListItem__container"
@@ -118,6 +121,7 @@ exports[`List component Initial rendering should render List correctly without k
     >
       <li
         className="ListItem List__item"
+        disabled={false}
       >
         <div
           className="ListItem__container"

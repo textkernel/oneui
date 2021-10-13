@@ -31,7 +31,11 @@ exports[`Select rendering should initially render correctly 1`] = `
         "name": "Saturn",
       },
       Object {
-        "name": "Neptun",
+        "name": "Neptune",
+      },
+      Object {
+        "disabled": true,
+        "name": "Pluto",
       },
     ]
   }
@@ -177,7 +181,11 @@ exports[`Select rendering should render focused component correctly 1`] = `
         "name": "Saturn",
       },
       Object {
-        "name": "Neptun",
+        "name": "Neptune",
+      },
+      Object {
+        "disabled": true,
+        "name": "Pluto",
       },
     ]
   }
@@ -335,7 +343,11 @@ exports[`Select rendering should render focused component correctly 1`] = `
                         "name": "Saturn",
                       },
                       Object {
-                        "name": "Neptun",
+                        "name": "Neptune",
+                      },
+                      Object {
+                        "disabled": true,
+                        "name": "Pluto",
                       },
                     ]
                   }
@@ -357,6 +369,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     <li
                       aria-selected="false"
                       className="ListItem ListItem--clickable"
+                      disabled={false}
                       id="downshift-1-item-0"
                       onMouseMove={[Function]}
                       role="option"
@@ -401,6 +414,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     <li
                       aria-selected="true"
                       className="ListItem ListItem--isHighlighted ListItem--clickable"
+                      disabled={false}
                       id="downshift-1-item-1"
                       onMouseMove={[Function]}
                       role="option"
@@ -445,6 +459,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     <li
                       aria-selected="false"
                       className="ListItem ListItem--clickable"
+                      disabled={false}
                       id="downshift-1-item-2"
                       onMouseMove={[Function]}
                       role="option"
@@ -489,6 +504,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     <li
                       aria-selected="false"
                       className="ListItem ListItem--clickable"
+                      disabled={false}
                       id="downshift-1-item-3"
                       onMouseMove={[Function]}
                       role="option"
@@ -533,6 +549,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     <li
                       aria-selected="false"
                       className="ListItem ListItem--clickable"
+                      disabled={false}
                       id="downshift-1-item-4"
                       onMouseMove={[Function]}
                       role="option"
@@ -577,6 +594,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     <li
                       aria-selected="false"
                       className="ListItem ListItem--clickable"
+                      disabled={false}
                       id="downshift-1-item-5"
                       onMouseMove={[Function]}
                       role="option"
@@ -621,6 +639,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     <li
                       aria-selected="false"
                       className="ListItem ListItem--clickable"
+                      disabled={false}
                       id="downshift-1-item-6"
                       onMouseMove={[Function]}
                       role="option"
@@ -665,6 +684,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     <li
                       aria-selected="false"
                       className="ListItem ListItem--clickable"
+                      disabled={false}
                       id="downshift-1-item-7"
                       onMouseMove={[Function]}
                       role="option"
@@ -700,7 +720,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     id="downshift-1-item-8"
                     isHighlighted={false}
                     isSelected={false}
-                    key="Neptun"
+                    key="Neptune"
                     onClick={[Function]}
                     onMouseMove={[Function]}
                     role="option"
@@ -709,6 +729,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     <li
                       aria-selected="false"
                       className="ListItem ListItem--clickable"
+                      disabled={false}
                       id="downshift-1-item-8"
                       onMouseMove={[Function]}
                       role="option"
@@ -730,7 +751,48 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             size="normal"
                           >
                             <span>
-                              Neptun
+                              Neptune
+                            </span>
+                          </Text>
+                        </MarkedText>
+                      </div>
+                    </li>
+                  </ListItem>
+                  <ListItem
+                    aria-selected="false"
+                    disabled={true}
+                    highlightContext="default"
+                    id="downshift-1-item-9"
+                    isHighlighted={false}
+                    isSelected={false}
+                    key="Pluto"
+                    role="option"
+                    style={Object {}}
+                  >
+                    <li
+                      aria-selected="false"
+                      className="ListItem ListItem--disabled"
+                      disabled={true}
+                      id="downshift-1-item-9"
+                      role="option"
+                      style={Object {}}
+                    >
+                      <div
+                        className="ListItem__container"
+                        role="presentation"
+                      >
+                        <MarkedText
+                          inline={true}
+                          key=".0"
+                          marker=""
+                        >
+                          <Text
+                            context="default"
+                            inline={true}
+                            size="normal"
+                          >
+                            <span>
+                              Pluto
                             </span>
                           </Text>
                         </MarkedText>

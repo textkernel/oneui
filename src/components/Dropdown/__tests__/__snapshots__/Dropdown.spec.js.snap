@@ -92,6 +92,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       >
         <li
           className="ListItem ListItem--disabled List__item"
+          disabled={true}
         >
           <div
             className="ListItem__container"
@@ -127,6 +128,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
+          disabled={false}
           id="downshift-12-item-0"
           onMouseMove={[Function]}
           role="option"
@@ -159,6 +161,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       >
         <li
           className="ListItem List__item"
+          disabled={false}
         >
           <div
             className="ListItem__container"
@@ -200,6 +203,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
+          disabled={false}
           id="downshift-12-item-1"
           onMouseMove={[Function]}
           role="option"
@@ -390,6 +394,7 @@ exports[`Dropdown should render correctly opened 1`] = `
       >
         <li
           className="ListItem ListItem--disabled List__item"
+          disabled={true}
         >
           <div
             className="ListItem__container"
@@ -425,6 +430,7 @@ exports[`Dropdown should render correctly opened 1`] = `
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
+          disabled={false}
           id="downshift-3-item-0"
           onMouseMove={[Function]}
           role="option"
@@ -544,6 +550,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       >
         <li
           className="ListItem ListItem--disabled List__item"
+          disabled={true}
         >
           <div
             className="ListItem__container"
@@ -579,6 +586,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
+          disabled={false}
           id="downshift-41-item-0"
           onMouseMove={[Function]}
           role="option"
@@ -618,6 +626,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
+          disabled={false}
           id="downshift-41-item-1"
           onMouseMove={[Function]}
           role="option"

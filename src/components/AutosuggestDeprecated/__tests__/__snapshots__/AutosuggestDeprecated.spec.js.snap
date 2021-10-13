@@ -246,6 +246,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                     <li
                       aria-selected={true}
                       className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
+                      disabled={false}
                       id="downshift-5-item-0"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -291,6 +292,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
+                      disabled={false}
                       id="downshift-5-item-1"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -336,6 +338,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
+                      disabled={false}
                       id="downshift-5-item-2"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -381,6 +384,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
+                      disabled={false}
                       id="downshift-5-item-3"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -715,6 +719,7 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
                   >
                     <li
                       className="ListItem ListItem--disabled List__item"
+                      disabled={true}
                     >
                       <div
                         className="ListItem__container"
@@ -888,6 +893,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                     <li
                       aria-selected={true}
                       className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
+                      disabled={false}
                       id="downshift-6-item-0"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -933,6 +939,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
+                      disabled={false}
                       id="downshift-6-item-1"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -978,6 +985,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
+                      disabled={false}
                       id="downshift-6-item-2"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
@@ -1023,6 +1031,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
+                      disabled={false}
                       id="downshift-6-item-3"
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}

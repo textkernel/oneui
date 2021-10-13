@@ -9,6 +9,7 @@ exports[`ListItem component should render ListItem correctly 1`] = `
 >
   <li
     className="ListItem"
+    disabled={false}
   >
     <div
       className="ListItem__container"
