@@ -50,25 +50,35 @@ export function SuggestionsList<S>(props: Props<S>) {
     } = props;
 
     // eslint-disable-next-line react/display-name
-    const renderItem = ({ key, index, style = {} }) => (
-        <ListItem
-            key={key}
-            style={style}
-            {...getItemProps({
-                item: suggestions[index],
-                index,
-            })}
-            isHighlighted={highlightedIndex === index}
-        >
-            {suggestionItemRenderer ? (
-                suggestionItemRenderer(suggestions[index], index, suggestions)
-            ) : (
-                <MarkedText marker={inputValue} inline>
-                    {suggestionToString(suggestions[index])}
-                </MarkedText>
-            )}
-        </ListItem>
-    );
+    const renderItem = ({ key, index, style = {} }) => {
+        const currentItem = suggestions[index];
+        let disabled = false;
+        if (typeof currentItem === 'object' && 'disabled' in currentItem) {
+            // eslint-disable-next-line dot-notation
+            disabled = currentItem['disabled']; // TS only happy with this syntax
+        }
+
+        return (
+            <ListItem
+                key={key}
+                style={style}
+                {...getItemProps({
+                    item: currentItem,
+                    index,
+                    disabled,
+                })}
+                isHighlighted={highlightedIndex === index}
+            >
+                {suggestionItemRenderer ? (
+                    suggestionItemRenderer(currentItem, index, suggestions)
+                ) : (
+                    <MarkedText marker={inputValue} inline>
+                        {suggestionToString(currentItem)}
+                    </MarkedText>
+                )}
+            </ListItem>
+        );
+    };
 
     // eslint-disable-next-line react/display-name
     const renderLoadingPlaceholders = () =>

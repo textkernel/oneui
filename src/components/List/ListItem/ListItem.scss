@@ -11,12 +11,18 @@ $contexts: (neutral, brand, primary, accent, info, good, warning, bad);
         background-color: var(--color-highlight-background);
     }
 
-    &--isSelected, &--isHighlighted {
+    &--isSelected,
+    &--isHighlighted {
         background-color: var(--color-highlight-background);
     }
 
     &--clickable {
         cursor: pointer;
+    }
+
+    &--disabled {
+        color: var(--color-muted);
+        cursor: not-allowed;
     }
 
     &--highlightContext {
@@ -33,7 +39,7 @@ $contexts: (neutral, brand, primary, accent, info, good, warning, bad);
 
             &_#{ $context }.ListItem--isHighlighted:not(.ListItem--disabled) {
                 background-color: var(--color-#{$context});
-                color: var(--color-highlight-background)
+                color: var(--color-highlight-background);
             }
         }
     }

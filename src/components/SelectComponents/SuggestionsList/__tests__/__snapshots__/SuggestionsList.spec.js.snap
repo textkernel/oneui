@@ -8,6 +8,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
       "calls": Array [
         Array [
           Object {
+            "disabled": false,
             "index": 0,
             "item": Object {
               "name": "Sun",
@@ -16,6 +17,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 1,
             "item": Object {
               "name": "Moon",
@@ -24,6 +26,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 2,
             "item": Object {
               "name": "Mercury",
@@ -32,6 +35,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 3,
             "item": Object {
               "name": "Venus",
@@ -40,6 +44,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 4,
             "item": Object {
               "name": "Earth",
@@ -48,6 +53,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 5,
             "item": Object {
               "name": "Mars",
@@ -56,6 +62,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 6,
             "item": Object {
               "name": "Jupiter",
@@ -64,6 +71,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 7,
             "item": Object {
               "name": "Saturn",
@@ -72,6 +80,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 8,
             "item": Object {
               "name": "Neptun",
@@ -474,6 +483,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       "calls": Array [
         Array [
           Object {
+            "disabled": false,
             "index": 0,
             "item": Object {
               "name": "Sun",
@@ -482,6 +492,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 1,
             "item": Object {
               "name": "Moon",
@@ -490,6 +501,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 2,
             "item": Object {
               "name": "Mercury",
@@ -498,6 +510,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 3,
             "item": Object {
               "name": "Venus",
@@ -506,6 +519,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 4,
             "item": Object {
               "name": "Earth",
@@ -514,6 +528,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 5,
             "item": Object {
               "name": "Mars",
@@ -522,6 +537,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 6,
             "item": Object {
               "name": "Jupiter",
@@ -530,6 +546,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 7,
             "item": Object {
               "name": "Saturn",
@@ -538,6 +555,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 8,
             "item": Object {
               "name": "Neptun",
@@ -869,6 +887,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
       "calls": Array [
         Array [
           Object {
+            "disabled": false,
             "index": 0,
             "item": Object {
               "name": "Sun",
@@ -877,6 +896,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 1,
             "item": Object {
               "name": "Moon",
@@ -885,6 +905,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 2,
             "item": Object {
               "name": "Mercury",
@@ -893,6 +914,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 3,
             "item": Object {
               "name": "Venus",
@@ -901,6 +923,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 4,
             "item": Object {
               "name": "Earth",
@@ -909,6 +932,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 5,
             "item": Object {
               "name": "Mars",
@@ -917,6 +941,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 6,
             "item": Object {
               "name": "Jupiter",
@@ -925,6 +950,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 7,
             "item": Object {
               "name": "Saturn",
@@ -933,6 +959,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 8,
             "item": Object {
               "name": "Neptun",
@@ -1172,6 +1199,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
       "calls": Array [
         Array [
           Object {
+            "disabled": false,
             "index": 0,
             "item": Object {
               "name": "Sun",
@@ -1180,6 +1208,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 1,
             "item": Object {
               "name": "Moon",
@@ -1188,6 +1217,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 2,
             "item": Object {
               "name": "Mercury",
@@ -1196,6 +1226,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 3,
             "item": Object {
               "name": "Venus",
@@ -1204,6 +1235,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 4,
             "item": Object {
               "name": "Earth",
@@ -1212,6 +1244,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 5,
             "item": Object {
               "name": "Mars",
@@ -1220,6 +1253,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 6,
             "item": Object {
               "name": "Jupiter",
@@ -1228,6 +1262,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 7,
             "item": Object {
               "name": "Saturn",
@@ -1236,6 +1271,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 8,
             "item": Object {
               "name": "Neptun",
@@ -1244,6 +1280,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 0,
             "item": Object {
               "name": "Sun",
@@ -1252,6 +1289,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 1,
             "item": Object {
               "name": "Moon",
@@ -1260,6 +1298,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 2,
             "item": Object {
               "name": "Mercury",
@@ -1268,6 +1307,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 3,
             "item": Object {
               "name": "Venus",
@@ -1276,6 +1316,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 4,
             "item": Object {
               "name": "Earth",
@@ -1284,6 +1325,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 5,
             "item": Object {
               "name": "Mars",
@@ -1292,6 +1334,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 6,
             "item": Object {
               "name": "Jupiter",
@@ -1300,6 +1343,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 7,
             "item": Object {
               "name": "Saturn",
@@ -1308,6 +1352,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
         ],
         Array [
           Object {
+            "disabled": false,
             "index": 8,
             "item": Object {
               "name": "Neptun",
