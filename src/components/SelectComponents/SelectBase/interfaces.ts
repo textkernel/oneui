@@ -1,7 +1,11 @@
 import { GetItemPropsOptions, GetToggleButtonPropsOptions } from 'downshift';
 
 export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement> {
-    /** an array of objects that will be used to render the suggestions list. */
+    /**
+     * an array of objects or strings that will be used to render the suggestions list.
+     * if you want to disabled some of the items, this props needs to be an array of objects,
+     * where the object has a property "disabled" set true as needed.
+     */
     suggestions: S[];
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestions?: S | null) => string;

@@ -89,6 +89,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         isHighlighted={false}
         isSelected={false}
         key=".$.$key-1"
+        passDisabledToLi={false}
       >
         <li
           className="ListItem ListItem--disabled List__item"
@@ -121,6 +122,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         key=".$.$key-2"
         onClick={[Function]}
         onMouseMove={[Function]}
+        passDisabledToLi={false}
         role="option"
         value="1"
       >
@@ -156,6 +158,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         isHighlighted={false}
         isSelected={false}
         key=".$.$key-3"
+        passDisabledToLi={false}
       >
         <li
           className="ListItem List__item"
@@ -194,6 +197,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         key=".$.$key-5"
         onClick={[Function]}
         onMouseMove={[Function]}
+        passDisabledToLi={false}
         role="option"
         value="2"
       >
@@ -387,6 +391,7 @@ exports[`Dropdown should render correctly opened 1`] = `
         isHighlighted={false}
         isSelected={false}
         key=".$.$disabled-key"
+        passDisabledToLi={false}
       >
         <li
           className="ListItem ListItem--disabled List__item"
@@ -419,6 +424,7 @@ exports[`Dropdown should render correctly opened 1`] = `
         key=".$.$first-key"
         onClick={[Function]}
         onMouseMove={[Function]}
+        passDisabledToLi={false}
         role="option"
         value="first-value"
       >
@@ -541,6 +547,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
         isHighlighted={false}
         isSelected={false}
         key=".$.$disabled-key"
+        passDisabledToLi={false}
       >
         <li
           className="ListItem ListItem--disabled List__item"
@@ -573,6 +580,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
         key=".$.1=2$one"
         onClick={[Function]}
         onMouseMove={[Function]}
+        passDisabledToLi={false}
         role="option"
         value="one"
       >
@@ -612,6 +620,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
         key=".$.1=2$two"
         onClick={[Function]}
         onMouseMove={[Function]}
+        passDisabledToLi={false}
         role="option"
         value="two"
       >

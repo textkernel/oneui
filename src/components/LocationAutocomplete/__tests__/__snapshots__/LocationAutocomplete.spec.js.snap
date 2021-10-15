@@ -375,6 +375,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
+                      passDisabledToLi={false}
                       role="option"
                     >
                       <li
@@ -420,6 +421,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
+                      passDisabledToLi={false}
                       role="option"
                     >
                       <li
@@ -465,6 +467,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
+                      passDisabledToLi={false}
                       role="option"
                     >
                       <li
@@ -510,6 +513,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
+                      passDisabledToLi={false}
                       role="option"
                     >
                       <li
@@ -555,6 +559,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
+                      passDisabledToLi={false}
                       role="option"
                     >
                       <li

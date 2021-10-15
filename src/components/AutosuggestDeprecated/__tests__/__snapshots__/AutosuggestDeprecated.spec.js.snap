@@ -241,6 +241,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={false}
                     role="option"
                   >
                     <li
@@ -286,6 +287,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={false}
                     role="option"
                   >
                     <li
@@ -331,6 +333,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={false}
                     role="option"
                   >
                     <li
@@ -376,6 +379,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={false}
                     role="option"
                   >
                     <li
@@ -712,6 +716,7 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
                     isHighlighted={false}
                     isSelected={false}
                     key=".0"
+                    passDisabledToLi={false}
                   >
                     <li
                       className="ListItem ListItem--disabled List__item"
@@ -883,6 +888,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={false}
                     role="option"
                   >
                     <li
@@ -928,6 +934,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={false}
                     role="option"
                   >
                     <li
@@ -973,6 +980,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={false}
                     role="option"
                   >
                     <li
@@ -1018,6 +1026,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                     onClick={[Function]}
                     onMouseDown={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={false}
                     role="option"
                   >
                     <li

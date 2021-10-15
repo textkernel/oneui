@@ -36,7 +36,11 @@ exports[`ComboboxMulti rendering should initially render empty component correct
         "name": "Saturn",
       },
       Object {
-        "name": "Neptun",
+        "name": "Neptune",
+      },
+      Object {
+        "disabled": true,
+        "name": "Pluto",
       },
     ]
   }
@@ -96,7 +100,11 @@ exports[`ComboboxMulti rendering should initially render empty component correct
           "name": "Saturn",
         },
         Object {
-          "name": "Neptun",
+          "name": "Neptune",
+        },
+        Object {
+          "disabled": true,
+          "name": "Pluto",
         },
       ]
     }
@@ -289,7 +297,11 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
         "name": "Saturn",
       },
       Object {
-        "name": "Neptun",
+        "name": "Neptune",
+      },
+      Object {
+        "disabled": true,
+        "name": "Pluto",
       },
     ]
   }
@@ -351,7 +363,11 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
           "name": "Saturn",
         },
         Object {
-          "name": "Neptun",
+          "name": "Neptune",
+        },
+        Object {
+          "disabled": true,
+          "name": "Pluto",
         },
       ]
     }
@@ -506,6 +522,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder="No suggestions..."
+                      passDisabledToListItems={true}
                       suggestionToString={[Function]}
                       suggestions={
                         Array [
@@ -534,7 +551,11 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             "name": "Saturn",
                           },
                           Object {
-                            "name": "Neptun",
+                            "name": "Neptune",
+                          },
+                          Object {
+                            "disabled": true,
+                            "name": "Pluto",
                           },
                         ]
                       }
@@ -551,12 +572,14 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={true}
                           className="ListItem ListItem--isHighlighted ListItem--clickable"
+                          disabled={false}
                           id="downshift-6-item-0"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -597,12 +620,14 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-6-item-1"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -643,12 +668,14 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-6-item-2"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -689,12 +716,14 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-6-item-3"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -735,12 +764,14 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-6-item-4"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -781,12 +812,14 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-6-item-5"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -827,12 +860,14 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-6-item-6"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -873,12 +908,14 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-6-item-7"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -915,16 +952,18 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                         id="downshift-6-item-8"
                         isHighlighted={false}
                         isSelected={false}
-                        key="Neptun"
+                        key="Neptune"
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-6-item-8"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -947,7 +986,51 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                                 size="normal"
                               >
                                 <span>
-                                  Neptun
+                                  Neptune
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={true}
+                        highlightContext="default"
+                        id="downshift-6-item-9"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Pluto"
+                        onMouseDown={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--disabled"
+                          disabled={true}
+                          id="downshift-6-item-9"
+                          onMouseDown={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Pluto
                                 </span>
                               </Text>
                             </MarkedText>

@@ -195,6 +195,7 @@ export function Autosuggest<S>(props: Props<S>) {
                 suggestionToKey={suggestionToKey}
                 suggestionItemRenderer={suggestionItemRenderer}
                 noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+                passDisabledToListItems
             />
         ) : null;
     };

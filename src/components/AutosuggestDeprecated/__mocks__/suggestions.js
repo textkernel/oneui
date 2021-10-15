@@ -7,7 +7,8 @@ export const SUGGESTIONS = [
     { name: 'Mars' },
     { name: 'Jupiter' },
     { name: 'Saturn' },
-    { name: 'Neptun' },
+    { name: 'Neptune' },
+    { name: 'Pluto', disabled: true },
 ];
 
 export const COMPLEX_SUGGESTIONS = [
@@ -19,7 +20,7 @@ export const COMPLEX_SUGGESTIONS = [
     { name: 'Mars', type: 'planet' },
     { name: 'Jupiter', type: 'planet' },
     { name: 'Saturn', type: 'planet' },
-    { name: 'Neptun', type: 'planet' },
+    { name: 'Neptune', type: 'planet' },
 ];
 
 export const SUGGESTION_TO_STRING = (item) => (item ? item.name : '');

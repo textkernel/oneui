@@ -10,7 +10,11 @@ import styles from './Select.scss';
 const { block, elem } = bem('Select', styles);
 
 interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
-    /** an array of objects that will be used to render the options list. */
+    /**
+     * an array of objects or strings that will be used to render the options list.
+     * if you want to disabled some of the items, this props needs to be an array of objects,
+     * where the object has a property "disabled" set true as needed.
+     */
     items: S[];
     /** The item that is currently selected */
     selectedItem: S;
@@ -97,6 +101,7 @@ export function Select<S>(props: Props<S>) {
                                 suggestions={items}
                                 getItemProps={getItemProps}
                                 highlightedIndex={highlightedIndex}
+                                passDisabledToListItems
                             />
                         )}
                     </List>

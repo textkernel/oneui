@@ -470,6 +470,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder=""
+                      passDisabledToListItems={true}
                       suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={
@@ -513,12 +514,14 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-4-item-0"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -559,12 +562,14 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-4-item-1"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -605,12 +610,14 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-4-item-2"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -651,12 +658,14 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-4-item-3"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -697,12 +706,14 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-4-item-4"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -743,12 +754,14 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-4-item-5"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -789,12 +802,14 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-4-item-6"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -835,12 +850,14 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-4-item-7"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -937,7 +954,11 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
         "name": "Saturn",
       },
       Object {
-        "name": "Neptun",
+        "name": "Neptune",
+      },
+      Object {
+        "disabled": true,
+        "name": "Pluto",
       },
     ]
   }
@@ -996,7 +1017,11 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
           "name": "Saturn",
         },
         Object {
-          "name": "Neptun",
+          "name": "Neptune",
+        },
+        Object {
+          "disabled": true,
+          "name": "Pluto",
         },
       ]
     }
@@ -1090,6 +1115,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder=""
+                      passDisabledToListItems={true}
                       suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={
@@ -1116,7 +1142,11 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                             "name": "Saturn",
                           },
                           Object {
-                            "name": "Neptun",
+                            "name": "Neptune",
+                          },
+                          Object {
+                            "disabled": true,
+                            "name": "Pluto",
                           },
                         ]
                       }
@@ -1133,12 +1163,14 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={true}
                           className="ListItem ListItem--isHighlighted ListItem--clickable"
+                          disabled={false}
                           id="downshift-5-item-0"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -1179,12 +1211,14 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-5-item-1"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -1225,12 +1259,14 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-5-item-2"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -1271,12 +1307,14 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-5-item-3"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -1317,12 +1355,14 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-5-item-4"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -1363,12 +1403,14 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-5-item-5"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -1409,12 +1451,14 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-5-item-6"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -1451,16 +1495,18 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         id="downshift-5-item-7"
                         isHighlighted={false}
                         isSelected={false}
-                        key="Neptun"
+                        key="Neptune"
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
                         <li
                           aria-selected={false}
                           className="ListItem ListItem--clickable"
+                          disabled={false}
                           id="downshift-5-item-7"
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
@@ -1483,7 +1529,51 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                                 size="normal"
                               >
                                 <span>
-                                  Neptun
+                                  Neptune
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={true}
+                        highlightContext="default"
+                        id="downshift-5-item-8"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Pluto"
+                        onMouseDown={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--disabled"
+                          disabled={true}
+                          id="downshift-5-item-8"
+                          onMouseDown={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker="driver"
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Pluto
                                 </span>
                               </Text>
                             </MarkedText>
@@ -1656,6 +1746,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                       isLoading={true}
                       key=".0"
                       noSuggestionsPlaceholder=""
+                      passDisabledToListItems={true}
                       suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={Array []}
@@ -1667,6 +1758,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         isHighlighted={false}
                         isSelected={false}
                         key="0"
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
@@ -1714,6 +1806,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         isHighlighted={false}
                         isSelected={false}
                         key="1"
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
@@ -1761,6 +1854,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         isHighlighted={false}
                         isSelected={false}
                         key="2"
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
@@ -1808,6 +1902,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         isHighlighted={false}
                         isSelected={false}
                         key="3"
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
@@ -1855,6 +1950,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         isHighlighted={false}
                         isSelected={false}
                         key="4"
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
@@ -2202,6 +2298,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder="no suggestions"
+                      passDisabledToListItems={true}
                       suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={Array []}
@@ -2212,6 +2309,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                         highlightContext="default"
                         isHighlighted={false}
                         isSelected={false}
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem ListItem--disabled"
