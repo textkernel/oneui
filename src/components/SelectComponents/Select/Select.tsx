@@ -97,6 +97,7 @@ export function Select<S>(props: Props<S>) {
                                 suggestions={items}
                                 getItemProps={getItemProps}
                                 highlightedIndex={highlightedIndex}
+                                passDisabledToListItems
                             />
                         )}
                     </List>

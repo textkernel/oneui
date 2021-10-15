@@ -470,6 +470,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder=""
+                      passDisabledToListItems={true}
                       suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={
@@ -513,6 +514,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -560,6 +562,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -607,6 +610,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -654,6 +658,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -701,6 +706,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -748,6 +754,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -795,6 +802,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -842,6 +850,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -1106,6 +1115,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder=""
+                      passDisabledToListItems={true}
                       suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={
@@ -1153,6 +1163,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -1200,6 +1211,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -1247,6 +1259,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -1294,6 +1307,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -1341,6 +1355,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -1388,6 +1403,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -1435,6 +1451,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -1482,6 +1499,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -1527,6 +1545,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         isSelected={false}
                         key="Pluto"
                         onMouseDown={[Function]}
+                        passDisabledToLi={true}
                         role="option"
                         style={Object {}}
                       >
@@ -1727,6 +1746,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                       isLoading={true}
                       key=".0"
                       noSuggestionsPlaceholder=""
+                      passDisabledToListItems={true}
                       suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={Array []}
@@ -1738,10 +1758,10 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         isHighlighted={false}
                         isSelected={false}
                         key="0"
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
-                          disabled={false}
                         >
                           <div
                             className="ListItem__container"
@@ -1786,10 +1806,10 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         isHighlighted={false}
                         isSelected={false}
                         key="1"
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
-                          disabled={false}
                         >
                           <div
                             className="ListItem__container"
@@ -1834,10 +1854,10 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         isHighlighted={false}
                         isSelected={false}
                         key="2"
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
-                          disabled={false}
                         >
                           <div
                             className="ListItem__container"
@@ -1882,10 +1902,10 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         isHighlighted={false}
                         isSelected={false}
                         key="3"
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
-                          disabled={false}
                         >
                           <div
                             className="ListItem__container"
@@ -1930,10 +1950,10 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         isHighlighted={false}
                         isSelected={false}
                         key="4"
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
-                          disabled={false}
                         >
                           <div
                             className="ListItem__container"
@@ -2278,6 +2298,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                       isLoading={false}
                       key=".0"
                       noSuggestionsPlaceholder="no suggestions"
+                      passDisabledToListItems={true}
                       suggestionToKey={null}
                       suggestionToString={[Function]}
                       suggestions={Array []}
@@ -2288,10 +2309,10 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                         highlightContext="default"
                         isHighlighted={false}
                         isSelected={false}
+                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem ListItem--disabled"
-                          disabled={true}
                         >
                           <div
                             className="ListItem__container"

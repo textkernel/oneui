@@ -15,6 +15,10 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClic
     isHighlighted?: boolean;
     /** Format this item as disabled */
     disabled?: boolean;
+    /** In some cases you need to pass disabled attributes to the top level 'li'
+     * e.g. in the context of downshift to disable keyboard navigation on these items
+     */
+    passDisabledToLi?: boolean;
     /** formatting context when hovered or selected */
     highlightContext?: Context | 'default';
     /** Ref to access the li element */
@@ -26,12 +30,26 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClic
 const { block, elem } = bem('ListItem', styles);
 
 export const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
-    const { children, isSelected, isHighlighted, onClick, highlightContext, value, ...rest } =
-        props;
+    const {
+        children,
+        isSelected,
+        isHighlighted,
+        onClick,
+        highlightContext,
+        value,
+        disabled,
+        passDisabledToLi,
+        ...rest
+    } = props;
     const customBlockMod = { clickable: typeof onClick === 'function' };
 
+    const liProps: React.HTMLAttributes<HTMLLIElement> & { disabled?: boolean } = rest;
+    if (passDisabledToLi) {
+        liProps.disabled = disabled;
+    }
+
     return (
-        <li {...rest} ref={ref} {...block({ ...props, ...customBlockMod })}>
+        <li {...liProps} ref={ref} {...block({ ...props, ...customBlockMod })}>
             <div onClick={onClick} role="presentation" {...elem('container', props)}>
                 {React.Children.map(children, (child) =>
                     typeof child === 'string' ? <Text inline>{child}</Text> : child
@@ -46,6 +64,7 @@ ListItem.displayName = 'ListItem';
 ListItem.defaultProps = {
     isSelected: false,
     isHighlighted: false,
-    disabled: false,
     highlightContext: 'default',
+    disabled: false,
+    passDisabledToLi: false,
 };

@@ -146,6 +146,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   inputValue=""
   isLoading={false}
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
+  passDisabledToListItems={false}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -190,11 +191,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Sun"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -225,11 +226,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={true}
     isSelected={false}
     key="Moon"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem ListItem--isHighlighted"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -260,11 +261,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Mercury"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -295,11 +296,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Venus"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -330,11 +331,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Earth"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -365,11 +366,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Mars"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -400,11 +401,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Jupiter"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -435,11 +436,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Saturn"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -470,11 +471,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Neptune"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -505,11 +506,11 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="Pluto"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -683,6 +684,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   inputValue=""
   isLoading={true}
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
+  passDisabledToListItems={false}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -727,10 +729,10 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="0"
+    passDisabledToLi={false}
   >
     <li
       className="ListItem"
-      disabled={false}
     >
       <div
         className="ListItem__container"
@@ -775,10 +777,10 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="1"
+    passDisabledToLi={false}
   >
     <li
       className="ListItem"
-      disabled={false}
     >
       <div
         className="ListItem__container"
@@ -823,10 +825,10 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="2"
+    passDisabledToLi={false}
   >
     <li
       className="ListItem"
-      disabled={false}
     >
       <div
         className="ListItem__container"
@@ -871,10 +873,10 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="3"
+    passDisabledToLi={false}
   >
     <li
       className="ListItem"
-      disabled={false}
     >
       <div
         className="ListItem__container"
@@ -919,10 +921,10 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     isHighlighted={false}
     isSelected={false}
     key="4"
+    passDisabledToLi={false}
   >
     <li
       className="ListItem"
-      disabled={false}
     >
       <div
         className="ListItem__container"
@@ -1110,6 +1112,7 @@ exports[`SuggestionsList should render optimization list correctly 1`] = `
   inputValue=""
   isLoading={false}
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
+  passDisabledToListItems={false}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -1571,6 +1574,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   inputValue=""
   isLoading={false}
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
+  passDisabledToListItems={false}
   suggestionItemRenderer={[Function]}
   suggestionToString={[Function]}
   suggestions={
@@ -1616,11 +1620,11 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     isHighlighted={false}
     isSelected={false}
     key="Sun"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -1641,11 +1645,11 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     isHighlighted={true}
     isSelected={false}
     key="Moon"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem ListItem--isHighlighted"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -1666,11 +1670,11 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     isHighlighted={false}
     isSelected={false}
     key="Mercury"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -1691,11 +1695,11 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     isHighlighted={false}
     isSelected={false}
     key="Venus"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -1716,11 +1720,11 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     isHighlighted={false}
     isSelected={false}
     key="Earth"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -1741,11 +1745,11 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     isHighlighted={false}
     isSelected={false}
     key="Mars"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -1766,11 +1770,11 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     isHighlighted={false}
     isSelected={false}
     key="Jupiter"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -1791,11 +1795,11 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     isHighlighted={false}
     isSelected={false}
     key="Saturn"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -1816,11 +1820,11 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     isHighlighted={false}
     isSelected={false}
     key="Neptune"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div
@@ -1841,11 +1845,11 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     isHighlighted={false}
     isSelected={false}
     key="Pluto"
+    passDisabledToLi={false}
     style={Object {}}
   >
     <li
       className="ListItem"
-      disabled={false}
       style={Object {}}
     >
       <div

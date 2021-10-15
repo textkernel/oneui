@@ -32,6 +32,10 @@ export interface Props<S> {
     highlightedIndex: number | null;
     /** input field value to be highlighted in the item from the list */
     inputValue: string;
+    /** In some cases you need to pass disabled attributes to the top level 'li' od each item
+     * e.g. in the context of downshift to disable keyboard navigation on these items
+     */
+    passDisabledToListItems?: boolean;
 }
 
 export function SuggestionsList<S>(props: Props<S>) {
@@ -47,6 +51,7 @@ export function SuggestionsList<S>(props: Props<S>) {
         suggestionToKey,
         suggestionItemRenderer,
         inputValue,
+        passDisabledToListItems,
     } = props;
 
     // eslint-disable-next-line react/display-name
@@ -68,6 +73,7 @@ export function SuggestionsList<S>(props: Props<S>) {
                     disabled,
                 })}
                 isHighlighted={highlightedIndex === index}
+                passDisabledToLi={passDisabledToListItems}
             >
                 {suggestionItemRenderer ? (
                     suggestionItemRenderer(currentItem, index, suggestions)
@@ -148,6 +154,7 @@ SuggestionsList.defaultProps = {
     isLoading: false,
     allowMixingSuggestionsAndLoading: false,
     inputValue: '',
+    passDisabledToListItems: false,
 };
 
 SuggestionsList.displayName = 'SuggestionsList';

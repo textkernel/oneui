@@ -18,10 +18,10 @@ exports[`List component Initial rendering should render List correctly 1`] = `
       isHighlighted={false}
       isSelected={false}
       key=".0"
+      passDisabledToLi={false}
     >
       <li
         className="ListItem List__item"
-        disabled={false}
       >
         <div
           className="ListItem__container"
@@ -47,10 +47,10 @@ exports[`List component Initial rendering should render List correctly 1`] = `
       isHighlighted={false}
       isSelected={false}
       key=".1"
+      passDisabledToLi={false}
     >
       <li
         className="ListItem List__item"
-        disabled={false}
       >
         <div
           className="ListItem__container"
@@ -89,10 +89,10 @@ exports[`List component Initial rendering should render List correctly without k
       isHighlighted={false}
       isSelected={false}
       key=".0"
+      passDisabledToLi={false}
     >
       <li
         className="ListItem List__item"
-        disabled={false}
       >
         <div
           className="ListItem__container"
@@ -118,10 +118,10 @@ exports[`List component Initial rendering should render List correctly without k
       isHighlighted={false}
       isSelected={false}
       key=".1"
+      passDisabledToLi={false}
     >
       <li
         className="ListItem List__item"
-        disabled={false}
       >
         <div
           className="ListItem__container"

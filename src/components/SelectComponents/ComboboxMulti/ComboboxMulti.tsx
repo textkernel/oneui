@@ -114,6 +114,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
                     useOptimizeRender={useOptimizeListRender}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     suggestionItemRenderer={suggestionItemRenderer}
+                    passDisabledToListItems
                 />
             )}
             focusedRenderer={renderFocused}

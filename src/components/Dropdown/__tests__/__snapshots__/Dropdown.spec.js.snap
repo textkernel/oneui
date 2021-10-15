@@ -89,10 +89,10 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         isHighlighted={false}
         isSelected={false}
         key=".$.$key-1"
+        passDisabledToLi={false}
       >
         <li
           className="ListItem ListItem--disabled List__item"
-          disabled={true}
         >
           <div
             className="ListItem__container"
@@ -122,13 +122,13 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         key=".$.$key-2"
         onClick={[Function]}
         onMouseMove={[Function]}
+        passDisabledToLi={false}
         role="option"
         value="1"
       >
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          disabled={false}
           id="downshift-12-item-0"
           onMouseMove={[Function]}
           role="option"
@@ -158,10 +158,10 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         isHighlighted={false}
         isSelected={false}
         key=".$.$key-3"
+        passDisabledToLi={false}
       >
         <li
           className="ListItem List__item"
-          disabled={false}
         >
           <div
             className="ListItem__container"
@@ -197,13 +197,13 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         key=".$.$key-5"
         onClick={[Function]}
         onMouseMove={[Function]}
+        passDisabledToLi={false}
         role="option"
         value="2"
       >
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          disabled={false}
           id="downshift-12-item-1"
           onMouseMove={[Function]}
           role="option"
@@ -391,10 +391,10 @@ exports[`Dropdown should render correctly opened 1`] = `
         isHighlighted={false}
         isSelected={false}
         key=".$.$disabled-key"
+        passDisabledToLi={false}
       >
         <li
           className="ListItem ListItem--disabled List__item"
-          disabled={true}
         >
           <div
             className="ListItem__container"
@@ -424,13 +424,13 @@ exports[`Dropdown should render correctly opened 1`] = `
         key=".$.$first-key"
         onClick={[Function]}
         onMouseMove={[Function]}
+        passDisabledToLi={false}
         role="option"
         value="first-value"
       >
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          disabled={false}
           id="downshift-3-item-0"
           onMouseMove={[Function]}
           role="option"
@@ -547,10 +547,10 @@ exports[`Dropdown should render correctly with mixed children: array and single 
         isHighlighted={false}
         isSelected={false}
         key=".$.$disabled-key"
+        passDisabledToLi={false}
       >
         <li
           className="ListItem ListItem--disabled List__item"
-          disabled={true}
         >
           <div
             className="ListItem__container"
@@ -580,13 +580,13 @@ exports[`Dropdown should render correctly with mixed children: array and single 
         key=".$.1=2$one"
         onClick={[Function]}
         onMouseMove={[Function]}
+        passDisabledToLi={false}
         role="option"
         value="one"
       >
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          disabled={false}
           id="downshift-41-item-0"
           onMouseMove={[Function]}
           role="option"
@@ -620,13 +620,13 @@ exports[`Dropdown should render correctly with mixed children: array and single 
         key=".$.1=2$two"
         onClick={[Function]}
         onMouseMove={[Function]}
+        passDisabledToLi={false}
         role="option"
         value="two"
       >
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          disabled={false}
           id="downshift-41-item-1"
           onMouseMove={[Function]}
           role="option"

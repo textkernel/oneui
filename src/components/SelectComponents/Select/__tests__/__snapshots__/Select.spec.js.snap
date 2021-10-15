@@ -315,6 +315,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                   isLoading={false}
                   key=".0"
                   noSuggestionsPlaceholder=""
+                  passDisabledToListItems={true}
                   suggestionToString={[Function]}
                   suggestions={
                     Array [
@@ -363,6 +364,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     key="Sun"
                     onClick={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={true}
                     role="option"
                     style={Object {}}
                   >
@@ -408,6 +410,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     key="Moon"
                     onClick={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={true}
                     role="option"
                     style={Object {}}
                   >
@@ -453,6 +456,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     key="Mercury"
                     onClick={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={true}
                     role="option"
                     style={Object {}}
                   >
@@ -498,6 +502,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     key="Venus"
                     onClick={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={true}
                     role="option"
                     style={Object {}}
                   >
@@ -543,6 +548,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     key="Earth"
                     onClick={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={true}
                     role="option"
                     style={Object {}}
                   >
@@ -588,6 +594,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     key="Mars"
                     onClick={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={true}
                     role="option"
                     style={Object {}}
                   >
@@ -633,6 +640,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     key="Jupiter"
                     onClick={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={true}
                     role="option"
                     style={Object {}}
                   >
@@ -678,6 +686,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     key="Saturn"
                     onClick={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={true}
                     role="option"
                     style={Object {}}
                   >
@@ -723,6 +732,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     key="Neptune"
                     onClick={[Function]}
                     onMouseMove={[Function]}
+                    passDisabledToLi={true}
                     role="option"
                     style={Object {}}
                   >
@@ -766,6 +776,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     isHighlighted={false}
                     isSelected={false}
                     key="Pluto"
+                    passDisabledToLi={true}
                     role="option"
                     style={Object {}}
                   >
