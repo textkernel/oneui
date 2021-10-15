@@ -72,59 +72,6 @@ storiesOf('Organisms|Select Components', module)
         }
     )
     .add(
-        'Select with disabled items',
-        () => {
-            const suggestions = SUGGESTIONS.map((elem, index) => ({
-                ...elem,
-                disabled: !(index % 3),
-            }));
-            const [selectedItem, setSelectedItem] = React.useState(suggestions[1]);
-
-            const onFocus = () => {
-                console.log('onFocus was called');
-            };
-
-            const onBlur = () => {
-                console.log('onBlur was called');
-            };
-
-            const onChange = (item) => {
-                console.log(`onChange was called with {name: ${item.name}}`);
-                setSelectedItem(item);
-            };
-
-            return (
-                <>
-                    <Select<TSuggestion>
-                        style={{ width: '650px' }}
-                        items={suggestions}
-                        itemToString={SUGGESTION_TO_STRING}
-                        selectedItem={selectedItem}
-                        onFocus={onFocus}
-                        onBlur={onBlur}
-                        onChange={onChange}
-                    />
-                </>
-            );
-        },
-        {
-            info: {
-                text: `
-        ## Usage information
-        Generally, Select component's *"items"* prop can be any array of any type. However, if you want to disabled some of the items,
-        this props needs to be an array of objects, where the *object has a property "disabled" set true* for the items
-        that needs to be disabled.
-
-        ---
-
-        This component is recommended to use for a simple select component with static known list of values without a need for filtering.
-        The list is shown right away by clicking on the control. The selected item is shown in the top field.
-
-        More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
-            },
-        }
-    )
-    .add(
         'ComboboxMulti',
         (storyContext) => {
             const store = storyContext?.parameters.getStore();
