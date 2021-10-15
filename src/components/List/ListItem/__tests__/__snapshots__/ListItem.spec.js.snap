@@ -29,3 +29,33 @@ exports[`ListItem component should render ListItem correctly 1`] = `
   </li>
 </ListItem>
 `;
+
+exports[`ListItem component should render correctly when disabled 1`] = `
+<ListItem
+  disabled={true}
+  highlightContext="default"
+  isHighlighted={false}
+  isSelected={false}
+  passDisabledToLi={false}
+>
+  <li
+    className="ListItem ListItem--disabled"
+  >
+    <div
+      className="ListItem__container"
+      role="presentation"
+    >
+      <Text
+        context="default"
+        inline={true}
+        key=".0"
+        size="normal"
+      >
+        <span>
+          An item
+        </span>
+      </Text>
+    </div>
+  </li>
+</ListItem>
+`;
