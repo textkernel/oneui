@@ -7,7 +7,7 @@ import {
 } from '../../../AutosuggestDeprecated/__mocks__/suggestions';
 
 const noSuggestionsPlaceholder = 'noSuggestionsPlaceholder';
-const getItemProps = jest.fn();
+const getItemProps = (props) => ({ disabled: props.disabled });
 const highlightedIndex = 1;
 
 let wrapper;
@@ -62,5 +62,16 @@ describe('SuggestionsList', () => {
 
         expect(wrapper.find('ListItem')).toHaveLength(7);
         expect(wrapper.find('.SuggestionsList__loaderItem')).toHaveLength(5);
+    });
+    it('should interpret disabled items correctly', () => {
+        // assuming last item in suggestions is disabled
+        expect(wrapper.find('ListItem').first().prop('disabled')).toBeFalsy();
+        expect(wrapper.find('ListItem').last().prop('disabled')).toBeTruthy();
+    });
+    it('should set li for disabled items as such when prop is set', () => {
+        wrapper.setProps({ passDisabledToListItems: true });
+        // assuming last item in suggestions is disabled
+        expect(wrapper.find('li').first().prop('disabled')).toBeFalsy();
+        expect(wrapper.find('li').last().prop('disabled')).toBeTruthy();
     });
 });
