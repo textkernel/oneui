@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.1.0](https://github.com/textkernel/oneui/compare/15.0.3...15.1.0) (2021-10-18)
+
+
+### Features
+
+* **Select, Combobox, Autosuggest:** add option to disable items ([#614](https://github.com/textkernel/oneui/issues/614)) ([9e8ac51](https://github.com/textkernel/oneui/commit/9e8ac51ea0718d5fcf46a056173bebbc34f023de))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @googlemaps/js-api-loader to v1.12.5 ([f646367](https://github.com/textkernel/oneui/commit/f646367977c0af3f8c5b1dd406497bb18ea45ffc))
+* **deps:** update dependency tippy.js to v6.3.2 ([81b599c](https://github.com/textkernel/oneui/commit/81b599caf4040fb480ae694652b0ae4857e58089))
+
 ### [15.0.3](https://github.com/textkernel/oneui/compare/15.0.2...15.0.3) (2021-10-01)
 
 
