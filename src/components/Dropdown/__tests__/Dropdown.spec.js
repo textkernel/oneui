@@ -1,5 +1,4 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import toJson from 'enzyme-to-json';
 import { Dropdown } from '../Dropdown';
 import { Button } from '../../Buttons';
