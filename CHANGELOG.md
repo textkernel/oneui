@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.2.0](https://github.com/textkernel/oneui/compare/15.1.0...15.2.0) (2021-10-21)
+
+
+### Features
+
+* **Dropdown:** add callback prop to listen to on-toggle-button click ([#616](https://github.com/textkernel/oneui/issues/616)) ([5b575f5](https://github.com/textkernel/oneui/commit/5b575f5717849bb4c70081833a88e3214c8cc0f4))
+
 ## [15.1.0](https://github.com/textkernel/oneui/compare/15.0.3...15.1.0) (2021-10-18)
 
 
