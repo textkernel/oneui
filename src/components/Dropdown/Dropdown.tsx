@@ -33,6 +33,14 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      * Callback called on toggle button click with current/previous open state
      */
     onToggleClick?: (prevOpenState: boolean) => void;
+    /**
+     * Callback called on focus of the dropdown menu
+     */
+    onMenuFocus?: () => void;
+    /**
+     * Callback called on blur of the dropdown menu
+     */
+    onMenuBlur?: () => void;
     /** Popup placement relative to button */
     placement?: PopupPlacement;
 }
@@ -43,7 +51,16 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
  * If you don't need navigation - use PopupBase component.
  */
 export function Dropdown<V>(props: Props<V>) {
-    const { button, children, onChange, onToggleClick, placement, ...rest } = props;
+    const {
+        button,
+        children,
+        onChange,
+        onToggleClick,
+        onMenuBlur,
+        onMenuFocus,
+        placement,
+        ...rest
+    } = props;
 
     const [referenceElement, setReferenceElement] = useState(null);
     const [popperElement, setPopperElement] = useState(null);
@@ -82,7 +99,14 @@ export function Dropdown<V>(props: Props<V>) {
             },
         });
 
-    const menuProps = getMenuProps();
+    const menuProps = getMenuProps({
+        onBlur: () => {
+            onMenuBlur?.();
+        },
+        onFocus: () => {
+            onMenuFocus?.();
+        },
+    });
     const toggleButtonProps = getToggleButtonProps({
         onClick: () => {
             onToggleClick?.(isOpen);
@@ -136,4 +160,6 @@ Dropdown.displayName = 'Dropdown';
 Dropdown.defaultProps = {
     placement: 'bottom-end',
     onToggleClick: undefined,
+    onMenuFocus: undefined,
+    onMenuBlur: undefined,
 };

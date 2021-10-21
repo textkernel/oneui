@@ -201,6 +201,7 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
         isControlledNavigation={true}
         isDivided={false}
         onBlur={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         onMouseLeave={[Function]}
         role="listbox"
@@ -211,6 +212,7 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
           className="List"
           id="downshift-0-menu"
           onBlur={[Function]}
+          onFocus={[Function]}
           onKeyDown={[Function]}
           onMouseLeave={[Function]}
           role="listbox"

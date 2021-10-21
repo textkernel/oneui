@@ -43,6 +43,14 @@ storiesOf('Molecules|Dropdown', module)
                 console.log(`onToggleClick was called with current state: ${state}`);
             };
 
+            const onMenuFocus = () => {
+                console.log('onMenuFocus was called');
+            };
+
+            const onMenuBlur = () => {
+                console.log('onMenuBlur was called');
+            };
+
             const customButtonsDemo = [
                 <Button context="brand">Click me!</Button>,
                 <Button context="neutral">
@@ -62,6 +70,8 @@ storiesOf('Molecules|Dropdown', module)
                         button={customButtonsDemo[buttonIndex]}
                         onChange={onChange}
                         onToggleClick={onToggleClick}
+                        onMenuFocus={onMenuFocus}
+                        onMenuBlur={onMenuBlur}
                         placement={select('placement', POPUP_PLACEMENTS, 'bottom-end')}
                     >
                         <ListItem key="disabled-key" disabled style={styles.divider}>

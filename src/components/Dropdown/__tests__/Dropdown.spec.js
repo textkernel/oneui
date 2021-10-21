@@ -1,4 +1,5 @@
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 import toJson from 'enzyme-to-json';
 import { Dropdown } from '../Dropdown';
 import { Button } from '../../Buttons';
@@ -7,6 +8,8 @@ import { ListItem } from '../../List';
 describe('Dropdown', () => {
     const mockOnChange = jest.fn();
     const mockOnButtonClick = jest.fn();
+    const mockOnMenuFocus = jest.fn();
+    const mockOnMenuBlur = jest.fn();
     let wrapper;
 
     beforeEach(() => {
@@ -16,6 +19,8 @@ describe('Dropdown', () => {
                 onChange={mockOnChange}
                 placement="top-start"
                 onToggleClick={mockOnButtonClick}
+                onMenuFocus={mockOnMenuFocus}
+                onMenuBlur={mockOnMenuBlur}
             >
                 <ListItem key="disabled-key" disabled>
                     Disabled
@@ -148,5 +153,20 @@ describe('Dropdown', () => {
         expect(mockOnButtonClick).toHaveBeenCalledWith(false);
         wrapper.find('button').simulate('click');
         expect(mockOnButtonClick).toHaveBeenCalledWith(true);
+    });
+
+    it('should call callback when menu is focused', () => {
+        wrapper.find('button').simulate('click');
+        wrapper.find('List').simulate('focus');
+
+        expect(mockOnMenuFocus).toHaveBeenCalled();
+    });
+
+    it('should call callback when menu is blurred', () => {
+        wrapper.find('button').simulate('click');
+        wrapper.find('List').simulate('focus');
+        wrapper.find('List').simulate('blur');
+
+        expect(mockOnMenuBlur).toHaveBeenCalled();
     });
 });
