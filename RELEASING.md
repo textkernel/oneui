@@ -31,15 +31,16 @@ You can open storybook from `./out/index.html` (see also comment at end of termi
 (master)$ npm run release -- --dry-run
 ```
 
-Before proceeding to the next step, **make sure that you are signed in NPM under a correct user account**.  
+Before proceeding to the next step, **make sure that you are signed in NPM under a correct user account**.
 
-You find your current user account type the following in your terminal:
+To find your user account, type the following in your terminal:
 
 ```bash
 npm whoami
 ```
 
 If you are not logged in, you need to login/add new NPM user:
+
 ```bash
 npm adduser
 ```
