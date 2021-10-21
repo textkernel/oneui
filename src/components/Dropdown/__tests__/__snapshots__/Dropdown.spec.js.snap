@@ -246,6 +246,7 @@ exports[`Dropdown should render correctly closed 1`] = `
     </ForwardRef>
   }
   onChange={[MockFunction]}
+  onToggleClick={[MockFunction]}
   placement="top-start"
 >
   <Button
@@ -317,6 +318,21 @@ exports[`Dropdown should render correctly opened 1`] = `
     </ForwardRef>
   }
   onChange={[MockFunction]}
+  onToggleClick={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          false,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   placement="top-start"
 >
   <Button
