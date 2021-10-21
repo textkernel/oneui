@@ -6,6 +6,7 @@ import { ListItem } from '../../List';
 
 describe('Dropdown', () => {
     const mockOnChange = jest.fn();
+    const mockOnButtonClick = jest.fn();
     let wrapper;
 
     beforeEach(() => {
@@ -14,6 +15,7 @@ describe('Dropdown', () => {
                 button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
+                onToggleClick={mockOnButtonClick}
             >
                 <ListItem key="disabled-key" disabled>
                     Disabled
@@ -139,5 +141,12 @@ describe('Dropdown', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('ListItem')).toHaveLength(3);
         wrapper.unmount();
+    });
+
+    it('should call cb when button is clicked', () => {
+        wrapper.find('button').simulate('click');
+        expect(mockOnButtonClick).toHaveBeenCalledWith(false);
+        wrapper.find('button').simulate('click');
+        expect(mockOnButtonClick).toHaveBeenCalledWith(true);
     });
 });

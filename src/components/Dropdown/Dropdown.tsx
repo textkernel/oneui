@@ -29,6 +29,10 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      * Value parameter it is a `value` attribute of children item ({@link ListItemProps.value}).
      */
     onChange: (value: V) => void;
+    /**
+     * Callback called on toggle button click with current/previous open state
+     */
+    onToggleClick?: (prevOpenState: boolean) => void;
     /** Popup placement relative to button */
     placement?: PopupPlacement;
 }
@@ -39,7 +43,7 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
  * If you don't need navigation - use PopupBase component.
  */
 export function Dropdown<V>(props: Props<V>) {
-    const { button, children, onChange, placement, ...rest } = props;
+    const { button, children, onChange, onToggleClick, placement, ...rest } = props;
 
     const [referenceElement, setReferenceElement] = useState(null);
     const [popperElement, setPopperElement] = useState(null);
@@ -79,7 +83,11 @@ export function Dropdown<V>(props: Props<V>) {
         });
 
     const menuProps = getMenuProps();
-    const toggleButtonProps = getToggleButtonProps();
+    const toggleButtonProps = getToggleButtonProps({
+        onClick: () => {
+            onToggleClick?.(isOpen);
+        },
+    });
     const openPopperProps = isOpen && {
         style: state.styles.popper,
         ...state.attributes.popper,
@@ -127,4 +135,5 @@ Dropdown.displayName = 'Dropdown';
 
 Dropdown.defaultProps = {
     placement: 'bottom-end',
+    onToggleClick: undefined,
 };
