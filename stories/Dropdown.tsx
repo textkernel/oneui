@@ -39,6 +39,10 @@ storiesOf('Molecules|Dropdown', module)
                 console.log(`onChange was called value : ${value}`);
             };
 
+            const onToggleClick = (state) => {
+                console.log(`onToggleClick was called with current state: ${state}`);
+            };
+
             const customButtonsDemo = [
                 <Button context="brand">Click me!</Button>,
                 <Button context="neutral">
@@ -57,6 +61,7 @@ storiesOf('Molecules|Dropdown', module)
                         style={{ width: 'fit-content' }}
                         button={customButtonsDemo[buttonIndex]}
                         onChange={onChange}
+                        onToggleClick={onToggleClick}
                         placement={select('placement', POPUP_PLACEMENTS, 'bottom-end')}
                     >
                         <ListItem key="disabled-key" disabled style={styles.divider}>
