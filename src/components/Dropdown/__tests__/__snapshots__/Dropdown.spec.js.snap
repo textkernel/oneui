@@ -246,6 +246,8 @@ exports[`Dropdown should render correctly closed 1`] = `
     </ForwardRef>
   }
   onChange={[MockFunction]}
+  onMenuBlur={[MockFunction]}
+  onMenuFocus={[MockFunction]}
   onToggleClick={[MockFunction]}
   placement="top-start"
 >
@@ -284,6 +286,7 @@ exports[`Dropdown should render correctly closed 1`] = `
     isControlledNavigation={true}
     isDivided={false}
     onBlur={[Function]}
+    onFocus={[MockFunction]}
     onKeyDown={[Function]}
     onMouseLeave={[Function]}
     role="listbox"
@@ -294,6 +297,7 @@ exports[`Dropdown should render correctly closed 1`] = `
       className="List"
       id="downshift-0-menu"
       onBlur={[Function]}
+      onFocus={[MockFunction]}
       onKeyDown={[Function]}
       onMouseLeave={[Function]}
       role="listbox"
@@ -318,6 +322,8 @@ exports[`Dropdown should render correctly opened 1`] = `
     </ForwardRef>
   }
   onChange={[MockFunction]}
+  onMenuBlur={[MockFunction]}
+  onMenuFocus={[MockFunction]}
   onToggleClick={
     [MockFunction] {
       "calls": Array [
@@ -371,6 +377,7 @@ exports[`Dropdown should render correctly opened 1`] = `
     isControlledNavigation={true}
     isDivided={false}
     onBlur={[Function]}
+    onFocus={[MockFunction]}
     onKeyDown={[Function]}
     onMouseLeave={[Function]}
     role="listbox"
@@ -388,6 +395,7 @@ exports[`Dropdown should render correctly opened 1`] = `
       className="List Dropdown__list"
       id="downshift-3-menu"
       onBlur={[Function]}
+      onFocus={[MockFunction]}
       onKeyDown={[Function]}
       onMouseLeave={[Function]}
       role="listbox"
