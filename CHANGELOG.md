@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.3.0](https://github.com/textkernel/oneui/compare/15.2.0...15.3.0) (2021-10-22)
+
+
+### Features
+
+* **Dropdown:** Add possibility to bind callbacks to onFocus and onBlur events of dropdown menu ([#618](https://github.com/textkernel/oneui/issues/618)) ([1393851](https://github.com/textkernel/oneui/commit/13938514973b6b933fd6b20ea70007cfe76ad806))
+
 ## [15.2.0](https://github.com/textkernel/oneui/compare/15.1.0...15.2.0) (2021-10-21)
 
 
