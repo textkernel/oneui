@@ -100,12 +100,8 @@ export function Dropdown<V>(props: Props<V>) {
         });
 
     const menuProps = getMenuProps({
-        onBlur: () => {
-            onMenuBlur?.();
-        },
-        onFocus: () => {
-            onMenuFocus?.();
-        },
+        onBlur: onMenuBlur,
+        onFocus: onMenuFocus,
     });
     const toggleButtonProps = getToggleButtonProps({
         onClick: () => {
