@@ -41,6 +41,14 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      * Callback called on blur of the dropdown menu
      */
     onMenuBlur?: () => void;
+    /**
+     * Callback called when internal dropdown state is changed
+     */
+    onDropdownStateChange?: (object: {}) => void;
+    /**
+     * Flag indicating if dropdown is open by default
+     */
+    initialIsOpen?: boolean;
     /** Popup placement relative to button */
     placement?: PopupPlacement;
 }
@@ -58,6 +66,8 @@ export function Dropdown<V>(props: Props<V>) {
         onToggleClick,
         onMenuBlur,
         onMenuFocus,
+        onDropdownStateChange,
+        initialIsOpen,
         placement,
         ...rest
     } = props;
@@ -97,6 +107,8 @@ export function Dropdown<V>(props: Props<V>) {
                     reset();
                 }
             },
+            onStateChange: (object) => onDropdownStateChange?.(object),
+            initialIsOpen,
         });
 
     const menuProps = getMenuProps({
@@ -158,4 +170,6 @@ Dropdown.defaultProps = {
     onToggleClick: undefined,
     onMenuFocus: undefined,
     onMenuBlur: undefined,
+    onDropdownStateChange: undefined,
+    initialIsOpen: false,
 };

@@ -9,6 +9,7 @@ describe('Dropdown', () => {
     const mockOnButtonClick = jest.fn();
     const mockOnMenuFocus = jest.fn();
     const mockOnMenuBlur = jest.fn();
+    const mockOnDropdownStateChange = jest.fn();
     let wrapper;
 
     beforeEach(() => {
@@ -20,6 +21,7 @@ describe('Dropdown', () => {
                 onToggleClick={mockOnButtonClick}
                 onMenuFocus={mockOnMenuFocus}
                 onMenuBlur={mockOnMenuBlur}
+                onDropdownStateChange={mockOnDropdownStateChange}
             >
                 <ListItem key="disabled-key" disabled>
                     Disabled
@@ -167,5 +169,51 @@ describe('Dropdown', () => {
         wrapper.find('List').simulate('blur');
 
         expect(mockOnMenuBlur).toHaveBeenCalled();
+    });
+
+    it('should call callback when menu state is changed', () => {
+        wrapper.find('button').simulate('click');
+        // Event for a successful mouse click on dropdown button
+        expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
+            isOpen: true,
+            type: '__togglebutton_click__',
+        });
+
+        wrapper.find('List').simulate('keyDown', { key: 'ArrowDown' });
+        // Event for a successful arrow down press when menu is opened
+        expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
+            highlightedIndex: 0,
+            type: '__menu_keydown_arrow_down__',
+        });
+
+        wrapper.find('List').simulate('blur');
+        // Event for a successful dropdown blur
+        expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
+            highlightedIndex: -1,
+            isOpen: false,
+            type: '__menu_blur__',
+        });
+    });
+
+    it('should open dropdown by default if corresponding prop is set', () => {
+        wrapper = mount(
+            <Dropdown
+                button={<Button context="brand">Click me!</Button>}
+                onChange={mockOnChange}
+                placement="top-start"
+                initialIsOpen
+            >
+                <ListItem key="disabled-key" disabled>
+                    Disabled
+                </ListItem>
+                {['one', 'two'].map((value) => (
+                    <ListItem key={value} value={value}>
+                        {value}
+                    </ListItem>
+                ))}
+            </Dropdown>
+        );
+
+        expect(wrapper.find('ListItem')).toHaveLength(3);
     });
 });

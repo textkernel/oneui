@@ -14,6 +14,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       Click me!
     </ForwardRef>
   }
+  initialIsOpen={false}
   onChange={[MockFunction]}
   placement="top-start"
 >
@@ -245,7 +246,9 @@ exports[`Dropdown should render correctly closed 1`] = `
       Click me!
     </ForwardRef>
   }
+  initialIsOpen={false}
   onChange={[MockFunction]}
+  onDropdownStateChange={[MockFunction]}
   onMenuBlur={[MockFunction]}
   onMenuFocus={[MockFunction]}
   onToggleClick={[MockFunction]}
@@ -321,7 +324,26 @@ exports[`Dropdown should render correctly opened 1`] = `
       Click me!
     </ForwardRef>
   }
+  initialIsOpen={false}
   onChange={[MockFunction]}
+  onDropdownStateChange={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "isOpen": true,
+            "type": "__togglebutton_click__",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   onMenuBlur={[MockFunction]}
   onMenuFocus={[MockFunction]}
   onToggleClick={
@@ -496,6 +518,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       Click me!
     </ForwardRef>
   }
+  initialIsOpen={false}
   onChange={[MockFunction]}
   placement="top-start"
 >

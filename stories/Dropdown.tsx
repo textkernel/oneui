@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { select, withKnobs, boolean } from '@storybook/addon-knobs';
 import { Button, Dropdown, ListItem, IconTextkernel } from '@textkernel/oneui';
 import { POPUP_PLACEMENTS } from '@textkernel/oneui/constants';
 import { HiDotsVertical } from 'react-icons/hi';
@@ -51,6 +51,10 @@ storiesOf('Molecules|Dropdown', module)
                 console.log('onMenuBlur was called');
             };
 
+            const onDropdownStateChange = (object) => {
+                console.log('onDropdownStateChange was called with the following:', object);
+            };
+
             const customButtonsDemo = [
                 <Button context="brand">Click me!</Button>,
                 <Button context="neutral">
@@ -72,6 +76,8 @@ storiesOf('Molecules|Dropdown', module)
                         onToggleClick={onToggleClick}
                         onMenuFocus={onMenuFocus}
                         onMenuBlur={onMenuBlur}
+                        onDropdownStateChange={onDropdownStateChange}
+                        initialIsOpen={false}
                         placement={select('placement', POPUP_PLACEMENTS, 'bottom-end')}
                     >
                         <ListItem key="disabled-key" disabled style={styles.divider}>
