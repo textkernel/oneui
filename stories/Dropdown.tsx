@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { select, withKnobs, boolean } from '@storybook/addon-knobs';
+import { select, withKnobs } from '@storybook/addon-knobs';
 import { Button, Dropdown, ListItem, IconTextkernel } from '@textkernel/oneui';
 import { POPUP_PLACEMENTS } from '@textkernel/oneui/constants';
 import { HiDotsVertical } from 'react-icons/hi';
