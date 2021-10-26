@@ -15,7 +15,6 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       Click me!
     </ForwardRef>
   }
-  initialIsOpen={false}
   onChange={[MockFunction]}
   placement="top-start"
   popperClassName=""
@@ -253,7 +252,6 @@ exports[`Dropdown should render correctly closed 1`] = `
       Click me!
     </ForwardRef>
   }
-  initialIsOpen={false}
   onChange={[MockFunction]}
   onMenuBlur={[MockFunction]}
   onMenuFocus={[MockFunction]}
@@ -351,7 +349,6 @@ exports[`Dropdown should render correctly opened 1`] = `
       Click me!
     </ForwardRef>
   }
-  initialIsOpen={false}
   onChange={[MockFunction]}
   onMenuBlur={[MockFunction]}
   onMenuFocus={[MockFunction]}
@@ -529,7 +526,6 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       Click me!
     </ForwardRef>
   }
-  initialIsOpen={false}
   onChange={[MockFunction]}
   placement="top-start"
   popperClassName=""

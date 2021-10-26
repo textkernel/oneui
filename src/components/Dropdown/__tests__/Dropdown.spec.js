@@ -203,7 +203,9 @@ describe('Dropdown', () => {
                 button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
-                initialIsOpen
+                additionalSelectProps={{
+                    initialIsOpen: true,
+                }}
             >
                 <ListItem key="disabled-key" disabled>
                     Disabled

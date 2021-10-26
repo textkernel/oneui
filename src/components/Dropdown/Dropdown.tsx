@@ -42,10 +42,6 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      */
     onMenuBlur?: () => void;
     /**
-     * Flag indicating if dropdown is open by default
-     */
-    initialIsOpen?: boolean;
-    /**
      * Additional select props that enrich and use downshift API
      */
     additionalSelectProps?: {};
@@ -70,7 +66,6 @@ export function Dropdown<V>(props: Props<V>) {
         onToggleClick,
         onMenuBlur,
         onMenuFocus,
-        initialIsOpen,
         placement,
         additionalSelectProps,
         popperClassName,
@@ -112,7 +107,6 @@ export function Dropdown<V>(props: Props<V>) {
                     reset();
                 }
             },
-            initialIsOpen,
             ...additionalSelectProps,
         });
 
@@ -177,7 +171,6 @@ Dropdown.defaultProps = {
     onToggleClick: undefined,
     onMenuFocus: undefined,
     onMenuBlur: undefined,
-    initialIsOpen: false,
     additionalSelectProps: {},
     popperClassName: '',
 };
