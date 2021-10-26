@@ -79,7 +79,6 @@ storiesOf('Molecules|Dropdown', module)
                         additionalSelectProps={{
                             onStateChange: onDropdownStateChange,
                         }}
-                        initialIsOpen={false}
                         placement={select('placement', POPUP_PLACEMENTS, 'bottom-end')}
                     >
                         <ListItem key="disabled-key" disabled style={styles.divider}>
