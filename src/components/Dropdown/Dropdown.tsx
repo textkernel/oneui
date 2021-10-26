@@ -42,13 +42,17 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      */
     onMenuBlur?: () => void;
     /**
-     * Callback called when internal dropdown state is changed
-     */
-    onDropdownStateChange?: (object: {}) => void;
-    /**
      * Flag indicating if dropdown is open by default
      */
     initialIsOpen?: boolean;
+    /**
+     * Additional select props that enrich and use downshift API
+     */
+    additionalSelectProps?: {};
+    /**
+     * ClassName that is assigned to <ul> element of the dropdown
+     */
+    popperClassName?: string;
     /** Popup placement relative to button */
     placement?: PopupPlacement;
 }
@@ -66,9 +70,10 @@ export function Dropdown<V>(props: Props<V>) {
         onToggleClick,
         onMenuBlur,
         onMenuFocus,
-        onDropdownStateChange,
         initialIsOpen,
         placement,
+        additionalSelectProps,
+        popperClassName,
         ...rest
     } = props;
 
@@ -107,8 +112,8 @@ export function Dropdown<V>(props: Props<V>) {
                     reset();
                 }
             },
-            onStateChange: (object) => onDropdownStateChange?.(object),
             initialIsOpen,
+            ...additionalSelectProps,
         });
 
     const menuProps = getMenuProps({
@@ -123,7 +128,9 @@ export function Dropdown<V>(props: Props<V>) {
     const openPopperProps = isOpen && {
         style: state.styles.popper,
         ...state.attributes.popper,
-        ...elem('list'),
+        ...elem('list', {
+            elemClassName: popperClassName,
+        }),
     };
     return (
         <>
@@ -170,6 +177,7 @@ Dropdown.defaultProps = {
     onToggleClick: undefined,
     onMenuFocus: undefined,
     onMenuBlur: undefined,
-    onDropdownStateChange: undefined,
     initialIsOpen: false,
+    additionalSelectProps: {},
+    popperClassName: '',
 };

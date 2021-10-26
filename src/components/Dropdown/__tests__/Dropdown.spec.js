@@ -21,7 +21,9 @@ describe('Dropdown', () => {
                 onToggleClick={mockOnButtonClick}
                 onMenuFocus={mockOnMenuFocus}
                 onMenuBlur={mockOnMenuBlur}
-                onDropdownStateChange={mockOnDropdownStateChange}
+                additionalSelectProps={{
+                    onStateChange: mockOnDropdownStateChange,
+                }}
             >
                 <ListItem key="disabled-key" disabled>
                     Disabled

@@ -76,7 +76,9 @@ storiesOf('Molecules|Dropdown', module)
                         onToggleClick={onToggleClick}
                         onMenuFocus={onMenuFocus}
                         onMenuBlur={onMenuBlur}
-                        onDropdownStateChange={onDropdownStateChange}
+                        additionalSelectProps={{
+                            onStateChange: onDropdownStateChange,
+                        }}
                         initialIsOpen={false}
                         placement={select('placement', POPUP_PLACEMENTS, 'bottom-end')}
                     >

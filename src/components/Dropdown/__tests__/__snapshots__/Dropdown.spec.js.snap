@@ -2,6 +2,7 @@
 
 exports[`Dropdown should downshift only by enabled items with value 1`] = `
 <Dropdown
+  additionalSelectProps={Object {}}
   button={
     <ForwardRef
       context="brand"
@@ -17,6 +18,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
   initialIsOpen={false}
   onChange={[MockFunction]}
   placement="top-start"
+  popperClassName=""
 >
   <Button
     aria-expanded={true}
@@ -234,6 +236,11 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
 
 exports[`Dropdown should render correctly closed 1`] = `
 <Dropdown
+  additionalSelectProps={
+    Object {
+      "onStateChange": [MockFunction],
+    }
+  }
   button={
     <ForwardRef
       context="brand"
@@ -248,11 +255,11 @@ exports[`Dropdown should render correctly closed 1`] = `
   }
   initialIsOpen={false}
   onChange={[MockFunction]}
-  onDropdownStateChange={[MockFunction]}
   onMenuBlur={[MockFunction]}
   onMenuFocus={[MockFunction]}
   onToggleClick={[MockFunction]}
   placement="top-start"
+  popperClassName=""
 >
   <Button
     aria-expanded={false}
@@ -312,6 +319,26 @@ exports[`Dropdown should render correctly closed 1`] = `
 
 exports[`Dropdown should render correctly opened 1`] = `
 <Dropdown
+  additionalSelectProps={
+    Object {
+      "onStateChange": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "isOpen": true,
+              "type": "__togglebutton_click__",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+    }
+  }
   button={
     <ForwardRef
       context="brand"
@@ -326,24 +353,6 @@ exports[`Dropdown should render correctly opened 1`] = `
   }
   initialIsOpen={false}
   onChange={[MockFunction]}
-  onDropdownStateChange={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          Object {
-            "isOpen": true,
-            "type": "__togglebutton_click__",
-          },
-        ],
-      ],
-      "results": Array [
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-      ],
-    }
-  }
   onMenuBlur={[MockFunction]}
   onMenuFocus={[MockFunction]}
   onToggleClick={
@@ -362,6 +371,7 @@ exports[`Dropdown should render correctly opened 1`] = `
     }
   }
   placement="top-start"
+  popperClassName=""
 >
   <Button
     aria-expanded={true}
@@ -506,6 +516,7 @@ exports[`Dropdown should render correctly opened 1`] = `
 
 exports[`Dropdown should render correctly with mixed children: array and single ListItem 1`] = `
 <Dropdown
+  additionalSelectProps={Object {}}
   button={
     <ForwardRef
       context="brand"
@@ -521,6 +532,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
   initialIsOpen={false}
   onChange={[MockFunction]}
   placement="top-start"
+  popperClassName=""
 >
   <Button
     aria-expanded={true}
