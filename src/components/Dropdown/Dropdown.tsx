@@ -48,7 +48,7 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
     /**
      * ClassName that is assigned to <ul> element of the dropdown
      */
-    popperClassName?: string;
+    listClassName?: string;
     /** Popup placement relative to button */
     placement?: PopupPlacement;
 }
@@ -68,7 +68,7 @@ export function Dropdown<V>(props: Props<V>) {
         onMenuFocus,
         placement,
         additionalSelectProps,
-        popperClassName,
+        listClassName,
         ...rest
     } = props;
 
@@ -123,7 +123,7 @@ export function Dropdown<V>(props: Props<V>) {
         style: state.styles.popper,
         ...state.attributes.popper,
         ...elem('list', {
-            elemClassName: popperClassName,
+            elemClassName: listClassName,
         }),
     };
     return (
@@ -172,5 +172,5 @@ Dropdown.defaultProps = {
     onMenuFocus: undefined,
     onMenuBlur: undefined,
     additionalSelectProps: {},
-    popperClassName: '',
+    listClassName: '',
 };

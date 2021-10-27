@@ -163,8 +163,8 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
       className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
       context="neutral"
       key=".2"
+      listClassName=""
       placement="bottom-end"
-      popperClassName=""
       size="large"
     >
       <Button

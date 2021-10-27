@@ -52,7 +52,10 @@ storiesOf('Molecules|Dropdown', module)
             };
 
             const onDropdownStateChange = (object) => {
-                console.log('onDropdownStateChange was called with the following:', object);
+                console.log(
+                    'onDropdownStateChange was called with the following:',
+                    JSON.stringify(object)
+                );
             };
 
             const customButtonsDemo = [
