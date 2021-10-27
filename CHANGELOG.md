@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.4.0](https://github.com/textkernel/oneui/compare/15.3.0...15.4.0) (2021-10-27)
+
+
+### Features
+
+* **Dropdown:** Added new props for Dropdown - additionalSelectProps, popperClassName ([#621](https://github.com/textkernel/oneui/issues/621)) ([64c30d9](https://github.com/textkernel/oneui/commit/64c30d9e36988f4e230d881a5c63a3711ebfbdde))
+
 ## [15.3.0](https://github.com/textkernel/oneui/compare/15.2.0...15.3.0) (2021-10-22)
 
 
