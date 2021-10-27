@@ -2,6 +2,7 @@
 
 exports[`Dropdown should downshift only by enabled items with value 1`] = `
 <Dropdown
+  additionalSelectProps={Object {}}
   button={
     <ForwardRef
       context="brand"
@@ -14,6 +15,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       Click me!
     </ForwardRef>
   }
+  listClassName=""
   onChange={[MockFunction]}
   placement="top-start"
 >
@@ -233,6 +235,11 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
 
 exports[`Dropdown should render correctly closed 1`] = `
 <Dropdown
+  additionalSelectProps={
+    Object {
+      "onStateChange": [MockFunction],
+    }
+  }
   button={
     <ForwardRef
       context="brand"
@@ -245,6 +252,7 @@ exports[`Dropdown should render correctly closed 1`] = `
       Click me!
     </ForwardRef>
   }
+  listClassName=""
   onChange={[MockFunction]}
   onMenuBlur={[MockFunction]}
   onMenuFocus={[MockFunction]}
@@ -309,6 +317,26 @@ exports[`Dropdown should render correctly closed 1`] = `
 
 exports[`Dropdown should render correctly opened 1`] = `
 <Dropdown
+  additionalSelectProps={
+    Object {
+      "onStateChange": [MockFunction] {
+        "calls": Array [
+          Array [
+            Object {
+              "isOpen": true,
+              "type": "__togglebutton_click__",
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      },
+    }
+  }
   button={
     <ForwardRef
       context="brand"
@@ -321,6 +349,7 @@ exports[`Dropdown should render correctly opened 1`] = `
       Click me!
     </ForwardRef>
   }
+  listClassName=""
   onChange={[MockFunction]}
   onMenuBlur={[MockFunction]}
   onMenuFocus={[MockFunction]}
@@ -484,6 +513,7 @@ exports[`Dropdown should render correctly opened 1`] = `
 
 exports[`Dropdown should render correctly with mixed children: array and single ListItem 1`] = `
 <Dropdown
+  additionalSelectProps={Object {}}
   button={
     <ForwardRef
       context="brand"
@@ -496,6 +526,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       Click me!
     </ForwardRef>
   }
+  listClassName=""
   onChange={[MockFunction]}
   placement="top-start"
 >

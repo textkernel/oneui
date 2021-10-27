@@ -41,6 +41,14 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      * Callback called on blur of the dropdown menu
      */
     onMenuBlur?: () => void;
+    /**
+     * Additional select props that enrich and use downshift API
+     */
+    additionalSelectProps?: {};
+    /**
+     * ClassName that is assigned to <ul> element of the dropdown
+     */
+    listClassName?: string;
     /** Popup placement relative to button */
     placement?: PopupPlacement;
 }
@@ -59,6 +67,8 @@ export function Dropdown<V>(props: Props<V>) {
         onMenuBlur,
         onMenuFocus,
         placement,
+        additionalSelectProps,
+        listClassName,
         ...rest
     } = props;
 
@@ -97,6 +107,7 @@ export function Dropdown<V>(props: Props<V>) {
                     reset();
                 }
             },
+            ...additionalSelectProps,
         });
 
     const menuProps = getMenuProps({
@@ -111,7 +122,9 @@ export function Dropdown<V>(props: Props<V>) {
     const openPopperProps = isOpen && {
         style: state.styles.popper,
         ...state.attributes.popper,
-        ...elem('list'),
+        ...elem('list', {
+            elemClassName: listClassName,
+        }),
     };
     return (
         <>
@@ -158,4 +171,6 @@ Dropdown.defaultProps = {
     onToggleClick: undefined,
     onMenuFocus: undefined,
     onMenuBlur: undefined,
+    additionalSelectProps: {},
+    listClassName: '',
 };
