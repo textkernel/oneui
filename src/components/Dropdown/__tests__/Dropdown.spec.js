@@ -220,4 +220,29 @@ describe('Dropdown', () => {
 
         expect(wrapper.find('ListItem')).toHaveLength(3);
     });
+
+    it('should allow for conditional rendering of items', () => {
+        const condition = false;
+        wrapper = mount(
+            <Dropdown
+                button={<Button context="brand">Click me!</Button>}
+                onChange={mockOnChange}
+                placement="top-start"
+            >
+                {condition ? (
+                    <ListItem key="key-1" disabled>
+                        Disabled
+                    </ListItem>
+                ) : null}
+                <ListItem key="key-2" value="testValue">
+                    With value
+                </ListItem>
+                {condition && <ListItem key="3">should not render</ListItem>}
+            </Dropdown>
+        );
+        wrapper.find('button').simulate('click');
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.text()).not.toContain('false');
+    });
 });

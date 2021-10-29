@@ -100,6 +100,38 @@ exports[`<ButtonGroup> that renders a button should render default button correc
 </ButtonGroup>
 `;
 
+exports[`<ButtonGroup> that renders a button should render with conditional JSX 1`] = `
+<ButtonGroup
+  context="neutral"
+  isBlock={false}
+  size="normal"
+>
+  <div
+    className="ButtonGroup"
+    role="group"
+  >
+    <Button
+      className="ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
+      context="neutral"
+      disabled={false}
+      isBlock={false}
+      isInline={false}
+      key=".0"
+      size="normal"
+      type="button"
+    >
+      <button
+        className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
+        disabled={false}
+        type="button"
+      >
+        A button
+      </button>
+    </Button>
+  </div>
+</ButtonGroup>
+`;
+
 exports[`<ButtonGroup> that renders a button should support mixed element types 1`] = `
 <ButtonGroup
   context="neutral"

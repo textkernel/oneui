@@ -38,6 +38,18 @@ describe('List component', () => {
             expect(wrapper.find('ul').props()).toHaveProperty('onKeyDown');
             expect(consoleError).not.toHaveBeenCalled();
         });
+        it('should allow for conditional rendering of items', () => {
+            const condition = false;
+            wrapper = mount(
+                <List>
+                    {condition ? <ListItem>Item 1</ListItem> : null}
+                    <ListItem>Item 2</ListItem>
+                    {condition && <ListItem>Item 3</ListItem>}
+                </List>
+            );
+            expect(toJson(wrapper)).toMatchSnapshot();
+            expect(wrapper.text()).not.toContain('false');
+        });
         it('should render List correctly without keyboard navigation', () => {
             wrapper = mount(
                 <List isControlledNavigation>
