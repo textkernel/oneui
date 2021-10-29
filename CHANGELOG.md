@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [15.4.1](https://github.com/textkernel/oneui/compare/15.4.0...15.4.1) (2021-10-29)
+
+
+### Bug Fixes
+
+* **ButtonGroup, Dropdown, List, TabsBar:** improve TS definition of children to allow for conditional JSX ([#622](https://github.com/textkernel/oneui/issues/622)) ([7c90242](https://github.com/textkernel/oneui/commit/7c90242a64479f9584c1746d1f7ca3ce773ab52b))
+
 ## [15.4.0](https://github.com/textkernel/oneui/compare/15.3.0...15.4.0) (2021-10-27)
 
 
