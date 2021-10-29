@@ -38,4 +38,18 @@ describe('<ButtonGroup> that renders a button', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+
+    it('should render with conditional JSX', () => {
+        const condition = false;
+        const wrapper = mount(
+            <ButtonGroup>
+                <Button>A button</Button>
+                {condition ? <Button href="#">An anchor</Button> : null}
+                {condition && <Button>A button</Button>}
+            </ButtonGroup>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.text()).not.toContain('false');
+    });
 });

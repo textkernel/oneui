@@ -1,5 +1,134 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Dropdown should allow for conditional rendering of items 1`] = `
+<Dropdown
+  additionalSelectProps={Object {}}
+  button={
+    <ForwardRef
+      context="brand"
+      disabled={false}
+      isBlock={false}
+      isInline={false}
+      size="normal"
+      type="button"
+    >
+      Click me!
+    </ForwardRef>
+  }
+  listClassName=""
+  onChange={[MockFunction]}
+  placement="top-start"
+>
+  <Button
+    aria-expanded={true}
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-95-label downshift-95-toggle-button"
+    context="brand"
+    disabled={false}
+    id="downshift-95-toggle-button"
+    isBlock={false}
+    isInline={false}
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    size="normal"
+    type="button"
+  >
+    <button
+      aria-expanded={true}
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-95-label downshift-95-toggle-button"
+      className="Button Button--context_brand"
+      disabled={false}
+      id="downshift-95-toggle-button"
+      onClick={[Function]}
+      onKeyDown={[Function]}
+      type="button"
+    >
+      Click me!
+    </button>
+  </Button>
+  <List
+    aria-labelledby="downshift-95-label"
+    className="Dropdown__list"
+    doSelectOnNavigate={false}
+    id="downshift-95-menu"
+    isControlledNavigation={true}
+    isDivided={false}
+    onBlur={[Function]}
+    onKeyDown={[Function]}
+    onMouseLeave={[Function]}
+    role="listbox"
+    style={
+      Object {
+        "left": "0",
+        "position": "absolute",
+        "top": "0",
+      }
+    }
+    tabIndex={-1}
+  >
+    <ul
+      aria-labelledby="downshift-95-label"
+      className="List Dropdown__list"
+      id="downshift-95-menu"
+      onBlur={[Function]}
+      onKeyDown={[Function]}
+      onMouseLeave={[Function]}
+      role="listbox"
+      style={
+        Object {
+          "left": "0",
+          "position": "absolute",
+          "top": "0",
+        }
+      }
+      tabIndex={-1}
+    >
+      <ListItem
+        aria-selected="false"
+        className="List__item"
+        disabled={false}
+        highlightContext="default"
+        id="downshift-95-item-0"
+        isHighlighted={false}
+        isSelected={false}
+        key=".$.$key-2"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        passDisabledToLi={false}
+        role="option"
+        value="testValue"
+      >
+        <li
+          aria-selected="false"
+          className="ListItem ListItem--clickable List__item"
+          id="downshift-95-item-0"
+          onMouseMove={[Function]}
+          role="option"
+        >
+          <div
+            className="ListItem__container"
+            onClick={[Function]}
+            role="presentation"
+          >
+            <Text
+              context="default"
+              inline={true}
+              key=".0"
+              size="normal"
+            >
+              <span>
+                With value
+              </span>
+            </Text>
+          </div>
+        </li>
+      </ListItem>
+    </ul>
+  </List>
+</Dropdown>
+`;
+
 exports[`Dropdown should downshift only by enabled items with value 1`] = `
 <Dropdown
   additionalSelectProps={Object {}}

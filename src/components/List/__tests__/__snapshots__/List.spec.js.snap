@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`List component Initial rendering should allow for conditional rendering of items 1`] = `
+<List
+  doSelectOnNavigate={false}
+  isControlledNavigation={false}
+  isDivided={false}
+>
+  <ul
+    className="List"
+    onKeyDown={[Function]}
+    tabIndex="0"
+  >
+    <ListItem
+      className="List__item"
+      disabled={false}
+      highlightContext="default"
+      isHighlighted={false}
+      isSelected={false}
+      key=".1"
+      passDisabledToLi={false}
+    >
+      <li
+        className="ListItem List__item"
+      >
+        <div
+          className="ListItem__container"
+          role="presentation"
+        >
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
+          >
+            <span>
+              Item 2
+            </span>
+          </Text>
+        </div>
+      </li>
+    </ListItem>
+  </ul>
+</List>
+`;
+
 exports[`List component Initial rendering should render List correctly 1`] = `
 <List
   doSelectOnNavigate={false}

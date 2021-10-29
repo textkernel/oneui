@@ -59,4 +59,17 @@ describe('<TabsBar>', () => {
         expect(tab1Props.onSelect).toEqual(onSelectMock);
         expect(tab2Props.onSelect).toEqual(onSelectMock);
     });
+
+    it('should allow for conditional rendering of items', () => {
+        const condition = false;
+        const wrapper = mount(
+            <TabsBar>
+                {condition ? <TabItem tabId="1">Some tab</TabItem> : null}
+                <TabItem tabId="2">Another tab</TabItem>
+                {condition && <TabItem tabId="3">Another tab</TabItem>}
+            </TabsBar>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.text()).not.toContain('false');
+    });
 });
