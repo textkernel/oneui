@@ -20,8 +20,8 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      */
     children:
         | React.ReactElement<ListItemProps>
-        | React.ReactElement<ListItemProps>[]
-        | (React.ReactElement<ListItemProps> | React.ReactElement<ListItemProps>[])[];
+        | (React.ReactElement<ListItemProps> | null)[]
+        | (React.ReactElement<ListItemProps> | React.ReactElement<ListItemProps>[] | null)[];
     /** {@link Button} element, controlled by current component */
     button: React.FunctionComponentElement<ButtonProps>;
     /**

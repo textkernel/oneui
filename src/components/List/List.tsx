@@ -8,7 +8,7 @@ interface Props extends React.HTMLAttributes<HTMLUListElement> {
      * If you want to add an element that is not part of the list, but should be rendered within it
      * (e.g. an image to decorate the list) use `data-list-exception` as a prop to that child
      */
-    children: React.ReactElement[] | null;
+    children: (React.ReactElement | null)[] | null;
     /** Adds dividing lines between the list items */
     isDivided?: boolean;
     /** Defines if selection should be made on navigate */
@@ -40,7 +40,7 @@ export const List: React.FC<Props> = React.forwardRef((props, ref) => {
 
         for (let i = 0; i < children.length; i += 1) {
             const child = children[i];
-            if (!child.props[NOT_LIST_CHILD] && child.props.isSelected) {
+            if (!!child && !child.props[NOT_LIST_CHILD] && child.props.isSelected) {
                 setSelectedIndex(i);
                 break;
             }
@@ -82,8 +82,9 @@ export const List: React.FC<Props> = React.forwardRef((props, ref) => {
             return;
         }
 
-        if (children[index] && children[index].props && children[index].props.onClick) {
-            children[index].props.onClick(e);
+        const child = children[index];
+        if (child && child.props && child.props.onClick) {
+            child.props.onClick(e);
         }
     };
 
