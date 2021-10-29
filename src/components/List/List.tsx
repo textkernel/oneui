@@ -8,7 +8,7 @@ interface Props extends React.HTMLAttributes<HTMLUListElement> {
      * If you want to add an element that is not part of the list, but should be rendered within it
      * (e.g. an image to decorate the list) use `data-list-exception` as a prop to that child
      */
-    children: (React.ReactElement | null)[] | null;
+    children: (React.ReactElement | EmptyElement)[] | null;
     /** Adds dividing lines between the list items */
     isDivided?: boolean;
     /** Defines if selection should be made on navigate */
