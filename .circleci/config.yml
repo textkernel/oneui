@@ -1,88 +1,88 @@
 version: 2.1
 
 orbs: # Load coveralls package
-  coveralls: coveralls/coveralls@1.0.6
+    coveralls: coveralls/coveralls@1.0.6
 
 defaults: &defaults
-  working_directory: ~/oneui
-  docker:
-    - image: circleci/node:lts
+    working_directory: ~/oneui
+    docker:
+        - image: circleci/node:14
 
 jobs:
-  install: # Install and cache project dependencies
-    <<: *defaults
-    steps:
-      - checkout
-      - restore_cache:
-          key: oneui-npm-cache-{{ checksum "package-lock.json" }}
-      - run:
-          name: Install dependencies
-          command: npm ci
-      - save_cache:
-          key: oneui-npm-cache-{{ checksum "package-lock.json" }}
-          paths:
-            - node_modules
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
+    install: # Install and cache project dependencies
+        <<: *defaults
+        steps:
+            - checkout
+            - restore_cache:
+                  key: oneui-npm-cache-{{ checksum "package-lock.json" }}
+            - run:
+                  name: Install dependencies
+                  command: npm ci
+            - save_cache:
+                  key: oneui-npm-cache-{{ checksum "package-lock.json" }}
+                  paths:
+                      - node_modules
+            - persist_to_workspace:
+                  root: .
+                  paths:
+                      - .
 
-  test: # Run tests, build bundle and lint code
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/oneui
-      - run: npm run test:coverage -- -w 1 # set max workers to 1
-      - coveralls/upload
+    test: # Run tests, build bundle and lint code
+        <<: *defaults
+        steps:
+            - attach_workspace:
+                  at: ~/oneui
+            - run: npm run test:coverage -- -w 1 # set max workers to 1
+            - coveralls/upload
 
-  build:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/oneui
-      - run: npm run build:prod
+    build:
+        <<: *defaults
+        steps:
+            - attach_workspace:
+                  at: ~/oneui
+            - run: npm run build:prod
 
-  lint:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/oneui
-      - run: npm run lint:ci
-      - run: npm run lint:styles
+    lint:
+        <<: *defaults
+        steps:
+            - attach_workspace:
+                  at: ~/oneui
+            - run: npm run lint:ci
+            - run: npm run lint:styles
 
-  deploy: # Deploy Storybook to Github Pages
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/oneui
-      - run:
-          name: Deploy Storybook
-          command: npm run storybook:deploy -- --ci
+    deploy: # Deploy Storybook to Github Pages
+        <<: *defaults
+        steps:
+            - attach_workspace:
+                  at: ~/oneui
+            - run:
+                  name: Deploy Storybook
+                  command: npm run storybook:deploy -- --ci
 
 workflows:
-  default: # Install deps; Test, build and lint code; Deploy Storybook in case of new tag
-    jobs:
-      - install:
-          filters:
-            branches:
-              ignore:
-                - gh-pages
-            tags:
-              only: /^[0-9]+\.[0-9]+\.[0-9]+$/
-      - test:
-          requires:
-            - install
-      - build:
-          requires:
-            - install
-      - lint:
-          requires:
-            - install
-      - deploy:
-          requires:
-            - install
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+\.[0-9]+\.[0-9]+$/
+    default: # Install deps; Test, build and lint code; Deploy Storybook in case of new tag
+        jobs:
+            - install:
+                  filters:
+                      branches:
+                          ignore:
+                              - gh-pages
+                      tags:
+                          only: /^[0-9]+\.[0-9]+\.[0-9]+$/
+            - test:
+                  requires:
+                      - install
+            - build:
+                  requires:
+                      - install
+            - lint:
+                  requires:
+                      - install
+            - deploy:
+                  requires:
+                      - install
+                  filters:
+                      branches:
+                          ignore: /.*/
+                      tags:
+                          only: /^[0-9]+\.[0-9]+\.[0-9]+$/
