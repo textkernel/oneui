@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [15.4.2](https://github.com/textkernel/oneui/compare/15.4.1...15.4.2) (2021-11-01)
+
+
+### Bug Fixes
+
+* **Gauge:** improve HTML to ensure correct rendering in all browsers ([#623](https://github.com/textkernel/oneui/issues/623)) ([6e22c78](https://github.com/textkernel/oneui/commit/6e22c788c49cc8000f4dcf059fd3a4c08a84e62c))
+
 ### [15.4.1](https://github.com/textkernel/oneui/compare/15.4.0...15.4.1) (2021-10-29)
 
 
