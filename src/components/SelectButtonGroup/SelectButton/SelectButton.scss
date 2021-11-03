@@ -33,7 +33,7 @@
         cursor: not-allowed;
     }
 
-    &--isSelected.SelectButton--selectedContext_neutral {
+    &--isSelected.SelectButton--context_neutral {
         border-color: var(--color-neutral-60);
         background-color: var(--color-neutral-60);
         color: var(--color-background);
@@ -45,7 +45,7 @@
         }
     }
 
-    &--isSelected.SelectButton--selectedContext {
+    &--isSelected.SelectButton--context {
         @each $context in (brand, primary, accent, info, good, warning, bad) {
             &_#{$context} {
                 border-color: var(--color-#{$context});

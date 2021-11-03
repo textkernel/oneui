@@ -10,14 +10,14 @@ describe('SelectButtonGroup', () => {
 
     beforeEach(() => {
         wrapper = mount(
-            <SelectButtonGroup onChange={onChangeMock}>
-                <SelectButton value="button 1" isInitiallySelected key="1">
+            <SelectButtonGroup defaultValue={['1']}>
+                <SelectButton value="1" key="1">
                     Option 1
                 </SelectButton>
-                <SelectButton value="button 2" key="2">
+                <SelectButton value="2" key="2">
                     Option 2
                 </SelectButton>
-                <SelectButton value="button 3" key="3">
+                <SelectButton value="3" key="3">
                     Option 3
                 </SelectButton>
             </SelectButtonGroup>
@@ -60,16 +60,6 @@ describe('SelectButtonGroup', () => {
             expect(getButton(0).prop('isSelected')).toBeTruthy();
             expect(getButton(1).prop('isSelected')).toBeFalsy();
             expect(getButton(2).prop('isSelected')).toBeFalsy();
-        });
-        it('should call onChange with correct parameters', () => {
-            getButton(1).simulate('click');
-            expect(onChangeMock).toHaveBeenLastCalledWith([getButton(1).prop('value')]);
-
-            getButton(0).simulate('click');
-            expect(onChangeMock).toHaveBeenLastCalledWith([getButton(0).prop('value')]);
-
-            getButton(0).simulate('click');
-            expect(onChangeMock).toHaveBeenLastCalledWith([]);
         });
     });
     describe('Multi select mode', () => {
@@ -141,29 +131,25 @@ describe('SelectButtonGroup', () => {
             expect(getButton(1).prop('isSelected')).toBeTruthy();
             expect(getButton(2).prop('isSelected')).toBeFalsy();
         });
+    });
+
+    describe('Controlled behavior', () => {
+        beforeEach(() => {
+            wrapper.setProps({
+                value: ['1'],
+                onChange: onChangeMock,
+                defaultValue: undefined,
+            });
+        });
+
+        it('should render correctly', () => {
+            expect(toJson(wrapper)).toMatchSnapshot();
+        });
+
         it('should call onChange with correct parameters', () => {
+            expect(getButton(0).prop('isSelected')).toBeTruthy();
             getButton(1).simulate('click');
-            expect(onChangeMock).toHaveBeenLastCalledWith([
-                getButton(0).prop('value'),
-                getButton(1).prop('value'),
-            ]);
-
-            getButton(2).simulate('click');
-            expect(onChangeMock).toHaveBeenLastCalledWith([
-                getButton(0).prop('value'),
-                getButton(1).prop('value'),
-                getButton(2).prop('value'),
-            ]);
-
-            getButton(1).simulate('click');
-            expect(onChangeMock).toHaveBeenLastCalledWith([
-                getButton(0).prop('value'),
-                getButton(2).prop('value'),
-            ]);
-
-            getButton(0).simulate('click');
-            getButton(2).simulate('click');
-            expect(onChangeMock).toHaveBeenLastCalledWith([]);
+            expect(onChangeMock).toHaveBeenLastCalledWith(getButton(1).prop('value'));
         });
     });
 });

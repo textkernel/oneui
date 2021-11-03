@@ -4,26 +4,27 @@ import { Context, Size } from '../../../constants';
 import { SelectButtonProps } from '../SelectButton';
 import styles from './SelectButtonGroup.scss';
 
-interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
-    /** SelectButton components */
+interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> {
+    /** SelectButton children */
     children: React.ReactElement<SelectButtonProps<V>>[];
-    /**
-     * A function to be called selection is changed.
-     * For convenience it will always be called with an array. In case of single select this array will always be of max length 1
-     */
-    onChange?: (selection: V[]) => void;
-    /** is this button part of a multiselect group - when yes will allow more then one option to be selected */
+    /** Function that is called when the selection is changed (controlled use) */
+    onChange?: (selection: V) => void;
+    /** should more than one option be allowed to be selected (uncontrolled use) */
     isMultiselect?: boolean;
-    /** if this component should have at least one selected value (for now it effects only multiselect logic) */
+    /** if required, there should at least be one selected value (uncontrolled use) */
     isRequired?: boolean;
     /** should the component take up all the width available */
     isBlock?: boolean;
     /** Color context for selected buttons */
-    selectedContext?: Context;
+    context?: Context;
     /** should children have equal width */
     isEqualWidth?: boolean;
     /** size of the button group */
     size?: Size;
+    /** currently selected value(s) (controlled use) */
+    value?: V[];
+    /** currently selected value(s) (uncontrolled use) */
+    defaultValue?: V[];
 }
 
 const { block } = bem('SelectButtonGroup', styles);
@@ -35,54 +36,49 @@ export function SelectButtonGroup<V>(props: Props<V>) {
         isRequired,
         isEqualWidth,
         isBlock,
-        selectedContext,
+        context,
         onChange,
         size,
+        value,
+        defaultValue,
         ...rest
     } = props;
 
-    const initiallySelectedValues: V[] = [];
-    children.forEach((child) => {
-        const { value, isInitiallySelected } = child.props;
-        if (isInitiallySelected) {
-            initiallySelectedValues.push(value);
-        }
-    });
+    const [selection, setSelection] = React.useState(defaultValue || []);
 
-    const [selectedValues, setSelectedValues] = React.useState(initiallySelectedValues);
+    const handleChangeInternally = (selectedValue: V) => {
+        const isCurrentlySelected = selection.includes(selectedValue);
 
-    React.useEffect(() => {
-        onChange?.(selectedValues);
-    }, [onChange, selectedValues]);
-
-    const handleSelectionChangeForValue = (value: V) => {
         if (!isMultiselect) {
-            if (isRequired || selectedValues[0] !== value) {
-                setSelectedValues([value]);
+            if (isRequired || !isCurrentlySelected) {
+                setSelection([selectedValue]);
             } else {
-                setSelectedValues([]);
+                setSelection([]);
             }
-        } else if (selectedValues.includes(value)) {
-            if (!(isRequired && selectedValues.length === 1)) {
-                setSelectedValues(selectedValues.filter((v) => v !== value));
+        } else if (isCurrentlySelected) {
+            if (!isRequired || selection.length > 1) {
+                setSelection([...selection.filter((v) => v !== selectedValue)]);
             }
         } else {
-            setSelectedValues([...selectedValues, value]);
+            setSelection([...selection, selectedValue]);
         }
     };
 
     return (
         <div {...rest} {...block(props)}>
-            {children.map((child) =>
-                React.cloneElement(child, {
+            {children.map((child) => {
+                const childProps = {
+                    context: context || child.props.context,
                     isBlock,
                     isEqualWidth,
-                    isSelected: selectedValues.includes(child.props.value),
-                    onChange: handleSelectionChangeForValue,
-                    selectedContext: child.props.selectedContext || selectedContext,
+                    isSelected:
+                        (value || selection).includes(child.props.value) || child.props.isSelected,
+                    onChange: onChange || handleChangeInternally,
                     size,
-                })
-            )}
+                };
+
+                return React.cloneElement(child, childProps);
+            })}
         </div>
     );
 }
@@ -94,7 +90,9 @@ SelectButtonGroup.defaultProps = {
     isRequired: false,
     isBlock: false,
     isEqualWidth: false,
-    selectedContext: 'brand',
+    context: null,
     size: 'normal',
     onChange: null,
+    value: null,
+    defaultValue: null,
 };
