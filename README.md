@@ -4,7 +4,7 @@
 [![Build Status](https://img.shields.io/circleci/build/github/textkernel/oneui)](https://circleci.com/gh/textkernel/oneui)
 [![Coverage Status](https://coveralls.io/repos/github/textkernel/oneui/badge.svg?branch=master)](https://coveralls.io/github/textkernel/oneui?branch=master)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/textkernel/oneui.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/textkernel/oneui/context:javascript)
-![](https://img.shields.io/david/textkernel/oneui.svg?style=flat)
+![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/textkernel/oneui)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@textkernel/oneui.svg)
 
 > Library of reusable React components with theming support
