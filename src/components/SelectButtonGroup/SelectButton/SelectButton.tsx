@@ -18,7 +18,7 @@ export interface Props<V> extends InternalProps<V> {
     children: NotEmptyReactNode;
     /** the value associated with this button */
     value: V;
-    /** if this button should be in a selected when first rendered */
+    /** whether or not this button is selected */
     isSelected?: boolean;
     /** the color context to be applied in the selected state */
     context?: Context;
