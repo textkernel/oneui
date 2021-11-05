@@ -1,0 +1,26 @@
+.Tag {
+    display: inline-flex;
+    padding: var(--spacing-normal) var(--spacing-2x);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+
+    &:focus, .selected {
+        box-shadow: 0 0 0 2px var(--color-brand);
+    }
+
+    .tagText{
+        margin: 0 var(--spacing-normal) 0px 0px;
+
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+
+    .iconWrapper {
+        display: flex;
+        align-items: center;
+
+        min-width: 15px;
+        min-height: 15px;
+    }
+}

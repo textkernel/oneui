@@ -25,6 +25,7 @@ import './Tabs';
 import './Text';
 import './TextArea';
 import './WidthRestrictor';
+import './Tag';
 // Molecules
 import './BulkActionsToolbar';
 import './ButtonGroup';
