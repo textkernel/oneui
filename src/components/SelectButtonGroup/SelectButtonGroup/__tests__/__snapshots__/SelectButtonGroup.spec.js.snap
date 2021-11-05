@@ -25,7 +25,7 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       isEqualWidth={false}
       isSelected={true}
       key="1"
-      onChange={[MockFunction]}
+      onChange={[Function]}
       size="normal"
       value="1"
     >
@@ -46,7 +46,7 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       isEqualWidth={false}
       isSelected={false}
       key="2"
-      onChange={[MockFunction]}
+      onChange={[Function]}
       size="normal"
       value="2"
     >
@@ -67,7 +67,7 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       isEqualWidth={false}
       isSelected={false}
       key="3"
-      onChange={[MockFunction]}
+      onChange={[Function]}
       size="normal"
       value="3"
     >

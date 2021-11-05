@@ -8,7 +8,7 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
     /** SelectButton children */
     children: React.ReactElement<SelectButtonProps<V>>[];
     /** Function that is called when the selection is changed (controlled use) */
-    onChange?: (selection: V) => void;
+    onChange?: (selection: V | V[]) => void;
     /** should more than one option be allowed to be selected (uncontrolled use) */
     isMultiselect?: boolean;
     /** if required, there should at least be one selected value (uncontrolled use) */
@@ -46,21 +46,43 @@ export function SelectButtonGroup<V>(props: Props<V>) {
 
     const [selection, setSelection] = React.useState(defaultValue || []);
 
-    const handleChangeInternally = (selectedValue: V) => {
-        const isCurrentlySelected = selection.includes(selectedValue);
-
-        if (!isMultiselect) {
-            if (isRequired || !isCurrentlySelected) {
-                setSelection([selectedValue]);
-            } else {
-                setSelection([]);
-            }
-        } else if (isCurrentlySelected) {
-            if (!isRequired || selection.length > 1) {
-                setSelection([...selection.filter((v) => v !== selectedValue)]);
+    const handleChange = (selectedValue: V) => {
+        if (value) {
+            // If value is present, this means state is controlled outside of the component
+            // Only the currently selected value will be passed as argument
+            if (onChange) {
+                onChange(selectedValue);
             }
         } else {
-            setSelection([...selection, selectedValue]);
+            // Uncontrolled use: state is managed internally
+            const isCurrentlySelected = selection.includes(selectedValue);
+            let newSelection = selection;
+
+            if (!isMultiselect) {
+                if (isRequired || !isCurrentlySelected) {
+                    // Select a value other than the one currently selected
+                    newSelection = [selectedValue];
+                } else {
+                    // Deselect the currently selected value
+                    newSelection = [];
+                }
+            } else if (isCurrentlySelected) {
+                if (!isRequired || selection.length > 1) {
+                    // If some selection is required, only allow deselection
+                    // if there are at least two values selected
+                    newSelection = [...selection.filter((v) => v !== selectedValue)];
+                }
+            } else {
+                // Add value to existing selection
+                newSelection = [...selection, selectedValue];
+            }
+
+            setSelection(newSelection);
+
+            if (onChange) {
+                // Communicate new selection to the outside
+                onChange(newSelection);
+            }
         }
     };
 
@@ -73,7 +95,7 @@ export function SelectButtonGroup<V>(props: Props<V>) {
                     isEqualWidth,
                     isSelected:
                         (value || selection).includes(child.props.value) || child.props.isSelected,
-                    onChange: onChange || handleChangeInternally,
+                    onChange: handleChange,
                     size,
                 };
 

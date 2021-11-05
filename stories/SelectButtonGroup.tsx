@@ -15,6 +15,9 @@ storiesOf('Atoms|SelectButtonGroup', module)
             context={select('Default selected color context', CONTEXTS, CONTEXTS[1])}
             size={select('Size', SIZES, SIZES[1])}
             defaultValue={['3']}
+            onChange={(selection) => {
+                console.log('Current selection', selection);
+            }}
         >
             <SelectButton value="1" key="button 1">
                 {text('Option label 1', 'Option 1')}
@@ -28,15 +31,24 @@ storiesOf('Atoms|SelectButtonGroup', module)
         </SelectButtonGroup>
     ))
     .add('Controlled', () => {
-        const buttons = [1, 2, 3];
-        const selectedButton = select('Selected button', buttons, buttons[0]);
+        const buttons = {
+            '1': boolean('Button 1 selected', true),
+            '2': boolean('Button 2 selected', false),
+            '3': boolean('Button 3 selected', false),
+        };
+        const keys = Object.keys(buttons);
 
         return (
-            <SelectButtonGroup value={[selectedButton]}>
-                {buttons.map((buttonNumber) => (
+            <SelectButtonGroup
+                value={keys.filter((k) => buttons[k])}
+                onChange={(value) => {
+                    console.log(`Button ${value} was selected`);
+                }}
+            >
+                {keys.map((buttonNumber) => (
                     <SelectButton
+                        key={`button-${buttonNumber}`}
                         value={buttonNumber}
-                        isSelected={selectedButton === buttonNumber}
                         context={select(
                             `Context for button ${buttonNumber}`,
                             CONTEXTS,
