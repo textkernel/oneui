@@ -27,13 +27,14 @@ storiesOf('Atoms|Tag', module)
                             ['#3eff2b', '#ffa139', 'var(--color-background)'],
                             'var(--color-background)'
                         )}
-                        label="This is an extremely long long text!"
                         isSelected={boolean('isSelected', false)}
                         maxWidth={text('max-width', 'fit-content')}
                         onDelete={onDelete}
                         onClick={onClick}
                         size={select('size', ['small', 'normal', 'large'], 'normal')}
-                    />
+                    >
+                        This is an extremely long long text!
+                    </Tag>
                 </div>
             );
         },

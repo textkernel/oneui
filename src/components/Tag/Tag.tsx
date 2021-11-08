@@ -6,8 +6,6 @@ import { Text } from '../Text';
 import styles from './Tag.scss';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
-    /** Tag content */
-    label: string;
     /** Value that helps us to understand if the component is currently selected or not. */
     isSelected?: boolean;
     /** Color is assigned to a background color of a wrapper */
@@ -25,18 +23,18 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const { block, elem } = bem('Tag', styles);
 
 export const Tag: React.FC<Props> = (props) => {
-    const { label, bgColor, maxWidth, size, onDelete, onClick, isSelected } = props;
+    const { children, bgColor, maxWidth, size, onDelete, onClick, isSelected } = props;
 
-    const handleTagClick = (event: Event) => {
-        event.stopPropagation();
+    const handleDeleteClick = (e: React.MouseEvent<HTMLElement>) => {
+        e.stopPropagation();
 
-        onClick?.();
+        onDelete?.();
     };
 
     return (
         <div
             {...block({ className: isSelected && 'selected' })}
-            onClick={onClick && handleTagClick}
+            onClick={onClick}
             onKeyDown={() => {}}
             role="button"
             tabIndex={0}
@@ -47,12 +45,12 @@ export const Tag: React.FC<Props> = (props) => {
             }}
         >
             <Text size={size} {...elem('Text', { elemClassName: styles.tagText })}>
-                {label}
+                {children}
             </Text>
             {onDelete && (
-                <div className={styles.iconWrapper}>
-                    <MdClose onClick={onDelete} size="15px" />
-                </div>
+                <button onClick={handleDeleteClick} type="button" className={styles.deleteButton}>
+                    <MdClose size="15px" />
+                </button>
             )}
         </div>
     );
