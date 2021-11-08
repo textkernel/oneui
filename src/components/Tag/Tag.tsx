@@ -40,7 +40,6 @@ export const Tag: React.FC<Props> = (props) => {
             tabIndex={0}
             style={{
                 backgroundColor: bgColor,
-                boxShadow: isSelected ? '0 0 0 2px var(--color-brand)' : 'none',
                 maxWidth,
             }}
         >

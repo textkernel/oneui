@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tag> component should render correctly with full list of props 1`] = `
+<Tag
+  bgColor="#ccc"
+  isSelected={true}
+  maxWidth="30px"
+  onClick={[MockFunction]}
+  onDelete={[MockFunction]}
+  size="large"
+>
+  <div
+    className="Tag selected"
+    onClick={[MockFunction]}
+    onKeyDown={[Function]}
+    role="button"
+    style={
+      Object {
+        "backgroundColor": "#ccc",
+        "maxWidth": "30px",
+      }
+    }
+    tabIndex={0}
+  >
+    <Text
+      className="tagText"
+      context="default"
+      inline={false}
+      size="large"
+    >
+      <p
+        className="Text--size_large tagText"
+      >
+        Tag text
+      </p>
+    </Text>
+    <button
+      className="deleteButton"
+      onClick={[Function]}
+      type="button"
+    >
+      <MdClose
+        size="15px"
+      >
+        <IconBase
+          attr={
+            Object {
+              "viewBox": "0 0 24 24",
+            }
+          }
+          size="15px"
+        >
+          <svg
+            fill="currentColor"
+            height="15px"
+            size="15px"
+            stroke="currentColor"
+            strokeWidth="0"
+            style={
+              Object {
+                "color": undefined,
+              }
+            }
+            viewBox="0 0 24 24"
+            width="15px"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              key="0"
+            />
+          </svg>
+        </IconBase>
+      </MdClose>
+    </button>
+  </div>
+</Tag>
+`;
+
+exports[`<Tag> component should render correctly with minimum amount of props 1`] = `
+<Tag
+  bgColor="var(--color-background)"
+  isSelected={false}
+  maxWidth="fit-content"
+  size="normal"
+>
+  <div
+    className="Tag"
+    onKeyDown={[Function]}
+    role="button"
+    style={
+      Object {
+        "backgroundColor": "var(--color-background)",
+        "maxWidth": "fit-content",
+      }
+    }
+    tabIndex={0}
+  >
+    <Text
+      className="tagText"
+      context="default"
+      inline={false}
+      size="normal"
+    >
+      <p
+        className="tagText"
+      >
+        Tag text
+      </p>
+    </Text>
+  </div>
+</Tag>
+`;
