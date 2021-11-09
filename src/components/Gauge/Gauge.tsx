@@ -59,12 +59,6 @@ export const Gauge: React.FC<Props> = (props) => {
     return (
         <div {...rest} {...block(props)}>
             <svg {...elem('svg', props)} width="100%">
-                <defs>
-                    <linearGradient id={`Gauge__gradient--${context}`}>
-                        <stop {...elem('gradientStart', props)} offset="50%" />
-                        <stop {...elem('gradientEnd', props)} offset="100%" />
-                    </linearGradient>
-                </defs>
                 <circle
                     {...elem('circleBackground', props)}
                     r={GAUGE_RADIUS}
@@ -78,7 +72,7 @@ export const Gauge: React.FC<Props> = (props) => {
                     cx="50%"
                     cy="25%"
                     style={{ strokeDasharray: `${progress * circumferenceHalf} ${circumference}` }}
-                    stroke={`url(#Gauge__gradient--${context})`}
+                    stroke={`var(--color-${context})`}
                 />
             </svg>
             <div {...elem('contentWrapper', props)}>

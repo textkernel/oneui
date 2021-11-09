@@ -8,20 +8,6 @@ exports[`Gauge should render correctly 1`] = `
     className="Gauge__svg"
     width="100%"
   >
-    <defs>
-      <linearGradient
-        id="Gauge__gradient--brand"
-      >
-        <stop
-          className="Gauge__gradientStart--context_brand"
-          offset="50%"
-        />
-        <stop
-          className="Gauge__gradientEnd--context_brand"
-          offset="100%"
-        />
-      </linearGradient>
-    </defs>
     <circle
       className="Gauge__circleBackground"
       cx="50%"
@@ -38,7 +24,7 @@ exports[`Gauge should render correctly 1`] = `
       cx="50%"
       cy="25%"
       r={100}
-      stroke="url(#Gauge__gradient--brand)"
+      stroke="var(--color-brand)"
       style={
         Object {
           "strokeDasharray": "0 628.3185307179587",
