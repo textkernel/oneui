@@ -35,7 +35,7 @@ export const Tag: React.FC<Props> = (props) => {
         onDelete?.();
     };
 
-    const handleKeyPress = (e: React.KeyboardEvent) => {
+    const handleTagKeyPress = (e: React.KeyboardEvent) => {
         e.stopPropagation();
 
         if (e.key === ENTER_KEY) {
@@ -43,11 +43,25 @@ export const Tag: React.FC<Props> = (props) => {
         }
     };
 
+    const handleDeleteButtonKeyPress = (e: React.KeyboardEvent) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        if (e.key === ENTER_KEY) {
+            onDelete?.();
+        }
+    };
+
     return (
         <div
             {...rest}
             {...block({ ...props, clickable: !!onClick })}
-            {...(onClick && { onClick, tabIndex: 0, role: 'button', onKeyPress: handleKeyPress })}
+            {...(onClick && {
+                onClick,
+                tabIndex: 0,
+                role: 'button',
+                onKeyPress: handleTagKeyPress,
+            })}
             style={{
                 backgroundColor: bgColor,
                 maxWidth,
@@ -57,7 +71,12 @@ export const Tag: React.FC<Props> = (props) => {
                 {children}
             </Text>
             {onDelete && (
-                <button onClick={handleDeleteClick} type="button" {...elem('deleteButton')}>
+                <button
+                    onClick={handleDeleteClick}
+                    onKeyPress={handleDeleteButtonKeyPress}
+                    type="button"
+                    {...elem('deleteButton')}
+                >
                     <MdClose size="15px" />
                 </button>
             )}

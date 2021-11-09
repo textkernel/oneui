@@ -39,6 +39,7 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
     <button
       className="Tag__deleteButton"
       onClick={[Function]}
+      onKeyPress={[Function]}
       type="button"
     >
       <MdClose

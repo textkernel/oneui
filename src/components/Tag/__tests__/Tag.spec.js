@@ -7,6 +7,8 @@ describe('<Tag> component', () => {
     const onTagClick = jest.fn();
     const onDeleteClick = jest.fn();
 
+    const deleteButtonSelector = 'Tag .Tag__deleteButton';
+
     const text = 'Tag text';
     const bgColor = '#ccc';
     const maxWidth = '30px';
@@ -54,7 +56,7 @@ describe('<Tag> component', () => {
         expect(onTagClick).toHaveBeenCalledTimes(1);
     });
 
-    it('should invoke onClick callback when user interacts with tag by pressing Enter', () => {
+    it('should invoke onClick when user interacts with tag by pressing Enter', () => {
         wrapper = mount(<Tag onClick={onTagClick}>{text}</Tag>);
 
         wrapper.find('Tag').simulate('focus');
@@ -70,7 +72,21 @@ describe('<Tag> component', () => {
             </Tag>
         );
 
-        wrapper.find('Tag .Tag__deleteButton').simulate('click');
+        wrapper.find(deleteButtonSelector).simulate('click');
+        expect(onTagClick).toHaveBeenCalledTimes(0);
+        expect(onDeleteClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('should invoke onDelete when user interacts with delete button by pressing Enter', () => {
+        wrapper = mount(
+            <Tag onClick={onTagClick} onDelete={onDeleteClick}>
+                {text}
+            </Tag>
+        );
+
+        wrapper.find(deleteButtonSelector).simulate('focus');
+        wrapper.find(deleteButtonSelector).simulate('keypress', { key: 'Enter' });
+
         expect(onTagClick).toHaveBeenCalledTimes(0);
         expect(onDeleteClick).toHaveBeenCalledTimes(1);
     });
