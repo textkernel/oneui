@@ -19,7 +19,7 @@ describe('<Tag> component', () => {
     it('should render correctly with minimum amount of props', () => {
         wrapper = mount(<Tag>{text}</Tag>);
 
-        expect(wrapper.find('p.tagText').text()).toEqual(text);
+        expect(wrapper.find('p.Tag__text').text()).toEqual(text);
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
@@ -42,7 +42,7 @@ describe('<Tag> component', () => {
         expect(wrapper.find('.Tag').prop('style').backgroundColor).toEqual(bgColor);
         expect(wrapper.find('.Tag').prop('style').maxWidth).toEqual(maxWidth);
         expect(wrapper.find('Text').prop('size')).toEqual(textSize);
-        expect(wrapper.find('Tag button.DeleteButton MdClose').exists()).toBeTruthy();
+        expect(wrapper.find('Tag .Tag__deleteButton MdClose').exists()).toBeTruthy();
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
@@ -61,7 +61,7 @@ describe('<Tag> component', () => {
             </Tag>
         );
 
-        wrapper.find('Tag button.DeleteButton').simulate('click');
+        wrapper.find('Tag .Tag__deleteButton').simulate('click');
         expect(onTagClick).toHaveBeenCalledTimes(0);
         expect(onDeleteClick).toHaveBeenCalledTimes(1);
     });

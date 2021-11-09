@@ -46,7 +46,7 @@ export const Tag: React.FC<Props> = (props) => {
                 maxWidth,
             }}
         >
-            <Text size={size} {...(areChildrenString && { title: children })} {...elem('tagText')}>
+            <Text size={size} {...(areChildrenString && { title: children })} {...elem('text')}>
                 {children}
             </Text>
             {onDelete && (

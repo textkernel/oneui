@@ -10,7 +10,7 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
   size="large"
 >
   <div
-    className="Tag Tag--selected"
+    className="Tag Tag--selected Tag--clickable"
     onClick={[MockFunction]}
     role="button"
     style={
@@ -22,19 +22,21 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
     tabIndex={0}
   >
     <Text
-      className="tagText"
+      className="Tag__text"
       context="default"
       inline={false}
       size="large"
+      title="Tag text"
     >
       <p
-        className="Text--size_large tagText"
+        className="Text--size_large Tag__text"
+        title="Tag text"
       >
         Tag text
       </p>
     </Text>
     <button
-      className="DeleteButton"
+      className="Tag__deleteButton"
       onClick={[Function]}
       type="button"
     >
@@ -93,13 +95,15 @@ exports[`<Tag> component should render correctly with minimum amount of props 1`
     }
   >
     <Text
-      className="tagText"
+      className="Tag__text"
       context="default"
       inline={false}
       size="normal"
+      title="Tag text"
     >
       <p
-        className="tagText"
+        className="Tag__text"
+        title="Tag text"
       >
         Tag text
       </p>
