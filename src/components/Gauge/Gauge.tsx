@@ -37,6 +37,8 @@ export const Gauge: React.FC<Props> = (props) => {
         ...rest
     } = props;
     const [percentageToShow, setPercentageToShow] = React.useState(0);
+    // We need this uuid for the linear gradient's id to avoid some bugs in Safari.
+    // For details see: https://jira.textkernel.nl/browse/JF-2780
     const id = React.useRef(Math.random());
 
     // Simulate a prop change to run the animation on render.
