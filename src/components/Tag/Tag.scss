@@ -5,19 +5,23 @@
     padding: var(--spacing-normal) var(--spacing-2x);
     border-radius: var(--border-radius);
 
-    &.selected {
+    &--selected {
         box-shadow: 0 0 0 2px var(--color-brand);
     }
 
-    .tagText{
-        margin: 0 var(--spacing-normal) 0px 0px; 
+    &--clickable {
+        cursor: pointer;
+    }
+
+    &__tagText{
+        margin: 0; 
 
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
-    .deleteButton {
+    &__deleteButton {
         display: flex;
         align-items: center;
 
@@ -27,6 +31,8 @@
         border: 0;
         cursor: pointer;
         background-color: var(--transparent);
+
         padding: 0;
+        margin-left: var(--spacing-normal);
     }
 }

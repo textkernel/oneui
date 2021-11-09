@@ -29,8 +29,8 @@ storiesOf('Atoms|Tag', module)
                         )}
                         isSelected={boolean('isSelected', false)}
                         maxWidth={text('max-width', 'fit-content')}
-                        onDelete={onDelete}
-                        onClick={onClick}
+                        onDelete={boolean('use onDelete callback', false) ? onDelete : undefined}
+                        onClick={boolean('use onClick callback', false) ? onClick : undefined}
                         size={select('size', ['small', 'normal', 'large'], 'normal')}
                     >
                         This is an extremely long long text!

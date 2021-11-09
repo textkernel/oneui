@@ -10,9 +10,8 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
   size="large"
 >
   <div
-    className="Tag selected"
+    className="Tag Tag--selected"
     onClick={[MockFunction]}
-    onKeyDown={[Function]}
     role="button"
     style={
       Object {
@@ -35,7 +34,7 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
       </p>
     </Text>
     <button
-      className="deleteButton"
+      className="DeleteButton"
       onClick={[Function]}
       type="button"
     >
@@ -86,15 +85,12 @@ exports[`<Tag> component should render correctly with minimum amount of props 1`
 >
   <div
     className="Tag"
-    onKeyDown={[Function]}
-    role="button"
     style={
       Object {
         "backgroundColor": "var(--color-background)",
         "maxWidth": "fit-content",
       }
     }
-    tabIndex={0}
   >
     <Text
       className="tagText"

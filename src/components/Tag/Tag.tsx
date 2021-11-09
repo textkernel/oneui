@@ -1,3 +1,5 @@
+import { button } from '@storybook/addon-knobs';
+import { chown } from 'fs';
 import * as React from 'react';
 import { MdClose } from 'react-icons/md';
 import { bem } from '../../utils';
@@ -23,7 +25,11 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const { block, elem } = bem('Tag', styles);
 
 export const Tag: React.FC<Props> = (props) => {
-    const { children, bgColor, maxWidth, size, onDelete, onClick, isSelected } = props;
+    const { children, bgColor, maxWidth, size, onDelete, onClick, isSelected, ...rest } = props;
+
+    // Generate title for children that are plain text (without tags)
+    // If there is something different from the string (JSX) - children will be of object type.
+    const areChildrenString = typeof children === 'string';
 
     const handleDeleteClick = (e: React.MouseEvent<HTMLElement>) => {
         e.stopPropagation();
@@ -33,21 +39,18 @@ export const Tag: React.FC<Props> = (props) => {
 
     return (
         <div
-            {...block({ className: isSelected && 'selected' })}
-            onClick={onClick}
-            onKeyDown={() => {}}
-            role="button"
-            tabIndex={0}
+            {...block({ selected: isSelected, clickable: !!onClick, ...rest })}
+            {...(onClick && { onClick, tabIndex: 0, role: 'button' })}
             style={{
                 backgroundColor: bgColor,
                 maxWidth,
             }}
         >
-            <Text size={size} {...elem('Text', { elemClassName: styles.tagText })}>
+            <Text size={size} {...(areChildrenString && { title: children })} {...elem('tagText')}>
                 {children}
             </Text>
             {onDelete && (
-                <button onClick={handleDeleteClick} type="button" className={styles.deleteButton}>
+                <button onClick={handleDeleteClick} type="button" {...elem('deleteButton')}>
                     <MdClose size="15px" />
                 </button>
             )}

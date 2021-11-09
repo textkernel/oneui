@@ -42,7 +42,7 @@ describe('<Tag> component', () => {
         expect(wrapper.find('.Tag').prop('style').backgroundColor).toEqual(bgColor);
         expect(wrapper.find('.Tag').prop('style').maxWidth).toEqual(maxWidth);
         expect(wrapper.find('Text').prop('size')).toEqual(textSize);
-        expect(wrapper.find('Tag button.deleteButton MdClose').exists()).toBeTruthy();
+        expect(wrapper.find('Tag button.DeleteButton MdClose').exists()).toBeTruthy();
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
@@ -51,7 +51,7 @@ describe('<Tag> component', () => {
         wrapper = mount(<Tag onClick={onTagClick}>{text}</Tag>);
 
         wrapper.find('Tag').simulate('click');
-        expect(onTagClick).toHaveBeenCalled();
+        expect(onTagClick).toHaveBeenCalledTimes(1);
     });
 
     it('should invoke callback when onDelete event is called', () => {
@@ -61,9 +61,8 @@ describe('<Tag> component', () => {
             </Tag>
         );
 
-        wrapper.find('Tag').simulate('click');
-
-        wrapper.find('Tag button.deleteButton').simulate('click');
-        expect(onDeleteClick).toHaveBeenCalled();
+        wrapper.find('Tag button.DeleteButton').simulate('click');
+        expect(onTagClick).toHaveBeenCalledTimes(0);
+        expect(onDeleteClick).toHaveBeenCalledTimes(1);
     });
 });
