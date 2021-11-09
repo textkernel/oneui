@@ -3,6 +3,9 @@ import toJson from 'enzyme-to-json';
 import { Gauge } from '../Gauge';
 
 describe('Gauge', () => {
+    const mathRandomSpy = jest.spyOn(Math, 'random');
+    mathRandomSpy.mockImplementation(() => 0.42);
+
     it('should render correctly', () => {
         const wrapper = shallow(
             <Gauge percentage={33} note="Value" metric="Metric">

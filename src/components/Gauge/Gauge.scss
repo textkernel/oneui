@@ -68,4 +68,18 @@
         font-weight: var(--font-weight-bold);
         font-size: var(--font-size-small);
     }
+
+    @each $context in ($contexts) {
+        &__gradientStart {
+            &--context_#{ $context } {
+                stop-color: var(--color-#{$context});
+            }
+        }
+
+        &__gradientEnd {
+            &--context_#{ $context } {
+                stop-color: var(--color-#{$context}-25);
+            }
+        }
+    }
 }

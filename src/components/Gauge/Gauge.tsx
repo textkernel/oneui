@@ -37,6 +37,7 @@ export const Gauge: React.FC<Props> = (props) => {
         ...rest
     } = props;
     const [percentageToShow, setPercentageToShow] = React.useState(0);
+    const id = React.useRef(Math.random());
 
     // Simulate a prop change to run the animation on render.
     // There's a small delay set because of a weird bug
@@ -59,6 +60,12 @@ export const Gauge: React.FC<Props> = (props) => {
     return (
         <div {...rest} {...block(props)}>
             <svg {...elem('svg', props)} width="100%">
+                <defs>
+                    <linearGradient id={`Gauge__gradient--${context}-${id.current}`}>
+                        <stop {...elem('gradientStart', props)} offset="50%" />
+                        <stop {...elem('gradientEnd', props)} offset="100%" />
+                    </linearGradient>
+                </defs>
                 <circle
                     {...elem('circleBackground', props)}
                     r={GAUGE_RADIUS}
@@ -72,7 +79,7 @@ export const Gauge: React.FC<Props> = (props) => {
                     cx="50%"
                     cy="25%"
                     style={{ strokeDasharray: `${progress * circumferenceHalf} ${circumference}` }}
-                    stroke={`var(--color-${context})`}
+                    stroke={`url(#Gauge__gradient--${context}-${id.current})`}
                 />
             </svg>
             <div {...elem('contentWrapper', props)}>
