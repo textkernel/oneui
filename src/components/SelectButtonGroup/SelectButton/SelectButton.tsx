@@ -29,11 +29,13 @@ export interface Props<V> extends InternalProps<V> {
 const { block } = bem('SelectButton', styles);
 
 export function SelectButton<V>(props: Props<V>) {
-    const { children, value, onChange, isEqualWidth, isBlock, context, isSelected, ...rest } =
+    const { children, value, onChange, isEqualWidth, isBlock, context, isSelected, size, ...rest } =
         props;
 
     const handleClick = () => {
-        onChange?.(value);
+        if (onChange) {
+            onChange(value);
+        }
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {

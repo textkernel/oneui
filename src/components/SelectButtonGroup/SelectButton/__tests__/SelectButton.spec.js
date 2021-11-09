@@ -9,7 +9,14 @@ describe('SelectButton', () => {
 
     beforeEach(() => {
         wrapper = mount(
-            <SelectButton value="button 1" onChange={onChangeMock}>
+            <SelectButton
+                value="button 1"
+                onChange={onChangeMock}
+                context="good"
+                size="large"
+                isEqualWidth
+                isSelected
+            >
                 Option 1
             </SelectButton>
         );

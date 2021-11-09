@@ -34,7 +34,6 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
-        size="normal"
         tabIndex={0}
       >
         Option 1
@@ -55,7 +54,6 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
-        size="normal"
         tabIndex={0}
       >
         Option 2
@@ -76,7 +74,6 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
-        size="normal"
         tabIndex={0}
       >
         Option 3
@@ -120,7 +117,6 @@ exports[`SelectButtonGroup should render correctly 1`] = `
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
-        size="normal"
         tabIndex={0}
       >
         Option 1
@@ -141,7 +137,6 @@ exports[`SelectButtonGroup should render correctly 1`] = `
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
-        size="normal"
         tabIndex={0}
       >
         Option 2
@@ -162,7 +157,6 @@ exports[`SelectButtonGroup should render correctly 1`] = `
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
-        size="normal"
         tabIndex={0}
       >
         Option 3
