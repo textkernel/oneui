@@ -156,6 +156,16 @@ describe('SelectButtonGroup', () => {
                 getButton(1).prop('value'),
                 getButton(2).prop('value'),
             ]);
+
+            getButton(1).simulate('click');
+            expect(onChangeMock).toHaveBeenLastCalledWith([
+                getButton(0).prop('value'),
+                getButton(2).prop('value'),
+            ]);
+
+            getButton(0).simulate('click');
+            getButton(2).simulate('click');
+            expect(onChangeMock).toHaveBeenLastCalledWith([]);
         });
     });
 
