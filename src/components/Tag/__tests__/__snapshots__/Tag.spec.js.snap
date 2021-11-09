@@ -10,8 +10,9 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
   size="large"
 >
   <div
-    className="Tag Tag--selected Tag--clickable"
+    className="Tag Tag--isSelected Tag--clickable"
     onClick={[MockFunction]}
+    onKeyPress={[Function]}
     role="button"
     style={
       Object {

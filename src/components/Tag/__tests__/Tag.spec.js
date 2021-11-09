@@ -38,7 +38,7 @@ describe('<Tag> component', () => {
             </Tag>
         );
 
-        expect(wrapper.find('.Tag').prop('className')).toContain('selected');
+        expect(wrapper.find('.Tag').prop('className')).toContain('isSelected');
         expect(wrapper.find('.Tag').prop('style').backgroundColor).toEqual(bgColor);
         expect(wrapper.find('.Tag').prop('style').maxWidth).toEqual(maxWidth);
         expect(wrapper.find('Text').prop('size')).toEqual(textSize);
@@ -51,6 +51,15 @@ describe('<Tag> component', () => {
         wrapper = mount(<Tag onClick={onTagClick}>{text}</Tag>);
 
         wrapper.find('Tag').simulate('click');
+        expect(onTagClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('should invoke onClick callback when user interacts with tag by pressing Enter', () => {
+        wrapper = mount(<Tag onClick={onTagClick}>{text}</Tag>);
+
+        wrapper.find('Tag').simulate('focus');
+        wrapper.find('Tag').simulate('keypress', { key: 'Enter' });
+
         expect(onTagClick).toHaveBeenCalledTimes(1);
     });
 

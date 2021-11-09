@@ -5,7 +5,7 @@
     padding: var(--spacing-normal) var(--spacing-2x);
     border-radius: var(--border-radius);
 
-    &--selected {
+    &--isSelected {
         box-shadow: 0 0 0 2px var(--color-brand);
     }
 

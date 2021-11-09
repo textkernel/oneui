@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MdClose } from 'react-icons/md';
 import { bem } from '../../utils';
 import { Text } from '../Text';
-
+import { ENTER_KEY } from '../../constants';
 import styles from './Tag.scss';
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -35,10 +35,19 @@ export const Tag: React.FC<Props> = (props) => {
         onDelete?.();
     };
 
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+        e.stopPropagation();
+
+        if (e.key === ENTER_KEY) {
+            onClick?.();
+        }
+    };
+
     return (
         <div
-            {...block({ selected: isSelected, clickable: !!onClick, ...rest })}
-            {...(onClick && { onClick, tabIndex: 0, role: 'button' })}
+            {...rest}
+            {...block({ ...props, clickable: !!onClick })}
+            {...(onClick && { onClick, tabIndex: 0, role: 'button', onKeyPress: handleKeyPress })}
             style={{
                 backgroundColor: bgColor,
                 maxWidth,
