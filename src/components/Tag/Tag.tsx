@@ -1,5 +1,3 @@
-import { button } from '@storybook/addon-knobs';
-import { chown } from 'fs';
 import * as React from 'react';
 import { MdClose } from 'react-icons/md';
 import { bem } from '../../utils';
