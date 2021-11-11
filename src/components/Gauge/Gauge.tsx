@@ -37,6 +37,9 @@ export const Gauge: React.FC<Props> = (props) => {
         ...rest
     } = props;
     const [percentageToShow, setPercentageToShow] = React.useState(0);
+    // We need this uuid for the linear gradient's id to avoid some bugs in Safari.
+    // For details see: https://jira.textkernel.nl/browse/JF-2780
+    const id = React.useRef(Math.random());
 
     // Simulate a prop change to run the animation on render.
     // There's a small delay set because of a weird bug
@@ -60,7 +63,7 @@ export const Gauge: React.FC<Props> = (props) => {
         <div {...rest} {...block(props)}>
             <svg {...elem('svg', props)} width="100%">
                 <defs>
-                    <linearGradient id={`Gauge__gradient--${context}`}>
+                    <linearGradient id={`Gauge__gradient--${context}-${id.current}`}>
                         <stop {...elem('gradientStart', props)} offset="50%" />
                         <stop {...elem('gradientEnd', props)} offset="100%" />
                     </linearGradient>
@@ -78,7 +81,7 @@ export const Gauge: React.FC<Props> = (props) => {
                     cx="50%"
                     cy="25%"
                     style={{ strokeDasharray: `${progress * circumferenceHalf} ${circumference}` }}
-                    stroke={`url(#Gauge__gradient--${context})`}
+                    stroke={`url(#Gauge__gradient--${context}-${id.current})`}
                 />
             </svg>
             <div {...elem('contentWrapper', props)}>
