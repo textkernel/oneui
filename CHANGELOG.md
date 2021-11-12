@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [15.5.0](https://github.com/textkernel/oneui/compare/15.4.2...15.5.0) (2021-11-12)
+
+
+### Features
+
+* **Tag:** add new Tag component ([#637](https://github.com/textkernel/oneui/issues/637)) ([5d293b4](https://github.com/textkernel/oneui/commit/5d293b4008c8bcfe9d0861472c85083397240320))
+
+
+### Bug Fixes
+
+* **Gauge:** Safari bug where gradient doesn't render ([#638](https://github.com/textkernel/oneui/issues/638)) ([f6165cf](https://github.com/textkernel/oneui/commit/f6165cf191c1ea96d78e7f7ab9c77dd40bdde486))
+
 ### [15.4.2](https://github.com/textkernel/oneui/compare/15.4.1...15.4.2) (2021-11-01)
 
 
