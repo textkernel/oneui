@@ -22,6 +22,7 @@ import './SelectedOption';
 import './Sliders';
 import './StickyHeader';
 import './Tabs';
+import './Tag';
 import './Text';
 import './TextArea';
 import './WidthRestrictor';

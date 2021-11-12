@@ -1,0 +1,38 @@
+.Tag {
+    display: flex;
+    align-items: center;
+
+    padding: var(--spacing-normal) var(--spacing-2x);
+    border-radius: var(--border-radius);
+
+    &--isSelected {
+        box-shadow: 0 0 0 2px var(--color-brand);
+    }
+
+    &--clickable {
+        cursor: pointer;
+    }
+
+    &__text{
+        margin: 0; 
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__deleteButton {
+        display: flex;
+        align-items: center;
+
+        min-width: 15px;
+        min-height: 15px;
+
+        border: 0;
+        cursor: pointer;
+        background-color: var(--transparent);
+
+        padding: 0;
+        margin-left: var(--spacing-normal);
+    }
+}
