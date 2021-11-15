@@ -5,8 +5,6 @@ import styles from './SelectButton.scss';
 
 // These props will be passed by the parent <SelectButtonGroup>
 interface InternalProps<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
-    /** if this button should be in a selected state */
-    isSelected?: boolean;
     /** A function to be called if a button is pressed. */
     onChange?: (value: V) => void;
     /** If this component a child of a full block with container  */
@@ -20,10 +18,10 @@ export interface Props<V> extends InternalProps<V> {
     children: NotEmptyReactNode;
     /** the value associated with this button */
     value: V;
-    /** if this button should be in a selected when first rendered */
-    isInitiallySelected?: boolean;
+    /** whether or not this button is selected */
+    isSelected?: boolean;
     /** the color context to be applied in the selected state */
-    selectedContext?: Context;
+    context?: Context;
     /** size of the button */
     size?: Size;
 }
@@ -31,20 +29,13 @@ export interface Props<V> extends InternalProps<V> {
 const { block } = bem('SelectButton', styles);
 
 export function SelectButton<V>(props: Props<V>) {
-    const {
-        children,
-        value,
-        onChange,
-        isEqualWidth,
-        isBlock,
-        selectedContext,
-        isInitiallySelected,
-        isSelected,
-        ...rest
-    } = props;
+    const { children, value, onChange, isEqualWidth, isBlock, context, isSelected, size, ...rest } =
+        props;
 
     const handleClick = () => {
-        onChange?.(value);
+        if (onChange) {
+            onChange(value);
+        }
     };
 
     const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -70,7 +61,8 @@ export function SelectButton<V>(props: Props<V>) {
 SelectButton.displayName = 'SelectButton';
 
 SelectButton.defaultProps = {
-    isInitiallySelected: false,
+    context: 'brand',
+    isSelected: false,
     isEqualWidth: false,
     size: 'normal',
 };

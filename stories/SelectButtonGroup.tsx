@@ -6,46 +6,58 @@ import { CONTEXTS, SIZES } from '../src/constants';
 
 storiesOf('Atoms|SelectButtonGroup', module)
     .addDecorator(withKnobs)
-    .add('SelectButtonGroup', () => (
+    .add('Uncontrolled', () => (
         <SelectButtonGroup<string>
             isMultiselect={boolean('Multiselect group', false)}
             isRequired={boolean('Require to have at least 1 selected option', false)}
             isBlock={boolean('Display as block', false)}
             isEqualWidth={boolean('Make all buttons the same width', false)}
-            selectedContext={select('Default selected color context', CONTEXTS, CONTEXTS[1])}
+            context={select('Default selected color context', CONTEXTS, CONTEXTS[1])}
             size={select('Size', SIZES, SIZES[1])}
-            onChange={(value) => {
-                const msg = `onSelect was called with values ${value}`;
-                console.log(msg);
+            defaultValue={['3']}
+            onChange={(selection) => {
+                console.log('Current selection', selection);
             }}
         >
-            <SelectButton<string>
-                value="button 1"
-                key="button 1"
-                isInitiallySelected
-                selectedContext={
-                    select('Selected color context for button 1', CONTEXTS, undefined) || undefined
-                }
-            >
+            <SelectButton value="1" key="button 1">
                 {text('Option label 1', 'Option 1')}
             </SelectButton>
-            <SelectButton<string>
-                key="button 2"
-                value="button 2"
-                selectedContext={
-                    select('Selected color context for button 2', CONTEXTS, undefined) || undefined
-                }
-            >
+            <SelectButton value="2" key="button 2">
                 {text('Option label 2', 'Option 2')}
             </SelectButton>
-            <SelectButton<string>
-                key="button 3"
-                value="button 3"
-                selectedContext={
-                    select('Selected color context for button 3', CONTEXTS, undefined) || undefined
-                }
-            >
+            <SelectButton value="3" key="button 3">
                 {text('Option label 3', 'Option 3')}
             </SelectButton>
         </SelectButtonGroup>
-    ));
+    ))
+    .add('Controlled', () => {
+        const buttons = {
+            '1': boolean('Button 1 selected', true),
+            '2': boolean('Button 2 selected', false),
+            '3': boolean('Button 3 selected', false),
+        };
+        const keys = Object.keys(buttons);
+
+        return (
+            <SelectButtonGroup
+                value={keys.filter((k) => buttons[k])}
+                onChange={(value) => {
+                    console.log(`Button ${value} was selected`);
+                }}
+            >
+                {keys.map((buttonNumber) => (
+                    <SelectButton
+                        key={`button-${buttonNumber}`}
+                        value={buttonNumber}
+                        context={select(
+                            `Context for button ${buttonNumber}`,
+                            CONTEXTS,
+                            CONTEXTS[1]
+                        )}
+                    >
+                        Button {buttonNumber}
+                    </SelectButton>
+                ))}
+            </SelectButtonGroup>
+        );
+    });

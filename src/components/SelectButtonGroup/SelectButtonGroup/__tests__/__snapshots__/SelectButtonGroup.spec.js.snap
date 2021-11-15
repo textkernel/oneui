@@ -1,95 +1,162 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelectButtonGroup should render correctly 1`] = `
+exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
 <SelectButtonGroup
+  context={null}
+  defaultValue={null}
   isBlock={false}
   isEqualWidth={false}
   isMultiselect={false}
   isRequired={false}
-  onChange={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          Array [
-            "button 1",
-          ],
-        ],
-      ],
-      "results": Array [
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-      ],
-    }
-  }
-  selectedContext="brand"
+  onChange={[MockFunction]}
   size="normal"
+  value={
+    Array [
+      "1",
+    ]
+  }
 >
   <div
     className="SelectButtonGroup"
   >
     <SelectButton
+      context="brand"
       isBlock={false}
       isEqualWidth={false}
-      isInitiallySelected={true}
       isSelected={true}
       key="1"
       onChange={[Function]}
-      selectedContext="brand"
       size="normal"
-      value="button 1"
+      value="1"
     >
       <div
-        className="SelectButton SelectButton--isSelected SelectButton--selectedContext_brand"
+        className="SelectButton SelectButton--context_brand SelectButton--isSelected"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
-        size="normal"
         tabIndex={0}
       >
         Option 1
       </div>
     </SelectButton>
     <SelectButton
+      context="brand"
       isBlock={false}
       isEqualWidth={false}
-      isInitiallySelected={false}
       isSelected={false}
       key="2"
       onChange={[Function]}
-      selectedContext="brand"
       size="normal"
-      value="button 2"
+      value="2"
     >
       <div
-        className="SelectButton SelectButton--selectedContext_brand"
+        className="SelectButton SelectButton--context_brand"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
-        size="normal"
         tabIndex={0}
       >
         Option 2
       </div>
     </SelectButton>
     <SelectButton
+      context="brand"
       isBlock={false}
       isEqualWidth={false}
-      isInitiallySelected={false}
       isSelected={false}
       key="3"
       onChange={[Function]}
-      selectedContext="brand"
       size="normal"
-      value="button 3"
+      value="3"
     >
       <div
-        className="SelectButton SelectButton--selectedContext_brand"
+        className="SelectButton SelectButton--context_brand"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
-        size="normal"
+        tabIndex={0}
+      >
+        Option 3
+      </div>
+    </SelectButton>
+  </div>
+</SelectButtonGroup>
+`;
+
+exports[`SelectButtonGroup should render correctly 1`] = `
+<SelectButtonGroup
+  context={null}
+  defaultValue={
+    Array [
+      "1",
+    ]
+  }
+  isBlock={false}
+  isEqualWidth={false}
+  isMultiselect={false}
+  isRequired={false}
+  onChange={[MockFunction]}
+  size="normal"
+  value={null}
+>
+  <div
+    className="SelectButtonGroup"
+  >
+    <SelectButton
+      context="brand"
+      isBlock={false}
+      isEqualWidth={false}
+      isSelected={true}
+      key="1"
+      onChange={[Function]}
+      size="normal"
+      value="1"
+    >
+      <div
+        className="SelectButton SelectButton--context_brand SelectButton--isSelected"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        Option 1
+      </div>
+    </SelectButton>
+    <SelectButton
+      context="brand"
+      isBlock={false}
+      isEqualWidth={false}
+      isSelected={false}
+      key="2"
+      onChange={[Function]}
+      size="normal"
+      value="2"
+    >
+      <div
+        className="SelectButton SelectButton--context_brand"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        Option 2
+      </div>
+    </SelectButton>
+    <SelectButton
+      context="brand"
+      isBlock={false}
+      isEqualWidth={false}
+      isSelected={false}
+      key="3"
+      onChange={[Function]}
+      size="normal"
+      value="3"
+    >
+      <div
+        className="SelectButton SelectButton--context_brand"
+        onClick={[Function]}
+        onKeyPress={[Function]}
+        role="button"
         tabIndex={0}
       >
         Option 3
