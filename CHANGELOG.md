@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [16.0.0](https://github.com/textkernel/oneui/compare/15.5.0...16.0.0) (2021-11-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **SelectButtonGroup:** The API for these components is changed because of the improvements and changes in behavior that are implemented.
+
+### Features
+
+* **SelectButtonGroup:** add support for controlled behavior and improve API ([#624](https://github.com/textkernel/oneui/issues/624)) ([efa4a04](https://github.com/textkernel/oneui/commit/efa4a04a4ff94671dc390bc7f8547f5f033f6004))
+
 ## [15.5.0](https://github.com/textkernel/oneui/compare/15.4.2...15.5.0) (2021-11-12)
 
 
