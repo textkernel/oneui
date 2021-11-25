@@ -1,8 +1,10 @@
+@use 'sass:math';
+
 $pill-height: 32px !default;
 $pill-label-height: 17px !default;
 $pill-button-size: 20px !default;
 
-$half-pill-height: $pill-height / 2;
+$half-pill-height: math.div($pill-height, 2);
 
 @keyframes labelIn {
     from {
