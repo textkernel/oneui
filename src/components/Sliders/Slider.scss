@@ -1,10 +1,12 @@
+@use 'sass:math';
+
 // Definition of basic slider variables
 $slider-rail-height: 3px;
 $slider-handle-size: 18px;
 $slider-handle-border-width: 2px;
 
 // Centering adjustments of the handle on the rail
-$slider-handle-adjust-top: -(($slider-handle-size / 2) - ($slider-rail-height / 4));
+$slider-handle-adjust-top: -(math.div($slider-handle-size, 2) - math.div($slider-rail-height, 4));
 
 // Definitions of variables for paddings, shadows, etc.
 $slider-padding: 5px 0;
@@ -12,7 +14,7 @@ $slider-padding: 5px 0;
 :global .rc-slider-track {
     position: absolute;
     height: $slider-rail-height;
-    border-radius: $slider-rail-height / 2;
+    border-radius: math.div($slider-rail-height, 2);
     background-color: var(--color-brand);
     transition: background-color var(--transition-duration) ease;
 }
@@ -24,7 +26,8 @@ $slider-padding: 5px 0;
     margin-top: $slider-handle-adjust-top;
     border: solid $slider-handle-border-width var(--color-brand);
     border-radius: 50%;
-    transition: background-color var(--transition-duration) ease, transform var(--transition-duration), box-shadow var(--transition-duration);
+    transition: background-color var(--transition-duration) ease,
+        transform var(--transition-duration), box-shadow var(--transition-duration);
     background-color: var(--color-background);
     cursor: grab;
 
@@ -66,5 +69,5 @@ $slider-padding: 5px 0;
     width: 100%;
     background-color: var(--color-neutral-10);
     height: $slider-rail-height;
-    border-radius: $slider-rail-height / 2;
+    border-radius: math.div($slider-rail-height, 2);
 }
