@@ -9,6 +9,7 @@ export { Callout } from './components/Callout';
 export { CandidateAvatar } from './components/CandidateAvatar';
 export { Chip } from './components/Chip';
 export { ContentPlaceholder } from './components/ContentPlaceholder';
+export { DatePicker } from './components/DatePicker';
 export { Heading } from './components/Heading';
 export { StringHighlighter, ReactElementHighlighter } from './components/Highlighter';
 export * from './components/Icon';

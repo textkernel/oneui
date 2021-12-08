@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.navButton {
+    width: 33px;
+    height: 33px;
+}
+
+.select {
+    margin-left: var(--spacing-normal);
+    background-color: var(--color-background);
+    border: 0;
+    font-size: var(--font-size-normal);
+
+    &:focus {
+        outline: none;
+    }
+}

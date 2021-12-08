@@ -50,7 +50,7 @@ const getRules = (env = 'prod') => ({
     }),
     externalCss: getRuleCSS({
         styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
-        includePaths: [NODE_MODULES_PATH],
+        includePaths: [NODE_MODULES_PATH, SOURCE_PATH],
     }),
     scss: getRuleSCSS({
         styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',
