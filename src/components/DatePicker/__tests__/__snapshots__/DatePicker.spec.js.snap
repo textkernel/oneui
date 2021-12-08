@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DatePicker should render correctly 1`] = `
+<DatePicker
+  monthsNames={
+    Array [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ]
+  }
+  years={
+    Array [
+      2016,
+      2017,
+      2018,
+      2019,
+      2020,
+      2021,
+      2022,
+      2023,
+      2024,
+      2025,
+    ]
+  }
+>
+  <r
+    allowSameDay={false}
+    customTimeInput={null}
+    dateFormat="MM/dd/yyyy"
+    dateFormatCalendar="LLLL yyyy"
+    disabled={false}
+    disabledKeyboardNavigation={false}
+    dropdownMode="scroll"
+    enableTabLoop={true}
+    excludeScrollbar={true}
+    focusSelectedMonth={false}
+    monthsNames={
+      Array [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ]
+    }
+    monthsShown={1}
+    nextMonthAriaLabel="Next Month"
+    nextMonthButtonLabel="Next Month"
+    nextYearAriaLabel="Next Year"
+    nextYearButtonLabel="Next Year"
+    onBlur={[Function]}
+    onCalendarClose={[Function]}
+    onCalendarOpen={[Function]}
+    onChange={[Function]}
+    onClickOutside={[Function]}
+    onFocus={[Function]}
+    onInputClick={[Function]}
+    onInputError={[Function]}
+    onKeyDown={[Function]}
+    onMonthChange={[Function]}
+    onSelect={[Function]}
+    onYearChange={[Function]}
+    preventOpenOnFocus={false}
+    previousMonthAriaLabel="Previous Month"
+    previousMonthButtonLabel="Previous Month"
+    previousYearAriaLabel="Previous Year"
+    previousYearButtonLabel="Previous Year"
+    readOnly={false}
+    renderCustomHeader={[Function]}
+    renderDayContents={[Function]}
+    selectsDisabledDaysInRange={false}
+    shouldCloseOnSelect={true}
+    showFourColumnMonthYearPicker={false}
+    showFullMonthYearPicker={false}
+    showMonthYearPicker={false}
+    showPopperArrow={false}
+    showPreviousMonths={false}
+    showQuarterYearPicker={false}
+    showTimeInput={false}
+    showTimeSelect={false}
+    showTwoColumnMonthYearPicker={false}
+    showYearPicker={false}
+    strictParsing={false}
+    timeCaption="Time"
+    timeInputLabel="Time"
+    timeIntervals={30}
+    withPortal={false}
+    yearItemNumber={12}
+  >
+    <r
+      enableTabLoop={true}
+      hidePopper={true}
+      popperComponent={null}
+      popperModifiers={Array []}
+      popperOnKeyDown={[Function]}
+      popperPlacement="bottom-start"
+      popperProps={Object {}}
+      targetComponent={
+        <div
+          className="react-datepicker__input-container"
+        >
+          <input
+            className=""
+            disabled={false}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            readOnly={false}
+            type="text"
+            value=""
+          />
+        </div>
+      }
+    >
+      <Manager
+        className="react-datepicker-manager"
+      >
+        <Reference>
+          <div
+            className="react-datepicker-wrapper"
+          >
+            <div
+              className="react-datepicker__input-container"
+            >
+              <input
+                className=""
+                disabled={false}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                readOnly={false}
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </Reference>
+      </Manager>
+    </r>
+  </r>
+</DatePicker>
+`;
