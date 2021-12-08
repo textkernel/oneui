@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { ReactDatePickerCustomHeaderProps } from 'react-datepicker';
 import { ImArrowLeft2, ImArrowRight2 } from 'react-icons/im';
+import { bem } from '../../../utils';
 import { Button } from '../../Buttons';
 import { Text } from '../../Text';
 import styles from './CalendarHeader.scss';
@@ -11,6 +12,8 @@ interface Props extends ReactDatePickerCustomHeaderProps {
     /** an array of the years the user can choose from */
     years: number[];
 }
+
+const { block, elem } = bem('CalendarHeader', styles);
 
 export const CalendarHeader: React.FC<Props> = (props) => {
     const {
@@ -25,11 +28,11 @@ export const CalendarHeader: React.FC<Props> = (props) => {
     } = props;
 
     return (
-        <div className={styles.container}>
+        <div {...block()}>
             <Button
                 onClick={decreaseMonth}
                 disabled={prevMonthButtonDisabled}
-                className={styles.navButton}
+                {...elem('navButton')}
             >
                 <ImArrowLeft2 />
             </Button>
@@ -38,7 +41,7 @@ export const CalendarHeader: React.FC<Props> = (props) => {
                     {monthsNames[date.getMonth()]}
                 </Text>
                 <select
-                    className={styles.select}
+                    {...elem('select')}
                     value={date.getFullYear()}
                     onChange={({ target: { value } }) => changeYear(parseInt(value, 10))}
                 >
@@ -52,7 +55,7 @@ export const CalendarHeader: React.FC<Props> = (props) => {
             <Button
                 onClick={increaseMonth}
                 disabled={nextMonthButtonDisabled}
-                className={styles.navButton}
+                {...elem('navButton')}
             >
                 <ImArrowRight2 />
             </Button>

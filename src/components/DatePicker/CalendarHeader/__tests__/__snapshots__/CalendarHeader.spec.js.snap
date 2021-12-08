@@ -38,10 +38,10 @@ exports[`CalendarHeader should render correctly 1`] = `
   }
 >
   <div
-    className="container"
+    className="CalendarHeader"
   >
     <Button
-      className="navButton"
+      className="CalendarHeader__navButton"
       context="neutral"
       disabled={false}
       isBlock={false}
@@ -51,7 +51,7 @@ exports[`CalendarHeader should render correctly 1`] = `
       type="button"
     >
       <button
-        className="Button Button--context_neutral navButton"
+        className="Button Button--context_neutral CalendarHeader__navButton"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
@@ -104,7 +104,7 @@ exports[`CalendarHeader should render correctly 1`] = `
         </span>
       </Text>
       <select
-        className="select"
+        className="CalendarHeader__select"
         onChange={[Function]}
         value={2021}
       >
@@ -171,7 +171,7 @@ exports[`CalendarHeader should render correctly 1`] = `
       </select>
     </div>
     <Button
-      className="navButton"
+      className="CalendarHeader__navButton"
       context="neutral"
       disabled={false}
       isBlock={false}
@@ -181,7 +181,7 @@ exports[`CalendarHeader should render correctly 1`] = `
       type="button"
     >
       <button
-        className="Button Button--context_neutral navButton"
+        className="Button Button--context_neutral CalendarHeader__navButton"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
