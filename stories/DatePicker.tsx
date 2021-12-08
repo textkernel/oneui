@@ -18,7 +18,7 @@ const MONTH_NAMES = [
 ];
 const YEARS = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
 
-storiesOf('Atoms|DatePicker', module)
+storiesOf('Molecules|DatePicker', module)
     .add(
         'DatePicker',
         () => {
@@ -61,6 +61,9 @@ storiesOf('Atoms|DatePicker', module)
 
             const handleStartChange = (date: Date) => {
                 setStartDate(date);
+                if (endDate && date > endDate) {
+                    setEndDate(null);
+                }
                 document.getElementById('range-end')?.focus();
             };
 
