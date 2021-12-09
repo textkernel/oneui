@@ -1,0 +1,21 @@
+name: NPM Cache
+description: This action cancels prev runs, sets up Node, and sets up npm cache.
+author: Alex Antipin <antipin@textkernel.nl>
+runs:
+    using: 'composite'
+    steps:
+        - name: Cancel Previous Runs
+          uses: styfle/cancel-workflow-action@0.9.1
+          with:
+            access_token: ${{ github.token }}
+        - name: Setup Node.js
+          uses: actions/setup-node@v2
+          with:
+            node-version: '14'
+        - name: Cache node_modules
+          uses: actions/cache@v2
+          with:
+            path: ./node_modules
+            key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+            restore-keys: |
+              ${{ runner.os }}-node_modules-
