@@ -1,13 +1,21 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, number, withKnobs } from '@storybook/addon-knobs';
+import { select, number, withKnobs } from '@storybook/addon-knobs';
 import { DatePicker, Text } from '@textkernel/oneui';
+import es from 'date-fns/locale/es';
+import hu from 'date-fns/locale/hu';
+import frCA from 'date-fns/locale/fr-CA';
+import { registerLocale } from 'react-datepicker';
 
 storiesOf('Molecules|DatePicker', module)
     .addDecorator(withKnobs)
     .add(
         'DatePicker',
         () => {
+            registerLocale('es', es);
+            registerLocale('hu', hu);
+            registerLocale('fr-CA', frCA);
+
             const [selected, setSelected] = React.useState(new Date());
 
             const handleChange = (date: Date) => {
@@ -24,8 +32,9 @@ storiesOf('Molecules|DatePicker', module)
                     selected={selected}
                     yearsRange={[minYear, maxYear]}
                     todayButton="Today"
-                    locale={text(
-                        'Locale (for header area only, for localizing calendar, see library docs)',
+                    locale={select(
+                        'Locale (see code example or lib docs for implementation details)',
+                        ['en', 'es', 'hu', 'fr-CA'],
                         'en'
                     )}
                 />
