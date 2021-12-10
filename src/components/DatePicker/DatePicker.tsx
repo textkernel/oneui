@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactDatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import { CalendarHeader } from './CalendarHeader';
 import 'react-datepicker/dist/react-datepicker.css?external'; // eslint-disable-line import/no-unresolved
-import './DatePicker.css';
+import './DatePicker.scss';
 
 interface Props extends ReactDatePickerProps {
     /** the min and max year selectable by the user */

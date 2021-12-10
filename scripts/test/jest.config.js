@@ -20,7 +20,6 @@ module.exports = {
     transform: {
         '^.+\\.jsx?$': 'babel-jest',
         '^.+\\.tsx?$': 'ts-jest',
-        '^.+\\.css$': 'jest-css-modules-transform',
         '^.+\\.scss$': 'jest-css-modules-transform',
     },
 
