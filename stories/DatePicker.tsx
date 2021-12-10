@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { text, number, withKnobs } from '@storybook/addon-knobs';
 import { DatePicker, Text } from '@textkernel/oneui';
-
-const YEARS: [number, number] = [2016, 2025];
 
 storiesOf('Molecules|DatePicker', module)
     .addDecorator(withKnobs)
@@ -17,11 +15,14 @@ storiesOf('Molecules|DatePicker', module)
                 console.log('new date selected: ', date);
             };
 
+            const minYear = number('Min year in the calendar header', 2016);
+            const maxYear = number('Max year in the calendar header', 2025);
+
             return (
                 <DatePicker
                     onChange={handleChange}
                     selected={selected}
-                    yearsRange={YEARS}
+                    yearsRange={[minYear, maxYear]}
                     todayButton="Today"
                     locale={text(
                         'Locale (for header area only, for localizing calendar, see library docs)',
@@ -50,6 +51,9 @@ storiesOf('Molecules|DatePicker', module)
             const [startDate, setStartDate] = React.useState(new Date());
             const [endDate, setEndDate] = React.useState<Date | null>(null);
 
+            const minYear = number('Min year in the calendar header', 2016);
+            const maxYear = number('Max year in the calendar header', 2025);
+
             const handleStartChange = (date: Date) => {
                 setStartDate(date);
                 if (endDate && date > endDate) {
@@ -72,7 +76,7 @@ storiesOf('Molecules|DatePicker', module)
                         selectsStart
                         startDate={startDate}
                         endDate={endDate}
-                        yearsRange={YEARS}
+                        yearsRange={[minYear, maxYear]}
                     />
                     <Text>End date:</Text>
                     <DatePicker
@@ -83,7 +87,7 @@ storiesOf('Molecules|DatePicker', module)
                         startDate={startDate}
                         endDate={endDate}
                         minDate={startDate}
-                        yearsRange={YEARS}
+                        yearsRange={[minYear, maxYear]}
                     />
                 </>
             );
