@@ -7,18 +7,18 @@ import { Text } from '../../Text';
 import styles from './CalendarHeader.scss';
 
 interface Props extends ReactDatePickerCustomHeaderProps {
-    /** an array of the names of the month in the language you want to use */
-    monthsNames: string[];
-    /** an array of the years the user can choose from */
-    years: number[];
+    /** the locale in which the names of the month should be displayed. Format should match Intl definitions */
+    locale?: string;
+    /** the min and max year selectable by the user */
+    yearsRange: [number, number];
 }
 
 const { block, elem } = bem('CalendarHeader', styles);
 
 export const CalendarHeader: React.FC<Props> = (props) => {
     const {
-        monthsNames,
-        years,
+        locale = 'en',
+        yearsRange,
         date,
         decreaseMonth,
         prevMonthButtonDisabled,
@@ -26,6 +26,12 @@ export const CalendarHeader: React.FC<Props> = (props) => {
         nextMonthButtonDisabled,
         changeYear,
     } = props;
+
+    const monthName = new Intl.DateTimeFormat(locale, { month: 'long' }).format(date);
+
+    const [minYear, maxYear] = yearsRange;
+    const yearsAvailable = maxYear - minYear + 1;
+    const years = new Array(yearsAvailable).fill(0).map((val, idx) => minYear + idx);
 
     return (
         <div {...block()}>
@@ -38,7 +44,7 @@ export const CalendarHeader: React.FC<Props> = (props) => {
             </Button>
             <div role="presentation">
                 <Text size="large" inline>
-                    {monthsNames[date.getMonth()]}
+                    {monthName}
                 </Text>
                 <select
                     {...elem('select')}

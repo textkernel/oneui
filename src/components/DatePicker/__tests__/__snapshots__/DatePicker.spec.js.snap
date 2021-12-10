@@ -2,33 +2,9 @@
 
 exports[`DatePicker should render correctly 1`] = `
 <DatePicker
-  monthsNames={
-    Array [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ]
-  }
-  years={
+  yearsRange={
     Array [
       2016,
-      2017,
-      2018,
-      2019,
-      2020,
-      2021,
-      2022,
-      2023,
-      2024,
       2025,
     ]
   }
@@ -44,22 +20,6 @@ exports[`DatePicker should render correctly 1`] = `
     enableTabLoop={true}
     excludeScrollbar={true}
     focusSelectedMonth={false}
-    monthsNames={
-      Array [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ]
-    }
     monthsShown={1}
     nextMonthAriaLabel="Next Month"
     nextMonthButtonLabel="Next Month"

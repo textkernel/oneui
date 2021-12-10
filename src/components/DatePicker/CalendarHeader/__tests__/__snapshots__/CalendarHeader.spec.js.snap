@@ -6,33 +6,9 @@ exports[`CalendarHeader should render correctly 1`] = `
   date={2021-12-31T00:00:00.000Z}
   decreaseMonth={[MockFunction]}
   increaseMonth={[MockFunction]}
-  monthsNames={
-    Array [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ]
-  }
-  years={
+  yearsRange={
     Array [
       2016,
-      2017,
-      2018,
-      2019,
-      2020,
-      2021,
-      2022,
-      2023,
-      2024,
       2025,
     ]
   }

@@ -3,21 +3,7 @@ import toJson from 'enzyme-to-json';
 import { CalendarHeader } from '../CalendarHeader';
 
 describe('CalendarHeader', () => {
-    const MONTH_NAMES = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-    ];
-    const YEARS = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+    const YEARS = [2016, 2025];
     const decreaseMonth = jest.fn();
     const increaseMonth = jest.fn();
     const changeYear = jest.fn();
@@ -26,8 +12,7 @@ describe('CalendarHeader', () => {
     beforeEach(() => {
         wrapper = mount(
             <CalendarHeader
-                years={YEARS}
-                monthsNames={MONTH_NAMES}
+                yearsRange={YEARS}
                 date={new Date('2021-12-31')}
                 decreaseMonth={decreaseMonth}
                 increaseMonth={increaseMonth}
@@ -38,6 +23,17 @@ describe('CalendarHeader', () => {
 
     it('should render correctly', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
+    });
+    it('should fill in the years correctly', () => {
+        const options = wrapper.find('option');
+        // eslint-disable-next-line no-plusplus
+        for (let year = YEARS[0]; year <= YEARS[1]; year++) {
+            const idx = year - YEARS[0];
+            expect(options.at(idx).prop('value')).toEqual(year);
+        }
+    });
+    it('should display the month in the correct language', () => {
+        expect(wrapper.find('Text').text()).toBe('December');
     });
     it('should call decreaseMonth when previous nav button is clicked', () => {
         wrapper.find('button').at(0).simulate('click');

@@ -1,24 +1,12 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import { DatePicker, Text } from '@textkernel/oneui';
 
-const MONTH_NAMES = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-];
-const YEARS = [2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025];
+const YEARS: [number, number] = [2016, 2025];
 
 storiesOf('Molecules|DatePicker', module)
+    .addDecorator(withKnobs)
     .add(
         'DatePicker',
         () => {
@@ -33,9 +21,12 @@ storiesOf('Molecules|DatePicker', module)
                 <DatePicker
                     onChange={handleChange}
                     selected={selected}
-                    months={MONTH_NAMES}
-                    years={YEARS}
+                    yearsRange={YEARS}
                     todayButton="Today"
+                    locale={text(
+                        'Locale (for header area only, for localizing calendar, see library docs)',
+                        'en'
+                    )}
                 />
             );
         },
@@ -81,8 +72,7 @@ storiesOf('Molecules|DatePicker', module)
                         selectsStart
                         startDate={startDate}
                         endDate={endDate}
-                        months={MONTH_NAMES}
-                        years={YEARS}
+                        yearsRange={YEARS}
                     />
                     <Text>End date:</Text>
                     <DatePicker
@@ -93,8 +83,7 @@ storiesOf('Molecules|DatePicker', module)
                         startDate={startDate}
                         endDate={endDate}
                         minDate={startDate}
-                        months={MONTH_NAMES}
-                        years={YEARS}
+                        yearsRange={YEARS}
                     />
                 </>
             );
