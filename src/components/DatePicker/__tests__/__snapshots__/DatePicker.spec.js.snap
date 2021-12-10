@@ -2,6 +2,7 @@
 
 exports[`DatePicker should render correctly 1`] = `
 <DatePicker
+  onChange={[MockFunction]}
   yearsRange={
     Array [
       2016,
@@ -28,7 +29,7 @@ exports[`DatePicker should render correctly 1`] = `
     onBlur={[Function]}
     onCalendarClose={[Function]}
     onCalendarOpen={[Function]}
-    onChange={[Function]}
+    onChange={[MockFunction]}
     onClickOutside={[Function]}
     onFocus={[Function]}
     onInputClick={[Function]}
