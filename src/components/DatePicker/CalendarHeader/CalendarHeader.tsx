@@ -30,8 +30,16 @@ export const CalendarHeader: React.FC<Props> = (props) => {
     const monthName = new Intl.DateTimeFormat(locale, { month: 'long' }).format(date);
 
     const [minYear, maxYear] = yearsRange;
+    if (maxYear < minYear) {
+        console.error(
+            `CalendarHeader component has received confusing props.
+            Minimum selectable year (${minYear}) is larger then maximum selectable year (${maxYear})`
+        );
+        return null;
+    }
+
     const yearsAvailable = maxYear - minYear + 1;
-    const years = new Array(yearsAvailable).fill(0).map((val, idx) => minYear + idx);
+    const years = [...new Array(yearsAvailable)].map((val, idx) => minYear + idx);
 
     return (
         <div {...block()}>

@@ -24,6 +24,19 @@ describe('CalendarHeader', () => {
     it('should render correctly', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
+    it('should log an error and render nothing if min year is larger then max year', () => {
+        // don't log to test output
+        const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
+        wrapper.setProps({ yearsRange: [9, 2] });
+        wrapper.update();
+
+        expect(wrapper.html()).toBe(null);
+        expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
+        expect(consoleErrorSpy.mock.calls[0][0].replace(/\s/g, '')).toMatch(
+            `CalendarHeader component has received confusing props.
+        Minimum selectable year (9) is larger then maximum selectable year (2)`.replace(/\s/g, '')
+        );
+    });
     it('should fill in the years correctly', () => {
         const options = wrapper.find('option');
         // eslint-disable-next-line no-plusplus
