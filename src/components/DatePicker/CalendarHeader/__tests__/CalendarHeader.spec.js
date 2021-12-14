@@ -33,7 +33,7 @@ describe('CalendarHeader', () => {
         expect(wrapper.html()).toBe(null);
         expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
         expect(consoleErrorSpy.mock.calls[0][0].replace(/\s/g, '')).toMatch(
-            `CalendarHeader component has received confusing props.
+            `CalendarHeader component has received invalid props.
         Minimum selectable year (9) is larger then maximum selectable year (2)`.replace(/\s/g, '')
         );
     });
