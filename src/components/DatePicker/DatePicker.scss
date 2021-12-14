@@ -1,11 +1,8 @@
+@import '../../themes/oneui/oneui.scss';
+
 /* Input field */
 :global .react-datepicker__input-container input {
-    height: 30px;
-    width: 230px;
-    border: var(--color-neutral) 1px solid;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
-    padding: var(--spacing-normal) var(--spacing-normal) var(--spacing-normal) var(--spacing-3x);
+    @extend %input;
 }
 
 :global .react-datepicker__input-container input:focus,
