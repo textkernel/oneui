@@ -2,17 +2,20 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    margin-bottom: var(--spacing-3x);
 
     &__navButton {
         width: 33px;
         height: 33px;
+        padding: var(--spacing-normal);
     }
 
     &__select {
         margin-left: var(--spacing-normal);
         background-color: var(--color-background);
         border: 0;
-        font-size: var(--font-size-normal);
+        border-bottom: 1px var(--color-neutral) solid;
+        font-size: var(--font-size-large);
 
         &:focus {
             outline: none;
