@@ -4,13 +4,10 @@ import { CalendarHeader } from './CalendarHeader';
 import 'react-datepicker/dist/react-datepicker.css?external'; // eslint-disable-line import/no-unresolved
 import './DatePicker.scss';
 
-interface Props extends ReactDatePickerProps {
-    /** the min and max year selectable by the user */
-    yearsRange: [number, number];
-}
+const DEFAULT_YEAR_RANGE = 100;
 
-export const DatePicker: React.FC<Props> = (props) => {
-    const { children, yearsRange, locale, ...rest } = props;
+export const DatePicker: React.FC<ReactDatePickerProps> = (props) => {
+    const { children, minDate, maxDate, locale, ...rest } = props;
 
     let localeStr;
     if (locale) {
@@ -21,13 +18,22 @@ export const DatePicker: React.FC<Props> = (props) => {
         }
     }
 
+    const minYear = minDate ? minDate.getFullYear() : new Date().getFullYear() - DEFAULT_YEAR_RANGE;
+    const maxYear = maxDate ? maxDate.getFullYear() : new Date().getFullYear() + DEFAULT_YEAR_RANGE;
+
     return (
         <ReactDatePicker
             {...rest}
             showPopperArrow={false}
             locale={locale}
+            minDate={minDate}
+            maxDate={maxDate}
             renderCustomHeader={(propsFromLib) => (
-                <CalendarHeader {...propsFromLib} locale={localeStr} yearsRange={yearsRange} />
+                <CalendarHeader
+                    {...propsFromLib}
+                    locale={localeStr}
+                    yearsRange={[minYear, maxYear]}
+                />
             )}
         >
             {children}

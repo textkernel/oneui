@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { storiesOf } from '@storybook/react';
-import { select, number, withKnobs } from '@storybook/addon-knobs';
+import { select, text, withKnobs } from '@storybook/addon-knobs';
 import { DatePicker, Text } from '@textkernel/oneui';
 import es from 'date-fns/locale/es';
 import hu from 'date-fns/locale/hu';
 import frCA from 'date-fns/locale/fr-CA';
 import { registerLocale } from 'react-datepicker';
+
+const DATE_REGEX = /\d\d\d\d-\d\d-\d\d/;
 
 storiesOf('Molecules|DatePicker', module)
     .addDecorator(withKnobs)
@@ -23,14 +25,24 @@ storiesOf('Molecules|DatePicker', module)
                 console.log('new date selected: ', date);
             };
 
-            const minYear = number('Min year in the calendar header', 2016);
-            const maxYear = number('Max year in the calendar header', 2025);
+            const minDateStr = text('Min date yyyy-MM-dd', '');
+            const maxDateStr = text('Max date yyyy-MM-dd', '');
+
+            let minDate;
+            if (minDateStr.match(DATE_REGEX)) {
+                minDate = new Date(minDateStr);
+            }
+            let maxDate;
+            if (maxDateStr.match(DATE_REGEX)) {
+                maxDate = new Date(maxDateStr);
+            }
 
             return (
                 <DatePicker
                     onChange={handleChange}
                     selected={selected}
-                    yearsRange={[minYear, maxYear]}
+                    minDate={minDate}
+                    maxDate={maxDate}
                     todayButton="Today"
                     locale={select(
                         'Locale (see code example or lib docs for implementation details)',
@@ -48,7 +60,7 @@ storiesOf('Molecules|DatePicker', module)
             This component is a thin wrapper around [react-datepicker](https://github.com/Hacker0x01/react-datepicker/), 
             only setting the header element and add css.
 
-            You can pass other [props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) according to their definition.
+            You can pass [props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) according to their definition.
             See also [examples](https://reactdatepicker.com/) on their website. 
             `,
             },
@@ -60,8 +72,17 @@ storiesOf('Molecules|DatePicker', module)
             const [startDate, setStartDate] = React.useState(new Date());
             const [endDate, setEndDate] = React.useState<Date | null>(null);
 
-            const minYear = number('Min year in the calendar header', 2016);
-            const maxYear = number('Max year in the calendar header', 2025);
+            const minDateStr = text('Min date yyyy-MM-dd', '');
+            const maxDateStr = text('Max date yyyy-MM-dd', '');
+
+            let minDate;
+            if (minDateStr.match(DATE_REGEX)) {
+                minDate = new Date(minDateStr);
+            }
+            let maxDate;
+            if (maxDateStr.match(DATE_REGEX)) {
+                maxDate = new Date(maxDateStr);
+            }
 
             const handleStartChange = (date: Date) => {
                 setStartDate(date);
@@ -85,7 +106,8 @@ storiesOf('Molecules|DatePicker', module)
                         selectsStart
                         startDate={startDate}
                         endDate={endDate}
-                        yearsRange={[minYear, maxYear]}
+                        minDate={minDate}
+                        maxDate={maxDate}
                     />
                     <Text>End date:</Text>
                     <DatePicker
@@ -96,7 +118,7 @@ storiesOf('Molecules|DatePicker', module)
                         startDate={startDate}
                         endDate={endDate}
                         minDate={startDate}
-                        yearsRange={[minYear, maxYear]}
+                        maxDate={maxDate}
                     />
                 </>
             );
@@ -104,14 +126,15 @@ storiesOf('Molecules|DatePicker', module)
         {
             info: {
                 text: `
-        ## Example implementation
+    ## Example implementation
 
-        This is an example on how to compose a range date picker using DatePicker component. 
-        OneUI does not provide a ready component for it.
+    This is an example on how to compose a range date picker using DatePicker component.
+    OneUI does not provide a ready component for it.
 
-        __Note__: DatePicker is a thin wrapper around [react-datepicker](https://github.com/Hacker0x01/react-datepicker/). You can pass other [props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) according to their definition.
-        See also [examples](https://reactdatepicker.com/) on their website. 
-        `,
+    __Note__: DatePicker is a thin wrapper around [react-datepicker](https://github.com/Hacker0x01/react-datepicker/). 
+    You can pass [props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) according to their definition.
+    See also [examples](https://reactdatepicker.com/) on their website.
+    `,
             },
         }
     );
