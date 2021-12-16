@@ -35,6 +35,7 @@ export const DatePicker: React.FC<ReactDatePickerProps> = (props) => {
                     yearsRange={[minYear, maxYear]}
                 />
             )}
+            autoComplete="off"
         >
             {children}
         </ReactDatePicker>

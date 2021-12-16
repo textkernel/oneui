@@ -6,6 +6,7 @@ exports[`DatePicker should render correctly 1`] = `
 >
   <r
     allowSameDay={false}
+    autoComplete="off"
     customTimeInput={null}
     dateFormat="MM/dd/yyyy"
     dateFormatCalendar="LLLL yyyy"
@@ -72,6 +73,7 @@ exports[`DatePicker should render correctly 1`] = `
           className="react-datepicker__input-container"
         >
           <input
+            autoComplete="off"
             className=""
             disabled={false}
             onBlur={[Function]}
@@ -97,6 +99,7 @@ exports[`DatePicker should render correctly 1`] = `
               className="react-datepicker__input-container"
             >
               <input
+                autoComplete="off"
                 className=""
                 disabled={false}
                 onBlur={[Function]}
@@ -123,6 +126,7 @@ exports[`DatePicker should render correctly when calendar is open 1`] = `
 >
   <r
     allowSameDay={false}
+    autoComplete="off"
     customTimeInput={null}
     dateFormat="MM/dd/yyyy"
     dateFormatCalendar="LLLL yyyy"
@@ -248,6 +252,7 @@ exports[`DatePicker should render correctly when calendar is open 1`] = `
           className="react-datepicker__input-container"
         >
           <input
+            autoComplete="off"
             className="react-datepicker-ignore-onclickoutside"
             disabled={false}
             onBlur={[Function]}
@@ -273,6 +278,7 @@ exports[`DatePicker should render correctly when calendar is open 1`] = `
               className="react-datepicker__input-container"
             >
               <input
+                autoComplete="off"
                 className="react-datepicker-ignore-onclickoutside"
                 disabled={false}
                 onBlur={[Function]}
