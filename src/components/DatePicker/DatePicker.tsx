@@ -15,8 +15,8 @@ export const DatePicker: React.FC<ReactDatePickerProps> = (props) => {
     const defaultMaxDate = new Date();
     defaultMaxDate.setFullYear(currentYear + DEFAULT_YEAR_RANGE);
 
-    const minYear = minDate ? minDate.getFullYear() : defaultMinDate.getFullYear();
-    const maxYear = maxDate ? maxDate.getFullYear() : defaultMaxDate.getFullYear();
+    const minYear = (minDate || defaultMinDate).getFullYear();
+    const maxYear = (maxDate || defaultMaxDate).getFullYear();
 
     let localeStr;
     if (locale) {
