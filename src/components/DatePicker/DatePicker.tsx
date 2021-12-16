@@ -9,6 +9,15 @@ const DEFAULT_YEAR_RANGE = 100;
 export const DatePicker: React.FC<ReactDatePickerProps> = (props) => {
     const { children, minDate, maxDate, locale, ...rest } = props;
 
+    const currentYear = new Date().getFullYear();
+    const defaultMinDate = new Date();
+    defaultMinDate.setFullYear(currentYear - DEFAULT_YEAR_RANGE);
+    const defaultMaxDate = new Date();
+    defaultMaxDate.setFullYear(currentYear + DEFAULT_YEAR_RANGE);
+
+    const minYear = minDate ? minDate.getFullYear() : defaultMinDate.getFullYear();
+    const maxYear = maxDate ? maxDate.getFullYear() : defaultMaxDate.getFullYear();
+
     let localeStr;
     if (locale) {
         if (typeof locale === 'string') {
@@ -18,16 +27,13 @@ export const DatePicker: React.FC<ReactDatePickerProps> = (props) => {
         }
     }
 
-    const minYear = minDate ? minDate.getFullYear() : new Date().getFullYear() - DEFAULT_YEAR_RANGE;
-    const maxYear = maxDate ? maxDate.getFullYear() : new Date().getFullYear() + DEFAULT_YEAR_RANGE;
-
     return (
         <ReactDatePicker
             {...rest}
             showPopperArrow={false}
             locale={locale}
-            minDate={minDate}
-            maxDate={maxDate}
+            minDate={minDate || defaultMinDate}
+            maxDate={maxDate || defaultMaxDate}
             renderCustomHeader={(propsFromLib) => (
                 <CalendarHeader
                     {...propsFromLib}
