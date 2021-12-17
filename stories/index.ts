@@ -30,6 +30,7 @@ import './WidthRestrictor';
 import './BulkActionsToolbar';
 import './ButtonGroup';
 import './Checkbox';
+import './DatePicker';
 import './Dropdown';
 import './Field';
 import './FieldWithValidation';

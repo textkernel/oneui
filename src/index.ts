@@ -33,6 +33,7 @@ export { Tag } from './components/Tag';
 export * from './components/BulkActionsToolbar';
 export { ButtonGroup } from './components/ButtonGroup';
 export { Checkbox } from './components/Checkbox';
+export { DatePicker } from './components/DatePicker';
 export { Dropdown } from './components/Dropdown';
 export { Footer } from './components/Footer';
 export { Header } from './components/Header';
