@@ -1,5 +1,5 @@
-export { LocationSelectorDialog } from './LocationSelectorDialog';
-export { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
+export * from './LocationSelectorDialog';
+export * from './LocationSelectorDialogWithGoogleLoader';
 export { LocationSelector } from './LocationSelector';
 export {
     initGoogleMapServices,

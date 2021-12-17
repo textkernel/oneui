@@ -45,6 +45,7 @@ storiesOf('Organisms|LocationSelector', module)
                 selectedLocations={selectedLocations}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
+                region={text('Region', 'NL')}
                 initialMapAddress={text('Initial map address', '')}
                 radiusUnits="km"
                 renderRadiusLabel={(r) => `+ ${r} km`}
@@ -71,7 +72,9 @@ storiesOf('Organisms|LocationSelector', module)
                     console.log('onLocationAutocompleteError was called')
                 }
                 defaultHighlight={
-                    boolean('Add default highlight area', true) ? NL_PATHS : undefined
+                    boolean('Add default highlight area', true)
+                        ? (NL_PATHS as GeoJSON.GeoJsonObject)
+                        : undefined
                 }
             />
         );
@@ -122,6 +125,7 @@ storiesOf('Organisms|LocationSelector', module)
                 apiKey={apiKey}
                 withoutLocationCards
                 selectedLocations={store.get('selectedLocations')}
+                region={text('Region', 'NL')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
                 initialMapAddress={text('Initial map address', 'Netherlands')}
@@ -157,7 +161,9 @@ storiesOf('Organisms|LocationSelector', module)
                     console.log('onLocationAutocompleteError was called')
                 }
                 defaultHighlight={
-                    boolean('Add default highlight area', true) ? NL_PATHS : undefined
+                    boolean('Add default highlight area', true)
+                        ? (NL_PATHS as GeoJSON.GeoJsonObject)
+                        : undefined
                 }
             />
         );
@@ -207,6 +213,7 @@ storiesOf('Organisms|LocationSelector', module)
             <LocationSelector
                 apiKey={apiKey}
                 selectedLocations={store.get('selectedLocations')}
+                region={text('Region', 'NL')}
                 country={text('country', 'NL')}
                 language={text('Language', 'EN')}
                 initialMapAddress={text('Initial map address', 'Netherlands')}
@@ -242,7 +249,9 @@ storiesOf('Organisms|LocationSelector', module)
                     console.log('onLocationAutocompleteError was called')
                 }
                 defaultHighlight={
-                    boolean('Add default highlight area', true) ? NL_PATHS : undefined
+                    boolean('Add default highlight area', true)
+                        ? (NL_PATHS as GeoJSON.GeoJsonObject)
+                        : undefined
                 }
             />
         );

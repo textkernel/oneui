@@ -1,1 +1,0 @@
-export { LocationCard } from './LocationCard';

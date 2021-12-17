@@ -3,7 +3,10 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 import { bem } from '../../utils';
 import { Modal } from '../Modal';
 import { FieldWrapper } from '../FieldWrapper';
-import { LocationSelectorDialogWithGoogleLoader } from './LocationSelectorDialogWithGoogleLoader';
+import {
+    LocationSelectorDialogWithGoogleLoader,
+    LocationSelectorDialogWithGoogleLoaderProps,
+} from './LocationSelectorDialogWithGoogleLoader';
 import {
     findCenter,
     getRadiusInMeters,
@@ -16,52 +19,17 @@ import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
 
-interface Props {
+interface Props extends LocationSelectorDialogWithGoogleLoaderProps {
     /** define id for input element */
     id?: string;
-    /** Google api key */
-    apiKey: string;
-    /** language in which suggestions should be displayed */
-    language: string;
-    /** Regional setting for the map. By default Google uses US.
-     * For details see: https://developers.google.com/maps/documentation/javascript/localization#Region
-     */
-    region?: string;
-    /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
-    additionalGoogleProps?: object; // eslint-disable-line react/forbid-prop-types
     /** defines if selector has an option of opening the modal window by pressing Enter button */
-    openOnEnterPress: boolean;
-    /** stores an array of selected location objects */
-    selectedLocations: LocationSelectorLocation[];
-    /** defines if selector has an option to control the radius for a marker */
-    hasRadius?: boolean;
+    openOnEnterPress?: boolean;
     /** default radius value */
     radiusDefaultValue?: number;
     /** radius measurement unit */
     radiusUnits: 'km' | 'mi';
-    /** radius label renderer e.g. radius => `+ ${radius} km` */
-    renderRadiusLabel: (string) => string;
-    /** min radius value of the slider component */
-    minRadius?: number;
-    /** max radius value of the slider component */
-    maxRadius?: number;
-    /** radius step value of the slider component */
-    radiusStep?: number;
-    /** defines if selector has a list of locations cards to render */
-    withoutLocationCards?: boolean;
     /** country where search can take place */
     country?: string;
-    /** address to make initial map centering more specific */
-    initialMapAddress?: string;
-    /** default highlighting on the map */
-    defaultHighlight?: GeoJSON.GeoJsonObject;
-    /**
-     * type of locations that should be searched for.
-     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
-     */
-    placeTypes?: string[];
-    /** show country name in autocomplete suggestions */
-    showCountryInSuggestions?: boolean;
     /** defines if an additional request should be done in order to get address information for selected location */
     shouldGetAddressInfo?: boolean;
     /** A title for the modal that will be used by screenreaders */
@@ -70,26 +38,14 @@ interface Props {
     inputPlaceholder: string;
     /** placeholder for autocomplete field inside the modal. If not given inputPlaceholder will be used */
     modalInputPlaceholder?: string;
-    /** placeholder for empty LocationAutocomplete list */
-    noSuggestionsPlaceholder: string;
-    /** function to be executed if error occurs while fetching suggestions */
-    onLocationAutocompleteError: () => void;
     /** string to be displayed in FieldWrapper when the modal is closed, but locations are selected */
     selectionPlaceholder?: string;
-    /** label for the Done button */
-    doneLabel: string;
     /** label to be used for Clear buttons of the component */
     clearLabel: string;
-    /** function called with location object as an argument when it is selected from the suggestions */
-    onAddLocation: (location: LocationSelectorLocation) => void;
-    /** function called with a location details as an argument to be changed */
-    onUpdateLocation: (location: LocationSelectorLocation) => void;
-    /** function with a locationId as an argument to be removed */
-    onRemoveLocation: (location: LocationSelectorLocation) => void;
     /** callback function for the Clear button click */
     onRemoveAllLocations: () => void;
     /** callback function for closed modal */
-    onBlur: () => void;
+    onBlur?: () => void;
 }
 
 export const LocationSelector: React.FC<Props> = (props) => {
@@ -162,7 +118,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
     function handleCloseModal() {
         if (isOpen && isBrowserTabVisible) {
             setIsOpen(false);
-            onBlur();
+            onBlur?.();
         }
     }
 
@@ -305,7 +261,6 @@ export const LocationSelector: React.FC<Props> = (props) => {
 LocationSelector.displayName = 'LocationSelector';
 
 LocationSelector.defaultProps = {
-    hasRadius: true,
     openOnEnterPress: true,
     radiusDefaultValue: 1,
     country: undefined,
@@ -315,10 +270,9 @@ LocationSelector.defaultProps = {
     withoutLocationCards: false,
     initialMapAddress: undefined,
     selectedLocations: [],
-    showCountryInSuggestions: true,
     shouldGetAddressInfo: false,
     onBlur: () => null,
-    additionalGoogleProps: {},
+    additionalGoogleProps: undefined,
     region: undefined,
     placeTypes: ['(regions)'],
     onLocationAutocompleteError: () => null,

@@ -7,7 +7,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
   defaultInputValue=""
   hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
-  inputRef={null}
   isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
@@ -612,7 +611,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   defaultInputValue=""
   hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
-  inputRef={null}
   isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
@@ -629,7 +627,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   <AutosuggestDeprecated
     clearTitle=""
     defaultInputValue=""
-    getSuggestions={null}
+    getSuggestions={Array []}
     iconNode={
       <FaMapMarkerAlt
         className="LocationAutocomplete__icon"

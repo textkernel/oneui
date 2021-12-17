@@ -1,4 +1,5 @@
 import { Loader, LoaderOptions } from '@googlemaps/js-api-loader';
+import { CircularMarker } from '../Map';
 
 const METER_TO_KM = 1000;
 const METER_TO_MI = 1609.34;
@@ -8,15 +9,9 @@ export type LatLng = google.maps.LatLng;
 export type GeocoderResult = google.maps.GeocoderResult;
 export type LocationSelectorAddressComponent = google.maps.GeocoderAddressComponent;
 
-export type LocationSelectorLocation = {
+export type LocationSelectorLocation = CircularMarker & {
     id: string;
     place_id: string;
-    center: {
-        lng: number;
-        lat: number;
-    };
-    radius: number;
-    description: string;
     addressComponents?: LocationSelectorAddressComponent[];
 };
 export const GOOGLE_API_LIBRARIES = ['places'] as Array<'places'>;

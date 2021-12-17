@@ -36,7 +36,7 @@ storiesOf('Organisms|LocationAutocomplete', module)
                         'No suggestions found'
                     )}
                     singleLocation={boolean('Single location', false)}
-                    clearTitle={text('Clear button title', 'Clear')}
+                    clearLabel={text('Clear button title', 'Clear')}
                     onSelectionChange={onSelectionChange}
                     country={text('Restrict results to country', 'UK')}
                     showCountryInSuggestions={boolean(

@@ -1,8 +1,7 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { GoogleMap, Marker, Circle } from '@react-google-maps/api';
 
-const circleOptions = (radius) => ({
+const circleOptions = () => ({
     strokeColor: 'transparent',
     strokeOpacity: 1,
     strokeWeight: 0,
@@ -12,17 +11,57 @@ const circleOptions = (radius) => ({
     draggable: false,
     editable: false,
     visible: true,
-    radius,
     zIndex: 1,
 });
 
-export const Map = React.forwardRef((props, ref) => {
-    const { defaultArea, markers, mapContainerStyle, defaultHighlight, ...rest } = props;
-    const mapRef = ref || React.createRef();
-    const [highlightFeatures, setHighlightFeatures] = React.useState(null);
+type CircularMarker = {
+    center: {
+        lng: number;
+        lat: number;
+    };
+    radius: number;
+    description: string;
+};
+
+interface Props {
+    /** The default parameters to determine the viewport when no markers are present. */
+    defaultArea:
+        | {
+              address: string;
+          }
+        | {
+              center:
+                  | [number, number]
+                  | {
+                        lng: number;
+                        lat: number;
+                    };
+              zoom: number;
+          };
+    /** A geoJson description of the area that should be highlighted when there are no other markers present */
+    defaultHighlight?: GeoJSON.GeoJsonObject;
+    /** The markers to be shown on the map. When present, map will zoom automatically to display them
+     * The radius is in meters on the Earth's surface.
+     */
+    markers?: CircularMarker[];
+    /** The style of the map container. It has to have explicit width and height (requirement from Google).
+     *  Alternatively you can set explicit size on the parent container, then, by default, the map will scale to match that
+     */
+    mapContainerStyle?: {
+        width: string;
+        height: string;
+    };
+}
+
+const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
+    const { defaultArea, markers = [], mapContainerStyle, defaultHighlight, ...rest } = props;
+    const mapRef = ref || React.createRef<GoogleMap>();
+    const [highlightFeatures, setHighlightFeatures] = React.useState<
+        google.maps.Data.Feature[] | null
+    >(null);
 
     const fitBounds = React.useCallback(() => {
-        if (mapRef.current && mapRef.current.state.map) {
+        if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
             const { map } = mapRef.current.state;
             const { LatLngBounds, Circle: CircleClass, Geocoder } = window.google.maps;
             const geocoder = new Geocoder();
@@ -62,17 +101,22 @@ export const Map = React.forwardRef((props, ref) => {
                     }
                     map.fitBounds(bounds);
                 });
-            } else if (defaultArea.address) {
+            } else if ('address' in defaultArea) {
                 fitBoundsByAddress(defaultArea.address);
             } else {
-                map.setCenter(defaultArea.center);
+                if ('lng' in defaultArea.center) {
+                    map.setCenter(defaultArea.center);
+                } else {
+                    map.setCenter(new google.maps.LatLng(...defaultArea.center));
+                }
+
                 map.setZoom(defaultArea.zoom);
             }
         }
     }, [defaultArea, mapRef, markers]);
 
     const manageDefaultHighlight = React.useCallback(() => {
-        if (mapRef.current && mapRef.current.state.map) {
+        if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
             const { map } = mapRef.current.state;
             if (defaultHighlight && !markers.length && !highlightFeatures) {
                 const highlight = map.data.addGeoJson(defaultHighlight);
@@ -121,7 +165,8 @@ export const Map = React.forwardRef((props, ref) => {
                                 <Circle
                                     key={`${positionStr}-circle`}
                                     center={mCenter}
-                                    options={circleOptions(radius)}
+                                    radius={radius}
+                                    options={circleOptions()}
                                 />
                             )}
                         </React.Fragment>
@@ -132,47 +177,6 @@ export const Map = React.forwardRef((props, ref) => {
 });
 
 Map.displayName = 'Map';
-
-Map.propTypes = {
-    /** The default parameters to determine the viewport when no markers are present. */
-    defaultArea: PropTypes.oneOfType([
-        PropTypes.shape({
-            address: PropTypes.string,
-        }),
-        PropTypes.shape({
-            center: PropTypes.oneOfType([
-                PropTypes.arrayOf(PropTypes.number),
-                PropTypes.shape({
-                    lng: PropTypes.number.isRequired,
-                    lat: PropTypes.number.isRequired,
-                }),
-            ]),
-            zoom: PropTypes.number,
-        }),
-    ]),
-    /** A geoJson description of the area that should be highlighted when there are no other markers present */
-    defaultHighlight: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    /** The markers to be shown on the map. When present, map will zoom automatically to display them
-     * The radius is in meters on the Earth's surface.
-     */
-    markers: PropTypes.arrayOf(
-        PropTypes.shape({
-            center: PropTypes.shape({
-                lng: PropTypes.number.isRequired,
-                lat: PropTypes.number.isRequired,
-            }),
-            radius: PropTypes.number,
-            description: PropTypes.string,
-        })
-    ),
-    /** The style of the map container. It has to have explicit width and height (requirement from Google).
-     *  Alternatively you can set explicit size on the parent container, then, by default, the map will scale to match that
-     */
-    mapContainerStyle: PropTypes.shape({
-        width: PropTypes.string.isRequired,
-        height: PropTypes.string.isRequired,
-    }),
-};
 
 Map.defaultProps = {
     defaultArea: {
@@ -189,3 +193,5 @@ Map.defaultProps = {
         width: '100%',
     },
 };
+
+export { Map, Props as MapProps, CircularMarker };

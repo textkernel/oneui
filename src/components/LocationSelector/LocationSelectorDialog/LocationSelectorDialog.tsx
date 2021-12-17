@@ -1,19 +1,62 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { bem } from '../../../utils';
-import { LocationCard } from '../../LocationCard';
+import { LocationCard, LocationCardProps } from '../../LocationCard';
 import { Text } from '../../Text';
 import { Slider } from '../../Sliders';
 import { Button } from '../../Buttons';
-import { LocationAutocomplete } from '../../LocationAutocomplete';
-import { Map } from '../../Map';
+import { LocationAutocomplete, LocationAutocompleteProps } from '../../LocationAutocomplete';
+import { Map, CircularMarker } from '../../Map';
 import { SIZES, ENTER_KEY } from '../../../constants';
 import styles from './LocationSelectorDialog.scss';
+import { LocationSelectorLocation } from '../utils';
+
+// Props for child components that we just push through with prop-drilling
+type CardPropsForSelectorDialog = Omit<
+    LocationCardProps,
+    'locationTitle' | 'distanceRadius' | 'As' | 'onRadiusChange' | 'onDelete'
+>;
+
+type AutocompletePropsForSelectorDialog = Omit<
+    LocationAutocompleteProps,
+    | 'inputRef'
+    | 'defaultInputValue'
+    | 'onSelectionChange'
+    | 'singleLocation'
+    | 'onError'
+    | 'hidePoweredByGoogleLogo'
+>;
+
+interface Props extends CardPropsForSelectorDialog, AutocompletePropsForSelectorDialog {
+    /** defines if location cards should be rendered or not */
+    withoutLocationCards?: boolean;
+    /** stores an array of selected location objects */
+    selectedLocations: LocationSelectorLocation[];
+    /** radius label renderer e.g. radius => `+ ${radius} km` */
+    renderRadiusLabel: (radius: number) => string;
+    /** address to make initial map centering more specific */
+    initialMapAddress?: string;
+    /** function to be executed if error occurs while fetching suggestions */
+    onLocationAutocompleteError?: (status: google.maps.places.PlacesServiceStatus) => void; // LocationAutocompleteProps.onError
+    /** label for the Done button */
+    doneLabel: string;
+    /** function called with location object as an argument when it is selected from the suggestions */
+    onAddLocation: (location: LocationSelectorLocation) => void; // LocationAutocompleteProps.onSelectionChange
+    /** function called with a location details as an argument to be changed */
+    onUpdateLocation: (locationId: string | undefined, radius: number) => void; // LocationCardProps.onRadiusChange
+    /** function with a locationId as an argument to be removed */
+    onRemoveLocation: (locationId: string | undefined) => void; // LocationCardProps.onDelete
+    /** function to calculate marker positions in Map  */
+    getMarkers?: () => CircularMarker[];
+    /** function to be called when teh Done button is clicked */
+    onCloseModal?: () => void;
+    /** A geoJson description of the area that should be highlighted when there are no other markers present */
+    defaultHighlight?: GeoJSON.GeoJsonObject; // MapProps.defaultHighlight
+}
 
 const { elem } = bem('LocationSelectorDialog', styles);
 
-export const LocationSelectorDialog = (props) => {
-    const locationInputRef = React.createRef();
+const LocationSelectorDialog = (props: Props) => {
+    const locationInputRef = React.createRef<HTMLInputElement>();
 
     const {
         /** FieldWrapper props */
@@ -60,7 +103,7 @@ export const LocationSelectorDialog = (props) => {
 
     function handleAddLocation(location) {
         if (locationInputRef.current && !withoutLocationCards) {
-            setTimeout(() => locationInputRef.current.focus());
+            setTimeout(() => locationInputRef.current?.focus());
         }
         onAddLocation(location);
     }
@@ -79,7 +122,7 @@ export const LocationSelectorDialog = (props) => {
     function handleInputFormSubmit(e) {
         if (e.key === ENTER_KEY) {
             e.stopPropagation();
-            onCloseModal();
+            onCloseModal?.();
         }
     }
 
@@ -154,7 +197,7 @@ export const LocationSelectorDialog = (props) => {
                 )}
                 <Map
                     defaultArea={getDefaultArea()}
-                    markers={getMarkers()}
+                    markers={getMarkers?.()}
                     defaultHighlight={defaultHighlight}
                 />
             </div>
@@ -164,76 +207,13 @@ export const LocationSelectorDialog = (props) => {
 
 LocationSelectorDialog.displayName = 'LocationSelectorDialog';
 
-LocationSelectorDialog.propTypes = {
-    /** defines if location cards should be rendered or not */
-    withoutLocationCards: PropTypes.bool,
-    /** stores an array of selected location objects */
-    selectedLocations: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            description: PropTypes.string.isRequired,
-            center: PropTypes.shape({
-                lng: PropTypes.number.isRequired,
-                lat: PropTypes.number.isRequired,
-            }).isRequired,
-            radius: PropTypes.number.isRequired,
-        })
-    ).isRequired,
-    /** radius label renderer e.g. radius => `+ ${radius} km` */
-    renderRadiusLabel: PropTypes.func.isRequired,
-    /** defines if selector has an option to control the radius for a marker */
-    hasRadius: PropTypes.bool,
-    /** min radius value of the slider component */
-    minRadius: PropTypes.number.isRequired,
-    /** max radius value of the slider component */
-    maxRadius: PropTypes.number.isRequired,
-    /** radius step value of the slider component */
-    radiusStep: PropTypes.number.isRequired,
-    /** country where search can take place */
-    country: PropTypes.string.isRequired,
-    /** address to make initial map centering more specific */
-    initialMapAddress: PropTypes.string,
-    /**
-     * type of locations that should be searched for.
-     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
-     */
-    placeTypes: PropTypes.arrayOf(PropTypes.string).isRequired,
-    /** show country name in autocomplete suggestions */
-    showCountryInSuggestions: PropTypes.bool,
-    /** placeholder for autocomplete field */
-    inputPlaceholder: PropTypes.string.isRequired,
-    /** placeholder for empty LocationAutocomplete list */
-    noSuggestionsPlaceholder: PropTypes.string.isRequired,
-    /** function to be executed if error occurs while fetching suggestions */
-    onLocationAutocompleteError: PropTypes.func,
-    /** label for the Done button */
-    doneLabel: PropTypes.string.isRequired,
-    /** label for the Clear button */
-    clearLabel: PropTypes.string,
-    /** function called with location object as an argument when it is selected from the suggestions */
-    onAddLocation: PropTypes.func.isRequired,
-    /** function called with a location details as an argument to be changed */
-    onUpdateLocation: PropTypes.func.isRequired,
-    /** function with a locationId as an argument to be removed */
-    onRemoveLocation: PropTypes.func.isRequired,
-    /** function to remove all locations */
-    onRemoveAllLocations: PropTypes.func,
-    /** function to calculate marker positions in Map  */
-    getMarkers: PropTypes.func.isRequired,
-    /** function to be called when teh Done button is clicked */
-    onCloseModal: PropTypes.func,
-    /** default highlighting on the map - geoJsonObject */
-    defaultHighlight: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-};
-
 LocationSelectorDialog.defaultProps = {
-    hasRadius: false,
     withoutLocationCards: false,
-    showCountryInSuggestions: false,
     initialMapAddress: null,
-    clearLabel: '',
     onLocationAutocompleteError: null,
     onCloseModal: () => null,
-    onRemoveAllLocations: () => null,
     defaultHighlight: undefined,
+    getMarkers: undefined,
 };
+
+export { LocationSelectorDialog, Props as LocationSelectorDialogProps };

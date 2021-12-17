@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { bem } from '../../utils';
 import { AutosuggestDeprecated } from '../AutosuggestDeprecated';
@@ -11,12 +10,47 @@ import POWERED_BY_GOOGLE_ON_WHITE_2X from './images/powered_by_google_on_white@2
 import POWERED_BY_GOOGLE_ON_WHITE_3X from './images/powered_by_google_on_white@3x.png';
 import styles from './LocationAutocomplete.scss';
 
+interface Props {
+    /** input field ref */
+    inputRef?: React.RefObject<HTMLInputElement>;
+    /** to be shown in the input field when no value is typed */
+    inputPlaceholder: string;
+    /** default input value */
+    defaultInputValue?: string;
+    /** to be shown when no suggestions are available */
+    noSuggestionsPlaceholder: string;
+    /** trigger of the initial focus of the input field */
+    isFocused?: boolean;
+    /** label for the Clear button */
+    clearLabel?: string;
+    /** defines if there's a single location to select in component */
+    singleLocation?: boolean;
+    /** callback to be called with selected value. */
+    onSelectionChange: (value: google.maps.places.AutocompletePrediction) => void;
+    /** restrict predictions to country/countries.
+     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#ComponentRestrictions
+     */
+    country?: string | string[];
+    /** type of locations that should be searched for.
+     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
+     */
+    placeTypes?: string[];
+    /** show state and country in suggestions list */
+    showCountryInSuggestions?: boolean;
+    /** function to remove all locations */
+    onRemoveAllLocations?: () => void;
+    /** function to be executed if error occurs while fetching suggestions */
+    onError?: (error: google.maps.places.PlacesServiceStatus) => void;
+    /** To hide powered by google logo. For legal reasons only set it to true if Google map is displayed on the same screen as this component! */
+    hidePoweredByGoogleLogo?: boolean;
+}
+
 const { elem } = bem('LocationAutocomplete', styles);
 
 const DEBOUNCE_DELAY = 350;
 const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
-export const LocationAutocomplete = (props) => {
+const LocationAutocomplete = (props) => {
     const {
         inputRef,
         isFocused,
@@ -36,13 +70,15 @@ export const LocationAutocomplete = (props) => {
     } = props;
 
     const [storage] = React.useState({ latestInputValue: '' });
-    const [suggestionsList, setSuggestionsList] = React.useState(null);
+    const [suggestionsList, setSuggestionsList] = React.useState<
+        google.maps.places.AutocompletePrediction[]
+    >([]);
     const [isLoading, setIsLoading] = React.useState(false);
     const [inputValue, setInputValue] = React.useState('');
     const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
 
     // Suggestion functions
-    const resetSuggestionsList = () => setSuggestionsList(null);
+    const resetSuggestionsList = () => setSuggestionsList([]);
     const suggestionToString = (suggestion) => (suggestion ? suggestion.description : '');
 
     React.useEffect(() => {
@@ -173,45 +209,8 @@ export const LocationAutocomplete = (props) => {
 
 LocationAutocomplete.displayName = 'LocationAutocomplete';
 
-LocationAutocomplete.propTypes = {
-    /** input field ref */
-    inputRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-    /** to be shown in the input field when no value is typed */
-    inputPlaceholder: PropTypes.string.isRequired,
-    /** default input value */
-    defaultInputValue: PropTypes.string,
-    /** to be shown when no suggestions are available */
-    noSuggestionsPlaceholder: PropTypes.string.isRequired,
-    /** trigger of the initial focus of the input field */
-    isFocused: PropTypes.bool,
-    /** label for the Clear button */
-    clearLabel: PropTypes.string,
-    /** defines if there's a single location to select in component */
-    singleLocation: PropTypes.bool,
-    /** callback to be called with selected value.
-     * Value is of type AutocompletePrediction: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletePrediction
-     */
-    onSelectionChange: PropTypes.func.isRequired,
-    /** restrict predictions to country/countries.
-     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#ComponentRestrictions
-     */
-    country: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
-    /** type of locations that should be searched for.
-     * For details see: https://developers.google.com/maps/documentation/javascript/reference/places-autocomplete-service#AutocompletionRequest.types
-     */
-    placeTypes: PropTypes.arrayOf(PropTypes.string),
-    /** show state and country in suggestions list */
-    showCountryInSuggestions: PropTypes.bool,
-    /** function to remove all locations */
-    onRemoveAllLocations: PropTypes.func,
-    /** function to be executed if error occurs while fetching suggestions */
-    onError: PropTypes.func,
-    /** To hide powered by google logo. For legal reasons only set it to true if Google map is displayed on the same screen as this component! */
-    hidePoweredByGoogleLogo: PropTypes.bool,
-};
-
 LocationAutocomplete.defaultProps = {
-    inputRef: null,
+    inputRef: undefined,
     singleLocation: false,
     defaultInputValue: '',
     clearLabel: '',
@@ -223,3 +222,5 @@ LocationAutocomplete.defaultProps = {
     onRemoveAllLocations: () => {},
     hidePoweredByGoogleLogo: false,
 };
+
+export { LocationAutocomplete, Props as LocationAutocompleteProps };
