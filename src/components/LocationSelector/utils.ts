@@ -33,7 +33,7 @@ export const getRadiusInMeters = (radius: number, radiusUnits: string) => {
     return radius * METER_TO_MI;
 };
 
-export const findCenter = (placeId: string): Promise<LatLng> => {
+export const findGeoCenterForPlaceId = (placeId: string): Promise<LatLng> => {
     if (!window?.google?.maps) {
         return Promise.reject(new Error('Google maps is not initialized'));
     }

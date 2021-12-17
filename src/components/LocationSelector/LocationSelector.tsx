@@ -8,7 +8,7 @@ import {
     LocationSelectorDialogWithGoogleLoaderProps,
 } from './LocationSelectorDialogWithGoogleLoader';
 import {
-    findCenter,
+    findGeoCenterForPlaceId,
     getRadiusInMeters,
     convertCoordinatesIntoAddress,
     LocationSelectorLocation,
@@ -48,7 +48,7 @@ interface Props extends LocationSelectorDialogWithGoogleLoaderProps {
     onBlur?: () => void;
 }
 
-export const LocationSelector: React.FC<Props> = (props) => {
+const LocationSelector: React.FC<Props> = (props) => {
     const {
         /** Google props */
         apiKey,
@@ -152,7 +152,7 @@ export const LocationSelector: React.FC<Props> = (props) => {
      * if this location was not selected yet
      */
     function handleAddLocation(location: LocationSelectorLocation) {
-        return findCenter(location.place_id)
+        return findGeoCenterForPlaceId(location.place_id)
             .then((center) => {
                 const lng = center.lng();
                 const lat = center.lat();
@@ -278,3 +278,5 @@ LocationSelector.defaultProps = {
     onLocationAutocompleteError: () => null,
     defaultHighlight: undefined,
 };
+
+export { LocationSelector, Props as LocationSelectorProps };
