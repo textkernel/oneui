@@ -87,7 +87,7 @@ LocationCard.displayName = 'LocationCard';
 
 LocationCard.defaultProps = {
     locationId: undefined,
-    hasRadius: true,
+    hasRadius: false,
     sliderLabel: '',
     minRadius: 1,
     maxRadius: 100,
