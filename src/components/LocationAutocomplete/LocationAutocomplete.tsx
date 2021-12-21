@@ -50,7 +50,7 @@ const { elem } = bem('LocationAutocomplete', styles);
 const DEBOUNCE_DELAY = 350;
 const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
-const LocationAutocomplete = (props) => {
+const LocationAutocomplete: React.FC<Props> = (props) => {
     const {
         inputRef,
         isFocused,
@@ -59,7 +59,7 @@ const LocationAutocomplete = (props) => {
         inputPlaceholder,
         clearLabel,
         noSuggestionsPlaceholder,
-        country,
+        country = '',
         placeTypes,
         singleLocation,
         showCountryInSuggestions,
@@ -137,7 +137,7 @@ const LocationAutocomplete = (props) => {
             resetSuggestionsList();
 
             if (singleLocation) {
-                onRemoveAllLocations();
+                onRemoveAllLocations?.();
             }
         }
     };
@@ -210,16 +210,13 @@ const LocationAutocomplete = (props) => {
 LocationAutocomplete.displayName = 'LocationAutocomplete';
 
 LocationAutocomplete.defaultProps = {
-    inputRef: undefined,
+    country: '',
     singleLocation: false,
     defaultInputValue: '',
     clearLabel: '',
-    country: null,
     placeTypes: ['(regions)'],
     isFocused: false,
     showCountryInSuggestions: false,
-    onError: null,
-    onRemoveAllLocations: () => {},
     hidePoweredByGoogleLogo: false,
 };
 
