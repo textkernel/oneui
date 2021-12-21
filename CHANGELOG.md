@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.0.0](https://github.com/textkernel/oneui/compare/16.0.0...17.0.0) (2021-12-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* **location:** LocationSelector's hasRadius props now defaults to false (was true before)
+
+### Features
+
+* **DatePicker:** new component ([#655](https://github.com/textkernel/oneui/issues/655)) ([07a1098](https://github.com/textkernel/oneui/commit/07a109834c6c439809e4ca71cef661292ddf4ed0))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @googlemaps/js-api-loader to v1.12.10 ([34cc110](https://github.com/textkernel/oneui/commit/34cc1105bf3d03c40076de17dd9bac27aceef116))
+* **deps:** update dependency @googlemaps/js-api-loader to v1.12.11 ([a9af8c6](https://github.com/textkernel/oneui/commit/a9af8c616d09297f2ed84972eb494f02e4e62296))
+* **deps:** update dependency @tippyjs/react to v4.2.6 ([bea6907](https://github.com/textkernel/oneui/commit/bea69073a1ab84eda546c4b22299a7bbb6dd9d9f))
+* **deps:** update dependency tippy.js to v6.3.7 ([479b607](https://github.com/textkernel/oneui/commit/479b60768ac7599b152e46c0e5a2425911c7ec0f))
+
+
+* **location:** type location components; expose additional location utilities ([#661](https://github.com/textkernel/oneui/issues/661)) ([723923c](https://github.com/textkernel/oneui/commit/723923cdf615c60a8146d6c65d9f085f886bc8d4))
+
 ## [16.0.0](https://github.com/textkernel/oneui/compare/15.5.0...16.0.0) (2021-11-15)
 
 
