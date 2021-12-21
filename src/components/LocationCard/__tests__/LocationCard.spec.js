@@ -17,6 +17,7 @@ describe('LocationCard component', () => {
                 maxRadius={100}
                 radiusStep={1}
                 onDelete={mockOnDelete}
+                hasRadius
             />
         );
     });

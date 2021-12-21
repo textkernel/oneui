@@ -2,7 +2,7 @@ import {
     initGoogleMapServices,
     getRadiusInMeters,
     convertCoordinatesIntoAddress,
-    findCenter,
+    findGeoCenterForPlaceId,
 } from '../utils';
 import { google, geocodeMock, stabGoogleApi } from '../../../__mocks__/googleApiMock';
 
@@ -51,18 +51,20 @@ describe('LocationSelector utils', () => {
         });
     });
 
-    describe('findCenter that gets details of a place from google geocoder based on placeId and returns its coordinates', () => {
+    describe('findGeoCenterForPlaceId that gets details of a place from google geocoder based on placeId and returns its coordinates', () => {
         it('should throw error if response status is not OK', async () => {
             geocodeMock.mockImplementationOnce((req, cb) => {
                 cb([], 'WRONG');
             });
-            await expect(findCenter('someId')).rejects.toThrow('Geocoder failed due to: WRONG');
+            await expect(findGeoCenterForPlaceId('someId')).rejects.toThrow(
+                'Geocoder failed due to: WRONG'
+            );
         });
         it('should throw error if no results were returned', async () => {
             geocodeMock.mockImplementationOnce((req, cb) => {
                 cb([], 'OK');
             });
-            await expect(findCenter('someId')).rejects.toThrow(
+            await expect(findGeoCenterForPlaceId('someId')).rejects.toThrow(
                 'No results found when searching for placeId someId'
             );
         });
@@ -70,7 +72,7 @@ describe('LocationSelector utils', () => {
             geocodeMock.mockImplementationOnce((req, cb) => {
                 cb([{ geometry: { location: 'some location' } }], 'OK');
             });
-            await expect(findCenter('someId')).resolves.toEqual('some location');
+            await expect(findGeoCenterForPlaceId('someId')).resolves.toEqual('some location');
         });
     });
 

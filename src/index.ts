@@ -67,17 +67,5 @@ export {
     LocationAutocompleteWithGoogleLoader,
     LocationAutocomplete,
 } from './components/LocationAutocomplete';
-export {
-    LocationSelector,
-    LocationSelectorDialog,
-    LocationSelectorDialogWithGoogleLoader,
-    initGoogleMapServices,
-    convertCoordinatesIntoAddress,
-    getRadiusInMeters,
-    LatLng,
-    LatLngLiteral,
-    GeocoderResult,
-    LocationSelectorLocation,
-    LocationSelectorAddressComponent,
-} from './components/LocationSelector';
+export * from './components/LocationSelector';
 export { ProductTour } from './components/ProductTour';

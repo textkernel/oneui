@@ -3,11 +3,10 @@
 exports[`<LocationAutocomplete/> that renders a location search field should pass predictions to AutosuggestDeprecated 1`] = `
 <LocationAutocomplete
   clearLabel=""
-  country={null}
+  country=""
   defaultInputValue=""
   hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
-  inputRef={null}
   isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
@@ -608,11 +607,10 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
 exports[`<LocationAutocomplete/> that renders a location search field should render with minimal props 1`] = `
 <LocationAutocomplete
   clearLabel=""
-  country={null}
+  country=""
   defaultInputValue=""
   hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
-  inputRef={null}
   isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
@@ -629,7 +627,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   <AutosuggestDeprecated
     clearTitle=""
     defaultInputValue=""
-    getSuggestions={null}
+    getSuggestions={Array []}
     iconNode={
       <FaMapMarkerAlt
         className="LocationAutocomplete__icon"

@@ -33,6 +33,8 @@ storiesOf('Atoms|Map', module)
                 none: [],
             };
 
+            const markerToShow = select('Markers', Object.keys(markers), 'none');
+
             return (
                 <div
                     style={{
@@ -42,7 +44,7 @@ storiesOf('Atoms|Map', module)
                 >
                     <MapWithGoogleLoader
                         apiKey={apiKey}
-                        markers={select('Markers', markers, [])}
+                        markers={markers[markerToShow]}
                         defaultArea={
                             boolean('Use address to set default area', false)
                                 ? {

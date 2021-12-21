@@ -2,11 +2,9 @@
 
 exports[`LocationSelectorDialog component should render correctly 1`] = `
 <LocationSelectorDialog
-  clearLabel=""
   country="NL"
   doneLabel="doneLabel"
   getMarkers={[Function]}
-  hasRadius={false}
   initialMapAddress={null}
   inputPlaceholder="inputPlaceholder"
   maxRadius={100}
@@ -95,7 +93,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         className="LocationSelectorDialog__searchField"
         clearTitle=""
         defaultInputValue=""
-        getSuggestions={null}
+        getSuggestions={Array []}
         iconNode={
           <FaMapMarkerAlt
             className="LocationAutocomplete__icon"

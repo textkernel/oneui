@@ -60,6 +60,7 @@ describe('LocationSelector component', () => {
                 modalContentLabel="Location selection dialog"
                 clearLabel="Clear"
                 inputPlaceholder={inputPlaceholder}
+                hasRadius
                 minRadius={minRadius}
                 maxRadius={maxRadius}
                 radiusStep={radiusStep}

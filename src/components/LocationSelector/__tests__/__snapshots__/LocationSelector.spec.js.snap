@@ -2,7 +2,6 @@
 
 exports[`LocationSelector component should render LocationSelector properly when modal is open 1`] = `
 <LocationSelector
-  additionalGoogleProps={Object {}}
   apiKey="apiKey"
   clearLabel="Clear"
   country="NL"
@@ -417,7 +416,6 @@ exports[`LocationSelector component should render LocationSelector properly when
 
 exports[`LocationSelector component should render LocationSelector propertly when modal is closed 1`] = `
 <LocationSelector
-  additionalGoogleProps={Object {}}
   apiKey="apiKey"
   clearLabel="Clear"
   country="NL"

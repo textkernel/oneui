@@ -1,16 +1,43 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { bem } from '../../utils';
 import { Slider } from '../Sliders';
 import { Text } from '../Text';
 import { CROSS_CHAR, SIZES } from '../../constants';
 import styles from './LocationCard.scss';
 
+interface Props {
+    /** Location id */
+    locationId?: string;
+    /** Location card title */
+    locationTitle: string;
+    /** Defines if location card has a radius slider */
+    hasRadius?: boolean;
+    /** Slider indication string for displaying its formatted value */
+    sliderLabel?: string;
+    /** The minimum value of the distance slider */
+    minRadius?: number;
+    /** The maximum value of the distance slider */
+    maxRadius?: number;
+    /**
+     * Value to be added or subtracted on each step the distance slider makes.
+     * Must be greater than zero, and max - min should be evenly divisible by the step value.
+     */
+    radiusStep?: number;
+    /** The value to be displayed in the slider */
+    distanceRadius: number;
+    /** Slider value change callback */
+    onRadiusChange?: (locationId: string | undefined, radius: number) => void;
+    /** Location card delete callback */
+    onDelete: (locationId: string | undefined) => void;
+    /** HTML tag to be used as a wrapping component */
+    As?: 'li' | 'div';
+}
+
 const { block, elem } = bem('LocationCard', styles);
 
-export const LocationCard = (props) => {
+const LocationCard = (props: Props) => {
     const {
-        As,
+        As = 'div',
         locationId,
         locationTitle,
         hasRadius,
@@ -19,7 +46,7 @@ export const LocationCard = (props) => {
         minRadius,
         maxRadius,
         radiusStep,
-        onRadiusChange,
+        onRadiusChange = () => undefined,
         onDelete,
         ...rest
     } = props;
@@ -58,42 +85,15 @@ export const LocationCard = (props) => {
 
 LocationCard.displayName = 'LocationCard';
 
-LocationCard.propTypes = {
-    /** Location id */
-    locationId: PropTypes.string,
-    /** Location card title */
-    locationTitle: PropTypes.string.isRequired,
-    /** Defines if location card has a radius slider */
-    hasRadius: PropTypes.bool,
-    /** Slider indication string for displaying its formatted value */
-    sliderLabel: PropTypes.string,
-    /** The minimum value of the distance slider */
-    minRadius: PropTypes.number,
-    /** The maximum value of the distance slider */
-    maxRadius: PropTypes.number,
-    /**
-     * Value to be added or subtracted on each step the distance slider makes.
-     * Must be greater than zero, and max - min should be evenly divisible by the step value.
-     */
-    radiusStep: PropTypes.number,
-    /** The value to be displayed in the slider */
-    distanceRadius: PropTypes.number.isRequired,
-    /** Slider value change callback */
-    onRadiusChange: PropTypes.func,
-    /** Location card delete callback */
-    onDelete: PropTypes.func,
-    /** HTML tag to be used as a wrapping component */
-    As: PropTypes.string,
-};
-
 LocationCard.defaultProps = {
-    locationId: null,
-    hasRadius: true,
+    locationId: undefined,
+    hasRadius: false,
     sliderLabel: '',
     minRadius: 1,
     maxRadius: 100,
     radiusStep: 1,
-    onRadiusChange: () => null,
-    onDelete: () => null,
+    onRadiusChange: () => undefined,
     As: 'div',
 };
+
+export { LocationCard, Props as LocationCardProps };
