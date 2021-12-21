@@ -10,7 +10,7 @@ import POWERED_BY_GOOGLE_ON_WHITE_2X from './images/powered_by_google_on_white@2
 import POWERED_BY_GOOGLE_ON_WHITE_3X from './images/powered_by_google_on_white@3x.png';
 import styles from './LocationAutocomplete.scss';
 
-interface Props {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onError'> {
     /** input field ref */
     inputRef?: React.RefObject<HTMLInputElement>;
     /** to be shown in the input field when no value is typed */

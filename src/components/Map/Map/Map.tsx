@@ -23,7 +23,7 @@ type CircularMarker = {
     description: string;
 };
 
-interface Props {
+interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'options'> {
     /** The default parameters to determine the viewport when no markers are present. */
     defaultArea:
         | {
