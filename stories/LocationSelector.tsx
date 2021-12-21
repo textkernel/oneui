@@ -49,6 +49,7 @@ storiesOf('Organisms|LocationSelector', module)
                 initialMapAddress={text('Initial map address', '')}
                 radiusUnits="km"
                 renderRadiusLabel={(r) => `+ ${r} km`}
+                hasRadius={boolean('Use radius search', true)}
                 minRadius={number('Min radius', 1)}
                 maxRadius={number('Max radius', 100)}
                 radiusStep={number('Radius steps', 1)}
@@ -219,7 +220,7 @@ storiesOf('Organisms|LocationSelector', module)
                 initialMapAddress={text('Initial map address', 'Netherlands')}
                 radiusUnits={select('Radius units', ['km', 'mi'], 'km')}
                 renderRadiusLabel={(r) => `+ ${r} km`}
-                hasRadius={boolean('Has radius', true)}
+                hasRadius={boolean('Use radius search', true)}
                 minRadius={number('Min radius', 1)}
                 maxRadius={number('Max radius', 100)}
                 radiusDefaultValue={number('Radius default value', 5)}
