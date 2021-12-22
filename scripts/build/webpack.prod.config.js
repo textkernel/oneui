@@ -9,11 +9,13 @@ module.exports = {
         ...baseConfig.output,
         filename: `${LIBRARY_NAME}.min.js`,
     },
+    optimization: {
+        moduleIds: 'named',
+        minimize: true,
+    },
     plugins: [
-        plugins.hashedModuleIdsPlugin,
         plugins.cssPlugin,
         plugins.styleLintPlugin,
-        plugins.optimizeCssAssetsPlugin,
         plugins.bundleAnalyzerPlugin,
         plugins.cleanWebpackPlugin,
     ],
