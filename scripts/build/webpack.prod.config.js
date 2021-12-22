@@ -12,6 +12,7 @@ module.exports = {
     optimization: {
         moduleIds: 'named',
         minimize: true,
+        usedExports: true,
     },
     plugins: [
         plugins.cssPlugin,
@@ -21,9 +22,6 @@ module.exports = {
     ],
     module: {
         rules: [rules.js, rules.ts, rules.externalCss, rules.scss, rules.files],
-    },
-    optimization: {
-        usedExports: true,
     },
     externals: {
         // Don't bundle react or react-dom
