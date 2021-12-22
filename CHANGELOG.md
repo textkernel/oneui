@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [17.0.1](https://github.com/textkernel/oneui/compare/17.0.0...17.0.1) (2021-12-22)
+
+
+### Bug Fixes
+
+* **Location:** extend prop typing with HTML element props ([#664](https://github.com/textkernel/oneui/issues/664)) ([a75aca0](https://github.com/textkernel/oneui/commit/a75aca0b4ab40b06353452abde82cc7fde723357))
+
 ## [17.0.0](https://github.com/textkernel/oneui/compare/16.0.0...17.0.0) (2021-12-21)
 
 
