@@ -19,7 +19,9 @@ import styles from './LocationSelector.scss';
 
 const { block, elem } = bem('LocationSelector', styles);
 
-interface Props extends LocationSelectorDialogWithGoogleLoaderProps {
+interface Props
+    extends LocationSelectorDialogWithGoogleLoaderProps,
+        React.HTMLAttributes<HTMLDivElement> {
     /** define id for input element */
     id?: string;
     /** defines if selector has an option of opening the modal window by pressing Enter button */

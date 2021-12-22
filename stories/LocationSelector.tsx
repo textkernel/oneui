@@ -41,6 +41,7 @@ storiesOf('Organisms|LocationSelector', module)
 
         return (
             <LocationSelector
+                className="test-class"
                 apiKey={apiKey}
                 selectedLocations={selectedLocations}
                 country={text('country', 'NL')}

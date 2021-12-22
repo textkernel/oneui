@@ -5,7 +5,7 @@ import { Text } from '../Text';
 import { CROSS_CHAR, SIZES } from '../../constants';
 import styles from './LocationCard.scss';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Location id */
     locationId?: string;
     /** Location card title */

@@ -11,19 +11,27 @@ import styles from './LocationSelectorDialog.scss';
 import { LocationSelectorLocation } from '../utils';
 
 // Props for child components that we just push through with prop-drilling
-type CardPropsForSelectorDialog = Omit<
+type CardPropsForSelectorDialog = Pick<
     LocationCardProps,
-    'locationTitle' | 'distanceRadius' | 'As' | 'onRadiusChange' | 'onDelete'
+    | 'locationId'
+    | 'hasRadius'
+    | 'sliderLabel'
+    | 'minRadius'
+    | 'maxRadius'
+    | 'radiusStep'
+    | 'onRadiusChange'
 >;
 
-type AutocompletePropsForSelectorDialog = Omit<
+type AutocompletePropsForSelectorDialog = Pick<
     LocationAutocompleteProps,
-    | 'inputRef'
-    | 'defaultInputValue'
-    | 'onSelectionChange'
-    | 'singleLocation'
-    | 'onError'
-    | 'hidePoweredByGoogleLogo'
+    | 'inputPlaceholder'
+    | 'noSuggestionsPlaceholder'
+    | 'isFocused'
+    | 'clearLabel'
+    | 'country'
+    | 'placeTypes'
+    | 'showCountryInSuggestions'
+    | 'onRemoveAllLocations'
 >;
 
 interface Props extends CardPropsForSelectorDialog, AutocompletePropsForSelectorDialog {
