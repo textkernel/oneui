@@ -6,10 +6,6 @@ module.exports = {
     ...baseConfig,
     mode: 'development',
     devtool: 'eval-source-map',
-    optimization: {
-        moduleIds: 'named',
-        minimize: true,
-    },
     plugins: [
         plugins.cssPlugin,
         plugins.styleLintPlugin,

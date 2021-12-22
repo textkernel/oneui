@@ -10,8 +10,7 @@ module.exports = {
         filename: `${LIBRARY_NAME}.min.js`,
     },
     optimization: {
-        moduleIds: 'named',
-        minimize: true,
+        ...baseConfig.optimization,
         usedExports: true,
     },
     plugins: [

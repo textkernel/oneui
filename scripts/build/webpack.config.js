@@ -57,11 +57,13 @@ const getRules = (env = 'prod') => ({
 
 const baseConfig = {
     context: SOURCE_PATH,
-
     entry: {
         main: './index.ts',
     },
-
+    optimization: {
+        moduleIds: 'named',
+        minimize: true,
+    },
     output: {
         filename: `${LIBRARY_NAME}.js`,
         path: DIST_PATH,
@@ -69,7 +71,6 @@ const baseConfig = {
         libraryTarget: 'umd',
         umdNamedDefine: true,
     },
-
     resolve: {
         modules: [NODE_MODULES_PATH],
         extensions: ['.js', '.ts', '.tsx'],
