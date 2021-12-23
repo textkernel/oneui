@@ -30,6 +30,7 @@ interface Modal<P> extends React.FunctionComponent<P> {
 
 const { block, elem } = bem('Modal', styles);
 
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 const Modal: Modal<Props> = (props) => {
     const overlayRef = React.useRef<HTMLDivElement | null>(null);
 

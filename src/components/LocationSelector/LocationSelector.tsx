@@ -171,7 +171,6 @@ const LocationSelector: React.FC<Props> = (props) => {
                 if (!isLocationSelected) {
                     if (shouldGetAddressInfo) {
                         convertCoordinatesIntoAddress({ lat, lng }).then(
-                            // eslint-disable-next-line @typescript-eslint/camelcase
                             ({ address_components }) => {
                                 onAddLocation({
                                     ...locationToAdd,
