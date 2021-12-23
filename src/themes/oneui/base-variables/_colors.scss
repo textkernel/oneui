@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use 'sass:color';
 
 // Basic colors
 $transparent: transparent !default;
@@ -49,12 +50,12 @@ $color-bad: #f42534 !default;
         )
     {
         @each $factor in (20, 50, 80) {
-            --color-#{ $context }-#{ 50 - math.div($factor, 2) }: #{mix(
+            --color-#{ $context }-#{ 50 - math.div($factor, 2) }: #{color.mix(
                 $color-background,
                 $value,
                 $factor
             )};
-            --color-#{ $context }-#{ 50 + math.div($factor, 2) }: #{mix(
+            --color-#{ $context }-#{ 50 + math.div($factor, 2) }: #{color.mix(
                 $color-foreground,
                 $value,
                 $factor
@@ -69,6 +70,6 @@ $color-bad: #f42534 !default;
     --border-color-light: var(--color-neutral-25);
     --border-color-strong: var(--color-neutral-40);
 
-    --color-highlight-background: #{mix($color-background, $color-brand, 90)};
-    --color-selection-background: #{mix($color-background, $color-brand, 90)};
+    --color-highlight-background: #{color.mix($color-background, $color-brand, 90)};
+    --color-selection-background: #{color.mix($color-background, $color-brand, 90)};
 }

@@ -20,7 +20,7 @@
 $heading-font-sizes: $h1-font-size, $h2-font-size, $h3-font-size, $h4-font-size;
 @mixin heading($n: 1) {
     font-family: $heading-font-family;
-    font-size: nth($heading-font-sizes, $n);
+    font-size: list.nth($heading-font-sizes, $n);
     color: $color-secondary;
     margin: $spacing-large 0;
 }
