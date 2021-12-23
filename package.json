@@ -16,7 +16,6 @@
         "lint": "npm run lint:ci -- --fix",
         "lint:ci": "eslint . --ext .js,.ts,.tsx",
         "lint:styles": "stylelint 'src/**/*.s(a|c)ss'",
-        "eslint": "eslint",
         "tsc": "tsc --noEmit --skipLibCheck",
         "test": "jest --config scripts/test/jest.config.js",
         "test:coverage": "jest --config scripts/test/jest.config.js --coverage",
