@@ -24,13 +24,13 @@ interface Props extends ReactModal.Props {
     portalClassName?: string;
 }
 
-interface Modal<P> extends React.FunctionComponent<P> {
+interface ModalFC<P> extends React.FunctionComponent<P> {
     setAppElement: (appElement: string | HTMLElement) => void;
 }
 
 const { block, elem } = bem('Modal', styles);
 
-const Modal: Modal<Props> = (props) => {
+const Modal: ModalFC<Props> = (props) => {
     const overlayRef = React.useRef<HTMLDivElement | null>(null);
 
     const {

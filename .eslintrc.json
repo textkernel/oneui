@@ -2,10 +2,9 @@
     "extends": [
         "airbnb-typescript",
         "prettier",
-        "prettier/react",
         "plugin:@typescript-eslint/recommended"
     ],
-    "plugins": ["react", "prettier", "react-hooks", "@typescript-eslint"],
+    "plugins": ["react", "prettier", "import", "jsx-a11y", "react-hooks", "@typescript-eslint"],
     "env": {
         "jest": true
     },
@@ -52,8 +51,7 @@
             {
                 "ignoreRestSiblings": true
             }
-        ],
-        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }]
+        ]
     },
     "overrides": [
         {
@@ -92,6 +90,9 @@
             "node": {
                 "extensions": [".js", ".jsx", ".ts", ".tsx"]
             }
+        },
+        "react": {
+            "version": "detect"
         }
     },
     "globals": {

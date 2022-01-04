@@ -48,7 +48,7 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
     /**
      * Additional select props that enrich and use downshift API
      */
-    additionalSelectProps?: {};
+    additionalSelectProps?: Record<string, unknown>;
     /**
      * ClassName that is assigned to <ul> element of the dropdown
      */
