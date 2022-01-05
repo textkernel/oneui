@@ -2,12 +2,12 @@ name: Check
 on:
   push:
     branches:
+      - 'master'
+  pull_request:
+    types: [opened, reopened, synchronize, auto_merge_enabled]
+    branches:
       - '*'
       - '!gh-pages'
-  pull_request:
-    types: [opened, reopened]
-    branches:
-      - 'master'
 jobs:
     install:
         runs-on: ubuntu-latest
