@@ -5,9 +5,9 @@ on:
       - '*'
       - '!gh-pages'
   pull_request:
+    types: [opened]
     branches:
-      - '*'
-      - '!gh-pages'
+      - 'master'
 jobs:
     install:
         runs-on: ubuntu-latest
