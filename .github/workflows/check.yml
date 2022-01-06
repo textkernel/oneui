@@ -5,9 +5,8 @@ on:
       - 'master'
   pull_request:
     types: [opened, reopened, synchronize, auto_merge_enabled]
-    branches:
-      - '*'
-      - '!gh-pages'
+    branches-ignore:
+      - 'gh-pages'
 jobs:
     install:
         runs-on: ubuntu-latest
