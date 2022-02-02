@@ -24,6 +24,10 @@
         "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
         "release": "standard-version -t ''"
     },
+    "engines": {
+        "node": ">=12",
+        "npm": ">=7.1.0"
+    },
     "files": [
         "/dist"
     ],
