@@ -7,15 +7,15 @@ runs:
         - name: Cancel Previous Runs
           uses: styfle/cancel-workflow-action@0.9.1
           with:
-            access_token: ${{ github.token }}
+              access_token: ${{ github.token }}
         - name: Setup Node.js
           uses: actions/setup-node@v2
           with:
-            node-version: '14'
+              node-version: '16'
         - name: Cache node_modules
           uses: actions/cache@v2
           with:
-            path: ./node_modules
-            key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: |
-              ${{ runner.os }}-node_modules-
+              path: ./node_modules
+              key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+              restore-keys: |
+                  ${{ runner.os }}-node_modules-
