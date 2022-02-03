@@ -25,7 +25,7 @@
         "release": "standard-version -t ''"
     },
     "engines": {
-        "node": ">=12",
+        "node": ">=15",
         "npm": ">=7.1.0"
     },
     "files": [
