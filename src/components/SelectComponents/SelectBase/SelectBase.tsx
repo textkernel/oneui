@@ -87,7 +87,9 @@ export function SelectBase<S>(props: Props<S>) {
         if (isBrowserTabVisible) {
             setInputValue(initInputValue || '');
             setInputValueRecall(initInputValue || '');
-            if (focused) onBlur?.();
+            if (focused) {
+                onBlur?.();
+            }
         }
     };
 

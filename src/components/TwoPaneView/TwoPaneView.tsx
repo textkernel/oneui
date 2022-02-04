@@ -60,7 +60,9 @@ export const TwoPaneView: React.FC<Props> = (props) => {
         const paddingLeft = parseInt(blockStyle.getPropertyValue('padding-left'), 10) || 0;
 
         const leftEl = leftRef.current;
-        if (!leftEl) return;
+        if (!leftEl) {
+            return;
+        }
         const { width: leftWidth } = leftEl.getBoundingClientRect();
 
         const width = fullWidth - paddingRight - paddingLeft - leftWidth;

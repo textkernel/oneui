@@ -12,10 +12,7 @@ import {
 import { geocodeResponse } from '../__mocks__/geocodeResponse';
 import { Map } from '..';
 import NL_PATHS from '../../../../stories/static/gadm36_NLD_0.json';
-import DR_DRENTHE from '../../../../stories/static/nl_geo/DR_Drenthe.json';
-import FL_FLEVOLAND from '../../../../stories/static/nl_geo/FL_Flevoland.json';
-import FR_FRIESLAND from '../../../../stories/static/nl_geo/FR_Friesland.json';
-import GE_GELDERLAND from '../../../../stories/static/nl_geo/GE_Gelderland.json';
+import FR_FRIESLAND from '../../../../stories/static/FR_Friesland.json';
 
 stabGoogleApi();
 
@@ -87,34 +84,23 @@ describe('<Map/> that renders a Map with markers', () => {
         expect(setCenterMock).toHaveBeenCalledTimes(1);
     });
     it('should add highlighted areas when geoJson objects are passed as markers', () => {
-        mount(<Map markers={[DR_DRENTHE, FL_FLEVOLAND, FR_FRIESLAND, GE_GELDERLAND]} />);
-        expect(addGeoJsonMock).toHaveBeenCalledTimes(4);
+        mount(<Map markers={[FR_FRIESLAND]} />);
+        expect(addGeoJsonMock).toHaveBeenCalledTimes(1);
         expect(setZoomMock).toHaveBeenCalledTimes(1);
         expect(setCenterMock).toHaveBeenCalledTimes(1);
     });
     it('should recenter the map and change zoom when geoJson objects are replaced by regular markers', () => {
-        const wrapper = mount(
-            <Map markers={[DR_DRENTHE, FL_FLEVOLAND, FR_FRIESLAND, GE_GELDERLAND]} />
-        );
+        const wrapper = mount(<Map markers={[FR_FRIESLAND]} />);
         expect(setZoomMock).toHaveBeenCalledTimes(1);
         expect(setCenterMock).toHaveBeenCalledTimes(1);
         wrapper.setProps({ markers: [pointMarker, regionMarker] });
         expect(setZoomMock).toHaveBeenCalledTimes(2);
         expect(setCenterMock).toHaveBeenCalledTimes(2);
     });
-    it('should center map when geoJson objects are used as markers', () => {
-        mount(<Map markers={[DR_DRENTHE, FL_FLEVOLAND, FR_FRIESLAND, GE_GELDERLAND]} />);
-        expect(setCenterMock).toHaveBeenCalledTimes(1);
-    });
     it('should add default highlight when geoJson markers are reset', () => {
-        const wrapper = mount(
-            <Map
-                defaultHighlight={NL_PATHS}
-                markers={[DR_DRENTHE, FL_FLEVOLAND, FR_FRIESLAND, GE_GELDERLAND]}
-            />
-        );
-        expect(addGeoJsonMock).toHaveBeenCalledTimes(4);
+        const wrapper = mount(<Map defaultHighlight={NL_PATHS} markers={[FR_FRIESLAND]} />);
+        expect(addGeoJsonMock).toHaveBeenCalledTimes(1);
         wrapper.setProps({ markers: [] });
-        expect(addGeoJsonMock).toHaveBeenCalledTimes(5);
+        expect(addGeoJsonMock).toHaveBeenCalledTimes(2);
     });
 });

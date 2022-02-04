@@ -4,10 +4,7 @@ import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs
 import { MapWithGoogleLoader } from '@textkernel/oneui';
 import { ensureApiKey } from './utils/ensureApiKey';
 import NL_PATHS from './static/gadm36_NLD_0.json';
-import DR_DRENTHE from './static/nl_geo/DR_Drenthe.json';
-import FL_FLEVOLAND from './static/nl_geo/FL_Flevoland.json';
-import FR_FRIESLAND from './static/nl_geo/FR_Friesland.json';
-import GE_GELDERLAND from './static/nl_geo/GE_Gelderland.json';
+import FR_FRIESLAND from './static/FR_Friesland.json';
 
 storiesOf('Atoms|Map', module)
     .addDecorator(withKnobs)
@@ -42,15 +39,8 @@ storiesOf('Atoms|Map', module)
                 multiple: [defaultMarker, addedMarker],
                 none: [],
                 'pointer marker': [pointMarker],
-                areas: [DR_DRENTHE, FL_FLEVOLAND, FR_FRIESLAND, GE_GELDERLAND],
-                'markers and areas': [
-                    defaultMarker,
-                    addedMarker,
-                    DR_DRENTHE,
-                    FL_FLEVOLAND,
-                    FR_FRIESLAND,
-                    GE_GELDERLAND,
-                ],
+                area: [FR_FRIESLAND],
+                'markers and area': [defaultMarker, addedMarker, FR_FRIESLAND],
             };
 
             const markerToShow = select('Markers', Object.keys(markers), 'none');

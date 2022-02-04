@@ -36,7 +36,9 @@ export const List: React.FC<Props> = React.forwardRef((props, ref) => {
 
     // set selectedIndex to first selectedItem that we can find
     React.useEffect(() => {
-        if (!children) return;
+        if (!children) {
+            return;
+        }
 
         for (let i = 0; i < children.length; i += 1) {
             const child = children[i];

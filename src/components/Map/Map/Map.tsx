@@ -61,7 +61,7 @@ interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'option
 const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
     const { defaultArea, markers = [], mapContainerStyle, defaultHighlight, ...rest } = props;
     const mapRef = ref || React.createRef<GoogleMap>();
-    const [defaultHighligh, setHighlightFeatures] = React.useState<
+    const [defaultAreaHighlight, setDefaultAreaHighlight] = React.useState<
         google.maps.Data.Feature[] | null
     >(null);
 
@@ -142,29 +142,36 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
     const manageDefaultHighlight = React.useCallback(() => {
         if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
             const { map } = mapRef.current.state;
-            if (defaultHighlight && !markers.length && !defaultHighligh) {
+            if (defaultHighlight && !markers.length && !defaultAreaHighlight) {
                 const highlight = map.data.addGeoJson(defaultHighlight);
-                setHighlightFeatures(highlight);
-            } else if (markers.length && defaultHighligh) {
-                defaultHighligh.forEach((feature) => map.data.remove(feature));
-                setHighlightFeatures(null);
+                setDefaultAreaHighlight(highlight);
+            } else if (markers.length && defaultAreaHighlight) {
+                defaultAreaHighlight.forEach((feature) => map.data.remove(feature));
+                setDefaultAreaHighlight(null);
             }
         }
-    }, [defaultHighlight, defaultHighligh, mapRef, markers]);
+    }, [defaultHighlight, defaultAreaHighlight, mapRef, markers]);
 
     const parseMarkers = () => {
         const cMarkers: CircularMarker[] = [];
         const rAreas: RegionArea[] = [];
 
         markers.forEach((item) => {
-            if ('center' in item) cMarkers.push(item);
-            if ('type' in item && 'features' in item) rAreas.push(item);
+            if ('center' in item) {
+                cMarkers.push(item);
+            }
+            if ('type' in item && 'features' in item) {
+                rAreas.push(item);
+            }
         });
 
-        if (JSON.stringify(circularMarkers) !== JSON.stringify(cMarkers))
+        if (JSON.stringify(circularMarkers) !== JSON.stringify(cMarkers)) {
             setCircularMarkers(cMarkers);
+        }
 
-        if (JSON.stringify(regionAreas) !== JSON.stringify(rAreas)) setRegionAreas(rAreas);
+        if (JSON.stringify(regionAreas) !== JSON.stringify(rAreas)) {
+            setRegionAreas(rAreas);
+        }
     };
 
     const manageHighlightedAreas = () => {
@@ -173,7 +180,9 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
 
             // Clean all features from the map (except defaultHighlight if any)
             map.data.forEach((feature) => {
-                if (!defaultHighligh?.includes(feature)) map.data.remove(feature);
+                if (!defaultAreaHighlight?.includes(feature)) {
+                    map.data.remove(feature);
+                }
             });
 
             // Add new regions to the map
