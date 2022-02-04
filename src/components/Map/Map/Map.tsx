@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { GoogleMap, Marker, Circle } from '@react-google-maps/api';
-import { features } from 'process';
 
 const circleOptions = () => ({
     strokeColor: 'transparent',
