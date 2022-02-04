@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { GoogleMap, Marker, Circle } from '@react-google-maps/api';
+import { features } from 'process';
 
 const circleOptions = () => ({
     strokeColor: 'transparent',
@@ -23,6 +24,11 @@ type CircularMarker = {
     description: string;
 };
 
+type RegionArea = {
+    type: string;
+    features: GeoJSON.GeoJsonObject[];
+};
+
 interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'options'> {
     /** The default parameters to determine the viewport when no markers are present. */
     defaultArea:
@@ -43,7 +49,7 @@ interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'option
     /** The markers to be shown on the map. When present, map will zoom automatically to display them
      * The radius is in meters on the Earth's surface.
      */
-    markers?: CircularMarker[];
+    markers?: (CircularMarker | RegionArea)[];
     /** The style of the map container. It has to have explicit width and height (requirement from Google).
      *  Alternatively you can set explicit size on the parent container, then, by default, the map will scale to match that
      */
@@ -56,9 +62,12 @@ interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'option
 const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
     const { defaultArea, markers = [], mapContainerStyle, defaultHighlight, ...rest } = props;
     const mapRef = ref || React.createRef<GoogleMap>();
-    const [highlightFeatures, setHighlightFeatures] = React.useState<
+    const [defaultHighligh, setHighlightFeatures] = React.useState<
         google.maps.Data.Feature[] | null
     >(null);
+
+    const [circularMarkers, setCircularMarkers] = React.useState<CircularMarker[]>([]);
+    const [regionAreas, setRegionAreas] = React.useState<RegionArea[]>([]);
 
     const fitBounds = React.useCallback(() => {
         if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
@@ -77,22 +86,45 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
                 });
             };
 
+            const centerMapToDefaultArea = () => {
+                // Centers map in the middle of the default area
+
+                if ('address' in defaultArea) {
+                    fitBoundsByAddress(defaultArea.address);
+                } else {
+                    if ('lng' in defaultArea.center) {
+                        map.setCenter(defaultArea.center);
+                    } else {
+                        map.setCenter(new google.maps.LatLng(...defaultArea.center));
+                    }
+
+                    map.setZoom(defaultArea.zoom);
+                }
+            };
+
             /**
+             * if there are regionAreas (geoJson objects passed) center the map in the middle of default area
              * if there's a single marker without radius, fits it into the map borders
-             * else if there're any markers passed, create radius circles for them and fits them into the map borders
+             * else if there're any circularMarkers passed, create radius circles for them and fits them into the map borders
              * else if there's address for default area, fits it into the map borders
              * else centers the map on the default area and zooms on it
              */
-            if (markers.length === 1 && !markers[0].radius) {
-                const [firstMarker] = markers;
+
+            if (regionAreas.length) {
+                centerMapToDefaultArea();
+                return;
+            }
+
+            if (circularMarkers.length === 1 && !circularMarkers[0].radius) {
+                const [firstMarker] = circularMarkers;
                 if (firstMarker.description) {
                     fitBoundsByAddress(firstMarker.description);
                 } else {
                     bounds.extend(firstMarker.center);
                     map.fitBounds(bounds);
                 }
-            } else if (markers.length) {
-                markers.forEach(({ center, radius }) => {
+            } else if (circularMarkers.length) {
+                circularMarkers.forEach(({ center, radius }) => {
                     if (radius) {
                         const circle = new CircleClass({ center, radius });
                         bounds.union(circle.getBounds());
@@ -101,40 +133,73 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
                     }
                     map.fitBounds(bounds);
                 });
-            } else if ('address' in defaultArea) {
-                fitBoundsByAddress(defaultArea.address);
             } else {
-                if ('lng' in defaultArea.center) {
-                    map.setCenter(defaultArea.center);
-                } else {
-                    map.setCenter(new google.maps.LatLng(...defaultArea.center));
-                }
-
-                map.setZoom(defaultArea.zoom);
+                centerMapToDefaultArea();
             }
         }
-    }, [defaultArea, mapRef, markers]);
+    }, [defaultArea, mapRef, circularMarkers, regionAreas]);
 
     const manageDefaultHighlight = React.useCallback(() => {
         if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
             const { map } = mapRef.current.state;
-            if (defaultHighlight && !markers.length && !highlightFeatures) {
+            if (defaultHighlight && !markers.length && !defaultHighligh) {
                 const highlight = map.data.addGeoJson(defaultHighlight);
-                map.data.setStyle({
-                    fillColor: 'red',
-                    strokeColor: 'red',
-                    strokeWeight: 2,
-                });
                 setHighlightFeatures(highlight);
-            } else if (markers.length && highlightFeatures) {
-                highlightFeatures.forEach((feature) => map.data.remove(feature));
+            } else if (markers.length && defaultHighligh) {
+                defaultHighligh.forEach((feature) => map.data.remove(feature));
                 setHighlightFeatures(null);
             }
         }
-    }, [defaultHighlight, highlightFeatures, mapRef, markers]);
+    }, [defaultHighlight, defaultHighligh, mapRef, markers]);
 
+    const parseMarkers = () => {
+        const cMarkers: CircularMarker[] = [];
+        const rAreas: RegionArea[] = [];
+
+        markers.forEach((item) => {
+            if ('center' in item) cMarkers.push(item);
+            if ('type' in item && 'features' in item) rAreas.push(item);
+        });
+
+        if (JSON.stringify(circularMarkers) !== JSON.stringify(cMarkers))
+            setCircularMarkers(cMarkers);
+
+        if (JSON.stringify(regionAreas) !== JSON.stringify(rAreas)) setRegionAreas(rAreas);
+    };
+
+    const manageHighlightedAreas = () => {
+        if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
+            const { map } = mapRef.current.state;
+
+            // Clean all features from the map (except defaultHighlight if any)
+            map.data.forEach((feature) => {
+                if (!defaultHighligh?.includes(feature)) map.data.remove(feature);
+            });
+
+            // Add new regions to the map
+            regionAreas.forEach((area) => {
+                map.data.addGeoJson(area);
+            });
+        }
+    };
+
+    React.useEffect(() => {
+        // Set some internal map settings
+
+        if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
+            const { map } = mapRef.current.state;
+
+            map.data.setStyle({
+                fillColor: 'red',
+                strokeColor: 'red',
+                strokeWeight: 2,
+            });
+        }
+    }, [mapRef]);
+
+    React.useEffect(parseMarkers, [markers]);
+    React.useEffect(manageHighlightedAreas, [regionAreas]);
     React.useEffect(fitBounds);
-
     React.useEffect(manageDefaultHighlight);
 
     return (
@@ -153,8 +218,8 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
             }}
             {...rest}
         >
-            {!!markers.length &&
-                markers.map((marker) => {
+            {!!circularMarkers.length &&
+                circularMarkers.map((marker) => {
                     const { center: mCenter, radius } = marker;
                     const positionStr = `${mCenter.lat}-${mCenter.lng}`;
 
