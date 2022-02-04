@@ -71,14 +71,14 @@ describe('<Map/> that renders a Map with markers', () => {
     it('should fit map to markers', () => {
         mount(<Map markers={[pointMarker, regionMarker]} />);
         // call fitBounds for each marker
-        expect(fitBoundsMock).toHaveBeenCalledTimes(2);
+        expect(fitBoundsMock).toHaveBeenCalledTimes(1);
     });
     it('should fit map when new marker is added', () => {
         const wrapper = mount(<Map markers={[pointMarker]} />);
         expect(fitBoundsMock).toHaveBeenCalledTimes(1);
         wrapper.setProps({ markers: [pointMarker, regionMarker] });
         // call count = original call + again for each marker + 1 more because markers are updated with a small delay
-        expect(fitBoundsMock).toHaveBeenCalledTimes(4);
+        expect(fitBoundsMock).toHaveBeenCalledTimes(3);
     });
     it('should fit to default center and zoom if markers removed', () => {
         const wrapper = mount(<Map markers={[pointMarker, regionMarker]} />);

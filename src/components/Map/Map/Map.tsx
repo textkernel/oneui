@@ -130,8 +130,9 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
                     } else {
                         bounds.extend(center);
                     }
-                    map.fitBounds(bounds);
                 });
+
+                map.fitBounds(bounds);
             } else {
                 centerMapToDefaultArea();
             }
