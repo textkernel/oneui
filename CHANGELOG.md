@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.1.0](https://github.com/textkernel/oneui/compare/17.0.1...17.1.0) (2022-02-09)
+
+
+### Features
+
+* **Map:** Extend Map component to support geoJson files as markers ([#703](https://github.com/textkernel/oneui/issues/703)) ([21a29bd](https://github.com/textkernel/oneui/commit/21a29bd8faf4a1aeaabce3126a82f368f74d2e7c))
+
+
+### Bug Fixes
+
+* **Footer:** add year prop to Footer component to make it deterministic ([#210](https://github.com/textkernel/oneui/issues/210)) ([f317524](https://github.com/textkernel/oneui/commit/f317524e7ee8a86e63294486f770e8c76a3372ac))
+* update footer snapshot ([#677](https://github.com/textkernel/oneui/issues/677)) ([4204ff4](https://github.com/textkernel/oneui/commit/4204ff453b8f51e49f8b122ef6ae4052fa40cb45))
+
 ### [17.0.1](https://github.com/textkernel/oneui/compare/17.0.0...17.0.1) (2021-12-22)
 
 
