@@ -53,7 +53,8 @@
                 "ignoreRestSiblings": true
             }
         ],
-        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }]
+        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }],
+        "curly": ["error", "all"]
     },
     "overrides": [
         {
@@ -83,7 +84,7 @@
                 "react/display-name": "off",
                 "react/destructuring-assignment": "off",
                 "react/prop-types": "off",
-                "react/jsx-curly-newline": "off"
+                "react/jsx-setDefaultAreaHighlight-newline": "off"
             }
         }
     ],

@@ -90,7 +90,9 @@ storiesOf('Organisms|AutosuggestDeprecated - old', module)
         ({ parameters }) => {
             const store = parameters.getStore();
             const getSuggestions = () => {
-                if (!store.get('inputValue').length) return [];
+                if (!store.get('inputValue').length) {
+                    return [];
+                }
                 return SUGGESTIONS.filter(
                     (item) => !store.get('selectedSuggestions').includes(item)
                 ).filter((item) =>

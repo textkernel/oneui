@@ -4,6 +4,7 @@ import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs
 import { MapWithGoogleLoader } from '@textkernel/oneui';
 import { ensureApiKey } from './utils/ensureApiKey';
 import NL_PATHS from './static/gadm36_NLD_0.json';
+import FR_FRIESLAND from './static/FR_Friesland.json';
 
 storiesOf('Atoms|Map', module)
     .addDecorator(withKnobs)
@@ -26,11 +27,20 @@ storiesOf('Atoms|Map', module)
                 },
                 radius: 30000,
             };
+            const pointMarker = {
+                center: {
+                    lat: 52.5112671,
+                    lng: 7.2535521,
+                },
+            };
             const markers = {
                 marker1: [defaultMarker],
                 marker2: [addedMarker],
                 multiple: [defaultMarker, addedMarker],
                 none: [],
+                'pointer marker': [pointMarker],
+                area: [FR_FRIESLAND],
+                'markers and area': [defaultMarker, addedMarker, FR_FRIESLAND],
             };
 
             const markerToShow = select('Markers', Object.keys(markers), 'none');

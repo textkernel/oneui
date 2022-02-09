@@ -96,7 +96,9 @@ const LocationAutocomplete: React.FC<Props> = (props) => {
                 },
                 (predictions, status) => {
                     // if this function was called with outdated input value, return early
-                    if (debouncedInputValue !== storage.latestInputValue) return;
+                    if (debouncedInputValue !== storage.latestInputValue) {
+                        return;
+                    }
 
                     if (ACCEPTABLE_API_STATUSES.includes(status)) {
                         setSuggestionsList(predictions);
