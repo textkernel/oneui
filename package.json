@@ -8,6 +8,7 @@
     "main": "dist/oneui.min.js",
     "types": "dist/dts/src/index.d.ts",
     "scripts": {
+        "start": "npm run storybook",
         "storybook": "start-storybook -s ./stories/static -p 9001 -c .storybook",
         "storybook:build": "build-storybook -s ./stories/static -c .storybook -o .out",
         "storybook:deploy": "storybook-to-ghpages --script=storybook:build --out=.out",
