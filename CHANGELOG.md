@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.2.0](https://github.com/textkernel/oneui/compare/17.1.0...17.2.0) (2022-03-28)
+
+
+### Features
+
+* **Link:** Add prop to disable text decoration on hover ([#731](https://github.com/textkernel/oneui/issues/731)) ([684e64a](https://github.com/textkernel/oneui/commit/684e64a891289fbe747988a83b6894eaf6b71d0b))
+
+
+### Bug Fixes
+
+* **Sliders:** vertically align handles in tin middle of the rail ([#709](https://github.com/textkernel/oneui/issues/709)) ([97db7eb](https://github.com/textkernel/oneui/commit/97db7eb2af0edc17b48d961e4735b68ca166efa8))
+* **Toggle:** do not allow Toggle to shrink ([#708](https://github.com/textkernel/oneui/issues/708)) ([8d14c2c](https://github.com/textkernel/oneui/commit/8d14c2c05abc384f57b84a63a5068b8419e8a08b))
+
 ## [17.1.0](https://github.com/textkernel/oneui/compare/17.0.1...17.1.0) (2022-02-09)
 
 
