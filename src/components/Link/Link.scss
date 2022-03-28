@@ -8,6 +8,10 @@
         text-decoration: var(--link-decoration-hover);
     }
 
+    &--dontDecorateOnHover:hover {
+        text-decoration: var(--link-decoration-normal);
+    }
+
     &--context_muted {
         color: var(--color-muted);
 

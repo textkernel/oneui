@@ -9,12 +9,14 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     context?: 'brand' | 'muted';
     /** Ref to access the anchor */
     ref?: React.RefObject<HTMLAnchorElement>;
+    /** Do not underline text on hover */
+    dontDecorateOnHover?: boolean;
 }
 
 const { block } = bem('Link', styles);
 
 export const Link: React.FC<Props> = React.forwardRef((props, ref) => {
-    const { children, context, ...rest } = props;
+    const { children, context, dontDecorateOnHover, ...rest } = props;
     return (
         <a ref={ref} {...rest} {...block(props)}>
             {children}
@@ -26,4 +28,5 @@ Link.displayName = 'Link';
 
 Link.defaultProps = {
     context: 'brand',
+    dontDecorateOnHover: false,
 };
