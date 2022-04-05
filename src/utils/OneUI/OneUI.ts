@@ -1,4 +1,5 @@
 import cssVarsPonyfill from 'css-vars-ponyfill';
+import type { CssVars } from '@textkernel/oneui';
 
 /**
  * Set of options that can be used to configure the ponyfill.
@@ -120,6 +121,11 @@ class OneUI {
             const head = document.getElementsByTagName('head')[0];
             head.appendChild(styleElement);
         });
+    }
+
+    /** Injects CSS variables into <style> tag */
+    static applyCssVars(cssVars: CssVars): void {
+        console.log(cssVars);
     }
 }
 

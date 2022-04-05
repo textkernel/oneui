@@ -69,3 +69,4 @@ export {
 } from './components/LocationAutocomplete';
 export * from './components/LocationSelector';
 export { ProductTour } from './components/ProductTour';
+export * from './components/Themeroller';
