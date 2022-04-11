@@ -23,6 +23,7 @@ export type BulkActionsToolbarToggle = {
 
 export type BulkActionsToolbarAction = {
     label: string;
+    icon?: React.ReactElement;
     tooltip?: string;
     disabled: boolean;
     /** Default is 'link' */
@@ -80,6 +81,7 @@ export const BulkActionsToolbar: React.FC<Props> = (props) => {
                                     onClick={action.onClick}
                                     {...elem('action')}
                                 >
+                                    {action.icon && <span {...elem('icon')}>{action.icon} </span>}
                                     {action.label}
                                 </Button>
                             </span>

@@ -50,11 +50,17 @@
         }
     }
 
+    &__icon {
+        display: inline-flex;
+        padding-right: var(--spacing-2x);
+    }
+
     &__action {
         width: 100%;
         text-overflow: ellipsis;
         overflow: hidden;
         display: block;
+        display: flex;
     }
 }
 

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { BulkActionsToolbar } from '@textkernel/oneui';
+import { FiCheck } from 'react-icons/fi';
 
 storiesOf('Molecules|BulkActionsToolbar', module)
     .addDecorator(withKnobs)
@@ -54,6 +55,7 @@ storiesOf('Molecules|BulkActionsToolbar', module)
                     },
                     {
                         label: 'Mark as viewed',
+                        icon: React.createElement(FiCheck),
                         context: 'brand',
                         disabled: false,
                         onClick: () => {
