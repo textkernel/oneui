@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.3.0](https://github.com/textkernel/oneui/compare/17.2.1...17.3.0) (2022-04-12)
+
+
+### Features
+
+* **component:** fix comments ([d863a23](https://github.com/textkernel/oneui/commit/d863a235206bff72b935361920334c5c9f08d472))
+* **component:** update BulkActionsToolbar component ([0a647e1](https://github.com/textkernel/oneui/commit/0a647e1529fdb30c8197da3253295bb388bc5509))
+
 ### [17.2.1](https://github.com/textkernel/oneui/compare/17.2.0...17.2.1) (2022-03-29)
 
 ## [17.2.0](https://github.com/textkernel/oneui/compare/17.1.0...17.2.0) (2022-03-28)
