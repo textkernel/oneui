@@ -52,6 +52,7 @@ import './TwoPaneView';
 import './WeightedResultBar';
 // Organisms
 import './Dialogs';
+import './LabelPicker';
 import './AutosuggestDeprecated';
 import './Select';
 import './LocationAutocomplete';
