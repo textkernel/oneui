@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "noImplicitAny": false,
+        "strict": true,
+        "baseUrl": ".",
+        "resolveJsonModule": true,
+        "outDir": "./build",
+        "declarationDir": "./build/dts"
+    },
+    "include": ["src"]
+}
