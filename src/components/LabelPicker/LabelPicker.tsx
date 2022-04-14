@@ -13,7 +13,7 @@ export interface Props<B = HTMLButtonElement> {
     /** a list of available labels and their attributes */
     labels: Label[];
     /** a button like element that supports onClick handler to be used as the trigger */
-    children: React.ButtonHTMLAttributes<B>;
+    children: React.ReactElement<React.ButtonHTMLAttributes<B>>;
     /** callback to be called when the state of a checkbox changes */
     onChange: (Label) => void;
     /** callback to add new label */
@@ -30,9 +30,9 @@ export interface Props<B = HTMLButtonElement> {
     ref?: React.ForwardedRef<HTMLButtonElement>;
 }
 
-export const LabelPicker: React.FC<Props> = React.forwardRef((props, ref) => {
+export const LabelPicker: React.FC<Props> = (props) => {
     return <div></div>;
-});
+};
 
 LabelPicker.displayName = 'LabelPicker';
 
