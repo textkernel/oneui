@@ -12,7 +12,7 @@ const LABELS = [
     { name: 'Label 4', isSelected: false, id: 4 },
 ];
 
-storiesOf('Organism|LabelPicker', module)
+storiesOf('Organisms|LabelPicker', module)
     .addDecorator(withKnobs)
     .add('LabelPicker', () => {
         const [labels, setLabels] = React.useState<MyLabel[]>([...LABELS]);
@@ -31,12 +31,8 @@ storiesOf('Organism|LabelPicker', module)
             setLabels([...labels, { name, isSelected: true, id: labels.length + 1 }]);
         };
 
-        const handleDone = () => {
-            console.log('onDone was called');
-        };
-
-        const handleCancel = () => {
-            console.log('onCancel was called');
+        const handleClose = () => {
+            console.log('onClose was called');
         };
 
         return (
@@ -44,8 +40,7 @@ storiesOf('Organism|LabelPicker', module)
                 labels={labels}
                 onChange={handleChange}
                 onAdd={handleAdd}
-                onDone={handleDone}
-                onCancel={handleCancel}
+                onClose={handleClose}
                 inputPlaceholder={text('Input placeholder', 'Create a new label..')}
                 doneLabel={text('Done label', 'Done')}
             >

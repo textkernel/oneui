@@ -1,4 +1,8 @@
 import * as React from 'react';
+import { Button } from '../Buttons';
+import { Checkbox } from '../Checkbox';
+import { Input } from '../Input';
+import { useOuterClick } from '../../hooks';
 
 export type Label = {
     /** the display name to be shown to the user */
@@ -9,31 +13,57 @@ export type Label = {
     count?: number;
 };
 
-export interface Props<B = HTMLButtonElement> {
+export interface Props {
     /** a list of available labels and their attributes */
     labels: Label[];
     /** a button like element that supports onClick handler to be used as the trigger */
-    children: React.ReactElement<React.ButtonHTMLAttributes<B>>;
+    children: React.ReactElement<{ onClick: (event: any) => void; ref: React.RefObject<any> }>;
     /** callback to be called when the state of a checkbox changes */
     onChange: (Label) => void;
     /** callback to add new label */
     onAdd: (name: string) => void;
-    /** callback when clicking the Done button */
-    onDone?: () => void;
-    /** callback on outer click */
-    onCancel?: () => void;
+    /** callback fired when the component closes, clicking Done, outer click or through the trigger button */
+    onClose?: () => void;
     /** text to be shown as input placeholder for adding labels */
     inputPlaceholder: string;
     /** label for the done button */
     doneLabel: string;
-    /** Ref to access the input field */
-    ref?: React.ForwardedRef<HTMLButtonElement>;
 }
 
 export const LabelPicker: React.FC<Props> = (props) => {
-    return <div></div>;
+    const { children } = props;
+    const triggerRef = React.createRef<React.ReactElement<any>>();
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    const handleClose = (event) => {
+        // @ts-ignore
+        if (triggerRef.current && !triggerRef.current.contains(event.target)) {
+            setIsOpen(false);
+        }
+    };
+
+    const dialogRef = useOuterClick<HTMLDivElement>(handleClose);
+
+    const handleTriggerClick = (event) => {
+        setIsOpen(!isOpen);
+
+        // call the onClick function that might have been set on the child
+        children.props?.onClick?.(event);
+    };
+
+    return (
+        <>
+            {React.cloneElement(children, {
+                onClick: handleTriggerClick,
+                ref: triggerRef,
+            })}
+            {isOpen ? (
+                <div ref={dialogRef}>
+                    <Input />
+                </div>
+            ) : null}
+        </>
+    );
 };
 
 LabelPicker.displayName = 'LabelPicker';
-
-LabelPicker.defaultProps = {};
