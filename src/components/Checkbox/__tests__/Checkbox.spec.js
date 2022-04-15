@@ -1,10 +1,20 @@
-import React from 'react';
+import * as React from 'react';
 import toJson from 'enzyme-to-json';
 import { Checkbox } from '../Checkbox';
 
 describe('<Checkbox> that renders a checkbox', () => {
     it('should render default checkbox correctly', () => {
         const wrapper = mount(<Checkbox id="c1">Check this out</Checkbox>);
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+    it('should render checkbox with complex children', () => {
+        const wrapper = mount(
+            <Checkbox id="c1">
+                <span>
+                    Check this out <span>something else</span>
+                </span>
+            </Checkbox>
+        );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should call onChange function when clicked', () => {

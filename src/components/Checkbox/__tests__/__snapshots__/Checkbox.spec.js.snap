@@ -1,5 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Checkbox> that renders a checkbox should render checkbox with complex children 1`] = `
+<Checkbox
+  disabled={false}
+  id="c1"
+>
+  <div>
+    <input
+      className="Checkbox__input"
+      disabled={false}
+      id="c1"
+      type="checkbox"
+    />
+    <label
+      className="Checkbox__label"
+      htmlFor="c1"
+    >
+      <span
+        className="Checkbox__box"
+      >
+        <svg
+          className="Checkbox__svg"
+          height="10px"
+          viewBox={
+            Array [
+              0,
+              0,
+              10,
+              10,
+            ]
+          }
+          width="12px"
+        >
+          <polyline
+            points="1.5 6 3.5 9 8 3"
+          />
+        </svg>
+      </span>
+      <span>
+        Check this out 
+        <span>
+          something else
+        </span>
+      </span>
+    </label>
+  </div>
+</Checkbox>
+`;
+
 exports[`<Checkbox> that renders a checkbox should render default checkbox correctly 1`] = `
 <Checkbox
   disabled={false}
