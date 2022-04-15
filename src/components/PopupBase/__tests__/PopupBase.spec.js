@@ -4,6 +4,7 @@ import toJson from 'enzyme-to-json';
 import { Button } from '../../..';
 import { ESCAPE_KEY } from '../../../constants';
 import { PopupBase } from '../PopupBase';
+import { useDocumentEvent } from '../../../utils/testUtils';
 import { PopoverDummy } from '../__mocks__/PopoverDummy';
 
 describe('<PopupBase> that adds basic anchor/popup functionality to rendered components', () => {
@@ -75,11 +76,8 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
         let togglePopup;
         const onCloseMock = jest.fn();
 
-        // see: https://medium.com/@DavideRama/testing-global-event-listener-within-a-react-component-b9d661e59953
-        const mockDocumentEventListener = {};
-        document.addEventListener = jest.fn((event, cb) => {
-            mockDocumentEventListener[event] = cb;
-        });
+        const clickDocument = useDocumentEvent('click');
+        const keydownDocument = useDocumentEvent('keydown');
 
         beforeEach(() => {
             wrapper = mount(
@@ -103,7 +101,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             togglePopup();
             expect(wrapper.find('Popover')).toHaveLength(1);
 
-            mockDocumentEventListener.click({ path: [document.body] });
+            clickDocument();
             wrapper.update();
 
             expect(wrapper.find('Popover')).toHaveLength(0);
@@ -111,7 +109,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
         it('should call onClose if outside is clicked', () => {
             togglePopup();
 
-            mockDocumentEventListener.click({ path: [document.body] });
+            clickDocument();
             wrapper.update();
 
             expect(onCloseMock).toHaveBeenCalled();
@@ -121,7 +119,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             expect(wrapper.find('Popover')).toHaveLength(1);
 
             // clicking directly in the element won't trigger global listener, hence we use our magic mock
-            mockDocumentEventListener.click({
+            clickDocument({
                 composedPath: () => [wrapper.find('Popover').find('p').at(0).getDOMNode()],
             });
             wrapper.update();
@@ -134,7 +132,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
             // clicking directly in the element won't trigger global listener, hence we use our magic mock
             // this also ensures that event handlers defined by the renderer prop are not triggered.
-            mockDocumentEventListener.click({
+            clickDocument({
                 target: wrapper.find('button').at(0).getDOMNode(),
             });
             wrapper.update();
@@ -145,7 +143,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             togglePopup();
             expect(wrapper.find('Popover')).toHaveLength(1);
 
-            mockDocumentEventListener.keydown({ key: ESCAPE_KEY });
+            keydownDocument({ key: ESCAPE_KEY });
             wrapper.update();
 
             expect(wrapper.find('Popover')).toHaveLength(0);
@@ -153,7 +151,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
         it('should call onClose on Escape press', () => {
             togglePopup();
 
-            mockDocumentEventListener.keydown({ key: ESCAPE_KEY });
+            keydownDocument({ key: ESCAPE_KEY });
             wrapper.update();
 
             expect(onCloseMock).toHaveBeenCalled();
