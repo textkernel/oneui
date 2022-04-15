@@ -5,11 +5,32 @@ import { LabelPicker } from '../LabelPicker';
 import { Button } from '../../Buttons';
 import { useDocumentEvent } from '../../../utils/testUtils';
 
+const labelsMock = [
+    {
+        name: 'First label',
+        isSelected: false,
+    },
+    {
+        name: 'Second label',
+        isSelected: true,
+        count: 12,
+    },
+    {
+        name: 'Third label',
+        isSelected: false,
+        count: 0,
+    },
+];
+
 describe('<LabelPicker> that renders a dropdown type component to apply/remove/add labels', () => {
+    describe('snapshot tests', () => {
+        it.todo('should render correctly in closed state');
+        it.todo('should render correctly with dialog open');
+    });
     describe('trigger button', () => {
         it('should render trigger button correctly', () => {
             const wrapper = mount(
-                <LabelPicker>
+                <LabelPicker labels={[]}>
                     <Button>Click me</Button>
                 </LabelPicker>
             );
@@ -19,7 +40,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
         it('should call original onClick handler from trigger button (passed with the prop)', () => {
             const onClick = jest.fn();
             const wrapper = mount(
-                <LabelPicker>
+                <LabelPicker labels={[]}>
                     <Button onClick={onClick}>Click me</Button>
                 </LabelPicker>
             );
@@ -31,7 +52,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
     describe('toggling dialog visibility', () => {
         it('should toggle dialog when trigger button is clicked', () => {
             const wrapper = mount(
-                <LabelPicker>
+                <LabelPicker labels={[]}>
                     <Button>Click me</Button>
                 </LabelPicker>
             );
@@ -51,7 +72,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             const clickDocument = useDocumentEvent('click');
 
             const wrapper = mount(
-                <LabelPicker>
+                <LabelPicker labels={[]}>
                     <Button>Click me</Button>
                 </LabelPicker>
             );
@@ -72,7 +93,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
         });
         it('should not close dialog when it was clicked (e.g. a checkbox within the dialog etc.)', () => {
             const wrapper = mount(
-                <LabelPicker>
+                <LabelPicker labels={[]}>
                     <Button>Click me</Button>
                 </LabelPicker>
             );
@@ -90,12 +111,54 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
         });
         it.todo('should close dialog when Done button is clicked');
     });
-    describe('dialog rendering', () => {
-        it.todo('should render dialog with empty labels list');
-        it.todo('should render dialog with labels');
-        it.todo('should render count when it is passed');
-        it.todo('should not render 0 count');
-        it.todo('should set label selection state according to props passed');
+    describe('labels rendering', () => {
+        it('should render dialog with empty labels list', () => {
+            const wrapper = mount(
+                <LabelPicker labels={[]}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
+            expect(wrapper.find('Checkbox').length).toBe(0);
+        });
+        it('should render dialog with labels', () => {
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
+            expect(wrapper.find('Checkbox').length).toBe(labelsMock.length);
+        });
+        it('should render count when it is passed', () => {
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
+            expect(wrapper.find('Checkbox').at(1).text()).toContain(labelsMock[1].count);
+        });
+        it('should not render 0 count', () => {
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
+            expect(wrapper.find('Checkbox').at(2).text()).not.toContain('0');
+        });
+        it('should set label selection state according to props passed', () => {
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
+            expect(wrapper.find('Checkbox').at(0).prop('checked')).toBeFalsy();
+            expect(wrapper.find('Checkbox').at(1).prop('checked')).toBeTruthy();
+            expect(wrapper.find('Checkbox').at(2).prop('checked')).toBeFalsy();
+        });
     });
     describe('callbacks', () => {
         it.todo('should call onChange when label is clicked');

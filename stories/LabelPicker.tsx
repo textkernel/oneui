@@ -17,11 +17,12 @@ storiesOf('Organisms|LabelPicker', module)
     .add('LabelPicker', () => {
         const [labels, setLabels] = React.useState<MyLabel[]>([...LABELS]);
 
-        const handleChange = (label: LabelPickerLabel & { id: number }) => {
+        const handleChange = (label: MyLabel) => {
             console.log(`onChange was called with ${JSON.stringify(label)}`);
 
             const idx = labels.findIndex((element) => element.id === label.id);
-            const newLabels = [...labels].splice(idx, 1, label);
+            const newLabels = [...labels];
+            newLabels.splice(idx, 1, label);
             setLabels(newLabels);
         };
 
@@ -36,7 +37,7 @@ storiesOf('Organisms|LabelPicker', module)
         };
 
         return (
-            <LabelPicker
+            <LabelPicker<MyLabel>
                 labels={labels}
                 onChange={handleChange}
                 onAdd={handleAdd}

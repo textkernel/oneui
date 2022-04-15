@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Button } from '../Buttons';
 import { Checkbox } from '../Checkbox';
 import { Input } from '../Input';
+import { Text } from '../Text';
 import { useOuterClick } from '../../hooks';
 
 export type Label = {
@@ -13,13 +14,13 @@ export type Label = {
     count?: number;
 };
 
-export interface Props {
+export interface Props<L extends Label> {
     /** a list of available labels and their attributes */
-    labels: Label[];
+    labels: L[];
     /** a button like element that supports onClick handler to be used as the trigger */
     children: React.ReactElement<{ onClick: (event: any) => void; ref: React.RefObject<any> }>;
     /** callback to be called when the state of a checkbox changes */
-    onChange: (Label) => void;
+    onChange: (label: L) => void;
     /** callback to add new label */
     onAdd: (name: string) => void;
     /** callback fired when the component closes, clicking Done, outer click or through the trigger button */
@@ -30,8 +31,8 @@ export interface Props {
     doneLabel: string;
 }
 
-export const LabelPicker: React.FC<Props> = (props) => {
-    const { children } = props;
+export function LabelPicker<L extends Label>(props: Props<L>) {
+    const { labels, children, onChange } = props;
     const triggerRef = React.createRef<React.ReactElement<any>>();
     const [isOpen, setIsOpen] = React.useState(false);
 
@@ -59,11 +60,28 @@ export const LabelPicker: React.FC<Props> = (props) => {
             })}
             {isOpen ? (
                 <div ref={dialogRef}>
+                    {labels.map((label) => (
+                        <Checkbox
+                            key={label.name}
+                            id={label.name}
+                            checked={label.isSelected}
+                            onChange={() => onChange(label)}
+                        >
+                            <Text inline>
+                                {label.name}
+                                {label.count ? (
+                                    <Text inline context="muted">
+                                        ({label.count})
+                                    </Text>
+                                ) : null}
+                            </Text>
+                        </Checkbox>
+                    ))}
                     <Input />
                 </div>
             ) : null}
         </>
     );
-};
+}
 
 LabelPicker.displayName = 'LabelPicker';
