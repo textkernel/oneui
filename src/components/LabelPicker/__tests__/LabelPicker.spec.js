@@ -4,6 +4,7 @@ import { act } from 'react-dom/test-utils';
 import { LabelPicker } from '../LabelPicker';
 import { Button } from '../../Buttons';
 import { useDocumentEvent } from '../../../utils/testUtils';
+import { ENTER_KEY } from '../../../constants';
 
 const labelsMock = [
     {
@@ -19,6 +20,12 @@ const labelsMock = [
         name: 'Third label',
         isSelected: false,
         count: 0,
+    },
+    {
+        name: 'Fourth label',
+        isSelected: false,
+        count: 0,
+        id: 'random',
     },
 ];
 
@@ -53,18 +60,18 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
         it('should toggle dialog when trigger button is clicked', () => {
             const wrapper = mount(
                 <LabelPicker labels={[]}>
-                    <Button>Click me</Button>
+                    <Button id="trigger">Click me</Button>
                 </LabelPicker>
             );
             expect(wrapper.find('div').length).toBe(0);
 
             // open dialog
-            wrapper.find('Button').simulate('click');
+            wrapper.find('#trigger').at(0).simulate('click');
 
             expect(wrapper.find('div').length).toBeGreaterThan(0);
 
             // close dialog
-            wrapper.find('Button').simulate('click');
+            wrapper.find('#trigger').at(0).simulate('click');
 
             expect(wrapper.find('div').length).toBe(0);
         });
@@ -160,17 +167,168 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             expect(wrapper.find('Checkbox').at(2).prop('checked')).toBeFalsy();
         });
     });
+    describe('Input rendering', () => {
+        it('should have add button enabled only when there is input text in the field', () => {
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock}>
+                    <Button id="trigger">Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('#trigger').at(0).simulate('click');
+
+            expect(wrapper.find('Button').at(1).prop('disabled')).toBeTruthy();
+
+            wrapper
+                .find('Input')
+                .find('input')
+                .simulate('change', {
+                    target: {
+                        value: 'test',
+                    },
+                });
+            expect(wrapper.find('Button').at(1).prop('disabled')).toBeFalsy();
+
+            wrapper
+                .find('Input')
+                .find('input')
+                .simulate('change', {
+                    target: {
+                        value: '',
+                    },
+                });
+            expect(wrapper.find('Button').at(1).prop('disabled')).toBeTruthy();
+        });
+    });
     describe('callbacks', () => {
-        it.todo('should call onChange when label is clicked');
-        it.todo('should call onChange with updated selection state once label was clicked');
-        it.todo(
-            'should call onChange with with full label object (e.g. include id even if it is not included in the type)'
-        );
+        it('should call onChange when label is clicked', () => {
+            const mockOnChange = jest.fn();
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock} onChange={mockOnChange}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
+            wrapper.find('Checkbox').at(0).find('input').simulate('change');
+            expect(mockOnChange).toHaveBeenCalledTimes(1);
+        });
+        it('should call onChange with label object once it was clicked', () => {
+            const mockOnChange = jest.fn();
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock} onChange={mockOnChange}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
 
-        it.todo('should call onAdd when add button is clicked');
-        it.todo('should call onAdd when add ENTER is pressed');
+            wrapper.find('Checkbox').at(0).find('input').simulate('change');
+            expect(mockOnChange).toHaveBeenCalledWith(labelsMock[0], expect.any(Object));
 
-        it.todo('should call onDone when add Done button is clicked');
-        it.todo('should call onCancel on outer click');
+            wrapper.find('Checkbox').at(2).find('input').simulate('change');
+            expect(mockOnChange).toHaveBeenLastCalledWith(labelsMock[2], expect.any(Object));
+        });
+        it('should call onChange with with full label object (e.g. include key-values not included in the type)', () => {
+            const mockOnChange = jest.fn();
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock} onChange={mockOnChange}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
+
+            wrapper.find('Checkbox').at(3).find('input').simulate('change');
+            expect(mockOnChange).toHaveBeenCalledWith(labelsMock[3], expect.any(Object));
+        });
+
+        it('should call onAdd when add button is clicked', () => {
+            const mockOnAdd = jest.fn();
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock} onAdd={mockOnAdd}>
+                    <Button id="trigger">Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('#trigger').at(0).simulate('click');
+            wrapper
+                .find('Input')
+                .find('input')
+                .simulate('change', {
+                    target: {
+                        value: 'test',
+                    },
+                });
+            wrapper.find('Button').at(1).simulate('click');
+            expect(mockOnAdd).toHaveBeenCalledTimes(1);
+            expect(mockOnAdd).toHaveBeenCalledWith('test');
+        });
+        it('should call onAdd when add ENTER is pressed', () => {
+            const mockOnAdd = jest.fn();
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock} onAdd={mockOnAdd}>
+                    <Button id="trigger">Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('#trigger').at(0).simulate('click');
+            wrapper
+                .find('Input')
+                .find('input')
+                .simulate('change', {
+                    target: {
+                        value: 'test',
+                    },
+                });
+            wrapper.find('Input').find('input').simulate('keydown', {
+                key: ENTER_KEY,
+            });
+            expect(mockOnAdd).toHaveBeenCalledTimes(1);
+            expect(mockOnAdd).toHaveBeenCalledWith('test');
+        });
+
+        it('should call onClose when dialog is closed due to Done button click', () => {
+            const mockOnClose = jest.fn();
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock} onClose={mockOnClose}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
+
+            wrapper.find('Button').at(2).simulate('click');
+            expect(mockOnClose).toHaveBeenCalledTimes(1);
+        });
+        it('should call onClose when dialog is closed due to outer click', () => {
+            const clickDocument = useDocumentEvent('click');
+            const mockOnClose = jest.fn();
+
+            const wrapper = mount(
+                <LabelPicker labels={[]} onClose={mockOnClose}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            expect(wrapper.find('div').length).toBe(0);
+
+            // open dialog
+            wrapper.find('Button').simulate('click');
+
+            expect(wrapper.find('div').length).toBeGreaterThan(0);
+
+            // click outside of component
+            act(() => {
+                clickDocument();
+            });
+            wrapper.update();
+
+            expect(mockOnClose).toHaveBeenCalledTimes(1);
+        });
+        it('should call onClose when dialog is closed due to trigger button click', () => {
+            const mockOnClose = jest.fn();
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock} onClose={mockOnClose}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
+
+            wrapper.find('Button').at(0).simulate('click');
+            expect(mockOnClose).toHaveBeenCalledTimes(1);
+        });
     });
 });

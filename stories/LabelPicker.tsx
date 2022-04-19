@@ -22,7 +22,7 @@ storiesOf('Organisms|LabelPicker', module)
 
             const idx = labels.findIndex((element) => element.id === label.id);
             const newLabels = [...labels];
-            newLabels.splice(idx, 1, label);
+            newLabels.splice(idx, 1, { ...label, isSelected: !label.isSelected });
             setLabels(newLabels);
         };
 
