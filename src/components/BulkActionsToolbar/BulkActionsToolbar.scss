@@ -51,8 +51,9 @@
     }
 
     &__icon {
+        font-size: 15px;
         display: inline-flex;
-        padding-right: var(--spacing-2x);
+        padding-right: var(--spacing-normal);
     }
 
     &__action {
