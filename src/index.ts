@@ -2,6 +2,8 @@
 export { default } from './utils/OneUI';
 export * from './packages/Highlighter';
 export * from './packages/BooleanQueryTokenizer';
+export * from './packages/OneUITheme';
+export * from './packages/ThemeGenerator';
 
 // Atoms
 export { Button, SearchButton, StepperButton } from './components/Buttons';
