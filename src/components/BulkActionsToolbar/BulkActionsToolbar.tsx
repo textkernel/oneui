@@ -25,6 +25,7 @@ export type BulkActionsToolbarAction = {
     label: string;
     icon?: React.ReactElement;
     tooltip?: string;
+    delay?: number;
     disabled: boolean;
     /** Default is 'link' */
     context?: Context | 'link';
@@ -73,7 +74,7 @@ export const BulkActionsToolbar: React.FC<Props> = (props) => {
                     // be able to show the tooltip on disabled button.
                     // https://github.com/atomiks/tippyjs-react/issues/123
                     return (
-                        <Tooltip key={action.label} content={action.tooltip}>
+                        <Tooltip key={action.label} content={action.tooltip} delay={action.delay}>
                             <span {...elem('actionWrapper', { first: index === 0 })}>
                                 <Button
                                     context={action.context || 'link'}

@@ -4,7 +4,9 @@ import Tippy, { TippyProps } from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css?external';
 import 'tippy.js/animations/shift-toward.css?external';
 
-export const Tooltip: React.FC<TippyProps> = (props) => {
+export type TooltipProps = TippyProps;
+
+export const Tooltip: React.FC<TooltipProps> = (props) => {
     const { content, children, disabled, ...rest } = props;
     let isDisabled = disabled;
     if (disabled === undefined && !content) {
