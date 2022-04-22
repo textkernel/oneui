@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { FaPlus } from 'react-icons/fa';
+import { bem } from '../../utils/bem/bem';
 import { Button } from '../Buttons';
 import { Checkbox } from '../Checkbox';
 import { Input } from '../Input';
 import { Text } from '../Text';
 import { useOuterClick } from '../../hooks';
 import { ENTER_KEY } from '../../constants';
+import styles from './LabelPicker.scss';
+
+const { elem } = bem('LabelPicker', styles);
 
 export type Label = {
     /** the display name to be shown to the user */
@@ -91,41 +95,44 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                 ref: triggerRef,
             })}
             {isOpen ? (
-                <div ref={dialogRef}>
+                <div ref={dialogRef} {...elem('container')}>
                     {labels.map((label) => (
                         <Checkbox
                             key={label.name}
                             id={label.name}
                             checked={label.isSelected}
                             onChange={getChangeHandler(label)}
+                            {...elem('checkbox')}
                         >
                             <Text inline>
                                 {label.name}
                                 {label.count ? (
-                                    <Text inline context="muted">
+                                    <Text inline context="muted" {...elem('count')}>
                                         ({label.count})
                                     </Text>
                                 ) : null}
                             </Text>
                         </Checkbox>
                     ))}
-                    <div>
+                    <div {...elem('inputLine')}>
                         <Input
                             placeholder={inputPlaceholder}
                             size="small"
                             onChange={handleInputChange}
                             onKeyDown={handleKeyPress}
+                            {...elem('input')}
                         />
                         <Button
                             context="good"
                             size="small"
                             onClick={handleAdd}
                             disabled={!inputValue}
+                            {...elem('addButton')}
                         >
                             <FaPlus width="24px" height="24px" />
                         </Button>
                     </div>
-                    <Button onClick={handleClose} context="primary">
+                    <Button onClick={handleClose} context="primary" isBlock>
                         {doneLabel}
                     </Button>
                 </div>
