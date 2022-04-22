@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/no-default-export
 export { default } from './utils/OneUI';
+export * from './themes/OneUITheme';
 export * from './packages/Highlighter';
 export * from './packages/BooleanQueryTokenizer';
-export * from './packages/OneUITheme';
 export * from './packages/ThemeGenerator';
 
 // Atoms

@@ -20,7 +20,8 @@ export const colorVariables = {
 };
 
 export const computedColorVariables = (baseVariables: CSSVars): CSSVars => {
-    const generateColorShadesFromVariables = (name: string) => generateColorShades(baseVariables, name);
+    const generateColorShadesFromVariables = (name: string) =>
+        generateColorShades(baseVariables, name);
     return {
         ...generateColorShadesFromVariables('--color-neutral'),
         ...generateColorShadesFromVariables('--color-muted'),

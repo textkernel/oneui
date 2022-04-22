@@ -1,5 +1,12 @@
 /**
- * @module OneUITheme
+ * @module OneUITheme is responsible for storing theme variables.
+ * Theme variables are custom CSS properties that controls
+ * the appearance of OneUI components.
+ *
+ * There are a few types of variables:
+ * - colors;
+ * - sizing;
+ * - typography;
  */
 import {
     colorVariables,

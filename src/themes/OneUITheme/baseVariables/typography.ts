@@ -10,8 +10,10 @@ export const typographyVariables = {
     '--h4-font-size': '14px',
     '--h5-font-size': '12px',
     '--h6-font-size': '10px',
-    '--font-family-primary': '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Droid Sans, Helvetica Neue, sans-serif',
-    '--font-family-secondary': '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Droid Sans, Helvetica Neue, sans-serif',
+    '--font-family-primary':
+        '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Droid Sans, Helvetica Neue, sans-serif',
+    '--font-family-secondary':
+        '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Droid Sans, Helvetica Neue, sans-serif',
     '--font-weight-light': '200',
     '--font-weight-normal': '400',
     '--font-weight-medium': '500',
