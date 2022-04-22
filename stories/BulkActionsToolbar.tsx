@@ -63,6 +63,7 @@ storiesOf('Molecules|BulkActionsToolbar', module)
                         },
                     },
                 ]}
+                tooltipDelay={500}
             />
         );
     });
