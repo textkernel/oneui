@@ -25,7 +25,6 @@ export type BulkActionsToolbarAction = {
     label: string;
     icon?: React.ReactElement;
     tooltip?: string;
-    delay?: number;
     disabled: boolean;
     /** Default is 'link' */
     context?: Context | 'link';
@@ -41,19 +40,20 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
     toggle: BulkActionsToolbarToggle;
     /** Defines list of actions */
     actions?: BulkActionsToolbarAction[];
+    tooltipDelay?: number;
 }
 
 const { block, elem } = bem('BulkActionsToolbar', styles);
 
 export const BulkActionsToolbar: React.FC<Props> = (props) => {
-    const { selection, toggleState, toggle, actions = [], ...rest } = props;
+    const { selection, toggleState, toggle, actions = [], tooltipDelay, ...rest } = props;
     const toggleTooltip =
         toggleState === 'all' ? toggle.selectAllTooltip : toggle.selectNoneTooltip;
     const toggleLabel = toggleState === 'all' ? toggle.selectAllLabel : toggle.selectNoneLabel;
     return (
         <div {...block({ hasSelection: selection.hasSelection })} {...rest}>
             {selection.hasSelection && (
-                <Tooltip content={selection.tooltip}>
+                <Tooltip content={selection.tooltip} delay={tooltipDelay}>
                     <div {...elem('counter')}>{selection.label}</div>
                 </Tooltip>
             )}
@@ -74,7 +74,7 @@ export const BulkActionsToolbar: React.FC<Props> = (props) => {
                     // be able to show the tooltip on disabled button.
                     // https://github.com/atomiks/tippyjs-react/issues/123
                     return (
-                        <Tooltip key={action.label} content={action.tooltip} delay={action.delay}>
+                        <Tooltip key={action.label} content={action.tooltip} delay={tooltipDelay}>
                             <span {...elem('actionWrapper', { first: index === 0 })}>
                                 <Button
                                     context={action.context || 'link'}

@@ -48,7 +48,6 @@ storiesOf('Molecules|BulkActionsToolbar', module)
                         label: 'Import',
                         context: 'primary',
                         tooltip: 'Import selected candidates to your ATS',
-                        delay: 500,
                         disabled: false,
                         onClick: () => {
                             console.log('"Import" has been clicked');
@@ -64,6 +63,7 @@ storiesOf('Molecules|BulkActionsToolbar', module)
                         },
                     },
                 ]}
+                tooltipDelay={500}
             />
         );
     });
