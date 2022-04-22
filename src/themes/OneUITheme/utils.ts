@@ -10,12 +10,12 @@ export const generateColorShades = (variables: CSSVars, name: string): CSSVars =
     return FACTORS.reduce(
         (result, factor) => ({
             ...result,
-            [`${name}-${50 - factor / 2}`]: mixTwoColors(
+            [`${name}-${50 - Math.round(factor / 2)}`]: mixTwoColors(
                 variables[name],
                 variables['--color-background'],
                 factor
             ),
-            [`${name}-${50 + factor / 2}`]: mixTwoColors(
+            [`${name}-${50 + Math.round(factor / 2)}`]: mixTwoColors(
                 variables[name],
                 variables['--color-foreground'],
                 factor
