@@ -9,7 +9,8 @@ describe('OneUITheme/utils', () => {
     });
     describe('#generateColorShades()', () => {
         it('should generate color shades correctly', () => {
-            const computedColors = generateColorShades({
+            const computedColors = generateColorShades(
+                {
                     '--color-brand': '#0097d1',
                     '--color-background': '#fff',
                     '--color-foreground': '#1d1d1b',
