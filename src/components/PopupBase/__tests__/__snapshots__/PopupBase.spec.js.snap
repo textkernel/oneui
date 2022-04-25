@@ -6,6 +6,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   anchorRenderer={[Function]}
   onClose={null}
   placement="bottom-start"
+  popperOptions={Object {}}
   popupRef={null}
   popupRenderer={[Function]}
   renderInPortal={true}
@@ -101,6 +102,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   anchorRenderer={[Function]}
   onClose={null}
   placement="bottom-start"
+  popperOptions={Object {}}
   popupRef={null}
   popupRenderer={[Function]}
   renderInPortal={false}
@@ -173,6 +175,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   anchorRenderer={[Function]}
   onClose={null}
   placement="bottom-start"
+  popperOptions={Object {}}
   popupRef={null}
   popupRenderer={[Function]}
   renderInPortal={false}
@@ -204,6 +207,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   anchorRenderer={[Function]}
   onClose={null}
   placement="bottom-start"
+  popperOptions={Object {}}
   popupRef={null}
   popupRenderer={[Function]}
   renderInPortal={false}

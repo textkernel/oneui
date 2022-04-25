@@ -8,7 +8,22 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
     anchorRef={null}
     anchorRenderer={[Function]}
     onClose={null}
-    placement="bottom-start"
+    placement="bottom-end"
+    popperOptions={
+      Object {
+        "modifiers": Array [
+          Object {
+            "name": "offset",
+            "options": Object {
+              "offset": Array [
+                0,
+                3,
+              ],
+            },
+          },
+        ],
+      }
+    }
     popupRef={null}
     popupRenderer={[Function]}
     renderInPortal={false}
@@ -66,7 +81,22 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
     anchorRef={null}
     anchorRenderer={[Function]}
     onClose={null}
-    placement="bottom-start"
+    placement="bottom-end"
+    popperOptions={
+      Object {
+        "modifiers": Array [
+          Object {
+            "name": "offset",
+            "options": Object {
+              "offset": Array [
+                0,
+                3,
+              ],
+            },
+          },
+        ],
+      }
+    }
     popupRef={null}
     popupRenderer={[Function]}
     renderInPortal={false}
