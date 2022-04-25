@@ -1,7 +1,9 @@
 // eslint-disable-next-line import/no-default-export
 export { default } from './utils/OneUI';
+export * from './themes/OneUITheme';
 export * from './packages/Highlighter';
 export * from './packages/BooleanQueryTokenizer';
+export * from './packages/ThemeGenerator';
 
 // Atoms
 export { Button, SearchButton, StepperButton } from './components/Buttons';

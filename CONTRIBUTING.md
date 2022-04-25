@@ -136,6 +136,12 @@ OneUI uses [@textkernel/bem library](https://github.com/textkernel/bem) that aut
 ## Theming Compatibility
 
 OneUI components must be themeable. The most important rule is that any CSS property values that should be affected by themes need to be defined as CSS variables. Each CSS variable should come with a default value, defined by the base theme. Any static CSS property values _will not be affected_ when using custom themes.
+There are two places where CSS variables must be defined:
+
+1. `themes/oneui` - used for generating CSS properties in building bundles phase.
+2. `themes/OneUITheme` - used for generating CSS properties in browser.
+
+The CSS property values must be the same for `themes` and `themes/OneUITheme`.
 
 ## Testing
 
