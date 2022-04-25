@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { FaPlus } from 'react-icons/fa';
+import { usePopper } from 'react-popper';
 import { bem } from '../../utils/bem/bem';
 import { Button } from '../Buttons';
 import { Checkbox } from '../Checkbox';
@@ -7,6 +8,7 @@ import { Input } from '../Input';
 import { Text } from '../Text';
 import { useOuterClick } from '../../hooks';
 import { ENTER_KEY } from '../../constants';
+import { mergeRefs } from '../../utils/mergeRefs';
 import styles from './LabelPicker.scss';
 
 const { elem } = bem('LabelPicker', styles);
@@ -39,7 +41,8 @@ export interface Props<L extends Label> {
 
 export function LabelPicker<L extends Label>(props: Props<L>) {
     const { labels, children, onChange, onAdd, onClose, inputPlaceholder, doneLabel } = props;
-    const triggerRef = React.createRef<React.ReactElement<any>>();
+    // const triggerRef = React.createRef<Element>();
+    const [triggerRef, setTriggerRef] = React.useState<Element | null>(null);
     const [isOpen, setIsOpen] = React.useState(false);
     const [inputValue, setInputValue] = React.useState('');
 
@@ -56,6 +59,16 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
     };
 
     const dialogRef = useOuterClick<HTMLDivElement>(handleOuterClick);
+
+    const popper = usePopper(triggerRef, dialogRef.current, {
+        placement: 'bottom',
+        modifiers: [
+            {
+                name: 'offset',
+                options: { offset: [0, 3] },
+            },
+        ],
+    });
 
     const handleTriggerClick = (event: React.ChangeEvent<HTMLInputElement>) => {
         // call the onClick function that might have been set on the child
@@ -92,51 +105,54 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
         <>
             {React.cloneElement(children, {
                 onClick: handleTriggerClick,
-                ref: triggerRef,
+                // @ts-ignore
+                ref: mergeRefs([setTriggerRef]),
             })}
-            {isOpen ? (
-                <div ref={dialogRef} {...elem('container')}>
-                    {labels.map((label) => (
-                        <Checkbox
-                            key={label.name}
-                            id={label.name}
-                            checked={label.isSelected}
-                            onChange={getChangeHandler(label)}
-                            {...elem('checkbox')}
-                        >
-                            <Text inline>
-                                {label.name}
-                                {label.count ? (
-                                    <Text inline context="muted" {...elem('count')}>
-                                        ({label.count})
-                                    </Text>
-                                ) : null}
-                            </Text>
-                        </Checkbox>
-                    ))}
-                    <div {...elem('inputLine')}>
-                        <Input
-                            placeholder={inputPlaceholder}
-                            size="small"
-                            onChange={handleInputChange}
-                            onKeyDown={handleKeyPress}
-                            {...elem('input')}
-                        />
-                        <Button
-                            context="good"
-                            size="small"
-                            onClick={handleAdd}
-                            disabled={!inputValue}
-                            {...elem('addButton')}
-                        >
-                            <FaPlus width="24px" height="24px" />
+            <div style={popper?.styles?.popper} {...popper?.attributes}>
+                {isOpen ? (
+                    <div ref={dialogRef} {...elem('container')}>
+                        {labels.map((label) => (
+                            <Checkbox
+                                key={label.name}
+                                id={label.name}
+                                checked={label.isSelected}
+                                onChange={getChangeHandler(label)}
+                                {...elem('checkbox')}
+                            >
+                                <Text inline>
+                                    {label.name}
+                                    {label.count ? (
+                                        <Text inline context="muted" {...elem('count')}>
+                                            ({label.count})
+                                        </Text>
+                                    ) : null}
+                                </Text>
+                            </Checkbox>
+                        ))}
+                        <div {...elem('inputLine')}>
+                            <Input
+                                placeholder={inputPlaceholder}
+                                size="small"
+                                onChange={handleInputChange}
+                                onKeyDown={handleKeyPress}
+                                {...elem('input')}
+                            />
+                            <Button
+                                context="good"
+                                size="small"
+                                onClick={handleAdd}
+                                disabled={!inputValue}
+                                {...elem('addButton')}
+                            >
+                                <FaPlus width="24px" height="24px" />
+                            </Button>
+                        </div>
+                        <Button onClick={handleClose} context="primary" isBlock>
+                            {doneLabel}
                         </Button>
                     </div>
-                    <Button onClick={handleClose} context="primary" isBlock>
-                        {doneLabel}
-                    </Button>
-                </div>
-            ) : null}
+                ) : null}
+            </div>
         </>
     );
 }
