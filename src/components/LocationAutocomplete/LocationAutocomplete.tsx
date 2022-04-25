@@ -122,6 +122,7 @@ const LocationAutocomplete: React.FC<Props> = (props) => {
         // TODO: clarify with Carlo how to handle errors
         const errorMessage =
             'Google Maps Places API was not found on the page. Before using this component, make sure to load the places API';
+        // eslint-disable-next-line no-console
         console.error(errorMessage);
         return (
             <Text context="bad" inline>

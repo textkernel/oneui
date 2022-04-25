@@ -31,6 +31,7 @@ export const CalendarHeader: React.FC<Props> = (props) => {
 
     const [minYear, maxYear] = yearsRange;
     if (maxYear < minYear) {
+        // eslint-disable-next-line no-console
         console.error(
             `CalendarHeader component has received invalid props.
             Minimum selectable year (${minYear}) is larger then maximum selectable year (${maxYear})`

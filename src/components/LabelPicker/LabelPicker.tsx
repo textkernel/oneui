@@ -143,6 +143,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                     },
                 ],
             }}
+            placement="bottom-end"
         />
     );
 }
