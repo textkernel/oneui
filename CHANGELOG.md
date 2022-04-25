@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [17.4.0](https://github.com/textkernel/oneui/compare/17.3.2...17.4.0) (2022-04-25)
+
+
+### Features
+
+* **component:** added ThemeGenerator ([#746](https://github.com/textkernel/oneui/issues/746)) ([e1a5ba3](https://github.com/textkernel/oneui/commit/e1a5ba318ce3f492dd2a88899435d4a718b816ba))
+
 ### [17.3.2](https://github.com/textkernel/oneui/compare/17.3.1...17.3.2) (2022-04-22)
 
 ### [17.3.1](https://github.com/textkernel/oneui/compare/17.3.0...17.3.1) (2022-04-19)
