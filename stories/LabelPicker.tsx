@@ -45,7 +45,7 @@ storiesOf('Organisms|LabelPicker', module)
                 inputPlaceholder={text('Input placeholder', 'Create a new label..')}
                 doneLabel={text('Done label', 'Done')}
             >
-                <Button>Apply label</Button>
+                <Button context="link">Apply label</Button>
             </LabelPicker>
         );
     });

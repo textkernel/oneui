@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import toJson from 'enzyme-to-json';
+import toJson from 'enzyme-to-json';
 import { act } from 'react-dom/test-utils';
 import { LabelPicker } from '../LabelPicker';
 import { Button } from '../../Buttons';
@@ -31,8 +31,24 @@ const labelsMock = [
 
 describe('<LabelPicker> that renders a dropdown type component to apply/remove/add labels', () => {
     describe('snapshot tests', () => {
-        it.todo('should render correctly in closed state');
-        it.todo('should render correctly with dialog open');
+        it('should render correctly in closed state', () => {
+            const wrapper = mount(
+                <LabelPicker labels={[]}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            expect(toJson(wrapper)).toMatchSnapshot();
+        });
+        it('should render correctly with dialog open', () => {
+            const wrapper = mount(
+                <LabelPicker labels={labelsMock}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            wrapper.find('Button').simulate('click');
+
+            expect(toJson(wrapper)).toMatchSnapshot();
+        });
     });
     describe('trigger button', () => {
         it('should render trigger button correctly', () => {
@@ -116,7 +132,24 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
 
             expect(wrapper.find('div').length).toBeGreaterThan(0);
         });
-        it.todo('should close dialog when Done button is clicked');
+        it('should close dialog when Done button is clicked', () => {
+            const wrapper = mount(
+                <LabelPicker labels={[]}>
+                    <Button>Click me</Button>
+                </LabelPicker>
+            );
+            expect(wrapper.find('div').length).toBe(0);
+
+            // open dialog
+            wrapper.find('Button').simulate('click');
+
+            expect(wrapper.find('div').length).toBeGreaterThan(0);
+
+            // click in the dialog
+            wrapper.find('Button').at(2).simulate('click');
+
+            expect(wrapper.find('div').length).toBe(0);
+        });
     });
     describe('labels rendering', () => {
         it('should render dialog with empty labels list', () => {

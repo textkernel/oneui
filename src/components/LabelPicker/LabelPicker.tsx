@@ -1,14 +1,12 @@
 import * as React from 'react';
 import { FaPlus } from 'react-icons/fa';
-import { usePopper } from 'react-popper';
 import { bem } from '../../utils/bem/bem';
 import { Button } from '../Buttons';
 import { Checkbox } from '../Checkbox';
 import { Input } from '../Input';
 import { Text } from '../Text';
-import { useOuterClick } from '../../hooks';
+import { PopupBase } from '../PopupBase';
 import { ENTER_KEY } from '../../constants';
-import { mergeRefs } from '../../utils/mergeRefs';
 import styles from './LabelPicker.scss';
 
 const { elem } = bem('LabelPicker', styles);
@@ -25,8 +23,8 @@ export type Label = {
 export interface Props<L extends Label> {
     /** a list of available labels and their attributes */
     labels: L[];
-    /** a button like element that supports onClick handler to be used as the trigger */
-    children: React.ReactElement<{ onClick: (event: any) => void; ref: React.RefObject<any> }>;
+    /** a button like element that supports onClick handler and ref forwarding. It will be used as the trigger. */
+    children: React.ReactElement<{ onClick: (event: any) => void }>;
     /** callback to be called when the user clicks the checkbox - updating the state of the checkbox is up to the consuming application */
     onChange: (label: L, event: React.ChangeEventHandler<HTMLInputElement>) => void;
     /** callback to add new label */
@@ -41,46 +39,7 @@ export interface Props<L extends Label> {
 
 export function LabelPicker<L extends Label>(props: Props<L>) {
     const { labels, children, onChange, onAdd, onClose, inputPlaceholder, doneLabel } = props;
-    // const triggerRef = React.createRef<Element>();
-    const [triggerRef, setTriggerRef] = React.useState<Element | null>(null);
-    const [isOpen, setIsOpen] = React.useState(false);
     const [inputValue, setInputValue] = React.useState('');
-
-    const handleClose = () => {
-        setIsOpen(false);
-        onClose?.();
-    };
-
-    const handleOuterClick = (event) => {
-        // @ts-ignore
-        if (triggerRef.current && !triggerRef.current.contains(event.target)) {
-            handleClose();
-        }
-    };
-
-    const dialogRef = useOuterClick<HTMLDivElement>(handleOuterClick);
-
-    const popper = usePopper(triggerRef, dialogRef.current, {
-        placement: 'bottom',
-        modifiers: [
-            {
-                name: 'offset',
-                options: { offset: [0, 3] },
-            },
-        ],
-    });
-
-    const handleTriggerClick = (event: React.ChangeEvent<HTMLInputElement>) => {
-        // call the onClick function that might have been set on the child
-        children.props?.onClick?.(event);
-
-        // toggle dialog
-        if (isOpen) {
-            handleClose();
-        } else {
-            setIsOpen(true);
-        }
-    };
 
     const getChangeHandler = (label) => (event) => {
         onChange(label, event);
@@ -101,16 +60,31 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
         }
     };
 
-    return (
-        <>
-            {React.cloneElement(children, {
-                onClick: handleTriggerClick,
-                // @ts-ignore
-                ref: mergeRefs([setTriggerRef]),
-            })}
-            <div style={popper?.styles?.popper} {...popper?.attributes}>
+    const renderAnchor = ({ setPopupVisibility, isOpen }) => {
+        const toggleDropdown = (event) => {
+            // call the onClick function that might have been set on the child
+            children.props?.onClick?.(event);
+            if (isOpen && onClose) {
+                onClose();
+            }
+            setPopupVisibility(!isOpen);
+        };
+
+        return React.cloneElement(children, {
+            onClick: toggleDropdown,
+        });
+    };
+
+    const renderDialog = ({ setPopupVisibility, isOpen }) => {
+        const handleDone = () => {
+            setPopupVisibility(false);
+            onClose?.();
+        };
+
+        return (
+            <div {...elem('dialog')}>
                 {isOpen ? (
-                    <div ref={dialogRef} {...elem('container')}>
+                    <div {...elem('container')}>
                         {labels.map((label) => (
                             <Checkbox
                                 key={label.name}
@@ -147,13 +121,30 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                                 <FaPlus width="24px" height="24px" />
                             </Button>
                         </div>
-                        <Button onClick={handleClose} context="primary" isBlock>
+                        <Button onClick={handleDone} context="primary" isBlock>
                             {doneLabel}
                         </Button>
                     </div>
                 ) : null}
             </div>
-        </>
+        );
+    };
+
+    return (
+        <PopupBase
+            anchorRenderer={renderAnchor}
+            popupRenderer={renderDialog}
+            onClose={onClose}
+            popperOptions={{
+                modifiers: [
+                    {
+                        name: 'offset',
+                        options: { offset: [0, 3] },
+                    },
+                ],
+            }}
+            placement="bottom-end"
+        />
     );
 }
 
