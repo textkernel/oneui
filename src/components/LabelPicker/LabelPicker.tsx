@@ -112,6 +112,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                                 onKeyDown={handleKeyPress}
                                 value={inputValue}
                                 {...elem('input')}
+                                isBlock
                             />
                             <Button
                                 context="good"

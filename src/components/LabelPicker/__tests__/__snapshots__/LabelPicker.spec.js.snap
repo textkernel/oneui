@@ -370,7 +370,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
           <Input
             className="LabelPicker__input"
             disabled={false}
-            isBlock={false}
+            isBlock={true}
             onChange={[Function]}
             onKeyDown={[Function]}
             size="small"
@@ -378,7 +378,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             value=""
           >
             <input
-              className="Input Input--size_small LabelPicker__input"
+              className="Input Input--size_small Input--isBlock LabelPicker__input"
               data-lpignore={true}
               disabled={false}
               onChange={[Function]}
