@@ -94,8 +94,10 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                                 onChange={getChangeHandler(label)}
                                 {...elem('checkbox')}
                             >
-                                <Text inline>
-                                    {label.name}
+                                <Text inline {...elem('label')}>
+                                    <Text inline {...elem('labelText')} title={label.name}>
+                                        {label.name}
+                                    </Text>
                                     {label.count ? (
                                         <Text inline context="muted" {...elem('count')}>
                                             ({label.count})

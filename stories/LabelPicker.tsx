@@ -10,6 +10,13 @@ const LABELS = [
     { name: 'Label 2', isSelected: true, count: 2, id: 2 },
     { name: 'Label 3', isSelected: false, count: 300, id: 3 },
     { name: 'Label 4', isSelected: false, id: 4 },
+    { name: 'This is label 5 which has a very very long name', isSelected: false, id: 5 },
+    {
+        name: 'This is label 6 which has a very very long name and a count',
+        isSelected: false,
+        count: 654,
+        id: 5,
+    },
 ];
 
 storiesOf('Organisms|LabelPicker', module)

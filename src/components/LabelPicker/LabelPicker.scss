@@ -1,6 +1,9 @@
+$labelingDialogWidth: 200px;
+
 .LabelPicker {
     &__dialog {
         z-index: 400;
+        max-width: $labelingDialogWidth;
     }
 
     &__container {
@@ -13,6 +16,18 @@
 
     &__checkbox {
         margin-bottom: var(--spacing-normal);
+    }
+
+    &__label {
+        display: inline-flex;
+        max-width: calc(#{$labelingDialogWidth} - 34px);
+    }
+
+    &__labelText {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__count {
