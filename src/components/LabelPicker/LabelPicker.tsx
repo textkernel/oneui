@@ -47,6 +47,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
 
     const handleAdd = () => {
         onAdd(inputValue);
+        setInputValue('');
     };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -109,6 +110,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                                 size="small"
                                 onChange={handleInputChange}
                                 onKeyDown={handleKeyPress}
+                                value={inputValue}
                                 {...elem('input')}
                             />
                             <Button

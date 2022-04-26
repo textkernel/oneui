@@ -231,6 +231,30 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
                 });
             expect(wrapper.find('Button').at(1).prop('disabled')).toBeTruthy();
         });
+        it('should clear the input value after add button was clicked', () => {
+            const mockOnAdd = jest.fn();
+            const wrapper = mount(
+                <LabelPicker labels={[]} onAdd={mockOnAdd}>
+                    <Button id="trigger">Click me</Button>
+                </LabelPicker>
+            );
+            // open dialog
+            wrapper.find('#trigger').at(0).simulate('click');
+            // type in input field
+            wrapper
+                .find('Input')
+                .find('input')
+                .simulate('change', {
+                    target: {
+                        value: 'test',
+                    },
+                });
+            expect(wrapper.find('input').prop('value')).toBe('test');
+
+            // click add
+            wrapper.find('Button').at(1).simulate('click');
+            expect(wrapper.find('input').prop('value')).toBe('');
+        });
     });
     describe('callbacks', () => {
         it('should call onChange when label is clicked', () => {

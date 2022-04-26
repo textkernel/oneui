@@ -375,6 +375,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             onKeyDown={[Function]}
             size="small"
             type="text"
+            value=""
           >
             <input
               className="Input Input--size_small LabelPicker__input"
@@ -383,6 +384,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
               onChange={[Function]}
               onKeyDown={[Function]}
               type="text"
+              value=""
             />
           </Input>
           <Button
