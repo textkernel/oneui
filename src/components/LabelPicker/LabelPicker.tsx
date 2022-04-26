@@ -24,7 +24,7 @@ export interface Props<L extends Label> {
     /** a list of available labels and their attributes */
     labels: L[];
     /** a button like element that supports onClick handler and ref forwarding. It will be used as the trigger. */
-    children: React.ReactElement<{ onClick: (event: any) => void }>;
+    children: React.ReactElement<{ onClick: (event: React.MouseEvent) => void }>;
     /** callback to be called when the user clicks the checkbox - updating the state of the checkbox is up to the consuming application */
     onChange: (label: L, event: React.ChangeEventHandler<HTMLInputElement>) => void;
     /** callback to add new label */

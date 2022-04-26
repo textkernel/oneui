@@ -171,12 +171,28 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 </svg>
               </span>
               <Text
+                className="LabelPicker__label"
                 context="default"
                 inline={true}
                 size="normal"
               >
-                <span>
-                  First label
+                <span
+                  className="LabelPicker__label"
+                >
+                  <Text
+                    className="LabelPicker__labelText"
+                    context="default"
+                    inline={true}
+                    size="normal"
+                    title="First label"
+                  >
+                    <span
+                      className="LabelPicker__labelText"
+                      title="First label"
+                    >
+                      First label
+                    </span>
+                  </Text>
                 </span>
               </Text>
             </label>
@@ -227,12 +243,28 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 </svg>
               </span>
               <Text
+                className="LabelPicker__label"
                 context="default"
                 inline={true}
                 size="normal"
               >
-                <span>
-                  Second label
+                <span
+                  className="LabelPicker__label"
+                >
+                  <Text
+                    className="LabelPicker__labelText"
+                    context="default"
+                    inline={true}
+                    size="normal"
+                    title="Second label"
+                  >
+                    <span
+                      className="LabelPicker__labelText"
+                      title="Second label"
+                    >
+                      Second label
+                    </span>
+                  </Text>
                   <Text
                     className="LabelPicker__count"
                     context="muted"
@@ -297,12 +329,28 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 </svg>
               </span>
               <Text
+                className="LabelPicker__label"
                 context="default"
                 inline={true}
                 size="normal"
               >
-                <span>
-                  Third label
+                <span
+                  className="LabelPicker__label"
+                >
+                  <Text
+                    className="LabelPicker__labelText"
+                    context="default"
+                    inline={true}
+                    size="normal"
+                    title="Third label"
+                  >
+                    <span
+                      className="LabelPicker__labelText"
+                      title="Third label"
+                    >
+                      Third label
+                    </span>
+                  </Text>
                 </span>
               </Text>
             </label>
@@ -353,12 +401,28 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 </svg>
               </span>
               <Text
+                className="LabelPicker__label"
                 context="default"
                 inline={true}
                 size="normal"
               >
-                <span>
-                  Fourth label
+                <span
+                  className="LabelPicker__label"
+                >
+                  <Text
+                    className="LabelPicker__labelText"
+                    context="default"
+                    inline={true}
+                    size="normal"
+                    title="Fourth label"
+                  >
+                    <span
+                      className="LabelPicker__labelText"
+                      title="Fourth label"
+                    >
+                      Fourth label
+                    </span>
+                  </Text>
                 </span>
               </Text>
             </label>
