@@ -16,7 +16,7 @@ $labelingDialogWidth: 200px;
 
     &__scrollBox {
         max-height: 190px;
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
     &__checkbox {
