@@ -165,10 +165,12 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                 className="AutosuggestDeprecated__field"
                 clearLabel=""
                 disabled={false}
+                isArrowDropUp={false}
                 isFocused={true}
                 onClear={[Function]}
                 onClick={[Function]}
                 onKeyDown={[Function]}
+                showArrow={false}
                 showClearButton={false}
               >
                 <div

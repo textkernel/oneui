@@ -59,10 +59,12 @@ exports[`AutosuggestDeprecated rendering should initially render empty component
           className="AutosuggestDeprecated__field"
           clearLabel="Clear"
           disabled={false}
+          isArrowDropUp={false}
           isFocused={false}
           onClear={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
+          showArrow={false}
           showClearButton={false}
         >
           <div
@@ -178,10 +180,12 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
           className="AutosuggestDeprecated__field"
           clearLabel="Clear"
           disabled={false}
+          isArrowDropUp={false}
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
+          showArrow={false}
           showClearButton={false}
         >
           <div
@@ -487,10 +491,12 @@ exports[`AutosuggestDeprecated rendering should render icon correctly if passed 
           className="AutosuggestDeprecated__field"
           clearLabel="Clear"
           disabled={false}
+          isArrowDropUp={false}
           isFocused={false}
           onClear={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
+          showArrow={false}
           showClearButton={false}
         >
           <div
@@ -658,10 +664,12 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
           className="AutosuggestDeprecated__field"
           clearLabel="Clear"
           disabled={false}
+          isArrowDropUp={false}
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
+          showArrow={false}
           showClearButton={false}
         >
           <div
@@ -825,10 +833,12 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
           className="AutosuggestDeprecated__field"
           clearLabel="Clear"
           disabled={false}
+          isArrowDropUp={false}
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
+          showArrow={false}
           showClearButton={false}
         >
           <div

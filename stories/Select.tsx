@@ -23,7 +23,7 @@ storiesOf('Organisms|Select Components', module)
         StoreInjector.withStore({
             inputValue: '',
             selectedSuggestions: [],
-            selectedItem: SUGGESTIONS[0],
+            selectedItem: undefined,
             disabled: false,
             inputRef: React.createRef(),
             singleSelectedText: '',
@@ -46,6 +46,11 @@ storiesOf('Organisms|Select Components', module)
                 store.set({ selectedItem: item });
             };
 
+            const onClear = () => {
+                console.log('onClear was called');
+                store.set({ selectedItem: undefined });
+            };
+
             return (
                 <>
                     <Select<TSuggestion>
@@ -53,9 +58,12 @@ storiesOf('Organisms|Select Components', module)
                         items={SUGGESTIONS}
                         itemToString={SUGGESTION_TO_STRING}
                         selectedItem={store.get('selectedItem')}
+                        clearLabel={text('Clear button label', 'Clear')}
+                        placeholder={text('Placeholder', 'Choose item...')}
                         onFocus={onFocus}
                         onBlur={onBlur}
                         onChange={onChange}
+                        onClear={onClear}
                     />
                 </>
             );
@@ -343,9 +351,9 @@ storiesOf('Organisms|Select Components', module)
             info: {
                 text: `
                 The Autosuggest component is recommended to use for a dynamic list of values.
-                It is primarily geared toward a multi-select use case. 
+                It is primarily geared toward a multi-select use case.
                 This story demonstrates how you can add props and function to make it feel like a single select component.
-                
+
                 The important parts here are:
                 * passing inputRef prop, so we can access the input field from outside
                 * calling inputRef.current.blur() in onSelectionAdd
@@ -593,7 +601,7 @@ storiesOf('Organisms|Select Components', module)
             info: {
                 text: `
             The Autosuggest component is recommended to use for a dynamic list of values.
-            This story demonstrates how you can mix these dynamic suggestions with static ones (e.g. based on user input), 
+            This story demonstrates how you can mix these dynamic suggestions with static ones (e.g. based on user input),
             and how those can be shown during the loading state as well`,
             },
         }
@@ -739,19 +747,19 @@ storiesOf('Organisms|Select Components', module)
             info: {
                 text: `
             The Autosuggest component is recommended to use for a dynamic list of values.
-            It is primarily geared toward a multi-select use case. 
+            It is primarily geared toward a multi-select use case.
             This story demonstrates how you can add props and function to allow mix of single select and multi select options together.
-            
+
             The business case we demonstrate here is has the following requirements:
-            
+
             * The user can select free text input
             * When free text input is selected it should behave as a single select component
             * All other suggestions can be selected in a multi-select fashion.
-            
+
             The **important parts** here are:
             * passing inputRef prop, so we can access the input field from outside
             * calling inputRef.current.blur() in onSelectionAdded callback when needed
-            
+
             when a _single selection happened_:
             * passing a custom customSelectionIndicator node to alter the look and feel of the blurred component
             * passing initInputValue so that the input field gets populated when the component receives focus again.`,

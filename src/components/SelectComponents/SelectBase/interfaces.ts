@@ -89,4 +89,6 @@ export interface Props<S>
     highlightOnEmptyInput?: boolean;
     /** select highlighted item when blurring out of the component */
     selectOnTab?: boolean;
+    /** show dropdown icon */
+    showArrow?: boolean;
 }

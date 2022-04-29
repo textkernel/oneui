@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { bem } from '../../utils';
 import { Button } from '../Buttons';
 import styles from './FieldWrapper.scss';
@@ -8,6 +9,10 @@ const { block, elem } = bem('FieldWrapper', styles);
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** content of the wrapper */
     children: NotEmptyReactNode;
+    /** show dropdown icon */
+    showArrow?: boolean;
+    /** set direction of dropdown icon (default drop down) */
+    isArrowDropUp?: boolean;
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton?: boolean;
     /** clear button label */
@@ -30,7 +35,16 @@ export const FieldWrapper: React.FC<Props> = React.forwardRef((props, ref) => {
         }
     };
 
-    const { children, clearLabel, showClearButton, onClear, isFocused, ...rest } = props;
+    const {
+        children,
+        showArrow,
+        isArrowDropUp,
+        clearLabel,
+        showClearButton,
+        onClear,
+        isFocused,
+        ...rest
+    } = props;
 
     return (
         <div ref={ref} {...rest} {...block(props)}>
@@ -41,11 +55,18 @@ export const FieldWrapper: React.FC<Props> = React.forwardRef((props, ref) => {
                     isInline
                     context="link"
                     onClick={handleClear}
-                    {...elem('clearButton', props)}
+                    {...elem('clearButton', { ...props, rightIndent: showArrow })}
                 >
                     {clearLabel}
                 </Button>
             )}
+
+            {showArrow &&
+                (isArrowDropUp ? (
+                    <IoMdArrowDropup {...elem('dropdownIcon')} />
+                ) : (
+                    <IoMdArrowDropdown {...elem('dropdownIcon')} />
+                ))}
         </div>
     );
 });
@@ -53,6 +74,8 @@ export const FieldWrapper: React.FC<Props> = React.forwardRef((props, ref) => {
 FieldWrapper.displayName = 'FieldWrapper';
 
 FieldWrapper.defaultProps = {
+    showArrow: false,
+    isArrowDropUp: false,
     showClearButton: false,
     clearLabel: '',
     onClear: null,

@@ -4,8 +4,10 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
 <FieldWrapper
   clearLabel="Clear"
   disabled={false}
+  isArrowDropUp={false}
   isFocused={false}
   onClear={null}
+  showArrow={false}
   showClearButton={true}
 >
   <div
@@ -44,8 +46,10 @@ exports[`FieldWrapper should render correctly 1`] = `
 <FieldWrapper
   clearLabel=""
   disabled={false}
+  isArrowDropUp={false}
   isFocused={false}
   onClear={null}
+  showArrow={true}
   showClearButton={false}
 >
   <div
@@ -57,6 +61,39 @@ exports[`FieldWrapper should render correctly 1`] = `
     >
       some children
     </div>
+    <IoMdArrowDropdown
+      className="FieldWrapper__dropdownIcon"
+    >
+      <IconBase
+        attr={
+          Object {
+            "viewBox": "0 0 512 512",
+          }
+        }
+        className="FieldWrapper__dropdownIcon"
+      >
+        <svg
+          className="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 192l128 128 128-128z"
+            key="0"
+          />
+        </svg>
+      </IconBase>
+    </IoMdArrowDropdown>
   </div>
 </FieldWrapper>
 `;
