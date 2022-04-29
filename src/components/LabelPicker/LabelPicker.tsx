@@ -86,26 +86,28 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
             <div {...elem('dialog')}>
                 {isOpen ? (
                     <div {...elem('container')}>
-                        {labels.map((label) => (
-                            <Checkbox
-                                key={label.name}
-                                id={label.name}
-                                checked={label.isSelected}
-                                onChange={getChangeHandler(label)}
-                                {...elem('checkbox')}
-                            >
-                                <Text inline {...elem('label')}>
-                                    <Text inline {...elem('labelText')} title={label.name}>
-                                        {label.name}
-                                    </Text>
-                                    {label.count ? (
-                                        <Text inline context="muted" {...elem('count')}>
-                                            ({label.count})
+                        <div {...elem('scrollBox')}>
+                            {labels.map((label) => (
+                                <Checkbox
+                                    key={label.name}
+                                    id={label.name}
+                                    checked={label.isSelected}
+                                    onChange={getChangeHandler(label)}
+                                    {...elem('checkbox')}
+                                >
+                                    <Text inline {...elem('label')}>
+                                        <Text inline {...elem('labelText')} title={label.name}>
+                                            {label.name}
                                         </Text>
-                                    ) : null}
-                                </Text>
-                            </Checkbox>
-                        ))}
+                                        {label.count ? (
+                                            <Text inline context="muted" {...elem('count')}>
+                                                ({label.count})
+                                            </Text>
+                                        ) : null}
+                                    </Text>
+                                </Checkbox>
+                            ))}
+                        </div>
                         <div {...elem('inputLine')}>
                             <Input
                                 placeholder={inputPlaceholder}

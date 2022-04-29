@@ -14,6 +14,11 @@ $labelingDialogWidth: 200px;
         padding: var(--spacing-2x);
     }
 
+    &__scrollBox {
+        max-height: 190px;
+        overflow-y: scroll;
+    }
+
     &__checkbox {
         margin-bottom: var(--spacing-normal);
     }

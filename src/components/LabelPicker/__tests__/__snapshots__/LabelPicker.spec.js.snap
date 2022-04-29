@@ -126,308 +126,312 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
       <div
         className="LabelPicker__container"
       >
-        <Checkbox
-          checked={false}
-          className="LabelPicker__checkbox"
-          disabled={false}
-          id="First label"
-          key="First label"
-          onChange={[Function]}
+        <div
+          className="LabelPicker__scrollBox"
         >
-          <div
+          <Checkbox
+            checked={false}
             className="LabelPicker__checkbox"
+            disabled={false}
+            id="First label"
+            key="First label"
+            onChange={[Function]}
           >
-            <input
-              checked={false}
-              className="Checkbox__input"
-              disabled={false}
-              id="First label"
-              onChange={[Function]}
-              type="checkbox"
-            />
-            <label
-              className="Checkbox__label"
-              htmlFor="First label"
+            <div
+              className="LabelPicker__checkbox"
             >
-              <span
-                className="Checkbox__box"
-              >
-                <svg
-                  className="Checkbox__svg"
-                  height="10px"
-                  viewBox={
-                    Array [
-                      0,
-                      0,
-                      10,
-                      10,
-                    ]
-                  }
-                  width="12px"
-                >
-                  <polyline
-                    points="1.5 6 3.5 9 8 3"
-                  />
-                </svg>
-              </span>
-              <Text
-                className="LabelPicker__label"
-                context="default"
-                inline={true}
-                size="normal"
+              <input
+                checked={false}
+                className="Checkbox__input"
+                disabled={false}
+                id="First label"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                className="Checkbox__label"
+                htmlFor="First label"
               >
                 <span
-                  className="LabelPicker__label"
+                  className="Checkbox__box"
                 >
-                  <Text
-                    className="LabelPicker__labelText"
-                    context="default"
-                    inline={true}
-                    size="normal"
-                    title="First label"
+                  <svg
+                    className="Checkbox__svg"
+                    height="10px"
+                    viewBox={
+                      Array [
+                        0,
+                        0,
+                        10,
+                        10,
+                      ]
+                    }
+                    width="12px"
                   >
-                    <span
+                    <polyline
+                      points="1.5 6 3.5 9 8 3"
+                    />
+                  </svg>
+                </span>
+                <Text
+                  className="LabelPicker__label"
+                  context="default"
+                  inline={true}
+                  size="normal"
+                >
+                  <span
+                    className="LabelPicker__label"
+                  >
+                    <Text
                       className="LabelPicker__labelText"
+                      context="default"
+                      inline={true}
+                      size="normal"
                       title="First label"
                     >
-                      First label
-                    </span>
-                  </Text>
-                </span>
-              </Text>
-            </label>
-          </div>
-        </Checkbox>
-        <Checkbox
-          checked={true}
-          className="LabelPicker__checkbox"
-          disabled={false}
-          id="Second label"
-          key="Second label"
-          onChange={[Function]}
-        >
-          <div
+                      <span
+                        className="LabelPicker__labelText"
+                        title="First label"
+                      >
+                        First label
+                      </span>
+                    </Text>
+                  </span>
+                </Text>
+              </label>
+            </div>
+          </Checkbox>
+          <Checkbox
+            checked={true}
             className="LabelPicker__checkbox"
+            disabled={false}
+            id="Second label"
+            key="Second label"
+            onChange={[Function]}
           >
-            <input
-              checked={true}
-              className="Checkbox__input"
-              disabled={false}
-              id="Second label"
-              onChange={[Function]}
-              type="checkbox"
-            />
-            <label
-              className="Checkbox__label"
-              htmlFor="Second label"
+            <div
+              className="LabelPicker__checkbox"
             >
-              <span
-                className="Checkbox__box"
-              >
-                <svg
-                  className="Checkbox__svg"
-                  height="10px"
-                  viewBox={
-                    Array [
-                      0,
-                      0,
-                      10,
-                      10,
-                    ]
-                  }
-                  width="12px"
-                >
-                  <polyline
-                    points="1.5 6 3.5 9 8 3"
-                  />
-                </svg>
-              </span>
-              <Text
-                className="LabelPicker__label"
-                context="default"
-                inline={true}
-                size="normal"
+              <input
+                checked={true}
+                className="Checkbox__input"
+                disabled={false}
+                id="Second label"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                className="Checkbox__label"
+                htmlFor="Second label"
               >
                 <span
-                  className="LabelPicker__label"
+                  className="Checkbox__box"
                 >
-                  <Text
-                    className="LabelPicker__labelText"
-                    context="default"
-                    inline={true}
-                    size="normal"
-                    title="Second label"
+                  <svg
+                    className="Checkbox__svg"
+                    height="10px"
+                    viewBox={
+                      Array [
+                        0,
+                        0,
+                        10,
+                        10,
+                      ]
+                    }
+                    width="12px"
                   >
-                    <span
+                    <polyline
+                      points="1.5 6 3.5 9 8 3"
+                    />
+                  </svg>
+                </span>
+                <Text
+                  className="LabelPicker__label"
+                  context="default"
+                  inline={true}
+                  size="normal"
+                >
+                  <span
+                    className="LabelPicker__label"
+                  >
+                    <Text
                       className="LabelPicker__labelText"
+                      context="default"
+                      inline={true}
+                      size="normal"
                       title="Second label"
                     >
-                      Second label
-                    </span>
-                  </Text>
-                  <Text
-                    className="LabelPicker__count"
-                    context="muted"
-                    inline={true}
-                    size="normal"
-                  >
-                    <span
-                      className="Text--context_muted LabelPicker__count"
+                      <span
+                        className="LabelPicker__labelText"
+                        title="Second label"
+                      >
+                        Second label
+                      </span>
+                    </Text>
+                    <Text
+                      className="LabelPicker__count"
+                      context="muted"
+                      inline={true}
+                      size="normal"
                     >
-                      (
-                      12
-                      )
-                    </span>
-                  </Text>
-                </span>
-              </Text>
-            </label>
-          </div>
-        </Checkbox>
-        <Checkbox
-          checked={false}
-          className="LabelPicker__checkbox"
-          disabled={false}
-          id="Third label"
-          key="Third label"
-          onChange={[Function]}
-        >
-          <div
+                      <span
+                        className="Text--context_muted LabelPicker__count"
+                      >
+                        (
+                        12
+                        )
+                      </span>
+                    </Text>
+                  </span>
+                </Text>
+              </label>
+            </div>
+          </Checkbox>
+          <Checkbox
+            checked={false}
             className="LabelPicker__checkbox"
+            disabled={false}
+            id="Third label"
+            key="Third label"
+            onChange={[Function]}
           >
-            <input
-              checked={false}
-              className="Checkbox__input"
-              disabled={false}
-              id="Third label"
-              onChange={[Function]}
-              type="checkbox"
-            />
-            <label
-              className="Checkbox__label"
-              htmlFor="Third label"
+            <div
+              className="LabelPicker__checkbox"
             >
-              <span
-                className="Checkbox__box"
-              >
-                <svg
-                  className="Checkbox__svg"
-                  height="10px"
-                  viewBox={
-                    Array [
-                      0,
-                      0,
-                      10,
-                      10,
-                    ]
-                  }
-                  width="12px"
-                >
-                  <polyline
-                    points="1.5 6 3.5 9 8 3"
-                  />
-                </svg>
-              </span>
-              <Text
-                className="LabelPicker__label"
-                context="default"
-                inline={true}
-                size="normal"
+              <input
+                checked={false}
+                className="Checkbox__input"
+                disabled={false}
+                id="Third label"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                className="Checkbox__label"
+                htmlFor="Third label"
               >
                 <span
-                  className="LabelPicker__label"
+                  className="Checkbox__box"
                 >
-                  <Text
-                    className="LabelPicker__labelText"
-                    context="default"
-                    inline={true}
-                    size="normal"
-                    title="Third label"
+                  <svg
+                    className="Checkbox__svg"
+                    height="10px"
+                    viewBox={
+                      Array [
+                        0,
+                        0,
+                        10,
+                        10,
+                      ]
+                    }
+                    width="12px"
                   >
-                    <span
+                    <polyline
+                      points="1.5 6 3.5 9 8 3"
+                    />
+                  </svg>
+                </span>
+                <Text
+                  className="LabelPicker__label"
+                  context="default"
+                  inline={true}
+                  size="normal"
+                >
+                  <span
+                    className="LabelPicker__label"
+                  >
+                    <Text
                       className="LabelPicker__labelText"
+                      context="default"
+                      inline={true}
+                      size="normal"
                       title="Third label"
                     >
-                      Third label
-                    </span>
-                  </Text>
-                </span>
-              </Text>
-            </label>
-          </div>
-        </Checkbox>
-        <Checkbox
-          checked={false}
-          className="LabelPicker__checkbox"
-          disabled={false}
-          id="Fourth label"
-          key="Fourth label"
-          onChange={[Function]}
-        >
-          <div
+                      <span
+                        className="LabelPicker__labelText"
+                        title="Third label"
+                      >
+                        Third label
+                      </span>
+                    </Text>
+                  </span>
+                </Text>
+              </label>
+            </div>
+          </Checkbox>
+          <Checkbox
+            checked={false}
             className="LabelPicker__checkbox"
+            disabled={false}
+            id="Fourth label"
+            key="Fourth label"
+            onChange={[Function]}
           >
-            <input
-              checked={false}
-              className="Checkbox__input"
-              disabled={false}
-              id="Fourth label"
-              onChange={[Function]}
-              type="checkbox"
-            />
-            <label
-              className="Checkbox__label"
-              htmlFor="Fourth label"
+            <div
+              className="LabelPicker__checkbox"
             >
-              <span
-                className="Checkbox__box"
-              >
-                <svg
-                  className="Checkbox__svg"
-                  height="10px"
-                  viewBox={
-                    Array [
-                      0,
-                      0,
-                      10,
-                      10,
-                    ]
-                  }
-                  width="12px"
-                >
-                  <polyline
-                    points="1.5 6 3.5 9 8 3"
-                  />
-                </svg>
-              </span>
-              <Text
-                className="LabelPicker__label"
-                context="default"
-                inline={true}
-                size="normal"
+              <input
+                checked={false}
+                className="Checkbox__input"
+                disabled={false}
+                id="Fourth label"
+                onChange={[Function]}
+                type="checkbox"
+              />
+              <label
+                className="Checkbox__label"
+                htmlFor="Fourth label"
               >
                 <span
-                  className="LabelPicker__label"
+                  className="Checkbox__box"
                 >
-                  <Text
-                    className="LabelPicker__labelText"
-                    context="default"
-                    inline={true}
-                    size="normal"
-                    title="Fourth label"
+                  <svg
+                    className="Checkbox__svg"
+                    height="10px"
+                    viewBox={
+                      Array [
+                        0,
+                        0,
+                        10,
+                        10,
+                      ]
+                    }
+                    width="12px"
                   >
-                    <span
+                    <polyline
+                      points="1.5 6 3.5 9 8 3"
+                    />
+                  </svg>
+                </span>
+                <Text
+                  className="LabelPicker__label"
+                  context="default"
+                  inline={true}
+                  size="normal"
+                >
+                  <span
+                    className="LabelPicker__label"
+                  >
+                    <Text
                       className="LabelPicker__labelText"
+                      context="default"
+                      inline={true}
+                      size="normal"
                       title="Fourth label"
                     >
-                      Fourth label
-                    </span>
-                  </Text>
-                </span>
-              </Text>
-            </label>
-          </div>
-        </Checkbox>
+                      <span
+                        className="LabelPicker__labelText"
+                        title="Fourth label"
+                      >
+                        Fourth label
+                      </span>
+                    </Text>
+                  </span>
+                </Text>
+              </label>
+            </div>
+          </Checkbox>
+        </div>
         <div
           className="LabelPicker__inputLine"
         >
