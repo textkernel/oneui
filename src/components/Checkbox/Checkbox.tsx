@@ -1,14 +1,31 @@
 import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './Checkbox.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 
+interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+    /** A unique id to reference this checkbox */
+    id: string;
+    /** If the checkbox should be disabled */
+    disabled?: boolean;
+    /** The label for the checkbox */
+    children?: string | React.ReactElement;
+}
+
 const { block, elem } = bem('Checkbox', styles);
 
-export const Checkbox = forwardRef((props, ref) => {
+export const Checkbox: React.FC<Props> = forwardRef((props, ref) => {
     const { id, children, disabled, ...rest } = props;
+
+    let text = children;
+    if (children && typeof children === 'string') {
+        text = (
+            <Text {...elem('text', props)} inline context={disabled ? 'muted' : 'default'}>
+                {children}
+            </Text>
+        );
+    }
 
     return (
         <div {...block(props)}>
@@ -31,11 +48,7 @@ export const Checkbox = forwardRef((props, ref) => {
                         <polyline points="1.5 6 3.5 9 8 3" />
                     </svg>
                 </span>
-                {children && (
-                    <Text {...elem('text', props)} inline context={disabled ? 'muted' : 'default'}>
-                        {children}
-                    </Text>
-                )}
+                {text}
             </label>
         </div>
     );
@@ -43,16 +56,6 @@ export const Checkbox = forwardRef((props, ref) => {
 
 Checkbox.displayName = 'Checkbox';
 
-Checkbox.propTypes = {
-    /** A unique id to reference this checkbox */
-    id: PropTypes.string.isRequired,
-    /** If the checkbox should be disabled */
-    disabled: PropTypes.bool,
-    /** The label for the checkbox */
-    children: PropTypes.string,
-};
-
 Checkbox.defaultProps = {
     disabled: false,
-    children: null,
 };

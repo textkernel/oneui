@@ -70,4 +70,5 @@ export {
     LocationAutocomplete,
 } from './components/LocationAutocomplete';
 export * from './components/LocationSelector';
+export * from './components/LabelPicker';
 export { ProductTour } from './components/ProductTour';

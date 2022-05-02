@@ -23,6 +23,8 @@
 
     &--size {
         &_small {
+            min-height: 26px;
+            height: 26px;
             font-size: var(--font-size-small);
             line-height: var(--line-height-small);
             padding: var(--spacing-normal);

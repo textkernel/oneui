@@ -60,6 +60,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
     anchorRenderer={[Function]}
     onClose={[MockFunction]}
     placement="bottom-start"
+    popperOptions={Object {}}
     popupRef={
       Object {
         "current": <div
@@ -267,6 +268,7 @@ exports[`<Pill> component should render correctly 1`] = `
     anchorRenderer={[Function]}
     onClose={[MockFunction]}
     placement="bottom-start"
+    popperOptions={Object {}}
     popupRef={
       Object {
         "current": null,

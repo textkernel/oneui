@@ -104,10 +104,11 @@ export class PopupBase extends React.Component {
 
     createPopperInstance() {
         if (this.anchorRef.current && this.popupRef.current) {
-            const { placement } = this.props;
+            const { placement, popperOptions } = this.props;
             this.destroyPopperInstance();
             this.popper = createPopper(this.anchorRef.current, this.popupRef.current, {
                 placement,
+                ...popperOptions,
             });
         }
     }
@@ -185,6 +186,8 @@ PopupBase.propTypes = {
     popupRef: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** placement of the popup dialog relative to anchor */
     placement: PropTypes.oneOf(POPUP_PLACEMENTS),
+    /** additional Popper options. See https://popper.js.org/docs/v2/constructors/#options */
+    popperOptions: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     /** To render the popup in a portal. Useful if the anchor element has overflow hidden and similar cases */
     renderInPortal: PropTypes.bool,
     /** a function to be called when the popup closes */
@@ -197,4 +200,5 @@ PopupBase.defaultProps = {
     placement: 'bottom-start',
     renderInPortal: false,
     onClose: null,
+    popperOptions: {},
 };

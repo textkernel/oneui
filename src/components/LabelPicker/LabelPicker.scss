@@ -1,0 +1,59 @@
+$labelingDialogWidth: 200px;
+
+.LabelPicker {
+    &__dialog {
+        z-index: 400;
+        max-width: $labelingDialogWidth;
+    }
+
+    &__container {
+        background-color: var(--color-background);
+        border: 1px solid var(--color-neutral);
+        border-radius: var(--border-radius);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+        padding: var(--spacing-2x);
+    }
+
+    &__scrollBox {
+        max-height: 190px;
+        overflow-y: auto;
+    }
+
+    &__checkbox {
+        margin-bottom: var(--spacing-normal);
+    }
+
+    &__label {
+        display: inline-flex;
+        max-width: calc(#{$labelingDialogWidth} - 34px);
+    }
+
+    &__labelText {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__count {
+        margin-left: var(--spacing-normal);
+    }
+
+    &__inputLine {
+        display: flex;
+        align-items: center;
+        margin: var(--spacing-2x) 0;
+    }
+
+    &__input {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &__addButton {
+        height: 26px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+}
