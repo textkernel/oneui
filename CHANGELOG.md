@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [18.0.0](https://github.com/textkernel/oneui/compare/17.4.0...18.0.0) (2022-05-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **LabelPicker:** Type checking for Checkbox moved to TS and might break certain implementations that were not as intended by the original API
+
+### Features
+
+* **LabelPicker:** new component ([960261f](https://github.com/textkernel/oneui/commit/960261fd581f879cf3c45cf8ec2bfe1eaee1f01c))
+
 ## [17.4.0](https://github.com/textkernel/oneui/compare/17.3.2...17.4.0) (2022-04-25)
 
 
