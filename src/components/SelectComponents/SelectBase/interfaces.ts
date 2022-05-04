@@ -17,6 +17,8 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     listRef?: React.RefObject<HTMLUListElement>;
     /** defines if the component is disabled */
     disabled?: boolean;
+    /** a class to be applied to the top level div */
+    className?: string;
     /** onFocus() is called when the component is focused */
     onFocus?: () => void;
     /** onBlur() is called when the component is blurred */

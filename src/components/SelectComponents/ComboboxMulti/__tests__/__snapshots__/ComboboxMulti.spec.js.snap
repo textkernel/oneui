@@ -48,6 +48,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={false}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -312,6 +313,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={false}
     clearTitle=""
     focusedRenderer={[Function]}

@@ -2,7 +2,6 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
 import { ComboboxMulti, Autosuggest, Select } from '@textkernel/oneui';
-import { StoreInjector } from '../src/packages/storybook/withStore';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
@@ -19,20 +18,18 @@ const searchFor = {
 
 storiesOf('Organisms|Select Components', module)
     .addDecorator(withKnobs)
-    .addParameters(
-        StoreInjector.withStore({
-            inputValue: '',
-            selectedSuggestions: [],
-            selectedItem: SUGGESTIONS[0],
-            disabled: false,
-            inputRef: React.createRef(),
-            singleSelectedText: '',
-        })
-    )
     .add(
         'Select',
-        (storyContext) => {
-            const store = storyContext?.parameters.getStore();
+        () => {
+            const initialState = {
+                inputValue: '',
+                selectedSuggestions: [],
+                selectedItem: SUGGESTIONS[0],
+                disabled: false,
+                inputRef: React.createRef(),
+                singleSelectedText: '',
+            };
+            const [store, setStore] = React.useState(initialState);
             const onFocus = () => {
                 console.log('onFocus was called');
             };
@@ -41,9 +38,12 @@ storiesOf('Organisms|Select Components', module)
                 console.log('onBlur was called');
             };
 
-            const onChange = (item) => {
-                console.log(`onChange was called with {name: ${item.name}}`);
-                store.set({ selectedItem: item });
+            const onChange = (selectedItem) => {
+                console.log(`onChange was called with {name: ${selectedItem.name}}`);
+                setStore({
+                    ...store,
+                    selectedItem,
+                });
             };
 
             return (
@@ -52,8 +52,7 @@ storiesOf('Organisms|Select Components', module)
                         style={{ width: '650px' }}
                         items={SUGGESTIONS}
                         itemToString={SUGGESTION_TO_STRING}
-                        selectedItem={store.get('selectedItem')}
-                        placeholder={text('Placeholder', 'Choose item...')}
+                        selectedItem={store.selectedItem}
                         onFocus={onFocus}
                         onBlur={onBlur}
                         onChange={onChange}
@@ -72,20 +71,18 @@ storiesOf('Organisms|Select Components', module)
             },
         }
     )
-    .addParameters(
-        StoreInjector.withStore({
-            inputValue: '',
-            selectedSuggestions: [],
-            selectedItem: undefined,
-            disabled: false,
-            inputRef: React.createRef(),
-            singleSelectedText: '',
-        })
-    )
     .add(
         'Clearable Select',
-        (storyContext) => {
-            const store = storyContext?.parameters.getStore();
+        () => {
+            const initialState = {
+                inputValue: '',
+                selectedSuggestions: [],
+                selectedItem: undefined,
+                disabled: false,
+                inputRef: React.createRef(),
+                singleSelectedText: '',
+            };
+            const [store, setStore] = React.useState(initialState);
             const onFocus = () => {
                 console.log('onFocus was called');
             };
@@ -94,14 +91,20 @@ storiesOf('Organisms|Select Components', module)
                 console.log('onBlur was called');
             };
 
-            const onChange = (item) => {
-                console.log(`onChange was called with {name: ${item.name}}`);
-                store.set({ selectedItem: item });
+            const onChange = (selectedItem) => {
+                console.log(`onChange was called with {name: ${selectedItem.name}}`);
+                setStore({
+                    ...store,
+                    selectedItem,
+                });
             };
 
             const onClear = () => {
                 console.log('onClear was called');
-                store.set({ selectedItem: undefined });
+                setStore({
+                    ...store,
+                    selectedItem: undefined,
+                });
             };
 
             return (
@@ -110,7 +113,7 @@ storiesOf('Organisms|Select Components', module)
                         style={{ width: '650px' }}
                         items={SUGGESTIONS}
                         itemToString={SUGGESTION_TO_STRING}
-                        selectedItem={store.get('selectedItem')}
+                        selectedItem={store.selectedItem}
                         clearLabel={text('Clear button label', 'Clear')}
                         placeholder={text('Placeholder', 'Choose item...')}
                         onFocus={onFocus}

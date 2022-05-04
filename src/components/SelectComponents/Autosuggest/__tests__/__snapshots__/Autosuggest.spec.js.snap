@@ -21,6 +21,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={true}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -162,6 +163,7 @@ exports[`Autosuggest rendering should initially render focused component correct
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={true}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -332,6 +334,7 @@ exports[`Autosuggest rendering should initially render focused component with su
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={true}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -975,6 +978,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={true}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -1640,6 +1644,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={true}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -2041,6 +2046,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={true}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -2198,6 +2204,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={true}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -2409,6 +2416,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={true}
     clearTitle=""
     focusedRenderer={[Function]}

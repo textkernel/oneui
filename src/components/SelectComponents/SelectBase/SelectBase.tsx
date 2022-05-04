@@ -26,6 +26,7 @@ export function SelectBase<S>(props: Props<S>) {
         inputRef: inputRefFromProps,
         rootRef: rootRefFromProps,
         listRef: listRefFromProps,
+        className,
         listRenderer,
         focusedRenderer,
         blurredRenderer,
@@ -219,7 +220,7 @@ export function SelectBase<S>(props: Props<S>) {
     };
 
     return (
-        <div {...rest} ref={rootRef} {...block(stateAndProps)}>
+        <div {...rest} ref={rootRef} {...block({ ...stateAndProps, className })}>
             <Downshift
                 onChange={handleChange}
                 itemToString={suggestionToString}
@@ -297,6 +298,7 @@ SelectBase.defaultProps = {
     highlightOnEmptyInput: true,
     clearTitle: '',
     selectOnTab: false,
+    className: '',
     onInputValueChange: () => null,
 };
 

@@ -2,6 +2,7 @@
 
 exports[`Select rendering should initially render correctly 1`] = `
 <Select
+  className="someClass"
   clearLabel=""
   itemToString={[Function]}
   items={
@@ -42,6 +43,7 @@ exports[`Select rendering should initially render correctly 1`] = `
   onBlur={[MockFunction]}
   onChange={[MockFunction]}
   onClear={[MockFunction]}
+  onFocus={[MockFunction]}
   placeholder=""
   selectedItem={
     Object {
@@ -51,6 +53,7 @@ exports[`Select rendering should initially render correctly 1`] = `
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className="someClass"
     clearInputAfterSelection={false}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -59,6 +62,7 @@ exports[`Select rendering should initially render correctly 1`] = `
     listRenderer={[Function]}
     onBlur={[MockFunction]}
     onClearAllSelected={[MockFunction]}
+    onFocus={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={false}
@@ -102,7 +106,7 @@ exports[`Select rendering should initially render correctly 1`] = `
     }
   >
     <div
-      className="SelectBase"
+      className="SelectBase someClass"
     >
       <Downshift
         defaultHighlightedIndex={0}
@@ -151,6 +155,7 @@ exports[`Select rendering should initially render correctly 1`] = `
               >
                 <div
                   className="Select__wrapper"
+                  onFocus={[MockFunction]}
                   role="searchbox"
                   tabIndex={0}
                 >
@@ -237,6 +242,7 @@ exports[`Select rendering should initially render correctly 1`] = `
 
 exports[`Select rendering should render focused component correctly 1`] = `
 <Select
+  className="someClass"
   clearLabel=""
   itemToString={[Function]}
   items={
@@ -277,6 +283,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
   onBlur={[MockFunction]}
   onChange={[MockFunction]}
   onClear={[MockFunction]}
+  onFocus={[MockFunction]}
   placeholder=""
   selectedItem={
     Object {
@@ -286,6 +293,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className="someClass"
     clearInputAfterSelection={false}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -294,6 +302,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
     listRenderer={[Function]}
     onBlur={[MockFunction]}
     onClearAllSelected={[MockFunction]}
+    onFocus={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={false}
@@ -337,7 +346,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
     }
   >
     <div
-      className="SelectBase"
+      className="SelectBase someClass"
     >
       <Downshift
         defaultHighlightedIndex={0}

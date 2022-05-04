@@ -26,6 +26,8 @@ interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
     placeholder?: string;
     /** label for the Clear button */
     clearLabel?: string;
+    /** a class to be applied to the top level div */
+    className?: string;
     /** onFocus() is called when the component is focused */
     onFocus?: () => void;
     /** onBlur() is called when the component is blurred */
@@ -94,7 +96,6 @@ export function Select<S>(props: Props<S>) {
             focusedRenderer={focusedRenderer}
             showClearButton={Boolean(selectedItem)}
             clearTitle={clearLabel}
-            rootRef={rootRef}
             listRef={listRef}
             onBlur={onBlur}
             onFocus={onFocus}
@@ -124,4 +125,5 @@ Select.defaultProps = {
     onClear: undefined,
     rootRef: undefined,
     listRef: undefined,
+    className: '',
 };
