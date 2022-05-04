@@ -4,7 +4,7 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
 <FieldWrapper
   clearLabel="Clear"
   disabled={false}
-  isArrowDropUp={false}
+  isArrowUp={false}
   isFocused={false}
   onClear={null}
   showArrow={false}
@@ -42,11 +42,11 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
 </FieldWrapper>
 `;
 
-exports[`FieldWrapper should render correctly 1`] = `
+exports[`FieldWrapper should render arrow icon pointing down 1`] = `
 <FieldWrapper
   clearLabel=""
   disabled={false}
-  isArrowDropUp={false}
+  isArrowUp={false}
   isFocused={false}
   onClear={null}
   showArrow={true}
@@ -94,6 +94,85 @@ exports[`FieldWrapper should render correctly 1`] = `
         </svg>
       </IconBase>
     </IoMdArrowDropdown>
+  </div>
+</FieldWrapper>
+`;
+
+exports[`FieldWrapper should render arrow icon pointing up 1`] = `
+<FieldWrapper
+  clearLabel=""
+  disabled={false}
+  isArrowUp={true}
+  isFocused={false}
+  onClear={null}
+  showArrow={true}
+  showClearButton={false}
+>
+  <div
+    className="FieldWrapper"
+    disabled={false}
+  >
+    <div
+      className="FieldWrapper__content"
+    >
+      some children
+    </div>
+    <IoMdArrowDropup
+      className="FieldWrapper__dropdownIcon"
+    >
+      <IconBase
+        attr={
+          Object {
+            "viewBox": "0 0 512 512",
+          }
+        }
+        className="FieldWrapper__dropdownIcon"
+      >
+        <svg
+          className="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            Object {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 320l128-128 128 128z"
+            key="0"
+          />
+        </svg>
+      </IconBase>
+    </IoMdArrowDropup>
+  </div>
+</FieldWrapper>
+`;
+
+exports[`FieldWrapper should render correctly 1`] = `
+<FieldWrapper
+  clearLabel=""
+  disabled={false}
+  isArrowUp={false}
+  isFocused={false}
+  onClear={null}
+  showArrow={false}
+  showClearButton={false}
+>
+  <div
+    className="FieldWrapper"
+    disabled={false}
+  >
+    <div
+      className="FieldWrapper__content"
+    >
+      some children
+    </div>
   </div>
 </FieldWrapper>
 `;

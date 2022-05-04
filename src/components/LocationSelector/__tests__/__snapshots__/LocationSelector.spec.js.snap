@@ -62,7 +62,7 @@ exports[`LocationSelector component should render LocationSelector properly when
       className="LocationSelector__mainTextButtonWrapper"
       clearLabel="Clear"
       disabled={false}
-      isArrowDropUp={false}
+      isArrowUp={false}
       isFocused={true}
       onClear={[MockFunction]}
       onClick={[Function]}
@@ -478,7 +478,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       className="LocationSelector__mainTextButtonWrapper"
       clearLabel="Clear"
       disabled={false}
-      isArrowDropUp={false}
+      isArrowUp={false}
       isFocused={false}
       onClear={[MockFunction]}
       onClick={[Function]}

@@ -4,7 +4,7 @@ import { FieldWrapper } from '../FieldWrapper';
 
 describe('FieldWrapper', () => {
     it('should render correctly', () => {
-        const wrapper = mount(<FieldWrapper showArrow>some children</FieldWrapper>);
+        const wrapper = mount(<FieldWrapper>some children</FieldWrapper>);
 
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('button')).toHaveLength(0);
@@ -18,6 +18,20 @@ describe('FieldWrapper', () => {
 
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('button')).toHaveLength(1);
+    });
+    it('should render arrow icon pointing down', () => {
+        const wrapper = mount(<FieldWrapper showArrow>some children</FieldWrapper>);
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+    });
+    it('should render arrow icon pointing up', () => {
+        const wrapper = mount(
+            <FieldWrapper showArrow isArrowUp>
+                some children
+            </FieldWrapper>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should call onClear callback correctly', () => {
         const onClearMock = jest.fn();

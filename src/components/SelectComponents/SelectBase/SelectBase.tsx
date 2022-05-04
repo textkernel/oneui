@@ -241,7 +241,7 @@ export function SelectBase<S>(props: Props<S>) {
                     <div {...elem('main', stateAndProps)}>
                         <FieldWrapper
                             showArrow={showArrow}
-                            isArrowDropUp={focused}
+                            isArrowUp={focused}
                             clearLabel={clearTitle}
                             onClear={handleClearSelectedSuggestions}
                             showClearButton={!focused && showClearButton}

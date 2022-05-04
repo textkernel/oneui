@@ -12,7 +12,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** show dropdown icon */
     showArrow?: boolean;
     /** set direction of dropdown icon (default drop down) */
-    isArrowDropUp?: boolean;
+    isArrowUp?: boolean;
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton?: boolean;
     /** clear button label */
@@ -38,7 +38,7 @@ export const FieldWrapper: React.FC<Props> = React.forwardRef((props, ref) => {
     const {
         children,
         showArrow,
-        isArrowDropUp,
+        isArrowUp,
         clearLabel,
         showClearButton,
         onClear,
@@ -62,7 +62,7 @@ export const FieldWrapper: React.FC<Props> = React.forwardRef((props, ref) => {
             )}
 
             {showArrow &&
-                (isArrowDropUp ? (
+                (isArrowUp ? (
                     <IoMdArrowDropup {...elem('dropdownIcon')} />
                 ) : (
                     <IoMdArrowDropdown {...elem('dropdownIcon')} />
@@ -75,7 +75,7 @@ FieldWrapper.displayName = 'FieldWrapper';
 
 FieldWrapper.defaultProps = {
     showArrow: false,
-    isArrowDropUp: false,
+    isArrowUp: false,
     showClearButton: false,
     clearLabel: '',
     onClear: null,

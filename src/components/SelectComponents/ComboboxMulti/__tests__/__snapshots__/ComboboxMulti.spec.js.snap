@@ -143,7 +143,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
             className="SelectBase__field"
             clearLabel=""
             disabled={false}
-            isArrowDropUp={false}
+            isArrowUp={false}
             isFocused={false}
             onClear={[Function]}
             onClick={[Function]}
@@ -409,7 +409,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
             className="SelectBase__field"
             clearLabel=""
             disabled={false}
-            isArrowDropUp={true}
+            isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}

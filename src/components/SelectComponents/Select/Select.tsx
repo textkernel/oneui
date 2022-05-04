@@ -5,7 +5,7 @@ import { SelectBase } from '../SelectBase';
 import { Text } from '../../Text';
 import styles from './Select.scss';
 
-const { block, elem } = bem('Select', styles);
+const { elem } = bem('Select', styles);
 
 interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /**
@@ -36,8 +36,6 @@ interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
     rootRef?: React.RefObject<HTMLDivElement>;
     /** items list ref */
     listRef?: React.RefObject<HTMLUListElement>;
-    /** a class to be applied to the top level div */
-    className?: string;
 }
 export function Select<S>(props: Props<S>) {
     const {
@@ -53,7 +51,6 @@ export function Select<S>(props: Props<S>) {
         onClear,
         rootRef,
         listRef,
-        className,
         ...rest
     } = props;
 
@@ -87,31 +84,31 @@ export function Select<S>(props: Props<S>) {
     );
 
     return (
-        <div {...rest} {...block({ className })}>
-            <SelectBase
-                showArrow
-                suggestions={items}
-                suggestionToString={itemToString}
-                onSelectionAdd={onChange}
-                blurredRenderer={blurredRenderer}
-                focusedRenderer={focusedRenderer}
-                showClearButton={Boolean(selectedItem)}
-                clearTitle={clearLabel}
-                listRef={listRef}
-                onBlur={onBlur}
-                onFocus={onFocus}
-                onClearAllSelected={onClear}
-                listRenderer={(listProps) => (
-                    <SuggestionsList
-                        {...listProps}
-                        suggestionToString={itemToString}
-                        suggestionItemRenderer={optionItemRenderer}
-                        suggestions={items}
-                        passDisabledToListItems
-                    />
-                )}
-            />
-        </div>
+        <SelectBase
+            {...rest}
+            showArrow
+            suggestions={items}
+            suggestionToString={itemToString}
+            onSelectionAdd={onChange}
+            blurredRenderer={blurredRenderer}
+            focusedRenderer={focusedRenderer}
+            showClearButton={Boolean(selectedItem)}
+            clearTitle={clearLabel}
+            rootRef={rootRef}
+            listRef={listRef}
+            onBlur={onBlur}
+            onFocus={onFocus}
+            onClearAllSelected={onClear}
+            listRenderer={(listProps) => (
+                <SuggestionsList
+                    {...listProps}
+                    suggestionToString={itemToString}
+                    suggestionItemRenderer={optionItemRenderer}
+                    suggestions={items}
+                    passDisabledToListItems
+                />
+            )}
+        />
     );
 }
 
@@ -127,5 +124,4 @@ Select.defaultProps = {
     onClear: undefined,
     rootRef: undefined,
     listRef: undefined,
-    className: '',
 };
