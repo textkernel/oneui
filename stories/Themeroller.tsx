@@ -156,7 +156,7 @@ const themeConfig: ThemeConfig = [
             {
                 label: 'Font size',
                 type: 'size',
-                var: '--font-size-base',
+                var: '--font-size-normal',
                 value: '14',
                 unit: 'px',
             },
@@ -175,9 +175,9 @@ const themeConfig: ThemeConfig = [
                 unit: 'px',
             },
             {
-                label: 'Normal font size',
+                label: 'Font size base',
                 type: 'size',
-                var: '--font-size-normal',
+                var: '--font-size-base',
                 value: '14',
                 unit: 'px',
             },
