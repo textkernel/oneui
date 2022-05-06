@@ -9,11 +9,11 @@ export const sizingVariables = {
     '--two-pane-left-width': '550px',
     '--search-button-size': '36px',
     '--stepper-button-size': '24px',
-    '--line-medium': 'calc(var(--line-normal) * 1.5px)',
-    '--line-thick': 'calc(var(--line-normal) * 2px)',
-    '--spacing-2x': 'calc(var(--spacing-normal) * 2px)',
-    '--spacing-3x': 'calc(var(--spacing-normal) * 3px)',
-    '--spacing-4x': 'calc(var(--spacing-normal) * 4px)',
-    '--spacing-5x': 'calc(var(--spacing-normal) * 5px)',
-    '--margin': 'calc(var(--spacing-normal) * 0.5px)',
+    '--line-medium': 'calc(var(--line-normal) * 1.5px)', // skipped
+    '--line-thick': 'calc(var(--line-normal) * 2px)', // skipped
+    '--spacing-2x': 'calc(var(--spacing-normal) * 2px)', // skipped
+    '--spacing-3x': 'calc(var(--spacing-normal) * 3px)', // skipped
+    '--spacing-4x': 'calc(var(--spacing-normal) * 4px)', // skipped
+    '--spacing-5x': 'calc(var(--spacing-normal) * 5px)', // skipped
+    '--margin': 'calc(var(--spacing-normal) * 0.5px)', // skipped
 };

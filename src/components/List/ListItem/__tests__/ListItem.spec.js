@@ -33,7 +33,7 @@ describe('ListItem component', () => {
     it('should call onClick function when clicked', () => {
         const onClick = jest.fn();
         const wrapper = mount(<ListItem onClick={onClick}>An item</ListItem>);
-        wrapper.find('div').simulate('click');
+        wrapper.find('li').simulate('click');
 
         expect(onClick).toHaveBeenCalledTimes(1);
     });

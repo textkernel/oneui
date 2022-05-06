@@ -248,31 +248,26 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       aria-selected={true}
                       className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                       id="downshift-5-item-0"
+                      onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="option"
+                      role="presentation"
                     >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
+                      <MarkedText
+                        inline={true}
+                        key=".0"
+                        marker=""
                       >
-                        <MarkedText
+                        <Text
+                          context="default"
                           inline={true}
-                          key=".0"
-                          marker=""
+                          size="normal"
                         >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Sun
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
+                          <span>
+                            Sun
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </li>
                   </ListItem>
                   <ListItem
@@ -294,31 +289,26 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-5-item-1"
+                      onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="option"
+                      role="presentation"
                     >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
+                      <MarkedText
+                        inline={true}
+                        key=".0"
+                        marker=""
                       >
-                        <MarkedText
+                        <Text
+                          context="default"
                           inline={true}
-                          key=".0"
-                          marker=""
+                          size="normal"
                         >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Moon
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
+                          <span>
+                            Moon
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </li>
                   </ListItem>
                   <ListItem
@@ -340,31 +330,26 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-5-item-2"
+                      onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="option"
+                      role="presentation"
                     >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
+                      <MarkedText
+                        inline={true}
+                        key=".0"
+                        marker=""
                       >
-                        <MarkedText
+                        <Text
+                          context="default"
                           inline={true}
-                          key=".0"
-                          marker=""
+                          size="normal"
                         >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Mercury
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
+                          <span>
+                            Mercury
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </li>
                   </ListItem>
                   <ListItem
@@ -386,31 +371,26 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-5-item-3"
+                      onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="option"
+                      role="presentation"
                     >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
+                      <MarkedText
+                        inline={true}
+                        key=".0"
+                        marker=""
                       >
-                        <MarkedText
+                        <Text
+                          context="default"
                           inline={true}
-                          key=".0"
-                          marker=""
+                          size="normal"
                         >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Venus
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
+                          <span>
+                            Venus
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </li>
                   </ListItem>
                 </ul>
@@ -720,24 +700,20 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
                   >
                     <li
                       className="ListItem ListItem--disabled List__item"
+                      role="presentation"
                     >
-                      <div
-                        className="ListItem__container"
-                        role="presentation"
+                      <Text
+                        context="muted"
+                        inline={false}
+                        key=".0"
+                        size="normal"
                       >
-                        <Text
-                          context="muted"
-                          inline={false}
-                          key=".0"
-                          size="normal"
+                        <p
+                          className="Text--context_muted"
                         >
-                          <p
-                            className="Text--context_muted"
-                          >
-                            No suggestions...
-                          </p>
-                        </Text>
-                      </div>
+                          No suggestions...
+                        </p>
+                      </Text>
                     </li>
                   </ListItem>
                 </ul>
@@ -895,31 +871,26 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       aria-selected={true}
                       className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                       id="downshift-6-item-0"
+                      onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="option"
+                      role="presentation"
                     >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
+                      <MarkedText
+                        inline={true}
+                        key=".0"
+                        marker=""
                       >
-                        <MarkedText
+                        <Text
+                          context="default"
                           inline={true}
-                          key=".0"
-                          marker=""
+                          size="normal"
                         >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Sun
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
+                          <span>
+                            Sun
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </li>
                   </ListItem>
                   <ListItem
@@ -941,31 +912,26 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-6-item-1"
+                      onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="option"
+                      role="presentation"
                     >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
+                      <MarkedText
+                        inline={true}
+                        key=".0"
+                        marker=""
                       >
-                        <MarkedText
+                        <Text
+                          context="default"
                           inline={true}
-                          key=".0"
-                          marker=""
+                          size="normal"
                         >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Moon
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
+                          <span>
+                            Moon
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </li>
                   </ListItem>
                   <ListItem
@@ -987,31 +953,26 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-6-item-2"
+                      onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="option"
+                      role="presentation"
                     >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
+                      <MarkedText
+                        inline={true}
+                        key=".0"
+                        marker=""
                       >
-                        <MarkedText
+                        <Text
+                          context="default"
                           inline={true}
-                          key=".0"
-                          marker=""
+                          size="normal"
                         >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Mercury
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
+                          <span>
+                            Mercury
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </li>
                   </ListItem>
                   <ListItem
@@ -1033,31 +994,26 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       aria-selected={false}
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-6-item-3"
+                      onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="option"
+                      role="presentation"
                     >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
+                      <MarkedText
+                        inline={true}
+                        key=".0"
+                        marker=""
                       >
-                        <MarkedText
+                        <Text
+                          context="default"
                           inline={true}
-                          key=".0"
-                          marker=""
+                          size="normal"
                         >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Venus
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
+                          <span>
+                            Venus
+                          </span>
+                        </Text>
+                      </MarkedText>
                     </li>
                   </ListItem>
                 </ul>

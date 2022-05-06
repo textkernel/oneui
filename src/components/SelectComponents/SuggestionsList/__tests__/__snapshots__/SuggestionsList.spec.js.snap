@@ -58,28 +58,24 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <MarkedText
+        inline={true}
+        key=".0"
+        marker=""
       >
-        <MarkedText
+        <Text
+          context="default"
           inline={true}
-          key=".0"
-          marker=""
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Sun
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
+          <span>
+            Sun
+          </span>
+        </Text>
+      </MarkedText>
     </li>
   </ListItem>
   <ListItem
@@ -93,28 +89,24 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem ListItem--isHighlighted"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <MarkedText
+        inline={true}
+        key=".0"
+        marker=""
       >
-        <MarkedText
+        <Text
+          context="default"
           inline={true}
-          key=".0"
-          marker=""
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Moon
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
+          <span>
+            Moon
+          </span>
+        </Text>
+      </MarkedText>
     </li>
   </ListItem>
   <ListItem
@@ -128,28 +120,24 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <MarkedText
+        inline={true}
+        key=".0"
+        marker=""
       >
-        <MarkedText
+        <Text
+          context="default"
           inline={true}
-          key=".0"
-          marker=""
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Mercury
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
+          <span>
+            Mercury
+          </span>
+        </Text>
+      </MarkedText>
     </li>
   </ListItem>
   <ListItem
@@ -163,28 +151,24 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <MarkedText
+        inline={true}
+        key=".0"
+        marker=""
       >
-        <MarkedText
+        <Text
+          context="default"
           inline={true}
-          key=".0"
-          marker=""
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Venus
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
+          <span>
+            Venus
+          </span>
+        </Text>
+      </MarkedText>
     </li>
   </ListItem>
   <ListItem
@@ -198,28 +182,24 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <MarkedText
+        inline={true}
+        key=".0"
+        marker=""
       >
-        <MarkedText
+        <Text
+          context="default"
           inline={true}
-          key=".0"
-          marker=""
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Earth
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
+          <span>
+            Earth
+          </span>
+        </Text>
+      </MarkedText>
     </li>
   </ListItem>
   <ListItem
@@ -233,28 +213,24 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <MarkedText
+        inline={true}
+        key=".0"
+        marker=""
       >
-        <MarkedText
+        <Text
+          context="default"
           inline={true}
-          key=".0"
-          marker=""
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Mars
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
+          <span>
+            Mars
+          </span>
+        </Text>
+      </MarkedText>
     </li>
   </ListItem>
   <ListItem
@@ -268,28 +244,24 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <MarkedText
+        inline={true}
+        key=".0"
+        marker=""
       >
-        <MarkedText
+        <Text
+          context="default"
           inline={true}
-          key=".0"
-          marker=""
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Jupiter
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
+          <span>
+            Jupiter
+          </span>
+        </Text>
+      </MarkedText>
     </li>
   </ListItem>
   <ListItem
@@ -303,28 +275,24 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <MarkedText
+        inline={true}
+        key=".0"
+        marker=""
       >
-        <MarkedText
+        <Text
+          context="default"
           inline={true}
-          key=".0"
-          marker=""
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Saturn
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
+          <span>
+            Saturn
+          </span>
+        </Text>
+      </MarkedText>
     </li>
   </ListItem>
   <ListItem
@@ -338,28 +306,24 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <MarkedText
+        inline={true}
+        key=".0"
+        marker=""
       >
-        <MarkedText
+        <Text
+          context="default"
           inline={true}
-          key=".0"
-          marker=""
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Neptune
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
+          <span>
+            Neptune
+          </span>
+        </Text>
+      </MarkedText>
     </li>
   </ListItem>
   <ListItem
@@ -373,28 +337,24 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem ListItem--disabled"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <MarkedText
+        inline={true}
+        key=".0"
+        marker=""
       >
-        <MarkedText
+        <Text
+          context="default"
           inline={true}
-          key=".0"
-          marker=""
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            size="normal"
-          >
-            <span>
-              Pluto
-            </span>
-          </Text>
-        </MarkedText>
-      </div>
+          <span>
+            Pluto
+          </span>
+        </Text>
+      </MarkedText>
     </li>
   </ListItem>
 </SuggestionsList>
@@ -457,41 +417,37 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
     >
       <div
-        className="ListItem__container"
-        role="presentation"
+        className="SuggestionsList__loaderItem"
+        key=".0"
       >
-        <div
-          className="SuggestionsList__loaderItem"
-          key=".0"
+        <ContentPlaceholder
+          duration={1}
+          width={100}
+          withoutMargin={false}
         >
-          <ContentPlaceholder
-            duration={1}
-            width={100}
-            withoutMargin={false}
+          <div
+            className="ContentPlaceholder"
+            style={
+              Object {
+                "animationDuration": "1s",
+                "height": undefined,
+              }
+            }
           >
+             
             <div
-              className="ContentPlaceholder"
+              className="ContentPlaceholder__mask"
               style={
                 Object {
-                  "animationDuration": "1s",
-                  "height": undefined,
+                  "width": "0%",
                 }
               }
-            >
-               
-              <div
-                className="ContentPlaceholder__mask"
-                style={
-                  Object {
-                    "width": "0%",
-                  }
-                }
-              />
-            </div>
-          </ContentPlaceholder>
-        </div>
+            />
+          </div>
+        </ContentPlaceholder>
       </div>
     </li>
   </ListItem>
@@ -505,41 +461,37 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
     >
       <div
-        className="ListItem__container"
-        role="presentation"
+        className="SuggestionsList__loaderItem"
+        key=".0"
       >
-        <div
-          className="SuggestionsList__loaderItem"
-          key=".0"
+        <ContentPlaceholder
+          duration={1}
+          width={100}
+          withoutMargin={false}
         >
-          <ContentPlaceholder
-            duration={1}
-            width={100}
-            withoutMargin={false}
+          <div
+            className="ContentPlaceholder"
+            style={
+              Object {
+                "animationDuration": "1s",
+                "height": undefined,
+              }
+            }
           >
+             
             <div
-              className="ContentPlaceholder"
+              className="ContentPlaceholder__mask"
               style={
                 Object {
-                  "animationDuration": "1s",
-                  "height": undefined,
+                  "width": "0%",
                 }
               }
-            >
-               
-              <div
-                className="ContentPlaceholder__mask"
-                style={
-                  Object {
-                    "width": "0%",
-                  }
-                }
-              />
-            </div>
-          </ContentPlaceholder>
-        </div>
+            />
+          </div>
+        </ContentPlaceholder>
       </div>
     </li>
   </ListItem>
@@ -553,41 +505,37 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
     >
       <div
-        className="ListItem__container"
-        role="presentation"
+        className="SuggestionsList__loaderItem"
+        key=".0"
       >
-        <div
-          className="SuggestionsList__loaderItem"
-          key=".0"
+        <ContentPlaceholder
+          duration={1}
+          width={100}
+          withoutMargin={false}
         >
-          <ContentPlaceholder
-            duration={1}
-            width={100}
-            withoutMargin={false}
+          <div
+            className="ContentPlaceholder"
+            style={
+              Object {
+                "animationDuration": "1s",
+                "height": undefined,
+              }
+            }
           >
+             
             <div
-              className="ContentPlaceholder"
+              className="ContentPlaceholder__mask"
               style={
                 Object {
-                  "animationDuration": "1s",
-                  "height": undefined,
+                  "width": "0%",
                 }
               }
-            >
-               
-              <div
-                className="ContentPlaceholder__mask"
-                style={
-                  Object {
-                    "width": "0%",
-                  }
-                }
-              />
-            </div>
-          </ContentPlaceholder>
-        </div>
+            />
+          </div>
+        </ContentPlaceholder>
       </div>
     </li>
   </ListItem>
@@ -601,41 +549,37 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
     >
       <div
-        className="ListItem__container"
-        role="presentation"
+        className="SuggestionsList__loaderItem"
+        key=".0"
       >
-        <div
-          className="SuggestionsList__loaderItem"
-          key=".0"
+        <ContentPlaceholder
+          duration={1}
+          width={100}
+          withoutMargin={false}
         >
-          <ContentPlaceholder
-            duration={1}
-            width={100}
-            withoutMargin={false}
+          <div
+            className="ContentPlaceholder"
+            style={
+              Object {
+                "animationDuration": "1s",
+                "height": undefined,
+              }
+            }
           >
+             
             <div
-              className="ContentPlaceholder"
+              className="ContentPlaceholder__mask"
               style={
                 Object {
-                  "animationDuration": "1s",
-                  "height": undefined,
+                  "width": "0%",
                 }
               }
-            >
-               
-              <div
-                className="ContentPlaceholder__mask"
-                style={
-                  Object {
-                    "width": "0%",
-                  }
-                }
-              />
-            </div>
-          </ContentPlaceholder>
-        </div>
+            />
+          </div>
+        </ContentPlaceholder>
       </div>
     </li>
   </ListItem>
@@ -649,41 +593,37 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   >
     <li
       className="ListItem"
+      role="presentation"
     >
       <div
-        className="ListItem__container"
-        role="presentation"
+        className="SuggestionsList__loaderItem"
+        key=".0"
       >
-        <div
-          className="SuggestionsList__loaderItem"
-          key=".0"
+        <ContentPlaceholder
+          duration={1}
+          width={100}
+          withoutMargin={false}
         >
-          <ContentPlaceholder
-            duration={1}
-            width={100}
-            withoutMargin={false}
+          <div
+            className="ContentPlaceholder"
+            style={
+              Object {
+                "animationDuration": "1s",
+                "height": undefined,
+              }
+            }
           >
+             
             <div
-              className="ContentPlaceholder"
+              className="ContentPlaceholder__mask"
               style={
                 Object {
-                  "animationDuration": "1s",
-                  "height": undefined,
+                  "width": "0%",
                 }
               }
-            >
-               
-              <div
-                className="ContentPlaceholder__mask"
-                style={
-                  Object {
-                    "width": "0%",
-                  }
-                }
-              />
-            </div>
-          </ContentPlaceholder>
-        </div>
+            />
+          </div>
+        </ContentPlaceholder>
       </div>
     </li>
   </ListItem>
@@ -942,18 +882,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <span
+        key=".0"
       >
-        <span
-          key=".0"
-        >
-          some item text
-        </span>
-      </div>
+        some item text
+      </span>
     </li>
   </ListItem>
   <ListItem
@@ -967,18 +903,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem ListItem--isHighlighted"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <span
+        key=".0"
       >
-        <span
-          key=".0"
-        >
-          some item text
-        </span>
-      </div>
+        some item text
+      </span>
     </li>
   </ListItem>
   <ListItem
@@ -992,18 +924,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <span
+        key=".0"
       >
-        <span
-          key=".0"
-        >
-          some item text
-        </span>
-      </div>
+        some item text
+      </span>
     </li>
   </ListItem>
   <ListItem
@@ -1017,18 +945,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <span
+        key=".0"
       >
-        <span
-          key=".0"
-        >
-          some item text
-        </span>
-      </div>
+        some item text
+      </span>
     </li>
   </ListItem>
   <ListItem
@@ -1042,18 +966,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <span
+        key=".0"
       >
-        <span
-          key=".0"
-        >
-          some item text
-        </span>
-      </div>
+        some item text
+      </span>
     </li>
   </ListItem>
   <ListItem
@@ -1067,18 +987,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <span
+        key=".0"
       >
-        <span
-          key=".0"
-        >
-          some item text
-        </span>
-      </div>
+        some item text
+      </span>
     </li>
   </ListItem>
   <ListItem
@@ -1092,18 +1008,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <span
+        key=".0"
       >
-        <span
-          key=".0"
-        >
-          some item text
-        </span>
-      </div>
+        some item text
+      </span>
     </li>
   </ListItem>
   <ListItem
@@ -1117,18 +1029,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <span
+        key=".0"
       >
-        <span
-          key=".0"
-        >
-          some item text
-        </span>
-      </div>
+        some item text
+      </span>
     </li>
   </ListItem>
   <ListItem
@@ -1142,18 +1050,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <span
+        key=".0"
       >
-        <span
-          key=".0"
-        >
-          some item text
-        </span>
-      </div>
+        some item text
+      </span>
     </li>
   </ListItem>
   <ListItem
@@ -1167,18 +1071,14 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem ListItem--disabled"
+      role="presentation"
       style={Object {}}
     >
-      <div
-        className="ListItem__container"
-        role="presentation"
+      <span
+        key=".0"
       >
-        <span
-          key=".0"
-        >
-          some item text
-        </span>
-      </div>
+        some item text
+      </span>
     </li>
   </ListItem>
 </SuggestionsList>
