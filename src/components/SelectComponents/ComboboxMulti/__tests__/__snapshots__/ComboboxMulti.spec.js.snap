@@ -581,32 +581,27 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           className="ListItem ListItem--isHighlighted ListItem--clickable"
                           disabled={false}
                           id="downshift-6-item-0"
+                          onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="option"
+                          role="presentation"
                           style={Object {}}
                         >
-                          <div
-                            className="ListItem__container"
-                            onClick={[Function]}
-                            role="presentation"
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker=""
                           >
-                            <MarkedText
+                            <Text
+                              context="default"
                               inline={true}
-                              key=".0"
-                              marker=""
+                              size="normal"
                             >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Sun
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
+                              <span>
+                                Sun
+                              </span>
+                            </Text>
+                          </MarkedText>
                         </li>
                       </ListItem>
                       <ListItem
@@ -629,32 +624,27 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           className="ListItem ListItem--clickable"
                           disabled={false}
                           id="downshift-6-item-1"
+                          onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="option"
+                          role="presentation"
                           style={Object {}}
                         >
-                          <div
-                            className="ListItem__container"
-                            onClick={[Function]}
-                            role="presentation"
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker=""
                           >
-                            <MarkedText
+                            <Text
+                              context="default"
                               inline={true}
-                              key=".0"
-                              marker=""
+                              size="normal"
                             >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Moon
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
+                              <span>
+                                Moon
+                              </span>
+                            </Text>
+                          </MarkedText>
                         </li>
                       </ListItem>
                       <ListItem
@@ -677,32 +667,27 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           className="ListItem ListItem--clickable"
                           disabled={false}
                           id="downshift-6-item-2"
+                          onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="option"
+                          role="presentation"
                           style={Object {}}
                         >
-                          <div
-                            className="ListItem__container"
-                            onClick={[Function]}
-                            role="presentation"
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker=""
                           >
-                            <MarkedText
+                            <Text
+                              context="default"
                               inline={true}
-                              key=".0"
-                              marker=""
+                              size="normal"
                             >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Mercury
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
+                              <span>
+                                Mercury
+                              </span>
+                            </Text>
+                          </MarkedText>
                         </li>
                       </ListItem>
                       <ListItem
@@ -725,32 +710,27 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           className="ListItem ListItem--clickable"
                           disabled={false}
                           id="downshift-6-item-3"
+                          onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="option"
+                          role="presentation"
                           style={Object {}}
                         >
-                          <div
-                            className="ListItem__container"
-                            onClick={[Function]}
-                            role="presentation"
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker=""
                           >
-                            <MarkedText
+                            <Text
+                              context="default"
                               inline={true}
-                              key=".0"
-                              marker=""
+                              size="normal"
                             >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Venus
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
+                              <span>
+                                Venus
+                              </span>
+                            </Text>
+                          </MarkedText>
                         </li>
                       </ListItem>
                       <ListItem
@@ -773,32 +753,27 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           className="ListItem ListItem--clickable"
                           disabled={false}
                           id="downshift-6-item-4"
+                          onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="option"
+                          role="presentation"
                           style={Object {}}
                         >
-                          <div
-                            className="ListItem__container"
-                            onClick={[Function]}
-                            role="presentation"
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker=""
                           >
-                            <MarkedText
+                            <Text
+                              context="default"
                               inline={true}
-                              key=".0"
-                              marker=""
+                              size="normal"
                             >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Earth
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
+                              <span>
+                                Earth
+                              </span>
+                            </Text>
+                          </MarkedText>
                         </li>
                       </ListItem>
                       <ListItem
@@ -821,32 +796,27 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           className="ListItem ListItem--clickable"
                           disabled={false}
                           id="downshift-6-item-5"
+                          onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="option"
+                          role="presentation"
                           style={Object {}}
                         >
-                          <div
-                            className="ListItem__container"
-                            onClick={[Function]}
-                            role="presentation"
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker=""
                           >
-                            <MarkedText
+                            <Text
+                              context="default"
                               inline={true}
-                              key=".0"
-                              marker=""
+                              size="normal"
                             >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Mars
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
+                              <span>
+                                Mars
+                              </span>
+                            </Text>
+                          </MarkedText>
                         </li>
                       </ListItem>
                       <ListItem
@@ -869,32 +839,27 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           className="ListItem ListItem--clickable"
                           disabled={false}
                           id="downshift-6-item-6"
+                          onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="option"
+                          role="presentation"
                           style={Object {}}
                         >
-                          <div
-                            className="ListItem__container"
-                            onClick={[Function]}
-                            role="presentation"
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker=""
                           >
-                            <MarkedText
+                            <Text
+                              context="default"
                               inline={true}
-                              key=".0"
-                              marker=""
+                              size="normal"
                             >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Jupiter
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
+                              <span>
+                                Jupiter
+                              </span>
+                            </Text>
+                          </MarkedText>
                         </li>
                       </ListItem>
                       <ListItem
@@ -917,32 +882,27 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           className="ListItem ListItem--clickable"
                           disabled={false}
                           id="downshift-6-item-7"
+                          onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="option"
+                          role="presentation"
                           style={Object {}}
                         >
-                          <div
-                            className="ListItem__container"
-                            onClick={[Function]}
-                            role="presentation"
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker=""
                           >
-                            <MarkedText
+                            <Text
+                              context="default"
                               inline={true}
-                              key=".0"
-                              marker=""
+                              size="normal"
                             >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Saturn
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
+                              <span>
+                                Saturn
+                              </span>
+                            </Text>
+                          </MarkedText>
                         </li>
                       </ListItem>
                       <ListItem
@@ -965,32 +925,27 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           className="ListItem ListItem--clickable"
                           disabled={false}
                           id="downshift-6-item-8"
+                          onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="option"
+                          role="presentation"
                           style={Object {}}
                         >
-                          <div
-                            className="ListItem__container"
-                            onClick={[Function]}
-                            role="presentation"
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker=""
                           >
-                            <MarkedText
+                            <Text
+                              context="default"
                               inline={true}
-                              key=".0"
-                              marker=""
+                              size="normal"
                             >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Neptune
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
+                              <span>
+                                Neptune
+                              </span>
+                            </Text>
+                          </MarkedText>
                         </li>
                       </ListItem>
                       <ListItem
@@ -1012,29 +967,24 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                           disabled={true}
                           id="downshift-6-item-9"
                           onMouseDown={[Function]}
-                          role="option"
+                          role="presentation"
                           style={Object {}}
                         >
-                          <div
-                            className="ListItem__container"
-                            role="presentation"
+                          <MarkedText
+                            inline={true}
+                            key=".0"
+                            marker=""
                           >
-                            <MarkedText
+                            <Text
+                              context="default"
                               inline={true}
-                              key=".0"
-                              marker=""
+                              size="normal"
                             >
-                              <Text
-                                context="default"
-                                inline={true}
-                                size="normal"
-                              >
-                                <span>
-                                  Pluto
-                                </span>
-                              </Text>
-                            </MarkedText>
-                          </div>
+                              <span>
+                                Pluto
+                              </span>
+                            </Text>
+                          </MarkedText>
                         </li>
                       </ListItem>
                     </SuggestionsList>

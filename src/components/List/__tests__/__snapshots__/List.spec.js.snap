@@ -22,22 +22,18 @@ exports[`List component Initial rendering should allow for conditional rendering
     >
       <li
         className="ListItem List__item"
+        role="presentation"
       >
-        <div
-          className="ListItem__container"
-          role="presentation"
+        <Text
+          context="default"
+          inline={true}
+          key=".0"
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            key=".0"
-            size="normal"
-          >
-            <span>
-              Item 2
-            </span>
-          </Text>
-        </div>
+          <span>
+            Item 2
+          </span>
+        </Text>
       </li>
     </ListItem>
   </ul>
@@ -66,22 +62,18 @@ exports[`List component Initial rendering should render List correctly 1`] = `
     >
       <li
         className="ListItem List__item"
+        role="presentation"
       >
-        <div
-          className="ListItem__container"
-          role="presentation"
+        <Text
+          context="default"
+          inline={true}
+          key=".0"
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            key=".0"
-            size="normal"
-          >
-            <span>
-              Item 1
-            </span>
-          </Text>
-        </div>
+          <span>
+            Item 1
+          </span>
+        </Text>
       </li>
     </ListItem>
     <ListItem
@@ -95,22 +87,18 @@ exports[`List component Initial rendering should render List correctly 1`] = `
     >
       <li
         className="ListItem List__item"
+        role="presentation"
       >
-        <div
-          className="ListItem__container"
-          role="presentation"
+        <Text
+          context="default"
+          inline={true}
+          key=".0"
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            key=".0"
-            size="normal"
-          >
-            <span>
-              Item 2
-            </span>
-          </Text>
-        </div>
+          <span>
+            Item 2
+          </span>
+        </Text>
       </li>
     </ListItem>
   </ul>
@@ -137,22 +125,18 @@ exports[`List component Initial rendering should render List correctly without k
     >
       <li
         className="ListItem List__item"
+        role="presentation"
       >
-        <div
-          className="ListItem__container"
-          role="presentation"
+        <Text
+          context="default"
+          inline={true}
+          key=".0"
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            key=".0"
-            size="normal"
-          >
-            <span>
-              Item 1
-            </span>
-          </Text>
-        </div>
+          <span>
+            Item 1
+          </span>
+        </Text>
       </li>
     </ListItem>
     <ListItem
@@ -166,22 +150,18 @@ exports[`List component Initial rendering should render List correctly without k
     >
       <li
         className="ListItem List__item"
+        role="presentation"
       >
-        <div
-          className="ListItem__container"
-          role="presentation"
+        <Text
+          context="default"
+          inline={true}
+          key=".0"
+          size="normal"
         >
-          <Text
-            context="default"
-            inline={true}
-            key=".0"
-            size="normal"
-          >
-            <span>
-              Item 2
-            </span>
-          </Text>
-        </div>
+          <span>
+            Item 2
+          </span>
+        </Text>
       </li>
     </ListItem>
   </ul>

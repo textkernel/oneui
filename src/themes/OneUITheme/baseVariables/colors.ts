@@ -2,21 +2,22 @@ import { mixTwoColors, generateColorShades } from '../utils';
 import type { CSSVars } from '../OneUITheme';
 
 export const colorVariables = {
-    '--transparent': 'transparent',
+    '--transparent': 'transparent', // skipped
     '--color-background': '#ffffff',
     '--color-foreground': '#1d1d1b',
     '--color-neutral': '#d0d1d5',
     '--color-muted': '#b3b2b2',
     '--color-brand': '#0097d1',
+    '--color-primary': '#f18700',
     '--color-accent': '#182642',
     '--color-info': '#60c4de',
     '--color-good': '#5cb85c',
     '--color-warning': '#ffb819',
     '--color-bad': '#f42534',
-    '--link-color-normal': 'var(--color-brand)',
-    '--link-color-hover': 'var(--color-brand-40)',
-    '--border-color-light': 'var(--color-neutral-25)',
-    '--border-color-strong': 'var(--color-neutral-40)',
+    '--link-color-normal': 'var(--color-brand)', // skipped
+    '--link-color-hover': 'var(--color-brand-40)', // skipped
+    '--border-color-light': 'var(--color-neutral-25)', // skipped
+    '--border-color-strong': 'var(--color-neutral-40)', // skipped
 };
 
 export const computedColorVariables = (baseVariables: CSSVars): CSSVars => {
@@ -26,6 +27,7 @@ export const computedColorVariables = (baseVariables: CSSVars): CSSVars => {
         ...generateColorShadesFromVariables('--color-neutral'),
         ...generateColorShadesFromVariables('--color-muted'),
         ...generateColorShadesFromVariables('--color-brand'),
+        ...generateColorShadesFromVariables('--color-primary'),
         ...generateColorShadesFromVariables('--color-accent'),
         ...generateColorShadesFromVariables('--color-info'),
         ...generateColorShadesFromVariables('--color-good'),
@@ -34,12 +36,12 @@ export const computedColorVariables = (baseVariables: CSSVars): CSSVars => {
         '--color-highlight-background': mixTwoColors(
             baseVariables['--color-brand'],
             baseVariables['--color-background'],
-            0.9
+            90
         ),
         '--color-selection-background': mixTwoColors(
             baseVariables['--color-brand'],
             baseVariables['--color-background'],
-            0.9
+            90
         ),
     };
 };

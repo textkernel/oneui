@@ -103,25 +103,20 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
           id="downshift-95-item-0"
+          onClick={[Function]}
           onMouseMove={[Function]}
-          role="option"
+          role="presentation"
         >
-          <div
-            className="ListItem__container"
-            onClick={[Function]}
-            role="presentation"
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
           >
-            <Text
-              context="default"
-              inline={true}
-              key=".0"
-              size="normal"
-            >
-              <span>
-                With value
-              </span>
-            </Text>
-          </div>
+            <span>
+              With value
+            </span>
+          </Text>
         </li>
       </ListItem>
     </ul>
@@ -224,22 +219,18 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       >
         <li
           className="ListItem ListItem--disabled List__item"
+          role="presentation"
         >
-          <div
-            className="ListItem__container"
-            role="presentation"
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
           >
-            <Text
-              context="default"
-              inline={true}
-              key=".0"
-              size="normal"
-            >
-              <span>
-                Disabled
-              </span>
-            </Text>
-          </div>
+            <span>
+              Disabled
+            </span>
+          </Text>
         </li>
       </ListItem>
       <ListItem
@@ -261,25 +252,20 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
           id="downshift-12-item-0"
+          onClick={[Function]}
           onMouseMove={[Function]}
-          role="option"
+          role="presentation"
         >
-          <div
-            className="ListItem__container"
-            onClick={[Function]}
-            role="presentation"
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
           >
-            <Text
-              context="default"
-              inline={true}
-              key=".0"
-              size="normal"
-            >
-              <span>
-                With value 1
-              </span>
-            </Text>
-          </div>
+            <span>
+              With value 1
+            </span>
+          </Text>
         </li>
       </ListItem>
       <ListItem
@@ -293,22 +279,18 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       >
         <li
           className="ListItem List__item"
+          role="presentation"
         >
-          <div
-            className="ListItem__container"
-            role="presentation"
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
           >
-            <Text
-              context="default"
-              inline={true}
-              key=".0"
-              size="normal"
-            >
-              <span>
-                Without value
-              </span>
-            </Text>
-          </div>
+            <span>
+              Without value
+            </span>
+          </Text>
         </li>
       </ListItem>
       <div
@@ -336,25 +318,20 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
           id="downshift-12-item-1"
+          onClick={[Function]}
           onMouseMove={[Function]}
-          role="option"
+          role="presentation"
         >
-          <div
-            className="ListItem__container"
-            onClick={[Function]}
-            role="presentation"
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
           >
-            <Text
-              context="default"
-              inline={true}
-              key=".0"
-              size="normal"
-            >
-              <span>
-                With value 2
-              </span>
-            </Text>
-          </div>
+            <span>
+              With value 2
+            </span>
+          </Text>
         </li>
       </ListItem>
     </ul>
@@ -577,22 +554,18 @@ exports[`Dropdown should render correctly opened 1`] = `
       >
         <li
           className="ListItem ListItem--disabled List__item"
+          role="presentation"
         >
-          <div
-            className="ListItem__container"
-            role="presentation"
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
           >
-            <Text
-              context="default"
-              inline={true}
-              key=".0"
-              size="normal"
-            >
-              <span>
-                Disabled
-              </span>
-            </Text>
-          </div>
+            <span>
+              Disabled
+            </span>
+          </Text>
         </li>
       </ListItem>
       <ListItem
@@ -614,25 +587,20 @@ exports[`Dropdown should render correctly opened 1`] = `
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
           id="downshift-3-item-0"
+          onClick={[Function]}
           onMouseMove={[Function]}
-          role="option"
+          role="presentation"
         >
-          <div
-            className="ListItem__container"
-            onClick={[Function]}
-            role="presentation"
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
           >
-            <Text
-              context="default"
-              inline={true}
-              key=".0"
-              size="normal"
-            >
-              <span>
-                With value
-              </span>
-            </Text>
-          </div>
+            <span>
+              With value
+            </span>
+          </Text>
         </li>
       </ListItem>
     </ul>
@@ -735,22 +703,18 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       >
         <li
           className="ListItem ListItem--disabled List__item"
+          role="presentation"
         >
-          <div
-            className="ListItem__container"
-            role="presentation"
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
           >
-            <Text
-              context="default"
-              inline={true}
-              key=".0"
-              size="normal"
-            >
-              <span>
-                Disabled
-              </span>
-            </Text>
-          </div>
+            <span>
+              Disabled
+            </span>
+          </Text>
         </li>
       </ListItem>
       <ListItem
@@ -772,25 +736,20 @@ exports[`Dropdown should render correctly with mixed children: array and single 
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
           id="downshift-41-item-0"
+          onClick={[Function]}
           onMouseMove={[Function]}
-          role="option"
+          role="presentation"
         >
-          <div
-            className="ListItem__container"
-            onClick={[Function]}
-            role="presentation"
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
           >
-            <Text
-              context="default"
-              inline={true}
-              key=".0"
-              size="normal"
-            >
-              <span>
-                one
-              </span>
-            </Text>
-          </div>
+            <span>
+              one
+            </span>
+          </Text>
         </li>
       </ListItem>
       <ListItem
@@ -812,25 +771,20 @@ exports[`Dropdown should render correctly with mixed children: array and single 
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
           id="downshift-41-item-1"
+          onClick={[Function]}
           onMouseMove={[Function]}
-          role="option"
+          role="presentation"
         >
-          <div
-            className="ListItem__container"
-            onClick={[Function]}
-            role="presentation"
+          <Text
+            context="default"
+            inline={true}
+            key=".0"
+            size="normal"
           >
-            <Text
-              context="default"
-              inline={true}
-              key=".0"
-              size="normal"
-            >
-              <span>
-                two
-              </span>
-            </Text>
-          </div>
+            <span>
+              two
+            </span>
+          </Text>
         </li>
       </ListItem>
     </ul>

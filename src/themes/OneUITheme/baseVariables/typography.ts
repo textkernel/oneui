@@ -20,10 +20,10 @@ export const typographyVariables = {
     '--font-weight-bold': '600',
     '--link-decoration-normal': 'none',
     '--link-decoration-hover': 'underline',
-    '--line-height-x-small': 'calc(var(--font-size-x-small) * 1.4px)',
-    '--line-height-small': 'calc(var(--font-size-small) * 1.4px)',
-    '--line-height-normal': 'calc(var(--font-size-normal) * 1.4px)',
-    '--line-height-large': 'calc(var(--font-size-large) * 1.4px)',
-    '--heading-font-family': 'var(--font-family-secondary)',
-    '--heading-font-weight': 'var(--font-weight-bold)',
+    '--line-height-x-small': 'calc(var(--font-size-x-small) * 1.4px)', // skipped
+    '--line-height-small': 'calc(var(--font-size-small) * 1.4px)', // skipped
+    '--line-height-normal': 'calc(var(--font-size-normal) * 1.4px)', // skipped
+    '--line-height-large': 'calc(var(--font-size-large) * 1.4px)', // skipped
+    '--heading-font-family': 'var(--font-family-secondary)', // skipped
+    '--heading-font-weight': 'var(--font-weight-bold)', // skipped
 };

@@ -72,3 +72,4 @@ export {
 export * from './components/LocationSelector';
 export * from './components/LabelPicker';
 export { ProductTour } from './components/ProductTour';
+export * from './components/Themeroller';
