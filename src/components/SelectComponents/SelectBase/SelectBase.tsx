@@ -264,6 +264,7 @@ export function SelectBase<S>(props: Props<S>) {
                                       getInputProps,
                                       getToggleButtonProps,
                                       onFocus: handleInputOnFocus(openMenu),
+                                      onBlur: handleBlur,
                                   })}
                             <List
                                 {...getMenuProps({

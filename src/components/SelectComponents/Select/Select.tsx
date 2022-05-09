@@ -56,6 +56,8 @@ export function Select<S>(props: Props<S>) {
         ...rest
     } = props;
 
+    const focusElRef = React.useRef();
+
     const selectionRenderer = () => (
         <span {...elem('selected')}>
             {selectedItem ? (
@@ -68,18 +70,24 @@ export function Select<S>(props: Props<S>) {
         </span>
     );
 
-    const blurredRenderer = () => (
-        <div tabIndex={0} role="searchbox" onFocus={onFocus} {...elem('wrapper')}>
+    const blurredRenderer = ({ getInputProps, onFocus: focus }) => (
+        <div
+            tabIndex={0}
+            role="searchbox"
+            {...getInputProps({ onClick: focus })}
+            {...elem('wrapper')}
+        >
             {selectionRenderer()}
         </div>
     );
 
-    const focusedRenderer = ({ getToggleButtonProps, onBlur: blur }) => (
+    const focusedRenderer = ({ getToggleButtonProps, onBlur: blur, onFocus: focus }) => (
         <div
+            ref={focusElRef}
             tabIndex={0}
             role="searchbox"
             {...elem('wrapper', { isOpen: true })}
-            {...getToggleButtonProps({ onClick: blur })}
+            {...getToggleButtonProps({ onClick: blur, onFocus: focus })}
         >
             {selectionRenderer()}
         </div>
@@ -89,6 +97,7 @@ export function Select<S>(props: Props<S>) {
         <SelectBase
             {...rest}
             showArrow
+            inputRef={focusElRef}
             suggestions={items}
             suggestionToString={itemToString}
             onSelectionAdd={onChange}

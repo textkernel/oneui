@@ -8,6 +8,8 @@ describe('FieldWrapper', () => {
 
         expect(wrapper.find('.FieldWrapper__dropdownIcon').exists()).toBeFalsy();
         expect(wrapper.find('button')).toHaveLength(0);
+        expect(wrapper.find('IoMdArrowDropdown').exists()).toBeFalsy();
+        expect(wrapper.find('IoMdArrowDropup').exists()).toBeFalsy();
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should add clear button if showClearButton is true', () => {
@@ -24,6 +26,7 @@ describe('FieldWrapper', () => {
         const wrapper = mount(<FieldWrapper showArrow>some children</FieldWrapper>);
 
         expect(wrapper.find('.FieldWrapper__dropdownIcon').exists()).toBeTruthy();
+        expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should render arrow icon pointing up', () => {
@@ -34,6 +37,7 @@ describe('FieldWrapper', () => {
         );
 
         expect(wrapper.find('.FieldWrapper__dropdownIcon').exists()).toBeTruthy();
+        expect(wrapper.find('IoMdArrowDropup').exists()).toBeTruthy();
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should call onClear callback correctly', () => {

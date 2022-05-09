@@ -66,6 +66,16 @@ describe('Select', () => {
             wrapper.find('li').first().children().simulate('click');
             expect(wrapper.find('li')).toHaveLength(0);
         });
+        it('should close list when item is selected', () => {
+            // originally to be closed
+            expect(wrapper.find('li')).toHaveLength(0);
+
+            clickWrapper();
+
+            // select item
+            wrapper.find('li').first().children().simulate('click');
+            expect(wrapper.find('li')).toHaveLength(0);
+        });
     });
 
     describe('toggling items list', () => {
@@ -114,12 +124,7 @@ describe('Select', () => {
 
     describe('callbacks', () => {
         describe('onFocus', () => {
-            /**
-             * TODO: fix onFocus firing,
-             * probably it doesn't work for `SelectBase` as well.
-             * onFocus is working in real example.
-             */
-            it.skip('should be called on clicking when opening the dropdown', () => {
+            it('should be called on clicking when opening the dropdown', () => {
                 expect(mockOnFocus).not.toHaveBeenCalled();
                 clickWrapper();
                 expect(mockOnFocus).toHaveBeenCalled();

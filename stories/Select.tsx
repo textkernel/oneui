@@ -2,6 +2,7 @@ import * as React from 'react';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, withKnobs } from '@storybook/addon-knobs';
 import { ComboboxMulti, Autosuggest, Select } from '@textkernel/oneui';
+import { StoreInjector } from '../src/packages/storybook/withStore';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
@@ -18,6 +19,16 @@ const searchFor = {
 
 storiesOf('Organisms|Select Components', module)
     .addDecorator(withKnobs)
+    .addParameters(
+        StoreInjector.withStore({
+            inputValue: '',
+            selectedSuggestions: [],
+            selectedItem: SUGGESTIONS[0],
+            disabled: false,
+            inputRef: React.createRef(),
+            singleSelectedText: '',
+        })
+    )
     .add(
         'Select',
         () => {

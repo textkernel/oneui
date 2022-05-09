@@ -29,7 +29,7 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
 
 export interface SelectInputFieldProps {
     /** input field ref */
-    inputRef?: React.RefObject<HTMLInputElement>;
+    inputRef?: React.RefObject<HTMLElement | undefined>;
     /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
     onInputValueChange?: (value: string) => void;
     /** clean up input value after selected item */
@@ -60,6 +60,7 @@ export type BlurredRendererHelpers<S> = (helpers: {
     getInputProps: (options: GetItemPropsOptions<S>) => object;
     getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
     onFocus: (callback: () => void) => void;
+    onBlur: () => void;
 }) => ReactNode;
 
 export type ListRendererHelper<S> = (props: {

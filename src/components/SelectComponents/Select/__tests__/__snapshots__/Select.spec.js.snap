@@ -58,6 +58,11 @@ exports[`Select rendering should initially render correctly 1`] = `
     clearTitle=""
     focusedRenderer={[Function]}
     highlightOnEmptyInput={true}
+    inputRef={
+      Object {
+        "current": undefined,
+      }
+    }
     keepExpandedAfterSelection={false}
     listRenderer={[Function]}
     onBlur={[MockFunction]}
@@ -154,10 +159,20 @@ exports[`Select rendering should initially render correctly 1`] = `
                 className="FieldWrapper__content"
               >
                 <div
+                  aria-activedescendant={null}
+                  aria-autocomplete="list"
+                  aria-controls={null}
+                  aria-labelledby="downshift-0-label"
+                  autoComplete="off"
                   className="Select__wrapper"
-                  onFocus={[MockFunction]}
+                  id="downshift-0-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
                   role="searchbox"
                   tabIndex={0}
+                  value=""
                 >
                   <span
                     className="Select__selected"
@@ -283,7 +298,19 @@ exports[`Select rendering should render focused component correctly 1`] = `
   onBlur={[MockFunction]}
   onChange={[MockFunction]}
   onClear={[MockFunction]}
-  onFocus={[MockFunction]}
+  onFocus={
+    [MockFunction] {
+      "calls": Array [
+        Array [],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
   placeholder=""
   selectedItem={
     Object {
@@ -298,11 +325,42 @@ exports[`Select rendering should render focused component correctly 1`] = `
     clearTitle=""
     focusedRenderer={[Function]}
     highlightOnEmptyInput={true}
+    inputRef={
+      Object {
+        "current": <div
+          aria-haspopup="true"
+          aria-label="close menu"
+          class="Select__wrapper Select__wrapper--isOpen"
+          data-toggle="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="Select__selected"
+          >
+            Moon
+          </span>
+        </div>,
+      }
+    }
     keepExpandedAfterSelection={false}
     listRenderer={[Function]}
     onBlur={[MockFunction]}
     onClearAllSelected={[MockFunction]}
-    onFocus={[MockFunction]}
+    onFocus={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={false}
@@ -400,6 +458,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                   data-toggle={true}
                   onBlur={[Function]}
                   onClick={[Function]}
+                  onFocus={[Function]}
                   onKeyDown={[Function]}
                   onKeyUp={[Function]}
                   role="button"
