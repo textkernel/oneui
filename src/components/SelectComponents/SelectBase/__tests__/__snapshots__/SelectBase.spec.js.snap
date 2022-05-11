@@ -9,6 +9,7 @@ exports[`SelectBase rendering should initially render empty component correctly 
           Object {
             "getInputProps": [Function],
             "getToggleButtonProps": [Function],
+            "onBlur": [Function],
             "onFocus": [Function],
           },
         ],
@@ -32,6 +33,7 @@ exports[`SelectBase rendering should initially render empty component correctly 
       ],
     }
   }
+  className=""
   clearInputAfterSelection={false}
   clearTitle=""
   focusedRenderer={
@@ -41,6 +43,7 @@ exports[`SelectBase rendering should initially render empty component correctly 
           Object {
             "getInputProps": [Function],
             "getToggleButtonProps": [Function],
+            "onBlur": [Function],
             "onFocus": [Function],
           },
         ],
@@ -72,6 +75,7 @@ exports[`SelectBase rendering should initially render empty component correctly 
   onInputValueChange={[MockFunction]}
   onSelectionAdd={[MockFunction]}
   selectOnTab={false}
+  showArrow={false}
   showClearButton={false}
   suggestionToString={[Function]}
   suggestions={
@@ -143,9 +147,11 @@ exports[`SelectBase rendering should initially render empty component correctly 
           className="SelectBase__field"
           clearLabel=""
           disabled={false}
+          isArrowUp={false}
           isFocused={false}
           onClear={[Function]}
           onClick={[Function]}
+          showArrow={false}
           showClearButton={false}
         >
           <div

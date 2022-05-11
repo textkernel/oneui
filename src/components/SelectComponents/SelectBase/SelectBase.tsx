@@ -14,6 +14,7 @@ export function SelectBase<S>(props: Props<S>) {
         suggestions,
         suggestionToString,
         clearTitle,
+        showArrow,
         showClearButton,
         selectOnTab,
         disabled,
@@ -25,6 +26,7 @@ export function SelectBase<S>(props: Props<S>) {
         inputRef: inputRefFromProps,
         rootRef: rootRefFromProps,
         listRef: listRefFromProps,
+        className,
         listRenderer,
         focusedRenderer,
         blurredRenderer,
@@ -218,7 +220,7 @@ export function SelectBase<S>(props: Props<S>) {
     };
 
     return (
-        <div {...rest} ref={rootRef} {...block(stateAndProps)}>
+        <div {...rest} ref={rootRef} {...block({ ...stateAndProps, className })}>
             <Downshift
                 onChange={handleChange}
                 itemToString={suggestionToString}
@@ -239,6 +241,8 @@ export function SelectBase<S>(props: Props<S>) {
                 }) => (
                     <div {...elem('main', stateAndProps)}>
                         <FieldWrapper
+                            showArrow={showArrow}
+                            isArrowUp={focused}
                             clearLabel={clearTitle}
                             onClear={handleClearSelectedSuggestions}
                             showClearButton={!focused && showClearButton}
@@ -260,6 +264,7 @@ export function SelectBase<S>(props: Props<S>) {
                                       getInputProps,
                                       getToggleButtonProps,
                                       onFocus: handleInputOnFocus(openMenu),
+                                      onBlur: handleBlur,
                                   })}
                             <List
                                 {...getMenuProps({
@@ -287,12 +292,14 @@ export function SelectBase<S>(props: Props<S>) {
 }
 
 SelectBase.defaultProps = {
+    showArrow: false,
     showClearButton: false,
     keepExpandedAfterSelection: false,
     clearInputAfterSelection: false,
     highlightOnEmptyInput: true,
     clearTitle: '',
     selectOnTab: false,
+    className: '',
     onInputValueChange: () => null,
 };
 

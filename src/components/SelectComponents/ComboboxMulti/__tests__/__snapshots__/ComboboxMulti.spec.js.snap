@@ -48,6 +48,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={false}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -71,6 +72,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
     onInputValueChange={[MockFunction]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={false}
+    showArrow={false}
     showClearButton={false}
     suggestionToString={[Function]}
     suggestions={
@@ -142,9 +144,11 @@ exports[`ComboboxMulti rendering should initially render empty component correct
             className="SelectBase__field"
             clearLabel=""
             disabled={false}
+            isArrowUp={false}
             isFocused={false}
             onClear={[Function]}
             onClick={[Function]}
+            showArrow={false}
             showClearButton={false}
           >
             <div
@@ -309,6 +313,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
 >
   <SelectBase
     blurredRenderer={[Function]}
+    className=""
     clearInputAfterSelection={false}
     clearTitle=""
     focusedRenderer={[Function]}
@@ -334,6 +339,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
     onInputValueChange={[MockFunction]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={false}
+    showArrow={false}
     showClearButton={false}
     suggestionToString={[Function]}
     suggestions={
@@ -405,9 +411,11 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
             className="SelectBase__field"
             clearLabel=""
             disabled={false}
+            isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
+            showArrow={false}
             showClearButton={false}
           >
             <div

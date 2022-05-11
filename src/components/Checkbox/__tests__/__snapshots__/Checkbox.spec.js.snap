@@ -2,6 +2,7 @@
 
 exports[`<Checkbox> that renders a checkbox should render checkbox with complex children 1`] = `
 <Checkbox
+  asFlexbox={false}
   disabled={false}
   id="c1"
 >
@@ -50,6 +51,7 @@ exports[`<Checkbox> that renders a checkbox should render checkbox with complex 
 
 exports[`<Checkbox> that renders a checkbox should render default checkbox correctly 1`] = `
 <Checkbox
+  asFlexbox={false}
   disabled={false}
   id="c1"
 >

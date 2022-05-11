@@ -17,6 +17,8 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     listRef?: React.RefObject<HTMLUListElement>;
     /** defines if the component is disabled */
     disabled?: boolean;
+    /** a class to be applied to the top level div */
+    className?: string;
     /** onFocus() is called when the component is focused */
     onFocus?: () => void;
     /** onBlur() is called when the component is blurred */
@@ -27,7 +29,7 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
 
 export interface SelectInputFieldProps {
     /** input field ref */
-    inputRef?: React.RefObject<HTMLInputElement>;
+    inputRef?: React.RefObject<HTMLElement | undefined>;
     /** onInputValueChange(inputValue) called when the input values is changed. Can be used to implement the component as controlled component */
     onInputValueChange?: (value: string) => void;
     /** clean up input value after selected item */
@@ -58,6 +60,7 @@ export type BlurredRendererHelpers<S> = (helpers: {
     getInputProps: (options: GetItemPropsOptions<S>) => object;
     getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
     onFocus: (callback: () => void) => void;
+    onBlur: () => void;
 }) => ReactNode;
 
 export type ListRendererHelper<S> = (props: {
@@ -89,4 +92,6 @@ export interface Props<S>
     highlightOnEmptyInput?: boolean;
     /** select highlighted item when blurring out of the component */
     selectOnTab?: boolean;
+    /** show dropdown icon */
+    showArrow?: boolean;
 }

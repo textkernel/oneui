@@ -31,8 +31,16 @@ storiesOf('Organisms|Select Components', module)
     )
     .add(
         'Select',
-        (storyContext) => {
-            const store = storyContext?.parameters.getStore();
+        () => {
+            const initialState = {
+                inputValue: '',
+                selectedSuggestions: [],
+                selectedItem: SUGGESTIONS[0],
+                disabled: false,
+                inputRef: React.createRef(),
+                singleSelectedText: '',
+            };
+            const [store, setStore] = React.useState(initialState);
             const onFocus = () => {
                 console.log('onFocus was called');
             };
@@ -41,9 +49,12 @@ storiesOf('Organisms|Select Components', module)
                 console.log('onBlur was called');
             };
 
-            const onChange = (item) => {
-                console.log(`onChange was called with {name: ${item.name}}`);
-                store.set({ selectedItem: item });
+            const onChange = (selectedItem) => {
+                console.log(`onChange was called with {name: ${selectedItem.name}}`);
+                setStore({
+                    ...store,
+                    selectedItem,
+                });
             };
 
             return (
@@ -52,10 +63,74 @@ storiesOf('Organisms|Select Components', module)
                         style={{ width: '650px' }}
                         items={SUGGESTIONS}
                         itemToString={SUGGESTION_TO_STRING}
-                        selectedItem={store.get('selectedItem')}
+                        selectedItem={store.selectedItem}
                         onFocus={onFocus}
                         onBlur={onBlur}
                         onChange={onChange}
+                    />
+                </>
+            );
+        },
+        {
+            info: {
+                text: `
+        ## Usage information
+        This component is recommended to use for a simple select component with static known list of values without a need for filtering.
+        The list is shown right away by clicking on the control. The selected item is shown in the top field.
+
+        More detailed face-to-face comparison of Select components can be found [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
+            },
+        }
+    )
+    .add(
+        'Clearable Select',
+        () => {
+            const initialState = {
+                inputValue: '',
+                selectedSuggestions: [],
+                selectedItem: undefined,
+                disabled: false,
+                inputRef: React.createRef(),
+                singleSelectedText: '',
+            };
+            const [store, setStore] = React.useState(initialState);
+            const onFocus = () => {
+                console.log('onFocus was called');
+            };
+
+            const onBlur = () => {
+                console.log('onBlur was called');
+            };
+
+            const onChange = (selectedItem) => {
+                console.log(`onChange was called with {name: ${selectedItem.name}}`);
+                setStore({
+                    ...store,
+                    selectedItem,
+                });
+            };
+
+            const onClear = () => {
+                console.log('onClear was called');
+                setStore({
+                    ...store,
+                    selectedItem: undefined,
+                });
+            };
+
+            return (
+                <>
+                    <Select<TSuggestion>
+                        style={{ width: '650px' }}
+                        items={SUGGESTIONS}
+                        itemToString={SUGGESTION_TO_STRING}
+                        selectedItem={store.selectedItem}
+                        clearLabel={text('Clear button label', 'Clear')}
+                        placeholder={text('Placeholder', 'Choose item...')}
+                        onFocus={onFocus}
+                        onBlur={onBlur}
+                        onChange={onChange}
+                        onClear={onClear}
                     />
                 </>
             );
@@ -343,9 +418,9 @@ storiesOf('Organisms|Select Components', module)
             info: {
                 text: `
                 The Autosuggest component is recommended to use for a dynamic list of values.
-                It is primarily geared toward a multi-select use case. 
+                It is primarily geared toward a multi-select use case.
                 This story demonstrates how you can add props and function to make it feel like a single select component.
-                
+
                 The important parts here are:
                 * passing inputRef prop, so we can access the input field from outside
                 * calling inputRef.current.blur() in onSelectionAdd
@@ -593,7 +668,7 @@ storiesOf('Organisms|Select Components', module)
             info: {
                 text: `
             The Autosuggest component is recommended to use for a dynamic list of values.
-            This story demonstrates how you can mix these dynamic suggestions with static ones (e.g. based on user input), 
+            This story demonstrates how you can mix these dynamic suggestions with static ones (e.g. based on user input),
             and how those can be shown during the loading state as well`,
             },
         }
@@ -739,19 +814,19 @@ storiesOf('Organisms|Select Components', module)
             info: {
                 text: `
             The Autosuggest component is recommended to use for a dynamic list of values.
-            It is primarily geared toward a multi-select use case. 
+            It is primarily geared toward a multi-select use case.
             This story demonstrates how you can add props and function to allow mix of single select and multi select options together.
-            
+
             The business case we demonstrate here is has the following requirements:
-            
+
             * The user can select free text input
             * When free text input is selected it should behave as a single select component
             * All other suggestions can be selected in a multi-select fashion.
-            
+
             The **important parts** here are:
             * passing inputRef prop, so we can access the input field from outside
             * calling inputRef.current.blur() in onSelectionAdded callback when needed
-            
+
             when a _single selection happened_:
             * passing a custom customSelectionIndicator node to alter the look and feel of the blurred component
             * passing initInputValue so that the input field gets populated when the component receives focus again.`,
