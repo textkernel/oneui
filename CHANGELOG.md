@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [18.1.0](https://github.com/textkernel/oneui/compare/18.0.0...18.1.0) (2022-05-11)
+
+
+### Features
+
+* **Checkbox:** add `asFlexbox` prop to allow for different layout styles ([#756](https://github.com/textkernel/oneui/issues/756)) ([5e39cf7](https://github.com/textkernel/oneui/commit/5e39cf7ca607da998f373420f861ef4a3abe5224))
+* **Select:** added option for no default selection ([#749](https://github.com/textkernel/oneui/issues/749)) ([3152153](https://github.com/textkernel/oneui/commit/31521530cd64cced01307b1b8ef604f970291e95))
+
+
+### Bug Fixes
+
+* added missed px unit in font-size-large ([#755](https://github.com/textkernel/oneui/issues/755)) ([eb8f1b2](https://github.com/textkernel/oneui/commit/eb8f1b2960ef592b5be2a9284e3b54e8fda21377))
+
 ## [18.0.0](https://github.com/textkernel/oneui/compare/17.4.0...18.0.0) (2022-05-02)
 
 
