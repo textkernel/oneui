@@ -13,12 +13,16 @@ export interface ThemeStringItem extends ThemeBaseItem {
     type: 'string';
 }
 
+export interface ThemeNumberItem extends ThemeBaseItem {
+    type: 'number';
+}
+
 export interface ThemeSizeItem extends ThemeBaseItem {
-    type: 'size';
+    type: 'unit';
     unit: 'px' | 's';
 }
 
-export type ThemeItem = ThemeColorItem | ThemeSizeItem | ThemeStringItem;
+export type ThemeItem = ThemeColorItem | ThemeSizeItem | ThemeStringItem | ThemeNumberItem;
 
 export type ThemeFieldset = {
     fieldsetName: string;

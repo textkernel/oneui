@@ -17,11 +17,11 @@ import {
     typographyVariables,
 } from './baseVariables';
 
-export type CSSVars = {
+export type CssVars = {
     [key: string]: string;
 };
 
-export function OneUITheme(customVariables: CSSVars = {}): CSSVars {
+export function OneUITheme(customVariables: CssVars = {}): CssVars {
     const baseVariables = {
         ...colorVariables,
         ...headerFooterVariables,
@@ -36,3 +36,5 @@ export function OneUITheme(customVariables: CSSVars = {}): CSSVars {
         ...computedColorVariables(baseVariables),
     };
 }
+
+export type ThemeType = typeof OneUITheme;

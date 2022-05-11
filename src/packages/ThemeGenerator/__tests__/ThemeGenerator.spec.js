@@ -11,7 +11,7 @@ describe('ThemeGenerator', () => {
                 '--color-brand-30': '#303030',
             });
             const themeGenerator = new ThemeGenerator(OneUITheme);
-            expect(themeGenerator.generate().replace(/\s+/g, '')).toEqual(
+            expect(themeGenerator.generateThemeCss().replace(/\s+/g, '')).toEqual(
                 '--transparent:transparent;--color-brand:blue;--color-brand-10:#101010;--color-brand-20:#202020;--color-brand-30:#303030;'
             );
         });
@@ -29,7 +29,7 @@ describe('ThemeGenerator', () => {
                 '--transparent': 'none',
                 '--color-brand': 'red',
             };
-            expect(themeGenerator.generate(customProperties).replace(/\s+/g, '')).toEqual(
+            expect(themeGenerator.generateThemeCss(customProperties).replace(/\s+/g, '')).toEqual(
                 '--transparent:none;--color-brand:red;--color-brand-10:#101010;--color-brand-20:#202020;--color-brand-30:#303030;'
             );
         });

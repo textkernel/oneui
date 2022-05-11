@@ -3,21 +3,52 @@
  * custom CSS properties from theme variables.
  */
 import FileSaver from 'file-saver';
+import { ThemeType } from '../../themes/OneUITheme';
 
-type CSSVars = {
+type CssVars = {
     [key: string]: string;
 };
 
-type Theme = (cssVars?: CSSVars) => CSSVars;
+export type ThemeJsonResult = {
+    CssVariables: CssVars;
+};
 
 export class ThemeGenerator {
-    private theme: Theme;
+    private theme: ThemeType;
 
-    constructor(theme: Theme) {
+    public static saveAsJson(styles: string, fileName = 'theme') {
+        const blob = new Blob([styles], {
+            type: 'application/json;charset=utf-8',
+        });
+        FileSaver.saveAs(blob, `${fileName}.json`);
+    }
+
+    public static generateCss(cssVars: CssVars = {}): string {
+        return Object.entries(cssVars).reduce((result, [varName, varValue]) => {
+            return `${result}${[varName]}: ${[varValue]};\n\t`;
+        }, '');
+    }
+
+    public static generateStylesFromThemeJSON(jsonResult: ThemeJsonResult): string {
+        const { CssVariables } = jsonResult;
+        return ThemeGenerator.wrapInCssRoot(ThemeGenerator.generateCss(CssVariables));
+    }
+
+    public static wrapInCssRoot(styles: string): string {
+        return `:root {\n\t${styles}\n};`;
+    }
+
+    public static wrapInJSON(cssVars: CssVars = {}): ThemeJsonResult {
+        return {
+            CssVariables: cssVars,
+        };
+    }
+
+    constructor(theme: ThemeType) {
         this.theme = theme;
     }
 
-    private getDiff(cssVars: CSSVars = {}): CSSVars {
+    private getDiff(cssVars: CssVars = {}): CssVars {
         const theme = this.theme();
         const varsList = Object.entries(this.theme(cssVars));
 
@@ -26,29 +57,12 @@ export class ThemeGenerator {
             .reduce((result, [key, value]) => ({ ...result, [key]: value }), {});
     }
 
-    public generate(cssVars: CSSVars = {}): string {
-        return Object.entries(this.theme(cssVars)).reduce((result, [varName, varValue]) => {
-            return `${result}
-                ${[varName]}: ${[varValue]};
-            `;
-        }, '');
+    public generateThemeCss(cssVars: CssVars = {}): string {
+        return ThemeGenerator.generateCss(this.theme(cssVars));
     }
 
-    public generateDiff(cssVars: CSSVars = {}): string {
+    public generateJSONDiff(cssVars: CssVars = {}): ThemeJsonResult {
         const diffCssVars = this.getDiff(cssVars);
-        return Object.entries(diffCssVars).reduce((result, [varName, varValue]) => {
-            return `${result}${[varName]}: ${[varValue]};\n\t`;
-        }, '');
-    }
-
-    public static saveAsCss(styles: string, fileName = 'styles') {
-        const blob = new Blob([ThemeGenerator.wrapInRoot(styles)], {
-            type: 'text/css;charset=utf-8',
-        });
-        FileSaver.saveAs(blob, `${fileName}.css`);
-    }
-
-    public static wrapInRoot(styles: string): string {
-        return `:root {\n\t${styles}\n};`;
+        return ThemeGenerator.wrapInJSON(diffCssVars);
     }
 }

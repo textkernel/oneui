@@ -1,5 +1,5 @@
 import { mixTwoColors, generateColorShades } from '../utils';
-import type { CSSVars } from '../OneUITheme';
+import type { CssVars } from '../OneUITheme';
 
 export const colorVariables = {
     '--transparent': 'transparent', // skipped
@@ -20,7 +20,7 @@ export const colorVariables = {
     '--border-color-strong': 'var(--color-neutral-40)', // skipped
 };
 
-export const computedColorVariables = (baseVariables: CSSVars): CSSVars => {
+export const computedColorVariables = (baseVariables: CssVars): CssVars => {
     const generateColorShadesFromVariables = (name: string) =>
         generateColorShades(baseVariables, name);
     return {

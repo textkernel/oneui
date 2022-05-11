@@ -3,44 +3,26 @@ import { bem } from '../../utils';
 import { TabsBar, TabItem } from '../Tabs';
 import { List, ListItem } from '../List';
 import { Text } from '../Text';
-import { ThemeConfig, ThemeItem } from './themeConfigTypes';
+import { ThemeConfig, ThemeItem } from '../../themes/themerollerConfig';
 import { ItemValue } from './ItemValue';
+import { useThemeConfig } from './useThemeConfig';
 import styles from './Themeroller.scss';
 
-type CSSVars = {
+type CssVars = {
     [key: string]: string;
 };
 
-type ChildrenProps = {
-    cssVars: CSSVars;
+export type ThemerollerChildrenProps = {
+    cssVars: CssVars;
     reset: () => void;
 };
 interface Props {
-    /** Theme */
     themeConfig: ThemeConfig;
-    children?: ({ cssVars, reset }: ChildrenProps) => React.ReactNode;
-    onGenerate?: (cssVars: CSSVars) => void;
+    children?: ({ cssVars, reset }: ThemerollerChildrenProps) => React.ReactNode;
+    onGenerate?: (cssVars: CssVars) => void;
 }
 
 const { elem } = bem('Themeroller', styles);
-
-type UseThemeConfig = [ThemeConfig, (item: ThemeItem) => ThemeConfig, () => void];
-
-const useThemeConfig = (initialConfig: ThemeConfig): UseThemeConfig => {
-    const [config, setConfig] = React.useState<ThemeConfig>(initialConfig);
-    const changeConfig = (item: ThemeItem) => {
-        const modifiedThemeConfig = config.map((fieldset) => {
-            return {
-                ...fieldset,
-                items: fieldset.items.map((i) => (i.var === item.var ? item : i)),
-            };
-        });
-        setConfig(modifiedThemeConfig);
-        return modifiedThemeConfig;
-    };
-    const resetConfig = () => setConfig(initialConfig);
-    return [config, changeConfig, resetConfig];
-};
 
 export const Themeroller: React.FC<Props> = ({
     themeConfig: initialThemeConfig,
@@ -52,11 +34,11 @@ export const Themeroller: React.FC<Props> = ({
     const activeItems =
         themeConfig.find((fieldset) => fieldset.fieldsetName === activeTab)?.items || [];
 
-    const getVars = (config: ThemeConfig): CSSVars => {
-        const result: CSSVars = {};
+    const getVars = (config: ThemeConfig): CssVars => {
+        const result: CssVars = {};
         config.forEach((fieldset) => {
             fieldset.items.forEach((item) => {
-                result[item.var] = `${item.value}${'unit' in item ? item.unit : ''}`;
+                result[item.var] = `${item.value}${item.type === 'unit' ? item.unit : ''}`;
             });
         });
         return result;
@@ -100,4 +82,5 @@ Themeroller.displayName = 'Themeroller';
 
 Themeroller.defaultProps = {
     children: undefined,
+    onGenerate: undefined,
 };

@@ -20,7 +20,7 @@ storiesOf('packages|ThemeGenerator', module)
             '--color-bad': color('Bad Color', '#f42534', colorGroup),
             '--font-size-base': `${number('Base Font Size', 14, undefined, fontGroup)}px`,
         };
-        const oneUICssVariables = oneUITheme.generate(customVariables);
+        const oneUICssVariables = oneUITheme.generateThemeCss(customVariables);
 
         return (
             <div>

@@ -1,11 +1,11 @@
 import Color from 'color';
-import type { CSSVars } from './OneUITheme';
+import type { CssVars } from './OneUITheme';
 
 export const mixTwoColors = (firstColor: string, secondColor, weight: number): string => {
     return Color(Color(firstColor).mix(Color(secondColor), weight / 100)).hex();
 };
 
-export const generateColorShades = (variables: CSSVars, name: string): CSSVars => {
+export const generateColorShades = (variables: CssVars, name: string): CssVars => {
     const FACTORS = [20, 50, 80];
     return FACTORS.reduce(
         (result, factor) => ({

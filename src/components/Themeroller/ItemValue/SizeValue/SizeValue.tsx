@@ -2,7 +2,7 @@ import * as React from 'react';
 import { bem } from '../../../../utils';
 import { Input } from '../../../Input';
 import { Text } from '../../../Text';
-import { ThemeSizeItem } from '../../themeConfigTypes';
+import { ThemeSizeItem } from '../../../../themes/themerollerConfig';
 import styles from './SizeValue.scss';
 
 type Props = {
