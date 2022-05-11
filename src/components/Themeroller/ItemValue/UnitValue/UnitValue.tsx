@@ -2,17 +2,17 @@ import * as React from 'react';
 import { bem } from '../../../../utils';
 import { Input } from '../../../Input';
 import { Text } from '../../../Text';
-import { ThemeSizeItem } from '../../../../themes/themerollerConfig';
-import styles from './SizeValue.scss';
+import { ThemeUnitItem } from '../../../../themes/themerollerConfig';
+import styles from './UnitValue.scss';
 
 type Props = {
-    item: ThemeSizeItem;
-    onChange: (value: ThemeSizeItem) => void;
+    item: ThemeUnitItem;
+    onChange: (value: ThemeUnitItem) => void;
 };
 
-const { elem } = bem('SizeValue', styles);
+const { elem } = bem('UnitValue', styles);
 
-export const SizeValue: React.FC<Props> = ({ item, onChange }) => {
+export const UnitValue: React.FC<Props> = ({ item, onChange }) => {
     const handleOnChange = (event) => {
         onChange({
             ...item,
@@ -36,6 +36,6 @@ export const SizeValue: React.FC<Props> = ({ item, onChange }) => {
     );
 };
 
-SizeValue.displayName = 'SizeValue';
+UnitValue.displayName = 'UnitValue';
 
-SizeValue.defaultProps = {};
+UnitValue.defaultProps = {};

@@ -17,12 +17,12 @@ export interface ThemeNumberItem extends ThemeBaseItem {
     type: 'number';
 }
 
-export interface ThemeSizeItem extends ThemeBaseItem {
+export interface ThemeUnitItem extends ThemeBaseItem {
     type: 'unit';
     unit: 'px' | 's';
 }
 
-export type ThemeItem = ThemeColorItem | ThemeSizeItem | ThemeStringItem | ThemeNumberItem;
+export type ThemeItem = ThemeColorItem | ThemeUnitItem | ThemeStringItem | ThemeNumberItem;
 
 export type ThemeFieldset = {
     fieldsetName: string;

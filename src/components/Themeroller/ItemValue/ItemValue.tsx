@@ -3,7 +3,7 @@ import { ThemeItem } from '../../../themes/themerollerConfig';
 import { ColorValue } from './ColorValue';
 import { StringValue } from './StringValue';
 import { NumberValue } from './NumberValue';
-import { SizeValue } from './SizeValue';
+import { UnitValue } from './UnitValue';
 
 type Props = {
     item: ThemeItem;
@@ -19,7 +19,7 @@ export const ItemValue: React.FC<Props> = ({ item, onChange }) => {
         case 'number':
             return <NumberValue item={item} onChange={onChange} />;
         case 'unit':
-            return <SizeValue item={item} onChange={onChange} />;
+            return <UnitValue item={item} onChange={onChange} />;
         default:
             return null;
     }

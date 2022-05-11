@@ -1,1 +1,0 @@
-export { SizeValue } from './SizeValue';
