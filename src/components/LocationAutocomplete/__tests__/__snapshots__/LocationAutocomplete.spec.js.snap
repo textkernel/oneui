@@ -270,10 +270,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
             className="AutosuggestDeprecated__field"
             clearLabel=""
             disabled={false}
+            isArrowUp={false}
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
             onKeyDown={[Function]}
+            showArrow={false}
             showClearButton={false}
           >
             <div
@@ -686,10 +688,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
             className="AutosuggestDeprecated__field"
             clearLabel=""
             disabled={false}
+            isArrowUp={false}
             isFocused={false}
             onClear={[Function]}
             onClick={[Function]}
             onKeyDown={[Function]}
+            showArrow={false}
             showClearButton={false}
           >
             <div

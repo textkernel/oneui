@@ -1,13 +1,11 @@
 import * as React from 'react';
-import { useSelect } from 'downshift';
-import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { bem } from '../../../utils/bem/bem';
-import { FieldWrapper } from '../../FieldWrapper';
-import { List } from '../../List';
 import { SuggestionsList } from '../SuggestionsList';
+import { SelectBase } from '../SelectBase';
+import { Text } from '../../Text';
 import styles from './Select.scss';
 
-const { block, elem } = bem('Select', styles);
+const { elem } = bem('Select', styles);
 
 interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /**
@@ -16,98 +14,111 @@ interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
      * where the object has a property "disabled" set true as needed.
      */
     items: S[];
-    /** The item that is currently selected */
-    selectedItem: S;
     /** itemToString(item) should return a string to be displayed in the UI. e.g.: item => item.name */
     itemToString: (item?: S | null) => string;
     /** render function for option list item. If undefined, itemToString will be used. */
     optionItemRenderer?: (item?: S | null) => ReactNode;
     /** onChange(item) called when an item is selected */
     onChange: (item: S) => void;
+    /** The item that is currently selected */
+    selectedItem?: S;
+    /** to be shown in the field when no value is typed */
+    placeholder?: string;
+    /** label for the Clear button */
+    clearLabel?: string;
+    /** a class to be applied to the top level div */
+    className?: string;
     /** onFocus() is called when the component is focused */
     onFocus?: () => void;
     /** onBlur() is called when the component is blurred */
     onBlur?: () => void;
+    /** reset the selection to it's default value */
+    onClear?: () => void;
     /** root wrapper ref */
     rootRef?: React.RefObject<HTMLDivElement>;
     /** items list ref */
     listRef?: React.RefObject<HTMLUListElement>;
-    /** a class to be applied to the top level div */
-    className?: string;
 }
-
 export function Select<S>(props: Props<S>) {
     const {
         items,
         selectedItem,
         itemToString,
         optionItemRenderer,
+        placeholder,
+        clearLabel,
         onChange,
         onBlur,
         onFocus,
+        onClear,
         rootRef,
         listRef,
-        className,
         ...rest
     } = props;
 
-    const handleSelection = (state) => {
-        onChange(state.selectedItem);
-        onBlur?.();
-    };
+    const focusElRef = React.useRef();
 
-    const { isOpen, getToggleButtonProps, getMenuProps, highlightedIndex, getItemProps } =
-        useSelect({
-            items,
-            selectedItem,
-            onSelectedItemChange: handleSelection,
-        });
+    const selectionRenderer = () => (
+        <span {...elem('selected')}>
+            {selectedItem ? (
+                itemToString(selectedItem)
+            ) : (
+                <Text inline {...elem('placeholder')} context="muted">
+                    {placeholder}
+                </Text>
+            )}
+        </span>
+    );
 
-    const handleToggle = (e) => {
-        e?.stopPropagation();
-        if (isOpen) {
-            onBlur?.();
-        } else {
-            onFocus?.();
-        }
-    };
+    const blurredRenderer = ({ getInputProps, onFocus: focus }) => (
+        <div
+            tabIndex={0}
+            role="searchbox"
+            {...getInputProps({ onClick: focus })}
+            {...elem('wrapper')}
+        >
+            {selectionRenderer()}
+        </div>
+    );
+
+    const focusedRenderer = ({ getToggleButtonProps, onBlur: blur, onFocus: focus }) => (
+        <div
+            ref={focusElRef}
+            tabIndex={0}
+            role="searchbox"
+            {...elem('wrapper', { isOpen: true })}
+            {...getToggleButtonProps({ onClick: blur, onFocus: focus })}
+        >
+            {selectionRenderer()}
+        </div>
+    );
 
     return (
-        <div ref={rootRef} {...rest} {...block({ className })}>
-            <div {...elem('main', { isOpen })}>
-                <FieldWrapper isFocused={isOpen} {...elem('field')}>
-                    <div
-                        tabIndex={0}
-                        role="searchbox"
-                        {...elem('wrapper', { isOpen })}
-                        {...getToggleButtonProps({ onClick: handleToggle })}
-                    >
-                        <span {...elem('selected')}>{itemToString(selectedItem)}</span>
-                        {isOpen ? (
-                            <IoMdArrowDropup {...elem('dropdownIcon')} />
-                        ) : (
-                            <IoMdArrowDropdown {...elem('dropdownIcon')} />
-                        )}
-                    </div>
-                    <List
-                        {...getMenuProps({ ref: listRef })}
-                        {...elem('list', { isOpen })}
-                        isControlledNavigation
-                    >
-                        {isOpen && (
-                            <SuggestionsList
-                                suggestionToString={itemToString}
-                                suggestionItemRenderer={optionItemRenderer}
-                                suggestions={items}
-                                getItemProps={getItemProps}
-                                highlightedIndex={highlightedIndex}
-                                passDisabledToListItems
-                            />
-                        )}
-                    </List>
-                </FieldWrapper>
-            </div>
-        </div>
+        <SelectBase
+            {...rest}
+            showArrow
+            inputRef={focusElRef}
+            suggestions={items}
+            suggestionToString={itemToString}
+            onSelectionAdd={onChange}
+            blurredRenderer={blurredRenderer}
+            focusedRenderer={focusedRenderer}
+            showClearButton={Boolean(selectedItem)}
+            clearTitle={clearLabel}
+            listRef={listRef}
+            onBlur={onBlur}
+            onFocus={onFocus}
+            onClearAllSelected={onClear}
+            listRenderer={(listProps) => (
+                <SuggestionsList
+                    {...listProps}
+                    suggestionToString={itemToString}
+                    suggestionItemRenderer={optionItemRenderer}
+                    suggestions={items}
+                    passDisabledToListItems
+                />
+            )}
+        />
     );
 }
 
@@ -115,8 +126,12 @@ Select.displayName = 'Select';
 
 Select.defaultProps = {
     optionItemRenderer: undefined,
+    selectedItem: undefined,
+    placeholder: '',
+    clearLabel: '',
     onFocus: undefined,
     onBlur: undefined,
+    onClear: undefined,
     rootRef: undefined,
     listRef: undefined,
     className: '',

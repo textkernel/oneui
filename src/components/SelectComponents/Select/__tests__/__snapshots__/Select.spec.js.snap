@@ -2,7 +2,8 @@
 
 exports[`Select rendering should initially render correctly 1`] = `
 <Select
-  className=""
+  className="someClass"
+  clearLabel=""
   itemToString={[Function]}
   items={
     Array [
@@ -41,52 +42,179 @@ exports[`Select rendering should initially render correctly 1`] = `
   }
   onBlur={[MockFunction]}
   onChange={[MockFunction]}
+  onClear={[MockFunction]}
   onFocus={[MockFunction]}
+  placeholder=""
   selectedItem={
     Object {
       "name": "Moon",
     }
   }
 >
-  <div
-    className="Select"
+  <SelectBase
+    blurredRenderer={[Function]}
+    className="someClass"
+    clearInputAfterSelection={false}
+    clearTitle=""
+    focusedRenderer={[Function]}
+    highlightOnEmptyInput={true}
+    inputRef={
+      Object {
+        "current": undefined,
+      }
+    }
+    keepExpandedAfterSelection={false}
+    listRenderer={[Function]}
+    onBlur={[MockFunction]}
+    onClearAllSelected={[MockFunction]}
+    onFocus={[MockFunction]}
+    onInputValueChange={[Function]}
+    onSelectionAdd={[MockFunction]}
+    selectOnTab={false}
+    showArrow={true}
+    showClearButton={true}
+    suggestionToString={[Function]}
+    suggestions={
+      Array [
+        Object {
+          "name": "Sun",
+        },
+        Object {
+          "name": "Moon",
+        },
+        Object {
+          "name": "Mercury",
+        },
+        Object {
+          "name": "Venus",
+        },
+        Object {
+          "name": "Earth",
+        },
+        Object {
+          "name": "Mars",
+        },
+        Object {
+          "name": "Jupiter",
+        },
+        Object {
+          "name": "Saturn",
+        },
+        Object {
+          "name": "Neptune",
+        },
+        Object {
+          "disabled": true,
+          "name": "Pluto",
+        },
+      ]
+    }
   >
     <div
-      className="Select__main"
+      className="SelectBase someClass"
     >
-      <FieldWrapper
-        className="Select__field"
-        clearLabel=""
-        disabled={false}
-        isFocused={false}
-        onClear={null}
-        showClearButton={false}
+      <Downshift
+        defaultHighlightedIndex={0}
+        defaultIsOpen={false}
+        environment={[Window]}
+        getA11yStatusMessage={[Function]}
+        inputValue=""
+        itemToString={[Function]}
+        onChange={[Function]}
+        onInputValueChange={[Function]}
+        onOuterClick={[Function]}
+        onSelect={[Function]}
+        onStateChange={[Function]}
+        onUserAction={[Function]}
+        scrollIntoView={[Function]}
+        selectedItemChanged={[Function]}
+        stateReducer={[Function]}
+        suppressRefError={false}
       >
         <div
-          className="FieldWrapper Select__field"
-          disabled={false}
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-0-label"
+          aria-owns={null}
+          className="SelectBase__main"
+          role="combobox"
         >
-          <div
-            className="FieldWrapper__content"
+          <FieldWrapper
+            className="SelectBase__field"
+            clearLabel=""
+            disabled={false}
+            isArrowUp={false}
+            isFocused={false}
+            onClear={[Function]}
+            onClick={[Function]}
+            showArrow={true}
+            showClearButton={true}
           >
             <div
-              aria-expanded={false}
-              aria-haspopup="listbox"
-              aria-labelledby="downshift-0-label downshift-0-toggle-button"
-              className="Select__wrapper"
-              id="downshift-0-toggle-button"
+              className="FieldWrapper SelectBase__field"
+              disabled={false}
               onClick={[Function]}
-              onKeyDown={[Function]}
-              role="searchbox"
-              tabIndex={0}
             >
-              <span
-                className="Select__selected"
+              <div
+                className="FieldWrapper__content"
               >
-                Moon
-              </span>
+                <div
+                  aria-activedescendant={null}
+                  aria-autocomplete="list"
+                  aria-controls={null}
+                  aria-labelledby="downshift-0-label"
+                  autoComplete="off"
+                  className="Select__wrapper"
+                  id="downshift-0-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="searchbox"
+                  tabIndex={0}
+                  value=""
+                >
+                  <span
+                    className="Select__selected"
+                  >
+                    Moon
+                  </span>
+                </div>
+                <List
+                  aria-labelledby="downshift-0-label"
+                  doSelectOnNavigate={false}
+                  id="downshift-0-menu"
+                  isControlledNavigation={true}
+                  isDivided={false}
+                  role="listbox"
+                >
+                  <ul
+                    aria-labelledby="downshift-0-label"
+                    className="List"
+                    id="downshift-0-menu"
+                    role="listbox"
+                  />
+                </List>
+              </div>
+              <Button
+                className="FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
+                context="link"
+                disabled={false}
+                isBlock={false}
+                isInline={true}
+                onClick={[Function]}
+                size="normal"
+                type="button"
+              >
+                <button
+                  className="Button Button--isInline Button--context_link FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                />
+              </Button>
               <IoMdArrowDropdown
-                className="Select__dropdownIcon"
+                className="FieldWrapper__dropdownIcon"
               >
                 <IconBase
                   attr={
@@ -94,10 +222,10 @@ exports[`Select rendering should initially render correctly 1`] = `
                       "viewBox": "0 0 512 512",
                     }
                   }
-                  className="Select__dropdownIcon"
+                  className="FieldWrapper__dropdownIcon"
                 >
                   <svg
-                    className="Select__dropdownIcon"
+                    className="FieldWrapper__dropdownIcon"
                     fill="currentColor"
                     height="1em"
                     stroke="currentColor"
@@ -119,40 +247,18 @@ exports[`Select rendering should initially render correctly 1`] = `
                 </IconBase>
               </IoMdArrowDropdown>
             </div>
-            <List
-              aria-labelledby="downshift-0-label"
-              doSelectOnNavigate={false}
-              id="downshift-0-menu"
-              isControlledNavigation={true}
-              isDivided={false}
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              onMouseLeave={[Function]}
-              role="listbox"
-              tabIndex={-1}
-            >
-              <ul
-                aria-labelledby="downshift-0-label"
-                className="List"
-                id="downshift-0-menu"
-                onBlur={[Function]}
-                onKeyDown={[Function]}
-                onMouseLeave={[Function]}
-                role="listbox"
-                tabIndex={-1}
-              />
-            </List>
-          </div>
+          </FieldWrapper>
         </div>
-      </FieldWrapper>
+      </Downshift>
     </div>
-  </div>
+  </SelectBase>
 </Select>
 `;
 
 exports[`Select rendering should render focused component correctly 1`] = `
 <Select
-  className=""
+  className="someClass"
+  clearLabel=""
   itemToString={[Function]}
   items={
     Array [
@@ -191,6 +297,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
   }
   onBlur={[MockFunction]}
   onChange={[MockFunction]}
+  onClear={[MockFunction]}
   onFocus={
     [MockFunction] {
       "calls": Array [
@@ -204,51 +311,711 @@ exports[`Select rendering should render focused component correctly 1`] = `
       ],
     }
   }
+  placeholder=""
   selectedItem={
     Object {
       "name": "Moon",
     }
   }
 >
-  <div
-    className="Select"
+  <SelectBase
+    blurredRenderer={[Function]}
+    className="someClass"
+    clearInputAfterSelection={false}
+    clearTitle=""
+    focusedRenderer={[Function]}
+    highlightOnEmptyInput={true}
+    inputRef={
+      Object {
+        "current": <div
+          aria-haspopup="true"
+          aria-label="close menu"
+          class="Select__wrapper Select__wrapper--isOpen"
+          data-toggle="true"
+          role="button"
+          tabindex="0"
+          type="button"
+        >
+          <span
+            class="Select__selected"
+          >
+            Moon
+          </span>
+        </div>,
+      }
+    }
+    keepExpandedAfterSelection={false}
+    listRenderer={[Function]}
+    onBlur={[MockFunction]}
+    onClearAllSelected={[MockFunction]}
+    onFocus={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    onInputValueChange={[Function]}
+    onSelectionAdd={[MockFunction]}
+    selectOnTab={false}
+    showArrow={true}
+    showClearButton={true}
+    suggestionToString={[Function]}
+    suggestions={
+      Array [
+        Object {
+          "name": "Sun",
+        },
+        Object {
+          "name": "Moon",
+        },
+        Object {
+          "name": "Mercury",
+        },
+        Object {
+          "name": "Venus",
+        },
+        Object {
+          "name": "Earth",
+        },
+        Object {
+          "name": "Mars",
+        },
+        Object {
+          "name": "Jupiter",
+        },
+        Object {
+          "name": "Saturn",
+        },
+        Object {
+          "name": "Neptune",
+        },
+        Object {
+          "disabled": true,
+          "name": "Pluto",
+        },
+      ]
+    }
   >
     <div
-      className="Select__main Select__main--isOpen"
+      className="SelectBase someClass"
     >
-      <FieldWrapper
-        className="Select__field"
-        clearLabel=""
-        disabled={false}
-        isFocused={true}
-        onClear={null}
-        showClearButton={false}
+      <Downshift
+        defaultHighlightedIndex={0}
+        defaultIsOpen={false}
+        environment={[Window]}
+        getA11yStatusMessage={[Function]}
+        inputValue=""
+        itemToString={[Function]}
+        onChange={[Function]}
+        onInputValueChange={[Function]}
+        onOuterClick={[Function]}
+        onSelect={[Function]}
+        onStateChange={[Function]}
+        onUserAction={[Function]}
+        scrollIntoView={[Function]}
+        selectedItemChanged={[Function]}
+        stateReducer={[Function]}
+        suppressRefError={false}
       >
         <div
-          className="FieldWrapper FieldWrapper--isFocused Select__field"
-          disabled={false}
+          aria-expanded={true}
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-1-label"
+          aria-owns="downshift-1-menu"
+          className="SelectBase__main SelectBase__main--focused"
+          role="combobox"
         >
-          <div
-            className="FieldWrapper__content"
+          <FieldWrapper
+            className="SelectBase__field"
+            clearLabel=""
+            disabled={false}
+            isArrowUp={true}
+            isFocused={true}
+            onClear={[Function]}
+            onClick={[Function]}
+            showArrow={true}
+            showClearButton={false}
           >
             <div
-              aria-expanded={true}
-              aria-haspopup="listbox"
-              aria-labelledby="downshift-1-label downshift-1-toggle-button"
-              className="Select__wrapper Select__wrapper--isOpen"
-              id="downshift-1-toggle-button"
+              className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+              disabled={false}
               onClick={[Function]}
-              onKeyDown={[Function]}
-              role="searchbox"
-              tabIndex={0}
             >
-              <span
-                className="Select__selected"
+              <div
+                className="FieldWrapper__content"
               >
-                Moon
-              </span>
+                <div
+                  aria-haspopup={true}
+                  aria-label="close menu"
+                  className="Select__wrapper Select__wrapper--isOpen"
+                  data-toggle={true}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  onKeyUp={[Function]}
+                  role="button"
+                  tabIndex={0}
+                  type="button"
+                >
+                  <span
+                    className="Select__selected"
+                  >
+                    Moon
+                  </span>
+                </div>
+                <List
+                  aria-labelledby="downshift-1-label"
+                  className="SelectBase__list--focused"
+                  doSelectOnNavigate={false}
+                  id="downshift-1-menu"
+                  isControlledNavigation={true}
+                  isDivided={false}
+                  role="listbox"
+                >
+                  <ul
+                    aria-labelledby="downshift-1-label"
+                    className="List SelectBase__list--focused"
+                    id="downshift-1-menu"
+                    role="listbox"
+                  >
+                    <SuggestionsList
+                      allowMixingSuggestionsAndLoading={false}
+                      className="List__item"
+                      getItemProps={[Function]}
+                      highlightedIndex={0}
+                      inputValue=""
+                      isLoading={false}
+                      key=".0"
+                      noSuggestionsPlaceholder=""
+                      passDisabledToListItems={true}
+                      suggestionToString={[Function]}
+                      suggestions={
+                        Array [
+                          Object {
+                            "name": "Sun",
+                          },
+                          Object {
+                            "name": "Moon",
+                          },
+                          Object {
+                            "name": "Mercury",
+                          },
+                          Object {
+                            "name": "Venus",
+                          },
+                          Object {
+                            "name": "Earth",
+                          },
+                          Object {
+                            "name": "Mars",
+                          },
+                          Object {
+                            "name": "Jupiter",
+                          },
+                          Object {
+                            "name": "Saturn",
+                          },
+                          Object {
+                            "name": "Neptune",
+                          },
+                          Object {
+                            "disabled": true,
+                            "name": "Pluto",
+                          },
+                        ]
+                      }
+                      useOptimizeRender={false}
+                    >
+                      <ListItem
+                        aria-selected={true}
+                        disabled={false}
+                        highlightContext="default"
+                        id="downshift-1-item-0"
+                        isHighlighted={true}
+                        isSelected={false}
+                        key="Sun"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={true}
+                          className="ListItem ListItem--isHighlighted ListItem--clickable"
+                          disabled={false}
+                          id="downshift-1-item-0"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Sun
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="default"
+                        id="downshift-1-item-1"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Moon"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--clickable"
+                          disabled={false}
+                          id="downshift-1-item-1"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Moon
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="default"
+                        id="downshift-1-item-2"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Mercury"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--clickable"
+                          disabled={false}
+                          id="downshift-1-item-2"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Mercury
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="default"
+                        id="downshift-1-item-3"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Venus"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--clickable"
+                          disabled={false}
+                          id="downshift-1-item-3"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Venus
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="default"
+                        id="downshift-1-item-4"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Earth"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--clickable"
+                          disabled={false}
+                          id="downshift-1-item-4"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Earth
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="default"
+                        id="downshift-1-item-5"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Mars"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--clickable"
+                          disabled={false}
+                          id="downshift-1-item-5"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Mars
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="default"
+                        id="downshift-1-item-6"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Jupiter"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--clickable"
+                          disabled={false}
+                          id="downshift-1-item-6"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Jupiter
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="default"
+                        id="downshift-1-item-7"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Saturn"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--clickable"
+                          disabled={false}
+                          id="downshift-1-item-7"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Saturn
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={false}
+                        highlightContext="default"
+                        id="downshift-1-item-8"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Neptune"
+                        onClick={[Function]}
+                        onMouseDown={[Function]}
+                        onMouseMove={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--clickable"
+                          disabled={false}
+                          id="downshift-1-item-8"
+                          onMouseDown={[Function]}
+                          onMouseMove={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            onClick={[Function]}
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Neptune
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                      <ListItem
+                        aria-selected={false}
+                        disabled={true}
+                        highlightContext="default"
+                        id="downshift-1-item-9"
+                        isHighlighted={false}
+                        isSelected={false}
+                        key="Pluto"
+                        onMouseDown={[Function]}
+                        passDisabledToLi={true}
+                        role="option"
+                        style={Object {}}
+                      >
+                        <li
+                          aria-selected={false}
+                          className="ListItem ListItem--disabled"
+                          disabled={true}
+                          id="downshift-1-item-9"
+                          onMouseDown={[Function]}
+                          role="option"
+                          style={Object {}}
+                        >
+                          <div
+                            className="ListItem__container"
+                            role="presentation"
+                          >
+                            <MarkedText
+                              inline={true}
+                              key=".0"
+                              marker=""
+                            >
+                              <Text
+                                context="default"
+                                inline={true}
+                                size="normal"
+                              >
+                                <span>
+                                  Pluto
+                                </span>
+                              </Text>
+                            </MarkedText>
+                          </div>
+                        </li>
+                      </ListItem>
+                    </SuggestionsList>
+                  </ul>
+                </List>
+              </div>
               <IoMdArrowDropup
-                className="Select__dropdownIcon"
+                className="FieldWrapper__dropdownIcon"
               >
                 <IconBase
                   attr={
@@ -256,10 +1023,10 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       "viewBox": "0 0 512 512",
                     }
                   }
-                  className="Select__dropdownIcon"
+                  className="FieldWrapper__dropdownIcon"
                 >
                   <svg
-                    className="Select__dropdownIcon"
+                    className="FieldWrapper__dropdownIcon"
                     fill="currentColor"
                     height="1em"
                     stroke="currentColor"
@@ -281,542 +1048,10 @@ exports[`Select rendering should render focused component correctly 1`] = `
                 </IconBase>
               </IoMdArrowDropup>
             </div>
-            <List
-              aria-activedescendant="downshift-1-item-1"
-              aria-labelledby="downshift-1-label"
-              className="Select__list--isOpen"
-              doSelectOnNavigate={false}
-              id="downshift-1-menu"
-              isControlledNavigation={true}
-              isDivided={false}
-              onBlur={[Function]}
-              onKeyDown={[Function]}
-              onMouseLeave={[Function]}
-              role="listbox"
-              tabIndex={-1}
-            >
-              <ul
-                aria-activedescendant="downshift-1-item-1"
-                aria-labelledby="downshift-1-label"
-                className="List Select__list--isOpen"
-                id="downshift-1-menu"
-                onBlur={[Function]}
-                onKeyDown={[Function]}
-                onMouseLeave={[Function]}
-                role="listbox"
-                tabIndex={-1}
-              >
-                <SuggestionsList
-                  allowMixingSuggestionsAndLoading={false}
-                  className="List__item"
-                  getItemProps={[Function]}
-                  highlightedIndex={1}
-                  inputValue=""
-                  isLoading={false}
-                  key=".0"
-                  noSuggestionsPlaceholder=""
-                  passDisabledToListItems={true}
-                  suggestionToString={[Function]}
-                  suggestions={
-                    Array [
-                      Object {
-                        "name": "Sun",
-                      },
-                      Object {
-                        "name": "Moon",
-                      },
-                      Object {
-                        "name": "Mercury",
-                      },
-                      Object {
-                        "name": "Venus",
-                      },
-                      Object {
-                        "name": "Earth",
-                      },
-                      Object {
-                        "name": "Mars",
-                      },
-                      Object {
-                        "name": "Jupiter",
-                      },
-                      Object {
-                        "name": "Saturn",
-                      },
-                      Object {
-                        "name": "Neptune",
-                      },
-                      Object {
-                        "disabled": true,
-                        "name": "Pluto",
-                      },
-                    ]
-                  }
-                  useOptimizeRender={false}
-                >
-                  <ListItem
-                    aria-selected="false"
-                    disabled={false}
-                    highlightContext="default"
-                    id="downshift-1-item-0"
-                    isHighlighted={false}
-                    isSelected={false}
-                    key="Sun"
-                    onClick={[Function]}
-                    onMouseMove={[Function]}
-                    passDisabledToLi={true}
-                    role="option"
-                    style={Object {}}
-                  >
-                    <li
-                      aria-selected="false"
-                      className="ListItem ListItem--clickable"
-                      disabled={false}
-                      id="downshift-1-item-0"
-                      onMouseMove={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
-                      >
-                        <MarkedText
-                          inline={true}
-                          key=".0"
-                          marker=""
-                        >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Sun
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
-                    </li>
-                  </ListItem>
-                  <ListItem
-                    aria-selected="true"
-                    disabled={false}
-                    highlightContext="default"
-                    id="downshift-1-item-1"
-                    isHighlighted={true}
-                    isSelected={false}
-                    key="Moon"
-                    onClick={[Function]}
-                    onMouseMove={[Function]}
-                    passDisabledToLi={true}
-                    role="option"
-                    style={Object {}}
-                  >
-                    <li
-                      aria-selected="true"
-                      className="ListItem ListItem--isHighlighted ListItem--clickable"
-                      disabled={false}
-                      id="downshift-1-item-1"
-                      onMouseMove={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
-                      >
-                        <MarkedText
-                          inline={true}
-                          key=".0"
-                          marker=""
-                        >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Moon
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
-                    </li>
-                  </ListItem>
-                  <ListItem
-                    aria-selected="false"
-                    disabled={false}
-                    highlightContext="default"
-                    id="downshift-1-item-2"
-                    isHighlighted={false}
-                    isSelected={false}
-                    key="Mercury"
-                    onClick={[Function]}
-                    onMouseMove={[Function]}
-                    passDisabledToLi={true}
-                    role="option"
-                    style={Object {}}
-                  >
-                    <li
-                      aria-selected="false"
-                      className="ListItem ListItem--clickable"
-                      disabled={false}
-                      id="downshift-1-item-2"
-                      onMouseMove={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
-                      >
-                        <MarkedText
-                          inline={true}
-                          key=".0"
-                          marker=""
-                        >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Mercury
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
-                    </li>
-                  </ListItem>
-                  <ListItem
-                    aria-selected="false"
-                    disabled={false}
-                    highlightContext="default"
-                    id="downshift-1-item-3"
-                    isHighlighted={false}
-                    isSelected={false}
-                    key="Venus"
-                    onClick={[Function]}
-                    onMouseMove={[Function]}
-                    passDisabledToLi={true}
-                    role="option"
-                    style={Object {}}
-                  >
-                    <li
-                      aria-selected="false"
-                      className="ListItem ListItem--clickable"
-                      disabled={false}
-                      id="downshift-1-item-3"
-                      onMouseMove={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
-                      >
-                        <MarkedText
-                          inline={true}
-                          key=".0"
-                          marker=""
-                        >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Venus
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
-                    </li>
-                  </ListItem>
-                  <ListItem
-                    aria-selected="false"
-                    disabled={false}
-                    highlightContext="default"
-                    id="downshift-1-item-4"
-                    isHighlighted={false}
-                    isSelected={false}
-                    key="Earth"
-                    onClick={[Function]}
-                    onMouseMove={[Function]}
-                    passDisabledToLi={true}
-                    role="option"
-                    style={Object {}}
-                  >
-                    <li
-                      aria-selected="false"
-                      className="ListItem ListItem--clickable"
-                      disabled={false}
-                      id="downshift-1-item-4"
-                      onMouseMove={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
-                      >
-                        <MarkedText
-                          inline={true}
-                          key=".0"
-                          marker=""
-                        >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Earth
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
-                    </li>
-                  </ListItem>
-                  <ListItem
-                    aria-selected="false"
-                    disabled={false}
-                    highlightContext="default"
-                    id="downshift-1-item-5"
-                    isHighlighted={false}
-                    isSelected={false}
-                    key="Mars"
-                    onClick={[Function]}
-                    onMouseMove={[Function]}
-                    passDisabledToLi={true}
-                    role="option"
-                    style={Object {}}
-                  >
-                    <li
-                      aria-selected="false"
-                      className="ListItem ListItem--clickable"
-                      disabled={false}
-                      id="downshift-1-item-5"
-                      onMouseMove={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
-                      >
-                        <MarkedText
-                          inline={true}
-                          key=".0"
-                          marker=""
-                        >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Mars
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
-                    </li>
-                  </ListItem>
-                  <ListItem
-                    aria-selected="false"
-                    disabled={false}
-                    highlightContext="default"
-                    id="downshift-1-item-6"
-                    isHighlighted={false}
-                    isSelected={false}
-                    key="Jupiter"
-                    onClick={[Function]}
-                    onMouseMove={[Function]}
-                    passDisabledToLi={true}
-                    role="option"
-                    style={Object {}}
-                  >
-                    <li
-                      aria-selected="false"
-                      className="ListItem ListItem--clickable"
-                      disabled={false}
-                      id="downshift-1-item-6"
-                      onMouseMove={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
-                      >
-                        <MarkedText
-                          inline={true}
-                          key=".0"
-                          marker=""
-                        >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Jupiter
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
-                    </li>
-                  </ListItem>
-                  <ListItem
-                    aria-selected="false"
-                    disabled={false}
-                    highlightContext="default"
-                    id="downshift-1-item-7"
-                    isHighlighted={false}
-                    isSelected={false}
-                    key="Saturn"
-                    onClick={[Function]}
-                    onMouseMove={[Function]}
-                    passDisabledToLi={true}
-                    role="option"
-                    style={Object {}}
-                  >
-                    <li
-                      aria-selected="false"
-                      className="ListItem ListItem--clickable"
-                      disabled={false}
-                      id="downshift-1-item-7"
-                      onMouseMove={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
-                      >
-                        <MarkedText
-                          inline={true}
-                          key=".0"
-                          marker=""
-                        >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Saturn
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
-                    </li>
-                  </ListItem>
-                  <ListItem
-                    aria-selected="false"
-                    disabled={false}
-                    highlightContext="default"
-                    id="downshift-1-item-8"
-                    isHighlighted={false}
-                    isSelected={false}
-                    key="Neptune"
-                    onClick={[Function]}
-                    onMouseMove={[Function]}
-                    passDisabledToLi={true}
-                    role="option"
-                    style={Object {}}
-                  >
-                    <li
-                      aria-selected="false"
-                      className="ListItem ListItem--clickable"
-                      disabled={false}
-                      id="downshift-1-item-8"
-                      onMouseMove={[Function]}
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="ListItem__container"
-                        onClick={[Function]}
-                        role="presentation"
-                      >
-                        <MarkedText
-                          inline={true}
-                          key=".0"
-                          marker=""
-                        >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Neptune
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
-                    </li>
-                  </ListItem>
-                  <ListItem
-                    aria-selected="false"
-                    disabled={true}
-                    highlightContext="default"
-                    id="downshift-1-item-9"
-                    isHighlighted={false}
-                    isSelected={false}
-                    key="Pluto"
-                    passDisabledToLi={true}
-                    role="option"
-                    style={Object {}}
-                  >
-                    <li
-                      aria-selected="false"
-                      className="ListItem ListItem--disabled"
-                      disabled={true}
-                      id="downshift-1-item-9"
-                      role="option"
-                      style={Object {}}
-                    >
-                      <div
-                        className="ListItem__container"
-                        role="presentation"
-                      >
-                        <MarkedText
-                          inline={true}
-                          key=".0"
-                          marker=""
-                        >
-                          <Text
-                            context="default"
-                            inline={true}
-                            size="normal"
-                          >
-                            <span>
-                              Pluto
-                            </span>
-                          </Text>
-                        </MarkedText>
-                      </div>
-                    </li>
-                  </ListItem>
-                </SuggestionsList>
-              </ul>
-            </List>
-          </div>
+          </FieldWrapper>
         </div>
-      </FieldWrapper>
+      </Downshift>
     </div>
-  </div>
+  </SelectBase>
 </Select>
 `;

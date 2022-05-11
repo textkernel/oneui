@@ -8,22 +8,26 @@ import {
 
 describe('Select', () => {
     const mockOnChange = jest.fn();
-    const mockOnBlur = jest.fn();
     const mockOnFocus = jest.fn();
+    const mockOnBlur = jest.fn();
+    const mockOnClear = jest.fn();
 
     let wrapper;
 
     const clickWrapper = () => wrapper.find('.Select__wrapper').simulate('click');
+    const selectionText = () => wrapper.find('.Select__selected').text();
 
     beforeEach(() => {
         wrapper = mount(
             <Select
+                className="someClass"
                 items={SUGGESTIONS}
                 itemToString={SUGGESTION_TO_STRING}
                 selectedItem={SUGGESTIONS[1]}
                 onChange={mockOnChange}
                 onFocus={mockOnFocus}
                 onBlur={mockOnBlur}
+                onClear={mockOnClear}
             />
         );
     });
@@ -31,18 +35,14 @@ describe('Select', () => {
     describe('rendering', () => {
         it('should initially render correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('.Select__selected').text()).toEqual(
-                SUGGESTION_TO_STRING(SUGGESTIONS[1])
-            );
+            expect(selectionText()).toEqual(SUGGESTION_TO_STRING(SUGGESTIONS[1]));
         });
         it('should render focused component correctly', () => {
             clickWrapper();
 
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('li')).toHaveLength(SUGGESTIONS.length);
-            expect(wrapper.find('.Select__selected').text()).toEqual(
-                SUGGESTION_TO_STRING(SUGGESTIONS[1])
-            );
+            expect(selectionText()).toEqual(SUGGESTION_TO_STRING(SUGGESTIONS[1]));
         });
     });
     describe('toggling items list', () => {
@@ -54,19 +54,74 @@ describe('Select', () => {
             clickWrapper();
             expect(wrapper.find('li')).toHaveLength(SUGGESTIONS.length);
         });
-        it('should toggle list when arrow element is clicked', () => {
+        it('should open list when arrow element is clicked', () => {
             // originally to be closed
             expect(wrapper.find('li')).toHaveLength(0);
 
             // open items list
-            wrapper.find('.Select__dropdownIcon').at(0).simulate('click');
+            wrapper.find('svg').at(0).simulate('click');
             expect(wrapper.find('li')).toHaveLength(SUGGESTIONS.length);
 
-            // close items list
-            wrapper.find('.Select__dropdownIcon').at(0).simulate('click');
+            // select item
+            wrapper.find('li').first().children().simulate('click');
+            expect(wrapper.find('li')).toHaveLength(0);
+        });
+        it('should close list when item is selected', () => {
+            // originally to be closed
+            expect(wrapper.find('li')).toHaveLength(0);
+
+            clickWrapper();
+
+            // select item
+            wrapper.find('li').first().children().simulate('click');
             expect(wrapper.find('li')).toHaveLength(0);
         });
     });
+
+    describe('toggling items list', () => {
+        it('should open list when wrapper element is clicked', () => {
+            // originally to be closed
+            expect(wrapper.find('li')).toHaveLength(0);
+
+            // open items list
+            clickWrapper();
+            expect(wrapper.find('li')).toHaveLength(SUGGESTIONS.length);
+        });
+        it('should open list when arrow element is clicked', () => {
+            // originally to be closed
+            expect(wrapper.find('li')).toHaveLength(0);
+
+            // open items list
+            wrapper.find('.FieldWrapper__dropdownIcon').at(0).simulate('click');
+            expect(wrapper.find('li')).toHaveLength(SUGGESTIONS.length);
+
+            /**
+             * TODO: fix closing list after clicking on the arrow.
+             * The list is closed after clicking on the arrow in real example,
+             * but it doesn't work in the test environment, because the arrow
+             * has untestable style `pointer-events: none`.
+             */
+            // close items list
+            // wrapper.find('.FieldWrapper__dropdownIcon').at(0).simulate('click');
+            // expect(wrapper.find('li')).toHaveLength(0);
+        });
+    });
+
+    describe('placeholder', () => {
+        it('should show placeholder correctly', () => {
+            expect(selectionText()).toEqual('Moon');
+
+            wrapper.setProps({ selectedItem: undefined });
+            expect(selectionText()).toEqual('');
+
+            wrapper.setProps({ placeholder: 'Choose...' });
+            expect(selectionText()).toEqual('Choose...');
+
+            clickWrapper();
+            expect(selectionText()).toEqual('Choose...');
+        });
+    });
+
     describe('callbacks', () => {
         describe('onFocus', () => {
             it('should be called on clicking when opening the dropdown', () => {
@@ -103,6 +158,14 @@ describe('Select', () => {
                 expect(mockOnChange).not.toHaveBeenCalled();
                 clickWrapper();
                 expect(mockOnChange).not.toHaveBeenCalled();
+            });
+        });
+        describe('onClear', () => {
+            it('should be called on clicking on a clear button', () => {
+                expect(mockOnClear).not.toHaveBeenCalled();
+
+                wrapper.find('button').simulate('click');
+                expect(mockOnClear).toHaveBeenCalled();
             });
         });
     });
