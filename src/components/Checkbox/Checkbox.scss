@@ -16,6 +16,10 @@
         vertical-align: middle;
         margin-right: var(--spacing-2x);
 
+        &--asFlexbox {
+            flex-shrink: 0;
+        }
+
         &:before {
             content: '';
             width: 100%;
@@ -38,6 +42,11 @@
             .Checkbox__box {
                 border-color: var(--color-brand);
             }
+        }
+
+        &--asFlexbox {
+            display: flex;
+            align-items: center;
         }
     }
 
