@@ -11,12 +11,14 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     disabled?: boolean;
     /** The label for the checkbox */
     children?: string | React.ReactElement;
+    /** Optionally render checkbox in a flexbox */
+    asFlexbox?: boolean;
 }
 
 const { block, elem } = bem('Checkbox', styles);
 
 export const Checkbox: React.FC<Props> = forwardRef((props, ref) => {
-    const { id, children, disabled, ...rest } = props;
+    const { id, children, disabled, asFlexbox, className, style, ...rest } = props;
 
     let text = children;
     if (children && typeof children === 'string') {
@@ -28,7 +30,7 @@ export const Checkbox: React.FC<Props> = forwardRef((props, ref) => {
     }
 
     return (
-        <div {...block(props)}>
+        <div style={style} {...block(props)}>
             <input
                 {...rest}
                 {...elem('input', props)}
@@ -58,4 +60,5 @@ Checkbox.displayName = 'Checkbox';
 
 Checkbox.defaultProps = {
     disabled: false,
+    asFlexbox: false,
 };

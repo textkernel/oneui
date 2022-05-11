@@ -94,6 +94,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                                     checked={label.isSelected}
                                     onChange={getChangeHandler(label)}
                                     {...elem('checkbox')}
+                                    asFlexbox
                                 >
                                     <Text inline {...elem('label')}>
                                         <Text inline {...elem('labelText')} title={label.name}>

@@ -25,7 +25,7 @@ $labelingDialogWidth: 200px;
 
     &__label {
         display: inline-flex;
-        max-width: calc(#{$labelingDialogWidth} - 34px);
+        overflow: hidden;
     }
 
     &__labelText {

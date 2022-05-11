@@ -466,6 +466,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                   className="ProductTour__checkbox"
                 >
                   <Checkbox
+                    asFlexbox={false}
                     checked={false}
                     disabled={false}
                     id="hide"

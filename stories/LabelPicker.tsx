@@ -15,7 +15,7 @@ const LABELS = [
         name: 'This is label 6 which has a very very long name and a count',
         isSelected: false,
         count: 654,
-        id: 5,
+        id: 6,
     },
 ];
 
