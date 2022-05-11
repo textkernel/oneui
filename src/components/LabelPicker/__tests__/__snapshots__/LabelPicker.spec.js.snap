@@ -130,6 +130,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
           className="LabelPicker__scrollBox"
         >
           <Checkbox
+            asFlexbox={true}
             checked={false}
             className="LabelPicker__checkbox"
             disabled={false}
@@ -149,11 +150,11 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 type="checkbox"
               />
               <label
-                className="Checkbox__label"
+                className="Checkbox__label Checkbox__label--asFlexbox"
                 htmlFor="First label"
               >
                 <span
-                  className="Checkbox__box"
+                  className="Checkbox__box Checkbox__box--asFlexbox"
                 >
                   <svg
                     className="Checkbox__svg"
@@ -202,6 +203,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             </div>
           </Checkbox>
           <Checkbox
+            asFlexbox={true}
             checked={true}
             className="LabelPicker__checkbox"
             disabled={false}
@@ -221,11 +223,11 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 type="checkbox"
               />
               <label
-                className="Checkbox__label"
+                className="Checkbox__label Checkbox__label--asFlexbox"
                 htmlFor="Second label"
               >
                 <span
-                  className="Checkbox__box"
+                  className="Checkbox__box Checkbox__box--asFlexbox"
                 >
                   <svg
                     className="Checkbox__svg"
@@ -288,6 +290,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             </div>
           </Checkbox>
           <Checkbox
+            asFlexbox={true}
             checked={false}
             className="LabelPicker__checkbox"
             disabled={false}
@@ -307,11 +310,11 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 type="checkbox"
               />
               <label
-                className="Checkbox__label"
+                className="Checkbox__label Checkbox__label--asFlexbox"
                 htmlFor="Third label"
               >
                 <span
-                  className="Checkbox__box"
+                  className="Checkbox__box Checkbox__box--asFlexbox"
                 >
                   <svg
                     className="Checkbox__svg"
@@ -360,6 +363,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             </div>
           </Checkbox>
           <Checkbox
+            asFlexbox={true}
             checked={false}
             className="LabelPicker__checkbox"
             disabled={false}
@@ -379,11 +383,11 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 type="checkbox"
               />
               <label
-                className="Checkbox__label"
+                className="Checkbox__label Checkbox__label--asFlexbox"
                 htmlFor="Fourth label"
               >
                 <span
-                  className="Checkbox__box"
+                  className="Checkbox__box Checkbox__box--asFlexbox"
                 >
                   <svg
                     className="Checkbox__svg"
