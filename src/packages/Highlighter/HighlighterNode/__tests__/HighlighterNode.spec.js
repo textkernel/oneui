@@ -18,7 +18,7 @@ describe('HighlighterNode', () => {
     describe('#generateColor()', () => {
         it('should generate color', () => {
             const color = HighlighterNode.generateColor(1);
-            expect(color).toMatch(/^#[a-zA-Z0-9]{6}$/);
+            expect(color).toMatch('Lavender');
         });
 
         it('should generate random colors', () => {
@@ -26,21 +26,7 @@ describe('HighlighterNode', () => {
             const colors = numbers.map((i) => HighlighterNode.generateColor(i));
             const amountDifferentColors = intersection(colors).length;
 
-            expect(amountDifferentColors).toBe(numbers.length);
-        });
-    });
-    describe('#generateColor()', () => {
-        it('should generate color', () => {
-            const color = HighlighterNode.generateColor(1);
-            expect(color).toMatch(/^#[a-zA-Z0-9]{6}$/);
-        });
-
-        it('should generate random colors', () => {
-            const numbers = Array.from({ length: 100 }, (e, i) => i);
-            const colors = numbers.map((i) => HighlighterNode.generateColor(i));
-            const amountDifferentColors = intersection(colors).length;
-
-            expect(amountDifferentColors).toBe(numbers.length);
+            expect(amountDifferentColors).toBe(6);
         });
     });
     describe('#applyStylesForNode()', () => {
