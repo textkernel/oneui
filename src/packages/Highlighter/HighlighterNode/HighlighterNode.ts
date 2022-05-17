@@ -1,4 +1,3 @@
-import randomcolor from 'randomcolor';
 import { HighlighterCore } from '../HighlighterCore';
 
 export type HighlighterNodeRenderer = (keyword: string) => HTMLElement;
@@ -10,13 +9,7 @@ export interface HighlighterNodeOptions {
     highlighterCore: HighlighterCore;
 }
 
-/**
- * This number allows retrieve more different color
- *
- * Need for internal implementation 'randomcolor' library
- * when we use 'seed' option for sequence numbers make its more different
- */
-const COLOR_MULTIPLIER = 10;
+const COLORS = ['Lime', 'Lavender', 'Orange', 'Pink', 'Yellow', 'LightBlue'];
 
 export class HighlighterNode {
     private highlightRenderer: HighlighterNodeRenderer;
@@ -24,13 +17,10 @@ export class HighlighterNode {
     private highlighterCore: HighlighterCore;
 
     /**
-     * Generate random colors
+     * Return color based on the index of the term
      */
     static generateColor(index: number) {
-        return randomcolor({
-            luminosity: 'light',
-            seed: index !== null ? index * COLOR_MULTIPLIER : null,
-        });
+        return COLORS[index % COLORS.length];
     }
 
     static applyStylesForNode(node: HTMLElement, styles: CSSStyleDeclaration) {
