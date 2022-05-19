@@ -2,7 +2,7 @@ import { mixTwoColors, generateColorShades } from '../utils';
 import type { CssVars } from '../OneUITheme';
 
 export const colorVariables = {
-    '--transparent': 'transparent', // skipped
+    '--transparent': 'transparent',
     '--color-background': '#ffffff',
     '--color-foreground': '#1d1d1b',
     '--color-neutral': '#d0d1d5',
@@ -14,10 +14,10 @@ export const colorVariables = {
     '--color-good': '#5cb85c',
     '--color-warning': '#ffb819',
     '--color-bad': '#f42534',
-    '--link-color-normal': 'var(--color-brand)', // skipped
-    '--link-color-hover': 'var(--color-brand-40)', // skipped
-    '--border-color-light': 'var(--color-neutral-25)', // skipped
-    '--border-color-strong': 'var(--color-neutral-40)', // skipped
+    '--link-color-normal': 'var(--color-brand)',
+    '--link-color-hover': 'var(--color-brand-40)',
+    '--border-color-light': 'var(--color-neutral-25)',
+    '--border-color-strong': 'var(--color-neutral-40)',
 };
 
 export const computedColorVariables = (baseVariables: CssVars): CssVars => {

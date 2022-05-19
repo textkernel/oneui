@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorValue component should render component correctly 1`] = `
+<ColorValue
+  item={
+    Object {
+      "value": "#fffff",
+    }
+  }
+  onChange={[MockFunction]}
+>
+  <span>
+    <Input
+      className="ColorValue__input"
+      disabled={false}
+      isBlock={false}
+      onChange={[Function]}
+      size="small"
+      type="color"
+      value="#fffff"
+    >
+      <input
+        className="Input Input--size_small ColorValue__input"
+        data-lpignore={true}
+        disabled={false}
+        onChange={[Function]}
+        type="color"
+        value="#fffff"
+      />
+    </Input>
+    <Text
+      className="ColorValue__value"
+      context="muted"
+      inline={true}
+      size="normal"
+    >
+      <span
+        className="Text--context_muted ColorValue__value"
+      >
+        #fffff
+      </span>
+    </Text>
+  </span>
+</ColorValue>
+`;

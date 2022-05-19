@@ -30,7 +30,6 @@ storiesOf('Theme|Themeroller', module)
         };
 
         const handleApply = (cssVars) => {
-            // const oneUICssDiff = oneUITheme.generateCSSDiff(cssVars);
             const oneUIJsonDiff = oneUITheme.generateJSONDiff(cssVars);
             const css = ThemeGenerator.generateStylesFromThemeJSON(oneUIJsonDiff);
             OneUI.applyThemeStyle(css);

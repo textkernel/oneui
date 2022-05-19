@@ -10,7 +10,7 @@ type CssVars = {
 };
 
 export type ThemeJsonResult = {
-    CssVariables: CssVars;
+    cssVariables: CssVars;
 };
 
 export class ThemeGenerator {
@@ -30,8 +30,8 @@ export class ThemeGenerator {
     }
 
     public static generateStylesFromThemeJSON(jsonResult: ThemeJsonResult): string {
-        const { CssVariables } = jsonResult;
-        return ThemeGenerator.wrapInCssRoot(ThemeGenerator.generateCss(CssVariables));
+        const { cssVariables } = jsonResult;
+        return ThemeGenerator.wrapInCssRoot(ThemeGenerator.generateCss(cssVariables));
     }
 
     public static wrapInCssRoot(styles: string): string {
@@ -40,7 +40,7 @@ export class ThemeGenerator {
 
     public static wrapInJSON(cssVars: CssVars = {}): ThemeJsonResult {
         return {
-            CssVariables: cssVars,
+            cssVariables: cssVars,
         };
     }
 

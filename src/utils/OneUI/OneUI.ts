@@ -124,6 +124,7 @@ class OneUI {
         });
     }
 
+    /** Injects theme CSS styles into <head> */
     static applyThemeStyle(styles: string): void {
         let styleElement = document.getElementById(OneUI.THEME_ELEMENT_VARS_ID);
 
@@ -136,6 +137,7 @@ class OneUI {
         document.head.appendChild(styleElement);
     }
 
+    /** Removes theme CSS styles from <head> */
     static removeThemeStyle(): void {
         const styleElement = document.getElementById(OneUI.THEME_ELEMENT_VARS_ID);
         styleElement?.remove();

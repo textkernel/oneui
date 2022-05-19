@@ -140,6 +140,7 @@ There are two places where CSS variables must be defined:
 
 1. `themes/oneui` - used for generating CSS properties in building bundles phase.
 2. `themes/OneUITheme` - used for generating CSS properties in browser.
+3. `themes/themerollerConfig` - used for building Themeroller component interface.
 
 The CSS property values must be the same for `themes` and `themes/OneUITheme`.
 
