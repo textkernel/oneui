@@ -245,7 +245,7 @@ export function SelectBase<S>(props: Props<S>) {
                             isArrowUp={focused}
                             clearLabel={clearTitle}
                             onClear={handleClearSelectedSuggestions}
-                            showClearButton={!focused && showClearButton}
+                            showClearButton={showClearButton}
                             isFocused={focused && !disabled}
                             disabled={disabled}
                             onClick={handleWrapperClick(openMenu)}
