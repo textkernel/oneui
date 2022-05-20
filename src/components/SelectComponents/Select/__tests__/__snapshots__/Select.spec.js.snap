@@ -441,7 +441,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
             onClear={[Function]}
             onClick={[Function]}
             showArrow={true}
-            showClearButton={false}
+            showClearButton={true}
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
@@ -1014,6 +1014,23 @@ exports[`Select rendering should render focused component correctly 1`] = `
                   </ul>
                 </List>
               </div>
+              <Button
+                className="FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
+                context="link"
+                disabled={false}
+                isBlock={false}
+                isInline={true}
+                onClick={[Function]}
+                size="normal"
+                type="button"
+              >
+                <button
+                  className="Button Button--isInline Button--context_link FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
+                  disabled={false}
+                  onClick={[Function]}
+                  type="button"
+                />
+              </Button>
               <IoMdArrowDropup
                 className="FieldWrapper__dropdownIcon"
               >
