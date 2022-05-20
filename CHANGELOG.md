@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [18.2.0](https://github.com/textkernel/oneui/compare/18.1.0...18.2.0) (2022-05-20)
+
+
+### Features
+
+* **component:** improving clear button for selectBase ([7e4b3a2](https://github.com/textkernel/oneui/commit/7e4b3a2ea1c959f6254c228982686d37d4546dab))
+
 ## [18.1.0](https://github.com/textkernel/oneui/compare/18.0.0...18.1.0) (2022-05-11)
 
 
