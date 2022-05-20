@@ -5,11 +5,17 @@ import { Button } from '../../Buttons';
 import styles from './ThemerollerActions.scss';
 
 type Props = {
+    /** label for reset button */
     resetLabel?: string;
+    /** label for download button */
     downloadLabel?: string;
+    /** label for apply button */
     applyLabel?: string;
+    /** callback is called when reset was called */
     onReset?: () => void;
+    /** callback is called when download was called */
     onDownload?: () => void;
+    /** callback is called when apply was called */
     onApply?: () => void;
 };
 

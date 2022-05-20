@@ -17,8 +17,11 @@ export type ThemerollerChildrenProps = {
     reset: () => void;
 };
 interface Props {
+    /** Themeroller config */
     themeConfig: ThemeConfig;
+    /** component to be rendered inside Themeroller */
     children?: ({ cssVars, reset }: ThemerollerChildrenProps) => React.ReactNode;
+    /** callback is called on changing theme styles */
     onGenerate?: (cssVars: CssVars) => void;
 }
 
