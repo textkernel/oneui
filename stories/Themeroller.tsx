@@ -66,7 +66,7 @@ storiesOf('Theme|Themeroller', module)
                             />
                             {!themeName && (
                                 <Callout context="warning">
-                                    For activating download button please specify the name of the theme
+                                    For activating download button please specify the theme name
                                 </Callout>
                             )}
                             <ThemerollerActions
