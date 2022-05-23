@@ -11,7 +11,7 @@ type Props = {
     downloadLabel?: string;
     /** label for apply button */
     applyLabel?: string;
-    /** label for apply button */
+    /** if the download button should be disabled */
     downloadDisabled?: boolean;
     /** callback is called when reset was called */
     onReset?: () => void;
