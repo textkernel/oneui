@@ -1,3 +1,4 @@
+import { COLORS } from '../../../constants';
 import { HighlighterCore } from '../HighlighterCore';
 
 export type HighlighterNodeRenderer = (keyword: string) => HTMLElement;
@@ -8,8 +9,6 @@ export interface HighlighterNodeOptions {
     /** Instance of HighlighterCore library */
     highlighterCore: HighlighterCore;
 }
-
-const COLORS = ['Lime', 'Lavender', 'Orange', 'Pink', 'Yellow', 'LightBlue'];
 
 export class HighlighterNode {
     private highlightRenderer: HighlighterNodeRenderer;
