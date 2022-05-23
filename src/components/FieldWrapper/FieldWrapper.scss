@@ -13,7 +13,6 @@
         position: absolute;
         top: var(--spacing-3x);
         right: var(--spacing-normal);
-        display: none;
         max-width: 30%;
         margin-left: auto;
         flex-shrink: 0;
@@ -25,6 +24,9 @@
 
         &--rightIndent {
             margin-right: 20px;
+        }
+        &:not(&--isArrowUp) {
+            display: none;
         }
     }
 
