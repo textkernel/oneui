@@ -11,6 +11,8 @@ type Props = {
     downloadLabel?: string;
     /** label for apply button */
     applyLabel?: string;
+    /** label for apply button */
+    downloadDisabled?: boolean;
     /** callback is called when reset was called */
     onReset?: () => void;
     /** callback is called when download was called */
@@ -25,6 +27,7 @@ export const ThemerollerActions: React.FC<Props> = ({
     resetLabel,
     downloadLabel,
     applyLabel,
+    downloadDisabled,
     onReset,
     onDownload,
     onApply,
@@ -39,19 +42,24 @@ export const ThemerollerActions: React.FC<Props> = ({
                     </>
                 </Button>
             )}
-            {downloadLabel && onDownload && (
-                <Button {...elem('button')} size="small" onClick={onDownload}>
-                    <>
-                        <FaDownload {...elem('icon')} />
-                        {downloadLabel}
-                    </>
-                </Button>
-            )}
             {applyLabel && onApply && (
                 <Button {...elem('button')} size="small" onClick={onApply}>
                     <>
                         <FaPlay {...elem('icon')} />
                         {applyLabel}
+                    </>
+                </Button>
+            )}
+            {downloadLabel && onDownload && (
+                <Button
+                    {...elem('button')}
+                    disabled={downloadDisabled}
+                    size="small"
+                    onClick={onDownload}
+                >
+                    <>
+                        <FaDownload {...elem('icon')} />
+                        {downloadLabel}
                     </>
                 </Button>
             )}
@@ -65,6 +73,7 @@ ThemerollerActions.defaultProps = {
     resetLabel: '',
     downloadLabel: '',
     applyLabel: '',
+    downloadDisabled: false,
     onReset: undefined,
     onDownload: undefined,
     onApply: undefined,

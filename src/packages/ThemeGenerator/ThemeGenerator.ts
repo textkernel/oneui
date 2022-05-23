@@ -9,9 +9,19 @@ type CssVars = {
     [key: string]: string;
 };
 
-export type ThemeJsonResult = {
-    cssVariables: CssVars;
+type ThemeInfo = {
+    name: string;
+    created: string;
+    version: string;
 };
+
+export interface ThemeJsonResult extends ThemeInfo {
+    theme: {
+        cssVariables: CssVars;
+    };
+}
+
+export const THEME_VERSION = '1';
 
 export class ThemeGenerator {
     private theme: ThemeType;
@@ -29,8 +39,10 @@ export class ThemeGenerator {
         }, '');
     }
 
-    public static generateStylesFromThemeJSON(jsonResult: ThemeJsonResult): string {
-        const { cssVariables } = jsonResult;
+    public static getStylesFromTheme(jsonResult: ThemeJsonResult): string {
+        const {
+            theme: { cssVariables },
+        } = jsonResult;
         return ThemeGenerator.wrapInCssRoot(ThemeGenerator.generateCss(cssVariables));
     }
 
@@ -38,9 +50,14 @@ export class ThemeGenerator {
         return `:root {\n\t${styles}\n};`;
     }
 
-    public static wrapInJSON(cssVars: CssVars = {}): ThemeJsonResult {
+    public static createTheme(name: string, cssVars: CssVars = {}): ThemeJsonResult {
         return {
-            cssVariables: cssVars,
+            name,
+            version: THEME_VERSION,
+            created: new Date().toISOString(),
+            theme: {
+                cssVariables: cssVars,
+            },
         };
     }
 
@@ -61,8 +78,8 @@ export class ThemeGenerator {
         return ThemeGenerator.generateCss(this.theme(cssVars));
     }
 
-    public generateJSONDiff(cssVars: CssVars = {}): ThemeJsonResult {
+    public generateTheme(name: string, cssVars: CssVars = {}): ThemeJsonResult {
         const diffCssVars = this.getDiff(cssVars);
-        return ThemeGenerator.wrapInJSON(diffCssVars);
+        return ThemeGenerator.createTheme(name, diffCssVars);
     }
 }

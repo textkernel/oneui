@@ -19,6 +19,7 @@ describe('ThemerollerActions component', () => {
     it('should render component correctly with all actions', () => {
         const wrapper = mount(
             <ThemerollerActions
+                downloadDisabled
                 resetLabel="Reset"
                 applyLabel="Apply"
                 downloadLabel="Download"
