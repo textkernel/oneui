@@ -1,4 +1,4 @@
-import { ThemeGenerator, THEME_VERSION } from '../ThemeGenerator';
+import { ThemeGenerator, THEMEROLLER_VERSION } from '../ThemeGenerator';
 
 const mockSaveAs = jest.fn();
 jest.mock('file-saver', () => ({
@@ -24,9 +24,9 @@ describe('ThemeGenerator', () => {
         '--color-brand-30': '#303030',
     };
     const jsonTheme = {
-        name: 'dark-theme',
-        version: THEME_VERSION,
+        id: 'dark-theme',
         created: '2022-01-01T00:00:00.000Z',
+        themerollerVersion: THEMEROLLER_VERSION,
         theme: {
             cssVariables,
         },
@@ -107,9 +107,9 @@ describe('ThemeGenerator', () => {
         it('should return empty theme with mete', () => {
             const themeGenerator = new ThemeGenerator(OneUITheme);
             expect(themeGenerator.generateTheme('dark-theme')).toEqual({
-                name: 'dark-theme',
-                version: THEME_VERSION,
+                id: 'dark-theme',
                 created: '2022-01-01T00:00:00.000Z',
+                themerollerVersion: THEMEROLLER_VERSION,
                 theme: {
                     cssVariables: {},
                 },
@@ -122,9 +122,9 @@ describe('ThemeGenerator', () => {
                 '--color-brand': 'red',
             };
             expect(themeGenerator.generateTheme('dark-theme', customProperties)).toEqual({
-                name: 'dark-theme',
-                version: THEME_VERSION,
+                id: 'dark-theme',
                 created: '2022-01-01T00:00:00.000Z',
+                themerollerVersion: THEMEROLLER_VERSION,
                 theme: {
                     cssVariables: {
                         '--transparent': 'none',

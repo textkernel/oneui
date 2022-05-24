@@ -10,9 +10,12 @@ type CssVars = {
 };
 
 type ThemeInfo = {
-    name: string;
+    /** unique theme name typed by user */
+    id: string;
+    /** timestamp when theme was created */
     created: string;
-    version: string;
+    /** version of Theme JSON file */
+    themerollerVersion: string;
 };
 
 export interface ThemeJsonResult extends ThemeInfo {
@@ -21,7 +24,12 @@ export interface ThemeJsonResult extends ThemeInfo {
     };
 }
 
-export const THEME_VERSION = '1';
+/**
+ * Version of Theme JSON file.
+ * Version must be increased if Theme JSON
+ * file has breaking changes.
+ */
+export const THEMEROLLER_VERSION = '1';
 
 export class ThemeGenerator {
     private theme: ThemeType;
@@ -50,11 +58,11 @@ export class ThemeGenerator {
         return `:root {\n\t${styles}\n};`;
     }
 
-    public static createTheme(name: string, cssVars: CssVars = {}): ThemeJsonResult {
+    public static createTheme(id: string, cssVars: CssVars = {}): ThemeJsonResult {
         return {
-            name,
-            version: THEME_VERSION,
+            id,
             created: new Date().toISOString(),
+            themerollerVersion: THEMEROLLER_VERSION,
             theme: {
                 cssVariables: cssVars,
             },
@@ -78,8 +86,8 @@ export class ThemeGenerator {
         return ThemeGenerator.generateCss(this.theme(cssVars));
     }
 
-    public generateTheme(name: string, cssVars: CssVars = {}): ThemeJsonResult {
+    public generateTheme(id: string, cssVars: CssVars = {}): ThemeJsonResult {
         const diffCssVars = this.getDiff(cssVars);
-        return ThemeGenerator.createTheme(name, diffCssVars);
+        return ThemeGenerator.createTheme(id, diffCssVars);
     }
 }
