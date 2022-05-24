@@ -10,7 +10,7 @@ type CssVars = {
 };
 
 type ThemeInfo = {
-    /** unique theme name typed by user */
+    /** theme name typed by user */
     id: string;
     /** timestamp when theme was created */
     created: string;
