@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [18.3.0](https://github.com/textkernel/oneui/compare/18.1.0...18.3.0) (2022-05-24)
+
+
+### Features
+
+* address review points ([e2a1122](https://github.com/textkernel/oneui/commit/e2a1122dbde50350b281fed857971cfa555626d9))
+* change colors generation in Highlighter component ([fe1d811](https://github.com/textkernel/oneui/commit/fe1d81121f0d24f12bac6aa04fbd42445a80fdda))
+* change colors generation in Highlighter component ([bfd4f86](https://github.com/textkernel/oneui/commit/bfd4f865107dc35b45f462b4a6741ca5b1f54160))
+* **component:** improving clear button for selectBase ([7e4b3a2](https://github.com/textkernel/oneui/commit/7e4b3a2ea1c959f6254c228982686d37d4546dab))
+
 ## [18.2.0](https://github.com/textkernel/oneui/compare/18.1.0...18.2.0) (2022-05-20)
 
 
