@@ -111,4 +111,39 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
             expect(ponyfillOptions.onError).toBeCalledTimes(1);
         });
     });
+
+    describe('#applyThemeStyle()', () => {
+        it('should create theme <style> element with CSS styles', () => {
+            document.body.innerHTML = '<head></head>';
+            const themeStyles = ':root{--color-brand:blue};';
+
+            OneUI.applyThemeStyle(themeStyles);
+
+            expect(document.getElementsByTagName('style')[0].textContent).toBe(themeStyles);
+        });
+
+        it('should overwrite theme <style> element with new CSS styles', () => {
+            document.body.innerHTML = '<head></head>';
+            const themeStyles = ':root{--color-brand:blue};';
+            const newThemeStyles = ':root{--color-brand:blue};';
+
+            OneUI.applyThemeStyle(themeStyles);
+            OneUI.applyThemeStyle(newThemeStyles);
+
+            expect(document.getElementsByTagName('style')[0].textContent).toBe(newThemeStyles);
+        });
+    });
+
+    describe('#removeThemeStyle()', () => {
+        it('should remove theme <style> element', () => {
+            document.body.innerHTML = '<head></head>';
+            const themeStyles = ':root{--color-brand:blue};';
+
+            OneUI.applyThemeStyle(themeStyles);
+            expect(document.getElementsByTagName('style')[0].textContent).toBe(themeStyles);
+
+            OneUI.removeThemeStyle();
+            expect(document.getElementsByTagName('style')[0]).toBeUndefined();
+        });
+    });
 });

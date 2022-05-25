@@ -48,6 +48,8 @@ const isInternetExplorer11 = () => {
 const DEFAULT_LOADING_TIMEOUT = 2000;
 
 class OneUI {
+    static THEME_ELEMENT_VARS_ID = 'oneui-theme-styles';
+
     /** Init themes and ponyfill for css variables support */
     static init({
         themeURL = '',
@@ -120,6 +122,25 @@ class OneUI {
             const head = document.getElementsByTagName('head')[0];
             head.appendChild(styleElement);
         });
+    }
+
+    /** Injects theme CSS styles into <head> */
+    static applyThemeStyle(styles: string): void {
+        let styleElement = document.getElementById(OneUI.THEME_ELEMENT_VARS_ID);
+
+        if (!styleElement) {
+            styleElement = document.createElement('style');
+            styleElement.id = OneUI.THEME_ELEMENT_VARS_ID;
+        }
+
+        styleElement.textContent = styles;
+        document.head.appendChild(styleElement);
+    }
+
+    /** Removes theme CSS styles from <head> */
+    static removeThemeStyle(): void {
+        const styleElement = document.getElementById(OneUI.THEME_ELEMENT_VARS_ID);
+        styleElement?.remove();
     }
 }
 

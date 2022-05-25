@@ -1,11 +1,10 @@
 $contexts: (neutral, brand, primary, accent, info, good, warning, bad);
 
 .ListItem {
-    &__container {
-        display: flex;
-        align-items: baseline;
-        padding: var(--spacing-4x);
-    }
+    display: flex;
+    align-items: baseline;
+    padding: var(--spacing-4x);
+    box-sizing: border-box;
 
     &:hover:not(.ListItem--disabled) {
         background-color: var(--color-highlight-background);

@@ -1,0 +1,457 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Themeroller component should render component correctly 1`] = `
+<Themeroller
+  onGenerate={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "--border-radius": "3px",
+            "--color-background": "#ffffff",
+            "--color-foreground": "#1d1d1b",
+            "--link-decoration-normal": "none",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+  themeConfig={
+    Array [
+      Object {
+        "fieldsetName": "Colors",
+        "items": Array [
+          Object {
+            "label": "Background color",
+            "type": "color",
+            "value": "#ffffff",
+            "var": "--color-background",
+          },
+          Object {
+            "label": "Foreground color",
+            "type": "color",
+            "value": "#1d1d1b",
+            "var": "--color-foreground",
+          },
+          Object {
+            "label": "Border radius",
+            "type": "unit",
+            "unit": "px",
+            "value": "3",
+            "var": "--border-radius",
+          },
+          Object {
+            "label": "Link decoration",
+            "type": "string",
+            "value": "none",
+            "var": "--link-decoration-normal",
+          },
+        ],
+      },
+      Object {
+        "fieldsetName": "Sizing",
+        "items": Array [],
+      },
+    ]
+  }
+>
+  <div>
+    <TabsBar
+      activeTabId="Colors"
+      isBlock={false}
+      onSelect={[Function]}
+    >
+      <div
+        className="TabsBar"
+        role="tablist"
+      >
+        <TabItem
+          disabled={false}
+          isActive={true}
+          isBlock={false}
+          key=".$Colors"
+          onSelect={[Function]}
+          tabId="Colors"
+        >
+          <div
+            aria-selected={true}
+            className="TabItem TabItem--isActive"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="tab"
+            tabIndex={0}
+          >
+            Colors
+          </div>
+        </TabItem>
+        <TabItem
+          disabled={false}
+          isActive={false}
+          isBlock={false}
+          key=".$Sizing"
+          onSelect={[Function]}
+          tabId="Sizing"
+        >
+          <div
+            aria-selected={false}
+            className="TabItem"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            role="tab"
+            tabIndex={0}
+          >
+            Sizing
+          </div>
+        </TabItem>
+      </div>
+    </TabsBar>
+    <List
+      className="Themeroller__list"
+      doSelectOnNavigate={false}
+      isControlledNavigation={false}
+      isDivided={false}
+    >
+      <ul
+        className="List Themeroller__list"
+        onKeyDown={[Function]}
+        tabIndex="0"
+      >
+        <ListItem
+          className="List__item Themeroller__item"
+          disabled={false}
+          highlightContext="default"
+          isHighlighted={false}
+          isSelected={false}
+          key=".$Background color"
+          passDisabledToLi={false}
+        >
+          <li
+            className="ListItem List__item Themeroller__item"
+            role="presentation"
+          >
+            <Text
+              className="Themeroller__label"
+              context="default"
+              inline={false}
+              key=".0"
+              size="normal"
+            >
+              <p
+                className="Themeroller__label"
+              >
+                Background color
+              </p>
+            </Text>
+            <ItemValue
+              item={
+                Object {
+                  "label": "Background color",
+                  "type": "color",
+                  "value": "#ffffff",
+                  "var": "--color-background",
+                }
+              }
+              key=".1"
+              onChange={[Function]}
+            >
+              <ColorValue
+                item={
+                  Object {
+                    "label": "Background color",
+                    "type": "color",
+                    "value": "#ffffff",
+                    "var": "--color-background",
+                  }
+                }
+                onChange={[Function]}
+              >
+                <span>
+                  <Input
+                    className="ColorValue__input"
+                    disabled={false}
+                    isBlock={false}
+                    onChange={[Function]}
+                    size="small"
+                    type="color"
+                    value="#ffffff"
+                  >
+                    <input
+                      className="Input Input--size_small ColorValue__input"
+                      data-lpignore={true}
+                      disabled={false}
+                      onChange={[Function]}
+                      type="color"
+                      value="#ffffff"
+                    />
+                  </Input>
+                  <Text
+                    className="ColorValue__value"
+                    context="muted"
+                    inline={true}
+                    size="normal"
+                  >
+                    <span
+                      className="Text--context_muted ColorValue__value"
+                    >
+                      #ffffff
+                    </span>
+                  </Text>
+                </span>
+              </ColorValue>
+            </ItemValue>
+          </li>
+        </ListItem>
+        <ListItem
+          className="List__item Themeroller__item"
+          disabled={false}
+          highlightContext="default"
+          isHighlighted={false}
+          isSelected={false}
+          key=".$Foreground color"
+          passDisabledToLi={false}
+        >
+          <li
+            className="ListItem List__item Themeroller__item"
+            role="presentation"
+          >
+            <Text
+              className="Themeroller__label"
+              context="default"
+              inline={false}
+              key=".0"
+              size="normal"
+            >
+              <p
+                className="Themeroller__label"
+              >
+                Foreground color
+              </p>
+            </Text>
+            <ItemValue
+              item={
+                Object {
+                  "label": "Foreground color",
+                  "type": "color",
+                  "value": "#1d1d1b",
+                  "var": "--color-foreground",
+                }
+              }
+              key=".1"
+              onChange={[Function]}
+            >
+              <ColorValue
+                item={
+                  Object {
+                    "label": "Foreground color",
+                    "type": "color",
+                    "value": "#1d1d1b",
+                    "var": "--color-foreground",
+                  }
+                }
+                onChange={[Function]}
+              >
+                <span>
+                  <Input
+                    className="ColorValue__input"
+                    disabled={false}
+                    isBlock={false}
+                    onChange={[Function]}
+                    size="small"
+                    type="color"
+                    value="#1d1d1b"
+                  >
+                    <input
+                      className="Input Input--size_small ColorValue__input"
+                      data-lpignore={true}
+                      disabled={false}
+                      onChange={[Function]}
+                      type="color"
+                      value="#1d1d1b"
+                    />
+                  </Input>
+                  <Text
+                    className="ColorValue__value"
+                    context="muted"
+                    inline={true}
+                    size="normal"
+                  >
+                    <span
+                      className="Text--context_muted ColorValue__value"
+                    >
+                      #1d1d1b
+                    </span>
+                  </Text>
+                </span>
+              </ColorValue>
+            </ItemValue>
+          </li>
+        </ListItem>
+        <ListItem
+          className="List__item Themeroller__item"
+          disabled={false}
+          highlightContext="default"
+          isHighlighted={false}
+          isSelected={false}
+          key=".$Border radius"
+          passDisabledToLi={false}
+        >
+          <li
+            className="ListItem List__item Themeroller__item"
+            role="presentation"
+          >
+            <Text
+              className="Themeroller__label"
+              context="default"
+              inline={false}
+              key=".0"
+              size="normal"
+            >
+              <p
+                className="Themeroller__label"
+              >
+                Border radius
+              </p>
+            </Text>
+            <ItemValue
+              item={
+                Object {
+                  "label": "Border radius",
+                  "type": "unit",
+                  "unit": "px",
+                  "value": "3",
+                  "var": "--border-radius",
+                }
+              }
+              key=".1"
+              onChange={[Function]}
+            >
+              <UnitValue
+                item={
+                  Object {
+                    "label": "Border radius",
+                    "type": "unit",
+                    "unit": "px",
+                    "value": "3",
+                    "var": "--border-radius",
+                  }
+                }
+                onChange={[Function]}
+              >
+                <span>
+                  <Input
+                    className="UnitValue__input"
+                    disabled={false}
+                    isBlock={false}
+                    onChange={[Function]}
+                    size="small"
+                    type="number"
+                    value="3"
+                  >
+                    <input
+                      className="Input Input--size_small UnitValue__input"
+                      data-lpignore={true}
+                      disabled={false}
+                      onChange={[Function]}
+                      type="number"
+                      value="3"
+                    />
+                  </Input>
+                  <Text
+                    className="UnitValue__value"
+                    context="muted"
+                    inline={true}
+                    size="normal"
+                  >
+                    <span
+                      className="Text--context_muted UnitValue__value"
+                    >
+                      3
+                      px
+                    </span>
+                  </Text>
+                </span>
+              </UnitValue>
+            </ItemValue>
+          </li>
+        </ListItem>
+        <ListItem
+          className="List__item Themeroller__item"
+          disabled={false}
+          highlightContext="default"
+          isHighlighted={false}
+          isSelected={false}
+          key=".$Link decoration"
+          passDisabledToLi={false}
+        >
+          <li
+            className="ListItem List__item Themeroller__item"
+            role="presentation"
+          >
+            <Text
+              className="Themeroller__label"
+              context="default"
+              inline={false}
+              key=".0"
+              size="normal"
+            >
+              <p
+                className="Themeroller__label"
+              >
+                Link decoration
+              </p>
+            </Text>
+            <ItemValue
+              item={
+                Object {
+                  "label": "Link decoration",
+                  "type": "string",
+                  "value": "none",
+                  "var": "--link-decoration-normal",
+                }
+              }
+              key=".1"
+              onChange={[Function]}
+            >
+              <StringValue
+                item={
+                  Object {
+                    "label": "Link decoration",
+                    "type": "string",
+                    "value": "none",
+                    "var": "--link-decoration-normal",
+                  }
+                }
+                onChange={[Function]}
+              >
+                <Input
+                  disabled={false}
+                  isBlock={false}
+                  onChange={[Function]}
+                  size="small"
+                  type="text"
+                  value="none"
+                >
+                  <input
+                    className="Input Input--size_small"
+                    data-lpignore={true}
+                    disabled={false}
+                    onChange={[Function]}
+                    type="text"
+                    value="none"
+                  />
+                </Input>
+              </StringValue>
+            </ItemValue>
+          </li>
+        </ListItem>
+      </ul>
+    </List>
+  </div>
+</Themeroller>
+`;

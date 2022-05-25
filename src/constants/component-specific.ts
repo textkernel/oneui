@@ -22,6 +22,7 @@ export const INPUT_TYPES = [
     'search',
     'time',
     'week',
+    'color',
 ] as const;
 
 export type InputType = typeof INPUT_TYPES[number];

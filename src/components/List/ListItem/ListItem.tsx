@@ -27,7 +27,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClic
     value?: unknown;
 }
 
-const { block, elem } = bem('ListItem', styles);
+const { block } = bem('ListItem', styles);
 
 export const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
     const {
@@ -49,12 +49,16 @@ export const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
     }
 
     return (
-        <li {...liProps} ref={ref} {...block({ ...props, ...customBlockMod })}>
-            <div onClick={onClick} role="presentation" {...elem('container', props)}>
-                {React.Children.map(children, (child) =>
-                    typeof child === 'string' ? <Text inline>{child}</Text> : child
-                )}
-            </div>
+        <li
+            {...liProps}
+            ref={ref}
+            role="presentation"
+            onClick={onClick}
+            {...block({ ...props, ...customBlockMod })}
+        >
+            {React.Children.map(children, (child) =>
+                typeof child === 'string' ? <Text inline>{child}</Text> : child
+            )}
         </li>
     );
 });

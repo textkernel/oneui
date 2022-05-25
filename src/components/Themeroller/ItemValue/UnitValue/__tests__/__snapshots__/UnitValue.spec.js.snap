@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnitValue component should render component correctly 1`] = `
+<UnitValue
+  item={
+    Object {
+      "unit": "px",
+      "value": "12",
+    }
+  }
+  onChange={[MockFunction]}
+>
+  <span>
+    <Input
+      className="UnitValue__input"
+      disabled={false}
+      isBlock={false}
+      onChange={[Function]}
+      size="small"
+      type="number"
+      value="12"
+    >
+      <input
+        className="Input Input--size_small UnitValue__input"
+        data-lpignore={true}
+        disabled={false}
+        onChange={[Function]}
+        type="number"
+        value="12"
+      />
+    </Input>
+    <Text
+      className="UnitValue__value"
+      context="muted"
+      inline={true}
+      size="normal"
+    >
+      <span
+        className="Text--context_muted UnitValue__value"
+      >
+        12
+        px
+      </span>
+    </Text>
+  </span>
+</UnitValue>
+`;

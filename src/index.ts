@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-default-export
 export { default } from './utils/OneUI';
 export * from './themes/OneUITheme';
+export * from './themes/themerollerConfig';
 export * from './packages/Highlighter';
 export * from './packages/BooleanQueryTokenizer';
 export * from './packages/ThemeGenerator';
@@ -72,3 +73,4 @@ export {
 export * from './components/LocationSelector';
 export * from './components/LabelPicker';
 export { ProductTour } from './components/ProductTour';
+export * from './components/Themeroller';

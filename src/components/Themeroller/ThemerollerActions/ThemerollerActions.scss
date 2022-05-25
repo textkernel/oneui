@@ -1,0 +1,11 @@
+.ThemerollerActions {
+    padding: var(--spacing-5x) var(--spacing-2x);
+
+    &__button {
+        margin-right: var(--spacing-3x);
+    }
+
+    &__icon {
+        padding-right: var(--spacing-normal);
+    }
+}

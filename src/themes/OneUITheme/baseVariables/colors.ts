@@ -1,5 +1,5 @@
 import { mixTwoColors, generateColorShades } from '../utils';
-import type { CSSVars } from '../OneUITheme';
+import type { CssVars } from '../OneUITheme';
 
 export const colorVariables = {
     '--transparent': 'transparent',
@@ -8,6 +8,7 @@ export const colorVariables = {
     '--color-neutral': '#d0d1d5',
     '--color-muted': '#b3b2b2',
     '--color-brand': '#0097d1',
+    '--color-primary': '#f18700',
     '--color-accent': '#182642',
     '--color-info': '#60c4de',
     '--color-good': '#5cb85c',
@@ -19,13 +20,14 @@ export const colorVariables = {
     '--border-color-strong': 'var(--color-neutral-40)',
 };
 
-export const computedColorVariables = (baseVariables: CSSVars): CSSVars => {
+export const computedColorVariables = (baseVariables: CssVars): CssVars => {
     const generateColorShadesFromVariables = (name: string) =>
         generateColorShades(baseVariables, name);
     return {
         ...generateColorShadesFromVariables('--color-neutral'),
         ...generateColorShadesFromVariables('--color-muted'),
         ...generateColorShadesFromVariables('--color-brand'),
+        ...generateColorShadesFromVariables('--color-primary'),
         ...generateColorShadesFromVariables('--color-accent'),
         ...generateColorShadesFromVariables('--color-info'),
         ...generateColorShadesFromVariables('--color-good'),
@@ -34,12 +36,12 @@ export const computedColorVariables = (baseVariables: CSSVars): CSSVars => {
         '--color-highlight-background': mixTwoColors(
             baseVariables['--color-brand'],
             baseVariables['--color-background'],
-            0.9
+            90
         ),
         '--color-selection-background': mixTwoColors(
             baseVariables['--color-brand'],
             baseVariables['--color-background'],
-            0.9
+            90
         ),
     };
 };
