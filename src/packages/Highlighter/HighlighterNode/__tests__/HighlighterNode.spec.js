@@ -18,15 +18,15 @@ describe('HighlighterNode', () => {
     describe('#generateColor()', () => {
         it('should generate color', () => {
             const color = HighlighterNode.generateColor(1);
-            expect(color).toMatch('#D6F481');
+            expect(color).toMatch('#90EE90');
         });
 
-        it('should generate 12 distinct colors', () => {
+        it('should generate 11 distinct colors', () => {
             const numbers = Array.from({ length: 100 }, (e, i) => i);
             const colors = numbers.map((i) => HighlighterNode.generateColor(i));
             const amountDifferentColors = intersection(colors).length;
 
-            expect(amountDifferentColors).toBe(12);
+            expect(amountDifferentColors).toBe(11);
         });
     });
     describe('#applyStylesForNode()', () => {
