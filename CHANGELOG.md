@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [18.4.0](https://github.com/textkernel/oneui/compare/18.3.0...18.4.0) (2022-05-25)
+
+
+### Features
+
+* **themeroller:** Implemented Themeroller component ([#752](https://github.com/textkernel/oneui/issues/752)) ([b94db43](https://github.com/textkernel/oneui/commit/b94db432b2dd7e7fe56f42acd88981d3bea97456))
+
 ## [18.3.0](https://github.com/textkernel/oneui/compare/18.1.0...18.3.0) (2022-05-24)
 
 
