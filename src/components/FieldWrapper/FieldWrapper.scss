@@ -10,9 +10,6 @@
     align-items: center;
 
     &__clearButton {
-        position: absolute;
-        top: var(--spacing-3x);
-        right: var(--spacing-normal);
         display: none;
         max-width: 30%;
         margin-left: auto;
