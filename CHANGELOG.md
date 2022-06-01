@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.4.1](https://github.com/textkernel/oneui/compare/18.4.0...18.4.1) (2022-06-01)
+
 ## [18.4.0](https://github.com/textkernel/oneui/compare/18.3.0...18.4.0) (2022-05-25)
 
 
