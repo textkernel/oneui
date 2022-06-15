@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Input } from '../../../Input';
-import { ThemeNumberItem } from '../../../../themes/themerollerConfig';
+import { Input } from '../../../../Input';
+import { ThemeNumberItem } from '../../../../../themes/themerollerConfig';
 
 type Props = {
     item: ThemeNumberItem;

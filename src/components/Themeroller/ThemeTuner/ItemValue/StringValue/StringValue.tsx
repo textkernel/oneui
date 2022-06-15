@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Input } from '../../../Input';
-import { ThemeStringItem } from '../../../../themes/themerollerConfig';
+import { Input } from '../../../../Input';
+import { ThemeStringItem } from '../../../../../themes/themerollerConfig';
 
 type Props = {
     item: ThemeStringItem;

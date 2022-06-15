@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FileButton> that renders a button should add classes when props are changed 1`] = `
+<FileButton
+  context="primary"
+  disabled={false}
+  isBlock={true}
+  isInline={false}
+  size="large"
+>
+  <label
+    className="Button Button--context_primary Button--size_large Button--isBlock"
+    disabled={false}
+  >
+    <input
+      hidden={true}
+      type="file"
+    />
+    Click me
+  </label>
+</FileButton>
+`;
+
+exports[`<FileButton> that renders a button should render default button correctly 1`] = `
+<FileButton
+  context="neutral"
+  disabled={false}
+  isBlock={false}
+  isInline={false}
+  size="normal"
+>
+  <label
+    className="Button Button--context_neutral"
+    disabled={false}
+  >
+    <input
+      hidden={true}
+      type="file"
+    />
+    Choose file
+  </label>
+</FileButton>
+`;

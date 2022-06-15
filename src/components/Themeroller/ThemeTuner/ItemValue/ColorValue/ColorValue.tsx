@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { bem } from '../../../../utils';
-import { Input } from '../../../Input';
-import { Text } from '../../../Text';
-import { ThemeColorItem } from '../../../../themes/themerollerConfig';
+import { bem } from '../../../../../utils';
+import { Input } from '../../../../Input';
+import { Text } from '../../../../Text';
+import { ThemeColorItem } from '../../../../../themes/themerollerConfig';
 import styles from './ColorValue.scss';
 
 type Props = {
