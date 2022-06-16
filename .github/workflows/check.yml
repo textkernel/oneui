@@ -13,6 +13,8 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - uses: ./.github/actions/npm-cache/
+            - run: node --v
+            - run: npm --v
             - run: npm install --prefer-offline --ignore-scripts --no-audit
               shell: bash
     test:
