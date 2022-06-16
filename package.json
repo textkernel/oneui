@@ -4,7 +4,7 @@
         "libraryName": "oneui"
     },
     "version": "18.4.1",
-    "description": "Library of reusable React components with theming support",
+    "description": "test pipeline",
     "main": "dist/oneui.min.js",
     "types": "dist/dts/src/index.d.ts",
     "scripts": {
