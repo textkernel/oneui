@@ -76,19 +76,21 @@ export const Themeroller: React.FC<Props> = ({
         }
     };
 
-    const handleNameChange = (e) => {
-        oneUITheme.setTheme(e.target.value, themeResultStore.theme.cssVariables);
+    const setTheme = (name: string, cssVars: CssVars) => {
+        oneUITheme.setTheme(name, cssVars);
         setThemeResultStore(oneUITheme.result);
+    };
+
+    const handleNameChange = (e) => {
+        setTheme(e.target.value, themeResultStore.theme.cssVariables);
     };
 
     const handleGenerate = (cssVars) => {
-        oneUITheme.setTheme(themeResultStore.name, cssVars);
-        setThemeResultStore(oneUITheme.result);
+        setTheme(themeResultStore.name, cssVars);
     };
 
     const handleReset = () => {
-        oneUITheme.setTheme('', {});
-        setThemeResultStore(oneUITheme.result);
+        setTheme('', {});
     };
 
     const handleDownload = () => {

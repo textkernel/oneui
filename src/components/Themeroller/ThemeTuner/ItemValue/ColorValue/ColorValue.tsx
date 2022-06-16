@@ -5,10 +5,10 @@ import { Text } from '../../../../Text';
 import { ThemeColorItem } from '../../../../../themes/themerollerConfig';
 import styles from './ColorValue.scss';
 
-type Props = {
+interface Props {
     item: ThemeColorItem;
     onChange: (value: ThemeColorItem) => void;
-};
+}
 
 const { elem } = bem('ColorValue', styles);
 

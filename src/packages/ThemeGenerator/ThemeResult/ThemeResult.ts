@@ -112,7 +112,7 @@ export class ThemeResult {
     }
 
     private validate(result: unknown): result is ThemeJsonResult {
-        return this.validator(result) as boolean;
+        return this.validator(result);
     }
 
     public toJSON(): ThemeJsonResult {

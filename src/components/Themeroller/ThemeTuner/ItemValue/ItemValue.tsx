@@ -5,10 +5,10 @@ import { StringValue } from './StringValue';
 import { NumberValue } from './NumberValue';
 import { UnitValue } from './UnitValue';
 
-type Props = {
+interface Props {
     item: ThemeItem;
     onChange: (item: ThemeItem) => void;
-};
+}
 
 export const ItemValue: React.FC<Props> = ({ item, onChange }) => {
     switch (item.type) {

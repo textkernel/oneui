@@ -13,7 +13,7 @@ storiesOf('Theme|Themeroller', module)
         try {
             themeResultData = JSON.parse(sessionStorage.getItem(OneUI.THEME_ELEMENT_ID) || '');
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
         return (
             <Themeroller

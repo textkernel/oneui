@@ -5,10 +5,10 @@ import { Text } from '../../../../Text';
 import { ThemeUnitItem } from '../../../../../themes/themerollerConfig';
 import styles from './UnitValue.scss';
 
-type Props = {
+interface Props {
     item: ThemeUnitItem;
     onChange: (value: ThemeUnitItem) => void;
-};
+}
 
 const { elem } = bem('UnitValue', styles);
 

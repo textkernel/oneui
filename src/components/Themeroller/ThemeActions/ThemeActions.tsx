@@ -5,7 +5,7 @@ import { Button, FileButton } from '../../Buttons';
 import { Tooltip } from '../../Tooltip';
 import styles from './ThemeActions.scss';
 
-type Props = {
+interface Props {
     /** label for reset button */
     resetLabel?: string;
     /** label for download button */
@@ -22,7 +22,7 @@ type Props = {
     onDownload?: () => void;
     /** callback is called when choose file was called */
     onFileChange?: (e: React.ChangeEvent<HTMLInputElement>, content: string) => void;
-};
+}
 
 const { block, elem } = bem('ThemeActions', styles);
 
@@ -37,11 +37,11 @@ export const ThemeActions: React.FC<Props> = ({
     onFileChange,
 }) => {
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (onFileChange && e.target && e.target.files && e.target.files[0]) {
+        if (onFileChange && e.target.files && e?.target?.files?.[0]) {
             const file = e.target.files[0];
             const reader = new FileReader();
             reader.onload = (r) => {
-                if (r.target && r.target.result) {
+                if (r?.target?.result) {
                     if (typeof r.target.result === 'string') {
                         onFileChange(e, r.target.result);
                     }
@@ -87,6 +87,10 @@ export const ThemeActions: React.FC<Props> = ({
                     disabled={!downloadDisabled}
                 >
                     <span>
+                        {/**
+                         * Tooltip doesn't work when button is disabled,
+                         * thus we need to wrapp button in any tag.
+                         */}
                         <Button
                             {...elem('button')}
                             disabled={downloadDisabled}
