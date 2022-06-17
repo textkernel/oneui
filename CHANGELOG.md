@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [18.5.0](https://github.com/textkernel/oneui/compare/18.4.1...18.5.0) (2022-06-17)
+
+
+### Features
+
+* **Teaser:** add prop for disabled styling ([#770](https://github.com/textkernel/oneui/issues/770)) ([8247aeb](https://github.com/textkernel/oneui/commit/8247aeb7132bba3533e6d5dd1c806a97f29dbaa5))
+
+
+### Bug Fixes
+
+* fix ts-jest version ([#768](https://github.com/textkernel/oneui/issues/768)) ([467f418](https://github.com/textkernel/oneui/commit/467f418a2cc5f7413ac898e83da3a661163c69af))
+
 ### [18.4.1](https://github.com/textkernel/oneui/compare/18.4.0...18.4.1) (2022-06-01)
 
 ## [18.4.0](https://github.com/textkernel/oneui/compare/18.3.0...18.4.0) (2022-05-25)
