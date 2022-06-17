@@ -29,5 +29,22 @@ describe('Teaser', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('Text').at(0).prop('context')).toEqual('brand');
+        expect(wrapper.find('Text').at(2).prop('context')).toEqual('accent');
+    });
+    it('should render correctly in disabled mode', () => {
+        const wrapper = mount(
+            <Teaser
+                title="A job title"
+                location="location"
+                subTitle="Organization"
+                details="details about this job"
+                disabled
+            />
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('Text').at(0).prop('context')).toEqual('muted');
+        expect(wrapper.find('Text').at(2).prop('context')).toEqual('muted');
     });
 });
