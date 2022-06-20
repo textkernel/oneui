@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FaDownload, FaUpload, FaStop } from 'react-icons/fa';
+import { FaDownload, FaUpload, FaUndo } from 'react-icons/fa';
 import { bem } from '../../../utils';
 import { Button, FileButton } from '../../Buttons';
 import { Tooltip } from '../../Tooltip';
@@ -61,7 +61,7 @@ export const ThemeActions: React.FC<Props> = ({
                     onClick={onReset}
                 >
                     <>
-                        <FaStop {...elem('icon')} />
+                        <FaUndo {...elem('icon')} />
                         {resetLabel}
                     </>
                 </Button>

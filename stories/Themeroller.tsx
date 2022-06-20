@@ -19,7 +19,7 @@ storiesOf('Theme|Themeroller', module)
             <Themeroller
                 inputLabel="Theme name"
                 resetLabel="Reset"
-                fileLabel="Choose file"
+                fileLabel="Import file"
                 downloadLabel="Download"
                 downloadTooltipLabel="Please specify the Theme name"
                 config={THEMEROLLER_CONFIG}
