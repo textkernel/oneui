@@ -48,7 +48,7 @@ const isInternetExplorer11 = () => {
 const DEFAULT_LOADING_TIMEOUT = 2000;
 
 class OneUI {
-    static THEME_ELEMENT_VARS_ID = 'oneui-theme-styles';
+    static THEME_ELEMENT_ID = 'oneui-theme';
 
     /** Init themes and ponyfill for css variables support */
     static init({
@@ -126,11 +126,11 @@ class OneUI {
 
     /** Injects theme CSS styles into <head> */
     static applyThemeStyle(styles: string): void {
-        let styleElement = document.getElementById(OneUI.THEME_ELEMENT_VARS_ID);
+        let styleElement = document.getElementById(OneUI.THEME_ELEMENT_ID);
 
         if (!styleElement) {
             styleElement = document.createElement('style');
-            styleElement.id = OneUI.THEME_ELEMENT_VARS_ID;
+            styleElement.id = OneUI.THEME_ELEMENT_ID;
         }
 
         styleElement.textContent = styles;
@@ -139,7 +139,7 @@ class OneUI {
 
     /** Removes theme CSS styles from <head> */
     static removeThemeStyle(): void {
-        const styleElement = document.getElementById(OneUI.THEME_ELEMENT_VARS_ID);
+        const styleElement = document.getElementById(OneUI.THEME_ELEMENT_ID);
         styleElement?.remove();
     }
 }

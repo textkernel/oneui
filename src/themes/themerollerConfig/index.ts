@@ -1,2 +1,2 @@
-export * from './themeConfigType';
-export * from './themeConfig';
+export * from './themerollerConfig';
+export * from './themerollerConfigType';

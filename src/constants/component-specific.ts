@@ -4,7 +4,7 @@
 export const NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS = 5;
 
 /** Button */
-export const BUTTON_TYPES = ['submit', 'button'] as const;
+export const BUTTON_TYPES = ['submit', 'button', 'reset'] as const;
 
 export type ButtonType = typeof BUTTON_TYPES[number];
 

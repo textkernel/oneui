@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeActions component should render component correctly with all actions 1`] = `
+<ThemeActions
+  downloadDisabled={true}
+  downloadLabel="Download"
+  fileLabel="Choose file"
+  onDownload={[MockFunction]}
+  onFileChange={[MockFunction]}
+  onReset={[MockFunction]}
+  resetLabel="Reset"
+>
+  <div
+    className="ThemeActions"
+  >
+    <Button
+      className="ThemeActions__button"
+      context="bad"
+      disabled={false}
+      isBlock={false}
+      isInline={false}
+      onClick={[MockFunction]}
+      size="small"
+      type="reset"
+    >
+      <button
+        className="Button Button--size_small Button--context_bad ThemeActions__button"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="reset"
+      >
+        <FaUndo
+          className="ThemeActions__icon"
+        >
+          <IconBase
+            attr={
+              Object {
+                "viewBox": "0 0 512 512",
+              }
+            }
+            className="ThemeActions__icon"
+          >
+            <svg
+              className="ThemeActions__icon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z"
+                key="0"
+              />
+            </svg>
+          </IconBase>
+        </FaUndo>
+        Reset
+      </button>
+    </Button>
+    <FileButton
+      accept="application/JSON"
+      className="ThemeActions__button"
+      context="good"
+      disabled={false}
+      isBlock={false}
+      isInline={false}
+      onChange={[Function]}
+      size="small"
+    >
+      <label
+        className="Button Button--size_small Button--context_good ThemeActions__button"
+        disabled={false}
+      >
+        <input
+          accept="application/JSON"
+          className="ThemeActions__button"
+          hidden={true}
+          onChange={[Function]}
+          type="file"
+        />
+        <FaUpload
+          className="ThemeActions__icon"
+        >
+          <IconBase
+            attr={
+              Object {
+                "viewBox": "0 0 512 512",
+              }
+            }
+            className="ThemeActions__icon"
+          >
+            <svg
+              className="ThemeActions__icon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M296 384h-80c-13.3 0-24-10.7-24-24V192h-87.7c-17.8 0-26.7-21.5-14.1-34.1L242.3 5.7c7.5-7.5 19.8-7.5 27.3 0l152.2 152.2c12.6 12.6 3.7 34.1-14.1 34.1H320v168c0 13.3-10.7 24-24 24zm216-8v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h136v8c0 30.9 25.1 56 56 56h80c30.9 0 56-25.1 56-56v-8h136c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                key="0"
+              />
+            </svg>
+          </IconBase>
+        </FaUpload>
+        Choose file
+      </label>
+    </FileButton>
+    <Tooltip
+      animation="shift-toward"
+      disabled={false}
+      placement="bottom"
+    >
+      <ForwardRef(TippyWrapper)
+        animation="shift-toward"
+        disabled={false}
+        placement="bottom"
+      >
+        <Tippy
+          animation="shift-toward"
+          disabled={false}
+          placement="bottom"
+        >
+          <span>
+            <Button
+              className="ThemeActions__button"
+              context="neutral"
+              disabled={true}
+              isBlock={false}
+              isInline={false}
+              onClick={[MockFunction]}
+              size="small"
+              type="button"
+            >
+              <button
+                className="Button Button--size_small Button--context_neutral ThemeActions__button"
+                disabled={true}
+                onClick={[MockFunction]}
+                type="button"
+              >
+                <FaDownload
+                  className="ThemeActions__icon"
+                >
+                  <IconBase
+                    attr={
+                      Object {
+                        "viewBox": "0 0 512 512",
+                      }
+                    }
+                    className="ThemeActions__icon"
+                  >
+                    <svg
+                      className="ThemeActions__icon"
+                      fill="currentColor"
+                      height="1em"
+                      stroke="currentColor"
+                      strokeWidth="0"
+                      style={
+                        Object {
+                          "color": undefined,
+                        }
+                      }
+                      viewBox="0 0 512 512"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
+                        key="0"
+                      />
+                    </svg>
+                  </IconBase>
+                </FaDownload>
+                Download
+              </button>
+            </Button>
+          </span>
+          <Portal
+            containerInfo={<div />}
+          />
+        </Tippy>
+      </ForwardRef(TippyWrapper)>
+    </Tooltip>
+  </div>
+</ThemeActions>
+`;
+
+exports[`ThemeActions component should render component correctly without any actions 1`] = `
+<ThemeActions
+  downloadDisabled={false}
+  downloadLabel=""
+  fileLabel=""
+  resetLabel=""
+>
+  <div
+    className="ThemeActions"
+  />
+</ThemeActions>
+`;
