@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [18.6.0](https://github.com/textkernel/oneui/compare/18.5.0...18.6.0) (2022-06-21)
+
+
+### Features
+
+* added possibilities to change theme ([#766](https://github.com/textkernel/oneui/issues/766)) ([34fb92e](https://github.com/textkernel/oneui/commit/34fb92e70b35a22cc0b367f8307c5fc41cc56dfc))
+* make components themeable ([181987f](https://github.com/textkernel/oneui/commit/181987f30394db86d94144e781d82ca358ca3fc6))
+* make components themeable ([c60fa75](https://github.com/textkernel/oneui/commit/c60fa7522fe578ed4394d2fff2bb304d38662896))
+* make components themeable ([a74345a](https://github.com/textkernel/oneui/commit/a74345ac1a11f4b4ad2844b2b4e16cf7e68626a1))
+
 ## [18.5.0](https://github.com/textkernel/oneui/compare/18.4.1...18.5.0) (2022-06-17)
 
 
