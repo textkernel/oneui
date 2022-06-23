@@ -29,7 +29,7 @@ type RegionArea = {
 };
 
 interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'options'> {
-    /** The default parameters to determine the viewport when no markers are present. */
+    /** The default parameters to determine the viewport when no circular or point markers are present. */
     defaultArea:
         | {
               address: string;
@@ -45,7 +45,8 @@ interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'option
           };
     /** A geoJson description of the area that should be highlighted when there are no other markers present */
     defaultHighlight?: GeoJSON.GeoJsonObject;
-    /** The markers to be shown on the map. When present, map will zoom automatically to display them
+    /** The markers to be shown on the map.
+     * When only circular and/or point markers are present, map will zoom automatically to display them
      * The radius is in meters on the Earth's surface.
      */
     markers?: (CircularMarker | RegionArea)[];
@@ -86,7 +87,10 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
             };
 
             const centerMapToDefaultArea = () => {
-                // Centers map in the middle of the default area
+                // See bug: https://textkernel.atlassian.net/browse/JF-3156
+                if (markers.length && !circularMarkers.length && !regionAreas.length) {
+                    return;
+                }
 
                 if ('address' in defaultArea) {
                     fitBoundsByAddress(defaultArea.address);
@@ -102,11 +106,10 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
             };
 
             /**
-             * if there are regionAreas (geoJson objects passed) center the map in the middle of default area
+             * if there are regionAreas (geoJson objects passed) center the map based on defaultArea prop
              * if there's a single marker without radius, fits it into the map borders
-             * else if there're any circularMarkers passed, create radius circles for them and fits them into the map borders
-             * else if there's address for default area, fits it into the map borders
-             * else centers the map on the default area and zooms on it
+             * if there're any circularMarkers passed, create radius circles for them and fits them into the map borders
+             * or centers the map based on the defaultArea prop
              */
 
             if (regionAreas.length) {
