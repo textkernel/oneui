@@ -39,11 +39,14 @@ storiesOf('Atoms|Map', module)
                 multiple: [defaultMarker, addedMarker],
                 none: [],
                 'pointer marker': [pointMarker],
+            };
+            const regions = {
+                none: [],
                 area: [FR_FRIESLAND],
-                'markers and area': [defaultMarker, addedMarker, FR_FRIESLAND],
             };
 
             const markerToShow = select('Markers', Object.keys(markers), 'none');
+            const areaToShow = select('Regions', Object.keys(regions), 'none');
 
             return (
                 <div
@@ -54,7 +57,8 @@ storiesOf('Atoms|Map', module)
                 >
                     <MapWithGoogleLoader
                         apiKey={apiKey}
-                        markers={markers[markerToShow]}
+                        circularMarkers={markers[markerToShow]}
+                        regionAreas={regions[areaToShow]}
                         defaultArea={
                             boolean('Use address to set default area', false)
                                 ? {

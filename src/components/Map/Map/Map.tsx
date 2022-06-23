@@ -48,7 +48,9 @@ interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'option
     /** The markers to be shown on the map. When present, map will zoom automatically to display them
      * The radius is in meters on the Earth's surface.
      */
-    markers?: (CircularMarker | RegionArea)[];
+    circularMarkers?: CircularMarker[];
+    /** Regions to be highlighted on the map. If present  map will be zoomed to default area */
+    regionAreas?: RegionArea[];
     /** The style of the map container. It has to have explicit width and height (requirement from Google).
      *  Alternatively you can set explicit size on the parent container, then, by default, the map will scale to match that
      */
@@ -59,14 +61,18 @@ interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'option
 }
 
 const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
-    const { defaultArea, markers = [], mapContainerStyle, defaultHighlight, ...rest } = props;
+    const {
+        defaultArea,
+        circularMarkers = [],
+        regionAreas = [],
+        mapContainerStyle,
+        defaultHighlight,
+        ...rest
+    } = props;
     const mapRef = ref || React.createRef<GoogleMap>();
     const [defaultAreaHighlight, setDefaultAreaHighlight] = React.useState<
         google.maps.Data.Feature[] | null
     >(null);
-
-    const [circularMarkers, setCircularMarkers] = React.useState<CircularMarker[]>([]);
-    const [regionAreas, setRegionAreas] = React.useState<RegionArea[]>([]);
 
     const fitBounds = React.useCallback(() => {
         if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
@@ -87,7 +93,6 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
 
             const centerMapToDefaultArea = () => {
                 // Centers map in the middle of the default area
-
                 if ('address' in defaultArea) {
                     fitBoundsByAddress(defaultArea.address);
                 } else {
@@ -142,39 +147,21 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
     const manageDefaultHighlight = React.useCallback(() => {
         if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
             const { map } = mapRef.current.state;
-            if (defaultHighlight && !markers.length && !defaultAreaHighlight) {
+            if (
+                defaultHighlight &&
+                !(circularMarkers.length || regionAreas.length) &&
+                !defaultAreaHighlight
+            ) {
                 const highlight = map.data.addGeoJson(defaultHighlight);
                 setDefaultAreaHighlight(highlight);
-            } else if (markers.length && defaultAreaHighlight) {
+            } else if ((circularMarkers.length || regionAreas.length) && defaultAreaHighlight) {
                 defaultAreaHighlight.forEach((feature) => map.data.remove(feature));
                 setDefaultAreaHighlight(null);
             }
         }
-    }, [defaultHighlight, defaultAreaHighlight, mapRef, markers]);
+    }, [defaultHighlight, defaultAreaHighlight, mapRef, circularMarkers, regionAreas]);
 
-    const parseMarkers = () => {
-        const cMarkers: CircularMarker[] = [];
-        const rAreas: RegionArea[] = [];
-
-        markers.forEach((item) => {
-            if ('center' in item) {
-                cMarkers.push(item);
-            }
-            if ('type' in item && 'features' in item) {
-                rAreas.push(item);
-            }
-        });
-
-        if (JSON.stringify(circularMarkers) !== JSON.stringify(cMarkers)) {
-            setCircularMarkers(cMarkers);
-        }
-
-        if (JSON.stringify(regionAreas) !== JSON.stringify(rAreas)) {
-            setRegionAreas(rAreas);
-        }
-    };
-
-    const manageHighlightedAreas = () => {
+    const manageHighlightedAreas = React.useCallback(() => {
         if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
             const { map } = mapRef.current.state;
 
@@ -190,11 +177,10 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
                 map.data.addGeoJson(area);
             });
         }
-    };
+    }, [mapRef, defaultAreaHighlight, regionAreas]);
 
     React.useEffect(() => {
         // Set some internal map settings
-
         if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
             const { map } = mapRef.current.state;
 
@@ -206,8 +192,7 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
         }
     }, [mapRef]);
 
-    React.useEffect(parseMarkers, [markers]);
-    React.useEffect(manageHighlightedAreas, [regionAreas]);
+    React.useEffect(manageHighlightedAreas);
     React.useEffect(fitBounds);
     React.useEffect(manageDefaultHighlight);
 
@@ -261,7 +246,8 @@ Map.defaultProps = {
         zoom: 2,
     },
     defaultHighlight: undefined,
-    markers: [],
+    circularMarkers: [],
+    regionAreas: [],
     mapContainerStyle: {
         height: '100%',
         width: '100%',

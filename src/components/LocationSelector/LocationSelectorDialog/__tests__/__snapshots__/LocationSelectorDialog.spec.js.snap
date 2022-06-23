@@ -378,6 +378,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       </LocationCard>
     </ul>
     <Map
+      circularMarkers={Array []}
       defaultArea={
         Object {
           "address": "NL",
@@ -389,7 +390,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           "width": "100%",
         }
       }
-      markers={Array []}
+      regionAreas={Array []}
     >
       <GoogleMap
         mapContainerStyle={

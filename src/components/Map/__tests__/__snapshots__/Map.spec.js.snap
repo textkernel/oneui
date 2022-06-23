@@ -2,6 +2,7 @@
 
 exports[`<Map/> that renders a Map with markers should render with default props 1`] = `
 <Map
+  circularMarkers={Array []}
   defaultArea={
     Object {
       "center": Object {
@@ -17,7 +18,7 @@ exports[`<Map/> that renders a Map with markers should render with default props
       "width": "100%",
     }
   }
-  markers={Array []}
+  regionAreas={Array []}
 >
   <GoogleMap
     mapContainerStyle={

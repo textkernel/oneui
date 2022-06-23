@@ -205,7 +205,7 @@ const LocationSelectorDialog = (props: Props) => {
                 )}
                 <Map
                     defaultArea={getDefaultArea()}
-                    markers={getMarkers?.()}
+                    circularMarkers={getMarkers?.()}
                     defaultHighlight={defaultHighlight}
                 />
             </div>
