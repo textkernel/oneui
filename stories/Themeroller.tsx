@@ -9,21 +9,24 @@ storiesOf('Theme|Themeroller', module)
         const handleChange = (themeResult) => {
             sessionStorage.setItem(OneUI.THEME_ELEMENT_ID, JSON.stringify(themeResult));
         };
-        let themeResultData;
+        let activeTheme;
+        let hasActiveTheme;
         try {
-            themeResultData = JSON.parse(sessionStorage.getItem(OneUI.THEME_ELEMENT_ID) || '');
+            activeTheme = JSON.parse(sessionStorage.getItem(OneUI.THEME_ELEMENT_ID) || '' || '');
+            hasActiveTheme = Object.keys(activeTheme.theme.cssVariables).length;
         } catch (err) {
             console.error(err);
         }
         return (
             <Themeroller
                 inputLabel="Theme name"
-                resetLabel="Reset"
+                resetLabel="Reset to defaults"
+                resetActiveLabel={hasActiveTheme ? 'Revert to active theme' : undefined}
                 fileLabel="Import file"
                 downloadLabel="Download"
                 downloadTooltipLabel="Please specify the Theme name"
                 config={THEMEROLLER_CONFIG}
-                themeResultData={themeResultData}
+                activeTheme={activeTheme}
                 onChange={handleChange}
             />
         );

@@ -1,11 +1,19 @@
 .ThemeActions {
-    padding: var(--spacing-5x) var(--spacing-2x) var(--spacing-5x) 0;
+    display: flex;
+    flex-wrap: wrap;
+    padding: var(--spacing-5x) var(--spacing-2x) var(--spacing-2x) 0;
 
     &__button {
         margin-right: var(--spacing-3x);
+        margin-bottom: var(--spacing-3x);
     }
 
     &__icon {
         padding-right: var(--spacing-normal);
+    }
+
+    &__closeIcon {
+        padding-right: var(--spacing-normal);
+        font-size: 16px;
     }
 }
