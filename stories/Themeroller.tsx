@@ -9,9 +9,10 @@ storiesOf('Theme|Themeroller', module)
         const handleChange = (themeResult) => {
             sessionStorage.setItem(OneUI.THEME_ELEMENT_ID, JSON.stringify(themeResult));
         };
-        let themeResultData;
+        let defaultTheme;
         try {
-            themeResultData = JSON.parse(sessionStorage.getItem(OneUI.THEME_ELEMENT_ID) || '');
+            const dafaultThemeString = sessionStorage.getItem(OneUI.THEME_ELEMENT_ID) || '';
+            defaultTheme = JSON.parse(dafaultThemeString || '');
         } catch (err) {
             console.error(err);
         }
@@ -19,11 +20,12 @@ storiesOf('Theme|Themeroller', module)
             <Themeroller
                 inputLabel="Theme name"
                 resetLabel="Reset"
+                resetDefaultLabel="Back to default theme"
                 fileLabel="Import file"
                 downloadLabel="Download"
                 downloadTooltipLabel="Please specify the Theme name"
                 config={THEMEROLLER_CONFIG}
-                themeResultData={themeResultData}
+                defaultTheme={defaultTheme}
                 onChange={handleChange}
             />
         );

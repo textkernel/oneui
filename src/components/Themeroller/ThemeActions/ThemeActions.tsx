@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { FaDownload, FaUpload, FaUndo } from 'react-icons/fa';
+import { BiReset } from 'react-icons/bi';
 import { bem } from '../../../utils';
 import { Button, FileButton } from '../../Buttons';
 import { Tooltip } from '../../Tooltip';
@@ -8,6 +9,8 @@ import styles from './ThemeActions.scss';
 interface Props {
     /** label for reset button */
     resetLabel?: string;
+    /** label for default reset button */
+    resetDefaultLabel?: string;
     /** label for download button */
     downloadLabel?: string;
     /** label for tooltip download button */
@@ -18,6 +21,8 @@ interface Props {
     downloadDisabled?: boolean;
     /** callback is called when reset was called */
     onReset?: () => void;
+    /** callback is called when default reset was called */
+    onDefaultReset?: () => void;
     /** callback is called when download was called */
     onDownload?: () => void;
     /** callback is called when choose file was called */
@@ -28,11 +33,13 @@ const { block, elem } = bem('ThemeActions', styles);
 
 export const ThemeActions: React.FC<Props> = ({
     resetLabel,
+    resetDefaultLabel,
     downloadLabel,
     fileLabel,
     downloadTooltipLabel,
     downloadDisabled,
     onReset,
+    onDefaultReset,
     onDownload,
     onFileChange,
 }) => {
@@ -61,24 +68,39 @@ export const ThemeActions: React.FC<Props> = ({
                     onClick={onReset}
                 >
                     <>
-                        <FaUndo {...elem('icon')} />
+                        <BiReset {...elem('icon')} />
                         {resetLabel}
                     </>
                 </Button>
             )}
-            {fileLabel && onFileChange && (
-                <FileButton
+            {resetDefaultLabel && onDefaultReset && (
+                <Button
                     {...elem('button')}
+                    type="reset"
                     size="small"
-                    context="good"
-                    accept="application/JSON"
-                    onChange={handleFileChange}
+                    context="warning"
+                    onClick={onDefaultReset}
                 >
                     <>
-                        <FaUpload {...elem('icon')} />
-                        {fileLabel}
+                        <FaUndo {...elem('icon')} />
+                        {resetDefaultLabel}
                     </>
-                </FileButton>
+                </Button>
+            )}
+            {fileLabel && onFileChange && (
+                <div {...elem('button')}>
+                    <FileButton
+                        size="small"
+                        context="good"
+                        accept="application/JSON"
+                        onChange={handleFileChange}
+                    >
+                        <>
+                            <FaUpload {...elem('icon')} />
+                            {fileLabel}
+                        </>
+                    </FileButton>
+                </div>
             )}
             {downloadLabel && onDownload && (
                 <Tooltip

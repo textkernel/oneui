@@ -28,6 +28,8 @@ interface Props {
     inputLabel?: string;
     /** label for reset button */
     resetLabel?: string;
+    /** label for default reset button */
+    resetDefaultLabel?: string;
     /** label for download button */
     downloadLabel?: string;
     /** label for tooltip download button */
@@ -36,8 +38,8 @@ interface Props {
     fileLabel?: string;
     /** if the download button should be disabled */
     downloadDisabled?: boolean;
-    /** Theme result data */
-    themeResultData?: unknown;
+    /** Default theme result data */
+    defaultTheme?: unknown;
     /** function to be called when styles were modified */
     onChange?: (themeResult: ThemeJsonResult) => void;
 }
@@ -46,9 +48,10 @@ const { block, elem } = bem('Themeroller', styles);
 
 export const Themeroller: React.FC<Props> = ({
     config,
-    themeResultData,
+    defaultTheme,
     inputLabel = '',
     resetLabel,
+    resetDefaultLabel,
     downloadLabel,
     fileLabel,
     downloadTooltipLabel,
@@ -93,6 +96,12 @@ export const Themeroller: React.FC<Props> = ({
         setTheme('', {});
     };
 
+    const handleDefaultReset = () => {
+        if (defaultTheme) {
+            validateAndUseThemeResult(defaultTheme);
+        }
+    };
+
     const handleDownload = () => {
         oneUITheme.saveAsJson();
     };
@@ -103,10 +112,10 @@ export const Themeroller: React.FC<Props> = ({
     };
 
     React.useEffect(() => {
-        if (themeResultData) {
-            validateAndUseThemeResult(themeResultData);
+        if (defaultTheme) {
+            validateAndUseThemeResult(defaultTheme);
         }
-    }, []);
+    }, [defaultTheme]);
 
     React.useEffect(() => {
         const css = oneUITheme.getStyles();
@@ -140,11 +149,13 @@ export const Themeroller: React.FC<Props> = ({
                 </Field>
                 <ThemeActions
                     resetLabel={resetLabel}
+                    resetDefaultLabel={resetDefaultLabel}
                     downloadLabel={downloadLabel}
                     fileLabel={fileLabel}
                     downloadTooltipLabel={downloadTooltipLabel}
                     downloadDisabled={!themeResultStore.name}
                     onReset={handleReset}
+                    onDefaultReset={handleDefaultReset}
                     onDownload={handleDownload}
                     onFileChange={handleFileChange}
                 />
@@ -163,9 +174,10 @@ Themeroller.displayName = 'Themeroller';
 Themeroller.defaultProps = {
     inputLabel: '',
     resetLabel: '',
+    resetDefaultLabel: '',
     downloadLabel: '',
     downloadTooltipLabel: '',
     fileLabel: '',
-    themeResultData: undefined,
+    defaultTheme: undefined,
     onChange: undefined,
 };
