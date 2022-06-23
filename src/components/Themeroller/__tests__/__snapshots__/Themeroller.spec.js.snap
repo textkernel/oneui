@@ -50,6 +50,7 @@ exports[`Themeroller component should render component correctly 1`] = `
   fileLabel=""
   inputLabel=""
   onChange={[Function]}
+  resetDefaultLabel=""
   resetLabel=""
 >
   <ThemeTuner
@@ -132,9 +133,11 @@ exports[`Themeroller component should render component correctly 1`] = `
           downloadLabel=""
           downloadTooltipLabel=""
           fileLabel=""
+          onDefaultReset={[Function]}
           onDownload={[Function]}
           onFileChange={[Function]}
           onReset={[Function]}
+          resetDefaultLabel=""
           resetLabel=""
         >
           <div

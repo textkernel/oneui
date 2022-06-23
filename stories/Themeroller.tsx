@@ -19,8 +19,8 @@ storiesOf('Theme|Themeroller', module)
         return (
             <Themeroller
                 inputLabel="Theme name"
-                resetLabel="Reset"
-                resetDefaultLabel="Back to default theme"
+                resetLabel="Reset to defaults"
+                resetDefaultLabel="Revert to active theme"
                 fileLabel="Import file"
                 downloadLabel="Download"
                 downloadTooltipLabel="Please specify the Theme name"

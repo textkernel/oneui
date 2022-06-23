@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FaDownload, FaUpload, FaUndo } from 'react-icons/fa';
-import { BiReset } from 'react-icons/bi';
+import { MdClose } from 'react-icons/md';
 import { bem } from '../../../utils';
 import { Button, FileButton } from '../../Buttons';
 import { Tooltip } from '../../Tooltip';
@@ -68,7 +68,7 @@ export const ThemeActions: React.FC<Props> = ({
                     onClick={onReset}
                 >
                     <>
-                        <BiReset {...elem('icon')} />
+                        <MdClose {...elem('closeIcon')} />
                         {resetLabel}
                     </>
                 </Button>
