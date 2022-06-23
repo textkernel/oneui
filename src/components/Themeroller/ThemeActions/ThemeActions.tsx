@@ -9,8 +9,8 @@ import styles from './ThemeActions.scss';
 interface Props {
     /** label for reset button */
     resetLabel?: string;
-    /** label for default reset button */
-    resetDefaultLabel?: string;
+    /** label for active reset button */
+    resetActiveLabel?: string;
     /** label for download button */
     downloadLabel?: string;
     /** label for tooltip download button */
@@ -21,8 +21,8 @@ interface Props {
     downloadDisabled?: boolean;
     /** callback is called when reset was called */
     onReset?: () => void;
-    /** callback is called when default reset was called */
-    onDefaultReset?: () => void;
+    /** callback is called when active reset was called */
+    onActiveReset?: () => void;
     /** callback is called when download was called */
     onDownload?: () => void;
     /** callback is called when choose file was called */
@@ -33,13 +33,13 @@ const { block, elem } = bem('ThemeActions', styles);
 
 export const ThemeActions: React.FC<Props> = ({
     resetLabel,
-    resetDefaultLabel,
+    resetActiveLabel,
     downloadLabel,
     fileLabel,
     downloadTooltipLabel,
     downloadDisabled,
     onReset,
-    onDefaultReset,
+    onActiveReset,
     onDownload,
     onFileChange,
 }) => {
@@ -73,17 +73,17 @@ export const ThemeActions: React.FC<Props> = ({
                     </>
                 </Button>
             )}
-            {resetDefaultLabel && onDefaultReset && (
+            {resetActiveLabel && onActiveReset && (
                 <Button
                     {...elem('button')}
                     type="reset"
                     size="small"
                     context="warning"
-                    onClick={onDefaultReset}
+                    onClick={onActiveReset}
                 >
                     <>
                         <FaUndo {...elem('icon')} />
-                        {resetDefaultLabel}
+                        {resetActiveLabel}
                     </>
                 </Button>
             )}

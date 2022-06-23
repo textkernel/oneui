@@ -9,10 +9,11 @@ storiesOf('Theme|Themeroller', module)
         const handleChange = (themeResult) => {
             sessionStorage.setItem(OneUI.THEME_ELEMENT_ID, JSON.stringify(themeResult));
         };
-        let defaultTheme;
+        let activeTheme;
+        let hasActiveTheme;
         try {
-            const dafaultThemeString = sessionStorage.getItem(OneUI.THEME_ELEMENT_ID) || '';
-            defaultTheme = JSON.parse(dafaultThemeString || '');
+            activeTheme = JSON.parse(sessionStorage.getItem(OneUI.THEME_ELEMENT_ID) || '' || '');
+            hasActiveTheme = Object.keys(activeTheme.theme.cssVariables).length;
         } catch (err) {
             console.error(err);
         }
@@ -20,12 +21,12 @@ storiesOf('Theme|Themeroller', module)
             <Themeroller
                 inputLabel="Theme name"
                 resetLabel="Reset to defaults"
-                resetDefaultLabel="Revert to active theme"
+                resetActiveLabel={hasActiveTheme ? 'Revert to active theme' : undefined}
                 fileLabel="Import file"
                 downloadLabel="Download"
                 downloadTooltipLabel="Please specify the Theme name"
                 config={THEMEROLLER_CONFIG}
-                defaultTheme={defaultTheme}
+                activeTheme={activeTheme}
                 onChange={handleChange}
             />
         );
