@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.6.1](https://github.com/textkernel/oneui/compare/18.6.0...18.6.1) (2022-06-23)
+
+
+### Bug Fixes
+
+* **Map:** doesn't zoom on initial addition of marker ([#774](https://github.com/textkernel/oneui/issues/774)) ([a99b937](https://github.com/textkernel/oneui/commit/a99b9370ca727ced4b4056822813cc6364bed8e9))
+
 ## [18.6.0](https://github.com/textkernel/oneui/compare/18.5.0...18.6.0) (2022-06-21)
 
 
