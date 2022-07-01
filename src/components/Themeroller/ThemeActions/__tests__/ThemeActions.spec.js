@@ -1,53 +1,47 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { ThemerollerActions } from '../ThemerollerActions';
+import { ThemeActions } from '../ThemeActions';
 
-describe('ThemerollerActions component', () => {
+describe('ThemeActions component', () => {
     const onResetMock = jest.fn();
     const onDownloadMock = jest.fn();
-    const onApplyMock = jest.fn();
+    const onFileChangeMock = jest.fn();
 
     afterEach(() => {
         jest.resetAllMocks();
     });
 
     it('should render component correctly without any actions', () => {
-        const wrapper = mount(<ThemerollerActions />);
+        const wrapper = mount(<ThemeActions />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('should render component correctly with all actions', () => {
         const wrapper = mount(
-            <ThemerollerActions
+            <ThemeActions
                 downloadDisabled
                 resetLabel="Reset"
-                applyLabel="Apply"
+                fileLabel="Choose file"
                 downloadLabel="Download"
                 onReset={onResetMock}
                 onDownload={onDownloadMock}
-                onApply={onApplyMock}
+                onFileChange={onFileChangeMock}
             />
         );
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 
     it('should invoke onReset callback when reset button is clicked', () => {
-        const wrapper = mount(<ThemerollerActions resetLabel="Reset" onReset={onResetMock} />);
+        const wrapper = mount(<ThemeActions resetLabel="Reset" onReset={onResetMock} />);
         wrapper.find('button').simulate('click');
         expect(onResetMock).toHaveBeenCalledTimes(1);
     });
 
     it('should invoke onDownload callback when download button is clicked', () => {
         const wrapper = mount(
-            <ThemerollerActions downloadLabel="Download" onDownload={onDownloadMock} />
+            <ThemeActions downloadLabel="Download" onDownload={onDownloadMock} />
         );
         wrapper.find('button').simulate('click');
         expect(onDownloadMock).toHaveBeenCalledTimes(1);
-    });
-
-    it('should invoke onApply callback when apply button is clicked', () => {
-        const wrapper = mount(<ThemerollerActions applyLabel="Download" onApply={onApplyMock} />);
-        wrapper.find('button').simulate('click');
-        expect(onApplyMock).toHaveBeenCalledTimes(1);
     });
 });

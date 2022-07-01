@@ -1,6 +1,6 @@
-import { ThemeConfig } from './themeConfigType';
+import { ThemerollerConfig } from './themerollerConfigType';
 
-export const themeConfig: ThemeConfig = [
+export const THEMEROLLER_CONFIG: ThemerollerConfig = [
     {
         fieldsetName: 'Colors',
         items: [

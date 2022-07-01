@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { bem } from '../../../../utils';
-import { Input } from '../../../Input';
-import { Text } from '../../../Text';
-import { ThemeUnitItem } from '../../../../themes/themerollerConfig';
+import { bem } from '../../../../../utils';
+import { Input } from '../../../../Input';
+import { Text } from '../../../../Text';
+import { ThemeUnitItem } from '../../../../../themes/themerollerConfig';
 import styles from './UnitValue.scss';
 
-type Props = {
+interface Props {
     item: ThemeUnitItem;
     onChange: (value: ThemeUnitItem) => void;
-};
+}
 
 const { elem } = bem('UnitValue', styles);
 

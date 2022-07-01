@@ -1,13 +1,14 @@
 .Themeroller {
-    &__list {
-        border-bottom: 1px solid var(--color-neutral-25);
-    }
-    &__item {
-        padding: var(--spacing-2x);
-        padding-left: var(--spacing-5x);
+    width: 320px;
+    padding: 10px;
+    border: 1px solid rgb(206, 227, 245);
+    background-color: aliceblue;
+
+    &__themeName {
+        padding-left: var(--spacing-2x);
     }
 
-    &__label {
-        width: 200px;
+    &__error {
+        line-break: anywhere;
     }
 }

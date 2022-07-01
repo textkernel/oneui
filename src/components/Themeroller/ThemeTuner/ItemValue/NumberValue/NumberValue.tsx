@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Input } from '../../../Input';
-import { ThemeNumberItem } from '../../../../themes/themerollerConfig';
+import { Input } from '../../../../Input';
+import { ThemeNumberItem } from '../../../../../themes/themerollerConfig';
 
-type Props = {
+interface Props {
     item: ThemeNumberItem;
     onChange: (value: ThemeNumberItem) => void;
-};
+}
 
 export const NumberValue: React.FC<Props> = ({ item, onChange }) => {
     const handleOnChange = (event) => {

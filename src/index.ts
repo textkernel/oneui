@@ -5,6 +5,7 @@ export * from './themes/themerollerConfig';
 export * from './packages/Highlighter';
 export * from './packages/BooleanQueryTokenizer';
 export * from './packages/ThemeGenerator';
+export * from './packages/ThemeGenerator/ThemeResult';
 
 // Atoms
 export { Button, SearchButton, StepperButton } from './components/Buttons';

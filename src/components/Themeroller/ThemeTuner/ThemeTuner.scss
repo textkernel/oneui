@@ -1,0 +1,10 @@
+.ThemeTuner {
+    &__item {
+        padding: var(--spacing-2x);
+        padding-left: var(--spacing-5x);
+    }
+
+    &__label {
+        width: 170px;
+    }
+}
