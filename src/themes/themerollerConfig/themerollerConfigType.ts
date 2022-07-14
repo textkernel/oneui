@@ -48,4 +48,4 @@ export type ThemeFieldset = {
     items: ThemeItem[];
 };
 
-export type ThemeConfig = ThemeFieldset[];
+export type ThemerollerConfig = ThemeFieldset[];

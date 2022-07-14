@@ -8,6 +8,7 @@
     transition: all var(--transition-duration);
     display: flex;
     align-items: center;
+    color: var(--color-acent);
 
     &__clearButton {
         display: none;

@@ -1,11 +1,16 @@
 import * as React from 'react';
 import { bem } from '../../utils';
-import { TabsBar, TabItem } from '../Tabs';
-import { List, ListItem } from '../List';
+import OneUI from '../../utils/OneUI';
+import { OneUITheme } from '../../themes/OneUITheme';
+import { ThemeGenerator } from '../../packages/ThemeGenerator';
+import { ThemeJsonResult } from '../../packages/ThemeGenerator/ThemeResult';
+import { ThemerollerConfig } from '../../themes/themerollerConfig';
 import { Text } from '../Text';
-import { ThemeConfig, ThemeItem } from '../../themes/themerollerConfig';
-import { ItemValue } from './ItemValue';
-import { useThemeConfig } from './useThemeConfig';
+import { Field } from '../Field';
+import { Input } from '../Input';
+import { Callout } from '../Callout';
+import { ThemeTuner } from './ThemeTuner';
+import { ThemeActions } from './ThemeActions';
 import styles from './Themeroller.scss';
 
 type CssVars = {
@@ -18,72 +23,161 @@ export type ThemerollerChildrenProps = {
 };
 interface Props {
     /** Themeroller config */
-    themeConfig: ThemeConfig;
-    /** component to be rendered inside Themeroller */
-    children?: ({ cssVars, reset }: ThemerollerChildrenProps) => React.ReactNode;
-    /** callback is called on changing theme styles */
-    onGenerate?: (cssVars: CssVars) => void;
+    config: ThemerollerConfig;
+    /** label for theme name input */
+    inputLabel?: string;
+    /** label for reset button */
+    resetLabel?: string;
+    /** label for active reset button */
+    resetActiveLabel?: string;
+    /** label for download button */
+    downloadLabel?: string;
+    /** label for tooltip download button */
+    downloadTooltipLabel?: string;
+    /** label for choose file button */
+    fileLabel?: string;
+    /** if the download button should be disabled */
+    downloadDisabled?: boolean;
+    /** Active theme result data */
+    activeTheme?: unknown;
+    /** function to be called when styles were modified */
+    onChange?: (themeResult: ThemeJsonResult) => void;
 }
 
-const { elem } = bem('Themeroller', styles);
+const { block, elem } = bem('Themeroller', styles);
 
 export const Themeroller: React.FC<Props> = ({
-    themeConfig: initialThemeConfig,
-    children,
-    onGenerate,
+    config,
+    activeTheme,
+    inputLabel = '',
+    resetLabel,
+    resetActiveLabel,
+    downloadLabel,
+    fileLabel,
+    downloadTooltipLabel,
+    onChange,
 }) => {
-    const [activeTab, setActiveTab] = React.useState<string>(initialThemeConfig[0]?.fieldsetName);
-    const [themeConfig, changeThemeConfig, resetThemeConfig] = useThemeConfig(initialThemeConfig);
-    const activeItems =
-        themeConfig.find((fieldset) => fieldset.fieldsetName === activeTab)?.items || [];
+    const oneUITheme = React.useMemo(() => new ThemeGenerator(OneUITheme), []);
+    const [themeResultStore, setThemeResultStore] = React.useState(oneUITheme.result);
+    const [error, setError] = React.useState('');
 
-    const getVars = (config: ThemeConfig): CssVars => {
-        const result: CssVars = {};
-        config.forEach((fieldset) => {
-            fieldset.items.forEach((item) => {
-                result[item.var] = `${item.value}${item.type === 'unit' ? item.unit : ''}`;
-            });
-        });
-        return result;
+    const validateAndUseThemeResult = (data: unknown) => {
+        try {
+            oneUITheme.replaceTheme(data);
+            setThemeResultStore(oneUITheme.result);
+        } catch (err) {
+            setError(JSON.stringify(err));
+        }
     };
 
-    const cssVars = React.useMemo(() => getVars(themeConfig), [themeConfig]);
+    const handleFileChange = (e, content: string) => {
+        try {
+            const fileTheme = JSON.parse(content);
+            validateAndUseThemeResult(fileTheme);
+        } catch (err) {
+            setError(JSON.stringify(err));
+        }
+    };
+
+    const setTheme = (name: string, cssVars: CssVars) => {
+        oneUITheme.setTheme(name, cssVars);
+        setThemeResultStore(oneUITheme.result);
+    };
+
+    const handleNameChange = (e) => {
+        setTheme(e.target.value, themeResultStore.theme.cssVariables);
+    };
+
+    const handleGenerate = (cssVars) => {
+        setTheme(themeResultStore.name, cssVars);
+    };
+
+    const handleReset = () => {
+        setTheme('', {});
+    };
+
+    const handleActiveReset = () => {
+        if (activeTheme) {
+            validateAndUseThemeResult(activeTheme);
+        }
+    };
+
+    const handleDownload = () => {
+        oneUITheme.saveAsJson();
+    };
+
+    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        handleDownload();
+    };
 
     React.useEffect(() => {
-        if (onGenerate) {
-            onGenerate(cssVars);
+        if (activeTheme) {
+            validateAndUseThemeResult(activeTheme);
         }
-    }, [cssVars]);
+    }, [activeTheme]);
 
-    const itemRenderer = (item: ThemeItem) => (
-        <ListItem {...elem('item')} key={item.label}>
-            <Text {...elem('label')}>{item.label}</Text>
-            <ItemValue item={item} onChange={changeThemeConfig} />
-        </ListItem>
-    );
+    React.useEffect(() => {
+        const css = oneUITheme.getStyles();
+        OneUI.applyThemeStyle(css);
+        if (onChange) {
+            onChange(themeResultStore.toJSON());
+        }
+        setError('');
+    }, [themeResultStore.theme]);
 
     return (
-        <div>
-            <TabsBar activeTabId={activeTab} onSelect={setActiveTab}>
-                {themeConfig.map((fieldset) => (
-                    <TabItem key={fieldset.fieldsetName} tabId={fieldset.fieldsetName}>
-                        {fieldset.fieldsetName}
-                    </TabItem>
-                ))}
-            </TabsBar>
-            <List {...elem('list')}>{activeItems.map((item) => itemRenderer(item))}</List>
-            {children &&
-                children({
-                    cssVars,
-                    reset: resetThemeConfig,
-                })}
-        </div>
+        <ThemeTuner
+            {...block()}
+            config={config}
+            cssVars={themeResultStore.theme.cssVariables}
+            onChange={handleGenerate}
+        >
+            <form onSubmit={handleFormSubmit}>
+                <Field labelText={inputLabel}>
+                    <Input
+                        size="small"
+                        type="text"
+                        value={themeResultStore.name}
+                        onChange={handleNameChange}
+                    />
+                    {Boolean(themeResultStore.fileName) && (
+                        <Text {...elem('themeName')} inline context="muted">
+                            {themeResultStore.fileName}
+                        </Text>
+                    )}
+                </Field>
+                <ThemeActions
+                    resetLabel={resetLabel}
+                    resetActiveLabel={resetActiveLabel}
+                    downloadLabel={downloadLabel}
+                    fileLabel={fileLabel}
+                    downloadTooltipLabel={downloadTooltipLabel}
+                    downloadDisabled={!themeResultStore.name}
+                    onReset={handleReset}
+                    onActiveReset={handleActiveReset}
+                    onDownload={handleDownload}
+                    onFileChange={handleFileChange}
+                />
+                {error && (
+                    <Callout {...elem('error')} context="bad">
+                        {error}
+                    </Callout>
+                )}
+            </form>
+        </ThemeTuner>
     );
 };
 
 Themeroller.displayName = 'Themeroller';
 
 Themeroller.defaultProps = {
-    children: undefined,
-    onGenerate: undefined,
+    inputLabel: '',
+    resetLabel: '',
+    resetActiveLabel: '',
+    downloadLabel: '',
+    downloadTooltipLabel: '',
+    fileLabel: '',
+    activeTheme: undefined,
+    onChange: undefined,
 };

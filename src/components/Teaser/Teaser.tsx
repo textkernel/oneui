@@ -20,15 +20,17 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
     details?: SingleReactNode;
     /** Statuses of entity containing status label and tooltip message */
     statuses?: Status[];
+    /** Style the component as disabled */
+    disabled?: boolean;
 }
 
 const { block, elem } = bem('Teaser', styles);
 
 export const Teaser: React.FC<Props> = (props) => {
-    const { title, subTitle, location, details, statuses, ...rest } = props;
+    const { title, subTitle, location, details, statuses, disabled, ...rest } = props;
 
     const subTitleElement = (
-        <Text inline context="accent" {...elem('subTitle', props)}>
+        <Text inline context={disabled ? 'muted' : 'accent'} {...elem('subTitle', props)}>
             {subTitle}
         </Text>
     );
@@ -40,7 +42,7 @@ export const Teaser: React.FC<Props> = (props) => {
     return (
         <div {...rest} {...block(props)}>
             <div {...elem('line', props)}>
-                <Text inline context="brand" {...elem('title', props)}>
+                <Text inline context={disabled ? 'muted' : 'brand'} {...elem('title', props)}>
                     {title}
                 </Text>
                 {location && (
@@ -84,4 +86,5 @@ Teaser.defaultProps = {
     location: '',
     subTitle: '',
     details: '',
+    disabled: false,
 };

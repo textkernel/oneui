@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { ThemeItem } from '../../../themes/themerollerConfig';
+import { ThemeItem } from '../../../../themes/themerollerConfig';
 import { ColorValue } from './ColorValue';
 import { StringValue } from './StringValue';
 import { NumberValue } from './NumberValue';
 import { UnitValue } from './UnitValue';
 
-type Props = {
+interface Props {
     item: ThemeItem;
     onChange: (item: ThemeItem) => void;
-};
+}
 
 export const ItemValue: React.FC<Props> = ({ item, onChange }) => {
     switch (item.type) {

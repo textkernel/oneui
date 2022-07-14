@@ -1,8 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Teaser should render correctly in disabled mode 1`] = `
+<Teaser
+  details="details about this job"
+  disabled={true}
+  location="location"
+  subTitle="Organization"
+  title="A job title"
+>
+  <div
+    className="Teaser"
+  >
+    <div
+      className="Teaser__line"
+    >
+      <Text
+        className="Teaser__title"
+        context="muted"
+        inline={true}
+        size="normal"
+      >
+        <span
+          className="Text--context_muted Teaser__title"
+        >
+          A job title
+        </span>
+      </Text>
+      <Text
+        className="Teaser__location"
+        context="muted"
+        inline={true}
+        size="normal"
+      >
+        <span
+          className="Text--context_muted Teaser__location"
+        >
+          location
+        </span>
+      </Text>
+    </div>
+    <div
+      className="Teaser__line"
+    >
+      <Text
+        className="Teaser__subTitle"
+        context="muted"
+        inline={true}
+        size="normal"
+      >
+        <span
+          className="Text--context_muted Teaser__subTitle"
+        >
+          Organization
+        </span>
+      </Text>
+    </div>
+    <div
+      className="Teaser__line"
+    >
+      <Text
+        className="Teaser__details"
+        context="muted"
+        inline={true}
+        size="normal"
+      >
+        <span
+          className="Text--context_muted Teaser__details"
+        >
+          details about this job
+        </span>
+      </Text>
+    </div>
+  </div>
+</Teaser>
+`;
+
 exports[`Teaser should render correctly with just a title 1`] = `
 <Teaser
   details=""
+  disabled={false}
   location=""
   subTitle=""
   title="some title"
@@ -39,6 +115,7 @@ exports[`Teaser should render correctly with just a title 1`] = `
 exports[`Teaser should render with all props defined 1`] = `
 <Teaser
   details="details about this job"
+  disabled={false}
   location="location"
   statuses={
     Array [

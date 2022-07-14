@@ -8,9 +8,9 @@ storiesOf('packages|ThemeGenerator', module)
     .add('ThemeGenerator', () => {
         const fontGroup = 'Fonts';
         const colorGroup = 'Colors';
-        const oneUITheme = new ThemeGenerator(OneUITheme);
+        const themeGenerator = new ThemeGenerator(OneUITheme);
         const customVariables = {
-            '--color-brand': color('Brand Color', '#0097d1', colorGroup),
+            '--color-brand': color('Brand Color', '#ffffff', colorGroup),
             '--color-neutral': color('Neutral Color', '#d0d1d5', colorGroup),
             '--color-muted': color('Muted Color', '#b3b2b2', colorGroup),
             '--color-info': color('Info Color', '#60c4de', colorGroup),
@@ -20,7 +20,8 @@ storiesOf('packages|ThemeGenerator', module)
             '--color-bad': color('Bad Color', '#f42534', colorGroup),
             '--font-size-base': `${number('Base Font Size', 14, undefined, fontGroup)}px`,
         };
-        const oneUICssVariables = oneUITheme.generateThemeCss(customVariables);
+        themeGenerator.setTheme('dark', customVariables);
+        const oneUICssVariables = themeGenerator.getStyles();
 
         return (
             <div>
