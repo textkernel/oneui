@@ -173,16 +173,7 @@ describe('modules/BooleanQueryTokenizer', () => {
                 booleanQueryTokenizer.extractWordsAndPhrases(
                     'not only -"a phrase"+ but also some other words AND stuff'
                 )
-            ).toEqual([
-                'only',
-                'a phrase',
-                'but',
-                'also',
-                'some',
-                'other',
-                'words',
-                'stuff',
-            ]);
+            ).toEqual(['only', 'a phrase', 'but', 'also', 'some', 'other', 'words', 'stuff']);
         });
 
         it('should handle boolean operators and parentheses', () => {
