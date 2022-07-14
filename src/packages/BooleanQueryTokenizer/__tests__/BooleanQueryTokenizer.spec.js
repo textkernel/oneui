@@ -166,15 +166,14 @@ describe('modules/BooleanQueryTokenizer', () => {
             ).toEqual(['a +phrase with some wildcards']);
             expect(
                 booleanQueryTokenizer.extractWordsAndPhrases(
-                    '& "a phrase & with some - special | characters inside" and * outside'
+                    '& "a phrase & with some - special | characters inside" * outside'
                 )
-            ).toEqual(['a phrase & with some - special | characters inside', 'and', 'outside']);
+            ).toEqual(['a phrase & with some - special | characters inside', 'outside']);
             expect(
                 booleanQueryTokenizer.extractWordsAndPhrases(
                     'not only -"a phrase"+ but also some other words AND stuff'
                 )
             ).toEqual([
-                'not',
                 'only',
                 'a phrase',
                 'but',
@@ -213,10 +212,6 @@ describe('modules/BooleanQueryTokenizer', () => {
                 'ORGANIST',
                 'NEARNESS',
                 'AROUNDNESS',
-                'not',
-                'and',
-                'or',
-                'near',
                 'AROUND',
                 'around',
             ]);
@@ -370,6 +365,24 @@ describe('modules/BooleanQueryTokenizer', () => {
             ).toEqual({
                 wordsAndPhrases: ['typescript', 'java'],
             });
+        });
+    });
+
+    describe('#isContainsBooleanOperators()', () => {
+        it('should return true if phrases contains boolean operators', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(booleanQueryTokenizer.isContainsBooleanOperators('java AND js')).toEqual(true);
+        });
+
+        it('should return false if phrases contains boolean operators', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(booleanQueryTokenizer.isContainsBooleanOperators('java, js manager')).toEqual(
+                false
+            );
+        });
+        it('should return true if phrases contains lower-cased boolean operators', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(booleanQueryTokenizer.isContainsBooleanOperators('java or js')).toEqual(true);
         });
     });
 });

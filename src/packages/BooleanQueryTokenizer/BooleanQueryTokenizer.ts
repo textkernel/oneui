@@ -66,7 +66,7 @@ const separatorOrEnd = `(?:${separator}|$)`;
 const parentheses = '(?:\\(|\\)|\\[|\\]|\\{|\\}|\\<|\\>)';
 const wildcard = '\\*';
 const phrase = '(?:"[^"]*"|\'[^\']*\')';
-const simpleOperator = '(?:OR|AND|NEAR|NOT|\\&|\\|)';
+const simpleOperator = '(?:OR|AND|NEAR|NOT|or|and|near|not|\\&|\\|)';
 const andNotOperator = `AND${separator}NOT`;
 const aroundOperator = `AROUND${separator}\\d+`;
 
@@ -214,6 +214,17 @@ export class BooleanQueryTokenizer {
     public static extractWords(inputString: string): Extract {
         const booleanQueryTokenizer = new BooleanQueryTokenizer();
         return booleanQueryTokenizer.extractWords(inputString);
+    }
+
+    /**
+     * Check does inputString contain boolean operators
+     * @param inputString - boolean query string
+     */
+    public isContainsBooleanOperators(inputString: string): boolean {
+        const result = this.tokenize(inputString).find(
+            (token) => token.type === TokenType.booleanOperator
+        );
+        return result !== undefined;
     }
 
     private filterWordsAndPhrases(tokens: Token[]): string[] {
