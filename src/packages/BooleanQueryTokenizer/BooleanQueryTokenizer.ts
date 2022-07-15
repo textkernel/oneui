@@ -221,9 +221,11 @@ export class BooleanQueryTokenizer {
      * @param inputString - boolean query string
      */
     public isContainsBooleanOperators(inputString: string): boolean {
-        const result = this.tokenize(inputString).find(
-            (token) => token.type === TokenType.booleanOperator
-        );
+        const tokens = this.tokenize(inputString);
+        if (tokens.length <= 1 || this.extractWords(inputString).wordsAndPhrases.length === 0) {
+            return false;
+        }
+        const result = tokens.find((token) => token.type === TokenType.booleanOperator);
         return result !== undefined;
     }
 

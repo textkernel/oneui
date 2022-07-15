@@ -362,7 +362,7 @@ describe('modules/BooleanQueryTokenizer', () => {
     describe('#isContainsBooleanOperators()', () => {
         it('should return true if phrases contains boolean operators', () => {
             const booleanQueryTokenizer = new BooleanQueryTokenizer();
-            expect(booleanQueryTokenizer.isContainsBooleanOperators('java AND js')).toEqual(true);
+            expect(booleanQueryTokenizer.isContainsBooleanOperators('java AND')).toEqual(true);
         });
 
         it('should return false if phrases contains boolean operators', () => {
@@ -374,6 +374,10 @@ describe('modules/BooleanQueryTokenizer', () => {
         it('should return true if phrases contains lower-cased boolean operators', () => {
             const booleanQueryTokenizer = new BooleanQueryTokenizer();
             expect(booleanQueryTokenizer.isContainsBooleanOperators('java or js')).toEqual(true);
+        });
+        it('should return false if phrases contains only boolean operators', () => {
+            const booleanQueryTokenizer = new BooleanQueryTokenizer();
+            expect(booleanQueryTokenizer.isContainsBooleanOperators('AND or and')).toEqual(false);
         });
     });
 });
