@@ -96,7 +96,7 @@
         "@storybook/addon-knobs": "5.3.21",
         "@storybook/react": "5.3.21",
         "@storybook/storybook-deployer": "2.8.11",
-        "@types/geojson": "7946.0.8",
+        "@types/geojson": "7946.0.10",
         "@types/googlemaps": "3.43.3",
         "@types/jest": "26.0.24",
         "@types/node": "12.20.55",
