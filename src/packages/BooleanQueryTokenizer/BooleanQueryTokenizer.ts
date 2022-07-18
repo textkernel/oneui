@@ -66,7 +66,7 @@ const separatorOrEnd = `(?:${separator}|$)`;
 const parentheses = '(?:\\(|\\)|\\[|\\]|\\{|\\}|\\<|\\>)';
 const wildcard = '\\*';
 const phrase = '(?:"[^"]*"|\'[^\']*\')';
-const simpleOperator = '(?:OR|AND|NEAR|NOT|or|and|near|not|\\&|\\|)';
+const simpleOperator = '(?:OR|AND|NEAR|NOT|\\&|\\|)';
 const andNotOperator = `AND${separator}NOT`;
 const aroundOperator = `AROUND${separator}\\d+`;
 
@@ -95,7 +95,8 @@ export class BooleanQueryTokenizer {
             // Cases like `NOT word`, `NOT(group...`, `AND"a phrase"`
             new RegExp(
                 `^(?:${andNotOperator}|${aroundOperator}|${simpleOperator})` +
-                    `(?=${separatorOrEnd}|\\(|${phrase})`
+                    `(?=${separatorOrEnd}|\\(|${phrase})`,
+                'i'
             ),
         ],
         [TokenType.parentheses, new RegExp(`^${parentheses}`)],
@@ -222,7 +223,7 @@ export class BooleanQueryTokenizer {
      */
     public isContainsBooleanOperators(inputString: string): boolean {
         const tokens = this.tokenize(inputString);
-        if (tokens.length <= 1 || this.extractWords(inputString).wordsAndPhrases.length === 0) {
+        if (this.extractWords(inputString).wordsAndPhrases.length === 0) {
             return false;
         }
         const result = tokens.find((token) => token.type === TokenType.booleanOperator);
