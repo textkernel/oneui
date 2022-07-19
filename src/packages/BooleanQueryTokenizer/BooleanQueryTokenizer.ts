@@ -95,7 +95,8 @@ export class BooleanQueryTokenizer {
             // Cases like `NOT word`, `NOT(group...`, `AND"a phrase"`
             new RegExp(
                 `^(?:${andNotOperator}|${aroundOperator}|${simpleOperator})` +
-                    `(?=${separatorOrEnd}|\\(|${phrase})`
+                    `(?=${separatorOrEnd}|\\(|${phrase})`,
+                'i'
             ),
         ],
         [TokenType.parentheses, new RegExp(`^${parentheses}`)],
@@ -214,6 +215,19 @@ export class BooleanQueryTokenizer {
     public static extractWords(inputString: string): Extract {
         const booleanQueryTokenizer = new BooleanQueryTokenizer();
         return booleanQueryTokenizer.extractWords(inputString);
+    }
+
+    /**
+     * Check does inputString contain boolean operators
+     * @param inputString - boolean query string
+     */
+    public isContainsBooleanOperators(inputString: string): boolean {
+        const tokens = this.tokenize(inputString);
+        if (this.extractWords(inputString).wordsAndPhrases.length === 0) {
+            return false;
+        }
+        const result = tokens.find((token) => token.type === TokenType.booleanOperator);
+        return result !== undefined;
     }
 
     private filterWordsAndPhrases(tokens: Token[]): string[] {
