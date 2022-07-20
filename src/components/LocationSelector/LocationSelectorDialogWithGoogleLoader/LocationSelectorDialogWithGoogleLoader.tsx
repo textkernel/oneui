@@ -42,6 +42,7 @@ function LocationSelectorDialogWithGoogleLoader(props: Props) {
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
         onLocationAutocompleteError,
+        citiesOnly,
 
         /** Map props */
         defaultHighlight,
@@ -90,6 +91,7 @@ function LocationSelectorDialogWithGoogleLoader(props: Props) {
                 onAddLocation={onAddLocation}
                 onRemoveAllLocations={onRemoveAllLocations}
                 onCloseModal={onCloseModal}
+                citiesOnly={citiesOnly}
             />
         </LoadScriptNext>
     );

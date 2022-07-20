@@ -43,6 +43,8 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onError'> {
     onError?: (error: google.maps.places.PlacesServiceStatus) => void;
     /** To hide powered by google logo. For legal reasons only set it to true if Google map is displayed on the same screen as this component! */
     hidePoweredByGoogleLogo?: boolean;
+    /** To show only cities names in location autocomplete. Make sense just with parameter placeTypes=['(cities)'] */
+    citiesOnly?: boolean;
 }
 
 const { elem } = bem('LocationAutocomplete', styles);
@@ -66,6 +68,7 @@ const LocationAutocomplete: React.FC<Props> = (props) => {
         onRemoveAllLocations,
         onError,
         hidePoweredByGoogleLogo,
+        citiesOnly,
         ...rest
     } = props;
 
@@ -101,7 +104,14 @@ const LocationAutocomplete: React.FC<Props> = (props) => {
                     }
 
                     if (ACCEPTABLE_API_STATUSES.includes(status)) {
-                        setSuggestionsList(predictions);
+                        if (citiesOnly) {
+                            const result = predictions.filter(
+                                (pred) => !pred.description.toLowerCase().includes('airport')
+                            );
+                            setSuggestionsList(result);
+                        } else {
+                            setSuggestionsList(predictions);
+                        }
                     } else {
                         // TODO: check desired behaviour with Carlo
                         // currently the UI will look same as when no suggestions found

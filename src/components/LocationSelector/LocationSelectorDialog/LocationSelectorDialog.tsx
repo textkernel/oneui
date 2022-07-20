@@ -32,6 +32,7 @@ type AutocompletePropsForSelectorDialog = Pick<
     | 'placeTypes'
     | 'showCountryInSuggestions'
     | 'onRemoveAllLocations'
+    | 'citiesOnly'
 >;
 
 interface Props extends CardPropsForSelectorDialog, AutocompletePropsForSelectorDialog {
@@ -88,6 +89,7 @@ const LocationSelectorDialog = (props: Props) => {
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
         onLocationAutocompleteError,
+        citiesOnly,
 
         /** Internal use */
         withoutLocationCards,
@@ -161,6 +163,7 @@ const LocationSelectorDialog = (props: Props) => {
                     onRemoveAllLocations={onRemoveAllLocations}
                     onError={onLocationAutocompleteError}
                     hidePoweredByGoogleLogo
+                    citiesOnly={citiesOnly}
                 />
                 {hasRadius && withoutLocationCards && selectedLocations.length === 1 && (
                     <div {...elem('slider', props)}>

@@ -48,6 +48,8 @@ interface Props
     onRemoveAllLocations: () => void;
     /** callback function for closed modal */
     onBlur?: () => void;
+    /** To show only cities names in location autocomplete. Make sense just with parameter placeTypes=['(cities)'] */
+    citiesOnly?: boolean;
 }
 
 const LocationSelector: React.FC<Props> = (props) => {
@@ -84,6 +86,7 @@ const LocationSelector: React.FC<Props> = (props) => {
         noSuggestionsPlaceholder,
         showCountryInSuggestions,
         onLocationAutocompleteError,
+        citiesOnly,
 
         /** Map props */
         defaultHighlight,
@@ -254,6 +257,7 @@ const LocationSelector: React.FC<Props> = (props) => {
                     getMarkers={getMarkers}
                     onAddLocation={handleAddLocation}
                     onCloseModal={handleCloseModal}
+                    citiesOnly={citiesOnly}
                 />
             </Modal>
         </div>
@@ -279,6 +283,7 @@ LocationSelector.defaultProps = {
     placeTypes: ['(regions)'],
     onLocationAutocompleteError: () => null,
     defaultHighlight: undefined,
+    citiesOnly: false,
 };
 
 export { LocationSelector, Props as LocationSelectorProps };
