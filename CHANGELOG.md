@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [18.7.0](https://github.com/textkernel/oneui/compare/18.6.2...18.7.0) (2022-07-20)
+
+
+### Features
+
+* make boolean query tokenizer support lowercased bool operators ([#785](https://github.com/textkernel/oneui/issues/785)) ([c86cc56](https://github.com/textkernel/oneui/commit/c86cc5687168f135382c02964a927c5b12c5d0bb))
+
+
+### Bug Fixes
+
+* heading font color ([4bef6e9](https://github.com/textkernel/oneui/commit/4bef6e9b3d2540dccc9b68ce5f8a8fee419c5423))
+
 ### [18.6.2](https://github.com/textkernel/oneui/compare/18.6.1...18.6.2) (2022-06-23)
 
 ### [18.6.1](https://github.com/textkernel/oneui/compare/18.6.0...18.6.1) (2022-06-23)
