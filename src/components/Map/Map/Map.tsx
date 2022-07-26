@@ -13,6 +13,8 @@ const circleOptions = () => ({
     visible: true,
     zIndex: 1,
 });
+// the zoom level for a single point marker
+const ZOOM_FOR_ONE_POINT = 12;
 
 type CircularMarker = {
     center: {
@@ -124,6 +126,7 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
                 } else {
                     bounds.extend(firstMarker.center);
                     map.fitBounds(bounds);
+                    map.setZoom(ZOOM_FOR_ONE_POINT);
                 }
             } else if (circularMarkers.length) {
                 circularMarkers.forEach(({ center, radius }) => {
