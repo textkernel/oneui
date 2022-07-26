@@ -73,7 +73,9 @@ export class HighlighterCore {
                 break;
             case 'exact':
             default:
-                source = `(\\b)(${searchString})(?=$|\\s|\\b)`;
+                // this check (?=\.) needs to be done because '.' is not word character and
+                // there were errors in finding words such as .NET .test
+                source = `(\\b|(?=\\.))(${searchString})(?=$|\\s|\\b)`;
                 break;
         }
 
