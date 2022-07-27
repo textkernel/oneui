@@ -13,8 +13,9 @@ const circleOptions = () => ({
     visible: true,
     zIndex: 1,
 });
-// the zoom level for a single point marker
-const ZOOM_FOR_ONE_POINT = 12;
+
+// Default radius to help map to zoom correctly when there is a single point marker
+const DEFAULT_RADIUS_FOR_SINGLE_POINT_MARKER = 500;
 
 type CircularMarker = {
     center: {
@@ -124,9 +125,12 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
                 if (firstMarker.description) {
                     fitBoundsByAddress(firstMarker.description);
                 } else {
-                    bounds.extend(firstMarker.center);
+                    const circle = new CircleClass({
+                        center: firstMarker.center,
+                        radius: DEFAULT_RADIUS_FOR_SINGLE_POINT_MARKER,
+                    });
+                    bounds.union(circle.getBounds());
                     map.fitBounds(bounds);
-                    map.setZoom(ZOOM_FOR_ONE_POINT);
                 }
             } else if (circularMarkers.length) {
                 circularMarkers.forEach(({ center, radius }) => {
