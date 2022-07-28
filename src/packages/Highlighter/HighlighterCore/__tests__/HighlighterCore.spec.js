@@ -186,5 +186,25 @@ describe('HighlighterCore', () => {
                 { highlighted: false, substring: ' and JavaScript developer' },
             ]);
         });
+        it('should highlight terms which start from . like .NET ', () => {
+            const highlighter = new HighlighterCore(['.NET', 'developer'], {});
+            const string = '.NET php and .NET JavaScript developer';
+            expect(highlighter.find(string)).toEqual([
+                { highlighted: true, substring: '.NET' },
+                { highlighted: false, substring: ' php and ' },
+                { highlighted: true, substring: '.NET' },
+                { highlighted: false, substring: ' JavaScript ' },
+                { highlighted: true, substring: 'developer' },
+            ]);
+            expect(highlighter.find('some other text')).toEqual([
+                { highlighted: false, substring: 'some other text' },
+            ]);
+            expect(highlighter.find('We .NETare looking for .NET developer')).toEqual([
+                { highlighted: false, substring: 'We .NETare looking for ' },
+                { highlighted: true, substring: '.NET' },
+                { highlighted: false, substring: ' ' },
+                { highlighted: true, substring: 'developer' },
+            ]);
+        });
     });
 });
