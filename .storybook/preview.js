@@ -6,7 +6,7 @@ import { OneUITheme } from './oneui.theme';
 
 addDecorator(
     withInfo({
-        inline: true
+        inline: true,
     })
 );
 
@@ -15,14 +15,9 @@ addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addParameters({
     options: {
         theme: OneUITheme,
-    }
+    },
 });
 
-function loadStories() {
-    require('../stories/index.ts');
-}
-
-OneUI.init().then(() => {
-    configure(loadStories, module);
-});
-
+OneUI.init(); //.then(() => {
+// configure(loadStories, module);
+//});
