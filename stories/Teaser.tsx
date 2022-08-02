@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
 import { Teaser } from '@textkernel/oneui';
 
-storiesOf('Molecules|Teaser', module)
+storiesOf('Molecules/Teaser', module)
     .addDecorator(withKnobs)
     .add('With all fields', () => {
         const title = text('Title', 'My first job');

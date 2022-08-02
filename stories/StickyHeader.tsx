@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import { StickyHeader } from '@textkernel/oneui';
 
-storiesOf('Atoms|StickyHeader', module)
+storiesOf('Atoms/StickyHeader', module)
     .addDecorator(withKnobs)
     .add('StickyHeader', () => {
         const headerStyle = {

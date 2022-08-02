@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs } from '@storybook/addon-knobs';
 import OneUI, { Themeroller, THEMEROLLER_CONFIG } from '@textkernel/oneui';
 
-storiesOf('Theme|Themeroller', module)
+storiesOf('Theme/Themeroller', module)
     .addDecorator(withKnobs)
     .add('Theme builder', () => {
         const handleChange = (themeResult) => {

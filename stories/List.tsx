@@ -13,7 +13,7 @@ import {
 } from '@textkernel/oneui';
 import { CONTEXTS } from '../src/constants';
 
-storiesOf('Atoms|List', module)
+storiesOf('Atoms/List', module)
     .addDecorator(withKnobs)
     .add('List', () => {
         const highlightContext = select('Highlight context', ['default', ...CONTEXTS], 'default');

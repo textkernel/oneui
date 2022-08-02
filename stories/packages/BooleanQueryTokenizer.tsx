@@ -15,7 +15,7 @@ const columnStyle = {
 
 const booleanQueryTokenizer = new BooleanQueryTokenizer();
 
-storiesOf('packages|BooleanQueryTokenizer', module).add('BooleanQueryTokenizer', () => {
+storiesOf('packages/BooleanQueryTokenizer', module).add('BooleanQueryTokenizer', () => {
     const [tokens, setTokens] = React.useState<unknown[]>(
         booleanQueryTokenizer.tokenize(initialValue)
     );

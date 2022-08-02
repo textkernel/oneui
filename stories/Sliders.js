@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { Slider, RangeSlider } from '@textkernel/oneui';
 import { number, withKnobs } from '@storybook/addon-knobs';
 
-storiesOf('Atoms|Slider', module)
+storiesOf('Atoms/Slider', module)
     .addDecorator(withKnobs)
     .add(
         'Slider',

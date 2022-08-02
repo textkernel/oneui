@@ -4,7 +4,7 @@ import { text, boolean, withKnobs } from '@storybook/addon-knobs';
 import { LocationAutocompleteWithGoogleLoader, LocationAutocomplete } from '@textkernel/oneui';
 import { ensureApiKey } from './utils/ensureApiKey';
 
-storiesOf('Organisms|LocationAutocomplete', module)
+storiesOf('Organisms/LocationAutocomplete', module)
     .addDecorator(withKnobs)
     .add(
         'LocationAutocomplete',

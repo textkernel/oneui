@@ -4,7 +4,7 @@ import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { TextArea } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '@textkernel/oneui/constants';
 
-storiesOf('Atoms|TextArea', module)
+storiesOf('Atoms/TextArea', module)
     .addDecorator(withKnobs)
     .add('Default behavior', () => (
         <TextArea

@@ -5,7 +5,7 @@ import { boolean, number, text, select, withKnobs } from '@storybook/addon-knobs
 import { Gauge, IconJobfeed, Tooltip } from '@textkernel/oneui';
 import { CONTEXTS } from '@textkernel/oneui/constants';
 
-storiesOf('Molecules|Gauge', module)
+storiesOf('Molecules/Gauge', module)
     .addDecorator(withKnobs)
     .add(
         'Gauge',

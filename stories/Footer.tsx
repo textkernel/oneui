@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { Footer, Link } from '@textkernel/oneui';
 
-storiesOf('Molecules|Footer', module)
+storiesOf('Molecules/Footer', module)
     .addDecorator(withKnobs)
     .add('Footer', () => (
         <Footer copyright={text('Alternative copyright', '') || undefined}>

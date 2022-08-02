@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-e
 import { number, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
 import { NumericStepper } from '@textkernel/oneui';
 
-storiesOf('Molecules|NumericStepper', module)
+storiesOf('Molecules/NumericStepper', module)
     .addDecorator(withKnobs)
     .add(
         'NumericStepper',

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { SelectedOption } from '@textkernel/oneui';
 
-storiesOf('Atoms|SelectedOption', module)
+storiesOf('Atoms/SelectedOption', module)
     .addDecorator(withKnobs)
     .add('SelectedOption', () => (
         <div style={{ maxWidth: '250px' }}>

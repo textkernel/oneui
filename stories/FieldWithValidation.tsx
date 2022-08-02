@@ -38,7 +38,7 @@ const Example = () => {
     );
 };
 
-storiesOf('Molecules|FieldWithValidation', module)
+storiesOf('Molecules/FieldWithValidation', module)
     .addDecorator(withKnobs)
     .add('FieldWithValidation', () => (
         <>

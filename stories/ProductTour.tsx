@@ -4,7 +4,7 @@ import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 import { ProductTour } from '@textkernel/oneui';
 import { slides } from '../src/components/ProductTour/__mocks__/slides';
 
-storiesOf('Organisms|ProductTour', module)
+storiesOf('Organisms/ProductTour', module)
     .addDecorator(withKnobs)
     .add('ProductTour', () => {
         const handleCancel = (isChecked = false) => {

@@ -19,7 +19,7 @@ const LABELS = [
     },
 ];
 
-storiesOf('Organisms|LabelPicker', module)
+storiesOf('Organisms/LabelPicker', module)
     .addDecorator(withKnobs)
     .add('LabelPicker', () => {
         const [labels, setLabels] = React.useState<MyLabel[]>([...LABELS]);

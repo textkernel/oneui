@@ -4,7 +4,7 @@ import { withKnobs, text, select } from '@storybook/addon-knobs';
 import { Callout } from '@textkernel/oneui';
 import { CONTEXTS } from '../src/constants';
 
-storiesOf('Atoms|Callout', module)
+storiesOf('Atoms/Callout', module)
     .addDecorator(withKnobs)
     .add('Callout', () => {
         const onClose = () => {

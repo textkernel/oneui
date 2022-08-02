@@ -30,7 +30,7 @@ const styles = {
     },
 };
 
-storiesOf('Molecules|Dropdown', module)
+storiesOf('Molecules/Dropdown', module)
     .addDecorator(withKnobs)
     .add(
         'Dropdown',

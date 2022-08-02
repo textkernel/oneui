@@ -4,7 +4,7 @@ import { text, boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { SelectButtonGroup, SelectButton } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '../src/constants';
 
-storiesOf('Atoms|SelectButtonGroup', module)
+storiesOf('Atoms/SelectButtonGroup', module)
     .addDecorator(withKnobs)
     .add('Uncontrolled', () => (
         <SelectButtonGroup<string>

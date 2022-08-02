@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { number, text, withKnobs, boolean } from '@storybook/addon-knobs';
 import { LocationCard } from '@textkernel/oneui';
 
-storiesOf('Molecules|LocationCard', module)
+storiesOf('Molecules/LocationCard', module)
     .addDecorator(withKnobs)
     .add('LocationCard', () => (
         <LocationCard

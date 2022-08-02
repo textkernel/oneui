@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { Toggle } from '@textkernel/oneui';
 
-storiesOf('Molecules|Toggle', module)
+storiesOf('Molecules/Toggle', module)
     .addDecorator(withKnobs)
     .add('Toggle with label', () => (
         <Toggle

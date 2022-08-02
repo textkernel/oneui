@@ -13,7 +13,7 @@ const columnStyle = {
     padding: '1em',
 };
 
-storiesOf('packages|LocationSelectorUtils', module).add('convertCoordinatesIntoAddress', () => {
+storiesOf('packages/LocationSelectorUtils', module).add('convertCoordinatesIntoAddress', () => {
     const [lat, setLet] = React.useState(52.3675734); // Amsterdam lat
     const [lng, setLng] = React.useState(4.9041389); // Amsterdam lng
     const [address, setAddress] = React.useState({});

@@ -4,7 +4,7 @@ import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { TabItem, TabsBar, Tooltip } from '@textkernel/oneui';
 import { StoreInjector } from '../src/packages/storybook/withStore';
 
-storiesOf('Atoms|Tabs', module)
+storiesOf('Atoms/Tabs', module)
     .addDecorator(withKnobs)
     .addParameters(
         StoreInjector.withStore({

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, color, number } from '@storybook/addon-knobs';
 import { OneUITheme, ThemeGenerator } from '@textkernel/oneui';
 
-storiesOf('packages|ThemeGenerator', module)
+storiesOf('packages/ThemeGenerator', module)
     .addDecorator(withKnobs)
     .add('ThemeGenerator', () => {
         const fontGroup = 'Fonts';

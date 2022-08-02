@@ -9,7 +9,7 @@ import { registerLocale } from 'react-datepicker';
 
 const DATE_REGEX = /\d\d\d\d-\d\d-\d\d/;
 
-storiesOf('Molecules|DatePicker', module)
+storiesOf('Molecules/DatePicker', module)
     .addDecorator(withKnobs)
     .add(
         'DatePicker',

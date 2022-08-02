@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'; // eslint-disable-line import/no-e
 import { boolean, text, select, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
 import { Tag } from '@textkernel/oneui';
 
-storiesOf('Atoms|Tag', module)
+storiesOf('Atoms/Tag', module)
     .addDecorator(withKnobs)
     .add('Tag', () => {
         const onDelete = () => {

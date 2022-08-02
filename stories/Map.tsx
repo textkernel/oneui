@@ -6,7 +6,7 @@ import { ensureApiKey } from './utils/ensureApiKey';
 import NL_PATHS from './static/gadm36_NLD_0.json';
 import FR_FRIESLAND from './static/FR_Friesland.json';
 
-storiesOf('Atoms|Map', module)
+storiesOf('Atoms/Map', module)
     .addDecorator(withKnobs)
     .add(
         'Map',

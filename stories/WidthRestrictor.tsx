@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { PageWidthRestrictor, BlockWidthRestrictor } from '@textkernel/oneui';
 
-storiesOf('Atoms|WidthRestrictor', module)
+storiesOf('Atoms/WidthRestrictor', module)
     .addDecorator(withKnobs)
     .add('PageWidthRestrictor', () => (
         <div style={{ backgroundColor: 'teal' }}>

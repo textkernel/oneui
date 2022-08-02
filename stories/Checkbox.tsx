@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { boolean, text, withKnobs } from '@storybook/addon-knobs';
 import { Checkbox, Text } from '@textkernel/oneui';
 
-storiesOf('Molecules|Checkbox', module)
+storiesOf('Molecules/Checkbox', module)
     .addDecorator(withKnobs)
     .add('Checkbox as controlled component', () => {
         const [checked, setChecked] = React.useState(false);

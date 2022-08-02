@@ -18,7 +18,7 @@ const STORY_CONTEXTS = [...CONTEXTS, null];
 const CONTEXT_DEFAULT = null;
 const SIZE_DEFAULT = 48;
 
-storiesOf('Atoms|Icons', module)
+storiesOf('Atoms/Icons', module)
     .addDecorator(withKnobs)
     .add('Align with text', () => (
         <Heading level={select('Heading level', HEADING_SIZES, HEADING_SIZES[0])}>

@@ -4,7 +4,7 @@ import { text, select, withKnobs } from '@storybook/addon-knobs';
 import { Text, MarkedText } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '../src/constants';
 
-storiesOf('Atoms|Text', module)
+storiesOf('Atoms/Text', module)
     .addDecorator(withKnobs)
     .add('Text', () => (
         <Text

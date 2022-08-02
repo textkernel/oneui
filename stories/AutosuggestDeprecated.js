@@ -10,7 +10,7 @@ import {
 
 const { withStore } = StoreInjector;
 
-storiesOf('Organisms|AutosuggestDeprecated - old', module)
+storiesOf('Organisms/AutosuggestDeprecated - old', module)
     .addDecorator(withKnobs)
     .addParameters(
         withStore({
