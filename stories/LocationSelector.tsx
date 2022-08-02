@@ -82,7 +82,7 @@ storiesOf('Organisms/LocationSelector', module)
         );
     })
     // eslint-disable-next-line
-    .add('Example single select implementation', ({ parameters }: any) => {
+    .add('Example single select implementation', (_args: unknown, { parameters }: any) => {
         const apiKey = ensureApiKey();
         const store = parameters.getStore();
 
@@ -171,7 +171,7 @@ storiesOf('Organisms/LocationSelector', module)
         );
     })
     // eslint-disable-next-line
-    .add('Example multi select implementation', ({ parameters }: any) => {
+    .add('Example multi select implementation', (_args: unknown, { parameters }: any) => {
         const apiKey = ensureApiKey();
         const store = parameters.getStore();
 
