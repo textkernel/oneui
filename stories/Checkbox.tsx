@@ -1,65 +1,63 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Checkbox, Text } from '@textkernel/oneui';
 
-storiesOf('Molecules/Checkbox', module)
-    .addDecorator(withKnobs)
-    .add('Checkbox as controlled component', () => {
-        const [checked, setChecked] = React.useState(false);
+export default {
+    title: 'Molecules/Checkbox',
+    component: Checkbox,
+} as ComponentMeta<typeof Checkbox>;
 
-        const handleChange = (e) => {
-            console.log('Checkbox state changed', e);
-            setChecked(e.target.checked);
-        };
+const ControlledTemplate: ComponentStory<typeof Checkbox> = (args) => {
+    const [checked, setChecked] = React.useState(false);
 
-        return (
-            <Checkbox
-                disabled={boolean('Disabled', false)}
-                id={text('Id', 'checkbox-1')}
-                onChange={handleChange}
-                checked={checked}
-                asFlexbox={boolean('Render in flexbox', false)}
-            >
-                {text('Checkbox label', 'Select me!')}
-            </Checkbox>
-        );
-    })
-    .add('Checkbox as uncontrolled component', () => (
-        <Checkbox
-            disabled={boolean('Disabled', false)}
-            id={text('Id', 'checkbox-1')}
-            onChange={(e) => console.log('Checkbox state changed', e)}
-            asFlexbox={boolean('Render in flexbox', false)}
-            defaultChecked
-        >
-            {text('Checkbox label', 'Select me!')}
-        </Checkbox>
-    ))
-    .add('Checkbox with long label', () => (
-        <Checkbox
-            disabled={boolean('Disabled', false)}
-            id={text('Id', 'checkbox-1')}
-            onChange={(e) => console.log('Checkbox state changed', e)}
-            asFlexbox={boolean('Render in flexbox', false)}
-            defaultChecked
-            style={{ width: '150px' }}
-        >
-            {text(
-                'Checkbox label',
-                'This is a longer label text. Change flexbox rendering to see how it changes'
-            )}
-        </Checkbox>
-    ))
-    .add('Checkbox with not just string as label', () => (
-        <Checkbox
-            disabled={boolean('Disabled', false)}
-            id={text('Id', 'checkbox-1')}
-            asFlexbox={boolean('Render in flexbox', false)}
-            onChange={(e) => console.log('Checkbox state changed', e)}
-        >
-            <Text inline style={{ color: 'turquoise' }} className="test-class">
-                {text('Checkbox label', 'Select me!')}
-            </Text>
-        </Checkbox>
-    ));
+    const handleChange = (e) => {
+        console.log('Checkbox state changed', e);
+        setChecked(e.target.checked);
+    };
+
+    return <Checkbox checked={checked} onChange={handleChange} {...args} />;
+};
+const UncontrolledTemplate: ComponentStory<typeof Checkbox> = (args) => <Checkbox {...args} />;
+
+export const CheckboxAsUncontrolledComponent = UncontrolledTemplate.bind({});
+CheckboxAsUncontrolledComponent.storyName = 'Checkbox as uncontrolled component';
+CheckboxAsUncontrolledComponent.args = {
+    disabled: false,
+    id: 'checkbox-1',
+    asFlexbox: false,
+    children: 'Select me!',
+    defaultChecked: true,
+};
+
+export const CheckboxAsControlledComponent = ControlledTemplate.bind({});
+CheckboxAsControlledComponent.storyName = 'Checkbox as controlled component';
+CheckboxAsControlledComponent.args = {
+    disabled: false,
+    id: 'checkbox-1',
+    asFlexbox: false,
+    children: 'Select me!',
+};
+
+export const CheckboxWithLongLabel = UncontrolledTemplate.bind({});
+CheckboxWithLongLabel.storyName = 'Checkbox with long label';
+CheckboxWithLongLabel.args = {
+    disabled: false,
+    id: 'checkbox-1',
+    asFlexbox: false,
+    children: 'This is a longer label text. Change flexbox rendering to see how it changes',
+    defaultChecked: true,
+    style: { width: '150px' },
+};
+
+export const CheckboxWithNotJustStringAsLabel = UncontrolledTemplate.bind({});
+CheckboxWithNotJustStringAsLabel.storyName = 'Checkbox with not just string as label';
+CheckboxWithNotJustStringAsLabel.args = {
+    disabled: false,
+    id: 'checkbox-1',
+    asFlexbox: false,
+    children: (
+        <Text inline style={{ color: 'turquoise' }} className="test-class">
+            Select me!
+        </Text>
+    ),
+};
