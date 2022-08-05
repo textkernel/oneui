@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 import { CandidateAvatar } from '@textkernel/oneui';
 
-storiesOf('Atoms/CandidateAvatar', module)
-    .addDecorator(withKnobs)
-    .add('CandidateAvatar', () => (
-        <CandidateAvatar
-            imageUrl={text('Image URL', 'avatar.png')}
-            matchPercentage={number('Match percentage', 75)}
-            showPercentageOnHover={boolean('Show percentage on hover', true)}
-            size={number('Size', 72)}
-        />
-    ));
+export default {
+    title: 'Atoms/CandidateAvatar',
+    component: CandidateAvatar,
+};
+
+export const _CandidateAvatar = (args) => <CandidateAvatar {...args} />;
+_CandidateAvatar.storyName = 'CandidateAvatar';
+_CandidateAvatar.args = {
+    imageUrl: 'avatar.png',
+    matchPercentage: 75,
+    showPercentageOnHover: true,
+};
