@@ -1,23 +1,15 @@
-import { configure, addDecorator, addParameters } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { withConsole } from '@storybook/addon-console';
-import OneUI from '@textkernel/oneui';
-import { OneUITheme } from './oneui.theme';
-
-addDecorator(
-    withInfo({
-        inline: true,
-    })
-);
-
-addDecorator((storyFn, context) => withConsole()(storyFn)(context));
-
-addParameters({
-    options: {
-        theme: OneUITheme,
+export const parameters = {
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+        matchers: {
+            color: /(background|color)$/i,
+            date: /Date$/,
+        },
     },
-});
-
-OneUI.init(); //.then(() => {
-// configure(loadStories, module);
-//});
+    options: {
+        storySort: {
+            method: 'alphabetical',
+            order: ['Concepts', 'Theme', 'Atoms', 'Molecules', 'Organisms', 'Packages'],
+        },
+    },
+};
