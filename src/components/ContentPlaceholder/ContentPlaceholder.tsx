@@ -2,7 +2,7 @@ import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './ContentPlaceholder.scss';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Animation duration in seconds */
     duration?: number;
     /** Custom height in pixels for the content placeholder */
