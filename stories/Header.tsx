@@ -1,23 +1,28 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text, withKnobs } from '@storybook/addon-knobs';
 import { Header, IconTextkernel } from '@textkernel/oneui';
+import { ComponentStory } from '@storybook/react';
 
-storiesOf('Molecules/Header', module)
-    .addDecorator(withKnobs)
-    .add('Header with simple logo', () => (
-        <Header
-            logo={{
-                src: text('Image URL', 'https://www.jobfeed.nl/images/jobfeed-logo.svg'),
-                link: text('URL where click on logo will lead', '/'),
-                title: text('Alt text for the logo', 'Jobfeed'),
-            }}
-        >
-            {text('Right side', 'This is a placeholder for children')}
-        </Header>
-    ))
-    .add('Header with logo as component', () => (
-        <Header logo={<IconTextkernel />}>
-            {text('Right side', 'This is a placeholder for children')}
-        </Header>
-    ));
+export default {
+    title: 'Molecules/Header',
+    component: Header,
+};
+
+const Template: ComponentStory<typeof Header> = (args) => <Header {...args} />;
+
+export const HeaderWithSimpleLogo = Template.bind({});
+HeaderWithSimpleLogo.storyName = 'Header with simple logo';
+HeaderWithSimpleLogo.args = {
+    logo: {
+        src: 'https://www.jobfeed.nl/images/jobfeed-logo.svg',
+        link: '/',
+        title: 'Jobfeed',
+    },
+    children: 'This is a placeholder for children',
+};
+
+export const HeaderWithLogoAsComponent = Template.bind({});
+HeaderWithLogoAsComponent.storyName = 'Header with logo as component';
+HeaderWithLogoAsComponent.args = {
+    logo: <IconTextkernel />,
+    children: 'This is a placeholder for children',
+};

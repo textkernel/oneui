@@ -3,7 +3,7 @@ import { bem } from '../../utils';
 import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Header.scss';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** supply a logo ready to be rendered or attributes to build a simple one. */
     logo:
         | {
