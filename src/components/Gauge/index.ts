@@ -1,1 +1,1 @@
-export { Gauge } from './Gauge';
+export { Gauge, Props as GaugeProps } from './Gauge';

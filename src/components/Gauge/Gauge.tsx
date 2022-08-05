@@ -8,7 +8,7 @@ const SET_PERCENTAGE_DELAY = 100;
 
 const { block, elem } = bem('Gauge', styles);
 
-interface Props {
+export interface Props {
     /** The gauge context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context?: Context;
     /** Defines if progress bar is in loading state */
@@ -25,6 +25,14 @@ interface Props {
     note?: SingleReactNode;
 }
 
+/**
+ * ## Testing information
+ * This component is uses `Math.random` internally which will show up in snapshots.
+ * To make sure snapshots are consistent you should mock it in your tests. E.g.:
+
+      const mathRandomSpy = jest.spyOn(Math, 'random');
+      mathRandomSpy.mockImplementation(() => 0.42);
+ */
 export const Gauge: React.FC<Props> = (props) => {
     const {
         children,

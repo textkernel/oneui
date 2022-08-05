@@ -1,116 +1,69 @@
-/* eslint-disable react/no-children-prop */
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { boolean, number, text, select, withKnobs } from '@storybook/addon-knobs';
+import { ComponentStory } from '@storybook/react';
 import { Gauge, IconJobfeed, Tooltip } from '@textkernel/oneui';
 import { CONTEXTS } from '@textkernel/oneui/constants';
 
-storiesOf('Molecules/Gauge', module)
-    .addDecorator(withKnobs)
-    .add(
-        'Gauge',
-        () => {
-            const isProgressLoading = boolean('isProgressLoading', false);
-            const isContentLoading = boolean('isContentLoading', false);
-            const note = text('Note', 'Low');
+export default {
+    title: 'Molecules/Gauge',
+    component: Gauge,
+};
 
-            return (
-                <div style={{ display: 'flex' }}>
-                    <div style={{ width: '33%' }}>
-                        <Gauge
-                            context={select('Context 1', CONTEXTS, CONTEXTS[1])}
-                            percentage={number('Percentage 1', 33)}
-                            note={isContentLoading ? '—' : note}
-                            metric={text('Metric', 'Postings per job')}
-                            isProgressLoading={isProgressLoading}
-                            isContentLoading={isContentLoading}
-                        >
-                            {text('Children', '3')}
-                        </Gauge>
-                    </div>
-                    <div style={{ width: '33%' }}>
-                        <Gauge
-                            context={select('Context 2', CONTEXTS, CONTEXTS[1])}
-                            percentage={number('Percentage 2', 46)}
-                            note={isContentLoading ? '—' : 'Normal'}
-                            metric="Days"
-                            isProgressLoading={isProgressLoading}
-                            isContentLoading={isContentLoading}
-                        >
-                            12
-                        </Gauge>
-                    </div>
-                    <div style={{ width: '33%' }}>
-                        <Gauge
-                            context={select('Context 3', CONTEXTS, CONTEXTS[2])}
-                            percentage={number('Percentage 3', 78)}
-                            note={isContentLoading ? '—' : 'High'}
-                            isProgressLoading={isProgressLoading}
-                            isContentLoading={isContentLoading}
-                        >
-                            $54,321
-                        </Gauge>
-                    </div>
-                </div>
-            );
-        },
-        {
-            info: {
-                text: `
-            ## Testing information
+const Template: ComponentStory<typeof Gauge> = (args) => (
+    <div style={{ display: 'flex' }}>
+        <Gauge {...args} />
+    </div>
+);
 
-            This component is uses \`Math.random\` internally which will show up in snapshots.
-
-            To make sure snapshots are consistent you should mock it in your tests. E.g.:
-
-            \`\`\`
-            const mathRandomSpy = jest.spyOn(Math, 'random');
-            mathRandomSpy.mockImplementation(() => 0.42);
-            \`\`\`
-
-            `,
-            },
-        }
-    )
-    .add('Gauge with an icon', () => {
-        const isProgressLoading = boolean('isProgressLoading', false);
-        const isContentLoading = boolean('isContentLoading', false);
-
-        return (
-            <div style={{ display: 'flex' }}>
-                <Gauge
-                    context="primary"
-                    percentage={60}
-                    note={isContentLoading ? '—' : 'High'}
-                    isProgressLoading={isProgressLoading}
-                    isContentLoading={isContentLoading}
-                >
-                    <div>
-                        $54,321
-                        <IconJobfeed context="brand" />
-                    </div>
-                </Gauge>
+export const _Gauge = (args) => {
+    return (
+        <div style={{ display: 'flex' }}>
+            <div style={{ width: '33%' }}>
+                <Gauge {...args} />
             </div>
-        );
-    })
-    .add('Gauge with a tooltip', () => {
-        const isProgressLoading = boolean('isProgressLoading', false);
-        const isContentLoading = boolean('isContentLoading', false);
-
-        return (
-            <div style={{ display: 'flex' }}>
-                <Gauge
-                    context="primary"
-                    percentage={35}
-                    metric={isContentLoading ? '—' : "Something long so it doesn't fit"}
-                    note={isContentLoading ? '—' : 'High'}
-                    isProgressLoading={isProgressLoading}
-                    isContentLoading={isContentLoading}
-                >
-                    <Tooltip content="Tooltip content">
-                        <span>Tooltip</span>
-                    </Tooltip>
-                </Gauge>
+            <div style={{ width: '33%' }}>
+                <Gauge {...args}>12</Gauge>
             </div>
-        );
-    });
+            <div style={{ width: '33%' }}>
+                <Gauge {...args}>$54,321</Gauge>
+            </div>
+        </div>
+    );
+};
+_Gauge.args = {
+    percentage: 33,
+    metric: 'Postings per job',
+    children: '3',
+    note: 'Low',
+};
+
+export const GaugeWithAnIcon = Template.bind({});
+GaugeWithAnIcon.storyName = 'Gauge with an icon';
+GaugeWithAnIcon.args = {
+    context: CONTEXTS[2],
+    percentage: 60,
+    note: 'High',
+    isProgressLoading: false,
+    isContentLoading: false,
+    children: (
+        <div>
+            $54,321
+            <IconJobfeed context="brand" />
+        </div>
+    ),
+};
+
+export const GaugeWithATooltip = Template.bind({});
+GaugeWithATooltip.storyName = 'Gauge with a tooltip';
+GaugeWithATooltip.args = {
+    context: CONTEXTS[2],
+    percentage: 35,
+    metric: "Something long so it doesn't fit",
+    note: 'High',
+    isProgressLoading: false,
+    isContentLoading: false,
+    children: (
+        <Tooltip content="Tooltip content">
+            <span>Tooltip</span>
+        </Tooltip>
+    ),
+};
