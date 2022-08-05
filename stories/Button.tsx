@@ -1,60 +1,44 @@
 /* eslint-disable react/no-children-prop */
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, SearchButton, StepperButton } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '../src/constants';
 
-storiesOf('Atoms/Button', module)
-    .addDecorator(withKnobs)
-    .add('Button', () => (
-        <Button
-            context={select('Context', ['link', ...CONTEXTS], CONTEXTS[0])}
-            size={select('Size', SIZES, SIZES[1])}
-            isBlock={boolean('isBlock', false)}
-            isInline={boolean('isInline', false)}
-            isLoading={boolean('isLoading', false)}
-            type={select('Type', ['submit', 'button'], 'submit')}
-            disabled={boolean('Disabled', false)}
-            onClick={(e) => {
-                console.log('Clicked button', e);
-            }}
-        >
-            {text('Button label', 'Click me!')}
-        </Button>
-    ))
-    .add('Button as a link', () => (
-        <Button
-            target="_blank"
-            context={select('Context', ['link', ...CONTEXTS], CONTEXTS[0])}
-            href={text('Href URL', 'https://github.com/textkernel/oneui')}
-            size={select('Size', SIZES, SIZES[1])}
-            isBlock={boolean('isBlock', false)}
-            isInline={boolean('isInline', false)}
-            disabled={boolean('Disabled', false)}
-            onClick={(e) => {
-                console.log('Clicked button', e);
-            }}
-        >
-            {text('Button label', 'Click me!')}
-        </Button>
-    ))
-    .add('SearchButton', () => (
-        <SearchButton
-            type={select('Type', ['submit', 'button'], 'submit')}
-            disabled={boolean('Disabled', false)}
-            children={text('Label', '')}
-            onClick={(e) => {
-                console.log('Clicked button', e);
-            }}
-        />
-    ))
-    .add('StepperButton', () => (
-        <StepperButton
-            disabled={boolean('Disabled', false)}
-            icon={select('icon', ['plus', 'minus'], 'plus')}
-            onClick={(e) => {
-                console.log('Clicked button', e);
-            }}
-        />
-    ));
+export default {
+    title: 'Atoms/Button',
+    component: Button,
+    subcomponents: { SearchButton, StepperButton },
+} as ComponentMeta<typeof Button>;
+
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+
+export const _Button = Template.bind({});
+_Button.args = {
+    context: CONTEXTS[0],
+    size: SIZES[1],
+    type: 'submit',
+    children: 'Click me!',
+};
+
+export const ButtonAsALink = Template.bind({});
+ButtonAsALink.storyName = 'Button as a link';
+ButtonAsALink.args = {
+    target: '_blank',
+    context: CONTEXTS[0],
+    size: SIZES[1],
+    href: 'https://github.com/textkernel/oneui',
+    children: 'Click me!',
+};
+
+export const _SearchButton = (args) => <SearchButton {...args} />;
+_SearchButton.storyName = 'SearchButton';
+_SearchButton.args = {
+    type: 'submit',
+    children: '',
+};
+
+export const _StepperButton = (args) => <StepperButton {...args} />;
+_StepperButton.storyName = 'StepperButton';
+_StepperButton.args = {
+    icon: 'plus',
+};
