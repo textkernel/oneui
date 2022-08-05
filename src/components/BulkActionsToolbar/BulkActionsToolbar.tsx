@@ -31,7 +31,7 @@ export type BulkActionsToolbarAction = {
     onClick: () => void;
 };
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface BulkActionsToolbarProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Defines if any items are selected and selection information text */
     selection: BulkActionsToolbarSelection;
     /** Defines current toggle's state (all or none) */
@@ -45,7 +45,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('BulkActionsToolbar', styles);
 
-export const BulkActionsToolbar: React.FC<Props> = (props) => {
+export const BulkActionsToolbar: React.FC<BulkActionsToolbarProps> = (props) => {
     const { selection, toggleState, toggle, actions = [], tooltipDelay, ...rest } = props;
     const toggleTooltip =
         toggleState === 'all' ? toggle.selectAllTooltip : toggle.selectNoneTooltip;
