@@ -4,7 +4,7 @@ import styles from './ButtonGroup.scss';
 import { Context, Size } from '../../constants';
 import { ButtonProps } from '../Buttons';
 
-interface Props {
+export interface Props {
     /** The buttons in this group */
     children: React.ReactElement<ButtonProps> | (React.ReactElement<ButtonProps> | EmptyElement)[];
     /** The context for all buttons in this group (e.g. brand, primary, bad, good etc.) */
