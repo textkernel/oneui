@@ -1,74 +1,81 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text, withKnobs } from '@storybook/addon-knobs';
 import { Alert, Confirm, Button } from '@textkernel/oneui';
 
-storiesOf('Organisms/Dialogs', module)
-    .addDecorator(withKnobs)
-    .add('Alert', () => {
-        const [showAlert, setShowAlert] = React.useState(false);
+export default {
+    title: 'Organisms/Dialogs',
+    component: Alert,
+    subcomponents: { Confirm },
+};
 
-        const handleButtonClick = () => {
-            setShowAlert(true);
-        };
+export const _Alert = (args) => {
+    const [showAlert, setShowAlert] = React.useState(false);
 
-        const handleAccept = () => {
-            setShowAlert(false);
-            console.log('Dialog has been accepted');
-        };
+    const handleButtonClick = () => {
+        setShowAlert(true);
+    };
 
-        return (
-            <>
-                <Button onClick={handleButtonClick}>Click me to see an alert</Button>
-                <Alert
-                    isOpen={showAlert}
-                    acceptButton={{
-                        onClick: handleAccept,
-                        label: text('Accept button text', 'Ok'),
-                    }}
-                    title={text('Title', 'Hi there!')}
-                    contentLabel="An alert dialog"
-                >
-                    {text('Content', 'This is some information for you.')}
-                </Alert>
-            </>
-        );
-    })
-    .add('Confirm', () => {
-        const [showAlert, setShowAlert] = React.useState(false);
+    const handleAccept = () => {
+        setShowAlert(false);
+        console.log('Dialog has been accepted');
+    };
 
-        const handleButtonClick = () => {
-            setShowAlert(true);
-        };
+    return (
+        <>
+            <Button onClick={handleButtonClick}>Click me to see an alert</Button>
+            <Alert
+                isOpen={showAlert}
+                acceptButton={{
+                    onClick: handleAccept,
+                    label: 'Ok',
+                }}
+                {...args}
+            />
+        </>
+    );
+};
+_Alert.args = {
+    contentLabel: 'An alert dialog',
+    title: 'Hi there!',
+    children: 'This is some information for you.',
+};
 
-        const handleAccept = () => {
-            setShowAlert(false);
-            console.log('Dialog has been accepted');
-        };
+export const _Confirm = (args) => {
+    const [showAlert, setShowAlert] = React.useState(false);
 
-        const handleCancel = () => {
-            setShowAlert(false);
-            console.log('Dialog has been cancelled');
-        };
+    const handleButtonClick = () => {
+        setShowAlert(true);
+    };
 
-        return (
-            <>
-                <Button onClick={handleButtonClick}>Click me to see a confirm dialog</Button>
-                <Confirm
-                    isOpen={showAlert}
-                    acceptButton={{
-                        onClick: handleAccept,
-                        label: text('Accept button text', 'Ok'),
-                    }}
-                    cancelButton={{
-                        onClick: handleCancel,
-                        label: text('Cancel button text', 'Cancel'),
-                    }}
-                    title={text('Title', 'Hi there!')}
-                    contentLabel="A confirm dialog"
-                >
-                    {text('Content', 'This is some information for you. Do you want to proceed?')}
-                </Confirm>
-            </>
-        );
-    });
+    const handleAccept = () => {
+        setShowAlert(false);
+        console.log('Dialog has been accepted');
+    };
+
+    const handleCancel = () => {
+        setShowAlert(false);
+        console.log('Dialog has been cancelled');
+    };
+
+    return (
+        <>
+            <Button onClick={handleButtonClick}>Click me to see a confirm dialog</Button>
+            <Confirm
+                isOpen={showAlert}
+                acceptButton={{
+                    onClick: handleAccept,
+                    label: 'Ok',
+                }}
+                cancelButton={{
+                    onClick: handleCancel,
+                    label: 'Cancel',
+                }}
+                {...args}
+            />
+        </>
+    );
+};
+_Confirm.args = {
+    title: 'Hi there!',
+    contentLabel: 'A confirm dialog',
+    children: 'This is some information for you. Do you want to proceed?',
+};
