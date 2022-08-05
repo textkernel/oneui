@@ -6,7 +6,7 @@ import { bem } from '../../utils';
 import { ENTER_KEY } from '../../constants';
 import styles from './Drawer.scss';
 
-interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'title'> {
+export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'title'> {
     /** Drawer title */
     title: ReactNode;
     /** Set open/close status for initial state */
@@ -28,6 +28,9 @@ const TRANSITION_DURATION = {
 
 const { block, elem } = bem('Drawer', styles);
 
+/**
+ *  Drawer can be used like an uncontrolled and controlled component.
+ */
 export const Drawer: React.FC<Props> = (props) => {
     const {
         title,
