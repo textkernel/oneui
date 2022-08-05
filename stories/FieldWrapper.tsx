@@ -1,27 +1,27 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import { ComponentMeta } from '@storybook/react';
 import { FieldWrapper, Text } from '@textkernel/oneui';
 
-storiesOf('Molecules/FieldWrapper', module)
-    .addDecorator(withKnobs)
-    .add('FieldWrapper', () => {
-        return (
-            <FieldWrapper
-                clearLabel={text('Clear button label', 'Clear')}
-                disabled={boolean('Disabled', false)}
-                onClear={() => console.log('onClear has been called')}
-                showClearButton={boolean('Show clear button', true)}
-                isFocused={boolean('Is focused', false)}
-                style={{ width: '600px', minHeight: '40px' }}
-            >
-                <Text style={{ margin: 'var(--spacing-normal)' }} context="muted">
-                    {text('Child 1', 'Some text or elements to be rendered within the wrapper.')}
-                </Text>
-                <input
-                    style={{ margin: 'var(--spacing-normal)' }}
-                    placeholder={text('Child 2', 'Add input field if needed...')}
-                />
-            </FieldWrapper>
-        );
-    });
+export default {
+    title: 'Molecules/FieldWrapper',
+    component: FieldWrapper,
+} as ComponentMeta<typeof FieldWrapper>;
+
+export const _FieldWrapper = (args) => <FieldWrapper {...args} />;
+_FieldWrapper.args = {
+    clearLabel: 'Clear',
+    showClearButton: true,
+    isFocused: false,
+    style: { width: '600px', minHeight: '40px' },
+    children: (
+        <>
+            <Text style={{ margin: 'var(--spacing-normal)' }} context="muted">
+                Some text or elements to be rendered within the wrapper
+            </Text>
+            <input
+                style={{ margin: 'var(--spacing-normal)' }}
+                placeholder="Add input field if needed..."
+            />
+        </>
+    ),
+};

@@ -1,1 +1,1 @@
-export { FieldWrapper } from './FieldWrapper';
+export { FieldWrapper, Props as FieldWrapperProps } from './FieldWrapper';
