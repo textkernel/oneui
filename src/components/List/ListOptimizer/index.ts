@@ -1,1 +1,1 @@
-export { ListOptimizer } from './ListOptimizer';
+export { ListOptimizer, Props as ListOptimizerProps } from './ListOptimizer';

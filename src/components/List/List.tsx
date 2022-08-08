@@ -3,7 +3,7 @@ import { bem, scrollIntoViewIfNeeded } from '../../utils';
 import { LIST_NAVIGATION_DIRECTIONS, ENTER_KEY } from '../../constants';
 import styles from './List.scss';
 
-interface Props extends React.HTMLAttributes<HTMLUListElement> {
+export interface Props extends React.HTMLAttributes<HTMLUListElement> {
     /** List items. They should be ListItem or li.
      * If you want to add an element that is not part of the list, but should be rendered within it
      * (e.g. an image to decorate the list) use `data-list-exception` as a prop to that child
@@ -15,8 +15,6 @@ interface Props extends React.HTMLAttributes<HTMLUListElement> {
     doSelectOnNavigate?: boolean;
     /** manage keyboard navigation externally */
     isControlledNavigation?: boolean;
-    /** Ref to access the ul element */
-    ref?: React.RefObject<HTMLUListElement>;
 }
 
 const { block, elem } = bem('List', styles);
@@ -27,7 +25,7 @@ const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1,
 };
 
-export const List: React.FC<Props> = React.forwardRef((props, ref) => {
+export const List = React.forwardRef<HTMLUListElement, Props>((props, ref) => {
     const { children, isDivided, doSelectOnNavigate, isControlledNavigation, ...rest } = props;
 
     const [selectedIndex, setSelectedIndex] = React.useState<number>(-1);
