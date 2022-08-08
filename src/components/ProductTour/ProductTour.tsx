@@ -6,7 +6,7 @@ import { Checkbox } from '../Checkbox';
 import { Modal, ModalProps } from '../Modal';
 import styles from './ProductTour.scss';
 
-interface Props extends ModalProps {
+export interface Props extends ModalProps {
     /** Should the tour be shown */
     isOpen: boolean;
     /** An array of ReactElement where each element is one slide */
