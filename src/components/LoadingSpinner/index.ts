@@ -1,1 +1,1 @@
-export { LoadingSpinner } from './LoadingSpinner';
+export { LoadingSpinner, Props as LoadingSpinnerProps } from './LoadingSpinner';
