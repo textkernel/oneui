@@ -4,7 +4,7 @@ import styles from './Pagination.scss';
 import { Button } from '../Buttons';
 import { PaginationButton } from './PaginationButton';
 
-interface Props extends Omit<React.HTMLAttributes<HTMLElement>, 'onClick'> {
+export interface Props extends Omit<React.HTMLAttributes<HTMLElement>, 'onClick'> {
     /** How the buttons should be aligned in the pagination container */
     align?: 'left' | 'center' | 'right';
     /** Current page number */

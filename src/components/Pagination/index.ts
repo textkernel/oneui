@@ -1,1 +1,1 @@
-export { Pagination } from './Pagination';
+export { Pagination, Props as PaginationProps } from './Pagination';
