@@ -4,6 +4,14 @@ import { LoadScriptNext } from '@react-google-maps/api';
 import { LoadingSpinner } from '../../LoadingSpinner';
 import { Map } from '../Map/Map';
 
+/**
+ * ## Note about props
+ * `MapWithGoogleLoader` is a wrapper around the `Map` component, and it makes sure the Google API is loaded on the page.
+ *
+ * If you don't use `Map` directly.
+ * `MapWithGoogleLoader` __will pass props__ that are not needed for loading the API __to `Map`__,
+ * so you can provide them all together.
+ */
 export const MapWithGoogleLoader = React.forwardRef((props, ref) => {
     const { apiKey, language, region, additionalGoogleProps, ...rest } = props;
 

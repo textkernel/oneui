@@ -1,97 +1,112 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select, text, boolean, number } from '@storybook/addon-knobs';
-import { MapWithGoogleLoader } from '@textkernel/oneui';
+import { MapWithGoogleLoader, Map } from '@textkernel/oneui';
 import { ensureApiKey } from './utils/ensureApiKey';
 import NL_PATHS from './static/gadm36_NLD_0.json';
 import FR_FRIESLAND from './static/FR_Friesland.json';
 
-storiesOf('Atoms/Map', module)
-    .addDecorator(withKnobs)
-    .add(
-        'Map',
-        () => {
-            const apiKey = ensureApiKey();
+const apiKey = ensureApiKey();
+const defaultMarker = {
+    center: {
+        lat: 52.3922288,
+        lng: 4.9338793,
+    },
+    radius: 30000,
+};
+const addedMarker = {
+    center: {
+        lat: 52.5112671,
+        lng: 7.2535521,
+    },
+    radius: 30000,
+};
+const pointMarker = {
+    center: {
+        lat: 52.5112671,
+        lng: 7.2535521,
+    },
+};
 
-            const defaultMarker = {
-                center: {
-                    lat: 52.3922288,
-                    lng: 4.9338793,
+export default {
+    title: 'Atoms/Map',
+    component: MapWithGoogleLoader,
+    subcomponents: { Map },
+    argTypes: {
+        defaultArea: {
+            options: ['address', 'centre'],
+            mapping: {
+                address: {
+                    address: 'Netherlands',
                 },
-                radius: 30000,
-            };
-            const addedMarker = {
-                center: {
-                    lat: 52.5112671,
-                    lng: 7.2535521,
+                centre: {
+                    center: {
+                        lat: 52.3922288,
+                        lng: 4.9338793,
+                    },
+                    zoom: 7,
                 },
-                radius: 30000,
-            };
-            const pointMarker = {
-                center: {
-                    lat: 52.5112671,
-                    lng: 7.2535521,
+            },
+            control: {
+                type: 'inline-radio',
+                labels: {
+                    address: 'Address',
+                    centre: 'Centre and zoom',
                 },
-            };
-            const markers = {
+            },
+        },
+        defaultHighlight: {
+            options: ['NL', 'none'],
+            mapping: { NL: NL_PATHS, none: null },
+            control: {
+                type: 'inline-radio',
+                labels: {
+                    NL: 'Netherlands',
+                    none: 'None',
+                },
+            },
+        },
+        markers: {
+            options: ['none', 'marker1', 'marker2', 'multiple', 'point', 'area', 'mixed'],
+            mapping: {
                 marker1: [defaultMarker],
                 marker2: [addedMarker],
                 multiple: [defaultMarker, addedMarker],
                 none: [],
-                'pointer marker': [pointMarker],
+                point: [pointMarker],
                 area: [FR_FRIESLAND],
-                'markers and area': [defaultMarker, addedMarker, FR_FRIESLAND],
-            };
-
-            const markerToShow = select('Markers', Object.keys(markers), 'none');
-
-            return (
-                <div
-                    style={{
-                        width: text('Container width', '800px'),
-                        height: text('Container height', '400px'),
-                    }}
-                >
-                    <MapWithGoogleLoader
-                        apiKey={apiKey}
-                        markers={markers[markerToShow]}
-                        defaultArea={
-                            boolean('Use address to set default area', false)
-                                ? {
-                                      address: text(
-                                          'Address to fit map to when no markers are present',
-                                          'Netherlands'
-                                      ),
-                                  }
-                                : {
-                                      center: {
-                                          lat: number('Default center latitude', 52.3922288),
-                                          lng: number('Default center longitude', 4.9338793),
-                                      },
-                                      zoom: number('Default zoom', 7),
-                                  }
-                        }
-                        defaultHighlight={
-                            boolean('Add default highlight area', true) ? NL_PATHS : null
-                        }
-                    />
-                </div>
-            );
-        },
-        {
-            info: {
-                text: `
-        ## Displaying Map in storybook
-
-        To make this component work in none-dev mode, you need to provide your own Google API key. At the moment this is only possible via accessing the source code. Sorry for the inconvenience.
-
-        ## Note about props
-
-        'MapWithGoogleLoader' is a wrapper around the 'Map' component, and it makes sure the Google API is loaded on the page. 
-        
-        You don't need to use 'Map' directly.
-        'MapWithGoogleLoader' __will pass props__ that are not needed for loading the API __to 'Map'__, so you can provide them all together. For list of props see below
-        `,
+                mixed: [defaultMarker, addedMarker, FR_FRIESLAND],
             },
-        }
-    );
+            control: {
+                type: 'select',
+                labels: {
+                    marker1: 'Circular marker 1',
+                    marker2: 'Circular marker 2',
+                    multiple: '2 circular markers',
+                    none: 'No markers',
+                    point: 'Point marker',
+                    area: 'Friesland - region marker',
+                    mixed: 'Region and circular markers',
+                },
+            },
+        },
+    },
+};
+
+export const _Map = ({ width, height, ...args }) => (
+    <div
+        style={{
+            width,
+            height,
+        }}
+    >
+        <MapWithGoogleLoader {...args} />
+    </div>
+);
+
+_Map.args = {
+    apiKey,
+    markers: 'none',
+    defaultArea: 'address',
+    defaultHighlight: 'NL',
+    width: '800px',
+    height: '400px',
+};
