@@ -3,7 +3,7 @@ import { bem } from '../../utils';
 import styles from './Heading.scss';
 import { HEADING_SIZES, Context } from '../../constants';
 
-interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
     /** Heading text */
     children: NotEmptyReactNode;
     /** Heading size (h1, h2, ...) */
@@ -18,7 +18,7 @@ interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
 
 const { block } = bem('Heading', styles);
 
-export const Heading: React.FC<Props> = React.forwardRef((props, ref) => {
+export const Heading = React.forwardRef<HTMLElement, Props>((props, ref) => {
     const { align, children, context, level = 'h1', ...rest } = props;
     const HtmlNodeType = level;
 
