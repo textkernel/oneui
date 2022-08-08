@@ -3,7 +3,7 @@ import { bem } from '../../utils';
 import styles from './ProgressBar.scss';
 import { Context } from '../../constants';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Percentage of progress bar to be filled */
     percentage: number;
     /** Show progress activity with animation */
