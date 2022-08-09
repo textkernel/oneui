@@ -1,100 +1,87 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { TabItem, TabsBar, Tooltip } from '@textkernel/oneui';
-import { StoreInjector } from '../src/packages/storybook/withStore';
 
-storiesOf('Atoms/Tabs', module)
-    .addDecorator(withKnobs)
-    .addParameters(
-        StoreInjector.withStore({
-            activeId: 1,
-        })
-    )
-    .add('Props in TabsBar', () => {
-        const tabs = [1, 2, 3];
-        const handleSelect = (tabId) => {
-            // IE11 errors on string concatenation inside console.log. So let's do it outside of it.
-            const msg = `TabItem with tabId: '${tabId}' was clicked`;
-            console.log(msg);
-        };
+export default {
+    title: 'Atoms/Tabs',
+    component: TabItem,
+    subcomponents: { TabsBar },
+};
 
-        return (
-            <TabsBar
-                activeTabId={select(
-                    'Active tab',
-                    tabs.map((tab) => tab),
-                    tabs[0]
-                )}
-                onSelect={handleSelect}
-                isBlock={boolean('Equally spaced items', false)}
-            >
-                {tabs.map((tab) => (
-                    <TabItem
-                        tabId={tab}
-                        key={tab}
-                        disabled={boolean(`Tab ${tab} is disabled`, false)}
-                    >
-                        {text(`Tab${tab} label`, `${tab}. tab`)}
-                    </TabItem>
-                ))}
-            </TabsBar>
-        );
-    })
-    .add('Props in items', () => {
-        const tabs = [1, 2, 3];
-        const initActive = [true, false, false];
-        const handleSelect = (tabId) => {
-            // IE11 errors on string concatenation inside console.log. So let's do it outside of it.
-            const msg = `TabItem with tabId: '${tabId}' was clicked`;
-            console.log(msg);
-        };
+export const _TabBar = (args) => {
+    const tabs = [1, 2, 3];
 
-        return (
-            <TabsBar isBlock={boolean('Equally spaced items', false)}>
+    return (
+        <TabsBar {...args}>
+            {tabs.map((tab) => (
+                <TabItem tabId={tab} key={tab}>
+                    {`${tab}. tab`}
+                </TabItem>
+            ))}
+        </TabsBar>
+    );
+};
+_TabBar.storyName = 'Props in TabsBar';
+_TabBar.argTypes = {
+    activeTabId: {
+        options: [1, 2, 3],
+    },
+};
+_TabBar.args = {
+    activeTabId: 1,
+    isBlock: false,
+};
+
+export const _TabItem = (args) => {
+    const tabs = [1, 2, 3];
+    const initActive = [true, false, false];
+
+    return (
+        <TabsBar>
+            <>
+                <TabItem key="my-tab" {...args} />
                 {tabs.map((tab, i) => (
-                    <TabItem
-                        tabId={tab}
-                        key={tab}
-                        onSelect={handleSelect}
-                        isActive={boolean(`Tab ${tab} is active`, initActive[i])}
-                        disabled={boolean(`Tab ${tab} is disabled`, false)}
-                    >
-                        {text(`Tab${tab} label`, `${tab}. tab`)}
+                    <TabItem tabId={tab} key={tab} isActive={initActive[i]}>
+                        {`${tab}. tab`}
                     </TabItem>
                 ))}
-            </TabsBar>
-        );
-    })
-    .add('Example implementation', () => {
-        type Tabs = 't1' | 't2' | 't3';
-        const [activeId, setActiveId] = React.useState<Tabs>('t1');
+            </>
+        </TabsBar>
+    );
+};
+_TabItem.storyName = 'Props in items';
+_TabItem.args = {
+    tabId: 'my-tab',
+    isActive: false,
+    children: 'My tab',
+};
 
-        const handleSelect = (tabId: Tabs) => {
-            // IE11 errors on string concatenation inside console.log. So let's do it outside of it.
-            const msg = `TabItem with tabId: '${tabId}' was clicked`;
-            console.log(msg);
-            setActiveId(tabId);
-        };
+export const FullImplement = (args) => {
+    type Tabs = 't1' | 't2' | 't3';
+    const [activeId, setActiveId] = React.useState<Tabs>('t1');
 
-        return (
-            <TabsBar<Tabs>
-                activeTabId={activeId}
-                onSelect={handleSelect}
-                isBlock={boolean('Equally spaced items', false)}
-            >
-                <TabItem tabId="t1" key={1} disabled={boolean('Tab 1 is disabled', false)}>
-                    {text('Tab 1 label', 'Simple tab')}
-                </TabItem>
-                <TabItem tabId="t2" key={2} disabled={boolean('Tab 2 is disabled', false)}>
-                    {text('Tab 2 label', 'Tab with styled count')}
-                    <span style={{ color: 'grey', fontWeight: 400 }}> (2)</span>
-                </TabItem>
-                <TabItem tabId="t3" key={3} disabled={boolean('Tab 3 is disabled', false)}>
-                    <Tooltip content="some additional information" placement="top">
-                        <div>{text('Tab 3 label', 'Tab with Tooltip')}</div>
-                    </Tooltip>
-                </TabItem>
-            </TabsBar>
-        );
-    });
+    const handleSelect = (tabId: Tabs) => {
+        console.log(`TabItem with tabId: '${tabId}' was clicked`);
+        setActiveId(tabId);
+    };
+
+    return (
+        <TabsBar<Tabs> activeTabId={activeId} onSelect={handleSelect} isBlock={args.isBlock}>
+            <TabItem key={1} {...args} />
+            <TabItem tabId="t2" key={2}>
+                Tab with styled count
+                <span style={{ color: 'grey', fontWeight: 400 }}> (2)</span>
+            </TabItem>
+            <TabItem tabId="t3" key={3}>
+                <Tooltip content="some additional information" placement="top">
+                    <div>Tab with Tooltip</div>
+                </Tooltip>
+            </TabItem>
+        </TabsBar>
+    );
+};
+FullImplement.storyName = 'Example implementation';
+FullImplement.args = {
+    isBlock: false,
+    tabId: 't1',
+    children: 'Simple tab',
+};
