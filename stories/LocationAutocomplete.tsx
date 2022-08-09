@@ -26,5 +26,5 @@ _LocationAutocomplete.args = {
     noSuggestionsPlaceholder: 'No suggestions found',
     clearLabel: 'Clear',
     country: 'UK',
-    onError: onError,
+    onError,
 };

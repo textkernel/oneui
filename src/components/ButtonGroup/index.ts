@@ -1,1 +1,1 @@
-export { ButtonGroup } from './ButtonGroup';
+export { ButtonGroup, Props as ButtonGroupProps } from './ButtonGroup';

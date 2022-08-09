@@ -17,12 +17,12 @@ export const Navigation = (args) => (
             <NavItem {...args}>
                 <a href="/">Active item</a>
             </NavItem>
-            <NavItem useActiveClass={true} pullRight={true}>
+            <NavItem useActiveClass pullRight>
                 <NavLink exact to="/">
                     Item on the right
                 </NavLink>
             </NavItem>
-            <NavItem useActiveClass={true}>
+            <NavItem useActiveClass>
                 <NavLink to="/">Active NavLink</NavLink>
             </NavItem>
         </NavBar>

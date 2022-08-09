@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { boolean, text, withKnobs } from '@storybook/addon-knobs'; // eslint-disable-line import/no-extraneous-dependencies
 import { PillButton, PillDropdown, Pill } from '@textkernel/oneui';
 
 const DummyComponent = (props) => (
     <>
-        <p>{text('dropdown text', 'This is some content for the pil')}l</p>
+        <p>This is some content for the pill</p>
         <button onClick={props.close}>Close me</button>
     </>
 );
@@ -32,7 +31,7 @@ export const _PillButton = (args) => (
     <div style={{ display: 'flex' }}>
         <PillButton {...args} />
         &nbsp;&nbsp;
-        <PillButton name={'Pill 2'} content={''} />
+        <PillButton name="Pill 2" content="" />
     </div>
 );
 _PillButton.args = {

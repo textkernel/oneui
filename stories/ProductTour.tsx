@@ -1,3 +1,4 @@
+/* eslint-disable  @typescript-eslint/ban-ts-ignore */
 import * as React from 'react';
 import { ProductTour } from '@textkernel/oneui';
 import { slides } from '../src/components/ProductTour/__mocks__/slides';
