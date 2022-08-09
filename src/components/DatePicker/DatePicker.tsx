@@ -6,6 +6,14 @@ import './DatePicker.scss';
 
 const DEFAULT_YEAR_RANGE = 100;
 
+/**
+ * ## Usage information
+ * This component is a thin wrapper around [react-datepicker](https://github.com/Hacker0x01/react-datepicker/),
+ * only setting the header element and add css.
+ *
+ * You can pass [props](https://github.com/Hacker0x01/react-datepicker/blob/master/docs/datepicker.md) according to their definition.
+ * See also [examples](https://reactdatepicker.com/) on their website.
+ */
 export const DatePicker: React.FC<ReactDatePickerProps> = (props) => {
     const { children, minDate, maxDate, locale, ...rest } = props;
 
