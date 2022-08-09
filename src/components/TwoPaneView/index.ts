@@ -1,3 +1,3 @@
-export { TwoPaneView } from './TwoPaneView';
-export { RightPane } from './RightPane';
-export { LeftPane } from './LeftPane';
+export { TwoPaneView, Props as TwoPaneViewProps } from './TwoPaneView';
+export * from './RightPane';
+export * from './LeftPane';
