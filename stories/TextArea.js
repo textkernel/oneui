@@ -1,36 +1,30 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { TextArea } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '@textkernel/oneui/constants';
 
-storiesOf('Atoms/TextArea', module)
-    .addDecorator(withKnobs)
-    .add('Default behavior', () => (
-        <TextArea
-            context={select('Context', CONTEXTS, CONTEXTS[1])}
-            defaultValue="This is a default value"
-            disabled={boolean('Disabled', false)}
-            isBlock={boolean('isBlock', false)}
-            onChange={(e) => {
-                const { value } = e.target;
-                console.log(value);
-            }}
-            placeholder={text('Placeholder', 'Some text goes here...')}
-            size={select('Size', SIZES, SIZES[1])}
-        />
-    ))
-    .add('Controlled component', () => (
-        <TextArea
-            context={select('Context', CONTEXTS, CONTEXTS[1])}
-            disabled={boolean('Disabled', false)}
-            isBlock={boolean('isBlock', false)}
-            onChange={(e) => {
-                const { value } = e.target;
-                console.log(value);
-            }}
-            placeholder={text('Placeholder', 'While typing, check your console log...')}
-            size={select('Size', SIZES, SIZES[1])}
-            value={text('Textarea value', '')}
-        />
-    ));
+export default {
+    title: 'Atoms/TextArea',
+    component: TextArea,
+};
+
+export const DefaultBehavior = (args) => <TextArea {...args} />;
+DefaultBehavior.storyName = 'Default behavior';
+DefaultBehavior.args = {
+    context: CONTEXTS[1],
+    defaultValue: 'This is a default value',
+    placeholder: 'Some text goes here...',
+    size: SIZES[1],
+};
+
+export const ControlledComponent = (args) => <TextArea {...args} />;
+ControlledComponent.storyName = 'Controlled component';
+ControlledComponent.args = {
+    context: CONTEXTS[1],
+    onChange: (e) => {
+        const { value } = e.target;
+        console.log(value);
+    },
+    placeholder: 'While typing, check your console log...',
+    size: SIZES[1],
+    value: '',
+};
