@@ -10,13 +10,11 @@ export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>,
     children?: string;
     /** Should be Toggle disabled or not */
     disabled?: boolean;
-    /** Ref to access the toggle input element */
-    ref?: React.RefObject<HTMLInputElement>;
 }
 
 const { block, elem } = bem('Toggle', styles);
 
-export const Toggle: React.FC<Props> = React.forwardRef((props, ref) => {
+export const Toggle = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
     const { children, disabled, id, ...rest } = props;
     return (
         <label {...block(props)} htmlFor={id}>
