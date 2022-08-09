@@ -1,24 +1,29 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text, withKnobs } from '@storybook/addon-knobs';
 import { PageWidthRestrictor, BlockWidthRestrictor } from '@textkernel/oneui';
 
-storiesOf('Atoms/WidthRestrictor', module)
-    .addDecorator(withKnobs)
-    .add('PageWidthRestrictor', () => (
-        <div style={{ backgroundColor: 'teal' }}>
-            <PageWidthRestrictor style={{ backgroundColor: 'darkturquoise' }}>
-                {text('Content', 'This is a placeholder for children')}
-            </PageWidthRestrictor>
-        </div>
-    ))
-    .add('BlockWidthRestrictor', () => (
-        <div style={{ backgroundColor: 'teal' }}>
-            <BlockWidthRestrictor
-                As={text('Tag for component', 'div')}
-                style={{ backgroundColor: 'darkturquoise' }}
-            >
-                {text('Content', 'This is a placeholder for children')}
-            </BlockWidthRestrictor>
-        </div>
-    ));
+export default {
+    title: 'Atoms/WidthRestrictor',
+    component: PageWidthRestrictor,
+    subcomponents: { BlockWidthRestrictor },
+};
+
+export const _PageWidthRestrictor = (args) => (
+    <div style={{ backgroundColor: 'teal' }}>
+        <PageWidthRestrictor {...args} />
+    </div>
+);
+_PageWidthRestrictor.args = {
+    style: { backgroundColor: 'darkturquoise' },
+    children: 'This is a placeholder for children',
+};
+
+export const _BlockWidthRestrictor = (args) => (
+    <div style={{ backgroundColor: 'teal' }}>
+        <BlockWidthRestrictor {...args} />
+    </div>
+);
+_BlockWidthRestrictor.args = {
+    As: 'div',
+    style: { backgroundColor: 'darkturquoise' },
+    children: 'This is a placeholder for children',
+};

@@ -1,1 +1,1 @@
-export { PageWidthRestrictor } from './PageWidthRestrictor';
+export { PageWidthRestrictor, Props as PageWidthRestrictorProps } from './PageWidthRestrictor';

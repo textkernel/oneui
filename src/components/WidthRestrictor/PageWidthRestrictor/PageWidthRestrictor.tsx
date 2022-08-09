@@ -2,7 +2,7 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import styles from './PageWidthRestrictor.scss';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node(s) to be rendered inside the container */
     children: NotEmptyReactNode;
 }
