@@ -9,6 +9,12 @@ import '../Slider.scss';
 // * version 9.3.1 is not JSX/TSX compatible
 //   see: https://github.com/react-component/slider/issues/656
 // * using TS with version 9.2.4 throws at build time, possibly because of old babel dependencies in rc-slider. This deps are upgraded in 9.3.1
+
+/**
+ * ## Usage information
+ * This component is a wrapper around [rc-slider](https://github.com/react-component/slider).
+ * Full list of props available to pass you can find [here](https://github.com/react-component/slider#api).
+ */
 export const Slider = (props) => <RCSlider {...props} />;
 
 Slider.displayName = 'Slider';
