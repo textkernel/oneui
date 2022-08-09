@@ -1,69 +1,67 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, number, boolean } from '@storybook/addon-knobs';
 import { WeightedResultBar, Button } from '@textkernel/oneui';
 
-storiesOf('Molecules/WeightedResultBar', module)
-    .addDecorator(withKnobs)
-    .add('WeightedResultBar', () => {
-        const loading = boolean('Loading', false);
-        return (
-            <div style={{ width: 500 }}>
-                <WeightedResultBar
-                    percentage={number('Percentage', 100)}
-                    count={number('Count', 123)}
-                    context="primary"
-                    isLoading={loading}
-                >
-                    Repair and Maintenance Technician
-                </WeightedResultBar>
-                <WeightedResultBar percentage={76} count={94} isLoading={loading}>
-                    Sales Manager
-                </WeightedResultBar>
-                <WeightedResultBar percentage={64} count={79} isLoading={loading}>
-                    Software Engineer
-                </WeightedResultBar>
-                <WeightedResultBar percentage={64} count={79} isLoading={loading}>
-                    Operations Manager
-                </WeightedResultBar>
-                <WeightedResultBar percentage={58} count={72} isLoading={loading}>
-                    Business Development Manager
-                </WeightedResultBar>
-            </div>
-        );
-    })
-    .add('With a custom count', () => {
-        const ClickableCount = ({ count }) => (
-            <Button
-                size="small"
-                context="brand"
-                onClick={() => console.log(`WeightedResultBar count: ${count}`)}
-            >
-                {count}
-            </Button>
-        );
+export default {
+    title: 'Molecules/WeightedResultBar',
+    component: WeightedResultBar,
+};
 
-        return (
-            <div style={{ width: 500 }}>
-                <WeightedResultBar
-                    percentage={number('Percentage', 100)}
-                    count={<ClickableCount count={number('Percentage', 100)} />}
-                    context="primary"
-                >
-                    Repair and Maintenance Technician
-                </WeightedResultBar>
-                <WeightedResultBar percentage={76} count={<ClickableCount count={94} />}>
-                    Sales Manager
-                </WeightedResultBar>
-                <WeightedResultBar percentage={64} count={<ClickableCount count={79} />}>
-                    Software Engineer
-                </WeightedResultBar>
-                <WeightedResultBar percentage={64} count={<ClickableCount count={79} />}>
-                    Operations Manager
-                </WeightedResultBar>
-                <WeightedResultBar percentage={58} count={<ClickableCount count={72} />}>
-                    Business Development Manager
-                </WeightedResultBar>
-            </div>
-        );
-    });
+export const _WeightedResultBar = (args) => (
+    <div style={{ width: 500 }}>
+        <WeightedResultBar {...args} />
+        <WeightedResultBar percentage={76} count={94} isLoading={args.isLoading}>
+            Sales Manager
+        </WeightedResultBar>
+        <WeightedResultBar percentage={64} count={79} isLoading={args.isLoading}>
+            Software Engineer
+        </WeightedResultBar>
+        <WeightedResultBar percentage={64} count={79} isLoading={args.isLoading}>
+            Operations Manager
+        </WeightedResultBar>
+        <WeightedResultBar percentage={58} count={72} isLoading={args.isLoading}>
+            Business Development Manager
+        </WeightedResultBar>
+    </div>
+);
+_WeightedResultBar.args = {
+    percentage: 100,
+    count: 123,
+    context: 'primary',
+    children: 'Repair and Maintenance Technician',
+};
+
+const ClickableCount = ({ count }) => (
+    <Button
+        size="small"
+        context="brand"
+        onClick={() => console.log(`WeightedResultBar count: ${count}`)}
+    >
+        {count}
+    </Button>
+);
+export const WithACustomCount = (args) => {
+    return (
+        <div style={{ width: 500 }}>
+            <WeightedResultBar {...args} />
+            <WeightedResultBar percentage={76} count={<ClickableCount count={94} />}>
+                Sales Manager
+            </WeightedResultBar>
+            <WeightedResultBar percentage={64} count={<ClickableCount count={79} />}>
+                Software Engineer
+            </WeightedResultBar>
+            <WeightedResultBar percentage={64} count={<ClickableCount count={79} />}>
+                Operations Manager
+            </WeightedResultBar>
+            <WeightedResultBar percentage={58} count={<ClickableCount count={72} />}>
+                Business Development Manager
+            </WeightedResultBar>
+        </div>
+    );
+};
+WithACustomCount.storyName = 'With a custom count';
+WithACustomCount.args = {
+    percentage: 100,
+    count: <ClickableCount count={100} />,
+    context: 'primary',
+    children: 'Repair and Maintenance Technician',
+};

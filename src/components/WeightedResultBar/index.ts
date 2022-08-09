@@ -1,1 +1,1 @@
-export { WeightedResultBar } from './WeightedResultBar';
+export { WeightedResultBar, Props as WeightedResultBarProps } from './WeightedResultBar';
