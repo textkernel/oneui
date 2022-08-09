@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
 import { BooleanQueryTokenizer, TextArea } from '@textkernel/oneui';
 
 const initialValue =
@@ -15,7 +14,11 @@ const columnStyle = {
 
 const booleanQueryTokenizer = new BooleanQueryTokenizer();
 
-storiesOf('packages/BooleanQueryTokenizer', module).add('BooleanQueryTokenizer', () => {
+export default {
+    title: 'packages/BooleanQueryTokenizer',
+};
+
+export const _BooleanQueryTokenizer = () => {
     const [tokens, setTokens] = React.useState<unknown[]>(
         booleanQueryTokenizer.tokenize(initialValue)
     );
@@ -55,4 +58,7 @@ storiesOf('packages/BooleanQueryTokenizer', module).add('BooleanQueryTokenizer',
             </div>
         </div>
     );
-});
+};
+_BooleanQueryTokenizer.parameters = {
+    controls: { disable: true },
+};
