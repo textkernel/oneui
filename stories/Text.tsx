@@ -1,25 +1,20 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text, select, withKnobs } from '@storybook/addon-knobs';
 import { Text, MarkedText } from '@textkernel/oneui';
-import { CONTEXTS, SIZES } from '../src/constants';
 
-storiesOf('Atoms/Text', module)
-    .addDecorator(withKnobs)
-    .add('Text', () => (
-        <Text
-            context={select('Context', ['default', 'muted', ...CONTEXTS], 'default')}
-            size={select('Size', SIZES, 'normal')}
-        >
-            {text('Content', 'This is some text content')}
-        </Text>
-    ))
-    .add('Marked text', () => (
-        <MarkedText
-            context={select('Context', ['default', 'muted', ...CONTEXTS], 'default')}
-            size={select('Size', SIZES, 'normal')}
-            marker={text('Marker', 'so')}
-        >
-            {text('Content', 'This is some text content')}
-        </MarkedText>
-    ));
+export default {
+    title: 'Atoms/Text',
+    component: Text,
+    subcomponents: { MarkedText },
+};
+
+export const _Text = (args) => <Text {...args} />;
+_Text.args = {
+    children: 'This is some text content',
+};
+
+export const _MarkedText = (args) => <MarkedText {...args} />;
+_MarkedText.storyName = 'Marked text';
+_MarkedText.args = {
+    marker: 'so',
+    children: 'This is some text content',
+};
