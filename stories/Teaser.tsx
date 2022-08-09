@@ -1,59 +1,54 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
+import { ComponentStory } from '@storybook/react';
 import { Teaser } from '@textkernel/oneui';
 
-storiesOf('Molecules/Teaser', module)
-    .addDecorator(withKnobs)
-    .add('With all fields', () => {
-        const title = text('Title', 'My first job');
-        return (
-            <Teaser
-                title={<span title={title}>{title}</span>}
-                subTitle={text('SubTitle', 'Awsome inc.')}
-                location={text('Location', 'Melbourne')}
-                details={text('Details', 'It was posted here')}
-                statuses={[
-                    object('Viewed status', {
-                        label: 'Viewed',
-                        tooltip: 'Viewed one day ago',
-                    }),
-                    object('Imported status', {
-                        label: 'Imported',
-                        tooltip: 'Imported two days ago',
-                    }),
-                ]}
-                disabled={boolean('Disabled', false)}
-            />
-        );
-    })
-    .add('With one status', () => {
-        const title = text('Title', 'My first job');
-        return (
-            <Teaser
-                title={<span title={title}>{title}</span>}
-                subTitle={text('SubTitle', 'Awsome inc.')}
-                location={text('Location', 'Melbourne')}
-                details={text('Details', 'It was posted here')}
-                statuses={[
-                    object('Viewed status', {
-                        label: 'Viewed',
-                        tooltip: 'Viewed one day ago',
-                    }),
-                ]}
-                disabled={boolean('Disabled', false)}
-            />
-        );
-    })
-    .add('Without statuses', () => {
-        const title = text('Title', 'My first job');
-        return (
-            <Teaser
-                title={<span title={title}>{title}</span>}
-                subTitle={text('SubTitle', 'Awsome inc.')}
-                location={text('Location', 'Melbourne')}
-                details={text('Details', 'It was posted here')}
-                disabled={boolean('Disabled', false)}
-            />
-        );
-    });
+export default {
+    title: 'Molecules/Teaser',
+    component: Teaser,
+};
+
+const Template: ComponentStory<typeof Teaser> = (args) => <Teaser {...args} />;
+const titleText = 'My first job';
+
+export const WithAllFields = Template.bind({});
+WithAllFields.storyName = 'With all fields';
+WithAllFields.args = {
+    title: <span title={titleText}>{titleText}</span>,
+    subTitle: 'Awsome inc.',
+    location: 'Melbourne',
+    details: 'It was posted here',
+    statuses: [
+        {
+            label: 'Viewed',
+            tooltip: 'Viewed one day ago',
+        },
+        {
+            label: 'Imported',
+            tooltip: 'Imported two days ago',
+        },
+    ],
+};
+
+export const WithOneStatus = Template.bind({});
+WithOneStatus.storyName = 'With one status';
+WithOneStatus.args = {
+    title: <span title={titleText}>{titleText}</span>,
+    subTitle: 'Awsome inc.',
+    location: 'Melbourne',
+    details: 'It was posted here',
+    statuses: [
+        {
+            label: 'Viewed',
+            tooltip: 'Viewed one day ago',
+        },
+    ],
+};
+
+export const WithoutStatuses = Template.bind({});
+WithoutStatuses.storyName = 'Without statuses';
+WithoutStatuses.args = {
+    title: <span title={titleText}>{titleText}</span>,
+    subTitle: 'Awsome inc.',
+    location: 'Melbourne',
+    details: 'It was posted here',
+};

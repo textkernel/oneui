@@ -1,1 +1,1 @@
-export { Teaser } from './Teaser';
+export { Teaser, Props as TeaserProps } from './Teaser';
