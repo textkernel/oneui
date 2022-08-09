@@ -6,6 +6,14 @@ import 'tippy.js/animations/shift-toward.css?external';
 
 export type TooltipProps = TippyProps;
 
+/**
+ * ## Usage information
+ * This component is a wrapper around [tippy.js/react](https://github.com/atomiks/tippy.js-react#-usage).
+ *
+ * * You can pass other props according to their definition, apart from the one listed below.
+ * * Full list of props available can be found [here](https://atomiks.github.io/tippyjs/all-props/).
+ * * When using a [React component as children](https://github.com/atomiks/tippyjs-react#component-children), make sure it supports forward ref
+ */
 export const Tooltip: React.FC<TooltipProps> = (props) => {
     const { content, children, disabled, ...rest } = props;
     let isDisabled = disabled;
