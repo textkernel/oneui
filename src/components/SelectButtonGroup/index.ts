@@ -1,2 +1,2 @@
-export { SelectButton } from './SelectButton';
-export { SelectButtonGroup } from './SelectButtonGroup';
+export { SelectButton, SelectButtonProps } from './SelectButton';
+export { SelectButtonGroup, SelectButtonGroupProps } from './SelectButtonGroup';
