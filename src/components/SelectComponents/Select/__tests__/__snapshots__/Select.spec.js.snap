@@ -204,12 +204,14 @@ exports[`Select rendering should initially render correctly 1`] = `
                 isInline={true}
                 onClick={[Function]}
                 size="normal"
+                title=""
                 type="button"
               >
                 <button
                   className="Button Button--isInline Button--context_link FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
                   disabled={false}
                   onClick={[Function]}
+                  title=""
                   type="button"
                 />
               </Button>

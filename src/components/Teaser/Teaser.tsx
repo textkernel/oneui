@@ -30,19 +30,29 @@ export const Teaser: React.FC<Props> = (props) => {
     const { title, subTitle, location, details, statuses, disabled, ...rest } = props;
 
     const subTitleElement = (
-        <Text inline context={disabled ? 'muted' : 'accent'} {...elem('subTitle', props)}>
+        <Text
+            inline
+            title={subTitle}
+            context={disabled ? 'muted' : 'accent'}
+            {...elem('subTitle', props)}
+        >
             {subTitle}
         </Text>
     );
     const detailsElement = (
-        <Text inline context="muted" {...elem('details', props)}>
+        <Text inline title={details} context="muted" {...elem('details', props)}>
             {details}
         </Text>
     );
     return (
         <div {...rest} {...block(props)}>
             <div {...elem('line', props)}>
-                <Text inline context={disabled ? 'muted' : 'brand'} {...elem('title', props)}>
+                <Text
+                    inline
+                    context={disabled ? 'muted' : 'brand'}
+                    {...elem('title', props)}
+                    title={title}
+                >
                     {title}
                 </Text>
                 {location && (

@@ -55,6 +55,7 @@ export const FieldWrapper: React.FC<Props> = React.forwardRef((props, ref) => {
                     isInline
                     context="link"
                     onClick={handleClear}
+                    title={clearLabel}
                     {...elem('clearButton', { ...props, rightIndent: showArrow })}
                 >
                     {clearLabel}
