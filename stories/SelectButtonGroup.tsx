@@ -1,8 +1,5 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text, boolean, select, withKnobs } from '@storybook/addon-knobs';
 import { SelectButtonGroup, SelectButton } from '@textkernel/oneui';
-import { CONTEXTS, SIZES } from '../src/constants';
 
 export default {
     title: 'Atoms/SelectButtonGroup',
