@@ -1,1 +1,1 @@
-export { NumericStepper } from './NumericStepper';
+export { NumericStepper, Props as NumericStepperProps } from './NumericStepper';
