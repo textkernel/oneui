@@ -31,7 +31,11 @@ export const SelectedOption: React.FC<Props> = React.forwardRef((props, ref) => 
         if (React.isValidElement(children)) {
             return children;
         }
-        return <span {...elem('label')}>{children}</span>;
+        return (
+            <span title={children} {...elem('label')}>
+                {children}
+            </span>
+        );
     };
 
     return (

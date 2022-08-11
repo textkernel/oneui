@@ -199,6 +199,7 @@ const LocationSelector: React.FC<Props> = (props) => {
         <div {...rest} {...block(props)}>
             <FieldWrapper
                 {...elem('mainTextButtonWrapper', props)}
+                title={selectionPlaceholder || inputPlaceholder}
                 isFocused={isWrapperFocused}
                 showClearButton={hasLocationsSelected}
                 clearLabel={clearLabel}

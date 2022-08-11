@@ -50,6 +50,7 @@ exports[`<SelectedOption> should render default props correctly with string as c
     </button>
     <span
       className="SelectedOption__label"
+      title="My option"
     >
       My option
     </span>

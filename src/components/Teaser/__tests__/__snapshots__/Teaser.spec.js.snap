@@ -19,9 +19,11 @@ exports[`Teaser should render correctly in disabled mode 1`] = `
         context="muted"
         inline={true}
         size="normal"
+        title="A job title"
       >
         <span
           className="Text--context_muted Teaser__title"
+          title="A job title"
         >
           A job title
         </span>
@@ -47,9 +49,11 @@ exports[`Teaser should render correctly in disabled mode 1`] = `
         context="muted"
         inline={true}
         size="normal"
+        title="Organization"
       >
         <span
           className="Text--context_muted Teaser__subTitle"
+          title="Organization"
         >
           Organization
         </span>
@@ -63,9 +67,11 @@ exports[`Teaser should render correctly in disabled mode 1`] = `
         context="muted"
         inline={true}
         size="normal"
+        title="details about this job"
       >
         <span
           className="Text--context_muted Teaser__details"
+          title="details about this job"
         >
           details about this job
         </span>
@@ -94,9 +100,11 @@ exports[`Teaser should render correctly with just a title 1`] = `
         context="brand"
         inline={true}
         size="normal"
+        title="some title"
       >
         <span
           className="Text--context_brand Teaser__title"
+          title="some title"
         >
           some title
         </span>
@@ -143,9 +151,11 @@ exports[`Teaser should render with all props defined 1`] = `
         context="brand"
         inline={true}
         size="normal"
+        title="A job title"
       >
         <span
           className="Text--context_brand Teaser__title"
+          title="A job title"
         >
           A job title
         </span>
@@ -171,9 +181,11 @@ exports[`Teaser should render with all props defined 1`] = `
         context="accent"
         inline={true}
         size="normal"
+        title="Organization"
       >
         <span
           className="Text--context_accent Teaser__subTitle"
+          title="Organization"
         >
           Organization
         </span>
@@ -187,9 +199,11 @@ exports[`Teaser should render with all props defined 1`] = `
         context="muted"
         inline={true}
         size="normal"
+        title="details about this job"
       >
         <span
           className="Text--context_muted Teaser__details"
+          title="details about this job"
         >
           details about this job
         </span>

@@ -19,6 +19,7 @@ exports[`Drawer should render correctly 1`] = `
           >
             <h4
               class="Drawer__headTitle"
+              title="some title"
             >
               some title
             </h4>
@@ -80,6 +81,7 @@ exports[`Drawer should render correctly 1`] = `
         >
           <h4
             className="Drawer__headTitle"
+            title="some title"
           >
             some title
           </h4>
