@@ -1,13 +1,6 @@
 import * as React from 'react';
 import { Input } from '@textkernel/oneui';
 
-const validationContextOptions = {
-    None: undefined,
-    Good: 'good',
-    Bad: 'bad',
-    Warning: 'warning',
-} as const;
-
 export default {
     title: 'Atoms/Input',
     component: Input,
