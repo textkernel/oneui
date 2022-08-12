@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text, withKnobs } from '@storybook/addon-knobs';
 import { LabelPicker, Button, LabelPickerLabel } from '@textkernel/oneui';
 
 type MyLabel = LabelPickerLabel & { id: number };
@@ -19,40 +17,36 @@ const LABELS = [
     },
 ];
 
-storiesOf('Organisms/LabelPicker', module)
-    .addDecorator(withKnobs)
-    .add('LabelPicker', () => {
-        const [labels, setLabels] = React.useState<MyLabel[]>([...LABELS]);
+export default {
+    title: 'Organisms/LabelPicker',
+    component: LabelPicker,
+};
 
-        const handleChange = (label: MyLabel) => {
-            console.log(`onChange was called with ${JSON.stringify(label)}`);
+export const _LabelPicker = (args) => {
+    const [labels, setLabels] = React.useState<MyLabel[]>([...LABELS]);
 
-            const idx = labels.findIndex((element) => element.id === label.id);
-            const newLabels = [...labels];
-            newLabels.splice(idx, 1, { ...label, isSelected: !label.isSelected });
-            setLabels(newLabels);
-        };
+    const handleChange = (label: MyLabel) => {
+        console.log(`onChange was called with ${JSON.stringify(label)}`);
 
-        const handleAdd = (name: string) => {
-            console.log(`onAdd was called with ${name}`);
+        const idx = labels.findIndex((element) => element.id === label.id);
+        const newLabels = [...labels];
+        newLabels.splice(idx, 1, { ...label, isSelected: !label.isSelected });
+        setLabels(newLabels);
+    };
 
-            setLabels([...labels, { name, isSelected: true, id: labels.length + 1 }]);
-        };
+    const handleAdd = (name: string) => {
+        console.log(`onAdd was called with ${name}`);
 
-        const handleClose = () => {
-            console.log('onClose was called');
-        };
+        setLabels([...labels, { name, isSelected: true, id: labels.length + 1 }]);
+    };
 
-        return (
-            <LabelPicker<MyLabel>
-                labels={labels}
-                onChange={handleChange}
-                onAdd={handleAdd}
-                onClose={handleClose}
-                inputPlaceholder={text('Input placeholder', 'Create a new label..')}
-                doneLabel={text('Done label', 'Done')}
-            >
-                <Button context="link">Apply label</Button>
-            </LabelPicker>
-        );
-    });
+    return (
+        <LabelPicker<MyLabel> {...args} labels={labels} onChange={handleChange} onAdd={handleAdd}>
+            <Button context="link">Apply label</Button>
+        </LabelPicker>
+    );
+};
+_LabelPicker.args = {
+    inputPlaceholder: 'Create a new label..',
+    doneLabel: 'Done',
+};
