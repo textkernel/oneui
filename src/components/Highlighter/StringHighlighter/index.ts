@@ -1,1 +1,1 @@
-export { StringHighlighter } from './StringHighlighter';
+export { StringHighlighter, Props as StringHighlighterProps } from './StringHighlighter';

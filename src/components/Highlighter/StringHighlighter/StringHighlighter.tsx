@@ -7,7 +7,7 @@ import {
 
 export type HighlighterRenderer = ({ key: number, substring }) => ReactNode;
 
-interface Props {
+export interface Props {
     /** Target string for highlight searching */
     string: string;
     /** Array of words or RegExp that is used for search */

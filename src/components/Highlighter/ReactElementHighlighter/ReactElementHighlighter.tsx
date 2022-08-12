@@ -5,7 +5,7 @@ type ReactElementHighlighterTermResult = {
     term: string;
     styles: CSSStyleDeclaration;
 };
-interface Props {
+export interface Props {
     /** Target DOM node for highlight searching */
     children: React.ReactElement;
     /** Array of words or RegExp that is used for search */
