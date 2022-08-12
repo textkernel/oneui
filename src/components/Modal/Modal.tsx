@@ -30,6 +30,18 @@ interface Modal<P> extends React.FunctionComponent<P> {
 
 const { block, elem } = bem('Modal', styles);
 
+/**
+ * ## Usage information
+ * This component is a wrapper around [react-modal](http://reactcommunity.org/react-modal/#usage).
+ *
+ * * You can pass other props according to their definition, apart from classes.
+ * * For accessibility reasons you need to __initialize__ modal use in your app.
+ *
+ * For more info see [app element](http://reactcommunity.org/react-modal/accessibility/#app-element)
+ * in their documentation. To do this call the following function once:
+ *
+ *      `__Modal.setAppElement__(appElementSelector);`
+ */
 const Modal: Modal<Props> = (props) => {
     const overlayRef = React.useRef<HTMLDivElement | null>(null);
 
