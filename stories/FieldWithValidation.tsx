@@ -1,9 +1,32 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text, boolean, withKnobs } from '@storybook/addon-knobs';
-import { FieldWithValidation, Input, TextArea } from '@textkernel/oneui';
+import { FieldWithValidation, Input, TextArea, FieldWithValidationProps } from '@textkernel/oneui';
 
-const Example = () => {
+export default {
+    title: 'Molecules/FieldWithValidation',
+    component: FieldWithValidation,
+};
+
+export const _FieldWithValidation = ({ errorMessage2, useTootip2, ...args }) => (
+    <>
+        <div style={{ marginBottom: '10px' }}>
+            <FieldWithValidation {...(args as FieldWithValidationProps)} />
+        </div>
+        <div>
+            <FieldWithValidation errorMessage={errorMessage2} useTooltip={useTootip2}>
+                <TextArea />
+            </FieldWithValidation>
+        </div>
+    </>
+);
+_FieldWithValidation.args = {
+    errorMessage: 'Error message',
+    useTooltip: false,
+    children: <Input />,
+    errorMessage2: '',
+    useTootip2: false,
+};
+
+export const Example = (args) => {
     const [inputValue, setValue] = React.useState('');
     const [errMsg, setErrMsg] = React.useState<string>();
     const EMAIL_REGEX =
@@ -22,10 +45,7 @@ const Example = () => {
 
     return (
         <div style={{ marginBottom: '10px' }}>
-            <FieldWithValidation
-                errorMessage={errMsg}
-                useTooltip={boolean('Use tooltip for input field', false)}
-            >
+            <FieldWithValidation errorMessage={errMsg} useTooltip={args.useTooltip}>
                 <Input
                     value={inputValue}
                     onChange={(e) => {
@@ -37,27 +57,6 @@ const Example = () => {
         </div>
     );
 };
-
-storiesOf('Molecules/FieldWithValidation', module)
-    .addDecorator(withKnobs)
-    .add('FieldWithValidation', () => (
-        <>
-            <div style={{ marginBottom: '10px' }}>
-                <FieldWithValidation
-                    errorMessage={text('Error message for input field', 'Something wrong')}
-                    useTooltip={boolean('Use tooltip for input field', false)}
-                >
-                    <Input />
-                </FieldWithValidation>
-            </div>
-            <div>
-                <FieldWithValidation
-                    errorMessage={text('Error message for text field', '')}
-                    useTooltip={boolean('Use tooltip for text field', false)}
-                >
-                    <TextArea />
-                </FieldWithValidation>
-            </div>
-        </>
-    ))
-    .add('Example implementation', () => <Example />);
+Example.args = {
+    useTooltip: false,
+};

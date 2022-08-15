@@ -43,7 +43,7 @@ export { Footer } from './components/Footer';
 export { Header } from './components/Header';
 export { Gauge } from './components/Gauge';
 export { Field } from './components/Field';
-export { FieldWithValidation } from './components/FieldWithValidation';
+export * from './components/FieldWithValidation';
 export { FieldWrapper } from './components/FieldWrapper';
 export { LoadingSpinner } from './components/LoadingSpinner';
 export { LocationCard } from './components/LocationCard';
