@@ -11,7 +11,7 @@ import styles from './Dropdown.scss';
 
 const { elem } = bem('Dropdown', styles);
 
-interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /**
      *  Popup content to be placed inside List.
      *  Navigation available only if element has not empty `value` attribute
@@ -58,9 +58,14 @@ interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
 }
 
 /**
- * Component is intended for displaying available actions by button click.
+ * ## Usage information
+ * This component is intended for displaying available actions by button click.
  * It allows you to navigate with keyboard across non-disabled actions.
  * If you don't need navigation - use PopupBase component.
+
+ * Navigation available only through children which have not empty `value` attribute
+ * and empty/false `disabled` attribute (all other children items will be skipped during navigation).
+ * Use `ListItem` component as child item.
  */
 export function Dropdown<V>(props: Props<V>) {
     const {
