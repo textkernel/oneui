@@ -1,1 +1,1 @@
-export { ComboboxMulti } from './ComboboxMulti';
+export { ComboboxMulti, Props as ComboboxMultiProps } from './ComboboxMulti';

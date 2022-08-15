@@ -60,13 +60,7 @@ export { NumericStepper } from './components/NumericStepper';
 // Organisms
 export { Alert, Confirm } from './components/Dialogs';
 export { AutosuggestDeprecated, ItemTag } from './components/AutosuggestDeprecated';
-export {
-    SelectBase,
-    SuggestionsList,
-    ComboboxMulti,
-    Autosuggest,
-    Select,
-} from './components/SelectComponents';
+export * from './components/SelectComponents';
 export {
     LocationAutocompleteWithGoogleLoader,
     LocationAutocomplete,
