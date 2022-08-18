@@ -17,10 +17,25 @@ interface Props {
 
 const { block, elem } = bem('ButtonGroup', styles);
 
-export const ButtonGroup: React.FC<Props> = (props) => {
+export const ButtonGroup = (props: Props) => {
     const { children, context, size, isBlock, ...rest } = props;
 
     const totalNumberOfButtons = React.Children.count(children);
+
+    if (totalNumberOfButtons === 1) {
+        return (
+            <div {...rest} {...block(props)} role="group">
+                {React.isValidElement(children)
+                    ? React.cloneElement(children, {
+                          ...children.props,
+                          context,
+                          size,
+                          isBlock,
+                      })
+                    : children}
+            </div>
+        );
+    }
 
     return (
         <div {...rest} {...block(props)} role="group">

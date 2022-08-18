@@ -52,6 +52,37 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
 </ButtonGroup>
 `;
 
+exports[`<ButtonGroup> that renders a button should pass main props, but not add styles if there is only 1 child 1`] = `
+<ButtonGroup
+  context="warning"
+  isBlock={true}
+  size="small"
+>
+  <div
+    className="ButtonGroup ButtonGroup--isBlock"
+    role="group"
+  >
+    <Button
+      context="warning"
+      disabled={false}
+      isBlock={true}
+      isInline={false}
+      isLoading={false}
+      size="small"
+      type="button"
+    >
+      <button
+        className="Button Button--context_warning Button--size_small Button--isBlock"
+        disabled={false}
+        type="button"
+      >
+        A button
+      </button>
+    </Button>
+  </div>
+</ButtonGroup>
+`;
+
 exports[`<ButtonGroup> that renders a button should render default button correctly 1`] = `
 <ButtonGroup
   context="neutral"
