@@ -4,7 +4,7 @@ import { LocationSelector, LocationSelectorProps } from '@textkernel/oneui';
 import { ensureApiKey } from './utils/ensureApiKey';
 import NL_PATHS from './static/gadm36_NLD_0.json';
 
-const selectedLocations = [
+const mockSelectedLocations = [
     {
         id: 'ajdo-219a-j19v-0491',
         description: 'Amsterdam',
@@ -48,7 +48,7 @@ export const Basic = ({ useDefaultHighlight, ...args }) => {
 };
 Basic.args = {
     className: 'test-class',
-    selectedLocations,
+    selectedLocations: mockSelectedLocations,
     country: 'NL',
     language: 'EN',
     region: 'NL',
