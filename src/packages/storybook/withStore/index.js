@@ -1,1 +1,0 @@
-export { StoreInjector } from './withStore';
