@@ -4,7 +4,6 @@ const { getRules } = require('../scripts/build/webpack.config');
 module.exports = {
     stories: ['../stories/**/*.@(js|jsx|ts|tsx)'],
     addons: [
-        '@storybook/addon-knobs',
         '@storybook/addon-actions',
         '@storybook/addon-links',
         '@storybook/addon-essentials',
