@@ -10,7 +10,7 @@ import {
     IconTextkernel,
     LogoTextkernel,
 } from '@textkernel/oneui';
-import { HEADING_SIZES } from '../src/constants';
+import { HEADING_SIZES } from '../../src/constants';
 
 export default {
     title: 'Atoms/Icons',

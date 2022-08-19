@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { LocationAutocompleteWithGoogleLoader, LocationAutocomplete } from '@textkernel/oneui';
-import { ensureApiKey } from './utils/ensureApiKey';
+import { ensureApiKey } from '../utils/ensureApiKey';
 
 export default {
     title: 'Organisms/LocationAutocomplete',

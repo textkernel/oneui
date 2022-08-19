@@ -3,7 +3,7 @@ import { Select } from '@textkernel/oneui';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
-} from '../src/components/AutosuggestDeprecated/__mocks__/suggestions';
+} from '../../src/components/AutosuggestDeprecated/__mocks__/suggestions';
 
 type TSuggestion = { name: string };
 

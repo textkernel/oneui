@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, SearchButton, StepperButton } from '@textkernel/oneui';
-import { CONTEXTS, SIZES } from '../src/constants';
+import { CONTEXTS, SIZES } from '../../src/constants';
 
 export default {
     title: 'Atoms/Button',

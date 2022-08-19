@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { MapWithGoogleLoader, Map } from '@textkernel/oneui';
-import { ensureApiKey } from './utils/ensureApiKey';
-import NL_PATHS from './static/gadm36_NLD_0.json';
-import FR_FRIESLAND from './static/FR_Friesland.json';
+import { ensureApiKey } from '../utils/ensureApiKey';
+import NL_PATHS from '../static/gadm36_NLD_0.json';
+import FR_FRIESLAND from '../static/FR_Friesland.json';
 
 const apiKey = ensureApiKey();
 const defaultMarker = {

@@ -2,7 +2,13 @@ const path = require('path');
 const { getRules } = require('../scripts/build/webpack.config');
 
 module.exports = {
-    stories: ['../stories/**/*.@(js|jsx|ts|tsx)'],
+    stories: [
+        '../stories/atoms/*.@(js|jsx|ts|tsx)',
+        '../stories/molecules/*.@(js|jsx|ts|tsx)',
+        '../stories/organisms/*.@(js|jsx|ts|tsx)',
+        '../stories/packages/*.@(js|jsx|ts|tsx)',
+        '../stories/**/*.@(js|jsx|ts|tsx)',
+    ],
     addons: [
         '@storybook/addon-actions',
         '@storybook/addon-links',

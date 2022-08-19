@@ -4,7 +4,7 @@ import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
     COMPLEX_SUGGESTIONS,
-} from '../src/components/AutosuggestDeprecated/__mocks__/suggestions';
+} from '../../src/components/AutosuggestDeprecated/__mocks__/suggestions';
 
 type TSuggestion = { name: string };
 type TComplexSuggestion = { name: string; type: string };

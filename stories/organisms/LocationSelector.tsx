@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Story } from '@storybook/react';
 import { LocationSelector, LocationSelectorProps } from '@textkernel/oneui';
-import { ensureApiKey } from './utils/ensureApiKey';
-import NL_PATHS from './static/gadm36_NLD_0.json';
+import { ensureApiKey } from '../utils/ensureApiKey';
+import NL_PATHS from '../static/gadm36_NLD_0.json';
 
 const mockSelectedLocations = [
     {

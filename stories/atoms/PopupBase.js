@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { PopupBase, Button } from '@textkernel/oneui';
-import { PopoverDummy } from '../src/components/PopupBase/__mocks__/PopoverDummy';
+import { PopoverDummy } from '../../src/components/PopupBase/__mocks__/PopoverDummy';
 
 export default {
     title: 'Atoms/PopupBase',
