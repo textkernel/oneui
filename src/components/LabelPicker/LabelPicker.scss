@@ -20,7 +20,7 @@ $labelingDialogWidth: 200px;
     }
 
     &__checkbox {
-        margin-bottom: var(--spacing-normal);
+        margin-bottom: var(--spacing-3x);
     }
 
     &__label {
@@ -42,7 +42,7 @@ $labelingDialogWidth: 200px;
     &__inputLine {
         display: flex;
         align-items: center;
-        margin: var(--spacing-2x) 0;
+        margin: var(--spacing-2x) 0 var(--spacing-3x);
     }
 
     &__input {
