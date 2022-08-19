@@ -23,4 +23,20 @@ storiesOf('Molecules|ButtonGroup', module)
             <Button>Button</Button>
             <Button>Group</Button>
         </ButtonGroup>
+    ))
+    .add('with single child', () => (
+        <ButtonGroup
+            context={select('Context', [...CONTEXTS, 'link'], CONTEXTS[0])}
+            isBlock={boolean('isBlock', false)}
+            size={select('Size', SIZES, SIZES[1])}
+        >
+            <Button
+                href="#"
+                onClick={(e) => {
+                    e.preventDefault();
+                }}
+            >
+                Some
+            </Button>
+        </ButtonGroup>
     ));
