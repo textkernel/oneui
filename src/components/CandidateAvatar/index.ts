@@ -1,1 +1,1 @@
-export { CandidateAvatar } from './CandidateAvatar';
+export { CandidateAvatar, Props as CandidateAvatarProps } from './CandidateAvatar';

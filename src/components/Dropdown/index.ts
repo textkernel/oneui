@@ -1,1 +1,1 @@
-export { Dropdown } from './Dropdown';
+export { Dropdown, Props as DropdownProps } from './Dropdown';

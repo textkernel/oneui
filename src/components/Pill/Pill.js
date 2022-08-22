@@ -4,6 +4,13 @@ import { PopupBase } from '../PopupBase';
 import { PillButton } from './PillButton';
 import { PillDropdown } from './PillDropdown';
 
+/**
+ * This component renders a PillButton and a PillDropdown, under the hood. These in turn are linked via PopupBase.
+ *
+ * * Most props, including 'rest' are applied to PillButton.
+ * * 'children', 'noPaddingInDropdown' and 'additionalDropdownProps' are used in PillDropdown.
+ * * 'ref' and 'dropdownRef' for used in PopupBase.
+ */
 export const Pill = (props) => {
     const {
         onClear,

@@ -1,1 +1,1 @@
-export { ProgressBar } from './ProgressBar';
+export { ProgressBar, Props as ProgressBarProps } from './ProgressBar';

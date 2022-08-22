@@ -7,7 +7,7 @@ import styles from './Select.scss';
 
 const { elem } = bem('Select', styles);
 
-interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /**
      * an array of objects or strings that will be used to render the options list.
      * if you want to disabled some of the items, this props needs to be an array of objects,
@@ -39,6 +39,16 @@ interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'
     /** items list ref */
     listRef?: React.RefObject<HTMLUListElement>;
 }
+
+/**
+ * ## Usage information
+ * This component is recommended to use for a simple select component with static known list
+ * of values without a need for filtering. The list is shown right away by clicking on the control.
+ * The selected item is shown in the top field.
+ *
+ * More detailed face-to-face comparison of Select components can be found
+ * [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)
+ */
 export function Select<S>(props: Props<S>) {
     const {
         items,

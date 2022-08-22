@@ -1,1 +1,1 @@
-export { Drawer } from './Drawer';
+export { Drawer, Props as DrawerProps } from './Drawer';

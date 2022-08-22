@@ -1,1 +1,1 @@
-export { Footer } from './Footer';
+export { Footer, Props as FooterProps } from './Footer';

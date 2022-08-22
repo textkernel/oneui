@@ -3,7 +3,7 @@ import { bem } from '../../utils';
 import styles from './Text.scss';
 import { Size, Context } from '../../constants';
 
-interface Props extends React.HTMLAttributes<HTMLElement> {
+export interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Text content */
     children: NotEmptyReactNode;
     /** Text should be rendered inline */
@@ -12,13 +12,11 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
     context?: Context | 'muted' | 'default';
     /** Custom text sizes */
     size?: Size;
-    /** Ref to access the html element */
-    ref?: React.RefObject<HTMLElement>;
 }
 
 const { block } = bem('Text', styles);
 
-export const Text: React.FC<Props> = React.forwardRef((props, ref) => {
+export const Text = React.forwardRef<HTMLElement, Props>((props, ref) => {
     const { children, context, inline, size, ...rest } = props;
     const HtmlNodeType = inline ? 'span' : 'p';
 

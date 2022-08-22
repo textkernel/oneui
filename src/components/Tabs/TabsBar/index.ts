@@ -1,1 +1,1 @@
-export { TabsBar } from './TabsBar';
+export { TabsBar, Props as TabsBarProps } from './TabsBar';

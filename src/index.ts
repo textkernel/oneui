@@ -43,7 +43,7 @@ export { Footer } from './components/Footer';
 export { Header } from './components/Header';
 export { Gauge } from './components/Gauge';
 export { Field } from './components/Field';
-export { FieldWithValidation } from './components/FieldWithValidation';
+export * from './components/FieldWithValidation';
 export { FieldWrapper } from './components/FieldWrapper';
 export { LoadingSpinner } from './components/LoadingSpinner';
 export { LocationCard } from './components/LocationCard';
@@ -60,13 +60,7 @@ export { NumericStepper } from './components/NumericStepper';
 // Organisms
 export { Alert, Confirm } from './components/Dialogs';
 export { AutosuggestDeprecated, ItemTag } from './components/AutosuggestDeprecated';
-export {
-    SelectBase,
-    SuggestionsList,
-    ComboboxMulti,
-    Autosuggest,
-    Select,
-} from './components/SelectComponents';
+export * from './components/SelectComponents';
 export {
     LocationAutocompleteWithGoogleLoader,
     LocationAutocomplete,

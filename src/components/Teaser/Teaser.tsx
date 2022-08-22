@@ -9,7 +9,7 @@ type Status = {
     tooltip: string;
 };
 
-interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
+export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
     /** The title of entity */
     title: SingleReactNode;
     /** The subtitle of the entity */

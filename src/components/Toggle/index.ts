@@ -1,1 +1,1 @@
-export { Toggle } from './Toggle';
+export { Toggle, Props as ToggleProps } from './Toggle';

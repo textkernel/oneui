@@ -4,7 +4,8 @@ import { Context, Size } from '../../../constants';
 import { SelectButtonProps } from '../SelectButton';
 import styles from './SelectButtonGroup.scss';
 
-interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> {
+export interface Props<V>
+    extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'> {
     /** SelectButton children */
     children: React.ReactElement<SelectButtonProps<V>>[];
     /** Function that is called when the selection is changed (controlled use) */

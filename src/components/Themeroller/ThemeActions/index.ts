@@ -1,1 +1,1 @@
-export * from './ThemeActions';
+export { ThemeActions, Props as ThemeActionsProps } from './ThemeActions';

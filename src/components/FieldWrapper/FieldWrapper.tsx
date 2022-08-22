@@ -6,7 +6,7 @@ import styles from './FieldWrapper.scss';
 
 const { block, elem } = bem('FieldWrapper', styles);
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** content of the wrapper */
     children: NotEmptyReactNode;
     /** show dropdown icon */

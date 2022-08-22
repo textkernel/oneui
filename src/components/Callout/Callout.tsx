@@ -4,7 +4,7 @@ import { bem } from '../../utils';
 import { Context } from '../../constants';
 import styles from './Callout.scss';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Content to be rendered inside the container */
     children: NotEmptyReactNode;
     /** The Callout context (e.g. brand, primary, bad, good etc. - defaults to info) */

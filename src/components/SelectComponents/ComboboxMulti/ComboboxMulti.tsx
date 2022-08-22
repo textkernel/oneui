@@ -8,7 +8,7 @@ import { ESCAPE_KEY } from '../../../constants';
 
 const { elem } = bem('ComboboxMulti', styles);
 
-interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
+export interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
     /** define id for input element */
     id?: string;
     /** to be shown in the input field when no value is typed */
@@ -21,6 +21,17 @@ interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
     inputAttrs?: DictionaryOf<string | boolean>;
 }
 
+/**
+ * ## Usage information
+ * This component is recommended to use when there's a static known list of values.
+ * The user can filter the list through the input field. The list is shown right away
+ * by clicking on the control. Selected options are not rendered by the component itself.
+ * The application using this component should rendered them separately,
+ * e.g. above this component using SelectedOption.
+ *
+ * More detailed face-to-face comparison of Select components can be found
+ * [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)
+ */
 export function ComboboxMulti<S>(props: Props<S>) {
     const {
         id,

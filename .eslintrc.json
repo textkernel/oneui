@@ -84,7 +84,9 @@
                 "react/display-name": "off",
                 "react/destructuring-assignment": "off",
                 "react/prop-types": "off",
-                "react/jsx-setDefaultAreaHighlight-newline": "off"
+                "react/jsx-setDefaultAreaHighlight-newline": "off",
+                "import/no-default-export": "off",
+                "no-underscore-dangle": "off"
             }
         }
     ],

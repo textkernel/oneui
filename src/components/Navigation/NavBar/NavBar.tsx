@@ -3,7 +3,7 @@ import { bem } from '../../../utils';
 import { BlockWidthRestrictor } from '../../WidthRestrictor';
 import styles from './NavBar.scss';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node(s) to be rendered as navigation */
     children?: ReactNode;
 }

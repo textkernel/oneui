@@ -4,7 +4,7 @@ import { Text } from '../Text';
 import styles from './Checkbox.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     /** A unique id to reference this checkbox */
     id: string;
     /** If the checkbox should be disabled */

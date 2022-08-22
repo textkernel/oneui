@@ -2,7 +2,7 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import styles from './ListActions.scss';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Actions to be pushed to the left side of a List Item */
     children?: ReactNode;
 }

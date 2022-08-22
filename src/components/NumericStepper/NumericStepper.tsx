@@ -4,7 +4,7 @@ import styles from './NumericStepper.scss';
 
 import { StepperButton } from '../Buttons';
 
-interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /**
      * Callback is called when user changes component value by using built-in controls
      */
@@ -37,6 +37,10 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
 
 const { block, elem } = bem('NumericStepper', styles);
 
+/**
+ * This component is used as a replacement for the traditional input component with step attribute
+ * (also knows as Input Stepper), but with custom up and down buttons.
+ */
 export const NumericStepper: React.FC<Props> = (props) => {
     const {
         onChange,

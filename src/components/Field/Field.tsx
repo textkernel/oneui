@@ -4,7 +4,7 @@ import styles from './Field.scss';
 
 const { block, elem } = bem('Field', styles);
 
-interface Props extends React.HTMLAttributes<HTMLLabelElement> {
+export interface Props extends React.HTMLAttributes<HTMLLabelElement> {
     /** Label text for the input */
     labelText: string;
     /** Component to be rendered inside the field */

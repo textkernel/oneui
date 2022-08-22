@@ -4,7 +4,7 @@ import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Footer.scss';
 import { LogoTextkernel } from '../Icon';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** supply copyright text ready to be rendered instead of the default one */
     copyright?: ReactNode;
     /** Current year to be rendered as a part of copyright note */

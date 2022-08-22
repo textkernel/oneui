@@ -1,1 +1,1 @@
-export { SelectedOption } from './SelectedOption';
+export { SelectedOption, Props as SelectedOptionProps } from './SelectedOption';

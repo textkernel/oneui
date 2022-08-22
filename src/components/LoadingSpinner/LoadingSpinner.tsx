@@ -4,7 +4,7 @@ import { Text } from '../Text';
 import styles from './LoadingSpinner.scss';
 import { Context } from '../../constants';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Center the spinner relative to parent element or viewport */
     centerIn?: 'parent' | 'viewport';
     /** Loading text */

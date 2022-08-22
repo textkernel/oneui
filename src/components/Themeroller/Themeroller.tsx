@@ -21,7 +21,7 @@ export type ThemerollerChildrenProps = {
     cssVars: CssVars;
     reset: () => void;
 };
-interface Props {
+export interface Props {
     /** Themeroller config */
     config: ThemerollerConfig;
     /** label for theme name input */

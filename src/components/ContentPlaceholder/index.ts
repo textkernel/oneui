@@ -1,1 +1,1 @@
-export { ContentPlaceholder } from './ContentPlaceholder';
+export { ContentPlaceholder, Props as ContentPlaceholderProps } from './ContentPlaceholder';

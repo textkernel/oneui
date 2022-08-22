@@ -1,1 +1,1 @@
-export { FieldWithValidation } from './FieldWithValidation';
+export { FieldWithValidation, Props as FieldWithValidationProps } from './FieldWithValidation';

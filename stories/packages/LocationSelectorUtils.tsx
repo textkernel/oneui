@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { storiesOf } from '@storybook/react';
 import {
     initGoogleMapServices,
     convertCoordinatesIntoAddress,
@@ -13,7 +12,11 @@ const columnStyle = {
     padding: '1em',
 };
 
-storiesOf('packages|LocationSelectorUtils', module).add('convertCoordinatesIntoAddress', () => {
+export default {
+    title: 'packages/LocationSelectorUtils',
+};
+
+export const ConvertCoordinatesIntoAddress = () => {
     const [lat, setLet] = React.useState(52.3675734); // Amsterdam lat
     const [lng, setLng] = React.useState(4.9041389); // Amsterdam lng
     const [address, setAddress] = React.useState({});
@@ -53,4 +56,9 @@ storiesOf('packages|LocationSelectorUtils', module).add('convertCoordinatesIntoA
             </div>
         </div>
     );
-});
+};
+
+ConvertCoordinatesIntoAddress.storyName = 'convertCoordinatesIntoAddress';
+ConvertCoordinatesIntoAddress.parameters = {
+    controls: { disable: true },
+};

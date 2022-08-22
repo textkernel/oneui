@@ -3,7 +3,7 @@ import { bem } from '../../../utils';
 import { TabItem, TabItemProps } from '../TabItem';
 import styles from './TabsBar.scss';
 
-interface Props<T> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
+export interface Props<T> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
     /** Id of currently active tab. This will overwrite isActive on the children */
     activeTabId?: T;
     /** The tabs */

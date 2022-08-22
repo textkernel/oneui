@@ -14,7 +14,7 @@ import {
 import styles from './Autosuggest.scss';
 import { BACKSPACE_KEY, ESCAPE_KEY, ENTER_KEY } from '../../../constants';
 
-interface Props<S>
+export interface Props<S>
     extends BasicSelectProps<S>,
         SelectClearButtonProps,
         Omit<SelectInputFieldProps, 'clearInputAfterSelection'> {
@@ -49,6 +49,15 @@ interface Props<S>
 
 const { elem } = bem('Autosuggest', styles);
 
+/**
+ * The Autosuggest component is recommended to use for a dynamic list of values.
+ * It is geared toward a multi-select use-case, but you can use it in single select mode too
+ * or even a combination of the two. See related story for details.
+ * The list of suggestions is shown once there's a value inside the input.
+ *
+ * More detailed face-to-face comparison of Select components can be found
+ * [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
+ */
 export function Autosuggest<S>(props: Props<S>) {
     const {
         id,

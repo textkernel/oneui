@@ -5,7 +5,7 @@ import { Text } from '../Text';
 import { ENTER_KEY } from '../../constants';
 import styles from './Tag.scss';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Value that helps us to understand if the component is currently selected or not. */
     isSelected?: boolean;
     /** Color is assigned to a background color of a wrapper */

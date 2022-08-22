@@ -50,6 +50,15 @@ const { elem } = bem('LocationAutocomplete', styles);
 const DEBOUNCE_DELAY = 350;
 const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
 
+/**
+ * ## Note about props
+ * `LocationAutocompleteWithGoogleLoader` is a wrapper around the `LocationAutocomplete` component,
+ * and it makes sure the Google API is loaded on the page.
+ *
+ * You don't need to use `LocationAutocomplete` directly.
+ * `LocationAutocompleteWithGoogleLoader` __will pass props__ that are not needed for loading the API
+ * __to `LocationAutocomplete`__, so you can provide them all together. For list of props see below
+ */
 const LocationAutocomplete: React.FC<Props> = (props) => {
     const {
         inputRef,

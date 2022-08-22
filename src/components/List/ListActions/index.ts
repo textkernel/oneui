@@ -1,1 +1,1 @@
-export { ListActions } from './ListActions';
+export { ListActions, Props as ListActionsProps } from './ListActions';

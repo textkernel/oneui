@@ -1,1 +1,1 @@
-export { ProductTour } from './ProductTour';
+export { ProductTour, Props as ProductTourProps } from './ProductTour';

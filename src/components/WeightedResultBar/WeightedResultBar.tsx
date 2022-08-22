@@ -6,7 +6,7 @@ import { ProgressBar } from '../ProgressBar';
 import { Text } from '../Text';
 import styles from './WeightedResultBar.scss';
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Description of the result */
     children: string;
     /** Weight of this result in percentage */

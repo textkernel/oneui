@@ -1,2 +1,2 @@
-export { ReactElementHighlighter } from './ReactElementHighlighter';
-export { StringHighlighter } from './StringHighlighter';
+export * from './ReactElementHighlighter';
+export * from './StringHighlighter';

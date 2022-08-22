@@ -6,7 +6,7 @@ import { Button, FileButton } from '../../Buttons';
 import { Tooltip } from '../../Tooltip';
 import styles from './ThemeActions.scss';
 
-interface Props {
+export interface Props {
     /** label for reset button */
     resetLabel?: string;
     /** label for active reset button */

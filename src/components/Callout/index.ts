@@ -1,1 +1,1 @@
-export { Callout } from './Callout';
+export { Callout, Props as CalloutProps } from './Callout';

@@ -5,7 +5,7 @@ import { LeftPaneProps } from './LeftPane';
 import { RightPane, RightPaneProps } from './RightPane';
 import styles from './TwoPaneView.scss';
 
-interface Props extends Omit<BlockWidthRestrictorProps, 'children'> {
+export interface Props extends Omit<BlockWidthRestrictorProps, 'children'> {
     /** 2 nodes to be rendered in the left and right pane */
     children: [React.ReactElement<LeftPaneProps>, React.ReactElement<RightPaneProps>];
 }

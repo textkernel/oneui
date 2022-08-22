@@ -1,1 +1,4 @@
-export { ReactElementHighlighter } from './ReactElementHighlighter';
+export {
+    ReactElementHighlighter,
+    Props as ReactElementHighlighterProps,
+} from './ReactElementHighlighter';

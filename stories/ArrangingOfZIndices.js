@@ -1,6 +1,6 @@
 import { storiesOf } from '@storybook/react';
 
-storiesOf('Concepts|Arrangment of z-indices', module).add('Arrangment of z-indices', () => null, {
+storiesOf('Concepts/Arrangment of z-indices', module).add('Arrangment of z-indices', () => null, {
     info: {
         text: `
             ## Declared layers for arranging components:
