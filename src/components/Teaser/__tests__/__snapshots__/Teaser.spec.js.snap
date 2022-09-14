@@ -83,10 +83,6 @@ exports[`Teaser should render correctly in disabled mode 1`] = `
 
 exports[`Teaser should render correctly with just a title 1`] = `
 <Teaser
-  details=""
-  disabled={false}
-  location=""
-  subTitle=""
   title="some title"
 >
   <div
@@ -123,7 +119,6 @@ exports[`Teaser should render correctly with just a title 1`] = `
 exports[`Teaser should render with all props defined 1`] = `
 <Teaser
   details="details about this job"
-  disabled={false}
   location="location"
   statuses={
     Array [

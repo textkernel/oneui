@@ -176,10 +176,8 @@ exports[`SelectBase rendering should initially render empty component correctly 
               />
               <List
                 aria-labelledby="downshift-0-label"
-                doSelectOnNavigate={false}
                 id="downshift-0-menu"
                 isControlledNavigation={true}
-                isDivided={false}
                 role="listbox"
               >
                 <ul

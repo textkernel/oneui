@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import { bem } from '../../../utils';
 import { Text } from '../../Text';
 import { Context } from '../../../constants';
@@ -29,46 +29,50 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClic
 
 const { block } = bem('ListItem', styles);
 
-export const ListItem: React.FC<Props> = React.forwardRef((props, ref) => {
-    const {
-        children,
-        isSelected,
-        isHighlighted,
-        onClick,
-        highlightContext,
-        value,
-        disabled,
-        passDisabledToLi,
-        ...rest
-    } = props;
-    const customBlockMod = { clickable: typeof onClick === 'function' };
+export const ListItem = forwardRef<HTMLImageElement, Props>(
+    (
+        {
+            children,
+            isSelected = false,
+            isHighlighted = false,
+            onClick,
+            highlightContext = 'default',
+            value,
+            disabled = false,
+            passDisabledToLi = false,
+            ...rest
+        },
+        ref
+    ) => {
+        const customBlockMod = { clickable: typeof onClick === 'function' };
 
-    const liProps: React.HTMLAttributes<HTMLLIElement> & { disabled?: boolean } = rest;
-    if (passDisabledToLi) {
-        liProps.disabled = disabled;
+        const liProps: React.HTMLAttributes<HTMLLIElement> & { disabled?: boolean } = rest;
+        if (passDisabledToLi) {
+            liProps.disabled = disabled;
+        }
+
+        return (
+            <li
+                {...liProps}
+                ref={ref}
+                role="presentation"
+                onClick={onClick}
+                {...block({
+                    isSelected,
+                    isHighlighted,
+                    highlightContext,
+                    disabled,
+                    passDisabledToLi,
+                    ...rest,
+                    ...customBlockMod,
+                })}
+            >
+                {React.Children.map(children, (child) =>
+                    typeof child === 'string' ? <Text inline>{child}</Text> : child
+                )}
+            </li>
+        );
     }
-
-    return (
-        <li
-            {...liProps}
-            ref={ref}
-            role="presentation"
-            onClick={onClick}
-            {...block({ ...props, ...customBlockMod })}
-        >
-            {React.Children.map(children, (child) =>
-                typeof child === 'string' ? <Text inline>{child}</Text> : child
-            )}
-        </li>
-    );
-});
+);
 
 ListItem.displayName = 'ListItem';
-
-ListItem.defaultProps = {
-    isSelected: false,
-    isHighlighted: false,
-    highlightContext: 'default',
-    disabled: false,
-    passDisabledToLi: false,
-};

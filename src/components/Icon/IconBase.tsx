@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import { bem } from '../../utils';
 import styles from './IconBase.scss';
 import { Context } from '../../constants';
@@ -45,7 +45,7 @@ const adjustSize = (preserveAspectRatio: boolean, size?: number) => {
     };
 };
 
-export const IconBase: React.FC<Props> = React.forwardRef((props, ref) => {
+export const IconBase = forwardRef<HTMLImageElement, Props>((props, ref) => {
     const { children, context, margin, size, preserveAspectRatio, title, viewBox, ...rest } = props;
 
     return (

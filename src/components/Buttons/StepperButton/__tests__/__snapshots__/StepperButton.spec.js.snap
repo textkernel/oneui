@@ -2,7 +2,6 @@
 
 exports[`<StepperButton> component should render correctly 1`] = `
 <StepperButton
-  disabled={false}
   icon="plus"
 >
   <button

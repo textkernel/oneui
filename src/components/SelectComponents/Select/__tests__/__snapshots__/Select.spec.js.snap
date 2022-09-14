@@ -182,10 +182,8 @@ exports[`Select rendering should initially render correctly 1`] = `
                 </div>
                 <List
                   aria-labelledby="downshift-0-label"
-                  doSelectOnNavigate={false}
                   id="downshift-0-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul
@@ -477,15 +475,13 @@ exports[`Select rendering should render focused component correctly 1`] = `
                 <List
                   aria-labelledby="downshift-1-label"
                   className="SelectBase__list--focused"
-                  doSelectOnNavigate={false}
                   id="downshift-1-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-1-label"
-                    className="List SelectBase__list--focused"
+                    className="List"
                     id="downshift-1-menu"
                     role="listbox"
                   >
@@ -540,10 +536,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       <ListItem
                         aria-selected={true}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-1-item-0"
                         isHighlighted={true}
-                        isSelected={false}
                         key="Sun"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -583,10 +577,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-1-item-1"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Moon"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -626,10 +618,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-1-item-2"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Mercury"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -669,10 +659,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-1-item-3"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Venus"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -712,10 +700,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-1-item-4"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Earth"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -755,10 +741,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-1-item-5"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Mars"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -798,10 +782,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-1-item-6"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Jupiter"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -841,10 +823,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-1-item-7"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Saturn"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -884,10 +864,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-1-item-8"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Neptune"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -927,10 +905,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={true}
-                        highlightContext="default"
                         id="downshift-1-item-9"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Pluto"
                         onMouseDown={[Function]}
                         passDisabledToLi={true}

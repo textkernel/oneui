@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import { bem } from '../../../utils';
 import styles from './Button.scss';
 import { ButtonType, Context, Size } from '../../../constants';
@@ -33,7 +33,7 @@ export interface Props
 
 const { block } = bem('Button', styles);
 
-export const Button: React.FC<Props> = React.forwardRef((props, ref) => {
+export const Button = forwardRef<React.Ref<any>, Props>((props, ref) => {
     const { children, context, disabled, isBlock, isInline, isLoading, type, href, size, ...rest } =
         props;
 

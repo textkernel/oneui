@@ -22,9 +22,16 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('Tag', styles);
 
-export const Tag: React.FC<Props> = (props) => {
-    const { children, bgColor, maxWidth, size, onDelete, onClick, isSelected, ...rest } = props;
-
+export const Tag: React.FC<Props> = ({
+    isSelected = false,
+    bgColor = 'var(--color-background)',
+    maxWidth = 'fit-content',
+    size = 'normal',
+    onDelete = undefined,
+    onClick = undefined,
+    children,
+    ...rest
+}) => {
     // Generate title for children that are plain text (without tags)
     // If there is something different from the string (JSX) - children will be of object type.
     const areChildrenString = typeof children === 'string';
@@ -55,7 +62,7 @@ export const Tag: React.FC<Props> = (props) => {
     return (
         <div
             {...rest}
-            {...block({ ...props, clickable: !!onClick })}
+            {...block({ isSelected, clickable: !!onClick })}
             {...(onClick && {
                 onClick,
                 tabIndex: 0,
@@ -85,12 +92,3 @@ export const Tag: React.FC<Props> = (props) => {
 };
 
 Tag.displayName = 'Tag';
-
-Tag.defaultProps = {
-    isSelected: false,
-    bgColor: 'var(--color-background)',
-    maxWidth: 'fit-content',
-    size: 'normal',
-    onDelete: undefined,
-    onClick: undefined,
-};

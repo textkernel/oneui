@@ -239,15 +239,13 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     <List
                       aria-labelledby="downshift-0-label"
                       className="AutosuggestDeprecated__list--focused"
-                      doSelectOnNavigate={false}
                       id="downshift-0-menu"
                       isControlledNavigation={true}
-                      isDivided={false}
                       role="listbox"
                     >
                       <ul
                         aria-labelledby="downshift-0-label"
-                        className="List AutosuggestDeprecated__list--focused"
+                        className="List"
                         id="downshift-0-menu"
                         role="listbox"
                       />

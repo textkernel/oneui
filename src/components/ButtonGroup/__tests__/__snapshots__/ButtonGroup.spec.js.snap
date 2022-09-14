@@ -270,10 +270,8 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
       </Button>
       <List
         aria-labelledby="downshift-0-label"
-        doSelectOnNavigate={false}
         id="downshift-0-menu"
         isControlledNavigation={true}
-        isDivided={false}
         onBlur={[Function]}
         onKeyDown={[Function]}
         onMouseLeave={[Function]}

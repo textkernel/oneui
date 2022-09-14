@@ -37,5 +37,3 @@ export const UnitValue: React.FC<Props> = ({ item, onChange }) => {
 };
 
 UnitValue.displayName = 'UnitValue';
-
-UnitValue.defaultProps = {};

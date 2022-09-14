@@ -370,15 +370,11 @@ exports[`LocationSelector component should render LocationSelector properly when
                     loadingElement={
                       <LoadingSpinner
                         centerIn="parent"
-                        context="brand"
-                        hidden={false}
                       />
                     }
                   >
                     <LoadingSpinner
                       centerIn="parent"
-                      context="brand"
-                      hidden={false}
                     >
                       <div
                         aria-busy={true}

@@ -206,12 +206,7 @@ exports[`ThemeActions component should render component correctly with all actio
 `;
 
 exports[`ThemeActions component should render component correctly without any actions 1`] = `
-<ThemeActions
-  downloadDisabled={false}
-  downloadLabel=""
-  fileLabel=""
-  resetLabel=""
->
+<ThemeActions>
   <div
     className="ThemeActions"
   />

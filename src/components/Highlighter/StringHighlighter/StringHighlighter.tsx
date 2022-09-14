@@ -5,7 +5,7 @@ import {
     HighlighterCoreOptions,
 } from '../../../packages/Highlighter';
 
-export type HighlighterRenderer = ({ key: number, substring }) => ReactNode;
+export type HighlighterRenderer = ({ key, substring }) => ReactNode;
 
 export interface Props {
     /** Target string for highlight searching */
@@ -18,8 +18,16 @@ export interface Props {
     highlightRenderer: HighlighterRenderer;
 }
 
-export const StringHighlighter: React.FC<Props> = (props) => {
-    const { string, searchTerms, highlightRenderer, highlighterCoreOptions } = props;
+export const StringHighlighter: React.FC<Props> = ({
+    string,
+    searchTerms,
+    highlightRenderer,
+    highlighterCoreOptions = {
+        accuracy: 'exact',
+        ignoreDiacritics: true,
+        ignoreCase: true,
+    },
+}) => {
     const highlighter = React.useMemo(
         () => new HighlighterCore(searchTerms, highlighterCoreOptions),
         [searchTerms, highlighterCoreOptions]
@@ -38,11 +46,3 @@ export const StringHighlighter: React.FC<Props> = (props) => {
 };
 
 StringHighlighter.displayName = 'StringHighlighter';
-
-StringHighlighter.defaultProps = {
-    highlighterCoreOptions: {
-        accuracy: 'exact',
-        ignoreDiacritics: true,
-        ignoreCase: true,
-    },
-};

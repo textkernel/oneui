@@ -16,21 +16,19 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const currentYear = new Date().getFullYear();
 const { block, elem } = bem('Footer', styles);
 
-export const Footer: React.FC<Props> = (props) => {
-    const { copyright, year = currentYear, children, ...rest } = props;
-
+export const Footer: React.FC<Props> = ({ copyright, year = currentYear, children, ...rest }) => {
     const tkCopyright = (
         <span>
             {year && `\u00a9 ${year} `}
-            <LogoTextkernel {...elem('logo', props)} margin="left" />
+            <LogoTextkernel {...elem('logo')} margin="left" />
         </span>
     );
 
     return (
-        <footer {...rest} {...block(props)}>
-            <BlockWidthRestrictor {...elem('wrapper', props)}>
+        <footer {...rest} {...block()}>
+            <BlockWidthRestrictor {...elem('wrapper')}>
                 {copyright || tkCopyright}
-                <div {...elem('menu', props)}>{children}</div>
+                <div {...elem('menu')}>{children}</div>
             </BlockWidthRestrictor>
         </footer>
     );

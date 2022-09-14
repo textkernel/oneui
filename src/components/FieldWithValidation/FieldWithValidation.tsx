@@ -16,8 +16,12 @@ export interface Props {
 
 const { block } = bem('FieldWithValidation', styles);
 
-export const FieldWithValidation: React.FC<Props> = (props) => {
-    const { children, errorMessage, useTooltip, ...rest } = props;
+export const FieldWithValidation: React.FC<Props> = ({
+    children,
+    errorMessage,
+    useTooltip = false,
+    ...rest
+}) => {
     const [isChildInFocus, setIsChildInFocus] = React.useState(false);
 
     const handleFocus = () => {
@@ -50,7 +54,7 @@ export const FieldWithValidation: React.FC<Props> = (props) => {
         return (
             <>
                 {clonedChild}
-                <Text {...rest} {...block(props)} context="bad" size="small">
+                <Text {...rest} {...block()} context="bad" size="small">
                     {errorMessage}
                 </Text>
             </>
@@ -58,10 +62,6 @@ export const FieldWithValidation: React.FC<Props> = (props) => {
     }
 
     return children;
-};
-
-FieldWithValidation.defaultProps = {
-    useTooltip: false,
 };
 
 FieldWithValidation.displayName = 'FieldWithValidation';

@@ -194,11 +194,7 @@ exports[`Themeroller component should render component correctly 1`] = `
           </TabItem>
         </div>
       </TabsBar>
-      <List
-        doSelectOnNavigate={false}
-        isControlledNavigation={false}
-        isDivided={false}
-      >
+      <List>
         <ul
           className="List"
           onKeyDown={[Function]}
@@ -206,12 +202,8 @@ exports[`Themeroller component should render component correctly 1`] = `
         >
           <ListItem
             className="List__item ThemeTuner__item"
-            disabled={false}
-            highlightContext="default"
             isHighlighted={false}
-            isSelected={false}
             key=".$Background color"
-            passDisabledToLi={false}
           >
             <li
               className="ListItem List__item ThemeTuner__item"
@@ -291,12 +283,8 @@ exports[`Themeroller component should render component correctly 1`] = `
           </ListItem>
           <ListItem
             className="List__item ThemeTuner__item"
-            disabled={false}
-            highlightContext="default"
             isHighlighted={false}
-            isSelected={false}
             key=".$Foreground color"
-            passDisabledToLi={false}
           >
             <li
               className="ListItem List__item ThemeTuner__item"
@@ -376,12 +364,8 @@ exports[`Themeroller component should render component correctly 1`] = `
           </ListItem>
           <ListItem
             className="List__item ThemeTuner__item"
-            disabled={false}
-            highlightContext="default"
             isHighlighted={false}
-            isSelected={false}
             key=".$Border radius"
-            passDisabledToLi={false}
           >
             <li
               className="ListItem List__item ThemeTuner__item"
@@ -464,12 +448,8 @@ exports[`Themeroller component should render component correctly 1`] = `
           </ListItem>
           <ListItem
             className="List__item ThemeTuner__item"
-            disabled={false}
-            highlightContext="default"
             isHighlighted={false}
-            isSelected={false}
             key=".$Link decoration"
-            passDisabledToLi={false}
           >
             <li
               className="ListItem List__item ThemeTuner__item"

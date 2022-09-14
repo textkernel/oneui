@@ -15,22 +15,22 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('Callout', styles);
 
-export const Callout: React.FC<Props> = (props) => {
-    const { onRequestClose, children, context, ...rest } = props;
+export const Callout: React.FC<Props> = ({
+    context = 'info',
+    onRequestClose,
+    children,
+    ...rest
+}) => {
     return (
-        <div {...rest} {...block(props)}>
-            <div {...elem('content', props)}>{children}</div>
+        <div {...rest} {...block({ context })}>
+            <div {...elem('content')}>{children}</div>
             {onRequestClose && (
-                <button {...elem('closeButton', props)} type="button" onClick={onRequestClose}>
-                    <MdClose {...elem('closeIcon', props)} />
+                <button {...elem('closeButton')} type="button" onClick={onRequestClose}>
+                    <MdClose {...elem('closeIcon')} />
                 </button>
             )}
         </div>
     );
-};
-
-Callout.defaultProps = {
-    context: 'info',
 };
 
 Callout.displayName = 'Callout';

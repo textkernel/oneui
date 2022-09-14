@@ -81,12 +81,7 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
 `;
 
 exports[`<Tag> component should render correctly with minimum amount of props 1`] = `
-<Tag
-  bgColor="var(--color-background)"
-  isSelected={false}
-  maxWidth="fit-content"
-  size="normal"
->
+<Tag>
   <div
     className="Tag"
     style={

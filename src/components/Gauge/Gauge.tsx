@@ -33,17 +33,16 @@ export interface Props {
       const mathRandomSpy = jest.spyOn(Math, 'random');
       mathRandomSpy.mockImplementation(() => 0.42);
  */
-export const Gauge: React.FC<Props> = (props) => {
-    const {
-        children,
-        percentage = 0,
-        context,
-        note,
-        metric,
-        isProgressLoading,
-        isContentLoading,
-        ...rest
-    } = props;
+export const Gauge: React.FC<Props> = ({
+    children,
+    percentage = 0,
+    context = 'brand',
+    note,
+    metric = '',
+    isProgressLoading = false,
+    isContentLoading = false,
+    ...rest
+}) => {
     const [percentageToShow, setPercentageToShow] = React.useState(0);
     // We need this uuid for the linear gradient's id to avoid some bugs in Safari.
     // For details see: https://jira.textkernel.nl/browse/JF-2780
@@ -68,23 +67,23 @@ export const Gauge: React.FC<Props> = (props) => {
     const circumferenceHalf = circumference / 2;
 
     return (
-        <div {...rest} {...block(props)}>
-            <svg {...elem('svg', props)} width="100%">
+        <div {...rest} {...block({ context })}>
+            <svg {...elem('svg')} width="100%">
                 <defs>
                     <linearGradient id={`Gauge__gradient--${context}-${id.current}`}>
-                        <stop {...elem('gradientStart', props)} offset="50%" />
-                        <stop {...elem('gradientEnd', props)} offset="100%" />
+                        <stop {...elem('gradientStart', { context })} offset="50%" />
+                        <stop {...elem('gradientEnd', { context })} offset="100%" />
                     </linearGradient>
                 </defs>
                 <circle
-                    {...elem('circleBackground', props)}
+                    {...elem('circleBackground')}
                     r={GAUGE_RADIUS}
                     cx="50%"
                     cy="25%"
                     style={{ strokeDasharray: `${circumferenceHalf} ${circumference}` }}
                 />
                 <circle
-                    {...elem('circleForeground', props)}
+                    {...elem('circleForeground')}
                     r={GAUGE_RADIUS}
                     cx="50%"
                     cy="25%"
@@ -92,30 +91,23 @@ export const Gauge: React.FC<Props> = (props) => {
                     stroke={`url(#Gauge__gradient--${context}-${id.current})`}
                 />
             </svg>
-            <div {...elem('contentWrapper', props)}>
+            <div {...elem('contentWrapper')}>
                 {isContentLoading ? (
-                    <ContentPlaceholder height={28} {...elem('contentPlaceholder', props)} />
+                    <ContentPlaceholder height={28} {...elem('contentPlaceholder')} />
                 ) : (
-                    <div {...elem('content', props)}>
+                    <div {...elem('content')}>
                         {children}
                         {metric ? (
-                            <div {...elem('metric', props)} title={metric}>
+                            <div {...elem('metric')} title={metric}>
                                 {metric}
                             </div>
                         ) : null}
                     </div>
                 )}
             </div>
-            {note ? <div {...elem('note', props)}>{note}</div> : null}
+            {note ? <div {...elem('note')}>{note}</div> : null}
         </div>
     );
 };
 
 Gauge.displayName = 'Gauge';
-
-Gauge.defaultProps = {
-    context: 'brand',
-    isProgressLoading: false,
-    isContentLoading: false,
-    metric: '',
-};
