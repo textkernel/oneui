@@ -48,8 +48,8 @@ export interface SelectClearButtonProps {
 }
 
 export type FocusedRendererHelpers<S> = (helpers: {
-    getInputProps: (options: GetItemPropsOptions<S>) => Record<string, unknown>;
-    getToggleButtonProps: (options: GetToggleButtonPropsOptions) => Record<string, unknown>;
+    getInputProps: (options: GetItemPropsOptions<S>) => object;
+    getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
     onBlur: () => void;
     onFocus: (callback: () => void) => void;
     inputValue: string;
@@ -57,8 +57,8 @@ export type FocusedRendererHelpers<S> = (helpers: {
 }) => ReactNode;
 
 export type BlurredRendererHelpers<S> = (helpers: {
-    getInputProps: (options: GetItemPropsOptions<S>) => Record<string, unknown>;
-    getToggleButtonProps: (options: GetToggleButtonPropsOptions) => Record<string, unknown>;
+    getInputProps: (options: GetItemPropsOptions<S>) => object;
+    getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
     onFocus: (callback: () => void) => void;
     onBlur: () => void;
 }) => ReactNode;
@@ -69,7 +69,7 @@ export type ListRendererHelper<S> = (props: {
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestions: S) => string;
     /** a function which gets props for the item in the list */
-    getItemProps: (options: GetItemPropsOptions<S>) => Record<string, unknown>;
+    getItemProps: (options: GetItemPropsOptions<S>) => object;
     /** index of the item from the list to be highlighted */
     highlightedIndex: number | null;
     /** input field value to be highlighted in the item from the list */
