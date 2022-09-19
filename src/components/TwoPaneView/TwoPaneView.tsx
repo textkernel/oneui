@@ -80,7 +80,6 @@ export const TwoPaneView: React.FC<Props> = ({ children, ...rest }) => {
         return () => window.removeEventListener('resize', handleResize);
     });
 
-
     return (
         <BlockWidthRestrictor {...rest} ref={blockRef} {...block()}>
             {React.Children.map(children, (child) => {

@@ -53,8 +53,14 @@
                 "ignoreRestSiblings": true
             }
         ],
-        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }],
-        "curly": ["error", "all"]
+        "curly": ["error", "all"],
+        "comma-dangle": "off",
+        "@typescript-eslint/comma-dangle": "off",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/dot-notation": "off",
+        "@typescript-eslint/no-explicit-any": "off"
     },
     "overrides": [
         {

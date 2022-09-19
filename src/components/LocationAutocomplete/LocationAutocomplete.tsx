@@ -90,42 +90,46 @@ const LocationAutocomplete: React.FC<Props> = (props) => {
     const resetSuggestionsList = () => setSuggestionsList([]);
     const suggestionToString = (suggestion) => (suggestion ? suggestion.description : '');
 
-    React.useEffect(() => {
-        if (debouncedInputValue) {
-            // Putting latest debounced input value to the storage
-            storage.latestInputValue = debouncedInputValue;
+    React.useEffect(
+        () => {
+            if (debouncedInputValue) {
+                // Putting latest debounced input value to the storage
+                storage.latestInputValue = debouncedInputValue;
 
-            const service = new window.google.maps.places.AutocompleteService();
+                const service = new window.google.maps.places.AutocompleteService();
 
-            service.getPlacePredictions(
-                {
-                    input: debouncedInputValue,
-                    types: placeTypes,
-                    componentRestrictions: { country },
-                },
-                (predictions, status) => {
-                    // if this function was called with outdated input value, return early
-                    if (debouncedInputValue !== storage.latestInputValue) {
-                        return;
-                    }
-
-                    if (ACCEPTABLE_API_STATUSES.includes(status)) {
-                        setSuggestionsList(predictions);
-                    } else {
-                        // TODO: check desired behaviour with Carlo
-                        // currently the UI will look same as when no suggestions found
-                        resetSuggestionsList();
-                        if (onError) {
-                            onError(status);
+                service.getPlacePredictions(
+                    {
+                        input: debouncedInputValue,
+                        types: placeTypes,
+                        componentRestrictions: { country },
+                    },
+                    (predictions, status) => {
+                        // if this function was called with outdated input value, return early
+                        if (debouncedInputValue !== storage.latestInputValue) {
+                            return;
                         }
+
+                        if (ACCEPTABLE_API_STATUSES.includes(status)) {
+                            setSuggestionsList(predictions);
+                        } else {
+                            // TODO: check desired behaviour with Carlo
+                            // currently the UI will look same as when no suggestions found
+                            resetSuggestionsList();
+                            if (onError) {
+                                onError(status);
+                            }
+                        }
+                        setIsLoading(false);
                     }
-                    setIsLoading(false);
-                }
-            );
-        } else {
-            resetSuggestionsList();
-        }
-    }, [country, debouncedInputValue, onError, placeTypes, storage.latestInputValue]);
+                );
+            } else {
+                resetSuggestionsList();
+            }
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [country, debouncedInputValue, onError, placeTypes, storage.latestInputValue]
+    );
 
     if (!(window.google && window.google.maps && window.google.maps.places)) {
         // TODO: clarify with Carlo how to handle errors

@@ -4,7 +4,7 @@ import styles from './BlockWidthRestrictor.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Node(s) to be rendered inside the container */
-    children: any;
+    children: NotEmptyReactNode;
     /** HTML tag to be used to render the container */
     As?: string;
     /** Ref to access the main wrapper element */

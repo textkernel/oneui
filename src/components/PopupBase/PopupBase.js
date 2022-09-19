@@ -39,22 +39,6 @@ export class PopupBase extends React.Component {
         document.removeEventListener('keydown', this.handleKeyPress, false);
     }
 
-    handleWindowClick(event) {
-        const { isOpen } = this.state;
-
-        if (isOpen) {
-            if (!this.wasPopupClicked(event) && !this.wasAnchorClicked(event)) {
-                this.close();
-            }
-        }
-    }
-
-    handleKeyPress(event) {
-        if (event.key === ESCAPE_KEY) {
-            this.close();
-        }
-    }
-
     setPopupVisibility(shouldBeOpen) {
         const { isOpen } = this.state;
         if (shouldBeOpen !== isOpen) {
@@ -68,6 +52,22 @@ export class PopupBase extends React.Component {
             setPopupVisibility: this.setPopupVisibility,
             isOpen,
         };
+    }
+
+    handleKeyPress(event) {
+        if (event.key === ESCAPE_KEY) {
+            this.close();
+        }
+    }
+
+    handleWindowClick(event) {
+        const { isOpen } = this.state;
+
+        if (isOpen) {
+            if (!this.wasPopupClicked(event) && !this.wasAnchorClicked(event)) {
+                this.close();
+            }
+        }
     }
 
     wasPopupClicked(event) {

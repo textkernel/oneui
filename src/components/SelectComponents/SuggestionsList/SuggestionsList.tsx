@@ -27,7 +27,7 @@ export interface Props<S> {
     /** Defines if the first item of suggestions list is always visible */
     allowMixingSuggestionsAndLoading?: boolean;
     /** a function which gets props for the item in the list */
-    getItemProps: (options: GetItemPropsOptions<S>) => object;
+    getItemProps: (options: GetItemPropsOptions<S>) => Record<string, unknown>;
     /** index of the item from the list to be highlighted */
     highlightedIndex: number | null;
     /** input field value to be highlighted in the item from the list */

@@ -29,11 +29,12 @@ _FieldWithValidation.args = {
 export const Example = (args) => {
     const [inputValue, setValue] = React.useState('');
     const [errMsg, setErrMsg] = React.useState<string>();
-    const EMAIL_REGEX =
-        // eslint-disable-next-line no-useless-escape
-        /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
     React.useEffect(() => {
+        const EMAIL_REGEX =
+            // eslint-disable-next-line no-useless-escape
+            /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
         if (!inputValue) {
             setErrMsg('This field is required');
         } else {
@@ -41,7 +42,7 @@ export const Example = (args) => {
                 inputValue.match(EMAIL_REGEX) ? undefined : 'This is not a valid email address'
             );
         }
-    }, [inputValue, EMAIL_REGEX]);
+    }, [inputValue]);
 
     return (
         <div style={{ marginBottom: '10px' }}>

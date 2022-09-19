@@ -72,82 +72,91 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
     const [circularMarkers, setCircularMarkers] = React.useState<CircularMarker[]>([]);
     const [regionAreas, setRegionAreas] = React.useState<RegionArea[]>([]);
 
-    const fitBounds = React.useCallback(() => {
-        if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
-            const { map } = mapRef.current.state;
-            const { LatLngBounds, Circle: CircleClass, Geocoder } = window.google.maps;
-            const geocoder = new Geocoder();
-            const bounds = new LatLngBounds();
+    const fitBounds = React.useCallback(
+        () => {
+            if (
+                mapRef &&
+                typeof mapRef !== 'function' &&
+                mapRef.current &&
+                mapRef.current.state.map
+            ) {
+                const { map } = mapRef.current.state;
+                const { LatLngBounds, Circle: CircleClass, Geocoder } = window.google.maps;
+                const geocoder = new Geocoder();
+                const bounds = new LatLngBounds();
 
-            const fitBoundsByAddress = (address) => {
-                geocoder.geocode({ address }, (result, status) => {
-                    if (status === 'OK') {
-                        map.fitBounds(result[0].geometry.viewport);
-                    } else {
-                        // TODO: add error handling
+                const fitBoundsByAddress = (address) => {
+                    geocoder.geocode({ address }, (result, status) => {
+                        if (status === 'OK') {
+                            map.fitBounds(result[0].geometry.viewport);
+                        } else {
+                            // TODO: add error handling
+                        }
+                    });
+                };
+
+                const centerMapToDefaultArea = () => {
+                    // See bug: https://textkernel.atlassian.net/browse/JF-3156
+                    if (markers.length && !circularMarkers.length && !regionAreas.length) {
+                        return;
                     }
-                });
-            };
 
-            const centerMapToDefaultArea = () => {
-                // See bug: https://textkernel.atlassian.net/browse/JF-3156
-                if (markers.length && !circularMarkers.length && !regionAreas.length) {
+                    if ('address' in defaultArea) {
+                        fitBoundsByAddress(defaultArea.address);
+                    } else {
+                        if ('lng' in defaultArea.center) {
+                            map.setCenter(defaultArea.center);
+                        } else {
+                            map.setCenter(new google.maps.LatLng(...defaultArea.center));
+                        }
+
+                        map.setZoom(defaultArea.zoom);
+                    }
+                };
+
+                /**
+                 * if there are regionAreas (geoJson objects passed) center the map based on defaultArea prop
+                 * if there's a single marker without radius, fits it into the map borders
+                 * if there're any circularMarkers passed, create radius circles for them and fits them into the map borders
+                 * or centers the map based on the defaultArea prop
+                 */
+
+                if (regionAreas.length) {
+                    centerMapToDefaultArea();
                     return;
                 }
 
-                if ('address' in defaultArea) {
-                    fitBoundsByAddress(defaultArea.address);
-                } else {
-                    if ('lng' in defaultArea.center) {
-                        map.setCenter(defaultArea.center);
+                if (circularMarkers.length === 1 && !circularMarkers[0].radius) {
+                    const [firstMarker] = circularMarkers;
+                    if (firstMarker.description) {
+                        fitBoundsByAddress(firstMarker.description);
                     } else {
-                        map.setCenter(new google.maps.LatLng(...defaultArea.center));
-                    }
-
-                    map.setZoom(defaultArea.zoom);
-                }
-            };
-
-            /**
-             * if there are regionAreas (geoJson objects passed) center the map based on defaultArea prop
-             * if there's a single marker without radius, fits it into the map borders
-             * if there're any circularMarkers passed, create radius circles for them and fits them into the map borders
-             * or centers the map based on the defaultArea prop
-             */
-
-            if (regionAreas.length) {
-                centerMapToDefaultArea();
-                return;
-            }
-
-            if (circularMarkers.length === 1 && !circularMarkers[0].radius) {
-                const [firstMarker] = circularMarkers;
-                if (firstMarker.description) {
-                    fitBoundsByAddress(firstMarker.description);
-                } else {
-                    const circle = new CircleClass({
-                        center: firstMarker.center,
-                        radius: DEFAULT_RADIUS_FOR_SINGLE_POINT_MARKER,
-                    });
-                    bounds.union(circle.getBounds());
-                    map.fitBounds(bounds);
-                }
-            } else if (circularMarkers.length) {
-                circularMarkers.forEach(({ center, radius }) => {
-                    if (radius) {
-                        const circle = new CircleClass({ center, radius });
+                        const circle = new CircleClass({
+                            center: firstMarker.center,
+                            radius: DEFAULT_RADIUS_FOR_SINGLE_POINT_MARKER,
+                        });
                         bounds.union(circle.getBounds());
-                    } else {
-                        bounds.extend(center);
+                        map.fitBounds(bounds);
                     }
-                });
+                } else if (circularMarkers.length) {
+                    circularMarkers.forEach(({ center, radius }) => {
+                        if (radius) {
+                            const circle = new CircleClass({ center, radius });
+                            bounds.union(circle.getBounds());
+                        } else {
+                            bounds.extend(center);
+                        }
+                    });
 
-                map.fitBounds(bounds);
-            } else {
-                centerMapToDefaultArea();
+                    map.fitBounds(bounds);
+                } else {
+                    centerMapToDefaultArea();
+                }
             }
-        }
-    }, [defaultArea, mapRef, circularMarkers, regionAreas]);
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [defaultArea, mapRef, circularMarkers, regionAreas]
+    );
 
     const manageDefaultHighlight = React.useCallback(() => {
         if (mapRef && typeof mapRef !== 'function' && mapRef.current && mapRef.current.state.map) {
@@ -216,8 +225,16 @@ const Map = React.forwardRef<GoogleMap, Props>((props, ref) => {
         }
     }, [mapRef]);
 
-    React.useEffect(parseMarkers, [markers]);
-    React.useEffect(manageHighlightedAreas, [regionAreas]);
+    React.useEffect(
+        parseMarkers,
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [markers]
+    );
+    React.useEffect(
+        manageHighlightedAreas,
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [regionAreas]
+    );
     React.useEffect(fitBounds);
     React.useEffect(manageDefaultHighlight);
 

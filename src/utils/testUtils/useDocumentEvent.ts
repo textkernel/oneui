@@ -12,7 +12,6 @@ export const useDocumentEvent = (eventType: string) => {
     });
 
     return (event) => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
         // @ts-ignore
         mockDocumentEventListener[eventType]({ path: [document.body], ...event });
     };

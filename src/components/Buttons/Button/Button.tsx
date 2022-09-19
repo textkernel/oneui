@@ -33,24 +33,36 @@ export interface Props
 
 const { block } = bem('Button', styles);
 
-export const Button = forwardRef<React.Ref<any>, Props>((props, ref) => {
-    const { children, context, disabled, isBlock, isInline, isLoading, type, href, size, ...rest } =
-        props;
+export const Button = forwardRef<React.RefObject<HTMLButtonElement | HTMLAnchorElement>, Props>(
+    (props, ref) => {
+        const {
+            children,
+            context,
+            disabled,
+            isBlock,
+            isInline,
+            isLoading,
+            type,
+            href,
+            size,
+            ...rest
+        } = props;
 
-    if (href) {
+        if (href) {
+            return (
+                <a {...rest} {...block(props)} ref={ref} href={href}>
+                    {children}
+                </a>
+            );
+        }
+
         return (
-            <a {...rest} {...block(props)} ref={ref} href={href}>
+            <button {...rest} {...block(props)} ref={ref} type={type} disabled={disabled}>
                 {children}
-            </a>
+            </button>
         );
     }
-
-    return (
-        <button {...rest} {...block(props)} ref={ref} type={type} disabled={disabled}>
-            {children}
-        </button>
-    );
-});
+);
 
 Button.displayName = 'Button';
 

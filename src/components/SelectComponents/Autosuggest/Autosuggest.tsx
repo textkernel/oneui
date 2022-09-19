@@ -136,7 +136,7 @@ export function Autosuggest<S>(props: Props<S>) {
              * Prevent the default Downshift handler behavior
              * That need for submitting form
              */
-            // eslint-disable-next-line no-param-reassign, dot-notation
+            // eslint-disable-next-line no-param-reassign
             event.nativeEvent['preventDownshiftDefault'] = true;
             onSubmit?.();
         } else if (event.key === ESCAPE_KEY) {
