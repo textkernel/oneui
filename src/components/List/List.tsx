@@ -142,8 +142,15 @@ export const List = React.forwardRef<HTMLUListElement, Props>(
                 })}
             </ul>
         ) : (
-            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex
-            <ul {...rest} ref={ref} tabIndex="0" onKeyDown={handleKeyDown} {...block({ isDivided })}>
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+            <ul
+                {...rest}
+                ref={ref}
+                /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
+                tabIndex="0"
+                onKeyDown={handleKeyDown}
+                {...block({ isDivided })}
+            >
                 {React.Children.map(children, (child, index) => {
                     if (child) {
                         return child.props[NOT_LIST_CHILD]
