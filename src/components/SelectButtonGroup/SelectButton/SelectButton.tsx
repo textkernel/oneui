@@ -61,7 +61,7 @@ export function SelectButton<V>(props: Props<V>) {
 SelectButton.displayName = 'SelectButton';
 
 SelectButton.defaultProps = {
-    context: 'brand',
+    context: 'primary',
     isSelected: false,
     isEqualWidth: false,
     size: 'normal',

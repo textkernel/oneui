@@ -5,7 +5,7 @@ export const headerFooterVariables = {
     '--header-height': '50px',
     '--header-content-height': 'calc(var(--header-height) - 10px)',
     // Footer variables
-    '--footer-background-color': 'var(--color-accent)',
+    '--footer-background-color': 'var(--color-secondary)',
     '--footer-foreground-color': 'var(--color-background)',
     '--footer-link-color': 'var(--color-neutral-60)',
     '--footer-height': '100px',

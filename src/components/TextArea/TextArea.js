@@ -16,7 +16,7 @@ TextArea.displayName = 'TextArea';
 // Any other attributes (value, defaultValue onChange, onKeyUp etc.) are
 // supported although not defined in propTypes
 TextArea.propTypes = {
-    /** The textarea context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    /** The textarea context (e.g. primary, primary, bad, good etc. - defaults to primary) */
     context: PropTypes.oneOf(CONTEXTS),
     /** Should the input field be disabled or not */
     disabled: PropTypes.bool,
@@ -27,7 +27,7 @@ TextArea.propTypes = {
 };
 
 TextArea.defaultProps = {
-    context: 'brand',
+    context: 'primary',
     disabled: false,
     isBlock: false,
     size: 'normal',

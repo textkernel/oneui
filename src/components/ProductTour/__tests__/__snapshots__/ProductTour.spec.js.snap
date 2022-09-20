@@ -355,7 +355,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                       Cancel
                     </button>
                     <button
-                      class="Button Button--context_brand"
+                      class="Button Button--context_primary"
                       type="button"
                     >
                       Continue
@@ -577,7 +577,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                     </button>
                   </Button>
                   <Button
-                    context="brand"
+                    context="primary"
                     disabled={false}
                     isBlock={false}
                     isInline={false}
@@ -587,7 +587,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                     type="button"
                   >
                     <button
-                      className="Button Button--context_brand"
+                      className="Button Button--context_primary"
                       disabled={false}
                       onClick={[Function]}
                       type="button"

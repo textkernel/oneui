@@ -9,7 +9,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     centerIn?: 'parent' | 'viewport';
     /** Loading text */
     children?: ReactNode;
-    /** The spinner context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    /** The spinner context (e.g. primary, primary, bad, good etc. - defaults to primary) */
     context?: Context;
     /** Hides the spinner when true */
     hidden?: boolean;
@@ -58,6 +58,6 @@ export const LoadingSpinner: React.FC<Props> = (props) => {
 LoadingSpinner.displayName = 'LoadingSpinner';
 
 LoadingSpinner.defaultProps = {
-    context: 'brand',
+    context: 'primary',
     hidden: false,
 };

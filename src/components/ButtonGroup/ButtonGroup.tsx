@@ -7,7 +7,7 @@ import { ButtonProps } from '../Buttons';
 export interface Props {
     /** The buttons in this group */
     children: React.ReactElement<ButtonProps> | (React.ReactElement<ButtonProps> | EmptyElement)[];
-    /** The context for all buttons in this group (e.g. brand, primary, bad, good etc.) */
+    /** The context for all buttons in this group (e.g. primary, primary, bad, good etc.) */
     context?: Context | 'link';
     /** Whether or not to show block-level button group (full width) */
     isBlock?: boolean;

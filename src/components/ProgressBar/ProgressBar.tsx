@@ -10,7 +10,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     animated?: boolean;
     /** Text to show instead of percentage */
     children?: ReactNode;
-    /** The progress bar context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    /** The progress bar context (e.g. primary, primary, bad, good etc. - defaults to primary) */
     context?: Context;
     /** Hides the progress bar if true */
     hidden?: boolean;
@@ -51,7 +51,7 @@ ProgressBar.displayName = 'ProgressBar';
 ProgressBar.defaultProps = {
     animated: false,
     children: null,
-    context: 'brand',
+    context: 'primary',
     hidden: false,
     small: false,
 };

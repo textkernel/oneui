@@ -33,7 +33,7 @@ export const Teaser: React.FC<Props> = (props) => {
         <Text
             inline
             title={subTitle}
-            context={disabled ? 'muted' : 'accent'}
+            context={disabled ? 'muted' : 'secondary'}
             {...elem('subTitle', props)}
         >
             {subTitle}
@@ -49,7 +49,7 @@ export const Teaser: React.FC<Props> = (props) => {
             <div {...elem('line', props)}>
                 <Text
                     inline
-                    context={disabled ? 'muted' : 'brand'}
+                    context={disabled ? 'muted' : 'primary'}
                     {...elem('title', props)}
                     title={title}
                 >

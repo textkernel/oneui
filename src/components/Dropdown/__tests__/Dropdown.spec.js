@@ -15,7 +15,7 @@ describe('Dropdown', () => {
     beforeEach(() => {
         wrapper = mount(
             <Dropdown
-                button={<Button context="brand">Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
                 onToggleClick={mockOnButtonClick}
@@ -52,7 +52,7 @@ describe('Dropdown', () => {
     it('should downshift only by enabled items with value', () => {
         wrapper = mount(
             <Dropdown
-                button={<Button context="brand">Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >
@@ -106,7 +106,7 @@ describe('Dropdown', () => {
     it('onChange should return passed value', () => {
         wrapper = mount(
             <Dropdown
-                button={<Button context="brand">Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >
@@ -131,7 +131,7 @@ describe('Dropdown', () => {
     it('should render correctly with mixed children: array and single ListItem', () => {
         wrapper = mount(
             <Dropdown
-                button={<Button context="brand">Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >
@@ -200,7 +200,7 @@ describe('Dropdown', () => {
     it('should open dropdown by default if corresponding prop is set', () => {
         wrapper = mount(
             <Dropdown
-                button={<Button context="brand">Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
                 additionalSelectProps={{
@@ -225,7 +225,7 @@ describe('Dropdown', () => {
         const condition = false;
         wrapper = mount(
             <Dropdown
-                button={<Button context="brand">Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >

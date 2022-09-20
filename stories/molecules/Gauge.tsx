@@ -47,7 +47,7 @@ GaugeWithAnIcon.args = {
     children: (
         <div>
             $54,321
-            <IconJobfeed context="brand" />
+            <IconJobfeed context="primary" />
         </div>
     ),
 };

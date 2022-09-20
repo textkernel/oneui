@@ -211,7 +211,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                       viewBox="0,0,44,44"
                     >
                       <circle
-                        class="LoadingSpinner__path LoadingSpinner__path--context_brand"
+                        class="LoadingSpinner__path LoadingSpinner__path--context_primary"
                         cx="22"
                         cy="22"
                         fill="none"
@@ -370,14 +370,14 @@ exports[`LocationSelector component should render LocationSelector properly when
                     loadingElement={
                       <LoadingSpinner
                         centerIn="parent"
-                        context="brand"
+                        context="primary"
                         hidden={false}
                       />
                     }
                   >
                     <LoadingSpinner
                       centerIn="parent"
-                      context="brand"
+                      context="primary"
                       hidden={false}
                     >
                       <div
@@ -399,7 +399,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                           }
                         >
                           <circle
-                            className="LoadingSpinner__path LoadingSpinner__path--context_brand"
+                            className="LoadingSpinner__path LoadingSpinner__path--context_primary"
                             cx="22"
                             cy="22"
                             fill="none"

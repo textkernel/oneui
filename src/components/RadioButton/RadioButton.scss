@@ -19,7 +19,7 @@
             content: "";
             width: 100%;
             height: 100%;
-            background: var(--color-brand);
+            background: var(--color-primary);
             display: block;
             transform: scale(0);
             opacity: 1;
@@ -35,7 +35,7 @@
 
         &:hover {
             .RadioButton__box {
-                border-color: var(--color-brand);
+                border-color: var(--color-primary);
             }
         }
     }
@@ -55,8 +55,8 @@
         &:checked {
             + .RadioButton__label {
                 .RadioButton__box {
-                    background: var(--color-brand);
-                    border-color: var(--color-brand);
+                    background: var(--color-primary);
+                    border-color: var(--color-primary);
                     animation: wave var(--transition-duration) ease;
 
                     .RadioButton__svg {
@@ -90,7 +90,7 @@
             + .RadioButton__label {
                 cursor: not-allowed;
             }
-            
+
             &:checked {
                 + .RadioButton__label {
                     .RadioButton__box {

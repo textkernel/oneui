@@ -17,28 +17,16 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 value: '#1d1d1b',
             },
             {
-                label: 'Brand color',
-                type: 'color',
-                var: '--color-brand',
-                value: '#0097d1',
-            },
-            {
                 label: 'Primary color',
                 type: 'color',
                 var: '--color-primary',
-                value: '#f18700',
+                value: '#0097d1',
             },
             {
-                label: 'Accent color',
+                label: 'Secondary color',
                 type: 'color',
-                var: '--color-accent',
+                var: 'color-secondary',
                 value: '#182642',
-            },
-            {
-                label: 'Info color',
-                type: 'color',
-                var: '--color-info',
-                value: '#60c4de',
             },
             {
                 label: 'Warning color',

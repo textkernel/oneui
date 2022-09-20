@@ -6,7 +6,7 @@ export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Link content */
     children: NotEmptyReactNode;
     /** Color context */
-    context?: 'brand' | 'muted';
+    context?: 'primary' | 'muted';
     /** Do not underline text on hover */
     dontDecorateOnHover?: boolean;
 }
@@ -25,6 +25,6 @@ export const Link = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
 Link.displayName = 'Link';
 
 Link.defaultProps = {
-    context: 'brand',
+    context: 'primary',
     dontDecorateOnHover: false,
 };

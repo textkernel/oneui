@@ -46,7 +46,7 @@
     }
 
     &--isSelected.SelectButton--context {
-        @each $context in (brand, primary, accent, info, good, warning, bad) {
+        @each $context in (primary, secondary, good, warning, bad) {
             &_#{$context} {
                 border-color: var(--color-#{$context});
                 background-color: var(--color-#{$context});

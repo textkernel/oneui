@@ -262,7 +262,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
     </LocationAutocomplete>
     <Button
       className="LocationSelectorDialog__button"
-      context="brand"
+      context="primary"
       disabled={false}
       isBlock={false}
       isInline={false}
@@ -272,7 +272,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       type="button"
     >
       <button
-        className="Button Button--context_brand LocationSelectorDialog__button"
+        className="Button Button--context_primary LocationSelectorDialog__button"
         disabled={false}
         onClick={[MockFunction]}
         type="button"

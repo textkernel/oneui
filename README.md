@@ -96,7 +96,6 @@ All CSS variables (‘[custom properties](https://developer.mozilla.org/en-US/do
 
 ```css
 --color-primary: red;
---color-brand: blue;
 --font-size-base: 12px;
 ```
 

@@ -1,13 +1,6 @@
 export const VALIDATION_CONTEXTS = ['good', 'warning', 'bad'] as const;
 
-export const CONTEXTS = [
-    'neutral',
-    'brand',
-    'primary',
-    'accent',
-    'info',
-    ...VALIDATION_CONTEXTS,
-] as const;
+export const CONTEXTS = ['neutral', 'primary', 'secondary', ...VALIDATION_CONTEXTS] as const;
 
 export const SIZES = ['small', 'normal', 'large'] as const;
 export const HEADING_SIZES = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;

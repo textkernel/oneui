@@ -4,7 +4,7 @@ import styles from './IconBase.scss';
 import { Context } from '../../constants';
 
 export interface IconProps extends React.HTMLAttributes<HTMLDivElement> {
-    /** The icon context (e.g. brand, primary, bad, good etc. - defaults to brand) */
+    /** The icon context (e.g. primary, secondary, bad, good etc. - defaults to primary) */
     context?: Context;
     /** Adds margin between a given side of the icon and other content */
     margin?: 'top' | 'right' | 'bottom' | 'left';

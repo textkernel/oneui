@@ -184,6 +184,13 @@ Use imperative, present tense in your commit description ("change", not "changed
 
 **Breaking changes** should be explicitly marked (singular, with uppercase) in the message footer, e.g. `BREAKING CHANGE: <note>`. This will result in a new `MAJOR` package version.
 
+Example of breaking change commit message:
+```
+feat(LabelPicker): new component
+
+BREAKING CHANGE: Type checking for Checkbox moved to TS and might break certain implementations that were not as intended by the original API
+```
+
 ### Merging
 
 When merging a branch, squash its commits for the changelog to be nice and tidy. Each pull request / squashed commit should eventually equal one fix / feature / change in docs or tests.

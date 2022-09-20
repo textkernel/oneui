@@ -82,7 +82,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="brand"
+          context="primary"
           disabled={false}
           isBlock={false}
           isInline={false}
@@ -190,7 +190,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="brand"
+          context="primary"
           disabled={false}
           isBlock={false}
           isInline={false}
@@ -298,7 +298,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="brand"
+          context="primary"
           disabled={false}
           isBlock={false}
           isInline={false}
@@ -406,7 +406,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="brand"
+          context="primary"
           disabled={false}
           isBlock={false}
           isInline={false}

@@ -10,7 +10,7 @@ export interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
     level?: typeof HEADING_SIZES[number];
     /** Heading text alignment */
     align?: 'left' | 'center' | 'right';
-    /** The context of the text, effecting its color (e.g. brand, primary, bad, good etc. 'muted' added as special context here) */
+    /** The context of the text, effecting its color (e.g. primary, secondary,  bad, good etc. 'muted' added as special context here) */
     context?: Context | 'muted' | 'default';
     /** Ref to access the span element */
     ref?: React.RefObject<HTMLElement>;

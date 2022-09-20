@@ -33,7 +33,7 @@ _WeightedResultBar.args = {
 const ClickableCount = ({ count }) => (
     <Button
         size="small"
-        context="brand"
+        context="primary"
         onClick={() => console.log(`WeightedResultBar count: ${count}`)}
     >
         {count}

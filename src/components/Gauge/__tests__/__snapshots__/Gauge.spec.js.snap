@@ -10,14 +10,14 @@ exports[`Gauge should render correctly 1`] = `
   >
     <defs>
       <linearGradient
-        id="Gauge__gradient--brand-0.42"
+        id="Gauge__gradient--primary-0.42"
       >
         <stop
-          className="Gauge__gradientStart--context_brand"
+          className="Gauge__gradientStart--context_primary"
           offset="50%"
         />
         <stop
-          className="Gauge__gradientEnd--context_brand"
+          className="Gauge__gradientEnd--context_primary"
           offset="100%"
         />
       </linearGradient>
@@ -38,7 +38,7 @@ exports[`Gauge should render correctly 1`] = `
       cx="50%"
       cy="25%"
       r={100}
-      stroke="url(#Gauge__gradient--brand-0.42)"
+      stroke="url(#Gauge__gradient--primary-0.42)"
       style={
         Object {
           "strokeDasharray": "0 628.3185307179587",

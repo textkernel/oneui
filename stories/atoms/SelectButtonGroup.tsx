@@ -50,7 +50,7 @@ Controlled.args = {
     button1: true,
     button2: false,
     button3: false,
-    context1: 'brand',
-    context2: 'brand',
+    context1: 'primary',
+    context2: 'primary',
     context3: 'primary',
 };

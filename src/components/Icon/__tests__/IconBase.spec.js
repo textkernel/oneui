@@ -10,7 +10,7 @@ describe('<IconBase> that renders an SVG wrapper with all options included', () 
                 title="Icon base"
                 size={15}
                 margin="right"
-                context="brand"
+                context="primary"
             >
                 <circle cx="50" cy="50" r="50" />
             </IconBase>

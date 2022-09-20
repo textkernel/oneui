@@ -40,12 +40,12 @@
 
     &--isFocused,
     &:focus {
-        border-color: var(--color-brand);
+        border-color: var(--color-primary);
         outline: none;
     }
 
     &:hover:not(.FieldWrapper--disabled) {
-        border-color: var(--color-brand);
+        border-color: var(--color-primary);
 
         & .FieldWrapper__content {
             overflow: hidden;

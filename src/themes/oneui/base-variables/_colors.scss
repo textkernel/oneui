@@ -8,10 +8,8 @@ $color-foreground: #1d1d1b !default;
 
 $color-neutral: #d0d1d5 !default;
 $color-muted: #b3b2b2 !default;
-$color-brand: #0097d1 !default;
-$color-primary: #f18700 !default;
-$color-accent: #182642 !default;
-$color-info: #60c4de !default;
+$color-primary: #0097d1 !default;
+$color-secondary: #182642 !default;
 $color-good: #5cb85c !default;
 $color-warning: #ffb819 !default;
 $color-bad: #f42534 !default;
@@ -23,10 +21,8 @@ $color-bad: #f42534 !default;
             foreground: $color-foreground,
             neutral: $color-neutral,
             muted: $color-muted,
-            brand: $color-brand,
             primary: $color-primary,
-            accent: $color-accent,
-            info: $color-info,
+            secondary: $color-secondary,
             good: $color-good,
             warning: $color-warning,
             bad: $color-bad
@@ -39,10 +35,8 @@ $color-bad: #f42534 !default;
     @each $context,
         $value in (
             neutral: $color-neutral,
-            brand: $color-brand,
             primary: $color-primary,
-            accent: $color-accent,
-            info: $color-info,
+            secondary: $color-secondary,
             good: $color-good,
             warning: $color-warning,
             bad: $color-bad
@@ -63,12 +57,12 @@ $color-bad: #f42534 !default;
     }
 
     --transparent: #{$transparent};
-    --link-color-normal: var(--color-brand);
-    --link-color-hover: var(--color-brand-40);
+    --link-color-normal: var(--color-primary);
+    --link-color-hover: var(--color-primary-40);
 
     --border-color-light: var(--color-neutral-25);
     --border-color-strong: var(--color-neutral-40);
 
-    --color-highlight-background: #{mix($color-background, $color-brand, 90)};
-    --color-selection-background: #{mix($color-background, $color-brand, 90)};
+    --color-highlight-background: #{mix($color-background, $color-primary, 90)};
+    --color-selection-background: #{mix($color-background, $color-primary, 90)};
 }

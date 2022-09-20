@@ -2,7 +2,7 @@
 
 exports[`WeightedResultBar should render correctly 1`] = `
 <WeightedResultBar
-  context="brand"
+  context="primary"
   count={123}
   isLoading={false}
   percentage={67}
@@ -34,7 +34,7 @@ exports[`WeightedResultBar should render correctly 1`] = `
     </div>
     <ProgressBar
       animated={false}
-      context="brand"
+      context="primary"
       hidden={false}
       percentage={67}
       small={true}
@@ -48,7 +48,7 @@ exports[`WeightedResultBar should render correctly 1`] = `
         role="progressbar"
       >
         <div
-          className="ProgressBar__fill ProgressBar__fill--context_brand ProgressBar__fill--small"
+          className="ProgressBar__fill ProgressBar__fill--context_primary ProgressBar__fill--small"
           style={
             Object {
               "width": "67%",
@@ -63,7 +63,7 @@ exports[`WeightedResultBar should render correctly 1`] = `
 
 exports[`WeightedResultBar should render correctly with a custom count 1`] = `
 <WeightedResultBar
-  context="brand"
+  context="primary"
   count={
     <p>
       456
@@ -93,7 +93,7 @@ exports[`WeightedResultBar should render correctly with a custom count 1`] = `
     </div>
     <ProgressBar
       animated={false}
-      context="brand"
+      context="primary"
       hidden={false}
       percentage={67}
       small={true}
@@ -107,7 +107,7 @@ exports[`WeightedResultBar should render correctly with a custom count 1`] = `
         role="progressbar"
       >
         <div
-          className="ProgressBar__fill ProgressBar__fill--context_brand ProgressBar__fill--small"
+          className="ProgressBar__fill ProgressBar__fill--context_primary ProgressBar__fill--small"
           style={
             Object {
               "width": "67%",

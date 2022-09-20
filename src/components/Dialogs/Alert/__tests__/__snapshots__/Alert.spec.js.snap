@@ -80,7 +80,7 @@ exports[`Alert should render correctly 1`] = `
                     class="Dialog__actions"
                   >
                     <button
-                      class="Button Button--context_brand"
+                      class="Button Button--context_secondary"
                       type="button"
                     >
                       OK
@@ -179,7 +179,7 @@ exports[`Alert should render correctly 1`] = `
                   className="Dialog__actions"
                 >
                   <Button
-                    context="brand"
+                    context="secondary"
                     disabled={false}
                     isBlock={false}
                     isInline={false}
@@ -189,7 +189,7 @@ exports[`Alert should render correctly 1`] = `
                     type="button"
                   >
                     <button
-                      className="Button Button--context_brand"
+                      className="Button Button--context_secondary"
                       disabled={false}
                       onClick={[MockFunction]}
                       type="button"
@@ -295,7 +295,7 @@ exports[`Alert should render correctly with title 1`] = `
                     class="Dialog__actions"
                   >
                     <button
-                      class="Button Button--context_brand"
+                      class="Button Button--context_secondary"
                       type="button"
                     >
                       OK
@@ -406,7 +406,7 @@ exports[`Alert should render correctly with title 1`] = `
                   className="Dialog__actions"
                 >
                   <Button
-                    context="brand"
+                    context="secondary"
                     disabled={false}
                     isBlock={false}
                     isInline={false}
@@ -416,7 +416,7 @@ exports[`Alert should render correctly with title 1`] = `
                     type="button"
                   >
                     <button
-                      className="Button Button--context_brand"
+                      className="Button Button--context_secondary"
                       disabled={false}
                       onClick={[MockFunction]}
                       type="button"

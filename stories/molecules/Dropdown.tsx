@@ -38,7 +38,7 @@ export const _Dropdown = (args) => {
     };
 
     const customButtonsDemo = [
-        <Button context="brand">Click me!</Button>,
+        <Button context="primary">Click me!</Button>,
         <Button context="neutral">
             <HiDotsVertical />
         </Button>,
@@ -67,7 +67,7 @@ export const _Dropdown = (args) => {
                 ))}
                 <ListItem key="second-key" value="second-value">
                     <div style={styles.customListItem}>
-                        <IconTextkernel context="brand" style={styles.icon} />
+                        <IconTextkernel context="primary" style={styles.icon} />
                         <strong>Custom ListItem with value</strong>
                     </div>
                 </ListItem>

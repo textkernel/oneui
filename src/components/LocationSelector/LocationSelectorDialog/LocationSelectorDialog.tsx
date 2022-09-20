@@ -177,7 +177,7 @@ const LocationSelectorDialog = (props: Props) => {
                         </Text>
                     </div>
                 )}
-                <Button {...elem('button', props)} onClick={onCloseModal} context="brand">
+                <Button {...elem('button', props)} onClick={onCloseModal} context="primary">
                     {doneLabel}
                 </Button>
             </div>

@@ -18,7 +18,7 @@
         style: solid;
     }
     box-sizing: border-box;
-    color: var(--color-brand);
+    color: var(--color-primary);
     cursor: pointer;
     font: {
         size: var(--font-size-base);
@@ -138,7 +138,7 @@
             }
         }
 
-        @each $context in (brand, primary, accent, info, good, warning, bad) {
+        @each $context in (primary, secondary, good, warning, bad) {
             &_#{ $context } {
                 background-color: var(--color-#{$context});
                 border-color: var(--color-#{$context});

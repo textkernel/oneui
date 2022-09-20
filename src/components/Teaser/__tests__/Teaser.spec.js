@@ -29,8 +29,8 @@ describe('Teaser', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('Text').at(0).prop('context')).toEqual('brand');
-        expect(wrapper.find('Text').at(2).prop('context')).toEqual('accent');
+        expect(wrapper.find('Text').at(0).prop('context')).toEqual('primary');
+        expect(wrapper.find('Text').at(2).prop('context')).toEqual('secondary');
         expect(wrapper.find('Text').at(0).prop('title')).toEqual('A job title');
     });
     it('should render correctly in disabled mode', () => {

@@ -36,14 +36,14 @@ exports[`<LocationSelectorDialogWithGoogleLoader/> that loads google api and ren
     loadingElement={
       <LoadingSpinner
         centerIn="parent"
-        context="brand"
+        context="primary"
         hidden={false}
       />
     }
   >
     <LoadingSpinner
       centerIn="parent"
-      context="brand"
+      context="primary"
       hidden={false}
     >
       <div
@@ -65,7 +65,7 @@ exports[`<LocationSelectorDialogWithGoogleLoader/> that loads google api and ren
           }
         >
           <circle
-            className="LoadingSpinner__path LoadingSpinner__path--context_brand"
+            className="LoadingSpinner__path LoadingSpinner__path--context_primary"
             cx="22"
             cy="22"
             fill="none"

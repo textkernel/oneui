@@ -7,18 +7,18 @@
 
     &:hover {
         color: var(--color-background);
-        background-color: var(--color-brand);
+        background-color: var(--color-primary);
         text-decoration: none;
     }
 
     &--isActive {
         color: var(--color-background);
-        background-color: var(--color-accent);
+        background-color: var(--color-secondary);
         cursor: auto;
 
         &:hover {
             color: var(--color-background);
-            background-color: var(--color-accent);
+            background-color: var(--color-secondary);
             text-decoration: none;
         }
     }
