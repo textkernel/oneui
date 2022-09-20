@@ -16,16 +16,12 @@ exports[`ThemeActions component should render component correctly with all actio
     <Button
       className="ThemeActions__button"
       context="bad"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       onClick={[MockFunction]}
       size="small"
       type="reset"
     >
       <button
-        className="Button Button--size_small Button--context_bad ThemeActions__button"
+        className="Button Button--context_bad Button--size_small ThemeActions__button"
         disabled={false}
         onClick={[MockFunction]}
         type="reset"
@@ -72,14 +68,11 @@ exports[`ThemeActions component should render component correctly with all actio
       <FileButton
         accept="application/JSON"
         context="good"
-        disabled={false}
-        isBlock={false}
-        isInline={false}
         onChange={[Function]}
         size="small"
       >
         <label
-          className="Button Button--size_small Button--context_good"
+          className="Button Button--context_good Button--size_small"
           disabled={false}
         >
           <input
@@ -143,17 +136,12 @@ exports[`ThemeActions component should render component correctly with all actio
           <span>
             <Button
               className="ThemeActions__button"
-              context="neutral"
               disabled={true}
-              isBlock={false}
-              isInline={false}
-              isLoading={false}
               onClick={[MockFunction]}
               size="small"
-              type="button"
             >
               <button
-                className="Button Button--size_small Button--context_neutral ThemeActions__button"
+                className="Button Button--context_neutral Button--size_small ThemeActions__button"
                 disabled={true}
                 onClick={[MockFunction]}
                 type="button"

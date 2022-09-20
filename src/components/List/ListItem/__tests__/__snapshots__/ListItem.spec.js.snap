@@ -7,10 +7,7 @@ exports[`ListItem component should render ListItem correctly 1`] = `
     role="presentation"
   >
     <Text
-      context="default"
-      inline={false}
       key=".0"
-      size="normal"
     >
       <p>
         An item
@@ -29,10 +26,8 @@ exports[`ListItem component should render correctly when disabled 1`] = `
     role="presentation"
   >
     <Text
-      context="default"
       inline={true}
       key=".0"
-      size="normal"
     >
       <span>
         An item

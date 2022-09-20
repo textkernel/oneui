@@ -12,14 +12,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   renderInPortal={true}
 >
   <Button
-    context="neutral"
-    disabled={false}
-    isBlock={false}
-    isInline={false}
-    isLoading={false}
     onClick={[Function]}
-    size="normal"
-    type="button"
   >
     <button
       className="Button Button--context_neutral"
@@ -74,14 +67,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
           Can be a form or anything.
         </p>
         <Button
-          context="neutral"
-          disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[Function]}
-          size="normal"
-          type="button"
         >
           <button
             className="Button Button--context_neutral"
@@ -110,14 +96,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   renderInPortal={false}
 >
   <Button
-    context="neutral"
-    disabled={false}
-    isBlock={false}
-    isInline={false}
-    isLoading={false}
     onClick={[Function]}
-    size="normal"
-    type="button"
   >
     <button
       className="Button Button--context_neutral"
@@ -150,14 +129,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
         Can be a form or anything.
       </p>
       <Button
-        context="neutral"
-        disabled={false}
-        isBlock={false}
-        isInline={false}
-        isLoading={false}
         onClick={[Function]}
-        size="normal"
-        type="button"
       >
         <button
           className="Button Button--context_neutral"
@@ -185,14 +157,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   renderInPortal={false}
 >
   <Button
-    context="neutral"
-    disabled={false}
-    isBlock={false}
-    isInline={false}
-    isLoading={false}
     onClick={[Function]}
-    size="normal"
-    type="button"
   >
     <button
       className="Button Button--context_neutral"
@@ -218,14 +183,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   renderInPortal={false}
 >
   <Button
-    context="neutral"
-    disabled={false}
-    isBlock={false}
-    isInline={false}
-    isLoading={false}
     onClick={[Function]}
-    size="normal"
-    type="button"
   >
     <button
       className="Button Button--context_neutral"

@@ -45,28 +45,27 @@ const adjustSize = (preserveAspectRatio: boolean, size?: number) => {
     };
 };
 
-export const IconBase = forwardRef<HTMLImageElement, Props>((props, ref) => {
-    const { children, context, margin, size, preserveAspectRatio, title, viewBox, ...rest } = props;
-
-    return (
-        <div ref={ref} {...rest} {...block(props)}>
-            <svg
-                {...elem('svg', props)}
-                aria-labelledby={title ? 'title' : null}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox={viewBox}
-                style={adjustSize(!!preserveAspectRatio, size)}
-                role="img"
-            >
-                {!!title && <title>{title}</title>}
-                {children}
-            </svg>
-        </div>
-    );
-});
+export const IconBase = forwardRef<HTMLImageElement, Props>(
+    (
+        { children, context, margin, size, preserveAspectRatio = false, title, viewBox, ...rest },
+        ref
+    ) => {
+        return (
+            <div ref={ref} {...rest} {...block({ margin, context, ...rest })}>
+                <svg
+                    {...elem('svg')}
+                    aria-labelledby={title ? 'title' : null}
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox={viewBox}
+                    style={adjustSize(!!preserveAspectRatio, size)}
+                    role="img"
+                >
+                    {!!title && <title>{title}</title>}
+                    {children}
+                </svg>
+            </div>
+        );
+    }
+);
 
 IconBase.displayName = 'IconBase';
-
-IconBase.defaultProps = {
-    preserveAspectRatio: false,
-};

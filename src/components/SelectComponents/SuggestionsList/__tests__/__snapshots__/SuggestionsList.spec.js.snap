@@ -65,9 +65,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Sun
@@ -94,9 +92,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Moon
@@ -123,9 +119,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Mercury
@@ -152,9 +146,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Venus
@@ -181,9 +173,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Earth
@@ -210,9 +200,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Mars
@@ -239,9 +227,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Jupiter
@@ -268,9 +254,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Saturn
@@ -297,9 +281,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Neptune
@@ -326,9 +308,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Pluto

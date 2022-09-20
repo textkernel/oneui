@@ -17,10 +17,8 @@ exports[`List component Initial rendering should allow for conditional rendering
         role="presentation"
       >
         <Text
-          context="default"
           inline={true}
           key=".0"
-          size="normal"
         >
           <span>
             Item 2
@@ -49,10 +47,8 @@ exports[`List component Initial rendering should render List correctly 1`] = `
         role="presentation"
       >
         <Text
-          context="default"
           inline={true}
           key=".0"
-          size="normal"
         >
           <span>
             Item 1
@@ -70,10 +66,8 @@ exports[`List component Initial rendering should render List correctly 1`] = `
         role="presentation"
       >
         <Text
-          context="default"
           inline={true}
           key=".0"
-          size="normal"
         >
           <span>
             Item 2
@@ -101,10 +95,8 @@ exports[`List component Initial rendering should render List correctly without k
         role="presentation"
       >
         <Text
-          context="default"
           inline={true}
           key=".0"
-          size="normal"
         >
           <span>
             Item 1
@@ -121,10 +113,8 @@ exports[`List component Initial rendering should render List correctly without k
         role="presentation"
       >
         <Text
-          context="default"
           inline={true}
           key=".0"
-          size="normal"
         >
           <span>
             Item 2

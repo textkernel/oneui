@@ -29,14 +29,8 @@ exports[`DatePicker should render calendar header correctly when calendar is ope
   >
     <Button
       className="CalendarHeader__navButton"
-      context="neutral"
       disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       onClick={[Function]}
-      size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral CalendarHeader__navButton"
@@ -81,7 +75,6 @@ exports[`DatePicker should render calendar header correctly when calendar is ope
       role="presentation"
     >
       <Text
-        context="default"
         inline={true}
         size="large"
       >
@@ -118,14 +111,8 @@ exports[`DatePicker should render calendar header correctly when calendar is ope
     </div>
     <Button
       className="CalendarHeader__navButton"
-      context="neutral"
       disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       onClick={[Function]}
-      size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral CalendarHeader__navButton"

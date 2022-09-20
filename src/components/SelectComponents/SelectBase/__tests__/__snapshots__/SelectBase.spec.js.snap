@@ -33,9 +33,6 @@ exports[`SelectBase rendering should initially render empty component correctly 
       ],
     }
   }
-  className=""
-  clearInputAfterSelection={false}
-  clearTitle=""
   focusedRenderer={
     [MockFunction] {
       "calls": Array [
@@ -68,15 +65,11 @@ exports[`SelectBase rendering should initially render empty component correctly 
     }
   }
   highlightOnEmptyInput={true}
-  keepExpandedAfterSelection={false}
   listRenderer={[Function]}
   onBlur={[MockFunction]}
   onClearAllSelected={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionAdd={[MockFunction]}
-  selectOnTab={false}
-  showArrow={false}
-  showClearButton={false}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -146,7 +139,6 @@ exports[`SelectBase rendering should initially render empty component correctly 
         <FieldWrapper
           className="SelectBase__field"
           clearLabel=""
-          disabled={false}
           isArrowUp={false}
           isFocused={false}
           onClear={[Function]}
@@ -156,7 +148,6 @@ exports[`SelectBase rendering should initially render empty component correctly 
         >
           <div
             className="FieldWrapper SelectBase__field"
-            disabled={false}
             onClick={[Function]}
           >
             <div

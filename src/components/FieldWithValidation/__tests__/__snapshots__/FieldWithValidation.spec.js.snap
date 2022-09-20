@@ -2,12 +2,7 @@
 
 exports[`FieldWithValidation when rendering message as text with no error message passed should simply render the child as it is 1`] = `
 <FieldWithValidation>
-  <Input
-    disabled={false}
-    isBlock={false}
-    size="normal"
-    type="text"
-  >
+  <Input>
     <input
       className="Input"
       data-lpignore={true}

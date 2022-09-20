@@ -48,14 +48,14 @@ const { block, elem } = bem('Themeroller', styles);
 
 export const Themeroller: React.FC<Props> = ({
     config,
-    activeTheme,
+    activeTheme = undefined,
     inputLabel = '',
-    resetLabel,
-    resetActiveLabel,
-    downloadLabel,
-    fileLabel,
-    downloadTooltipLabel,
-    onChange,
+    resetLabel = '',
+    resetActiveLabel = '',
+    downloadLabel = '',
+    fileLabel = '',
+    downloadTooltipLabel = '',
+    onChange = undefined,
 }) => {
     const oneUITheme = React.useMemo(() => new ThemeGenerator(OneUITheme), []);
     const [themeResultStore, setThemeResultStore] = React.useState(oneUITheme.result);
@@ -178,14 +178,3 @@ export const Themeroller: React.FC<Props> = ({
 };
 
 Themeroller.displayName = 'Themeroller';
-
-Themeroller.defaultProps = {
-    inputLabel: '',
-    resetLabel: '',
-    resetActiveLabel: '',
-    downloadLabel: '',
-    downloadTooltipLabel: '',
-    fileLabel: '',
-    activeTheme: undefined,
-    onChange: undefined,
-};

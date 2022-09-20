@@ -2,7 +2,6 @@
 
 exports[`ComboboxMulti rendering should initially render empty component correctly 1`] = `
 <ComboboxMulti
-  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
@@ -44,15 +43,10 @@ exports[`ComboboxMulti rendering should initially render empty component correct
       },
     ]
   }
-  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
-    className=""
-    clearInputAfterSelection={false}
-    clearTitle=""
     focusedRenderer={[Function]}
-    highlightOnEmptyInput={true}
     inputRef={
       Object {
         "current": <input
@@ -71,9 +65,6 @@ exports[`ComboboxMulti rendering should initially render empty component correct
     onBlur={[MockFunction]}
     onInputValueChange={[MockFunction]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={false}
-    showArrow={false}
-    showClearButton={false}
     suggestionToString={[Function]}
     suggestions={
       Array [
@@ -143,7 +134,6 @@ exports[`ComboboxMulti rendering should initially render empty component correct
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={false}
             isFocused={false}
             onClear={[Function]}
@@ -153,7 +143,6 @@ exports[`ComboboxMulti rendering should initially render empty component correct
           >
             <div
               className="FieldWrapper SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -265,7 +254,6 @@ exports[`ComboboxMulti rendering should initially render empty component correct
 
 exports[`ComboboxMulti rendering should render all suggestions from the list 1`] = `
 <ComboboxMulti
-  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   noSuggestionsPlaceholder="No suggestions..."
   onBlur={[MockFunction]}
@@ -307,15 +295,10 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
       },
     ]
   }
-  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
-    className=""
-    clearInputAfterSelection={false}
-    clearTitle=""
     focusedRenderer={[Function]}
-    highlightOnEmptyInput={true}
     inputRef={
       Object {
         "current": <input
@@ -336,9 +319,6 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
     onBlur={[MockFunction]}
     onInputValueChange={[MockFunction]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={false}
-    showArrow={false}
-    showClearButton={false}
     suggestionToString={[Function]}
     suggestions={
       Array [
@@ -408,7 +388,6 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
@@ -418,7 +397,6 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -513,7 +491,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                 >
                   <ul
                     aria-labelledby="downshift-6-label"
-                    className="List"
+                    className="List SelectBase__list--focused"
                     id="downshift-6-menu"
                     role="listbox"
                   >
@@ -595,9 +573,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Sun
@@ -636,9 +612,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Moon
@@ -677,9 +651,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Mercury
@@ -718,9 +690,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Venus
@@ -759,9 +729,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Earth
@@ -800,9 +768,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Mars
@@ -841,9 +807,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Jupiter
@@ -882,9 +846,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Saturn
@@ -923,9 +885,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Neptune
@@ -960,9 +920,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Pluto

@@ -97,9 +97,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
   </svg>
   <Text
     className="LoadingSpinner__label"
-    context="default"
     inline={true}
-    size="normal"
   >
     Loading...
   </Text>

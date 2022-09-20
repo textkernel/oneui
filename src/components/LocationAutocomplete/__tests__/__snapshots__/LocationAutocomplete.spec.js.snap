@@ -269,18 +269,14 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
           <FieldWrapper
             className="AutosuggestDeprecated__field"
             clearLabel=""
-            disabled={false}
-            isArrowUp={false}
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
             onKeyDown={[Function]}
-            showArrow={false}
             showClearButton={false}
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
-              disabled={false}
               onClick={[Function]}
               onKeyDown={[Function]}
             >
@@ -350,7 +346,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                 >
                   <ul
                     aria-labelledby="downshift-4-label"
-                    className="List"
+                    className="List AutosuggestDeprecated__list--focused"
                     id="downshift-4-menu"
                     role="listbox"
                   >
@@ -388,9 +384,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           marker="Tonga"
                         >
                           <Text
-                            context="default"
                             inline={true}
-                            size="normal"
                           >
                             <span>
                               Truro
@@ -425,9 +419,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           marker="Tonga"
                         >
                           <Text
-                            context="default"
                             inline={true}
-                            size="normal"
                           >
                             <span>
                               Trowbridge
@@ -462,9 +454,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           marker="Tonga"
                         >
                           <Text
-                            context="default"
                             inline={true}
-                            size="normal"
                           >
                             <span>
                               Tring
@@ -499,9 +489,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           marker="Tonga"
                         >
                           <Text
-                            context="default"
                             inline={true}
-                            size="normal"
                           >
                             <span>
                               Troon
@@ -536,9 +524,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           marker="Tonga"
                         >
                           <Text
-                            context="default"
                             inline={true}
-                            size="normal"
                           >
                             <span>
                               Tredegar
@@ -640,18 +626,14 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
           <FieldWrapper
             className="AutosuggestDeprecated__field"
             clearLabel=""
-            disabled={false}
-            isArrowUp={false}
             isFocused={false}
             onClear={[Function]}
             onClick={[Function]}
             onKeyDown={[Function]}
-            showArrow={false}
             showClearButton={false}
           >
             <div
               className="FieldWrapper AutosuggestDeprecated__field"
-              disabled={false}
               onClick={[Function]}
               onKeyDown={[Function]}
             >

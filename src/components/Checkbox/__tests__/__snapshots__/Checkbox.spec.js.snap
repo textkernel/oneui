@@ -2,8 +2,6 @@
 
 exports[`<Checkbox> that renders a checkbox should render checkbox with complex children 1`] = `
 <Checkbox
-  asFlexbox={false}
-  disabled={false}
   id="c1"
 >
   <div>
@@ -51,8 +49,6 @@ exports[`<Checkbox> that renders a checkbox should render checkbox with complex 
 
 exports[`<Checkbox> that renders a checkbox should render default checkbox correctly 1`] = `
 <Checkbox
-  asFlexbox={false}
-  disabled={false}
   id="c1"
 >
   <div>
@@ -91,7 +87,6 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
         className="Checkbox__text"
         context="default"
         inline={true}
-        size="normal"
       >
         <span
           className="Checkbox__text"

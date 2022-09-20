@@ -24,8 +24,6 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
   >
     <Text
       className="Tag__text"
-      context="default"
-      inline={false}
       size="large"
       title="Tag text"
     >
@@ -93,8 +91,6 @@ exports[`<Tag> component should render correctly with minimum amount of props 1`
   >
     <Text
       className="Tag__text"
-      context="default"
-      inline={false}
       size="normal"
       title="Tag text"
     >

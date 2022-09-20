@@ -2,7 +2,6 @@
 
 exports[`<IconTextkernel> should render an Textkernel icon 1`] = `
 <IconBase
-  preserveAspectRatio={false}
   viewBox="0 0 369.7 800"
 >
   <path

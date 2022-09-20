@@ -10,8 +10,6 @@ exports[`NumberValue component should render component correctly 1`] = `
   onChange={[MockFunction]}
 >
   <Input
-    disabled={false}
-    isBlock={false}
     onChange={[Function]}
     size="small"
     type="number"

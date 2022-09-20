@@ -54,23 +54,18 @@ exports[`Select rendering should initially render correctly 1`] = `
   <SelectBase
     blurredRenderer={[Function]}
     className="someClass"
-    clearInputAfterSelection={false}
     clearTitle=""
     focusedRenderer={[Function]}
-    highlightOnEmptyInput={true}
     inputRef={
       Object {
         "current": undefined,
       }
     }
-    keepExpandedAfterSelection={false}
     listRenderer={[Function]}
     onBlur={[MockFunction]}
     onClearAllSelected={[MockFunction]}
     onFocus={[MockFunction]}
-    onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={false}
     showArrow={true}
     showClearButton={true}
     suggestionToString={[Function]}
@@ -142,7 +137,6 @@ exports[`Select rendering should initially render correctly 1`] = `
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={false}
             isFocused={false}
             onClear={[Function]}
@@ -152,7 +146,6 @@ exports[`Select rendering should initially render correctly 1`] = `
           >
             <div
               className="FieldWrapper SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -197,17 +190,12 @@ exports[`Select rendering should initially render correctly 1`] = `
               <Button
                 className="FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
                 context="link"
-                disabled={false}
-                isBlock={false}
                 isInline={true}
-                isLoading={false}
                 onClick={[Function]}
-                size="normal"
                 title=""
-                type="button"
               >
                 <button
-                  className="Button Button--isInline Button--context_link FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
+                  className="Button Button--context_link Button--isInline FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
                   disabled={false}
                   onClick={[Function]}
                   title=""
@@ -322,10 +310,8 @@ exports[`Select rendering should render focused component correctly 1`] = `
   <SelectBase
     blurredRenderer={[Function]}
     className="someClass"
-    clearInputAfterSelection={false}
     clearTitle=""
     focusedRenderer={[Function]}
-    highlightOnEmptyInput={true}
     inputRef={
       Object {
         "current": <div
@@ -345,7 +331,6 @@ exports[`Select rendering should render focused component correctly 1`] = `
         </div>,
       }
     }
-    keepExpandedAfterSelection={false}
     listRenderer={[Function]}
     onBlur={[MockFunction]}
     onClearAllSelected={[MockFunction]}
@@ -362,9 +347,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
         ],
       }
     }
-    onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={false}
     showArrow={true}
     showClearButton={true}
     suggestionToString={[Function]}
@@ -436,7 +419,6 @@ exports[`Select rendering should render focused component correctly 1`] = `
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
@@ -446,7 +428,6 @@ exports[`Select rendering should render focused component correctly 1`] = `
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -481,7 +462,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                 >
                   <ul
                     aria-labelledby="downshift-1-label"
-                    className="List"
+                    className="List SelectBase__list--focused"
                     id="downshift-1-menu"
                     role="listbox"
                   >
@@ -563,9 +544,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Sun
@@ -604,9 +583,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Moon
@@ -645,9 +622,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Mercury
@@ -686,9 +661,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Venus
@@ -727,9 +700,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Earth
@@ -768,9 +739,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Mars
@@ -809,9 +778,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Jupiter
@@ -850,9 +817,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Saturn
@@ -891,9 +856,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Neptune
@@ -928,9 +891,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Pluto

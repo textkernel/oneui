@@ -58,18 +58,14 @@ exports[`AutosuggestDeprecated rendering should initially render empty component
         <FieldWrapper
           className="AutosuggestDeprecated__field"
           clearLabel="Clear"
-          disabled={false}
-          isArrowUp={false}
           isFocused={false}
           onClear={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
-          showArrow={false}
           showClearButton={false}
         >
           <div
             className="FieldWrapper AutosuggestDeprecated__field"
-            disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -177,18 +173,14 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
         <FieldWrapper
           className="AutosuggestDeprecated__field"
           clearLabel="Clear"
-          disabled={false}
-          isArrowUp={false}
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
-          showArrow={false}
           showClearButton={false}
         >
           <div
             className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
-            disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -225,7 +217,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
               >
                 <ul
                   aria-labelledby="downshift-5-label"
-                  className="List"
+                  className="List AutosuggestDeprecated__list--focused"
                   id="downshift-5-menu"
                   role="listbox"
                 >
@@ -255,9 +247,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                         marker=""
                       >
                         <Text
-                          context="default"
                           inline={true}
-                          size="normal"
                         >
                           <span>
                             Sun
@@ -292,9 +282,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                         marker=""
                       >
                         <Text
-                          context="default"
                           inline={true}
-                          size="normal"
                         >
                           <span>
                             Moon
@@ -329,9 +317,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                         marker=""
                       >
                         <Text
-                          context="default"
                           inline={true}
-                          size="normal"
                         >
                           <span>
                             Mercury
@@ -366,9 +352,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                         marker=""
                       >
                         <Text
-                          context="default"
                           inline={true}
-                          size="normal"
                         >
                           <span>
                             Venus
@@ -450,18 +434,14 @@ exports[`AutosuggestDeprecated rendering should render icon correctly if passed 
         <FieldWrapper
           className="AutosuggestDeprecated__field"
           clearLabel="Clear"
-          disabled={false}
-          isArrowUp={false}
           isFocused={false}
           onClear={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
-          showArrow={false}
           showClearButton={false}
         >
           <div
             className="FieldWrapper AutosuggestDeprecated__field"
-            disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -478,7 +458,6 @@ exports[`AutosuggestDeprecated rendering should render icon correctly if passed 
                 >
                   <IconBase
                     className="AutosuggestDeprecated__spacedElem test"
-                    preserveAspectRatio={false}
                     viewBox="0 0 107.17 92.73"
                   >
                     <div
@@ -621,18 +600,14 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
         <FieldWrapper
           className="AutosuggestDeprecated__field"
           clearLabel="Clear"
-          disabled={false}
-          isArrowUp={false}
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
-          showArrow={false}
           showClearButton={false}
         >
           <div
             className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
-            disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -669,7 +644,7 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
               >
                 <ul
                   aria-labelledby="downshift-4-label"
-                  className="List"
+                  className="List AutosuggestDeprecated__list--focused"
                   id="downshift-4-menu"
                   role="listbox"
                 >
@@ -684,9 +659,7 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
                     >
                       <Text
                         context="muted"
-                        inline={false}
                         key=".0"
-                        size="normal"
                       >
                         <p
                           className="Text--context_muted"
@@ -780,18 +753,14 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
         <FieldWrapper
           className="AutosuggestDeprecated__field"
           clearLabel="Clear"
-          disabled={false}
-          isArrowUp={false}
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
           onKeyDown={[Function]}
-          showArrow={false}
           showClearButton={false}
         >
           <div
             className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
-            disabled={false}
             onClick={[Function]}
             onKeyDown={[Function]}
           >
@@ -828,7 +797,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
               >
                 <ul
                   aria-labelledby="downshift-6-label"
-                  className="List"
+                  className="List AutosuggestDeprecated__list--focused"
                   id="downshift-6-menu"
                   role="listbox"
                 >
@@ -858,9 +827,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                         marker=""
                       >
                         <Text
-                          context="default"
                           inline={true}
-                          size="normal"
                         >
                           <span>
                             Sun
@@ -895,9 +862,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                         marker=""
                       >
                         <Text
-                          context="default"
                           inline={true}
-                          size="normal"
                         >
                           <span>
                             Moon
@@ -932,9 +897,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                         marker=""
                       >
                         <Text
-                          context="default"
                           inline={true}
-                          size="normal"
                         >
                           <span>
                             Mercury
@@ -969,9 +932,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                         marker=""
                       >
                         <Text
-                          context="default"
                           inline={true}
-                          size="normal"
                         >
                           <span>
                             Venus

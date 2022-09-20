@@ -20,7 +20,6 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
     className="SelectButtonGroup"
   >
     <SelectButton
-      context="brand"
       isBlock={false}
       isEqualWidth={false}
       isSelected={true}
@@ -40,10 +39,8 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
-      context="brand"
       isBlock={false}
       isEqualWidth={false}
-      isSelected={false}
       key="2"
       onChange={[Function]}
       size="normal"
@@ -60,10 +57,8 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
-      context="brand"
       isBlock={false}
       isEqualWidth={false}
-      isSelected={false}
       key="3"
       onChange={[Function]}
       size="normal"
@@ -103,7 +98,6 @@ exports[`SelectButtonGroup should render correctly 1`] = `
     className="SelectButtonGroup"
   >
     <SelectButton
-      context="brand"
       isBlock={false}
       isEqualWidth={false}
       isSelected={true}
@@ -123,10 +117,8 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
-      context="brand"
       isBlock={false}
       isEqualWidth={false}
-      isSelected={false}
       key="2"
       onChange={[Function]}
       size="normal"
@@ -143,10 +135,8 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
-      context="brand"
       isBlock={false}
       isEqualWidth={false}
-      isSelected={false}
       key="3"
       onChange={[Function]}
       size="normal"

@@ -12,18 +12,14 @@ exports[`WeightedResultBar should render correctly 1`] = `
       className="WeightedResultBar__details"
     >
       <Text
-        context="default"
         inline={true}
-        size="normal"
       >
         <span>
           Result
         </span>
       </Text>
       <Text
-        context="default"
         inline={true}
-        size="normal"
       >
         <span>
           123
@@ -31,9 +27,7 @@ exports[`WeightedResultBar should render correctly 1`] = `
       </Text>
     </div>
     <ProgressBar
-      animated={false}
       context="brand"
-      hidden={false}
       percentage={67}
       small={true}
     >
@@ -75,9 +69,7 @@ exports[`WeightedResultBar should render correctly with a custom count 1`] = `
       className="WeightedResultBar__details"
     >
       <Text
-        context="default"
         inline={true}
-        size="normal"
       >
         <span>
           Result
@@ -88,9 +80,7 @@ exports[`WeightedResultBar should render correctly with a custom count 1`] = `
       </p>
     </div>
     <ProgressBar
-      animated={false}
       context="brand"
-      hidden={false}
       percentage={67}
       small={true}
     >

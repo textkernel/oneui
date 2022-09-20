@@ -6,12 +6,6 @@ exports[`<PaginationButton> that renders a page button should render correctly w
   className="PaginationButton"
   context="link"
   data-page={1}
-  disabled={false}
-  isBlock={false}
-  isInline={false}
-  isLoading={false}
-  size="normal"
-  type="button"
 >
   1
 </Button>

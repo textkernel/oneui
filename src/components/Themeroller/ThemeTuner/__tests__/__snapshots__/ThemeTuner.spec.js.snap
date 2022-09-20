@@ -50,7 +50,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
   <div>
     <TabsBar
       activeTabId="Colors"
-      isBlock={false}
       onSelect={[Function]}
     >
       <div
@@ -58,7 +57,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
         role="tablist"
       >
         <TabItem
-          disabled={false}
           isActive={true}
           isBlock={false}
           key=".$Colors"
@@ -77,7 +75,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           </div>
         </TabItem>
         <TabItem
-          disabled={false}
           isActive={false}
           isBlock={false}
           key=".$Sizing"
@@ -114,10 +111,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           >
             <Text
               className="ThemeTuner__label"
-              context="default"
-              inline={false}
               key=".0"
-              size="normal"
             >
               <p
                 className="ThemeTuner__label"
@@ -151,8 +145,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                 <span>
                   <Input
                     className="ColorValue__input"
-                    disabled={false}
-                    isBlock={false}
                     onChange={[Function]}
                     size="small"
                     type="color"
@@ -171,7 +163,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                     className="ColorValue__value"
                     context="muted"
                     inline={true}
-                    size="normal"
                   >
                     <span
                       className="Text--context_muted ColorValue__value"
@@ -195,10 +186,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           >
             <Text
               className="ThemeTuner__label"
-              context="default"
-              inline={false}
               key=".0"
-              size="normal"
             >
               <p
                 className="ThemeTuner__label"
@@ -232,8 +220,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                 <span>
                   <Input
                     className="ColorValue__input"
-                    disabled={false}
-                    isBlock={false}
                     onChange={[Function]}
                     size="small"
                     type="color"
@@ -252,7 +238,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                     className="ColorValue__value"
                     context="muted"
                     inline={true}
-                    size="normal"
                   >
                     <span
                       className="Text--context_muted ColorValue__value"
@@ -276,10 +261,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           >
             <Text
               className="ThemeTuner__label"
-              context="default"
-              inline={false}
               key=".0"
-              size="normal"
             >
               <p
                 className="ThemeTuner__label"
@@ -315,8 +297,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                 <span>
                   <Input
                     className="UnitValue__input"
-                    disabled={false}
-                    isBlock={false}
                     onChange={[Function]}
                     size="small"
                     type="number"
@@ -335,7 +315,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                     className="UnitValue__value"
                     context="muted"
                     inline={true}
-                    size="normal"
                   >
                     <span
                       className="Text--context_muted UnitValue__value"
@@ -360,10 +339,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           >
             <Text
               className="ThemeTuner__label"
-              context="default"
-              inline={false}
               key=".0"
-              size="normal"
             >
               <p
                 className="ThemeTuner__label"
@@ -395,8 +371,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                 onChange={[Function]}
               >
                 <Input
-                  disabled={false}
-                  isBlock={false}
                   onChange={[Function]}
                   size="small"
                   type="text"

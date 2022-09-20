@@ -34,30 +34,42 @@ export interface Props
 const { block } = bem('Button', styles);
 
 export const Button = forwardRef<React.RefObject<HTMLButtonElement | HTMLAnchorElement>, Props>(
-    (props, ref) => {
-        const {
+    (
+        {
             children,
-            context,
-            disabled,
-            isBlock,
-            isInline,
-            isLoading,
-            type,
+            context = 'neutral',
+            disabled = false,
+            isBlock = false,
+            isInline = false,
+            isLoading = false,
+            type = 'button',
             href,
-            size,
+            size = 'normal',
             ...rest
-        } = props;
-
+        },
+        ref
+    ) => {
         if (href) {
             return (
-                <a {...rest} {...block(props)} ref={ref} href={href}>
+                <a
+                    {...rest}
+                    {...block({ context, isBlock, isInline, isLoading, size, ...rest })}
+                    ref={ref}
+                    href={href}
+                >
                     {children}
                 </a>
             );
         }
 
         return (
-            <button {...rest} {...block(props)} ref={ref} type={type} disabled={disabled}>
+            <button
+                {...rest}
+                {...block({ context, isBlock, isInline, isLoading, size, ...rest })}
+                ref={ref}
+                type={type}
+                disabled={disabled}
+            >
                 {children}
             </button>
         );
@@ -65,13 +77,3 @@ export const Button = forwardRef<React.RefObject<HTMLButtonElement | HTMLAnchorE
 );
 
 Button.displayName = 'Button';
-
-Button.defaultProps = {
-    context: 'neutral',
-    size: 'normal',
-    isBlock: false,
-    isInline: false,
-    isLoading: false,
-    disabled: false,
-    type: 'button',
-};

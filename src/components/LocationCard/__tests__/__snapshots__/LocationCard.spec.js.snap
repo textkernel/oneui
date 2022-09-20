@@ -21,8 +21,6 @@ exports[`LocationCard component should render component correctly 1`] = `
     >
       <Text
         className="LocationCard__title"
-        context="default"
-        inline={false}
         size="large"
         title="London"
       >
@@ -188,8 +186,6 @@ exports[`LocationCard component should render component correctly 1`] = `
       </Slider>
       <Text
         className="LocationCard__sliderLabel"
-        context="default"
-        inline={false}
         size="small"
       >
         <p
@@ -224,8 +220,6 @@ exports[`LocationCard component should render component correctly without radius
     >
       <Text
         className="LocationCard__title"
-        context="default"
-        inline={false}
         size="large"
         title="London"
       >

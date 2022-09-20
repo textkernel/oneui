@@ -9,34 +9,32 @@ import styles from './SelectBase.scss';
 
 const { block, elem } = bem('SelectBase', styles);
 
-export function SelectBase<S>(props: Props<S>) {
-    const {
-        suggestions,
-        suggestionToString,
-        clearTitle,
-        showArrow,
-        showClearButton,
-        selectOnTab,
-        disabled,
-        onFocus,
-        onBlur,
-        onSelectionAdd,
-        onInputValueChange,
-        onClearAllSelected,
-        inputRef: inputRefFromProps,
-        rootRef: rootRefFromProps,
-        listRef: listRefFromProps,
-        className,
-        listRenderer,
-        focusedRenderer,
-        blurredRenderer,
-        keepExpandedAfterSelection,
-        clearInputAfterSelection,
-        highlightOnEmptyInput,
-        initInputValue,
-        ...rest
-    } = props;
-
+export function SelectBase<S>({
+    suggestions,
+    suggestionToString,
+    clearTitle = '',
+    showArrow = false,
+    showClearButton = false,
+    selectOnTab = false,
+    disabled,
+    onFocus,
+    onBlur,
+    onSelectionAdd,
+    onInputValueChange = () => null,
+    onClearAllSelected,
+    inputRef: inputRefFromProps,
+    rootRef: rootRefFromProps,
+    listRef: listRefFromProps,
+    className = '',
+    listRenderer,
+    focusedRenderer,
+    blurredRenderer,
+    keepExpandedAfterSelection = false,
+    clearInputAfterSelection = false,
+    highlightOnEmptyInput = true,
+    initInputValue,
+    ...rest
+}: Props<S>) {
     const [inputRef, setInputRef] = React.useState(
         inputRefFromProps || React.createRef<HTMLInputElement>()
     );
@@ -211,7 +209,7 @@ export function SelectBase<S>(props: Props<S>) {
         }
     };
 
-    const stateAndProps = { ...props, focused };
+    const stateAndProps = { focused };
 
     const getInputPropsWithUpdatedRef = (getInputProps) => (inputProps) => {
         return inputRefFromProps
@@ -290,17 +288,5 @@ export function SelectBase<S>(props: Props<S>) {
         </div>
     );
 }
-
-SelectBase.defaultProps = {
-    showArrow: false,
-    showClearButton: false,
-    keepExpandedAfterSelection: false,
-    clearInputAfterSelection: false,
-    highlightOnEmptyInput: true,
-    clearTitle: '',
-    selectOnTab: false,
-    className: '',
-    onInputValueChange: () => null,
-};
 
 SelectBase.displayName = 'SelectBase';
