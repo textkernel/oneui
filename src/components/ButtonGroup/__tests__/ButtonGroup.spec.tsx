@@ -1,5 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
+import { mount } from 'enzyme';
 import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../../Buttons';
 import { Dropdown } from '../../Dropdown';
@@ -31,7 +32,11 @@ describe('<ButtonGroup> that renders a button', () => {
             <ButtonGroup size="large" isBlock>
                 <Button>A button</Button>
                 <Button href="#">An anchor</Button>
-                <Dropdown button={<Button>A dropdown button</Button>} placement="bottom-end">
+                <Dropdown
+                    button={<Button>A dropdown button</Button>}
+                    placement="bottom-end"
+                    onChange={() => {}}
+                >
                     <ListItem key="some-key">A list item</ListItem>
                 </Dropdown>
             </ButtonGroup>
@@ -45,7 +50,7 @@ describe('<ButtonGroup> that renders a button', () => {
             <ButtonGroup>
                 <Button>A button</Button>
                 {condition ? <Button href="#">An anchor</Button> : null}
-                {condition && <Button>A button</Button>}
+                <>{condition && <Button>A button</Button>}</>
             </ButtonGroup>
         );
 
