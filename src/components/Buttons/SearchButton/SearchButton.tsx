@@ -12,7 +12,7 @@ export interface Props
     /** Used to disable the button */
     disabled?: boolean;
     /** Type of the button */
-    type: 'submit' | 'button';
+    type?: 'submit' | 'button';
     /** Label for the button */
     children?: string;
 }
