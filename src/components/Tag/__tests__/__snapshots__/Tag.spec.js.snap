@@ -3,6 +3,12 @@
 exports[`<Tag> component should render correctly with full list of props 1`] = `
 <Tag
   bgColor="#ccc"
+  contentClassName="my-class"
+  contentStyle={
+    Object {
+      "color": "red",
+    }
+  }
   isSelected={true}
   maxWidth="30px"
   onClick={[MockFunction]}
@@ -23,14 +29,24 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
     tabIndex={0}
   >
     <Text
-      className="Tag__text"
+      className="Tag__text my-class"
       context="default"
       inline={false}
       size="large"
+      style={
+        Object {
+          "color": "red",
+        }
+      }
       title="Tag text"
     >
       <p
-        className="Text--size_large Tag__text"
+        className="Text--size_large Tag__text my-class"
+        style={
+          Object {
+            "color": "red",
+          }
+        }
         title="Tag text"
       >
         Tag text
@@ -39,7 +55,7 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
     <button
       className="Tag__deleteButton"
       onClick={[Function]}
-      onKeyPress={[Function]}
+      onKeyDown={[Function]}
       type="button"
     >
       <MdClose

@@ -18,12 +18,27 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     onDelete?: () => void;
     /** Callback, that is fired when a user clicks on an element */
     onClick?: () => void;
+    /** A css class to be applied to the content (child) */
+    contentClassName?: string;
+    /** A css style to be applied to the content (child) */
+    contentStyle?: React.CSSProperties;
 }
 
 const { block, elem } = bem('Tag', styles);
 
-export const Tag: React.FC<Props> = (props) => {
-    const { children, bgColor, maxWidth, size, onDelete, onClick, isSelected, ...rest } = props;
+export const Tag = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
+    const {
+        children,
+        bgColor,
+        maxWidth,
+        size,
+        onDelete,
+        onClick,
+        isSelected,
+        contentClassName,
+        contentStyle,
+        ...rest
+    } = props;
 
     // Generate title for children that are plain text (without tags)
     // If there is something different from the string (JSX) - children will be of object type.
@@ -55,6 +70,7 @@ export const Tag: React.FC<Props> = (props) => {
     return (
         <div
             {...rest}
+            ref={ref}
             {...block({ ...props, clickable: !!onClick })}
             {...(onClick && {
                 onClick,
@@ -67,13 +83,18 @@ export const Tag: React.FC<Props> = (props) => {
                 maxWidth,
             }}
         >
-            <Text size={size} {...(areChildrenString && { title: children })} {...elem('text')}>
+            <Text
+                size={size}
+                {...(areChildrenString && { title: children })}
+                {...elem('text', { elemClassName: contentClassName })}
+                style={contentStyle}
+            >
                 {children}
             </Text>
             {onDelete && (
                 <button
                     onClick={handleDeleteClick}
-                    onKeyPress={handleDeleteButtonKeyPress}
+                    onKeyDown={handleDeleteButtonKeyPress}
                     type="button"
                     {...elem('deleteButton')}
                 >
@@ -82,7 +103,7 @@ export const Tag: React.FC<Props> = (props) => {
             )}
         </div>
     );
-};
+});
 
 Tag.displayName = 'Tag';
 
