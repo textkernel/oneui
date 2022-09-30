@@ -1,5 +1,9 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { getRules } = require('../scripts/build/webpack.config');
+const { oneui } = require('../package.json');
+
+const { libraryName: LIBRARY_NAME } = oneui;
 
 module.exports = {
     stories: [
@@ -24,6 +28,11 @@ module.exports = {
         config.resolve.alias['@textkernel/oneui'] = path.resolve(__dirname, '../src');
         // Make whatever fine-grained changes you need
         config.module.rules.push(rules.js, rules.scss);
+        config.plugins.push(
+            new MiniCssExtractPlugin({
+                filename: `${LIBRARY_NAME}.min.css`,
+            })
+        );
 
         // Return the altered config
         return config;
