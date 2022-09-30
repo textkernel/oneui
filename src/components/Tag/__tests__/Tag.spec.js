@@ -35,6 +35,8 @@ describe('<Tag> component', () => {
                 size={textSize}
                 onClick={onTagClick}
                 onDelete={onDeleteClick}
+                contentClassName="my-class"
+                contentStyle={{ color: 'red' }}
             >
                 {text}
             </Tag>
@@ -45,6 +47,7 @@ describe('<Tag> component', () => {
         expect(wrapper.find('.Tag').prop('style').maxWidth).toEqual(maxWidth);
         expect(wrapper.find('Text').prop('size')).toEqual(textSize);
         expect(wrapper.find('Tag .Tag__deleteButton MdClose').exists()).toBeTruthy();
+        expect(wrapper.find('.my-class')).toHaveLength(2);
 
         expect(toJson(wrapper)).toMatchSnapshot();
     });
@@ -85,7 +88,7 @@ describe('<Tag> component', () => {
         );
 
         wrapper.find(deleteButtonSelector).simulate('focus');
-        wrapper.find(deleteButtonSelector).simulate('keypress', { key: 'Enter' });
+        wrapper.find(deleteButtonSelector).simulate('keydown', { key: 'Enter' });
 
         expect(onTagClick).toHaveBeenCalledTimes(0);
         expect(onDeleteClick).toHaveBeenCalledTimes(1);

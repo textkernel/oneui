@@ -18,6 +18,10 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     onDelete?: () => void;
     /** Callback, that is fired when a user clicks on an element */
     onClick?: () => void;
+    /** A css class to be applied to the content (child) */
+    contentClassName?: string;
+    /** A css style to be applied to the content (child) */
+    contentStyle?: React.CSSProperties;
 }
 
 const { block, elem } = bem('Tag', styles);
@@ -62,6 +66,7 @@ export const Tag: React.FC<Props> = ({
     return (
         <div
             {...rest}
+            ref={ref}
             {...block({ isSelected, clickable: !!onClick })}
             {...(onClick && {
                 onClick,
@@ -74,13 +79,18 @@ export const Tag: React.FC<Props> = ({
                 maxWidth,
             }}
         >
-            <Text size={size} {...(areChildrenString && { title: children })} {...elem('text')}>
+            <Text
+                size={size}
+                {...(areChildrenString && { title: children })}
+                {...elem('text', { elemClassName: contentClassName })}
+                style={contentStyle}
+            >
                 {children}
             </Text>
             {onDelete && (
                 <button
                     onClick={handleDeleteClick}
-                    onKeyPress={handleDeleteButtonKeyPress}
+                    onKeyDown={handleDeleteButtonKeyPress}
                     type="button"
                     {...elem('deleteButton')}
                 >
@@ -89,6 +99,6 @@ export const Tag: React.FC<Props> = ({
             )}
         </div>
     );
-};
+});
 
 Tag.displayName = 'Tag';

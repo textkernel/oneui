@@ -9,6 +9,7 @@ exports[`Alert should render correctly 1`] = `
     }
   }
   ariaHideApp={false}
+  contentLabel="Content label"
   isOpen={true}
 >
   <Dialog
@@ -19,11 +20,13 @@ exports[`Alert should render correctly 1`] = `
       }
     }
     ariaHideApp={false}
+    contentLabel="Content label"
     isOpen={true}
   >
     <Modal
       ariaHideApp={false}
       className="Dialog"
+      contentLabel="Content label"
       isOpen={true}
       isPositionFixed={false}
     >
@@ -38,6 +41,7 @@ exports[`Alert should render correctly 1`] = `
           }
         }
         closeTimeoutMS={300}
+        contentLabel="Content label"
         isOpen={true}
         isPositionFixed={false}
         onAfterOpen={[Function]}
@@ -66,6 +70,7 @@ exports[`Alert should render correctly 1`] = `
                 class="Modal__overlay Modal__overlay--entered"
               >
                 <div
+                  aria-label="Content label"
                   class="Modal__content Dialog Modal__content--entered"
                   role="dialog"
                   tabindex="-1"
@@ -102,6 +107,7 @@ exports[`Alert should render correctly 1`] = `
               }
             }
             closeTimeoutMS={300}
+            contentLabel="Content label"
             defaultStyles={
               Object {
                 "content": Object {
@@ -160,6 +166,7 @@ exports[`Alert should render correctly 1`] = `
               style={Object {}}
             >
               <div
+                aria-label="Content label"
                 className="Modal__content Dialog Modal__content--entered"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -211,6 +218,7 @@ exports[`Alert should render correctly with title 1`] = `
     }
   }
   ariaHideApp={false}
+  contentLabel="Content label"
   isOpen={true}
   title="Title"
 >
@@ -222,12 +230,14 @@ exports[`Alert should render correctly with title 1`] = `
       }
     }
     ariaHideApp={false}
+    contentLabel="Content label"
     isOpen={true}
     title="Title"
   >
     <Modal
       ariaHideApp={false}
       className="Dialog"
+      contentLabel="Content label"
       isOpen={true}
       isPositionFixed={false}
     >
@@ -242,6 +252,7 @@ exports[`Alert should render correctly with title 1`] = `
           }
         }
         closeTimeoutMS={300}
+        contentLabel="Content label"
         isOpen={true}
         isPositionFixed={false}
         onAfterOpen={[Function]}
@@ -270,6 +281,7 @@ exports[`Alert should render correctly with title 1`] = `
                 class="Modal__overlay Modal__overlay--entered"
               >
                 <div
+                  aria-label="Content label"
                   class="Modal__content Dialog Modal__content--entered"
                   role="dialog"
                   tabindex="-1"
@@ -311,6 +323,7 @@ exports[`Alert should render correctly with title 1`] = `
               }
             }
             closeTimeoutMS={300}
+            contentLabel="Content label"
             defaultStyles={
               Object {
                 "content": Object {
@@ -369,6 +382,7 @@ exports[`Alert should render correctly with title 1`] = `
               style={Object {}}
             >
               <div
+                aria-label="Content label"
                 className="Modal__content Dialog Modal__content--entered"
                 onClick={[Function]}
                 onKeyDown={[Function]}
