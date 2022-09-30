@@ -1,12 +1,25 @@
 import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import { FaSearch } from 'react-icons/fa';
 import { bem } from '../../../utils';
 import styles from './SearchButton.scss';
 
+export interface Props
+    extends Omit<
+        React.ButtonHTMLAttributes<HTMLButtonElement> &
+            React.AnchorHTMLAttributes<HTMLAnchorElement>,
+        'type'
+    > {
+    /** Used to disable the button */
+    disabled?: boolean;
+    /** Type of the button */
+    type?: 'submit' | 'button';
+    /** Label for the button */
+    children?: string;
+}
+
 const { block, elem } = bem('SearchButton', styles);
 
-export const SearchButton = forwardRef((props, ref) => {
+export const SearchButton = forwardRef((props: Props, ref) => {
     const { disabled, children, type, ...rest } = props;
     const propsForBem = { ...props, withLabel: !!children };
 
@@ -19,17 +32,6 @@ export const SearchButton = forwardRef((props, ref) => {
 });
 
 SearchButton.displayName = 'SearchButton';
-
-// Any other attributes (onClick, onFocus etc.) are
-// supported although not defined in propTypes
-SearchButton.propTypes = {
-    /** Label for the button */
-    children: PropTypes.string,
-    /** Should button be disabled or not */
-    disabled: PropTypes.bool,
-    /** Type of the button */
-    type: PropTypes.oneOf(['submit', 'button']),
-};
 
 SearchButton.defaultProps = {
     children: '',

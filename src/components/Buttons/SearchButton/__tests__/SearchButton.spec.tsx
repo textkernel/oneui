@@ -1,5 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
+import { mount } from 'enzyme';
 import { SearchButton } from '../SearchButton';
 
 describe('<SearchButton> that renders a search button', () => {
