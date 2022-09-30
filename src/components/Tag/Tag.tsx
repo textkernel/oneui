@@ -15,9 +15,9 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Size of the text */
     size?: 'small' | 'normal' | 'large';
     /** Callback, that is fired when a user clicks on a delete icon */
-    onDelete?: () => void;
+    onDelete?: (e: React.KeyboardEvent | React.MouseEvent) => void;
     /** Callback, that is fired when a user clicks on an element */
-    onClick?: () => void;
+    onClick?: (e: React.KeyboardEvent | React.MouseEvent) => void;
     /** A css class to be applied to the content (child) */
     contentClassName?: string;
     /** A css style to be applied to the content (child) */
@@ -47,14 +47,14 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
     const handleDeleteClick = (e: React.MouseEvent<HTMLElement>) => {
         e.stopPropagation();
 
-        onDelete?.();
+        onDelete?.(e);
     };
 
     const handleTagKeyPress = (e: React.KeyboardEvent) => {
         e.stopPropagation();
 
         if (e.key === ENTER_KEY) {
-            onClick?.();
+            onClick?.(e);
         }
     };
 
@@ -63,7 +63,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>((props, ref) => {
         e.preventDefault();
 
         if (e.key === ENTER_KEY) {
-            onDelete?.();
+            onDelete?.(e);
         }
     };
 
