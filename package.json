@@ -146,7 +146,7 @@
         "react-docgen-typescript-loader": "3.7.2",
         "react-dom": "16.14.0",
         "react-icons": "3.11.0",
-        "react-router-dom": "5.3.3",
+        "react-router-dom": "5.3.4",
         "react-transition-group": "4.4.5",
         "regenerator-runtime": "0.13.9",
         "sass": "1.54.9",
