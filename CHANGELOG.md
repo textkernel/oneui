@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.8.1](https://github.com/textkernel/oneui/compare/18.8.0...18.8.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* **Tag:** pass event to handlers in Tag ([#828](https://github.com/textkernel/oneui/issues/828)) ([a8eb924](https://github.com/textkernel/oneui/commit/a8eb924973ed5af6d708dfe1fb51f6ac85adc8b4))
+
 ## [18.8.0](https://github.com/textkernel/oneui/compare/18.7.2...18.8.0) (2022-09-30)
 
 
