@@ -61,3 +61,26 @@ The release script will...
 ## Storybook
 
 A new version of Storybook will be deployed automatically when pushing new tags.
+
+# Troubleshooting
+
+Sometimes the script might fail midway through the process. This might be because you are not logged in to NPM for example. In this case you need to follow the following steps to revert changes that been already made locally and pushed to remote.
+
+Revert last commit
+
+```bash
+git reset hard <last_good_commit_hash>
+git log
+git push -f
+```
+
+Note: `git log` in the middle is optional, so that you can check that all is as you expect it to be
+
+Remove tags on local and remote
+
+```bash
+git tag -d <tag name>
+git push --delete origin <tag name>
+```
+
+Fix the problem that made the script fail, and start again.
