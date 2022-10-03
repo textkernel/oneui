@@ -36,4 +36,16 @@ describe('<Checkbox> that renders a checkbox', () => {
         expect(wrapper.find('input[disabled]')).toHaveLength(1);
         expect(wrapper.find('.Text--context_muted')).toHaveLength(1);
     });
+
+    it('should rendered indeterminate checkbox correctly', () => {
+        const wrapper = mount(
+            <Checkbox id="c4" indeterminate>
+                Useless checkbox
+            </Checkbox>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('svg polyline')).toHaveLength(0);
+        expect(wrapper.find('svg line')).toHaveLength(1);
+    });
 });

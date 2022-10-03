@@ -88,6 +88,19 @@
                 }
             }
         }
+
+        &--indeterminate {
+            + .Checkbox__label {
+                .Checkbox__box {
+                    background: var(--color-brand);
+                    border-color: var(--color-brand);
+
+                    .Checkbox__svg {
+                        stroke-dashoffset: 0;
+                    }
+                }
+            }
+        }
     }
 
     &__text {
@@ -113,6 +126,15 @@
                     .Checkbox__box {
                         border-color: var(--color-neutral);
                         background: var(--color-neutral);
+                    }
+                }
+            }
+
+            &--indeterminate {
+                + .Checkbox__label {
+                    .Checkbox__box {
+                        background: var(--color-neutral);
+                        border-color: var(--color-neutral);
                     }
                 }
             }
