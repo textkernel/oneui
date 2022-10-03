@@ -2,7 +2,6 @@
 
 exports[`<Toggle> that renders a toggle should render Toggle correctly with label 1`] = `
 <Toggle
-  disabled={false}
   id="1"
 >
   <label
@@ -26,7 +25,6 @@ exports[`<Toggle> that renders a toggle should render Toggle correctly with labe
       className="Toggle__text"
       context="default"
       inline={true}
-      size="normal"
     >
       <span
         className="Toggle__text"
@@ -40,7 +38,6 @@ exports[`<Toggle> that renders a toggle should render Toggle correctly with labe
 
 exports[`<Toggle> that renders a toggle should render Toggle correctly without label 1`] = `
 <Toggle
-  disabled={false}
   id="1-2"
 >
   <label
@@ -90,7 +87,6 @@ exports[`<Toggle> that renders a toggle should rendered disabled toggle correctl
       className="Toggle__text"
       context="muted"
       inline={true}
-      size="normal"
     >
       <span
         className="Text--context_muted Toggle__text"

@@ -14,13 +14,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       <Button
         className="BulkActionsToolbar__toggleButton"
         context="link"
-        disabled={false}
-        isBlock={false}
-        isInline={false}
-        isLoading={false}
         onClick={[Function]}
-        size="normal"
-        type="button"
       >
         Select All
       </Button>
@@ -40,12 +34,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="link"
           disabled={true}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Compare
         </Button>
@@ -62,12 +51,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="primary"
           disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Import
         </Button>
@@ -84,12 +68,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="brand"
           disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Delete
         </Button>
@@ -122,13 +101,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       <Button
         className="BulkActionsToolbar__toggleButton"
         context="link"
-        disabled={false}
-        isBlock={false}
-        isInline={false}
-        isLoading={false}
         onClick={[Function]}
-        size="normal"
-        type="button"
       >
         Select All
       </Button>
@@ -148,12 +121,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="link"
           disabled={true}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Compare
         </Button>
@@ -170,12 +138,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="primary"
           disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Import
         </Button>
@@ -192,12 +155,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="brand"
           disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Delete
         </Button>
@@ -230,13 +188,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       <Button
         className="BulkActionsToolbar__toggleButton"
         context="link"
-        disabled={false}
-        isBlock={false}
-        isInline={false}
-        isLoading={false}
         onClick={[Function]}
-        size="normal"
-        type="button"
       >
         Select All
       </Button>
@@ -256,12 +208,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="link"
           disabled={true}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Compare
         </Button>
@@ -278,12 +225,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="primary"
           disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Import
         </Button>
@@ -300,12 +242,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="brand"
           disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Delete
         </Button>
@@ -338,13 +275,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       <Button
         className="BulkActionsToolbar__toggleButton"
         context="link"
-        disabled={false}
-        isBlock={false}
-        isInline={false}
-        isLoading={false}
         onClick={[Function]}
-        size="normal"
-        type="button"
       >
         Select None
       </Button>
@@ -364,12 +295,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="link"
           disabled={true}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Compare
         </Button>
@@ -386,12 +312,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="primary"
           disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Import
         </Button>
@@ -408,12 +329,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
           className="BulkActionsToolbar__action"
           context="brand"
           disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[MockFunction]}
-          size="normal"
-          type="button"
         >
           Delete
         </Button>

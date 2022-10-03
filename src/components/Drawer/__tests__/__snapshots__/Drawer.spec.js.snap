@@ -2,7 +2,6 @@
 
 exports[`Drawer should render correctly 1`] = `
 <Drawer
-  isShown={true}
   title="some title"
 >
   <Portal

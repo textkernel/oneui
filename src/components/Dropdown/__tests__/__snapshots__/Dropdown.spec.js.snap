@@ -2,21 +2,13 @@
 
 exports[`Dropdown should allow for conditional rendering of items 1`] = `
 <Dropdown
-  additionalSelectProps={Object {}}
   button={
     <ForwardRef
       context="brand"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
-      size="normal"
-      type="button"
     >
       Click me!
     </ForwardRef>
   }
-  listClassName=""
   onChange={[MockFunction]}
   placement="top-start"
 >
@@ -25,15 +17,9 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
     aria-haspopup="listbox"
     aria-labelledby="downshift-95-label downshift-95-toggle-button"
     context="brand"
-    disabled={false}
     id="downshift-95-toggle-button"
-    isBlock={false}
-    isInline={false}
-    isLoading={false}
     onClick={[Function]}
     onKeyDown={[Function]}
-    size="normal"
-    type="button"
   >
     <button
       aria-expanded={true}
@@ -52,10 +38,8 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
   <List
     aria-labelledby="downshift-95-label"
     className="Dropdown__list"
-    doSelectOnNavigate={false}
     id="downshift-95-menu"
     isControlledNavigation={true}
-    isDivided={false}
     onBlur={[Function]}
     onKeyDown={[Function]}
     onMouseLeave={[Function]}
@@ -89,15 +73,11 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
       <ListItem
         aria-selected="false"
         className="List__item"
-        disabled={false}
-        highlightContext="default"
         id="downshift-95-item-0"
         isHighlighted={false}
-        isSelected={false}
         key=".$.$key-2"
         onClick={[Function]}
         onMouseMove={[Function]}
-        passDisabledToLi={false}
         role="option"
         value="testValue"
       >
@@ -110,10 +90,8 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
           role="presentation"
         >
           <Text
-            context="default"
             inline={true}
             key=".0"
-            size="normal"
           >
             <span>
               With value
@@ -128,21 +106,13 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
 
 exports[`Dropdown should downshift only by enabled items with value 1`] = `
 <Dropdown
-  additionalSelectProps={Object {}}
   button={
     <ForwardRef
       context="brand"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
-      size="normal"
-      type="button"
     >
       Click me!
     </ForwardRef>
   }
-  listClassName=""
   onChange={[MockFunction]}
   placement="top-start"
 >
@@ -151,15 +121,9 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
     aria-haspopup="listbox"
     aria-labelledby="downshift-12-label downshift-12-toggle-button"
     context="brand"
-    disabled={false}
     id="downshift-12-toggle-button"
-    isBlock={false}
-    isInline={false}
-    isLoading={false}
     onClick={[Function]}
     onKeyDown={[Function]}
-    size="normal"
-    type="button"
   >
     <button
       aria-expanded={true}
@@ -178,10 +142,8 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
   <List
     aria-labelledby="downshift-12-label"
     className="Dropdown__list"
-    doSelectOnNavigate={false}
     id="downshift-12-menu"
     isControlledNavigation={true}
-    isDivided={false}
     onBlur={[Function]}
     onKeyDown={[Function]}
     onMouseLeave={[Function]}
@@ -215,21 +177,15 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       <ListItem
         className="List__item"
         disabled={true}
-        highlightContext="default"
-        isHighlighted={false}
-        isSelected={false}
         key=".$.$key-1"
-        passDisabledToLi={false}
       >
         <li
           className="ListItem ListItem--disabled List__item"
           role="presentation"
         >
           <Text
-            context="default"
             inline={true}
             key=".0"
-            size="normal"
           >
             <span>
               Disabled
@@ -240,15 +196,11 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       <ListItem
         aria-selected="false"
         className="List__item"
-        disabled={false}
-        highlightContext="default"
         id="downshift-12-item-0"
         isHighlighted={false}
-        isSelected={false}
         key=".$.$key-2"
         onClick={[Function]}
         onMouseMove={[Function]}
-        passDisabledToLi={false}
         role="option"
         value="1"
       >
@@ -261,10 +213,8 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
           role="presentation"
         >
           <Text
-            context="default"
             inline={true}
             key=".0"
-            size="normal"
           >
             <span>
               With value 1
@@ -274,22 +224,15 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       </ListItem>
       <ListItem
         className="List__item"
-        disabled={false}
-        highlightContext="default"
-        isHighlighted={false}
-        isSelected={false}
         key=".$.$key-3"
-        passDisabledToLi={false}
       >
         <li
           className="ListItem List__item"
           role="presentation"
         >
           <Text
-            context="default"
             inline={true}
             key=".0"
-            size="normal"
           >
             <span>
               Without value
@@ -306,15 +249,11 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       <ListItem
         aria-selected="false"
         className="List__item"
-        disabled={false}
-        highlightContext="default"
         id="downshift-12-item-1"
         isHighlighted={false}
-        isSelected={false}
         key=".$.$key-5"
         onClick={[Function]}
         onMouseMove={[Function]}
-        passDisabledToLi={false}
         role="option"
         value="2"
       >
@@ -327,10 +266,8 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
           role="presentation"
         >
           <Text
-            context="default"
             inline={true}
             key=".0"
-            size="normal"
           >
             <span>
               With value 2
@@ -353,17 +290,10 @@ exports[`Dropdown should render correctly closed 1`] = `
   button={
     <ForwardRef
       context="brand"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
-      size="normal"
-      type="button"
     >
       Click me!
     </ForwardRef>
   }
-  listClassName=""
   onChange={[MockFunction]}
   onMenuBlur={[MockFunction]}
   onMenuFocus={[MockFunction]}
@@ -375,15 +305,9 @@ exports[`Dropdown should render correctly closed 1`] = `
     aria-haspopup="listbox"
     aria-labelledby="downshift-0-label downshift-0-toggle-button"
     context="brand"
-    disabled={false}
     id="downshift-0-toggle-button"
-    isBlock={false}
-    isInline={false}
-    isLoading={false}
     onClick={[Function]}
     onKeyDown={[Function]}
-    size="normal"
-    type="button"
   >
     <button
       aria-expanded={false}
@@ -401,10 +325,8 @@ exports[`Dropdown should render correctly closed 1`] = `
   </Button>
   <List
     aria-labelledby="downshift-0-label"
-    doSelectOnNavigate={false}
     id="downshift-0-menu"
     isControlledNavigation={true}
-    isDivided={false}
     onBlur={[Function]}
     onFocus={[MockFunction]}
     onKeyDown={[Function]}
@@ -452,17 +374,10 @@ exports[`Dropdown should render correctly opened 1`] = `
   button={
     <ForwardRef
       context="brand"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
-      size="normal"
-      type="button"
     >
       Click me!
     </ForwardRef>
   }
-  listClassName=""
   onChange={[MockFunction]}
   onMenuBlur={[MockFunction]}
   onMenuFocus={[MockFunction]}
@@ -488,15 +403,9 @@ exports[`Dropdown should render correctly opened 1`] = `
     aria-haspopup="listbox"
     aria-labelledby="downshift-3-label downshift-3-toggle-button"
     context="brand"
-    disabled={false}
     id="downshift-3-toggle-button"
-    isBlock={false}
-    isInline={false}
-    isLoading={false}
     onClick={[Function]}
     onKeyDown={[Function]}
-    size="normal"
-    type="button"
   >
     <button
       aria-expanded={true}
@@ -515,10 +424,8 @@ exports[`Dropdown should render correctly opened 1`] = `
   <List
     aria-labelledby="downshift-3-label"
     className="Dropdown__list"
-    doSelectOnNavigate={false}
     id="downshift-3-menu"
     isControlledNavigation={true}
-    isDivided={false}
     onBlur={[Function]}
     onFocus={[MockFunction]}
     onKeyDown={[Function]}
@@ -554,21 +461,15 @@ exports[`Dropdown should render correctly opened 1`] = `
       <ListItem
         className="List__item"
         disabled={true}
-        highlightContext="default"
-        isHighlighted={false}
-        isSelected={false}
         key=".$.$disabled-key"
-        passDisabledToLi={false}
       >
         <li
           className="ListItem ListItem--disabled List__item"
           role="presentation"
         >
           <Text
-            context="default"
             inline={true}
             key=".0"
-            size="normal"
           >
             <span>
               Disabled
@@ -579,15 +480,11 @@ exports[`Dropdown should render correctly opened 1`] = `
       <ListItem
         aria-selected="false"
         className="List__item"
-        disabled={false}
-        highlightContext="default"
         id="downshift-3-item-0"
         isHighlighted={false}
-        isSelected={false}
         key=".$.$first-key"
         onClick={[Function]}
         onMouseMove={[Function]}
-        passDisabledToLi={false}
         role="option"
         value="first-value"
       >
@@ -600,10 +497,8 @@ exports[`Dropdown should render correctly opened 1`] = `
           role="presentation"
         >
           <Text
-            context="default"
             inline={true}
             key=".0"
-            size="normal"
           >
             <span>
               With value
@@ -618,21 +513,13 @@ exports[`Dropdown should render correctly opened 1`] = `
 
 exports[`Dropdown should render correctly with mixed children: array and single ListItem 1`] = `
 <Dropdown
-  additionalSelectProps={Object {}}
   button={
     <ForwardRef
       context="brand"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
-      size="normal"
-      type="button"
     >
       Click me!
     </ForwardRef>
   }
-  listClassName=""
   onChange={[MockFunction]}
   placement="top-start"
 >
@@ -641,15 +528,9 @@ exports[`Dropdown should render correctly with mixed children: array and single 
     aria-haspopup="listbox"
     aria-labelledby="downshift-41-label downshift-41-toggle-button"
     context="brand"
-    disabled={false}
     id="downshift-41-toggle-button"
-    isBlock={false}
-    isInline={false}
-    isLoading={false}
     onClick={[Function]}
     onKeyDown={[Function]}
-    size="normal"
-    type="button"
   >
     <button
       aria-expanded={true}
@@ -668,10 +549,8 @@ exports[`Dropdown should render correctly with mixed children: array and single 
   <List
     aria-labelledby="downshift-41-label"
     className="Dropdown__list"
-    doSelectOnNavigate={false}
     id="downshift-41-menu"
     isControlledNavigation={true}
-    isDivided={false}
     onBlur={[Function]}
     onKeyDown={[Function]}
     onMouseLeave={[Function]}
@@ -705,21 +584,15 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       <ListItem
         className="List__item"
         disabled={true}
-        highlightContext="default"
-        isHighlighted={false}
-        isSelected={false}
         key=".$.$disabled-key"
-        passDisabledToLi={false}
       >
         <li
           className="ListItem ListItem--disabled List__item"
           role="presentation"
         >
           <Text
-            context="default"
             inline={true}
             key=".0"
-            size="normal"
           >
             <span>
               Disabled
@@ -730,15 +603,11 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       <ListItem
         aria-selected="false"
         className="List__item"
-        disabled={false}
-        highlightContext="default"
         id="downshift-41-item-0"
         isHighlighted={false}
-        isSelected={false}
         key=".$.1=2$one"
         onClick={[Function]}
         onMouseMove={[Function]}
-        passDisabledToLi={false}
         role="option"
         value="one"
       >
@@ -751,10 +620,8 @@ exports[`Dropdown should render correctly with mixed children: array and single 
           role="presentation"
         >
           <Text
-            context="default"
             inline={true}
             key=".0"
-            size="normal"
           >
             <span>
               one
@@ -765,15 +632,11 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       <ListItem
         aria-selected="false"
         className="List__item"
-        disabled={false}
-        highlightContext="default"
         id="downshift-41-item-1"
         isHighlighted={false}
-        isSelected={false}
         key=".$.1=2$two"
         onClick={[Function]}
         onMouseMove={[Function]}
-        passDisabledToLi={false}
         role="option"
         value="two"
       >
@@ -786,10 +649,8 @@ exports[`Dropdown should render correctly with mixed children: array and single 
           role="presentation"
         >
           <Text
-            context="default"
             inline={true}
             key=".0"
-            size="normal"
           >
             <span>
               two

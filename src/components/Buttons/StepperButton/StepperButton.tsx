@@ -17,19 +17,17 @@ export interface Props
 
 const { block } = bem('StepperButton', styles);
 
-export const StepperButton: React.FC<Props> = (props) => {
-    const { disabled, href, icon, ...rest } = props;
-
+export const StepperButton: React.FC<Props> = ({
+    disabled = false,
+    icon = 'plus',
+    href,
+    ...rest
+}) => {
     return (
-        <button {...rest} {...block(props)} type="button" disabled={disabled}>
+        <button {...rest} {...block({ disabled })} type="button" disabled={disabled}>
             {icon === 'plus' ? <FaPlus size="75%" /> : <FaMinus size="75%" />}
         </button>
     );
 };
 
 StepperButton.displayName = 'StepperButton';
-
-StepperButton.defaultProps = {
-    disabled: false,
-    icon: 'plus',
-};

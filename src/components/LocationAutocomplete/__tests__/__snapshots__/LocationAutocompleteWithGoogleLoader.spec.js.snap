@@ -18,15 +18,11 @@ exports[`<LocationAutocompleteWithGoogleLoader/> that loads google api and rende
     loadingElement={
       <LoadingSpinner
         centerIn="parent"
-        context="brand"
-        hidden={false}
       />
     }
   >
     <LoadingSpinner
       centerIn="parent"
-      context="brand"
-      hidden={false}
     >
       <div
         aria-busy={true}

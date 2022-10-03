@@ -26,5 +26,3 @@ export const ItemValue: React.FC<Props> = ({ item, onChange }) => {
 };
 
 ItemValue.displayName = 'ItemValue';
-
-ItemValue.defaultProps = {};

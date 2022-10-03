@@ -26,49 +26,50 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title
 
 const { block, elem } = bem('Teaser', styles);
 
-export const Teaser: React.FC<Props> = (props) => {
-    const { title, subTitle, location, details, statuses, disabled, ...rest } = props;
-
+export const Teaser: React.FC<Props> = ({
+    title,
+    subTitle = '',
+    location = '',
+    details = '',
+    statuses,
+    disabled = false,
+    ...rest
+}) => {
     const subTitleElement = (
-        <Text
-            inline
-            title={subTitle}
-            context={disabled ? 'muted' : 'accent'}
-            {...elem('subTitle', props)}
-        >
+        <Text inline title={subTitle} context={disabled ? 'muted' : 'accent'} {...elem('subTitle')}>
             {subTitle}
         </Text>
     );
     const detailsElement = (
-        <Text inline title={details} context="muted" {...elem('details', props)}>
+        <Text inline title={details} context="muted" {...elem('details')}>
             {details}
         </Text>
     );
     return (
-        <div {...rest} {...block(props)}>
-            <div {...elem('line', props)}>
+        <div {...rest} {...block()}>
+            <div {...elem('line')}>
                 <Text
                     inline
                     context={disabled ? 'muted' : 'brand'}
-                    {...elem('title', props)}
+                    {...elem('title')}
                     title={title}
                 >
                     {title}
                 </Text>
                 {location && (
-                    <Text inline context="muted" {...elem('location', props)}>
+                    <Text inline context="muted" {...elem('location')}>
                         {location}
                     </Text>
                 )}
             </div>
-            <div {...elem('line', props)}>
+            <div {...elem('line')}>
                 {subTitle && subTitleElement}
                 {!subTitle && details && detailsElement}
             </div>
-            <div {...elem('line', props)}>
+            <div {...elem('line')}>
                 {subTitle && details && detailsElement}
                 {statuses && statuses.length > 0 && (
-                    <div {...elem('statuses', props)}>
+                    <div {...elem('statuses')}>
                         {statuses.map(({ label, tooltip }, index) => (
                             <span key={label}>
                                 <Tooltip content={tooltip}>
@@ -91,10 +92,3 @@ export const Teaser: React.FC<Props> = (props) => {
 };
 
 Teaser.displayName = 'Teaser';
-
-Teaser.defaultProps = {
-    location: '',
-    subTitle: '',
-    details: '',
-    disabled: false,
-};

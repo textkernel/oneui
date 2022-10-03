@@ -32,23 +32,22 @@ export interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
  * More detailed face-to-face comparison of Select components can be found
  * [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)
  */
-export function ComboboxMulti<S>(props: Props<S>) {
-    const {
-        id,
-        onSelectionAdd,
-        inputRef: inputRefFromProps,
-        suggestions,
-        suggestionToString,
-        suggestionItemRenderer,
-        noSuggestionsPlaceholder,
-        onBlur,
-        onInputValueChange,
-        disabled,
-        inputPlaceholder,
-        useOptimizeListRender,
-        inputAttrs,
-        ...rest
-    } = props;
+export function ComboboxMulti<S>({
+    id = undefined,
+    onSelectionAdd,
+    inputRef: inputRefFromProps,
+    suggestions,
+    suggestionToString,
+    suggestionItemRenderer,
+    noSuggestionsPlaceholder,
+    onBlur,
+    onInputValueChange,
+    disabled,
+    inputPlaceholder,
+    useOptimizeListRender = false,
+    inputAttrs = {},
+    ...rest
+}: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
 
     // eslint-disable-next-line react/display-name
@@ -60,7 +59,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
         };
 
         return (
-            <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
+            <div tabIndex={0} role="searchbox" {...elem('wrapper')}>
                 <input
                     {...getInputProps({
                         ...inputAttrs,
@@ -70,11 +69,11 @@ export function ComboboxMulti<S>(props: Props<S>) {
                         placeholder: inputPlaceholder,
                         onKeyDown: handleInputKeyDown,
                         'data-lpignore': true,
-                        ...elem('input', { ...props }),
+                        ...elem('input'),
                     })}
                 />
                 <IoMdArrowDropup
-                    {...elem('dropdownIcon', { ...props })}
+                    {...elem('dropdownIcon')}
                     {...getToggleButtonProps({ disabled, onClick: blur })}
                 />
             </div>
@@ -83,7 +82,7 @@ export function ComboboxMulti<S>(props: Props<S>) {
 
     // eslint-disable-next-line react/display-name
     const renderBlurred = ({ getInputProps, getToggleButtonProps, onFocus }) => (
-        <div tabIndex={0} role="searchbox" {...elem('wrapper', { ...props })}>
+        <div tabIndex={0} role="searchbox" {...elem('wrapper')}>
             <input
                 {...getInputProps({
                     ...inputAttrs,
@@ -93,11 +92,11 @@ export function ComboboxMulti<S>(props: Props<S>) {
                     placeholder: inputPlaceholder,
                     onFocus,
                     'data-lpignore': true,
-                    ...elem('input', { ...props }),
+                    ...elem('input'),
                 })}
             />
             <IoMdArrowDropdown
-                {...elem('dropdownIcon', { ...props })}
+                {...elem('dropdownIcon')}
                 {...getToggleButtonProps({
                     disabled,
                     onClick: (e) => {
@@ -134,11 +133,5 @@ export function ComboboxMulti<S>(props: Props<S>) {
         />
     );
 }
-
-ComboboxMulti.defaultProps = {
-    useOptimizeListRender: false,
-    id: undefined,
-    inputAttrs: {},
-};
 
 ComboboxMulti.displayName = 'ComboboxMulti';

@@ -15,18 +15,16 @@ interface Props extends ReactDatePickerCustomHeaderProps {
 
 const { block, elem } = bem('CalendarHeader', styles);
 
-export const CalendarHeader: React.FC<Props> = (props) => {
-    const {
-        locale = 'en',
-        yearsRange,
-        date,
-        decreaseMonth,
-        prevMonthButtonDisabled,
-        increaseMonth,
-        nextMonthButtonDisabled,
-        changeYear,
-    } = props;
-
+export const CalendarHeader: React.FC<Props> = ({
+    locale = 'en',
+    yearsRange,
+    date,
+    decreaseMonth,
+    prevMonthButtonDisabled,
+    increaseMonth,
+    nextMonthButtonDisabled,
+    changeYear,
+}) => {
     const monthName = new Intl.DateTimeFormat(locale, { month: 'long' }).format(date);
 
     const [minYear, maxYear] = yearsRange;

@@ -29,14 +29,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
     renderInPortal={false}
   >
     <Button
-      context="neutral"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       onClick={[Function]}
-      size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral"
@@ -103,14 +96,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
     renderInPortal={false}
   >
     <Button
-      context="neutral"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       onClick={[Function]}
-      size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral"
@@ -135,7 +121,6 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             asFlexbox={true}
             checked={false}
             className="LabelPicker__checkbox"
-            disabled={false}
             id="First label"
             key="First label"
             onChange={[Function]}
@@ -178,18 +163,14 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 </span>
                 <Text
                   className="LabelPicker__label"
-                  context="default"
                   inline={true}
-                  size="normal"
                 >
                   <span
                     className="LabelPicker__label"
                   >
                     <Text
                       className="LabelPicker__labelText"
-                      context="default"
                       inline={true}
-                      size="normal"
                       title="First label"
                     >
                       <span
@@ -208,7 +189,6 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             asFlexbox={true}
             checked={true}
             className="LabelPicker__checkbox"
-            disabled={false}
             id="Second label"
             key="Second label"
             onChange={[Function]}
@@ -251,18 +231,14 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 </span>
                 <Text
                   className="LabelPicker__label"
-                  context="default"
                   inline={true}
-                  size="normal"
                 >
                   <span
                     className="LabelPicker__label"
                   >
                     <Text
                       className="LabelPicker__labelText"
-                      context="default"
                       inline={true}
-                      size="normal"
                       title="Second label"
                     >
                       <span
@@ -276,7 +252,6 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                       className="LabelPicker__count"
                       context="muted"
                       inline={true}
-                      size="normal"
                     >
                       <span
                         className="Text--context_muted LabelPicker__count"
@@ -295,7 +270,6 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             asFlexbox={true}
             checked={false}
             className="LabelPicker__checkbox"
-            disabled={false}
             id="Third label"
             key="Third label"
             onChange={[Function]}
@@ -338,18 +312,14 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 </span>
                 <Text
                   className="LabelPicker__label"
-                  context="default"
                   inline={true}
-                  size="normal"
                 >
                   <span
                     className="LabelPicker__label"
                   >
                     <Text
                       className="LabelPicker__labelText"
-                      context="default"
                       inline={true}
-                      size="normal"
                       title="Third label"
                     >
                       <span
@@ -368,7 +338,6 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             asFlexbox={true}
             checked={false}
             className="LabelPicker__checkbox"
-            disabled={false}
             id="Fourth label"
             key="Fourth label"
             onChange={[Function]}
@@ -411,18 +380,14 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                 </span>
                 <Text
                   className="LabelPicker__label"
-                  context="default"
                   inline={true}
-                  size="normal"
                 >
                   <span
                     className="LabelPicker__label"
                   >
                     <Text
                       className="LabelPicker__labelText"
-                      context="default"
                       inline={true}
-                      size="normal"
                       title="Fourth label"
                     >
                       <span
@@ -443,12 +408,10 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
         >
           <Input
             className="LabelPicker__input"
-            disabled={false}
             isBlock={true}
             onChange={[Function]}
             onKeyDown={[Function]}
             size="small"
-            type="text"
             value=""
           >
             <input
@@ -465,12 +428,8 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
             className="LabelPicker__addButton"
             context="good"
             disabled={true}
-            isBlock={false}
-            isInline={false}
-            isLoading={false}
             onClick={[Function]}
             size="small"
-            type="button"
           >
             <button
               className="Button Button--context_good Button--size_small LabelPicker__addButton"
@@ -517,13 +476,8 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
         </div>
         <Button
           context="primary"
-          disabled={false}
           isBlock={true}
-          isInline={false}
-          isLoading={false}
           onClick={[Function]}
-          size="normal"
-          type="button"
         >
           <button
             className="Button Button--context_primary Button--isBlock"

@@ -49,9 +49,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
 >
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Sun"
     passDisabledToLi={false}
     style={Object {}}
@@ -67,9 +65,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Sun
@@ -80,9 +76,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={true}
-    isSelected={false}
     key="Moon"
     passDisabledToLi={false}
     style={Object {}}
@@ -98,9 +92,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Moon
@@ -111,9 +103,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Mercury"
     passDisabledToLi={false}
     style={Object {}}
@@ -129,9 +119,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Mercury
@@ -142,9 +130,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Venus"
     passDisabledToLi={false}
     style={Object {}}
@@ -160,9 +146,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Venus
@@ -173,9 +157,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Earth"
     passDisabledToLi={false}
     style={Object {}}
@@ -191,9 +173,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Earth
@@ -204,9 +184,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Mars"
     passDisabledToLi={false}
     style={Object {}}
@@ -222,9 +200,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Mars
@@ -235,9 +211,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Jupiter"
     passDisabledToLi={false}
     style={Object {}}
@@ -253,9 +227,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Jupiter
@@ -266,9 +238,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Saturn"
     passDisabledToLi={false}
     style={Object {}}
@@ -284,9 +254,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Saturn
@@ -297,9 +265,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Neptune"
     passDisabledToLi={false}
     style={Object {}}
@@ -315,9 +281,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Neptune
@@ -328,9 +292,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   </ListItem>
   <ListItem
     disabled={true}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Pluto"
     passDisabledToLi={false}
     style={Object {}}
@@ -346,9 +308,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
         marker=""
       >
         <Text
-          context="default"
           inline={true}
-          size="normal"
         >
           <span>
             Pluto
@@ -408,12 +368,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   useOptimizeRender={false}
 >
   <ListItem
-    disabled={false}
-    highlightContext="default"
-    isHighlighted={false}
-    isSelected={false}
     key="0"
-    passDisabledToLi={false}
   >
     <li
       className="ListItem"
@@ -423,11 +378,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         className="SuggestionsList__loaderItem"
         key=".0"
       >
-        <ContentPlaceholder
-          duration={1}
-          width={100}
-          withoutMargin={false}
-        >
+        <ContentPlaceholder>
           <div
             className="ContentPlaceholder"
             style={
@@ -452,12 +403,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     </li>
   </ListItem>
   <ListItem
-    disabled={false}
-    highlightContext="default"
-    isHighlighted={false}
-    isSelected={false}
     key="1"
-    passDisabledToLi={false}
   >
     <li
       className="ListItem"
@@ -467,11 +413,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         className="SuggestionsList__loaderItem"
         key=".0"
       >
-        <ContentPlaceholder
-          duration={1}
-          width={100}
-          withoutMargin={false}
-        >
+        <ContentPlaceholder>
           <div
             className="ContentPlaceholder"
             style={
@@ -496,12 +438,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     </li>
   </ListItem>
   <ListItem
-    disabled={false}
-    highlightContext="default"
-    isHighlighted={false}
-    isSelected={false}
     key="2"
-    passDisabledToLi={false}
   >
     <li
       className="ListItem"
@@ -511,11 +448,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         className="SuggestionsList__loaderItem"
         key=".0"
       >
-        <ContentPlaceholder
-          duration={1}
-          width={100}
-          withoutMargin={false}
-        >
+        <ContentPlaceholder>
           <div
             className="ContentPlaceholder"
             style={
@@ -540,12 +473,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     </li>
   </ListItem>
   <ListItem
-    disabled={false}
-    highlightContext="default"
-    isHighlighted={false}
-    isSelected={false}
     key="3"
-    passDisabledToLi={false}
   >
     <li
       className="ListItem"
@@ -555,11 +483,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         className="SuggestionsList__loaderItem"
         key=".0"
       >
-        <ContentPlaceholder
-          duration={1}
-          width={100}
-          withoutMargin={false}
-        >
+        <ContentPlaceholder>
           <div
             className="ContentPlaceholder"
             style={
@@ -584,12 +508,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     </li>
   </ListItem>
   <ListItem
-    disabled={false}
-    highlightContext="default"
-    isHighlighted={false}
-    isSelected={false}
     key="4"
-    passDisabledToLi={false}
   >
     <li
       className="ListItem"
@@ -599,11 +518,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
         className="SuggestionsList__loaderItem"
         key=".0"
       >
-        <ContentPlaceholder
-          duration={1}
-          width={100}
-          withoutMargin={false}
-        >
+        <ContentPlaceholder>
           <div
             className="ContentPlaceholder"
             style={
@@ -873,9 +788,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
 >
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Sun"
     passDisabledToLi={false}
     style={Object {}}
@@ -894,9 +807,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={true}
-    isSelected={false}
     key="Moon"
     passDisabledToLi={false}
     style={Object {}}
@@ -915,9 +826,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Mercury"
     passDisabledToLi={false}
     style={Object {}}
@@ -936,9 +845,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Venus"
     passDisabledToLi={false}
     style={Object {}}
@@ -957,9 +864,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Earth"
     passDisabledToLi={false}
     style={Object {}}
@@ -978,9 +883,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Mars"
     passDisabledToLi={false}
     style={Object {}}
@@ -999,9 +902,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Jupiter"
     passDisabledToLi={false}
     style={Object {}}
@@ -1020,9 +921,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Saturn"
     passDisabledToLi={false}
     style={Object {}}
@@ -1041,9 +940,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={false}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Neptune"
     passDisabledToLi={false}
     style={Object {}}
@@ -1062,9 +959,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   </ListItem>
   <ListItem
     disabled={true}
-    highlightContext="default"
     isHighlighted={false}
-    isSelected={false}
     key="Pluto"
     passDisabledToLi={false}
     style={Object {}}

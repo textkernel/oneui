@@ -21,28 +21,26 @@ const calcMaskWidth = (width) => ({
     width: `${100 - Math.max(Math.min(width, 100), 0)}%`,
 });
 
-export const ContentPlaceholder: React.FC<Props> = (props) => {
-    const { duration, height, width, withoutMargin, ...rest } = props;
-
+export const ContentPlaceholder: React.FC<Props> = ({
+    duration = 1,
+    height,
+    width = 100,
+    withoutMargin = false,
+    ...rest
+}) => {
     return (
         <div
             {...rest}
-            {...block(props)}
+            {...block({ withoutMargin })}
             style={{
                 animationDuration: calcDuration(duration),
                 height,
             }}
         >
             &nbsp;
-            <div {...elem('mask', props)} style={calcMaskWidth(width)} />
+            <div {...elem('mask')} style={calcMaskWidth(width)} />
         </div>
     );
 };
 
 ContentPlaceholder.displayName = 'ContentPlaceholder';
-
-ContentPlaceholder.defaultProps = {
-    duration: 1,
-    width: 100,
-    withoutMargin: false,
-};

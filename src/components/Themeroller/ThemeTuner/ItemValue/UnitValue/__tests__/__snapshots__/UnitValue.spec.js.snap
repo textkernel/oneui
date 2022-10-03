@@ -13,8 +13,6 @@ exports[`UnitValue component should render component correctly 1`] = `
   <span>
     <Input
       className="UnitValue__input"
-      disabled={false}
-      isBlock={false}
       onChange={[Function]}
       size="small"
       type="number"
@@ -33,7 +31,6 @@ exports[`UnitValue component should render component correctly 1`] = `
       className="UnitValue__value"
       context="muted"
       inline={true}
-      size="normal"
     >
       <span
         className="Text--context_muted UnitValue__value"

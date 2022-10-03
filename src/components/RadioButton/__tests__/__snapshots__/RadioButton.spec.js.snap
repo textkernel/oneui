@@ -91,7 +91,6 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
         className="RadioButton__text"
         context="default"
         inline={true}
-        size="normal"
       >
         <span
           className="RadioButton__text"

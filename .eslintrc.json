@@ -53,8 +53,12 @@
                 "ignoreRestSiblings": true
             }
         ],
-        "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "never" }],
-        "curly": ["error", "all"]
+        "curly": ["error", "all"],
+        "comma-dangle": ["error", "only-multiline"],
+        "@typescript-eslint/comma-dangle": ["error", "only-multiline"],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/ban-types": "off"
     },
     "overrides": [
         {
@@ -86,7 +90,8 @@
                 "react/prop-types": "off",
                 "react/jsx-setDefaultAreaHighlight-newline": "off",
                 "import/no-default-export": "off",
-                "no-underscore-dangle": "off"
+                "no-underscore-dangle": "off",
+                "@typescript-eslint/naming-convention": "off"
             }
         }
     ],

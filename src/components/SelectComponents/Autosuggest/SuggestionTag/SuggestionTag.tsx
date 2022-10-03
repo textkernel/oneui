@@ -14,9 +14,7 @@ interface Props {
     children: NotEmptyReactNode;
 }
 
-export const SuggestionTag: React.FC<Props> = (props) => {
-    const { width, children, onClick, ...rest } = props;
-
+export const SuggestionTag: React.FC<Props> = ({ width = 'auto', children, onClick, ...rest }) => {
     return (
         <div {...rest} {...block({ [width || 'auto']: true })}>
             <div title={children} {...elem('label')}>
@@ -29,10 +27,6 @@ export const SuggestionTag: React.FC<Props> = (props) => {
             ) : null}
         </div>
     );
-};
-
-SuggestionTag.defaultProps = {
-    width: 'auto',
 };
 
 SuggestionTag.displayName = 'SuggestionTag';

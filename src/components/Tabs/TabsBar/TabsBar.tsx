@@ -24,9 +24,13 @@ interface PropsToPassToChild<T> {
 
 const { block } = bem('TabsBar', styles);
 
-export function TabsBar<T = string | number>(props: Props<T>) {
-    const { activeTabId, children, onSelect, isBlock, ...rest } = props;
-
+export function TabsBar<T = string | number>({
+    activeTabId = undefined,
+    children,
+    onSelect = undefined,
+    isBlock = false,
+    ...rest
+}: Props<T>) {
     const extendWithProps = (tab: Props<T>['children'] | EmptyElement) => {
         if (React.isValidElement(tab) && tab.type === TabItem) {
             const { tabId } = tab.props;
@@ -44,7 +48,7 @@ export function TabsBar<T = string | number>(props: Props<T>) {
     };
 
     return (
-        <div {...rest} {...block(props)} role="tablist">
+        <div {...rest} {...block({ isBlock })} role="tablist">
             {activeTabId || onSelect || isBlock
                 ? React.Children.map(children, (tab) => extendWithProps(tab))
                 : children}
@@ -53,9 +57,3 @@ export function TabsBar<T = string | number>(props: Props<T>) {
 }
 
 TabsBar.displayName = 'TabsBar';
-
-TabsBar.defaultProps = {
-    isBlock: false,
-    activeTabId: undefined,
-    onSelect: undefined,
-};

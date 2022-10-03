@@ -56,7 +56,6 @@ exports[`<RadioButtonGroup> that renders a group of radio buttons should render 
             className="RadioButton__text"
             context="default"
             inline={true}
-            size="normal"
           >
             <span
               className="RadioButton__text"
@@ -115,7 +114,6 @@ exports[`<RadioButtonGroup> that renders a group of radio buttons should render 
             className="RadioButton__text"
             context="default"
             inline={true}
-            size="normal"
           >
             <span
               className="RadioButton__text"

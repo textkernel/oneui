@@ -27,19 +27,17 @@ export interface Props extends ModalProps {
 
 const { block, elem } = bem('ProductTour', styles);
 
-export const ProductTour: React.FC<Props> = (props) => {
-    const {
-        isOpen,
-        children,
-        checkboxLabel,
-        cancelLabel = '',
-        continueLabel = '',
-        finishLabel,
-        onCancel,
-        onFinished,
-        ...rest
-    } = props;
-
+export const ProductTour: React.FC<Props> = ({
+    isOpen = false,
+    children,
+    checkboxLabel,
+    cancelLabel = '',
+    continueLabel = '',
+    finishLabel,
+    onCancel,
+    onFinished,
+    ...rest
+}) => {
     /** index for currently shown slide; 0 indexed */
     const [currentSlide, setCurrentSlide] = React.useState(0);
     /** state of the checkbox */
@@ -149,7 +147,3 @@ export const ProductTour: React.FC<Props> = (props) => {
 };
 
 ProductTour.displayName = 'ProductTour';
-
-ProductTour.defaultProps = {
-    isOpen: false,
-};

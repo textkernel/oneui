@@ -17,14 +17,18 @@ export interface Props {
 
 const { block, elem } = bem('ButtonGroup', styles);
 
-export const ButtonGroup = (props: Props) => {
-    const { children, context, size, isBlock, ...rest } = props;
-
+export const ButtonGroup = ({
+    children,
+    context = 'neutral',
+    size = 'normal',
+    isBlock = false,
+    ...rest
+}: Props) => {
     const totalNumberOfButtons = React.Children.count(children);
 
     if (totalNumberOfButtons === 1) {
         return (
-            <div {...rest} {...block(props)} role="group">
+            <div {...rest} {...block({ isBlock })} role="group">
                 {React.isValidElement(children)
                     ? React.cloneElement(children, {
                           ...children.props,
@@ -38,7 +42,7 @@ export const ButtonGroup = (props: Props) => {
     }
 
     return (
-        <div {...rest} {...block(props)} role="group">
+        <div {...rest} {...block({ isBlock })} role="group">
             {React.Children.map(children, (button, i) => {
                 if (!React.isValidElement(button)) {
                     return button;
@@ -49,7 +53,8 @@ export const ButtonGroup = (props: Props) => {
                     context,
                     size,
                     ...elem('button', {
-                        ...props,
+                        isBlock,
+                        context,
                         first: i === 0,
                         last: i + 1 === totalNumberOfButtons,
                     }),
@@ -60,9 +65,3 @@ export const ButtonGroup = (props: Props) => {
 };
 
 ButtonGroup.displayName = 'ButtonGroup';
-
-ButtonGroup.defaultProps = {
-    context: 'neutral',
-    size: 'normal',
-    isBlock: false,
-};

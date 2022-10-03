@@ -269,18 +269,14 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
           <FieldWrapper
             className="AutosuggestDeprecated__field"
             clearLabel=""
-            disabled={false}
-            isArrowUp={false}
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
             onKeyDown={[Function]}
-            showArrow={false}
             showClearButton={false}
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
-              disabled={false}
               onClick={[Function]}
               onKeyDown={[Function]}
             >
@@ -344,10 +340,8 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                 <List
                   aria-labelledby="downshift-4-label"
                   className="AutosuggestDeprecated__list--focused"
-                  doSelectOnNavigate={false}
                   id="downshift-4-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul
@@ -367,16 +361,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     <ListItem
                       aria-selected={true}
                       className="List__item"
-                      disabled={false}
-                      highlightContext="default"
                       id="downshift-4-item-0"
                       isHighlighted={true}
-                      isSelected={false}
                       key=".$Truro, UK"
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      passDisabledToLi={false}
                       role="option"
                     >
                       <li
@@ -394,9 +384,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           marker="Tonga"
                         >
                           <Text
-                            context="default"
                             inline={true}
-                            size="normal"
                           >
                             <span>
                               Truro
@@ -408,16 +396,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     <ListItem
                       aria-selected={false}
                       className="List__item"
-                      disabled={false}
-                      highlightContext="default"
                       id="downshift-4-item-1"
                       isHighlighted={false}
-                      isSelected={false}
                       key=".$Trowbridge, UK"
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      passDisabledToLi={false}
                       role="option"
                     >
                       <li
@@ -435,9 +419,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           marker="Tonga"
                         >
                           <Text
-                            context="default"
                             inline={true}
-                            size="normal"
                           >
                             <span>
                               Trowbridge
@@ -449,16 +431,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     <ListItem
                       aria-selected={false}
                       className="List__item"
-                      disabled={false}
-                      highlightContext="default"
                       id="downshift-4-item-2"
                       isHighlighted={false}
-                      isSelected={false}
                       key=".$Tring, UK"
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      passDisabledToLi={false}
                       role="option"
                     >
                       <li
@@ -476,9 +454,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           marker="Tonga"
                         >
                           <Text
-                            context="default"
                             inline={true}
-                            size="normal"
                           >
                             <span>
                               Tring
@@ -490,16 +466,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     <ListItem
                       aria-selected={false}
                       className="List__item"
-                      disabled={false}
-                      highlightContext="default"
                       id="downshift-4-item-3"
                       isHighlighted={false}
-                      isSelected={false}
                       key=".$Troon, UK"
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      passDisabledToLi={false}
                       role="option"
                     >
                       <li
@@ -517,9 +489,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           marker="Tonga"
                         >
                           <Text
-                            context="default"
                             inline={true}
-                            size="normal"
                           >
                             <span>
                               Troon
@@ -531,16 +501,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                     <ListItem
                       aria-selected={false}
                       className="List__item"
-                      disabled={false}
-                      highlightContext="default"
                       id="downshift-4-item-4"
                       isHighlighted={false}
-                      isSelected={false}
                       key=".$Tredegar, UK"
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      passDisabledToLi={false}
                       role="option"
                     >
                       <li
@@ -558,9 +524,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                           marker="Tonga"
                         >
                           <Text
-                            context="default"
                             inline={true}
-                            size="normal"
                           >
                             <span>
                               Tredegar
@@ -662,18 +626,14 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
           <FieldWrapper
             className="AutosuggestDeprecated__field"
             clearLabel=""
-            disabled={false}
-            isArrowUp={false}
             isFocused={false}
             onClear={[Function]}
             onClick={[Function]}
             onKeyDown={[Function]}
-            showArrow={false}
             showClearButton={false}
           >
             <div
               className="FieldWrapper AutosuggestDeprecated__field"
-              disabled={false}
               onClick={[Function]}
               onKeyDown={[Function]}
             >
@@ -736,10 +696,8 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
                 </div>
                 <List
                   aria-labelledby="downshift-0-label"
-                  doSelectOnNavigate={false}
                   id="downshift-0-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul

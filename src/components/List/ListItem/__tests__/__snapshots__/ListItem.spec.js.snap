@@ -1,22 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ListItem component should render ListItem correctly 1`] = `
-<ListItem
-  disabled={false}
-  highlightContext="default"
-  isHighlighted={false}
-  isSelected={false}
-  passDisabledToLi={false}
->
+<ListItem>
   <li
     className="ListItem"
     role="presentation"
   >
     <Text
-      context="default"
-      inline={false}
       key=".0"
-      size="normal"
     >
       <p>
         An item
@@ -29,20 +20,14 @@ exports[`ListItem component should render ListItem correctly 1`] = `
 exports[`ListItem component should render correctly when disabled 1`] = `
 <ListItem
   disabled={true}
-  highlightContext="default"
-  isHighlighted={false}
-  isSelected={false}
-  passDisabledToLi={false}
 >
   <li
     className="ListItem ListItem--disabled"
     role="presentation"
   >
     <Text
-      context="default"
       inline={true}
       key=".0"
-      size="normal"
     >
       <span>
         An item

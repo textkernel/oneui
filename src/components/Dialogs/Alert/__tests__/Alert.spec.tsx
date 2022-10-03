@@ -1,14 +1,20 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
+import { mount, ReactWrapper } from 'enzyme';
 import { Alert } from '../Alert';
 
 describe('Alert', () => {
     const mockOnAccept = jest.fn();
-    let wrapper;
+    let wrapper: ReactWrapper;
 
     beforeEach(() => {
         wrapper = mount(
-            <Alert isOpen acceptButton={{ onClick: mockOnAccept, label: 'OK' }} ariaHideApp={false}>
+            <Alert
+                isOpen
+                acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
+                ariaHideApp={false}
+                contentLabel="Content label"
+            >
                 Body of the alert
             </Alert>
         );

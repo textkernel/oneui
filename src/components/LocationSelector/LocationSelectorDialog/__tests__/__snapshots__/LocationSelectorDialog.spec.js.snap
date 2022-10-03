@@ -164,18 +164,14 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
               <FieldWrapper
                 className="AutosuggestDeprecated__field"
                 clearLabel=""
-                disabled={false}
-                isArrowUp={false}
                 isFocused={true}
                 onClear={[Function]}
                 onClick={[Function]}
                 onKeyDown={[Function]}
-                showArrow={false}
                 showClearButton={false}
               >
                 <div
                   className="FieldWrapper FieldWrapper--isFocused AutosuggestDeprecated__field"
-                  disabled={false}
                   onClick={[Function]}
                   onKeyDown={[Function]}
                 >
@@ -239,10 +235,8 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                     <List
                       aria-labelledby="downshift-0-label"
                       className="AutosuggestDeprecated__list--focused"
-                      doSelectOnNavigate={false}
                       id="downshift-0-menu"
                       isControlledNavigation={true}
-                      isDivided={false}
                       role="listbox"
                     >
                       <ul
@@ -263,13 +257,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
     <Button
       className="LocationSelectorDialog__button"
       context="brand"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       onClick={[MockFunction]}
-      size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_brand LocationSelectorDialog__button"
@@ -310,8 +298,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           >
             <Text
               className="LocationCard__title"
-              context="default"
-              inline={false}
               size="large"
               title="Amsterdam"
             >
@@ -355,8 +341,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           >
             <Text
               className="LocationCard__title"
-              context="default"
-              inline={false}
               size="large"
               title="Utrecht"
             >
@@ -382,12 +366,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       defaultArea={
         Object {
           "address": "NL",
-        }
-      }
-      mapContainerStyle={
-        Object {
-          "height": "100%",
-          "width": "100%",
         }
       }
       markers={Array []}

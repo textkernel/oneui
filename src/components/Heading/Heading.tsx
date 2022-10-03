@@ -18,21 +18,16 @@ export interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
 
 const { block } = bem('Heading', styles);
 
-export const Heading = React.forwardRef<HTMLElement, Props>((props, ref) => {
-    const { align, children, context, level = 'h1', ...rest } = props;
-    const HtmlNodeType = level;
+export const Heading = React.forwardRef<HTMLElement, Props>(
+    ({ align = 'left', children, context = 'default', level = 'h1', ...rest }, ref) => {
+        const HtmlNodeType = level;
 
-    return (
-        <HtmlNodeType ref={ref} {...rest} {...block(props)}>
-            {children}
-        </HtmlNodeType>
-    );
-});
+        return (
+            <HtmlNodeType ref={ref} {...rest} {...block({ level, align, context, ...rest })}>
+                {children}
+            </HtmlNodeType>
+        );
+    }
+);
 
 Heading.displayName = 'Heading';
-
-Heading.defaultProps = {
-    align: 'left',
-    level: 'h1',
-    context: 'default',
-};
