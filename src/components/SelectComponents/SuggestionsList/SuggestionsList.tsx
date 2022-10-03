@@ -59,7 +59,7 @@ export function SuggestionsList<S>(props: Props<S>) {
         const currentItem = suggestions[index];
         let disabled = false;
         if (typeof currentItem === 'object' && currentItem !== null && 'disabled' in currentItem) {
-            // eslint-disable-next-line dot-notation
+            // eslint-disable-next-line @typescript-eslint/dot-notation
             disabled = currentItem['disabled']; // TS only happy with this syntax
         }
 
