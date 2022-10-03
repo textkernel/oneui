@@ -101,8 +101,6 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
 
 exports[`<Checkbox> that renders a checkbox should rendered indeterminate checkbox correctly 1`] = `
 <Checkbox
-  asFlexbox={false}
-  disabled={false}
   id="c4"
   indeterminate={true}
 >
@@ -145,7 +143,6 @@ exports[`<Checkbox> that renders a checkbox should rendered indeterminate checkb
         className="Checkbox__text"
         context="default"
         inline={true}
-        size="normal"
       >
         <span
           className="Checkbox__text"
