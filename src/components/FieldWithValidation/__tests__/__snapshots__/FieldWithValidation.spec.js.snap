@@ -1,15 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldWithValidation when rendering message as text with no error message passed should simply render the child as it is 1`] = `
-<FieldWithValidation
-  useTooltip={false}
->
-  <Input
-    disabled={false}
-    isBlock={false}
-    size="normal"
-    type="text"
-  >
+<FieldWithValidation>
+  <Input>
     <input
       className="Input"
       data-lpignore={true}

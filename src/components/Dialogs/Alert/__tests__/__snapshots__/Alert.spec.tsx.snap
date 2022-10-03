@@ -187,13 +187,7 @@ exports[`Alert should render correctly 1`] = `
                 >
                   <Button
                     context="brand"
-                    disabled={false}
-                    isBlock={false}
-                    isInline={false}
-                    isLoading={false}
                     onClick={[MockFunction]}
-                    size="normal"
-                    type="button"
                   >
                     <button
                       className="Button Button--context_brand"
@@ -403,9 +397,7 @@ exports[`Alert should render correctly with title 1`] = `
                   role="alert"
                 >
                   <Heading
-                    align="left"
                     className="Dialog__title"
-                    context="default"
                     level="h2"
                   >
                     <h2
@@ -421,13 +413,7 @@ exports[`Alert should render correctly with title 1`] = `
                 >
                   <Button
                     context="brand"
-                    disabled={false}
-                    isBlock={false}
-                    isInline={false}
-                    isLoading={false}
                     onClick={[MockFunction]}
-                    size="normal"
-                    type="button"
                   >
                     <button
                       className="Button Button--context_brand"

@@ -30,8 +30,6 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
   >
     <Text
       className="Tag__text my-class"
-      context="default"
-      inline={false}
       size="large"
       style={
         Object {
@@ -97,12 +95,7 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
 `;
 
 exports[`<Tag> component should render correctly with minimum amount of props 1`] = `
-<Tag
-  bgColor="var(--color-background)"
-  isSelected={false}
-  maxWidth="fit-content"
-  size="normal"
->
+<Tag>
   <div
     className="Tag"
     style={
@@ -114,8 +107,6 @@ exports[`<Tag> component should render correctly with minimum amount of props 1`
   >
     <Text
       className="Tag__text"
-      context="default"
-      inline={false}
       size="normal"
       title="Tag text"
     >

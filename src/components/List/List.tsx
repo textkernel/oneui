@@ -25,137 +25,150 @@ const NAVIGATION_STEP_VALUES = {
     [LIST_NAVIGATION_DIRECTIONS.DOWN]: 1,
 };
 
-export const List = React.forwardRef<HTMLUListElement, Props>((props, ref) => {
-    const { children, isDivided, doSelectOnNavigate, isControlledNavigation, ...rest } = props;
+export const List = React.forwardRef<HTMLUListElement, Props>(
+    (
+        {
+            children,
+            isDivided = false,
+            doSelectOnNavigate = false,
+            isControlledNavigation = false,
+            ...rest
+        },
+        ref
+    ) => {
+        const [selectedIndex, setSelectedIndex] = React.useState<number>(-1);
+        const [lastNavDirection, setLastNavDirection] = React.useState<'top' | 'bottom' | null>(
+            null
+        );
+        const navigationElementRef = React.createRef();
 
-    const [selectedIndex, setSelectedIndex] = React.useState<number>(-1);
-    const [lastNavDirection, setLastNavDirection] = React.useState<'top' | 'bottom' | null>(null);
-    const navigationElementRef = React.createRef();
-
-    // set selectedIndex to first selectedItem that we can find
-    React.useEffect(() => {
-        if (!children) {
-            return;
-        }
-
-        for (let i = 0; i < children.length; i += 1) {
-            const child = children[i];
-            if (!!child && !child.props[NOT_LIST_CHILD] && child.props.isSelected) {
-                setSelectedIndex(i);
-                break;
+        // set selectedIndex to first selectedItem that we can find
+        React.useEffect(() => {
+            if (!children) {
+                return;
             }
-        }
-    }, [children]);
 
-    // Scroll list if it's necessary to make the current item visible after keyboard navigation
-    React.useLayoutEffect(() => {
-        if (lastNavDirection) {
-            scrollIntoViewIfNeeded(navigationElementRef.current, lastNavDirection);
-        }
-        setLastNavDirection(null);
-    }, [navigationElementRef, lastNavDirection]);
-
-    const getNextSelectedIndex = (keyCode) => {
-        if (!children) {
-            return -1;
-        }
-
-        const stepValue = NAVIGATION_STEP_VALUES[keyCode];
-        const nextSelectedIndex = selectedIndex + stepValue;
-
-        // Return 0 index if nextSelectedIndex has negative value or selectedIndex hasn't been updated before
-        if (nextSelectedIndex < 0 || selectedIndex === -1) {
-            return 0;
-        }
-
-        // Return last React.Children index if nextSelectedIndex is out of the right bound
-        if (nextSelectedIndex >= children.length) {
-            return children.length - 1;
-        }
-
-        // Return nextSelectedIndex without any changes for others cases
-        return nextSelectedIndex;
-    };
-
-    const callOnClick = (index, e) => {
-        if (!children) {
-            return;
-        }
-
-        const child = children[index];
-        if (child && child.props && child.props.onClick) {
-            child.props.onClick(e);
-        }
-    };
-
-    const handleKeyDown = (e) => {
-        // Update selectedIndex with arrow navigation and make onNavigate function callback
-        if (e.key === LIST_NAVIGATION_DIRECTIONS.UP || e.key === LIST_NAVIGATION_DIRECTIONS.DOWN) {
-            const nextSelectedIndex = getNextSelectedIndex(e.key);
-
-            if (selectedIndex !== nextSelectedIndex) {
-                e.preventDefault();
-                setSelectedIndex(nextSelectedIndex);
-
-                const direction = e.key === LIST_NAVIGATION_DIRECTIONS.UP ? 'top' : 'bottom';
-                setLastNavDirection(direction);
-
-                if (doSelectOnNavigate) {
-                    callOnClick(nextSelectedIndex, e);
+            for (let i = 0; i < children.length; i += 1) {
+                const child = children[i];
+                if (!!child && !child.props[NOT_LIST_CHILD] && child.props.isSelected) {
+                    setSelectedIndex(i);
+                    break;
                 }
             }
-        }
+        }, [children]);
 
-        if (e.key === ENTER_KEY) {
-            callOnClick(selectedIndex, e);
-        }
-    };
+        // Scroll list if it's necessary to make the current item visible after keyboard navigation
+        React.useLayoutEffect(() => {
+            if (lastNavDirection) {
+                scrollIntoViewIfNeeded(navigationElementRef.current, lastNavDirection);
+            }
+            setLastNavDirection(null);
+        }, [navigationElementRef, lastNavDirection]);
 
-    return isControlledNavigation ? (
-        <ul {...rest} ref={ref} {...block(props)}>
-            {React.Children.map(children, (child) => {
-                if (child) {
-                    return child.props[NOT_LIST_CHILD]
-                        ? child
-                        : React.cloneElement(
-                              child,
-                              elem('item', {
-                                  ...props,
-                                  elemClassName: child.props.className,
-                              })
-                          );
+        const getNextSelectedIndex = (keyCode) => {
+            if (!children) {
+                return -1;
+            }
+
+            const stepValue = NAVIGATION_STEP_VALUES[keyCode];
+            const nextSelectedIndex = selectedIndex + stepValue;
+
+            // Return 0 index if nextSelectedIndex has negative value or selectedIndex hasn't been updated before
+            if (nextSelectedIndex < 0 || selectedIndex === -1) {
+                return 0;
+            }
+
+            // Return last React.Children index if nextSelectedIndex is out of the right bound
+            if (nextSelectedIndex >= children.length) {
+                return children.length - 1;
+            }
+
+            // Return nextSelectedIndex without any changes for others cases
+            return nextSelectedIndex;
+        };
+
+        const callOnClick = (index, e) => {
+            if (!children) {
+                return;
+            }
+
+            const child = children[index];
+            if (child && child.props && child.props.onClick) {
+                child.props.onClick(e);
+            }
+        };
+
+        const handleKeyDown = (e) => {
+            // Update selectedIndex with arrow navigation and make onNavigate function callback
+            if (
+                e.key === LIST_NAVIGATION_DIRECTIONS.UP ||
+                e.key === LIST_NAVIGATION_DIRECTIONS.DOWN
+            ) {
+                const nextSelectedIndex = getNextSelectedIndex(e.key);
+
+                if (selectedIndex !== nextSelectedIndex) {
+                    e.preventDefault();
+                    setSelectedIndex(nextSelectedIndex);
+
+                    const direction = e.key === LIST_NAVIGATION_DIRECTIONS.UP ? 'top' : 'bottom';
+                    setLastNavDirection(direction);
+
+                    if (doSelectOnNavigate) {
+                        callOnClick(nextSelectedIndex, e);
+                    }
                 }
-                return null;
-            })}
-        </ul>
-    ) : (
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/no-noninteractive-tabindex
-        <ul {...rest} ref={ref} tabIndex="0" onKeyDown={handleKeyDown} {...block(props)}>
-            {React.Children.map(children, (child, index) => {
-                if (child) {
-                    return child.props[NOT_LIST_CHILD]
-                        ? child
-                        : React.cloneElement(child, {
-                              ...elem('item', {
-                                  ...props,
-                                  elemClassName: child.props.className,
-                              }),
-                              ref: index === selectedIndex ? navigationElementRef : null,
-                              isHighlighted: index === selectedIndex,
-                          });
-                }
-                return null;
-            })}
-        </ul>
-    );
-});
+            }
+
+            if (e.key === ENTER_KEY) {
+                callOnClick(selectedIndex, e);
+            }
+        };
+
+        return isControlledNavigation ? (
+            <ul {...rest} ref={ref} {...block({ isDivided, ...rest })}>
+                {React.Children.map(children, (child) => {
+                    if (child) {
+                        return child.props[NOT_LIST_CHILD]
+                            ? child
+                            : React.cloneElement(
+                                  child,
+                                  elem('item', {
+                                      children,
+                                      elemClassName: child.props.className,
+                                  })
+                              );
+                    }
+                    return null;
+                })}
+            </ul>
+        ) : (
+            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+            <ul
+                {...rest}
+                ref={ref}
+                /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
+                tabIndex="0"
+                onKeyDown={handleKeyDown}
+                {...block({ isDivided, ...rest })}
+            >
+                {React.Children.map(children, (child, index) => {
+                    if (child) {
+                        return child.props[NOT_LIST_CHILD]
+                            ? child
+                            : React.cloneElement(child, {
+                                  ...elem('item', {
+                                      children,
+                                      elemClassName: child.props.className,
+                                  }),
+                                  ref: index === selectedIndex ? navigationElementRef : null,
+                                  isHighlighted: index === selectedIndex,
+                              });
+                    }
+                    return null;
+                })}
+            </ul>
+        );
+    }
+);
 
 List.displayName = 'List';
-
-List.propTypes = {};
-
-List.defaultProps = {
-    isDivided: false,
-    doSelectOnNavigate: false,
-    isControlledNavigation: false,
-};

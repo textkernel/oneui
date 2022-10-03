@@ -14,32 +14,29 @@ export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>,
 
 const { block, elem } = bem('Toggle', styles);
 
-export const Toggle = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
-    const { children, disabled, id, ...rest } = props;
-    return (
-        <label {...block(props)} htmlFor={id}>
-            <div {...elem('toggleContainer')}>
-                <input
-                    {...elem('realCheckbox')}
-                    {...rest}
-                    ref={ref}
-                    type="checkbox"
-                    id={id}
-                    disabled={disabled}
-                />
-                <div {...elem('toggleButton')} />
-            </div>
-            {children && (
-                <Text {...elem('text')} inline context={disabled ? 'muted' : 'default'}>
-                    {children}
-                </Text>
-            )}
-        </label>
-    );
-});
+export const Toggle = React.forwardRef<HTMLInputElement, Props>(
+    ({ children, disabled = false, id, ...rest }, ref) => {
+        return (
+            <label {...block({ disabled })} htmlFor={id}>
+                <div {...elem('toggleContainer')}>
+                    <input
+                        {...elem('realCheckbox')}
+                        {...rest}
+                        ref={ref}
+                        type="checkbox"
+                        id={id}
+                        disabled={disabled}
+                    />
+                    <div {...elem('toggleButton')} />
+                </div>
+                {children && (
+                    <Text {...elem('text')} inline context={disabled ? 'muted' : 'default'}>
+                        {children}
+                    </Text>
+                )}
+            </label>
+        );
+    }
+);
 
 Toggle.displayName = 'Toggle';
-
-Toggle.defaultProps = {
-    disabled: false,
-};

@@ -24,7 +24,13 @@ interface Props {
 
 const { elem } = bem('ThemeTuner', styles);
 
-export const ThemeTuner: React.FC<Props> = ({ config, cssVars, children, onChange, ...rest }) => {
+export const ThemeTuner: React.FC<Props> = ({
+    config,
+    cssVars,
+    children = undefined,
+    onChange,
+    ...rest
+}) => {
     const [activeTab, setActiveTab] = React.useState<string>(config[0]?.fieldsetName);
     const activeItems = config.find((fieldset) => fieldset.fieldsetName === activeTab)?.items || [];
 
@@ -70,7 +76,3 @@ export const ThemeTuner: React.FC<Props> = ({ config, cssVars, children, onChang
 };
 
 ThemeTuner.displayName = 'ThemeTuner';
-
-ThemeTuner.defaultProps = {
-    children: undefined,
-};

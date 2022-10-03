@@ -20,14 +20,21 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('ProgressBar', styles);
 
-export const ProgressBar: React.FC<Props> = (props) => {
-    const { animated, children, context, hidden, percentage, small, ...rest } = props;
+export const ProgressBar: React.FC<Props> = ({
+    animated = false,
+    children = null,
+    context = 'brand',
+    hidden = false,
+    percentage,
+    small = false,
+    ...rest
+}) => {
     const percentageAdjusted = Math.max(0, Math.min(percentage, 100));
 
     return (
         <div
             {...rest}
-            {...block(props)}
+            {...block({ context, animated, hidden, small })}
             role="progressbar"
             aria-hidden={hidden}
             aria-valuenow={percentageAdjusted}
@@ -35,7 +42,7 @@ export const ProgressBar: React.FC<Props> = (props) => {
             aria-valuemax="100"
         >
             <div
-                {...elem('fill', props)}
+                {...elem('fill', { animated, context, small })}
                 style={{
                     width: `${percentageAdjusted}%`,
                 }}
@@ -47,11 +54,3 @@ export const ProgressBar: React.FC<Props> = (props) => {
 };
 
 ProgressBar.displayName = 'ProgressBar';
-
-ProgressBar.defaultProps = {
-    animated: false,
-    children: null,
-    context: 'brand',
-    hidden: false,
-    small: false,
-};

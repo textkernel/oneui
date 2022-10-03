@@ -25,61 +25,53 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     disabled?: boolean;
 }
 
-export const FieldWrapper: React.FC<Props> = React.forwardRef((props, ref) => {
-    const handleClear = (e) => {
-        const { onClear } = props;
+export const FieldWrapper: React.FC<Props> = React.forwardRef(
+    (
+        {
+            children,
+            showArrow = false,
+            isArrowUp = false,
+            clearLabel = '',
+            showClearButton = false,
+            onClear = null,
+            isFocused = false,
+            disabled = false,
+            ...rest
+        },
+        ref
+    ) => {
+        const handleClear = (e) => {
+            e.stopPropagation();
+            if (onClear) {
+                onClear(e);
+            }
+        };
 
-        e.stopPropagation();
-        if (onClear) {
-            onClear(e);
-        }
-    };
+        return (
+            <div ref={ref} {...rest} {...block({ isFocused, disabled, ...rest })}>
+                <div {...elem('content')}>{children}</div>
 
-    const {
-        children,
-        showArrow,
-        isArrowUp,
-        clearLabel,
-        showClearButton,
-        onClear,
-        isFocused,
-        ...rest
-    } = props;
+                {showClearButton && (
+                    <Button
+                        isInline
+                        context="link"
+                        onClick={handleClear}
+                        title={clearLabel}
+                        {...elem('clearButton', { rightIndent: showArrow })}
+                    >
+                        {clearLabel}
+                    </Button>
+                )}
 
-    return (
-        <div ref={ref} {...rest} {...block(props)}>
-            <div {...elem('content', props)}>{children}</div>
-
-            {showClearButton && (
-                <Button
-                    isInline
-                    context="link"
-                    onClick={handleClear}
-                    title={clearLabel}
-                    {...elem('clearButton', { ...props, rightIndent: showArrow })}
-                >
-                    {clearLabel}
-                </Button>
-            )}
-
-            {showArrow &&
-                (isArrowUp ? (
-                    <IoMdArrowDropup {...elem('dropdownIcon')} />
-                ) : (
-                    <IoMdArrowDropdown {...elem('dropdownIcon')} />
-                ))}
-        </div>
-    );
-});
+                {showArrow &&
+                    (isArrowUp ? (
+                        <IoMdArrowDropup {...elem('dropdownIcon')} />
+                    ) : (
+                        <IoMdArrowDropdown {...elem('dropdownIcon')} />
+                    ))}
+            </div>
+        );
+    }
+);
 
 FieldWrapper.displayName = 'FieldWrapper';
-
-FieldWrapper.defaultProps = {
-    showArrow: false,
-    isArrowUp: false,
-    showClearButton: false,
-    clearLabel: '',
-    onClear: null,
-    isFocused: false,
-    disabled: false,
-};

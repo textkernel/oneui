@@ -2,7 +2,6 @@
 
 exports[`<ButtonGroup> that renders a button should add classes when props are changed 1`] = `
 <ButtonGroup
-  context="neutral"
   isBlock={true}
   size="large"
 >
@@ -13,13 +12,8 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
     <Button
       className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
       context="neutral"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       key=".0"
       size="large"
-      type="button"
     >
       <button
         className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
@@ -32,13 +26,8 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
     <Button
       className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
       context="neutral"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       key=".1"
       size="large"
-      type="button"
     >
       <button
         className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
@@ -64,15 +53,11 @@ exports[`<ButtonGroup> that renders a button should pass main props, but not add
   >
     <Button
       context="warning"
-      disabled={false}
       isBlock={true}
-      isInline={false}
-      isLoading={false}
       size="small"
-      type="button"
     >
       <button
-        className="Button Button--context_warning Button--size_small Button--isBlock"
+        className="Button Button--context_warning Button--isBlock Button--size_small"
         disabled={false}
         type="button"
       >
@@ -84,11 +69,7 @@ exports[`<ButtonGroup> that renders a button should pass main props, but not add
 `;
 
 exports[`<ButtonGroup> that renders a button should render default button correctly 1`] = `
-<ButtonGroup
-  context="neutral"
-  isBlock={false}
-  size="normal"
->
+<ButtonGroup>
   <div
     className="ButtonGroup"
     role="group"
@@ -96,13 +77,8 @@ exports[`<ButtonGroup> that renders a button should render default button correc
     <Button
       className="ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
       context="neutral"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       key=".0"
       size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
@@ -115,13 +91,8 @@ exports[`<ButtonGroup> that renders a button should render default button correc
     <Button
       className="ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--last"
       context="neutral"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       key=".1"
       size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--last"
@@ -136,11 +107,7 @@ exports[`<ButtonGroup> that renders a button should render default button correc
 `;
 
 exports[`<ButtonGroup> that renders a button should render with conditional JSX 1`] = `
-<ButtonGroup
-  context="neutral"
-  isBlock={false}
-  size="normal"
->
+<ButtonGroup>
   <div
     className="ButtonGroup"
     role="group"
@@ -148,13 +115,8 @@ exports[`<ButtonGroup> that renders a button should render with conditional JSX 
     <Button
       className="ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
       context="neutral"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       key=".0"
       size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
@@ -170,7 +132,6 @@ exports[`<ButtonGroup> that renders a button should render with conditional JSX 
 
 exports[`<ButtonGroup> that renders a button should support mixed element types 1`] = `
 <ButtonGroup
-  context="neutral"
   isBlock={true}
   size="large"
 >
@@ -181,13 +142,8 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
     <Button
       className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
       context="neutral"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       key=".0"
       size="large"
-      type="button"
     >
       <button
         className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
@@ -200,14 +156,9 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
     <Button
       className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
       context="neutral"
-      disabled={false}
       href="#"
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       key=".1"
       size="large"
-      type="button"
     >
       <a
         className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
@@ -217,24 +168,14 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
       </a>
     </Button>
     <Dropdown
-      additionalSelectProps={Object {}}
       button={
-        <ForwardRef
-          context="neutral"
-          disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
-          size="normal"
-          type="button"
-        >
+        <ForwardRef>
           A dropdown button
         </ForwardRef>
       }
       className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
       context="neutral"
       key=".2"
-      listClassName=""
       onChange={[Function]}
       placement="bottom-end"
       size="large"
@@ -245,15 +186,10 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
         aria-labelledby="downshift-0-label downshift-0-toggle-button"
         className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
         context="neutral"
-        disabled={false}
         id="downshift-0-toggle-button"
-        isBlock={false}
-        isInline={false}
-        isLoading={false}
         onClick={[Function]}
         onKeyDown={[Function]}
         size="large"
-        type="button"
       >
         <button
           aria-expanded={false}
@@ -271,10 +207,8 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
       </Button>
       <List
         aria-labelledby="downshift-0-label"
-        doSelectOnNavigate={false}
         id="downshift-0-menu"
         isControlledNavigation={true}
-        isDivided={false}
         onBlur={[Function]}
         onKeyDown={[Function]}
         onMouseLeave={[Function]}

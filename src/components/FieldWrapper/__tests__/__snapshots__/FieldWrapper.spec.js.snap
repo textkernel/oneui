@@ -3,16 +3,10 @@
 exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
 <FieldWrapper
   clearLabel="Clear"
-  disabled={false}
-  isArrowUp={false}
-  isFocused={false}
-  onClear={null}
-  showArrow={false}
   showClearButton={true}
 >
   <div
     className="FieldWrapper"
-    disabled={false}
   >
     <div
       className="FieldWrapper__content"
@@ -22,17 +16,12 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
     <Button
       className="FieldWrapper__clearButton"
       context="link"
-      disabled={false}
-      isBlock={false}
       isInline={true}
-      isLoading={false}
       onClick={[Function]}
-      size="normal"
       title="Clear"
-      type="button"
     >
       <button
-        className="Button Button--isInline Button--context_link FieldWrapper__clearButton"
+        className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
         disabled={false}
         onClick={[Function]}
         title="Clear"
@@ -47,17 +36,10 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
 
 exports[`FieldWrapper should render arrow icon pointing down 1`] = `
 <FieldWrapper
-  clearLabel=""
-  disabled={false}
-  isArrowUp={false}
-  isFocused={false}
-  onClear={null}
   showArrow={true}
-  showClearButton={false}
 >
   <div
     className="FieldWrapper"
-    disabled={false}
   >
     <div
       className="FieldWrapper__content"
@@ -103,17 +85,11 @@ exports[`FieldWrapper should render arrow icon pointing down 1`] = `
 
 exports[`FieldWrapper should render arrow icon pointing up 1`] = `
 <FieldWrapper
-  clearLabel=""
-  disabled={false}
   isArrowUp={true}
-  isFocused={false}
-  onClear={null}
   showArrow={true}
-  showClearButton={false}
 >
   <div
     className="FieldWrapper"
-    disabled={false}
   >
     <div
       className="FieldWrapper__content"
@@ -158,18 +134,9 @@ exports[`FieldWrapper should render arrow icon pointing up 1`] = `
 `;
 
 exports[`FieldWrapper should render correctly 1`] = `
-<FieldWrapper
-  clearLabel=""
-  disabled={false}
-  isArrowUp={false}
-  isFocused={false}
-  onClear={null}
-  showArrow={false}
-  showClearButton={false}
->
+<FieldWrapper>
   <div
     className="FieldWrapper"
-    disabled={false}
   >
     <div
       className="FieldWrapper__content"

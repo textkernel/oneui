@@ -15,44 +15,40 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block, elem } = bem('SelectedOption', styles);
 
-export const SelectedOption = React.forwardRef<HTMLElement, Props>((props, ref) => {
-    const { As = 'div', children, onDelete, ...rest } = props;
+export const SelectedOption = React.forwardRef<HTMLElement, Props>(
+    ({ As = 'div', children, onDelete, ...rest }, ref) => {
+        const handleKeyDown = (e) => {
+            if (e.key === ENTER_KEY) {
+                onDelete();
+            }
+        };
 
-    const handleKeyDown = (e) => {
-        if (e.key === ENTER_KEY) {
-            onDelete();
-        }
-    };
+        // eslint-disable-next-line react/display-name
+        const renderChildren = () => {
+            if (React.isValidElement(children)) {
+                return children;
+            }
+            return (
+                <span title={children} {...elem('label')}>
+                    {children}
+                </span>
+            );
+        };
 
-    // eslint-disable-next-line react/display-name
-    const renderChildren = () => {
-        if (React.isValidElement(children)) {
-            return children;
-        }
         return (
-            <span title={children} {...elem('label')}>
-                {children}
-            </span>
+            <As {...rest} ref={ref} {...block()}>
+                <button
+                    {...elem('button')}
+                    type="button"
+                    onClick={onDelete}
+                    onKeyDown={handleKeyDown}
+                >
+                    <IoIosClose {...elem('buttonIcon')} />
+                </button>
+                {renderChildren()}
+            </As>
         );
-    };
-
-    return (
-        <As {...rest} ref={ref} {...block(props)}>
-            <button
-                {...elem('button', props)}
-                type="button"
-                onClick={onDelete}
-                onKeyDown={handleKeyDown}
-            >
-                <IoIosClose {...elem('buttonIcon', props)} />
-            </button>
-            {renderChildren()}
-        </As>
-    );
-});
+    }
+);
 
 SelectedOption.displayName = 'SelectedOption';
-
-SelectedOption.defaultProps = {
-    As: 'div',
-};

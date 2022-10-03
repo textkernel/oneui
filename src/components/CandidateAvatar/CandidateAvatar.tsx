@@ -15,7 +15,13 @@ export interface Props {
 
 const { block, elem } = bem('CandidateAvatar', styles);
 
-export const CandidateAvatar: React.FC<Props> = (props) => {
+export const CandidateAvatar: React.FC<Props> = ({
+    showPercentageOnHover = false,
+    size = 72,
+    imageUrl,
+    matchPercentage,
+    ...rest
+}) => {
     const getContext = (percentage: number): 'bad' | 'warning' | 'good' => {
         if (percentage <= 33) {
             return 'bad';
@@ -25,8 +31,6 @@ export const CandidateAvatar: React.FC<Props> = (props) => {
         }
         return 'good';
     };
-
-    const { imageUrl, matchPercentage, showPercentageOnHover, size = 72, ...rest } = props;
 
     const constrainedSize = Math.round(Math.max(32, size));
     const fixedSize = constrainedSize % 2 === 0 ? constrainedSize : constrainedSize + 1; // force even number
@@ -41,22 +45,22 @@ export const CandidateAvatar: React.FC<Props> = (props) => {
     return (
         <div
             {...rest}
-            {...block(props)}
+            {...block()}
             style={{
                 width: fixedSize,
                 height: fixedSize,
             }}
         >
             <div
-                {...elem('image', props)}
+                {...elem('image')}
                 style={{
                     backgroundImage: `url(${imageUrl})`,
                 }}
             >
                 {!!Number.isInteger(matchPercentage) && !!showPercentageOnHover && (
-                    <svg {...elem('percentage', props)} viewBox="0 0 50 50">
+                    <svg {...elem('percentage')} viewBox="0 0 50 50">
                         <text
-                            {...elem('percentage-value', props)}
+                            {...elem('percentage-value')}
                             x="50%"
                             y="50%"
                             textAnchor="middle"
@@ -68,7 +72,7 @@ export const CandidateAvatar: React.FC<Props> = (props) => {
                 )}
             </div>
             <svg
-                {...elem('ring', props)}
+                {...elem('ring')}
                 style={{
                     width: fixedSize,
                     height: fixedSize,
@@ -81,7 +85,6 @@ export const CandidateAvatar: React.FC<Props> = (props) => {
                         cy={fixedSize / 2}
                         strokeWidth={strokeWidth}
                         {...elem('circle', {
-                            ...props,
                             context: getContext(percentage),
                         })}
                         style={{
@@ -95,8 +98,3 @@ export const CandidateAvatar: React.FC<Props> = (props) => {
 };
 
 CandidateAvatar.displayName = 'CandidateAvatar';
-
-CandidateAvatar.defaultProps = {
-    showPercentageOnHover: false,
-    size: 72,
-};

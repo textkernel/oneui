@@ -36,15 +36,11 @@ exports[`<LocationSelectorDialogWithGoogleLoader/> that loads google api and ren
     loadingElement={
       <LoadingSpinner
         centerIn="parent"
-        context="brand"
-        hidden={false}
       />
     }
   >
     <LoadingSpinner
       centerIn="parent"
-      context="brand"
-      hidden={false}
     >
       <div
         aria-busy={true}

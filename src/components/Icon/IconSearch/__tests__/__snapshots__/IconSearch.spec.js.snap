@@ -2,7 +2,6 @@
 
 exports[`<IconSearch> should render a Search! icon 1`] = `
 <IconBase
-  preserveAspectRatio={false}
   viewBox="0 0 92.34 92.43"
 >
   <path

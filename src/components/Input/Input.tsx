@@ -20,27 +20,33 @@ export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>,
 
 const { block } = bem('Input', styles);
 
-export const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
-    const { children, context, disabled, isBlock, size, type, value, ...rest } = props;
-    const isLastPassDisabled = type !== 'password';
-    return (
-        <input
-            {...rest}
-            {...block(props)}
-            ref={ref}
-            type={type}
-            disabled={disabled}
-            value={value}
-            data-lpignore={isLastPassDisabled}
-        />
-    );
-});
+export const Input = React.forwardRef<HTMLInputElement, Props>(
+    (
+        {
+            children,
+            context,
+            disabled = false,
+            isBlock = false,
+            size = 'normal',
+            type = 'text',
+            value,
+            ...rest
+        },
+        ref
+    ) => {
+        const isLastPassDisabled = type !== 'password';
+        return (
+            <input
+                {...rest}
+                {...block({ context, size, isBlock, ...rest })}
+                ref={ref}
+                type={type}
+                disabled={disabled}
+                value={value}
+                data-lpignore={isLastPassDisabled}
+            />
+        );
+    }
+);
 
 Input.displayName = 'Input';
-
-Input.defaultProps = {
-    disabled: false,
-    isBlock: false,
-    type: 'text',
-    size: 'normal',
-};

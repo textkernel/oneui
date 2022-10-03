@@ -22,8 +22,17 @@ export interface Props {
     ) => void;
 }
 
-export const ReactElementHighlighter: React.FC<Props> = (props) => {
-    const { children, searchTerms, highlighterCoreOptions, highlightStyles, onComplete } = props;
+export const ReactElementHighlighter: React.FC<Props> = ({
+    children,
+    searchTerms,
+    highlighterCoreOptions = {
+        accuracy: 'exact',
+        ignoreDiacritics: true,
+        ignoreCase: true,
+    },
+    highlightStyles,
+    onComplete,
+}) => {
     const elementRef = React.createRef<HTMLDivElement>();
     const key = JSON.stringify({ searchTerms, ...highlighterCoreOptions });
 
@@ -51,11 +60,3 @@ export const ReactElementHighlighter: React.FC<Props> = (props) => {
 };
 
 ReactElementHighlighter.displayName = 'ReactElementHighlighter';
-
-ReactElementHighlighter.defaultProps = {
-    highlighterCoreOptions: {
-        accuracy: 'exact',
-        ignoreDiacritics: true,
-        ignoreCase: true,
-    },
-};

@@ -61,18 +61,14 @@ exports[`LocationSelector component should render LocationSelector properly when
     <FieldWrapper
       className="LocationSelector__mainTextButtonWrapper"
       clearLabel="Clear"
-      disabled={false}
-      isArrowUp={false}
       isFocused={true}
       onClear={[MockFunction]}
       onClick={[Function]}
-      showArrow={false}
       showClearButton={true}
       title="inputPlaceholder"
     >
       <div
         className="FieldWrapper FieldWrapper--isFocused LocationSelector__mainTextButtonWrapper"
-        disabled={false}
         onClick={[Function]}
         title="inputPlaceholder"
       >
@@ -125,17 +121,12 @@ exports[`LocationSelector component should render LocationSelector properly when
         <Button
           className="FieldWrapper__clearButton"
           context="link"
-          disabled={false}
-          isBlock={false}
           isInline={true}
-          isLoading={false}
           onClick={[Function]}
-          size="normal"
           title="Clear"
-          type="button"
         >
           <button
-            className="Button Button--isInline Button--context_link FieldWrapper__clearButton"
+            className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
             disabled={false}
             onClick={[Function]}
             title="Clear"
@@ -370,15 +361,11 @@ exports[`LocationSelector component should render LocationSelector properly when
                     loadingElement={
                       <LoadingSpinner
                         centerIn="parent"
-                        context="brand"
-                        hidden={false}
                       />
                     }
                   >
                     <LoadingSpinner
                       centerIn="parent"
-                      context="brand"
-                      hidden={false}
                     >
                       <div
                         aria-busy={true}
@@ -482,18 +469,14 @@ exports[`LocationSelector component should render LocationSelector propertly whe
     <FieldWrapper
       className="LocationSelector__mainTextButtonWrapper"
       clearLabel="Clear"
-      disabled={false}
-      isArrowUp={false}
       isFocused={false}
       onClear={[MockFunction]}
       onClick={[Function]}
-      showArrow={false}
       showClearButton={true}
       title="inputPlaceholder"
     >
       <div
         className="FieldWrapper LocationSelector__mainTextButtonWrapper"
-        disabled={false}
         onClick={[Function]}
         title="inputPlaceholder"
       >
@@ -546,17 +529,12 @@ exports[`LocationSelector component should render LocationSelector propertly whe
         <Button
           className="FieldWrapper__clearButton"
           context="link"
-          disabled={false}
-          isBlock={false}
           isInline={true}
-          isLoading={false}
           onClick={[Function]}
-          size="normal"
           title="Clear"
-          type="button"
         >
           <button
-            className="Button Button--isInline Button--context_link FieldWrapper__clearButton"
+            className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
             disabled={false}
             onClick={[Function]}
             title="Clear"

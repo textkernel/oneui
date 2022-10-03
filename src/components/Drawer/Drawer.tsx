@@ -31,16 +31,15 @@ const { block, elem } = bem('Drawer', styles);
 /**
  *  Drawer can be used like an uncontrolled and controlled component.
  */
-export const Drawer: React.FC<Props> = (props) => {
-    const {
-        title,
-        isShown,
-        isExpanded: isExpandedProps,
-        initialIsExpanded,
-        onClick,
-        children,
-        ...rest
-    } = props;
+export const Drawer: React.FC<Props> = ({
+    title,
+    isShown = true,
+    isExpanded: isExpandedProps,
+    initialIsExpanded,
+    onClick,
+    children,
+    ...rest
+}) => {
     const [isExpanded, setIsExpanded] = React.useState(isExpandedProps || initialIsExpanded);
 
     React.useEffect(() => {
@@ -93,26 +92,26 @@ export const Drawer: React.FC<Props> = (props) => {
                     {...rest}
                 >
                     <header
-                        {...elem('head', props)}
+                        {...elem('head')}
                         role="button"
                         tabIndex="-1"
                         onKeyPress={handleKeyPress}
                         onClick={handleClick}
                     >
-                        <h4 title={title} {...elem('headTitle', props)}>
+                        <h4 title={title} {...elem('headTitle')}>
                             {title}
                         </h4>
-                        <div {...elem('headButtons', props)}>
+                        <div {...elem('headButtons')}>
                             <button
                                 {...elem('expandButton', { isExpanded })}
                                 type="button"
                                 onClick={handleClick}
                             >
-                                <IoIosArrowUp {...elem('expandIcon', props)} />
+                                <IoIosArrowUp {...elem('expandIcon')} />
                             </button>
                         </div>
                     </header>
-                    <section {...elem('body', props)} aria-hidden={!(isShown && isExpanded)}>
+                    <section {...elem('body')} aria-hidden={!(isShown && isExpanded)}>
                         {children}
                     </section>
                 </div>
@@ -120,10 +119,6 @@ export const Drawer: React.FC<Props> = (props) => {
         </Transition>,
         document.body
     );
-};
-
-Drawer.defaultProps = {
-    isShown: true,
 };
 
 Drawer.displayName = 'Drawer';

@@ -3,7 +3,6 @@
 exports[`<TwoPaneView> that renders a two pane view should render correctly 1`] = `
 <TwoPaneView>
   <BlockWidthRestrictor
-    As="div"
     className="TwoPaneView"
   >
     <div

@@ -8,7 +8,7 @@ Any new implementation is expected to meet the following standards before it can
 
 -   The component has been manually tested and complies with the Textkernel [browser support guidelines](https://textkernel.com/browser-support/).
 -   The component has a [**displayName**](#display-names) defined.
--   The component comes with a [**detailed propTypes**](#component-props) (and defaultProps) definition.
+-   The component comes with a [**detailed propTypes**](#component-props) (and defaultValues) definition.
 -   The implementation complies with [**accessibility**](#accessibility) standards.
 -   The component is **properly exported** in `src/index.js` (maintain alphabetical order).
 -   The implementation is thoroughly [**covered by tests**](#testing) (Jest / Enzyme, preferably 100%), not only with snapshots.
@@ -35,9 +35,9 @@ For consistency, file name, component name and displayName should be the same.
 
 Every component should come with a detailed [prop types](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes) definition. Go for the highest level of specificity that makes sense. For example, don't just use `PropTypes.object` when you can use `PropTypes.shape`.
 
-#### Required / Default Props
+#### Required / Default Values
 
-Make sure to consider which props are required. Those that are not required should come with a default value in the component `defaultProps` definition.
+Make sure to consider which props are required. Those that are not required should come with a default value in the `defaultValues` definition.
 
 #### Use of Props and `...rest`
 
@@ -91,7 +91,7 @@ interface Props extends <HTMLInputElement> {
 }
 ```
 
--   Define **optional params** in `defaultProps` only if they have a meaningful value. In FunctionalComponents also mark them with `?` as in `propName?: type`. Without setting the prop to optional with `?` we have 2 problems:
+-   Define **optional params** in `defaultValues` only if they have a meaningful value. In FunctionalComponents also mark them with `?` as in `propName?: type`. Without setting the prop to optional with `?` we have 2 problems:
 
     -   TS will think it is required when the component is used (_last updated: TS 3.7_).
 

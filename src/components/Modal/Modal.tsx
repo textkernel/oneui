@@ -42,6 +42,7 @@ const { block, elem } = bem('Modal', styles);
  *
  *      `__Modal.setAppElement__(appElementSelector);`
  */
+// eslint-disable-next-line @typescript-eslint/no-redeclare
 const Modal: Modal<Props> = (props) => {
     const overlayRef = React.useRef<HTMLDivElement | null>(null);
 

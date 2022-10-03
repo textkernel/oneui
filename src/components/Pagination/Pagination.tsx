@@ -23,18 +23,16 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLElement>, 'onClick'
 
 const { block, elem } = bem('Pagination', styles);
 
-export const Pagination: React.FC<Props> = (props) => {
-    const {
-        align,
-        currentPage = 1,
-        maxPageButtons = 10,
-        totalPages,
-        prevLabel,
-        nextLabel,
-        onClick,
-        ...rest
-    } = props;
-
+export const Pagination: React.FC<Props> = ({
+    align = 'center',
+    currentPage = 1,
+    maxPageButtons = 10,
+    totalPages,
+    prevLabel,
+    nextLabel,
+    onClick,
+    ...rest
+}) => {
     const defineRange = () => {
         if (maxPageButtons === 1) {
             return [currentPage];
@@ -73,10 +71,10 @@ export const Pagination: React.FC<Props> = (props) => {
     };
 
     return (
-        <nav {...rest} {...block(props)} aria-label="pagination">
+        <nav {...rest} {...block({ align })} aria-label="pagination">
             {!!prevLabel && (
                 <Button
-                    {...elem('button', props)}
+                    {...elem('button', { align })}
                     onClick={handleClick}
                     disabled={isPrevDisabled}
                     context="link"
@@ -96,7 +94,7 @@ export const Pagination: React.FC<Props> = (props) => {
                     >
                         {1}
                     </PaginationButton>
-                    {range[0] > 2 && <div {...elem('gap', props)}>&hellip;</div>}
+                    {range[0] > 2 && <div {...elem('gap', { align })}>&hellip;</div>}
                 </>
             )}
             {range.map((page) => (
@@ -111,7 +109,7 @@ export const Pagination: React.FC<Props> = (props) => {
             ))}
             {!!nextLabel && (
                 <Button
-                    {...elem('button', props)}
+                    {...elem('button', { align })}
                     onClick={handleClick}
                     disabled={isNextDisabled}
                     context="link"
@@ -126,9 +124,3 @@ export const Pagination: React.FC<Props> = (props) => {
 };
 
 Pagination.displayName = 'Pagination';
-
-Pagination.defaultProps = {
-    align: 'center',
-    currentPage: 1,
-    maxPageButtons: 10,
-};

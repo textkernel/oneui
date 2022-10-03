@@ -18,14 +18,7 @@ exports[`CalendarHeader should render correctly 1`] = `
   >
     <Button
       className="CalendarHeader__navButton"
-      context="neutral"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       onClick={[MockFunction]}
-      size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral CalendarHeader__navButton"
@@ -70,7 +63,6 @@ exports[`CalendarHeader should render correctly 1`] = `
       role="presentation"
     >
       <Text
-        context="default"
         inline={true}
         size="large"
       >
@@ -149,14 +141,7 @@ exports[`CalendarHeader should render correctly 1`] = `
     </div>
     <Button
       className="CalendarHeader__navButton"
-      context="neutral"
-      disabled={false}
-      isBlock={false}
-      isInline={false}
-      isLoading={false}
       onClick={[MockFunction]}
-      size="normal"
-      type="button"
     >
       <button
         className="Button Button--context_neutral CalendarHeader__navButton"

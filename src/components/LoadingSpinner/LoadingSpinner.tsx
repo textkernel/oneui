@@ -19,11 +19,22 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('LoadingSpinner', styles);
 
-export const LoadingSpinner: React.FC<Props> = (props) => {
-    const { centerIn, children, context, hidden, size, ...rest } = props;
-
+export const LoadingSpinner: React.FC<Props> = ({
+    centerIn,
+    children,
+    context = 'brand',
+    hidden = false,
+    size,
+    ...rest
+}) => {
     return (
-        <div {...rest} {...block(props)} role="status" aria-busy={!hidden} aria-hidden={hidden}>
+        <div
+            {...rest}
+            {...block({ hidden, context, centerIn })}
+            role="status"
+            aria-busy={!hidden}
+            aria-hidden={hidden}
+        >
             <svg
                 viewBox={[0, 0, 44, 44]}
                 style={((s) => {
@@ -35,7 +46,7 @@ export const LoadingSpinner: React.FC<Props> = (props) => {
                         height: s,
                     };
                 })(size)}
-                {...elem('svg', props)}
+                {...elem('svg', { hidden, context, centerIn })}
             >
                 <circle
                     cx="22"
@@ -43,11 +54,11 @@ export const LoadingSpinner: React.FC<Props> = (props) => {
                     r="20"
                     fill="none"
                     strokeWidth="4"
-                    {...elem('path', props)}
+                    {...elem('path', { hidden, context, centerIn })}
                 />
             </svg>
             {!!children && (
-                <Text inline {...elem('label', props)}>
+                <Text inline {...elem('label')}>
                     {children}
                 </Text>
             )}
@@ -56,8 +67,3 @@ export const LoadingSpinner: React.FC<Props> = (props) => {
 };
 
 LoadingSpinner.displayName = 'LoadingSpinner';
-
-LoadingSpinner.defaultProps = {
-    context: 'brand',
-    hidden: false,
-};

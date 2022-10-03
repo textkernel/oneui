@@ -18,5 +18,3 @@ export const StringValue: React.FC<Props> = ({ item, onChange }) => {
 };
 
 StringValue.displayName = 'StringValue';
-
-StringValue.defaultProps = {};
