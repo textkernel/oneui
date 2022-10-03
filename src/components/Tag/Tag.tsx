@@ -26,79 +26,86 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('Tag', styles);
 
-export const Tag: React.FC<Props> = ({
-    isSelected = false,
-    bgColor = 'var(--color-background)',
-    maxWidth = 'fit-content',
-    size = 'normal',
-    onDelete = undefined,
-    onClick = undefined,
-    children,
-    ...rest
-}) => {
-    // Generate title for children that are plain text (without tags)
-    // If there is something different from the string (JSX) - children will be of object type.
-    const areChildrenString = typeof children === 'string';
+export const Tag = React.forwardRef<HTMLDivElement, Props>(
+    (
+        {
+            children,
+            bgColor = 'var(--color-background)',
+            maxWidth = 'fit-content',
+            size = 'normal',
+            onDelete = undefined,
+            onClick = undefined,
+            isSelected = false,
+            contentClassName,
+            contentStyle,
+            ...rest
+        },
+        ref
+    ) => {
+        // Generate title for children that are plain text (without tags)
+        // If there is something different from the string (JSX) - children will be of object type.
+        const areChildrenString = typeof children === 'string';
 
-    const handleDeleteClick = (e: React.MouseEvent<HTMLElement>) => {
-        e.stopPropagation();
+        const handleDeleteClick = (e: React.MouseEvent<HTMLElement>) => {
+            e.stopPropagation();
 
-        onDelete?.();
-    };
-
-    const handleTagKeyPress = (e: React.KeyboardEvent) => {
-        e.stopPropagation();
-
-        if (e.key === ENTER_KEY) {
-            onClick?.();
-        }
-    };
-
-    const handleDeleteButtonKeyPress = (e: React.KeyboardEvent) => {
-        e.stopPropagation();
-        e.preventDefault();
-
-        if (e.key === ENTER_KEY) {
             onDelete?.();
-        }
-    };
+        };
 
-    return (
-        <div
-            {...rest}
-            ref={ref}
-            {...block({ isSelected, clickable: !!onClick })}
-            {...(onClick && {
-                onClick,
-                tabIndex: 0,
-                role: 'button',
-                onKeyPress: handleTagKeyPress,
-            })}
-            style={{
-                backgroundColor: bgColor,
-                maxWidth,
-            }}
-        >
-            <Text
-                size={size}
-                {...(areChildrenString && { title: children })}
-                {...elem('text', { elemClassName: contentClassName })}
-                style={contentStyle}
+        const handleTagKeyPress = (e: React.KeyboardEvent) => {
+            e.stopPropagation();
+
+            if (e.key === ENTER_KEY) {
+                onClick?.();
+            }
+        };
+
+        const handleDeleteButtonKeyPress = (e: React.KeyboardEvent) => {
+            e.stopPropagation();
+            e.preventDefault();
+
+            if (e.key === ENTER_KEY) {
+                onDelete?.();
+            }
+        };
+
+        return (
+            <div
+                {...rest}
+                ref={ref}
+                {...block({ isSelected, clickable: !!onClick })}
+                {...(onClick && {
+                    onClick,
+                    tabIndex: 0,
+                    role: 'button',
+                    onKeyPress: handleTagKeyPress,
+                })}
+                style={{
+                    backgroundColor: bgColor,
+                    maxWidth,
+                }}
             >
-                {children}
-            </Text>
-            {onDelete && (
-                <button
-                    onClick={handleDeleteClick}
-                    onKeyDown={handleDeleteButtonKeyPress}
-                    type="button"
-                    {...elem('deleteButton')}
+                <Text
+                    size={size}
+                    {...(areChildrenString && { title: children })}
+                    {...elem('text', { elemClassName: contentClassName })}
+                    style={contentStyle}
                 >
-                    <MdClose size="15px" />
-                </button>
-            )}
-        </div>
-    );
-});
+                    {children}
+                </Text>
+                {onDelete && (
+                    <button
+                        onClick={handleDeleteClick}
+                        onKeyDown={handleDeleteButtonKeyPress}
+                        type="button"
+                        {...elem('deleteButton')}
+                    >
+                        <MdClose size="15px" />
+                    </button>
+                )}
+            </div>
+        );
+    }
+);
 
 Tag.displayName = 'Tag';
