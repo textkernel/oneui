@@ -85,9 +85,9 @@ export const ThreeStateCheckbox = (args) => {
 
     const handleMainCheckboxChange = (e) => {
         console.log('MainCheckbox state changed', e);
-        setMainStatus('checked');
-        setSubOneChecked(e.target.checked);
-        setSubTwoChecked(e.target.checked);
+        const isNotChecked = mainStatus !== 'checked';
+        setSubOneChecked(isNotChecked);
+        setSubTwoChecked(isNotChecked);
     };
 
     const handleSubOneCheckboxChange = (e) => {
