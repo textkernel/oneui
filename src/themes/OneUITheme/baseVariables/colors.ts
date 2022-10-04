@@ -43,5 +43,10 @@ export const computedColorVariables = (baseVariables: CssVars): CssVars => {
             baseVariables['--color-background'],
             90
         ),
+        '--color-shadow-background': mixTwoColors(
+            baseVariables['--color-foreground'],
+            baseVariables['--color-background'],
+            50
+        ),
     };
 };
