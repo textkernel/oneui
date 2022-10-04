@@ -2,7 +2,6 @@
 
 exports[`<SelectedOption> should render default props correctly with string as child 1`] = `
 <SelectedOption
-  As="div"
   onDelete={[MockFunction]}
 >
   <div
@@ -60,7 +59,6 @@ exports[`<SelectedOption> should render default props correctly with string as c
 
 exports[`<SelectedOption> should render default props correctly with string as child 2`] = `
 <SelectedOption
-  As="div"
   onDelete={[MockFunction]}
 >
   <div

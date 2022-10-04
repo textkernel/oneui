@@ -10,15 +10,11 @@ exports[`<MapWithGoogleLoader/> that loads google api and renders a Map should r
     loadingElement={
       <LoadingSpinner
         centerIn="parent"
-        context="primary"
-        hidden={false}
       />
     }
   >
     <LoadingSpinner
       centerIn="parent"
-      context="primary"
-      hidden={false}
     >
       <div
         aria-busy={true}

@@ -18,7 +18,6 @@ exports[`Teaser should render correctly in disabled mode 1`] = `
         className="Teaser__title"
         context="muted"
         inline={true}
-        size="normal"
         title="A job title"
       >
         <span
@@ -32,7 +31,6 @@ exports[`Teaser should render correctly in disabled mode 1`] = `
         className="Teaser__location"
         context="muted"
         inline={true}
-        size="normal"
       >
         <span
           className="Text--context_muted Teaser__location"
@@ -48,7 +46,6 @@ exports[`Teaser should render correctly in disabled mode 1`] = `
         className="Teaser__subTitle"
         context="muted"
         inline={true}
-        size="normal"
         title="Organization"
       >
         <span
@@ -66,7 +63,6 @@ exports[`Teaser should render correctly in disabled mode 1`] = `
         className="Teaser__details"
         context="muted"
         inline={true}
-        size="normal"
         title="details about this job"
       >
         <span
@@ -83,10 +79,6 @@ exports[`Teaser should render correctly in disabled mode 1`] = `
 
 exports[`Teaser should render correctly with just a title 1`] = `
 <Teaser
-  details=""
-  disabled={false}
-  location=""
-  subTitle=""
   title="some title"
 >
   <div
@@ -99,7 +91,6 @@ exports[`Teaser should render correctly with just a title 1`] = `
         className="Teaser__title"
         context="primary"
         inline={true}
-        size="normal"
         title="some title"
       >
         <span
@@ -123,7 +114,6 @@ exports[`Teaser should render correctly with just a title 1`] = `
 exports[`Teaser should render with all props defined 1`] = `
 <Teaser
   details="details about this job"
-  disabled={false}
   location="location"
   statuses={
     Array [
@@ -150,7 +140,6 @@ exports[`Teaser should render with all props defined 1`] = `
         className="Teaser__title"
         context="primary"
         inline={true}
-        size="normal"
         title="A job title"
       >
         <span
@@ -164,7 +153,6 @@ exports[`Teaser should render with all props defined 1`] = `
         className="Teaser__location"
         context="muted"
         inline={true}
-        size="normal"
       >
         <span
           className="Text--context_muted Teaser__location"
@@ -180,7 +168,6 @@ exports[`Teaser should render with all props defined 1`] = `
         className="Teaser__subTitle"
         context="secondary"
         inline={true}
-        size="normal"
         title="Organization"
       >
         <span
@@ -198,7 +185,6 @@ exports[`Teaser should render with all props defined 1`] = `
         className="Teaser__details"
         context="muted"
         inline={true}
-        size="normal"
         title="details about this job"
       >
         <span

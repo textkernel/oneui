@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { forwardRef } from 'react';
 import { bem } from '../../../utils';
 import styles from './LeftPane.scss';
 
@@ -11,7 +11,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block } = bem('LeftPane', styles);
 
-export const LeftPane: React.FC<Props> = React.forwardRef((props, ref): React.ReactElement => {
+export const LeftPane = forwardRef<any, Props>((props, ref) => {
     const { children, ...rest } = props;
 
     return (

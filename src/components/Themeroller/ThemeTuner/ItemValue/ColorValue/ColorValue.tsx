@@ -36,5 +36,3 @@ export const ColorValue: React.FC<Props> = ({ item, onChange }) => {
 };
 
 ColorValue.displayName = 'ColorValue';
-
-ColorValue.defaultProps = {};

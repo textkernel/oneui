@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SuggestionTag should render correctly 1`] = `
-<SuggestionTag
-  width="auto"
->
+<SuggestionTag>
   <div
     className="SuggestionTag"
   >

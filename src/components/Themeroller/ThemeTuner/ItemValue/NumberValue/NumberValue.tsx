@@ -18,5 +18,3 @@ export const NumberValue: React.FC<Props> = ({ item, onChange }) => {
 };
 
 NumberValue.displayName = 'NumberValue';
-
-NumberValue.defaultProps = {};

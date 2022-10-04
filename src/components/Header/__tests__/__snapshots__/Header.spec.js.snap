@@ -14,7 +14,6 @@ exports[`Header component that renders a website header with a logo on the left 
     className="Header"
   >
     <BlockWidthRestrictor
-      As="div"
       className="Header__wrapper"
     >
       <div
@@ -26,7 +25,6 @@ exports[`Header component that renders a website header with a logo on the left 
         >
           <IconTextkernel>
             <IconBase
-              preserveAspectRatio={false}
               viewBox="0 0 369.7 800"
             >
               <div
@@ -73,7 +71,6 @@ exports[`Header component that renders a website header with a logo on the left 
     className="Header"
   >
     <BlockWidthRestrictor
-      As="div"
       className="Header__wrapper"
     >
       <div
@@ -106,7 +103,6 @@ exports[`Header component that renders a website header with a logo on the left 
     className="Header"
   >
     <BlockWidthRestrictor
-      As="div"
       className="Header__wrapper"
     >
       <div

@@ -45,13 +45,7 @@ exports[`Themeroller component should render component correctly 1`] = `
       "--color-foreground": "#000000",
     }
   }
-  downloadLabel=""
-  downloadTooltipLabel=""
-  fileLabel=""
-  inputLabel=""
   onChange={[Function]}
-  resetActiveLabel=""
-  resetLabel=""
 >
   <ThemeTuner
     className="Themeroller"
@@ -110,8 +104,6 @@ exports[`Themeroller component should render component correctly 1`] = `
               className="Field__label"
             />
             <Input
-              disabled={false}
-              isBlock={false}
               onChange={[Function]}
               size="small"
               type="text"
@@ -147,7 +139,6 @@ exports[`Themeroller component should render component correctly 1`] = `
       </form>
       <TabsBar
         activeTabId="Colors"
-        isBlock={false}
         onSelect={[Function]}
       >
         <div
@@ -155,7 +146,6 @@ exports[`Themeroller component should render component correctly 1`] = `
           role="tablist"
         >
           <TabItem
-            disabled={false}
             isActive={true}
             isBlock={false}
             key=".$Colors"
@@ -174,7 +164,6 @@ exports[`Themeroller component should render component correctly 1`] = `
             </div>
           </TabItem>
           <TabItem
-            disabled={false}
             isActive={false}
             isBlock={false}
             key=".$Sizing"
@@ -194,11 +183,7 @@ exports[`Themeroller component should render component correctly 1`] = `
           </TabItem>
         </div>
       </TabsBar>
-      <List
-        doSelectOnNavigate={false}
-        isControlledNavigation={false}
-        isDivided={false}
-      >
+      <List>
         <ul
           className="List"
           onKeyDown={[Function]}
@@ -206,12 +191,8 @@ exports[`Themeroller component should render component correctly 1`] = `
         >
           <ListItem
             className="List__item ThemeTuner__item"
-            disabled={false}
-            highlightContext="default"
             isHighlighted={false}
-            isSelected={false}
             key=".$Background color"
-            passDisabledToLi={false}
           >
             <li
               className="ListItem List__item ThemeTuner__item"
@@ -219,10 +200,7 @@ exports[`Themeroller component should render component correctly 1`] = `
             >
               <Text
                 className="ThemeTuner__label"
-                context="default"
-                inline={false}
                 key=".0"
-                size="normal"
               >
                 <p
                   className="ThemeTuner__label"
@@ -256,8 +234,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                   <span>
                     <Input
                       className="ColorValue__input"
-                      disabled={false}
-                      isBlock={false}
                       onChange={[Function]}
                       size="small"
                       type="color"
@@ -276,7 +252,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                       className="ColorValue__value"
                       context="muted"
                       inline={true}
-                      size="normal"
                     >
                       <span
                         className="Text--context_muted ColorValue__value"
@@ -291,12 +266,8 @@ exports[`Themeroller component should render component correctly 1`] = `
           </ListItem>
           <ListItem
             className="List__item ThemeTuner__item"
-            disabled={false}
-            highlightContext="default"
             isHighlighted={false}
-            isSelected={false}
             key=".$Foreground color"
-            passDisabledToLi={false}
           >
             <li
               className="ListItem List__item ThemeTuner__item"
@@ -304,10 +275,7 @@ exports[`Themeroller component should render component correctly 1`] = `
             >
               <Text
                 className="ThemeTuner__label"
-                context="default"
-                inline={false}
                 key=".0"
-                size="normal"
               >
                 <p
                   className="ThemeTuner__label"
@@ -341,8 +309,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                   <span>
                     <Input
                       className="ColorValue__input"
-                      disabled={false}
-                      isBlock={false}
                       onChange={[Function]}
                       size="small"
                       type="color"
@@ -361,7 +327,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                       className="ColorValue__value"
                       context="muted"
                       inline={true}
-                      size="normal"
                     >
                       <span
                         className="Text--context_muted ColorValue__value"
@@ -376,12 +341,8 @@ exports[`Themeroller component should render component correctly 1`] = `
           </ListItem>
           <ListItem
             className="List__item ThemeTuner__item"
-            disabled={false}
-            highlightContext="default"
             isHighlighted={false}
-            isSelected={false}
             key=".$Border radius"
-            passDisabledToLi={false}
           >
             <li
               className="ListItem List__item ThemeTuner__item"
@@ -389,10 +350,7 @@ exports[`Themeroller component should render component correctly 1`] = `
             >
               <Text
                 className="ThemeTuner__label"
-                context="default"
-                inline={false}
                 key=".0"
-                size="normal"
               >
                 <p
                   className="ThemeTuner__label"
@@ -428,8 +386,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                   <span>
                     <Input
                       className="UnitValue__input"
-                      disabled={false}
-                      isBlock={false}
                       onChange={[Function]}
                       size="small"
                       type="number"
@@ -448,7 +404,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                       className="UnitValue__value"
                       context="muted"
                       inline={true}
-                      size="normal"
                     >
                       <span
                         className="Text--context_muted UnitValue__value"
@@ -464,12 +419,8 @@ exports[`Themeroller component should render component correctly 1`] = `
           </ListItem>
           <ListItem
             className="List__item ThemeTuner__item"
-            disabled={false}
-            highlightContext="default"
             isHighlighted={false}
-            isSelected={false}
             key=".$Link decoration"
-            passDisabledToLi={false}
           >
             <li
               className="ListItem List__item ThemeTuner__item"
@@ -477,10 +428,7 @@ exports[`Themeroller component should render component correctly 1`] = `
             >
               <Text
                 className="ThemeTuner__label"
-                context="default"
-                inline={false}
                 key=".0"
-                size="normal"
               >
                 <p
                   className="ThemeTuner__label"
@@ -512,8 +460,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                   onChange={[Function]}
                 >
                   <Input
-                    disabled={false}
-                    isBlock={false}
                     onChange={[Function]}
                     size="small"
                     type="text"

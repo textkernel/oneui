@@ -1,17 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<TabsBar> should allow for conditional rendering of items 1`] = `
-<TabsBar
-  isBlock={false}
->
+<TabsBar>
   <div
     className="TabsBar"
     role="tablist"
   >
     <TabItem
-      disabled={false}
-      isActive={false}
-      isBlock={false}
       tabId="2"
     >
       <div
@@ -30,17 +25,12 @@ exports[`<TabsBar> should allow for conditional rendering of items 1`] = `
 `;
 
 exports[`<TabsBar> should render tabs bar with minimal correctly 1`] = `
-<TabsBar
-  isBlock={false}
->
+<TabsBar>
   <div
     className="TabsBar"
     role="tablist"
   >
     <TabItem
-      disabled={false}
-      isActive={false}
-      isBlock={false}
       tabId="1"
     >
       <div
@@ -55,9 +45,6 @@ exports[`<TabsBar> should render tabs bar with minimal correctly 1`] = `
       </div>
     </TabItem>
     <TabItem
-      disabled={false}
-      isActive={false}
-      isBlock={false}
       tabId="2"
     >
       <div

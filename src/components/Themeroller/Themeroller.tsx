@@ -48,14 +48,14 @@ const { block, elem } = bem('Themeroller', styles);
 
 export const Themeroller: React.FC<Props> = ({
     config,
-    activeTheme,
+    activeTheme = undefined,
     inputLabel = '',
-    resetLabel,
-    resetActiveLabel,
-    downloadLabel,
-    fileLabel,
-    downloadTooltipLabel,
-    onChange,
+    resetLabel = '',
+    resetActiveLabel = '',
+    downloadLabel = '',
+    fileLabel = '',
+    downloadTooltipLabel = '',
+    onChange = undefined,
 }) => {
     const oneUITheme = React.useMemo(() => new ThemeGenerator(OneUITheme), []);
     const [themeResultStore, setThemeResultStore] = React.useState(oneUITheme.result);
@@ -111,20 +111,28 @@ export const Themeroller: React.FC<Props> = ({
         handleDownload();
     };
 
-    React.useEffect(() => {
-        if (activeTheme) {
-            validateAndUseThemeResult(activeTheme);
-        }
-    }, [activeTheme]);
+    React.useEffect(
+        () => {
+            if (activeTheme) {
+                validateAndUseThemeResult(activeTheme);
+            }
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [activeTheme]
+    );
 
-    React.useEffect(() => {
-        const css = oneUITheme.getStyles();
-        OneUI.applyThemeStyle(css);
-        if (onChange) {
-            onChange(themeResultStore.toJSON());
-        }
-        setError('');
-    }, [themeResultStore.theme]);
+    React.useEffect(
+        () => {
+            const css = oneUITheme.getStyles();
+            OneUI.applyThemeStyle(css);
+            if (onChange) {
+                onChange(themeResultStore.toJSON());
+            }
+            setError('');
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [themeResultStore.theme]
+    );
 
     return (
         <ThemeTuner
@@ -170,14 +178,3 @@ export const Themeroller: React.FC<Props> = ({
 };
 
 Themeroller.displayName = 'Themeroller';
-
-Themeroller.defaultProps = {
-    inputLabel: '',
-    resetLabel: '',
-    resetActiveLabel: '',
-    downloadLabel: '',
-    downloadTooltipLabel: '',
-    fileLabel: '',
-    activeTheme: undefined,
-    onChange: undefined,
-};

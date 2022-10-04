@@ -21,9 +21,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
 >
   <SelectBase
     blurredRenderer={[Function]}
-    className=""
     clearInputAfterSelection={true}
-    clearTitle=""
     focusedRenderer={[Function]}
     highlightOnEmptyInput={false}
     inputRef={
@@ -45,8 +43,6 @@ exports[`Autosuggest rendering should initially render empty component correctly
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={true}
-    showArrow={false}
-    showClearButton={false}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -82,7 +78,6 @@ exports[`Autosuggest rendering should initially render empty component correctly
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={false}
             isFocused={false}
             onClear={[Function]}
@@ -92,7 +87,6 @@ exports[`Autosuggest rendering should initially render empty component correctly
           >
             <div
               className="FieldWrapper SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -119,10 +113,8 @@ exports[`Autosuggest rendering should initially render empty component correctly
                 </div>
                 <List
                   aria-labelledby="downshift-0-label"
-                  doSelectOnNavigate={false}
                   id="downshift-0-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul
@@ -163,9 +155,7 @@ exports[`Autosuggest rendering should initially render focused component correct
 >
   <SelectBase
     blurredRenderer={[Function]}
-    className=""
     clearInputAfterSelection={true}
-    clearTitle=""
     focusedRenderer={[Function]}
     highlightOnEmptyInput={false}
     inputRef={
@@ -188,8 +178,6 @@ exports[`Autosuggest rendering should initially render focused component correct
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={true}
-    showArrow={false}
-    showClearButton={false}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -225,7 +213,6 @@ exports[`Autosuggest rendering should initially render focused component correct
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
@@ -235,7 +222,6 @@ exports[`Autosuggest rendering should initially render focused component correct
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -263,10 +249,8 @@ exports[`Autosuggest rendering should initially render focused component correct
                 <List
                   aria-labelledby="downshift-2-label"
                   className="SelectBase__list--focused"
-                  doSelectOnNavigate={false}
                   id="downshift-2-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul
@@ -334,9 +318,7 @@ exports[`Autosuggest rendering should initially render focused component with su
 >
   <SelectBase
     blurredRenderer={[Function]}
-    className=""
     clearInputAfterSelection={true}
-    clearTitle=""
     focusedRenderer={[Function]}
     highlightOnEmptyInput={false}
     inputRef={
@@ -359,8 +341,6 @@ exports[`Autosuggest rendering should initially render focused component with su
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={true}
-    showArrow={false}
-    showClearButton={false}
     suggestionToString={[Function]}
     suggestions={
       Array [
@@ -423,7 +403,6 @@ exports[`Autosuggest rendering should initially render focused component with su
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
@@ -433,7 +412,6 @@ exports[`Autosuggest rendering should initially render focused component with su
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -461,10 +439,8 @@ exports[`Autosuggest rendering should initially render focused component with su
                 <List
                   aria-labelledby="downshift-4-label"
                   className="SelectBase__list--focused"
-                  doSelectOnNavigate={false}
                   id="downshift-4-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul
@@ -518,10 +494,8 @@ exports[`Autosuggest rendering should initially render focused component with su
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-4-item-0"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Sun"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -547,9 +521,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Sun
@@ -561,10 +533,8 @@ exports[`Autosuggest rendering should initially render focused component with su
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-4-item-1"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Moon"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -590,9 +560,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Moon
@@ -604,10 +572,8 @@ exports[`Autosuggest rendering should initially render focused component with su
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-4-item-2"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Mercury"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -633,9 +599,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Mercury
@@ -647,10 +611,8 @@ exports[`Autosuggest rendering should initially render focused component with su
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-4-item-3"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Venus"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -676,9 +638,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Venus
@@ -690,10 +650,8 @@ exports[`Autosuggest rendering should initially render focused component with su
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-4-item-4"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Earth"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -719,9 +677,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Earth
@@ -733,10 +689,8 @@ exports[`Autosuggest rendering should initially render focused component with su
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-4-item-5"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Mars"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -762,9 +716,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Mars
@@ -776,10 +728,8 @@ exports[`Autosuggest rendering should initially render focused component with su
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-4-item-6"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Jupiter"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -805,9 +755,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Jupiter
@@ -819,10 +767,8 @@ exports[`Autosuggest rendering should initially render focused component with su
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-4-item-7"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Saturn"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -848,9 +794,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                             marker=""
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Saturn
@@ -938,9 +882,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
 >
   <SelectBase
     blurredRenderer={[Function]}
-    className=""
     clearInputAfterSelection={true}
-    clearTitle=""
     focusedRenderer={[Function]}
     highlightOnEmptyInput={false}
     inputRef={
@@ -964,8 +906,6 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={true}
-    showArrow={false}
-    showClearButton={false}
     suggestionToString={[Function]}
     suggestions={
       Array [
@@ -1032,7 +972,6 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
@@ -1042,7 +981,6 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -1070,10 +1008,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                 <List
                   aria-labelledby="downshift-5-label"
                   className="SelectBase__list--focused"
-                  doSelectOnNavigate={false}
                   id="downshift-5-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul
@@ -1131,10 +1067,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       <ListItem
                         aria-selected={true}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-5-item-0"
                         isHighlighted={true}
-                        isSelected={false}
                         key="Moon"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -1160,9 +1094,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                             marker="driver"
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Moon
@@ -1174,10 +1106,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-5-item-1"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Mercury"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -1203,9 +1133,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                             marker="driver"
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Mercury
@@ -1217,10 +1145,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-5-item-2"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Venus"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -1246,9 +1172,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                             marker="driver"
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Venus
@@ -1260,10 +1184,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-5-item-3"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Earth"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -1289,9 +1211,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                             marker="driver"
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Earth
@@ -1303,10 +1223,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-5-item-4"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Mars"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -1332,9 +1250,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                             marker="driver"
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Mars
@@ -1346,10 +1262,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-5-item-5"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Jupiter"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -1375,9 +1289,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                             marker="driver"
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Jupiter
@@ -1389,10 +1301,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-5-item-6"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Saturn"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -1418,9 +1328,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                             marker="driver"
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Saturn
@@ -1432,10 +1340,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={false}
-                        highlightContext="default"
                         id="downshift-5-item-7"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Neptune"
                         onClick={[Function]}
                         onMouseDown={[Function]}
@@ -1461,9 +1367,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                             marker="driver"
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Neptune
@@ -1475,10 +1379,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       <ListItem
                         aria-selected={false}
                         disabled={true}
-                        highlightContext="default"
                         id="downshift-5-item-8"
                         isHighlighted={false}
-                        isSelected={false}
                         key="Pluto"
                         onMouseDown={[Function]}
                         passDisabledToLi={true}
@@ -1500,9 +1402,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                             marker="driver"
                           >
                             <Text
-                              context="default"
                               inline={true}
-                              size="normal"
                             >
                               <span>
                                 Pluto
@@ -1559,9 +1459,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
 >
   <SelectBase
     blurredRenderer={[Function]}
-    className=""
     clearInputAfterSelection={true}
-    clearTitle=""
     focusedRenderer={[Function]}
     highlightOnEmptyInput={false}
     inputRef={
@@ -1585,8 +1483,6 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={true}
-    showArrow={false}
-    showClearButton={false}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -1622,7 +1518,6 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
@@ -1632,7 +1527,6 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -1660,10 +1554,8 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                 <List
                   aria-labelledby="downshift-6-label"
                   className="SelectBase__list--focused"
-                  doSelectOnNavigate={false}
                   id="downshift-6-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul
@@ -1688,12 +1580,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                       useOptimizeRender={false}
                     >
                       <ListItem
-                        disabled={false}
-                        highlightContext="default"
-                        isHighlighted={false}
-                        isSelected={false}
                         key="0"
-                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
@@ -1703,11 +1590,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                             className="SuggestionsList__loaderItem"
                             key=".0"
                           >
-                            <ContentPlaceholder
-                              duration={1}
-                              width={100}
-                              withoutMargin={false}
-                            >
+                            <ContentPlaceholder>
                               <div
                                 className="ContentPlaceholder"
                                 style={
@@ -1732,12 +1615,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         </li>
                       </ListItem>
                       <ListItem
-                        disabled={false}
-                        highlightContext="default"
-                        isHighlighted={false}
-                        isSelected={false}
                         key="1"
-                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
@@ -1747,11 +1625,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                             className="SuggestionsList__loaderItem"
                             key=".0"
                           >
-                            <ContentPlaceholder
-                              duration={1}
-                              width={100}
-                              withoutMargin={false}
-                            >
+                            <ContentPlaceholder>
                               <div
                                 className="ContentPlaceholder"
                                 style={
@@ -1776,12 +1650,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         </li>
                       </ListItem>
                       <ListItem
-                        disabled={false}
-                        highlightContext="default"
-                        isHighlighted={false}
-                        isSelected={false}
                         key="2"
-                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
@@ -1791,11 +1660,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                             className="SuggestionsList__loaderItem"
                             key=".0"
                           >
-                            <ContentPlaceholder
-                              duration={1}
-                              width={100}
-                              withoutMargin={false}
-                            >
+                            <ContentPlaceholder>
                               <div
                                 className="ContentPlaceholder"
                                 style={
@@ -1820,12 +1685,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         </li>
                       </ListItem>
                       <ListItem
-                        disabled={false}
-                        highlightContext="default"
-                        isHighlighted={false}
-                        isSelected={false}
                         key="3"
-                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
@@ -1835,11 +1695,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                             className="SuggestionsList__loaderItem"
                             key=".0"
                           >
-                            <ContentPlaceholder
-                              duration={1}
-                              width={100}
-                              withoutMargin={false}
-                            >
+                            <ContentPlaceholder>
                               <div
                                 className="ContentPlaceholder"
                                 style={
@@ -1864,12 +1720,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                         </li>
                       </ListItem>
                       <ListItem
-                        disabled={false}
-                        highlightContext="default"
-                        isHighlighted={false}
-                        isSelected={false}
                         key="4"
-                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem"
@@ -1879,11 +1730,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                             className="SuggestionsList__loaderItem"
                             key=".0"
                           >
-                            <ContentPlaceholder
-                              duration={1}
-                              width={100}
-                              withoutMargin={false}
-                            >
+                            <ContentPlaceholder>
                               <div
                                 className="ContentPlaceholder"
                                 style={
@@ -1941,9 +1788,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
 >
   <SelectBase
     blurredRenderer={[Function]}
-    className=""
     clearInputAfterSelection={true}
-    clearTitle=""
     focusedRenderer={[Function]}
     highlightOnEmptyInput={false}
     inputRef={
@@ -1966,8 +1811,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={true}
-    showArrow={false}
-    showClearButton={false}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -2003,7 +1846,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
@@ -2013,7 +1855,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -2041,10 +1882,8 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                 <List
                   aria-labelledby="downshift-15-label"
                   className="SelectBase__list--focused"
-                  doSelectOnNavigate={false}
                   id="downshift-15-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul
@@ -2099,9 +1938,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
 >
   <SelectBase
     blurredRenderer={[Function]}
-    className=""
     clearInputAfterSelection={true}
-    clearTitle=""
     focusedRenderer={[Function]}
     highlightOnEmptyInput={false}
     inputRef={
@@ -2125,8 +1962,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={true}
-    showArrow={false}
-    showClearButton={false}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -2162,7 +1997,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
@@ -2172,7 +2006,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -2200,10 +2033,8 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                 <List
                   aria-labelledby="downshift-15-label"
                   className="SelectBase__list--focused"
-                  doSelectOnNavigate={false}
                   id="downshift-15-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul
@@ -2229,10 +2060,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                     >
                       <ListItem
                         disabled={true}
-                        highlightContext="default"
-                        isHighlighted={false}
-                        isSelected={false}
-                        passDisabledToLi={false}
                       >
                         <li
                           className="ListItem ListItem--disabled"
@@ -2240,9 +2067,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                         >
                           <Text
                             context="muted"
-                            inline={false}
                             key=".0"
-                            size="normal"
                           >
                             <p
                               className="Text--context_muted"
@@ -2307,9 +2132,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
 >
   <SelectBase
     blurredRenderer={[Function]}
-    className=""
     clearInputAfterSelection={true}
-    clearTitle=""
     focusedRenderer={[Function]}
     highlightOnEmptyInput={false}
     inputRef={
@@ -2332,8 +2155,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
     selectOnTab={true}
-    showArrow={false}
-    showClearButton={false}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -2369,7 +2190,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
           <FieldWrapper
             className="SelectBase__field"
             clearLabel=""
-            disabled={false}
             isArrowUp={true}
             isFocused={true}
             onClear={[Function]}
@@ -2379,7 +2199,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
           >
             <div
               className="FieldWrapper FieldWrapper--isFocused SelectBase__field"
-              disabled={false}
               onClick={[Function]}
             >
               <div
@@ -2407,10 +2226,8 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                 <List
                   aria-labelledby="downshift-15-label"
                   className="SelectBase__list--focused"
-                  doSelectOnNavigate={false}
                   id="downshift-15-menu"
                   isControlledNavigation={true}
-                  isDivided={false}
                   role="listbox"
                 >
                   <ul

@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.8.1](https://github.com/textkernel/oneui/compare/18.8.0...18.8.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* **Tag:** pass event to handlers in Tag ([#828](https://github.com/textkernel/oneui/issues/828)) ([a8eb924](https://github.com/textkernel/oneui/commit/a8eb924973ed5af6d708dfe1fb51f6ac85adc8b4))
+
+## [18.8.0](https://github.com/textkernel/oneui/compare/18.7.2...18.8.0) (2022-09-30)
+
+
+### Features
+
+* add title attribute to components ([#802](https://github.com/textkernel/oneui/issues/802)) ([201edea](https://github.com/textkernel/oneui/commit/201edea5f2ace284fe09eee3f3323393c876938a))
+* **Button:** added loading state ([fa46bef](https://github.com/textkernel/oneui/commit/fa46befa3346bd8060230719e81cf028162e9723))
+* **Tag:** extend API with styling options and ForwardRef ([#824](https://github.com/textkernel/oneui/issues/824)) ([bb5412a](https://github.com/textkernel/oneui/commit/bb5412a0dd40b0ca9415931935dd187f8879bbf2))
+
+
+### Bug Fixes
+
+* **ButtonGroup:** styling when only has 1 child ([#806](https://github.com/textkernel/oneui/issues/806)) ([fb3babb](https://github.com/textkernel/oneui/commit/fb3babbf701706f878afd79fd021fcaedaeee3c4))
+* highlighter highlight terms in with special characters correctly ([#795](https://github.com/textkernel/oneui/issues/795)) ([09c92b8](https://github.com/textkernel/oneui/commit/09c92b8d4691807d40fc33a60f6ec4a8e87874e5))
+* **LabelPicker:** change spacing of elements ([#805](https://github.com/textkernel/oneui/issues/805)) ([6e57524](https://github.com/textkernel/oneui/commit/6e575248f652e53d7da9f1dc385fcbebc5e4ea4c))
+
 ### [18.7.2](https://github.com/textkernel/oneui/compare/18.7.1...18.7.2) (2022-07-27)
 
 

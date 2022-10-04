@@ -13,18 +13,14 @@ export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 
 const { block } = bem('Link', styles);
 
-export const Link = React.forwardRef<HTMLAnchorElement, Props>((props, ref) => {
-    const { children, context, dontDecorateOnHover, ...rest } = props;
-    return (
-        <a ref={ref} {...rest} {...block(props)}>
-            {children}
-        </a>
-    );
-});
+export const Link = React.forwardRef<HTMLAnchorElement, Props>(
+    ({ children, context = 'primary', dontDecorateOnHover = false, ...rest }, ref) => {
+        return (
+            <a ref={ref} {...rest} {...block({ context, dontDecorateOnHover })}>
+                {children}
+            </a>
+        );
+    }
+);
 
 Link.displayName = 'Link';
-
-Link.defaultProps = {
-    context: 'primary',
-    dontDecorateOnHover: false,
-};

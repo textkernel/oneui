@@ -67,20 +67,19 @@ export interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
  * and empty/false `disabled` attribute (all other children items will be skipped during navigation).
  * Use `ListItem` component as child item.
  */
-export function Dropdown<V>(props: Props<V>) {
-    const {
-        button,
-        children,
-        onChange,
-        onToggleClick,
-        onMenuBlur,
-        onMenuFocus,
-        placement,
-        additionalSelectProps,
-        listClassName,
-        ...rest
-    } = props;
 
+export function Dropdown<V>({
+    button,
+    children,
+    onChange,
+    onToggleClick = undefined,
+    onMenuBlur = undefined,
+    onMenuFocus = undefined,
+    placement = 'bottom-end',
+    additionalSelectProps = {},
+    listClassName = '',
+    ...rest
+}: Props<V>) {
     const [referenceElement, setReferenceElement] = useState(null);
     const [popperElement, setPopperElement] = useState(null);
 
@@ -174,12 +173,3 @@ export function Dropdown<V>(props: Props<V>) {
 }
 
 Dropdown.displayName = 'Dropdown';
-
-Dropdown.defaultProps = {
-    placement: 'bottom-end',
-    onToggleClick: undefined,
-    onMenuFocus: undefined,
-    onMenuBlur: undefined,
-    additionalSelectProps: {},
-    listClassName: '',
-};

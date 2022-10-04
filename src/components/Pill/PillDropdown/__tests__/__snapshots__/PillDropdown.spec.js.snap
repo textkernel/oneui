@@ -22,13 +22,8 @@ exports[`<PillDropdown> component should render correctly 1`] = `
       >
         <Button
           context="primary"
-          disabled={false}
-          isBlock={false}
-          isInline={false}
-          isLoading={false}
           onClick={[Function]}
           size="small"
-          type="button"
         >
           <button
             className="Button Button--context_primary Button--size_small"

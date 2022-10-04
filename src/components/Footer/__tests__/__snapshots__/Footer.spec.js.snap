@@ -8,7 +8,6 @@ exports[`Footer component that renders a copyright text on the left and optional
     className="Footer"
   >
     <BlockWidthRestrictor
-      As="div"
       className="Footer__wrapper"
     >
       <div
@@ -93,7 +92,6 @@ exports[`Footer component that renders a copyright text on the left and optional
     className="Footer"
   >
     <BlockWidthRestrictor
-      As="div"
       className="Footer__wrapper"
     >
       <div

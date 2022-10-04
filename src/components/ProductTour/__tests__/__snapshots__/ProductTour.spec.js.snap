@@ -184,13 +184,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                 >
                   <Button
                     context="primary"
-                    disabled={false}
-                    isBlock={false}
-                    isInline={false}
-                    isLoading={false}
                     onClick={[Function]}
-                    size="normal"
-                    type="button"
                   >
                     <button
                       className="Button Button--context_primary"
@@ -467,9 +461,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                   className="ProductTour__checkbox"
                 >
                   <Checkbox
-                    asFlexbox={false}
                     checked={false}
-                    disabled={false}
                     id="hide"
                     onChange={[Function]}
                   >
@@ -511,7 +503,6 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                           className="Checkbox__text"
                           context="default"
                           inline={true}
-                          size="normal"
                         >
                           <span
                             className="Checkbox__text"
@@ -559,13 +550,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                 >
                   <Button
                     context="link"
-                    disabled={false}
-                    isBlock={false}
-                    isInline={false}
-                    isLoading={false}
                     onClick={[Function]}
-                    size="normal"
-                    type="button"
                   >
                     <button
                       className="Button Button--context_link"
@@ -578,13 +563,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                   </Button>
                   <Button
                     context="primary"
-                    disabled={false}
-                    isBlock={false}
-                    isInline={false}
-                    isLoading={false}
                     onClick={[Function]}
-                    size="normal"
-                    type="button"
                   >
                     <button
                       className="Button Button--context_primary"

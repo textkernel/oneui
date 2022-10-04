@@ -198,13 +198,7 @@ exports[`Confirm should render correctly 1`] = `
                 >
                   <Button
                     context="link"
-                    disabled={false}
-                    isBlock={false}
-                    isInline={false}
-                    isLoading={false}
                     onClick={[MockFunction]}
-                    size="normal"
-                    type="button"
                   >
                     <button
                       className="Button Button--context_link"
@@ -217,13 +211,7 @@ exports[`Confirm should render correctly 1`] = `
                   </Button>
                   <Button
                     context="primary"
-                    disabled={false}
-                    isBlock={false}
-                    isInline={false}
-                    isLoading={false}
                     onClick={[MockFunction]}
-                    size="normal"
-                    type="button"
                   >
                     <button
                       className="Button Button--context_primary"
@@ -444,9 +432,7 @@ exports[`Confirm should render correctly with title 1`] = `
                   role="alert"
                 >
                   <Heading
-                    align="left"
                     className="Dialog__title"
-                    context="default"
                     level="h2"
                   >
                     <h2
@@ -462,13 +448,7 @@ exports[`Confirm should render correctly with title 1`] = `
                 >
                   <Button
                     context="link"
-                    disabled={false}
-                    isBlock={false}
-                    isInline={false}
-                    isLoading={false}
                     onClick={[MockFunction]}
-                    size="normal"
-                    type="button"
                   >
                     <button
                       className="Button Button--context_link"
@@ -481,13 +461,7 @@ exports[`Confirm should render correctly with title 1`] = `
                   </Button>
                   <Button
                     context="primary"
-                    disabled={false}
-                    isBlock={false}
-                    isInline={false}
-                    isLoading={false}
                     onClick={[MockFunction]}
-                    size="normal"
-                    type="button"
                   >
                     <button
                       className="Button Button--context_primary"

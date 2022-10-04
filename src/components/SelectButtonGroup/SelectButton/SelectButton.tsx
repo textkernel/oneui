@@ -28,10 +28,17 @@ export interface Props<V> extends InternalProps<V> {
 
 const { block } = bem('SelectButton', styles);
 
-export function SelectButton<V>(props: Props<V>) {
-    const { children, value, onChange, isEqualWidth, isBlock, context, isSelected, size, ...rest } =
-        props;
-
+export function SelectButton<V>({
+    children,
+    value,
+    onChange,
+    isEqualWidth = false,
+    isBlock,
+    context = 'primary',
+    isSelected = false,
+    size = 'normal',
+    ...rest
+}: Props<V>) {
     const handleClick = () => {
         if (onChange) {
             onChange(value);
@@ -51,7 +58,7 @@ export function SelectButton<V>(props: Props<V>) {
             {...rest}
             onKeyPress={handleKeyPress}
             onClick={handleClick}
-            {...block(props)}
+            {...block({ isEqualWidth, context, isSelected, size })}
         >
             {children}
         </div>
@@ -59,10 +66,3 @@ export function SelectButton<V>(props: Props<V>) {
 }
 
 SelectButton.displayName = 'SelectButton';
-
-SelectButton.defaultProps = {
-    context: 'primary',
-    isSelected: false,
-    isEqualWidth: false,
-    size: 'normal',
-};

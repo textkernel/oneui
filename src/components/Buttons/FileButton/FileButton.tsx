@@ -22,24 +22,27 @@ export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>,
 
 const { block } = bem('Button', styles);
 
-export const FileButton: React.FC<Props> = React.forwardRef((props, ref) => {
-    const { children, context, disabled, isBlock, isInline, size, ...rest } = props;
-
-    return (
-        // eslint-disable-next-line jsx-a11y/label-has-associated-control
-        <label ref={ref} {...block(props)} disabled={disabled}>
-            <input {...rest} hidden type="file" />
-            {children}
-        </label>
-    );
-});
+export const FileButton: React.FC<Props> = React.forwardRef(
+    (
+        {
+            children,
+            context = 'neutral',
+            disabled = false,
+            isBlock = false,
+            isInline = false,
+            size = 'normal',
+            ...rest
+        },
+        ref
+    ) => {
+        return (
+            // eslint-disable-next-line jsx-a11y/label-has-associated-control
+            <label ref={ref} {...block({ context, size, isBlock, isInline })} disabled={disabled}>
+                <input {...rest} hidden type="file" />
+                {children}
+            </label>
+        );
+    }
+);
 
 FileButton.displayName = 'FileButton';
-
-FileButton.defaultProps = {
-    context: 'neutral',
-    size: 'normal',
-    isBlock: false,
-    isInline: false,
-    disabled: false,
-};

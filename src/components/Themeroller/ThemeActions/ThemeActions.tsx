@@ -32,16 +32,16 @@ export interface Props {
 const { block, elem } = bem('ThemeActions', styles);
 
 export const ThemeActions: React.FC<Props> = ({
-    resetLabel,
+    resetLabel = '',
     resetActiveLabel,
-    downloadLabel,
-    fileLabel,
+    downloadLabel = '',
+    fileLabel = '',
     downloadTooltipLabel,
-    downloadDisabled,
-    onReset,
+    downloadDisabled = false,
+    onReset = undefined,
     onActiveReset,
-    onDownload,
-    onFileChange,
+    onDownload = undefined,
+    onFileChange = undefined,
 }) => {
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (onFileChange && e.target.files && e?.target?.files?.[0]) {
@@ -132,13 +132,3 @@ export const ThemeActions: React.FC<Props> = ({
 };
 
 ThemeActions.displayName = 'ThemeActions';
-
-ThemeActions.defaultProps = {
-    resetLabel: '',
-    downloadLabel: '',
-    fileLabel: '',
-    downloadDisabled: false,
-    onReset: undefined,
-    onDownload: undefined,
-    onFileChange: undefined,
-};

@@ -20,8 +20,15 @@ export interface Props<T> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
 
 const { block } = bem('TabItem', styles);
 
-export function TabItem<T = string | number>(props: Props<T>) {
-    const { tabId, isActive, onSelect, disabled, isBlock, children, ...rest } = props;
+export function TabItem<T = string | number>({
+    tabId,
+    isActive = false,
+    onSelect,
+    disabled = false,
+    isBlock = false,
+    children,
+    ...rest
+}: Props<T>) {
     const handleClick = () => {
         if (!isActive && !disabled && onSelect) {
             onSelect(tabId);
@@ -38,7 +45,7 @@ export function TabItem<T = string | number>(props: Props<T>) {
         <div
             tabIndex={0}
             {...rest}
-            {...block(props)}
+            {...block({ isActive, isBlock })}
             role="tab"
             aria-selected={isActive}
             onClick={handleClick}
@@ -50,9 +57,3 @@ export function TabItem<T = string | number>(props: Props<T>) {
 }
 
 TabItem.displayName = 'TabItem';
-
-TabItem.defaultProps = {
-    isActive: false,
-    isBlock: false,
-    disabled: false,
-};

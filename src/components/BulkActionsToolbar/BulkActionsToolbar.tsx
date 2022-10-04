@@ -45,8 +45,14 @@ export interface BulkActionsToolbarProps extends React.HTMLAttributes<HTMLDivEle
 
 const { block, elem } = bem('BulkActionsToolbar', styles);
 
-export const BulkActionsToolbar: React.FC<BulkActionsToolbarProps> = (props) => {
-    const { selection, toggleState, toggle, actions = [], tooltipDelay, ...rest } = props;
+export const BulkActionsToolbar: React.FC<BulkActionsToolbarProps> = ({
+    selection,
+    toggleState,
+    toggle,
+    actions = [],
+    tooltipDelay,
+    ...rest
+}) => {
     const toggleTooltip =
         toggleState === 'all' ? toggle.selectAllTooltip : toggle.selectNoneTooltip;
     const toggleLabel = toggleState === 'all' ? toggle.selectAllLabel : toggle.selectNoneLabel;
@@ -95,9 +101,3 @@ export const BulkActionsToolbar: React.FC<BulkActionsToolbarProps> = (props) => 
 };
 
 BulkActionsToolbar.displayName = 'BulkActionsToolbar';
-
-BulkActionsToolbar.propTypes = {};
-
-BulkActionsToolbar.defaultProps = {
-    actions: [],
-};

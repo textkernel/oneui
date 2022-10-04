@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`List component Initial rendering should allow for conditional rendering of items 1`] = `
-<List
-  doSelectOnNavigate={false}
-  isControlledNavigation={false}
-  isDivided={false}
->
+<List>
   <ul
     className="List"
     onKeyDown={[Function]}
@@ -13,22 +9,16 @@ exports[`List component Initial rendering should allow for conditional rendering
   >
     <ListItem
       className="List__item"
-      disabled={false}
-      highlightContext="default"
       isHighlighted={false}
-      isSelected={false}
       key=".1"
-      passDisabledToLi={false}
     >
       <li
         className="ListItem List__item"
         role="presentation"
       >
         <Text
-          context="default"
           inline={true}
           key=".0"
-          size="normal"
         >
           <span>
             Item 2
@@ -41,11 +31,7 @@ exports[`List component Initial rendering should allow for conditional rendering
 `;
 
 exports[`List component Initial rendering should render List correctly 1`] = `
-<List
-  doSelectOnNavigate={false}
-  isControlledNavigation={false}
-  isDivided={false}
->
+<List>
   <ul
     className="List"
     onKeyDown={[Function]}
@@ -53,22 +39,16 @@ exports[`List component Initial rendering should render List correctly 1`] = `
   >
     <ListItem
       className="List__item"
-      disabled={false}
-      highlightContext="default"
       isHighlighted={false}
-      isSelected={false}
       key=".0"
-      passDisabledToLi={false}
     >
       <li
         className="ListItem List__item"
         role="presentation"
       >
         <Text
-          context="default"
           inline={true}
           key=".0"
-          size="normal"
         >
           <span>
             Item 1
@@ -78,22 +58,16 @@ exports[`List component Initial rendering should render List correctly 1`] = `
     </ListItem>
     <ListItem
       className="List__item"
-      disabled={false}
-      highlightContext="default"
       isHighlighted={false}
-      isSelected={false}
       key=".1"
-      passDisabledToLi={false}
     >
       <li
         className="ListItem List__item"
         role="presentation"
       >
         <Text
-          context="default"
           inline={true}
           key=".0"
-          size="normal"
         >
           <span>
             Item 2
@@ -107,31 +81,22 @@ exports[`List component Initial rendering should render List correctly 1`] = `
 
 exports[`List component Initial rendering should render List correctly without keyboard navigation 1`] = `
 <List
-  doSelectOnNavigate={false}
   isControlledNavigation={true}
-  isDivided={false}
 >
   <ul
     className="List"
   >
     <ListItem
       className="List__item"
-      disabled={false}
-      highlightContext="default"
-      isHighlighted={false}
-      isSelected={false}
       key=".0"
-      passDisabledToLi={false}
     >
       <li
         className="ListItem List__item"
         role="presentation"
       >
         <Text
-          context="default"
           inline={true}
           key=".0"
-          size="normal"
         >
           <span>
             Item 1
@@ -141,22 +106,15 @@ exports[`List component Initial rendering should render List correctly without k
     </ListItem>
     <ListItem
       className="List__item"
-      disabled={false}
-      highlightContext="default"
-      isHighlighted={false}
-      isSelected={false}
       key=".1"
-      passDisabledToLi={false}
     >
       <li
         className="ListItem List__item"
         role="presentation"
       >
         <Text
-          context="default"
           inline={true}
           key=".0"
-          size="normal"
         >
           <span>
             Item 2

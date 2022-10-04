@@ -13,7 +13,11 @@ module.exports = {
     setupFiles: ['<rootDir>scripts/test/enzyme.setup.js'],
 
     // The glob patterns Jest uses to detect test files
-    testMatch: ['**/__tests__/**/*.spec.js'],
+    testMatch: [
+        '**/__tests__/**/*.spec.js',
+        '**/__tests__/**/*.spec.ts',
+        '**/__tests__/**/*.spec.tsx',
+    ],
 
     // A map from regular expressions to paths to transformers.
     // A transformer is a module that provides a synchronous function for transforming source files.

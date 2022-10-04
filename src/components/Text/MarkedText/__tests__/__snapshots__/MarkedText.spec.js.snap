@@ -4,11 +4,7 @@ exports[`<MarkedText> that renders a text block while marking matched substrings
 <MarkedText
   marker=".?!#$%^&()[]:;\\\\?''"
 >
-  <Text
-    context="default"
-    inline={false}
-    size="normal"
-  >
+  <Text>
     <p>
       <mark
         className="MarkedText__marked"
@@ -30,7 +26,6 @@ exports[`<MarkedText> that renders a text block while marking matched substrings
   <Text
     context="primary"
     inline={true}
-    size="normal"
   >
     <span
       className="Text--context_primary"
@@ -52,11 +47,7 @@ exports[`<MarkedText> that renders a text block while marking matched substrings
 <MarkedText
   marker="text"
 >
-  <Text
-    context="default"
-    inline={false}
-    size="normal"
-  >
+  <Text>
     <p>
       Some 
       <mark
@@ -75,11 +66,7 @@ exports[`<MarkedText> that renders a text block while marking matched substrings
 <MarkedText
   marker="else"
 >
-  <Text
-    context="default"
-    inline={false}
-    size="normal"
-  >
+  <Text>
     <p>
       Some text content
     </p>
@@ -91,11 +78,7 @@ exports[`<MarkedText> that renders a text block while marking matched substrings
 <MarkedText
   marker="te"
 >
-  <Text
-    context="default"
-    inline={false}
-    size="normal"
-  >
+  <Text>
     <p>
       Some 
       <mark
