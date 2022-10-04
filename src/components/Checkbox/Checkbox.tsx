@@ -13,7 +13,7 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     children?: string | React.ReactElement;
     /** Optionally render checkbox in a flexbox */
     asFlexbox?: boolean;
-    /** Indeterminate status, show minus sign across checkbox */
+    /** Indeterminate status, show minus sign across checkbox. This property overrides the checked state visually  */
     indeterminate?: boolean;
 }
 
@@ -28,7 +28,7 @@ export const Checkbox: React.FC<Props> = forwardRef(
             asFlexbox = false,
             className,
             style,
-            indeterminate,
+            indeterminate = false,
             checked,
             ...rest
         },
@@ -63,7 +63,9 @@ export const Checkbox: React.FC<Props> = forwardRef(
                             viewBox={CHECKBOX_VIEWBOX}
                         >
                             {indeterminate && <line x1="2" y1="6" x2="8" y2="6" />}
-                            {!indeterminate && <polyline points="1.5 6 3.5 9 8 3" />}
+                            {!indeterminate && (checked === undefined || checked === true) && (
+                                <polyline points="1.5 6 3.5 9 8 3" />
+                            )}
                         </svg>
                     </span>
                     {text}
