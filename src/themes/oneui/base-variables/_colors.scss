@@ -71,4 +71,5 @@ $color-bad: #f42534 !default;
 
     --color-highlight-background: #{mix($color-background, $color-brand, 90)};
     --color-selection-background: #{mix($color-background, $color-brand, 90)};
+    --color-shadow-background: #{mix($color-foreground, $color-background, 20)};
 }
