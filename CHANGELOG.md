@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [18.9.0](https://github.com/textkernel/oneui/compare/18.8.1...18.9.0) (2022-10-06)
+
+
+### Features
+
+* add new color for shadow in background ([#832](https://github.com/textkernel/oneui/issues/832)) ([67b092e](https://github.com/textkernel/oneui/commit/67b092e7bfe10df768c7c11cbdb4cc74c5b67242))
+* **Checkbox:** Add indeterminate state to the Checkbox component ([#831](https://github.com/textkernel/oneui/issues/831)) ([b923857](https://github.com/textkernel/oneui/commit/b923857a00f07c74b5ab69c89e417e04926c4faa))
+* replace defaultProps with defaultValues and update typescript ([#818](https://github.com/textkernel/oneui/issues/818)) ([f51b120](https://github.com/textkernel/oneui/commit/f51b120626cc47ae821cb82a5af07c251e75828c))
+
 ### [18.8.1](https://github.com/textkernel/oneui/compare/18.8.0...18.8.1) (2022-10-03)
 
 
