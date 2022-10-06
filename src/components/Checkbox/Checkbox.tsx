@@ -13,12 +13,27 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     children?: string | React.ReactElement;
     /** Optionally render checkbox in a flexbox */
     asFlexbox?: boolean;
+    /** Indeterminate status, show minus sign across checkbox. This property overrides the checked state visually  */
+    indeterminate?: boolean;
 }
 
 const { block, elem } = bem('Checkbox', styles);
 
 export const Checkbox: React.FC<Props> = forwardRef(
-    ({ id, children, disabled = false, asFlexbox = false, className, style, ...rest }, ref) => {
+    (
+        {
+            id,
+            children,
+            disabled = false,
+            asFlexbox = false,
+            className,
+            style,
+            indeterminate = false,
+            checked,
+            ...rest
+        },
+        ref
+    ) => {
         let text = children;
         if (children && typeof children === 'string') {
             text = (
@@ -32,11 +47,12 @@ export const Checkbox: React.FC<Props> = forwardRef(
             <div style={style} {...block({ className, asFlexbox })}>
                 <input
                     {...rest}
-                    {...elem('input', { asFlexbox })}
+                    {...elem('input', { asFlexbox, indeterminate })}
                     ref={ref}
                     type="checkbox"
                     id={id}
                     disabled={disabled}
+                    checked={checked}
                 />
                 <label {...elem('label', { asFlexbox })} htmlFor={id}>
                     <span {...elem('box', { asFlexbox })}>
@@ -46,7 +62,10 @@ export const Checkbox: React.FC<Props> = forwardRef(
                             height="10px"
                             viewBox={CHECKBOX_VIEWBOX}
                         >
-                            <polyline points="1.5 6 3.5 9 8 3" />
+                            {indeterminate && <line x1="2" y1="6" x2="8" y2="6" />}
+                            {!indeterminate && (checked === undefined || checked === true) && (
+                                <polyline points="1.5 6 3.5 9 8 3" />
+                            )}
                         </svg>
                     </span>
                     {text}

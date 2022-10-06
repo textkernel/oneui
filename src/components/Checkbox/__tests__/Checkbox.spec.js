@@ -36,4 +36,52 @@ describe('<Checkbox> that renders a checkbox', () => {
         expect(wrapper.find('input[disabled]')).toHaveLength(1);
         expect(wrapper.find('.Text--context_muted')).toHaveLength(1);
     });
+
+    it('should render the indeterminate svg when checked is false and indeterminate true', () => {
+        const wrapper = mount(
+            <Checkbox id="c4" checked={false} indeterminate onChange={() => {}}>
+                Useless checkbox
+            </Checkbox>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('svg polyline')).toHaveLength(0);
+        expect(wrapper.find('svg line')).toHaveLength(1);
+    });
+
+    it('should render the checked svg when checked is true and indeterminate false', () => {
+        const wrapper = mount(
+            <Checkbox id="c5" checked indeterminate={false} onChange={() => {}}>
+                Useless checkbox
+            </Checkbox>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('svg polyline')).toHaveLength(1);
+        expect(wrapper.find('svg line')).toHaveLength(0);
+    });
+
+    it('should render the indeterminate svg when checked and indeterminate are true', () => {
+        const wrapper = mount(
+            <Checkbox id="c6" checked indeterminate onChange={() => {}}>
+                Useless checkbox
+            </Checkbox>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('svg polyline')).toHaveLength(0);
+        expect(wrapper.find('svg line')).toHaveLength(1);
+    });
+
+    it('should not render any svg when checked and indeterminate are both false', () => {
+        const wrapper = mount(
+            <Checkbox id="c7" checked={false} indeterminate={false} onChange={() => {}}>
+                Useless checkbox
+            </Checkbox>
+        );
+
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('svg polyline')).toHaveLength(0);
+        expect(wrapper.find('svg line')).toHaveLength(0);
+    });
 });

@@ -61,3 +61,66 @@ CheckboxWithNotJustStringAsLabel.args = {
         </Text>
     ),
 };
+
+export const ThreeStateCheckbox = (args) => {
+    type ThreeStateCheckboxState = 'checked' | 'unchecked' | 'mixed';
+
+    const [mainStatus, setMainStatus] = React.useState<ThreeStateCheckboxState>('unchecked');
+    const [subOneChecked, setSubOneChecked] = React.useState(false);
+    const [subTwoChecked, setSubTwoChecked] = React.useState(false);
+
+    React.useEffect(() => {
+        let newStatus: ThreeStateCheckboxState = 'unchecked';
+
+        if ((!subOneChecked && subTwoChecked) || (subOneChecked && !subTwoChecked)) {
+            newStatus = 'mixed';
+        } else if (subOneChecked && subTwoChecked) {
+            newStatus = 'checked';
+        }
+
+        if (newStatus !== mainStatus) {
+            setMainStatus(newStatus);
+        }
+    }, [mainStatus, subOneChecked, subTwoChecked]);
+
+    const handleMainCheckboxChange = (e) => {
+        console.log('MainCheckbox state changed', e);
+        const isNotChecked = mainStatus !== 'checked';
+        setSubOneChecked(isNotChecked);
+        setSubTwoChecked(isNotChecked);
+    };
+
+    const handleSubOneCheckboxChange = (e) => {
+        console.log('SubOneCheckbox state changed', e);
+        setSubOneChecked(e.target.checked);
+    };
+
+    const handleSubTowCheckboxChange = (e) => {
+        console.log('SubTwoCheckbox state changed', e);
+        setSubTwoChecked(e.target.checked);
+    };
+
+    return (
+        <>
+            <Checkbox
+                {...args}
+                checked={mainStatus === 'checked'}
+                onChange={handleMainCheckboxChange}
+                indeterminate={mainStatus === 'mixed'}
+            >
+                Main
+            </Checkbox>
+            <Checkbox checked={subOneChecked} onChange={handleSubOneCheckboxChange} id="2">
+                Sub One
+            </Checkbox>
+            <Checkbox checked={subTwoChecked} onChange={handleSubTowCheckboxChange} id="3">
+                Sub Two
+            </Checkbox>
+        </>
+    );
+};
+ThreeStateCheckbox.args = {
+    disabled: false,
+    id: 'checkbox-1',
+    asFlexbox: false,
+};
