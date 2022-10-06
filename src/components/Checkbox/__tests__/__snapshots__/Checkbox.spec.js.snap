@@ -1,5 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Checkbox> that renders a checkbox should not render any svg when checked and indeterminate are both false 1`] = `
+<Checkbox
+  checked={false}
+  id="c7"
+  indeterminate={false}
+  onChange={[Function]}
+>
+  <div>
+    <input
+      checked={false}
+      className="Checkbox__input"
+      disabled={false}
+      id="c7"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <label
+      className="Checkbox__label"
+      htmlFor="c7"
+    >
+      <span
+        className="Checkbox__box"
+      >
+        <svg
+          className="Checkbox__svg"
+          height="10px"
+          viewBox={
+            Array [
+              0,
+              0,
+              10,
+              10,
+            ]
+          }
+          width="12px"
+        />
+      </span>
+      <Text
+        className="Checkbox__text"
+        context="default"
+        inline={true}
+      >
+        <span
+          className="Checkbox__text"
+        >
+          Useless checkbox
+        </span>
+      </Text>
+    </label>
+  </div>
+</Checkbox>
+`;
+
 exports[`<Checkbox> that renders a checkbox should render checkbox with complex children 1`] = `
 <Checkbox
   id="c1"
@@ -92,59 +145,6 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
           className="Checkbox__text"
         >
           Check this out
-        </span>
-      </Text>
-    </label>
-  </div>
-</Checkbox>
-`;
-
-exports[`<Checkbox> that renders a checkbox should render the checked svg when checked and indeterminate are false 1`] = `
-<Checkbox
-  checked={false}
-  id="c7"
-  indeterminate={false}
-  onChange={[Function]}
->
-  <div>
-    <input
-      checked={false}
-      className="Checkbox__input"
-      disabled={false}
-      id="c7"
-      onChange={[Function]}
-      type="checkbox"
-    />
-    <label
-      className="Checkbox__label"
-      htmlFor="c7"
-    >
-      <span
-        className="Checkbox__box"
-      >
-        <svg
-          className="Checkbox__svg"
-          height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
-          width="12px"
-        />
-      </span>
-      <Text
-        className="Checkbox__text"
-        context="default"
-        inline={true}
-      >
-        <span
-          className="Checkbox__text"
-        >
-          Useless checkbox
         </span>
       </Text>
     </label>

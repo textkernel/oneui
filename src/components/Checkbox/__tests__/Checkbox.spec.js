@@ -73,7 +73,7 @@ describe('<Checkbox> that renders a checkbox', () => {
         expect(wrapper.find('svg line')).toHaveLength(1);
     });
 
-    it('should render the checked svg when checked and indeterminate are false', () => {
+    it('should not render any svg when checked and indeterminate are both false', () => {
         const wrapper = mount(
             <Checkbox id="c7" checked={false} indeterminate={false} onChange={() => {}}>
                 Useless checkbox
