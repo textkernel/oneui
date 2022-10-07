@@ -33,7 +33,7 @@ export interface Props
 
 const { block } = bem('Button', styles);
 
-export const Button = forwardRef<React.RefObject<HTMLButtonElement | HTMLAnchorElement>, Props>(
+export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
     (
         {
             children,
