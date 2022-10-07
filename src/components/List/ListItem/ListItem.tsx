@@ -29,7 +29,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClic
 
 const { block } = bem('ListItem', styles);
 
-export const ListItem = forwardRef<HTMLImageElement, Props>(
+export const ListItem = forwardRef<HTMLLIElement, Props>(
     (
         {
             children,

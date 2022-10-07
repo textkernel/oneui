@@ -11,7 +11,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block } = bem('LeftPane', styles);
 
-export const LeftPane = forwardRef<any, Props>((props, ref) => {
+export const LeftPane = forwardRef<HTMLDivElement, Props>((props, ref) => {
     const { children, ...rest } = props;
 
     return (
