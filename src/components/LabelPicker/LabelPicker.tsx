@@ -120,7 +120,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                                 isBlock
                             />
                             <Button
-                                context="good"
+                                context="success"
                                 size="small"
                                 onClick={handleAdd}
                                 disabled={!inputValue}

@@ -9,8 +9,8 @@ const SET_PERCENTAGE_DELAY = 100;
 const { block, elem } = bem('Gauge', styles);
 
 export interface Props {
-    /** The gauge context (e.g. primary, secondary, bad, good etc. - defaults to primary) */
-    context?: Context;
+    /** The gauge context (e.g. primary, secondary, danger, success etc. - defaults to primary) */
+    context?: Context | string;
     /** Defines if progress bar is in loading state */
     isProgressLoading?: boolean;
     /** Defines if content part is in loading state */
@@ -36,7 +36,7 @@ export interface Props {
 export const Gauge: React.FC<Props> = ({
     children,
     percentage = 0,
-    context = 'primary',
+    context = 'accent',
     note,
     metric = '',
     isProgressLoading = false,
@@ -111,10 +111,3 @@ export const Gauge: React.FC<Props> = ({
 };
 
 Gauge.displayName = 'Gauge';
-
-Gauge.defaultProps = {
-    context: 'brand',
-    isProgressLoading: false,
-    isContentLoading: false,
-    metric: '',
-};

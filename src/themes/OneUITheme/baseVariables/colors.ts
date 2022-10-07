@@ -5,6 +5,7 @@ export const colorVariables = {
     '--transparent': 'transparent',
     '--color-background': '#ffffff',
     '--color-foreground': '#1d1d1b',
+    '--color-accent': '#f18700',
     '--color-neutral': '#d0d1d5',
     '--color-muted': '#b3b2b2',
     '--color-primary': '#0097d1',

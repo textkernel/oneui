@@ -67,7 +67,7 @@ exports[`ThemeActions component should render component correctly with all actio
     >
       <FileButton
         accept="application/JSON"
-        context="good"
+        context="success"
         onChange={[Function]}
         size="small"
       >

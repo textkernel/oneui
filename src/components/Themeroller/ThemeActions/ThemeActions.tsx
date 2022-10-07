@@ -91,7 +91,7 @@ export const ThemeActions: React.FC<Props> = ({
                 <div {...elem('button')}>
                     <FileButton
                         size="small"
-                        context="good"
+                        context="success"
                         accept="application/JSON"
                         onChange={handleFileChange}
                     >

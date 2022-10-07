@@ -9,7 +9,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     centerIn?: 'parent' | 'viewport';
     /** Loading text */
     children?: ReactNode;
-    /** The spinner context (e.g. primary, secondary, bad, good etc. - defaults to primary) */
+    /** The spinner context (e.g. primary, secondary, danger, success etc. - defaults to primary) */
     context?: Context;
     /** Hides the spinner when true */
     hidden?: boolean;

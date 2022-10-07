@@ -21,7 +21,7 @@ export const _TwoPaneView = (args) => (
         </LeftPane>
         <RightPane
             style={{
-                backgroundColor: 'var(--color-good-25)',
+                backgroundColor: 'var(--color-success-25)',
                 border: 'solid 1px var(--color-neutral-40)',
                 borderRadius: '0 var(--border-radius) var(--border-radius) 0',
                 borderLeft: 0,

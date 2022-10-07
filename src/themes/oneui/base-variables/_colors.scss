@@ -5,6 +5,7 @@ $transparent: transparent !default;
 
 $color-background: #fff !default;
 $color-foreground: #1d1d1b !default;
+$color-accent: #f18700 !default;
 
 $color-neutral: #d0d1d5 !default;
 $color-muted: #b3b2b2 !default;
@@ -19,6 +20,7 @@ $color-bad: #f42534 !default;
         $value in (
             background: $color-background,
             foreground: $color-foreground,
+            accent: $color-accent,
             neutral: $color-neutral,
             muted: $color-muted,
             primary: $color-primary,
