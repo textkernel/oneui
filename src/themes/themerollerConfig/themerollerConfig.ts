@@ -35,7 +35,7 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 value: '#ffb819',
             },
             {
-                label: 'danger color',
+                label: 'Danger color',
                 type: 'color',
                 var: '--color-danger',
                 value: '#f42534',
@@ -53,7 +53,7 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 value: '#b3b2b2',
             },
             {
-                label: 'success color',
+                label: 'Success color',
                 type: 'color',
                 var: '--color-success',
                 value: '#5cb85c',
