@@ -36,7 +36,12 @@ export const Teaser: React.FC<Props> = ({
     ...rest
 }) => {
     const subTitleElement = (
-        <Text inline title={subTitle} context={disabled ? 'muted' : 'secondary'} {...elem('subTitle')}>
+        <Text
+            inline
+            title={subTitle}
+            context={disabled ? 'muted' : 'secondary'}
+            {...elem('subTitle')}
+        >
             {subTitle}
         </Text>
     );

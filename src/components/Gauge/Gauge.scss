@@ -80,7 +80,7 @@ $gauge_contexts: $contexts, "accent";
 
         &__gradientEnd {
             &--context_#{ $context } {
-                stop-color: var(--color-#{$context});
+                stop-color: var(--color-#{$context}-25);
             }
         }
     }

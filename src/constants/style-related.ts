@@ -1,4 +1,4 @@
-export const VALIDATION_CONTEXTS = ['good', 'warning', 'bad'] as const;
+export const VALIDATION_CONTEXTS = ['success', 'warning', 'danger'] as const;
 
 export const CONTEXTS = ['neutral', 'primary', 'secondary', ...VALIDATION_CONTEXTS] as const;
 

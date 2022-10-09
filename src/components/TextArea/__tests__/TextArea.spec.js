@@ -15,7 +15,7 @@ describe('<TextArea> that renders a textarea', () => {
     });
 
     it('should add classes when props are changed', () => {
-        const wrapper = shallow(<TextArea context="bad" size="large" isBlock disabled />);
+        const wrapper = shallow(<TextArea context="danger" size="large" isBlock disabled />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 

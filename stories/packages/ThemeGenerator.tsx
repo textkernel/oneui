@@ -9,9 +9,9 @@ export default {
         '--color-neutral': { control: 'color' },
         '--color-muted': { control: 'color' },
         '--color-secondary': { control: 'color' },
-        '--color-good': { control: 'color' },
+        '--color-success': { control: 'color' },
         '--color-warning': { control: 'color' },
-        '--color-bad': { control: 'color' },
+        '--color-danger': { control: 'color' },
         '--font-size-base': { control: 'text' },
     },
 };
@@ -32,8 +32,8 @@ _ThemeGenerator.args = {
     '--color-neutral': '#d0d1d5',
     '--color-muted': '#b3b2b2',
     '--color-secondary': '#182642',
-    '--color-good': '#5cb85c',
+    '--color-success': '#5cb85c',
     '--color-warning': '#ffb819',
-    '--color-bad': '#f42534',
+    '--color-danger': '#f42534',
     '--font-size-base': '14px',
 };

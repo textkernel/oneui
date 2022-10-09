@@ -2,7 +2,6 @@
 
 exports[`WeightedResultBar should render correctly 1`] = `
 <WeightedResultBar
-  context="primary"
   count={123}
   percentage={67}
 >

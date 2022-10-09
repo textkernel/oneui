@@ -135,7 +135,6 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
-      context="primary"
       isBlock={false}
       isEqualWidth={false}
       key="3"

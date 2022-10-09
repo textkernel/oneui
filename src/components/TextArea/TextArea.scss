@@ -11,7 +11,7 @@
                 }
             }
         }
-        @each $context in (warning, bad) {
+        @each $context in (warning, danger) {
             &_#{ $context } {
                 border-color: var(--color-#{$context});
             }

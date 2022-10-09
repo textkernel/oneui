@@ -33,8 +33,8 @@ describe('FieldWithValidation', () => {
                 );
             });
 
-            it('should set context to bad on child', () => {
-                expect(wrapper.find('Input').prop('context')).toBe('bad');
+            it('should set context to danger on child', () => {
+                expect(wrapper.find('Input').prop('context')).toBe('danger');
             });
 
             it('should render the message as text', () => {
@@ -76,8 +76,8 @@ describe('FieldWithValidation', () => {
                 );
             });
 
-            it('should set context to bad on child', () => {
-                expect(wrapper.find('Input').prop('context')).toBe('bad');
+            it('should set context to danger on child', () => {
+                expect(wrapper.find('Input').prop('context')).toBe('danger');
             });
             it('should render the message when field is focused', () => {
                 expect(wrapper.find('Tooltip').props().visible).toBeFalsy();

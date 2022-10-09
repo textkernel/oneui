@@ -11,9 +11,9 @@ $color-neutral: #d0d1d5 !default;
 $color-muted: #b3b2b2 !default;
 $color-primary: #0097d1 !default;
 $color-secondary: #182642 !default;
-$color-good: #5cb85c !default;
+$color-success: #5cb85c !default;
 $color-warning: #ffb819 !default;
-$color-bad: #f42534 !default;
+$color-danger: #f42534 !default;
 
 :root {
     @each $context,
@@ -25,9 +25,9 @@ $color-bad: #f42534 !default;
             muted: $color-muted,
             primary: $color-primary,
             secondary: $color-secondary,
-            good: $color-good,
+            success: $color-success,
             warning: $color-warning,
-            bad: $color-bad
+            danger: $color-danger
         )
     {
         --color-#{ $context }: #{$value};
@@ -39,9 +39,9 @@ $color-bad: #f42534 !default;
             neutral: $color-neutral,
             primary: $color-primary,
             secondary: $color-secondary,
-            good: $color-good,
+            success: $color-success,
             warning: $color-warning,
-            bad: $color-bad
+            danger: $color-danger
         )
     {
         @each $factor in (20, 50, 80) {
@@ -68,4 +68,5 @@ $color-bad: #f42534 !default;
     --color-highlight-background: #{mix($color-background, $color-primary, 90)};
     --color-selection-background: #{mix($color-background, $color-primary, 90)};
     --color-shadow-background: #{mix($color-foreground, $color-background, 50)};
+    --color-accent-25: #{mix($color-background, $color-accent, 50)};
 }

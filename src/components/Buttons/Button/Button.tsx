@@ -11,7 +11,7 @@ export interface Props
     > {
     /** The label of the button */
     children: NotEmptySingleReactNode;
-    /** The button context (e.g. primary, secondary, bad, success etc. - defaults to neutral) */
+    /** The button context (e.g. primary, secondary, danger, success etc. - defaults to neutral) */
     context?: Context | 'link';
     /** The size of the button */
     size?: Size;

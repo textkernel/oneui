@@ -15,7 +15,7 @@ describe('<Input> that renders an input field', () => {
     });
 
     it('should add classes when props are changed', () => {
-        const wrapper = shallow(<Input context="bad" size="large" isBlock disabled />);
+        const wrapper = shallow(<Input context="danger" size="large" isBlock disabled />);
         expect(toJson(wrapper)).toMatchSnapshot();
     });
 

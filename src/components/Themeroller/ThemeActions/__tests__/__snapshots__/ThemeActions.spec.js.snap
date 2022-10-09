@@ -15,13 +15,13 @@ exports[`ThemeActions component should render component correctly with all actio
   >
     <Button
       className="ThemeActions__button"
-      context="bad"
+      context="danger"
       onClick={[MockFunction]}
       size="small"
       type="reset"
     >
       <button
-        className="Button Button--context_bad Button--size_small ThemeActions__button"
+        className="Button Button--context_danger Button--size_small ThemeActions__button"
         disabled={false}
         onClick={[MockFunction]}
         type="reset"
@@ -72,7 +72,7 @@ exports[`ThemeActions component should render component correctly with all actio
         size="small"
       >
         <label
-          className="Button Button--context_good Button--size_small"
+          className="Button Button--context_success Button--size_small"
           disabled={false}
         >
           <input

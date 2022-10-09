@@ -138,7 +138,7 @@
             }
         }
 
-        @each $context in (primary, secondary, success, warning, bad) {
+        @each $context in (primary, secondary, success, warning, danger) {
             &_#{ $context } {
                 background-color: var(--color-#{$context});
                 border-color: var(--color-#{$context});

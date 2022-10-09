@@ -10,9 +10,9 @@ export const colorVariables = {
     '--color-muted': '#b3b2b2',
     '--color-primary': '#0097d1',
     '--color-secondary': '#182642',
-    '--color-good': '#5cb85c',
+    '--color-success': '#5cb85c',
     '--color-warning': '#ffb819',
-    '--color-bad': '#f42534',
+    '--color-danger': '#f42534',
     '--link-color-normal': 'var(--color-primary)',
     '--link-color-hover': 'var(--color-primary-40)',
     '--border-color-light': 'var(--color-neutral-25)',
@@ -27,9 +27,9 @@ export const computedColorVariables = (baseVariables: CssVars): CssVars => {
         ...generateColorShadesFromVariables('--color-muted'),
         ...generateColorShadesFromVariables('--color-primary'),
         ...generateColorShadesFromVariables('--color-secondary'),
-        ...generateColorShadesFromVariables('--color-good'),
+        ...generateColorShadesFromVariables('--color-success'),
         ...generateColorShadesFromVariables('--color-warning'),
-        ...generateColorShadesFromVariables('--color-bad'),
+        ...generateColorShadesFromVariables('--color-danger'),
         '--color-highlight-background': mixTwoColors(
             baseVariables['--color-primary'],
             baseVariables['--color-background'],
@@ -42,6 +42,11 @@ export const computedColorVariables = (baseVariables: CssVars): CssVars => {
         ),
         '--color-shadow-background': mixTwoColors(
             baseVariables['--color-foreground'],
+            baseVariables['--color-background'],
+            50
+        ),
+        '--color-accent-25': mixTwoColors(
+            baseVariables['--color-accent'],
             baseVariables['--color-background'],
             50
         ),
