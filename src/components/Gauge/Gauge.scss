@@ -1,6 +1,6 @@
 @import '../../themes/oneui/oneui.scss';
 
-$gauge_contexts: $contexts, "accent";
+$gauge_contexts: "primary", "secondary", "neutral", "accent", "success", "warning", "danger";
 
 .Gauge {
     position: relative;

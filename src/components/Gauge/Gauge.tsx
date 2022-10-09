@@ -10,7 +10,7 @@ const { block, elem } = bem('Gauge', styles);
 
 export interface Props {
     /** The gauge context (e.g. primary, secondary, danger, success etc. - defaults to primary) */
-    context?: Context | string;
+    context?: Context;
     /** Defines if progress bar is in loading state */
     isProgressLoading?: boolean;
     /** Defines if content part is in loading state */
