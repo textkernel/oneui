@@ -33,8 +33,4 @@ export const Callout: React.FC<Props> = ({
     );
 };
 
-Callout.defaultProps = {
-    context: 'secondary',
-};
-
 Callout.displayName = 'Callout';

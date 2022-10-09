@@ -12,6 +12,7 @@ $color-muted: #b3b2b2 !default;
 $color-primary: #0097d1 !default;
 $color-secondary: #182642 !default;
 $color-success: #5cb85c !default;
+$color-good: #5cb85c !default;
 $color-warning: #ffb819 !default;
 $color-danger: #f42534 !default;
 
@@ -67,6 +68,6 @@ $color-danger: #f42534 !default;
 
     --color-highlight-background: #{mix($color-background, $color-primary, 90)};
     --color-selection-background: #{mix($color-background, $color-primary, 90)};
-    --color-shadow-background: #{mix($color-foreground, $color-background, 50)};
+    --color-shadow-background: #{mix($color-foreground, $color-background, 20)};
     --color-accent-25: #{mix($color-background, $color-accent, 50)};
 }

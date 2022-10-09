@@ -155,11 +155,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                       ]
                     }
                     width="12px"
-                  >
-                    <polyline
-                      points="1.5 6 3.5 9 8 3"
-                    />
-                  </svg>
+                  />
                 </span>
                 <Text
                   className="LabelPicker__label"
@@ -304,11 +300,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                       ]
                     }
                     width="12px"
-                  >
-                    <polyline
-                      points="1.5 6 3.5 9 8 3"
-                    />
-                  </svg>
+                  />
                 </span>
                 <Text
                   className="LabelPicker__label"
@@ -372,11 +364,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                       ]
                     }
                     width="12px"
-                  >
-                    <polyline
-                      points="1.5 6 3.5 9 8 3"
-                    />
-                  </svg>
+                  />
                 </span>
                 <Text
                   className="LabelPicker__label"

@@ -13,7 +13,7 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block } = bem('BlockWidthRestrictor', styles);
 
-export const BlockWidthRestrictor = forwardRef<React.Ref<any>, Props>(
+export const BlockWidthRestrictor = forwardRef<HTMLElement, Props>(
     ({ children, As = 'div', ...rest }, ref) => {
         return (
             <As {...rest} ref={ref} {...block(rest)}>
