@@ -1,7 +1,5 @@
 @import '../../themes/oneui/oneui.scss';
 
-$gauge_contexts: "primary", "secondary", "neutral", "accent", "success", "warning", "danger";
-
 .Gauge {
     position: relative;
 
@@ -71,7 +69,7 @@ $gauge_contexts: "primary", "secondary", "neutral", "accent", "success", "warnin
         font-size: var(--font-size-small);
     }
 
-    @each $context in ($gauge_contexts) {
+    @each $context in (append($contexts, "accent")) {
         &__gradientStart {
             &--context_#{ $context } {
                 stop-color: var(--color-#{$context});

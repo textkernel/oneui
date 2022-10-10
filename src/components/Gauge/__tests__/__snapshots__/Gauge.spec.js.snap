@@ -13,11 +13,11 @@ exports[`Gauge should render correctly 1`] = `
         id="Gauge__gradient--accent-0.42"
       >
         <stop
-          className="Gauge__gradientStart Gauge__gradientStart--context_accent"
+          className="Gauge__gradientStart--context_accent"
           offset="50%"
         />
         <stop
-          className="Gauge__gradientEnd Gauge__gradientEnd--context_accent"
+          className="Gauge__gradientEnd--context_accent"
           offset="100%"
         />
       </linearGradient>
