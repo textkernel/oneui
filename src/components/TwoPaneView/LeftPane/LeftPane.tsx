@@ -5,8 +5,6 @@ import styles from './LeftPane.scss';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node(s) to be rendered in the left pane */
     children?: ReactNode;
-    /** Ref to access the element */
-    ref?;
 }
 
 const { block } = bem('LeftPane', styles);

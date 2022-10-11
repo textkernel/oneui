@@ -21,8 +21,6 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClic
     passDisabledToLi?: boolean;
     /** formatting context when hovered or selected */
     highlightContext?: Context | 'default';
-    /** Ref to access the li element */
-    ref?;
     /** Item identifier is used in {@link Dropdown} to select/navigate through children */
     value?: unknown;
 }
