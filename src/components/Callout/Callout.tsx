@@ -25,8 +25,12 @@ export const Callout: React.FC<Props> = ({
         <div {...rest} {...block({ context, ...rest })}>
             <div {...elem('content', { context })}>{children}</div>
             {onRequestClose && (
-                <button {...elem('closeButton')} type="button" onClick={onRequestClose}>
-                    <MdClose {...elem('closeIcon')} />
+                <button
+                    {...elem('closeButton', { context })}
+                    type="button"
+                    onClick={onRequestClose}
+                >
+                    <MdClose {...elem('closeIcon', { context, ...rest })} />
                 </button>
             )}
         </div>
