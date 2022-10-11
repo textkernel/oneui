@@ -22,7 +22,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClic
     /** formatting context when hovered or selected */
     highlightContext?: Context | 'default';
     /** Ref to access the li element */
-    ref?: React.RefObject<HTMLLIElement>;
+    ref?;
     /** Item identifier is used in {@link Dropdown} to select/navigate through children */
     value?: unknown;
 }

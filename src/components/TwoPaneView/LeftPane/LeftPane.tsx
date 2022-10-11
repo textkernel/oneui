@@ -6,7 +6,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node(s) to be rendered in the left pane */
     children?: ReactNode;
     /** Ref to access the element */
-    ref?: React.RefObject<HTMLDivElement>;
+    ref?;
 }
 
 const { block } = bem('LeftPane', styles);

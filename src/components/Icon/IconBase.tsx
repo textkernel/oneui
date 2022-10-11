@@ -23,7 +23,7 @@ export interface Props extends IconProps {
     /** The SVG viewbox */
     viewBox: string;
     /** Ref to access the icon */
-    ref?: React.RefObject<HTMLDivElement>;
+    ref?;
 }
 
 const { block, elem } = bem('IconBase', styles);
