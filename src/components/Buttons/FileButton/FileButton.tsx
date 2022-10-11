@@ -37,7 +37,11 @@ export const FileButton: React.FC<Props> = React.forwardRef(
     ) => {
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
-            <label ref={ref} {...block({ context, size, isBlock, isInline })} disabled={disabled}>
+            <label
+                ref={ref}
+                {...block({ context, size, isBlock, isInline, ...rest })}
+                disabled={disabled}
+            >
                 <input {...rest} hidden type="file" />
                 {children}
             </label>

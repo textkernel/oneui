@@ -11,7 +11,7 @@ const { block } = bem('PageWidthRestrictor', styles);
 
 export const PageWidthRestrictor: React.FC<Props> = ({ children, ...rest }) => {
     return (
-        <div {...rest} {...block()}>
+        <div {...rest} {...block({ ...rest })}>
             {children}
         </div>
     );

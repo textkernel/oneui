@@ -30,7 +30,7 @@ export const LoadingSpinner: React.FC<Props> = ({
     return (
         <div
             {...rest}
-            {...block({ hidden, context, centerIn })}
+            {...block({ hidden, context, centerIn, ...rest })}
             role="status"
             aria-busy={!hidden}
             aria-hidden={hidden}

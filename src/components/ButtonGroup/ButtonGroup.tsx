@@ -28,7 +28,7 @@ export const ButtonGroup = ({
 
     if (totalNumberOfButtons === 1) {
         return (
-            <div {...rest} {...block({ isBlock })} role="group">
+            <div {...rest} {...block({ isBlock, ...rest })} role="group">
                 {React.isValidElement(children)
                     ? React.cloneElement(children, {
                           ...children.props,

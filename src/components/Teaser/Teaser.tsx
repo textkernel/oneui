@@ -46,7 +46,7 @@ export const Teaser: React.FC<Props> = ({
         </Text>
     );
     return (
-        <div {...rest} {...block()}>
+        <div {...rest} {...block({ ...rest })}>
             <div {...elem('line')}>
                 <Text
                     inline

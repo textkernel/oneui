@@ -71,7 +71,7 @@ export const Pagination: React.FC<Props> = ({
     };
 
     return (
-        <nav {...rest} {...block({ align })} aria-label="pagination">
+        <nav {...rest} {...block({ align, ...rest })} aria-label="pagination">
             {!!prevLabel && (
                 <Button
                     {...elem('button', { align })}

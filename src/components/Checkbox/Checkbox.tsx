@@ -44,7 +44,7 @@ export const Checkbox: React.FC<Props> = forwardRef(
         }
 
         return (
-            <div style={style} {...block({ className, asFlexbox })}>
+            <div style={style} {...block({ className, asFlexbox, ...rest })}>
                 <input
                     {...rest}
                     {...elem('input', { asFlexbox, indeterminate })}

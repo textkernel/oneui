@@ -67,7 +67,7 @@ export const Gauge: React.FC<Props> = ({
     const circumferenceHalf = circumference / 2;
 
     return (
-        <div {...rest} {...block()}>
+        <div {...rest} {...block({ ...rest })}>
             <svg {...elem('svg')} width="100%">
                 <defs>
                     <linearGradient id={`Gauge__gradient--${context}-${id.current}`}>

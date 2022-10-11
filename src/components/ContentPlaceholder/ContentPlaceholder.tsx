@@ -31,7 +31,7 @@ export const ContentPlaceholder: React.FC<Props> = ({
     return (
         <div
             {...rest}
-            {...block({ withoutMargin })}
+            {...block({ withoutMargin, ...rest })}
             style={{
                 animationDuration: calcDuration(duration),
                 height,

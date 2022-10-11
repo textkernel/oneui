@@ -16,7 +16,7 @@ const { block } = bem('Link', styles);
 export const Link = React.forwardRef<HTMLAnchorElement, Props>(
     ({ children, context = 'brand', dontDecorateOnHover = false, ...rest }, ref) => {
         return (
-            <a ref={ref} {...rest} {...block({ context, dontDecorateOnHover })}>
+            <a ref={ref} {...rest} {...block({ context, dontDecorateOnHover, ...rest })}>
                 {children}
             </a>
         );
