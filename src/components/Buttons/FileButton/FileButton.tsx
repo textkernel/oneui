@@ -16,13 +16,11 @@ export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>,
     isInline?: boolean;
     /** Should button be disabled or not */
     disabled?: boolean;
-    /** Ref to access the button */
-    ref?: React.ForwardedRef<HTMLInputElement>;
 }
 
 const { block } = bem('Button', styles);
 
-export const FileButton: React.FC<Props> = React.forwardRef(
+export const FileButton = React.forwardRef<HTMLInputElement, Props>(
     (
         {
             children,

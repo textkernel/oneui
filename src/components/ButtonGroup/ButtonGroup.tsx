@@ -42,7 +42,7 @@ export const ButtonGroup = ({
     }
 
     return (
-        <div {...rest} {...block({ isBlock })} role="group">
+        <div {...rest} {...block({ isBlock, ...rest })} role="group">
             {React.Children.map(children, (button, i) => {
                 if (!React.isValidElement(button)) {
                     return button;

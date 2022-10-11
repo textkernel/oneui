@@ -30,7 +30,7 @@ export const Callout: React.FC<Props> = ({
                     type="button"
                     onClick={onRequestClose}
                 >
-                    <MdClose {...elem('closeIcon', { context, ...rest })} />
+                    <MdClose {...elem('closeIcon', { context })} />
                 </button>
             )}
         </div>

@@ -67,12 +67,22 @@ export const Gauge: React.FC<Props> = ({
     const circumferenceHalf = circumference / 2;
 
     return (
-        <div {...rest} {...block({ ...rest })}>
+        <div {...rest} {...block({ isProgressLoading, isContentLoading, context, ...rest })}>
             <svg {...elem('svg')} width="100%">
                 <defs>
                     <linearGradient id={`Gauge__gradient--${context}-${id.current}`}>
-                        <stop {...elem('gradientStart', { context })} offset="50%" />
-                        <stop {...elem('gradientEnd', { context })} offset="100%" />
+                        <stop
+                            {...elem('gradientStart', {
+                                context,
+                            })}
+                            offset="50%"
+                        />
+                        <stop
+                            {...elem('gradientEnd', {
+                                context,
+                            })}
+                            offset="100%"
+                        />
                     </linearGradient>
                 </defs>
                 <circle
@@ -83,7 +93,7 @@ export const Gauge: React.FC<Props> = ({
                     style={{ strokeDasharray: `${circumferenceHalf} ${circumference}` }}
                 />
                 <circle
-                    {...elem('circleForeground')}
+                    {...elem('circleForeground', { isProgressLoading })}
                     r={GAUGE_RADIUS}
                     cx="50%"
                     cy="25%"
@@ -91,7 +101,7 @@ export const Gauge: React.FC<Props> = ({
                     stroke={`url(#Gauge__gradient--${context}-${id.current})`}
                 />
             </svg>
-            <div {...elem('contentWrapper')}>
+            <div {...elem('contentWrapper', { isContentLoading })}>
                 {isContentLoading ? (
                     <ContentPlaceholder height={28} {...elem('contentPlaceholder')} />
                 ) : (
