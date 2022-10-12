@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import * as React from 'react';
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './Checkbox.scss';
@@ -19,7 +19,7 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const { block, elem } = bem('Checkbox', styles);
 
-export const Checkbox: React.FC<Props> = forwardRef(
+export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
     (
         {
             id,

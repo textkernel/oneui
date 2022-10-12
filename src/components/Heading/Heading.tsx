@@ -12,8 +12,6 @@ export interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
     align?: 'left' | 'center' | 'right';
     /** The context of the text, effecting its color (e.g. brand, primary, bad, good etc. 'muted' added as special context here) */
     context?: Context | 'muted' | 'default';
-    /** Ref to access the span element */
-    ref?: React.RefObject<HTMLElement>;
 }
 
 const { block } = bem('Heading', styles);
