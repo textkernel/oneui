@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.9.2](https://github.com/textkernel/oneui/compare/18.9.1...18.9.2) (2022-10-12)
+
+
+### Bug Fixes
+
+* class name issue ([#836](https://github.com/textkernel/oneui/issues/836)) ([2275827](https://github.com/textkernel/oneui/commit/2275827c317c343bb4e53de8df1880f8bea5cc8c))
+
 ### [18.9.1](https://github.com/textkernel/oneui/compare/18.9.0...18.9.1) (2022-10-07)
 
 
