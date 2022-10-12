@@ -4,7 +4,7 @@ import { Slider, RangeSlider } from '@textkernel/oneui';
 export default {
     title: 'Atoms/Slider',
     component: Slider,
-    subcomponensa: { RangeSlider },
+    subcomponents: { RangeSlider },
 };
 
 export const _Slider = (args) => <Slider {...args} />;
