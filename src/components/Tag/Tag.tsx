@@ -73,7 +73,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
             <div
                 {...rest}
                 ref={ref}
-                {...block({ isSelected, clickable: !!onClick })}
+                {...block({ isSelected, clickable: !!onClick, ...rest })}
                 {...(onClick && {
                     onClick,
                     tabIndex: 0,

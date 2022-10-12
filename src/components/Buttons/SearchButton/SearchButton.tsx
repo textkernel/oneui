@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import * as React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { bem } from '../../../utils';
 import styles from './SearchButton.scss';
@@ -19,7 +19,7 @@ export interface Props
 
 const { block, elem } = bem('SearchButton', styles);
 
-export const SearchButton = forwardRef((props: Props, ref) => {
+export const SearchButton = React.forwardRef<HTMLButtonElement, Props>((props: Props, ref) => {
     const { disabled, children, type, ...rest } = props;
     const propsForBem = { ...props, withLabel: !!children };
 

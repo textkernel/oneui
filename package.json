@@ -26,8 +26,8 @@
         "release": "standard-version -t ''"
     },
     "engines": {
-        "node": ">=15",
-        "npm": ">=7.1.0"
+        "node": ">=14.15 || >=16.10 || >=18",
+        "npm": ">=7.18.0"
     },
     "files": [
         "/dist"

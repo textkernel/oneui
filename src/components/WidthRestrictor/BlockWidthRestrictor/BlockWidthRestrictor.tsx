@@ -7,8 +7,6 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
     children: NotEmptyReactNode;
     /** HTML tag to be used to render the container */
     As?: string;
-    /** Ref to access the main wrapper element */
-    ref?: React.RefObject<HTMLElement>;
 }
 
 const { block } = bem('BlockWidthRestrictor', styles);

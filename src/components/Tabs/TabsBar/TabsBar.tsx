@@ -48,7 +48,7 @@ export function TabsBar<T = string | number>({
     };
 
     return (
-        <div {...rest} {...block({ isBlock })} role="tablist">
+        <div {...rest} {...block({ isBlock, ...rest })} role="tablist">
             {activeTabId || onSelect || isBlock
                 ? React.Children.map(children, (tab) => extendWithProps(tab))
                 : children}

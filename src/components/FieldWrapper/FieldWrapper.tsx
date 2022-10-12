@@ -25,7 +25,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     disabled?: boolean;
 }
 
-export const FieldWrapper: React.FC<Props> = React.forwardRef(
+export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
     (
         {
             children,

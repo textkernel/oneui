@@ -59,7 +59,7 @@ export function ComboboxMulti<S>({
         };
 
         return (
-            <div tabIndex={0} role="searchbox" {...elem('wrapper')}>
+            <div tabIndex={0} role="searchbox" {...elem('wrapper', { disabled })}>
                 <input
                     {...getInputProps({
                         ...inputAttrs,
@@ -69,11 +69,11 @@ export function ComboboxMulti<S>({
                         placeholder: inputPlaceholder,
                         onKeyDown: handleInputKeyDown,
                         'data-lpignore': true,
-                        ...elem('input'),
+                        ...elem('input', { disabled }),
                     })}
                 />
                 <IoMdArrowDropup
-                    {...elem('dropdownIcon')}
+                    {...elem('dropdownIcon', { disabled })}
                     {...getToggleButtonProps({ disabled, onClick: blur })}
                 />
             </div>
@@ -82,7 +82,7 @@ export function ComboboxMulti<S>({
 
     // eslint-disable-next-line react/display-name
     const renderBlurred = ({ getInputProps, getToggleButtonProps, onFocus }) => (
-        <div tabIndex={0} role="searchbox" {...elem('wrapper')}>
+        <div tabIndex={0} role="searchbox" {...elem('wrapper', { disabled })}>
             <input
                 {...getInputProps({
                     ...inputAttrs,
@@ -92,11 +92,11 @@ export function ComboboxMulti<S>({
                     placeholder: inputPlaceholder,
                     onFocus,
                     'data-lpignore': true,
-                    ...elem('input'),
+                    ...elem('input', { disabled }),
                 })}
             />
             <IoMdArrowDropdown
-                {...elem('dropdownIcon')}
+                {...elem('dropdownIcon', { disabled })}
                 {...getToggleButtonProps({
                     disabled,
                     onClick: (e) => {

@@ -54,7 +54,7 @@ export const FieldWithValidation: React.FC<Props> = ({
         return (
             <>
                 {clonedChild}
-                <Text {...rest} {...block()} context="bad" size="small">
+                <Text {...rest} {...block({ ...rest })} context="bad" size="small">
                     {errorMessage}
                 </Text>
             </>
