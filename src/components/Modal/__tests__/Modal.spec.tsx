@@ -1,6 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import ReactModal from 'react-modal';
+import { shallow } from 'enzyme';
 import { Modal } from '../Modal';
 
 describe('Modal', () => {
@@ -25,10 +26,14 @@ describe('Modal', () => {
             </Modal>
         );
 
-        expect(wrapper.find('Modal').prop('className').base).toContain('content-class');
+        expect(wrapper.find('Modal').prop('className')).toEqual(
+            expect.objectContaining({ base: 'Modal__content content-class' })
+        );
         expect(wrapper.find('Modal').prop('portalClassName')).not.toContain('content-class');
         expect(wrapper.find('Modal').prop('portalClassName')).toContain('portal-class');
-        expect(wrapper.find('Modal').prop('overlayClassName').base).toContain('overlay-class');
+        expect(wrapper.find('Modal').prop('overlayClassName')).toEqual(
+            expect.objectContaining({ base: 'Modal__overlay overlay-class' })
+        );
     });
     it('should set app element via react-modal', () => {
         const setElSpy = jest.spyOn(ReactModal, 'setAppElement');
