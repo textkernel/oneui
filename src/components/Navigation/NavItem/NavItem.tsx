@@ -15,27 +15,22 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 const { block, elem } = bem('NavItem', styles);
 
-export const NavItem = React.forwardRef<HTMLElement, Props>((props, ref) => {
-    const { active, pullRight, useActiveClass, children, ...rest } = props;
-    const ariaProp = active ? { 'aria-current': 'page' } : {};
-    const newProps = { ...ariaProp, ...rest, ...block(props), ref };
-    if (useActiveClass) {
-        newProps.activeClassName = elem('active', props).className;
-    }
+export const NavItem = React.forwardRef<HTMLElement, Props>(
+    ({ active = false, pullRight = false, useActiveClass = false, children, ...rest }, ref) => {
+        const ariaProp = active ? { 'aria-current': 'page' } : {};
+        const newProps = { ...ariaProp, ...rest, ...block({ active, pullRight, ...rest }), ref };
+        if (useActiveClass) {
+            newProps.activeClassName = elem('active', active).className;
+        }
 
-    try {
-        React.Children.only(children);
-    } catch {
-        throw new Error('NavItem should have a single child only');
-    }
+        try {
+            React.Children.only(children);
+        } catch {
+            throw new Error('NavItem should have a single child only');
+        }
 
-    return React.cloneElement(children, newProps);
-});
+        return React.cloneElement(children, newProps);
+    }
+);
 
 NavItem.displayName = 'NavItem';
-
-NavItem.defaultProps = {
-    active: false,
-    pullRight: false,
-    useActiveClass: false,
-};

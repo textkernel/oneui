@@ -14,7 +14,6 @@ exports[`Modal should render correctly 1`] = `
   closeTimeoutMS={300}
   contentLabel="Content label"
   isOpen={true}
-  isPositionFixed={false}
   onAfterOpen={[Function]}
   overlayClassName={
     Object {

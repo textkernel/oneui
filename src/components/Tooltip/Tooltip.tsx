@@ -14,8 +14,7 @@ export type TooltipProps = TippyProps;
  * * Full list of props available can be found [here](https://atomiks.github.io/tippyjs/all-props/).
  * * When using a [React component as children](https://github.com/atomiks/tippyjs-react#component-children), make sure it supports forward ref
  */
-export const Tooltip: React.FC<TooltipProps> = (props) => {
-    const { content, children, disabled, ...rest } = props;
+export const Tooltip: React.FC<TooltipProps> = ({ content, children, disabled, ...rest }) => {
     let isDisabled = disabled;
     if (disabled === undefined && !content) {
         isDisabled = true;
@@ -28,7 +27,3 @@ export const Tooltip: React.FC<TooltipProps> = (props) => {
 };
 
 Tooltip.displayName = 'Tooltip';
-
-Tooltip.defaultProps = {
-    animation: 'shift-toward',
-};

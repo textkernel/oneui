@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavItem that renders a single navigation item should render correctly with default props 1`] = `
-<NavItem
-  active={false}
-  pullRight={false}
-  useActiveClass={false}
->
+<NavItem>
   <a
     className="NavItem"
     href="/"
