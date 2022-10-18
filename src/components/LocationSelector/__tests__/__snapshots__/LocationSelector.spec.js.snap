@@ -14,12 +14,10 @@ exports[`LocationSelector component should render LocationSelector properly when
   modalContentLabel="Location selection dialog"
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
   onAddLocation={[MockFunction]}
-  onBlur={[Function]}
   onLocationAutocompleteError={[MockFunction]}
   onRemoveAllLocations={[MockFunction]}
   onRemoveLocation={[MockFunction]}
   onUpdateLocation={[MockFunction]}
-  openOnEnterPress={true}
   placeTypes={
     Array [
       "(regions)",
@@ -53,9 +51,7 @@ exports[`LocationSelector component should render LocationSelector properly when
       },
     ]
   }
-  shouldGetAddressInfo={false}
   showCountryInSuggestions={true}
-  withoutLocationCards={false}
 >
   <div>
     <FieldWrapper
@@ -158,7 +154,6 @@ exports[`LocationSelector component should render LocationSelector properly when
         closeTimeoutMS={300}
         contentLabel="Location selection dialog"
         isOpen={true}
-        isPositionFixed={true}
         onAfterOpen={[Function]}
         onRequestClose={[Function]}
         overlayClassName={
@@ -255,7 +250,6 @@ exports[`LocationSelector component should render LocationSelector properly when
               }
             }
             isOpen={true}
-            isPositionFixed={true}
             onAfterOpen={[Function]}
             onRequestClose={[Function]}
             overlayClassName={
@@ -422,12 +416,10 @@ exports[`LocationSelector component should render LocationSelector propertly whe
   modalContentLabel="Location selection dialog"
   noSuggestionsPlaceholder="noSuggestionsPlaceholder"
   onAddLocation={[MockFunction]}
-  onBlur={[Function]}
   onLocationAutocompleteError={[MockFunction]}
   onRemoveAllLocations={[MockFunction]}
   onRemoveLocation={[MockFunction]}
   onUpdateLocation={[MockFunction]}
-  openOnEnterPress={true}
   placeTypes={
     Array [
       "(regions)",
@@ -461,9 +453,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       },
     ]
   }
-  shouldGetAddressInfo={false}
   showCountryInSuggestions={true}
-  withoutLocationCards={false}
 >
   <div>
     <FieldWrapper
@@ -566,7 +556,6 @@ exports[`LocationSelector component should render LocationSelector propertly whe
         closeTimeoutMS={300}
         contentLabel="Location selection dialog"
         isOpen={false}
-        isPositionFixed={true}
         onAfterOpen={[Function]}
         onRequestClose={[Function]}
         overlayClassName={
@@ -631,7 +620,6 @@ exports[`LocationSelector component should render LocationSelector propertly whe
               }
             }
             isOpen={false}
-            isPositionFixed={true}
             onAfterOpen={[Function]}
             onRequestClose={[Function]}
             overlayClassName={
