@@ -59,23 +59,25 @@ const ACCEPTABLE_API_STATUSES = ['OK', 'NOT_FOUND', 'ZERO_RESULTS'];
  * `LocationAutocompleteWithGoogleLoader` __will pass props__ that are not needed for loading the API
  * __to `LocationAutocomplete`__, so you can provide them all together. For list of props see below
  */
-const LocationAutocomplete: React.FC<Props> = ({
-    inputRef,
-    isFocused = false,
-    onSelectionChange,
-    defaultInputValue = '',
-    inputPlaceholder,
-    clearLabel = '',
-    noSuggestionsPlaceholder,
-    country = '',
-    placeTypes = ['(regions)'],
-    singleLocation = false,
-    showCountryInSuggestions = false,
-    onRemoveAllLocations,
-    onError,
-    hidePoweredByGoogleLogo = false,
-    ...rest
-}) => {
+const LocationAutocomplete: React.FC<Props> = (props) => {
+    const {
+        inputRef,
+        isFocused,
+        onSelectionChange,
+        defaultInputValue,
+        inputPlaceholder,
+        clearLabel,
+        noSuggestionsPlaceholder,
+        country = '',
+        placeTypes,
+        singleLocation,
+        showCountryInSuggestions,
+        onRemoveAllLocations,
+        onError,
+        hidePoweredByGoogleLogo,
+        ...rest
+    } = props;
+
     const [storage] = React.useState({ latestInputValue: '' });
     const [suggestionsList, setSuggestionsList] = React.useState<
         google.maps.places.AutocompletePrediction[]
@@ -185,7 +187,7 @@ const LocationAutocomplete: React.FC<Props> = ({
             elems.unshift(
                 <img
                     key="powered by google logo"
-                    {...elem('poweredByGoogleImage')}
+                    {...elem('poweredByGoogleImage', props)}
                     src={POWERED_BY_GOOGLE_ON_WHITE}
                     srcSet={`${POWERED_BY_GOOGLE_ON_WHITE}, ${POWERED_BY_GOOGLE_ON_WHITE_2X} 2x, ${POWERED_BY_GOOGLE_ON_WHITE_3X} 3x`}
                     alt="Powered by Google"
@@ -214,7 +216,7 @@ const LocationAutocomplete: React.FC<Props> = ({
             onInputValueChange={handleInputValueChange}
             onSelectionChange={handleSelection}
             onClearAllSelected={onRemoveAllLocations}
-            iconNode={<FaMapMarkerAlt {...elem('icon')} />}
+            iconNode={<FaMapMarkerAlt {...elem('icon', props)} />}
             {...rest}
             inputRef={inputRef}
         />
@@ -222,5 +224,16 @@ const LocationAutocomplete: React.FC<Props> = ({
 };
 
 LocationAutocomplete.displayName = 'LocationAutocomplete';
+
+LocationAutocomplete.defaultProps = {
+    country: '',
+    singleLocation: false,
+    defaultInputValue: '',
+    clearLabel: '',
+    placeTypes: ['(regions)'],
+    isFocused: false,
+    showCountryInSuggestions: false,
+    hidePoweredByGoogleLogo: false,
+};
 
 export { LocationAutocomplete, Props as LocationAutocompleteProps };

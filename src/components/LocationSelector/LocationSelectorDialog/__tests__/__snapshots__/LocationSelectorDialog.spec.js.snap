@@ -55,6 +55,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
   >
     <LocationAutocomplete
       className="LocationSelectorDialog__searchField"
+      clearLabel=""
       country="NL"
       defaultInputValue=""
       hidePoweredByGoogleLogo={true}
