@@ -99,7 +99,7 @@
         "@storybook/builder-webpack4": "6.5.12",
         "@storybook/manager-webpack4": "6.5.12",
         "@storybook/react": "6.5.12",
-        "@storybook/storybook-deployer": "2.8.12",
+        "@storybook/storybook-deployer": "2.8.16",
         "@storybook/testing-library": "0.0.13",
         "@types/geojson": "7946.0.10",
         "@types/googlemaps": "3.43.3",
