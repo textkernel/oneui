@@ -2,7 +2,6 @@
 
 exports[`<LocationSelectorDialogWithGoogleLoader/> that loads google api and renders a Location selector dialog should render with default props 1`] = `
 <LocationSelectorDialogWithGoogleLoader
-  additionalGoogleProps={Object {}}
   apiKey="someKey"
   country="NL"
   doneLabel="Done"

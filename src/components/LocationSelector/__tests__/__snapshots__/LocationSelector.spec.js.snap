@@ -292,7 +292,6 @@ exports[`LocationSelector component should render LocationSelector properly when
                 tabIndex="-1"
               >
                 <LocationSelectorDialogWithGoogleLoader
-                  additionalGoogleProps={Object {}}
                   apiKey="apiKey"
                   clearLabel="Clear"
                   country="NL"
