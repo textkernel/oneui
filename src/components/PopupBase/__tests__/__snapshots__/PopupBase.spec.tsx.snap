@@ -2,12 +2,7 @@
 
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should render popup in portal when requested 1`] = `
 <PopupBase
-  anchorRef={null}
   anchorRenderer={[Function]}
-  onClose={null}
-  placement="bottom-start"
-  popperOptions={Object {}}
-  popupRef={null}
   popupRenderer={[Function]}
   renderInPortal={true}
 >
@@ -86,14 +81,8 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should render popup when requested 1`] = `
 <PopupBase
-  anchorRef={null}
   anchorRenderer={[Function]}
-  onClose={null}
-  placement="bottom-start"
-  popperOptions={Object {}}
-  popupRef={null}
   popupRenderer={[Function]}
-  renderInPortal={false}
 >
   <Button
     onClick={[Function]}
@@ -147,14 +136,8 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should render with minimal props correctly 1`] = `
 <PopupBase
-  anchorRef={null}
   anchorRenderer={[Function]}
-  onClose={null}
-  placement="bottom-start"
-  popperOptions={Object {}}
-  popupRef={null}
   popupRenderer={[Function]}
-  renderInPortal={false}
 >
   <Button
     onClick={[Function]}
@@ -173,14 +156,8 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should support no popup content from renderer 1`] = `
 <PopupBase
-  anchorRef={null}
   anchorRenderer={[Function]}
-  onClose={null}
-  placement="bottom-start"
-  popperOptions={Object {}}
-  popupRef={null}
   popupRenderer={[Function]}
-  renderInPortal={false}
 >
   <Button
     onClick={[Function]}
