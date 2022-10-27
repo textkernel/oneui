@@ -4,6 +4,7 @@ exports[`NavItem that renders a single navigation item should render correctly w
 <NavItem
   active={false}
   pullRight={false}
+  routerVersion={5}
   useActiveClass={false}
 >
   <a
