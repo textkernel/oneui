@@ -21,17 +21,17 @@ const { block, elem } = bem('SearchButton', styles);
 
 export const SearchButton = React.forwardRef<HTMLButtonElement, Props>(
     ({ disabled = false, children = '', type = 'button', ...rest }, ref) => {
-        const propsForBem = { withLabel: !!children };
+        const propForBem = { withLabel: !!children };
 
         return (
             <button
                 {...rest}
-                {...block({ ...propsForBem, ...rest })}
+                {...block({ ...propForBem, ...rest })}
                 ref={ref}
                 type={type}
                 disabled={disabled}
             >
-                <FaSearch {...elem('searchIcon', propsForBem)} />
+                <FaSearch {...elem('searchIcon', propForBem)} />
                 {children}
             </button>
         );
