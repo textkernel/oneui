@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import { NavLink, BrowserRouter } from 'react-router-dom';

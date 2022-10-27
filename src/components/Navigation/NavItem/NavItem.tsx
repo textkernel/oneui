@@ -36,20 +36,18 @@ export const NavItem = React.forwardRef<HTMLElement, Props>((props, ref) => {
     const newProps: ChildProps = { ...ariaProp, ...rest, ref };
     if (!useActiveClass) {
         newProps.className = block(props).className;
+    } else if (routerVersion === 5) {
+        newProps.className = block(props).className;
+        newProps.activeClassName = elem('active', props).className;
     } else {
-        if (routerVersion === 5) {
-            newProps.className = block(props).className;
-            newProps.activeClassName = elem('active', props).className;
-        } else {
-            const activeClass = elem('active', props).className as string;
-            newProps.className = ({ isActive }) => {
-                const classArr: string[] = [block(props).className];
-                if (isActive) {
-                    classArr.push(activeClass);
-                }
-                return classArr.join(' ');
-            };
-        }
+        const activeClass = elem('active', props).className as string;
+        newProps.className = ({ isActive }) => {
+            const classArr: string[] = [block(props).className];
+            if (isActive) {
+                classArr.push(activeClass);
+            }
+            return classArr.join(' ');
+        };
     }
 
     try {
