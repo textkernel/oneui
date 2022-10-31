@@ -2,9 +2,7 @@
 
 exports[`<RadioButton> that renders a radio button should render default radio button correctly 1`] = `
 <RadioButton
-  disabled={false}
   id="c1"
-  name={null}
 >
   <div>
     <input
@@ -48,7 +46,6 @@ exports[`<RadioButton> that renders a radio button should render default radio b
 
 exports[`<RadioButton> that renders a radio button should render radio button with props and children correctly 1`] = `
 <RadioButton
-  disabled={false}
   id="c1"
   name="group_name"
 >

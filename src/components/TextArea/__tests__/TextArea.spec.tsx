@@ -1,5 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
+import { shallow } from 'enzyme';
 import { TextArea } from '../TextArea';
 
 describe('<TextArea> that renders a textarea', () => {
