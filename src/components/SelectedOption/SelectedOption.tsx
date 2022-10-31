@@ -36,7 +36,7 @@ export const SelectedOption = React.forwardRef<HTMLElement, Props>(
         };
 
         return (
-            <As {...rest} ref={ref} {...block()}>
+            <As {...rest} ref={ref} {...block({ ...rest })}>
                 <button
                     {...elem('button')}
                     type="button"

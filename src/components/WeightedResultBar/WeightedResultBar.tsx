@@ -32,7 +32,7 @@ export const WeightedResultBar: React.FC<Props> = ({
     const loaderWidth = React.useRef(Math.floor(Math.random() * 60) + 25);
 
     return (
-        <div {...rest} {...block()}>
+        <div {...rest} {...block({ ...rest })}>
             <div {...elem('details')}>
                 {isLoading ? (
                     <ContentPlaceholder

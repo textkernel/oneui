@@ -45,7 +45,7 @@ export const CandidateAvatar: React.FC<Props> = ({
     return (
         <div
             {...rest}
-            {...block()}
+            {...block({ ...rest })}
             style={{
                 width: fixedSize,
                 height: fixedSize,

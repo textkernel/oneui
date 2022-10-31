@@ -27,8 +27,6 @@ export interface Props
     type?: ButtonType;
     /** Providing an href will render an <a> element, styled as a button. */
     href?: string;
-    /** Ref to access the button */
-    ref?: React.RefObject<HTMLButtonElement | HTMLAnchorElement>;
 }
 
 const { block } = bem('Button', styles);

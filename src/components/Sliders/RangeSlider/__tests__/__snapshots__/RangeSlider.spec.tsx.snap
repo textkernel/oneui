@@ -26,6 +26,7 @@ exports[`RangeSlider component should render component correctly 1`] = `
     disabled={false}
     dotStyle={Object {}}
     dots={false}
+    draggableTrack={false}
     handle={[Function]}
     handleStyle={
       Array [

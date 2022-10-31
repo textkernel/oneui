@@ -24,7 +24,7 @@ export const StepperButton: React.FC<Props> = ({
     ...rest
 }) => {
     return (
-        <button {...rest} {...block({ disabled })} type="button" disabled={disabled}>
+        <button {...rest} {...block({ disabled, ...rest })} type="button" disabled={disabled}>
             {icon === 'plus' ? <FaPlus size="75%" /> : <FaMinus size="75%" />}
         </button>
     );

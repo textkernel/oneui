@@ -17,7 +17,7 @@ const { block, elem } = bem('Toggle', styles);
 export const Toggle = React.forwardRef<HTMLInputElement, Props>(
     ({ children, disabled = false, id, ...rest }, ref) => {
         return (
-            <label {...block({ disabled })} htmlFor={id}>
+            <label {...block({ disabled, ...rest })} htmlFor={id}>
                 <div {...elem('toggleContainer')}>
                     <input
                         {...elem('realCheckbox')}

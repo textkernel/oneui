@@ -34,7 +34,7 @@ export const ProgressBar: React.FC<Props> = ({
     return (
         <div
             {...rest}
-            {...block({ context, animated, hidden, small })}
+            {...block({ context, animated, hidden, small, ...rest })}
             role="progressbar"
             aria-hidden={hidden}
             aria-valuenow={percentageAdjusted}

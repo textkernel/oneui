@@ -16,13 +16,11 @@ export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>,
     isInline?: boolean;
     /** Should button be disabled or not */
     disabled?: boolean;
-    /** Ref to access the button */
-    ref?: React.ForwardedRef<HTMLInputElement>;
 }
 
 const { block } = bem('Button', styles);
 
-export const FileButton: React.FC<Props> = React.forwardRef(
+export const FileButton = React.forwardRef<HTMLInputElement, Props>(
     (
         {
             children,
@@ -37,7 +35,11 @@ export const FileButton: React.FC<Props> = React.forwardRef(
     ) => {
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
-            <label ref={ref} {...block({ context, size, isBlock, isInline })} disabled={disabled}>
+            <label
+                ref={ref}
+                {...block({ context, size, isBlock, isInline, ...rest })}
+                disabled={disabled}
+            >
                 <input {...rest} hidden type="file" />
                 {children}
             </label>

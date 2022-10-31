@@ -1,5 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
+import { mount } from 'enzyme';
 import { Drawer } from '../Drawer';
 
 jest.mock('react-transition-group', () => {

@@ -35,7 +35,7 @@ export const FieldWithValidation: React.FC<Props> = ({
     if (errorMessage && useTooltip) {
         const clonedChild = errorMessage
             ? React.cloneElement(children, {
-                  context: 'danger',
+                  context: 'bad',
                   onFocus: handleFocus,
                   onBlur: handleBlur,
               })
@@ -49,12 +49,12 @@ export const FieldWithValidation: React.FC<Props> = ({
     }
 
     if (errorMessage) {
-        const clonedChild = React.cloneElement(children, { context: 'danger' });
+        const clonedChild = React.cloneElement(children, { context: 'bad' });
 
         return (
             <>
                 {clonedChild}
-                <Text {...rest} {...block()} context="danger" size="small">
+                <Text {...rest} {...block()} context="bad" size="small">
                     {errorMessage}
                 </Text>
             </>

@@ -81,7 +81,7 @@ export const TwoPaneView: React.FC<Props> = ({ children, ...rest }) => {
     });
 
     return (
-        <BlockWidthRestrictor {...rest} ref={blockRef} {...block()}>
+        <BlockWidthRestrictor {...rest} ref={blockRef} {...block({ ...rest })}>
             {React.Children.map(children, (child) => {
                 if (React.isValidElement(child)) {
                     const childStyle = child.props.style;

@@ -58,7 +58,7 @@ export function SelectButton<V>({
             {...rest}
             onKeyPress={handleKeyPress}
             onClick={handleClick}
-            {...block({ isEqualWidth, context, isSelected, size })}
+            {...block({ isEqualWidth, context, isSelected, size, ...rest })}
         >
             {children}
         </div>

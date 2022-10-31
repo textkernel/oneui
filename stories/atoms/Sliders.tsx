@@ -4,7 +4,7 @@ import { Slider, RangeSlider } from '@textkernel/oneui';
 export default {
     title: 'Atoms/Slider',
     component: Slider,
-    subcomponensa: { RangeSlider },
+    subcomponents: { RangeSlider },
 };
 
 export const _Slider = (args) => <Slider {...args} />;
@@ -13,6 +13,7 @@ _Slider.args = {
     max: 100,
     step: 1,
     defaultValue: 10,
+    onChange: (value: number) => console.log('onChange was called with:', value),
 };
 
 export const _RangeSlider = (args) => <RangeSlider {...args} />;
@@ -21,4 +22,5 @@ _RangeSlider.args = {
     max: 100,
     step: 1,
     defaultValue: [10, 80],
+    onChange: (value: number) => console.log('onChange was called with:', value),
 };
