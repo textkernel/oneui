@@ -27,6 +27,7 @@ export const computedColorVariables = (baseVariables: CssVars): CssVars => {
         ...generateColorShadesFromVariables('--color-muted'),
         ...generateColorShadesFromVariables('--color-primary'),
         ...generateColorShadesFromVariables('--color-secondary'),
+        ...generateColorShadesFromVariables('--color-accent'),
         ...generateColorShadesFromVariables('--color-success'),
         ...generateColorShadesFromVariables('--color-warning'),
         ...generateColorShadesFromVariables('--color-danger'),
@@ -44,11 +45,6 @@ export const computedColorVariables = (baseVariables: CssVars): CssVars => {
             baseVariables['--color-foreground'],
             baseVariables['--color-background'],
             20
-        ),
-        '--color-accent-25': mixTwoColors(
-            baseVariables['--color-accent'],
-            baseVariables['--color-background'],
-            90
         ),
     };
 };
