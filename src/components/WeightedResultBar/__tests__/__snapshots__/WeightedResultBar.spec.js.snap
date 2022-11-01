@@ -27,7 +27,7 @@ exports[`WeightedResultBar should render correctly 1`] = `
       </Text>
     </div>
     <ProgressBar
-      context="primary"
+      context="accent"
       percentage={67}
       small={true}
     >
@@ -40,7 +40,7 @@ exports[`WeightedResultBar should render correctly 1`] = `
         role="progressbar"
       >
         <div
-          className="ProgressBar__fill ProgressBar__fill--context_primary ProgressBar__fill--small"
+          className="ProgressBar__fill ProgressBar__fill--context_accent ProgressBar__fill--small"
           style={
             Object {
               "width": "67%",
@@ -80,7 +80,7 @@ exports[`WeightedResultBar should render correctly with a custom count 1`] = `
       </p>
     </div>
     <ProgressBar
-      context="primary"
+      context="accent"
       percentage={67}
       small={true}
     >
@@ -93,7 +93,7 @@ exports[`WeightedResultBar should render correctly with a custom count 1`] = `
         role="progressbar"
       >
         <div
-          className="ProgressBar__fill ProgressBar__fill--context_primary ProgressBar__fill--small"
+          className="ProgressBar__fill ProgressBar__fill--context_accent ProgressBar__fill--small"
           style={
             Object {
               "width": "67%",

@@ -49,7 +49,7 @@
         }
 
         &--context {
-            @each $context in ($contexts) {
+            @each $context in append($contexts, "accent") {
                 &_#{ $context } {
                     background-color: var(--color-#{$context});
                     line-height: var(--line-height-large);

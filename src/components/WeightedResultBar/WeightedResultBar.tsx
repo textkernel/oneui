@@ -22,7 +22,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const { block, elem } = bem('WeightedResultBar', styles);
 
 export const WeightedResultBar: React.FC<Props> = ({
-    context = 'primary',
+    context = 'accent',
     isLoading = false,
     children,
     percentage,
