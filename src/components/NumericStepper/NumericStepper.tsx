@@ -41,18 +41,16 @@ const { block, elem } = bem('NumericStepper', styles);
  * This component is used as a replacement for the traditional input component with step attribute
  * (also knows as Input Stepper), but with custom up and down buttons.
  */
-export const NumericStepper: React.FC<Props> = (props) => {
-    const {
-        onChange,
-        step = 1,
-        minValue = 0,
-        maxValue = Number.MAX_SAFE_INTEGER,
-        defaultValue = 0,
-        customWidth = '3ch',
-        className,
-        ...rest
-    } = props;
-
+export const NumericStepper: React.FC<Props> = ({
+    onChange,
+    step = 1,
+    minValue = 0,
+    maxValue = Number.MAX_SAFE_INTEGER,
+    defaultValue = 0,
+    customWidth = '3ch',
+    className = undefined,
+    ...rest
+}) => {
     const [currentValue, setCurrentValue] = React.useState<number>(defaultValue || minValue);
     const [inputValue, setInputValue] = React.useState<string>(currentValue.toString());
 
@@ -127,7 +125,7 @@ export const NumericStepper: React.FC<Props> = (props) => {
                 disabled={currentValue === minValue}
             />
             <input
-                {...elem('stepperInput', props)}
+                {...elem('stepperInput')}
                 style={{ width: customWidth }}
                 onChange={handleInputChange}
                 onBlur={handleInputBlur}
@@ -147,12 +145,3 @@ export const NumericStepper: React.FC<Props> = (props) => {
 };
 
 NumericStepper.displayName = 'NumericStepper';
-
-NumericStepper.defaultProps = {
-    step: 1,
-    defaultValue: 0,
-    minValue: 0,
-    maxValue: Number.MAX_SAFE_INTEGER,
-    customWidth: '3ch',
-    className: undefined,
-};

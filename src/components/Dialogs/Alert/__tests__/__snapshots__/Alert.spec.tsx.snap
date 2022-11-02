@@ -28,7 +28,6 @@ exports[`Alert should render correctly 1`] = `
       className="Dialog"
       contentLabel="Content label"
       isOpen={true}
-      isPositionFixed={false}
     >
       <Modal
         ariaHideApp={false}
@@ -43,7 +42,6 @@ exports[`Alert should render correctly 1`] = `
         closeTimeoutMS={300}
         contentLabel="Content label"
         isOpen={true}
-        isPositionFixed={false}
         onAfterOpen={[Function]}
         overlayClassName={
           Object {
@@ -135,7 +133,6 @@ exports[`Alert should render correctly 1`] = `
               }
             }
             isOpen={true}
-            isPositionFixed={false}
             onAfterOpen={[Function]}
             overlayClassName={
               Object {
@@ -239,7 +236,6 @@ exports[`Alert should render correctly with title 1`] = `
       className="Dialog"
       contentLabel="Content label"
       isOpen={true}
-      isPositionFixed={false}
     >
       <Modal
         ariaHideApp={false}
@@ -254,7 +250,6 @@ exports[`Alert should render correctly with title 1`] = `
         closeTimeoutMS={300}
         contentLabel="Content label"
         isOpen={true}
-        isPositionFixed={false}
         onAfterOpen={[Function]}
         overlayClassName={
           Object {
@@ -351,7 +346,6 @@ exports[`Alert should render correctly with title 1`] = `
               }
             }
             isOpen={true}
-            isPositionFixed={false}
             onAfterOpen={[Function]}
             overlayClassName={
               Object {

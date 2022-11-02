@@ -63,41 +63,39 @@ interface Props extends CardPropsForSelectorDialog, AutocompletePropsForSelector
 
 const { elem } = bem('LocationSelectorDialog', styles);
 
-const LocationSelectorDialog = (props: Props) => {
+const LocationSelectorDialog: React.FC<Props> = ({
+    /** FieldWrapper props */
+    inputPlaceholder,
+
+    /** LocationCard props */
+    hasRadius,
+    minRadius,
+    maxRadius,
+    radiusStep,
+    renderRadiusLabel,
+    onRemoveLocation,
+    doneLabel,
+    clearLabel,
+
+    /** LocationAutocomplete props */
+    country,
+    initialMapAddress = null,
+    defaultHighlight = undefined,
+    placeTypes,
+    noSuggestionsPlaceholder,
+    showCountryInSuggestions,
+    onLocationAutocompleteError = null,
+
+    /** Internal use */
+    withoutLocationCards = false,
+    onUpdateLocation,
+    selectedLocations,
+    getMarkers = () => undefined,
+    onAddLocation,
+    onRemoveAllLocations,
+    onCloseModal = () => null,
+}) => {
     const locationInputRef = React.createRef<HTMLInputElement>();
-
-    const {
-        /** FieldWrapper props */
-        inputPlaceholder,
-
-        /** LocationCard props */
-        hasRadius,
-        minRadius,
-        maxRadius,
-        radiusStep,
-        renderRadiusLabel,
-        onRemoveLocation,
-        doneLabel,
-        clearLabel,
-
-        /** LocationAutocomplete props */
-        country,
-        initialMapAddress,
-        defaultHighlight,
-        placeTypes,
-        noSuggestionsPlaceholder,
-        showCountryInSuggestions,
-        onLocationAutocompleteError,
-
-        /** Internal use */
-        withoutLocationCards,
-        onUpdateLocation,
-        selectedLocations,
-        getMarkers,
-        onAddLocation,
-        onRemoveAllLocations,
-        onCloseModal,
-    } = props;
 
     const [firstSelectedLocation] = selectedLocations;
 
@@ -136,13 +134,9 @@ const LocationSelectorDialog = (props: Props) => {
 
     return (
         <>
-            <div
-                {...elem('inputLine', props)}
-                role="presentation"
-                onKeyDown={handleInputFormSubmit}
-            >
+            <div {...elem('inputLine')} role="presentation" onKeyDown={handleInputFormSubmit}>
                 <LocationAutocomplete
-                    {...elem('searchField', props)}
+                    {...elem('searchField')}
                     isFocused
                     inputRef={locationInputRef}
                     defaultInputValue={
@@ -163,7 +157,7 @@ const LocationSelectorDialog = (props: Props) => {
                     hidePoweredByGoogleLogo
                 />
                 {hasRadius && withoutLocationCards && selectedLocations.length === 1 && (
-                    <div {...elem('slider', props)}>
+                    <div {...elem('slider')}>
                         <Slider
                             value={firstSelectedLocation.radius}
                             min={minRadius}
@@ -172,21 +166,21 @@ const LocationSelectorDialog = (props: Props) => {
                             railStyle={{ backgroundColor: 'var(--color-neutral-25)' }}
                             onChange={handleRadiusChange}
                         />
-                        <Text size={SIZES[0]} {...elem('sliderLabel', props)}>
+                        <Text size={SIZES[0]} {...elem('sliderLabel')}>
                             {renderRadiusLabel(firstSelectedLocation.radius)}
                         </Text>
                     </div>
                 )}
-                <Button {...elem('button', props)} onClick={onCloseModal} context="brand">
+                <Button {...elem('button')} onClick={onCloseModal} context="brand">
                     {doneLabel}
                 </Button>
             </div>
-            <div {...elem('locationsWrapper', props)}>
+            <div {...elem('locationsWrapper')}>
                 {!withoutLocationCards && selectedLocations.length > 0 && (
-                    <ul {...elem('locationCardsContainer', props)}>
+                    <ul {...elem('locationCardsContainer')}>
                         {selectedLocations.map((location) => (
                             <LocationCard
-                                {...elem('locationCard', props)}
+                                {...elem('locationCard')}
                                 As="li"
                                 key={location.id}
                                 locationId={location.id}
@@ -214,14 +208,5 @@ const LocationSelectorDialog = (props: Props) => {
 };
 
 LocationSelectorDialog.displayName = 'LocationSelectorDialog';
-
-LocationSelectorDialog.defaultProps = {
-    withoutLocationCards: false,
-    initialMapAddress: null,
-    onLocationAutocompleteError: null,
-    onCloseModal: () => null,
-    defaultHighlight: undefined,
-    getMarkers: undefined,
-};
 
 export { LocationSelectorDialog, Props as LocationSelectorDialogProps };

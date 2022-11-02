@@ -3,12 +3,10 @@ import Range, { RangeProps } from 'rc-slider/lib/Range';
 import '../Slider.scss';
 
 /** See technical notes in Slider.tsx */
-const RangeSlider = (props: RangeProps) => <Range {...props} />;
+const RangeSlider = ({ defaultValue = [0, 100], ...rest }) => (
+    <Range defaultValue={defaultValue} {...rest} />
+);
 
 RangeSlider.displayName = 'RangeSlider';
-
-RangeSlider.defaultProps = {
-    defaultValue: [0, 100],
-};
 
 export { RangeSlider, RangeProps };
