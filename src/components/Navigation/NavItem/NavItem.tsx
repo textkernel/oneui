@@ -31,7 +31,14 @@ const { block, elem } = bem('NavItem', styles);
  * For technical reasons only the usage of version 6 is demonstrated in storybook
  */
 export const NavItem = React.forwardRef<HTMLElement, Props>((props, ref) => {
-    const { active = false, pullRight = false, useActiveClass = false, routerVersion = 5, children, ...rest } = props;
+    const {
+        active = false,
+        pullRight = false,
+        useActiveClass = false,
+        routerVersion = 5,
+        children,
+        ...rest
+    } = props;
     const ariaProp = active ? { 'aria-current': 'page' } : {};
     const newProps: ChildProps = { ...ariaProp, ...rest, ref };
     if (!useActiveClass) {
@@ -50,14 +57,13 @@ export const NavItem = React.forwardRef<HTMLElement, Props>((props, ref) => {
         };
     }
 
-        try {
-            React.Children.only(children);
-        } catch {
-            throw new Error('NavItem should have a single child only');
-        }
-
-        return React.cloneElement(children, newProps);
+    try {
+        React.Children.only(children);
+    } catch {
+        throw new Error('NavItem should have a single child only');
     }
-);
+
+    return React.cloneElement(children, newProps);
+});
 
 NavItem.displayName = 'NavItem';
