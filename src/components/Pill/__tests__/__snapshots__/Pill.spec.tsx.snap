@@ -260,6 +260,7 @@ exports[`<Pill> component should render correctly 1`] = `
     <PillButton
       content="Pill content"
       isContentDefault={false}
+      isOpen={false}
       name="Pill name"
       onClear={[MockFunction]}
       toggleDropdown={[Function]}

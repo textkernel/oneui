@@ -5,6 +5,11 @@ import { PopoverDummy } from '../../src/components/PopupBase/__mocks__/PopoverDu
 export default {
     title: 'Atoms/PopupBase',
     component: PopupBase,
+    argTypes: {
+        anchorRef: { control: false },
+        popupRef: { control: false },
+        popperOptions: { control: false },
+    },
 };
 
 export const _PopupBase = (args) => (
@@ -22,3 +27,4 @@ _PopupBase.args = {
     ),
     placement: 'bottom-start',
 };
+

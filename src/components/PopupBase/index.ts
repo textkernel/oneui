@@ -1,1 +1,1 @@
-export { PopupBase } from './PopupBase';
+export { PopupBase, PopupBaseRenderer } from './PopupBase';

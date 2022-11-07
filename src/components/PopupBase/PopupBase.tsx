@@ -26,9 +26,9 @@ export interface Props {
      */
     popupRenderer: PopupBaseRenderer;
     /** ref object for anchor */
-    anchorRef?: any;
+    anchorRef?: React.RefObject<HTMLElement>;
     /** ref object for popup */
-    popupRef?: any;
+    popupRef?: React.RefObject<HTMLElement>;
     /** placement of the popup dialog relative to anchor */
     placement?: PopupPlacement;
     /** additional Popper options. See https://popper.js.org/docs/v2/constructors/#options */
@@ -38,8 +38,8 @@ export interface Props {
     /** a function to be called when the popup closes */
     onClose?: () => void; // ???
 }
-const anchorRefInit = React.createRef();
-const popupRefInit = React.createRef();
+const anchorRefInit = React.createRef<HTMLElement>();
+const popupRefInit = React.createRef<HTMLElement>();
 let popper: Instance | undefined;
 
 export const PopupBase: React.FC<Props> = ({
@@ -68,7 +68,7 @@ export const PopupBase: React.FC<Props> = ({
             return Array.from(event.composedPath()).some((node) => {
                 // Must be Element node
                 if ((node as Element).nodeType === 1) {
-                    return popupRef.current.contains(node as Element);
+                    return popupRef.current && popupRef.current.contains(node as Element);
                 }
                 return false;
             });
@@ -148,7 +148,7 @@ export const PopupBase: React.FC<Props> = ({
     const renderAnchor = () => {
         const anchorElem = anchorRenderer(getArgs());
         // @ts-ignore
-        return React.cloneElement(anchorElem, { ref: anchorRef });
+        return anchorRef && React.cloneElement(anchorElem, { ref: anchorRef });
     };
 
     const renderPopup = () => {

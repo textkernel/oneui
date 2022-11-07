@@ -20,9 +20,9 @@ export interface Props {
     /** label for the Done button */
     doneLabel: string;
     /** ref for pill button */
-    ref?: object;
+    ref?: React.RefObject<HTMLElement>;
     /** ref for pill dropdown */
-    dropdownRef?: object;
+    dropdownRef?: React.RefObject<HTMLElement>;
     /** whether or not to add a padding to the dropdown container.
      * It is useful if you need to add elements that stretch to the edge of the container.
      * You can use the CSS variable --pill-dropdown-padding to add padding as required.
@@ -57,7 +57,7 @@ export const Pill: React.FC<Props> = ({
 }) => {
     const buttonRef = React.useMemo(() => ref || React.createRef<HTMLElement>(), [ref]);
     const dropdownRef = React.useMemo(
-        () => dropdownRefFromProps || React.createRef(),
+        () => dropdownRefFromProps || React.createRef<HTMLElement>(),
         [dropdownRefFromProps]
     );
 

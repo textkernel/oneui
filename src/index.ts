@@ -31,7 +31,7 @@ export { TabItem, TabsBar } from './components/Tabs';
 export { Text, MarkedText } from './components/Text';
 export { TextArea } from './components/TextArea';
 export { PageWidthRestrictor, BlockWidthRestrictor } from './components/WidthRestrictor';
-export { PopupBase } from './components/PopupBase';
+export { PopupBase, PopupBaseRenderer } from './components/PopupBase';
 export { Tag } from './components/Tag';
 // Molecules
 export * from './components/BulkActionsToolbar';
