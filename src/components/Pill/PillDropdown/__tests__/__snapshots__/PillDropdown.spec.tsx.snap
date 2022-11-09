@@ -4,7 +4,6 @@ exports[`<PillDropdown> component should render correctly 1`] = `
 <PillDropdown
   close={[MockFunction]}
   doneLabel="Done"
-  noPadding={false}
 >
   <div
     className="PillDropdown"

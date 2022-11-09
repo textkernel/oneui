@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name, react/prop-types */
 import React from 'react';
 import toJson from 'enzyme-to-json';
+import { mount } from 'enzyme';
 import { Button } from '../../..';
 import { ESCAPE_KEY } from '../../../constants';
 import { PopupBase } from '../PopupBase';
@@ -101,6 +102,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             togglePopup();
             expect(wrapper.find('Popover')).toHaveLength(1);
 
+            // @ts-ignore
             clickDocument();
             wrapper.update();
 
@@ -109,6 +111,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
         it('should call onClose if outside is clicked', () => {
             togglePopup();
 
+            // @ts-ignore
             clickDocument();
             wrapper.update();
 

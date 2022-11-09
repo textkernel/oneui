@@ -3,8 +3,6 @@
 exports[`<PillButton> component in active, collapsed state (with content prop) should render correctly 1`] = `
 <PillButton
   content="This pill is in use"
-  isContentDefault={false}
-  isOpen={false}
   name="Pill name"
   onClear={[MockFunction]}
   toggleDropdown={[MockFunction]}
@@ -73,7 +71,6 @@ exports[`<PillButton> component in active, collapsed state (with content prop) s
 exports[`<PillButton> component in active, open state (content and isOpen prop) should render correctly 1`] = `
 <PillButton
   content="This pill is in use"
-  isContentDefault={false}
   isOpen={true}
   name="Pill name"
   onClear={[MockFunction]}
@@ -144,9 +141,6 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
 
 exports[`<PillButton> component in inactive, collapsed state (with minimal props) should render correctly 1`] = `
 <PillButton
-  content={null}
-  isContentDefault={false}
-  isOpen={false}
   name="Pill name"
   onClear={[MockFunction]}
   toggleDropdown={[MockFunction]}
@@ -214,8 +208,6 @@ exports[`<PillButton> component in inactive, collapsed state (with minimal props
 
 exports[`<PillButton> component in inactive, open state (isOpen prop) should render correctly 1`] = `
 <PillButton
-  content={null}
-  isContentDefault={false}
   isOpen={true}
   name="Pill name"
   onClear={[MockFunction]}
