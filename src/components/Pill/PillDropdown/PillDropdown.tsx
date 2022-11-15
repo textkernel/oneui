@@ -31,7 +31,7 @@ export interface Props {
 const { block, elem } = bem('PillDropdown', styles);
 
 export const PillDropdown = React.forwardRef<HTMLElement, Props>(
-    ({ close = undefined, doneLabel, noPadding = false, children, ...rest }, ref) => {
+    ({ close, doneLabel, noPadding = false, children, ...rest }, ref) => {
         const handleDoneClick = () => {
             if (close) {
                 close();
