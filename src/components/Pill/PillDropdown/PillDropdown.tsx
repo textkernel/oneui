@@ -3,11 +3,20 @@ import { bem } from '../../../utils';
 import { Button } from '../../Buttons';
 import styles from './PillDropdown.scss';
 
+export interface PillDropdownChildrenParams {
+    /** function that closes the dropdown */
+    close?: () => void;
+    /** string that can be applied
+     * inside the component to set consistent padding
+     * */
+    innerPadding?: string;
+}
+
 export interface Props {
     /** The dropdown content renderer function. It is called with:
      *   * close {function} - see below
      */
-    children: (param) => undefined;
+    children: (params: PillDropdownChildrenParams) => ReactNode;
     /** function that closes the dropdown */
     close: () => void;
     /** label for the Done button */
@@ -22,7 +31,7 @@ export interface Props {
 const { block, elem } = bem('PillDropdown', styles);
 
 export const PillDropdown = React.forwardRef<HTMLElement, Props>(
-    ({ close = null, doneLabel, noPadding = false, children, ...rest }, ref) => {
+    ({ close = undefined, doneLabel, noPadding = false, children, ...rest }, ref) => {
         const handleDoneClick = () => {
             if (close) {
                 close();

@@ -1,16 +1,18 @@
 import * as React from 'react';
 import { PopupBase } from '../PopupBase';
 import { PillButton } from './PillButton';
-import { PillDropdown } from './PillDropdown';
+import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
 
 export interface Props {
     /** The dropdown content renderer function. It is called with:
      *   * close {function} that closes the dropdown
      *   * innerPadding {string} that can be applied inside the component to set consistent padding
      */
-    children: (param) => undefined;
+    children: (params: PillDropdownChildrenParams) => ReactNode;
     /** a function to be called to clear the pill/filter content */
     onClear: () => void;
+    /** a function that is called when the dropdown closes via done-button-click, window-click or ESC */
+    onClose: () => void;
     /** name describing the pill/filter */
     name: string;
     /** label describing the content of an active filter/pill */
@@ -30,8 +32,6 @@ export interface Props {
     noPaddingInDropdown?: boolean;
     /** other props that need to be applied to the dropdown container */
     additionalDropdownProps?: object;
-    /** a function that is called when the dropdown closes via done-button-click, window-click or ESC */
-    onClose: () => void;
 }
 
 /**
