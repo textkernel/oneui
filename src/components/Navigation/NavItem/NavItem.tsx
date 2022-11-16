@@ -31,7 +31,15 @@ const { block, elem } = bem('NavItem', styles);
  * For technical reasons only the usage of version 6 is demonstrated in storybook
  */
 export const NavItem = React.forwardRef<HTMLElement, Props>((props, ref) => {
-    const { active, pullRight, useActiveClass, routerVersion = 5, children, ...rest } = props;
+    const {
+        active = false,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        pullRight = false,
+        useActiveClass = false,
+        routerVersion = 5,
+        children,
+        ...rest
+    } = props;
     const ariaProp = active ? { 'aria-current': 'page' } : {};
     const newProps: ChildProps = { ...ariaProp, ...rest, ref };
     if (!useActiveClass) {
@@ -60,10 +68,3 @@ export const NavItem = React.forwardRef<HTMLElement, Props>((props, ref) => {
 });
 
 NavItem.displayName = 'NavItem';
-
-NavItem.defaultProps = {
-    active: false,
-    pullRight: false,
-    useActiveClass: false,
-    routerVersion: 5,
-};

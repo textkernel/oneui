@@ -37,7 +37,6 @@ exports[`Confirm should render correctly 1`] = `
       ariaHideApp={false}
       className="Dialog"
       isOpen={true}
-      isPositionFixed={false}
     >
       <Modal
         ariaHideApp={false}
@@ -51,7 +50,6 @@ exports[`Confirm should render correctly 1`] = `
         }
         closeTimeoutMS={300}
         isOpen={true}
-        isPositionFixed={false}
         onAfterOpen={[Function]}
         overlayClassName={
           Object {
@@ -147,7 +145,6 @@ exports[`Confirm should render correctly 1`] = `
               }
             }
             isOpen={true}
-            isPositionFixed={false}
             onAfterOpen={[Function]}
             overlayClassName={
               Object {
@@ -272,7 +269,6 @@ exports[`Confirm should render correctly with title 1`] = `
       ariaHideApp={false}
       className="Dialog"
       isOpen={true}
-      isPositionFixed={false}
     >
       <Modal
         ariaHideApp={false}
@@ -286,7 +282,6 @@ exports[`Confirm should render correctly with title 1`] = `
         }
         closeTimeoutMS={300}
         isOpen={true}
-        isPositionFixed={false}
         onAfterOpen={[Function]}
         overlayClassName={
           Object {
@@ -387,7 +382,6 @@ exports[`Confirm should render correctly with title 1`] = `
               }
             }
             isOpen={true}
-            isPositionFixed={false}
             onAfterOpen={[Function]}
             overlayClassName={
               Object {

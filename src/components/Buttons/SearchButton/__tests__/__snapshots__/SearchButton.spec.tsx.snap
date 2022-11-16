@@ -1,10 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<SearchButton> that renders a search button should render a button with a label correctly 1`] = `
-<SearchButton
-  disabled={false}
-  type="button"
->
+<SearchButton>
   <button
     className="SearchButton SearchButton--withLabel"
     disabled={false}
@@ -49,10 +46,7 @@ exports[`<SearchButton> that renders a search button should render a button with
 `;
 
 exports[`<SearchButton> that renders a search button should render default button correctly 1`] = `
-<SearchButton
-  disabled={false}
-  type="button"
->
+<SearchButton>
   <button
     className="SearchButton"
     disabled={false}

@@ -43,31 +43,32 @@ const { block, elem } = bem('Modal', styles);
  *      `__Modal.setAppElement__(appElementSelector);`
  */
 // eslint-disable-next-line @typescript-eslint/no-redeclare
-const Modal: Modal<Props> = (props) => {
+const Modal: Modal<Props> = ({
+    children,
+    isOpen,
+    contentLabel,
+    onRequestClose,
+    className,
+    portalClassName,
+    overlayClassName,
+    isPositionFixed = false,
+    ...rest
+}) => {
     const overlayRef = React.useRef<HTMLDivElement | null>(null);
 
-    const {
-        children,
-        isOpen,
-        contentLabel,
-        onRequestClose,
-        className,
-        portalClassName,
-        overlayClassName,
-        ...rest
-    } = props;
-
     const { className: portalClass } = block({ className: portalClassName, ...rest });
-    const { className: bodyOpenClass } = elem('body', props);
+    const { className: bodyOpenClass } = elem('body');
     const { className: overlayClass } = elem('overlay', {
-        ...props,
         elemClassName: overlayClassName,
     });
-    const { className: overlayEnteredClass } = elem('overlay--entered', props);
-    const { className: overlayExitedClass } = elem('overlay--exited', props);
-    const { className: contentClass } = elem('content', { ...props, elemClassName: className });
-    const { className: contentEnteredClass } = elem('content--entered', props);
-    const { className: contentExitedClass } = elem('content--exited', props);
+    const { className: overlayEnteredClass } = elem('overlay--entered');
+    const { className: overlayExitedClass } = elem('overlay--exited');
+    const { className: contentClass } = elem('content', {
+        isPositionFixed,
+        elemClassName: className,
+    });
+    const { className: contentEnteredClass } = elem('content--entered');
+    const { className: contentExitedClass } = elem('content--exited');
 
     const setOverlayRef = (node) => {
         overlayRef.current = node;
@@ -116,9 +117,5 @@ Modal.setAppElement = (selector) => {
 };
 
 Modal.displayName = 'Modal';
-
-Modal.defaultProps = {
-    isPositionFixed: false,
-};
 
 export { Modal, Props };

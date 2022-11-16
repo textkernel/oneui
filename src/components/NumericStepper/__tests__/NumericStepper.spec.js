@@ -29,12 +29,6 @@ describe('<NumericStepper> component', () => {
     it('should have correct values with default props', () => {
         wrapper = mount(<NumericStepper onChange={onChangeMock} />);
 
-        expect(wrapper.prop('defaultValue')).toEqual(0);
-        expect(wrapper.prop('step')).toEqual(1);
-        expect(wrapper.prop('minValue')).toEqual(0);
-        expect(wrapper.prop('maxValue')).toEqual(9007199254740991);
-        expect(wrapper.prop('customWidth')).toEqual('3ch');
-
         const input = wrapper.find('input');
         expect(input.prop('value')).toEqual('0');
         expect(input.prop('step')).toEqual(1);

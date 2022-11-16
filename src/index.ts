@@ -31,7 +31,7 @@ export { TabItem, TabsBar } from './components/Tabs';
 export { Text, MarkedText } from './components/Text';
 export { TextArea } from './components/TextArea';
 export { PageWidthRestrictor, BlockWidthRestrictor } from './components/WidthRestrictor';
-export { PopupBase } from './components/PopupBase';
+export { PopupBase, PopupBaseRenderer } from './components/PopupBase';
 export { Tag } from './components/Tag';
 // Molecules
 export * from './components/BulkActionsToolbar';
@@ -49,7 +49,7 @@ export { LoadingSpinner } from './components/LoadingSpinner';
 export { LocationCard } from './components/LocationCard';
 export { NavBar, NavItem } from './components/Navigation';
 export { Pagination } from './components/Pagination';
-export { Pill, PillButton, PillDropdown } from './components/Pill';
+export { Pill, PillButton, PillDropdown, PillDropdownChildrenParams } from './components/Pill';
 export { RadioButton, RadioButtonGroup } from './components/RadioButton';
 export { Teaser } from './components/Teaser';
 export { Toggle } from './components/Toggle';

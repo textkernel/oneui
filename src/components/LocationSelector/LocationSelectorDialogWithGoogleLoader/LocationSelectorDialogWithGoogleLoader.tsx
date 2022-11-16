@@ -17,46 +17,46 @@ interface Props extends LocationSelectorDialogProps {
     additionalGoogleProps?: LoadScriptNextProps; // eslint-disable-line react/forbid-prop-types
 }
 
-function LocationSelectorDialogWithGoogleLoader(props: Props) {
-    const {
-        /** Google props */
-        apiKey,
-        language,
-        region,
-        additionalGoogleProps,
+const LocationSelectorDialogWithGoogleLoader: React.FC<Props> = ({
+    /** Google props */
+    apiKey,
+    language,
+    region = undefined,
+    additionalGoogleProps = {},
 
-        /** LocationCard props */
-        hasRadius,
-        minRadius,
-        maxRadius,
-        radiusStep,
-        renderRadiusLabel,
-        onRemoveLocation,
-        doneLabel,
-        clearLabel,
+    /** LocationCard props */
+    hasRadius,
+    minRadius,
+    maxRadius,
+    radiusStep,
+    renderRadiusLabel,
+    onRemoveLocation,
+    doneLabel,
+    clearLabel,
 
-        /** LocationAutocomplete props */
-        country,
-        initialMapAddress,
-        placeTypes,
-        noSuggestionsPlaceholder,
-        showCountryInSuggestions,
-        onLocationAutocompleteError,
+    /** LocationAutocomplete props */
+    country,
+    initialMapAddress,
+    placeTypes,
+    noSuggestionsPlaceholder,
+    showCountryInSuggestions,
+    onLocationAutocompleteError,
 
-        /** Map props */
-        defaultHighlight,
+    /** Map props */
+    defaultHighlight,
 
-        /** Internal use */
-        withoutLocationCards,
-        onCloseModal,
-        onAddLocation,
-        onUpdateLocation,
-        onRemoveAllLocations,
-        selectedLocations,
-        inputPlaceholder,
-        getMarkers,
-    } = props;
-
+    /** Internal use */
+    withoutLocationCards,
+    onCloseModal,
+    onAddLocation,
+    onUpdateLocation,
+    onRemoveAllLocations,
+    selectedLocations,
+    inputPlaceholder,
+    getMarkers,
+}) => {
+    const { googleMapsApiKey: removedProperty, ...additionalGoogleRestProps } =
+        additionalGoogleProps;
     return (
         <LoadScriptNext
             googleMapsApiKey={apiKey}
@@ -64,7 +64,7 @@ function LocationSelectorDialogWithGoogleLoader(props: Props) {
             region={region}
             loadingElement={<LoadingSpinner centerIn="parent" />}
             libraries={GOOGLE_API_LIBRARIES}
-            {...additionalGoogleProps}
+            {...additionalGoogleRestProps}
         >
             <LocationSelectorDialog
                 inputPlaceholder={inputPlaceholder}
@@ -93,14 +93,9 @@ function LocationSelectorDialogWithGoogleLoader(props: Props) {
             />
         </LoadScriptNext>
     );
-}
+};
 
 LocationSelectorDialogWithGoogleLoader.displayName = 'LocationSelectorDialogWithGoogleLoader';
-
-LocationSelectorDialogWithGoogleLoader.defaultProps = {
-    additionalGoogleProps: {},
-    region: undefined,
-};
 
 export {
     LocationSelectorDialogWithGoogleLoader,

@@ -2,22 +2,16 @@
 
 exports[`Autosuggest rendering should initially render empty component correctly 1`] = `
 <Autosuggest
-  allowMixingSuggestionsAndLoading={false}
-  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   isLoading={false}
-  noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionAdd={[MockFunction]}
   onSelectionRemove={[MockFunction]}
-  onSubmit={null}
   selectedSuggestions={Array []}
-  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={Array []}
-  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -136,22 +130,16 @@ exports[`Autosuggest rendering should initially render empty component correctly
 
 exports[`Autosuggest rendering should initially render focused component correctly 1`] = `
 <Autosuggest
-  allowMixingSuggestionsAndLoading={false}
-  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   isLoading={false}
-  noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionAdd={[MockFunction]}
   onSelectionRemove={[MockFunction]}
-  onSubmit={null}
   selectedSuggestions={Array []}
-  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={Array []}
-  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -272,19 +260,14 @@ exports[`Autosuggest rendering should initially render focused component correct
 
 exports[`Autosuggest rendering should initially render focused component with suggestions list correctly 1`] = `
 <Autosuggest
-  allowMixingSuggestionsAndLoading={false}
-  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   isLoading={false}
-  noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={[MockFunction]}
   onSelectionAdd={[MockFunction]}
   onSelectionRemove={[MockFunction]}
-  onSubmit={null}
   selectedSuggestions={Array []}
-  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -314,7 +297,6 @@ exports[`Autosuggest rendering should initially render focused component with su
       },
     ]
   }
-  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -459,7 +441,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                       key=".0"
                       noSuggestionsPlaceholder=""
                       passDisabledToListItems={true}
-                      suggestionToKey={null}
+                      suggestionToKey={[Function]}
                       suggestionToString={[Function]}
                       suggestions={
                         Array [
@@ -496,7 +478,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         disabled={false}
                         id="downshift-4-item-0"
                         isHighlighted={false}
-                        key="Sun"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -535,7 +517,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         disabled={false}
                         id="downshift-4-item-1"
                         isHighlighted={false}
-                        key="Moon"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -574,7 +556,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         disabled={false}
                         id="downshift-4-item-2"
                         isHighlighted={false}
-                        key="Mercury"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -613,7 +595,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         disabled={false}
                         id="downshift-4-item-3"
                         isHighlighted={false}
-                        key="Venus"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -652,7 +634,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         disabled={false}
                         id="downshift-4-item-4"
                         isHighlighted={false}
-                        key="Earth"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -691,7 +673,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         disabled={false}
                         id="downshift-4-item-5"
                         isHighlighted={false}
-                        key="Mars"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -730,7 +712,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         disabled={false}
                         id="downshift-4-item-6"
                         isHighlighted={false}
-                        key="Jupiter"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -769,7 +751,7 @@ exports[`Autosuggest rendering should initially render focused component with su
                         disabled={false}
                         id="downshift-4-item-7"
                         isHighlighted={false}
-                        key="Saturn"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -818,11 +800,8 @@ exports[`Autosuggest rendering should initially render focused component with su
 
 exports[`Autosuggest rendering should render component with suggestions 1`] = `
 <Autosuggest
-  allowMixingSuggestionsAndLoading={false}
-  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   isLoading={false}
-  noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={
@@ -842,9 +821,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
   }
   onSelectionAdd={[MockFunction]}
   onSelectionRemove={[MockFunction]}
-  onSubmit={null}
   selectedSuggestions={Array []}
-  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={
     Array [
@@ -878,7 +855,6 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
       },
     ]
   }
-  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -1028,7 +1004,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                       key=".0"
                       noSuggestionsPlaceholder=""
                       passDisabledToListItems={true}
-                      suggestionToKey={null}
+                      suggestionToKey={[Function]}
                       suggestionToString={[Function]}
                       suggestions={
                         Array [
@@ -1069,7 +1045,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         disabled={false}
                         id="downshift-5-item-0"
                         isHighlighted={true}
-                        key="Moon"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -1108,7 +1084,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         disabled={false}
                         id="downshift-5-item-1"
                         isHighlighted={false}
-                        key="Mercury"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -1147,7 +1123,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         disabled={false}
                         id="downshift-5-item-2"
                         isHighlighted={false}
-                        key="Venus"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -1186,7 +1162,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         disabled={false}
                         id="downshift-5-item-3"
                         isHighlighted={false}
-                        key="Earth"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -1225,7 +1201,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         disabled={false}
                         id="downshift-5-item-4"
                         isHighlighted={false}
-                        key="Mars"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -1264,7 +1240,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         disabled={false}
                         id="downshift-5-item-5"
                         isHighlighted={false}
-                        key="Jupiter"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -1303,7 +1279,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         disabled={false}
                         id="downshift-5-item-6"
                         isHighlighted={false}
-                        key="Saturn"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -1342,7 +1318,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         disabled={false}
                         id="downshift-5-item-7"
                         isHighlighted={false}
-                        key="Neptune"
+                        key=""
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
@@ -1381,7 +1357,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                         disabled={true}
                         id="downshift-5-item-8"
                         isHighlighted={false}
-                        key="Pluto"
+                        key=""
                         onMouseDown={[Function]}
                         passDisabledToLi={true}
                         role="option"
@@ -1426,11 +1402,8 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
 
 exports[`Autosuggest rendering should render isLoading state 1`] = `
 <Autosuggest
-  allowMixingSuggestionsAndLoading={false}
-  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   isLoading={true}
-  noSuggestionsPlaceholder=""
   numberOfVisibleTags={3}
   onBlur={[MockFunction]}
   onInputValueChange={
@@ -1450,12 +1423,9 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
   }
   onSelectionAdd={[MockFunction]}
   onSelectionRemove={[MockFunction]}
-  onSubmit={null}
   selectedSuggestions={Array []}
-  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={Array []}
-  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -1574,7 +1544,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                       key=".0"
                       noSuggestionsPlaceholder=""
                       passDisabledToListItems={true}
-                      suggestionToKey={null}
+                      suggestionToKey={[Function]}
                       suggestionToString={[Function]}
                       suggestions={Array []}
                       useOptimizeRender={false}
@@ -1769,8 +1739,6 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
 
 exports[`Autosuggest rendering should show "no suggestions" placeholder only if input has value 1`] = `
 <Autosuggest
-  allowMixingSuggestionsAndLoading={false}
-  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   isLoading={false}
   noSuggestionsPlaceholder="no suggestions"
@@ -1779,12 +1747,9 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
   onInputValueChange={[MockFunction]}
   onSelectionAdd={[MockFunction]}
   onSelectionRemove={[MockFunction]}
-  onSubmit={null}
   selectedSuggestions={Array []}
-  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={Array []}
-  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -1905,8 +1870,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
 
 exports[`Autosuggest rendering should show "no suggestions" placeholder only if input has value 2`] = `
 <Autosuggest
-  allowMixingSuggestionsAndLoading={false}
-  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   isLoading={false}
   noSuggestionsPlaceholder="no suggestions"
@@ -1929,12 +1892,9 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
   }
   onSelectionAdd={[MockFunction]}
   onSelectionRemove={[MockFunction]}
-  onSubmit={null}
   selectedSuggestions={Array []}
-  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={Array []}
-  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}
@@ -2053,7 +2013,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                       key=".0"
                       noSuggestionsPlaceholder="no suggestions"
                       passDisabledToListItems={true}
-                      suggestionToKey={null}
+                      suggestionToKey={[Function]}
                       suggestionToString={[Function]}
                       suggestions={Array []}
                       useOptimizeRender={false}
@@ -2092,8 +2052,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
 
 exports[`Autosuggest rendering should show "no suggestions" placeholder only if input has value 3`] = `
 <Autosuggest
-  allowMixingSuggestionsAndLoading={false}
-  inputAttrs={Object {}}
   inputPlaceholder="type here..."
   isLoading={false}
   noSuggestionsPlaceholder="no suggestions"
@@ -2123,12 +2081,9 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
   }
   onSelectionAdd={[MockFunction]}
   onSelectionRemove={[MockFunction]}
-  onSubmit={null}
   selectedSuggestions={Array []}
-  suggestionToKey={null}
   suggestionToString={[Function]}
   suggestions={Array []}
-  useOptimizeListRender={false}
 >
   <SelectBase
     blurredRenderer={[Function]}

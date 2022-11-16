@@ -2,7 +2,6 @@
 
 exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctly 1`] = `
 <ForwardRef(TippyWrapper)
-  animation="shift-toward"
   content="content"
   placement="bottom"
 >

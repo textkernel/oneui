@@ -1,14 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RangeSlider component should render component correctly 1`] = `
-<RangeSlider
-  defaultValue={
-    Array [
-      0,
-      100,
-    ]
-  }
->
+<RangeSlider>
   <ComponentEnhancer(Range)
     activeDotStyle={Object {}}
     allowCross={true}

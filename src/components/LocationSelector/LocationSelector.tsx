@@ -50,58 +50,56 @@ interface Props
     onBlur?: () => void;
 }
 
-const LocationSelector: React.FC<Props> = (props) => {
-    const {
-        /** Google props */
-        apiKey,
-        language,
-        region,
-        additionalGoogleProps,
+const LocationSelector: React.FC<Props> = ({
+    /** Google props */
+    apiKey,
+    language,
+    region = undefined,
+    additionalGoogleProps = undefined,
 
-        /** FieldWrapper props */
-        id,
-        clearLabel,
-        onRemoveAllLocations,
-        inputPlaceholder,
-        selectionPlaceholder,
+    /** FieldWrapper props */
+    id,
+    clearLabel,
+    onRemoveAllLocations,
+    inputPlaceholder,
+    selectionPlaceholder,
 
-        /** Modal props */
-        modalContentLabel,
+    /** Modal props */
+    modalContentLabel,
 
-        /** LocationCard props */
-        hasRadius,
-        minRadius,
-        maxRadius,
-        radiusStep,
-        renderRadiusLabel,
-        doneLabel,
+    /** LocationCard props */
+    hasRadius,
+    minRadius = 1,
+    maxRadius = 100,
+    radiusStep = 1,
+    renderRadiusLabel,
+    doneLabel,
 
-        /** LocationAutocomplete props */
-        modalInputPlaceholder,
-        country,
-        initialMapAddress,
-        placeTypes,
-        noSuggestionsPlaceholder,
-        showCountryInSuggestions,
-        onLocationAutocompleteError,
+    /** LocationAutocomplete props */
+    modalInputPlaceholder,
+    country = undefined,
+    initialMapAddress = undefined,
+    placeTypes = ['(regions)'],
+    noSuggestionsPlaceholder,
+    showCountryInSuggestions,
+    onLocationAutocompleteError = () => null,
 
-        /** Map props */
-        defaultHighlight,
+    /** Map props */
+    defaultHighlight = undefined,
 
-        /** Internal use */
-        openOnEnterPress,
-        selectedLocations,
-        radiusDefaultValue,
-        radiusUnits,
-        shouldGetAddressInfo,
-        withoutLocationCards,
-        onAddLocation,
-        onUpdateLocation,
-        onRemoveLocation,
-        onBlur,
-        ...rest
-    } = props;
-
+    /** Internal use */
+    openOnEnterPress = true,
+    selectedLocations = [],
+    radiusDefaultValue = 1,
+    radiusUnits,
+    shouldGetAddressInfo = false,
+    withoutLocationCards = false,
+    onAddLocation,
+    onUpdateLocation,
+    onRemoveLocation,
+    onBlur = () => null,
+    ...rest
+}) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [isWrapperFocused, setIsWrapperFocused] = React.useState(false);
     const isBrowserTabVisible = useBrowserTabVisibilityChange();
@@ -195,9 +193,9 @@ const LocationSelector: React.FC<Props> = (props) => {
     }
 
     return (
-        <div {...rest} {...block(props)}>
+        <div {...rest} {...block({ ...rest })}>
             <FieldWrapper
-                {...elem('mainTextButtonWrapper', props)}
+                {...elem('mainTextButtonWrapper')}
                 title={selectionPlaceholder || inputPlaceholder}
                 isFocused={isWrapperFocused}
                 showClearButton={hasLocationsSelected}
@@ -205,12 +203,12 @@ const LocationSelector: React.FC<Props> = (props) => {
                 onClick={handleOpenModal}
                 onClear={onRemoveAllLocations}
             >
-                <FaMapMarkerAlt {...elem('icon', props)} />
+                <FaMapMarkerAlt {...elem('icon')} />
                 <button
                     id={id}
                     ref={buttonRef}
                     type="button"
-                    {...elem('mainTextButton', { ...props, muted: !selectionPlaceholder })}
+                    {...elem('mainTextButton', { muted: !selectionPlaceholder })}
                     onFocus={handleOpenModal}
                     onBlur={handleButtonBlur}
                     onKeyUp={handleButtonKeyPress}
@@ -219,7 +217,7 @@ const LocationSelector: React.FC<Props> = (props) => {
                 </button>
             </FieldWrapper>
             <Modal
-                {...elem('modal', props)}
+                {...elem('modal')}
                 isOpen={isOpen}
                 ariaHideApp={false}
                 onRequestClose={handleCloseModal}
@@ -261,24 +259,5 @@ const LocationSelector: React.FC<Props> = (props) => {
 };
 
 LocationSelector.displayName = 'LocationSelector';
-
-LocationSelector.defaultProps = {
-    openOnEnterPress: true,
-    radiusDefaultValue: 1,
-    country: undefined,
-    minRadius: 1,
-    maxRadius: 100,
-    radiusStep: 1,
-    withoutLocationCards: false,
-    initialMapAddress: undefined,
-    selectedLocations: [],
-    shouldGetAddressInfo: false,
-    onBlur: () => null,
-    additionalGoogleProps: undefined,
-    region: undefined,
-    placeTypes: ['(regions)'],
-    onLocationAutocompleteError: () => null,
-    defaultHighlight: undefined,
-};
 
 export { LocationSelector, Props as LocationSelectorProps };

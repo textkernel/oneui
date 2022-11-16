@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.10.1](https://github.com/textkernel/oneui/compare/18.10.0...18.10.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* **typescript:** fixed Pill typescript props ([#857](https://github.com/textkernel/oneui/issues/857)) ([137625a](https://github.com/textkernel/oneui/commit/137625afbb710063377c054ae81650f50c608417))
+
+## [18.10.0](https://github.com/textkernel/oneui/compare/18.9.2...18.10.0) (2022-11-15)
+
+
+### Features
+
+* **NavItem:** support react-router v6 ([#846](https://github.com/textkernel/oneui/issues/846)) ([fcc4d19](https://github.com/textkernel/oneui/commit/fcc4d19a474a8233082b118bc2515653a561f784))
+* replace defaultProps with defaultValues ([#840](https://github.com/textkernel/oneui/issues/840)) ([47fc008](https://github.com/textkernel/oneui/commit/47fc0083af7234c76b3c045fd5210029b9a421a0))
+
 ### [18.9.2](https://github.com/textkernel/oneui/compare/18.9.1...18.9.2) (2022-10-12)
 
 

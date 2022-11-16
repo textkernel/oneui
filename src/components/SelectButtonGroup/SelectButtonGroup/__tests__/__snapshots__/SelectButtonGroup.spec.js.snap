@@ -2,14 +2,7 @@
 
 exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
 <SelectButtonGroup
-  context={null}
-  defaultValue={null}
-  isBlock={false}
-  isEqualWidth={false}
-  isMultiselect={false}
-  isRequired={false}
   onChange={[MockFunction]}
-  size="normal"
   value={
     Array [
       "1",
@@ -80,19 +73,12 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
 
 exports[`SelectButtonGroup should render correctly 1`] = `
 <SelectButtonGroup
-  context={null}
   defaultValue={
     Array [
       "1",
     ]
   }
-  isBlock={false}
-  isEqualWidth={false}
-  isMultiselect={false}
-  isRequired={false}
   onChange={[MockFunction]}
-  size="normal"
-  value={null}
 >
   <div
     className="SelectButtonGroup"
