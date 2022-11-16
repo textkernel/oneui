@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.10.1](https://github.com/textkernel/oneui/compare/18.10.0...18.10.1) (2022-11-16)
+
+
+### Bug Fixes
+
+* **typescript:** fixed Pill typescript props ([#857](https://github.com/textkernel/oneui/issues/857)) ([137625a](https://github.com/textkernel/oneui/commit/137625afbb710063377c054ae81650f50c608417))
+
 ## [18.10.0](https://github.com/textkernel/oneui/compare/18.9.2...18.10.0) (2022-11-15)
 
 
