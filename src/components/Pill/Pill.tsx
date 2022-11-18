@@ -12,7 +12,7 @@ export interface Props {
     /** a function to be called to clear the pill/filter content */
     onClear: () => void;
     /** a function that is called when the dropdown closes via done-button-click, window-click or ESC */
-    onClose: () => void;
+    onClose?: () => void;
     /** name describing the pill/filter */
     name: string;
     /** label describing the content of an active filter/pill */
@@ -52,7 +52,7 @@ export const Pill: React.FC<Props> = ({
     dropdownRef: dropdownRefFromProps,
     noPaddingInDropdown = false,
     additionalDropdownProps = {},
-    onClose = () => null,
+    onClose,
     ...rest
 }) => {
     const buttonRef = React.useMemo(() => ref || React.createRef<HTMLElement>(), [ref]);
@@ -84,9 +84,7 @@ export const Pill: React.FC<Props> = ({
     };
 
     const closeDropdown = (setPopupVisibility) => {
-        if (onClose) {
-            onClose();
-        }
+        onClose?.();
         setPopupVisibility(false);
     };
 

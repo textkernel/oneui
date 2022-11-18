@@ -38,21 +38,21 @@ export interface Props {
     /** a function to be called when the popup closes */
     onClose?: () => void; // ???
 }
-const anchorRefInit = React.createRef<HTMLElement>();
-const popupRefInit = React.createRef<HTMLElement>();
-let popper: Instance | undefined;
 
 export const PopupBase: React.FC<Props> = ({
     anchorRenderer,
     popupRenderer,
-    anchorRef = anchorRefInit,
-    popupRef = popupRefInit,
+    anchorRef,
+    popupRef,
     placement = 'bottom-start',
     renderInPortal = false,
     onClose,
     popperOptions = {},
 }) => {
     const [isOpen, setIsOpen] = React.useState<boolean>(false);
+    const anchorRefInit = anchorRef ?? React.createRef<HTMLElement>();
+    const popupRefInit = popupRef ?? React.createRef<HTMLElement>();
+    let popper: Instance | undefined;
 
     const close = () => {
         if (isOpen) {
@@ -64,11 +64,11 @@ export const PopupBase: React.FC<Props> = ({
     };
 
     const wasPopupClicked = (event) => {
-        if (event.composedPath && anchorRef.current && popupRef.current) {
+        if (event.composedPath && anchorRefInit.current && popupRefInit.current) {
             return Array.from(event.composedPath()).some((node) => {
                 // Must be Element node
                 if ((node as Element).nodeType === 1) {
-                    return popupRef.current && popupRef.current.contains(node as Element);
+                    return popupRefInit.current && popupRefInit.current.contains(node as Element);
                 }
                 return false;
             });
@@ -77,8 +77,8 @@ export const PopupBase: React.FC<Props> = ({
     };
 
     const wasAnchorClicked = (event) => {
-        if (anchorRef.current) {
-            return anchorRef.current.contains(event.target);
+        if (anchorRefInit.current) {
+            return anchorRefInit.current.contains(event.target);
         }
         return false;
     };
@@ -105,9 +105,9 @@ export const PopupBase: React.FC<Props> = ({
     };
 
     const createPopperInstance = () => {
-        if (anchorRef.current && popupRef.current) {
+        if (anchorRefInit.current && popupRefInit.current) {
             destroyPopperInstance();
-            popper = createPopper(anchorRef.current, popupRef.current, {
+            popper = createPopper(anchorRefInit.current, popupRefInit.current, {
                 placement,
                 ...popperOptions,
             });
@@ -148,7 +148,7 @@ export const PopupBase: React.FC<Props> = ({
     const renderAnchor = () => {
         const anchorElem = anchorRenderer(getArgs());
         // @ts-ignore
-        return anchorRef && React.cloneElement(anchorElem, { ref: anchorRef });
+        return anchorRefInit && React.cloneElement(anchorElem, { ref: anchorRefInit });
     };
 
     const renderPopup = () => {
@@ -159,7 +159,7 @@ export const PopupBase: React.FC<Props> = ({
             }
 
             const popupElemWithProps = React.cloneElement(popupElem, {
-                ref: popupRef,
+                ref: popupRefInit,
                 'data-popup': 'true',
             });
 

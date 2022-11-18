@@ -64,7 +64,7 @@ export function Autosuggest<S>({
     onSelectionAdd,
     selectedSuggestions = [],
     suggestionToString,
-    suggestionToKey = () => '',
+    suggestionToKey,
     suggestionItemRenderer,
     inputPlaceholder,
     noSuggestionsPlaceholder = '',
