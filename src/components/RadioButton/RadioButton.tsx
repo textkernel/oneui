@@ -4,7 +4,7 @@ import { Text } from '../Text';
 import styles from './RadioButton.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
 
-export interface Props extends React.HTMLAttributes<HTMLElement> {
+export interface Props extends React.HTMLProps<HTMLInputElement> {
     /** A unique id to reference this radio button */
     id: string;
     /** The name of the group this radio button belongs to */

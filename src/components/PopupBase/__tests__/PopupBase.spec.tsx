@@ -1,7 +1,6 @@
 /* eslint-disable react/display-name, react/prop-types */
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { mount } from 'enzyme';
 import { Button } from '../../..';
 import { ESCAPE_KEY } from '../../../constants';
 import { PopupBase } from '../PopupBase';

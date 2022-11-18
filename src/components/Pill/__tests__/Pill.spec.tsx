@@ -1,6 +1,5 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { mount } from 'enzyme';
 import { Pill } from '../Pill';
 
 describe('<Pill> component', () => {

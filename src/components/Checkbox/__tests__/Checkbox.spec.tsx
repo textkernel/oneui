@@ -1,6 +1,5 @@
 import * as React from 'react';
 import toJson from 'enzyme-to-json';
-import { mount } from 'enzyme';
 import { Checkbox } from '../Checkbox';
 
 describe('<Checkbox> that renders a checkbox', () => {

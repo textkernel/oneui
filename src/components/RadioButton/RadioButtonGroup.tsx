@@ -6,9 +6,9 @@ export interface Props {
     /** The name of the group this radio button belongs to */
     name: string;
     /** common onChange handler that will be passed to all children */
-    onChange?: () => void;
+    onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
     /** The radio buttons */
-    children: React.ReactElement[];
+    children: null | undefined | React.ReactElement[];
 }
 
 const { block, elem } = bem('RadioButtonGroup', styles);
