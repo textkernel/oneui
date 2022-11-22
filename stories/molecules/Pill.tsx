@@ -20,8 +20,11 @@ export default {
 
 export const _Pill = (args) => {
     return (
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', display: 'flex', gap: '4px' }}>
             <Pill {...args}>{({ close }) => <DummyComponent close={close} />}</Pill>
+            <Pill {...args} content={undefined}>
+                {({ close }) => <DummyComponent close={close} />}
+            </Pill>
         </div>
     );
 };

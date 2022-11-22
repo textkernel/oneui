@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.10.2](https://github.com/textkernel/oneui/compare/18.10.1...18.10.2) (2022-11-18)
+
+
+### Bug Fixes
+
+* Autosuggest default value and PopupBase not working correctly ([#858](https://github.com/textkernel/oneui/issues/858)) ([233d9f9](https://github.com/textkernel/oneui/commit/233d9f98d32dfd89c3a9324cd63c6b7b50aaf7bb))
+
 ### [18.10.1](https://github.com/textkernel/oneui/compare/18.10.0...18.10.1) (2022-11-16)
 
 
