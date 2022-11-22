@@ -1,6 +1,5 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { mount } from 'enzyme';
 import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../../Buttons';
 import { Dropdown } from '../../Dropdown';

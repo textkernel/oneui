@@ -10,11 +10,12 @@ export default {
 export const _RadioButton = (args) => (
     <RadioButtonGroup name="my-group">
         <RadioButton {...args} />
-        <RadioButton value="option2" id="radio-2">
+        <RadioButton id="radio-2" value="option2">
             Option 2
         </RadioButton>
     </RadioButtonGroup>
 );
+
 _RadioButton.args = {
     value: 'option1',
     id: 'radio-1',

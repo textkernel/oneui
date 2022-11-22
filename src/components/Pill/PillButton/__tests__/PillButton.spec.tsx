@@ -1,6 +1,5 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
-import { mount } from 'enzyme';
 import { PillButton } from '../PillButton';
 import { ENTER_KEY } from '../../../../constants';
 

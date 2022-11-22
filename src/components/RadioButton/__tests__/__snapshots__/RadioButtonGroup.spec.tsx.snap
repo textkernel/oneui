@@ -3,12 +3,10 @@
 exports[`<RadioButtonGroup> that renders a group of radio buttons should render correctly 1`] = `
 <RadioButtonGroup
   name="group_name"
-  onChange={null}
 >
   <div>
     <RadioButton
       className="RadioButtonGroup__option"
-      disabled={false}
       id="o1"
       key=".0"
       name="group_name"
@@ -68,7 +66,6 @@ exports[`<RadioButtonGroup> that renders a group of radio buttons should render 
     </RadioButton>
     <RadioButton
       className="RadioButtonGroup__option"
-      disabled={false}
       id="o2"
       key=".1"
       name="group_name"
