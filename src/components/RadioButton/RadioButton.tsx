@@ -18,7 +18,7 @@ export interface Props extends React.HTMLProps<HTMLInputElement> {
 const { block, elem } = bem('RadioButton', styles);
 
 export const RadioButton = forwardRef<HTMLElement, Props>(
-    ({ id, children = null, disabled = false, name = null, ...rest }, ref) => {
+    ({ id, children, disabled = false, name, ...rest }, ref) => {
         return (
             <div {...block({ ...rest })}>
                 <input

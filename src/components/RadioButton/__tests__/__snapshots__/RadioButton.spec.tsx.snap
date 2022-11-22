@@ -9,7 +9,6 @@ exports[`<RadioButton> that renders a radio button should render default radio b
       className="RadioButton__input"
       disabled={false}
       id="c1"
-      name={null}
       type="radio"
     />
     <label
