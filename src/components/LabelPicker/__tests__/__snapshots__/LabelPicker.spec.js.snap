@@ -246,11 +246,11 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                     </Text>
                     <Text
                       className="LabelPicker__count"
-                      context="muted"
+                      context="neutral"
                       inline={true}
                     >
                       <span
-                        className="Text--context_muted LabelPicker__count"
+                        className="Text--context_neutral LabelPicker__count"
                       >
                         (
                         12
@@ -463,8 +463,8 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
           </Button>
         </div>
         <Button
-          context="primary"
           isBlock={true}
+          isPrimary={true}
           onClick={[Function]}
         >
           <button

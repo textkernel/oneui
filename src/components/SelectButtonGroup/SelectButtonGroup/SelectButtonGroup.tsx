@@ -17,7 +17,9 @@ export interface Props<V>
     /** should the component take up all the width available */
     isBlock?: boolean;
     /** Color context for selected buttons */
-    context?: Context;
+    context?: Context | 'primary';
+    /** Use primary color for selected buttons */
+    isPrimary?: boolean;
     /** should children have equal width */
     isEqualWidth?: boolean;
     /** size of the button group */
@@ -113,7 +115,7 @@ SelectButtonGroup.defaultProps = {
     isRequired: false,
     isBlock: false,
     isEqualWidth: false,
-    context: null,
+    context: 'primary',
     size: 'normal',
     onChange: null,
     value: null,

@@ -11,8 +11,12 @@ export interface Props
     > {
     /** The label of the button */
     children: NotEmptySingleReactNode;
-    /** The button context (e.g. primary, secondary, danger, success etc. - defaults to neutral) */
+    /** The button context (e.g. info, danger, success etc. - defaults to neutral) */
     context?: Context | 'link';
+    /** Should the button have style like primary element */
+    isPrimary?: boolean;
+    /** Should the button have style like neutral element */
+    isNeutral?: boolean;
     /** The size of the button */
     size?: Size;
     /** Whether or not to show block-level button (full width) */
@@ -25,7 +29,7 @@ export interface Props
     disabled?: boolean;
     /** Type of the button */
     type?: ButtonType;
-    /** Providing an href will render an <a> element, styled as a button. */
+    /** Providing a href will render an <a> element, styled as a button. */
     href?: string;
 }
 
@@ -40,6 +44,8 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
             isBlock = false,
             isInline = false,
             isLoading = false,
+            isPrimary = false,
+            isNeutral = false,
             type = 'button',
             href,
             size = 'normal',
@@ -47,6 +53,14 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         },
         ref
     ) => {
+        if (isNeutral) {
+            // eslint-disable-next-line no-param-reassign
+            context = 'neutral';
+        }
+        if (isPrimary) {
+            // eslint-disable-next-line no-param-reassign
+            context = 'primary';
+        }
         if (href) {
             return (
                 <a

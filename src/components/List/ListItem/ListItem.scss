@@ -1,4 +1,4 @@
-$contexts: (neutral, primary, secondary, success, warning, danger);
+$contexts: (neutral, primary, info, success, warning, danger);
 
 .ListItem {
     display: flex;
@@ -20,7 +20,7 @@ $contexts: (neutral, primary, secondary, success, warning, danger);
     }
 
     &--disabled {
-        color: var(--color-muted);
+        color: var(--color-light);
         cursor: not-allowed;
     }
 

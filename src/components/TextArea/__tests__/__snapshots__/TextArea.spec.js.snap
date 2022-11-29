@@ -2,14 +2,14 @@
 
 exports[`<TextArea> that renders a textarea should add classes when props are changed 1`] = `
 <textarea
-  className="TextArea TextArea--context_danger TextArea--size_large TextArea--isBlock"
+  className="TextArea TextArea--size_large TextArea--isBlock"
   disabled={true}
 />
 `;
 
 exports[`<TextArea> that renders a textarea should render default textarea correctly 1`] = `
 <textarea
-  className="TextArea TextArea--context_primary"
+  className="TextArea"
   defaultValue="Some value"
   disabled={false}
 />

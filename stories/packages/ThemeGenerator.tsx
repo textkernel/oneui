@@ -5,10 +5,10 @@ export default {
     title: 'packages/ThemeGenerator',
     component: ThemeGenerator,
     argTypes: {
-        '--color-primary': { control: 'color' },
         '--color-neutral': { control: 'color' },
-        '--color-muted': { control: 'color' },
-        '--color-secondary': { control: 'color' },
+        '--color-primary': { control: 'color' },
+        '--color-light': { control: 'color' },
+        '--color-info': { control: 'color' },
         '--color-success': { control: 'color' },
         '--color-warning': { control: 'color' },
         '--color-danger': { control: 'color' },
@@ -28,10 +28,11 @@ export const _ThemeGenerator = (args) => {
     );
 };
 _ThemeGenerator.args = {
-    '--color-primary': '#fff',
-    '--color-neutral': '#d0d1d5',
-    '--color-muted': '#b3b2b2',
-    '--color-secondary': '#182642',
+    '--color-background': '#ffffff',
+    '--color-neutral': '#1d1d1b',
+    '--color-primary': '#0097d1',
+    '--color-light': '#78797c',
+    '--color-info': '#63dfec',
     '--color-success': '#5cb85c',
     '--color-warning': '#ffb819',
     '--color-danger': '#f42534',

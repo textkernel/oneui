@@ -29,12 +29,12 @@ $modal-min-height: 400px;
         pointer-events: none;
 
         &--muted {
-            color: var(--color-muted);
+            color: var(--color-light);
         }
     }
 
     &__icon {
-        color: var(--color-muted);
+        color: var(--color-light);
         margin: $icon-margin-adjustment;
     }
 

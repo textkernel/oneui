@@ -17,7 +17,7 @@ exports[`Themeroller component should render component correctly 1`] = `
             "label": "Foreground color",
             "type": "color",
             "value": "#1d1d1b",
-            "var": "--color-foreground",
+            "var": "--color-neutral",
           },
           Object {
             "label": "Border radius",
@@ -42,7 +42,7 @@ exports[`Themeroller component should render component correctly 1`] = `
   }
   cssVars={
     Object {
-      "--color-foreground": "#000000",
+      "--color-neutral": "#000000",
     }
   }
   onChange={[Function]}
@@ -64,7 +64,7 @@ exports[`Themeroller component should render component correctly 1`] = `
               "label": "Foreground color",
               "type": "color",
               "value": "#1d1d1b",
-              "var": "--color-foreground",
+              "var": "--color-neutral",
             },
             Object {
               "label": "Border radius",
@@ -250,11 +250,11 @@ exports[`Themeroller component should render component correctly 1`] = `
                     </Input>
                     <Text
                       className="ColorValue__value"
-                      context="muted"
+                      context="neutral"
                       inline={true}
                     >
                       <span
-                        className="Text--context_muted ColorValue__value"
+                        className="Text--context_neutral ColorValue__value"
                       >
                         #ffffff
                       </span>
@@ -289,7 +289,7 @@ exports[`Themeroller component should render component correctly 1`] = `
                     "label": "Foreground color",
                     "type": "color",
                     "value": "#1d1d1b",
-                    "var": "--color-foreground",
+                    "var": "--color-neutral",
                   }
                 }
                 key=".1"
@@ -301,7 +301,7 @@ exports[`Themeroller component should render component correctly 1`] = `
                       "label": "Foreground color",
                       "type": "color",
                       "value": "#1d1d1b",
-                      "var": "--color-foreground",
+                      "var": "--color-neutral",
                     }
                   }
                   onChange={[Function]}
@@ -325,11 +325,11 @@ exports[`Themeroller component should render component correctly 1`] = `
                     </Input>
                     <Text
                       className="ColorValue__value"
-                      context="muted"
+                      context="neutral"
                       inline={true}
                     >
                       <span
-                        className="Text--context_muted ColorValue__value"
+                        className="Text--context_neutral ColorValue__value"
                       >
                         #1d1d1b
                       </span>
@@ -402,11 +402,11 @@ exports[`Themeroller component should render component correctly 1`] = `
                     </Input>
                     <Text
                       className="UnitValue__value"
-                      context="muted"
+                      context="neutral"
                       inline={true}
                     >
                       <span
-                        className="Text--context_muted UnitValue__value"
+                        className="Text--context_neutral UnitValue__value"
                       >
                         3
                         px

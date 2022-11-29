@@ -183,7 +183,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                   className="ProductTour__buttons"
                 >
                   <Button
-                    context="primary"
+                    isPrimary={true}
                     onClick={[Function]}
                   >
                     <button
@@ -554,7 +554,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                     </button>
                   </Button>
                   <Button
-                    context="primary"
+                    isPrimary={true}
                     onClick={[Function]}
                   >
                     <button

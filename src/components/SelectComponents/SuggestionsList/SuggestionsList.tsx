@@ -138,7 +138,7 @@ export function SuggestionsList<S>(props: Props<S>) {
         if (noSuggestionsPlaceholder) {
             return (
                 <ListItem disabled>
-                    <Text context="muted">{noSuggestionsPlaceholder}</Text>
+                    <Text context="neutral">{noSuggestionsPlaceholder}</Text>
                 </ListItem>
             );
         }

@@ -13,7 +13,7 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
             {
                 label: 'Foreground color',
                 type: 'color',
-                var: '--color-foreground',
+                var: '--color-neutral',
                 value: '#1d1d1b',
             },
             {
@@ -23,9 +23,9 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 value: '#0097d1',
             },
             {
-                label: 'Secondary color',
+                label: 'info color',
                 type: 'color',
-                var: 'color-secondary',
+                var: 'color-primary',
                 value: '#182642',
             },
             {
@@ -43,13 +43,13 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
             {
                 label: 'Neutral color',
                 type: 'color',
-                var: '--color-neutral',
+                var: '--color-light',
                 value: '#d0d1d5',
             },
             {
                 label: 'Muted color',
                 type: 'color',
-                var: '--color-muted',
+                var: '--color-light',
                 value: '#b3b2b2',
             },
             {

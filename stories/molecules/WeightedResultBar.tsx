@@ -9,16 +9,16 @@ export default {
 export const _WeightedResultBar = (args) => (
     <div style={{ width: 500 }}>
         <WeightedResultBar {...args} />
-        <WeightedResultBar percentage={76} count={94} context="primary" isLoading={args.isLoading}>
+        <WeightedResultBar percentage={76} count={94} isLoading={args.isLoading}>
             Sales Manager
         </WeightedResultBar>
-        <WeightedResultBar percentage={64} count={79} context="primary" isLoading={args.isLoading}>
+        <WeightedResultBar percentage={64} count={79} isLoading={args.isLoading}>
             Software Engineer
         </WeightedResultBar>
-        <WeightedResultBar percentage={64} count={79} context="primary" isLoading={args.isLoading}>
+        <WeightedResultBar percentage={64} count={79} isLoading={args.isLoading}>
             Operations Manager
         </WeightedResultBar>
-        <WeightedResultBar percentage={58} count={72} context="primary" isLoading={args.isLoading}>
+        <WeightedResultBar percentage={58} count={72} isLoading={args.isLoading}>
             Business Development Manager
         </WeightedResultBar>
     </div>
@@ -30,11 +30,7 @@ _WeightedResultBar.args = {
 };
 
 const ClickableCount = ({ count }) => (
-    <Button
-        size="small"
-        context="primary"
-        onClick={() => console.log(`WeightedResultBar count: ${count}`)}
-    >
+    <Button size="small" isPrimary onClick={() => console.log(`WeightedResultBar count: ${count}`)}>
         {count}
     </Button>
 );
@@ -42,32 +38,16 @@ export const WithACustomCount = (args) => {
     return (
         <div style={{ width: 500 }}>
             <WeightedResultBar {...args} />
-            <WeightedResultBar
-                percentage={76}
-                context="primary"
-                count={<ClickableCount count={94} />}
-            >
+            <WeightedResultBar percentage={76} count={<ClickableCount count={94} />}>
                 Sales Manager
             </WeightedResultBar>
-            <WeightedResultBar
-                percentage={64}
-                context="primary"
-                count={<ClickableCount count={79} />}
-            >
+            <WeightedResultBar percentage={64} count={<ClickableCount count={79} />}>
                 Software Engineer
             </WeightedResultBar>
-            <WeightedResultBar
-                percentage={64}
-                context="primary"
-                count={<ClickableCount count={79} />}
-            >
+            <WeightedResultBar percentage={64} count={<ClickableCount count={79} />}>
                 Operations Manager
             </WeightedResultBar>
-            <WeightedResultBar
-                percentage={58}
-                context="primary"
-                count={<ClickableCount count={72} />}
-            >
+            <WeightedResultBar percentage={58} count={<ClickableCount count={72} />}>
                 Business Development Manager
             </WeightedResultBar>
         </div>

@@ -150,7 +150,7 @@ export const Themeroller: React.FC<Props> = ({
                         onChange={handleNameChange}
                     />
                     {Boolean(themeResultStore.fileName) && (
-                        <Text {...elem('themeName')} inline context="muted">
+                        <Text {...elem('themeName')} inline context="neutral-60">
                             {themeResultStore.fileName}
                         </Text>
                     )}

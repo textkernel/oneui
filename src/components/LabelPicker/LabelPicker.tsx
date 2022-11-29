@@ -101,7 +101,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                                             {label.name}
                                         </Text>
                                         {label.count ? (
-                                            <Text inline context="muted" {...elem('count')}>
+                                            <Text inline context="neutral" {...elem('count')}>
                                                 ({label.count})
                                             </Text>
                                         ) : null}
@@ -129,7 +129,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                                 <FaPlus width="24px" height="24px" />
                             </Button>
                         </div>
-                        <Button onClick={handleDone} context="primary" isBlock>
+                        <Button onClick={handleDone} isPrimary isBlock>
                             {doneLabel}
                         </Button>
                     </div>

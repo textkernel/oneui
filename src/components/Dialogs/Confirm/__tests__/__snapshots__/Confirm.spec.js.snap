@@ -210,7 +210,7 @@ exports[`Confirm should render correctly 1`] = `
                     </button>
                   </Button>
                   <Button
-                    context="primary"
+                    isPrimary={true}
                     onClick={[MockFunction]}
                   >
                     <button
@@ -460,7 +460,7 @@ exports[`Confirm should render correctly with title 1`] = `
                     </button>
                   </Button>
                   <Button
-                    context="primary"
+                    isPrimary={true}
                     onClick={[MockFunction]}
                   >
                     <button

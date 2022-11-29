@@ -75,7 +75,7 @@
     &:hover {
         border-radius: 0;
         background-color: var(--color-neutral-25);
-        color: var(--color-foreground);
+        color: var(--color-neutral);
     }
 }
 
@@ -86,7 +86,7 @@
 :global .react-datepicker__day--keyboard-selected {
     border-radius: 0;
     background-color: var(--color-neutral-25);
-    color: var(--color-foreground);
+    color: var(--color-neutral);
 
     &:hover {
         background-color: var(--color-neutral-25);

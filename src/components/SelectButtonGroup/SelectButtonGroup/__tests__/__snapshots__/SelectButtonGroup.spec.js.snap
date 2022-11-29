@@ -2,7 +2,7 @@
 
 exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
 <SelectButtonGroup
-  context={null}
+  context="primary"
   defaultValue={null}
   isBlock={false}
   isEqualWidth={false}
@@ -20,6 +20,7 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
     className="SelectButtonGroup"
   >
     <SelectButton
+      context="primary"
       isBlock={false}
       isEqualWidth={false}
       isSelected={true}
@@ -39,6 +40,7 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
+      context="primary"
       isBlock={false}
       isEqualWidth={false}
       key="2"
@@ -57,6 +59,7 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
+      context="primary"
       isBlock={false}
       isEqualWidth={false}
       key="3"
@@ -80,7 +83,7 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
 
 exports[`SelectButtonGroup should render correctly 1`] = `
 <SelectButtonGroup
-  context={null}
+  context="primary"
   defaultValue={
     Array [
       "1",
@@ -98,6 +101,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
     className="SelectButtonGroup"
   >
     <SelectButton
+      context="primary"
       isBlock={false}
       isEqualWidth={false}
       isSelected={true}
@@ -117,6 +121,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
+      context="primary"
       isBlock={false}
       isEqualWidth={false}
       key="2"
@@ -135,6 +140,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
+      context="primary"
       isBlock={false}
       isEqualWidth={false}
       key="3"

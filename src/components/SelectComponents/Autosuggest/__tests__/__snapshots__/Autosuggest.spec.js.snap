@@ -2066,11 +2066,11 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                           role="presentation"
                         >
                           <Text
-                            context="muted"
+                            context="neutral"
                             key=".0"
                           >
                             <p
-                              className="Text--context_muted"
+                              className="Text--context_neutral"
                             >
                               no suggestions
                             </p>

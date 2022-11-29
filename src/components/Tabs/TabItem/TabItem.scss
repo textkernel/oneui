@@ -1,5 +1,5 @@
 .TabItem {
-    color: var(--link-color-normal);
+    color: var(--color-foreground);
     cursor: pointer;
     outline: none;
     padding: var(--spacing-2x) var(--spacing-4x);
@@ -18,14 +18,14 @@
 
     &--isActive,
     &:active {
-        color: var(--color-foreground);
+        color: var(--color-primary);
         border-bottom: 4px solid var(--color-primary);
     }
 
     &--isActive {
         &:hover,
         &:focus {
-            color: var(--color-foreground);
+            color: var(--color-primary);
             border-bottom: 4px solid var(--color-primary);
         }
     }
@@ -36,12 +36,12 @@
 
     &--disabled {
         cursor: not-allowed;
-        color: var(--color-muted);
+        color: var(--color-light);
 
         &:hover,
         &:focus {
             border-bottom: 4px solid transparent;
-            color: var(--color-muted);
+            color: var(--color-light);
         }
     }
 }

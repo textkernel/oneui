@@ -127,7 +127,7 @@ export const ProductTour: React.FC<Props> = ({
                 )}
                 <div {...elem('buttons')}>
                     {isLastSlide ? (
-                        <Button context="primary" onClick={handleFinish}>
+                        <Button isPrimary onClick={handleFinish}>
                             {finishLabel}
                         </Button>
                     ) : (
@@ -135,7 +135,7 @@ export const ProductTour: React.FC<Props> = ({
                             <Button context="link" onClick={handleCancel}>
                                 {cancelLabel}
                             </Button>
-                            <Button context="primary" onClick={handleNext}>
+                            <Button isPrimary onClick={handleNext}>
                                 {continueLabel}
                             </Button>
                         </>

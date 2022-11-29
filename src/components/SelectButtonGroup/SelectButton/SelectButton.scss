@@ -41,12 +41,12 @@
         &:focus,
         &:active {
             z-index: 999;
-            box-shadow: 0 0 0 var(--spacing-normal) var(--color-neutral-25);
+            box-shadow: 0 0 0 var(--spacing-normal) var(--color-light-25);
         }
     }
 
     &--isSelected.SelectButton--context {
-        @each $context in (primary, secondary, success, warning, danger) {
+        @each $context in (info, success, warning, danger, primary) {
             &_#{$context} {
                 border-color: var(--color-#{$context});
                 background-color: var(--color-#{$context});

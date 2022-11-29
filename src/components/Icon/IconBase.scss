@@ -12,8 +12,6 @@
         transition: fill var(--transition-duration);
     }
 
-    @include context-attribute-with-color('fill');
-
     &--margin {
         @each $side in (top, right, bottom, left) {
             &_#{ $side } {

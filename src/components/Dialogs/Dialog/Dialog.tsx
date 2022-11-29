@@ -46,10 +46,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
                         {cancelButton.label}
                     </Button>
                 )}
-                <Button
-                    onClick={acceptButton.onClick}
-                    context={isConfirm ? 'primary' : 'secondary'}
-                >
+                <Button onClick={acceptButton.onClick} isPrimary>
                     {acceptButton.label}
                 </Button>
             </div>

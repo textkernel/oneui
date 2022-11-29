@@ -70,8 +70,8 @@
         &--indeterminate {
             + .Checkbox__label {
                 .Checkbox__box {
-                    background: var(--color-brand);
-                    border-color: var(--color-brand);
+                    background: var(--color-primary);
+                    border-color: var(--color-primary);
                 }
             }
         }

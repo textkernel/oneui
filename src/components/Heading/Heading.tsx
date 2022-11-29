@@ -10,8 +10,8 @@ export interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
     level?: typeof HEADING_SIZES[number];
     /** Heading text alignment */
     align?: 'left' | 'center' | 'right';
-    /** The context of the text, effecting its color (e.g. primary, secondary,  danger, success etc. 'muted' added as special context here) */
-    context?: Context | 'muted' | 'default';
+    /** The context of the text, effecting its color (e.g. info,  danger, success etc. 'neutral' added as special context here) */
+    context?: Context | 'default';
 }
 
 const { block } = bem('Heading', styles);

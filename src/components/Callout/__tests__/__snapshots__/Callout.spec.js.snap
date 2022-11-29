@@ -2,10 +2,10 @@
 
 exports[`Callout should render correctly 1`] = `
 <div
-  className="Callout Callout--context_secondary"
+  className="Callout Callout--context_info"
 >
   <div
-    className="Callout__content Callout__content--context_secondary"
+    className="Callout__content Callout__content--context_info"
   >
     some text
   </div>

@@ -13,7 +13,7 @@ describe('OneUITheme/utils', () => {
                 {
                     '--color-primary': '#0097d1',
                     '--color-background': '#fff',
-                    '--color-foreground': '#1d1d1b',
+                    '--color-neutral': '#1d1d1b',
                 },
                 '--color-primary'
             );
@@ -21,9 +21,9 @@ describe('OneUITheme/utils', () => {
                 '--color-primary-10': '#CCEAF6',
                 '--color-primary-25': '#80CBE8',
                 '--color-primary-40': '#33ACDA',
-                '--color-primary-60': '#067FAD',
-                '--color-primary-75': '#0F5A76',
-                '--color-primary-90': '#17353F',
+                '--color-primary-60': '#0079A7',
+                '--color-primary-75': '#004C69',
+                '--color-primary-90': '#001E2A',
             });
         });
     });

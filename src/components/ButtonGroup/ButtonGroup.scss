@@ -20,18 +20,15 @@
             margin-left: -1px;
         }
 
-        &--context {
-            @each $context in ($contexts) {
-                &_#{$context} {
-                    &:not(.ButtonGroup__button--first):not(:focus) {
-                        border-left-color: var(--color-#{$context}-25);
-                    }
-                    &:not(.ButtonGroup__button--last):not(:focus) {
-                        border-right-color: var(--color-#{$context}-25);
-                    }
-                }
-            }
+
+        &:not(.ButtonGroup__button--first):not(:focus) {
+            border-left-color: var(--color-primary-25);
         }
+
+        &:not(.ButtonGroup__button--last):not(:focus) {
+            border-right-color: var(--color-primary-25);
+        }
+
     }
 
     &--isBlock {

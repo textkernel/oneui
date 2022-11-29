@@ -21,7 +21,7 @@ export interface Props<V> extends InternalProps<V> {
     /** whether or not this button is selected */
     isSelected?: boolean;
     /** the color context to be applied in the selected state */
-    context?: Context;
+    context?: Context | 'primary';
     /** size of the button */
     size?: Size;
 }

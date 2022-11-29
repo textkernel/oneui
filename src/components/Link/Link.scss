@@ -13,10 +13,10 @@
     }
 
     &--context_muted {
-        color: var(--color-muted);
+        color: var(--color-light);
 
         &:hover {
-            color: var(--color-muted);
+            color: var(--color-light);
         }
     }
 }

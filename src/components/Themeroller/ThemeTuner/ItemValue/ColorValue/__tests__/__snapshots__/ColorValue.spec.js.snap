@@ -28,11 +28,11 @@ exports[`ColorValue component should render component correctly 1`] = `
     </Input>
     <Text
       className="ColorValue__value"
-      context="muted"
+      context="neutral"
       inline={true}
     >
       <span
-        className="Text--context_muted ColorValue__value"
+        className="Text--context_neutral ColorValue__value"
       >
         #fffff
       </span>

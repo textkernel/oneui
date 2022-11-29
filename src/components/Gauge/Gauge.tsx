@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import { ContentPlaceholder } from '../ContentPlaceholder';
-import { Context, GAUGE_RADIUS } from '../../constants';
+import { GAUGE_RADIUS } from '../../constants';
 import styles from './Gauge.scss';
 
 const SET_PERCENTAGE_DELAY = 100;
@@ -9,8 +9,6 @@ const SET_PERCENTAGE_DELAY = 100;
 const { block, elem } = bem('Gauge', styles);
 
 export interface Props {
-    /** The gauge context (e.g. primary, secondary, danger, success etc. - defaults to primary) */
-    context?: Context;
     /** Defines if progress bar is in loading state */
     isProgressLoading?: boolean;
     /** Defines if content part is in loading state */
@@ -36,7 +34,6 @@ export interface Props {
 export const Gauge: React.FC<Props> = ({
     children,
     percentage = 0,
-    context = 'accent',
     note,
     metric = '',
     isProgressLoading = false,
@@ -46,7 +43,6 @@ export const Gauge: React.FC<Props> = ({
     const [percentageToShow, setPercentageToShow] = React.useState(0);
     // We need this uuid for the linear gradient's id to avoid some bugs in Safari.
     // For details see: https://jira.textkernel.nl/browse/JF-2780
-    const id = React.useRef(Math.random());
 
     // Simulate a prop change to run the animation on render.
     // There's a small delay set because of a weird bug
@@ -67,24 +63,8 @@ export const Gauge: React.FC<Props> = ({
     const circumferenceHalf = circumference / 2;
 
     return (
-        <div {...rest} {...block({ isProgressLoading, isContentLoading, context, ...rest })}>
+        <div {...rest} {...block({ isProgressLoading, isContentLoading, ...rest })}>
             <svg {...elem('svg')} width="100%">
-                <defs>
-                    <linearGradient id={`Gauge__gradient--${context}-${id.current}`}>
-                        <stop
-                            {...elem('gradientStart', {
-                                context,
-                            })}
-                            offset="50%"
-                        />
-                        <stop
-                            {...elem('gradientEnd', {
-                                context,
-                            })}
-                            offset="100%"
-                        />
-                    </linearGradient>
-                </defs>
                 <circle
                     {...elem('circleBackground')}
                     r={GAUGE_RADIUS}
@@ -98,7 +78,6 @@ export const Gauge: React.FC<Props> = ({
                     cx="50%"
                     cy="25%"
                     style={{ strokeDasharray: `${progress * circumferenceHalf} ${circumference}` }}
-                    stroke={`url(#Gauge__gradient--${context}-${id.current})`}
                 />
             </svg>
             <div {...elem('contentWrapper', { isContentLoading })}>

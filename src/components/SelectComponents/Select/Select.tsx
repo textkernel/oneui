@@ -73,7 +73,7 @@ export function Select<S>(props: Props<S>) {
             {selectedItem ? (
                 itemToString(selectedItem)
             ) : (
-                <Text inline {...elem('placeholder')} context="muted">
+                <Text inline {...elem('placeholder')} context="neutral">
                     {placeholder}
                 </Text>
             )}

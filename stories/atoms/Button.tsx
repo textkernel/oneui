@@ -15,6 +15,8 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const _Button = Template.bind({});
 _Button.args = {
     context: CONTEXTS[0],
+    isPrimary: true,
+    isNeutral: false,
     size: SIZES[1],
     type: 'submit',
     children: 'Click me!',

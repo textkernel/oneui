@@ -6,7 +6,7 @@ export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Link content */
     children: NotEmptyReactNode;
     /** Color context */
-    context?: 'primary' | 'muted';
+    context?: 'primary' | 'neutral';
     /** Do not underline text on hover */
     dontDecorateOnHover?: boolean;
 }

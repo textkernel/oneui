@@ -1,11 +1,8 @@
 import React, { forwardRef } from 'react';
 import { bem } from '../../utils';
 import styles from './IconBase.scss';
-import { Context } from '../../constants';
 
 export interface IconProps extends React.HTMLAttributes<HTMLDivElement> {
-    /** The icon context (e.g. primary, secondary, danger, success etc. - defaults to primary) */
-    context?: Context;
     /** Adds margin between a given side of the icon and other content */
     margin?: 'top' | 'right' | 'bottom' | 'left';
     /** Absolute size for this icon (size in pixels, aspect ratio is 1:1).
@@ -44,12 +41,9 @@ const adjustSize = (preserveAspectRatio: boolean, size?: number) => {
 };
 
 export const IconBase = forwardRef<HTMLDivElement, Props>(
-    (
-        { children, context, margin, size, preserveAspectRatio = false, title, viewBox, ...rest },
-        ref
-    ) => {
+    ({ children, margin, size, preserveAspectRatio = false, title, viewBox, ...rest }, ref) => {
         return (
-            <div ref={ref} {...rest} {...block({ margin, context, ...rest })}>
+            <div ref={ref} {...rest} {...block({ margin, ...rest })}>
                 <svg
                     {...elem('svg')}
                     aria-labelledby={title ? 'title' : null}
