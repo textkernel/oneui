@@ -2,23 +2,11 @@
 
 exports[`<LocationAutocomplete/> that renders a location search field should pass predictions to AutosuggestDeprecated 1`] = `
 <LocationAutocomplete
-  clearLabel=""
-  country=""
-  defaultInputValue=""
-  hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
-  isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
   onRemoveAllLocations={[MockFunction]}
   onSelectionChange={[MockFunction]}
-  placeTypes={
-    Array [
-      "(regions)",
-    ]
-  }
-  showCountryInSuggestions={false}
-  singleLocation={false}
 >
   <AutosuggestDeprecated
     clearTitle=""
@@ -547,23 +535,11 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
 
 exports[`<LocationAutocomplete/> that renders a location search field should render with minimal props 1`] = `
 <LocationAutocomplete
-  clearLabel=""
-  country=""
-  defaultInputValue=""
-  hidePoweredByGoogleLogo={false}
   inputPlaceholder="Location..."
-  isFocused={false}
   noSuggestionsPlaceholder="No suggestions..."
   onError={[MockFunction]}
   onRemoveAllLocations={[MockFunction]}
   onSelectionChange={[MockFunction]}
-  placeTypes={
-    Array [
-      "(regions)",
-    ]
-  }
-  showCountryInSuggestions={false}
-  singleLocation={false}
 >
   <AutosuggestDeprecated
     clearTitle=""

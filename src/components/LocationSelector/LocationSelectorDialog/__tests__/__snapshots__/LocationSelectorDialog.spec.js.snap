@@ -5,7 +5,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
   country="NL"
   doneLabel="doneLabel"
   getMarkers={[Function]}
-  initialMapAddress={null}
   inputPlaceholder="inputPlaceholder"
   maxRadius={100}
   minRadius={1}
@@ -48,7 +47,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
     ]
   }
   showCountryInSuggestions={true}
-  withoutLocationCards={false}
 >
   <div
     className="LocationSelectorDialog__inputLine"
@@ -57,7 +55,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
   >
     <LocationAutocomplete
       className="LocationSelectorDialog__searchField"
-      clearLabel=""
       country="NL"
       defaultInputValue=""
       hidePoweredByGoogleLogo={true}
@@ -279,7 +276,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         As="li"
         className="LocationSelectorDialog__locationCard"
         distanceRadius={42}
-        hasRadius={false}
         key="ajdo-219a-j19v-0491"
         locationId="ajdo-219a-j19v-0491"
         locationTitle="Amsterdam"
@@ -322,7 +318,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         As="li"
         className="LocationSelectorDialog__locationCard"
         distanceRadius={20}
-        hasRadius={false}
         key="ajdo-219a-j19v-0492"
         locationId="ajdo-219a-j19v-0492"
         locationTitle="Utrecht"

@@ -17,7 +17,7 @@ export interface Props<V>
     /** should the component take up all the width available */
     isBlock?: boolean;
     /** Color context for selected buttons */
-    context?: Context | 'primary';
+    context?: Context | 'primary' | null;
     /** Use primary color for selected buttons */
     isPrimary?: boolean;
     /** should children have equal width */
@@ -25,28 +25,26 @@ export interface Props<V>
     /** size of the button group */
     size?: Size;
     /** currently selected value(s) (controlled use) */
-    value?: V[];
+    value?: V[] | null;
     /** currently selected value(s) (uncontrolled use) */
     defaultValue?: V[];
 }
 
 const { block } = bem('SelectButtonGroup', styles);
 
-export function SelectButtonGroup<V>(props: Props<V>) {
-    const {
-        children,
-        isMultiselect,
-        isRequired,
-        isEqualWidth,
-        isBlock,
-        context,
-        onChange,
-        size,
-        value,
-        defaultValue,
-        ...rest
-    } = props;
-
+export function SelectButtonGroup<V>({
+    children,
+    isMultiselect = false,
+    isRequired = false,
+    isEqualWidth = false,
+    isBlock = false,
+    context = null,
+    onChange = () => null,
+    size = 'normal',
+    value = null,
+    defaultValue = [],
+    ...rest
+}: Props<V>) {
     const [selection, setSelection] = React.useState(defaultValue || []);
 
     const handleChange = (selectedValue: V) => {
@@ -90,7 +88,7 @@ export function SelectButtonGroup<V>(props: Props<V>) {
     };
 
     return (
-        <div {...rest} {...block(props)}>
+        <div {...rest} {...block({ ...rest, isBlock })}>
             {children.map((child) => {
                 const childProps = {
                     context: context || child.props.context,
@@ -109,15 +107,3 @@ export function SelectButtonGroup<V>(props: Props<V>) {
 }
 
 SelectButtonGroup.displayName = 'SelectButtonGroup';
-
-SelectButtonGroup.defaultProps = {
-    isMultiselect: false,
-    isRequired: false,
-    isBlock: false,
-    isEqualWidth: false,
-    context: 'primary',
-    size: 'normal',
-    onChange: null,
-    value: null,
-    defaultValue: null,
-};

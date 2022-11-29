@@ -101,6 +101,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             togglePopup();
             expect(wrapper.find('Popover')).toHaveLength(1);
 
+            // @ts-ignore
             clickDocument();
             wrapper.update();
 
@@ -109,6 +110,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
         it('should call onClose if outside is clicked', () => {
             togglePopup();
 
+            // @ts-ignore
             clickDocument();
             wrapper.update();
 

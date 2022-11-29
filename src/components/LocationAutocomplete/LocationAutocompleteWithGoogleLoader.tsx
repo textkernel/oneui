@@ -28,9 +28,13 @@ const GOOGLE_API_LIBRARIES: (
     | 'visualization'
 )[] = ['places'];
 
-const LocationAutocompleteWithGoogleLoader = (props: Props) => {
-    const { apiKey, language, region, additionalGoogleProps, ...rest } = props;
-
+const LocationAutocompleteWithGoogleLoader: React.FC<Props> = ({
+    apiKey,
+    language = undefined,
+    region = undefined,
+    additionalGoogleProps = {},
+    ...rest
+}) => {
     return (
         <LoadScriptNext
             googleMapsApiKey={apiKey}
@@ -46,11 +50,5 @@ const LocationAutocompleteWithGoogleLoader = (props: Props) => {
 };
 
 LocationAutocompleteWithGoogleLoader.displayName = 'LocationAutocompleteWithGoogleLoader';
-
-LocationAutocompleteWithGoogleLoader.defaultProps = {
-    additionalGoogleProps: {},
-    language: undefined,
-    region: undefined,
-};
 
 export { LocationAutocompleteWithGoogleLoader, Props as LocationAutocompleteWithGoogleLoaderProps };

@@ -2,16 +2,11 @@
 
 exports[`<Pill> component should open dropdown when button is clicked 1`] = `
 <Pill
-  additionalDropdownProps={Object {}}
   content="Pill content"
   doneLabel="Done"
-  dropdownRef={null}
-  isContentDefault={false}
   name="Pill name"
-  noPaddingInDropdown={false}
   onClear={[MockFunction]}
   onClose={[MockFunction]}
-  ref={null}
 >
   <PopupBase
     anchorRef={
@@ -59,8 +54,6 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
     }
     anchorRenderer={[Function]}
     onClose={[MockFunction]}
-    placement="bottom-start"
-    popperOptions={Object {}}
     popupRef={
       Object {
         "current": <div
@@ -91,7 +84,6 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
       }
     }
     popupRenderer={[Function]}
-    renderInPortal={false}
   >
     <PillButton
       content="Pill content"
@@ -184,7 +176,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
             className="PillDropdown__footer"
           >
             <Button
-              context="primary"
+              isPrimary={true}
               onClick={[Function]}
               size="small"
             >
@@ -207,16 +199,11 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
 
 exports[`<Pill> component should render correctly 1`] = `
 <Pill
-  additionalDropdownProps={Object {}}
   content="Pill content"
   doneLabel="Done"
-  dropdownRef={null}
-  isContentDefault={false}
   name="Pill name"
-  noPaddingInDropdown={false}
   onClear={[MockFunction]}
   onClose={[MockFunction]}
-  ref={null}
 >
   <PopupBase
     anchorRef={
@@ -263,15 +250,12 @@ exports[`<Pill> component should render correctly 1`] = `
     }
     anchorRenderer={[Function]}
     onClose={[MockFunction]}
-    placement="bottom-start"
-    popperOptions={Object {}}
     popupRef={
       Object {
         "current": null,
       }
     }
     popupRenderer={[Function]}
-    renderInPortal={false}
   >
     <PillButton
       content="Pill content"

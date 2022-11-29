@@ -5,9 +5,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
   labels={Array []}
 >
   <PopupBase
-    anchorRef={null}
     anchorRenderer={[Function]}
-    onClose={null}
     placement="bottom-end"
     popperOptions={
       Object {
@@ -24,9 +22,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
         ],
       }
     }
-    popupRef={null}
     popupRenderer={[Function]}
-    renderInPortal={false}
   >
     <Button
       onClick={[Function]}
@@ -72,9 +68,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
   }
 >
   <PopupBase
-    anchorRef={null}
     anchorRenderer={[Function]}
-    onClose={null}
     placement="bottom-end"
     popperOptions={
       Object {
@@ -91,9 +85,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
         ],
       }
     }
-    popupRef={null}
     popupRenderer={[Function]}
-    renderInPortal={false}
   >
     <Button
       onClick={[Function]}

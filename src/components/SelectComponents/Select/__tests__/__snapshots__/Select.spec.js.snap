@@ -3,7 +3,6 @@
 exports[`Select rendering should initially render correctly 1`] = `
 <Select
   className="someClass"
-  clearLabel=""
   itemToString={[Function]}
   items={
     Array [
@@ -44,7 +43,6 @@ exports[`Select rendering should initially render correctly 1`] = `
   onChange={[MockFunction]}
   onClear={[MockFunction]}
   onFocus={[MockFunction]}
-  placeholder=""
   selectedItem={
     Object {
       "name": "Moon",
@@ -247,7 +245,6 @@ exports[`Select rendering should initially render correctly 1`] = `
 exports[`Select rendering should render focused component correctly 1`] = `
 <Select
   className="someClass"
-  clearLabel=""
   itemToString={[Function]}
   items={
     Array [
@@ -300,7 +297,6 @@ exports[`Select rendering should render focused component correctly 1`] = `
       ],
     }
   }
-  placeholder=""
   selectedItem={
     Object {
       "name": "Moon",
@@ -467,14 +463,11 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     role="listbox"
                   >
                     <SuggestionsList
-                      allowMixingSuggestionsAndLoading={false}
                       className="List__item"
                       getItemProps={[Function]}
                       highlightedIndex={0}
                       inputValue=""
-                      isLoading={false}
                       key=".0"
-                      noSuggestionsPlaceholder=""
                       passDisabledToListItems={true}
                       suggestionToString={[Function]}
                       suggestions={
@@ -512,7 +505,6 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           },
                         ]
                       }
-                      useOptimizeRender={false}
                     >
                       <ListItem
                         aria-selected={true}

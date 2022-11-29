@@ -2,14 +2,7 @@
 
 exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
 <SelectButtonGroup
-  context="primary"
-  defaultValue={null}
-  isBlock={false}
-  isEqualWidth={false}
-  isMultiselect={false}
-  isRequired={false}
   onChange={[MockFunction]}
-  size="normal"
   value={
     Array [
       "1",
@@ -20,7 +13,6 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
     className="SelectButtonGroup"
   >
     <SelectButton
-      context="primary"
       isBlock={false}
       isEqualWidth={false}
       isSelected={true}
@@ -40,7 +32,6 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
-      context="primary"
       isBlock={false}
       isEqualWidth={false}
       key="2"
@@ -59,7 +50,6 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
-      context="primary"
       isBlock={false}
       isEqualWidth={false}
       key="3"
@@ -83,25 +73,17 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
 
 exports[`SelectButtonGroup should render correctly 1`] = `
 <SelectButtonGroup
-  context="primary"
   defaultValue={
     Array [
       "1",
     ]
   }
-  isBlock={false}
-  isEqualWidth={false}
-  isMultiselect={false}
-  isRequired={false}
   onChange={[MockFunction]}
-  size="normal"
-  value={null}
 >
   <div
     className="SelectButtonGroup"
   >
     <SelectButton
-      context="primary"
       isBlock={false}
       isEqualWidth={false}
       isSelected={true}
@@ -121,7 +103,6 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
-      context="primary"
       isBlock={false}
       isEqualWidth={false}
       key="2"
@@ -140,7 +121,6 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       </div>
     </SelectButton>
     <SelectButton
-      context="primary"
       isBlock={false}
       isEqualWidth={false}
       key="3"

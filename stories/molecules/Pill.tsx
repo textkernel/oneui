@@ -12,12 +12,19 @@ export default {
     title: 'Molecules/Pill',
     component: Pill,
     subcomponents: { PillButton, PillDropdown },
+    argTypes: {
+        ref: { control: false },
+        dropdownRef: { control: false },
+    },
 };
 
 export const _Pill = (args) => {
     return (
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', display: 'flex', gap: '4px' }}>
             <Pill {...args}>{({ close }) => <DummyComponent close={close} />}</Pill>
+            <Pill {...args} content={undefined}>
+                {({ close }) => <DummyComponent close={close} />}
+            </Pill>
         </div>
     );
 };
@@ -31,7 +38,7 @@ export const _PillButton = (args) => (
     <div style={{ display: 'flex' }}>
         <PillButton {...args} />
         &nbsp;&nbsp;
-        <PillButton name="Pill 2" content="" />
+        <PillButton {...args} name="Pill 2" content="" />
     </div>
 );
 _PillButton.args = {

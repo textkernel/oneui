@@ -119,17 +119,14 @@ exports[`ThemeActions component should render component correctly with all actio
       </FileButton>
     </div>
     <Tooltip
-      animation="shift-toward"
       disabled={false}
       placement="bottom"
     >
       <ForwardRef(TippyWrapper)
-        animation="shift-toward"
         disabled={false}
         placement="bottom"
       >
         <Tippy
-          animation="shift-toward"
           disabled={false}
           placement="bottom"
         >

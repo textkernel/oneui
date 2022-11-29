@@ -2,7 +2,6 @@
 
 exports[`<LocationAutocompleteWithGoogleLoader/> that loads google api and renders a LocationAutocompleteWithGoogleLoader should render with default props 1`] = `
 <LocationAutocompleteWithGoogleLoader
-  additionalGoogleProps={Object {}}
   apiKey="someKey"
   inputPlaceholder="Location..."
   noSuggestionsPlaceholder="No suggestions..."

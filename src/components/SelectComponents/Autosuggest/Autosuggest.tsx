@@ -58,33 +58,32 @@ const { elem } = bem('Autosuggest', styles);
  * More detailed face-to-face comparison of Select components can be found
  * [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)`,
  */
-export function Autosuggest<S>(props: Props<S>) {
-    const {
-        id,
-        onInputValueChange,
-        onSelectionAdd,
-        selectedSuggestions = [],
-        suggestionToString,
-        suggestionToKey,
-        suggestionItemRenderer,
-        inputPlaceholder,
-        noSuggestionsPlaceholder,
-        useOptimizeListRender,
-        suggestions,
-        isLoading,
-        numberOfVisibleTags,
-        allowMixingSuggestionsAndLoading,
-        onFocus,
-        onBlur,
-        onSubmit,
-        showClearButton,
-        onSelectionRemove,
-        inputRef: inputRefFromProps,
-        customSelectionIndicator,
-        initInputValue,
-        inputAttrs,
-        ...rest
-    } = props;
+export function Autosuggest<S>({
+    id = undefined,
+    onInputValueChange,
+    onSelectionAdd,
+    selectedSuggestions = [],
+    suggestionToString,
+    suggestionToKey,
+    suggestionItemRenderer,
+    inputPlaceholder,
+    noSuggestionsPlaceholder = '',
+    useOptimizeListRender = false,
+    suggestions,
+    isLoading = false,
+    numberOfVisibleTags = 3,
+    allowMixingSuggestionsAndLoading = false,
+    onFocus,
+    onBlur,
+    onSubmit = () => null,
+    showClearButton,
+    onSelectionRemove = () => null,
+    inputRef: inputRefFromProps,
+    customSelectionIndicator = undefined,
+    initInputValue,
+    inputAttrs = {},
+    ...rest
+}: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
     const [inputValue, setInputValue] = React.useState('');
 
@@ -237,18 +236,3 @@ export function Autosuggest<S>(props: Props<S>) {
 }
 
 Autosuggest.displayName = 'Autosuggest';
-
-Autosuggest.defaultProps = {
-    id: undefined,
-    numberOfVisibleTags: 3,
-    selectedSuggestions: [],
-    suggestionToKey: null,
-    allowMixingSuggestionsAndLoading: false,
-    useOptimizeListRender: false,
-    onSubmit: null,
-    onSelectionRemove: null,
-    noSuggestionsPlaceholder: '',
-    isLoading: false,
-    customSelectionIndicator: undefined,
-    inputAttrs: {},
-};

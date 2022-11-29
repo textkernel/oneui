@@ -201,15 +201,12 @@ exports[`Teaser should render with all props defined 1`] = `
           key="Viewed"
         >
           <Tooltip
-            animation="shift-toward"
             content="Viewed two days ago"
           >
             <ForwardRef(TippyWrapper)
-              animation="shift-toward"
               content="Viewed two days ago"
             >
               <Tippy
-                animation="shift-toward"
                 content="Viewed two days ago"
               >
                 <Text
@@ -251,15 +248,12 @@ exports[`Teaser should render with all props defined 1`] = `
           key="Imported"
         >
           <Tooltip
-            animation="shift-toward"
             content="Imported five days ago"
           >
             <ForwardRef(TippyWrapper)
-              animation="shift-toward"
               content="Imported five days ago"
             >
               <Tippy
-                animation="shift-toward"
                 content="Imported five days ago"
               >
                 <Text

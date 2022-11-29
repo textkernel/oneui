@@ -35,38 +35,36 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block, elem } = bem('LocationCard', styles);
 
-const LocationCard = (props: Props) => {
-    const {
-        As = 'div',
-        locationId,
-        locationTitle,
-        hasRadius,
-        distanceRadius,
-        sliderLabel,
-        minRadius,
-        maxRadius,
-        radiusStep,
-        onRadiusChange = () => undefined,
-        onDelete,
-        ...rest
-    } = props;
-
+const LocationCard: React.FC<Props> = ({
+    As = 'div',
+    locationId = undefined,
+    locationTitle,
+    hasRadius = false,
+    distanceRadius,
+    sliderLabel = '',
+    minRadius = 1,
+    maxRadius = 100,
+    radiusStep = 1,
+    onRadiusChange = () => undefined,
+    onDelete,
+    ...rest
+}) => {
     const handleRadiusChange = (radius) => onRadiusChange(locationId, radius);
 
     const handleDelete = () => onDelete(locationId);
 
     return (
-        <As {...rest} {...block(props)}>
-            <div {...elem('header', props)}>
-                <Text title={locationTitle} size={SIZES[2]} {...elem('title', props)}>
+        <As {...rest} {...block({ ...rest })}>
+            <div {...elem('header')}>
+                <Text title={locationTitle} size={SIZES[2]} {...elem('title')}>
                     {locationTitle}
                 </Text>
-                <button onClick={handleDelete} type="button" {...elem('deleteButton', props)}>
+                <button onClick={handleDelete} type="button" {...elem('deleteButton')}>
                     {CROSS_CHAR}
                 </button>
             </div>
             {hasRadius && (
-                <div {...elem('slider', props)}>
+                <div {...elem('slider')}>
                     <Slider
                         value={distanceRadius}
                         min={minRadius}
@@ -74,7 +72,7 @@ const LocationCard = (props: Props) => {
                         step={radiusStep}
                         onChange={handleRadiusChange}
                     />
-                    <Text size={SIZES[0]} {...elem('sliderLabel', props)}>
+                    <Text size={SIZES[0]} {...elem('sliderLabel')}>
                         {sliderLabel}
                     </Text>
                 </div>
@@ -84,16 +82,5 @@ const LocationCard = (props: Props) => {
 };
 
 LocationCard.displayName = 'LocationCard';
-
-LocationCard.defaultProps = {
-    locationId: undefined,
-    hasRadius: false,
-    sliderLabel: '',
-    minRadius: 1,
-    maxRadius: 100,
-    radiusStep: 1,
-    onRadiusChange: () => undefined,
-    As: 'div',
-};
 
 export { LocationCard, Props as LocationCardProps };

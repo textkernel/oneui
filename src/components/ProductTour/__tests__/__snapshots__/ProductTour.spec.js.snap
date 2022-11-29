@@ -26,7 +26,6 @@ exports[`ProductTour general rendering of first slide should render correctly wi
       }
       closeTimeoutMS={300}
       isOpen={true}
-      isPositionFixed={true}
       onAfterOpen={[Function]}
       onRequestClose={[Function]}
       overlayClassName={
@@ -125,7 +124,6 @@ exports[`ProductTour general rendering of first slide should render correctly wi
             }
           }
           isOpen={true}
-          isPositionFixed={true}
           onAfterOpen={[Function]}
           onRequestClose={[Function]}
           overlayClassName={
@@ -236,7 +234,6 @@ exports[`ProductTour general rendering of first slide should render correctly wi
       }
       closeTimeoutMS={300}
       isOpen={true}
-      isPositionFixed={true}
       onAfterOpen={[Function]}
       onRequestClose={[Function]}
       overlayClassName={
@@ -395,7 +392,6 @@ exports[`ProductTour general rendering of first slide should render correctly wi
             }
           }
           isOpen={true}
-          isPositionFixed={true}
           onAfterOpen={[Function]}
           onRequestClose={[Function]}
           overlayClassName={

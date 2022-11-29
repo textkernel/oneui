@@ -2,14 +2,12 @@
 
 exports[`LocationCard component should render component correctly 1`] = `
 <LocationCard
-  As="div"
   distanceRadius={42}
   hasRadius={true}
   locationTitle="London"
   maxRadius={100}
   minRadius={1}
   onDelete={[MockFunction]}
-  onRadiusChange={[Function]}
   radiusStep={1}
   sliderLabel="+42 km"
 >
@@ -201,14 +199,12 @@ exports[`LocationCard component should render component correctly 1`] = `
 
 exports[`LocationCard component should render component correctly without radius slider 1`] = `
 <LocationCard
-  As="div"
   distanceRadius={42}
   hasRadius={false}
   locationTitle="London"
   maxRadius={100}
   minRadius={1}
   onDelete={[MockFunction]}
-  onRadiusChange={[Function]}
   radiusStep={1}
   sliderLabel="+42 km"
 >

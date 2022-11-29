@@ -4,7 +4,6 @@ exports[`<PillDropdown> component should render correctly 1`] = `
 <PillDropdown
   close={[MockFunction]}
   doneLabel="Done"
-  noPadding={false}
 >
   <div
     className="PillDropdown"
@@ -21,7 +20,7 @@ exports[`<PillDropdown> component should render correctly 1`] = `
         className="PillDropdown__footer"
       >
         <Button
-          context="primary"
+          isPrimary={true}
           onClick={[Function]}
           size="small"
         >

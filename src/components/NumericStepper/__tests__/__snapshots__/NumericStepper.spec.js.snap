@@ -2,12 +2,7 @@
 
 exports[`<NumericStepper> component should render correctly 1`] = `
 <NumericStepper
-  customWidth="3ch"
-  defaultValue={0}
-  maxValue={9007199254740991}
-  minValue={0}
   onChange={[MockFunction]}
-  step={1}
 >
   <div
     className="NumericStepper"

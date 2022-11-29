@@ -49,23 +49,20 @@ export interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
  * More detailed face-to-face comparison of Select components can be found
  * [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)
  */
-export function Select<S>(props: Props<S>) {
-    const {
-        items,
-        selectedItem,
-        itemToString,
-        optionItemRenderer,
-        placeholder,
-        clearLabel,
-        onChange,
-        onBlur,
-        onFocus,
-        onClear,
-        rootRef,
-        listRef,
-        ...rest
-    } = props;
-
+export function Select<S>({
+    items,
+    selectedItem = undefined,
+    itemToString,
+    optionItemRenderer = undefined,
+    placeholder = '',
+    clearLabel = '',
+    onChange,
+    onBlur = undefined,
+    onFocus = undefined,
+    onClear = undefined,
+    listRef = undefined,
+    ...rest
+}: Props<S>) {
     const focusElRef = React.useRef();
 
     const selectionRenderer = () => (
@@ -133,16 +130,3 @@ export function Select<S>(props: Props<S>) {
 }
 
 Select.displayName = 'Select';
-
-Select.defaultProps = {
-    optionItemRenderer: undefined,
-    selectedItem: undefined,
-    placeholder: '',
-    clearLabel: '',
-    onFocus: undefined,
-    onBlur: undefined,
-    onClear: undefined,
-    rootRef: undefined,
-    listRef: undefined,
-    className: '',
-};

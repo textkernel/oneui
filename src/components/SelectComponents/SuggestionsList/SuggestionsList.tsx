@@ -38,22 +38,20 @@ export interface Props<S> {
     passDisabledToListItems?: boolean;
 }
 
-export function SuggestionsList<S>(props: Props<S>) {
-    const {
-        suggestionToString,
-        useOptimizeRender,
-        suggestions,
-        isLoading,
-        allowMixingSuggestionsAndLoading,
-        noSuggestionsPlaceholder,
-        getItemProps,
-        highlightedIndex,
-        suggestionToKey,
-        suggestionItemRenderer,
-        inputValue,
-        passDisabledToListItems,
-    } = props;
-
+export function SuggestionsList<S>({
+    suggestionToString,
+    useOptimizeRender = false,
+    suggestions,
+    isLoading = false,
+    allowMixingSuggestionsAndLoading = false,
+    noSuggestionsPlaceholder = '',
+    getItemProps,
+    highlightedIndex,
+    suggestionToKey,
+    suggestionItemRenderer,
+    inputValue = '',
+    passDisabledToListItems = false,
+}: Props<S>) {
     // eslint-disable-next-line react/display-name
     const renderItem = ({ key, index, style = {} }) => {
         const currentItem = suggestions[index];
@@ -147,14 +145,5 @@ export function SuggestionsList<S>(props: Props<S>) {
 
     return renderSuggestionsList();
 }
-
-SuggestionsList.defaultProps = {
-    noSuggestionsPlaceholder: '',
-    useOptimizeRender: false,
-    isLoading: false,
-    allowMixingSuggestionsAndLoading: false,
-    inputValue: '',
-    passDisabledToListItems: false,
-};
 
 SuggestionsList.displayName = 'SuggestionsList';

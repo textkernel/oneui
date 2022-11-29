@@ -1,7 +1,6 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
 import ReactModal from 'react-modal';
-import { shallow } from 'enzyme';
 import { Modal } from '../Modal';
 
 describe('Modal', () => {
