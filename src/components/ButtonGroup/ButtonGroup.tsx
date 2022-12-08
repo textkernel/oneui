@@ -26,7 +26,7 @@ export const ButtonGroup = ({
 }: Props) => {
     const totalNumberOfButtons = React.Children.count(children);
 
-    if (totalNumberOfButtons === 1) {
+    if (totalNumberOfButtons === 1 && !Array.isArray(children)) {
         return (
             <div {...rest} {...block({ isBlock, ...rest })} role="group">
                 {React.isValidElement(children)
