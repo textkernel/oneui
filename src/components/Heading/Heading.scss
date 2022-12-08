@@ -9,6 +9,10 @@
     text-align: left;
     margin: 0;
 
+    &--isNeutral {
+        color: var(--color-neutral-25);
+    }
+
     &--level {
         @for $level from 1 to 7 {
             &_h#{ $level } {
@@ -24,6 +28,4 @@
             text-align: right;
         }
     }
-
-    @include context-attribute-with-color('color', (muted));
 }

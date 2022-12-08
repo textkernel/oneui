@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { bem } from '../../../utils';
 import styles from './Button.scss';
-import { ButtonType, Context, Size } from '../../../constants';
+import { ButtonType, Size } from '../../../constants';
 
 export interface Props
     extends Omit<
@@ -11,12 +11,10 @@ export interface Props
     > {
     /** The label of the button */
     children: NotEmptySingleReactNode;
-    /** The button context (e.g. info, danger, success etc. - defaults to neutral) */
-    context?: Context | 'link';
-    /** Should the button have style like primary element */
-    isPrimary?: boolean;
+    /** Should the button have style like link element */
+    isLink?: boolean;
     /** Should the button have style like neutral element */
-    isNeutral?: boolean;
+    isPrimary?: boolean;
     /** The size of the button */
     size?: Size;
     /** Whether or not to show block-level button (full width) */
@@ -39,13 +37,12 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
     (
         {
             children,
-            context = 'neutral',
             disabled = false,
             isBlock = false,
             isInline = false,
             isLoading = false,
+            isLink = false,
             isPrimary = false,
-            isNeutral = false,
             type = 'button',
             href,
             size = 'normal',
@@ -53,19 +50,11 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         },
         ref
     ) => {
-        if (isNeutral) {
-            // eslint-disable-next-line no-param-reassign
-            context = 'neutral';
-        }
-        if (isPrimary) {
-            // eslint-disable-next-line no-param-reassign
-            context = 'primary';
-        }
         if (href) {
             return (
                 <a
                     {...rest}
-                    {...block({ context, isBlock, isInline, isLoading, size, ...rest })}
+                    {...block({ isLink, isPrimary, isBlock, isInline, isLoading, size, ...rest })}
                     ref={ref}
                     href={href}
                 >
@@ -77,7 +66,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         return (
             <button
                 {...rest}
-                {...block({ context, isBlock, isInline, isLoading, size, ...rest })}
+                {...block({ isLink, isPrimary, isBlock, isInline, isLoading, size, ...rest })}
                 ref={ref}
                 type={type}
                 disabled={disabled}

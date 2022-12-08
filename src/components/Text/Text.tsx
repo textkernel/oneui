@@ -15,6 +15,7 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
 }
 
 const { block } = bem('Text', styles);
+console.log(styles);
 
 export const Text = React.forwardRef<HTMLElement, Props>(
     ({ children, context = 'default', inline = false, size = 'normal', ...rest }, ref) => {

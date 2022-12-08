@@ -39,10 +39,10 @@ export const _Dropdown = (args) => {
 
     const customButtonsDemo = [
         <Button isPrimary>Click me!</Button>,
-        <Button isNeutral>
+        <Button>
             <HiDotsVertical />
         </Button>,
-        <Button context="link">Select any</Button>,
+        <Button isLink >Select any</Button>,
     ];
 
     return (

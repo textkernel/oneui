@@ -11,6 +11,8 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'title'
     title: ReactNode;
     /** Set open/close status for initial state */
     initialIsExpanded?: boolean;
+
+    isPrimary?: boolean;
     /** Control visibility Drawer component */
     isShown?: boolean;
     /** Set open/close status for state */
@@ -37,6 +39,7 @@ export const Drawer: React.FC<Props> = ({
     isExpanded: isExpandedProps,
     initialIsExpanded,
     onClick,
+    isPrimary,
     children,
     ...rest
 }) => {
@@ -92,7 +95,7 @@ export const Drawer: React.FC<Props> = ({
                     {...rest}
                 >
                     <header
-                        {...elem('head')}
+                        {...elem('head', { isPrimary })}
                         role="button"
                         tabIndex="-1"
                         onKeyPress={handleKeyPress}
@@ -103,7 +106,7 @@ export const Drawer: React.FC<Props> = ({
                         </h4>
                         <div {...elem('headButtons')}>
                             <button
-                                {...elem('expandButton', { isExpanded })}
+                                {...elem('expandButton', { isExpanded, isPrimary })}
                                 type="button"
                                 onClick={handleClick}
                             >
@@ -111,7 +114,10 @@ export const Drawer: React.FC<Props> = ({
                             </button>
                         </div>
                     </header>
-                    <section {...elem('body')} aria-hidden={!(isShown && isExpanded)}>
+                    <section
+                        {...elem('body', { isPrimary })}
+                        aria-hidden={!(isShown && isExpanded)}
+                    >
                         {children}
                     </section>
                 </div>

@@ -15,6 +15,7 @@ export interface Props {
 }
 
 const { block, elem } = bem('ButtonGroup', styles);
+console.log(styles);
 
 export const ButtonGroup = ({
     children,
@@ -53,6 +54,7 @@ export const ButtonGroup = ({
                     isPrimary,
                     ...elem('button', {
                         isBlock,
+                        isPrimary,
                         first: i === 0,
                         last: i + 1 === totalNumberOfButtons,
                     }),

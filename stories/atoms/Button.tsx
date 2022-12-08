@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, SearchButton, StepperButton } from '@textkernel/oneui';
-import { CONTEXTS, SIZES } from '../../src/constants';
+import { SIZES } from '../../src/constants';
 
 export default {
     title: 'Atoms/Button',
@@ -14,9 +14,6 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const _Button = Template.bind({});
 _Button.args = {
-    context: CONTEXTS[0],
-    isPrimary: true,
-    isNeutral: false,
     size: SIZES[1],
     type: 'submit',
     children: 'Click me!',
@@ -26,7 +23,7 @@ export const ButtonAsALink = Template.bind({});
 ButtonAsALink.storyName = 'Button as a link';
 ButtonAsALink.args = {
     target: '_blank',
-    context: CONTEXTS[0],
+    isLink: true,
     size: SIZES[1],
     href: 'https://github.com/textkernel/oneui',
     children: 'Click me!',

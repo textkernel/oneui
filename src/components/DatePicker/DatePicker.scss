@@ -22,7 +22,7 @@
 :global .react-datepicker {
     font-family: var(--font-family-primary);
     border-radius: var(--border-radius);
-    border: var(--color-neutral) 1px solid;
+    border: var(--color-light) 1px solid;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
     padding: var(--spacing-3x);
 }
@@ -52,7 +52,7 @@
 /* Days */
 
 :global .react-datepicker__week {
-    border: var(--color-neutral-25) 1px solid;
+    border: var(--color-light-25) 1px solid;
 }
 
 :global .react-datepicker__week ~ .react-datepicker__week {
@@ -69,13 +69,13 @@
     color: var(--color-neutral-75);
 
     & ~ .react-datepicker__day {
-        border-left: var(--color-neutral-25) 1px solid;
+        border-left: var(--color-light-25) 1px solid;
     }
 
     &:hover {
         border-radius: 0;
-        background-color: var(--color-neutral-25);
-        color: var(--color-neutral);
+        background-color: var(--color-light-40);
+        color: var(--color-neutral-75);
     }
 }
 
@@ -85,8 +85,8 @@
 
 :global .react-datepicker__day--keyboard-selected {
     border-radius: 0;
-    background-color: var(--color-neutral-25);
-    color: var(--color-neutral);
+    background-color: var(--color-light);
+    color: var(--color-neutral-75);
 
     &:hover {
         background-color: var(--color-neutral-25);
@@ -100,6 +100,15 @@
         background-color: var(--color-background);
         color: var(--color-neutral-40);
     }
+}
+
+:global .CalendarHeader {
+    color: var(--color-foreground);
+}
+
+:global .CalendarHeader__navButton {
+    color: var(--color-neutral-75);
+    border: transparent;
 }
 
 /* Selected days */
@@ -131,9 +140,6 @@
 /* Today button */
 :global .react-datepicker__today-button {
     background-color: var(--color-background);
+    padding: var(--spacing-2x) var(--spacing-4x) 0 var(--spacing-4x);
     border: 0;
-    color: var(--color-primary);
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-normal);
-    padding: var(--spacing-3x) 0;
 }

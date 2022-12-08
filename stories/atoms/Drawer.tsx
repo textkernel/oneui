@@ -10,6 +10,7 @@ export const _Drawer = (args) => <Drawer {...args} />;
 _Drawer.args = {
     isShown: true,
     isExpanded: true,
+    isPrimary: false,
     title: '12/13 processed (2 need review, 1 failed)',
     children: `
     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Ipsum Ipsum

@@ -15,7 +15,7 @@
 }
 
 .ProgressBar {
-    background-color: var(--progress-background-color);
+    background-color: var(--color-neutral-10);
     border-radius: var(--border-radius);
     box-sizing: border-box;
     font: {
@@ -28,7 +28,7 @@
     &__fill {
         border-radius: var(--border-radius);
         box-sizing: border-box;
-        color: var(--progress-label-color);
+        color: var(--color-background);
         padding: 0 var(--spacing-2x);
         position: relative;
         text-align: center;

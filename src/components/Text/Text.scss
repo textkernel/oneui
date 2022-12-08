@@ -12,4 +12,8 @@
     }
 
     @include context-attribute-with-color('color', (light, primary));
+
+    &--context_neutral {
+        color: var(--color-neutral-25);
+    }
 }

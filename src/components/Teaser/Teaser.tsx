@@ -55,7 +55,7 @@ export const Teaser: React.FC<Props> = ({
             <div {...elem('line')}>
                 <Text
                     inline
-                    context={disabled ? 'neutral' : 'primary'}
+                    context={disabled ? 'neutral' : 'foreground'}
                     {...elem('title')}
                     title={title}
                 >

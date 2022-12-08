@@ -6,10 +6,10 @@ export const colorVariables = {
     '--color-background': '#ffffff',
     '--color-foreground': '#1d1d1b',
 
-    '--color-neutral': '#d0d1d5',
+    '--color-neutral': '#707070',
     '--color-primary': '#0097d1',
     '--color-info': '#63dfec',
-    '--color-light': '#e3dfdf',
+    '--color-light': '#DBDBDB',
     '--color-success': '#5cb85c',
     '--color-warning': '#ffb819',
     '--color-danger': '#f42534',

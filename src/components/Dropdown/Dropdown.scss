@@ -2,8 +2,8 @@
     &__list {
         background-color: var(--color-background);
         border-radius: var(--border-radius);
-        border: 1px solid var(--color-neutral);
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+        border: var(--color-light) 1px solid;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
         z-index: 400;
     }
 }

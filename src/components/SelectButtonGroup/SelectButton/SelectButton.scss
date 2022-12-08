@@ -16,13 +16,14 @@
         border-top-left-radius: var(--border-radius);
         border-bottom-left-radius: var(--border-radius);
     }
+
     &:last-child {
         border-top-right-radius: var(--border-radius);
         border-bottom-right-radius: var(--border-radius);
     }
 
     &:hover {
-        background: var(--color-neutral-25);
+        background: var(--color-light);
     }
 
     + .SelectButton {
@@ -33,38 +34,17 @@
         cursor: not-allowed;
     }
 
-    &--isSelected.SelectButton--context_neutral {
-        border-color: var(--color-neutral-60);
-        background-color: var(--color-neutral-60);
+    &--isSelected.SelectButton {
+        border-color: var(--color-primary);
+        background-color: var(--color-primary);
         color: var(--color-background);
+        font-weight: var(--font-weight-bold);
 
-        &:focus,
-        &:active {
-            z-index: 999;
-            box-shadow: 0 0 0 var(--spacing-normal) var(--color-light-25);
+        &:hover {
+            border-color: var(--color-primary-60);
+            background-color: var(--color-primary-60);
         }
-    }
 
-    &--isSelected.SelectButton--context {
-        @each $context in (info, success, warning, danger, primary) {
-            &_#{$context} {
-                border-color: var(--color-#{$context});
-                background-color: var(--color-#{$context});
-                color: var(--color-background);
-                font-weight: var(--font-weight-bold);
-
-                &:hover {
-                    border-color: var(--color-#{$context}-60);
-                    background-color: var(--color-#{$context}-60);
-                }
-
-                &:focus,
-                &:active {
-                    z-index: 999;
-                    box-shadow: 0 0 0 var(--spacing-normal) var(--color-#{$context}-25);
-                }
-            }
-        }
     }
 
     &--size {

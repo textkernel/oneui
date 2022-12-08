@@ -9,7 +9,7 @@ export default {
 export const _Footer = ({ children, ...args }) => (
     <Footer {...args}>
         {children}
-        <Link href="/"> and a link</Link>
+        <Link context="primary" href="/"> and a link</Link>
     </Footer>
 );
 _Footer.args = {

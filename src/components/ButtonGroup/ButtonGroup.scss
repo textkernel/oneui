@@ -22,13 +22,23 @@
 
 
         &:not(.ButtonGroup__button--first):not(:focus) {
+            border-left-color: var(--color-neutral-25);
+        }
+
+        &:not(.ButtonGroup__button--last):not(:focus) {
+            border-right-color: var(--color-neutral-25);
+        }
+
+    }
+
+    &__button--isPrimary {
+        &:not(.ButtonGroup__button--first):not(:focus) {
             border-left-color: var(--color-primary-25);
         }
 
         &:not(.ButtonGroup__button--last):not(:focus) {
             border-right-color: var(--color-primary-25);
         }
-
     }
 
     &--isBlock {

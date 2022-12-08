@@ -19,6 +19,7 @@ export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>,
 }
 
 const { block } = bem('Input', styles);
+console.log(styles);
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(
     (

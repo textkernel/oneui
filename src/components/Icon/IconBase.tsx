@@ -9,6 +9,8 @@ export interface IconProps extends React.HTMLAttributes<HTMLDivElement> {
      If not defined, icon will scale and align itself with text. */
     size?: number;
     /** If true, width will set to be automatic */
+
+    isPrimary?: boolean;
     preserveAspectRatio?: boolean;
     /** Optional icon title */
     title?: string;
@@ -41,9 +43,12 @@ const adjustSize = (preserveAspectRatio: boolean, size?: number) => {
 };
 
 export const IconBase = forwardRef<HTMLDivElement, Props>(
-    ({ children, margin, size, preserveAspectRatio = false, title, viewBox, ...rest }, ref) => {
+    (
+        { children, isPrimary, margin, size, preserveAspectRatio = false, title, viewBox, ...rest },
+        ref
+    ) => {
         return (
-            <div ref={ref} {...rest} {...block({ margin, ...rest })}>
+            <div ref={ref} {...rest} {...block({ margin, isPrimary, ...rest })}>
                 <svg
                     {...elem('svg')}
                     aria-labelledby={title ? 'title' : null}

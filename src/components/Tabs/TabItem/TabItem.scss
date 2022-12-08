@@ -2,18 +2,19 @@
     color: var(--color-foreground);
     cursor: pointer;
     outline: none;
-    padding: var(--spacing-2x) var(--spacing-4x);
+    padding: var(--spacing-2x) var(--spacing-4x) var(--spacing-3x) var(--spacing-4x);
     text-decoration: none;
     transition: all var(--transition-duration);
     text-align: center;
     border-bottom: 4px solid transparent;
-    margin-bottom: -1px;
     font-weight: var(--font-weight-bold);
+
 
     &:hover,
     &:focus {
-        border-bottom: 4px solid var(--color-neutral-25);
-        color: var(--link-color-hover);
+        border-bottom: 4px solid var(--color-background);
+        background-color: var(--color-light-25);
+        border-radius: 5px;
     }
 
     &--isActive,
@@ -27,6 +28,8 @@
         &:focus {
             color: var(--color-primary);
             border-bottom: 4px solid var(--color-primary);
+            background-color: var(--color-highlight-background);
+            border-radius: 2px;
         }
     }
 

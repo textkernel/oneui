@@ -11,17 +11,17 @@ export interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
     /** Heading text alignment */
     align?: 'left' | 'center' | 'right';
     /** The context of the text, effecting its color (e.g. info,  danger, success etc. 'neutral' added as special context here) */
-    context?: Context | 'default';
+    isNeutral?: boolean;
 }
 
 const { block } = bem('Heading', styles);
 
 export const Heading = React.forwardRef<HTMLElement, Props>(
-    ({ align = 'left', children, context = 'default', level = 'h1', ...rest }, ref) => {
+    ({ align = 'left', children, isNeutral, level = 'h1', ...rest }, ref) => {
         const HtmlNodeType = level;
 
         return (
-            <HtmlNodeType ref={ref} {...rest} {...block({ level, align, context, ...rest })}>
+            <HtmlNodeType ref={ref} {...rest} {...block({ level, align, isNeutral, ...rest })}>
                 {children}
             </HtmlNodeType>
         );

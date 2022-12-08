@@ -16,10 +16,6 @@ export interface Props<V>
     isRequired?: boolean;
     /** should the component take up all the width available */
     isBlock?: boolean;
-    /** Color context for selected buttons */
-    context?: Context | 'primary' | null;
-    /** Use primary color for selected buttons */
-    isPrimary?: boolean;
     /** should children have equal width */
     isEqualWidth?: boolean;
     /** size of the button group */
@@ -38,7 +34,6 @@ export function SelectButtonGroup<V>({
     isRequired = false,
     isEqualWidth = false,
     isBlock = false,
-    context = null,
     onChange = () => null,
     size = 'normal',
     value = null,
@@ -91,7 +86,6 @@ export function SelectButtonGroup<V>({
         <div {...rest} {...block({ ...rest, isBlock })}>
             {children.map((child) => {
                 const childProps = {
-                    context: context || child.props.context,
                     isBlock,
                     isEqualWidth,
                     isSelected:
