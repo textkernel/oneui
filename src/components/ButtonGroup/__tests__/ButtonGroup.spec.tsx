@@ -80,8 +80,9 @@ describe('<ButtonGroup> that renders a button', () => {
             </ButtonGroup>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('Button').prop('className')).toBe(undefined);
         expect(wrapper.find('Button').prop('context')).toBe('warning');
         expect(wrapper.find('Button').prop('size')).toBe('small');
-        expect(wrapper.find('Button').prop('isBlock')).toBeFalsy();
+        expect(wrapper.find('Button').prop('isBlock')).toBeTruthy();
     });
 });

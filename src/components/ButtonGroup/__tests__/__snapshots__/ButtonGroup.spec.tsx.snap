@@ -52,13 +52,13 @@ exports[`<ButtonGroup> that renders a button should pass main props if child is 
     role="group"
   >
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_warning ButtonGroup__button--first ButtonGroup__button--last"
       context="warning"
+      isBlock={true}
       key=".0"
       size="small"
     >
       <button
-        className="Button Button--context_warning Button--size_small ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_warning ButtonGroup__button--first ButtonGroup__button--last"
+        className="Button Button--context_warning Button--isBlock Button--size_small"
         disabled={false}
         type="button"
       >
@@ -82,6 +82,7 @@ exports[`<ButtonGroup> that renders a button should pass main props, but not add
     <Button
       context="warning"
       isBlock={true}
+      key=".0"
       size="small"
     >
       <button

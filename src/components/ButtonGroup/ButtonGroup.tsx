@@ -26,26 +26,20 @@ export const ButtonGroup = ({
 }: Props) => {
     const totalNumberOfButtons = React.Children.count(children);
 
-    if (totalNumberOfButtons === 1 && !Array.isArray(children)) {
-        return (
-            <div {...rest} {...block({ isBlock, ...rest })} role="group">
-                {React.isValidElement(children)
-                    ? React.cloneElement(children, {
-                          ...children.props,
-                          context,
-                          size,
-                          isBlock,
-                      })
-                    : children}
-            </div>
-        );
-    }
-
     return (
         <div {...rest} {...block({ isBlock, ...rest })} role="group">
             {React.Children.map(children, (button, i) => {
                 if (!React.isValidElement(button)) {
                     return button;
+                }
+
+                if (totalNumberOfButtons === 1) {
+                    return React.cloneElement(button, {
+                        ...button.props,
+                        context,
+                        size,
+                        isBlock,
+                    });
                 }
 
                 return React.cloneElement(button, {
