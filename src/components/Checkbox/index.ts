@@ -1,1 +1,1 @@
-export { Checkbox } from './Checkbox';
+export { Checkbox, Props as CheckboxProps } from './Checkbox';
