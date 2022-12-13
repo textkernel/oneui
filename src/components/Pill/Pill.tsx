@@ -16,7 +16,7 @@ export interface Props {
     /** name describing the pill/filter */
     name: string;
     /** label describing the content of an active filter/pill */
-    content?: HTMLElement | string | null;
+    content?: SingleReactNode;
     /** If pill is in default state, meaning it has content but cannot be reset. */
     isContentDefault?: boolean;
     /** label for the Done button */

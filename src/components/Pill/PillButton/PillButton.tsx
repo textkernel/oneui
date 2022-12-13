@@ -16,7 +16,7 @@ export interface Props {
     /** name describing the pill/filter */
     name: string;
     /** label describing the content of an active filter/pill */
-    content?: HTMLElement | string | null;
+    content?: SingleReactNode;
 }
 
 const { block, elem } = bem('PillButton', styles);
