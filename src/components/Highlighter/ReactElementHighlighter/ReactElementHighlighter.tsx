@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { HighlighterCoreOptions, Highlighter } from '../../../packages/Highlighter';
 
-type ReactElementHighlighterTermResult = {
+export type ReactElementHighlighterTermResult = {
     term: string;
     styles: CSSStyleDeclaration;
 };

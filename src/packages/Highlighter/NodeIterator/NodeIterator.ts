@@ -1,4 +1,4 @@
-interface NodeIteratorOptions {
+export interface NodeIteratorOptions {
     /**
      * Defines root node at which to begin the NodeIterator's traversal
      */

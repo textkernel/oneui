@@ -6,6 +6,9 @@ export * from './packages/Highlighter';
 export * from './packages/BooleanQueryTokenizer';
 export * from './packages/ThemeGenerator';
 export * from './packages/ThemeGenerator/ThemeResult';
+export * from './constants/component-specific';
+export * from './constants/keyboard';
+export * from './constants/style-related';
 
 // Atoms
 export {
@@ -26,6 +29,8 @@ export {
     StringHighlighterProps,
     ReactElementHighlighter,
     ReactElementHighlighterProps,
+    ReactElementHighlighterTermResult,
+    HighlighterRenderer,
 } from './components/Highlighter';
 export * from './components/Icon';
 export { Input, InputProps } from './components/Input';
@@ -41,7 +46,7 @@ export {
     ListOptimizerProps,
 } from './components/List';
 export { Modal, ModalProps } from './components/Modal';
-export { MapWithGoogleLoader, Map } from './components/Map';
+export { MapWithGoogleLoader, Map, MapProps, CircularMarker, RegionArea } from './components/Map';
 export { ProgressBar, ProgressBarProps } from './components/ProgressBar';
 export {
     SelectButton,
