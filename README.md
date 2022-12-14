@@ -66,7 +66,7 @@ import { Button } from '@textkernel/oneui';
 2. Include the component on your page:
 
 ```jsx
-<Button context="primary" type="submit">
+<Button isPrimary type="submit">
     This is a button
 </Button>
 ```

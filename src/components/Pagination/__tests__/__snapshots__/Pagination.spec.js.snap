@@ -41,14 +41,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={1}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={1}
           disabled={false}
           onClick={[Function]}
@@ -72,14 +71,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={3}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={3}
           disabled={false}
           onClick={[Function]}
@@ -98,14 +96,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={4}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={4}
           disabled={false}
           onClick={[Function]}
@@ -124,14 +121,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={5}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={5}
           disabled={false}
           onClick={[Function]}
@@ -150,14 +146,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current="page"
         className="PaginationButton PaginationButton--isActive"
-        context="link"
         data-page={6}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current="page"
-          className="Button PaginationButton PaginationButton--isActive"
-          context="link"
+          className="Button Button--isLink PaginationButton PaginationButton--isActive"
           data-page={6}
           disabled={false}
           onClick={[Function]}
@@ -176,14 +171,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={7}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={7}
           disabled={false}
           onClick={[Function]}
@@ -202,14 +196,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={8}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={8}
           disabled={false}
           onClick={[Function]}
@@ -228,14 +221,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={9}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={9}
           disabled={false}
           onClick={[Function]}
@@ -285,14 +277,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current="page"
         className="PaginationButton PaginationButton--isActive"
-        context="link"
         data-page={1}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current="page"
-          className="Button PaginationButton PaginationButton--isActive"
-          context="link"
+          className="Button Button--isLink PaginationButton PaginationButton--isActive"
           data-page={1}
           disabled={false}
           onClick={[Function]}
@@ -311,14 +302,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={2}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={2}
           disabled={false}
           onClick={[Function]}
@@ -337,14 +327,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={3}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={3}
           disabled={false}
           onClick={[Function]}
@@ -363,14 +352,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={4}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={4}
           disabled={false}
           onClick={[Function]}
@@ -389,14 +377,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={5}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={5}
           disabled={false}
           onClick={[Function]}
@@ -415,14 +402,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={6}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={6}
           disabled={false}
           onClick={[Function]}
@@ -441,14 +427,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={7}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={7}
           disabled={false}
           onClick={[Function]}
@@ -467,14 +452,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={8}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={8}
           disabled={false}
           onClick={[Function]}
@@ -493,14 +477,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={9}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={9}
           disabled={false}
           onClick={[Function]}
@@ -519,14 +502,13 @@ exports[`<Pagination> that renders a pagination component should render correctl
       <Button
         aria-current={null}
         className="PaginationButton"
-        context="link"
         data-page={10}
+        isLink={true}
         onClick={[Function]}
       >
         <button
           aria-current={null}
-          className="Button PaginationButton"
-          context="link"
+          className="Button Button--isLink PaginationButton"
           data-page={10}
           disabled={false}
           onClick={[Function]}

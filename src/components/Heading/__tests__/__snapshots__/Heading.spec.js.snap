@@ -2,8 +2,7 @@
 
 exports[`<Heading> that renders a heading should add classes when props are changed 1`] = `
 <h3
-  className="Heading Heading--level_h3 Heading--align_right"
-  context="muted"
+  className="Heading Heading--level_h3 Heading--align_right Heading--isNeutral"
 >
   Some heading text
 </h3>

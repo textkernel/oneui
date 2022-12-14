@@ -7,7 +7,6 @@ exports[`<ProgressBar> that renders a horizontal progress bar should add classes
   aria-valuemin="0"
   aria-valuenow={25}
   className="ProgressBar ProgressBar--hidden ProgressBar--small"
-  context="primary"
   role="progressbar"
 >
   <div

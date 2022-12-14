@@ -2,14 +2,13 @@
 
 exports[`<Button> that renders a button should add classes when props are changed 1`] = `
 <Button
-  context="primary"
   isBlock={true}
   isLoading={true}
+  isPrimary={true}
   size="large"
 >
   <button
-    className="Button Button--isBlock Button--isLoading Button--size_large"
-    context="primary"
+    className="Button Button--isPrimary Button--isBlock Button--isLoading Button--size_large"
     disabled={false}
     type="button"
   >

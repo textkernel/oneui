@@ -23,14 +23,14 @@ $icon-size: 16px;
         background-color: var(--transparent);
         border: none;
         outline: 0;
-        transition: color --transition-duration ease;
+        transition: color var(--transition-duration) ease;
     }
 
     &__closeIcon {
         font-size: 16px;
     }
 
-    @each $context in ($contexts) {
+    @each $context in append($contexts, 'info') {
         &--context_#{$context} {
             background-color: var(--color-#{$context}-10);
         }

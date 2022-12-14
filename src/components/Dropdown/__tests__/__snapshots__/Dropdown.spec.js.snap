@@ -4,7 +4,7 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
 <Dropdown
   button={
     <ForwardRef
-      context="primary"
+      isPrimary={true}
     >
       Click me!
     </ForwardRef>
@@ -16,8 +16,8 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
     aria-expanded={true}
     aria-haspopup="listbox"
     aria-labelledby="downshift-95-label downshift-95-toggle-button"
-    context="primary"
     id="downshift-95-toggle-button"
+    isPrimary={true}
     onClick={[Function]}
     onKeyDown={[Function]}
   >
@@ -25,8 +25,7 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
       aria-expanded={true}
       aria-haspopup="listbox"
       aria-labelledby="downshift-95-label downshift-95-toggle-button"
-      className="Button"
-      context="primary"
+      className="Button Button--isPrimary"
       disabled={false}
       id="downshift-95-toggle-button"
       onClick={[Function]}
@@ -109,7 +108,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
 <Dropdown
   button={
     <ForwardRef
-      context="primary"
+      isPrimary={true}
     >
       Click me!
     </ForwardRef>
@@ -121,8 +120,8 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
     aria-expanded={true}
     aria-haspopup="listbox"
     aria-labelledby="downshift-12-label downshift-12-toggle-button"
-    context="primary"
     id="downshift-12-toggle-button"
+    isPrimary={true}
     onClick={[Function]}
     onKeyDown={[Function]}
   >
@@ -130,8 +129,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       aria-expanded={true}
       aria-haspopup="listbox"
       aria-labelledby="downshift-12-label downshift-12-toggle-button"
-      className="Button"
-      context="primary"
+      className="Button Button--isPrimary"
       disabled={false}
       id="downshift-12-toggle-button"
       onClick={[Function]}
@@ -291,7 +289,7 @@ exports[`Dropdown should render correctly closed 1`] = `
   }
   button={
     <ForwardRef
-      context="primary"
+      isPrimary={true}
     >
       Click me!
     </ForwardRef>
@@ -306,8 +304,8 @@ exports[`Dropdown should render correctly closed 1`] = `
     aria-expanded={false}
     aria-haspopup="listbox"
     aria-labelledby="downshift-0-label downshift-0-toggle-button"
-    context="primary"
     id="downshift-0-toggle-button"
+    isPrimary={true}
     onClick={[Function]}
     onKeyDown={[Function]}
   >
@@ -315,8 +313,7 @@ exports[`Dropdown should render correctly closed 1`] = `
       aria-expanded={false}
       aria-haspopup="listbox"
       aria-labelledby="downshift-0-label downshift-0-toggle-button"
-      className="Button"
-      context="primary"
+      className="Button Button--isPrimary"
       disabled={false}
       id="downshift-0-toggle-button"
       onClick={[Function]}
@@ -376,7 +373,7 @@ exports[`Dropdown should render correctly opened 1`] = `
   }
   button={
     <ForwardRef
-      context="primary"
+      isPrimary={true}
     >
       Click me!
     </ForwardRef>
@@ -405,8 +402,8 @@ exports[`Dropdown should render correctly opened 1`] = `
     aria-expanded={true}
     aria-haspopup="listbox"
     aria-labelledby="downshift-3-label downshift-3-toggle-button"
-    context="primary"
     id="downshift-3-toggle-button"
+    isPrimary={true}
     onClick={[Function]}
     onKeyDown={[Function]}
   >
@@ -414,8 +411,7 @@ exports[`Dropdown should render correctly opened 1`] = `
       aria-expanded={true}
       aria-haspopup="listbox"
       aria-labelledby="downshift-3-label downshift-3-toggle-button"
-      className="Button"
-      context="primary"
+      className="Button Button--isPrimary"
       disabled={false}
       id="downshift-3-toggle-button"
       onClick={[Function]}
@@ -519,7 +515,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
 <Dropdown
   button={
     <ForwardRef
-      context="primary"
+      isPrimary={true}
     >
       Click me!
     </ForwardRef>
@@ -531,8 +527,8 @@ exports[`Dropdown should render correctly with mixed children: array and single 
     aria-expanded={true}
     aria-haspopup="listbox"
     aria-labelledby="downshift-41-label downshift-41-toggle-button"
-    context="primary"
     id="downshift-41-toggle-button"
+    isPrimary={true}
     onClick={[Function]}
     onKeyDown={[Function]}
   >
@@ -540,8 +536,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       aria-expanded={true}
       aria-haspopup="listbox"
       aria-labelledby="downshift-41-label downshift-41-toggle-button"
-      className="Button"
-      context="primary"
+      className="Button Button--isPrimary"
       disabled={false}
       id="downshift-41-toggle-button"
       onClick={[Function]}

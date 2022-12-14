@@ -35,11 +35,7 @@ export const Controlled = (args) => {
     return (
         <SelectButtonGroup value={keys.filter((k) => buttons[k])}>
             {keys.map((buttonNumber) => (
-                <SelectButton
-                    key={`button-${buttonNumber}`}
-                    value={buttonNumber}
-                    context={args[`context${buttonNumber}`]}
-                >
+                <SelectButton key={`button-${buttonNumber}`} value={buttonNumber}>
                     Button {buttonNumber}
                 </SelectButton>
             ))}
@@ -50,7 +46,4 @@ Controlled.args = {
     button1: true,
     button2: false,
     button3: false,
-    context1: 'primary',
-    context2: 'primary',
-    context3: 'primary',
 };
