@@ -11,7 +11,7 @@ export interface Props
     > {
     /** Should button be disabled or not */
     disabled?: boolean;
-
+    /** Should the button be in primary style or not */
     isPrimary?: boolean;
     /** Icon to show inside button */
     icon: 'plus' | 'minus';

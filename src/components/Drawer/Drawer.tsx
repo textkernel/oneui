@@ -11,7 +11,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'title'
     title: ReactNode;
     /** Set open/close status for initial state */
     initialIsExpanded?: boolean;
-
+    /** Should the element be in primary style or not */
     isPrimary?: boolean;
     /** Control visibility Drawer component */
     isShown?: boolean;

@@ -12,7 +12,7 @@ export const _TwoPaneView = (args) => (
         <LeftPane
             style={{
                 minHeight: '600px',
-                backgroundColor: 'var(--color-primary-25)',
+                backgroundColor: 'var(--color-info-25)',
                 border: 'solid 1px var(--color-neutral-40)',
                 borderRadius: 'var(--border-radius) 0 0 var(--border-radius)',
             }}

@@ -11,9 +11,9 @@ export interface Props
     > {
     /** The label of the button */
     children: NotEmptySingleReactNode;
-    /** Should the button have style like link element */
+    /** Should the button be in link style or not */
     isLink?: boolean;
-    /** Should the button have style like neutral element */
+    /** Should the button be in primary style or not */
     isPrimary?: boolean;
     /** The size of the button */
     size?: Size;

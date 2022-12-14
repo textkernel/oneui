@@ -8,8 +8,7 @@ export interface IconProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Absolute size for this icon (size in pixels, aspect ratio is 1:1).
      If not defined, icon will scale and align itself with text. */
     size?: number;
-    /** If true, width will set to be automatic */
-
+    /** Should the icon be in primary style or not */
     isPrimary?: boolean;
     preserveAspectRatio?: boolean;
     /** Optional icon title */

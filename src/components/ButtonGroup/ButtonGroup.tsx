@@ -7,6 +7,7 @@ import { ButtonProps } from '../Buttons';
 export interface Props {
     /** The buttons in this group */
     children: React.ReactElement<ButtonProps> | (React.ReactElement<ButtonProps> | EmptyElement)[];
+    /** Should the button be in primary style or not */
     isPrimary?: boolean;
     /** Whether or not to show block-level button group (full width) */
     isBlock?: boolean;
@@ -25,21 +26,6 @@ export const ButtonGroup = ({
 }: Props) => {
     const totalNumberOfButtons = React.Children.count(children);
 
-    if (totalNumberOfButtons === 1) {
-        return (
-            <div {...rest} {...block({ isBlock, ...rest })} role="group">
-                {React.isValidElement(children)
-                    ? React.cloneElement(children, {
-                          ...children.props,
-                          isPrimary,
-                          size,
-                          isBlock,
-                      })
-                    : children}
-            </div>
-        );
-    }
-
     return (
         <div {...rest} {...block({ isBlock, ...rest })} role="group">
             {React.Children.map(children, (button, i) => {
@@ -50,7 +36,7 @@ export const ButtonGroup = ({
                 if (totalNumberOfButtons === 1) {
                     return React.cloneElement(button, {
                         ...button.props,
-                        context,
+                        isPrimary,
                         size,
                         isBlock,
                     });
@@ -58,7 +44,6 @@ export const ButtonGroup = ({
 
                 return React.cloneElement(button, {
                     ...button.props,
-                    context,
                     size,
                     isPrimary,
                     ...elem('button', {
