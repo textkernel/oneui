@@ -42,7 +42,7 @@ export const _Dropdown = (args) => {
         <Button>
             <HiDotsVertical />
         </Button>,
-        <Button isLink >Select any</Button>,
+        <Button isLink>Select any</Button>,
     ];
 
     return (

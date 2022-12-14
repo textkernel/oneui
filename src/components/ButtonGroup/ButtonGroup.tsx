@@ -15,7 +15,6 @@ export interface Props {
 }
 
 const { block, elem } = bem('ButtonGroup', styles);
-console.log(styles);
 
 export const ButtonGroup = ({
     children,

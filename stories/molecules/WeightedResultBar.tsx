@@ -30,7 +30,7 @@ _WeightedResultBar.args = {
 };
 
 const ClickableCount = ({ count }) => (
-    <Button size="small" isPrimary onClick={() => console.log(`WeightedResultBar count: ${count}`)}>
+    <Button size="small" isLink onClick={() => console.log(`WeightedResultBar count: ${count}`)}>
         {count}
     </Button>
 );

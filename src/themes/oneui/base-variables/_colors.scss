@@ -17,7 +17,7 @@ $color-warning: #ffb819 !default;
 $color-danger: #f42534 !default;
 
 $color-bright-1: #142459 !default;
-$color-bright-2: #0A84A5 !default;
+$color-bright-2: #507D9B !default;
 $color-bright-3: #F6C85F !default;
 $color-bright-4: #6F4D7C !default;
 $color-bright-5: #9CD766 !default;
@@ -87,14 +87,7 @@ $color-muted-12: #75DFFB !default;
     --color-background: #{$color-background};
     --color-foreground: #{$color-foreground};
 
-    --link-color-normal: var(--color-primary);
-    --link-color-hover: var(--color-primary-40);
-
-    --border-color-light: var(--color-neutral-25);
-    --border-color-strong: var(--color-neutral-40);
-
     --color-highlight-background: #{mix($color-background, $color-primary, 90)};
-    --color-selection-background: #{mix($color-background, $color-primary, 90)};
     --color-shadow-background: #{mix($color-neutral, $color-background, 20)};
 
     --color-bright-1: #{$color-bright-1};

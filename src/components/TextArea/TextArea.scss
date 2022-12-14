@@ -3,6 +3,11 @@
 .TextArea {
     @extend %input;
 
+    &::placeholder {
+        color: var(--color-neutral-25);
+        opacity: 1;
+    }
+
     &:focus {
         border-color: var(--color-primary);
     }

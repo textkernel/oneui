@@ -42,7 +42,7 @@ exports[`<LocationAutocompleteWithGoogleLoader/> that loads google api and rende
           }
         >
           <circle
-            className="LoadingSpinner__path LoadingSpinner__path--context_primary"
+            className="LoadingSpinner__path"
             cx="22"
             cy="22"
             fill="none"

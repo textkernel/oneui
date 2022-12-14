@@ -9,6 +9,8 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     id: string;
     /** If the checkbox should be disabled */
     disabled?: boolean;
+
+    isPrimary?: boolean;
     /** The label for the checkbox */
     children?: string | React.ReactElement;
     /** Optionally render checkbox in a flexbox */
@@ -25,6 +27,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
             id,
             children,
             disabled = false,
+            isPrimary = true,
             asFlexbox = false,
             className,
             style,
@@ -54,10 +57,10 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
                     disabled={disabled}
                     checked={checked}
                 />
-                <label {...elem('label', { asFlexbox })} htmlFor={id}>
-                    <span {...elem('box', { asFlexbox })}>
+                <label {...elem('label', { asFlexbox, isPrimary })} htmlFor={id}>
+                    <span {...elem('box', { asFlexbox, isPrimary })}>
                         <svg
-                            {...elem('svg', { asFlexbox })}
+                            {...elem('svg', { asFlexbox, isPrimary })}
                             width="12px"
                             height="10px"
                             viewBox={CHECKBOX_VIEWBOX}

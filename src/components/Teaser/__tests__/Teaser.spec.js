@@ -29,7 +29,7 @@ describe('Teaser', () => {
         );
 
         expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('Text').at(0).prop('context')).toEqual('primary');
+        expect(wrapper.find('Text').at(0).prop('context')).toEqual('foreground');
         expect(wrapper.find('Text').at(2).prop('context')).toEqual('background');
         expect(wrapper.find('Text').at(0).prop('title')).toEqual('A job title');
     });

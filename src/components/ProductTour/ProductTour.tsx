@@ -132,7 +132,7 @@ export const ProductTour: React.FC<Props> = ({
                         </Button>
                     ) : (
                         <>
-                            <Button context="link" onClick={handleCancel}>
+                            <Button {...elem('skip')} isLink onClick={handleCancel}>
                                 {cancelLabel}
                             </Button>
                             <Button isPrimary onClick={handleNext}>

@@ -3,11 +3,10 @@
     min-height: 34px;
     height: 34px;
     font-size: var(--font-size-normal);
-    color: var(--color-primary);
+    color: var(--color-foreground);
 
     &__main {
         position: relative;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
         background-color: var(--color-background);
         transition-property: box-shadow, transform, border-color;
         transition-duration: var(--transition-duration);
@@ -31,7 +30,7 @@
     &__list--focused {
         max-height: 300px;
         overflow: auto;
-        border-top: 1px solid var(--border-color-light);
+        border-top: 1px solid var(--color-neutral-25);
         margin-top: -1px;
     }
 

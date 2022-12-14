@@ -74,7 +74,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                     class="ProductTour__buttons"
                   >
                     <button
-                      class="Button Button--context_primary"
+                      class="Button Button--isPrimary"
                       type="button"
                     >
                       Finish
@@ -185,7 +185,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                     onClick={[Function]}
                   >
                     <button
-                      className="Button Button--context_primary"
+                      className="Button Button--isPrimary"
                       disabled={false}
                       onClick={[Function]}
                       type="button"
@@ -336,13 +336,13 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                     class="ProductTour__buttons"
                   >
                     <button
-                      class="Button Button--context_link"
+                      class="Button Button--isLink ProductTour__skip"
                       type="button"
                     >
                       Cancel
                     </button>
                     <button
-                      class="Button Button--context_primary"
+                      class="Button Button--isPrimary"
                       type="button"
                     >
                       Continue
@@ -537,11 +537,12 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                   className="ProductTour__buttons"
                 >
                   <Button
-                    context="link"
+                    className="ProductTour__skip"
+                    isLink={true}
                     onClick={[Function]}
                   >
                     <button
-                      className="Button Button--context_link"
+                      className="Button Button--isLink ProductTour__skip"
                       disabled={false}
                       onClick={[Function]}
                       type="button"
@@ -554,7 +555,7 @@ exports[`ProductTour general rendering of first slide should render correctly wi
                     onClick={[Function]}
                   >
                     <button
-                      className="Button Button--context_primary"
+                      className="Button Button--isPrimary"
                       disabled={false}
                       onClick={[Function]}
                       type="button"

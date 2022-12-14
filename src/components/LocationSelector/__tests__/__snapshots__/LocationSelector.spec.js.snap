@@ -116,13 +116,13 @@ exports[`LocationSelector component should render LocationSelector properly when
         </div>
         <Button
           className="FieldWrapper__clearButton"
-          context="link"
           isInline={true}
+          isLink={true}
           onClick={[Function]}
           title="Clear"
         >
           <button
-            className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
+            className="Button Button--isLink Button--isInline FieldWrapper__clearButton"
             disabled={false}
             onClick={[Function]}
             title="Clear"
@@ -197,7 +197,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                       viewBox="0,0,44,44"
                     >
                       <circle
-                        class="LoadingSpinner__path LoadingSpinner__path--context_primary"
+                        class="LoadingSpinner__path"
                         cx="22"
                         cy="22"
                         fill="none"
@@ -379,7 +379,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                           }
                         >
                           <circle
-                            className="LoadingSpinner__path LoadingSpinner__path--context_primary"
+                            className="LoadingSpinner__path"
                             cx="22"
                             cy="22"
                             fill="none"
@@ -517,13 +517,13 @@ exports[`LocationSelector component should render LocationSelector propertly whe
         </div>
         <Button
           className="FieldWrapper__clearButton"
-          context="link"
           isInline={true}
+          isLink={true}
           onClick={[Function]}
           title="Clear"
         >
           <button
-            className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
+            className="Button Button--isLink Button--isInline FieldWrapper__clearButton"
             disabled={false}
             onClick={[Function]}
             title="Clear"

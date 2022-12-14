@@ -28,6 +28,10 @@
 
     &__content {
         width: 100%;
+
+        .ListItem:hover:not(.ListItem--disabled) {
+            background-color: var(--color-light-25);
+        }
     }
 
     &__dropdownIcon {

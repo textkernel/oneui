@@ -3,13 +3,18 @@
     text-decoration: var(--link-decoration-normal);
     transition: color var(--transition-duration);
 
-    &:hover {
+    &:hover,
+    &:focus {
         color: var(--color-primary-60);
         text-decoration: var(--link-decoration-hover);
     }
 
-    &:hover,
-    &:focus,
+    &:focus {
+        outline: none;
+        border-radius: 5px;
+        border: var(--color-primary) solid 2px;;
+    }
+
     &:active {
         color: var(--color-primary-75);
     }

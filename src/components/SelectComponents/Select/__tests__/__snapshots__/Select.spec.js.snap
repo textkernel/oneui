@@ -187,13 +187,13 @@ exports[`Select rendering should initially render correctly 1`] = `
               </div>
               <Button
                 className="FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
-                context="link"
                 isInline={true}
+                isLink={true}
                 onClick={[Function]}
                 title=""
               >
                 <button
-                  className="Button Button--context_link Button--isInline FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
+                  className="Button Button--isLink Button--isInline FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
                   disabled={false}
                   onClick={[Function]}
                   title=""

@@ -28,7 +28,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
       onClick={[Function]}
     >
       <button
-        className="Button Button--context_neutral"
+        className="Button"
         disabled={false}
         onClick={[Function]}
         type="button"
@@ -91,7 +91,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
       onClick={[Function]}
     >
       <button
-        className="Button Button--context_neutral"
+        className="Button"
         disabled={false}
         onClick={[Function]}
         type="button"
@@ -406,13 +406,13 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
           </Input>
           <Button
             className="LabelPicker__addButton"
-            context="success"
             disabled={true}
+            isPrimary={true}
             onClick={[Function]}
             size="small"
           >
             <button
-              className="Button Button--context_success Button--size_small LabelPicker__addButton"
+              className="Button Button--isPrimary Button--size_small LabelPicker__addButton"
               disabled={true}
               onClick={[Function]}
               type="button"
@@ -460,7 +460,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
           onClick={[Function]}
         >
           <button
-            className="Button Button--context_primary Button--isBlock"
+            className="Button Button--isPrimary Button--isBlock"
             disabled={false}
             onClick={[Function]}
             type="button"

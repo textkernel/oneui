@@ -12,20 +12,21 @@
     border: none;
     border-radius: calc(var(--stepper-button-size) / 2);
 
-    color: var(--color-background);
-    background-color: var(--color-neutral);
+    color: var(--color-neutral-75);
+    background-color: var(--color-neutral-10);
 
     cursor: pointer;
     text-decoration: none;
     outline: none;
     transition: all var(--transition-duration);
 
+    &:focus,
     &:hover {
-        background-color: var(--color-neutral-60);
+        background-color: var(--color-neutral-25);
     }
 
     &[disabled] {
-        background-color: var(--color-neutral-25);
+        background-color: var(--color-neutral-10);
         cursor: not-allowed;
     }
 
@@ -34,13 +35,13 @@
         outline: none;
     }
 
-    &:focus,
     &:active {
-        background-color: var(--color-neutral-75);
+        background-color: var(--color-neutral-40);
     }
 
     &--isPrimary {
         background-color: var(--color-primary);
+        color: var(--color-background);
 
         &:hover {
             background-color: var(--color-primary-60);

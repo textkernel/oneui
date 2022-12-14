@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { DatePicker, Text } from '@textkernel/oneui';
+import { DatePicker, Text, Button } from '@textkernel/oneui';
 import es from 'date-fns/locale/es';
 import hu from 'date-fns/locale/hu';
 import frCA from 'date-fns/locale/fr-CA';
 import { registerLocale } from 'react-datepicker';
-import { Button } from '@textkernel/oneui';
 
 const DATE_REGEX = /\d\d\d\d-\d\d-\d\d/;
 
@@ -50,11 +49,7 @@ export const _DatePicker = (args) => {
             selected={selected}
             minDate={minDate}
             maxDate={maxDate}
-            todayButton={<Button
-                isLink
-            >
-                Today
-            </Button>}
+            todayButton={<Button isLink>Today</Button>}
             locale={args.locale}
         />
     );

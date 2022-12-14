@@ -5,5 +5,9 @@
         border: var(--color-light) 1px solid;
         box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
         z-index: 400;
+
+        .ListItem:hover:not(.ListItem--disabled) {
+            background-color: var(--color-light-25);
+        }
     }
 }

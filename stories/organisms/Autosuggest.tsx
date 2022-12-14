@@ -218,7 +218,7 @@ export const CustomRender = (args) => {
             return (
                 <div
                     style={{
-                        borderTop: '1px solid grey',
+                        borderTop: '1px solid var(--color-neutral-25)',
                         width: '100%',
                         margin: '-12px',
                         padding: '12px',

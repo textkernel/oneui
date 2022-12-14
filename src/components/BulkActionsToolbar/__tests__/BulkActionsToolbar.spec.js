@@ -137,9 +137,6 @@ describe('BulkActionsToolbar component', () => {
         expect(wrapper.find('.BulkActionsToolbar__action').at(0).prop('disabled')).toBe(true);
         expect(wrapper.find('.BulkActionsToolbar__action').at(1).prop('disabled')).toBe(false);
         expect(wrapper.find('.BulkActionsToolbar__action').at(2).prop('disabled')).toBe(false);
-        expect(wrapper.find('.BulkActionsToolbar__action').at(0).prop('context')).toBe('link');
-        expect(wrapper.find('.BulkActionsToolbar__action').at(1).prop('context')).toBe('primary');
-        expect(wrapper.find('.BulkActionsToolbar__action').at(2).prop('context')).toBe('primary');
         expect(consoleError).not.toHaveBeenCalled();
     });
 });

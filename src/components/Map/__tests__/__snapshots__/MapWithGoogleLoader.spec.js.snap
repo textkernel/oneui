@@ -35,7 +35,7 @@ exports[`<MapWithGoogleLoader/> that loads google api and renders a Map should r
           }
         >
           <circle
-            className="LoadingSpinner__path LoadingSpinner__path--context_primary"
+            className="LoadingSpinner__path"
             cx="22"
             cy="22"
             fill="none"

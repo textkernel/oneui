@@ -22,7 +22,7 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       value="1"
     >
       <div
-        className="SelectButton SelectButton--context_primary SelectButton--isSelected"
+        className="SelectButton SelectButton--isSelected"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
@@ -40,7 +40,7 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       value="2"
     >
       <div
-        className="SelectButton SelectButton--context_primary"
+        className="SelectButton"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
@@ -58,7 +58,7 @@ exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
       value="3"
     >
       <div
-        className="SelectButton SelectButton--context_primary"
+        className="SelectButton"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
@@ -93,7 +93,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       value="1"
     >
       <div
-        className="SelectButton SelectButton--context_primary SelectButton--isSelected"
+        className="SelectButton SelectButton--isSelected"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
@@ -111,7 +111,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       value="2"
     >
       <div
-        className="SelectButton SelectButton--context_primary"
+        className="SelectButton"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"
@@ -129,7 +129,7 @@ exports[`SelectButtonGroup should render correctly 1`] = `
       value="3"
     >
       <div
-        className="SelectButton SelectButton--context_primary"
+        className="SelectButton"
         onClick={[Function]}
         onKeyPress={[Function]}
         role="button"

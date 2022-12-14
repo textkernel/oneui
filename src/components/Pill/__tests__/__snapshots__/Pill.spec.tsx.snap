@@ -30,7 +30,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
               Pill content
             </span>
             <button
-              class="PillButton__button PillButton__button--isOpen PillButton__button--isActive"
+              class="PillButton__button"
               type="button"
             >
               <svg
@@ -73,7 +73,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
               class="PillDropdown__footer"
             >
               <button
-                class="Button Button--context_primary Button--size_small"
+                class="Button Button--isPrimary Button--size_small"
                 type="button"
               >
                 Done
@@ -114,7 +114,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
             Pill content
           </span>
           <button
-            className="PillButton__button PillButton__button--isOpen PillButton__button--isActive"
+            className="PillButton__button"
             type="button"
           >
             <IoIosArrowDown
@@ -181,7 +181,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
               size="small"
             >
               <button
-                className="Button Button--context_primary Button--size_small"
+                className="Button Button--isPrimary Button--size_small"
                 disabled={false}
                 onClick={[Function]}
                 type="button"
@@ -227,7 +227,7 @@ exports[`<Pill> component should render correctly 1`] = `
               Pill content
             </span>
             <button
-              class="PillButton__button PillButton__button--isActive"
+              class="PillButton__button"
               type="button"
             >
               <svg
@@ -286,7 +286,7 @@ exports[`<Pill> component should render correctly 1`] = `
             Pill content
           </span>
           <button
-            className="PillButton__button PillButton__button--isActive"
+            className="PillButton__button"
             onClick={[Function]}
             onKeyDown={[Function]}
             type="button"

@@ -8,7 +8,6 @@ $modal-min-height: 400px;
 
 .LocationSelector {
     &__mainTextButtonWrapper {
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
         height: $text-input-height;
     }
 
@@ -18,6 +17,7 @@ $modal-min-height: 400px;
         text-align: left;
         padding-left: 0;
         border: 0;
+        color: var(--color-neutral-25);
         margin: var(--spacing-normal);
         font-size: var(--font-size-normal);
         white-space: nowrap;
@@ -29,12 +29,12 @@ $modal-min-height: 400px;
         pointer-events: none;
 
         &--muted {
-            color: var(--color-light);
+            color: var(--color-neutral-25);
         }
     }
 
     &__icon {
-        color: var(--color-light);
+        color: var(--color-neutral-25);
         margin: $icon-margin-adjustment;
     }
 

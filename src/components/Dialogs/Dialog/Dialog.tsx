@@ -42,7 +42,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
             </div>
             <div {...elem('actions', props)}>
                 {isConfirm && (
-                    <Button onClick={cancelButton.onClick} context="link">
+                    <Button {...elem('cancel', props)} onClick={cancelButton.onClick} isLink>
                         {cancelButton.label}
                     </Button>
                 )}

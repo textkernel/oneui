@@ -4,7 +4,6 @@
 
     &__main {
         position: relative;
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
         background-color: var(--color-background);
         transition-property: box-shadow, transform, border-color;
         transition-duration: var(--transition-duration);
@@ -19,11 +18,6 @@
 
         &--isProminent {
             transform-origin: left top;
-
-            &.Autosuggest__main--focused {
-                transform: scale(1.1);
-                box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
-            }
         }
     }
 
@@ -64,15 +58,14 @@
         }
 
         &::placeholder {
-            color: var(--color-light);
+            color: var(--color-neutral-25);
+            opacity: 1;
         }
     }
 
     &__list--focused {
         max-height: 214px;
         overflow: auto;
-        border-top: 1px solid var(--border-color-light);
-        margin-top: -1px;
     }
 
     &__loaderContainer {

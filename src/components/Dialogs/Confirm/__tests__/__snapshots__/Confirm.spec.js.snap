@@ -90,13 +90,13 @@ exports[`Confirm should render correctly 1`] = `
                     class="Dialog__actions"
                   >
                     <button
-                      class="Button Button--context_link"
+                      class="Button Button--isLink Dialog__cancel"
                       type="button"
                     >
                       Cancel
                     </button>
                     <button
-                      class="Button Button--context_primary"
+                      class="Button Button--isPrimary"
                       type="button"
                     >
                       OK
@@ -194,11 +194,12 @@ exports[`Confirm should render correctly 1`] = `
                   className="Dialog__actions"
                 >
                   <Button
-                    context="link"
+                    className="Dialog__cancel"
+                    isLink={true}
                     onClick={[MockFunction]}
                   >
                     <button
-                      className="Button Button--context_link"
+                      className="Button Button--isLink Dialog__cancel"
                       disabled={false}
                       onClick={[MockFunction]}
                       type="button"
@@ -211,7 +212,7 @@ exports[`Confirm should render correctly 1`] = `
                     onClick={[MockFunction]}
                   >
                     <button
-                      className="Button Button--context_primary"
+                      className="Button Button--isPrimary"
                       disabled={false}
                       onClick={[MockFunction]}
                       type="button"
@@ -327,13 +328,13 @@ exports[`Confirm should render correctly with title 1`] = `
                     class="Dialog__actions"
                   >
                     <button
-                      class="Button Button--context_link"
+                      class="Button Button--isLink Dialog__cancel"
                       type="button"
                     >
                       Cancel
                     </button>
                     <button
-                      class="Button Button--context_primary"
+                      class="Button Button--isPrimary"
                       type="button"
                     >
                       OK
@@ -441,11 +442,12 @@ exports[`Confirm should render correctly with title 1`] = `
                   className="Dialog__actions"
                 >
                   <Button
-                    context="link"
+                    className="Dialog__cancel"
+                    isLink={true}
                     onClick={[MockFunction]}
                   >
                     <button
-                      className="Button Button--context_link"
+                      className="Button Button--isLink Dialog__cancel"
                       disabled={false}
                       onClick={[MockFunction]}
                       type="button"
@@ -458,7 +460,7 @@ exports[`Confirm should render correctly with title 1`] = `
                     onClick={[MockFunction]}
                   >
                     <button
-                      className="Button Button--context_primary"
+                      className="Button Button--isPrimary"
                       disabled={false}
                       onClick={[MockFunction]}
                       type="button"
