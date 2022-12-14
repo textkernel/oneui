@@ -47,8 +47,18 @@ export const ButtonGroup = ({
                     return button;
                 }
 
+                if (totalNumberOfButtons === 1) {
+                    return React.cloneElement(button, {
+                        ...button.props,
+                        context,
+                        size,
+                        isBlock,
+                    });
+                }
+
                 return React.cloneElement(button, {
                     ...button.props,
+                    context,
                     size,
                     isPrimary,
                     ...elem('button', {

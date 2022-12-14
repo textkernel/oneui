@@ -68,4 +68,20 @@ describe('<ButtonGroup> that renders a button', () => {
         expect(wrapper.find('Button').prop('size')).toBe('small');
         expect(wrapper.find('Button').prop('isBlock')).toBeTruthy();
     });
+
+    it('should pass main props if child is array with size one', () => {
+        const buttonContent = ['A button'];
+        const wrapper = mount(
+            <ButtonGroup context="warning" size="small" isBlock>
+                {buttonContent.map((content) => (
+                    <Button>{content}</Button>
+                ))}
+            </ButtonGroup>
+        );
+        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.find('Button').prop('className')).toBe(undefined);
+        expect(wrapper.find('Button').prop('context')).toBe('warning');
+        expect(wrapper.find('Button').prop('size')).toBe('small');
+        expect(wrapper.find('Button').prop('isBlock')).toBeTruthy();
+    });
 });

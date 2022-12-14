@@ -10,13 +10,13 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
     role="group"
   >
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
-      isPrimary={true}
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
+      context="neutral"
       key=".0"
       size="large"
     >
       <button
-        className="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
         disabled={false}
         type="button"
       >
@@ -24,13 +24,13 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
       </button>
     </Button>
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
-      isPrimary={true}
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
+      context="neutral"
       key=".1"
       size="large"
     >
       <button
-        className="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
         disabled={false}
         type="button"
       >
@@ -41,8 +41,9 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
 </ButtonGroup>
 `;
 
-exports[`<ButtonGroup> that renders a button should pass main props, but not add styles if there is only 1 child 1`] = `
+exports[`<ButtonGroup> that renders a button should pass main props if child is array with size one 1`] = `
 <ButtonGroup
+  context="warning"
   isBlock={true}
   size="small"
 >
@@ -51,12 +52,41 @@ exports[`<ButtonGroup> that renders a button should pass main props, but not add
     role="group"
   >
     <Button
+      context="warning"
       isBlock={true}
-      isPrimary={true}
+      key=".0"
       size="small"
     >
       <button
-        className="Button Button--isPrimary Button--isBlock Button--size_small"
+        className="Button Button--context_warning Button--isBlock Button--size_small"
+        disabled={false}
+        type="button"
+      >
+        A button
+      </button>
+    </Button>
+  </div>
+</ButtonGroup>
+`;
+
+exports[`<ButtonGroup> that renders a button should pass main props, but not add styles if there is only 1 child 1`] = `
+<ButtonGroup
+  context="warning"
+  isBlock={true}
+  size="small"
+>
+  <div
+    className="ButtonGroup ButtonGroup--isBlock"
+    role="group"
+  >
+    <Button
+      context="warning"
+      isBlock={true}
+      key=".0"
+      size="small"
+    >
+      <button
+        className="Button Button--context_warning Button--isBlock Button--size_small"
         disabled={false}
         type="button"
       >
@@ -74,13 +104,13 @@ exports[`<ButtonGroup> that renders a button should render default button correc
     role="group"
   >
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
-      isPrimary={true}
+      className="ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
+      context="neutral"
       key=".0"
       size="normal"
     >
       <button
-        className="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
+        className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
         disabled={false}
         type="button"
       >
@@ -88,13 +118,13 @@ exports[`<ButtonGroup> that renders a button should render default button correc
       </button>
     </Button>
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--last"
-      isPrimary={true}
+      className="ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--last"
+      context="neutral"
       key=".1"
       size="normal"
     >
       <button
-        className="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--last"
+        className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--last"
         disabled={false}
         type="button"
       >
@@ -112,13 +142,13 @@ exports[`<ButtonGroup> that renders a button should render with conditional JSX 
     role="group"
   >
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
-      isPrimary={true}
+      className="ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
+      context="neutral"
       key=".0"
       size="normal"
     >
       <button
-        className="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
+        className="Button Button--context_neutral ButtonGroup__button ButtonGroup__button--context_neutral ButtonGroup__button--first"
         disabled={false}
         type="button"
       >
@@ -139,13 +169,13 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
     role="group"
   >
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
-      isPrimary={true}
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
+      context="neutral"
       key=".0"
       size="large"
     >
       <button
-        className="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--first"
         disabled={false}
         type="button"
       >
@@ -153,14 +183,14 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
       </button>
     </Button>
     <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary"
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
+      context="neutral"
       href="#"
-      isPrimary={true}
       key=".1"
       size="large"
     >
       <a
-        className="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary"
+        className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral"
         href="#"
       >
         An anchor
@@ -172,8 +202,8 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
           A dropdown button
         </ForwardRef>
       }
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
-      isPrimary={true}
+      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
+      context="neutral"
       key=".2"
       onChange={[Function]}
       placement="bottom-end"
@@ -183,9 +213,9 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
         aria-expanded={false}
         aria-haspopup="listbox"
         aria-labelledby="downshift-0-label downshift-0-toggle-button"
-        className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
+        className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
+        context="neutral"
         id="downshift-0-toggle-button"
-        isPrimary={true}
         onClick={[Function]}
         onKeyDown={[Function]}
         size="large"
@@ -194,7 +224,7 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
           aria-expanded={false}
           aria-haspopup="listbox"
           aria-labelledby="downshift-0-label downshift-0-toggle-button"
-          className="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
+          className="Button Button--context_neutral Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--context_neutral ButtonGroup__button--last"
           disabled={false}
           id="downshift-0-toggle-button"
           onClick={[Function]}
