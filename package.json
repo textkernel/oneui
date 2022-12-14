@@ -118,7 +118,7 @@
         "clean-webpack-plugin": "3.0.0",
         "core-js": "2.6.12",
         "coveralls": "3.1.1",
-        "css-loader": "4.3.0",
+        "css-loader": "6.7.3",
         "date-fns": "2.29.3",
         "enzyme": "3.11.0",
         "enzyme-adapter-react-16": "1.15.7",
