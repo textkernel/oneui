@@ -36,7 +36,6 @@ exports[`Autosuggest rendering should initially render empty component correctly
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={true}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -165,7 +164,6 @@ exports[`Autosuggest rendering should initially render focused component correct
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={true}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -322,7 +320,6 @@ exports[`Autosuggest rendering should initially render focused component with su
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={true}
     suggestionToString={[Function]}
     suggestions={
       Array [
@@ -880,7 +877,6 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={true}
     suggestionToString={[Function]}
     suggestions={
       Array [
@@ -1450,7 +1446,6 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={true}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -1772,7 +1767,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={true}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -1918,7 +1912,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={true}
     suggestionToString={[Function]}
     suggestions={Array []}
   >
@@ -2105,7 +2098,6 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
     onBlur={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[MockFunction]}
-    selectOnTab={true}
     suggestionToString={[Function]}
     suggestions={Array []}
   >

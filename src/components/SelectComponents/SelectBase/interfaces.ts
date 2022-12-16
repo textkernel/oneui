@@ -25,6 +25,8 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     onBlur?: () => void;
     /** onSelectionAdd() called when a suggestion is selected */
     onSelectionAdd: (item: S) => void;
+    /** a callback to be called when outer click happens */
+    onOuterClick?: () => void;
 }
 
 export interface SelectInputFieldProps {
@@ -76,10 +78,7 @@ export type ListRendererHelper<S> = (props: {
     inputValue: string;
 }) => ReactNode;
 
-export interface Props<S>
-    extends BasicSelectProps<S>,
-        SelectClearButtonProps,
-        SelectInputFieldProps {
+export interface Props<S> extends BasicSelectProps<S>, SelectClearButtonProps, SelectInputFieldProps {
     /** defines if the suggestion list should be collapsed once an item is selected */
     keepExpandedAfterSelection?: boolean;
     /** will be called when list of suggestions should be rendered */
@@ -90,8 +89,6 @@ export interface Props<S>
     blurredRenderer: BlurredRendererHelpers<S>;
     /** highlighting for first item will be added if input is empty */
     highlightOnEmptyInput?: boolean;
-    /** select highlighted item when blurring out of the component */
-    selectOnTab?: boolean;
     /** show dropdown icon */
     showArrow?: boolean;
 }
