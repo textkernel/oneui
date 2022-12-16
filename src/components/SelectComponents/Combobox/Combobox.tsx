@@ -49,6 +49,7 @@ export function Combobox<S>({
     noSuggestionsPlaceholder,
     onBlur,
     onInputValueChange,
+    onOuterClick,
     disabled,
     inputValue,
     inputPlaceholder,
@@ -115,6 +116,7 @@ export function Combobox<S>({
             onBlur={onBlur}
             onSelectionAdd={onSelectionAdd}
             onInputValueChange={onInputValueChange}
+            onOuterClick={onOuterClick}
             listRenderer={(listProps) => (
                 <SuggestionsList
                     {...listProps}
@@ -127,7 +129,6 @@ export function Combobox<S>({
             )}
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
-            selectOnTab
             showArrow
         />
     );
