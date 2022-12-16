@@ -42,15 +42,4 @@
             background-color: var(--color-neutral-25);
         }
     }
-
-    &__dropdownIcon {
-        display: inline-block;
-        vertical-align: middle;
-        font-size: 20px;
-        margin-right: var(--spacing-normal);
-
-        &--disabled {
-            color: var(--color-neutral-75);
-        }
-    }
 }

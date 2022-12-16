@@ -78,7 +78,10 @@ export type ListRendererHelper<S> = (props: {
     inputValue: string;
 }) => ReactNode;
 
-export interface Props<S> extends BasicSelectProps<S>, SelectClearButtonProps, SelectInputFieldProps {
+export interface Props<S>
+    extends BasicSelectProps<S>,
+        SelectClearButtonProps,
+        SelectInputFieldProps {
     /** defines if the suggestion list should be collapsed once an item is selected */
     keepExpandedAfterSelection?: boolean;
     /** will be called when list of suggestions should be rendered */

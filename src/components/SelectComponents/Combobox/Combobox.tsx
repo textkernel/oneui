@@ -60,7 +60,7 @@ export function Combobox<S>({
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
 
     // eslint-disable-next-line react/display-name
-    const renderFocused = ({ getInputProps, getToggleButtonProps, onBlur: blur }) => {
+    const renderFocused = ({ getInputProps }) => {
         const handleInputKeyDown = (event) => {
             if (event.key === ESCAPE_KEY) {
                 inputRef.current?.blur();
@@ -87,13 +87,8 @@ export function Combobox<S>({
     };
 
     // eslint-disable-next-line react/display-name
-    const renderBlurred = ({ getInputProps, getToggleButtonProps, onFocus }) => (
-        <div
-            tabIndex={0}
-            role="searchbox"
-            {...getInputProps({ onClick: focus })}
-            {...elem('wrapper', { disabled })}
-        >
+    const renderBlurred = ({ getInputProps }) => (
+        <div tabIndex={0} role="searchbox" {...getInputProps()} {...elem('wrapper', { disabled })}>
             <span {...elem('selection')}>
                 {selectedSuggestion ? (
                     suggestionToString(selectedSuggestion)
@@ -121,7 +116,6 @@ export function Combobox<S>({
                 <SuggestionsList
                     {...listProps}
                     isLoading={false}
-                    // useOptimizeRender={useOptimizeListRender}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     suggestionItemRenderer={suggestionItemRenderer}
                     passDisabledToListItems
