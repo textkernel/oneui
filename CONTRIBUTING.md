@@ -8,7 +8,6 @@ Any new implementation is expected to meet the following standards before it can
 
 -   The component has been manually tested and complies with the Textkernel [browser support guidelines](https://textkernel.com/browser-support/).
 -   The component has a [**displayName**](#display-names) defined.
--   The component comes with a [**detailed propTypes**](#component-props) (and defaultValues) definition.
 -   The implementation complies with [**accessibility**](#accessibility) standards.
 -   The component is **properly exported** in `src/index.js` (maintain alphabetical order).
 -   The implementation is thoroughly [**covered by tests**](#testing) (Jest / Enzyme, preferably 100%), not only with snapshots.
@@ -31,19 +30,11 @@ For consistency, file name, component name and displayName should be the same.
 
 ### Component Props
 
-#### Prop Types
-
-Every component should come with a detailed [prop types](https://reactjs.org/docs/typechecking-with-proptypes.html#proptypes) definition. Go for the highest level of specificity that makes sense. For example, don't just use `PropTypes.object` when you can use `PropTypes.shape`.
-
-#### Required / Default Values
-
-Make sure to consider which props are required. Those that are not required should come with a default value in the `defaultValues` definition.
-
 #### Use of Props and `...rest`
 
 Props that are very specific to a component should be explicitly destructed and applied accordingly. Any remaining props should be applied to the top-level DOM element using `...rest` syntax, before all attributes that should not be overridden. Considering the following example of a component that renders a simple checkbox:
 
-```javascript
+```javascriptdefaultValues
 const { disabled, ...rest } = props;
 
 return (
@@ -52,17 +43,6 @@ return (
 ```
 
 Using the `...rest` syntax we allow any (undocumented) prop to be applied to the element, while never overriding required or specific attributes. This makes the component API less opinionated while still enforcing its minimum requirements (e.g. not allowing it to render a text input instead of checkbox).
-
-#### Prop Descriptions
-
-Every prop in propTypes should come with a short description of its purpose. This description will automatically show up in Storybook. Descriptions are to be written in jsdoc format, above each prop type definition. For example:
-
-```javascript
-Button.propTypes = {
-    /** The type of this button */
-    Type: PropTypes.oneOf([‘submit’, ‘button’])
-};
-```
 
 ### TypeScript
 
@@ -79,6 +59,10 @@ import * as React from 'react';
 // BAD:
 import React from 'react';
 ```
+
+### Export
+
+Always add export for prop types and types related to component.
 
 ### Type definitions for Props and States
 
