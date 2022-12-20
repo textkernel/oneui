@@ -2,6 +2,7 @@ import * as React from 'react';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { bem } from '../../utils';
 import { Button } from '../Buttons';
+import { ENTER_KEY } from '../../constants';
 import styles from './FieldWrapper.scss';
 
 const { block, elem } = bem('FieldWrapper', styles);
@@ -13,6 +14,8 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     showArrow?: boolean;
     /** set direction of dropdown icon (default drop down) */
     isArrowUp?: boolean;
+    /** a callback for the arrow when it is clicked */
+    onArrowClick?: (e: React.MouseEvent | React.KeyboardEvent) => void;
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton?: boolean;
     /** clear button label */
@@ -31,6 +34,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
             children,
             showArrow = false,
             isArrowUp = false,
+            onArrowClick,
             clearLabel = '',
             showClearButton = false,
             onClear = null,
@@ -44,6 +48,18 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
             e.stopPropagation();
             if (onClear) {
                 onClear(e);
+            }
+        };
+
+        const handleArrowClick = (e: React.MouseEvent) => {
+            e.stopPropagation();
+            onArrowClick?.(e);
+        };
+
+        const handleArrowKeyDown = (e: React.KeyboardEvent) => {
+            if (e.key === ENTER_KEY) {
+                e.stopPropagation();
+                onArrowClick?.(e);
             }
         };
 
@@ -65,9 +81,19 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
 
                 {showArrow &&
                     (isArrowUp ? (
-                        <IoMdArrowDropup {...elem('dropdownIcon')} />
+                        <IoMdArrowDropup
+                            tabIndex={0}
+                            {...elem('dropdownIcon')}
+                            onClick={handleArrowClick}
+                            onKeyDown={handleArrowKeyDown}
+                        />
                     ) : (
-                        <IoMdArrowDropdown {...elem('dropdownIcon')} />
+                        <IoMdArrowDropdown
+                            tabIndex={0}
+                            {...elem('dropdownIcon')}
+                            onClick={handleArrowClick}
+                            onKeyDown={handleArrowKeyDown}
+                        />
                     ))}
             </div>
         );
