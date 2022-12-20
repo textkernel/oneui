@@ -17,11 +17,8 @@ export interface Props<S>
     extends BasicSelectProps<S>,
         SelectClearButtonProps,
         SelectInputFieldProps {
-    /** The item that is currently selected */
+    /** The item that is currently selected, will be used as placeholder in the input field */
     selectedSuggestion?: S;
-    /** The value if the input field when focused.
-     * If undefined, falls back to selectedSuggestion, and lastly to the placeholder. */
-    inputValue?: string;
     /** to be shown in the input field when no value is typed or selected */
     inputPlaceholder: string;
     /** to be shown when no suggestions are available */
@@ -51,7 +48,6 @@ export function Combobox<S>({
     onInputValueChange,
     onOuterClick,
     disabled,
-    inputValue,
     inputPlaceholder,
     inputAttrs = {},
     selectedSuggestion,
@@ -75,8 +71,7 @@ export function Combobox<S>({
                         id,
                         disabled,
                         ref: inputRef,
-                        placeholder: inputPlaceholder,
-                        value: inputValue || suggestionToString(selectedSuggestion),
+                        placeholder: suggestionToString(selectedSuggestion) || inputPlaceholder,
                         onKeyDown: handleInputKeyDown,
                         'data-lpignore': true,
                         ...elem('input', { disabled }),

@@ -47,7 +47,6 @@ export const _Combobox = (args) => {
                 {...args}
                 suggestions={getSuggestions()}
                 selectedSuggestion={selectedSuggestion}
-                inputValue={inputValue}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 onSelectionAdd={onSelectionAdd}
@@ -104,7 +103,6 @@ export const Clearable = (args) => {
                 {...args}
                 suggestions={getSuggestions()}
                 selectedSuggestion={selectedSuggestion}
-                inputValue={inputValue}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 onSelectionAdd={onSelectionAdd}
@@ -181,7 +179,6 @@ export const FreeInput = (args) => {
                 {...args}
                 suggestions={getSuggestions()}
                 selectedSuggestion={selectedSuggestion}
-                inputValue={inputValue}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 onSelectionAdd={onSelectionAdd}

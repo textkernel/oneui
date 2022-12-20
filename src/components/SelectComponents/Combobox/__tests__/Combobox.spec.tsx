@@ -85,11 +85,14 @@ describe('Combobox', () => {
                 setFocusOnInput();
                 expect(wrapper.find('input').props().placeholder).toEqual(inputPlaceholder);
             });
-            it('should show the selected value if available', () => {
+            it('should show the selected value as placeholder if available', () => {
+                setFocusOnInput();
+                expect(wrapper.find('input').props().placeholder).toEqual(inputPlaceholder);
+
                 wrapper.setProps({ selectedSuggestion: SUGGESTIONS[1] });
                 wrapper.update();
                 setFocusOnInput();
-                expect(wrapper.find('input').props().value).toEqual(SUGGESTIONS[1].name);
+                expect(wrapper.find('input').props().placeholder).toEqual(SUGGESTIONS[1].name);
             });
         });
     });
