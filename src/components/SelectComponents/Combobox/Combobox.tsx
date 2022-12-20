@@ -37,7 +37,7 @@ export interface Props<S>
  * [here](https://docs.google.com/spreadsheets/d/1VyYR54RpNaPWLBXOoBPkFEkmzLS_LfEEGdm1ZTTOcHU/edit#gid=0)
  */
 export function Combobox<S>({
-    id = undefined,
+    id,
     onSelectionAdd,
     inputRef: inputRefFromProps,
     suggestions,
@@ -55,9 +55,8 @@ export function Combobox<S>({
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
 
-    // eslint-disable-next-line react/display-name
     const renderFocused = ({ getInputProps }) => {
-        const handleInputKeyDown = (event) => {
+        const handleInputKeyDown = (event: React.KeyboardEvent) => {
             if (event.key === ESCAPE_KEY) {
                 inputRef.current?.blur();
             }
@@ -81,7 +80,6 @@ export function Combobox<S>({
         );
     };
 
-    // eslint-disable-next-line react/display-name
     const renderBlurred = ({ getInputProps }) => (
         <div tabIndex={0} role="searchbox" {...getInputProps()} {...elem('wrapper', { disabled })}>
             <span {...elem('selection')}>
