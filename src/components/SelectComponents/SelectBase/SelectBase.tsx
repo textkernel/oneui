@@ -237,6 +237,7 @@ export function SelectBase<S>({
                         <FieldWrapper
                             showArrow={showArrow}
                             isArrowUp={focused}
+                            onArrowClick={focused ? handleOuterClick : handleWrapperClick(openMenu)}
                             clearLabel={clearTitle}
                             onClear={handleClearSelectedSuggestions}
                             showClearButton={!focused && showClearButton}

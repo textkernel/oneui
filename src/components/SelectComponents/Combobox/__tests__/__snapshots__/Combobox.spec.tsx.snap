@@ -128,6 +128,7 @@ exports[`Combobox rendering should initially render empty component correctly 1`
             clearLabel=""
             isArrowUp={false}
             isFocused={false}
+            onArrowClick={[Function]}
             onClear={[Function]}
             onClick={[Function]}
             showArrow={true}
@@ -186,6 +187,9 @@ exports[`Combobox rendering should initially render empty component correctly 1`
               </div>
               <IoMdArrowDropdown
                 className="FieldWrapper__dropdownIcon"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={0}
               >
                 <IconBase
                   attr={
@@ -194,11 +198,16 @@ exports[`Combobox rendering should initially render empty component correctly 1`
                     }
                   }
                   className="FieldWrapper__dropdownIcon"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={0}
                 >
                   <svg
                     className="FieldWrapper__dropdownIcon"
                     fill="currentColor"
                     height="1em"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
                     stroke="currentColor"
                     strokeWidth="0"
                     style={
@@ -206,6 +215,7 @@ exports[`Combobox rendering should initially render empty component correctly 1`
                         "color": undefined,
                       }
                     }
+                    tabIndex={0}
                     viewBox="0 0 512 512"
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
