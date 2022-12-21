@@ -4,8 +4,7 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        min-height: 30px;
-        height: 30px; // make IE happier
+        min-height: 28px;
         outline: none;
         padding: var(--spacing-normal);
 

@@ -433,6 +433,15 @@ export const Dance = (args) => {
         setInputValue(singleSelectedText || '');
     };
 
+    const onOuterClick = () => {
+        console.log('onOuterClick was called');
+        // if the user clicked outside, after typing something, but without selecting any suggestions
+        // we should treat the typed value as a selection
+        if (!selectedSuggestions.length && inputValue) {
+            setSingleSelectedText(inputValue);
+        }
+    };
+
     // Make sure to clear both states that hold selections
     const onClearAllSelected = () => {
         console.log('onClearAllSelected was called');
@@ -464,6 +473,7 @@ export const Dance = (args) => {
                 onSelectionRemove={onSelectionRemove}
                 onInputValueChange={onInputValueChange}
                 onClearAllSelected={onClearAllSelected}
+                onOuterClick={onOuterClick}
                 inputRef={inputRef}
                 // this will trick to UI to pre-fill the in input field when it gets focused again
                 initInputValue={singleSelectedText}
