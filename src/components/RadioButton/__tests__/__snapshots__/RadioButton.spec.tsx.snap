@@ -98,3 +98,60 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
   </div>
 </RadioButton>
 `;
+
+exports[`<RadioButton> that renders a radio button should rendered disabled radio button correctly 1`] = `
+<RadioButton
+  disabled={true}
+  id="c3"
+>
+  <div
+    className="RadioButton--disabled"
+  >
+    <input
+      className="RadioButton__input"
+      disabled={true}
+      id="c3"
+      type="radio"
+    />
+    <label
+      className="RadioButton__label"
+      htmlFor="c3"
+    >
+      <span
+        className="RadioButton__box"
+      >
+        <svg
+          className="RadioButton__svg"
+          height="10px"
+          viewBox={
+            Array [
+              0,
+              0,
+              10,
+              10,
+            ]
+          }
+          width="12px"
+        >
+          <circle
+            cx="5"
+            cy="6"
+            r="3"
+          />
+        </svg>
+      </span>
+      <Text
+        className="RadioButton__text"
+        context="muted"
+        inline={true}
+      >
+        <span
+          className="Text--context_muted RadioButton__text"
+        >
+          Useless radio button
+        </span>
+      </Text>
+    </label>
+  </div>
+</RadioButton>
+`;

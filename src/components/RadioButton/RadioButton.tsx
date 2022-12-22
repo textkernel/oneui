@@ -20,7 +20,7 @@ const { block, elem } = bem('RadioButton', styles);
 export const RadioButton = forwardRef<HTMLElement, Props>(
     ({ id, children, disabled = false, name, ...rest }, ref) => {
         return (
-            <div {...block({ ...rest })}>
+            <div {...block({ ...rest, disabled })}>
                 <input
                     {...rest}
                     {...elem('input')}
