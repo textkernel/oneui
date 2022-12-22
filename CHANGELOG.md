@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.11.1](https://github.com/textkernel/oneui/compare/18.11.0...18.11.1) (2022-12-22)
+
+
+### Bug Fixes
+
+* **RadioButton:** wrongly styled when disabled ([#870](https://github.com/textkernel/oneui/issues/870)) ([7d55f6f](https://github.com/textkernel/oneui/commit/7d55f6f42f5dfd726587607b041155131e769e74))
+
 ## [18.11.0](https://github.com/textkernel/oneui/compare/18.10.2...18.11.0) (2022-12-21)
 
 
