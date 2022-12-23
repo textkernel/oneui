@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Combobox rendering should initially render empty component correctly 1`] = `
+<Combobox
+  inputPlaceholder="type here..."
+  noSuggestionsPlaceholder="No suggestions..."
+  onBlur={[MockFunction]}
+  onInputValueChange={[MockFunction]}
+  onSelectionAdd={[MockFunction]}
+  suggestionToString={[Function]}
+  suggestions={
+    Array [
+      Object {
+        "name": "Sun",
+      },
+      Object {
+        "name": "Moon",
+      },
+      Object {
+        "name": "Mercury",
+      },
+      Object {
+        "name": "Venus",
+      },
+      Object {
+        "name": "Earth",
+      },
+      Object {
+        "name": "Mars",
+      },
+      Object {
+        "name": "Jupiter",
+      },
+      Object {
+        "name": "Saturn",
+      },
+      Object {
+        "name": "Neptune",
+      },
+      Object {
+        "disabled": true,
+        "name": "Pluto",
+      },
+    ]
+  }
+>
+  <SelectBase
+    blurredRenderer={[Function]}
+    focusedRenderer={[Function]}
+    inputRef={
+      Object {
+        "current": null,
+      }
+    }
+    listRenderer={[Function]}
+    onBlur={[MockFunction]}
+    onInputValueChange={[MockFunction]}
+    onSelectionAdd={[MockFunction]}
+    showArrow={true}
+    suggestionToString={[Function]}
+    suggestions={
+      Array [
+        Object {
+          "name": "Sun",
+        },
+        Object {
+          "name": "Moon",
+        },
+        Object {
+          "name": "Mercury",
+        },
+        Object {
+          "name": "Venus",
+        },
+        Object {
+          "name": "Earth",
+        },
+        Object {
+          "name": "Mars",
+        },
+        Object {
+          "name": "Jupiter",
+        },
+        Object {
+          "name": "Saturn",
+        },
+        Object {
+          "name": "Neptune",
+        },
+        Object {
+          "disabled": true,
+          "name": "Pluto",
+        },
+      ]
+    }
+  >
+    <div
+      className="SelectBase"
+    >
+      <Downshift
+        defaultHighlightedIndex={0}
+        defaultIsOpen={false}
+        environment={[Window]}
+        getA11yStatusMessage={[Function]}
+        inputValue=""
+        itemToString={[Function]}
+        onChange={[Function]}
+        onInputValueChange={[Function]}
+        onOuterClick={[Function]}
+        onSelect={[Function]}
+        onStateChange={[Function]}
+        onUserAction={[Function]}
+        scrollIntoView={[Function]}
+        selectedItemChanged={[Function]}
+        stateReducer={[Function]}
+        suppressRefError={false}
+      >
+        <div
+          aria-expanded={false}
+          aria-haspopup="listbox"
+          aria-labelledby="downshift-0-label"
+          aria-owns={null}
+          className="SelectBase__main"
+          role="combobox"
+        >
+          <FieldWrapper
+            className="SelectBase__field"
+            clearLabel=""
+            isArrowUp={false}
+            isFocused={false}
+            onArrowClick={[Function]}
+            onClear={[Function]}
+            onClick={[Function]}
+            showArrow={true}
+            showClearButton={false}
+          >
+            <div
+              className="FieldWrapper SelectBase__field"
+              onClick={[Function]}
+            >
+              <div
+                className="FieldWrapper__content"
+              >
+                <div
+                  aria-activedescendant={null}
+                  aria-autocomplete="list"
+                  aria-controls={null}
+                  aria-labelledby="downshift-0-label"
+                  autoComplete="off"
+                  className="Combobox__wrapper"
+                  id="downshift-0-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onKeyDown={[Function]}
+                  role="searchbox"
+                  tabIndex={0}
+                  value=""
+                >
+                  <span
+                    className="Combobox__selection"
+                  >
+                    <Text
+                      context="muted"
+                      inline={true}
+                    >
+                      <span
+                        className="Text--context_muted"
+                      >
+                        type here...
+                      </span>
+                    </Text>
+                  </span>
+                </div>
+                <List
+                  aria-labelledby="downshift-0-label"
+                  id="downshift-0-menu"
+                  isControlledNavigation={true}
+                  role="listbox"
+                >
+                  <ul
+                    aria-labelledby="downshift-0-label"
+                    className="List"
+                    id="downshift-0-menu"
+                    role="listbox"
+                  />
+                </List>
+              </div>
+              <IoMdArrowDropdown
+                className="FieldWrapper__dropdownIcon"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                tabIndex={0}
+              >
+                <IconBase
+                  attr={
+                    Object {
+                      "viewBox": "0 0 512 512",
+                    }
+                  }
+                  className="FieldWrapper__dropdownIcon"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  tabIndex={0}
+                >
+                  <svg
+                    className="FieldWrapper__dropdownIcon"
+                    fill="currentColor"
+                    height="1em"
+                    onClick={[Function]}
+                    onKeyDown={[Function]}
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    tabIndex={0}
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M128 192l128 128 128-128z"
+                      key="0"
+                    />
+                  </svg>
+                </IconBase>
+              </IoMdArrowDropdown>
+            </div>
+          </FieldWrapper>
+        </div>
+      </Downshift>
+    </div>
+  </SelectBase>
+</Combobox>
+`;

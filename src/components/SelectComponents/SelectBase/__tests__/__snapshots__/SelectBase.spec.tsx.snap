@@ -141,6 +141,7 @@ exports[`SelectBase rendering should initially render empty component correctly 
           clearLabel=""
           isArrowUp={false}
           isFocused={false}
+          onArrowClick={[Function]}
           onClear={[Function]}
           onClick={[Function]}
           showArrow={false}

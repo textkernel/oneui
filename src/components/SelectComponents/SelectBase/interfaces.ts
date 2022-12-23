@@ -25,6 +25,8 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     onBlur?: () => void;
     /** onSelectionAdd() called when a suggestion is selected */
     onSelectionAdd: (item: S) => void;
+    /** a callback to be called when outer click happens */
+    onOuterClick?: () => void;
 }
 
 export interface SelectInputFieldProps {
@@ -90,8 +92,6 @@ export interface Props<S>
     blurredRenderer: BlurredRendererHelpers<S>;
     /** highlighting for first item will be added if input is empty */
     highlightOnEmptyInput?: boolean;
-    /** select highlighted item when blurring out of the component */
-    selectOnTab?: boolean;
     /** show dropdown icon */
     showArrow?: boolean;
 }

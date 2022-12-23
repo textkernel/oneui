@@ -15,13 +15,13 @@ export function SelectBase<S>({
     clearTitle = '',
     showArrow = false,
     showClearButton = false,
-    selectOnTab = false,
     disabled,
     onFocus,
     onBlur,
     onSelectionAdd,
     onInputValueChange = () => null,
     onClearAllSelected,
+    onOuterClick,
     inputRef: inputRefFromProps,
     rootRef: rootRefFromProps,
     listRef: listRefFromProps,
@@ -91,6 +91,11 @@ export function SelectBase<S>({
                 onBlur?.();
             }
         }
+    };
+
+    const handleOuterClick = () => {
+        onOuterClick?.();
+        handleBlur();
     };
 
     const handleChange = (selectedItem, downshift) => {
@@ -195,15 +200,6 @@ export function SelectBase<S>({
                     isOpen: false,
                     isEscapeAction: true,
                 };
-            case Downshift.stateChangeTypes.blurInput:
-                if (selectOnTab && !state.isEscapeAction && isBrowserTabVisible) {
-                    return {
-                        ...changes,
-                        selectedItem: suggestions[state.highlightedIndex],
-                        isOpen: false,
-                    };
-                }
-                return changes;
             default:
                 return changes;
         }
@@ -222,7 +218,7 @@ export function SelectBase<S>({
             <Downshift
                 onChange={handleChange}
                 itemToString={suggestionToString}
-                onOuterClick={handleBlur}
+                onOuterClick={handleOuterClick}
                 stateReducer={stateReducer}
                 onStateChange={stateUpdater}
                 onInputValueChange={handleInputValueChange}
@@ -241,6 +237,7 @@ export function SelectBase<S>({
                         <FieldWrapper
                             showArrow={showArrow}
                             isArrowUp={focused}
+                            onArrowClick={focused ? handleOuterClick : handleWrapperClick(openMenu)}
                             clearLabel={clearTitle}
                             onClear={handleClearSelectedSuggestions}
                             showClearButton={!focused && showClearButton}

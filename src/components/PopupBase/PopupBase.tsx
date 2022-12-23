@@ -36,7 +36,7 @@ export interface Props {
     /** To render the popup in a portal. Useful if the anchor element has overflow hidden and similar cases */
     renderInPortal?: boolean;
     /** a function to be called when the popup closes */
-    onClose?: () => void; // ???
+    onClose?: () => void;
 }
 
 export const PopupBase: React.FC<Props> = ({
