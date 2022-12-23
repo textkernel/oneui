@@ -12,7 +12,7 @@ export interface Props extends React.HTMLProps<HTMLInputElement> {
     /** If the radio button should be disabled */
     disabled?: boolean;
     /** The label for the radio button */
-    children?: string;
+    children?: SingleReactNode;
 }
 
 const { block, elem } = bem('RadioButton', styles);
