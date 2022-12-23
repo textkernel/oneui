@@ -64,6 +64,7 @@
         "ajv": "7.2.4",
         "ajv-formats": "1.6.1",
         "color": "4.2.3",
+        "copy-webpack-plugin": "4.5.4",
         "css-vars-ponyfill": "~2.4.0",
         "downshift": "~6.1.0",
         "fast-memoize": "~2.5.2",
