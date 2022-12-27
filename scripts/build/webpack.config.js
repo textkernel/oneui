@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CopyPlugin = require('copy-webpack-plugin');
 const { getRuleJS, getRuleTS, getRuleCSS, getRuleSCSS, getRuleFiles } = require('./utils');
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
@@ -12,6 +13,8 @@ const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
 const STORIES_PATH = path.resolve(PROJECT_ROOT_PATH, 'stories');
 const DIST_PATH = path.resolve(PROJECT_ROOT_PATH, 'dist');
 const NODE_MODULES_PATH = path.resolve(SOURCE_PATH, '../node_modules');
+const TYPES_PATH = path.resolve(SOURCE_PATH, 'types/types.d.ts');
+const TYPES_PATH_DIST = path.resolve(DIST_PATH, 'dts/src/types');
 
 const { oneui } = require('../../package.json');
 
@@ -39,6 +42,7 @@ const plugins = {
         // Remove stories declaration
         cleanAfterEveryBuildPatterns: ['**/stories/**'],
     }),
+    copyWebpackPlugin: new CopyPlugin([{ from: TYPES_PATH, to: TYPES_PATH_DIST }]),
 };
 
 const getRules = (env = 'prod') => ({

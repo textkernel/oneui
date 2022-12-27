@@ -16,6 +16,7 @@ module.exports = {
         plugins.optimizeCssAssetsPlugin,
         plugins.bundleAnalyzerPlugin,
         plugins.cleanWebpackPlugin,
+        plugins.copyWebpackPlugin,
     ],
     module: {
         rules: [rules.js, rules.ts, rules.externalCss, rules.scss, rules.files],
