@@ -34,7 +34,7 @@ For consistency, file name, component name and displayName should be the same.
 
 Props that are very specific to a component should be explicitly destructed and applied accordingly. Any remaining props should be applied to the top-level DOM element using `...rest` syntax, before all attributes that should not be overridden. Considering the following example of a component that renders a simple checkbox:
 
-```javascriptdefaultValues
+```javascript
 const { disabled, ...rest } = props;
 
 return (
