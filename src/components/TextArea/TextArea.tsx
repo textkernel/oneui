@@ -3,7 +3,7 @@ import { bem } from '../../utils';
 import styles from './TextArea.scss';
 import { Context, Size } from '../../constants';
 
-export interface Props extends React.HTMLAttributes<HTMLElement> {
+export interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     /** The textarea context (e.g. brand, primary, bad, good etc. - defaults to brand) */
     context?: Context;
     /** Should the input field be disabled or not */
@@ -16,7 +16,7 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block } = bem('TextArea', styles);
 
-export const TextArea = forwardRef<HTMLElement, Props>(
+export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
     ({ context = 'brand', disabled = false, isBlock = false, size = 'normal', ...rest }, ref) => {
         return (
             <textarea

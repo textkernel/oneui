@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.11.3](https://github.com/textkernel/oneui/compare/18.11.2...18.11.3) (2022-12-26)
+
+
+### Bug Fixes
+
+* children type for radio button component ([e8e7be1](https://github.com/textkernel/oneui/commit/e8e7be1e355b2508ca52213072ceec444afdd313))
+
+### [18.11.2](https://github.com/textkernel/oneui/compare/18.11.1...18.11.2) (2022-12-23)
+
+
+### Bug Fixes
+
+* **TextArea:** component types to be specific ([#872](https://github.com/textkernel/oneui/issues/872)) ([466f61c](https://github.com/textkernel/oneui/commit/466f61cfb4539143c6806ac4fef8e56df826f7aa))
+
 ### [18.11.1](https://github.com/textkernel/oneui/compare/18.11.0...18.11.1) (2022-12-22)
 
 
