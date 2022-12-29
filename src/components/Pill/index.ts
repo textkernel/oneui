@@ -1,3 +1,3 @@
-export { PillButton } from './PillButton';
+export { PillButton, PillButtonProps } from './PillButton';
 export { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
-export { Pill } from './Pill';
+export { Pill, Props as PillProps } from './Pill';

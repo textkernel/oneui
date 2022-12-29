@@ -1,2 +1,2 @@
-export { RadioButton } from './RadioButton';
-export { RadioButtonGroup } from './RadioButtonGroup';
+export { RadioButton, Props as RadioButtonProps } from './RadioButton';
+export { RadioButtonGroup, Props as RadioButtonGroupProps } from './RadioButtonGroup';

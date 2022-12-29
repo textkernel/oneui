@@ -1,1 +1,1 @@
-export { NodeIterator } from './NodeIterator';
+export { NodeIterator, NodeIteratorOptions } from './NodeIterator';

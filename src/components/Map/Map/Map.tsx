@@ -313,4 +313,4 @@ const Map = React.forwardRef<GoogleMap, Props>(
 
 Map.displayName = 'Map';
 
-export { Map, Props as MapProps, CircularMarker };
+export { Map, Props as MapProps, CircularMarker, RegionArea };

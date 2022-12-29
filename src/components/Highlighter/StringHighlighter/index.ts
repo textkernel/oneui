@@ -1,1 +1,5 @@
-export { StringHighlighter, Props as StringHighlighterProps } from './StringHighlighter';
+export {
+    StringHighlighter,
+    Props as StringHighlighterProps,
+    HighlighterRenderer,
+} from './StringHighlighter';
