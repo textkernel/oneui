@@ -15,7 +15,7 @@ _FieldWrapper.args = {
     style: { width: '600px', minHeight: '40px' },
     children: (
         <>
-            <Text style={{ margin: 'var(--spacing-normal)' }} context="muted">
+            <Text style={{ margin: 'var(--spacing-normal)' }} context="neutral">
                 Some text or elements to be rendered within the wrapper
             </Text>
             <input

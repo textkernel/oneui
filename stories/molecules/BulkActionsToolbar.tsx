@@ -45,7 +45,7 @@ _BulkActionsToolbar.args = {
         {
             label: 'Mark as viewed',
             icon: React.createElement(FiCheck),
-            context: 'brand',
+            context: 'primary',
             disabled: false,
             onClick: () => {
                 console.log('"Mark as viewed" has been clicked');

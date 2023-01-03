@@ -15,7 +15,7 @@
 }
 
 .ProgressBar {
-    background-color: var(--progress-background-color);
+    background-color: var(--color-neutral-10);
     border-radius: var(--border-radius);
     box-sizing: border-box;
     font: {
@@ -28,12 +28,14 @@
     &__fill {
         border-radius: var(--border-radius);
         box-sizing: border-box;
-        color: var(--progress-label-color);
+        color: var(--color-background);
         padding: 0 var(--spacing-2x);
         position: relative;
         text-align: center;
         transition: all var(--transition-duration);
         white-space: nowrap;
+        background-color: var(--color-bright-2);
+        line-height: var(--line-height-large);
 
         &--animated {
             &:after {
@@ -45,15 +47,6 @@
                 height: 100%;
                 background-color: rgba(255, 255, 255, 0.3);
                 animation: progressAnimated 2s ease infinite;
-            }
-        }
-
-        &--context {
-            @each $context in ($contexts) {
-                &_#{ $context } {
-                    background-color: var(--color-#{$context});
-                    line-height: var(--line-height-large);
-                }
             }
         }
 

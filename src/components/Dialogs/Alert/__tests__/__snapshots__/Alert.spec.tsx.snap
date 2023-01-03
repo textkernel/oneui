@@ -83,7 +83,7 @@ exports[`Alert should render correctly 1`] = `
                     class="Dialog__actions"
                   >
                     <button
-                      class="Button Button--context_brand"
+                      class="Button Button--isPrimary"
                       type="button"
                     >
                       OK
@@ -183,11 +183,11 @@ exports[`Alert should render correctly 1`] = `
                   className="Dialog__actions"
                 >
                   <Button
-                    context="brand"
+                    isPrimary={true}
                     onClick={[MockFunction]}
                   >
                     <button
-                      className="Button Button--context_brand"
+                      className="Button Button--isPrimary"
                       disabled={false}
                       onClick={[MockFunction]}
                       type="button"
@@ -296,7 +296,7 @@ exports[`Alert should render correctly with title 1`] = `
                     class="Dialog__actions"
                   >
                     <button
-                      class="Button Button--context_brand"
+                      class="Button Button--isPrimary"
                       type="button"
                     >
                       OK
@@ -406,11 +406,11 @@ exports[`Alert should render correctly with title 1`] = `
                   className="Dialog__actions"
                 >
                   <Button
-                    context="brand"
+                    isPrimary={true}
                     onClick={[MockFunction]}
                   >
                     <button
-                      className="Button Button--context_brand"
+                      className="Button Button--isPrimary"
                       disabled={false}
                       onClick={[MockFunction]}
                       type="button"

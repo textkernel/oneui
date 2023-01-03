@@ -5,14 +5,16 @@
     align-self: center;
     fill: currentColor;
 
+    &--isPrimary {
+        fill: var(--color-primary);
+    }
+
     &__svg {
         position: relative;
         top: 0.125em;
         height: 1em;
         transition: fill var(--transition-duration);
     }
-
-    @include context-attribute-with-color('fill');
 
     &--margin {
         @each $side in (top, right, bottom, left) {

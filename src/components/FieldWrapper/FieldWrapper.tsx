@@ -70,7 +70,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                 {showClearButton && (
                     <Button
                         isInline
-                        context="link"
+                        isLink
                         onClick={handleClear}
                         title={clearLabel}
                         {...elem('clearButton', { rightIndent: showArrow })}

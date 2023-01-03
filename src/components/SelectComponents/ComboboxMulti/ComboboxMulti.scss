@@ -27,7 +27,7 @@
         padding-right: var(--spacing-normal);
         flex: 1;
         font-size: var(--font-size-normal);
-        color: var(--color-accent);
+        color: var(--color-primary);
         background-color: var(--color-background);
         min-width: 150px;
 
@@ -36,7 +36,7 @@
         }
 
         &::placeholder {
-            color: var(--color-muted);
+            color: var(--color-neutral-25);
         }
 
         &--disabled {

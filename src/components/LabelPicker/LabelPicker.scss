@@ -8,9 +8,9 @@ $labelingDialogWidth: 200px;
 
     &__container {
         background-color: var(--color-background);
-        border: 1px solid var(--color-neutral);
+        border: 1px solid var(--color-light);
         border-radius: var(--border-radius);
-        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
         padding: var(--spacing-2x);
     }
 

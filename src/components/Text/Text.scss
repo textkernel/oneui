@@ -11,5 +11,9 @@
         }
     }
 
-    @include context-attribute-with-color('color', (muted));
+    @include context-attribute-with-color('color', (light, primary, info));
+
+    &--context_neutral {
+        color: var(--color-neutral-40);
+    }
 }

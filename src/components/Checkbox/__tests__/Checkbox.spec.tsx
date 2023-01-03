@@ -33,8 +33,9 @@ describe('<Checkbox> that renders a checkbox', () => {
                 Useless checkbox
             </Checkbox>
         );
+        expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('input[disabled]')).toHaveLength(1);
-        expect(wrapper.find('.Text--context_muted')).toHaveLength(1);
+        expect(wrapper.find('.Text--context_neutral')).toHaveLength(1);
     });
 
     it('should render the indeterminate svg when checked is false and indeterminate true', () => {

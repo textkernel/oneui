@@ -70,7 +70,7 @@ export function Select<S>({
             {selectedItem ? (
                 itemToString(selectedItem)
             ) : (
-                <Text inline {...elem('placeholder')} context="muted">
+                <Text inline {...elem('placeholder')} context="neutral">
                     {placeholder}
                 </Text>
             )}
