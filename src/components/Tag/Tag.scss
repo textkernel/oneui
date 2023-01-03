@@ -6,7 +6,7 @@
     border-radius: var(--border-radius);
 
     &--isSelected {
-        box-shadow: 0 0 0 2px var(--color-brand);
+        box-shadow: 0 0 0 2px var(--color-primary);
     }
 
     &--clickable {
@@ -14,7 +14,7 @@
     }
 
     &__text{
-        margin: 0; 
+        margin: 0;
 
         white-space: nowrap;
         overflow: hidden;

@@ -1,16 +1,18 @@
 @import '../../themes/oneui/oneui.scss';
 
 .Footer {
-    background-color: var(--footer-background-color);
+    background-color: var(--color-neutral-75);
     color: var(--footer-foreground-color);
-    width: 100%;
+    min-width: var(--site-container-min-size);
     height: var(--footer-height);
 
     a {
-        color: var(--footer-link-color);
+        color: var(--color-background);
+        font-weight: var(--font-weight-bold);
 
         &:hover {
-            color: var(--footer-link-color);
+            color: var(--color-background);
+            font-weight: var(--font-weight-bold);
         }
     }
 

@@ -3,19 +3,13 @@
 .TextArea {
     @extend %input;
 
-    &--context {
-        @each $context in ($contexts) {
-            &_#{ $context } {
-                &:focus {
-                    border-color: var(--color-#{$context});
-                }
-            }
-        }
-        @each $context in (warning, bad) {
-            &_#{ $context } {
-                border-color: var(--color-#{$context});
-            }
-        }
+    &::placeholder {
+        color: var(--color-neutral-25);
+        opacity: 1;
+    }
+
+    &:focus {
+        border-color: var(--color-primary);
     }
 
     &--isBlock {

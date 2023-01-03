@@ -328,3 +328,56 @@ exports[`<Checkbox> that renders a checkbox should render the indeterminate svg 
   </div>
 </Checkbox>
 `;
+
+exports[`<Checkbox> that renders a checkbox should rendered disabled checkbox correctly 1`] = `
+<Checkbox
+  disabled={true}
+  id="c3"
+>
+  <div>
+    <input
+      className="Checkbox__input"
+      disabled={true}
+      id="c3"
+      type="checkbox"
+    />
+    <label
+      className="Checkbox__label"
+      htmlFor="c3"
+    >
+      <span
+        className="Checkbox__box"
+      >
+        <svg
+          className="Checkbox__svg"
+          height="10px"
+          viewBox={
+            Array [
+              0,
+              0,
+              10,
+              10,
+            ]
+          }
+          width="12px"
+        >
+          <polyline
+            points="1.5 6 3.5 9 8 3"
+          />
+        </svg>
+      </span>
+      <Text
+        className="Checkbox__text"
+        context="neutral"
+        inline={true}
+      >
+        <span
+          className="Text--context_neutral Checkbox__text"
+        >
+          Useless checkbox
+        </span>
+      </Text>
+    </label>
+  </div>
+</Checkbox>
+`;

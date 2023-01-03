@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './ProgressBar.scss';
-import { Context } from '../../constants';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Percentage of progress bar to be filled */
@@ -10,8 +9,6 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     animated?: boolean;
     /** Text to show instead of percentage */
     children?: ReactNode;
-    /** The progress bar context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context?: Context;
     /** Hides the progress bar if true */
     hidden?: boolean;
     /** Renders a narrow bar without label or percentage */
@@ -23,7 +20,6 @@ const { block, elem } = bem('ProgressBar', styles);
 export const ProgressBar: React.FC<Props> = ({
     animated = false,
     children = null,
-    context = 'brand',
     hidden = false,
     percentage,
     small = false,
@@ -34,7 +30,7 @@ export const ProgressBar: React.FC<Props> = ({
     return (
         <div
             {...rest}
-            {...block({ context, animated, hidden, small, ...rest })}
+            {...block({ animated, hidden, small, ...rest })}
             role="progressbar"
             aria-hidden={hidden}
             aria-valuenow={percentageAdjusted}
@@ -42,7 +38,7 @@ export const ProgressBar: React.FC<Props> = ({
             aria-valuemax="100"
         >
             <div
-                {...elem('fill', { animated, context, small })}
+                {...elem('fill', { animated, small })}
                 style={{
                     width: `${percentageAdjusted}%`,
                 }}

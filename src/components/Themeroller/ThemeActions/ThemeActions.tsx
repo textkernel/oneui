@@ -64,7 +64,7 @@ export const ThemeActions: React.FC<Props> = ({
                     {...elem('button')}
                     type="reset"
                     size="small"
-                    context="bad"
+                    context="danger"
                     onClick={onReset}
                 >
                     <>
@@ -91,7 +91,7 @@ export const ThemeActions: React.FC<Props> = ({
                 <div {...elem('button')}>
                     <FileButton
                         size="small"
-                        context="good"
+                        context="success"
                         accept="application/JSON"
                         onChange={handleFileChange}
                     >

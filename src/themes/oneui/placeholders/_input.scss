@@ -2,7 +2,6 @@
     min-height: 36px;
     height: 36px;
     background-color: var(--color-background);
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
     border: {
         color: var(--color-neutral);
         radius: var(--border-radius);
@@ -23,11 +22,11 @@
 
     &:focus,
     &:hover {
-        border-color: var(--color-brand);
+        border-color: var(--color-primary);
     }
 
     &::placeholder {
-        color: var(--color-muted);
+        color: var(--color-light);
     }
 
     &[disabled] {

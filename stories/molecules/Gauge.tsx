@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { ComponentStory } from '@storybook/react';
 import { Gauge, IconJobfeed, Tooltip } from '@textkernel/oneui';
-import { CONTEXTS } from '@textkernel/oneui/constants';
 
 export default {
     title: 'Molecules/Gauge',
@@ -39,7 +38,6 @@ _Gauge.args = {
 export const GaugeWithAnIcon = Template.bind({});
 GaugeWithAnIcon.storyName = 'Gauge with an icon';
 GaugeWithAnIcon.args = {
-    context: CONTEXTS[2],
     percentage: 60,
     note: 'High',
     isProgressLoading: false,
@@ -47,7 +45,7 @@ GaugeWithAnIcon.args = {
     children: (
         <div>
             $54,321
-            <IconJobfeed context="brand" />
+            <IconJobfeed />
         </div>
     ),
 };
@@ -55,7 +53,6 @@ GaugeWithAnIcon.args = {
 export const GaugeWithATooltip = Template.bind({});
 GaugeWithATooltip.storyName = 'Gauge with a tooltip';
 GaugeWithATooltip.args = {
-    context: CONTEXTS[2],
     percentage: 35,
     metric: "Something long so it doesn't fit",
     note: 'High',

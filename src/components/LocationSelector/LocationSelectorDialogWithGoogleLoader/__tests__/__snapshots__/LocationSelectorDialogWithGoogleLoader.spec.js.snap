@@ -60,7 +60,7 @@ exports[`<LocationSelectorDialogWithGoogleLoader/> that loads google api and ren
           }
         >
           <circle
-            className="LoadingSpinner__path LoadingSpinner__path--context_brand"
+            className="LoadingSpinner__path"
             cx="22"
             cy="22"
             fill="none"

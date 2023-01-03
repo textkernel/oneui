@@ -28,7 +28,7 @@ export const UnitValue: React.FC<Props> = ({ item, onChange }) => {
                 value={item.value}
                 onChange={handleOnChange}
             />
-            <Text {...elem('value')} inline context="muted">
+            <Text {...elem('value')} inline context="neutral">
                 {item.value}
                 {item.unit}
             </Text>

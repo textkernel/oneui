@@ -59,13 +59,12 @@ describe('<ButtonGroup> that renders a button', () => {
 
     it('should pass main props, but not add styles if there is only 1 child', () => {
         const wrapper = mount(
-            <ButtonGroup context="warning" size="small" isBlock>
+            <ButtonGroup size="small" isBlock>
                 <Button>A button</Button>
             </ButtonGroup>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('Button').prop('className')).toBe(undefined);
-        expect(wrapper.find('Button').prop('context')).toBe('warning');
         expect(wrapper.find('Button').prop('size')).toBe('small');
         expect(wrapper.find('Button').prop('isBlock')).toBeTruthy();
     });
@@ -73,7 +72,7 @@ describe('<ButtonGroup> that renders a button', () => {
     it('should pass main props if child is array with size one', () => {
         const buttonContent = ['A button'];
         const wrapper = mount(
-            <ButtonGroup context="warning" size="small" isBlock>
+            <ButtonGroup isPrimary size="small" isBlock>
                 {buttonContent.map((content) => (
                     <Button>{content}</Button>
                 ))}
@@ -81,7 +80,7 @@ describe('<ButtonGroup> that renders a button', () => {
         );
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('Button').prop('className')).toBe(undefined);
-        expect(wrapper.find('Button').prop('context')).toBe('warning');
+        expect(wrapper.find('Button').prop('isPrimary')).toBe(true);
         expect(wrapper.find('Button').prop('size')).toBe('small');
         expect(wrapper.find('Button').prop('isBlock')).toBeTruthy();
     });

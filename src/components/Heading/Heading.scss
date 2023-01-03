@@ -5,9 +5,13 @@
         family: var(--heading-font-family);
         weight: var(--heading-font-weight);
     }
-    color: var(--color-accent);
+    color: var(--color-foreground);
     text-align: left;
     margin: 0;
+
+    &--isNeutral {
+        color: var(--color-neutral-25);
+    }
 
     &--level {
         @for $level from 1 to 7 {
@@ -24,6 +28,4 @@
             text-align: right;
         }
     }
-
-    @include context-attribute-with-color('color', (muted));
 }

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { bem } from '../../utils';
-import { Context } from '../../constants';
 import { ContentPlaceholder } from '../ContentPlaceholder';
 import { ProgressBar } from '../ProgressBar';
 import { Text } from '../Text';
@@ -13,8 +12,6 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     percentage: number;
     /** A react node with a weight of this result in absolute number */
     count: NotEmptySingleReactNode;
-    /** Color context for the weighted bar */
-    context?: Context;
     /** Whether or not to render loading state */
     isLoading?: boolean;
 }
@@ -22,7 +19,6 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
 const { block, elem } = bem('WeightedResultBar', styles);
 
 export const WeightedResultBar: React.FC<Props> = ({
-    context = 'brand',
     isLoading = false,
     children,
     percentage,
@@ -45,11 +41,7 @@ export const WeightedResultBar: React.FC<Props> = ({
                 )}
                 {['number', 'string'].includes(typeof count) ? <Text inline>{count}</Text> : count}
             </div>
-            <ProgressBar
-                percentage={isLoading ? 100 : percentage}
-                context={isLoading ? 'neutral' : context}
-                small
-            />
+            <ProgressBar percentage={isLoading ? 100 : percentage} small />
         </div>
     );
 };

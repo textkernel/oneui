@@ -15,13 +15,13 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
     </div>
     <Button
       className="FieldWrapper__clearButton"
-      context="link"
       isInline={true}
+      isLink={true}
       onClick={[Function]}
       title="Clear"
     >
       <button
-        className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
+        className="Button Button--isLink Button--isInline FieldWrapper__clearButton"
         disabled={false}
         onClick={[Function]}
         title="Clear"

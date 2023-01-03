@@ -15,7 +15,7 @@ export const ThemerollerConfig = [
             {
                 label: 'Foreground color',
                 type: 'color',
-                var: '--color-foreground',
+                var: '--color-neutral',
                 value: '#1d1d1b',
             },
             {
@@ -51,7 +51,7 @@ describe('ThemeTuner component', () => {
             <ThemeTuner
                 config={ThemerollerConfig}
                 cssVars={{
-                    '--color-foreground': '#000000',
+                    '--color-neutral': '#000000',
                 }}
                 onChange={onChangeMock}
             />

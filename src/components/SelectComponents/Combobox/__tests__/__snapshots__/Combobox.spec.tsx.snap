@@ -163,9 +163,7 @@ exports[`Combobox rendering should initially render empty component correctly 1`
                       context="muted"
                       inline={true}
                     >
-                      <span
-                        className="Text--context_muted"
-                      >
+                      <span>
                         type here...
                       </span>
                     </Text>

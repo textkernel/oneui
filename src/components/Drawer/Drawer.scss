@@ -29,10 +29,14 @@ $icon-size: 26px;
         display: flex;
         align-items: center;
         height: $drawer-head-height;
-        background-color: var(--drawer-head-background-color);
+        background-color: var(--color-neutral-75);
         border-radius: 4px 4px 0 0;
         cursor: pointer;
         outline: 0;
+
+        &--isPrimary {
+            background-color: var(--color-primary);
+        }
     }
 
     &__headTitle {
@@ -72,11 +76,23 @@ $icon-size: 26px;
 
         &:hover,
         &:focus {
-            background-color: var(--drawer-expand-hover-background-color);
+            background-color: var(--color-neutral);
         }
 
         &:active {
-            background-color: var(--drawer-expand-active-background-color);
+            background-color: var(--color-neutral-60);
+        }
+
+        &--isPrimary {
+            color: var(--color-neutral-10);
+            &:hover,
+            &:focus {
+                background-color: var(--color-primary-60);
+            }
+
+            &:active {
+                background-color: var(--color-primary-75);
+            }
         }
     }
 
@@ -91,5 +107,10 @@ $icon-size: 26px;
         background-color: var(--color-background);
         border-left: 1px solid var(--color-neutral);
         border-right: 1px solid var(--color-neutral);
+
+        &--isPrimary {
+            border-left: 1px solid var(--color-primary);
+            border-right: 1px solid var(--color-primary);
+        }
     }
 }

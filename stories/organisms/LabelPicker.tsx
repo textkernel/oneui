@@ -42,7 +42,7 @@ export const _LabelPicker = (args) => {
 
     return (
         <LabelPicker<MyLabel> {...args} labels={labels} onChange={handleChange} onAdd={handleAdd}>
-            <Button context="link">Apply label</Button>
+            <Button isLink>Apply label</Button>
         </LabelPicker>
     );
 };

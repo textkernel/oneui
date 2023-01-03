@@ -5,13 +5,7 @@ import { IconBase } from '../IconBase';
 describe('<IconBase> that renders an SVG wrapper with all options included', () => {
     it('should render a default icon', () => {
         const wrapper = shallow(
-            <IconBase
-                viewBox="0 0 100 100"
-                title="Icon base"
-                size={15}
-                margin="right"
-                context="brand"
-            >
+            <IconBase viewBox="0 0 100 100" title="Icon base" size={15} margin="right" isPrimary>
                 <circle cx="50" cy="50" r="50" />
             </IconBase>
         );

@@ -136,7 +136,7 @@ export function SuggestionsList<S>({
         if (noSuggestionsPlaceholder) {
             return (
                 <ListItem disabled>
-                    <Text context="muted">{noSuggestionsPlaceholder}</Text>
+                    <Text context="neutral">{noSuggestionsPlaceholder}</Text>
                 </ListItem>
             );
         }

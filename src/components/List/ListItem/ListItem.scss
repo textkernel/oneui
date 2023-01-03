@@ -1,4 +1,4 @@
-$contexts: (neutral, brand, primary, accent, info, good, warning, bad);
+$contexts: (neutral, primary, info, success, warning, danger);
 
 .ListItem {
     display: flex;
@@ -7,12 +7,15 @@ $contexts: (neutral, brand, primary, accent, info, good, warning, bad);
     box-sizing: border-box;
 
     &:hover:not(.ListItem--disabled) {
+        background-color: var(--color-light-10);
+    }
+
+    &--isSelected {
         background-color: var(--color-highlight-background);
     }
 
-    &--isSelected,
     &--isHighlighted {
-        background-color: var(--color-highlight-background);
+        background-color: var(--color-light-10);
     }
 
     &--clickable {
@@ -20,7 +23,7 @@ $contexts: (neutral, brand, primary, accent, info, good, warning, bad);
     }
 
     &--disabled {
-        color: var(--color-muted);
+        color: var(--color-neutral-25);
         cursor: not-allowed;
     }
 

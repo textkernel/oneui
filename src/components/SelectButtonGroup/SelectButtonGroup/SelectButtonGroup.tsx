@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { bem } from '../../../utils';
-import { Context, Size } from '../../../constants';
+import { Size } from '../../../constants';
 import { SelectButtonProps } from '../SelectButton';
 import styles from './SelectButtonGroup.scss';
 
@@ -16,8 +16,6 @@ export interface Props<V>
     isRequired?: boolean;
     /** should the component take up all the width available */
     isBlock?: boolean;
-    /** Color context for selected buttons */
-    context?: Context | null;
     /** should children have equal width */
     isEqualWidth?: boolean;
     /** size of the button group */
@@ -36,7 +34,6 @@ export function SelectButtonGroup<V>({
     isRequired = false,
     isEqualWidth = false,
     isBlock = false,
-    context = null,
     onChange = () => null,
     size = 'normal',
     value = null,
@@ -89,7 +86,6 @@ export function SelectButtonGroup<V>({
         <div {...rest} {...block({ ...rest, isBlock })}>
             {children.map((child) => {
                 const childProps = {
-                    context: context || child.props.context,
                     isBlock,
                     isEqualWidth,
                     isSelected:

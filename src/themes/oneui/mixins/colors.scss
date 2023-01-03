@@ -1,4 +1,4 @@
-$contexts: (neutral, brand, primary, accent, info, good, warning, bad);
+$contexts: (success, warning, danger);
 
 @mixin context-attribute-with-color($attribute, $extra: ()) {
     &--context {

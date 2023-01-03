@@ -26,16 +26,11 @@ export const _WeightedResultBar = (args) => (
 _WeightedResultBar.args = {
     percentage: 100,
     count: 123,
-    context: 'primary',
     children: 'Repair and Maintenance Technician',
 };
 
 const ClickableCount = ({ count }) => (
-    <Button
-        size="small"
-        context="brand"
-        onClick={() => console.log(`WeightedResultBar count: ${count}`)}
-    >
+    <Button size="small" isLink onClick={() => console.log(`WeightedResultBar count: ${count}`)}>
         {count}
     </Button>
 );
@@ -62,6 +57,5 @@ WithACustomCount.storyName = 'With a custom count';
 WithACustomCount.args = {
     percentage: 100,
     count: <ClickableCount count={100} />,
-    context: 'primary',
     children: 'Repair and Maintenance Technician',
 };

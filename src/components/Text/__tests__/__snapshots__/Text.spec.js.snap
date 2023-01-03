@@ -2,7 +2,7 @@
 
 exports[`<Text> that renders a text block should add classes when props are changed 1`] = `
 <span
-  className="Text--context_muted Text--size_small"
+  className="Text--size_small"
 >
   Some inline, muted text content
 </span>
