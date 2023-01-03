@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [18.11.3](https://github.com/textkernel/oneui/compare/18.11.2...18.11.3) (2022-12-26)
+
+
+### Bug Fixes
+
+* children type for radio button component ([e8e7be1](https://github.com/textkernel/oneui/commit/e8e7be1e355b2508ca52213072ceec444afdd313))
+
+### [18.11.2](https://github.com/textkernel/oneui/compare/18.11.1...18.11.2) (2022-12-23)
+
+
+### Bug Fixes
+
+* **TextArea:** component types to be specific ([#872](https://github.com/textkernel/oneui/issues/872)) ([466f61c](https://github.com/textkernel/oneui/commit/466f61cfb4539143c6806ac4fef8e56df826f7aa))
+
+### [18.11.1](https://github.com/textkernel/oneui/compare/18.11.0...18.11.1) (2022-12-22)
+
+
+### Bug Fixes
+
+* **RadioButton:** wrongly styled when disabled ([#870](https://github.com/textkernel/oneui/issues/870)) ([7d55f6f](https://github.com/textkernel/oneui/commit/7d55f6f42f5dfd726587607b041155131e769e74))
+
+## [18.11.0](https://github.com/textkernel/oneui/compare/18.10.2...18.11.0) (2022-12-21)
+
+
+### Features
+
+* **Combobox:** new component ([#867](https://github.com/textkernel/oneui/issues/867)) ([e9227a7](https://github.com/textkernel/oneui/commit/e9227a76420cb575c4c2f20379d135d757ab056d))
+
+
+### Bug Fixes
+
+* buttongroup context isn't passed to the button ([#864](https://github.com/textkernel/oneui/issues/864)) ([a80c532](https://github.com/textkernel/oneui/commit/a80c532680023fdb92175b9673c45bafbe98032b))
+* type content for pill and pillButton components ([#865](https://github.com/textkernel/oneui/issues/865)) ([2a10d78](https://github.com/textkernel/oneui/commit/2a10d78707a966ae7fbc8e94cbcfa63eb2d81a21))
+
 ### [18.10.2](https://github.com/textkernel/oneui/compare/18.10.1...18.10.2) (2022-11-18)
 
 

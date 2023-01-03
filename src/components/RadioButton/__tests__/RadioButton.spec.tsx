@@ -31,6 +31,7 @@ describe('<RadioButton> that renders a radio button', () => {
                 Useless radio button
             </RadioButton>
         );
+        expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('input[disabled]')).toHaveLength(1);
     });
 });

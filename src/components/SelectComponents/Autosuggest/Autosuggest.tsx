@@ -228,7 +228,6 @@ export function Autosuggest<S>({
             showClearButton={isClearButtonShown}
             highlightOnEmptyInput={false}
             keepExpandedAfterSelection
-            selectOnTab
             initInputValue={initInputValue}
             clearInputAfterSelection
         />

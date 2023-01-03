@@ -54,6 +54,25 @@ describe('SelectBase', () => {
             expect(wrapper.find('Button').text()).toBe(clearTitle);
         });
     });
+    describe('with toggle arrow', () => {
+        it('should show arrows when showArrow is true', () => {
+            wrapper.setProps({ showArrow: true });
+            expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
+        });
+        it('should toggle focus and the arrow when it is clicked', () => {
+            wrapper.setProps({ showArrow: true });
+            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
+            expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
+
+            wrapper.find('IoMdArrowDropdown').simulate('click');
+            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeTruthy();
+            expect(wrapper.find('IoMdArrowDropup').exists()).toBeTruthy();
+
+            wrapper.find('IoMdArrowDropup').simulate('click');
+            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
+            expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
+        });
+    });
     describe('search field interactions', () => {
         it('should set focus when wrapper element is clicked', () => {
             const focusSpy = jest.spyOn(inputNode, 'focus');

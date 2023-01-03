@@ -1,1 +1,1 @@
-export { PillButton } from './PillButton';
+export { PillButton, Props as PillButtonProps } from './PillButton';

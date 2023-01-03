@@ -1,4 +1,4 @@
-.ComboboxMulti {
+.Combobox {
     &__wrapper {
         cursor: pointer;
         display: flex;
@@ -20,15 +20,14 @@
         }
     }
 
-    &__input {
+    &__input, &__selection {
         border: 0;
         margin: var(--spacing-normal);
         padding-left: var(--spacing-normal);
         padding-right: var(--spacing-normal);
         flex: 1;
         font-size: var(--font-size-normal);
-        color: var(--color-primary);
-        background-color: var(--color-background);
+        color: var(--color-accent);
         min-width: 150px;
 
         &:focus {
@@ -36,23 +35,12 @@
         }
 
         &::placeholder {
-            color: var(--color-neutral-25);
+            color: var(--color-muted);
         }
 
         &--disabled {
             cursor: not-allowed;
             background-color: var(--color-neutral-25);
-        }
-    }
-
-    &__dropdownIcon {
-        display: inline-block;
-        vertical-align: middle;
-        font-size: 20px;
-        margin-right: var(--spacing-normal);
-
-        &--disabled {
-            color: var(--color-neutral-75);
         }
     }
 }
