@@ -1,9 +1,11 @@
 .NavBar {
-    background-color: var(--color-light-25);
+    background-color: var(--color-light-10);
     color: var(--color-primary);
     width: 100%;
     min-width: var(--site-container-min-size);
     height: var(--navigation-height);
+    border-bottom: 2px solid var(--color-light-25);
+    border-top: 2px solid var(--color-light-25);
 
     &__wrapper {
         box-sizing: border-box;
