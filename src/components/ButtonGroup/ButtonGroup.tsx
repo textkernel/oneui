@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { EmptyElement } from '@textkernel/oneui/customTypes/customTypes';
 import { bem } from '../../utils';
 import styles from './ButtonGroup.scss';
 import { Context, Size } from '../../constants';

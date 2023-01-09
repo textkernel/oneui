@@ -15,4 +15,3 @@ type NotEmptyReactNode =
 type SingleReactNode = NotEmptySingleReactNode | boolean | null | undefined;
 type ReactNode = NotEmptyReactNode | boolean | null | undefined;
 
-type EmptyElement = false | null | undefined;

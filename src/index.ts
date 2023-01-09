@@ -9,6 +9,7 @@ export * from './packages/ThemeGenerator/ThemeResult';
 export * from './constants/component-specific';
 export * from './constants/keyboard';
 export * from './constants/style-related';
+export * from './customTypes/customTypes';
 
 // Atoms
 export * from './components/Buttons';
