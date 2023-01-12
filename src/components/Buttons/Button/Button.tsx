@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react';
 import { bem } from '../../../utils';
 import styles from './Button.scss';
 import { ButtonType, Context, Size } from '../../../constants';
+import { NotEmptySingleReactNode } from '../../../customTypes/types';
 
 export interface Props
     extends Omit<

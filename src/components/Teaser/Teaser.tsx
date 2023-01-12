@@ -3,6 +3,7 @@ import { bem } from '../../utils';
 import { Text } from '../Text';
 import { Tooltip } from '../Tooltip';
 import styles from './Teaser.scss';
+import { SingleReactNode } from '../../customTypes/types';
 
 type Status = {
     label: string;

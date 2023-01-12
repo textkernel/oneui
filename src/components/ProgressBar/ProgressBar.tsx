@@ -2,6 +2,7 @@ import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './ProgressBar.scss';
 import { Context } from '../../constants';
+import { ReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Percentage of progress bar to be filled */

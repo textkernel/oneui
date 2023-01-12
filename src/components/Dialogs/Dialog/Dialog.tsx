@@ -4,6 +4,7 @@ import { Heading } from '../../Heading';
 import { Button } from '../../Buttons';
 import { Modal, ModalProps } from '../../Modal';
 import styles from './Dialog.scss';
+import { ReactNode } from '../../../customTypes/types';
 
 export type ButtonProps = {
     onClick: () => void;

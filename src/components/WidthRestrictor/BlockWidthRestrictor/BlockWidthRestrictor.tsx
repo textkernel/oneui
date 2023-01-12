@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import { NotEmptyReactNode } from '../../../customTypes/types';
 import { bem } from '../../../utils';
 import styles from './BlockWidthRestrictor.scss';
 

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import styles from './FileButton.scss';
 import { Context, Size } from '../../../constants';
+import { NotEmptySingleReactNode } from '../../../customTypes/types';
 
 export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
     /** The label of the button */

@@ -6,6 +6,7 @@ import { Text, MarkedText } from '../../Text';
 import { ListOptimizer, ListItem } from '../../List';
 import { NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS } from '../../../constants';
 import styles from './SuggestionsList.scss';
+import { ReactNode } from '../../../customTypes/types';
 
 const { elem } = bem('SuggestionsList', styles);
 

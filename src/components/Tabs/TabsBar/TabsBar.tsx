@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { EmptyElement } from '@textkernel/oneui/customTypes/customTypes';
+import type { EmptyElement } from '@textkernel/oneui/customTypes/types';
 import { bem } from '../../../utils';
 import { TabItem, TabItemProps } from '../TabItem';
 import styles from './TabsBar.scss';

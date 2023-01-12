@@ -5,6 +5,7 @@ import { ContentPlaceholder } from '../ContentPlaceholder';
 import { ProgressBar } from '../ProgressBar';
 import { Text } from '../Text';
 import styles from './WeightedResultBar.scss';
+import { NotEmptySingleReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Description of the result */

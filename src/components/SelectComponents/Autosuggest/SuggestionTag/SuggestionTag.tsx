@@ -2,6 +2,7 @@ import * as React from 'react';
 import { MdClose } from 'react-icons/md';
 import { bem } from '../../../../utils';
 import styles from './SuggestionTag.scss';
+import { NotEmptyReactNode } from '../../../../customTypes/types';
 
 const { block, elem } = bem('SuggestionTag', styles);
 

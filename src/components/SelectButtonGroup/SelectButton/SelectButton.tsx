@@ -2,6 +2,7 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import { ENTER_KEY, Context, Size } from '../../../constants';
 import styles from './SelectButton.scss';
+import { NotEmptyReactNode } from '../../../customTypes/types';
 
 // These props will be passed by the parent <SelectButtonGroup>
 interface InternalProps<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {

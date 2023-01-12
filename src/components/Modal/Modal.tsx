@@ -2,8 +2,8 @@ import * as React from 'react';
 import ReactModal from 'react-modal';
 import { bem } from '../../utils';
 import styles from './Modal.scss';
+import { ReactNode } from '../../customTypes/types';
 
-// check
 interface Props extends ReactModal.Props {
     /** elements to be rendered within the modal */
     children: ReactNode;

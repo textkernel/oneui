@@ -2,6 +2,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { Transition } from 'react-transition-group';
 import { IoIosArrowUp } from 'react-icons/io';
+import { ReactNode } from '../../customTypes/types';
 import { bem } from '../../utils';
 import { ENTER_KEY } from '../../constants';
 import styles from './Drawer.scss';

@@ -10,6 +10,7 @@ import { Text } from '../../Text';
 import { SuggestionsList } from '../SuggestionsList';
 import { ESCAPE_KEY } from '../../../constants';
 import styles from './Combobox.scss';
+import { DictionaryOf } from '../../../customTypes/types';
 
 const { elem } = bem('Combobox', styles);
 

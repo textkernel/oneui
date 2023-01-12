@@ -4,6 +4,7 @@ import { SuggestionsList } from '../SuggestionsList';
 import { SelectBase } from '../SelectBase';
 import { Text } from '../../Text';
 import styles from './Select.scss';
+import { ReactNode } from '../../../customTypes/types';
 
 const { elem } = bem('Select', styles);
 

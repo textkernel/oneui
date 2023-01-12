@@ -4,6 +4,7 @@ import { bem } from '../../utils';
 import { Button } from '../Buttons/Button';
 import { Tooltip } from '../Tooltip';
 import styles from './BulkActionsToolbar.scss';
+import { SingleReactNode } from '../../customTypes/types';
 
 export type ToggleState = 'all' | 'none';
 
