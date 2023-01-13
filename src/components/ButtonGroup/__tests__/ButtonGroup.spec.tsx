@@ -9,8 +9,8 @@ describe('<ButtonGroup> that renders a button', () => {
     it('should render default button correctly', () => {
         const wrapper = mount(
             <ButtonGroup>
-                <Button>A button</Button>
-                <Button>Another button</Button>
+                <Button key="a">A button</Button>
+                <Button key="b">Another button</Button>
             </ButtonGroup>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -19,8 +19,8 @@ describe('<ButtonGroup> that renders a button', () => {
     it('should add classes when props are changed', () => {
         const wrapper = mount(
             <ButtonGroup size="large" isBlock>
-                <Button>A button</Button>
-                <Button>Another button</Button>
+                <Button key="a">A button</Button>
+                <Button key="b">Another button</Button>
             </ButtonGroup>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -29,9 +29,12 @@ describe('<ButtonGroup> that renders a button', () => {
     it('should support mixed element types', () => {
         const wrapper = mount(
             <ButtonGroup size="large" isBlock>
-                <Button>A button</Button>
-                <Button href="#">An anchor</Button>
+                <Button key="a">A button</Button>
+                <Button key="b" href="#">
+                    An anchor
+                </Button>
                 <Dropdown
+                    key="c"
                     button={<Button>A dropdown button</Button>}
                     placement="bottom-end"
                     onChange={() => {}}
@@ -47,9 +50,9 @@ describe('<ButtonGroup> that renders a button', () => {
         const condition = false;
         const wrapper = mount(
             <ButtonGroup>
-                <Button>A button</Button>
+                <Button key="a">A button</Button>
                 {condition ? <Button href="#">An anchor</Button> : null}
-                <>{condition && <Button>A button</Button>}</>
+                {condition ? <Button key="b">A button</Button> : null}
             </ButtonGroup>
         );
 
@@ -60,7 +63,7 @@ describe('<ButtonGroup> that renders a button', () => {
     it('should pass main props, but not add styles if there is only 1 child', () => {
         const wrapper = mount(
             <ButtonGroup size="small" isBlock>
-                <Button>A button</Button>
+                <Button key="a">A button</Button>
             </ButtonGroup>
         );
         expect(toJson(wrapper)).toMatchSnapshot();
@@ -74,7 +77,7 @@ describe('<ButtonGroup> that renders a button', () => {
         const wrapper = mount(
             <ButtonGroup isPrimary size="small" isBlock>
                 {buttonContent.map((content) => (
-                    <Button>{content}</Button>
+                    <Button key="a">{content}</Button>
                 ))}
             </ButtonGroup>
         );

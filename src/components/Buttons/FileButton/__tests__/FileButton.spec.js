@@ -11,7 +11,7 @@ describe('<FileButton> that renders a button', () => {
     });
     it('should add classes when props are changed', () => {
         const wrapper = mount(
-            <FileButton isPrimary size="large" isBlock>
+            <FileButton size="large" isBlock>
                 Click me
             </FileButton>
         );

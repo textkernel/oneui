@@ -3,16 +3,14 @@
 exports[`<FileButton> that renders a button should add classes when props are changed 1`] = `
 <FileButton
   isBlock={true}
-  isPrimary={true}
   size="large"
 >
   <label
-    className="Button Button--size_large Button--isBlock Button--isPrimary"
+    className="Button Button--size_large Button--isBlock"
     disabled={false}
   >
     <input
       hidden={true}
-      isPrimary={true}
       type="file"
     />
     Click me
