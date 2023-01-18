@@ -27,7 +27,7 @@ type AutocompletePropsForSelectorDialog = Pick<
     | 'inputPlaceholder'
     | 'noSuggestionsPlaceholder'
     | 'isFocused'
-    | 'clearLabel'
+    | 'clearTooltipLabel'
     | 'country'
     | 'placeTypes'
     | 'showCountryInSuggestions'
@@ -75,7 +75,7 @@ const LocationSelectorDialog: React.FC<Props> = ({
     renderRadiusLabel,
     onRemoveLocation,
     doneLabel,
-    clearLabel,
+    clearTooltipLabel,
 
     /** LocationAutocomplete props */
     country,
@@ -145,7 +145,7 @@ const LocationSelectorDialog: React.FC<Props> = ({
                             : ''
                     }
                     inputPlaceholder={inputPlaceholder}
-                    clearLabel={clearLabel}
+                    clearTooltipLabel={clearTooltipLabel}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     onSelectionChange={handleAddLocation}
                     country={country}

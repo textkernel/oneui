@@ -3,6 +3,8 @@
 .Input {
     @extend %input;
 
+    border-color: var(--color-neutral-25);
+
     &--context {
         @each $context in ($contexts) {
             &_#{ $context } {

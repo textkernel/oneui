@@ -54,6 +54,6 @@ Clearable.args = {
     style: { width: '650px' },
     items: SUGGESTIONS,
     itemToString: SUGGESTION_TO_STRING,
-    clearLabel: 'Clear',
+    clearTooltipLabel: 'Clear',
     placeholder: 'Choose item...',
 };

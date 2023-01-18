@@ -133,7 +133,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={false}
             isFocused={false}
             onArrowClick={[Function]}
@@ -388,7 +388,7 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={true}
             isFocused={true}
             onArrowClick={[Function]}

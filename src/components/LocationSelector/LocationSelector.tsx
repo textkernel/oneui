@@ -43,7 +43,7 @@ interface Props
     /** string to be displayed in FieldWrapper when the modal is closed, but locations are selected */
     selectionPlaceholder?: string;
     /** label to be used for Clear buttons of the component */
-    clearLabel: string;
+    clearTooltipLabel: string;
     /** callback function for the Clear button click */
     onRemoveAllLocations: () => void;
     /** callback function for closed modal */
@@ -59,7 +59,7 @@ const LocationSelector: React.FC<Props> = ({
 
     /** FieldWrapper props */
     id,
-    clearLabel,
+    clearTooltipLabel,
     onRemoveAllLocations,
     inputPlaceholder,
     selectionPlaceholder,
@@ -199,7 +199,7 @@ const LocationSelector: React.FC<Props> = ({
                 title={selectionPlaceholder || inputPlaceholder}
                 isFocused={isWrapperFocused}
                 showClearButton={hasLocationsSelected}
-                clearLabel={clearLabel}
+                clearTooltipLabel={clearTooltipLabel}
                 onClick={handleOpenModal}
                 onClear={onRemoveAllLocations}
             >
@@ -237,7 +237,7 @@ const LocationSelector: React.FC<Props> = ({
                     renderRadiusLabel={renderRadiusLabel}
                     onRemoveLocation={onRemoveLocation}
                     doneLabel={doneLabel}
-                    clearLabel={clearLabel}
+                    clearTooltipLabel={clearTooltipLabel}
                     country={country}
                     withoutLocationCards={withoutLocationCards}
                     initialMapAddress={initialMapAddress}

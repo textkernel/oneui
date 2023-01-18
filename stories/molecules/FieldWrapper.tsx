@@ -9,7 +9,7 @@ export default {
 
 export const _FieldWrapper = (args) => <FieldWrapper {...args} />;
 _FieldWrapper.args = {
-    clearLabel: 'Clear',
+    clearTooltipLabel: 'Clear',
     showClearButton: true,
     isFocused: false,
     style: { width: '600px', minHeight: '40px' },

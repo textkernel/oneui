@@ -65,7 +65,7 @@ Basic.args = {
     noSuggestionsPlaceholder: 'noSuggestionsPlaceholder',
     selectionPlaceholder: 'selectionPlaceholder',
     doneLabel: 'Done',
-    clearLabel: 'Clear',
+    clearTooltipLabel: 'Clear',
     useDefaultHighlight: true,
 };
 
@@ -153,7 +153,7 @@ SingleSelect.args = {
     modalInputPlaceholder: '',
     noSuggestionsPlaceholder: 'noSuggestionsPlaceholder',
     doneLabel: 'Done',
-    clearLabel: 'Clear',
+    clearTooltipLabel: 'Clear',
     useDefaultHighlight: true,
 };
 
@@ -179,6 +179,6 @@ MultiSelect.args = {
     modalInputPlaceholder: '',
     noSuggestionsPlaceholder: 'noSuggestionsPlaceholder',
     doneLabel: 'Done',
-    clearLabel: 'Clear',
+    clearTooltipLabel: 'Clear',
     useDefaultHighlight: true,
 };
