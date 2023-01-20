@@ -4,7 +4,7 @@ import type { CssVars } from '../OneUITheme';
 export const colorVariables = {
     '--transparent': 'transparent',
     '--color-background': '#ffffff',
-    '--color-foreground': '#1d1d1b',
+    '--color-foreground': '#2d3234',
 
     '--color-neutral': '#46494B',
     '--color-primary': '#0097d1',

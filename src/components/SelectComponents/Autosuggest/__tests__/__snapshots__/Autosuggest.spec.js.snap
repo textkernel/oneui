@@ -107,13 +107,14 @@ exports[`Autosuggest rendering should initially render empty component correctly
                 </div>
                 <List
                   aria-labelledby="downshift-0-label"
+                  className="SelectBase__list"
                   id="downshift-0-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-0-label"
-                    className="List"
+                    className="List SelectBase__list"
                     id="downshift-0-menu"
                     role="listbox"
                   />
@@ -236,14 +237,14 @@ exports[`Autosuggest rendering should initially render focused component correct
                 </div>
                 <List
                   aria-labelledby="downshift-2-label"
-                  className="SelectBase__list--focused"
+                  className="SelectBase__list SelectBase__list--focused"
                   id="downshift-2-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-2-label"
-                    className="List SelectBase__list--focused"
+                    className="List SelectBase__list SelectBase__list--focused"
                     id="downshift-2-menu"
                     role="listbox"
                   />
@@ -420,14 +421,14 @@ exports[`Autosuggest rendering should initially render focused component with su
                 </div>
                 <List
                   aria-labelledby="downshift-4-label"
-                  className="SelectBase__list--focused"
+                  className="SelectBase__list SelectBase__list--focused"
                   id="downshift-4-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-4-label"
-                    className="List SelectBase__list--focused"
+                    className="List SelectBase__list SelectBase__list--focused"
                     id="downshift-4-menu"
                     role="listbox"
                   >
@@ -982,14 +983,14 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
                 </div>
                 <List
                   aria-labelledby="downshift-5-label"
-                  className="SelectBase__list--focused"
+                  className="SelectBase__list SelectBase__list--focused"
                   id="downshift-5-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-5-label"
-                    className="List SelectBase__list--focused"
+                    className="List SelectBase__list SelectBase__list--focused"
                     id="downshift-5-menu"
                     role="listbox"
                   >
@@ -1521,14 +1522,14 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                 </div>
                 <List
                   aria-labelledby="downshift-6-label"
-                  className="SelectBase__list--focused"
+                  className="SelectBase__list SelectBase__list--focused"
                   id="downshift-6-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-6-label"
-                    className="List SelectBase__list--focused"
+                    className="List SelectBase__list SelectBase__list--focused"
                     id="downshift-6-menu"
                     role="listbox"
                   >
@@ -1843,14 +1844,14 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                 </div>
                 <List
                   aria-labelledby="downshift-15-label"
-                  className="SelectBase__list--focused"
+                  className="SelectBase__list SelectBase__list--focused"
                   id="downshift-15-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-15-label"
-                    className="List SelectBase__list--focused"
+                    className="List SelectBase__list SelectBase__list--focused"
                     id="downshift-15-menu"
                     role="listbox"
                   />
@@ -1989,14 +1990,14 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                 </div>
                 <List
                   aria-labelledby="downshift-15-label"
-                  className="SelectBase__list--focused"
+                  className="SelectBase__list SelectBase__list--focused"
                   id="downshift-15-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-15-label"
-                    className="List SelectBase__list--focused"
+                    className="List SelectBase__list SelectBase__list--focused"
                     id="downshift-15-menu"
                     role="listbox"
                   >
@@ -2176,14 +2177,14 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                 </div>
                 <List
                   aria-labelledby="downshift-15-label"
-                  className="SelectBase__list--focused"
+                  className="SelectBase__list SelectBase__list--focused"
                   id="downshift-15-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-15-label"
-                    className="List SelectBase__list--focused"
+                    className="List SelectBase__list SelectBase__list--focused"
                     id="downshift-15-menu"
                     role="listbox"
                   />

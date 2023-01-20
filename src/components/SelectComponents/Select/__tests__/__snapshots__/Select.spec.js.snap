@@ -174,13 +174,14 @@ exports[`Select rendering should initially render correctly 1`] = `
                 </div>
                 <List
                   aria-labelledby="downshift-0-label"
+                  className="SelectBase__list"
                   id="downshift-0-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-0-label"
-                    className="List"
+                    className="List SelectBase__list"
                     id="downshift-0-menu"
                     role="listbox"
                   />
@@ -496,14 +497,14 @@ exports[`Select rendering should render focused component correctly 1`] = `
                 </div>
                 <List
                   aria-labelledby="downshift-1-label"
-                  className="SelectBase__list--focused"
+                  className="SelectBase__list SelectBase__list--focused"
                   id="downshift-1-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-1-label"
-                    className="List SelectBase__list--focused"
+                    className="List SelectBase__list SelectBase__list--focused"
                     id="downshift-1-menu"
                     role="listbox"
                   >
