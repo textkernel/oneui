@@ -171,14 +171,13 @@ exports[`Combobox rendering should initially render empty component correctly 1`
                 </div>
                 <List
                   aria-labelledby="downshift-0-label"
-                  className="SelectBase__list"
                   id="downshift-0-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-0-label"
-                    className="List SelectBase__list"
+                    className="List"
                     id="downshift-0-menu"
                     role="listbox"
                   />

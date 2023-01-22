@@ -232,14 +232,13 @@ exports[`ComboboxMulti rendering should initially render empty component correct
                 </div>
                 <List
                   aria-labelledby="downshift-0-label"
-                  className="SelectBase__list"
                   id="downshift-0-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-0-label"
-                    className="List SelectBase__list"
+                    className="List"
                     id="downshift-0-menu"
                     role="listbox"
                   />
@@ -487,14 +486,14 @@ exports[`ComboboxMulti rendering should render all suggestions from the list 1`]
                 </div>
                 <List
                   aria-labelledby="downshift-6-label"
-                  className="SelectBase__list SelectBase__list--focused"
+                  className="SelectBase__list--focused"
                   id="downshift-6-menu"
                   isControlledNavigation={true}
                   role="listbox"
                 >
                   <ul
                     aria-labelledby="downshift-6-label"
-                    className="List SelectBase__list SelectBase__list--focused"
+                    className="List SelectBase__list--focused"
                     id="downshift-6-menu"
                     role="listbox"
                   >

@@ -34,8 +34,9 @@
         margin-top: -1px;
     }
 
-    &__list:empty {
+    &__list--focused:empty {
         border-top: none;
+        margin-top: 0;
     }
 
     &__loaderContainer {
