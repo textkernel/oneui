@@ -101,16 +101,6 @@
         color: var(--color-neutral-40);
     }
 }
-
-:global .CalendarHeader {
-    color: var(--color-foreground);
-}
-
-:global .CalendarHeader__navButton {
-    color: var(--color-neutral-75);
-    border: transparent;
-}
-
 /* Selected days */
 
 :global .react-datepicker__day--selected {

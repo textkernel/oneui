@@ -3,11 +3,13 @@
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: var(--spacing-3x);
+    color: var(--color-neutral-75);
 
     &__navButton {
         width: 33px;
         height: 33px;
         padding: var(--spacing-normal);
+        border: transparent;
     }
 
     &__select {
