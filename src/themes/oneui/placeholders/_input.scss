@@ -3,13 +3,13 @@
     height: 36px;
     background-color: var(--color-background);
     border: {
-        color: var(--color-neutral);
+        color: var(--color-neutral-25);
         radius: var(--border-radius);
         style: solid;
         width: var(--line-normal);
     }
     box-sizing: border-box;
-    color: var(--color-foreground);
+    color: var(--color-neutral-75);
     font: {
         family: var(--font-family-primary);
         size: var(--font-size-normal);
