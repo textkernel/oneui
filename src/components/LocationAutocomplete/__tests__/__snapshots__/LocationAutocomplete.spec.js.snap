@@ -256,7 +256,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
         >
           <FieldWrapper
             className="AutosuggestDeprecated__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isFocused={true}
             onClear={[Function]}
             onClick={[Function]}
@@ -601,7 +601,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
         >
           <FieldWrapper
             className="AutosuggestDeprecated__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isFocused={false}
             onClear={[Function]}
             onClick={[Function]}

@@ -27,7 +27,6 @@
         padding-right: var(--spacing-normal);
         flex: 1;
         font-size: var(--font-size-normal);
-        color: var(--color-primary);
         background-color: var(--color-background);
         min-width: 150px;
 
@@ -50,6 +49,7 @@
         vertical-align: middle;
         font-size: 20px;
         margin-right: var(--spacing-normal);
+        color: var(--color-neutral-60);
 
         &--disabled {
             color: var(--color-neutral-75);

@@ -5,7 +5,7 @@
     align-items: center;
     font-size: var(--font-size-normal);
     padding: 0 var(--spacing-normal);
-    background-color: var(--color-neutral-10);
+    background-color: var(--color-light-25);
     border-radius: var(--border-radius);
     margin: var(--spacing-normal);
     margin-top: var(--margin);
@@ -13,11 +13,6 @@
     max-width: 200px;
     min-width: 15px;
     cursor: default;
-
-    &:hover,
-    &:focus {
-        background-color: var(--color-light-60);
-    }
 
     &--block {
         flex: 1 1 auto;

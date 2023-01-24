@@ -238,7 +238,7 @@ export function SelectBase<S>({
                             showArrow={showArrow}
                             isArrowUp={focused}
                             onArrowClick={focused ? handleOuterClick : handleWrapperClick(openMenu)}
-                            clearLabel={clearTitle}
+                            clearTooltipLabel={clearTitle}
                             onClear={handleClearSelectedSuggestions}
                             showClearButton={!focused && showClearButton}
                             isFocused={focused && !disabled}

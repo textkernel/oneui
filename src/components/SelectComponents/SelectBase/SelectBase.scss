@@ -34,6 +34,11 @@
         margin-top: -1px;
     }
 
+    &__list--focused:empty {
+        border-top: none;
+        margin-top: 0;
+    }
+
     &__loaderContainer {
         width: 250px;
     }

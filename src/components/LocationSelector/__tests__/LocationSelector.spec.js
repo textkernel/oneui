@@ -58,7 +58,7 @@ describe('LocationSelector component', () => {
                 radiusUnits="km"
                 radiusDefaultValue={radiusDefaultValue}
                 modalContentLabel="Location selection dialog"
-                clearLabel="Clear"
+                clearTooltipLabel="Clear"
                 inputPlaceholder={inputPlaceholder}
                 hasRadius
                 minRadius={minRadius}

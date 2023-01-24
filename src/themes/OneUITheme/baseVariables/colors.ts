@@ -4,12 +4,12 @@ import type { CssVars } from '../OneUITheme';
 export const colorVariables = {
     '--transparent': 'transparent',
     '--color-background': '#ffffff',
-    '--color-foreground': '#1d1d1b',
+    '--color-foreground': '#2d3234',
 
-    '--color-neutral': '#707070',
+    '--color-neutral': '#46494B',
     '--color-primary': '#0097d1',
     '--color-info': '#63dfec',
-    '--color-light': '#DBDBDB',
+    '--color-light': '#D0D3D5',
     '--color-success': '#5cb85c',
     '--color-warning': '#ffb819',
     '--color-danger': '#f42534',

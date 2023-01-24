@@ -125,7 +125,7 @@ exports[`Combobox rendering should initially render empty component correctly 1`
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={false}
             isFocused={false}
             onArrowClick={[Function]}

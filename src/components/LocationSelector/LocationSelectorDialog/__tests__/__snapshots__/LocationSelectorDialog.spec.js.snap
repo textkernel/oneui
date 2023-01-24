@@ -160,7 +160,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
             >
               <FieldWrapper
                 className="AutosuggestDeprecated__field"
-                clearLabel=""
+                clearTooltipLabel=""
                 isFocused={true}
                 onClear={[Function]}
                 onClick={[Function]}

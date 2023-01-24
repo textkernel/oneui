@@ -138,7 +138,7 @@ exports[`SelectBase rendering should initially render empty component correctly 
       >
         <FieldWrapper
           className="SelectBase__field"
-          clearLabel=""
+          clearTooltipLabel=""
           isArrowUp={false}
           isFocused={false}
           onArrowClick={[Function]}

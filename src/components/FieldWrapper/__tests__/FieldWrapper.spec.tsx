@@ -15,7 +15,7 @@ describe('FieldWrapper', () => {
     });
     it('should add clear button if showClearButton is true', () => {
         const wrapper = mount(
-            <FieldWrapper showClearButton clearLabel="Clear">
+            <FieldWrapper showClearButton clearTooltipLabel="Clear">
                 some children
             </FieldWrapper>
         );
@@ -77,7 +77,7 @@ describe('FieldWrapper', () => {
     it('should call onClear callback correctly', () => {
         const onClearMock = jest.fn();
         const wrapper = mount(
-            <FieldWrapper showClearButton clearLabel="Clear" onClear={onClearMock}>
+            <FieldWrapper showClearButton clearTooltipLabel="Clear" onClear={onClearMock}>
                 tag
             </FieldWrapper>
         );

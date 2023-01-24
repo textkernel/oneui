@@ -131,8 +131,8 @@
 
         &[disabled] {
             color: var(--color-background);
-            background-color: var(--color-neutral-25);
-            border-color: var(--color-neutral-25);
+            background-color: var(--color-primary-25);
+            border-color: var(--color-primary-25);
         }
 
         &.Button--isLoading {

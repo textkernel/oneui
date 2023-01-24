@@ -134,7 +134,7 @@ exports[`Select rendering should initially render correctly 1`] = `
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={false}
             isFocused={false}
             onArrowClick={[Function]}
@@ -199,7 +199,41 @@ exports[`Select rendering should initially render correctly 1`] = `
                   onClick={[Function]}
                   title=""
                   type="button"
-                />
+                >
+                  <MdClear
+                    size={16}
+                  >
+                    <IconBase
+                      attr={
+                        Object {
+                          "viewBox": "0 0 24 24",
+                        }
+                      }
+                      size={16}
+                    >
+                      <svg
+                        fill="currentColor"
+                        height={16}
+                        size={16}
+                        stroke="currentColor"
+                        strokeWidth="0"
+                        style={
+                          Object {
+                            "color": undefined,
+                          }
+                        }
+                        viewBox="0 0 24 24"
+                        width={16}
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                          key="0"
+                        />
+                      </svg>
+                    </IconBase>
+                  </MdClear>
+                </button>
               </Button>
               <IoMdArrowDropdown
                 className="FieldWrapper__dropdownIcon"
@@ -424,7 +458,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={true}
             isFocused={true}
             onArrowClick={[Function]}
