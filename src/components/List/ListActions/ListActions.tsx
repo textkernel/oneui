@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ReactNode } from '../../../customTypes/types';
 import { bem } from '../../../utils';
 import styles from './ListActions.scss';
 

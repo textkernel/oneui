@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { EmptyElement } from '@textkernel/oneui/customTypes/types';
 import { bem, scrollIntoViewIfNeeded } from '../../utils';
 import { LIST_NAVIGATION_DIRECTIONS, ENTER_KEY } from '../../constants';
 import styles from './List.scss';

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { NotEmptyReactNode } from '../../customTypes/types';
 import { bem } from '../../utils';
 import styles from './Chip.scss';
 

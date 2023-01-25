@@ -2,6 +2,7 @@ import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './Heading.scss';
 import { HEADING_SIZES, Context } from '../../constants';
+import { NotEmptyReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
     /** Heading text */

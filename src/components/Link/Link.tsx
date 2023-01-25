@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './Link.scss';
+import { NotEmptyReactNode } from '../../customTypes/types';
 
 export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Link content */

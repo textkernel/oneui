@@ -2,6 +2,7 @@ import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './Text.scss';
 import { Size, Context } from '../../constants';
+import { NotEmptyReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Text content */

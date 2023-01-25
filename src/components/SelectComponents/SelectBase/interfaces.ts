@@ -1,4 +1,5 @@
 import { GetItemPropsOptions, GetToggleButtonPropsOptions } from 'downshift';
+import { ReactNode } from '../../../customTypes/types';
 
 export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     /**

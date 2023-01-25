@@ -3,6 +3,7 @@ import { bem } from '../../utils';
 import { ContentPlaceholder } from '../ContentPlaceholder';
 import { Context, GAUGE_RADIUS } from '../../constants';
 import styles from './Gauge.scss';
+import { NotEmptyReactNode, SingleReactNode } from '../../customTypes/types';
 
 const SET_PERCENTAGE_DELAY = 100;
 

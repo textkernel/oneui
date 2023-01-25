@@ -2,6 +2,7 @@ import * as React from 'react';
 import { PopupBase } from '../PopupBase';
 import { PillButton } from './PillButton';
 import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
+import { ReactNode, SingleReactNode } from '../../customTypes/types';
 
 export interface Props {
     /** The dropdown content renderer function. It is called with:

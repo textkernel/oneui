@@ -3,6 +3,7 @@ import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './RadioButton.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
+import { SingleReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLProps<HTMLInputElement> {
     /** A unique id to reference this radio button */

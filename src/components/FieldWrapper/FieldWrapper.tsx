@@ -4,6 +4,7 @@ import { bem } from '../../utils';
 import { Button } from '../Buttons';
 import { ENTER_KEY } from '../../constants';
 import styles from './FieldWrapper.scss';
+import { NotEmptyReactNode } from '../../customTypes/types';
 
 const { block, elem } = bem('FieldWrapper', styles);
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { IoIosArrowDown, IoMdClose } from 'react-icons/io';
+import { SingleReactNode } from '../../../customTypes/types';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';

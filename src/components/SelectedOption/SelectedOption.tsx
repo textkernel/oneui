@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { IoIosClose } from 'react-icons/io';
+import { NotEmptyReactNode } from '../../customTypes/types';
 import { bem } from '../../utils';
 import { ENTER_KEY } from '../../constants';
 import styles from './SelectedOption.scss';

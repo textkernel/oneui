@@ -3,6 +3,7 @@ import { bem } from '../../../utils';
 import { Text } from '../../Text';
 import { Context } from '../../../constants';
 import styles from './ListItem.scss';
+import { ReactNode } from '../../../customTypes/types';
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
     /** List Items */

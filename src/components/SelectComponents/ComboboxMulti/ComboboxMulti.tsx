@@ -5,6 +5,7 @@ import { SelectBase, BasicSelectProps, SelectInputFieldProps } from '../SelectBa
 import { SuggestionsList } from '../SuggestionsList';
 import styles from './ComboboxMulti.scss';
 import { ESCAPE_KEY } from '../../../constants';
+import { DictionaryOf } from '../../../customTypes/types';
 
 const { elem } = bem('ComboboxMulti', styles);
 

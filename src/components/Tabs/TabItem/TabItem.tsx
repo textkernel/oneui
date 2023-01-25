@@ -2,6 +2,7 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './TabItem.scss';
+import { ReactNode } from '../../../customTypes/types';
 
 export interface Props<T> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
     /** Id of this tab */

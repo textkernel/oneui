@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { DictionaryOf, ReactNode } from '../../../customTypes/types';
 import { bem } from '../../../utils';
 import { SuggestionTag } from './SuggestionTag';
 import { SuggestionsList } from '../SuggestionsList';
