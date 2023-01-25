@@ -1,5 +1,5 @@
 .TabItem {
-    color: var(--color-foreground);
+    color: var(--color-neutral-75);
     cursor: pointer;
     outline: none;
     padding: var(--spacing-2x) var(--spacing-4x) var(--spacing-3x) var(--spacing-4x);
@@ -14,7 +14,7 @@
     &:focus {
         border-bottom: 4px solid var(--color-background);
         background-color: var(--color-light-25);
-        border-radius: 5px;
+        border-radius: var(--border-radius);
     }
 
     &--isActive,
@@ -31,7 +31,7 @@
             color: var(--color-primary);
             border-bottom: 4px solid var(--color-primary);
             background-color: var(--color-highlight-background);
-            border-radius: 2px;
+            border-radius: 0;
         }
     }
 

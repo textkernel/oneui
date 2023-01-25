@@ -10,12 +10,12 @@ $contexts: (neutral, primary, info, success, warning, danger);
         background-color: var(--color-light-25);
     }
 
-    &--isSelected {
-        background-color: var(--color-highlight-background);
+    &--isHighlighted {
+        background-color: var(--color-light-25);
     }
 
-    &--isHighlighted {
-        background-color: var(--color-light-10);
+    &--isSelected {
+        background-color: var(--color-highlight-background);
     }
 
     &--clickable {
