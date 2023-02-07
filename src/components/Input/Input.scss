@@ -3,7 +3,7 @@
 .Input {
     @extend %input;
 
-    border-color: var(--color-neutral-25);
+    border-color: var(--color-light-40);
 
     &--context {
         @each $context in ($contexts) {
@@ -23,6 +23,10 @@
 
     &--isBlock {
         width: 100%;
+    }
+
+    &[disabled] {
+        background-color: var(--color-background);
     }
 
     &--size {

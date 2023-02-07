@@ -38,7 +38,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         return (
             <input
                 {...rest}
-                {...block({ context, size, isBlock, ...rest })}
+                {...block({ context, size, isBlock, disabled, ...rest })}
                 ref={ref}
                 type={type}
                 disabled={disabled}
