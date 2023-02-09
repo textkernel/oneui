@@ -97,6 +97,7 @@ const LocationAutocomplete: React.FC<Props> = ({
 
                 const service = new window.google.maps.places.AutocompleteService();
 
+                console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
                 service.getPlacePredictions(
                     {
                         input: debouncedInputValue,
@@ -110,6 +111,7 @@ const LocationAutocomplete: React.FC<Props> = ({
                         }
 
                         if (ACCEPTABLE_API_STATUSES.includes(status)) {
+                            // @ts-ignore
                             setSuggestionsList(predictions);
                         } else {
                             // TODO: check desired behaviour with Carlo
