@@ -106,6 +106,7 @@ const Map = React.forwardRef<GoogleMap, Props>(
                     const fitBoundsByAddress = (address) => {
                         geocoder.geocode({ address }, (result, status) => {
                             if (status === 'OK') {
+                                // @ts-ignore
                                 map.fitBounds(result[0].geometry.viewport);
                             } else {
                                 // TODO: add error handling
@@ -153,6 +154,7 @@ const Map = React.forwardRef<GoogleMap, Props>(
                                 center: firstMarker.center,
                                 radius: DEFAULT_RADIUS_FOR_SINGLE_POINT_MARKER,
                             });
+                            // @ts-ignore
                             bounds.union(circle.getBounds());
                             map.fitBounds(bounds);
                         }
@@ -160,6 +162,7 @@ const Map = React.forwardRef<GoogleMap, Props>(
                         circularMarkers.forEach(({ center, radius }) => {
                             if (radius) {
                                 const circle = new CircleClass({ center, radius });
+                                // @ts-ignore
                                 bounds.union(circle.getBounds());
                             } else {
                                 bounds.extend(center);
