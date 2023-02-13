@@ -3,7 +3,7 @@ import { bem } from '../../utils';
 import styles from './TextArea.scss';
 import { Size } from '../../constants';
 
-export interface Props extends React.HTMLAttributes<HTMLTextAreaElement> {
+export interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     /** Should the input field be disabled or not */
     disabled?: boolean;
     /** Whether or not to show block-level textarea (full width) */
