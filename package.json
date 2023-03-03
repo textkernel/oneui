@@ -24,7 +24,8 @@
         "prepublishOnly": "npm run check-npm-publish-access; npm run tsc; npm run test; npm run lint:ci; npm run lint:styles; npm run build:prod",
         "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
         "release": "standard-version -t ''",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "measure-enzyme-to-rtl": "node --experimental-fetch scripts/measure-enzyme-to-rtl-tests-ratio/measure-enzyme-to-rtl-tests-ratio.js"
     },
     "engines": {
         "node": ">=14.15",
