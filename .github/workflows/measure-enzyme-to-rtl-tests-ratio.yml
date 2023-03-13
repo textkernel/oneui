@@ -2,7 +2,7 @@ name: RTL Migration
 on:
   push:
     branches:
-      - 'master'
+      - 'check_workflow'
 jobs:
     enzyme-rtl-migration:
       runs-on: ubuntu-latest
