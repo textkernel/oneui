@@ -58,8 +58,7 @@
         "@typescript-eslint/comma-dangle": ["error", "only-multiline"],
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/ban-ts-comment": "off",
-        "@typescript-eslint/ban-types": "off",
-        "import/no-extraneous-dependencies": "off"
+        "@typescript-eslint/ban-types": "off"
     },
     "overrides": [
         {
