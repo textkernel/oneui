@@ -15,19 +15,19 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
   <Button
     aria-expanded={true}
     aria-haspopup="listbox"
-    aria-labelledby="downshift-95-label downshift-95-toggle-button"
+    aria-labelledby="downshift-45-label downshift-45-toggle-button"
     context="brand"
-    id="downshift-95-toggle-button"
+    id="downshift-45-toggle-button"
     onClick={[Function]}
     onKeyDown={[Function]}
   >
     <button
       aria-expanded={true}
       aria-haspopup="listbox"
-      aria-labelledby="downshift-95-label downshift-95-toggle-button"
+      aria-labelledby="downshift-45-label downshift-45-toggle-button"
       className="Button Button--context_brand"
       disabled={false}
-      id="downshift-95-toggle-button"
+      id="downshift-45-toggle-button"
       onClick={[Function]}
       onKeyDown={[Function]}
       type="button"
@@ -36,9 +36,9 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
     </button>
   </Button>
   <List
-    aria-labelledby="downshift-95-label"
+    aria-labelledby="downshift-45-label"
     className="Dropdown__list"
-    id="downshift-95-menu"
+    id="downshift-45-menu"
     isControlledNavigation={true}
     onBlur={[Function]}
     onKeyDown={[Function]}
@@ -54,9 +54,9 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
     tabIndex={-1}
   >
     <ul
-      aria-labelledby="downshift-95-label"
+      aria-labelledby="downshift-45-label"
       className="List Dropdown__list"
-      id="downshift-95-menu"
+      id="downshift-45-menu"
       onBlur={[Function]}
       onKeyDown={[Function]}
       onMouseLeave={[Function]}
@@ -73,7 +73,7 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
       <ListItem
         aria-selected="false"
         className="List__item"
-        id="downshift-95-item-0"
+        id="downshift-45-item-0"
         isHighlighted={false}
         key=".$.$key-2"
         onClick={[Function]}
@@ -84,7 +84,7 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          id="downshift-95-item-0"
+          id="downshift-45-item-0"
           onClick={[Function]}
           onMouseMove={[Function]}
           role="presentation"
@@ -119,19 +119,19 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
   <Button
     aria-expanded={true}
     aria-haspopup="listbox"
-    aria-labelledby="downshift-12-label downshift-12-toggle-button"
+    aria-labelledby="downshift-3-label downshift-3-toggle-button"
     context="brand"
-    id="downshift-12-toggle-button"
+    id="downshift-3-toggle-button"
     onClick={[Function]}
     onKeyDown={[Function]}
   >
     <button
       aria-expanded={true}
       aria-haspopup="listbox"
-      aria-labelledby="downshift-12-label downshift-12-toggle-button"
+      aria-labelledby="downshift-3-label downshift-3-toggle-button"
       className="Button Button--context_brand"
       disabled={false}
-      id="downshift-12-toggle-button"
+      id="downshift-3-toggle-button"
       onClick={[Function]}
       onKeyDown={[Function]}
       type="button"
@@ -140,9 +140,9 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
     </button>
   </Button>
   <List
-    aria-labelledby="downshift-12-label"
+    aria-labelledby="downshift-3-label"
     className="Dropdown__list"
-    id="downshift-12-menu"
+    id="downshift-3-menu"
     isControlledNavigation={true}
     onBlur={[Function]}
     onKeyDown={[Function]}
@@ -158,9 +158,9 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
     tabIndex={-1}
   >
     <ul
-      aria-labelledby="downshift-12-label"
+      aria-labelledby="downshift-3-label"
       className="List Dropdown__list"
-      id="downshift-12-menu"
+      id="downshift-3-menu"
       onBlur={[Function]}
       onKeyDown={[Function]}
       onMouseLeave={[Function]}
@@ -196,7 +196,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       <ListItem
         aria-selected="false"
         className="List__item"
-        id="downshift-12-item-0"
+        id="downshift-3-item-0"
         isHighlighted={false}
         key=".$.$key-2"
         onClick={[Function]}
@@ -207,7 +207,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          id="downshift-12-item-0"
+          id="downshift-3-item-0"
           onClick={[Function]}
           onMouseMove={[Function]}
           role="presentation"
@@ -249,7 +249,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       <ListItem
         aria-selected="false"
         className="List__item"
-        id="downshift-12-item-1"
+        id="downshift-3-item-1"
         isHighlighted={false}
         key=".$.$key-5"
         onClick={[Function]}
@@ -260,7 +260,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          id="downshift-12-item-1"
+          id="downshift-3-item-1"
           onClick={[Function]}
           onMouseMove={[Function]}
           role="presentation"
@@ -281,234 +281,61 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
 `;
 
 exports[`Dropdown should render correctly closed 1`] = `
-<Dropdown
-  additionalSelectProps={
-    Object {
-      "onStateChange": [MockFunction],
-    }
-  }
-  button={
-    <ForwardRef
-      context="brand"
-    >
-      Click me!
-    </ForwardRef>
-  }
-  onChange={[MockFunction]}
-  onMenuBlur={[MockFunction]}
-  onMenuFocus={[MockFunction]}
-  onToggleClick={[MockFunction]}
-  placement="top-start"
->
-  <Button
+Array [
+  <button
     aria-expanded={false}
     aria-haspopup="listbox"
     aria-labelledby="downshift-0-label downshift-0-toggle-button"
-    context="brand"
+    className="Button Button--context_brand"
+    disabled={false}
     id="downshift-0-toggle-button"
     onClick={[Function]}
     onKeyDown={[Function]}
+    type="button"
   >
-    <button
-      aria-expanded={false}
-      aria-haspopup="listbox"
-      aria-labelledby="downshift-0-label downshift-0-toggle-button"
-      className="Button Button--context_brand"
-      disabled={false}
-      id="downshift-0-toggle-button"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      type="button"
-    >
-      Click me!
-    </button>
-  </Button>
-  <List
+    Click me!
+  </button>,
+  <ul
     aria-labelledby="downshift-0-label"
+    className="List"
     id="downshift-0-menu"
-    isControlledNavigation={true}
     onBlur={[Function]}
     onFocus={[MockFunction]}
     onKeyDown={[Function]}
     onMouseLeave={[Function]}
     role="listbox"
     tabIndex={-1}
-  >
-    <ul
-      aria-labelledby="downshift-0-label"
-      className="List"
-      id="downshift-0-menu"
-      onBlur={[Function]}
-      onFocus={[MockFunction]}
-      onKeyDown={[Function]}
-      onMouseLeave={[Function]}
-      role="listbox"
-      tabIndex={-1}
-    />
-  </List>
-</Dropdown>
+  />,
+]
 `;
 
 exports[`Dropdown should render correctly opened 1`] = `
-<Dropdown
-  additionalSelectProps={
-    Object {
-      "onStateChange": [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
-              "isOpen": true,
-              "type": "__togglebutton_click__",
-            },
-          ],
-        ],
-        "results": Array [
-          Object {
-            "type": "return",
-            "value": undefined,
-          },
-        ],
-      },
-    }
-  }
-  button={
-    <ForwardRef
-      context="brand"
-    >
-      Click me!
-    </ForwardRef>
-  }
-  onChange={[MockFunction]}
-  onMenuBlur={[MockFunction]}
-  onMenuFocus={[MockFunction]}
-  onToggleClick={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          false,
-        ],
-      ],
-      "results": Array [
-        Object {
-          "type": "return",
-          "value": undefined,
-        },
-      ],
-    }
-  }
-  placement="top-start"
->
-  <Button
-    aria-expanded={true}
+Array [
+  <button
+    aria-expanded={false}
     aria-haspopup="listbox"
-    aria-labelledby="downshift-3-label downshift-3-toggle-button"
-    context="brand"
-    id="downshift-3-toggle-button"
+    aria-labelledby="downshift-1-label downshift-1-toggle-button"
+    className="Button Button--context_brand"
+    disabled={false}
+    id="downshift-1-toggle-button"
     onClick={[Function]}
     onKeyDown={[Function]}
+    type="button"
   >
-    <button
-      aria-expanded={true}
-      aria-haspopup="listbox"
-      aria-labelledby="downshift-3-label downshift-3-toggle-button"
-      className="Button Button--context_brand"
-      disabled={false}
-      id="downshift-3-toggle-button"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      type="button"
-    >
-      Click me!
-    </button>
-  </Button>
-  <List
-    aria-labelledby="downshift-3-label"
-    className="Dropdown__list"
-    id="downshift-3-menu"
-    isControlledNavigation={true}
+    Click me!
+  </button>,
+  <ul
+    aria-labelledby="downshift-1-label"
+    className="List"
+    id="downshift-1-menu"
     onBlur={[Function]}
     onFocus={[MockFunction]}
     onKeyDown={[Function]}
     onMouseLeave={[Function]}
     role="listbox"
-    style={
-      Object {
-        "left": "0",
-        "position": "absolute",
-        "top": "0",
-      }
-    }
     tabIndex={-1}
-  >
-    <ul
-      aria-labelledby="downshift-3-label"
-      className="List Dropdown__list"
-      id="downshift-3-menu"
-      onBlur={[Function]}
-      onFocus={[MockFunction]}
-      onKeyDown={[Function]}
-      onMouseLeave={[Function]}
-      role="listbox"
-      style={
-        Object {
-          "left": "0",
-          "position": "absolute",
-          "top": "0",
-        }
-      }
-      tabIndex={-1}
-    >
-      <ListItem
-        className="List__item"
-        disabled={true}
-        key=".$.$disabled-key"
-      >
-        <li
-          className="ListItem ListItem--disabled List__item"
-          role="presentation"
-        >
-          <Text
-            inline={true}
-            key=".0"
-          >
-            <span>
-              Disabled
-            </span>
-          </Text>
-        </li>
-      </ListItem>
-      <ListItem
-        aria-selected="false"
-        className="List__item"
-        id="downshift-3-item-0"
-        isHighlighted={false}
-        key=".$.$first-key"
-        onClick={[Function]}
-        onMouseMove={[Function]}
-        role="option"
-        value="first-value"
-      >
-        <li
-          aria-selected="false"
-          className="ListItem ListItem--clickable List__item"
-          id="downshift-3-item-0"
-          onClick={[Function]}
-          onMouseMove={[Function]}
-          role="presentation"
-        >
-          <Text
-            inline={true}
-            key=".0"
-          >
-            <span>
-              With value
-            </span>
-          </Text>
-        </li>
-      </ListItem>
-    </ul>
-  </List>
-</Dropdown>
+  />,
+]
 `;
 
 exports[`Dropdown should render correctly with mixed children: array and single ListItem 1`] = `
@@ -526,19 +353,19 @@ exports[`Dropdown should render correctly with mixed children: array and single 
   <Button
     aria-expanded={true}
     aria-haspopup="listbox"
-    aria-labelledby="downshift-41-label downshift-41-toggle-button"
+    aria-labelledby="downshift-28-label downshift-28-toggle-button"
     context="brand"
-    id="downshift-41-toggle-button"
+    id="downshift-28-toggle-button"
     onClick={[Function]}
     onKeyDown={[Function]}
   >
     <button
       aria-expanded={true}
       aria-haspopup="listbox"
-      aria-labelledby="downshift-41-label downshift-41-toggle-button"
+      aria-labelledby="downshift-28-label downshift-28-toggle-button"
       className="Button Button--context_brand"
       disabled={false}
-      id="downshift-41-toggle-button"
+      id="downshift-28-toggle-button"
       onClick={[Function]}
       onKeyDown={[Function]}
       type="button"
@@ -547,9 +374,9 @@ exports[`Dropdown should render correctly with mixed children: array and single 
     </button>
   </Button>
   <List
-    aria-labelledby="downshift-41-label"
+    aria-labelledby="downshift-28-label"
     className="Dropdown__list"
-    id="downshift-41-menu"
+    id="downshift-28-menu"
     isControlledNavigation={true}
     onBlur={[Function]}
     onKeyDown={[Function]}
@@ -565,9 +392,9 @@ exports[`Dropdown should render correctly with mixed children: array and single 
     tabIndex={-1}
   >
     <ul
-      aria-labelledby="downshift-41-label"
+      aria-labelledby="downshift-28-label"
       className="List Dropdown__list"
-      id="downshift-41-menu"
+      id="downshift-28-menu"
       onBlur={[Function]}
       onKeyDown={[Function]}
       onMouseLeave={[Function]}
@@ -603,7 +430,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       <ListItem
         aria-selected="false"
         className="List__item"
-        id="downshift-41-item-0"
+        id="downshift-28-item-0"
         isHighlighted={false}
         key=".$.1=2$one"
         onClick={[Function]}
@@ -614,7 +441,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          id="downshift-41-item-0"
+          id="downshift-28-item-0"
           onClick={[Function]}
           onMouseMove={[Function]}
           role="presentation"
@@ -632,7 +459,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       <ListItem
         aria-selected="false"
         className="List__item"
-        id="downshift-41-item-1"
+        id="downshift-28-item-1"
         isHighlighted={false}
         key=".$.1=2$two"
         onClick={[Function]}
@@ -643,7 +470,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
         <li
           aria-selected="false"
           className="ListItem ListItem--clickable List__item"
-          id="downshift-41-item-1"
+          id="downshift-28-item-1"
           onClick={[Function]}
           onMouseMove={[Function]}
           role="presentation"

@@ -1,5 +1,7 @@
 import React from 'react';
 import toJson from 'enzyme-to-json';
+import { create } from 'react-test-renderer';
+import { fireEvent, screen } from '@testing-library/react';
 import { Dropdown } from '../Dropdown';
 import { Button } from '../../Buttons';
 import { ListItem } from '../../List';
@@ -13,7 +15,7 @@ describe('Dropdown', () => {
     let wrapper;
 
     beforeEach(() => {
-        wrapper = mount(
+        wrapper = create(
             <Dropdown
                 button={<Button context="brand">Click me!</Button>}
                 onChange={mockOnChange}
@@ -36,14 +38,15 @@ describe('Dropdown', () => {
     });
 
     it('should render correctly closed', () => {
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('ListItem')).toHaveLength(0);
-        wrapper.unmount();
+        expect(wrapper.toJSON()).toMatchSnapshot();
+        expect(screen.getByRole('listbox').length).toBe(0);
     });
 
     it('should render correctly opened', () => {
-        wrapper.find('button').simulate('click');
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const button = screen.getByRole('button', { name: 'Click me!' });
+        fireEvent.click(button);
+        // wrapper.find('button').simulate('click');
+        expect(wrapper.toJSON()).toMatchSnapshot();
         expect(wrapper.find('List')).toHaveLength(1);
         expect(wrapper.find('ListItem')).toHaveLength(2);
         wrapper.unmount();
