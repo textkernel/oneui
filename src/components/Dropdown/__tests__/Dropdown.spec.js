@@ -3,6 +3,7 @@ import { fireEvent, screen, render } from '@testing-library/react';
 import { Dropdown } from '../Dropdown';
 import { Button } from '../../Buttons';
 import { ListItem } from '../../List';
+import '@testing-library/jest-dom';
 
 describe('Dropdown', () => {
     const mockOnChange = jest.fn();
@@ -37,207 +38,193 @@ describe('Dropdown', () => {
 
     it('should render correctly closed', () => {
         expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(screen.queryAllByRole('presentation')).toHaveLength(0);
     });
 
     it('should render correctly opened', () => {
-        const button = screen.getByRole('button', { name: 'Click me!' });
-        fireEvent.click(button);
+        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
         expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(screen.getAllByRole('listbox')).toHaveLength(1);
+        expect(screen.getAllByRole('presentation')).toHaveLength(2);
     });
-    // it('should downshift only by enabled items with value', () => {
-    //     wrapper = mount(
-    //         <Dropdown
-    //             button={<Button context="brand">Click me!</Button>}
-    //             onChange={mockOnChange}
-    //             placement="top-start"
-    //         >
-    //             <ListItem key="key-1" disabled>
-    //                 Disabled
-    //             </ListItem>
-    //             <ListItem key="key-2" value="1">
-    //                 With value 1
-    //             </ListItem>
-    //             <ListItem key="key-3">Without value</ListItem>
-    //             <div className="customDiv" key="key-4">
-    //                 Div
-    //             </div>
-    //             <ListItem key="key-5" value="2">
-    //                 With value 2
-    //             </ListItem>
-    //         </Dropdown>
-    //     );
-    //     wrapper.find('button').simulate('click');
-    //     expect(toJson(wrapper)).toMatchSnapshot();
-    //     expect(wrapper.find('ul').children()).toHaveLength(5);
-    //
-    //     const keyDown = () => wrapper.find('List').simulate('keyDown', { key: 'ArrowDown' });
-    //     const findHighlighted = () =>
-    //         wrapper
-    //             .find('ul')
-    //             .children()
-    //             .filterWhere((component) => component.props().isHighlighted === true);
-    //
-    //     // 1 keydown
-    //     keyDown();
-    //     const highlightedItem1 = findHighlighted();
-    //     expect(highlightedItem1).toHaveLength(1);
-    //     expect(highlightedItem1.key()).toContain('key-2');
-    //
-    //     // 2 keydown
-    //     keyDown();
-    //     const highlightedItem2 = findHighlighted();
-    //     expect(highlightedItem2).toHaveLength(1);
-    //     expect(highlightedItem2.key()).toContain('key-5');
-    //
-    //     // 3 keydown. Should be again last not disabled with value item => 'key-5'
-    //     keyDown();
-    //     const highlightedItem3 = findHighlighted();
-    //     expect(highlightedItem3).toHaveLength(1);
-    //     expect(highlightedItem3.key()).toContain('key-5');
-    //
-    //     wrapper.unmount();
-    // });
-    //
-    // it('onChange should return passed value', () => {
-    //     wrapper = mount(
-    //         <Dropdown
-    //             button={<Button context="brand">Click me!</Button>}
-    //             onChange={mockOnChange}
-    //             placement="top-start"
-    //         >
-    //             <ListItem key="key-1" disabled>
-    //                 Disabled
-    //             </ListItem>
-    //             <ListItem key="key-2" value="testValue">
-    //                 With value
-    //             </ListItem>
-    //         </Dropdown>
-    //     );
-    //     wrapper.find('button').simulate('click');
-    //
-    //     wrapper.find('List').simulate('keyDown', { key: 'ArrowDown' });
-    //     wrapper.find('List').simulate('keyDown', { key: 'Enter' });
-    //
-    //     expect(mockOnChange).toBeCalledWith('testValue');
-    //
-    //     wrapper.unmount();
-    // });
-    //
-    // it('should render correctly with mixed children: array and single ListItem', () => {
-    //     wrapper = mount(
-    //         <Dropdown
-    //             button={<Button context="brand">Click me!</Button>}
-    //             onChange={mockOnChange}
-    //             placement="top-start"
-    //         >
-    //             <ListItem key="disabled-key" disabled>
-    //                 Disabled
-    //             </ListItem>
-    //             {['one', 'two'].map((value) => (
-    //                 <ListItem key={value} value={value}>
-    //                     {value}
-    //                 </ListItem>
-    //             ))}
-    //         </Dropdown>
-    //     );
-    //     wrapper.find('button').simulate('click');
-    //     expect(toJson(wrapper)).toMatchSnapshot();
-    //     expect(wrapper.find('ListItem')).toHaveLength(3);
-    //     wrapper.unmount();
-    // });
-    //
-    // it('should call cb when button is clicked', () => {
-    //     wrapper.find('button').simulate('click');
-    //     expect(mockOnButtonClick).toHaveBeenCalledWith(false);
-    //     wrapper.find('button').simulate('click');
-    //     expect(mockOnButtonClick).toHaveBeenCalledWith(true);
-    // });
-    //
-    // it('should call callback when menu is focused', () => {
-    //     wrapper.find('button').simulate('click');
-    //     wrapper.find('List').simulate('focus');
-    //
-    //     expect(mockOnMenuFocus).toHaveBeenCalled();
-    // });
-    //
-    // it('should call callback when menu is blurred', () => {
-    //     wrapper.find('button').simulate('click');
-    //     wrapper.find('List').simulate('focus');
-    //     wrapper.find('List').simulate('blur');
-    //
-    //     expect(mockOnMenuBlur).toHaveBeenCalled();
-    // });
-    //
-    // it('should call callback when menu state is changed', () => {
-    //     wrapper.find('button').simulate('click');
-    //     // Event for a successful mouse click on dropdown button
-    //     expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
-    //         isOpen: true,
-    //         type: '__togglebutton_click__',
-    //     });
-    //
-    //     wrapper.find('List').simulate('keyDown', { key: 'ArrowDown' });
-    //     // Event for a successful arrow down press when menu is opened
-    //     expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
-    //         highlightedIndex: 0,
-    //         type: '__menu_keydown_arrow_down__',
-    //     });
-    //
-    //     wrapper.find('List').simulate('blur');
-    //     // Event for a successful dropdown blur
-    //     expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
-    //         highlightedIndex: -1,
-    //         isOpen: false,
-    //         type: '__menu_blur__',
-    //     });
-    // });
-    //
-    // it('should open dropdown by default if corresponding prop is set', () => {
-    //     wrapper = mount(
-    //         <Dropdown
-    //             button={<Button context="brand">Click me!</Button>}
-    //             onChange={mockOnChange}
-    //             placement="top-start"
-    //             additionalSelectProps={{
-    //                 initialIsOpen: true,
-    //             }}
-    //         >
-    //             <ListItem key="disabled-key" disabled>
-    //                 Disabled
-    //             </ListItem>
-    //             {['one', 'two'].map((value) => (
-    //                 <ListItem key={value} value={value}>
-    //                     {value}
-    //                 </ListItem>
-    //             ))}
-    //         </Dropdown>
-    //     );
-    //
-    //     expect(wrapper.find('ListItem')).toHaveLength(3);
-    // });
-    //
-    // it('should allow for conditional rendering of items', () => {
-    //     const condition = false;
-    //     wrapper = mount(
-    //         <Dropdown
-    //             button={<Button context="brand">Click me!</Button>}
-    //             onChange={mockOnChange}
-    //             placement="top-start"
-    //         >
-    //             {condition ? (
-    //                 <ListItem key="key-1" disabled>
-    //                     Disabled
-    //                 </ListItem>
-    //             ) : null}
-    //             <ListItem key="key-2" value="testValue">
-    //                 With value
-    //             </ListItem>
-    //             {condition && <ListItem key="3">should not render</ListItem>}
-    //         </Dropdown>
-    //     );
-    //     wrapper.find('button').simulate('click');
-    //
-    //     expect(toJson(wrapper)).toMatchSnapshot();
-    //     expect(wrapper.text()).not.toContain('false');
-    // });
+    it('should downshift only by enabled items with value', () => {
+        wrapper = render(
+            <Dropdown
+                button={<Button context="brand">Click me!</Button>}
+                onChange={mockOnChange}
+                placement="top-start"
+            >
+                <ListItem key="key-1" disabled>
+                    Disabled
+                </ListItem>
+                <ListItem key="key-2" value="1">
+                    With value 1
+                </ListItem>
+                <ListItem key="key-3">Without value</ListItem>
+                <div className="customDiv" key="key-4">
+                    Div
+                </div>
+                <ListItem key="key-5" value="2">
+                    With value 2
+                </ListItem>
+            </Dropdown>
+        );
+        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' }).at(1));
+        expect(wrapper.asFragment()).toMatchSnapshot();
+        const keyDown = () =>
+            fireEvent.keyDown(screen.getAllByRole('listbox')[1], { key: 'ArrowDown' });
+
+        // 1 keydown
+        keyDown();
+        expect(screen.getAllByRole('presentation')[1].getAttribute('aria-selected')).toBeTruthy();
+        expect(screen.getAllByRole('presentation')[1]).toHaveTextContent('With value 1');
+        // 2 keydown
+        keyDown();
+        expect(screen.getAllByRole('presentation')[3].getAttribute('aria-selected')).toBeTruthy();
+        expect(screen.getAllByRole('presentation')[3]).toHaveTextContent('With value 2');
+        // 3 keydown. Should be again last not disabled with value item => 'With value 2'
+        keyDown();
+        expect(screen.getAllByRole('presentation')[3].getAttribute('aria-selected')).toBeTruthy();
+        expect(screen.getAllByRole('presentation')[3]).toHaveTextContent('With value 2');
+    });
+
+    it('onChange should return passed value', () => {
+        wrapper = render(
+            <Dropdown
+                button={<Button context="brand">Click me!</Button>}
+                onChange={mockOnChange}
+                placement="top-start"
+            >
+                <ListItem key="key-1" disabled>
+                    Disabled
+                </ListItem>
+                <ListItem key="key-2" value="testValue">
+                    With value
+                </ListItem>
+            </Dropdown>
+        );
+        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' }).at(1));
+
+        fireEvent.keyDown(screen.getAllByRole('listbox')[1], { key: 'ArrowDown' });
+        fireEvent.keyDown(screen.getAllByRole('presentation')[0], { key: 'Enter' });
+
+        expect(mockOnChange).toBeCalledWith('testValue');
+    });
+
+    it('should render correctly with mixed children: array and single ListItem', () => {
+        wrapper = render(
+            <Dropdown
+                button={<Button context="brand">Click me!</Button>}
+                onChange={mockOnChange}
+                placement="top-start"
+            >
+                <ListItem key="disabled-key" disabled>
+                    Disabled
+                </ListItem>
+                {['one', 'two'].map((value) => (
+                    <ListItem key={value} value={value}>
+                        {value}
+                    </ListItem>
+                ))}
+            </Dropdown>
+        );
+        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' }).at(1));
+        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(screen.getAllByRole('presentation')).toHaveLength(3);
+    });
+
+    it('should call cb when button is clicked', () => {
+        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+        expect(mockOnButtonClick).toHaveBeenCalledWith(false);
+        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+        expect(mockOnButtonClick).toHaveBeenCalledWith(true);
+    });
+
+    it('should call callback when menu is focused', () => {
+        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+        fireEvent.focus(screen.getByRole('listbox'));
+
+        expect(mockOnMenuFocus).toHaveBeenCalled();
+    });
+
+    it('should call callback when menu is blurred', () => {
+        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+        fireEvent.focus(screen.getByRole('listbox'));
+        fireEvent.blur(screen.getByRole('listbox'));
+
+        expect(mockOnMenuBlur).toHaveBeenCalled();
+    });
+
+    it('should call callback when menu state is changed', () => {
+        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+        // Event for a successful mouse click on dropdown button
+        expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
+            isOpen: true,
+            type: '__togglebutton_click__',
+        });
+
+        fireEvent.keyDown(screen.getByRole('listbox'), { key: 'ArrowDown' });
+        // Event for a successful arrow down press when menu is opened
+        expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
+            highlightedIndex: 0,
+            type: '__menu_keydown_arrow_down__',
+        });
+
+        fireEvent.blur(screen.getByRole('listbox'));
+        // Event for a successful dropdown blur
+        expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
+            highlightedIndex: -1,
+            isOpen: false,
+            type: '__menu_blur__',
+        });
+    });
+
+    it('should open dropdown by default if corresponding prop is set', () => {
+        wrapper = render(
+            <Dropdown
+                button={<Button context="brand">Click me!</Button>}
+                onChange={mockOnChange}
+                placement="top-start"
+                additionalSelectProps={{
+                    initialIsOpen: true,
+                }}
+            >
+                <ListItem key="disabled-key" disabled>
+                    Disabled
+                </ListItem>
+                {['one', 'two'].map((value) => (
+                    <ListItem key={value} value={value}>
+                        {value}
+                    </ListItem>
+                ))}
+            </Dropdown>
+        );
+
+        expect(screen.getAllByRole('presentation')).toHaveLength(3);
+    });
+
+    it('should allow for conditional rendering of items', () => {
+        const condition = false;
+        wrapper = render(
+            <Dropdown
+                button={<Button context="brand">Click me!</Button>}
+                onChange={mockOnChange}
+                placement="top-start"
+            >
+                {condition ? (
+                    <ListItem key="key-1" disabled>
+                        Disabled
+                    </ListItem>
+                ) : null}
+                <ListItem key="key-2" value="testValue">
+                    With value
+                </ListItem>
+                {condition && <ListItem key="3">should not render</ListItem>}
+            </Dropdown>
+        );
+        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' }).at(1));
+
+        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(screen.queryByText('false')).toBeNull();
+    });
 });
