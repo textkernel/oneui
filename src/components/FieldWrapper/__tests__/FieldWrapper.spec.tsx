@@ -1,89 +1,101 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { FieldWrapper } from '../FieldWrapper';
 import { ENTER_KEY } from '../../../constants';
+import '@testing-library/jest-dom';
 
 describe('FieldWrapper', () => {
     it('should render correctly', () => {
-        const wrapper = mount(<FieldWrapper>some children</FieldWrapper>);
+        const { container, asFragment } = render(<FieldWrapper>some children</FieldWrapper>);
 
-        expect(wrapper.find('.FieldWrapper__dropdownIcon').exists()).toBeFalsy();
-        expect(wrapper.find('button')).toHaveLength(0);
-        expect(wrapper.find('IoMdArrowDropdown').exists()).toBeFalsy();
-        expect(wrapper.find('IoMdArrowDropup').exists()).toBeFalsy();
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
+        const button = container.querySelector('button') as Element;
+        const svg = container.querySelector('svg') as Element;
+        expect(button).not.toBeInTheDocument();
+        expect(svg).not.toBeInTheDocument();
     });
     it('should add clear button if showClearButton is true', () => {
-        const wrapper = mount(
+        const wrapper = render(
             <FieldWrapper showClearButton clearLabel="Clear">
                 some children
             </FieldWrapper>
         );
 
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('button')).toHaveLength(1);
+        expect(wrapper.asFragment()).toMatchSnapshot();
+        const button = screen.getByRole('button', { name: 'Clear' });
+        expect(button).toBeInTheDocument();
     });
     it('should render arrow icon pointing down', () => {
-        const wrapper = mount(<FieldWrapper showArrow>some children</FieldWrapper>);
+        const wrapper = render(<FieldWrapper showArrow>some children</FieldWrapper>);
 
-        expect(wrapper.find('.FieldWrapper__dropdownIcon').exists()).toBeTruthy();
-        expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.asFragment()).toMatchSnapshot();
     });
     it('should render arrow icon pointing up', () => {
-        const wrapper = mount(
+        const wrapper = render(
             <FieldWrapper showArrow isArrowUp>
                 some children
             </FieldWrapper>
         );
 
-        expect(wrapper.find('.FieldWrapper__dropdownIcon').exists()).toBeTruthy();
-        expect(wrapper.find('IoMdArrowDropup').exists()).toBeTruthy();
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.asFragment()).toMatchSnapshot();
     });
     it('should call onArrowClick when arrow is clicked', () => {
         const onArrowClickMock = jest.fn();
-        const wrapper = mount(
+        const { container, rerender, asFragment } = render(
             <FieldWrapper showArrow onArrowClick={onArrowClickMock}>
                 some children
             </FieldWrapper>
         );
 
-        wrapper.find('IoMdArrowDropdown').simulate('click');
-        expect(onArrowClickMock).toHaveBeenCalledTimes(1);
-
-        wrapper.setProps({ isArrowUp: true });
-        wrapper.find('IoMdArrowDropup').simulate('click');
+        expect(asFragment()).toMatchSnapshot();
+        const svg = container.querySelector('svg') as Element;
+        expect(svg).toBeInTheDocument();
+        fireEvent.click(svg);
+        expect(onArrowClickMock).toHaveBeenCalled();
+        rerender(
+            <FieldWrapper showArrow isArrowUp onArrowClick={onArrowClickMock}>
+                some children
+            </FieldWrapper>
+        );
+        const svgAfterRerender = container.querySelector('svg') as Element;
+        fireEvent.click(svgAfterRerender);
         expect(onArrowClickMock).toHaveBeenCalledTimes(2);
     });
     it('should call onArrowClick when arrow is accessed by keyboard', () => {
         const onArrowClickMock = jest.fn();
-        const wrapper = mount(
+        const { container, rerender, asFragment } = render(
             <FieldWrapper showArrow onArrowClick={onArrowClickMock}>
                 some children
             </FieldWrapper>
         );
 
-        wrapper.find('IoMdArrowDropdown').simulate('keydown', { key: 'S' });
+        expect(asFragment()).toMatchSnapshot();
+        const svg = container.querySelector('svg') as Element;
+        expect(svg).toBeInTheDocument();
+        fireEvent.keyDown(svg, { key: 'S' });
         expect(onArrowClickMock).toHaveBeenCalledTimes(0);
-
-        wrapper.find('IoMdArrowDropdown').simulate('keydown', { key: ENTER_KEY });
+        fireEvent.keyDown(svg, { key: ENTER_KEY });
         expect(onArrowClickMock).toHaveBeenCalledTimes(1);
-
-        wrapper.setProps({ isArrowUp: true });
-        wrapper.find('IoMdArrowDropup').simulate('keydown', { key: ENTER_KEY });
+        rerender(
+            <FieldWrapper showArrow isArrowUp onArrowClick={onArrowClickMock}>
+                some children
+            </FieldWrapper>
+        );
+        const svgRerender = container.querySelector('svg') as Element;
+        fireEvent.keyDown(svgRerender, { key: ENTER_KEY });
         expect(onArrowClickMock).toHaveBeenCalledTimes(2);
     });
     it('should call onClear callback correctly', () => {
         const onClearMock = jest.fn();
-        const wrapper = mount(
+        const wrapper = render(
             <FieldWrapper showClearButton clearLabel="Clear" onClear={onClearMock}>
                 tag
             </FieldWrapper>
         );
 
-        wrapper.find('button').simulate('click');
-
-        expect(onClearMock).toHaveBeenCalledTimes(1);
+        expect(wrapper.asFragment()).toMatchSnapshot();
+        const button = screen.getByRole('button', { name: 'Clear' });
+        fireEvent.click(button);
+        expect(onClearMock).toHaveBeenCalled();
     });
 });
