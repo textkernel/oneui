@@ -12,7 +12,7 @@ describe('SelectButton', () => {
             <SelectButton
                 value="button 1"
                 onChange={onChangeMock}
-                context="good"
+                context="success"
                 size="large"
                 isEqualWidth
                 isSelected

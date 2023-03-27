@@ -11,6 +11,8 @@ export interface Props
     > {
     /** Should button be disabled or not */
     disabled?: boolean;
+    /** Should the button be in primary style or not */
+    isPrimary?: boolean;
     /** Icon to show inside button */
     icon: 'plus' | 'minus';
 }
@@ -19,12 +21,18 @@ const { block } = bem('StepperButton', styles);
 
 export const StepperButton: React.FC<Props> = ({
     disabled = false,
+    isPrimary = false,
     icon = 'plus',
     href,
     ...rest
 }) => {
     return (
-        <button {...rest} {...block({ disabled, ...rest })} type="button" disabled={disabled}>
+        <button
+            {...rest}
+            {...block({ isPrimary, disabled, ...rest })}
+            type="button"
+            disabled={disabled}
+        >
             {icon === 'plus' ? <FaPlus size="75%" /> : <FaMinus size="75%" />}
         </button>
     );

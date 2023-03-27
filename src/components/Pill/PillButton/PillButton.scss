@@ -28,7 +28,7 @@ $half-pill-height: math.div($pill-height, 2);
         padding: 0 $half-pill-height;
         font-size: var(--font-size-normal);
         text-transform: uppercase;
-        color: var(--color-brand);
+        color: var(--color-primary);
 
         &--isActive {
             animation: labelIn var(--transition-duration) forwards;
@@ -48,35 +48,45 @@ $half-pill-height: math.div($pill-height, 2);
         box-sizing: border-box;
         height: $pill-height;
         border-radius: $half-pill-height;
-        border: 1px solid var(--color-brand-40);
+        border: 1px solid var(--color-neutral-25);
         padding-right: var(--spacing-2x);
         padding-left: $half-pill-height;
-        color: var(--color-brand);
+        color: var(--color-neutral);
         cursor: pointer;
         transition: all var(--transition-duration) ease;
 
         &:focus,
         &:hover {
             outline: none;
-            border-color: var(--color-brand);
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            border-color: var(--color-neutral-75);
+            background-color: var(--color-light-25);
         }
 
         &--isOpen {
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
             &:hover {
-                background-color: var(--color-neutral-10);
+                background-color: var(--color-light-25);
             }
         }
 
         &--isActive {
-            background-color: var(--color-brand);
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-primary);
             color: var(--color-background);
 
+            &:focus,
             &:hover {
-                background-color: var(--color-brand-40);
-                border-color: var(--color-brand-40);
+                background-color: var(--color-primary-60);
+                border-color: var(--color-primary-60);
+            }
+
+            &.PillButton__pill--isOpen {
+                background-color: var(--color-primary);
+
+                &:focus,
+                &:hover {
+                    background-color: var(--color-primary-60);
+                    border-color: var(--color-primary-60);
+                }
             }
         }
     }
@@ -98,34 +108,37 @@ $half-pill-height: math.div($pill-height, 2);
         box-sizing: content-box;
         transition: background-color var(--transition-duration) ease;
 
-        &:focus {
-            outline: none;
-            border-color: var(--color-brand-10);
-        }
+        //&:hover,
+        //&:focus {
+        //    border-color: var(--color-light-25);
+        //}
 
-        &--isOpen {
-            transform: rotate(180deg);
+        //&:active {
+        //    background-color: var(--color-light-60)
+        //}
 
-            &:hover {
-                background-color: transparent;
-            }
-
-            &:focus {
-                border-color: var(--color-brand-10);
-            }
-        }
-
-        &--isActive {
-            &:hover,
-            &:focus {
-                background-color: var(--color-brand-25);
-                border-color: transparent;
-            }
-
-            &.PillButton__button--isOpen:hover {
-                background-color: transparent;
-            }
-        }
+        //&--isOpen {
+        //    &:hover,
+        //    &:focus {
+        //        background-color: var(--color-light);
+        //    }
+        //
+        //    &:active {
+        //       background-color: var(--color-light-60)
+        //    }
+        //}
+        //
+        //&--isActive {
+        //    &:hover,
+        //    &:focus {
+        //        //background-color: var(--color-primary-60);
+        //        border-color: transparent;
+        //    }
+        //
+        //    &.PillButton__button--isOpen:hover {
+        //        background-color: transparent;
+        //    }
+        //}
     }
 
     &__arrowIcon {

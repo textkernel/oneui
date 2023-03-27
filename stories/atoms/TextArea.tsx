@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { TextArea } from '@textkernel/oneui';
+import { TextArea, TextAreaProps } from '@textkernel/oneui';
 import { CONTEXTS, SIZES } from '@textkernel/oneui/constants';
 
 export default {
@@ -7,7 +7,7 @@ export default {
     component: TextArea,
 };
 
-export const DefaultBehavior = (args) => <TextArea {...args} />;
+export const DefaultBehavior = (args: TextAreaProps) => <TextArea {...args} />;
 DefaultBehavior.storyName = 'Default behavior';
 DefaultBehavior.args = {
     context: CONTEXTS[1],
@@ -16,7 +16,7 @@ DefaultBehavior.args = {
     size: SIZES[1],
 };
 
-export const ControlledComponent = (args) => <TextArea {...args} />;
+export const ControlledComponent = (args: TextAreaProps) => <TextArea {...args} />;
 ControlledComponent.storyName = 'Controlled component';
 ControlledComponent.args = {
     context: CONTEXTS[1],

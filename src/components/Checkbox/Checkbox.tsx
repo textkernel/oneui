@@ -37,7 +37,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
         let text = children;
         if (children && typeof children === 'string') {
             text = (
-                <Text {...elem('text')} inline context={disabled ? 'muted' : 'default'}>
+                <Text {...elem('text')} inline context={disabled ? 'neutral' : 'default'}>
                     {children}
                 </Text>
             );

@@ -3,7 +3,7 @@
 exports[`LocationSelector component should render LocationSelector properly when modal is open 1`] = `
 <LocationSelector
   apiKey="apiKey"
-  clearLabel="Clear"
+  clearTooltipLabel="Clear"
   country="NL"
   doneLabel="doneLabel"
   hasRadius={true}
@@ -56,7 +56,7 @@ exports[`LocationSelector component should render LocationSelector properly when
   <div>
     <FieldWrapper
       className="LocationSelector__mainTextButtonWrapper"
-      clearLabel="Clear"
+      clearTooltipLabel="Clear"
       isFocused={true}
       onClear={[MockFunction]}
       onClick={[Function]}
@@ -116,19 +116,51 @@ exports[`LocationSelector component should render LocationSelector properly when
         </div>
         <Button
           className="FieldWrapper__clearButton"
-          context="link"
           isInline={true}
+          isLink={true}
           onClick={[Function]}
           title="Clear"
         >
           <button
-            className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
+            className="Button Button--isLink Button--isInline FieldWrapper__clearButton"
             disabled={false}
             onClick={[Function]}
             title="Clear"
             type="button"
           >
-            Clear
+            <MdClear
+              size={16}
+            >
+              <IconBase
+                attr={
+                  Object {
+                    "viewBox": "0 0 24 24",
+                  }
+                }
+                size={16}
+              >
+                <svg
+                  fill="currentColor"
+                  height={16}
+                  size={16}
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width={16}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    key="0"
+                  />
+                </svg>
+              </IconBase>
+            </MdClear>
           </button>
         </Button>
       </div>
@@ -197,7 +229,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                       viewBox="0,0,44,44"
                     >
                       <circle
-                        class="LoadingSpinner__path LoadingSpinner__path--context_brand"
+                        class="LoadingSpinner__path"
                         cx="22"
                         cy="22"
                         fill="none"
@@ -293,7 +325,7 @@ exports[`LocationSelector component should render LocationSelector properly when
               >
                 <LocationSelectorDialogWithGoogleLoader
                   apiKey="apiKey"
-                  clearLabel="Clear"
+                  clearTooltipLabel="Clear"
                   country="NL"
                   doneLabel="doneLabel"
                   getMarkers={[Function]}
@@ -379,7 +411,7 @@ exports[`LocationSelector component should render LocationSelector properly when
                           }
                         >
                           <circle
-                            className="LoadingSpinner__path LoadingSpinner__path--context_brand"
+                            className="LoadingSpinner__path"
                             cx="22"
                             cy="22"
                             fill="none"
@@ -404,7 +436,7 @@ exports[`LocationSelector component should render LocationSelector properly when
 exports[`LocationSelector component should render LocationSelector propertly when modal is closed 1`] = `
 <LocationSelector
   apiKey="apiKey"
-  clearLabel="Clear"
+  clearTooltipLabel="Clear"
   country="NL"
   doneLabel="doneLabel"
   hasRadius={true}
@@ -457,7 +489,7 @@ exports[`LocationSelector component should render LocationSelector propertly whe
   <div>
     <FieldWrapper
       className="LocationSelector__mainTextButtonWrapper"
-      clearLabel="Clear"
+      clearTooltipLabel="Clear"
       isFocused={false}
       onClear={[MockFunction]}
       onClick={[Function]}
@@ -517,19 +549,51 @@ exports[`LocationSelector component should render LocationSelector propertly whe
         </div>
         <Button
           className="FieldWrapper__clearButton"
-          context="link"
           isInline={true}
+          isLink={true}
           onClick={[Function]}
           title="Clear"
         >
           <button
-            className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
+            className="Button Button--isLink Button--isInline FieldWrapper__clearButton"
             disabled={false}
             onClick={[Function]}
             title="Clear"
             type="button"
           >
-            Clear
+            <MdClear
+              size={16}
+            >
+              <IconBase
+                attr={
+                  Object {
+                    "viewBox": "0 0 24 24",
+                  }
+                }
+                size={16}
+              >
+                <svg
+                  fill="currentColor"
+                  height={16}
+                  size={16}
+                  stroke="currentColor"
+                  strokeWidth="0"
+                  style={
+                    Object {
+                      "color": undefined,
+                    }
+                  }
+                  viewBox="0 0 24 24"
+                  width={16}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                    key="0"
+                  />
+                </svg>
+              </IconBase>
+            </MdClear>
           </button>
         </Button>
       </div>

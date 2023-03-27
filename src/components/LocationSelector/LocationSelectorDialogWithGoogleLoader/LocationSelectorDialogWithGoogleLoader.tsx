@@ -32,7 +32,7 @@ const LocationSelectorDialogWithGoogleLoader: React.FC<Props> = ({
     renderRadiusLabel,
     onRemoveLocation,
     doneLabel,
-    clearLabel,
+    clearTooltipLabel,
 
     /** LocationAutocomplete props */
     country,
@@ -75,7 +75,7 @@ const LocationSelectorDialogWithGoogleLoader: React.FC<Props> = ({
                 renderRadiusLabel={renderRadiusLabel}
                 onRemoveLocation={onRemoveLocation}
                 doneLabel={doneLabel}
-                clearLabel={clearLabel}
+                clearTooltipLabel={clearTooltipLabel}
                 country={country}
                 withoutLocationCards={withoutLocationCards}
                 initialMapAddress={initialMapAddress}

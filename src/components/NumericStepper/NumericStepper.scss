@@ -1,5 +1,5 @@
 .NumericStepper {
-    --border-height: 1px;  
+    --border-height: 1px;
 
     display: flex;
 
@@ -31,6 +31,6 @@
     }
 
     &:hover &__stepperInput:focus{
-        border-color: var(--color-brand);
+        border-color: var(--color-primary);
     }
 }

@@ -4,7 +4,15 @@ import ReactDOM from 'react-dom';
 import { createPopper, Instance } from '@popperjs/core';
 import { ESCAPE_KEY, PopupPlacement } from '../../constants';
 
-export type PopupBaseRenderer = ({ setPopupVisibility, isOpen }) => ReactElement | null;
+export type PopupBaseRendererArgs = {
+    setPopupVisibility: (isOpen: boolean) => void;
+    isOpen: boolean;
+};
+
+export type PopupBaseRenderer = ({
+    setPopupVisibility,
+    isOpen,
+}: PopupBaseRendererArgs) => ReactElement | null;
 
 export interface Props {
     /**

@@ -8,7 +8,7 @@ import { NotEmptyReactNode } from '../../customTypes/types';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Content to be rendered inside the container */
     children: NotEmptyReactNode;
-    /** The Callout context (e.g. brand, primary, bad, good etc. - defaults to info) */
+    /** The Callout context (e.g. info, danger, success etc. - defaults to info) */
     context?: Context;
     /** A function to be called when close button was clicked */
     onRequestClose?: (event: React.SyntheticEvent<HTMLButtonElement>) => void;

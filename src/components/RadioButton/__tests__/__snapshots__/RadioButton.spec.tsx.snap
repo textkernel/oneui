@@ -146,7 +146,7 @@ exports[`<RadioButton> that renders a radio button should rendered disabled radi
         inline={true}
       >
         <span
-          className="Text--context_muted RadioButton__text"
+          className="RadioButton__text"
         >
           Useless radio button
         </span>

@@ -47,12 +47,6 @@ describe('SelectBase', () => {
         it('should initially render empty component correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
         });
-        it('should render Clear button when showClearButton is set to true', () => {
-            const clearTitle = 'Clear';
-            wrapper.setProps({ clearTitle, showClearButton: true });
-
-            expect(wrapper.find('Button').text()).toBe(clearTitle);
-        });
     });
     describe('with toggle arrow', () => {
         it('should show arrows when showArrow is true', () => {

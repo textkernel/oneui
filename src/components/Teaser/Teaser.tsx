@@ -37,12 +37,17 @@ export const Teaser: React.FC<Props> = ({
     ...rest
 }) => {
     const subTitleElement = (
-        <Text inline title={subTitle} context={disabled ? 'muted' : 'accent'} {...elem('subTitle')}>
+        <Text
+            inline
+            title={subTitle}
+            context={disabled ? 'neutral' : 'background'}
+            {...elem('subTitle')}
+        >
             {subTitle}
         </Text>
     );
     const detailsElement = (
-        <Text inline title={details} context="muted" {...elem('details')}>
+        <Text inline title={details} context="neutral" {...elem('details')}>
             {details}
         </Text>
     );
@@ -51,14 +56,14 @@ export const Teaser: React.FC<Props> = ({
             <div {...elem('line')}>
                 <Text
                     inline
-                    context={disabled ? 'muted' : 'brand'}
+                    context={disabled ? 'neutral' : 'foreground'}
                     {...elem('title')}
                     title={title}
                 >
                     {title}
                 </Text>
                 {location && (
-                    <Text inline context="muted" {...elem('location')}>
+                    <Text inline context="neutral" {...elem('location')}>
                         {location}
                     </Text>
                 )}
@@ -74,12 +79,12 @@ export const Teaser: React.FC<Props> = ({
                         {statuses.map(({ label, tooltip }, index) => (
                             <span key={label}>
                                 <Tooltip content={tooltip}>
-                                    <Text inline context="muted" size="small">
+                                    <Text inline context="neutral" size="small">
                                         {label}
                                     </Text>
                                 </Tooltip>
                                 {index < statuses.length - 1 && (
-                                    <Text inline context="muted" size="small">
+                                    <Text inline context="neutral" size="small">
                                         {' & '}
                                     </Text>
                                 )}

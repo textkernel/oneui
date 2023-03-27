@@ -2,7 +2,6 @@ import * as React from 'react';
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './LoadingSpinner.scss';
-import { Context } from '../../constants';
 import { ReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -10,8 +9,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     centerIn?: 'parent' | 'viewport';
     /** Loading text */
     children?: ReactNode;
-    /** The spinner context (e.g. brand, primary, bad, good etc. - defaults to brand) */
-    context?: Context;
+
     /** Hides the spinner when true */
     hidden?: boolean;
     /** Custom spinner size (will affect both width and height) */
@@ -23,7 +21,6 @@ const { block, elem } = bem('LoadingSpinner', styles);
 export const LoadingSpinner: React.FC<Props> = ({
     centerIn,
     children,
-    context = 'brand',
     hidden = false,
     size,
     ...rest
@@ -31,7 +28,7 @@ export const LoadingSpinner: React.FC<Props> = ({
     return (
         <div
             {...rest}
-            {...block({ hidden, context, centerIn, ...rest })}
+            {...block({ hidden, centerIn, ...rest })}
             role="status"
             aria-busy={!hidden}
             aria-hidden={hidden}
@@ -47,7 +44,7 @@ export const LoadingSpinner: React.FC<Props> = ({
                         height: s,
                     };
                 })(size)}
-                {...elem('svg', { hidden, context, centerIn })}
+                {...elem('svg', { hidden, centerIn })}
             >
                 <circle
                     cx="22"
@@ -55,7 +52,7 @@ export const LoadingSpinner: React.FC<Props> = ({
                     r="20"
                     fill="none"
                     strokeWidth="4"
-                    {...elem('path', { hidden, context, centerIn })}
+                    {...elem('path', { hidden, centerIn })}
                 />
             </svg>
             {!!children && (

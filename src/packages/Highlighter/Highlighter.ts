@@ -32,7 +32,7 @@ const HIGHLIGHTED_NODE_STYLES = {
 } as CSSStyleDeclaration;
 
 const SELECTED_NODE_STYLES = {
-    // var(--color-brand) = #0097d1'
+    // var(--color-primary) = #0097d1'
     boxShadow: '0 0 0 2px #0097d1',
     transform: 'scale(1.2)',
     transition: 'transform .2s',

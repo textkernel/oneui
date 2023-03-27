@@ -150,7 +150,7 @@ export const Themeroller: React.FC<Props> = ({
                         onChange={handleNameChange}
                     />
                     {Boolean(themeResultStore.fileName) && (
-                        <Text {...elem('themeName')} inline context="muted">
+                        <Text {...elem('themeName')} inline context="neutral">
                             {themeResultStore.fileName}
                         </Text>
                     )}
@@ -168,7 +168,7 @@ export const Themeroller: React.FC<Props> = ({
                     onFileChange={handleFileChange}
                 />
                 {error && (
-                    <Callout {...elem('error')} context="bad">
+                    <Callout {...elem('error')} context="danger">
                         {error}
                     </Callout>
                 )}

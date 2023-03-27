@@ -355,7 +355,7 @@ export class AutosuggestDeprecated extends React.Component {
                     }) => (
                         <div {...elem('main', stateAndProps)}>
                             <FieldWrapper
-                                clearLabel={clearTitle}
+                                clearTooltipLabel={clearTitle}
                                 onClear={this.handleClearSelectedSuggestions}
                                 showClearButton={doShowClearButton}
                                 isFocused={focused}
