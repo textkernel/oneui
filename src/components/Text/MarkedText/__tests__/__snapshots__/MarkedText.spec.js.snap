@@ -19,16 +19,16 @@ exports[`<MarkedText> that renders a text block while marking matched substrings
 
 exports[`<MarkedText> that renders a text block while marking matched substrings should pass props to Text 1`] = `
 <MarkedText
-  context="brand"
+  context="primary"
   inline={true}
   marker="text"
 >
   <Text
-    context="brand"
+    context="primary"
     inline={true}
   >
     <span
-      className="Text--context_brand"
+      className="Text--context_primary"
     >
       Some 
       <mark

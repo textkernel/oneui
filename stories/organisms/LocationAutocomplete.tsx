@@ -24,7 +24,7 @@ _LocationAutocomplete.args = {
     apiKey,
     inputPlaceholder: 'Enter a city or region...',
     noSuggestionsPlaceholder: 'No suggestions found',
-    clearLabel: 'Clear',
+    clearTooltipLabel: 'Clear',
     country: 'UK',
     onError,
 };

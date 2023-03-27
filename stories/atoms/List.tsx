@@ -25,7 +25,7 @@ _List.args = {
             <ListItem>
                 First item passed as string
                 <ListActions>
-                    <Button context="link" isInline>
+                    <Button isLink isInline>
                         Action
                     </Button>
                 </ListActions>
@@ -84,7 +84,7 @@ ListShowingResults.args = {
                     details="It was posted here, yesterday"
                 />
                 <ListActions>
-                    <Button context="link" onClick={onClickAction} isInline>
+                    <Button isLink onClick={onClickAction} isInline>
                         Action
                     </Button>
                 </ListActions>
@@ -97,7 +97,7 @@ ListShowingResults.args = {
                     details="It was posted there, yesterday"
                 />
                 <ListActions>
-                    <Button context="link" onClick={onClickAction} isInline>
+                    <Button isLink onClick={onClickAction} isInline>
                         Action
                     </Button>
                 </ListActions>
@@ -105,7 +105,7 @@ ListShowingResults.args = {
             <ListItem onClick={onClickJob('Third')}>
                 <Teaser title="An other job with a very, very, very long title to be truncated by css if it doesn't fit" />
                 <ListActions>
-                    <Button context="link" onClick={onClickAction} isInline>
+                    <Button isLink onClick={onClickAction} isInline>
                         Action
                     </Button>
                 </ListActions>

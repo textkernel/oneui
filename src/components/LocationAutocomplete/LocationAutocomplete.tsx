@@ -22,7 +22,7 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onError'> {
     /** trigger of the initial focus of the input field */
     isFocused?: boolean;
     /** label for the Clear button */
-    clearLabel?: string;
+    clearTooltipLabel?: string;
     /** defines if there's a single location to select in component */
     singleLocation?: boolean;
     /** callback to be called with selected value. */
@@ -66,7 +66,7 @@ const LocationAutocomplete: React.FC<Props> = ({
     onSelectionChange,
     defaultInputValue = '',
     inputPlaceholder,
-    clearLabel = '',
+    clearTooltipLabel = '',
     noSuggestionsPlaceholder,
     country = '',
     placeTypes = PLACE_TYPES,
@@ -137,7 +137,7 @@ const LocationAutocomplete: React.FC<Props> = ({
         // eslint-disable-next-line no-console
         console.error(errorMessage);
         return (
-            <Text context="bad" inline>
+            <Text context="danger" inline>
                 Error while rendering LocationAutocomplete
             </Text>
         );
@@ -207,7 +207,7 @@ const LocationAutocomplete: React.FC<Props> = ({
             defaultInputValue={defaultInputValue}
             inputPlaceholder={inputPlaceholder}
             showClearButton={singleLocation}
-            clearTitle={clearLabel}
+            clearTitle={clearTooltipLabel}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             listRenderer={renderListPoweredByGoogle}
             saveSelectedValueToInput={singleLocation}

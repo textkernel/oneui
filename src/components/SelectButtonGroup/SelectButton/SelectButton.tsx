@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { bem } from '../../../utils';
-import { ENTER_KEY, Context, Size } from '../../../constants';
+import { ENTER_KEY, Size } from '../../../constants';
 import styles from './SelectButton.scss';
 import { NotEmptyReactNode } from '../../../customTypes/types';
 
@@ -21,8 +21,6 @@ export interface Props<V> extends InternalProps<V> {
     value: V;
     /** whether or not this button is selected */
     isSelected?: boolean;
-    /** the color context to be applied in the selected state */
-    context?: Context;
     /** size of the button */
     size?: Size;
 }
@@ -35,7 +33,6 @@ export function SelectButton<V>({
     onChange,
     isEqualWidth = false,
     isBlock,
-    context = 'brand',
     isSelected = false,
     size = 'normal',
     ...rest
@@ -59,7 +56,7 @@ export function SelectButton<V>({
             {...rest}
             onKeyPress={handleKeyPress}
             onClick={handleClick}
-            {...block({ isEqualWidth, context, isSelected, size, ...rest })}
+            {...block({ isEqualWidth, isSelected, size, ...rest })}
         >
             {children}
         </div>

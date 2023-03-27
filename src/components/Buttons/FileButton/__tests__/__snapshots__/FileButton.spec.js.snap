@@ -2,12 +2,11 @@
 
 exports[`<FileButton> that renders a button should add classes when props are changed 1`] = `
 <FileButton
-  context="primary"
   isBlock={true}
   size="large"
 >
   <label
-    className="Button Button--context_primary Button--size_large Button--isBlock"
+    className="Button Button--size_large Button--isBlock"
     disabled={false}
   >
     <input
@@ -22,7 +21,7 @@ exports[`<FileButton> that renders a button should add classes when props are ch
 exports[`<FileButton> that renders a button should render default button correctly 1`] = `
 <FileButton>
   <label
-    className="Button Button--context_neutral"
+    className="Button"
     disabled={false}
   >
     <input

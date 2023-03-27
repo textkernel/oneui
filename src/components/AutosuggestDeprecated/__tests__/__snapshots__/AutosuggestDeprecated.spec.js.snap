@@ -57,7 +57,7 @@ exports[`AutosuggestDeprecated rendering should initially render empty component
       >
         <FieldWrapper
           className="AutosuggestDeprecated__field"
-          clearLabel="Clear"
+          clearTooltipLabel="Clear"
           isFocused={false}
           onClear={[Function]}
           onClick={[Function]}
@@ -172,7 +172,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
       >
         <FieldWrapper
           className="AutosuggestDeprecated__field"
-          clearLabel="Clear"
+          clearTooltipLabel="Clear"
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
@@ -433,7 +433,7 @@ exports[`AutosuggestDeprecated rendering should render icon correctly if passed 
       >
         <FieldWrapper
           className="AutosuggestDeprecated__field"
-          clearLabel="Clear"
+          clearTooltipLabel="Clear"
           isFocused={false}
           onClear={[Function]}
           onClick={[Function]}
@@ -599,7 +599,7 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
       >
         <FieldWrapper
           className="AutosuggestDeprecated__field"
-          clearLabel="Clear"
+          clearTooltipLabel="Clear"
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}
@@ -661,9 +661,7 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
                         context="muted"
                         key=".0"
                       >
-                        <p
-                          className="Text--context_muted"
-                        >
+                        <p>
                           No suggestions...
                         </p>
                       </Text>
@@ -752,7 +750,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
       >
         <FieldWrapper
           className="AutosuggestDeprecated__field"
-          clearLabel="Clear"
+          clearTooltipLabel="Clear"
           isFocused={true}
           onClear={[Function]}
           onClick={[Function]}

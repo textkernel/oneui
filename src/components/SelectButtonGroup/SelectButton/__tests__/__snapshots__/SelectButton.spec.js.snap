@@ -2,7 +2,7 @@
 
 exports[`SelectButton should render correctly 1`] = `
 <SelectButton
-  context="good"
+  context="success"
   isEqualWidth={true}
   isSelected={true}
   onChange={[MockFunction]}
@@ -10,7 +10,8 @@ exports[`SelectButton should render correctly 1`] = `
   value="button 1"
 >
   <div
-    className="SelectButton SelectButton--isEqualWidth SelectButton--context_good SelectButton--isSelected SelectButton--size_large"
+    className="SelectButton SelectButton--isEqualWidth SelectButton--isSelected SelectButton--size_large"
+    context="success"
     onClick={[Function]}
     onKeyPress={[Function]}
     role="button"

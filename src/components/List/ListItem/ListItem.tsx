@@ -57,8 +57,8 @@ export const ListItem = forwardRef<HTMLLIElement, Props>(
                 role="presentation"
                 onClick={onClick}
                 {...block({
-                    isSelected,
                     isHighlighted,
+                    isSelected,
                     highlightContext,
                     disabled,
                     passDisabledToLi,

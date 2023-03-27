@@ -16,4 +16,18 @@
     &--align_right {
         justify-content: flex-end;
     }
+
+    &__button {
+        color: var(--color-neutral-75);
+
+        &:focus,
+        &:hover {
+            color: var(--color-neutral-75);
+            background-color: var(--color-light-25);
+        }
+
+        &:active {
+            background-color: var(--color-light-60);
+        }
+    }
 }

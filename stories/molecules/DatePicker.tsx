@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DatePicker, Text } from '@textkernel/oneui';
+import { DatePicker, Text, Button } from '@textkernel/oneui';
 import es from 'date-fns/locale/es';
 import hu from 'date-fns/locale/hu';
 import frCA from 'date-fns/locale/fr-CA';
@@ -42,13 +42,14 @@ export const _DatePicker = (args) => {
         maxDate = new Date(args.maxDateStr);
     }
 
+    // @ts-ignore
     return (
         <DatePicker
             onChange={handleChange}
             selected={selected}
             minDate={minDate}
             maxDate={maxDate}
-            todayButton="Today"
+            todayButton={<Button isLink>Today</Button>}
             locale={args.locale}
         />
     );

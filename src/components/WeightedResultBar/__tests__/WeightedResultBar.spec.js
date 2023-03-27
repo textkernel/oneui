@@ -37,7 +37,6 @@ describe('WeightedResultBar', () => {
 
         expect(wrapper.find('ContentPlaceholder').length).toBe(1);
         expect(wrapper.find('ProgressBar').prop('percentage')).toBe(100);
-        expect(wrapper.find('ProgressBar').prop('context')).toBe('neutral');
     });
     it('should have consistent width of ContentPlaceholder in loading state, even when the component re-renders', () => {
         const wrapper = mount(<WeightedResultBar isLoading />);

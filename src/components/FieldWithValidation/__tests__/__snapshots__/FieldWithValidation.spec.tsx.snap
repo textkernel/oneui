@@ -14,7 +14,7 @@ exports[`FieldWithValidation when rendering message as text with no error messag
 exports[`FieldWithValidation when using tooltip when error message is defined should remove the message when field is blurred 1`] = `
 <DocumentFragment>
   <input
-    class="Input Input--context_bad"
+    class="Input Input--context_danger"
     data-lpignore="true"
     type="text"
     value=""
@@ -25,7 +25,7 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
 exports[`FieldWithValidation when using tooltip when error message is defined should render the message when field is focused 1`] = `
 <DocumentFragment>
   <input
-    class="Input Input--context_bad"
+    class="Input Input--context_danger"
     data-lpignore="true"
     type="text"
     value=""
@@ -36,7 +36,7 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
 exports[`FieldWithValidation when using tooltip when error message is defined should set context to bad on child 1`] = `
 <DocumentFragment>
   <input
-    class="Input Input--context_bad"
+    class="Input Input--context_danger"
     data-lpignore="true"
     type="text"
     value=""
@@ -58,13 +58,13 @@ exports[`FieldWithValidation when using tooltip with no error message passed sho
 exports[`FieldWithValidation with error message passed should set context to bad on child 1`] = `
 <DocumentFragment>
   <input
-    class="Input Input--context_bad"
+    class="Input Input--context_danger"
     data-lpignore="true"
     type="text"
     value=""
   />
   <p
-    class="Text--context_bad Text--size_small FieldWithValidation"
+    class="Text--context_danger Text--size_small FieldWithValidation"
   >
     invalid field
   </p>

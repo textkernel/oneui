@@ -5,6 +5,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should add cla
   aria-busy={false}
   aria-hidden={true}
   className="LoadingSpinner LoadingSpinner--hidden LoadingSpinner--centerIn_viewport"
+  context="primary"
   role="status"
 >
   <svg
@@ -25,7 +26,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should add cla
     }
   >
     <circle
-      className="LoadingSpinner__path LoadingSpinner__path--context_primary"
+      className="LoadingSpinner__path"
       cx="22"
       cy="22"
       fill="none"
@@ -56,7 +57,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
     }
   >
     <circle
-      className="LoadingSpinner__path LoadingSpinner__path--context_brand"
+      className="LoadingSpinner__path"
       cx="22"
       cy="22"
       fill="none"
@@ -87,7 +88,7 @@ exports[`<LoadingSpinner> that renders a circular loading spinner should render 
     }
   >
     <circle
-      className="LoadingSpinner__path LoadingSpinner__path--context_brand"
+      className="LoadingSpinner__path"
       cx="22"
       cy="22"
       fill="none"

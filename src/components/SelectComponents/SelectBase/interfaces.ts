@@ -43,7 +43,7 @@ export interface SelectInputFieldProps {
 
 export interface SelectClearButtonProps {
     /** to be shown as clear button title */
-    clearTitle?: string;
+    clearTitle?: ReactNode;
     /** function to be called if FieldWrapper clear button is clicked */
     onClearAllSelected?: () => void;
     /** show Clear button on hover even if there are no selectedSuggestions passed */

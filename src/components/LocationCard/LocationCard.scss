@@ -7,7 +7,7 @@ $slider-indication-width: 110px;
     box-sizing: border-box;
     width: $location-card-width;
     padding: var(--spacing-4x) var(--spacing-5x);
-    background-color: var(--color-neutral-25);
+    background-color: var(--color-light-40);
 
     &__header {
         display: flex;
@@ -37,8 +37,11 @@ $slider-indication-width: 110px;
         user-select: none;
         cursor: pointer;
     }
-    
+
     &__slider {
+        :global .rc-slider-rail {
+            background-color: var(--color-background);
+        }
         flex-direction: row;
         display: flex;
         margin: var(--spacing-5x) 0px;

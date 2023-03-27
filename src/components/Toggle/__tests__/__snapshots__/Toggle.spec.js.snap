@@ -85,11 +85,11 @@ exports[`<Toggle> that renders a toggle should rendered disabled toggle correctl
     </div>
     <Text
       className="Toggle__text"
-      context="muted"
+      context="neutral"
       inline={true}
     >
       <span
-        className="Text--context_muted Toggle__text"
+        className="Text--context_neutral Toggle__text"
       >
         Cannot do anything =(
       </span>

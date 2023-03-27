@@ -28,7 +28,7 @@ exports[`<PillButton> component in active, collapsed state (with content prop) s
         This pill is in use
       </span>
       <button
-        className="PillButton__button PillButton__button--isActive"
+        className="PillButton__button"
         onClick={[Function]}
         onKeyDown={[Function]}
         type="button"
@@ -97,7 +97,7 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
         This pill is in use
       </span>
       <button
-        className="PillButton__button PillButton__button--isOpen PillButton__button--isActive"
+        className="PillButton__button"
         type="button"
       >
         <IoIosArrowDown
@@ -232,7 +232,7 @@ exports[`<PillButton> component in inactive, open state (isOpen prop) should ren
         Pill name
       </span>
       <button
-        className="PillButton__button PillButton__button--isOpen"
+        className="PillButton__button"
         type="button"
       >
         <IoIosArrowDown

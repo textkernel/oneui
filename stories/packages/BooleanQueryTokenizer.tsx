@@ -35,7 +35,6 @@ export const _BooleanQueryTokenizer = () => {
             <div style={columnStyle}>
                 <h3>Boolean query</h3>
                 <TextArea
-                    context="brand"
                     defaultValue={initialValue}
                     disabled={false}
                     isBlock

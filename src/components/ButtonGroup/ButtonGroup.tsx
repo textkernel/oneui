@@ -2,14 +2,14 @@ import * as React from 'react';
 import { EmptyElement } from '@textkernel/oneui/customTypes/types';
 import { bem } from '../../utils';
 import styles from './ButtonGroup.scss';
-import { Context, Size } from '../../constants';
+import { Size } from '../../constants';
 import { ButtonProps } from '../Buttons';
 
 export interface Props {
     /** The buttons in this group */
     children: React.ReactElement<ButtonProps> | (React.ReactElement<ButtonProps> | EmptyElement)[];
-    /** The context for all buttons in this group (e.g. brand, primary, bad, good etc.) */
-    context?: Context | 'link';
+    /** Should the button be in primary style or not */
+    isPrimary?: boolean;
     /** Whether or not to show block-level button group (full width) */
     isBlock?: boolean;
     /** The size of the buttons in the button group */
@@ -20,7 +20,7 @@ const { block, elem } = bem('ButtonGroup', styles);
 
 export const ButtonGroup = ({
     children,
-    context = 'neutral',
+    isPrimary = true,
     size = 'normal',
     isBlock = false,
     ...rest
@@ -37,7 +37,7 @@ export const ButtonGroup = ({
                 if (totalNumberOfButtons === 1) {
                     return React.cloneElement(button, {
                         ...button.props,
-                        context,
+                        isPrimary,
                         size,
                         isBlock,
                     });
@@ -45,11 +45,11 @@ export const ButtonGroup = ({
 
                 return React.cloneElement(button, {
                     ...button.props,
-                    context,
                     size,
+                    isPrimary,
                     ...elem('button', {
                         isBlock,
-                        context,
+                        isPrimary,
                         first: i === 0,
                         last: i + 1 === totalNumberOfButtons,
                     }),

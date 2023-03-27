@@ -30,7 +30,7 @@ export const Toggle = React.forwardRef<HTMLInputElement, Props>(
                     <div {...elem('toggleButton')} />
                 </div>
                 {children && (
-                    <Text {...elem('text')} inline context={disabled ? 'muted' : 'default'}>
+                    <Text {...elem('text')} inline context={disabled ? 'neutral' : 'default'}>
                         {children}
                     </Text>
                 )}

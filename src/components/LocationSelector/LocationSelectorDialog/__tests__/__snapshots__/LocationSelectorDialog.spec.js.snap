@@ -160,7 +160,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
             >
               <FieldWrapper
                 className="AutosuggestDeprecated__field"
-                clearLabel=""
+                clearTooltipLabel=""
                 isFocused={true}
                 onClear={[Function]}
                 onClick={[Function]}
@@ -253,11 +253,11 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
     </LocationAutocomplete>
     <Button
       className="LocationSelectorDialog__button"
-      context="brand"
+      isPrimary={true}
       onClick={[MockFunction]}
     >
       <button
-        className="Button Button--context_brand LocationSelectorDialog__button"
+        className="Button Button--isPrimary LocationSelectorDialog__button"
         disabled={false}
         onClick={[MockFunction]}
         type="button"

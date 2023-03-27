@@ -10,7 +10,7 @@
         height: 20px;
         border-radius: 20px;
         position: relative;
-        background-color: var(--color-neutral);
+        background-color: var(--color-light);
         transition: border-color 300ms;
         flex-shrink: 0;
 
@@ -42,7 +42,7 @@
 
             &:checked {
                 + .Toggle__toggleButton {
-                    background-color: var(--color-good-40);
+                    background-color: var(--color-success-40);
 
                     &::before{
                         margin-left: 17px;
@@ -50,7 +50,7 @@
                 }
 
                 &[disabled] + .Toggle__toggleButton {
-                    background-color: var(--color-good-25);
+                    background-color: var(--color-success-25);
                 }
             }
         }

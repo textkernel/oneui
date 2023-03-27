@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
+import { MdClear } from 'react-icons/md';
 import { bem } from '../../utils';
 import { Button } from '../Buttons';
 import { ENTER_KEY } from '../../constants';
@@ -20,7 +21,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** show Clear button on hover even if there are no selectedSuggestions passed */
     showClearButton?: boolean;
     /** clear button label */
-    clearLabel?: string;
+    clearTooltipLabel?: string;
     /** reset the selected suggestions array to it's default value */
     onClear?: ((e) => void) | null;
     /** to style the field as it is focused */
@@ -36,7 +37,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
             showArrow = false,
             isArrowUp = false,
             onArrowClick,
-            clearLabel = '',
+            clearTooltipLabel = '',
             showClearButton = false,
             onClear = null,
             isFocused = false,
@@ -71,12 +72,12 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                 {showClearButton && (
                     <Button
                         isInline
-                        context="link"
+                        isLink
                         onClick={handleClear}
-                        title={clearLabel}
+                        title={clearTooltipLabel}
                         {...elem('clearButton', { rightIndent: showArrow })}
                     >
-                        {clearLabel}
+                        <MdClear size={16} />
                     </Button>
                 )}
 

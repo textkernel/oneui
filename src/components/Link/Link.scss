@@ -1,22 +1,33 @@
 .Link {
-    color: var(--link-color-normal);
+    color: var(--color-primary);
     text-decoration: var(--link-decoration-normal);
     transition: color var(--transition-duration);
 
-    &:hover {
-        color: var(--link-color-hover);
+    &:hover,
+    &:focus {
+        color: var(--color-primary-60);
         text-decoration: var(--link-decoration-hover);
+    }
+
+    &:focus {
+        outline: none;
+        border-radius: 5px;
+        border: var(--color-primary) solid 2px;
+    }
+
+    &:active {
+        color: var(--color-primary-75);
     }
 
     &--dontDecorateOnHover:hover {
         text-decoration: var(--link-decoration-normal);
     }
 
-    &--context_muted {
-        color: var(--color-muted);
+    &--isMuted {
+        color: var(--color-neutral-25);
 
         &:hover {
-            color: var(--color-muted);
+            color: var(--color-neutral-25);
         }
     }
 }
