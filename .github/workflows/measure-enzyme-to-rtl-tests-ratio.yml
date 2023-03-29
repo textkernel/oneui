@@ -2,11 +2,9 @@ name: RTL Migration
 on:
   push:
     branches:
-      - 'master'
+      - 'check_workflow'
     paths:
       - '**.spec.tsx'
-  pull_request:
-    types: [ opened, reopened, synchronize, auto_merge_enabled ]
 
 jobs:
     enzyme-rtl-migration:
