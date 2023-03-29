@@ -73,5 +73,3 @@ async function execute() {
 }
 
 (async () => execute())();
-
-execute();
