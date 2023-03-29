@@ -41,7 +41,7 @@ describe('FieldWrapper', () => {
         expect(wrapper.find('IoMdArrowDropup').exists()).toBeTruthy();
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-    it('should call onArrowClick when arrow is clicked', () => {
+    it('should call onArrowClick when arrow is clicked check script result', () => {
         const onArrowClickMock = jest.fn();
         const wrapper = mount(
             <FieldWrapper showArrow onArrowClick={onArrowClickMock}>
