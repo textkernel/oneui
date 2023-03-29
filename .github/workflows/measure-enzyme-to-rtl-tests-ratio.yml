@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - 'master'
+    paths:
+      - '**.spec.tsx'
 jobs:
     enzyme-rtl-migration:
       runs-on: ubuntu-latest
