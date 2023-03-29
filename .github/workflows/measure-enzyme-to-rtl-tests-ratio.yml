@@ -2,7 +2,7 @@ name: RTL Migration
 on:
   push:
     branches:
-      - 'check_workflow'
+      - 'check_script_result'
     paths:
       - '**.spec.tsx'
 
