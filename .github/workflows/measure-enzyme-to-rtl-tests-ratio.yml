@@ -2,7 +2,10 @@ name: RTL Migration
 on:
   push:
     branches:
-      - 'master'
+      - 'check_script_result'
+    paths:
+      - '**.spec.tsx'
+
 jobs:
     enzyme-rtl-migration:
       runs-on: ubuntu-latest
