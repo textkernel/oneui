@@ -69,7 +69,7 @@ describe('Dropdown', () => {
                 </ListItem>
             </Dropdown>
         );
-        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' }).at(1));
+        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
         expect(wrapper.asFragment()).toMatchSnapshot();
         const keyDown = () =>
             fireEvent.keyDown(screen.getAllByRole('listbox')[1], { key: 'ArrowDown' });
@@ -103,7 +103,7 @@ describe('Dropdown', () => {
                 </ListItem>
             </Dropdown>
         );
-        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' }).at(1));
+        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
 
         fireEvent.keyDown(screen.getAllByRole('listbox')[1], { key: 'ArrowDown' });
         fireEvent.keyDown(screen.getAllByRole('presentation')[0], { key: 'Enter' });
@@ -128,7 +128,7 @@ describe('Dropdown', () => {
                 ))}
             </Dropdown>
         );
-        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' }).at(1));
+        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
         expect(wrapper.asFragment()).toMatchSnapshot();
         expect(screen.getAllByRole('presentation')).toHaveLength(3);
     });
@@ -219,10 +219,10 @@ describe('Dropdown', () => {
                 <ListItem key="key-2" value="testValue">
                     With value
                 </ListItem>
-                {condition && <ListItem key="3">should not render</ListItem>}
+                {condition ? <ListItem key="3">should not render</ListItem> : null}
             </Dropdown>
         );
-        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' }).at(1));
+        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
 
         expect(wrapper.asFragment()).toMatchSnapshot();
         expect(screen.queryByText('false')).toBeNull();
