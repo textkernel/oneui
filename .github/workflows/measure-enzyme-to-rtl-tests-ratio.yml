@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - 'master'
+    paths:
+      - '**.spec.tsx'
   pull_request:
     types: [ opened, reopened, synchronize, auto_merge_enabled ]
 
