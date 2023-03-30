@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown should allow for conditional rendering of items 1`] = `
+<DocumentFragment>
+  <button
+    aria-expanded="true"
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-101-label downshift-101-toggle-button"
+    class="Button Button--context_brand"
+    id="downshift-101-toggle-button"
+    type="button"
+  >
+    Click me!
+  </button>
+  <ul
+    aria-labelledby="downshift-101-label"
+    class="List Dropdown__list"
+    id="downshift-101-menu"
+    role="listbox"
+    style="position: absolute; left: 0px; top: 0px;"
+    tabindex="-1"
+  >
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      id="downshift-101-item-0"
+      role="presentation"
+    >
+      <span>
+        With value
+      </span>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Dropdown should downshift only by enabled items with value 1`] = `
+<DocumentFragment>
+  <button
+    aria-expanded="true"
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-14-label downshift-14-toggle-button"
+    class="Button Button--context_brand"
+    id="downshift-14-toggle-button"
+    type="button"
+  >
+    Click me!
+  </button>
+  <ul
+    aria-labelledby="downshift-14-label"
+    class="List Dropdown__list"
+    id="downshift-14-menu"
+    role="listbox"
+    style="position: absolute; left: 0px; top: 0px;"
+    tabindex="-1"
+  >
+    <li
+      class="ListItem ListItem--disabled List__item"
+      role="presentation"
+    >
+      <span>
+        Disabled
+      </span>
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      id="downshift-14-item-0"
+      role="presentation"
+    >
+      <span>
+        With value 1
+      </span>
+    </li>
+    <li
+      class="ListItem List__item"
+      role="presentation"
+    >
+      <span>
+        Without value
+      </span>
+    </li>
+    <div
+      class="List__item customDiv"
+    >
+      Div
+    </div>
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      id="downshift-14-item-1"
+      role="presentation"
+    >
+      <span>
+        With value 2
+      </span>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Dropdown should render correctly closed 1`] = `
+<DocumentFragment>
+  <button
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-0-label downshift-0-toggle-button"
+    class="Button Button--context_brand"
+    id="downshift-0-toggle-button"
+    type="button"
+  >
+    Click me!
+  </button>
+  <ul
+    aria-labelledby="downshift-0-label"
+    class="List"
+    id="downshift-0-menu"
+    role="listbox"
+    tabindex="-1"
+  />
+</DocumentFragment>
+`;
+
+exports[`Dropdown should render correctly opened 1`] = `
+<DocumentFragment>
+  <button
+    aria-expanded="true"
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-3-label downshift-3-toggle-button"
+    class="Button Button--context_brand"
+    id="downshift-3-toggle-button"
+    type="button"
+  >
+    Click me!
+  </button>
+  <ul
+    aria-labelledby="downshift-3-label"
+    class="List Dropdown__list"
+    id="downshift-3-menu"
+    role="listbox"
+    style="position: absolute; left: 0px; top: 0px;"
+    tabindex="-1"
+  >
+    <li
+      class="ListItem ListItem--disabled List__item"
+      role="presentation"
+    >
+      <span>
+        Disabled
+      </span>
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      id="downshift-3-item-0"
+      role="presentation"
+    >
+      <span>
+        With value
+      </span>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Dropdown should render correctly with mixed children: array and single ListItem 1`] = `
+<DocumentFragment>
+  <button
+    aria-expanded="true"
+    aria-haspopup="listbox"
+    aria-labelledby="downshift-45-label downshift-45-toggle-button"
+    class="Button Button--context_brand"
+    id="downshift-45-toggle-button"
+    type="button"
+  >
+    Click me!
+  </button>
+  <ul
+    aria-labelledby="downshift-45-label"
+    class="List Dropdown__list"
+    id="downshift-45-menu"
+    role="listbox"
+    style="position: absolute; left: 0px; top: 0px;"
+    tabindex="-1"
+  >
+    <li
+      class="ListItem ListItem--disabled List__item"
+      role="presentation"
+    >
+      <span>
+        Disabled
+      </span>
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      id="downshift-45-item-0"
+      role="presentation"
+    >
+      <span>
+        one
+      </span>
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      id="downshift-45-item-1"
+      role="presentation"
+    >
+      <span>
+        two
+      </span>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
