@@ -1,166 +1,173 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
-<FieldWrapper
-  clearLabel="Clear"
-  showClearButton={true}
->
+<DocumentFragment>
   <div
-    className="FieldWrapper"
+    class="FieldWrapper"
   >
     <div
-      className="FieldWrapper__content"
+      class="FieldWrapper__content"
     >
       some children
     </div>
-    <Button
-      className="FieldWrapper__clearButton"
-      context="link"
-      isInline={true}
-      onClick={[Function]}
+    <button
+      class="Button Button--context_link Button--isInline FieldWrapper__clearButton"
       title="Clear"
+      type="button"
     >
-      <button
-        className="Button Button--context_link Button--isInline FieldWrapper__clearButton"
-        disabled={false}
-        onClick={[Function]}
-        title="Clear"
-        type="button"
-      >
-        Clear
-      </button>
-    </Button>
+      Clear
+    </button>
   </div>
-</FieldWrapper>
+</DocumentFragment>
+`;
+
+exports[`FieldWrapper should call onArrowClick when arrow is accessed by keyboard 1`] = `
+<DocumentFragment>
+  <div
+    class="FieldWrapper"
+  >
+    <div
+      class="FieldWrapper__content"
+    >
+      some children
+    </div>
+    <svg
+      class="FieldWrapper__dropdownIcon"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      stroke-width="0"
+      tabindex="0"
+      viewBox="0 0 512 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M128 192l128 128 128-128z"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`FieldWrapper should call onArrowClick when arrow is clicked 1`] = `
+<DocumentFragment>
+  <div
+    class="FieldWrapper"
+  >
+    <div
+      class="FieldWrapper__content"
+    >
+      some children
+    </div>
+    <svg
+      class="FieldWrapper__dropdownIcon"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      stroke-width="0"
+      tabindex="0"
+      viewBox="0 0 512 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M128 192l128 128 128-128z"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`FieldWrapper should call onClear callback correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="FieldWrapper"
+  >
+    <div
+      class="FieldWrapper__content"
+    >
+      tag
+    </div>
+    <button
+      class="Button Button--context_link Button--isInline FieldWrapper__clearButton"
+      title="Clear"
+      type="button"
+    >
+      Clear
+    </button>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`FieldWrapper should render arrow icon pointing down 1`] = `
-<FieldWrapper
-  showArrow={true}
->
+<DocumentFragment>
   <div
-    className="FieldWrapper"
+    class="FieldWrapper"
   >
     <div
-      className="FieldWrapper__content"
+      class="FieldWrapper__content"
     >
       some children
     </div>
-    <IoMdArrowDropdown
-      className="FieldWrapper__dropdownIcon"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      tabIndex={0}
+    <svg
+      class="FieldWrapper__dropdownIcon"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      stroke-width="0"
+      tabindex="0"
+      viewBox="0 0 512 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <IconBase
-        attr={
-          Object {
-            "viewBox": "0 0 512 512",
-          }
-        }
-        className="FieldWrapper__dropdownIcon"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        tabIndex={0}
-      >
-        <svg
-          className="FieldWrapper__dropdownIcon"
-          fill="currentColor"
-          height="1em"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          tabIndex={0}
-          viewBox="0 0 512 512"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M128 192l128 128 128-128z"
-            key="0"
-          />
-        </svg>
-      </IconBase>
-    </IoMdArrowDropdown>
+      <path
+        d="M128 192l128 128 128-128z"
+      />
+    </svg>
   </div>
-</FieldWrapper>
+</DocumentFragment>
 `;
 
 exports[`FieldWrapper should render arrow icon pointing up 1`] = `
-<FieldWrapper
-  isArrowUp={true}
-  showArrow={true}
->
+<DocumentFragment>
   <div
-    className="FieldWrapper"
+    class="FieldWrapper"
   >
     <div
-      className="FieldWrapper__content"
+      class="FieldWrapper__content"
     >
       some children
     </div>
-    <IoMdArrowDropup
-      className="FieldWrapper__dropdownIcon"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      tabIndex={0}
+    <svg
+      class="FieldWrapper__dropdownIcon"
+      fill="currentColor"
+      height="1em"
+      stroke="currentColor"
+      stroke-width="0"
+      tabindex="0"
+      viewBox="0 0 512 512"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <IconBase
-        attr={
-          Object {
-            "viewBox": "0 0 512 512",
-          }
-        }
-        className="FieldWrapper__dropdownIcon"
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        tabIndex={0}
-      >
-        <svg
-          className="FieldWrapper__dropdownIcon"
-          fill="currentColor"
-          height="1em"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          stroke="currentColor"
-          strokeWidth="0"
-          style={
-            Object {
-              "color": undefined,
-            }
-          }
-          tabIndex={0}
-          viewBox="0 0 512 512"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M128 320l128-128 128 128z"
-            key="0"
-          />
-        </svg>
-      </IconBase>
-    </IoMdArrowDropup>
+      <path
+        d="M128 320l128-128 128 128z"
+      />
+    </svg>
   </div>
-</FieldWrapper>
+</DocumentFragment>
 `;
 
 exports[`FieldWrapper should render correctly 1`] = `
-<FieldWrapper>
+<DocumentFragment>
   <div
-    className="FieldWrapper"
+    class="FieldWrapper"
   >
     <div
-      className="FieldWrapper__content"
+      class="FieldWrapper__content"
     >
       some children
     </div>
   </div>
-</FieldWrapper>
+</DocumentFragment>
 `;

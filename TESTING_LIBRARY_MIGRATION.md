@@ -142,5 +142,24 @@ fireEvent.click(button);
 expect(handleClick).toHaveBeenCalled();
 ```
 
+### Rerender Components.
+
+#### Before ⭕:
+```ts
+import { mount } from 'enzyme';
+
+const wrapper = mount(<MyComponent />);
+wrapper.setProps({ isArrowUp: true });
+```
+
+#### After ✅:
+```ts
+import { render } from 'react-test-renderer';
+
+const { rerender, asFragment } = render(<MyComponent />);
+expect(asFragment()).toMatchSnapshot();
+rerender(<MyComponent isArrowUp> </MyComponent>);
+```
+
 
 
