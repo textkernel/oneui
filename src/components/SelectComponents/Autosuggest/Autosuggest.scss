@@ -11,7 +11,6 @@
         outline: none;
         padding: var(--spacing-normal);
         padding-bottom: var(--margin);
-        color: var(--color-accent);
 
         &--isFocused {
             min-height: 34px;
@@ -40,7 +39,8 @@
         }
 
         &::placeholder {
-            color: var(--color-muted);
+            color: var(--color-neutral-25);
+            opacity: 1;
         }
     }
 }

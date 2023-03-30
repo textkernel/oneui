@@ -2,9 +2,7 @@ $transition-duration-quick: 0.1s !default;
 $transition-duration: 0.3s !default;
 
 // ProgressBar variables
-$progress-background-color: var(--color-neutral-25) !default;
 $progress-font-size: var(--font-size-small) !default;
-$progress-label-color: var(--color-background) !default;
 
 // Drawer variables
 $drawer-width: 400px;
@@ -17,9 +15,7 @@ $drawer-expand-hover-background-color: #565656 !default;
     --transition-duration-quick: #{$transition-duration-quick};
     --transition-duration: #{$transition-duration};
 
-    --progress-background-color: #{$progress-background-color};
     --progress-font-size: #{$progress-font-size};
-    --progress-label-color: #{$progress-label-color};
 
     --drawer-width: #{$drawer-width};
     --drawer-z-index: #{$drawer-z-index};

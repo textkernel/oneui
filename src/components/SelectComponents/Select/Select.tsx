@@ -26,7 +26,7 @@ export interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
     /** to be shown in the field when no value is typed */
     placeholder?: string;
     /** label for the Clear button */
-    clearLabel?: string;
+    clearTooltipLabel?: string;
     /** a class to be applied to the top level div */
     className?: string;
     /** onFocus() is called when the component is focused */
@@ -56,7 +56,7 @@ export function Select<S>({
     itemToString,
     optionItemRenderer = undefined,
     placeholder = '',
-    clearLabel = '',
+    clearTooltipLabel = '',
     onChange,
     onBlur = undefined,
     onFocus = undefined,
@@ -71,7 +71,7 @@ export function Select<S>({
             {selectedItem ? (
                 itemToString(selectedItem)
             ) : (
-                <Text inline {...elem('placeholder')} context="muted">
+                <Text inline {...elem('placeholder')} context="neutral">
                     {placeholder}
                 </Text>
             )}
@@ -112,7 +112,7 @@ export function Select<S>({
             blurredRenderer={blurredRenderer}
             focusedRenderer={focusedRenderer}
             showClearButton={Boolean(selectedItem)}
-            clearTitle={clearLabel}
+            clearTitle={clearTooltipLabel}
             listRef={listRef}
             onBlur={onBlur}
             onFocus={onFocus}

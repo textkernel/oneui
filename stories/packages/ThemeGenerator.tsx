@@ -5,14 +5,13 @@ export default {
     title: 'packages/ThemeGenerator',
     component: ThemeGenerator,
     argTypes: {
-        '--color-brand': { control: 'color' },
         '--color-neutral': { control: 'color' },
-        '--color-muted': { control: 'color' },
+        '--color-primary': { control: 'color' },
+        '--color-light': { control: 'color' },
         '--color-info': { control: 'color' },
-        '--color-accent': { control: 'color' },
-        '--color-good': { control: 'color' },
+        '--color-success': { control: 'color' },
         '--color-warning': { control: 'color' },
-        '--color-bad': { control: 'color' },
+        '--color-danger': { control: 'color' },
         '--font-size-base': { control: 'text' },
     },
 };
@@ -29,13 +28,13 @@ export const _ThemeGenerator = (args) => {
     );
 };
 _ThemeGenerator.args = {
-    '--color-brand': '#fff',
-    '--color-neutral': '#d0d1d5',
-    '--color-muted': '#b3b2b2',
-    '--color-info': '#60c4de',
-    '--color-accent': '#182642',
-    '--color-good': '#5cb85c',
+    '--color-background': '#ffffff',
+    '--color-neutral': '#1d1d1b',
+    '--color-primary': '#0097d1',
+    '--color-light': '#78797c',
+    '--color-info': '#63dfec',
+    '--color-success': '#5cb85c',
     '--color-warning': '#ffb819',
-    '--color-bad': '#f42534',
+    '--color-danger': '#f42534',
     '--font-size-base': '14px',
 };

@@ -70,7 +70,7 @@ exports[`Autosuggest rendering should initially render empty component correctly
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={false}
             isFocused={false}
             onArrowClick={[Function]}
@@ -199,7 +199,7 @@ exports[`Autosuggest rendering should initially render focused component correct
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={true}
             isFocused={true}
             onArrowClick={[Function]}
@@ -383,7 +383,7 @@ exports[`Autosuggest rendering should initially render focused component with su
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={true}
             isFocused={true}
             onArrowClick={[Function]}
@@ -945,7 +945,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={true}
             isFocused={true}
             onArrowClick={[Function]}
@@ -1484,7 +1484,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={true}
             isFocused={true}
             onArrowClick={[Function]}
@@ -1806,7 +1806,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={true}
             isFocused={true}
             onArrowClick={[Function]}
@@ -1952,7 +1952,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={true}
             isFocused={true}
             onArrowClick={[Function]}
@@ -2022,11 +2022,11 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
                           role="presentation"
                         >
                           <Text
-                            context="muted"
+                            context="neutral"
                             key=".0"
                           >
                             <p
-                              className="Text--context_muted"
+                              className="Text--context_neutral"
                             >
                               no suggestions
                             </p>
@@ -2139,7 +2139,7 @@ exports[`Autosuggest rendering should show "no suggestions" placeholder only if 
         >
           <FieldWrapper
             className="SelectBase__field"
-            clearLabel=""
+            clearTooltipLabel=""
             isArrowUp={true}
             isFocused={true}
             onArrowClick={[Function]}

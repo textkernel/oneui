@@ -4,8 +4,8 @@ exports[`<PaginationButton> that renders a page button should render correctly w
 <Button
   aria-current={null}
   className="PaginationButton"
-  context="link"
   data-page={1}
+  isLink={true}
 >
   1
 </Button>

@@ -13,9 +13,9 @@ describe('Callout', () => {
         expect(wrapper.find('.Callout').hasClass('Callout--context_warning')).toBe(true);
     });
 
-    it('should apply correctly bad context', () => {
-        const wrapper = shallow(<Callout context="bad">some text</Callout>);
-        expect(wrapper.find('.Callout').hasClass('Callout--context_bad')).toBe(true);
+    it('should apply correctly danger context', () => {
+        const wrapper = shallow(<Callout context="danger">some text</Callout>);
+        expect(wrapper.find('.Callout').hasClass('Callout--context_danger')).toBe(true);
     });
 
     it('should call onRequestClose', () => {

@@ -37,7 +37,7 @@ describe('FieldWithValidation', () => {
         it('should set context to bad on child', () => {
             expect(wrapper.asFragment()).toMatchSnapshot();
             const input = screen.getByRole('textbox');
-            expect(input).toHaveAttribute('class', 'Input Input--context_bad');
+            expect(input).toHaveAttribute('class', 'Input Input--context_danger');
             expect(input).toBeInTheDocument();
         });
 
@@ -73,7 +73,7 @@ describe('FieldWithValidation', () => {
             it('should set context to bad on child', () => {
                 expect(wrapper.asFragment()).toMatchSnapshot();
                 const input = screen.getByRole('textbox');
-                expect(input).toHaveAttribute('class', 'Input Input--context_bad');
+                expect(input).toHaveAttribute('class', 'Input Input--context_danger');
             });
             it('should render the message when field is focused', () => {
                 expect(wrapper.asFragment()).toMatchSnapshot();

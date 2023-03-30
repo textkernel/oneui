@@ -7,7 +7,7 @@ import { NotEmptySingleReactNode } from '../../../customTypes/types';
 export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
     /** The label of the button */
     children: NotEmptySingleReactNode;
-    /** The button context (e.g. brand, primary, bad, good etc. - defaults to neutral) */
+    /** The button context (e.g. info, danger, success etc. - defaults to neutral) */
     context?: Context | 'link';
     /** The size of the button */
     size?: Size;

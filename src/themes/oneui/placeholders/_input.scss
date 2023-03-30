@@ -2,15 +2,14 @@
     min-height: 36px;
     height: 36px;
     background-color: var(--color-background);
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
     border: {
-        color: var(--color-neutral);
+        color: var(--color-neutral-25);
         radius: var(--border-radius);
         style: solid;
         width: var(--line-normal);
     }
     box-sizing: border-box;
-    color: var(--color-foreground);
+    color: var(--color-neutral-75);
     font: {
         family: var(--font-family-primary);
         size: var(--font-size-normal);
@@ -23,11 +22,11 @@
 
     &:focus,
     &:hover {
-        border-color: var(--color-brand);
+        border-color: var(--color-primary);
     }
 
     &::placeholder {
-        color: var(--color-muted);
+        color: var(--color-light);
     }
 
     &[disabled] {

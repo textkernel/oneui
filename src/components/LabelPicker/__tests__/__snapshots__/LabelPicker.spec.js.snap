@@ -28,7 +28,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
       onClick={[Function]}
     >
       <button
-        className="Button Button--context_neutral"
+        className="Button"
         disabled={false}
         onClick={[Function]}
         type="button"
@@ -91,7 +91,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
       onClick={[Function]}
     >
       <button
-        className="Button Button--context_neutral"
+        className="Button"
         disabled={false}
         onClick={[Function]}
         type="button"
@@ -238,11 +238,11 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
                     </Text>
                     <Text
                       className="LabelPicker__count"
-                      context="muted"
+                      context="neutral"
                       inline={true}
                     >
                       <span
-                        className="Text--context_muted LabelPicker__count"
+                        className="Text--context_neutral LabelPicker__count"
                       >
                         (
                         12
@@ -406,13 +406,13 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
           </Input>
           <Button
             className="LabelPicker__addButton"
-            context="good"
             disabled={true}
+            isPrimary={true}
             onClick={[Function]}
             size="small"
           >
             <button
-              className="Button Button--context_good Button--size_small LabelPicker__addButton"
+              className="Button Button--isPrimary Button--size_small LabelPicker__addButton"
               disabled={true}
               onClick={[Function]}
               type="button"
@@ -455,12 +455,12 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
           </Button>
         </div>
         <Button
-          context="primary"
           isBlock={true}
+          isPrimary={true}
           onClick={[Function]}
         >
           <button
-            className="Button Button--context_primary Button--isBlock"
+            className="Button Button--isPrimary Button--isBlock"
             disabled={false}
             onClick={[Function]}
             type="button"

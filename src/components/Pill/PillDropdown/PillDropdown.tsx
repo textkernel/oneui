@@ -44,7 +44,7 @@ export const PillDropdown = React.forwardRef<HTMLElement, Props>(
                 <div role="dialog" {...elem('dialog')}>
                     <div {...elem('content', { noPadding })}>{children({ close })}</div>
                     <div {...elem('footer')}>
-                        <Button context="primary" size="small" onClick={handleDoneClick}>
+                        <Button isPrimary size="small" onClick={handleDoneClick}>
                             {doneLabel}
                         </Button>
                     </div>

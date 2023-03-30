@@ -10,7 +10,7 @@ $icon-size: 26px;
     right: 100px;
     width: var(--drawer-width);
     max-height: 100vh;
-    box-shadow:  0 5px 10px rgba(0,0,0,.1);
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.2);
     z-index: var(--drawer-z-index);
     transform: translateY(100%);
     transition-duration: $open-transition-duration;
@@ -29,10 +29,14 @@ $icon-size: 26px;
         display: flex;
         align-items: center;
         height: $drawer-head-height;
-        background-color: var(--drawer-head-background-color);
+        background-color: var(--color-neutral-75);
         border-radius: 4px 4px 0 0;
         cursor: pointer;
         outline: 0;
+
+        &--isPrimary {
+            background-color: var(--color-primary);
+        }
     }
 
     &__headTitle {
@@ -72,11 +76,23 @@ $icon-size: 26px;
 
         &:hover,
         &:focus {
-            background-color: var(--drawer-expand-hover-background-color);
+            background-color: var(--color-neutral);
         }
 
         &:active {
-            background-color: var(--drawer-expand-active-background-color);
+            background-color: var(--color-neutral-60);
+        }
+
+        &--isPrimary {
+            color: var(--color-neutral-10);
+            &:hover,
+            &:focus {
+                background-color: var(--color-primary-60);
+            }
+
+            &:active {
+                background-color: var(--color-primary-75);
+            }
         }
     }
 
@@ -89,7 +105,12 @@ $icon-size: 26px;
     &__body {
         overflow: auto;
         background-color: var(--color-background);
-        border-left: 1px solid var(--color-neutral);
-        border-right: 1px solid var(--color-neutral);
+        border-left: 1px solid var(--color-light-40);
+        border-right: 1px solid var(--color-light-40);
+
+        &--isPrimary {
+            border-left: 1px solid var(--color-primary);
+            border-right: 1px solid var(--color-primary);
+        }
     }
 }

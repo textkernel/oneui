@@ -8,13 +8,14 @@
     }
 
     &__circleBackground {
-        stroke: var(--color-neutral-25);
+        stroke: var(--color-light);
         stroke-width: var(--spacing-2x);
         stroke-linecap: round;
         fill: none;
     }
 
     &__circleForeground {
+        stroke: var(--color-bright-2);
         stroke-width: var(--spacing-4x);
         stroke-linecap: round;
         fill: none;
@@ -63,23 +64,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, 100%);
-        color: var(--color-muted);
+        color: var(--color-neutral-25);
         text-transform: uppercase;
         font-weight: var(--font-weight-bold);
         font-size: var(--font-size-small);
-    }
-
-    @each $context in ($contexts) {
-        &__gradientStart {
-            &--context_#{ $context } {
-                stop-color: var(--color-#{$context});
-            }
-        }
-
-        &__gradientEnd {
-            &--context_#{ $context } {
-                stop-color: var(--color-#{$context}-25);
-            }
-        }
     }
 }

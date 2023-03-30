@@ -12,7 +12,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
     >
       <Button
         className="BulkActionsToolbar__toggleButton"
-        context="link"
+        isLink={true}
         onClick={[Function]}
       >
         Select All
@@ -30,8 +30,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
           disabled={true}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Compare
@@ -46,8 +46,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="primary"
           disabled={false}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Import
@@ -62,8 +62,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="brand"
           disabled={false}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Delete
@@ -93,7 +93,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
     >
       <Button
         className="BulkActionsToolbar__toggleButton"
-        context="link"
+        isLink={true}
         onClick={[Function]}
       >
         Select All
@@ -111,8 +111,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
           disabled={true}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Compare
@@ -127,8 +127,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="primary"
           disabled={false}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Import
@@ -143,8 +143,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="brand"
           disabled={false}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Delete
@@ -174,7 +174,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
     >
       <Button
         className="BulkActionsToolbar__toggleButton"
-        context="link"
+        isLink={true}
         onClick={[Function]}
       >
         Select All
@@ -192,8 +192,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
           disabled={true}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Compare
@@ -208,8 +208,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="primary"
           disabled={false}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Import
@@ -224,8 +224,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="brand"
           disabled={false}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Delete
@@ -255,7 +255,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
     >
       <Button
         className="BulkActionsToolbar__toggleButton"
-        context="link"
+        isLink={true}
         onClick={[Function]}
       >
         Select None
@@ -273,8 +273,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="link"
           disabled={true}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Compare
@@ -289,8 +289,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="primary"
           disabled={false}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Import
@@ -305,8 +305,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       >
         <Button
           className="BulkActionsToolbar__action"
-          context="brand"
           disabled={false}
+          isPrimary={true}
           onClick={[MockFunction]}
         >
           Delete

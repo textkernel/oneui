@@ -3,22 +3,30 @@
 .Input {
     @extend %input;
 
+    border-color: var(--color-light-40);
+
     &--context {
-        @each $context in (good, warning, bad) {
+        @each $context in ($contexts) {
             &_#{ $context } {
                 border-color: var(--color-#{$context});
-                box-shadow: 0 0 0 var(--outline-size) var(--color-#{$context}-25);
-
                 &:focus {
                     border-color: var(--color-#{$context});
-                    box-shadow: 0 0 0 var(--outline-size) var(--color-#{$context}-25);
                 }
             }
         }
     }
 
+    &::placeholder {
+        color: var(--color-neutral-25);
+        opacity: 1;
+    }
+
     &--isBlock {
         width: 100%;
+    }
+
+    &[disabled] {
+        background-color: var(--color-background);
     }
 
     &--size {

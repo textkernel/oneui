@@ -7,7 +7,7 @@ export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Link content */
     children: NotEmptyReactNode;
     /** Color context */
-    context?: 'brand' | 'muted';
+    context?: 'primary' | 'neutral';
     /** Do not underline text on hover */
     dontDecorateOnHover?: boolean;
 }
@@ -15,7 +15,7 @@ export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 const { block } = bem('Link', styles);
 
 export const Link = React.forwardRef<HTMLAnchorElement, Props>(
-    ({ children, context = 'brand', dontDecorateOnHover = false, ...rest }, ref) => {
+    ({ children, context = 'primary', dontDecorateOnHover = false, ...rest }, ref) => {
         return (
             <a ref={ref} {...rest} {...block({ context, dontDecorateOnHover, ...rest })}>
                 {children}

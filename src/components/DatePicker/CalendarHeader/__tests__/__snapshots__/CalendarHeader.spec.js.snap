@@ -21,7 +21,7 @@ exports[`CalendarHeader should render correctly 1`] = `
       onClick={[MockFunction]}
     >
       <button
-        className="Button Button--context_neutral CalendarHeader__navButton"
+        className="Button CalendarHeader__navButton"
         disabled={false}
         onClick={[MockFunction]}
         type="button"
@@ -144,7 +144,7 @@ exports[`CalendarHeader should render correctly 1`] = `
       onClick={[MockFunction]}
     >
       <button
-        className="Button Button--context_neutral CalendarHeader__navButton"
+        className="Button CalendarHeader__navButton"
         disabled={false}
         onClick={[MockFunction]}
         type="button"

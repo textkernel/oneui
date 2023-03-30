@@ -68,6 +68,7 @@ export const TextkernelIcon = (args) => <IconTextkernel {...args} />;
 TextkernelIcon.storyName = 'Textkernel icon';
 TextkernelIcon.args = {
     title: 'Textkernel',
+    isPrimary: true,
 };
 
 export const TextkernelLogo = (args) => <LogoTextkernel {...args} />;

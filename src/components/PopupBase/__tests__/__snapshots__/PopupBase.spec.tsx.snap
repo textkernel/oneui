@@ -10,7 +10,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
     onClick={[Function]}
   >
     <button
-      className="Button Button--context_neutral"
+      className="Button"
       disabled={false}
       onClick={[Function]}
       type="button"
@@ -31,7 +31,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
             Can be a form or anything.
           </p>
           <button
-            class="Button Button--context_neutral"
+            class="Button"
             type="button"
           >
             Close me!
@@ -65,7 +65,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
           onClick={[Function]}
         >
           <button
-            className="Button Button--context_neutral"
+            className="Button"
             disabled={false}
             onClick={[Function]}
             type="button"
@@ -88,7 +88,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
     onClick={[Function]}
   >
     <button
-      className="Button Button--context_neutral"
+      className="Button"
       disabled={false}
       onClick={[Function]}
       type="button"
@@ -121,7 +121,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
         onClick={[Function]}
       >
         <button
-          className="Button Button--context_neutral"
+          className="Button"
           disabled={false}
           onClick={[Function]}
           type="button"
@@ -143,7 +143,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
     onClick={[Function]}
   >
     <button
-      className="Button Button--context_neutral"
+      className="Button"
       disabled={false}
       onClick={[Function]}
       type="button"
@@ -163,7 +163,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
     onClick={[Function]}
   >
     <button
-      className="Button Button--context_neutral"
+      className="Button"
       disabled={false}
       onClick={[Function]}
       type="button"

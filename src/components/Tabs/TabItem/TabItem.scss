@@ -1,32 +1,37 @@
 .TabItem {
-    color: var(--link-color-normal);
+    color: var(--color-neutral-75);
     cursor: pointer;
     outline: none;
-    padding: var(--spacing-2x) var(--spacing-4x);
+    padding: var(--spacing-2x) var(--spacing-4x) var(--spacing-3x) var(--spacing-4x);
     text-decoration: none;
     transition: all var(--transition-duration);
     text-align: center;
     border-bottom: 4px solid transparent;
-    margin-bottom: -1px;
     font-weight: var(--font-weight-bold);
+
 
     &:hover,
     &:focus {
-        border-bottom: 4px solid var(--color-neutral-25);
-        color: var(--link-color-hover);
+        border-bottom: 4px solid var(--color-background);
+        background-color: var(--color-light-25);
+        border-radius: var(--border-radius);
     }
 
     &--isActive,
     &:active {
-        color: var(--color-foreground);
-        border-bottom: 4px solid var(--color-brand);
+        color: var(--color-primary);
+        border-bottom: 4px solid var(--color-primary);
+        background-color: var(--color-background);
+        border-radius: 0;
     }
 
     &--isActive {
         &:hover,
         &:focus {
-            color: var(--color-foreground);
-            border-bottom: 4px solid var(--color-brand);
+            color: var(--color-primary);
+            border-bottom: 4px solid var(--color-primary);
+            background-color: var(--color-highlight-background);
+            border-radius: 0;
         }
     }
 
@@ -36,12 +41,12 @@
 
     &--disabled {
         cursor: not-allowed;
-        color: var(--color-muted);
+        color: var(--color-light);
 
         &:hover,
         &:focus {
             border-bottom: 4px solid transparent;
-            color: var(--color-muted);
+            color: var(--color-light);
         }
     }
 }

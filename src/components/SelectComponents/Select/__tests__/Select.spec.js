@@ -59,7 +59,7 @@ describe('Select', () => {
             expect(wrapper.find('li')).toHaveLength(0);
 
             // open items list
-            wrapper.find('svg').at(0).simulate('click');
+            wrapper.find('IoMdArrowDropdown').at(0).simulate('click');
             expect(wrapper.find('li')).toHaveLength(SUGGESTIONS.length);
 
             // select item
