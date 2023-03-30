@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.0.0](https://github.com/textkernel/oneui/compare/18.11.3...19.0.0) (2023-03-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* **simplification of color scheme:** Properties changes in components might break certain implementations that were not as intended by the original API
+
+Co-authored-by: renovate[bot] <29139614+renovate[bot]@users.noreply.github.com>
+
+### Features
+
+* add custom types ([bcf0dfb](https://github.com/textkernel/oneui/commit/bcf0dfb1261a3f02136ed8d6ff5265fea19a818a))
+* add plan RTL migration ([#906](https://github.com/textkernel/oneui/issues/906)) ([eeeea33](https://github.com/textkernel/oneui/commit/eeeea33f9f529eb42015dbb9e5f3555a437e99ac))
+* migrate Field tests ([b6be2d4](https://github.com/textkernel/oneui/commit/b6be2d4a49d13fff8846506de254ad08aa97f9dd))
+* set up process to measure migration progress ([#907](https://github.com/textkernel/oneui/issues/907)) ([ff495a3](https://github.com/textkernel/oneui/commit/ff495a37dcb977fc7d6643ab7b9da0df900bad2a))
+* set up RTL ([#910](https://github.com/textkernel/oneui/issues/910)) ([f1f3b4c](https://github.com/textkernel/oneui/commit/f1f3b4c2407b829ee2374905682371d6edaafc59))
+* **simplification of color scheme:** new design ([#878](https://github.com/textkernel/oneui/issues/878)) ([4909a24](https://github.com/textkernel/oneui/commit/4909a24e977c2938c4fb94ebff63b8f9b702bdbb))
+* update rtl script ([3f33e75](https://github.com/textkernel/oneui/commit/3f33e757425b4c8047a8738e622f01995bef4df6))
+
 ### [18.11.3](https://github.com/textkernel/oneui/compare/18.11.2...18.11.3) (2022-12-26)
 
 
