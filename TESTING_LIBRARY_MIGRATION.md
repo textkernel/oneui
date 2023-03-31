@@ -5,6 +5,8 @@ The `@testing-library family` of packages helps you test UI components in a user
 
 For some functions for example `toBeInTheDocument()` needs to install [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/).
 
+## Useful links
+[Common mistakes with RTL](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
 
 [Migrate from Enzyme](https://testing-library.com/docs/react-testing-library/migrate-from-enzyme)
 
@@ -20,10 +22,10 @@ expect(component).toMatchSnapshot();
 
 #### After ✅:
 ```ts
-import { create } from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
-const renderer = create(<MyComponent />);
-expect(renderer.toJSON()).toMatchSnapshot();
+const { asFragment } = render(<MyComponent />);
+expect(asFragment()).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -36,10 +38,10 @@ expect(component).toMatchSnapshot();
 
 #### After ✅:
 ```ts
-import { create } from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
-const renderer = create(<MyComponent />);
-expect(renderer.toJSON()).toMatchSnapshot();
+const { asFragment } = render(<MyComponent />);
+expect(asFragment()).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -52,10 +54,10 @@ expect(component).toMatchSnapshot();
 
 #### After ✅:
 ```ts
-import { create } from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
-const renderer = create(<MyComponent />);
-expect(renderer.toJSON()).toMatchSnapshot();
+const { asFragment } = render(<MyComponent />);
+expect(asFragment()).toMatchSnapshot();
 ```
 
 ### Finding Elements
@@ -96,9 +98,9 @@ expect(component).toMatchSnapshot();
 ```ts
 import { render, screen } from 'react-test-renderer';
 
-const component = render(<MyComponent />);
+const { asFragment } = render(<MyComponent />);
 expect(screen.getByText('value')).toBeDefined();
-expect(component.asFragment()).toMatchSnapshot();
+expect(asFragment()).toMatchSnapshot();
 ```
 
 ### Simulating Events. `fireEvent` [description](https://testing-library.com/docs/dom-testing-library/api-events/)
@@ -116,9 +118,9 @@ expect(component).toMatchSnapshot();
 ```ts
 import { fireEvent, render, screen } from 'react-test-renderer';
 
-const component = render(<MyComponent />);
+const { asFragment } = render(<MyComponent />);
 fireEvent.change(screen.getByDisplayValue(''), { target: { value: 'Utrecht' } });
-expect(component.asFragment()).toMatchSnapshot();
+expect(asFragment()).toMatchSnapshot();
 ```
 
 #### Before ⭕:

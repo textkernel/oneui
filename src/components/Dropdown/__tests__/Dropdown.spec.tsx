@@ -11,10 +11,10 @@ describe('Dropdown', () => {
     const mockOnMenuFocus = jest.fn();
     const mockOnMenuBlur = jest.fn();
     const mockOnDropdownStateChange = jest.fn();
-    let wrapper;
+    let view;
 
     beforeEach(() => {
-        wrapper = render(
+        view = render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -37,18 +37,18 @@ describe('Dropdown', () => {
     });
 
     it('should render correctly closed', () => {
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(view.asFragment()).toMatchSnapshot();
         expect(screen.queryAllByRole('presentation')).toHaveLength(0);
     });
 
     it('should render correctly opened', () => {
         fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(view.asFragment()).toMatchSnapshot();
         expect(screen.getAllByRole('listbox')).toHaveLength(1);
         expect(screen.getAllByRole('presentation')).toHaveLength(2);
     });
     it('should downshift only by enabled items with value', () => {
-        wrapper = render(
+        const { asFragment } = render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -70,7 +70,7 @@ describe('Dropdown', () => {
             </Dropdown>
         );
         fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
         const keyDown = () =>
             fireEvent.keyDown(screen.getAllByRole('listbox')[1], { key: 'ArrowDown' });
 
@@ -89,7 +89,7 @@ describe('Dropdown', () => {
     });
 
     it('onChange should return passed value', () => {
-        wrapper = render(
+        render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -112,7 +112,7 @@ describe('Dropdown', () => {
     });
 
     it('should render correctly with mixed children: array and single ListItem', () => {
-        wrapper = render(
+        const { asFragment } = render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -129,7 +129,7 @@ describe('Dropdown', () => {
             </Dropdown>
         );
         fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
         expect(screen.getAllByRole('presentation')).toHaveLength(3);
     });
 
@@ -180,7 +180,7 @@ describe('Dropdown', () => {
     });
 
     it('should open dropdown by default if corresponding prop is set', () => {
-        wrapper = render(
+        render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -205,7 +205,7 @@ describe('Dropdown', () => {
 
     it('should allow for conditional rendering of items', () => {
         const condition = false;
-        wrapper = render(
+        const { asFragment } = render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -224,7 +224,7 @@ describe('Dropdown', () => {
         );
         fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
 
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
         expect(screen.queryByText('false')).toBeNull();
     });
 });

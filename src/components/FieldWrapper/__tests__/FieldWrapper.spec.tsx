@@ -15,29 +15,29 @@ describe('FieldWrapper', () => {
         expect(svg).not.toBeInTheDocument();
     });
     it('should add clear button if showClearButton is true', () => {
-        const wrapper = render(
+        const { asFragment } = render(
             <FieldWrapper showClearButton clearTooltipLabel="Clear">
                 some children
             </FieldWrapper>
         );
 
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
         const button = screen.getByRole('button', { name: 'Clear' });
         expect(button).toBeInTheDocument();
     });
     it('should render arrow icon pointing down', () => {
-        const wrapper = render(<FieldWrapper showArrow>some children</FieldWrapper>);
+        const { asFragment } = render(<FieldWrapper showArrow>some children</FieldWrapper>);
 
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
     });
     it('should render arrow icon pointing up', () => {
-        const wrapper = render(
+        const { asFragment } = render(
             <FieldWrapper showArrow isArrowUp>
                 some children
             </FieldWrapper>
         );
 
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
     });
     it('should call onArrowClick when arrow is clicked', () => {
         const onArrowClickMock = jest.fn();
@@ -87,13 +87,13 @@ describe('FieldWrapper', () => {
     });
     it('should call onClear callback correctly', () => {
         const onClearMock = jest.fn();
-        const wrapper = render(
+        const { asFragment } = render(
             <FieldWrapper showClearButton clearTooltipLabel="Clear" onClear={onClearMock}>
                 tag
             </FieldWrapper>
         );
 
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(asFragment()).toMatchSnapshot();
         const button = screen.getByRole('button', { name: 'Clear' });
         fireEvent.click(button);
         expect(onClearMock).toHaveBeenCalled();

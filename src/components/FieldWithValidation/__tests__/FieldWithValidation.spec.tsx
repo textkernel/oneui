@@ -5,20 +5,15 @@ import { Input } from '../../Input';
 import '@testing-library/jest-dom';
 
 describe('FieldWithValidation', () => {
-    let wrapper;
-
     describe('when rendering message as text', () => {
         describe('with no error message passed', () => {
-            beforeEach(() => {
-                wrapper = render(
+            it('should simply render the child as it is', () => {
+                const { asFragment } = render(
                     <FieldWithValidation>
                         <Input />
                     </FieldWithValidation>
                 );
-            });
-
-            it('should simply render the child as it is', () => {
-                expect(wrapper.asFragment()).toMatchSnapshot();
+                expect(asFragment()).toMatchSnapshot();
                 expect(screen.getByRole('textbox')).toBeInTheDocument();
             });
         });
@@ -26,16 +21,13 @@ describe('FieldWithValidation', () => {
 
     describe('with error message passed', () => {
         const message = 'invalid field';
-        beforeEach(() => {
-            wrapper = render(
+        it('should set context to bad on child', () => {
+            const { asFragment } = render(
                 <FieldWithValidation errorMessage={message}>
                     <Input />
                 </FieldWithValidation>
             );
-        });
-
-        it('should set context to bad on child', () => {
-            expect(wrapper.asFragment()).toMatchSnapshot();
+            expect(asFragment()).toMatchSnapshot();
             const input = screen.getByRole('textbox');
             expect(input).toHaveAttribute('class', 'Input Input--context_danger');
             expect(input).toBeInTheDocument();
@@ -47,23 +39,21 @@ describe('FieldWithValidation', () => {
     });
     describe('when using tooltip', () => {
         describe('with no error message passed', () => {
-            beforeEach(() => {
-                wrapper = render(
+            it('should not render a tooltip with no error message', () => {
+                const { asFragment } = render(
                     <FieldWithValidation useTooltip>
                         <Input />
                     </FieldWithValidation>
                 );
-            });
-
-            it('should not render a tooltip with no error message', () => {
-                expect(wrapper.asFragment()).toMatchSnapshot();
-                fireEvent.change(screen.getByDisplayValue(''), { target: { value: 'Utrecht' } });
+                expect(asFragment()).toMatchSnapshot();
+                fireEvent.click(screen.getByDisplayValue(''));
             });
         });
         describe('when error message is defined', () => {
+            let view;
             const message = 'invalid field';
             beforeEach(() => {
-                wrapper = render(
+                view = render(
                     <FieldWithValidation errorMessage={message} useTooltip>
                         <Input />
                     </FieldWithValidation>
@@ -71,16 +61,16 @@ describe('FieldWithValidation', () => {
             });
 
             it('should set context to bad on child', () => {
-                expect(wrapper.asFragment()).toMatchSnapshot();
+                expect(view.asFragment()).toMatchSnapshot();
                 const input = screen.getByRole('textbox');
                 expect(input).toHaveAttribute('class', 'Input Input--context_danger');
             });
             it('should render the message when field is focused', () => {
-                expect(wrapper.asFragment()).toMatchSnapshot();
+                expect(view.asFragment()).toMatchSnapshot();
                 expect(screen.queryByText(message)).toBeDefined();
             });
             it('should remove the message when field is blurred', () => {
-                expect(wrapper.asFragment()).toMatchSnapshot();
+                expect(view.asFragment()).toMatchSnapshot();
                 expect(screen.queryByText(message)).toBeDefined();
             });
         });
