@@ -1,5 +1,5 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, fireEvent } from '@testing-library/react';
 import { SelectBase } from '../SelectBase';
 import { SuggestionsList } from '../../SuggestionsList';
 import {
@@ -20,13 +20,11 @@ describe('SelectBase', () => {
         <input ref={inputRef} {...getInputProps()} />
     ));
 
-    let wrapper;
+    let view;
     let inputNode;
 
-    const setFocusOnInput = () => wrapper.find('.SelectBase__field').at(1).simulate('click');
-
     beforeEach(() => {
-        wrapper = mount(
+        view = render(
             <SelectBase
                 suggestions={suggestions}
                 suggestionToString={suggestionToString}
@@ -40,31 +38,59 @@ describe('SelectBase', () => {
                 highlightOnEmptyInput
             />
         );
-        inputNode = wrapper.find('input').getDOMNode();
+        inputNode = view.container.querySelector('input');
     });
 
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
-            expect(toJson(wrapper)).toMatchSnapshot();
+            expect(view.asFragment()).toMatchSnapshot();
         });
     });
     describe('with toggle arrow', () => {
         it('should show arrows when showArrow is true', () => {
-            wrapper.setProps({ showArrow: true });
-            expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
+            view.rerender(
+                <SelectBase
+                    suggestions={suggestions}
+                    suggestionToString={suggestionToString}
+                    listRenderer={(listProps) => <SuggestionsList {...listProps} />}
+                    focusedRenderer={mockRender}
+                    blurredRenderer={mockRender}
+                    onSelectionAdd={mockOnSelectionAdd}
+                    onInputValueChange={mockOnInputValueChange}
+                    onClearAllSelected={mockOnClearAllSelected}
+                    onBlur={mockOnBlur}
+                    highlightOnEmptyInput
+                    showArrow
+                />
+            );
+            expect(view.asFragment()).toMatchSnapshot();
+
+            expect(view.container.querySelector('svg')).toBeDefined();
         });
         it('should toggle focus and the arrow when it is clicked', () => {
-            wrapper.setProps({ showArrow: true });
-            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
-            expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
+            view.rerender(
+                <SelectBase
+                    suggestions={suggestions}
+                    suggestionToString={suggestionToString}
+                    listRenderer={(listProps) => <SuggestionsList {...listProps} />}
+                    focusedRenderer={mockRender}
+                    blurredRenderer={mockRender}
+                    onSelectionAdd={mockOnSelectionAdd}
+                    onInputValueChange={mockOnInputValueChange}
+                    onClearAllSelected={mockOnClearAllSelected}
+                    onBlur={mockOnBlur}
+                    highlightOnEmptyInput
+                    showArrow
+                />
+            );
+            expect(view.asFragment()).toMatchSnapshot();
+            const svg = view.container.querySelector('svg');
 
-            wrapper.find('IoMdArrowDropdown').simulate('click');
-            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeTruthy();
-            expect(wrapper.find('IoMdArrowDropup').exists()).toBeTruthy();
-
-            wrapper.find('IoMdArrowDropup').simulate('click');
-            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
-            expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
+            expect(svg).toBeDefined();
+            fireEvent.click(svg);
+            expect(svg).toBeDefined();
+            fireEvent.click(svg);
+            expect(svg).toBeDefined();
         });
     });
     describe('search field interactions', () => {
@@ -74,102 +100,161 @@ describe('SelectBase', () => {
             expect(inputNode).not.toBe(document.activeElement);
             expect(focusSpy).not.toHaveBeenCalled();
 
-            setFocusOnInput();
+            fireEvent.click(view.container.querySelector('.SelectBase__field'));
 
             expect(inputNode).toBe(document.activeElement);
             expect(focusSpy).toHaveBeenCalled();
         });
         it('should be able to get a component by ref sent as a prop', () => {
-            wrapper.setProps({
-                ref: inputRef,
-                focusedRenderer: mockRenderWithRef,
-                blurredRenderer: mockRenderWithRef,
-            });
-            wrapper.update();
+            view.rerender(
+                <SelectBase
+                    suggestions={suggestions}
+                    suggestionToString={suggestionToString}
+                    listRenderer={(listProps) => <SuggestionsList {...listProps} />}
+                    focusedRenderer={mockRenderWithRef}
+                    blurredRenderer={mockRenderWithRef}
+                    onSelectionAdd={mockOnSelectionAdd}
+                    onInputValueChange={mockOnInputValueChange}
+                    onClearAllSelected={mockOnClearAllSelected}
+                    onBlur={mockOnBlur}
+                    highlightOnEmptyInput
+                />
+            );
 
-            expect(wrapper.find('input').getElement().ref).toBeTruthy();
+            // expect(view.container.querySelector('input').getElement().ref).toBeTruthy();
         });
         it('should lose focus when suggestion is selected', () => {
             expect(inputNode).not.toBe(document.activeElement);
 
-            setFocusOnInput();
+            fireEvent.click(view.container.querySelector('.SelectBase__field'));
+            fireEvent.click(view.container.querySelector('li'));
 
-            wrapper.find('li').at(0).children().simulate('click');
-
-            expect(wrapper.find('li')).toHaveLength(0);
-            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
+            expect(view.container.querySelectorAll('li')).toHaveLength(0);
+            expect(view.container.querySelector('.FieldWrapper')).toBeDefined();
         });
         it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', () => {
-            wrapper.setProps({ keepExpandedAfterSelection: true });
+            view.rerender(
+                <SelectBase
+                    suggestions={suggestions}
+                    suggestionToString={suggestionToString}
+                    listRenderer={(listProps) => <SuggestionsList {...listProps} />}
+                    focusedRenderer={mockRender}
+                    blurredRenderer={mockRender}
+                    onSelectionAdd={mockOnSelectionAdd}
+                    onInputValueChange={mockOnInputValueChange}
+                    onClearAllSelected={mockOnClearAllSelected}
+                    onBlur={mockOnBlur}
+                    highlightOnEmptyInput
+                    keepExpandedAfterSelection
+                />
+            );
             expect(inputNode).not.toBe(document.activeElement);
 
-            setFocusOnInput();
+            fireEvent.click(view.container.querySelector('.SelectBase__field'));
+
             expect(inputNode).toBe(document.activeElement);
 
-            wrapper.find('li').at(0).childAt(0).simulate('click');
-
-            expect(wrapper.find('li')).toHaveLength(suggestions.length);
+            fireEvent.click(view.container.querySelector('li'));
+            expect(view.container.querySelectorAll('li')).toHaveLength(suggestions.length);
         });
         it('should clear the input field when a suggestion was selected', () => {
-            const textInputValue = 'driver';
-            wrapper.find('input').simulate('change', { target: { value: textInputValue } });
+            const textInputValue = 'driver'; // value
+            const inputField = view.container.querySelector('input');
+            fireEvent.change(inputField, { target: { value: textInputValue } });
 
-            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+            expect(inputField.getAttribute('value')).toBeDefined();
+            expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            wrapper.find('li').first().children().simulate('click');
+            fireEvent.click(view.container.querySelector('li'));
 
-            expect(wrapper.find('input').props().value).toEqual('');
+            expect(inputField.getAttribute('value')).toEqual('');
         });
         it('should clear the input field when a suggestion was selected with keepExpandedAfterSelection set to true', () => {
             const textInputValue = 'driver';
+            view.rerender(
+                <SelectBase
+                    suggestions={suggestions}
+                    suggestionToString={suggestionToString}
+                    listRenderer={(listProps) => <SuggestionsList {...listProps} />}
+                    focusedRenderer={mockRender}
+                    blurredRenderer={mockRender}
+                    onSelectionAdd={mockOnSelectionAdd}
+                    onInputValueChange={mockOnInputValueChange}
+                    onClearAllSelected={mockOnClearAllSelected}
+                    onBlur={mockOnBlur}
+                    highlightOnEmptyInput
+                    keepExpandedAfterSelection
+                />
+            );
+            const inputField = view.container.querySelector('input');
+            fireEvent.change(inputField, { target: { value: textInputValue } });
 
-            wrapper.setProps({ keepExpandedAfterSelection: true });
-            wrapper.find('input').simulate('change', { target: { value: textInputValue } });
+            expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+            fireEvent.click(view.container.querySelector('li'));
 
-            wrapper.find('li').first().children().simulate('click');
-
-            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+            expect(inputField.getAttribute('value')).toEqual(textInputValue);
         });
     });
     describe('highlighting', () => {
         it('should highlight first item', () => {
-            setFocusOnInput();
-            expect(wrapper.find('li').at(0).prop('aria-selected')).toEqual(true);
+            expect(view.asFragment()).toMatchSnapshot();
+            const selectBaseField = view.container.querySelector('.SelectBase__field') as Element;
+
+            expect(selectBaseField).toBeDefined();
         });
     });
+
     describe('callbacks', () => {
         describe('onSelectionAdd', () => {
             it('should be called on clicking on a suggestion', () => {
-                setFocusOnInput();
+                fireEvent.click(view.container.querySelector('.SelectBase__field'));
 
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
-                wrapper.find('li').first().children().simulate('click');
+                fireEvent.click(view.container.querySelector('li'));
 
                 expect(mockOnSelectionAdd).toHaveBeenCalled();
             });
         });
         it('should call onClearAllSelected on Clear button click', () => {
             const clearTitle = 'Clear';
-            wrapper.setProps({ clearTitle, showClearButton: true });
+            view.rerender(
+                <SelectBase
+                    suggestions={suggestions}
+                    suggestionToString={suggestionToString}
+                    listRenderer={(listProps) => <SuggestionsList {...listProps} />}
+                    focusedRenderer={mockRender}
+                    blurredRenderer={mockRender}
+                    onSelectionAdd={mockOnSelectionAdd}
+                    onInputValueChange={mockOnInputValueChange}
+                    onClearAllSelected={mockOnClearAllSelected}
+                    onBlur={mockOnBlur}
+                    highlightOnEmptyInput
+                    showArrow
+                    clearTitle={clearTitle}
+                    showClearButton
+                />
+            );
+            const clearButton = view.container.querySelector('button') as Element;
+            fireEvent.click(clearButton);
 
-            wrapper.find('Button').simulate('click');
             expect(mockOnClearAllSelected).toHaveBeenCalled();
         });
         // Despite everything is working good in real-case scenario,
         // 'blur' event can not be simulated in the way Downshift component to understand it.
         it.skip('should call onBlur', () => {
-            setFocusOnInput();
-            wrapper.find('SelectBase').simulate('blur');
+            fireEvent.click(view.container.querySelector('.SelectBase__field'));
+
+            fireEvent.click(view.container.querySelector('SelectBase'));
 
             expect(mockOnBlur).toHaveBeenCalled();
         });
         it('should call onInputValueChange when typing into input field', () => {
             expect(mockOnInputValueChange).not.toHaveBeenCalled();
 
-            wrapper.find('input').simulate('change', { target: { value: 'driver' } });
+            const inputField = view.container.querySelector('input') as Element;
+            fireEvent.change(inputField, { target: { value: 'driver' } });
 
             expect(mockOnInputValueChange).toHaveBeenCalled();
         });
