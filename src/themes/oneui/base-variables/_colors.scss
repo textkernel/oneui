@@ -73,12 +73,12 @@ $color-muted-12: #75DFFB !default;
             --color-#{ $context }-#{ 50 - math.div($factor, 2) }: #{mix(
                 $color-background,
                 $value,
-                $factor
+                $factor * 1%
             )};
             --color-#{ $context }-#{ 50 + math.div($factor, 2) }: #{mix(
                 $color-foreground,
                 $value,
-                $factor
+                $factor * 1%
             )};
         }
     }
