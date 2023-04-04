@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Autosuggest } from '../Autosuggest';
 import {
     SUGGESTIONS,
@@ -21,9 +22,9 @@ describe('Autosuggest', () => {
     let view;
     let inputNodeField;
 
-    const setFocusOnInput = (inputNode) => {
+    const setFocusOnInput = async (inputNode) => {
         expect(inputNode).toBeDefined();
-        fireEvent.click(inputNode);
+        await userEvent.click(inputNode);
     };
 
     beforeEach(() => {
@@ -75,12 +76,12 @@ describe('Autosuggest', () => {
             expect(inputField.outerHTML).toMatch('data-test="true"');
             expect(inputField.outerHTML).toMatch('title="some title"');
         });
-        it('should initially render focused component correctly', () => {
-            setFocusOnInput(inputNodeField);
+        it('should initially render focused component correctly', async () => {
+            await setFocusOnInput(inputNodeField);
             expect(view.asFragment()).toMatchSnapshot();
             expect(view.container.querySelectorAll('.ListItem')).toHaveLength(0);
         });
-        it('should add additional attributes to input field when component is focused', () => {
+        it('should add additional attributes to input field when component is focused', async () => {
             view.rerender(
                 <Autosuggest
                     isLoading={false}
@@ -98,11 +99,11 @@ describe('Autosuggest', () => {
             );
             const inputField = view.container.querySelector('input') as Element;
 
-            setFocusOnInput(inputField);
+            await setFocusOnInput(inputField);
             expect(inputField.outerHTML).toMatch('data-test="true"');
             expect(inputField.outerHTML).toMatch('title="some title"');
         });
-        it('should initially render focused component with suggestions list correctly', () => {
+        it('should initially render focused component with suggestions list correctly', async () => {
             suggestionsList = SUGGESTIONS.slice(0, 8);
             view.rerender(
                 <Autosuggest
@@ -119,12 +120,12 @@ describe('Autosuggest', () => {
                     inputAttrs={{ 'data-test': true, title: 'some title' }}
                 />
             );
-            setFocusOnInput(inputNodeField);
+            await setFocusOnInput(inputNodeField);
             expect(view.asFragment()).toMatchSnapshot();
             const listItem = view.container.querySelectorAll('li');
             expect(listItem).toHaveLength(8);
         });
-        it('should render component with suggestions', () => {
+        it('should render component with suggestions', async () => {
             suggestionsList = SUGGESTIONS.slice(1, 20);
             view.rerender(
                 <Autosuggest
@@ -142,10 +143,11 @@ describe('Autosuggest', () => {
                 />
             );
             setFocusOnInput(inputNodeField);
-            fireEvent.change(inputNodeField, { target: { value: 'driver' } });
+
+            await userEvent.type(inputNodeField, 'driver');
             expect(view.asFragment()).toMatchSnapshot();
         });
-        it('should render isLoading state', () => {
+        it('should render isLoading state', async () => {
             suggestionsList = SUGGESTIONS.slice(1, 20);
             view.rerender(
                 <Autosuggest
@@ -163,11 +165,11 @@ describe('Autosuggest', () => {
                 />
             );
             setFocusOnInput(inputNodeField);
-            fireEvent.change(inputNodeField, { target: { value: 'driver' } });
+            await userEvent.type(inputNodeField, 'driver');
             expect(view.container.querySelectorAll('.SuggestionsList__loaderItem')).toHaveLength(5);
             expect(view.asFragment()).toMatchSnapshot();
         });
-        it('should render mix suggestions and loader if allowMixingSuggestionsAndLoading is set to true', () => {
+        it('should render mix suggestions and loader if allowMixingSuggestionsAndLoading is set to true', async () => {
             suggestionsList = SUGGESTIONS.slice(1, 3);
             view.rerender(
                 <Autosuggest
@@ -185,13 +187,13 @@ describe('Autosuggest', () => {
                 />
             );
             setFocusOnInput(inputNodeField);
-            fireEvent.change(inputNodeField, { target: { value: 'driver' } });
+            await userEvent.type(inputNodeField, 'driver');
             expect(view.container.querySelectorAll('.ListItem')).toHaveLength(7);
             expect(view.container.querySelectorAll('.SuggestionsList__loaderItem')).toHaveLength(5);
         });
         it('should render empty component correctly when focused', async () => {
             expect(view.asFragment()).toMatchSnapshot();
-            setFocusOnInput(inputNodeField);
+            await setFocusOnInput(inputNodeField);
             expect(document.activeElement).toBe(inputNodeField);
         });
     });

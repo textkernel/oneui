@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { SelectBase } from '../SelectBase';
 import { SuggestionsList } from '../../SuggestionsList';
 import {
@@ -67,7 +68,7 @@ describe('SelectBase', () => {
 
             expect(view.container.querySelector('svg')).toBeDefined();
         });
-        it('should toggle focus and the arrow when it is clicked', () => {
+        it('should toggle focus and the arrow when it is clicked', async () => {
             view.rerender(
                 <SelectBase
                     suggestions={suggestions}
@@ -87,20 +88,20 @@ describe('SelectBase', () => {
             const svg = view.container.querySelector('svg');
 
             expect(svg).toBeDefined();
-            fireEvent.click(svg);
+            await userEvent.click(svg);
             expect(svg).toBeDefined();
-            fireEvent.click(svg);
+            await userEvent.click(svg);
             expect(svg).toBeDefined();
         });
     });
     describe('search field interactions', () => {
-        it('should set focus when wrapper element is clicked', () => {
+        it('should set focus when wrapper element is clicked', async () => {
             const focusSpy = jest.spyOn(inputNode, 'focus');
 
             expect(inputNode).not.toBe(document.activeElement);
             expect(focusSpy).not.toHaveBeenCalled();
 
-            fireEvent.click(view.container.querySelector('.SelectBase__field'));
+            await userEvent.click(view.container.querySelector('.SelectBase__field'));
 
             expect(inputNode).toBe(document.activeElement);
             expect(focusSpy).toHaveBeenCalled();
@@ -121,18 +122,18 @@ describe('SelectBase', () => {
                 />
             );
 
-            // expect(view.container.querySelector('input').getElement().ref).toBeTruthy();
+            expect(view.container.querySelector('input').getAttribute('ref')).toBeDefined();
         });
-        it('should lose focus when suggestion is selected', () => {
+        it('should lose focus when suggestion is selected', async () => {
             expect(inputNode).not.toBe(document.activeElement);
 
-            fireEvent.click(view.container.querySelector('.SelectBase__field'));
-            fireEvent.click(view.container.querySelector('li'));
+            await userEvent.click(view.container.querySelector('.SelectBase__field'));
+            await userEvent.click(view.container.querySelector('li'));
 
             expect(view.container.querySelectorAll('li')).toHaveLength(0);
             expect(view.container.querySelector('.FieldWrapper')).toBeDefined();
         });
-        it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', () => {
+        it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', async () => {
             view.rerender(
                 <SelectBase
                     suggestions={suggestions}
@@ -150,26 +151,26 @@ describe('SelectBase', () => {
             );
             expect(inputNode).not.toBe(document.activeElement);
 
-            fireEvent.click(view.container.querySelector('.SelectBase__field'));
+            await userEvent.click(view.container.querySelector('.SelectBase__field'));
 
             expect(inputNode).toBe(document.activeElement);
 
-            fireEvent.click(view.container.querySelector('li'));
+            await userEvent.click(view.container.querySelector('li'));
             expect(view.container.querySelectorAll('li')).toHaveLength(suggestions.length);
         });
-        it('should clear the input field when a suggestion was selected', () => {
-            const textInputValue = 'driver'; // value
+        it('should clear the input field when a suggestion was selected', async () => {
+            const textInputValue = 'driver';
             const inputField = view.container.querySelector('input');
-            fireEvent.change(inputField, { target: { value: textInputValue } });
+            await userEvent.type(inputField, textInputValue);
 
             expect(inputField.getAttribute('value')).toBeDefined();
             expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            fireEvent.click(view.container.querySelector('li'));
+            await userEvent.click(view.container.querySelector('li'));
 
             expect(inputField.getAttribute('value')).toEqual('');
         });
-        it('should clear the input field when a suggestion was selected with keepExpandedAfterSelection set to true', () => {
+        it('should clear the input field when a suggestion was selected with keepExpandedAfterSelection set to true', async () => {
             const textInputValue = 'driver';
             view.rerender(
                 <SelectBase
@@ -187,11 +188,11 @@ describe('SelectBase', () => {
                 />
             );
             const inputField = view.container.querySelector('input');
-            fireEvent.change(inputField, { target: { value: textInputValue } });
+            await userEvent.type(inputField, textInputValue);
 
             expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            fireEvent.click(view.container.querySelector('li'));
+            await userEvent.click(view.container.querySelector('li'));
 
             expect(inputField.getAttribute('value')).toEqual(textInputValue);
         });
@@ -207,17 +208,17 @@ describe('SelectBase', () => {
 
     describe('callbacks', () => {
         describe('onSelectionAdd', () => {
-            it('should be called on clicking on a suggestion', () => {
-                fireEvent.click(view.container.querySelector('.SelectBase__field'));
+            it('should be called on clicking on a suggestion', async () => {
+                await userEvent.click(view.container.querySelector('.SelectBase__field'));
 
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
-                fireEvent.click(view.container.querySelector('li'));
+                await userEvent.click(view.container.querySelector('li'));
 
                 expect(mockOnSelectionAdd).toHaveBeenCalled();
             });
         });
-        it('should call onClearAllSelected on Clear button click', () => {
+        it('should call onClearAllSelected on Clear button click', async () => {
             const clearTitle = 'Clear';
             view.rerender(
                 <SelectBase
@@ -237,24 +238,24 @@ describe('SelectBase', () => {
                 />
             );
             const clearButton = view.container.querySelector('button') as Element;
-            fireEvent.click(clearButton);
+            await userEvent.click(clearButton);
 
             expect(mockOnClearAllSelected).toHaveBeenCalled();
         });
         // Despite everything is working good in real-case scenario,
         // 'blur' event can not be simulated in the way Downshift component to understand it.
-        it.skip('should call onBlur', () => {
-            fireEvent.click(view.container.querySelector('.SelectBase__field'));
+        it.skip('should call onBlur', async () => {
+            await userEvent.click(view.container.querySelector('.SelectBase__field'));
 
-            fireEvent.click(view.container.querySelector('SelectBase'));
+            await userEvent.click(view.container.querySelector('SelectBase'));
 
             expect(mockOnBlur).toHaveBeenCalled();
         });
-        it('should call onInputValueChange when typing into input field', () => {
+        it('should call onInputValueChange when typing into input field', async () => {
             expect(mockOnInputValueChange).not.toHaveBeenCalled();
 
             const inputField = view.container.querySelector('input') as Element;
-            fireEvent.change(inputField, { target: { value: 'driver' } });
+            await userEvent.type(inputField, 'drive');
 
             expect(mockOnInputValueChange).toHaveBeenCalled();
         });
