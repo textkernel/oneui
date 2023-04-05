@@ -138,39 +138,40 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
     class="SelectBase"
   >
     <div
-      aria-expanded="false"
+      aria-expanded="true"
       aria-haspopup="listbox"
       aria-labelledby="downshift-5-label"
-      class="SelectBase__main"
+      aria-owns="downshift-5-menu"
+      class="SelectBase__main SelectBase__main--focused"
       role="combobox"
     >
       <div
-        class="FieldWrapper FieldWrapper--disabled SelectBase__field"
+        class="FieldWrapper FieldWrapper--isFocused SelectBase__field"
       >
         <div
           class="FieldWrapper__content"
         >
           <div
-            class="ComboboxMulti__wrapper ComboboxMulti__wrapper--disabled"
+            class="ComboboxMulti__wrapper"
             role="searchbox"
             tabindex="0"
           >
             <input
+              aria-activedescendant="downshift-5-item-0"
               aria-autocomplete="list"
+              aria-controls="downshift-5-menu"
               aria-labelledby="downshift-5-label"
               autocomplete="off"
-              class="ComboboxMulti__input ComboboxMulti__input--disabled"
+              class="ComboboxMulti__input"
               data-lpignore="true"
-              disabled=""
               placeholder="type here..."
               value=""
             />
             <svg
               aria-haspopup="true"
-              aria-label="open menu"
-              class="ComboboxMulti__dropdownIcon ComboboxMulti__dropdownIcon--disabled"
+              aria-label="close menu"
+              class="ComboboxMulti__dropdownIcon"
               data-toggle="true"
-              disabled=""
               fill="currentColor"
               height="1em"
               role="button"
@@ -182,16 +183,27 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M128 192l128 128 128-128z"
+                d="M128 320l128-128 128 128z"
               />
             </svg>
           </div>
           <ul
             aria-labelledby="downshift-5-label"
-            class="List"
+            class="List SelectBase__list--focused"
             id="downshift-5-menu"
             role="listbox"
-          />
+          >
+            <li
+              class="ListItem ListItem--disabled"
+              role="presentation"
+            >
+              <p
+                class="Text--context_neutral"
+              >
+                No suggestions...
+              </p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { create } from 'react-test-renderer';
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { ComboboxMulti } from '../ComboboxMulti';
 import {
     SUGGESTIONS,
@@ -112,16 +114,24 @@ describe('ComboboxMulti', () => {
                     onSelectionAdd={mockOnSelectionAdd}
                     onInputValueChange={mockOnInputValueChange}
                     onBlur={mockOnBlur}
-                    disabled
+                />
+            );
+            create(
+                <ComboboxMulti
+                    suggestions={[]}
+                    suggestionToString={suggestionToString}
+                    inputPlaceholder={inputPlaceholder}
+                    noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+                    onSelectionAdd={mockOnSelectionAdd}
+                    onInputValueChange={mockOnInputValueChange}
+                    onBlur={mockOnBlur}
                 />
             );
             await setFocusOnInput(inputNodeField);
             expect(view.asFragment()).toMatchSnapshot();
 
-            expect(view.container.querySelectorAll('ul')).toHaveLength(1); // need to check li tag
-            // expect(wrapper.find('li').childAt(0).text()).toEqual(noSuggestionsPlaceholder); // need to check li tag
-            // expect(wrapper.find('li')).toHaveLength(1);
-            // expect(wrapper.find('li').childAt(0).text()).toEqual(noSuggestionsPlaceholder);
+            expect(view.container.querySelectorAll('li')).toHaveLength(1);
+            expect(screen.findByText(noSuggestionsPlaceholder)).toBeDefined();
         });
         it('should render selection placeholder when component is not focused', () => {
             const inputField = view.container.querySelector('input') as Element;
