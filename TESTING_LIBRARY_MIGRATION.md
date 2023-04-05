@@ -103,7 +103,7 @@ expect(screen.getByText('value')).toBeDefined();
 expect(asFragment()).toMatchSnapshot();
 ```
 
-### Simulating Events. `fireEvent` [description](https://testing-library.com/docs/dom-testing-library/api-events/)
+### Simulating Events. `userEvent` [description](https://testing-library.com/docs/ecosystem-user-event/)
 
 #### Before ⭕:
 ```ts
@@ -116,10 +116,11 @@ expect(component).toMatchSnapshot();
 
 #### After ✅:
 ```ts
-import { fireEvent, render, screen } from 'react-test-renderer';
+import { render, screen } from 'react-test-renderer';
+import userEvent from '@testing-library/user-event';
 
 const { asFragment } = render(<MyComponent />);
-fireEvent.change(screen.getByDisplayValue(''), { target: { value: 'Utrecht' } });
+await userEvent.type(screen.getByDisplayValue(''), 'Utrecht');
 expect(asFragment()).toMatchSnapshot();
 ```
 
@@ -135,12 +136,13 @@ expect(handleClick).toHaveBeenCalled();
 
 #### After ✅:
 ```ts
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 const handleClick = jest.fn();
 render(<MyComponent onClick={handleClick} />);
 const button = screen.getByRole('button', { name: 'click me' });
-fireEvent.click(button);
+await userEvent.click(button);
 expect(handleClick).toHaveBeenCalled();
 ```
 

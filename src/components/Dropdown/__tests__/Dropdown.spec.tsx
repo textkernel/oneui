@@ -1,5 +1,6 @@
 import React from 'react';
-import { fireEvent, screen, render } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Dropdown } from '../Dropdown';
 import { Button } from '../../Buttons';
 import { ListItem } from '../../List';
@@ -41,13 +42,13 @@ describe('Dropdown', () => {
         expect(screen.queryAllByRole('presentation')).toHaveLength(0);
     });
 
-    it('should render correctly opened', () => {
-        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+    it('should render correctly opened', async () => {
+        await userEvent.click(screen.getByRole('button', { name: 'Click me!' }));
         expect(view.asFragment()).toMatchSnapshot();
         expect(screen.getAllByRole('listbox')).toHaveLength(1);
         expect(screen.getAllByRole('presentation')).toHaveLength(2);
     });
-    it('should downshift only by enabled items with value', () => {
+    it('should downshift only by enabled items with value', async () => {
         const { asFragment } = render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
@@ -69,10 +70,9 @@ describe('Dropdown', () => {
                 </ListItem>
             </Dropdown>
         );
-        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
+        await userEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
         expect(asFragment()).toMatchSnapshot();
-        const keyDown = () =>
-            fireEvent.keyDown(screen.getAllByRole('listbox')[1], { key: 'ArrowDown' });
+        const keyDown = () => userEvent.click(screen.getAllByRole('listbox')[1]);
 
         // 1 keydown
         keyDown();
@@ -88,7 +88,7 @@ describe('Dropdown', () => {
         expect(screen.getAllByRole('presentation')[3]).toHaveTextContent('With value 2');
     });
 
-    it('onChange should return passed value', () => {
+    it('onChange should return passed value', async () => {
         render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
@@ -103,15 +103,15 @@ describe('Dropdown', () => {
                 </ListItem>
             </Dropdown>
         );
-        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
+        await userEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
 
-        fireEvent.keyDown(screen.getAllByRole('listbox')[1], { key: 'ArrowDown' });
-        fireEvent.keyDown(screen.getAllByRole('presentation')[0], { key: 'Enter' });
+        await userEvent.keyboard('[ArrowDown]');
+        await userEvent.keyboard('[Enter]');
 
         expect(mockOnChange).toBeCalledWith('testValue');
     });
 
-    it('should render correctly with mixed children: array and single ListItem', () => {
+    it('should render correctly with mixed children: array and single ListItem', async () => {
         const { asFragment } = render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
@@ -128,49 +128,49 @@ describe('Dropdown', () => {
                 ))}
             </Dropdown>
         );
-        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
+        await userEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
         expect(asFragment()).toMatchSnapshot();
         expect(screen.getAllByRole('presentation')).toHaveLength(3);
     });
 
-    it('should call cb when button is clicked', () => {
-        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+    it('should call cb when button is clicked', async () => {
+        await userEvent.click(screen.getByRole('button', { name: 'Click me!' }));
         expect(mockOnButtonClick).toHaveBeenCalledWith(false);
-        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Click me!' }));
         expect(mockOnButtonClick).toHaveBeenCalledWith(true);
     });
 
-    it('should call callback when menu is focused', () => {
-        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
-        fireEvent.focus(screen.getByRole('listbox'));
+    it('should call callback when menu is focused', async () => {
+        await userEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+        await userEvent.click(screen.getByRole('listbox'));
 
         expect(mockOnMenuFocus).toHaveBeenCalled();
     });
 
-    it('should call callback when menu is blurred', () => {
-        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
-        fireEvent.focus(screen.getByRole('listbox'));
-        fireEvent.blur(screen.getByRole('listbox'));
+    it('should call callback when menu is blurred', async () => {
+        await userEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+        await userEvent.click(screen.getByRole('listbox'));
+        await userEvent.click(document.body);
 
         expect(mockOnMenuBlur).toHaveBeenCalled();
     });
 
-    it('should call callback when menu state is changed', () => {
-        fireEvent.click(screen.getByRole('button', { name: 'Click me!' }));
+    it('should call callback when menu state is changed', async () => {
+        await userEvent.click(screen.getByRole('button', { name: 'Click me!' }));
         // Event for a successful mouse click on dropdown button
         expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
             isOpen: true,
             type: '__togglebutton_click__',
         });
 
-        fireEvent.keyDown(screen.getByRole('listbox'), { key: 'ArrowDown' });
+        await userEvent.keyboard('[ArrowDown]');
         // Event for a successful arrow down press when menu is opened
         expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
             highlightedIndex: 0,
             type: '__menu_keydown_arrow_down__',
         });
 
-        fireEvent.blur(screen.getByRole('listbox'));
+        await userEvent.click(document.body);
         // Event for a successful dropdown blur
         expect(mockOnDropdownStateChange).toHaveBeenCalledWith({
             highlightedIndex: -1,
@@ -203,7 +203,7 @@ describe('Dropdown', () => {
         expect(screen.getAllByRole('presentation')).toHaveLength(3);
     });
 
-    it('should allow for conditional rendering of items', () => {
+    it('should allow for conditional rendering of items', async () => {
         const condition = false;
         const { asFragment } = render(
             <Dropdown
@@ -222,7 +222,7 @@ describe('Dropdown', () => {
                 {condition ? <ListItem key="3">should not render</ListItem> : null}
             </Dropdown>
         );
-        fireEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
+        await userEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
 
         expect(asFragment()).toMatchSnapshot();
         expect(screen.queryByText('false')).toBeNull();

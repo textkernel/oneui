@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { FieldWithValidation } from '../FieldWithValidation';
 import { Input } from '../../Input';
 import '@testing-library/jest-dom';
@@ -46,7 +47,7 @@ describe('FieldWithValidation', () => {
                     </FieldWithValidation>
                 );
                 expect(asFragment()).toMatchSnapshot();
-                fireEvent.click(screen.getByDisplayValue(''));
+                userEvent.click(screen.getByDisplayValue(''));
             });
         });
         describe('when error message is defined', () => {
