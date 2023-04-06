@@ -93,7 +93,7 @@ export function SuggestionsList<S>({
                 return (
                     // eslint-disable-next-line react/no-array-index-key
                     <ListItem key={i}>
-                        <div {...elem('loaderItem')}>
+                        <div {...elem('loaderItem')} role="group">
                             <ContentPlaceholder />
                         </div>
                     </ListItem>

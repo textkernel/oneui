@@ -369,6 +369,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       <div
         className="SuggestionsList__loaderItem"
         key=".0"
+        role="group"
       >
         <ContentPlaceholder>
           <div
@@ -404,6 +405,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       <div
         className="SuggestionsList__loaderItem"
         key=".0"
+        role="group"
       >
         <ContentPlaceholder>
           <div
@@ -439,6 +441,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       <div
         className="SuggestionsList__loaderItem"
         key=".0"
+        role="group"
       >
         <ContentPlaceholder>
           <div
@@ -474,6 +477,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       <div
         className="SuggestionsList__loaderItem"
         key=".0"
+        role="group"
       >
         <ContentPlaceholder>
           <div
@@ -509,6 +513,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       <div
         className="SuggestionsList__loaderItem"
         key=".0"
+        role="group"
       >
         <ContentPlaceholder>
           <div

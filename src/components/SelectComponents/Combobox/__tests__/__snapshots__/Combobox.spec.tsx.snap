@@ -8,7 +8,7 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
     <div
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby="downshift-11-label"
+      aria-labelledby="downshift-15-label"
       class="SelectBase__main"
       role="combobox"
     >
@@ -20,10 +20,10 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
         >
           <div
             aria-autocomplete="list"
-            aria-labelledby="downshift-11-label"
+            aria-labelledby="downshift-15-label"
             autocomplete="off"
             class="Combobox__wrapper"
-            id="downshift-11-input"
+            id="downshift-15-input"
             role="searchbox"
             tabindex="0"
             value=""
@@ -37,9 +37,9 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
             </span>
           </div>
           <ul
-            aria-labelledby="downshift-11-label"
+            aria-labelledby="downshift-15-label"
             class="List"
-            id="downshift-11-menu"
+            id="downshift-15-menu"
             role="listbox"
           />
         </div>
@@ -47,6 +47,7 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
+          role="img"
           stroke="currentColor"
           stroke-width="0"
           tabindex="0"
@@ -111,6 +112,146 @@ exports[`Combobox rendering should initially render empty component correctly 1`
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 192l128 128 128-128z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Combobox rendering should render noSuggestions placeholder when empty suggestions list is passed 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
+  >
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-3-label"
+      aria-owns="downshift-3-menu"
+      class="SelectBase__main SelectBase__main--focused"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            class="Combobox__wrapper"
+            role="searchbox"
+            tabindex="0"
+          >
+            <input
+              aria-activedescendant="downshift-3-item-0"
+              aria-autocomplete="list"
+              aria-controls="downshift-3-menu"
+              aria-labelledby="downshift-3-label"
+              autocomplete="off"
+              class="Combobox__input"
+              data-lpignore="true"
+              placeholder="type here..."
+              value=""
+            />
+          </div>
+          <ul
+            aria-labelledby="downshift-3-label"
+            class="List SelectBase__list--focused"
+            id="downshift-3-menu"
+            role="listbox"
+          >
+            <li
+              class="ListItem ListItem--disabled"
+              role="presentation"
+            >
+              <p
+                class="Text--context_neutral"
+              >
+                No suggestions...
+              </p>
+            </li>
+          </ul>
+        </div>
+        <svg
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 320l128-128 128 128z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Combobox rendering when blurred should show the selected value if available 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-7-label"
+      class="SelectBase__main"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper FieldWrapper--disabled SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-labelledby="downshift-7-label"
+            autocomplete="off"
+            class="Combobox__wrapper Combobox__wrapper--disabled"
+            id="downshift-7-input"
+            role="searchbox"
+            tabindex="0"
+            value=""
+          >
+            <span
+              class="Combobox__selection"
+            >
+              Moon
+            </span>
+          </div>
+          <ul
+            aria-labelledby="downshift-7-label"
+            class="List"
+            id="downshift-7-menu"
+            role="listbox"
+          />
+        </div>
+        <svg
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="img"
           stroke="currentColor"
           stroke-width="0"
           tabindex="0"

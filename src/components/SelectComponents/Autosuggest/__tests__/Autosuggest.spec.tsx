@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
+import { create } from 'react-test-renderer';
 import { Autosuggest } from '../Autosuggest';
 import {
     SUGGESTIONS,
@@ -17,38 +19,32 @@ describe('Autosuggest', () => {
     const mockOnBlur = jest.fn();
 
     let suggestionsList = [];
-    let selectedSuggestions = [];
+    const selectedSuggestions = [];
 
     let view;
     let inputNodeField;
 
-    const setFocusOnInput = async (inputNode) => {
-        expect(inputNode).toBeDefined();
-        await userEvent.click(inputNode);
+    const setFocus = async () => userEvent.click(screen.getByRole('listbox'));
+
+    const defaultProps = {
+        selectedSuggestions,
+        suggestions: suggestionsList,
+        suggestionToString,
+        inputPlaceholder,
+        onSelectionAdd: mockOnSelectionAdd,
+        onSelectionRemove: mockOnSelectionRemove,
+        onInputValueChange: mockOnInputValueChange,
+        numberOfVisibleTags,
+        onBlur: mockOnBlur,
+    };
+
+    const rerenderView = (props) => {
+        view.rerender(<Autosuggest {...props} />);
     };
 
     beforeEach(() => {
-        view = render(
-            <Autosuggest
-                isLoading={false}
-                selectedSuggestions={selectedSuggestions}
-                suggestions={suggestionsList}
-                suggestionToString={suggestionToString}
-                inputPlaceholder={inputPlaceholder}
-                onSelectionAdd={mockOnSelectionAdd}
-                onSelectionRemove={mockOnSelectionRemove}
-                onInputValueChange={mockOnInputValueChange}
-                numberOfVisibleTags={numberOfVisibleTags}
-                onBlur={mockOnBlur}
-            />
-        );
+        view = render(<Autosuggest {...defaultProps} />);
         inputNodeField = screen.getByRole('textbox');
-    });
-
-    afterEach(() => {
-        suggestionsList = [];
-        selectedSuggestions = [];
-        view.unmount();
     });
 
     describe('rendering', () => {
@@ -56,102 +52,29 @@ describe('Autosuggest', () => {
             expect(view.asFragment()).toMatchSnapshot();
         });
         it('should add additional attributes to input field when component is blurred', () => {
-            view.rerender(
-                <Autosuggest
-                    isLoading={false}
-                    selectedSuggestions={selectedSuggestions}
-                    suggestions={suggestionsList}
-                    suggestionToString={suggestionToString}
-                    inputPlaceholder={inputPlaceholder}
-                    onSelectionAdd={mockOnSelectionAdd}
-                    onSelectionRemove={mockOnSelectionRemove}
-                    onInputValueChange={mockOnInputValueChange}
-                    numberOfVisibleTags={numberOfVisibleTags}
-                    onBlur={mockOnBlur}
-                    inputAttrs={{ 'data-test': true, title: 'some title' }}
-                />
-            );
-            const inputField = view.container.querySelector('input') as Element;
+            const newProps = {
+                isLoading: false,
+                selectedSuggestions,
+                suggestions: suggestionsList,
+                suggestionToString,
+                inputPlaceholder,
+                onSelectionAdd: mockOnSelectionAdd,
+                onSelectionRemove: mockOnSelectionRemove,
+                onInputValueChange: mockOnInputValueChange,
+                numberOfVisibleTags,
+                onBlur: mockOnBlur,
+                inputAttrs: { 'data-test': true, title: 'some title' },
+            };
+            rerenderView(newProps);
+            const inputField = screen.getAllByRole('textbox')[0];
 
             expect(inputField.outerHTML).toMatch('data-test="true"');
             expect(inputField.outerHTML).toMatch('title="some title"');
         });
         it('should initially render focused component correctly', async () => {
-            await setFocusOnInput(inputNodeField);
-            expect(view.asFragment()).toMatchSnapshot();
-            expect(view.container.querySelectorAll('.ListItem')).toHaveLength(0);
-        });
-        it('should add additional attributes to input field when component is focused', async () => {
-            view.rerender(
+            create(
                 <Autosuggest
                     isLoading={false}
-                    selectedSuggestions={selectedSuggestions}
-                    suggestions={suggestionsList}
-                    suggestionToString={suggestionToString}
-                    inputPlaceholder={inputPlaceholder}
-                    onSelectionAdd={mockOnSelectionAdd}
-                    onSelectionRemove={mockOnSelectionRemove}
-                    onInputValueChange={mockOnInputValueChange}
-                    numberOfVisibleTags={numberOfVisibleTags}
-                    onBlur={mockOnBlur}
-                    inputAttrs={{ 'data-test': true, title: 'some title' }}
-                />
-            );
-            const inputField = view.container.querySelector('input') as Element;
-
-            await setFocusOnInput(inputField);
-            expect(inputField.outerHTML).toMatch('data-test="true"');
-            expect(inputField.outerHTML).toMatch('title="some title"');
-        });
-        it('should initially render focused component with suggestions list correctly', async () => {
-            suggestionsList = SUGGESTIONS.slice(0, 8);
-            view.rerender(
-                <Autosuggest
-                    isLoading={false}
-                    selectedSuggestions={selectedSuggestions}
-                    suggestions={suggestionsList}
-                    suggestionToString={suggestionToString}
-                    inputPlaceholder={inputPlaceholder}
-                    onSelectionAdd={mockOnSelectionAdd}
-                    onSelectionRemove={mockOnSelectionRemove}
-                    onInputValueChange={mockOnInputValueChange}
-                    numberOfVisibleTags={numberOfVisibleTags}
-                    onBlur={mockOnBlur}
-                    inputAttrs={{ 'data-test': true, title: 'some title' }}
-                />
-            );
-            await setFocusOnInput(inputNodeField);
-            expect(view.asFragment()).toMatchSnapshot();
-            const listItem = view.container.querySelectorAll('li');
-            expect(listItem).toHaveLength(8);
-        });
-        it('should render component with suggestions', async () => {
-            suggestionsList = SUGGESTIONS.slice(1, 20);
-            view.rerender(
-                <Autosuggest
-                    isLoading={false}
-                    selectedSuggestions={selectedSuggestions}
-                    suggestions={suggestionsList}
-                    suggestionToString={suggestionToString}
-                    inputPlaceholder={inputPlaceholder}
-                    onSelectionAdd={mockOnSelectionAdd}
-                    onSelectionRemove={mockOnSelectionRemove}
-                    onInputValueChange={mockOnInputValueChange}
-                    numberOfVisibleTags={numberOfVisibleTags}
-                    onBlur={mockOnBlur}
-                    inputAttrs={{ 'data-test': true, title: 'some title' }}
-                />
-            );
-            setFocusOnInput(inputNodeField);
-
-            await userEvent.type(inputNodeField, 'driver');
-            expect(view.asFragment()).toMatchSnapshot();
-        });
-        it('should render isLoading state', async () => {
-            suggestionsList = SUGGESTIONS.slice(1, 20);
-            view.rerender(
-                <Autosuggest
-                    isLoading
                     selectedSuggestions={selectedSuggestions}
                     suggestions={[]}
                     suggestionToString={suggestionToString}
@@ -164,36 +87,122 @@ describe('Autosuggest', () => {
                     inputAttrs={{ 'data-test': true, title: 'some title' }}
                 />
             );
-            setFocusOnInput(inputNodeField);
+            await setFocus();
+
+            expect(view.asFragment()).toMatchSnapshot();
+            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+        });
+        it('should add additional attributes to input field when component is focused', async () => {
+            const newProps = {
+                isLoading: false,
+                selectedSuggestions,
+                suggestions: suggestionsList,
+                suggestionToString,
+                inputPlaceholder,
+                onSelectionAdd: mockOnSelectionAdd,
+                onSelectionRemove: mockOnSelectionRemove,
+                onInputValueChange: mockOnInputValueChange,
+                numberOfVisibleTags,
+                onBlur: mockOnBlur,
+                inputAttrs: { 'data-test': true, title: 'some title' },
+            };
+            rerenderView(newProps);
+            const inputField = screen.getAllByRole('textbox')[0];
+            await setFocus();
+
+            expect(inputField.outerHTML).toMatch('data-test="true"');
+            expect(inputField.outerHTML).toMatch('title="some title"');
+        });
+        it('should initially render focused component with suggestions list correctly', async () => {
+            suggestionsList = SUGGESTIONS.slice(0, 8);
+            const newProps = {
+                isLoading: false,
+                selectedSuggestions,
+                suggestions: suggestionsList,
+                suggestionToString,
+                inputPlaceholder,
+                onSelectionAdd: mockOnSelectionAdd,
+                onSelectionRemove: mockOnSelectionRemove,
+                onInputValueChange: mockOnInputValueChange,
+                numberOfVisibleTags,
+                onBlur: mockOnBlur,
+                inputAttrs: { 'data-test': true, title: 'some title' },
+            };
+            rerenderView(newProps);
+            await setFocus();
+
+            expect(view.asFragment()).toMatchSnapshot();
+            expect(screen.getAllByRole('presentation')).toHaveLength(8);
+        });
+        it('should render component with suggestions', async () => {
+            suggestionsList = SUGGESTIONS.slice(1, 20);
+            const newProps = {
+                isLoading: false,
+                selectedSuggestions,
+                suggestions: suggestionsList,
+                suggestionToString,
+                inputPlaceholder,
+                onSelectionAdd: mockOnSelectionAdd,
+                onSelectionRemove: mockOnSelectionRemove,
+                onInputValueChange: mockOnInputValueChange,
+                numberOfVisibleTags,
+                onBlur: mockOnBlur,
+                inputAttrs: { 'data-test': true, title: 'some title' },
+            };
+            rerenderView(newProps);
+            await setFocus();
             await userEvent.type(inputNodeField, 'driver');
-            expect(view.container.querySelectorAll('.SuggestionsList__loaderItem')).toHaveLength(5);
+
+            expect(view.asFragment()).toMatchSnapshot();
+        });
+        it('should render isLoading state', async () => {
+            suggestionsList = SUGGESTIONS.slice(1, 20);
+            const newProps = {
+                isLoading: true,
+                selectedSuggestions,
+                suggestions: [],
+                suggestionToString,
+                inputPlaceholder,
+                onSelectionAdd: mockOnSelectionAdd,
+                onSelectionRemove: mockOnSelectionRemove,
+                onInputValueChange: mockOnInputValueChange,
+                numberOfVisibleTags,
+                onBlur: mockOnBlur,
+                inputAttrs: { 'data-test': true, title: 'some title' },
+            };
+            rerenderView(newProps);
+            await setFocus();
+            await userEvent.type(inputNodeField, 'driver');
+
+            expect(screen.getAllByRole('presentation')).toHaveLength(5);
             expect(view.asFragment()).toMatchSnapshot();
         });
         it('should render mix suggestions and loader if allowMixingSuggestionsAndLoading is set to true', async () => {
             suggestionsList = SUGGESTIONS.slice(1, 3);
-            view.rerender(
-                <Autosuggest
-                    isLoading
-                    selectedSuggestions={selectedSuggestions}
-                    suggestions={suggestionsList}
-                    suggestionToString={suggestionToString}
-                    inputPlaceholder={inputPlaceholder}
-                    onSelectionAdd={mockOnSelectionAdd}
-                    onSelectionRemove={mockOnSelectionRemove}
-                    onInputValueChange={mockOnInputValueChange}
-                    numberOfVisibleTags={numberOfVisibleTags}
-                    onBlur={mockOnBlur}
-                    allowMixingSuggestionsAndLoading
-                />
-            );
-            setFocusOnInput(inputNodeField);
+            const newProps = {
+                isLoading: true,
+                selectedSuggestions,
+                suggestions: suggestionsList,
+                suggestionToString,
+                inputPlaceholder,
+                onSelectionAdd: mockOnSelectionAdd,
+                onSelectionRemove: mockOnSelectionRemove,
+                onInputValueChange: mockOnInputValueChange,
+                numberOfVisibleTags,
+                onBlur: mockOnBlur,
+                allowMixingSuggestionsAndLoading: true,
+            };
+            rerenderView(newProps);
+            await setFocus();
             await userEvent.type(inputNodeField, 'driver');
-            expect(view.container.querySelectorAll('.ListItem')).toHaveLength(7);
-            expect(view.container.querySelectorAll('.SuggestionsList__loaderItem')).toHaveLength(5);
+
+            expect(screen.getAllByRole('presentation')).toHaveLength(7);
+            expect(screen.getAllByRole('group')).toHaveLength(5);
         });
         it('should render empty component correctly when focused', async () => {
             expect(view.asFragment()).toMatchSnapshot();
-            await setFocusOnInput(inputNodeField);
+            await setFocus();
+
             expect(document.activeElement).toBe(inputNodeField);
         });
     });
