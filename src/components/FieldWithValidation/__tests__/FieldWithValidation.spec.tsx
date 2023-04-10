@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { FieldWithValidation } from '../FieldWithValidation';
 import { Input } from '../../Input';
-import '@testing-library/jest-dom';
 
 describe('FieldWithValidation', () => {
     describe('when rendering message as text', () => {
@@ -32,10 +32,17 @@ describe('FieldWithValidation', () => {
             const input = screen.getByRole('textbox');
             expect(input).toHaveAttribute('class', 'Input Input--context_danger');
             expect(input).toBeInTheDocument();
+            expect(screen.getByText(message)).toBeInTheDocument();
         });
 
         it('should render the message as text', () => {
-            expect(screen.queryByText(message)).toBeDefined();
+            const { asFragment } = render(
+                <FieldWithValidation errorMessage={message}>
+                    <Input />
+                </FieldWithValidation>
+            );
+            expect(asFragment()).toMatchSnapshot();
+            expect(screen.getByText(message)).toBeInTheDocument();
         });
     });
     describe('when using tooltip', () => {
@@ -51,27 +58,34 @@ describe('FieldWithValidation', () => {
             });
         });
         describe('when error message is defined', () => {
-            let view;
             const message = 'invalid field';
-            beforeEach(() => {
-                view = render(
-                    <FieldWithValidation errorMessage={message} useTooltip>
+
+            it('should set context to bad on child', () => {
+                const { asFragment } = render(
+                    <FieldWithValidation errorMessage={message}>
                         <Input />
                     </FieldWithValidation>
                 );
-            });
-
-            it('should set context to bad on child', () => {
-                expect(view.asFragment()).toMatchSnapshot();
+                expect(asFragment()).toMatchSnapshot();
                 const input = screen.getByRole('textbox');
                 expect(input).toHaveAttribute('class', 'Input Input--context_danger');
             });
             it('should render the message when field is focused', () => {
-                expect(view.asFragment()).toMatchSnapshot();
+                const { asFragment } = render(
+                    <FieldWithValidation errorMessage={message}>
+                        <Input />
+                    </FieldWithValidation>
+                );
+                expect(asFragment()).toMatchSnapshot();
                 expect(screen.queryByText(message)).toBeDefined();
             });
             it('should remove the message when field is blurred', () => {
-                expect(view.asFragment()).toMatchSnapshot();
+                const { asFragment } = render(
+                    <FieldWithValidation errorMessage={message}>
+                        <Input />
+                    </FieldWithValidation>
+                );
+                expect(asFragment()).toMatchSnapshot();
                 expect(screen.queryByText(message)).toBeDefined();
             });
         });
