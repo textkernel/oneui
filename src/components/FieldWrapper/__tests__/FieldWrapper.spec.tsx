@@ -37,7 +37,7 @@ describe('FieldWrapper', () => {
     });
     it('should call onArrowClick when arrow is clicked', async () => {
         const onArrowClickMock = jest.fn();
-        const { container, rerender, asFragment } = render(
+        const { rerender, asFragment } = render(
             <FieldWrapper showArrow onArrowClick={onArrowClickMock}>
                 some children
             </FieldWrapper>
@@ -59,7 +59,7 @@ describe('FieldWrapper', () => {
     });
     it('should call onArrowClick when arrow is accessed by keyboard', async () => {
         const onArrowClickMock = jest.fn();
-        const { container, rerender, asFragment } = render(
+        const { rerender, asFragment } = render(
             <FieldWrapper showArrow onArrowClick={onArrowClickMock}>
                 some children
             </FieldWrapper>
