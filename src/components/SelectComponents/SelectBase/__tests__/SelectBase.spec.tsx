@@ -41,7 +41,7 @@ describe('SelectBase', () => {
     };
 
     const rerenderView = (props) => {
-        view.rerender(<SelectBase {...props} />);
+        view.rerender(<SelectBase {...defaultProps} {...props} />);
     };
 
     beforeEach(() => {
@@ -57,16 +57,6 @@ describe('SelectBase', () => {
     describe('with toggle arrow', () => {
         it('should show arrows when showArrow is true', () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                // eslint-disable-next-line react/display-name
-                listRenderer: (listProps) => <SuggestionsList {...listProps} />,
-                focusedRenderer: mockRender,
-                blurredRenderer: mockRender,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onClearAllSelected: mockOnClearAllSelected,
-                onBlur: mockOnBlur,
                 highlightOnEmptyInput: true,
                 showArrow: true,
             };
@@ -117,17 +107,9 @@ describe('SelectBase', () => {
         });
         it('should be able to get a component by ref sent as a prop', () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                // eslint-disable-next-line react/display-name
-                listRenderer: (listProps) => <SuggestionsList {...listProps} />,
+                ref: inputRef,
                 focusedRenderer: mockRenderWithRef,
                 blurredRenderer: mockRenderWithRef,
-                ref: inputRef,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onClearAllSelected: mockOnClearAllSelected,
-                onBlur: mockOnBlur,
                 highlightOnEmptyInput: true,
             };
             rerenderView(newProps);
@@ -144,16 +126,6 @@ describe('SelectBase', () => {
         });
         it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', async () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                // eslint-disable-next-line react/display-name
-                listRenderer: (listProps) => <SuggestionsList {...listProps} />,
-                focusedRenderer: mockRender,
-                blurredRenderer: mockRender,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onClearAllSelected: mockOnClearAllSelected,
-                onBlur: mockOnBlur,
                 highlightOnEmptyInput: true,
                 keepExpandedAfterSelection: true,
             };
@@ -180,16 +152,6 @@ describe('SelectBase', () => {
         it('should clear the input field when a suggestion was selected with keepExpandedAfterSelection set to true', async () => {
             const textInputValue = 'driver';
             const newProps = {
-                suggestions,
-                suggestionToString,
-                // eslint-disable-next-line react/display-name
-                listRenderer: (listProps) => <SuggestionsList {...listProps} />,
-                focusedRenderer: mockRender,
-                blurredRenderer: mockRender,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onClearAllSelected: mockOnClearAllSelected,
-                onBlur: mockOnBlur,
                 highlightOnEmptyInput: true,
                 keepExpandedAfterSelection: true,
             };
@@ -226,16 +188,6 @@ describe('SelectBase', () => {
         it('should call onClearAllSelected on Clear button click', async () => {
             const clearTitle = 'Clear';
             const newProps = {
-                suggestions,
-                suggestionToString,
-                // eslint-disable-next-line react/display-name
-                listRenderer: (listProps) => <SuggestionsList {...listProps} />,
-                focusedRenderer: mockRender,
-                blurredRenderer: mockRender,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onClearAllSelected: mockOnClearAllSelected,
-                onBlur: mockOnBlur,
                 highlightOnEmptyInput: true,
                 showArrow: true,
                 clearTitle,

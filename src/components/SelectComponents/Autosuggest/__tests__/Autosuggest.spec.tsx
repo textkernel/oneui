@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import '@testing-library/jest-dom';
 import { create } from 'react-test-renderer';
 import { Autosuggest } from '../Autosuggest';
 import {
@@ -39,7 +38,7 @@ describe('Autosuggest', () => {
     };
 
     const rerenderView = (props) => {
-        view.rerender(<Autosuggest {...props} />);
+        view.rerender(<Autosuggest {...defaultProps} {...props} />);
     };
 
     beforeEach(() => {
@@ -54,15 +53,6 @@ describe('Autosuggest', () => {
         it('should add additional attributes to input field when component is blurred', () => {
             const newProps = {
                 isLoading: false,
-                selectedSuggestions,
-                suggestions: suggestionsList,
-                suggestionToString,
-                inputPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onSelectionRemove: mockOnSelectionRemove,
-                onInputValueChange: mockOnInputValueChange,
-                numberOfVisibleTags,
-                onBlur: mockOnBlur,
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
@@ -95,15 +85,6 @@ describe('Autosuggest', () => {
         it('should add additional attributes to input field when component is focused', async () => {
             const newProps = {
                 isLoading: false,
-                selectedSuggestions,
-                suggestions: suggestionsList,
-                suggestionToString,
-                inputPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onSelectionRemove: mockOnSelectionRemove,
-                onInputValueChange: mockOnInputValueChange,
-                numberOfVisibleTags,
-                onBlur: mockOnBlur,
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
@@ -117,15 +98,7 @@ describe('Autosuggest', () => {
             suggestionsList = SUGGESTIONS.slice(0, 8);
             const newProps = {
                 isLoading: false,
-                selectedSuggestions,
                 suggestions: suggestionsList,
-                suggestionToString,
-                inputPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onSelectionRemove: mockOnSelectionRemove,
-                onInputValueChange: mockOnInputValueChange,
-                numberOfVisibleTags,
-                onBlur: mockOnBlur,
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
@@ -138,15 +111,7 @@ describe('Autosuggest', () => {
             suggestionsList = SUGGESTIONS.slice(1, 20);
             const newProps = {
                 isLoading: false,
-                selectedSuggestions,
                 suggestions: suggestionsList,
-                suggestionToString,
-                inputPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onSelectionRemove: mockOnSelectionRemove,
-                onInputValueChange: mockOnInputValueChange,
-                numberOfVisibleTags,
-                onBlur: mockOnBlur,
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
@@ -159,15 +124,6 @@ describe('Autosuggest', () => {
             suggestionsList = SUGGESTIONS.slice(1, 20);
             const newProps = {
                 isLoading: true,
-                selectedSuggestions,
-                suggestions: [],
-                suggestionToString,
-                inputPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onSelectionRemove: mockOnSelectionRemove,
-                onInputValueChange: mockOnInputValueChange,
-                numberOfVisibleTags,
-                onBlur: mockOnBlur,
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
@@ -181,15 +137,7 @@ describe('Autosuggest', () => {
             suggestionsList = SUGGESTIONS.slice(1, 3);
             const newProps = {
                 isLoading: true,
-                selectedSuggestions,
                 suggestions: suggestionsList,
-                suggestionToString,
-                inputPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onSelectionRemove: mockOnSelectionRemove,
-                onInputValueChange: mockOnInputValueChange,
-                numberOfVisibleTags,
-                onBlur: mockOnBlur,
                 allowMixingSuggestionsAndLoading: true,
             };
             rerenderView(newProps);

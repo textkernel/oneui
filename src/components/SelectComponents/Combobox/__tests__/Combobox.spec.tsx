@@ -36,7 +36,7 @@ describe('Combobox', () => {
         onBlur: mockOnBlur,
     };
     const rerenderView = (props) => {
-        view.rerender(<Combobox {...props} />);
+        view.rerender(<Combobox {...defaultProps} {...props} />);
     };
 
     beforeEach(() => {
@@ -55,13 +55,6 @@ describe('Combobox', () => {
         });
         it('should not set focus on the input field when the component is disabled', async () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
                 disabled: true,
             };
             rerenderView(newProps);
@@ -72,12 +65,6 @@ describe('Combobox', () => {
         it('should render noSuggestions placeholder when empty suggestions list is passed', async () => {
             const newProps = {
                 suggestions: [],
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
             };
             rerenderView(newProps);
             create(
@@ -109,12 +96,6 @@ describe('Combobox', () => {
             it('should show the selected value if available', async () => {
                 const newProps = {
                     suggestions: [],
-                    suggestionToString,
-                    inputPlaceholder,
-                    noSuggestionsPlaceholder,
-                    onSelectionAdd: mockOnSelectionAdd,
-                    onInputValueChange: mockOnInputValueChange,
-                    onBlur: mockOnBlur,
                     disabled: true,
                     selectedSuggestion: SUGGESTIONS[1],
                 };
@@ -128,13 +109,6 @@ describe('Combobox', () => {
         describe('when focused', () => {
             it('should add additional attributes to input field when component is focused', async () => {
                 const newProps = {
-                    suggestions,
-                    suggestionToString,
-                    inputPlaceholder,
-                    noSuggestionsPlaceholder,
-                    onSelectionAdd: mockOnSelectionAdd,
-                    onInputValueChange: mockOnInputValueChange,
-                    onBlur: mockOnBlur,
                     inputAttrs: { 'data-test': true, title: 'some title' },
                 };
                 rerenderView(newProps);

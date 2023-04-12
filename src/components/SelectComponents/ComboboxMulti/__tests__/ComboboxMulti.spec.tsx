@@ -34,7 +34,7 @@ describe('ComboboxMulti', () => {
         onBlur: mockOnBlur,
     };
     const rerenderView = (props) => {
-        view.rerender(<ComboboxMulti {...props} />);
+        view.rerender(<ComboboxMulti {...defaultProps} {...props} />);
     };
 
     beforeEach(() => {
@@ -48,13 +48,6 @@ describe('ComboboxMulti', () => {
         });
         it('should add additional attributes to input field when component is blurred', () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
@@ -71,13 +64,6 @@ describe('ComboboxMulti', () => {
         });
         it('should not set focus on the input field when the component is disabled', async () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
                 disabled: true,
             };
             rerenderView(newProps);
@@ -87,13 +73,6 @@ describe('ComboboxMulti', () => {
         });
         it('should add additional attributes to input field when component is focused', async () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
