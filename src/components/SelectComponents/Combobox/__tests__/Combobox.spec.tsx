@@ -69,12 +69,14 @@ describe('Combobox', () => {
             await setFocus();
 
             expect(view.asFragment()).toMatchSnapshot();
+            // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('presentation')).toHaveLength(1);
             expect(screen.getByText(noSuggestionsPlaceholder)).toBeInTheDocument();
         });
         it('should render all suggestions from the list', async () => {
             await setFocus();
 
+            // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('presentation')).toHaveLength(suggestions.length);
         });
         describe('when blurred', () => {
@@ -118,13 +120,6 @@ describe('Combobox', () => {
 
                 expect(inputField.getAttribute('placeholder')).toEqual(inputPlaceholder);
                 const newProps = {
-                    suggestions,
-                    suggestionToString,
-                    inputPlaceholder,
-                    noSuggestionsPlaceholder,
-                    onSelectionAdd: mockOnSelectionAdd,
-                    onInputValueChange: mockOnInputValueChange,
-                    onBlur: mockOnBlur,
                     selectedSuggestion: SUGGESTIONS[1],
                 };
                 rerenderView(newProps);
@@ -160,7 +155,6 @@ describe('Combobox', () => {
             await userEvent.keyboard('[Escape]');
 
             expect(getInputNode(viewContainer)).not.toBe(document.activeElement);
-            // TODO: fixMe - the callback is not triggered, even though it does work in the UI
             expect(mockOnBlur).toHaveBeenCalled();
         });
         // TODO: fixMe - the component doesn't get blurred, even though it does work in the UI
@@ -179,7 +173,6 @@ describe('Combobox', () => {
             await userEvent.keyboard('[Enter]');
 
             expect(getInputNode(viewContainer)).not.toBe(document.activeElement);
-            // TODO: fixMe - the callback is not triggered, even though it does work in the UI
             expect(mockOnBlur).toHaveBeenCalled();
         });
     });
@@ -190,7 +183,8 @@ describe('Combobox', () => {
                 await setFocus();
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
-                await userEvent.click(viewContainer.querySelector('li'));
+                // TODO: will be fixed in ONEUI-364
+                await userEvent.click(screen.queryAllByRole('presentation')[0]);
 
                 expect(mockOnSelectionAdd).toHaveBeenCalledWith(SUGGESTIONS[0]);
             });

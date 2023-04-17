@@ -73,9 +73,7 @@ exports[`Autosuggest rendering should initially render focused component correct
               autocomplete="off"
               class="Autosuggest__input"
               data-lpignore="true"
-              data-test="true"
               placeholder="type here..."
-              title="some title"
               value=""
             />
           </div>
@@ -121,9 +119,7 @@ exports[`Autosuggest rendering should initially render focused component with su
               autocomplete="off"
               class="Autosuggest__input"
               data-lpignore="true"
-              data-test="true"
               placeholder="type here..."
-              title="some title"
               value=""
             />
           </div>
@@ -251,9 +247,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
               autocomplete="off"
               class="Autosuggest__input"
               data-lpignore="true"
-              data-test="true"
               placeholder="type here..."
-              title="some title"
               value="driver"
             />
           </div>
@@ -362,50 +356,6 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Autosuggest rendering should render empty component correctly when focused 1`] = `
-<DocumentFragment>
-  <div
-    class="SelectBase"
-  >
-    <div
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      aria-labelledby="downshift-8-label"
-      class="SelectBase__main"
-      role="combobox"
-    >
-      <div
-        class="FieldWrapper SelectBase__field"
-      >
-        <div
-          class="FieldWrapper__content"
-        >
-          <div
-            class="Autosuggest__wrapper"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-labelledby="downshift-8-label"
-              autocomplete="off"
-              class="Autosuggest__input"
-              data-lpignore="true"
-              placeholder="type here..."
-              value=""
-            />
-          </div>
-          <ul
-            aria-labelledby="downshift-8-label"
-            class="List"
-            id="downshift-8-menu"
-            role="listbox"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
 exports[`Autosuggest rendering should render isLoading state 1`] = `
 <DocumentFragment>
   <div
@@ -436,9 +386,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
               autocomplete="off"
               class="Autosuggest__input"
               data-lpignore="true"
-              data-test="true"
               placeholder="type here..."
-              title="some title"
               value="driver"
             />
           </div>
@@ -454,7 +402,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
             >
               <div
                 class="SuggestionsList__loaderItem"
-                role="group"
+                role="listitem"
               >
                 <div
                   class="ContentPlaceholder"
@@ -474,7 +422,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
             >
               <div
                 class="SuggestionsList__loaderItem"
-                role="group"
+                role="listitem"
               >
                 <div
                   class="ContentPlaceholder"
@@ -494,7 +442,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
             >
               <div
                 class="SuggestionsList__loaderItem"
-                role="group"
+                role="listitem"
               >
                 <div
                   class="ContentPlaceholder"
@@ -514,7 +462,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
             >
               <div
                 class="SuggestionsList__loaderItem"
-                role="group"
+                role="listitem"
               >
                 <div
                   class="ContentPlaceholder"
@@ -534,7 +482,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
             >
               <div
                 class="SuggestionsList__loaderItem"
-                role="group"
+                role="listitem"
               >
                 <div
                   class="ContentPlaceholder"

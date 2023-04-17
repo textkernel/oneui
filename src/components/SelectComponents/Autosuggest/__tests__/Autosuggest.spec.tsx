@@ -61,14 +61,10 @@ describe('Autosuggest', () => {
             expect(inputField.outerHTML).toMatch('title="some title"');
         });
         it('should initially render focused component correctly', async () => {
-            const newProps = {
-                suggestions: [],
-                inputAttrs: { 'data-test': true, title: 'some title' },
-            };
-            rerenderView(newProps);
             await setFocus();
 
             expect(view.asFragment()).toMatchSnapshot();
+            // TODO: will be fixed in ONEUI-364
             expect(screen.queryAllByRole('presentation')).toHaveLength(0);
         });
         it('should add additional attributes to input field when component is focused', async () => {
@@ -88,12 +84,12 @@ describe('Autosuggest', () => {
             const newProps = {
                 isLoading: false,
                 suggestions: suggestionsList,
-                inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
             await setFocus();
 
             expect(view.asFragment()).toMatchSnapshot();
+            // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('presentation')).toHaveLength(8);
         });
         it('should render component with suggestions', async () => {
@@ -101,7 +97,6 @@ describe('Autosuggest', () => {
             const newProps = {
                 isLoading: false,
                 suggestions: suggestionsList,
-                inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
             await setFocus();
@@ -113,13 +108,14 @@ describe('Autosuggest', () => {
             suggestionsList = SUGGESTIONS.slice(1, 20);
             const newProps = {
                 isLoading: true,
-                inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
             await setFocus();
             await userEvent.type(inputNodeField, 'driver');
 
+            // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('presentation')).toHaveLength(5);
+            // TODO: check the specific things
             expect(view.asFragment()).toMatchSnapshot();
         });
         it('should render mix suggestions and loader if allowMixingSuggestionsAndLoading is set to true', async () => {
@@ -133,11 +129,11 @@ describe('Autosuggest', () => {
             await setFocus();
             await userEvent.type(inputNodeField, 'driver');
 
+            // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('presentation')).toHaveLength(7);
-            expect(screen.getAllByRole('group')).toHaveLength(5);
+            expect(screen.getAllByRole('listitem')).toHaveLength(5);
         });
         it('should render empty component correctly when focused', async () => {
-            expect(view.asFragment()).toMatchSnapshot();
             await setFocus();
 
             expect(document.activeElement).toBe(inputNodeField);

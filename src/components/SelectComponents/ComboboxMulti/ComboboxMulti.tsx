@@ -76,7 +76,7 @@ export function ComboboxMulti<S>({
                 <IoMdArrowDropup
                     {...elem('dropdownIcon', { disabled })}
                     {...getToggleButtonProps({ disabled, onClick: blur })}
-                    role="img"
+                    role="button"
                 />
             </div>
         );
@@ -105,7 +105,7 @@ export function ComboboxMulti<S>({
                         e?.stopPropagation();
                     },
                 })}
-                role="img"
+                role="button"
             />
         </div>
     );

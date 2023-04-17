@@ -62,30 +62,20 @@ describe('SelectBase', () => {
             rerenderView(newProps);
             expect(view.asFragment()).toMatchSnapshot();
 
-            expect(screen.getByRole('img')).toBeInTheDocument();
+            expect(screen.getByRole('button')).toBeInTheDocument();
         });
         it('should toggle focus and the arrow when it is clicked', async () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                // eslint-disable-next-line react/display-name
-                listRenderer: (listProps) => <SuggestionsList {...listProps} />,
-                focusedRenderer: mockRender,
-                blurredRenderer: mockRender,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onClearAllSelected: mockOnClearAllSelected,
-                onBlur: mockOnBlur,
                 highlightOnEmptyInput: true,
                 showArrow: true,
             };
             rerenderView(newProps);
             expect(view.asFragment()).toMatchSnapshot();
-            const svg = screen.getByRole('img');
+            const svg = screen.getByRole('button');
 
             expect(svg).toBeInTheDocument();
             await userEvent.click(svg);
-            const svgFocused = screen.getByRole('img');
+            const svgFocused = screen.getByRole('button');
             expect(svgFocused).toBeInTheDocument();
             await userEvent.click(svgFocused);
             expect(svgFocused).not.toBeInTheDocument();

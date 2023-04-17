@@ -84,12 +84,6 @@ describe('ComboboxMulti', () => {
         it('should render noSuggestions placeholder when empty suggestions list is passed', async () => {
             const newProps = {
                 suggestions: [],
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
             };
             rerenderView(newProps);
             await setFocus();
