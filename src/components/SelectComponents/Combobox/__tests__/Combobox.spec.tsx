@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { create } from 'react-test-renderer';
 import { Combobox } from '../Combobox';
 import {
     SUGGESTIONS,
@@ -67,17 +66,6 @@ describe('Combobox', () => {
                 suggestions: [],
             };
             rerenderView(newProps);
-            create(
-                <Combobox
-                    suggestions={[]}
-                    suggestionToString={suggestionToString}
-                    inputPlaceholder={inputPlaceholder}
-                    noSuggestionsPlaceholder={noSuggestionsPlaceholder}
-                    onSelectionAdd={mockOnSelectionAdd}
-                    onInputValueChange={mockOnInputValueChange}
-                    onBlur={mockOnBlur}
-                />
-            );
             await setFocus();
 
             expect(view.asFragment()).toMatchSnapshot();

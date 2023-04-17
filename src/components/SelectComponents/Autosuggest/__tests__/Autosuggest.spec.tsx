@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { create } from 'react-test-renderer';
 import { Autosuggest } from '../Autosuggest';
 import {
     SUGGESTIONS,
@@ -62,21 +61,11 @@ describe('Autosuggest', () => {
             expect(inputField.outerHTML).toMatch('title="some title"');
         });
         it('should initially render focused component correctly', async () => {
-            create(
-                <Autosuggest
-                    isLoading={false}
-                    selectedSuggestions={selectedSuggestions}
-                    suggestions={[]}
-                    suggestionToString={suggestionToString}
-                    inputPlaceholder={inputPlaceholder}
-                    onSelectionAdd={mockOnSelectionAdd}
-                    onSelectionRemove={mockOnSelectionRemove}
-                    onInputValueChange={mockOnInputValueChange}
-                    numberOfVisibleTags={numberOfVisibleTags}
-                    onBlur={mockOnBlur}
-                    inputAttrs={{ 'data-test': true, title: 'some title' }}
-                />
-            );
+            const newProps = {
+                suggestions: [],
+                inputAttrs: { 'data-test': true, title: 'some title' },
+            };
+            rerenderView(newProps);
             await setFocus();
 
             expect(view.asFragment()).toMatchSnapshot();

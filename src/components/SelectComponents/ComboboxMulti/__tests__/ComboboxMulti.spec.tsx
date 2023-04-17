@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { create } from 'react-test-renderer';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { ComboboxMulti } from '../ComboboxMulti';
@@ -93,7 +92,6 @@ describe('ComboboxMulti', () => {
                 onBlur: mockOnBlur,
             };
             rerenderView(newProps);
-            create(<ComboboxMulti {...newProps} />);
             await setFocus();
 
             expect(view.asFragment()).toMatchSnapshot();

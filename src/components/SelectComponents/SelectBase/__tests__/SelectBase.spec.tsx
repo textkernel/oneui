@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { create } from 'react-test-renderer';
 import { SelectBase } from '../SelectBase';
 import { SuggestionsList } from '../../SuggestionsList';
 import {
@@ -81,7 +80,6 @@ describe('SelectBase', () => {
                 showArrow: true,
             };
             rerenderView(newProps);
-            create(<SelectBase {...newProps} />);
             expect(view.asFragment()).toMatchSnapshot();
             const svg = screen.getByRole('img');
 
