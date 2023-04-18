@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IoIosArrowDown, IoMdClose } from 'react-icons/io';
+import { IoIosArrowDown, IoIosClose } from 'react-icons/io';
 import { SingleReactNode } from '../../../customTypes/types';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
@@ -60,7 +60,7 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
         let isButtonClickable = false;
 
         if (isActive && !isOpen && !isContentDefault) {
-            buttonIcon = <IoMdClose />;
+            buttonIcon = <IoIosClose size={22} />;
             isButtonClickable = true;
         }
 
