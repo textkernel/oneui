@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.1.0](https://github.com/textkernel/oneui/compare/19.0.0...19.1.0) (2023-04-18)
+
+
+### Features
+
+* Pill icon doesn't indicate open/closed state correctly ([#939](https://github.com/textkernel/oneui/issues/939)) ([b476a0d](https://github.com/textkernel/oneui/commit/b476a0dc52c856ad791548d03c1f8b34abf528a9)), closes [#936](https://github.com/textkernel/oneui/issues/936)
+* update jest config ([#934](https://github.com/textkernel/oneui/issues/934)) ([410d4e5](https://github.com/textkernel/oneui/commit/410d4e55e0aa89f28e7492add0a4f60a9cdcae26))
+
+
+### Bug Fixes
+
+* remove context ([#936](https://github.com/textkernel/oneui/issues/936)) ([85b4fb5](https://github.com/textkernel/oneui/commit/85b4fb5c5f19f54729ea2327318638a3a382849a))
+* **Scss:** deprecation errors after color changes ([#935](https://github.com/textkernel/oneui/issues/935)) ([8b2eac5](https://github.com/textkernel/oneui/commit/8b2eac53bf2e5939ed9ebcb55b79740e9eec21e4))
+
 ## [19.0.0](https://github.com/textkernel/oneui/compare/18.11.3...19.0.0) (2023-03-30)
 
 
