@@ -1,235 +1,270 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Combobox rendering should initially render empty component correctly 1`] = `
-<Combobox
-  inputPlaceholder="type here..."
-  noSuggestionsPlaceholder="No suggestions..."
-  onBlur={[MockFunction]}
-  onInputValueChange={[MockFunction]}
-  onSelectionAdd={[MockFunction]}
-  suggestionToString={[Function]}
-  suggestions={
-    Array [
-      Object {
-        "name": "Sun",
-      },
-      Object {
-        "name": "Moon",
-      },
-      Object {
-        "name": "Mercury",
-      },
-      Object {
-        "name": "Venus",
-      },
-      Object {
-        "name": "Earth",
-      },
-      Object {
-        "name": "Mars",
-      },
-      Object {
-        "name": "Jupiter",
-      },
-      Object {
-        "name": "Saturn",
-      },
-      Object {
-        "name": "Neptune",
-      },
-      Object {
-        "disabled": true,
-        "name": "Pluto",
-      },
-    ]
-  }
->
-  <SelectBase
-    blurredRenderer={[Function]}
-    focusedRenderer={[Function]}
-    inputRef={
-      Object {
-        "current": null,
-      }
-    }
-    listRenderer={[Function]}
-    onBlur={[MockFunction]}
-    onInputValueChange={[MockFunction]}
-    onSelectionAdd={[MockFunction]}
-    showArrow={true}
-    suggestionToString={[Function]}
-    suggestions={
-      Array [
-        Object {
-          "name": "Sun",
-        },
-        Object {
-          "name": "Moon",
-        },
-        Object {
-          "name": "Mercury",
-        },
-        Object {
-          "name": "Venus",
-        },
-        Object {
-          "name": "Earth",
-        },
-        Object {
-          "name": "Mars",
-        },
-        Object {
-          "name": "Jupiter",
-        },
-        Object {
-          "name": "Saturn",
-        },
-        Object {
-          "name": "Neptune",
-        },
-        Object {
-          "disabled": true,
-          "name": "Pluto",
-        },
-      ]
-    }
+exports[`Combobox callbacks onSelectionAdd should be called on clicking on a suggestion 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
   >
     <div
-      className="SelectBase"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-14-label"
+      class="SelectBase__main"
+      role="combobox"
     >
-      <Downshift
-        defaultHighlightedIndex={0}
-        defaultIsOpen={false}
-        environment={[Window]}
-        getA11yStatusMessage={[Function]}
-        inputValue=""
-        itemToString={[Function]}
-        onChange={[Function]}
-        onInputValueChange={[Function]}
-        onOuterClick={[Function]}
-        onSelect={[Function]}
-        onStateChange={[Function]}
-        onUserAction={[Function]}
-        scrollIntoView={[Function]}
-        selectedItemChanged={[Function]}
-        stateReducer={[Function]}
-        suppressRefError={false}
+      <div
+        class="FieldWrapper SelectBase__field"
       >
         <div
-          aria-expanded={false}
-          aria-haspopup="listbox"
-          aria-labelledby="downshift-0-label"
-          aria-owns={null}
-          className="SelectBase__main"
-          role="combobox"
+          class="FieldWrapper__content"
         >
-          <FieldWrapper
-            className="SelectBase__field"
-            clearTooltipLabel=""
-            isArrowUp={false}
-            isFocused={false}
-            onArrowClick={[Function]}
-            onClear={[Function]}
-            onClick={[Function]}
-            showArrow={true}
-            showClearButton={false}
+          <div
+            aria-autocomplete="list"
+            aria-labelledby="downshift-14-label"
+            autocomplete="off"
+            class="Combobox__wrapper"
+            id="downshift-14-input"
+            role="searchbox"
+            tabindex="0"
+            value=""
           >
-            <div
-              className="FieldWrapper SelectBase__field"
-              onClick={[Function]}
+            <span
+              class="Combobox__selection"
             >
-              <div
-                className="FieldWrapper__content"
-              >
-                <div
-                  aria-activedescendant={null}
-                  aria-autocomplete="list"
-                  aria-controls={null}
-                  aria-labelledby="downshift-0-label"
-                  autoComplete="off"
-                  className="Combobox__wrapper"
-                  id="downshift-0-input"
-                  onBlur={[Function]}
-                  onChange={[Function]}
-                  onKeyDown={[Function]}
-                  role="searchbox"
-                  tabIndex={0}
-                  value=""
-                >
-                  <span
-                    className="Combobox__selection"
-                  >
-                    <Text
-                      context="muted"
-                      inline={true}
-                    >
-                      <span>
-                        type here...
-                      </span>
-                    </Text>
-                  </span>
-                </div>
-                <List
-                  aria-labelledby="downshift-0-label"
-                  id="downshift-0-menu"
-                  isControlledNavigation={true}
-                  role="listbox"
-                >
-                  <ul
-                    aria-labelledby="downshift-0-label"
-                    className="List"
-                    id="downshift-0-menu"
-                    role="listbox"
-                  />
-                </List>
-              </div>
-              <IoMdArrowDropdown
-                className="FieldWrapper__dropdownIcon"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                tabIndex={0}
-              >
-                <IconBase
-                  attr={
-                    Object {
-                      "viewBox": "0 0 512 512",
-                    }
-                  }
-                  className="FieldWrapper__dropdownIcon"
-                  onClick={[Function]}
-                  onKeyDown={[Function]}
-                  tabIndex={0}
-                >
-                  <svg
-                    className="FieldWrapper__dropdownIcon"
-                    fill="currentColor"
-                    height="1em"
-                    onClick={[Function]}
-                    onKeyDown={[Function]}
-                    stroke="currentColor"
-                    strokeWidth="0"
-                    style={
-                      Object {
-                        "color": undefined,
-                      }
-                    }
-                    tabIndex={0}
-                    viewBox="0 0 512 512"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M128 192l128 128 128-128z"
-                      key="0"
-                    />
-                  </svg>
-                </IconBase>
-              </IoMdArrowDropdown>
-            </div>
-          </FieldWrapper>
+              <span>
+                type here...
+              </span>
+            </span>
+          </div>
+          <ul
+            aria-labelledby="downshift-14-label"
+            class="List"
+            id="downshift-14-menu"
+            role="listbox"
+          />
         </div>
-      </Downshift>
+        <svg
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="button"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 192l128 128 128-128z"
+          />
+        </svg>
+      </div>
     </div>
-  </SelectBase>
-</Combobox>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Combobox rendering should initially render empty component correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-0-label"
+      class="SelectBase__main"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-labelledby="downshift-0-label"
+            autocomplete="off"
+            class="Combobox__wrapper"
+            id="downshift-0-input"
+            role="searchbox"
+            tabindex="0"
+            value=""
+          >
+            <span
+              class="Combobox__selection"
+            >
+              <span>
+                type here...
+              </span>
+            </span>
+          </div>
+          <ul
+            aria-labelledby="downshift-0-label"
+            class="List"
+            id="downshift-0-menu"
+            role="listbox"
+          />
+        </div>
+        <svg
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="button"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 192l128 128 128-128z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Combobox rendering should render noSuggestions placeholder when empty suggestions list is passed 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
+  >
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-3-label"
+      aria-owns="downshift-3-menu"
+      class="SelectBase__main SelectBase__main--focused"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            class="Combobox__wrapper"
+            role="searchbox"
+            tabindex="0"
+          >
+            <input
+              aria-activedescendant="downshift-3-item-0"
+              aria-autocomplete="list"
+              aria-controls="downshift-3-menu"
+              aria-labelledby="downshift-3-label"
+              autocomplete="off"
+              class="Combobox__input"
+              data-lpignore="true"
+              placeholder="type here..."
+              value=""
+            />
+          </div>
+          <ul
+            aria-labelledby="downshift-3-label"
+            class="List SelectBase__list--focused"
+            id="downshift-3-menu"
+            role="listbox"
+          >
+            <li
+              class="ListItem ListItem--disabled"
+              role="presentation"
+            >
+              <p
+                class="Text--context_neutral"
+              >
+                No suggestions...
+              </p>
+            </li>
+          </ul>
+        </div>
+        <svg
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="button"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 320l128-128 128 128z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Combobox rendering when blurred should show the selected value if available 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-6-label"
+      class="SelectBase__main"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper FieldWrapper--disabled SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-labelledby="downshift-6-label"
+            autocomplete="off"
+            class="Combobox__wrapper Combobox__wrapper--disabled"
+            id="downshift-6-input"
+            role="searchbox"
+            tabindex="0"
+            value=""
+          >
+            <span
+              class="Combobox__selection"
+            >
+              Moon
+            </span>
+          </div>
+          <ul
+            aria-labelledby="downshift-6-label"
+            class="List"
+            id="downshift-6-menu"
+            role="listbox"
+          />
+        </div>
+        <svg
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="button"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 192l128 128 128-128z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;

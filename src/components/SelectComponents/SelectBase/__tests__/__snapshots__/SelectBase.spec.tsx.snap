@@ -1,189 +1,259 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelectBase rendering should initially render empty component correctly 1`] = `
-<SelectBase
-  blurredRenderer={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          Object {
-            "getInputProps": [Function],
-            "getToggleButtonProps": [Function],
-            "onBlur": [Function],
-            "onFocus": [Function],
-          },
-        ],
-      ],
-      "results": Array [
-        Object {
-          "type": "return",
-          "value": <input
-            aria-activedescendant={null}
-            aria-autocomplete="list"
-            aria-controls={null}
-            aria-labelledby="downshift-0-label"
-            autoComplete="off"
-            id="downshift-0-input"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onKeyDown={[Function]}
-            value=""
-          />,
-        },
-      ],
-    }
-  }
-  focusedRenderer={
-    [MockFunction] {
-      "calls": Array [
-        Array [
-          Object {
-            "getInputProps": [Function],
-            "getToggleButtonProps": [Function],
-            "onBlur": [Function],
-            "onFocus": [Function],
-          },
-        ],
-      ],
-      "results": Array [
-        Object {
-          "type": "return",
-          "value": <input
-            aria-activedescendant={null}
-            aria-autocomplete="list"
-            aria-controls={null}
-            aria-labelledby="downshift-0-label"
-            autoComplete="off"
-            id="downshift-0-input"
-            onBlur={[Function]}
-            onChange={[Function]}
-            onKeyDown={[Function]}
-            value=""
-          />,
-        },
-      ],
-    }
-  }
-  highlightOnEmptyInput={true}
-  listRenderer={[Function]}
-  onBlur={[MockFunction]}
-  onClearAllSelected={[MockFunction]}
-  onInputValueChange={[MockFunction]}
-  onSelectionAdd={[MockFunction]}
-  suggestionToString={[Function]}
-  suggestions={
-    Array [
-      Object {
-        "name": "Sun",
-      },
-      Object {
-        "name": "Moon",
-      },
-      Object {
-        "name": "Mercury",
-      },
-      Object {
-        "name": "Venus",
-      },
-      Object {
-        "name": "Earth",
-      },
-      Object {
-        "name": "Mars",
-      },
-      Object {
-        "name": "Jupiter",
-      },
-      Object {
-        "name": "Saturn",
-      },
-      Object {
-        "name": "Neptune",
-      },
-      Object {
-        "disabled": true,
-        "name": "Pluto",
-      },
-    ]
-  }
->
+exports[`SelectBase callbacks should call onClearAllSelected on Clear button click 1`] = `
+<DocumentFragment>
   <div
-    className="SelectBase"
+    class="SelectBase"
   >
-    <Downshift
-      defaultHighlightedIndex={0}
-      defaultIsOpen={false}
-      environment={[Window]}
-      getA11yStatusMessage={[Function]}
-      inputValue=""
-      itemToString={[Function]}
-      onChange={[Function]}
-      onInputValueChange={[Function]}
-      onOuterClick={[Function]}
-      onSelect={[Function]}
-      onStateChange={[Function]}
-      onUserAction={[Function]}
-      scrollIntoView={[Function]}
-      selectedItemChanged={[Function]}
-      stateReducer={[Function]}
-      suppressRefError={false}
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-11-label"
+      class="SelectBase__main"
+      role="combobox"
     >
       <div
-        aria-expanded={false}
-        aria-haspopup="listbox"
-        aria-labelledby="downshift-0-label"
-        aria-owns={null}
-        className="SelectBase__main"
-        role="combobox"
+        class="FieldWrapper SelectBase__field"
       >
-        <FieldWrapper
-          className="SelectBase__field"
-          clearTooltipLabel=""
-          isArrowUp={false}
-          isFocused={false}
-          onArrowClick={[Function]}
-          onClear={[Function]}
-          onClick={[Function]}
-          showArrow={false}
-          showClearButton={false}
+        <div
+          class="FieldWrapper__content"
         >
-          <div
-            className="FieldWrapper SelectBase__field"
-            onClick={[Function]}
+          <input
+            aria-autocomplete="list"
+            aria-labelledby="downshift-11-label"
+            autocomplete="off"
+            id="downshift-11-input"
+            value=""
+          />
+          <ul
+            aria-labelledby="downshift-11-label"
+            class="List"
+            id="downshift-11-menu"
+            role="listbox"
+          />
+        </div>
+        <button
+          class="Button Button--isLink Button--isInline FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
+          title="Clear"
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="16"
+            size="16"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <div
-              className="FieldWrapper__content"
-            >
-              <input
-                aria-activedescendant={null}
-                aria-autocomplete="list"
-                aria-controls={null}
-                aria-labelledby="downshift-0-label"
-                autoComplete="off"
-                id="downshift-0-input"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onKeyDown={[Function]}
-                value=""
-              />
-              <List
-                aria-labelledby="downshift-0-label"
-                id="downshift-0-menu"
-                isControlledNavigation={true}
-                role="listbox"
-              >
-                <ul
-                  aria-labelledby="downshift-0-label"
-                  className="List"
-                  id="downshift-0-menu"
-                  role="listbox"
-                />
-              </List>
-            </div>
-          </div>
-        </FieldWrapper>
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </button>
+        <svg
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="button"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 192l128 128 128-128z"
+          />
+        </svg>
       </div>
-    </Downshift>
+    </div>
   </div>
-</SelectBase>
+</DocumentFragment>
+`;
+
+exports[`SelectBase highlighting should highlight first item 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-9-label"
+      class="SelectBase__main"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-labelledby="downshift-9-label"
+            autocomplete="off"
+            id="downshift-9-input"
+            value=""
+          />
+          <ul
+            aria-labelledby="downshift-9-label"
+            class="List"
+            id="downshift-9-menu"
+            role="listbox"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`SelectBase rendering should initially render empty component correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-0-label"
+      class="SelectBase__main"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-labelledby="downshift-0-label"
+            autocomplete="off"
+            id="downshift-0-input"
+            value=""
+          />
+          <ul
+            aria-labelledby="downshift-0-label"
+            class="List"
+            id="downshift-0-menu"
+            role="listbox"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`SelectBase with toggle arrow should show arrows when showArrow is true 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-1-label"
+      class="SelectBase__main"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-labelledby="downshift-1-label"
+            autocomplete="off"
+            id="downshift-1-input"
+            value=""
+          />
+          <ul
+            aria-labelledby="downshift-1-label"
+            class="List"
+            id="downshift-1-menu"
+            role="listbox"
+          />
+        </div>
+        <svg
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="button"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 192l128 128 128-128z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`SelectBase with toggle arrow should toggle focus and the arrow when it is clicked 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-2-label"
+      class="SelectBase__main"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-labelledby="downshift-2-label"
+            autocomplete="off"
+            id="downshift-2-input"
+            value=""
+          />
+          <ul
+            aria-labelledby="downshift-2-label"
+            class="List"
+            id="downshift-2-menu"
+            role="listbox"
+          />
+        </div>
+        <svg
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="button"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 192l128 128 128-128z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
 `;

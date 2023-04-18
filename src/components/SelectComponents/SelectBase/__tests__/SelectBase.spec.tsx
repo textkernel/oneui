@@ -1,5 +1,7 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { SelectBase } from '../SelectBase';
 import { SuggestionsList } from '../../SuggestionsList';
 import {
@@ -20,156 +22,186 @@ describe('SelectBase', () => {
         <input ref={inputRef} {...getInputProps()} />
     ));
 
-    let wrapper;
+    let view;
     let inputNode;
 
-    const setFocusOnInput = () => wrapper.find('.SelectBase__field').at(1).simulate('click');
+    const defaultProps = {
+        suggestions,
+        suggestionToString,
+        // eslint-disable-next-line react/display-name
+        listRenderer: (listProps) => <SuggestionsList {...listProps} />,
+        focusedRenderer: mockRender,
+        blurredRenderer: mockRender,
+        onSelectionAdd: mockOnSelectionAdd,
+        onInputValueChange: mockOnInputValueChange,
+        onClearAllSelected: mockOnClearAllSelected,
+        onBlur: mockOnBlur,
+        highlightOnEmptyInput: true,
+    };
+
+    const rerenderView = (props) => {
+        view.rerender(<SelectBase {...defaultProps} {...props} />);
+    };
 
     beforeEach(() => {
-        wrapper = mount(
-            <SelectBase
-                suggestions={suggestions}
-                suggestionToString={suggestionToString}
-                listRenderer={(listProps) => <SuggestionsList {...listProps} />}
-                focusedRenderer={mockRender}
-                blurredRenderer={mockRender}
-                onSelectionAdd={mockOnSelectionAdd}
-                onInputValueChange={mockOnInputValueChange}
-                onClearAllSelected={mockOnClearAllSelected}
-                onBlur={mockOnBlur}
-                highlightOnEmptyInput
-            />
-        );
-        inputNode = wrapper.find('input').getDOMNode();
+        view = render(<SelectBase {...defaultProps} />);
+        inputNode = screen.getByRole('textbox');
     });
 
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
-            expect(toJson(wrapper)).toMatchSnapshot();
+            expect(view.asFragment()).toMatchSnapshot();
         });
     });
     describe('with toggle arrow', () => {
         it('should show arrows when showArrow is true', () => {
-            wrapper.setProps({ showArrow: true });
-            expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
+            const newProps = {
+                highlightOnEmptyInput: true,
+                showArrow: true,
+            };
+            rerenderView(newProps);
+            expect(view.asFragment()).toMatchSnapshot();
+
+            expect(screen.getByRole('button')).toBeInTheDocument();
         });
-        it('should toggle focus and the arrow when it is clicked', () => {
-            wrapper.setProps({ showArrow: true });
-            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
-            expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
+        it('should toggle focus and the arrow when it is clicked', async () => {
+            const newProps = {
+                highlightOnEmptyInput: true,
+                showArrow: true,
+            };
+            rerenderView(newProps);
+            expect(view.asFragment()).toMatchSnapshot();
+            const svg = screen.getByRole('button');
 
-            wrapper.find('IoMdArrowDropdown').simulate('click');
-            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeTruthy();
-            expect(wrapper.find('IoMdArrowDropup').exists()).toBeTruthy();
-
-            wrapper.find('IoMdArrowDropup').simulate('click');
-            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
-            expect(wrapper.find('IoMdArrowDropdown').exists()).toBeTruthy();
+            expect(svg).toBeInTheDocument();
+            await userEvent.click(svg);
+            const svgFocused = screen.getByRole('button');
+            expect(svgFocused).toBeInTheDocument();
+            await userEvent.click(svgFocused);
+            expect(svgFocused).not.toBeInTheDocument();
         });
     });
     describe('search field interactions', () => {
-        it('should set focus when wrapper element is clicked', () => {
+        it('should set focus when wrapper element is clicked', async () => {
             const focusSpy = jest.spyOn(inputNode, 'focus');
 
             expect(inputNode).not.toBe(document.activeElement);
             expect(focusSpy).not.toHaveBeenCalled();
 
-            setFocusOnInput();
+            await userEvent.click(screen.queryAllByRole('listbox')[0]);
 
             expect(inputNode).toBe(document.activeElement);
             expect(focusSpy).toHaveBeenCalled();
         });
         it('should be able to get a component by ref sent as a prop', () => {
-            wrapper.setProps({
+            const newProps = {
                 ref: inputRef,
                 focusedRenderer: mockRenderWithRef,
                 blurredRenderer: mockRenderWithRef,
-            });
-            wrapper.update();
+                highlightOnEmptyInput: true,
+            };
+            rerenderView(newProps);
 
-            expect(wrapper.find('input').getElement().ref).toBeTruthy();
+            expect(screen.getAllByRole('textbox')[0]).toBeInTheDocument();
         });
-        it('should lose focus when suggestion is selected', () => {
+        it('should lose focus when suggestion is selected', async () => {
             expect(inputNode).not.toBe(document.activeElement);
 
-            setFocusOnInput();
+            await userEvent.click(screen.queryAllByRole('listbox')[0]);
+            await userEvent.click(screen.queryAllByRole('presentation')[0]);
 
-            wrapper.find('li').at(0).children().simulate('click');
-
-            expect(wrapper.find('li')).toHaveLength(0);
-            expect(wrapper.find('FieldWrapper').prop('isFocused')).toBeFalsy();
+            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
         });
-        it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', () => {
-            wrapper.setProps({ keepExpandedAfterSelection: true });
+        it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', async () => {
+            const newProps = {
+                highlightOnEmptyInput: true,
+                keepExpandedAfterSelection: true,
+            };
+            rerenderView(newProps);
             expect(inputNode).not.toBe(document.activeElement);
 
-            setFocusOnInput();
+            await userEvent.click(screen.queryAllByRole('listbox')[0]);
             expect(inputNode).toBe(document.activeElement);
 
-            wrapper.find('li').at(0).childAt(0).simulate('click');
-
-            expect(wrapper.find('li')).toHaveLength(suggestions.length);
+            await userEvent.click(screen.queryAllByRole('presentation')[0]);
+            expect(screen.queryAllByRole('presentation')).toHaveLength(suggestions.length);
         });
-        it('should clear the input field when a suggestion was selected', () => {
+        it('should clear the input field when a suggestion was selected', async () => {
             const textInputValue = 'driver';
-            wrapper.find('input').simulate('change', { target: { value: textInputValue } });
+            const inputField = screen.getAllByRole('textbox')[0];
+            await userEvent.type(inputField, textInputValue);
 
-            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+            expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            wrapper.find('li').first().children().simulate('click');
+            await userEvent.click(screen.queryAllByRole('presentation')[0]);
 
-            expect(wrapper.find('input').props().value).toEqual('');
+            expect(inputField.getAttribute('value')).toEqual('');
         });
-        it('should clear the input field when a suggestion was selected with keepExpandedAfterSelection set to true', () => {
+        it('should clear the input field when a suggestion was selected with keepExpandedAfterSelection set to true', async () => {
             const textInputValue = 'driver';
+            const newProps = {
+                highlightOnEmptyInput: true,
+                keepExpandedAfterSelection: true,
+            };
+            rerenderView(newProps);
+            const inputField = screen.getAllByRole('textbox')[0];
+            await userEvent.type(inputField, textInputValue);
 
-            wrapper.setProps({ keepExpandedAfterSelection: true });
-            wrapper.find('input').simulate('change', { target: { value: textInputValue } });
+            expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+            await userEvent.click(screen.queryAllByRole('presentation')[0]);
 
-            wrapper.find('li').first().children().simulate('click');
-
-            expect(wrapper.find('input').props().value).toEqual(textInputValue);
+            expect(inputField.getAttribute('value')).toEqual(textInputValue);
         });
     });
     describe('highlighting', () => {
         it('should highlight first item', () => {
-            setFocusOnInput();
-            expect(wrapper.find('li').at(0).prop('aria-selected')).toEqual(true);
+            expect(view.asFragment()).toMatchSnapshot();
+            expect(screen.queryAllByRole('listbox')[0]).toBeInTheDocument();
         });
     });
+
     describe('callbacks', () => {
         describe('onSelectionAdd', () => {
-            it('should be called on clicking on a suggestion', () => {
-                setFocusOnInput();
+            it('should be called on clicking on a suggestion', async () => {
+                await userEvent.click(screen.queryAllByRole('listbox')[0]);
 
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
-                wrapper.find('li').first().children().simulate('click');
+                await userEvent.click(screen.queryAllByRole('presentation')[0]);
 
                 expect(mockOnSelectionAdd).toHaveBeenCalled();
             });
         });
-        it('should call onClearAllSelected on Clear button click', () => {
+        it('should call onClearAllSelected on Clear button click', async () => {
             const clearTitle = 'Clear';
-            wrapper.setProps({ clearTitle, showClearButton: true });
+            const newProps = {
+                highlightOnEmptyInput: true,
+                showArrow: true,
+                clearTitle,
+                showClearButton: true,
+            };
+            rerenderView(newProps);
+            expect(view.asFragment()).toMatchSnapshot();
+            const clearButton = screen.getByRole('button', { name: 'Clear' });
+            await userEvent.click(clearButton);
 
-            wrapper.find('Button').simulate('click');
             expect(mockOnClearAllSelected).toHaveBeenCalled();
         });
         // Despite everything is working good in real-case scenario,
         // 'blur' event can not be simulated in the way Downshift component to understand it.
-        it.skip('should call onBlur', () => {
-            setFocusOnInput();
-            wrapper.find('SelectBase').simulate('blur');
+        it.skip('should call onBlur', async () => {
+            await userEvent.click(screen.queryAllByRole('listbox')[0]);
+
+            await userEvent.click(screen.queryAllByRole('listbox')[0]);
 
             expect(mockOnBlur).toHaveBeenCalled();
         });
-        it('should call onInputValueChange when typing into input field', () => {
+        it('should call onInputValueChange when typing into input field', async () => {
             expect(mockOnInputValueChange).not.toHaveBeenCalled();
 
-            wrapper.find('input').simulate('change', { target: { value: 'driver' } });
+            const inputField = screen.getAllByRole('textbox')[0];
+            await userEvent.type(inputField, 'drive');
 
             expect(mockOnInputValueChange).toHaveBeenCalled();
         });

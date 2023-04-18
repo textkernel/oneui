@@ -197,9 +197,9 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
     </Button>
     <Dropdown
       button={
-        <ForwardRef>
+        <Button>
           A dropdown button
-        </ForwardRef>
+        </Button>
       }
       className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
       isPrimary={true}
