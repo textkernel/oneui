@@ -8,7 +8,7 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
     <div
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby="downshift-15-label"
+      aria-labelledby="downshift-14-label"
       class="SelectBase__main"
       role="combobox"
     >
@@ -20,10 +20,10 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
         >
           <div
             aria-autocomplete="list"
-            aria-labelledby="downshift-15-label"
+            aria-labelledby="downshift-14-label"
             autocomplete="off"
             class="Combobox__wrapper"
-            id="downshift-15-input"
+            id="downshift-14-input"
             role="searchbox"
             tabindex="0"
             value=""
@@ -37,9 +37,9 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
             </span>
           </div>
           <ul
-            aria-labelledby="downshift-15-label"
+            aria-labelledby="downshift-14-label"
             class="List"
-            id="downshift-15-menu"
+            id="downshift-14-menu"
             role="listbox"
           />
         </div>
@@ -47,7 +47,7 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
-          role="img"
+          role="button"
           stroke="currentColor"
           stroke-width="0"
           tabindex="0"
@@ -112,7 +112,7 @@ exports[`Combobox rendering should initially render empty component correctly 1`
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
-          role="img"
+          role="button"
           stroke="currentColor"
           stroke-width="0"
           tabindex="0"
@@ -188,7 +188,7 @@ exports[`Combobox rendering should render noSuggestions placeholder when empty s
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
-          role="img"
+          role="button"
           stroke="currentColor"
           stroke-width="0"
           tabindex="0"
@@ -214,7 +214,7 @@ exports[`Combobox rendering when blurred should show the selected value if avail
     <div
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby="downshift-7-label"
+      aria-labelledby="downshift-6-label"
       class="SelectBase__main"
       role="combobox"
     >
@@ -226,10 +226,10 @@ exports[`Combobox rendering when blurred should show the selected value if avail
         >
           <div
             aria-autocomplete="list"
-            aria-labelledby="downshift-7-label"
+            aria-labelledby="downshift-6-label"
             autocomplete="off"
             class="Combobox__wrapper Combobox__wrapper--disabled"
-            id="downshift-7-input"
+            id="downshift-6-input"
             role="searchbox"
             tabindex="0"
             value=""
@@ -241,9 +241,9 @@ exports[`Combobox rendering when blurred should show the selected value if avail
             </span>
           </div>
           <ul
-            aria-labelledby="downshift-7-label"
+            aria-labelledby="downshift-6-label"
             class="List"
-            id="downshift-7-menu"
+            id="downshift-6-menu"
             role="listbox"
           />
         </div>
@@ -251,7 +251,7 @@ exports[`Combobox rendering when blurred should show the selected value if avail
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
-          role="img"
+          role="button"
           stroke="currentColor"
           stroke-width="0"
           tabindex="0"

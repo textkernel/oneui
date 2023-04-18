@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { create } from 'react-test-renderer';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { ComboboxMulti } from '../ComboboxMulti';
@@ -34,7 +33,7 @@ describe('ComboboxMulti', () => {
         onBlur: mockOnBlur,
     };
     const rerenderView = (props) => {
-        view.rerender(<ComboboxMulti {...props} />);
+        view.rerender(<ComboboxMulti {...defaultProps} {...props} />);
     };
 
     beforeEach(() => {
@@ -48,13 +47,6 @@ describe('ComboboxMulti', () => {
         });
         it('should add additional attributes to input field when component is blurred', () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
@@ -71,13 +63,6 @@ describe('ComboboxMulti', () => {
         });
         it('should not set focus on the input field when the component is disabled', async () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
                 disabled: true,
             };
             rerenderView(newProps);
@@ -87,13 +72,6 @@ describe('ComboboxMulti', () => {
         });
         it('should add additional attributes to input field when component is focused', async () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
@@ -106,15 +84,8 @@ describe('ComboboxMulti', () => {
         it('should render noSuggestions placeholder when empty suggestions list is passed', async () => {
             const newProps = {
                 suggestions: [],
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
             };
             rerenderView(newProps);
-            create(<ComboboxMulti {...newProps} />);
             await setFocus();
 
             expect(view.asFragment()).toMatchSnapshot();

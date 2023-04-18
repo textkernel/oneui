@@ -98,8 +98,8 @@ exports[`Autosuggest rendering should initially render focused component with su
     <div
       aria-expanded="true"
       aria-haspopup="listbox"
-      aria-labelledby="downshift-5-label"
-      aria-owns="downshift-5-menu"
+      aria-labelledby="downshift-4-label"
+      aria-owns="downshift-4-menu"
       class="SelectBase__main SelectBase__main--focused"
       role="combobox"
     >
@@ -114,27 +114,25 @@ exports[`Autosuggest rendering should initially render focused component with su
           >
             <input
               aria-autocomplete="list"
-              aria-controls="downshift-5-menu"
-              aria-labelledby="downshift-5-label"
+              aria-controls="downshift-4-menu"
+              aria-labelledby="downshift-4-label"
               autocomplete="off"
               class="Autosuggest__input"
               data-lpignore="true"
-              data-test="true"
               placeholder="type here..."
-              title="some title"
               value=""
             />
           </div>
           <ul
-            aria-labelledby="downshift-5-label"
+            aria-labelledby="downshift-4-label"
             class="List SelectBase__list--focused"
-            id="downshift-5-menu"
+            id="downshift-4-menu"
             role="listbox"
           >
             <li
               aria-selected="false"
               class="ListItem ListItem--clickable"
-              id="downshift-5-item-0"
+              id="downshift-4-item-0"
               role="presentation"
             >
               <span>
@@ -144,7 +142,7 @@ exports[`Autosuggest rendering should initially render focused component with su
             <li
               aria-selected="false"
               class="ListItem ListItem--clickable"
-              id="downshift-5-item-1"
+              id="downshift-4-item-1"
               role="presentation"
             >
               <span>
@@ -154,7 +152,7 @@ exports[`Autosuggest rendering should initially render focused component with su
             <li
               aria-selected="false"
               class="ListItem ListItem--clickable"
-              id="downshift-5-item-2"
+              id="downshift-4-item-2"
               role="presentation"
             >
               <span>
@@ -164,7 +162,7 @@ exports[`Autosuggest rendering should initially render focused component with su
             <li
               aria-selected="false"
               class="ListItem ListItem--clickable"
-              id="downshift-5-item-3"
+              id="downshift-4-item-3"
               role="presentation"
             >
               <span>
@@ -174,7 +172,7 @@ exports[`Autosuggest rendering should initially render focused component with su
             <li
               aria-selected="false"
               class="ListItem ListItem--clickable"
-              id="downshift-5-item-4"
+              id="downshift-4-item-4"
               role="presentation"
             >
               <span>
@@ -184,7 +182,7 @@ exports[`Autosuggest rendering should initially render focused component with su
             <li
               aria-selected="false"
               class="ListItem ListItem--clickable"
-              id="downshift-5-item-5"
+              id="downshift-4-item-5"
               role="presentation"
             >
               <span>
@@ -194,7 +192,7 @@ exports[`Autosuggest rendering should initially render focused component with su
             <li
               aria-selected="false"
               class="ListItem ListItem--clickable"
-              id="downshift-5-item-6"
+              id="downshift-4-item-6"
               role="presentation"
             >
               <span>
@@ -204,7 +202,7 @@ exports[`Autosuggest rendering should initially render focused component with su
             <li
               aria-selected="false"
               class="ListItem ListItem--clickable"
-              id="downshift-5-item-7"
+              id="downshift-4-item-7"
               role="presentation"
             >
               <span>
@@ -220,6 +218,145 @@ exports[`Autosuggest rendering should initially render focused component with su
 `;
 
 exports[`Autosuggest rendering should render component with suggestions 1`] = `
+<DocumentFragment>
+  <div
+    class="SelectBase"
+  >
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-5-label"
+      aria-owns="downshift-5-menu"
+      class="SelectBase__main SelectBase__main--focused"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            class="Autosuggest__wrapper Autosuggest__wrapper--isFocused"
+          >
+            <input
+              aria-activedescendant="downshift-5-item-0"
+              aria-autocomplete="list"
+              aria-controls="downshift-5-menu"
+              aria-labelledby="downshift-5-label"
+              autocomplete="off"
+              class="Autosuggest__input"
+              data-lpignore="true"
+              placeholder="type here..."
+              value="driver"
+            />
+          </div>
+          <ul
+            aria-labelledby="downshift-5-label"
+            class="List SelectBase__list--focused"
+            id="downshift-5-menu"
+            role="listbox"
+          >
+            <li
+              aria-selected="true"
+              class="ListItem ListItem--isHighlighted ListItem--clickable"
+              id="downshift-5-item-0"
+              role="presentation"
+            >
+              <span>
+                Moon
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-5-item-1"
+              role="presentation"
+            >
+              <span>
+                Mercury
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-5-item-2"
+              role="presentation"
+            >
+              <span>
+                Venus
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-5-item-3"
+              role="presentation"
+            >
+              <span>
+                Earth
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-5-item-4"
+              role="presentation"
+            >
+              <span>
+                Mars
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-5-item-5"
+              role="presentation"
+            >
+              <span>
+                Jupiter
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-5-item-6"
+              role="presentation"
+            >
+              <span>
+                Saturn
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-5-item-7"
+              role="presentation"
+            >
+              <span>
+                Neptune
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--disabled"
+              disabled=""
+              id="downshift-5-item-8"
+              role="presentation"
+            >
+              <span>
+                Pluto
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Autosuggest rendering should render isLoading state 1`] = `
 <DocumentFragment>
   <div
     class="SelectBase"
@@ -249,9 +386,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
               autocomplete="off"
               class="Autosuggest__input"
               data-lpignore="true"
-              data-test="true"
               placeholder="type here..."
-              title="some title"
               value="driver"
             />
           </div>
@@ -262,197 +397,12 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
             role="listbox"
           >
             <li
-              aria-selected="true"
-              class="ListItem ListItem--isHighlighted ListItem--clickable"
-              id="downshift-6-item-0"
-              role="presentation"
-            >
-              <span>
-                Moon
-              </span>
-            </li>
-            <li
-              aria-selected="false"
-              class="ListItem ListItem--clickable"
-              id="downshift-6-item-1"
-              role="presentation"
-            >
-              <span>
-                Mercury
-              </span>
-            </li>
-            <li
-              aria-selected="false"
-              class="ListItem ListItem--clickable"
-              id="downshift-6-item-2"
-              role="presentation"
-            >
-              <span>
-                Venus
-              </span>
-            </li>
-            <li
-              aria-selected="false"
-              class="ListItem ListItem--clickable"
-              id="downshift-6-item-3"
-              role="presentation"
-            >
-              <span>
-                Earth
-              </span>
-            </li>
-            <li
-              aria-selected="false"
-              class="ListItem ListItem--clickable"
-              id="downshift-6-item-4"
-              role="presentation"
-            >
-              <span>
-                Mars
-              </span>
-            </li>
-            <li
-              aria-selected="false"
-              class="ListItem ListItem--clickable"
-              id="downshift-6-item-5"
-              role="presentation"
-            >
-              <span>
-                Jupiter
-              </span>
-            </li>
-            <li
-              aria-selected="false"
-              class="ListItem ListItem--clickable"
-              id="downshift-6-item-6"
-              role="presentation"
-            >
-              <span>
-                Saturn
-              </span>
-            </li>
-            <li
-              aria-selected="false"
-              class="ListItem ListItem--clickable"
-              id="downshift-6-item-7"
-              role="presentation"
-            >
-              <span>
-                Neptune
-              </span>
-            </li>
-            <li
-              aria-selected="false"
-              class="ListItem ListItem--disabled"
-              disabled=""
-              id="downshift-6-item-8"
-              role="presentation"
-            >
-              <span>
-                Pluto
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Autosuggest rendering should render empty component correctly when focused 1`] = `
-<DocumentFragment>
-  <div
-    class="SelectBase"
-  >
-    <div
-      aria-expanded="false"
-      aria-haspopup="listbox"
-      aria-labelledby="downshift-9-label"
-      class="SelectBase__main"
-      role="combobox"
-    >
-      <div
-        class="FieldWrapper SelectBase__field"
-      >
-        <div
-          class="FieldWrapper__content"
-        >
-          <div
-            class="Autosuggest__wrapper"
-          >
-            <input
-              aria-autocomplete="list"
-              aria-labelledby="downshift-9-label"
-              autocomplete="off"
-              class="Autosuggest__input"
-              data-lpignore="true"
-              placeholder="type here..."
-              value=""
-            />
-          </div>
-          <ul
-            aria-labelledby="downshift-9-label"
-            class="List"
-            id="downshift-9-menu"
-            role="listbox"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Autosuggest rendering should render isLoading state 1`] = `
-<DocumentFragment>
-  <div
-    class="SelectBase"
-  >
-    <div
-      aria-expanded="true"
-      aria-haspopup="listbox"
-      aria-labelledby="downshift-7-label"
-      aria-owns="downshift-7-menu"
-      class="SelectBase__main SelectBase__main--focused"
-      role="combobox"
-    >
-      <div
-        class="FieldWrapper FieldWrapper--isFocused SelectBase__field"
-      >
-        <div
-          class="FieldWrapper__content"
-        >
-          <div
-            class="Autosuggest__wrapper Autosuggest__wrapper--isFocused"
-          >
-            <input
-              aria-activedescendant="downshift-7-item-0"
-              aria-autocomplete="list"
-              aria-controls="downshift-7-menu"
-              aria-labelledby="downshift-7-label"
-              autocomplete="off"
-              class="Autosuggest__input"
-              data-lpignore="true"
-              data-test="true"
-              placeholder="type here..."
-              title="some title"
-              value="driver"
-            />
-          </div>
-          <ul
-            aria-labelledby="downshift-7-label"
-            class="List SelectBase__list--focused"
-            id="downshift-7-menu"
-            role="listbox"
-          >
-            <li
               class="ListItem"
               role="presentation"
             >
               <div
                 class="SuggestionsList__loaderItem"
-                role="group"
+                role="listitem"
               >
                 <div
                   class="ContentPlaceholder"
@@ -472,7 +422,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
             >
               <div
                 class="SuggestionsList__loaderItem"
-                role="group"
+                role="listitem"
               >
                 <div
                   class="ContentPlaceholder"
@@ -492,7 +442,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
             >
               <div
                 class="SuggestionsList__loaderItem"
-                role="group"
+                role="listitem"
               >
                 <div
                   class="ContentPlaceholder"
@@ -512,7 +462,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
             >
               <div
                 class="SuggestionsList__loaderItem"
-                role="group"
+                role="listitem"
               >
                 <div
                   class="ContentPlaceholder"
@@ -532,7 +482,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
             >
               <div
                 class="SuggestionsList__loaderItem"
-                role="group"
+                role="listitem"
               >
                 <div
                   class="ContentPlaceholder"

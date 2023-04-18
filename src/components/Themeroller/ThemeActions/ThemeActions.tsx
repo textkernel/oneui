@@ -74,13 +74,7 @@ export const ThemeActions: React.FC<Props> = ({
                 </Button>
             )}
             {resetActiveLabel && onActiveReset && (
-                <Button
-                    {...elem('button')}
-                    type="reset"
-                    size="small"
-                    context="warning"
-                    onClick={onActiveReset}
-                >
+                <Button {...elem('button')} type="reset" size="small" onClick={onActiveReset}>
                     <>
                         <FaUndo {...elem('icon')} />
                         {resetActiveLabel}
@@ -89,12 +83,7 @@ export const ThemeActions: React.FC<Props> = ({
             )}
             {fileLabel && onFileChange && (
                 <div {...elem('button')}>
-                    <FileButton
-                        size="small"
-                        context="success"
-                        accept="application/JSON"
-                        onChange={handleFileChange}
-                    >
+                    <FileButton size="small" accept="application/JSON" onChange={handleFileChange}>
                         <>
                             <FaUpload {...elem('icon')} />
                             {fileLabel}

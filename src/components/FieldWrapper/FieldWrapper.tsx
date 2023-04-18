@@ -88,7 +88,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                             {...elem('dropdownIcon')}
                             onClick={handleArrowClick}
                             onKeyDown={handleArrowKeyDown}
-                            role="img"
+                            role="button"
                         />
                     ) : (
                         <IoMdArrowDropdown
@@ -96,7 +96,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                             {...elem('dropdownIcon')}
                             onClick={handleArrowClick}
                             onKeyDown={handleArrowKeyDown}
-                            role="img"
+                            role="button"
                         />
                     ))}
             </div>

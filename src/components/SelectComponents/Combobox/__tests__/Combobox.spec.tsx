@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { create } from 'react-test-renderer';
 import { Combobox } from '../Combobox';
 import {
     SUGGESTIONS,
@@ -36,7 +35,7 @@ describe('Combobox', () => {
         onBlur: mockOnBlur,
     };
     const rerenderView = (props) => {
-        view.rerender(<Combobox {...props} />);
+        view.rerender(<Combobox {...defaultProps} {...props} />);
     };
 
     beforeEach(() => {
@@ -55,13 +54,6 @@ describe('Combobox', () => {
         });
         it('should not set focus on the input field when the component is disabled', async () => {
             const newProps = {
-                suggestions,
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
                 disabled: true,
             };
             rerenderView(newProps);
@@ -72,34 +64,19 @@ describe('Combobox', () => {
         it('should render noSuggestions placeholder when empty suggestions list is passed', async () => {
             const newProps = {
                 suggestions: [],
-                suggestionToString,
-                inputPlaceholder,
-                noSuggestionsPlaceholder,
-                onSelectionAdd: mockOnSelectionAdd,
-                onInputValueChange: mockOnInputValueChange,
-                onBlur: mockOnBlur,
             };
             rerenderView(newProps);
-            create(
-                <Combobox
-                    suggestions={[]}
-                    suggestionToString={suggestionToString}
-                    inputPlaceholder={inputPlaceholder}
-                    noSuggestionsPlaceholder={noSuggestionsPlaceholder}
-                    onSelectionAdd={mockOnSelectionAdd}
-                    onInputValueChange={mockOnInputValueChange}
-                    onBlur={mockOnBlur}
-                />
-            );
             await setFocus();
 
             expect(view.asFragment()).toMatchSnapshot();
+            // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('presentation')).toHaveLength(1);
             expect(screen.getByText(noSuggestionsPlaceholder)).toBeInTheDocument();
         });
         it('should render all suggestions from the list', async () => {
             await setFocus();
 
+            // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('presentation')).toHaveLength(suggestions.length);
         });
         describe('when blurred', () => {
@@ -109,12 +86,6 @@ describe('Combobox', () => {
             it('should show the selected value if available', async () => {
                 const newProps = {
                     suggestions: [],
-                    suggestionToString,
-                    inputPlaceholder,
-                    noSuggestionsPlaceholder,
-                    onSelectionAdd: mockOnSelectionAdd,
-                    onInputValueChange: mockOnInputValueChange,
-                    onBlur: mockOnBlur,
                     disabled: true,
                     selectedSuggestion: SUGGESTIONS[1],
                 };
@@ -128,13 +99,6 @@ describe('Combobox', () => {
         describe('when focused', () => {
             it('should add additional attributes to input field when component is focused', async () => {
                 const newProps = {
-                    suggestions,
-                    suggestionToString,
-                    inputPlaceholder,
-                    noSuggestionsPlaceholder,
-                    onSelectionAdd: mockOnSelectionAdd,
-                    onInputValueChange: mockOnInputValueChange,
-                    onBlur: mockOnBlur,
                     inputAttrs: { 'data-test': true, title: 'some title' },
                 };
                 rerenderView(newProps);
@@ -156,13 +120,6 @@ describe('Combobox', () => {
 
                 expect(inputField.getAttribute('placeholder')).toEqual(inputPlaceholder);
                 const newProps = {
-                    suggestions,
-                    suggestionToString,
-                    inputPlaceholder,
-                    noSuggestionsPlaceholder,
-                    onSelectionAdd: mockOnSelectionAdd,
-                    onInputValueChange: mockOnInputValueChange,
-                    onBlur: mockOnBlur,
                     selectedSuggestion: SUGGESTIONS[1],
                 };
                 rerenderView(newProps);
@@ -198,7 +155,6 @@ describe('Combobox', () => {
             await userEvent.keyboard('[Escape]');
 
             expect(getInputNode(viewContainer)).not.toBe(document.activeElement);
-            // TODO: fixMe - the callback is not triggered, even though it does work in the UI
             expect(mockOnBlur).toHaveBeenCalled();
         });
         // TODO: fixMe - the component doesn't get blurred, even though it does work in the UI
@@ -217,7 +173,6 @@ describe('Combobox', () => {
             await userEvent.keyboard('[Enter]');
 
             expect(getInputNode(viewContainer)).not.toBe(document.activeElement);
-            // TODO: fixMe - the callback is not triggered, even though it does work in the UI
             expect(mockOnBlur).toHaveBeenCalled();
         });
     });
@@ -228,7 +183,8 @@ describe('Combobox', () => {
                 await setFocus();
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
-                await userEvent.click(viewContainer.querySelector('li'));
+                // TODO: will be fixed in ONEUI-364
+                await userEvent.click(screen.queryAllByRole('presentation')[0]);
 
                 expect(mockOnSelectionAdd).toHaveBeenCalledWith(SUGGESTIONS[0]);
             });

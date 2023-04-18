@@ -78,16 +78,6 @@ $half-pill-height: math.div($pill-height, 2);
                 background-color: var(--color-primary-60);
                 border-color: var(--color-primary-60);
             }
-
-            &.PillButton__pill--isOpen {
-                background-color: var(--color-primary);
-
-                &:focus,
-                &:hover {
-                    background-color: var(--color-primary-60);
-                    border-color: var(--color-primary-60);
-                }
-            }
         }
     }
 
@@ -107,6 +97,14 @@ $half-pill-height: math.div($pill-height, 2);
         cursor: pointer;
         box-sizing: content-box;
         transition: background-color var(--transition-duration) ease;
+
+        &--isOpen {
+            transform: rotate(180deg);
+
+            &:hover {
+                background-color: transparent;
+            }
+        }
     }
 
     &__arrowIcon {

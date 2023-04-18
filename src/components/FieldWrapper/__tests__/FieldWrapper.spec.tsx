@@ -44,7 +44,7 @@ describe('FieldWrapper', () => {
         );
 
         expect(asFragment()).toMatchSnapshot();
-        const svg = screen.getByRole('img');
+        const svg = screen.getByRole('button');
         expect(svg).toBeInTheDocument();
         await userEvent.click(svg);
         expect(onArrowClickMock).toHaveBeenCalled();
@@ -53,7 +53,7 @@ describe('FieldWrapper', () => {
                 some children
             </FieldWrapper>
         );
-        const svgAfterRerender = screen.getByRole('img');
+        const svgAfterRerender = screen.getByRole('button');
         await userEvent.click(svgAfterRerender);
         expect(onArrowClickMock).toHaveBeenCalledTimes(2);
     });
@@ -66,7 +66,7 @@ describe('FieldWrapper', () => {
         );
 
         expect(asFragment()).toMatchSnapshot();
-        const svg = screen.getByRole('img');
+        const svg = screen.getByRole('button');
         expect(svg).toBeInTheDocument();
         await userEvent.keyboard('S');
         expect(onArrowClickMock).toHaveBeenCalledTimes(0);
@@ -77,7 +77,7 @@ describe('FieldWrapper', () => {
                 some children
             </FieldWrapper>
         );
-        const svgRerender = screen.getByRole('img');
+        const svgRerender = screen.getByRole('button');
         await userEvent.click(svgRerender);
         expect(onArrowClickMock).toHaveBeenCalledTimes(2);
     });

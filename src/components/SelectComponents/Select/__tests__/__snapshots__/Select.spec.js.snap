@@ -239,7 +239,7 @@ exports[`Select rendering should initially render correctly 1`] = `
                 className="FieldWrapper__dropdownIcon"
                 onClick={[Function]}
                 onKeyDown={[Function]}
-                role="img"
+                role="button"
                 tabIndex={0}
               >
                 <IconBase
@@ -251,7 +251,7 @@ exports[`Select rendering should initially render correctly 1`] = `
                   className="FieldWrapper__dropdownIcon"
                   onClick={[Function]}
                   onKeyDown={[Function]}
-                  role="img"
+                  role="button"
                   tabIndex={0}
                 >
                   <svg
@@ -260,7 +260,7 @@ exports[`Select rendering should initially render correctly 1`] = `
                     height="1em"
                     onClick={[Function]}
                     onKeyDown={[Function]}
-                    role="img"
+                    role="button"
                     stroke="currentColor"
                     strokeWidth="0"
                     style={
@@ -948,7 +948,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                 className="FieldWrapper__dropdownIcon"
                 onClick={[Function]}
                 onKeyDown={[Function]}
-                role="img"
+                role="button"
                 tabIndex={0}
               >
                 <IconBase
@@ -960,7 +960,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                   className="FieldWrapper__dropdownIcon"
                   onClick={[Function]}
                   onKeyDown={[Function]}
-                  role="img"
+                  role="button"
                   tabIndex={0}
                 >
                   <svg
@@ -969,7 +969,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                     height="1em"
                     onClick={[Function]}
                     onKeyDown={[Function]}
-                    role="img"
+                    role="button"
                     stroke="currentColor"
                     strokeWidth="0"
                     style={

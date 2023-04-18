@@ -8,7 +8,7 @@ exports[`SelectBase callbacks should call onClearAllSelected on Clear button cli
     <div
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby="downshift-12-label"
+      aria-labelledby="downshift-11-label"
       class="SelectBase__main"
       role="combobox"
     >
@@ -20,15 +20,15 @@ exports[`SelectBase callbacks should call onClearAllSelected on Clear button cli
         >
           <input
             aria-autocomplete="list"
-            aria-labelledby="downshift-12-label"
+            aria-labelledby="downshift-11-label"
             autocomplete="off"
-            id="downshift-12-input"
+            id="downshift-11-input"
             value=""
           />
           <ul
-            aria-labelledby="downshift-12-label"
+            aria-labelledby="downshift-11-label"
             class="List"
-            id="downshift-12-menu"
+            id="downshift-11-menu"
             role="listbox"
           />
         </div>
@@ -56,7 +56,7 @@ exports[`SelectBase callbacks should call onClearAllSelected on Clear button cli
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
-          role="img"
+          role="button"
           stroke="currentColor"
           stroke-width="0"
           tabindex="0"
@@ -82,7 +82,7 @@ exports[`SelectBase highlighting should highlight first item 1`] = `
     <div
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby="downshift-10-label"
+      aria-labelledby="downshift-9-label"
       class="SelectBase__main"
       role="combobox"
     >
@@ -94,15 +94,15 @@ exports[`SelectBase highlighting should highlight first item 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-labelledby="downshift-10-label"
+            aria-labelledby="downshift-9-label"
             autocomplete="off"
-            id="downshift-10-input"
+            id="downshift-9-input"
             value=""
           />
           <ul
-            aria-labelledby="downshift-10-label"
+            aria-labelledby="downshift-9-label"
             class="List"
-            id="downshift-10-menu"
+            id="downshift-9-menu"
             role="listbox"
           />
         </div>
@@ -186,7 +186,7 @@ exports[`SelectBase with toggle arrow should show arrows when showArrow is true 
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
-          role="img"
+          role="button"
           stroke="currentColor"
           stroke-width="0"
           tabindex="0"
@@ -240,7 +240,7 @@ exports[`SelectBase with toggle arrow should toggle focus and the arrow when it 
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
-          role="img"
+          role="button"
           stroke="currentColor"
           stroke-width="0"
           tabindex="0"
