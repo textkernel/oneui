@@ -91,6 +91,7 @@ expect(button).toBeInTheDocument();
 import { shallow } from 'enzyme';
 
 const component = shallow(<MyComponent />);
+expect(wrapper.find('value')).toHaveLength(1);
 expect(component).toMatchSnapshot();
 ```
 
@@ -99,11 +100,11 @@ expect(component).toMatchSnapshot();
 import { render, screen } from 'react-test-renderer';
 
 const { asFragment } = render(<MyComponent />);
-expect(screen.getByText('value')).toBeDefined();
+expect(screen.getByRole('value')).toBeInTheDocument();
 expect(asFragment()).toMatchSnapshot();
 ```
 
-### Simulating Events. `userEvent` [description](https://testing-library.com/docs/ecosystem-user-event/)
+### Simulating Events. `userEvent` [description](https://testing-library.com/docs/user-event/intro/)
 
 #### Before ⭕:
 ```ts
@@ -120,7 +121,8 @@ import { render, screen } from 'react-test-renderer';
 import userEvent from '@testing-library/user-event';
 
 const { asFragment } = render(<MyComponent />);
-await userEvent.type(screen.getByDisplayValue(''), 'Utrecht');
+const user = userEvent.setup();
+await user.type(screen.getByDisplayValue(''), 'Utrecht');
 expect(asFragment()).toMatchSnapshot();
 ```
 
@@ -142,7 +144,8 @@ import userEvent from '@testing-library/user-event';
 const handleClick = jest.fn();
 render(<MyComponent onClick={handleClick} />);
 const button = screen.getByRole('button', { name: 'click me' });
-await userEvent.click(button);
+const user = userEvent.setup();
+await user.click(button);
 expect(handleClick).toHaveBeenCalled();
 ```
 
