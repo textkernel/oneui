@@ -1,34 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<FileButton> that renders a button should add classes when props are changed 1`] = `
-<FileButton
-  isBlock={true}
-  size="large"
->
+<DocumentFragment>
   <label
-    className="Button Button--size_large Button--isBlock"
-    disabled={false}
+    class="Button Button--size_large Button--isBlock"
   >
     <input
-      hidden={true}
+      hidden=""
       type="file"
     />
     Click me
   </label>
-</FileButton>
+</DocumentFragment>
 `;
 
 exports[`<FileButton> that renders a button should render default button correctly 1`] = `
-<FileButton>
+<DocumentFragment>
   <label
-    className="Button"
-    disabled={false}
+    class="Button"
   >
     <input
-      hidden={true}
+      hidden=""
       type="file"
     />
     Choose file
   </label>
-</FileButton>
+</DocumentFragment>
 `;
