@@ -20,6 +20,7 @@ exports[`<NumericStepper> component should render correctly 1`] = `
       >
         <FaMinus
           size="75%"
+          title="minus"
         >
           <IconBase
             attr={
@@ -28,6 +29,7 @@ exports[`<NumericStepper> component should render correctly 1`] = `
               }
             }
             size="75%"
+            title="minus"
           >
             <svg
               fill="currentColor"
@@ -44,6 +46,9 @@ exports[`<NumericStepper> component should render correctly 1`] = `
               width="75%"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                minus
+              </title>
               <path
                 d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
                 key="0"
@@ -81,6 +86,7 @@ exports[`<NumericStepper> component should render correctly 1`] = `
       >
         <FaPlus
           size="75%"
+          title="plus"
         >
           <IconBase
             attr={
@@ -89,6 +95,7 @@ exports[`<NumericStepper> component should render correctly 1`] = `
               }
             }
             size="75%"
+            title="plus"
           >
             <svg
               fill="currentColor"
@@ -105,6 +112,9 @@ exports[`<NumericStepper> component should render correctly 1`] = `
               width="75%"
               xmlns="http://www.w3.org/2000/svg"
             >
+              <title>
+                plus
+              </title>
               <path
                 d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
                 key="0"

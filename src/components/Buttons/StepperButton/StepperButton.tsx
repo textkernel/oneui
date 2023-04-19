@@ -15,6 +15,8 @@ export interface Props
     isPrimary?: boolean;
     /** Icon to show inside button */
     icon: 'plus' | 'minus';
+    /** title attribute for the svg icon */
+    title?: string;
 }
 
 const { block } = bem('StepperButton', styles);
@@ -22,8 +24,9 @@ const { block } = bem('StepperButton', styles);
 export const StepperButton: React.FC<Props> = ({
     disabled = false,
     isPrimary = false,
-    icon = 'plus',
+    icon,
     href,
+    title,
     ...rest
 }) => {
     return (
@@ -33,7 +36,11 @@ export const StepperButton: React.FC<Props> = ({
             type="button"
             disabled={disabled}
         >
-            {icon === 'plus' ? <FaPlus size="75%" /> : <FaMinus size="75%" />}
+            {icon === 'plus' ? (
+                <FaPlus size="75%" title={title || 'plus'} />
+            ) : (
+                <FaMinus size="75%" title={title || 'minus'} />
+            )}
         </button>
     );
 };
