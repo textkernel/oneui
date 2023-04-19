@@ -1,5 +1,6 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../../Buttons';
 import { Dropdown } from '../../Dropdown';
@@ -7,27 +8,37 @@ import { ListItem } from '../../List/ListItem';
 
 describe('<ButtonGroup> that renders a button', () => {
     it('should render default button correctly', () => {
-        const wrapper = mount(
+        const view = render(
             <ButtonGroup>
                 <Button key="a">A button</Button>
                 <Button key="b">Another button</Button>
             </ButtonGroup>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.asFragment()).toMatchSnapshot();
+        const button = screen.getAllByRole('button');
+        expect(button[0]).toHaveClass('ButtonGroup__button--first');
+        expect(button[0]).not.toHaveClass('ButtonGroup__button--last');
+        expect(button[1]).not.toHaveClass('ButtonGroup__button--first');
+        expect(button[1]).toHaveClass('ButtonGroup__button--last');
     });
 
     it('should add classes when props are changed', () => {
-        const wrapper = mount(
+        const view = render(
             <ButtonGroup size="large" isBlock>
                 <Button key="a">A button</Button>
                 <Button key="b">Another button</Button>
             </ButtonGroup>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.asFragment()).toMatchSnapshot();
+        const button = screen.getAllByRole('button');
+        expect(button[0]).toHaveClass('Button--size_large');
+        expect(button[0]).toHaveClass('ButtonGroup__button--isBlock');
+        expect(button[1]).toHaveClass('Button--size_large');
+        expect(button[1]).toHaveClass('ButtonGroup__button--isBlock');
     });
 
     it('should support mixed element types', () => {
-        const wrapper = mount(
+        const view = render(
             <ButtonGroup size="large" isBlock>
                 <Button key="a">A button</Button>
                 <Button key="b" href="#">
@@ -43,12 +54,12 @@ describe('<ButtonGroup> that renders a button', () => {
                 </Dropdown>
             </ButtonGroup>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.asFragment()).toMatchSnapshot();
     });
 
     it('should render with conditional JSX', () => {
         const condition = false;
-        const wrapper = mount(
+        const view = render(
             <ButtonGroup>
                 <Button key="a">A button</Button>
                 {condition ? <Button href="#">An anchor</Button> : null}
@@ -56,35 +67,36 @@ describe('<ButtonGroup> that renders a button', () => {
             </ButtonGroup>
         );
 
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.text()).not.toContain('false');
+        expect(view.asFragment()).toMatchSnapshot();
+        expect(screen.queryByText('false')).not.toBeInTheDocument();
     });
 
     it('should pass main props, but not add styles if there is only 1 child', () => {
-        const wrapper = mount(
+        const view = render(
             <ButtonGroup size="small" isBlock>
                 <Button key="a">A button</Button>
             </ButtonGroup>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('Button').prop('className')).toBe(undefined);
-        expect(wrapper.find('Button').prop('size')).toBe('small');
-        expect(wrapper.find('Button').prop('isBlock')).toBeTruthy();
+        expect(view.asFragment()).toMatchSnapshot();
+        const button = screen.getByRole('button');
+        expect(button).toHaveClass('Button--isPrimary');
+        expect(button).toHaveClass('Button--size_small');
+        expect(button).toHaveClass('Button--isBlock');
     });
 
     it('should pass main props if child is array with size one', () => {
         const buttonContent = ['A button'];
-        const wrapper = mount(
+        const view = render(
             <ButtonGroup isPrimary size="small" isBlock>
                 {buttonContent.map((content) => (
                     <Button key="a">{content}</Button>
                 ))}
             </ButtonGroup>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('Button').prop('className')).toBe(undefined);
-        expect(wrapper.find('Button').prop('isPrimary')).toBe(true);
-        expect(wrapper.find('Button').prop('size')).toBe('small');
-        expect(wrapper.find('Button').prop('isBlock')).toBeTruthy();
+        expect(view.asFragment()).toMatchSnapshot();
+        const button = screen.getByRole('button');
+        expect(button).toHaveClass('Button--isPrimary');
+        expect(button).toHaveClass('Button--size_small');
+        expect(button).toHaveClass('Button--isBlock');
     });
 });
