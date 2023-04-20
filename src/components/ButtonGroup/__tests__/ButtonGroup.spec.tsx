@@ -14,6 +14,7 @@ describe('<ButtonGroup> that renders a button', () => {
                 <Button key="b">Another button</Button>
             </ButtonGroup>
         );
+
         expect(view.asFragment()).toMatchSnapshot();
         const button = screen.getAllByRole('button');
         expect(button[0]).toHaveClass('ButtonGroup__button--first');
@@ -29,6 +30,7 @@ describe('<ButtonGroup> that renders a button', () => {
                 <Button key="b">Another button</Button>
             </ButtonGroup>
         );
+
         expect(view.asFragment()).toMatchSnapshot();
         const button = screen.getAllByRole('button');
         expect(button[0]).toHaveClass('Button--size_large');
@@ -54,6 +56,7 @@ describe('<ButtonGroup> that renders a button', () => {
                 </Dropdown>
             </ButtonGroup>
         );
+
         expect(view.asFragment()).toMatchSnapshot();
     });
 
@@ -77,6 +80,7 @@ describe('<ButtonGroup> that renders a button', () => {
                 <Button key="a">A button</Button>
             </ButtonGroup>
         );
+
         expect(view.asFragment()).toMatchSnapshot();
         const button = screen.getByRole('button');
         expect(button).toHaveClass('Button--isPrimary');
@@ -93,6 +97,7 @@ describe('<ButtonGroup> that renders a button', () => {
                 ))}
             </ButtonGroup>
         );
+
         expect(view.asFragment()).toMatchSnapshot();
         const button = screen.getByRole('button');
         expect(button).toHaveClass('Button--isPrimary');

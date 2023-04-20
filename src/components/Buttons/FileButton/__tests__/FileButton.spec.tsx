@@ -7,6 +7,7 @@ import { FileButton } from '../FileButton';
 describe('<FileButton> that renders a button', () => {
     it('should render default button correctly', () => {
         const view = render(<FileButton>Choose file</FileButton>);
+
         expect(view.asFragment()).toMatchSnapshot();
         expect(screen.getByLabelText('Choose file')).toBeInTheDocument();
     });
@@ -16,13 +17,16 @@ describe('<FileButton> that renders a button', () => {
                 Click me
             </FileButton>
         );
+
         expect(view.asFragment()).toMatchSnapshot();
     });
     it('should call click callback correctly', async () => {
         const onChangeMock = jest.fn();
         const user = userEvent.setup();
         render(<FileButton onChange={onChangeMock}>Click me</FileButton>);
+
         await user.upload(screen.getByLabelText('Click me'), new File(['test'], 'test.txt'));
+
         expect(onChangeMock).toHaveBeenCalled();
     });
 });
