@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<IconBase> that renders an SVG wrapper with all options included should apply hight only to styles if size is provided with preserveAspectRatio 1`] = `
+exports[`<IconBase> that renders an SVG wrapper with all options included should apply height only to styles if size is provided with preserveAspectRatio 1`] = `
 <DocumentFragment>
   <div
     class="IconBase"
