@@ -5,25 +5,28 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
   <button
     aria-expanded="true"
     aria-haspopup="listbox"
-    aria-labelledby="downshift-101-label downshift-101-toggle-button"
+    aria-labelledby="downshift-103-label downshift-103-toggle-button"
     class="Button Button--isPrimary"
-    id="downshift-101-toggle-button"
+    id="downshift-103-toggle-button"
     type="button"
   >
     Click me!
   </button>
   <ul
-    aria-labelledby="downshift-101-label"
+    aria-labelledby="downshift-103-label"
     class="List Dropdown__list"
-    id="downshift-101-menu"
+    data-popper-escaped="true"
+    data-popper-placement="top-start"
+    data-popper-reference-hidden="true"
+    id="downshift-103-menu"
     role="listbox"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; bottom: 0px; transform: translate(0px, -3px);"
     tabindex="-1"
   >
     <li
       aria-selected="false"
       class="ListItem ListItem--clickable List__item"
-      id="downshift-101-item-0"
+      id="downshift-103-item-0"
       role="presentation"
     >
       <span>
@@ -49,9 +52,12 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
   <ul
     aria-labelledby="downshift-14-label"
     class="List Dropdown__list"
+    data-popper-escaped="true"
+    data-popper-placement="top-start"
+    data-popper-reference-hidden="true"
     id="downshift-14-menu"
     role="listbox"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; bottom: 0px; transform: translate(0px, -3px);"
     tabindex="-1"
   >
     <li
@@ -136,9 +142,12 @@ exports[`Dropdown should render correctly opened 1`] = `
   <ul
     aria-labelledby="downshift-3-label"
     class="List Dropdown__list"
+    data-popper-escaped="true"
+    data-popper-placement="top-start"
+    data-popper-reference-hidden="true"
     id="downshift-3-menu"
     role="listbox"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; bottom: 0px; transform: translate(0px, -3px);"
     tabindex="-1"
   >
     <li
@@ -168,19 +177,22 @@ exports[`Dropdown should render correctly with mixed children: array and single 
   <button
     aria-expanded="true"
     aria-haspopup="listbox"
-    aria-labelledby="downshift-45-label downshift-45-toggle-button"
+    aria-labelledby="downshift-41-label downshift-41-toggle-button"
     class="Button Button--isPrimary"
-    id="downshift-45-toggle-button"
+    id="downshift-41-toggle-button"
     type="button"
   >
     Click me!
   </button>
   <ul
-    aria-labelledby="downshift-45-label"
+    aria-labelledby="downshift-41-label"
     class="List Dropdown__list"
-    id="downshift-45-menu"
+    data-popper-escaped="true"
+    data-popper-placement="top-start"
+    data-popper-reference-hidden="true"
+    id="downshift-41-menu"
     role="listbox"
-    style="position: absolute; left: 0px; top: 0px;"
+    style="position: absolute; left: 0px; top: 0px; bottom: 0px; transform: translate(0px, -3px);"
     tabindex="-1"
   >
     <li
@@ -194,7 +206,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
     <li
       aria-selected="false"
       class="ListItem ListItem--clickable List__item"
-      id="downshift-45-item-0"
+      id="downshift-41-item-0"
       role="presentation"
     >
       <span>
@@ -204,7 +216,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
     <li
       aria-selected="false"
       class="ListItem ListItem--clickable List__item"
-      id="downshift-45-item-1"
+      id="downshift-41-item-1"
       role="presentation"
     >
       <span>

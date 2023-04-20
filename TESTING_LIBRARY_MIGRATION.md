@@ -5,6 +5,8 @@ The `@testing-library family` of packages helps you test UI components in a user
 
 For some functions for example `toBeInTheDocument()` needs to install [jest-dom](https://testing-library.com/docs/ecosystem-jest-dom/).
 
+## Useful links
+[Common mistakes with RTL](https://kentcdodds.com/blog/common-mistakes-with-react-testing-library)
 
 [Migrate from Enzyme](https://testing-library.com/docs/react-testing-library/migrate-from-enzyme)
 
@@ -20,10 +22,10 @@ expect(component).toMatchSnapshot();
 
 #### After ✅:
 ```ts
-import { create } from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
-const renderer = create(<MyComponent />);
-expect(renderer.toJSON()).toMatchSnapshot();
+const { asFragment } = render(<MyComponent />);
+expect(asFragment()).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -36,10 +38,10 @@ expect(component).toMatchSnapshot();
 
 #### After ✅:
 ```ts
-import { create } from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
-const renderer = create(<MyComponent />);
-expect(renderer.toJSON()).toMatchSnapshot();
+const { asFragment } = render(<MyComponent />);
+expect(asFragment()).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -52,10 +54,10 @@ expect(component).toMatchSnapshot();
 
 #### After ✅:
 ```ts
-import { create } from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
-const renderer = create(<MyComponent />);
-expect(renderer.toJSON()).toMatchSnapshot();
+const { asFragment } = render(<MyComponent />);
+expect(asFragment()).toMatchSnapshot();
 ```
 
 ### Finding Elements
@@ -89,6 +91,7 @@ expect(button).toBeInTheDocument();
 import { shallow } from 'enzyme';
 
 const component = shallow(<MyComponent />);
+expect(wrapper.find('value')).toHaveLength(1);
 expect(component).toMatchSnapshot();
 ```
 
@@ -96,12 +99,12 @@ expect(component).toMatchSnapshot();
 ```ts
 import { render, screen } from 'react-test-renderer';
 
-const component = render(<MyComponent />);
-expect(screen.getByText('value')).toBeDefined();
-expect(component.asFragment()).toMatchSnapshot();
+const { asFragment } = render(<MyComponent />);
+expect(screen.getByRole('value')).toBeInTheDocument();
+expect(asFragment()).toMatchSnapshot();
 ```
 
-### Simulating Events. `fireEvent` [description](https://testing-library.com/docs/dom-testing-library/api-events/)
+### Simulating Events. `userEvent` [description](https://testing-library.com/docs/user-event/intro/)
 
 #### Before ⭕:
 ```ts
@@ -114,11 +117,13 @@ expect(component).toMatchSnapshot();
 
 #### After ✅:
 ```ts
-import { fireEvent, render, screen } from 'react-test-renderer';
+import { render, screen } from 'react-test-renderer';
+import userEvent from '@testing-library/user-event';
 
-const component = render(<MyComponent />);
-fireEvent.change(screen.getByDisplayValue(''), { target: { value: 'Utrecht' } });
-expect(component.asFragment()).toMatchSnapshot();
+const { asFragment } = render(<MyComponent />);
+const user = userEvent.setup();
+await user.type(screen.getByDisplayValue(''), 'Utrecht');
+expect(asFragment()).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -133,12 +138,14 @@ expect(handleClick).toHaveBeenCalled();
 
 #### After ✅:
 ```ts
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 
 const handleClick = jest.fn();
 render(<MyComponent onClick={handleClick} />);
 const button = screen.getByRole('button', { name: 'click me' });
-fireEvent.click(button);
+const user = userEvent.setup();
+await user.click(button);
 expect(handleClick).toHaveBeenCalled();
 ```
 
