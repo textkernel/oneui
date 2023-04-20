@@ -19,6 +19,11 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
     type="text"
     value=""
   />
+  <p
+    class="Text--context_danger Text--size_small FieldWithValidation"
+  >
+    invalid field
+  </p>
 </DocumentFragment>
 `;
 
@@ -30,6 +35,11 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
     type="text"
     value=""
   />
+  <p
+    class="Text--context_danger Text--size_small FieldWithValidation"
+  >
+    invalid field
+  </p>
 </DocumentFragment>
 `;
 
@@ -41,6 +51,11 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
     type="text"
     value=""
   />
+  <p
+    class="Text--context_danger Text--size_small FieldWithValidation"
+  >
+    invalid field
+  </p>
 </DocumentFragment>
 `;
 
@@ -52,6 +67,22 @@ exports[`FieldWithValidation when using tooltip with no error message passed sho
     type="text"
     value=""
   />
+</DocumentFragment>
+`;
+
+exports[`FieldWithValidation with error message passed should render the message as text 1`] = `
+<DocumentFragment>
+  <input
+    class="Input Input--context_danger"
+    data-lpignore="true"
+    type="text"
+    value=""
+  />
+  <p
+    class="Text--context_danger Text--size_small FieldWithValidation"
+  >
+    invalid field
+  </p>
 </DocumentFragment>
 `;
 
