@@ -1,6 +1,5 @@
 import React from 'react';
-import { render } from 'enzyme';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import { ListOptimizer } from '../ListOptimizer';
 
 describe('<ListOptimizer> that optimally renders list items', () => {
@@ -10,7 +9,7 @@ describe('<ListOptimizer> that optimally renders list items', () => {
                 {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.asFragment()).toMatchSnapshot();
     });
 
     it('should render part of list items due to middle height of block', () => {
@@ -19,7 +18,7 @@ describe('<ListOptimizer> that optimally renders list items', () => {
                 {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.asFragment()).toMatchSnapshot();
     });
     it('should render full list on maximum height', () => {
         const wrapper = render(
@@ -27,6 +26,6 @@ describe('<ListOptimizer> that optimally renders list items', () => {
                 {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(wrapper.asFragment()).toMatchSnapshot();
     });
 });

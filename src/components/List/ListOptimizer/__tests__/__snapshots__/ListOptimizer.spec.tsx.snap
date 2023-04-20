@@ -1,0 +1,94 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListOptimizer> that optimally renders list items should render full list on maximum height 1`] = `
+<DocumentFragment>
+  <div
+    style="overflow: visible; height: 0px; width: 0px;"
+  >
+    <div
+      aria-label="grid"
+      aria-readonly="true"
+      class="ReactVirtualized__Grid ReactVirtualized__List"
+      role="grid"
+      style="box-sizing: border-box; direction: ltr; height: 0px; position: relative; width: 0px; will-change: transform; overflow-x: hidden; overflow-y: auto;"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="resize-triggers"
+  >
+    <div
+      class="expand-trigger"
+    >
+      <div
+        style="width: 1px; height: 1px;"
+      />
+    </div>
+    <div
+      class="contract-trigger"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<ListOptimizer> that optimally renders list items should render part of list items due to middle height of block 1`] = `
+<DocumentFragment>
+  <div
+    style="overflow: visible; height: 0px; width: 0px;"
+  >
+    <div
+      aria-label="grid"
+      aria-readonly="true"
+      class="ReactVirtualized__Grid ReactVirtualized__List"
+      role="grid"
+      style="box-sizing: border-box; direction: ltr; height: 0px; position: relative; width: 0px; will-change: transform; overflow-x: hidden; overflow-y: auto;"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="resize-triggers"
+  >
+    <div
+      class="expand-trigger"
+    >
+      <div
+        style="width: 1px; height: 1px;"
+      />
+    </div>
+    <div
+      class="contract-trigger"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`<ListOptimizer> that optimally renders list items should render small part of list due to small height of block 1`] = `
+<DocumentFragment>
+  <div
+    style="overflow: visible; height: 0px; width: 0px;"
+  >
+    <div
+      aria-label="grid"
+      aria-readonly="true"
+      class="ReactVirtualized__Grid ReactVirtualized__List"
+      role="grid"
+      style="box-sizing: border-box; direction: ltr; height: 0px; position: relative; width: 0px; will-change: transform; overflow-x: hidden; overflow-y: auto;"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="resize-triggers"
+  >
+    <div
+      class="expand-trigger"
+    >
+      <div
+        style="width: 1px; height: 1px;"
+      />
+    </div>
+    <div
+      class="contract-trigger"
+    />
+  </div>
+</DocumentFragment>
+`;

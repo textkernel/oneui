@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component Initial rendering should render List correctly 1`] = `
+<DocumentFragment>
+  <ul
+    class="List"
+    tabindex="0"
+  >
+    <li
+      class="ListItem List__item"
+      role="presentation"
+    >
+      <span>
+        Item 1
+      </span>
+    </li>
+    <li
+      class="ListItem List__item"
+      role="presentation"
+    >
+      <span>
+        Item 2
+      </span>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`List component Initial rendering should render List correctly without keyboard navigation 1`] = `
+<List
+  isControlledNavigation={true}
+>
+  <ul
+    className="List"
+  >
+    <ListItem
+      className="List__item"
+      key=".0"
+    >
+      <li
+        className="ListItem List__item"
+        role="presentation"
+      >
+        <Text
+          inline={true}
+          key=".0"
+        >
+          <span>
+            Item 1
+          </span>
+        </Text>
+      </li>
+    </ListItem>
+    <ListItem
+      className="List__item"
+      key=".1"
+    >
+      <li
+        className="ListItem List__item"
+        role="presentation"
+      >
+        <Text
+          inline={true}
+          key=".0"
+        >
+          <span>
+            Item 2
+          </span>
+        </Text>
+      </li>
+    </ListItem>
+  </ul>
+</List>
+`;

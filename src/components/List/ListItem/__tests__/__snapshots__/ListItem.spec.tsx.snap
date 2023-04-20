@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem component should add clickable class when onClick is defined 1`] = `
+<DocumentFragment>
+  <li
+    class="ListItem ListItem--clickable"
+    role="presentation"
+  >
+    <span>
+      An item
+    </span>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ListItem component should render ListItem correctly 1`] = `
+<DocumentFragment>
+  <li
+    class="ListItem"
+    role="presentation"
+  >
+    <p>
+      An item
+    </p>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ListItem component should render correctly when disabled 1`] = `
+<DocumentFragment>
+  <li
+    class="ListItem ListItem--disabled"
+    role="presentation"
+  >
+    <span>
+      An item
+    </span>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ListItem component should set disabled prop on li when required 1`] = `
+<DocumentFragment>
+  <li
+    class="ListItem ListItem--disabled"
+    disabled=""
+    role="presentation"
+  >
+    <span>
+      An item
+    </span>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`ListItem component should turn string items to Text 1`] = `
+<DocumentFragment>
+  <li
+    class="ListItem"
+    role="presentation"
+  >
+    <span>
+      Simple string
+    </span>
+  </li>
+</DocumentFragment>
+`;
