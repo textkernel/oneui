@@ -1,10 +1,10 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import { IconJobfeed } from '../IconJobfeed';
 
 describe('<IconJobfeed>', () => {
     it('should render an Jobfeed icon', () => {
-        const wrapper = shallow(<IconJobfeed />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const view = render(<IconJobfeed />);
+        expect(view.asFragment()).toMatchSnapshot();
     });
 });

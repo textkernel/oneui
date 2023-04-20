@@ -1,10 +1,10 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import { IconTextkernel } from '../IconTextkernel';
 
 describe('<IconTextkernel>', () => {
     it('should render an Textkernel icon', () => {
-        const wrapper = shallow(<IconTextkernel />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const view = render(<IconTextkernel />);
+        expect(view.asFragment()).toMatchSnapshot();
     });
 });

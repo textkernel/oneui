@@ -1,10 +1,10 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import { IconExtract } from '../IconExtract';
 
 describe('<IconExtract>', () => {
     it('should render an Extract icon', () => {
-        const wrapper = shallow(<IconExtract />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const view = render(<IconExtract />);
+        expect(view.asFragment()).toMatchSnapshot();
     });
 });
