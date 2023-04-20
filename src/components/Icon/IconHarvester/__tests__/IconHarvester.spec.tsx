@@ -1,10 +1,10 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
 import { IconHarvester } from '../IconHarvester';
 
 describe('<IconHarvester>', () => {
     it('should render an Harvester icon', () => {
-        const wrapper = shallow(<IconHarvester />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const view = render(<IconHarvester />);
+        expect(view.asFragment()).toMatchSnapshot();
     });
 });

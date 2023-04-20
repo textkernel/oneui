@@ -91,8 +91,7 @@ expect(button).toBeInTheDocument();
 import { shallow } from 'enzyme';
 
 const component = shallow(<MyComponent />);
-expect(wrapper.find('value')).toHaveLength(1);
-expect(component).toMatchSnapshot();
+expect(wrapper.find('Button')).toHaveLength(1);
 ```
 
 #### After ✅:
@@ -100,8 +99,7 @@ expect(component).toMatchSnapshot();
 import { render, screen } from 'react-test-renderer';
 
 const { asFragment } = render(<MyComponent />);
-expect(screen.getByRole('value')).toBeInTheDocument();
-expect(asFragment()).toMatchSnapshot();
+expect(screen.getByRole('button')).toBeInTheDocument();
 ```
 
 ### Simulating Events. `userEvent` [description](https://testing-library.com/docs/user-event/intro/)
