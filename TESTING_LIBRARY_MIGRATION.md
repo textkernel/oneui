@@ -91,6 +91,7 @@ expect(button).toBeInTheDocument();
 import { shallow } from 'enzyme';
 
 const component = shallow(<MyComponent />);
+expect(wrapper.find('value')).toHaveLength(1);
 expect(wrapper.find('Button')).toHaveLength(1);
 ```
 
