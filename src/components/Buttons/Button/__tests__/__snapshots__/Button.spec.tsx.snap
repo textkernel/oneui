@@ -1,45 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Button> that renders a button should add classes when props are changed 1`] = `
-<Button
-  isBlock={true}
-  isLoading={true}
-  isPrimary={true}
-  size="large"
->
+<DocumentFragment>
   <button
-    className="Button Button--isPrimary Button--isBlock Button--isLoading Button--size_large"
-    disabled={false}
+    class="Button Button--isPrimary Button--isBlock Button--isLoading Button--size_large"
     type="button"
   >
     <span>
       Click me
     </span>
   </button>
-</Button>
+</DocumentFragment>
 `;
 
 exports[`<Button> that renders a button should render an ancor element if href is defined 1`] = `
-<Button
-  href="/"
->
+<DocumentFragment>
   <a
-    className="Button"
+    class="Button"
     href="/"
   >
     Click me
   </a>
-</Button>
+</DocumentFragment>
 `;
 
 exports[`<Button> that renders a button should render default button correctly 1`] = `
-<Button>
+<DocumentFragment>
   <button
-    className="Button"
-    disabled={false}
+    class="Button"
     type="button"
   >
     Click me
   </button>
-</Button>
+</DocumentFragment>
 `;
