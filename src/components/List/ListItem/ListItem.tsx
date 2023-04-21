@@ -56,7 +56,7 @@ export const ListItem = forwardRef<HTMLLIElement, Props>(
                 ref={ref}
                 role="option"
                 onClick={onClick}
-                aria-selected={isSelected}
+                aria-selected={isHighlighted}
                 onKeyDown={onClick}
                 {...block({
                     isHighlighted,

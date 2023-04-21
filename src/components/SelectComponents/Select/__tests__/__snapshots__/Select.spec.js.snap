@@ -568,7 +568,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                         style={Object {}}
                       >
                         <li
-                          aria-selected={false}
+                          aria-selected={true}
                           className="ListItem ListItem--isHighlighted ListItem--clickable"
                           disabled={false}
                           id="downshift-1-item-0"

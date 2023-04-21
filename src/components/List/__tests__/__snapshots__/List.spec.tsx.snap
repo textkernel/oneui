@@ -1,9 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`List component Callbacks should call onClick after navigating to the next highlighted item with doSelectOnNavigate enabled 1`] = `
+<DocumentFragment>
+  <ul
+    class="List"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      0
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      1
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      2
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      3
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem ListItem--clickable List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      4
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`List component Initial rendering should allow for conditional rendering of items 1`] = `
+<DocumentFragment>
+  <ul
+    class="List"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item 2
+      </span>
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
 exports[`List component Initial rendering should render List correctly 1`] = `
 <DocumentFragment>
   <ul
     class="List"
+    role="listbox"
     tabindex="0"
   >
     <li
@@ -29,50 +111,180 @@ exports[`List component Initial rendering should render List correctly 1`] = `
 `;
 
 exports[`List component Initial rendering should render List correctly without keyboard navigation 1`] = `
-<List
-  isControlledNavigation={true}
->
+<DocumentFragment>
   <ul
-    className="List"
+    class="List"
+    role="listbox"
   >
-    <ListItem
-      className="List__item"
-      key=".0"
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
     >
-      <li
-        aria-selected={false}
-        className="ListItem List__item"
-        role="option"
-      >
-        <Text
-          inline={true}
-          key=".0"
-        >
-          <span>
-            Item 1
-          </span>
-        </Text>
-      </li>
-    </ListItem>
-    <ListItem
-      className="List__item"
-      key=".1"
+      <span>
+        Item 1
+      </span>
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
     >
-      <li
-        aria-selected={false}
-        className="ListItem List__item"
-        role="option"
-      >
-        <Text
-          inline={true}
-          key=".0"
-        >
-          <span>
-            Item 2
-          </span>
-        </Text>
-      </li>
-    </ListItem>
+      <span>
+        Item 2
+      </span>
+    </li>
   </ul>
-</List>
+</DocumentFragment>
+`;
+
+exports[`List component Keyboard navigation should move highlight on components in both directions properly 1`] = `
+<DocumentFragment>
+  <ul
+    class="List"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      0
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      1
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      2
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      3
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      4
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`List component Keyboard navigation should not have any item highlighted from the start 1`] = `
+<DocumentFragment>
+  <ul
+    class="List"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      0
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      1
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      2
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      3
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem List__item"
+      role="option"
+    >
+      <span>
+        Item $
+      </span>
+      4
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`List component enriching children with props should not overwrite classes on children 1`] = `
+<DocumentFragment>
+  <ul
+    class="List"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="ListItem List__item test"
+      role="option"
+    >
+      <span>
+        Item 1
+      </span>
+    </li>
+    <li
+      aria-selected="false"
+      class="ListItem List__item test"
+      role="option"
+    >
+      <span>
+        Item 1
+      </span>
+    </li>
+  </ul>
+</DocumentFragment>
 `;

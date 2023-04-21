@@ -358,7 +358,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       role="option"
                     >
                       <li
-                        aria-selected={false}
+                        aria-selected={true}
                         className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                         id="downshift-4-item-0"
                         onClick={[Function]}

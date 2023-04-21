@@ -8,19 +8,19 @@ import { Text } from '../../../Text';
 describe('ListItem component', () => {
     it('should render ListItem correctly', () => {
         const ref = React.createRef<HTMLLIElement>();
-        const wrapper = render(
+        const view = render(
             <ListItem ref={ref}>
                 <Text>An item</Text>
             </ListItem>
         );
 
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(view.asFragment()).toMatchSnapshot();
     });
 
     it('should turn string items to Text', () => {
-        const wrapper = render(<ListItem>Simple string</ListItem>);
+        const view = render(<ListItem>Simple string</ListItem>);
 
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(view.asFragment()).toMatchSnapshot();
         expect(screen.getByText('Simple string')).toBeInTheDocument();
     });
     it('should not add clickable class when onClick is not defined', () => {
@@ -42,8 +42,8 @@ describe('ListItem component', () => {
         expect(onClick).toHaveBeenCalledTimes(1);
     });
     it('should render correctly when disabled', () => {
-        const wrapper = render(<ListItem disabled>An item</ListItem>);
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        const view = render(<ListItem disabled>An item</ListItem>);
+        expect(view.asFragment()).toMatchSnapshot();
 
         const li = screen.getByRole('option');
         expect(li).toHaveClass('ListItem ListItem--disabled');

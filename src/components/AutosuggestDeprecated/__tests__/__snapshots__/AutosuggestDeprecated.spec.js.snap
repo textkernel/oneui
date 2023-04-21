@@ -233,7 +233,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                     role="option"
                   >
                     <li
-                      aria-selected={false}
+                      aria-selected={true}
                       className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                       id="downshift-5-item-0"
                       onClick={[Function]}
@@ -816,7 +816,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                     role="option"
                   >
                     <li
-                      aria-selected={false}
+                      aria-selected={true}
                       className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                       id="downshift-6-item-0"
                       onClick={[Function]}

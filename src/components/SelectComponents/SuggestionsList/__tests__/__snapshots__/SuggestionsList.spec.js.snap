@@ -79,7 +79,7 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     style={Object {}}
   >
     <li
-      aria-selected={false}
+      aria-selected={true}
       className="ListItem ListItem--isHighlighted"
       role="option"
       style={Object {}}
@@ -819,7 +819,7 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     style={Object {}}
   >
     <li
-      aria-selected={false}
+      aria-selected={true}
       className="ListItem ListItem--isHighlighted"
       role="option"
       style={Object {}}

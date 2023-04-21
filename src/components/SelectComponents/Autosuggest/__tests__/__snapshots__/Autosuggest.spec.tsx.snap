@@ -258,7 +258,7 @@ exports[`Autosuggest rendering should render component with suggestions 1`] = `
             role="listbox"
           >
             <li
-              aria-selected="false"
+              aria-selected="true"
               class="ListItem ListItem--isHighlighted ListItem--clickable"
               id="downshift-5-item-0"
               role="option"

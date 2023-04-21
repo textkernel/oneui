@@ -14,6 +14,8 @@ describe('Dropdown', () => {
     const mockOnDropdownStateChange = jest.fn();
     let view;
 
+    const getListItemAt = (index) => screen.getAllByRole('option')[index];
+
     beforeEach(() => {
         view = render(
             <Dropdown
@@ -76,16 +78,16 @@ describe('Dropdown', () => {
 
         // 1 keydown
         keyDown();
-        expect(screen.getAllByRole('option')[1].getAttribute('aria-selected')).toBeTruthy();
-        expect(screen.getAllByRole('option')[1]).toHaveTextContent('With value 1');
+        expect(getListItemAt(1).getAttribute('aria-selected')).toBeTruthy();
+        expect(getListItemAt(1)).toHaveTextContent('With value 1');
         // 2 keydown
         keyDown();
-        expect(screen.getAllByRole('option')[3].getAttribute('aria-selected')).toBeTruthy();
-        expect(screen.getAllByRole('option')[3]).toHaveTextContent('With value 2');
+        expect(getListItemAt(3).getAttribute('aria-selected')).toBeTruthy();
+        expect(getListItemAt(3)).toHaveTextContent('With value 2');
         // 3 keydown. Should be again last not disabled with value item => 'With value 2'
         keyDown();
-        expect(screen.getAllByRole('option')[3].getAttribute('aria-selected')).toBeTruthy();
-        expect(screen.getAllByRole('option')[3]).toHaveTextContent('With value 2');
+        expect(getListItemAt(3).getAttribute('aria-selected')).toBeTruthy();
+        expect(getListItemAt(3)).toHaveTextContent('With value 2');
     });
 
     it('onChange should return passed value', async () => {

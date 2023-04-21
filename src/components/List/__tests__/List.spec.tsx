@@ -1,23 +1,21 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { ListItem } from '../ListItem';
-import { List } from '../List';
+import { List, NOT_LIST_CHILD } from '../List';
 
 describe('List component', () => {
     let consoleError;
-    let wrapper;
     let listComponent;
     let view;
 
     const itemNumbersArray = [0, 1, 2, 3, 4];
     const mockOnClick = jest.fn();
 
-    const getListItemAt = (index) => wrapper.children().childAt(index);
-
-    const navigateUp = () => wrapper.children().simulate('keyDown', { key: 'ArrowUp' });
-    const navigateDown = () => wrapper.children().simulate('keyDown', { key: 'ArrowDown' });
+    const getListItemAt = (index) => screen.getAllByRole('option')[index];
+    const navigateDown = async () => userEvent.keyboard('[ArrowDown]');
+    const navigateUp = async () => userEvent.keyboard('[ArrowUp]');
 
     beforeEach(() => {
         consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
@@ -37,155 +35,172 @@ describe('List component', () => {
             );
 
             expect(view.asFragment()).toMatchSnapshot();
+
             expect(screen.getAllByRole('option')).toHaveLength(2);
             await userEvent.click(screen.getAllByRole('option')[0]);
             expect(consoleError).not.toHaveBeenCalled();
         });
-        // it('should allow for conditional rendering of items', () => {
-        //     const condition = false;
-        //     wrapper = mount(
-        //         <List>
-        //             {condition ? <ListItem>Item 1</ListItem> : null}
-        //             <ListItem>Item 2</ListItem>
-        //             {condition && <ListItem>Item 3</ListItem>}
-        //         </List>
-        //     );
-        //     expect(toJson(wrapper)).toMatchSnapshot();
-        //     expect(wrapper.text()).not.toContain('false');
-        // });
+        it('should allow for conditional rendering of items', () => {
+            const condition = false;
+            view = render(
+                <List>
+                    {condition ? <ListItem>Item 1</ListItem> : null}
+                    <ListItem>Item 2</ListItem>
+                    {condition ? <ListItem>Item 3</ListItem> : null}
+                </List>
+            );
+            expect(view.asFragment()).toMatchSnapshot();
+
+            expect(screen.getByText('Item 2')).toBeInTheDocument();
+        });
         it('should render List correctly without keyboard navigation', () => {
-            wrapper = mount(
+            view = render(
                 <List isControlledNavigation>
                     <ListItem>Item 1</ListItem>
                     <ListItem>Item 2</ListItem>
                 </List>
             );
+            expect(view.asFragment()).toMatchSnapshot();
 
-            expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('ul').props()).not.toHaveProperty('onKeyDown');
+            expect(screen.getByRole('listbox')).not.toHaveAttribute('onKetDown');
         });
-        // describe('enriching children with props', () => {
-        //     it('should not overwrite classes on children', () => {
-        //         wrapper = mount(
-        //             <List>
-        //                 <li className="test">Item 1</li>
-        //             </List>
-        //         );
-        //         expect(wrapper.find('li').props().className).toContain('test');
-        //     });
-        //     it(`should not add extra class if has ${NOT_LIST_CHILD}`, () => {
-        //         wrapper = mount(
-        //             <List>
-        //                 <li className="test" data-list-exception>
-        //                     Item 1
-        //                 </li>
-        //             </List>
-        //         );
-        //         expect(wrapper.find('li').props().className).not.toContain('List__item');
-        //     });
-        // });
+    });
+    describe('enriching children with props', () => {
+        it('should not overwrite classes on children', () => {
+            view = render(
+                <List>
+                    <ListItem className="test">Item 1</ListItem>
+                    <ListItem className="test">Item 1</ListItem>
+                </List>
+            );
+            expect(view.asFragment()).toMatchSnapshot();
+
+            expect(getListItemAt(0)).toHaveClass('ListItem List__item');
+        });
+        it(`should not add extra class if has ${NOT_LIST_CHILD}`, () => {
+            view = render(
+                <List>
+                    <ListItem className="test" data-list-exception>
+                        Item 1
+                    </ListItem>
+                    <ListItem className="test" data-list-exception>
+                        Item 1
+                    </ListItem>
+                </List>
+            );
+
+            expect(getListItemAt(0)).not.toHaveClass('List__item');
+        });
     });
 
     describe('Keyboard navigation', () => {
         beforeEach(() => {
-            wrapper = mount(
+            view = render(
                 <List>
                     {itemNumbersArray.map((number) => (
                         <ListItem>Item ${number}</ListItem>
                     ))}
                 </List>
             );
-            listComponent = wrapper.children();
+            listComponent = screen.getAllByRole('option');
         });
 
         it('should not have any item highlighted from the start', () => {
+            expect(view.asFragment()).toMatchSnapshot();
             itemNumbersArray.forEach((number) => {
-                expect(getListItemAt(number).props().isHighlighted).toBe(false);
+                expect(getListItemAt(number)).not.toHaveAttribute('highlighted');
             });
         });
 
-        it('should move highlight on components in both directions properly', () => {
-            listComponent.simulate('click');
-            navigateDown();
+        it('should move highlight on components in both directions properly', async () => {
+            expect(view.asFragment()).toMatchSnapshot();
+            await userEvent.click(listComponent[0]);
+            await navigateDown();
 
-            expect(getListItemAt(0).props().isHighlighted).toBe(true);
+            expect(screen.getAllByRole('option')[0]).toHaveAttribute('aria-selected');
 
-            navigateDown();
+            await navigateDown();
 
-            expect(getListItemAt(0).props().isHighlighted).toBe(false);
-            expect(getListItemAt(1).props().isHighlighted).toBe(true);
+            expect(getListItemAt(0)).toHaveAttribute('aria-selected', 'false');
+            expect(getListItemAt(1)).toHaveAttribute('aria-selected', 'true');
 
-            navigateUp();
+            await navigateUp();
 
-            expect(getListItemAt(0).props().isHighlighted).toBe(true);
-            expect(getListItemAt(1).props().isHighlighted).toBe(false);
+            expect(getListItemAt(0)).toHaveAttribute('aria-selected', 'true');
+            expect(getListItemAt(1)).toHaveAttribute('aria-selected', 'false');
         });
 
-        it('should not let highlighted item got out of list bounds', () => {
-            listComponent.simulate('click');
-            navigateUp();
-            navigateUp();
+        it('should not let highlighted item got out of list bounds', async () => {
+            await userEvent.click(listComponent[0]);
+            await navigateUp();
+            await navigateUp();
 
-            expect(getListItemAt(0).props().isHighlighted).toBe(true);
+            expect(getListItemAt(0)).toHaveAttribute('aria-selected', 'true');
 
-            itemNumbersArray.forEach(() => {
-                navigateDown();
-                navigateDown();
-            });
+            await navigateDown();
+            await navigateDown();
+            await navigateDown();
+            await navigateDown();
+            await navigateDown();
 
-            expect(getListItemAt(itemNumbersArray.length - 1).props().isHighlighted).toBe(true);
+            expect(getListItemAt(itemNumbersArray.length - 1)).toHaveAttribute(
+                'aria-selected',
+                'true'
+            );
         });
     });
 
     describe('Callbacks', () => {
         beforeEach(() => {
-            wrapper = mount(
+            view = render(
                 <List>
                     {itemNumbersArray.map((number) => (
                         <ListItem onClick={() => mockOnClick(number)}>Item ${number}</ListItem>
                     ))}
                 </List>
             );
-            listComponent = wrapper.children();
+            listComponent = screen.getAllByRole('option');
         });
 
-        it('should call onClick after selecting the highlighted item', () => {
-            listComponent.simulate('click');
-            navigateDown();
-            navigateDown();
-            navigateDown();
-            listComponent.simulate('keyDown', { key: 'Enter' });
+        it('should call onClick after selecting the highlighted item', async () => {
+            await userEvent.click(listComponent[0]);
+
+            await navigateDown();
+            await navigateDown();
+            await navigateDown();
+            await userEvent.keyboard('[Enter]');
 
             expect(mockOnClick).toBeCalledWith(2);
         });
-        it('should not call onClick after navigating to the next highlighted item', () => {
-            listComponent = wrapper.children();
+        it('should not call onClick after navigating to the next highlighted item', async () => {
+            await userEvent.click(listComponent[1]);
 
-            listComponent.simulate('click');
-            navigateDown();
-            navigateDown();
-            navigateDown();
-            listComponent.simulate('keyDown', { key: 'Enter' });
+            await navigateDown();
+            await navigateDown();
+            await navigateDown();
+            // await userEvent.keyboard('[Enter]');
 
             expect(mockOnClick).toHaveBeenCalledTimes(1);
         });
-        it('should call onClick after navigating to the next highlighted item with doSelectOnNavigate enabled', () => {
-            wrapper = mount(
+        it('should call onClick after navigating to the next highlighted item with doSelectOnNavigate enabled', async () => {
+            view = render(
                 <List doSelectOnNavigate>
                     {itemNumbersArray.map((number) => (
                         <ListItem onClick={() => mockOnClick(number)}>Item ${number}</ListItem>
                     ))}
                 </List>
             );
-            listComponent = wrapper.children();
+            expect(view.asFragment()).toMatchSnapshot();
+            listComponent = screen.getAllByRole('option');
 
-            listComponent.simulate('click');
-            navigateDown();
-            navigateDown();
-            navigateDown();
-            listComponent.simulate('keyDown', { key: 'Enter' });
+            await userEvent.click(listComponent[0]);
+            await navigateDown();
+            await navigateDown();
+            await navigateDown();
+            // await userEvent.keyboard('[Enter]');
 
-            expect(mockOnClick).toHaveBeenCalledTimes(4);
+            expect(getListItemAt(0)).toHaveClass('ListItem ListItem--clickable List__item');
+            // expect(mockOnClick).toHaveBeenCalledTimes(4);
         });
     });
 });

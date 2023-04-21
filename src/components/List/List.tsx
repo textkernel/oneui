@@ -126,7 +126,7 @@ export const List = React.forwardRef<HTMLUListElement, Props>(
         };
 
         return isControlledNavigation ? (
-            <ul {...rest} ref={ref} {...block({ isDivided, ...rest })}>
+            <ul {...rest} ref={ref} {...block({ isDivided, ...rest })} role="listbox">
                 {React.Children.map(children, (child) => {
                     if (child) {
                         return child.props[NOT_LIST_CHILD]
@@ -151,6 +151,7 @@ export const List = React.forwardRef<HTMLUListElement, Props>(
                 tabIndex="0"
                 onKeyDown={handleKeyDown}
                 {...block({ isDivided, ...rest })}
+                role="listbox"
             >
                 {React.Children.map(children, (child, index) => {
                     if (child) {
