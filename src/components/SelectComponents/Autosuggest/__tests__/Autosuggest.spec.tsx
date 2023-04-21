@@ -47,7 +47,7 @@ describe('Autosuggest', () => {
 
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
         });
         it('should add additional attributes to input field when component is blurred', () => {
             const newProps = {
@@ -63,7 +63,7 @@ describe('Autosuggest', () => {
         it('should initially render focused component correctly', async () => {
             await setFocus();
 
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
             // TODO: will be fixed in ONEUI-364
             expect(screen.queryAllByRole('presentation')).toHaveLength(0);
         });
@@ -88,7 +88,7 @@ describe('Autosuggest', () => {
             rerenderView(newProps);
             await setFocus();
 
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
             // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('presentation')).toHaveLength(8);
         });
@@ -102,7 +102,7 @@ describe('Autosuggest', () => {
             await setFocus();
             await userEvent.type(inputNodeField, 'driver');
 
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
         });
         it('should render isLoading state', async () => {
             suggestionsList = SUGGESTIONS.slice(1, 20);
@@ -116,7 +116,7 @@ describe('Autosuggest', () => {
             // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('presentation')).toHaveLength(5);
             // TODO: check the specific things
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
         });
         it('should render mix suggestions and loader if allowMixingSuggestionsAndLoading is set to true', async () => {
             suggestionsList = SUGGESTIONS.slice(1, 3);

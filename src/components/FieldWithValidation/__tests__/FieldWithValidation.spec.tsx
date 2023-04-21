@@ -9,12 +9,12 @@ describe('FieldWithValidation', () => {
     describe('when rendering message as text', () => {
         describe('with no error message passed', () => {
             it('should simply render the child as it is', () => {
-                const { asFragment } = render(
+                const { container } = render(
                     <FieldWithValidation>
                         <Input />
                     </FieldWithValidation>
                 );
-                expect(asFragment()).toMatchSnapshot();
+                expect(container).toMatchSnapshot();
                 expect(screen.getByRole('textbox')).toBeInTheDocument();
             });
         });
@@ -23,12 +23,12 @@ describe('FieldWithValidation', () => {
     describe('with error message passed', () => {
         const message = 'invalid field';
         it('should set context to bad on child', () => {
-            const { asFragment } = render(
+            const { container } = render(
                 <FieldWithValidation errorMessage={message}>
                     <Input />
                 </FieldWithValidation>
             );
-            expect(asFragment()).toMatchSnapshot();
+            expect(container).toMatchSnapshot();
             const input = screen.getByRole('textbox');
             expect(input).toHaveAttribute('class', 'Input Input--context_danger');
             expect(input).toBeInTheDocument();
@@ -36,24 +36,24 @@ describe('FieldWithValidation', () => {
         });
 
         it('should render the message as text', () => {
-            const { asFragment } = render(
+            const { container } = render(
                 <FieldWithValidation errorMessage={message}>
                     <Input />
                 </FieldWithValidation>
             );
-            expect(asFragment()).toMatchSnapshot();
+            expect(container).toMatchSnapshot();
             expect(screen.getByText(message)).toBeInTheDocument();
         });
     });
     describe('when using tooltip', () => {
         describe('with no error message passed', () => {
             it('should not render a tooltip with no error message', () => {
-                const { asFragment } = render(
+                const { container } = render(
                     <FieldWithValidation useTooltip>
                         <Input />
                     </FieldWithValidation>
                 );
-                expect(asFragment()).toMatchSnapshot();
+                expect(container).toMatchSnapshot();
                 userEvent.click(screen.getByDisplayValue(''));
             });
         });
@@ -61,31 +61,31 @@ describe('FieldWithValidation', () => {
             const message = 'invalid field';
 
             it('should set context to bad on child', () => {
-                const { asFragment } = render(
+                const { container } = render(
                     <FieldWithValidation errorMessage={message}>
                         <Input />
                     </FieldWithValidation>
                 );
-                expect(asFragment()).toMatchSnapshot();
+                expect(container).toMatchSnapshot();
                 const input = screen.getByRole('textbox');
                 expect(input).toHaveAttribute('class', 'Input Input--context_danger');
             });
             it('should render the message when field is focused', () => {
-                const { asFragment } = render(
+                const { container } = render(
                     <FieldWithValidation errorMessage={message}>
                         <Input />
                     </FieldWithValidation>
                 );
-                expect(asFragment()).toMatchSnapshot();
+                expect(container).toMatchSnapshot();
                 expect(screen.queryByText(message)).toBeDefined();
             });
             it('should remove the message when field is blurred', () => {
-                const { asFragment } = render(
+                const { container } = render(
                     <FieldWithValidation errorMessage={message}>
                         <Input />
                     </FieldWithValidation>
                 );
-                expect(asFragment()).toMatchSnapshot();
+                expect(container).toMatchSnapshot();
                 expect(screen.queryByText(message)).toBeDefined();
             });
         });

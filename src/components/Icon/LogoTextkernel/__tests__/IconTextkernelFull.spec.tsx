@@ -5,6 +5,6 @@ import { LogoTextkernel } from '../LogoTextkernel';
 describe('<LogoTextkernel>', () => {
     it('should render an Textkernel icon', () => {
         const view = render(<LogoTextkernel />);
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 });

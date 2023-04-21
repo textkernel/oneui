@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Chip> that renders a pill shaped chip should render correctly 1`] = `
-<DocumentFragment>
+<div>
   <span
     class="Chip"
   >
     some text
   </span>
-</DocumentFragment>
+</div>
 `;

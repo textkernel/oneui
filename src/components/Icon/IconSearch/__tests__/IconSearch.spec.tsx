@@ -5,6 +5,6 @@ import { IconSearch } from '../IconSearch';
 describe('<IconSearch>', () => {
     it('should render a Search! icon', () => {
         const view = render(<IconSearch />);
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 });

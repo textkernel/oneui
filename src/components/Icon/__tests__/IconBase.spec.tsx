@@ -10,7 +10,7 @@ describe('<IconBase> that renders an SVG wrapper with all options included', () 
                 <circle cx="50" cy="50" r="50" />
             </IconBase>
         );
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
 
         expect(screen.getByTitle('Icon base')).toBeInTheDocument();
     });
@@ -20,7 +20,7 @@ describe('<IconBase> that renders an SVG wrapper with all options included', () 
                 <circle cx="50" cy="50" r="50" />
             </IconBase>
         );
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         const img = screen.getByRole('img');
 
         expect(img).toBeInTheDocument();
@@ -34,7 +34,7 @@ describe('<IconBase> that renders an SVG wrapper with all options included', () 
                 <circle cx="50" cy="50" r="50" />
             </IconBase>
         );
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         const img = screen.getByRole('img');
 
         expect(img).toBeInTheDocument();
@@ -48,7 +48,7 @@ describe('<IconBase> that renders an SVG wrapper with all options included', () 
                 <circle cx="50" cy="50" r="50" />
             </IconBase>
         );
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         const img = screen.getByRole('img');
 
         expect(img).toBeInTheDocument();
@@ -62,7 +62,7 @@ describe('<IconBase> that renders an SVG wrapper with all options included', () 
                 <circle cx="50" cy="50" r="50" />
             </IconBase>
         );
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         const img = screen.getByRole('img');
 
         expect(img).toBeInTheDocument();

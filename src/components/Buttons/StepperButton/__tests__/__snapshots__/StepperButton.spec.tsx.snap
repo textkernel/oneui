@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<StepperButton> component should render correctly 1`] = `
-<DocumentFragment>
+<div>
   <button
     class="StepperButton"
     type="button"
@@ -23,5 +23,5 @@ exports[`<StepperButton> component should render correctly 1`] = `
       />
     </svg>
   </button>
-</DocumentFragment>
+</div>
 `;

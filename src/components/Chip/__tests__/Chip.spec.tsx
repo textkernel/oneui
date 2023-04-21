@@ -4,7 +4,7 @@ import { Chip } from '../Chip';
 
 describe('<Chip> that renders a pill shaped chip', () => {
     it('should render correctly', () => {
-        const { asFragment } = render(<Chip>some text</Chip>);
-        expect(asFragment()).toMatchSnapshot();
+        const { container } = render(<Chip>some text</Chip>);
+        expect(container).toMatchSnapshot();
     });
 });

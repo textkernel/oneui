@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Field> that renders an input field should render a component with a label properly 1`] = `
-<DocumentFragment>
+<div>
   <label
     class="customClass"
   >
@@ -12,5 +12,5 @@ exports[`<Field> that renders an input field should render a component with a la
     </p>
     <input />
   </label>
-</DocumentFragment>
+</div>
 `;

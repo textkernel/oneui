@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<IconJobfeed> should render an Jobfeed icon 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="IconBase"
   >
@@ -17,5 +17,5 @@ exports[`<IconJobfeed> should render an Jobfeed icon 1`] = `
       />
     </svg>
   </div>
-</DocumentFragment>
+</div>
 `;

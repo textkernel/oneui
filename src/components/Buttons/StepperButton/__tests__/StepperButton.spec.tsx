@@ -9,7 +9,7 @@ describe('<StepperButton> component', () => {
     it('should render correctly', () => {
         view = render(<StepperButton icon="plus" />);
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('button')).toBeInTheDocument();
     });
     it('should render all icons correctly', () => {

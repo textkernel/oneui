@@ -8,7 +8,7 @@ describe('<SearchButton> that renders a search button', () => {
     it('should render default button correctly', () => {
         const view = render(<SearchButton />);
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('button')).toBeInTheDocument();
     });
     it('should call click callback correctly', async () => {
@@ -24,7 +24,7 @@ describe('<SearchButton> that renders a search button', () => {
         const label = 'Search';
         const view = render(<SearchButton>{label}</SearchButton>);
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(screen.getByText(label)).toBeInTheDocument();
     });
 });

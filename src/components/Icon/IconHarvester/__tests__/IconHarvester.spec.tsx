@@ -5,6 +5,6 @@ import { IconHarvester } from '../IconHarvester';
 describe('<IconHarvester>', () => {
     it('should render an Harvester icon', () => {
         const view = render(<IconHarvester />);
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 });

@@ -5,6 +5,6 @@ import { IconTextkernel } from '../IconTextkernel';
 describe('<IconTextkernel>', () => {
     it('should render an Textkernel icon', () => {
         const view = render(<IconTextkernel />);
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 });

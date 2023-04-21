@@ -14,6 +14,6 @@ describe('<Field> that renders an input field', () => {
         const button = screen.getByRole('textbox', { name: labelText });
 
         expect(button).toBeInTheDocument();
-        expect(wrapper.asFragment()).toMatchSnapshot();
+        expect(wrapper.container).toMatchSnapshot();
     });
 });

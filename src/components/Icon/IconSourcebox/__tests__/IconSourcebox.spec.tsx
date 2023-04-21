@@ -5,6 +5,6 @@ import { IconSourcebox } from '../IconSourcebox';
 describe('<IconSourcebox>', () => {
     it('should render an Sourcebox icon', () => {
         const view = render(<IconSourcebox />);
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 });
