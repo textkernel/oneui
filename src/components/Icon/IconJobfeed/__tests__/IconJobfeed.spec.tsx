@@ -5,6 +5,6 @@ import { IconJobfeed } from '../IconJobfeed';
 describe('<IconJobfeed>', () => {
     it('should render an Jobfeed icon', () => {
         const view = render(<IconJobfeed />);
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 });

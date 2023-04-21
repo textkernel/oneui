@@ -15,7 +15,7 @@ describe('<ButtonGroup> that renders a button', () => {
             </ButtonGroup>
         );
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         const button = screen.getAllByRole('button');
         expect(button[0]).toHaveClass('ButtonGroup__button--first');
         expect(button[0]).not.toHaveClass('ButtonGroup__button--last');
@@ -31,7 +31,7 @@ describe('<ButtonGroup> that renders a button', () => {
             </ButtonGroup>
         );
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         const button = screen.getAllByRole('button');
         expect(button[0]).toHaveClass('Button--size_large');
         expect(button[0]).toHaveClass('ButtonGroup__button--isBlock');
@@ -57,7 +57,7 @@ describe('<ButtonGroup> that renders a button', () => {
             </ButtonGroup>
         );
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 
     it('should render with conditional JSX', () => {
@@ -70,7 +70,7 @@ describe('<ButtonGroup> that renders a button', () => {
             </ButtonGroup>
         );
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(screen.queryByText('false')).not.toBeInTheDocument();
     });
 
@@ -81,7 +81,7 @@ describe('<ButtonGroup> that renders a button', () => {
             </ButtonGroup>
         );
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         const button = screen.getByRole('button');
         expect(button).toHaveClass('Button--isPrimary');
         expect(button).toHaveClass('Button--size_small');
@@ -98,7 +98,7 @@ describe('<ButtonGroup> that renders a button', () => {
             </ButtonGroup>
         );
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         const button = screen.getByRole('button');
         expect(button).toHaveClass('Button--isPrimary');
         expect(button).toHaveClass('Button--size_small');

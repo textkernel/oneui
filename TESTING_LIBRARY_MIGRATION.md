@@ -24,8 +24,8 @@ expect(component).toMatchSnapshot();
 ```ts
 import { render } from '@testing-library/react';
 
-const { asFragment } = render(<MyComponent />);
-expect(asFragment()).toMatchSnapshot();
+const { container } = render(<MyComponent />);
+expect(container).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -40,8 +40,8 @@ expect(component).toMatchSnapshot();
 ```ts
 import { render } from '@testing-library/react';
 
-const { asFragment } = render(<MyComponent />);
-expect(asFragment()).toMatchSnapshot();
+const { container } = render(<MyComponent />);
+expect(container).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -56,8 +56,8 @@ expect(component).toMatchSnapshot();
 ```ts
 import { render } from '@testing-library/react';
 
-const { asFragment } = render(<MyComponent />);
-expect(asFragment()).toMatchSnapshot();
+const { container } = render(<MyComponent />);
+expect(container).toMatchSnapshot();
 ```
 
 ### Finding Elements
@@ -98,7 +98,7 @@ expect(wrapper.find('Button')).toHaveLength(1);
 ```ts
 import { render, screen } from 'react-test-renderer';
 
-const { asFragment } = render(<MyComponent />);
+const { container } = render(<MyComponent />);
 expect(screen.getByRole('button')).toBeInTheDocument();
 ```
 
@@ -118,10 +118,10 @@ expect(component).toMatchSnapshot();
 import { render, screen } from 'react-test-renderer';
 import userEvent from '@testing-library/user-event';
 
-const { asFragment } = render(<MyComponent />);
+const { container } = render(<MyComponent />);
 const user = userEvent.setup();
 await user.type(screen.getByDisplayValue(''), 'Utrecht');
-expect(asFragment()).toMatchSnapshot();
+expect(container).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -161,8 +161,8 @@ wrapper.setProps({ isArrowUp: true });
 ```ts
 import { render } from 'react-test-renderer';
 
-const { rerender, asFragment } = render(<MyComponent />);
-expect(asFragment()).toMatchSnapshot();
+const { rerender, container } = render(<MyComponent />);
+expect(container).toMatchSnapshot();
 rerender(<MyComponent isArrowUp> </MyComponent>);
 ```
 

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<IconMatch> should render an Match! icon 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="IconBase"
   >
@@ -20,5 +20,5 @@ exports[`<IconMatch> should render an Match! icon 1`] = `
       />
     </svg>
   </div>
-</DocumentFragment>
+</div>
 `;

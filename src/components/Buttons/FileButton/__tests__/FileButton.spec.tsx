@@ -8,7 +8,7 @@ describe('<FileButton> that renders a button', () => {
     it('should render default button correctly', () => {
         const view = render(<FileButton>Choose file</FileButton>);
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(screen.getByLabelText('Choose file')).toBeInTheDocument();
     });
     it('should add classes when props are changed', () => {
@@ -18,7 +18,7 @@ describe('<FileButton> that renders a button', () => {
             </FileButton>
         );
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
     it('should call click callback correctly', async () => {
         const onChangeMock = jest.fn();

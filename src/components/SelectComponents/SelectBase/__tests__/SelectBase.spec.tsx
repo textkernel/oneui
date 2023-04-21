@@ -50,7 +50,7 @@ describe('SelectBase', () => {
 
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
         });
     });
     describe('with toggle arrow', () => {
@@ -60,7 +60,7 @@ describe('SelectBase', () => {
                 showArrow: true,
             };
             rerenderView(newProps);
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
 
             expect(screen.getByRole('button')).toBeInTheDocument();
         });
@@ -70,7 +70,7 @@ describe('SelectBase', () => {
                 showArrow: true,
             };
             rerenderView(newProps);
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
             const svg = screen.getByRole('button');
 
             expect(svg).toBeInTheDocument();
@@ -156,7 +156,7 @@ describe('SelectBase', () => {
     });
     describe('highlighting', () => {
         it('should highlight first item', () => {
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
             expect(screen.queryAllByRole('listbox')[0]).toBeInTheDocument();
         });
     });
@@ -182,7 +182,7 @@ describe('SelectBase', () => {
                 showClearButton: true,
             };
             rerenderView(newProps);
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
             const clearButton = screen.getByRole('button', { name: 'Clear' });
             await userEvent.click(clearButton);
 

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="FieldWrapper"
   >
@@ -31,11 +31,11 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
       </svg>
     </button>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWrapper should call onArrowClick when arrow is accessed by keyboard 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="FieldWrapper"
   >
@@ -61,11 +61,11 @@ exports[`FieldWrapper should call onArrowClick when arrow is accessed by keyboar
       />
     </svg>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWrapper should call onArrowClick when arrow is clicked 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="FieldWrapper"
   >
@@ -91,11 +91,11 @@ exports[`FieldWrapper should call onArrowClick when arrow is clicked 1`] = `
       />
     </svg>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWrapper should call onClear callback correctly 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="FieldWrapper"
   >
@@ -125,11 +125,11 @@ exports[`FieldWrapper should call onClear callback correctly 1`] = `
       </svg>
     </button>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWrapper should render arrow icon pointing down 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="FieldWrapper"
   >
@@ -155,11 +155,11 @@ exports[`FieldWrapper should render arrow icon pointing down 1`] = `
       />
     </svg>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWrapper should render arrow icon pointing up 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="FieldWrapper"
   >
@@ -185,11 +185,11 @@ exports[`FieldWrapper should render arrow icon pointing up 1`] = `
       />
     </svg>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWrapper should render correctly 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="FieldWrapper"
   >
@@ -199,5 +199,5 @@ exports[`FieldWrapper should render correctly 1`] = `
       some children
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;

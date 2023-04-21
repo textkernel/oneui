@@ -5,6 +5,6 @@ import { IconExtract } from '../IconExtract';
 describe('<IconExtract>', () => {
     it('should render an Extract icon', () => {
         const view = render(<IconExtract />);
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 });

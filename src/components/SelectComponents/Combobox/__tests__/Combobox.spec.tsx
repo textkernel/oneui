@@ -45,7 +45,7 @@ describe('Combobox', () => {
 
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
         });
         it('should set focus on the input field', async () => {
             await setFocus();
@@ -68,7 +68,7 @@ describe('Combobox', () => {
             rerenderView(newProps);
             await setFocus();
 
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
             // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('presentation')).toHaveLength(1);
             expect(screen.getByText(noSuggestionsPlaceholder)).toBeInTheDocument();
@@ -92,7 +92,7 @@ describe('Combobox', () => {
                 rerenderView(newProps);
                 await setFocus();
 
-                expect(view.asFragment()).toMatchSnapshot();
+                expect(view.container).toMatchSnapshot();
                 expect(screen.getByText(SUGGESTIONS[1].name)).toBeInTheDocument();
             });
         });
@@ -179,7 +179,7 @@ describe('Combobox', () => {
     describe('callbacks', () => {
         describe('onSelectionAdd', () => {
             it('should be called on clicking on a suggestion', async () => {
-                expect(view.asFragment()).toMatchSnapshot();
+                expect(view.container).toMatchSnapshot();
                 await setFocus();
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 

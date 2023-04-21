@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<IconSourcebox> should render an Sourcebox icon 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="IconBase"
   >
@@ -23,5 +23,5 @@ exports[`<IconSourcebox> should render an Sourcebox icon 1`] = `
       />
     </svg>
   </div>
-</DocumentFragment>
+</div>
 `;

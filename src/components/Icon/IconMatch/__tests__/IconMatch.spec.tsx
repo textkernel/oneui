@@ -5,6 +5,6 @@ import { IconMatch } from '../IconMatch';
 describe('<IconMatch>', () => {
     it('should render an Match! icon', () => {
         const view = render(<IconMatch />);
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 });

@@ -8,7 +8,7 @@ describe('<Button> that renders a button', () => {
     it('should render default button correctly', () => {
         const view = render(<Button>Click me</Button>);
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(screen.queryByRole('button')).toBeInTheDocument();
     });
     it('should add classes when props are changed', () => {
@@ -18,7 +18,7 @@ describe('<Button> that renders a button', () => {
             </Button>
         );
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         const button = screen.getByRole('button');
         expect(button).toHaveClass('Button--isPrimary');
         expect(button).toHaveClass('Button--size_large');
@@ -54,7 +54,7 @@ describe('<Button> that renders a button', () => {
     it('should render an ancor element if href is defined', () => {
         const view = render(<Button href="/">Click me</Button>);
 
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('link')).toBeInTheDocument();
     });
 });
