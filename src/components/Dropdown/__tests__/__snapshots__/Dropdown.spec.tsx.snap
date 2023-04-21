@@ -27,7 +27,7 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
       aria-selected="false"
       class="ListItem ListItem--clickable List__item"
       id="downshift-103-item-0"
-      role="presentation"
+      role="option"
     >
       <span>
         With value
@@ -61,8 +61,9 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
     tabindex="-1"
   >
     <li
+      aria-selected="false"
       class="ListItem ListItem--disabled List__item"
-      role="presentation"
+      role="option"
     >
       <span>
         Disabled
@@ -72,15 +73,16 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       aria-selected="false"
       class="ListItem ListItem--clickable List__item"
       id="downshift-14-item-0"
-      role="presentation"
+      role="option"
     >
       <span>
         With value 1
       </span>
     </li>
     <li
+      aria-selected="false"
       class="ListItem List__item"
-      role="presentation"
+      role="option"
     >
       <span>
         Without value
@@ -95,7 +97,7 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       aria-selected="false"
       class="ListItem ListItem--clickable List__item"
       id="downshift-14-item-1"
-      role="presentation"
+      role="option"
     >
       <span>
         With value 2
@@ -151,8 +153,9 @@ exports[`Dropdown should render correctly opened 1`] = `
     tabindex="-1"
   >
     <li
+      aria-selected="false"
       class="ListItem ListItem--disabled List__item"
-      role="presentation"
+      role="option"
     >
       <span>
         Disabled
@@ -162,7 +165,7 @@ exports[`Dropdown should render correctly opened 1`] = `
       aria-selected="false"
       class="ListItem ListItem--clickable List__item"
       id="downshift-3-item-0"
-      role="presentation"
+      role="option"
     >
       <span>
         With value
@@ -196,8 +199,9 @@ exports[`Dropdown should render correctly with mixed children: array and single 
     tabindex="-1"
   >
     <li
+      aria-selected="false"
       class="ListItem ListItem--disabled List__item"
-      role="presentation"
+      role="option"
     >
       <span>
         Disabled
@@ -207,7 +211,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       aria-selected="false"
       class="ListItem ListItem--clickable List__item"
       id="downshift-41-item-0"
-      role="presentation"
+      role="option"
     >
       <span>
         one
@@ -217,7 +221,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       aria-selected="false"
       class="ListItem ListItem--clickable List__item"
       id="downshift-41-item-1"
-      role="presentation"
+      role="option"
     >
       <span>
         two

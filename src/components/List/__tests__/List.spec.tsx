@@ -37,8 +37,8 @@ describe('List component', () => {
             );
 
             expect(view.asFragment()).toMatchSnapshot();
-            expect(screen.getAllByRole('presentation')).toHaveLength(2);
-            await userEvent.click(screen.getAllByRole('presentation')[0]);
+            expect(screen.getAllByRole('option')).toHaveLength(2);
+            await userEvent.click(screen.getAllByRole('option')[0]);
             expect(consoleError).not.toHaveBeenCalled();
         });
         // it('should allow for conditional rendering of items', () => {

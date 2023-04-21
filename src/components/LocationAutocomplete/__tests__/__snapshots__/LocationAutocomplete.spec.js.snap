@@ -358,13 +358,14 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                       role="option"
                     >
                       <li
-                        aria-selected={true}
+                        aria-selected={false}
                         className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                         id="downshift-4-item-0"
                         onClick={[Function]}
+                        onKeyDown={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
-                        role="presentation"
+                        role="option"
                       >
                         <MarkedText
                           inline={true}
@@ -397,9 +398,10 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                         className="ListItem ListItem--clickable List__item"
                         id="downshift-4-item-1"
                         onClick={[Function]}
+                        onKeyDown={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
-                        role="presentation"
+                        role="option"
                       >
                         <MarkedText
                           inline={true}
@@ -432,9 +434,10 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                         className="ListItem ListItem--clickable List__item"
                         id="downshift-4-item-2"
                         onClick={[Function]}
+                        onKeyDown={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
-                        role="presentation"
+                        role="option"
                       >
                         <MarkedText
                           inline={true}
@@ -467,9 +470,10 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                         className="ListItem ListItem--clickable List__item"
                         id="downshift-4-item-3"
                         onClick={[Function]}
+                        onKeyDown={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
-                        role="presentation"
+                        role="option"
                       >
                         <MarkedText
                           inline={true}
@@ -502,9 +506,10 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                         className="ListItem ListItem--clickable List__item"
                         id="downshift-4-item-4"
                         onClick={[Function]}
+                        onKeyDown={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
-                        role="presentation"
+                        role="option"
                       >
                         <MarkedText
                           inline={true}

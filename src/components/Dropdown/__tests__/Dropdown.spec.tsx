@@ -39,14 +39,14 @@ describe('Dropdown', () => {
 
     it('should render correctly closed', () => {
         expect(view.asFragment()).toMatchSnapshot();
-        expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+        expect(screen.queryAllByRole('option')).toHaveLength(0);
     });
 
     it('should render correctly opened', async () => {
         await userEvent.click(screen.getByRole('button', { name: 'Click me!' }));
         expect(view.asFragment()).toMatchSnapshot();
         expect(screen.getAllByRole('listbox')).toHaveLength(1);
-        expect(screen.getAllByRole('presentation')).toHaveLength(2);
+        expect(screen.getAllByRole('option')).toHaveLength(2);
     });
     it('should downshift only by enabled items with value', async () => {
         const { asFragment } = render(
@@ -76,16 +76,16 @@ describe('Dropdown', () => {
 
         // 1 keydown
         keyDown();
-        expect(screen.getAllByRole('presentation')[1].getAttribute('aria-selected')).toBeTruthy();
-        expect(screen.getAllByRole('presentation')[1]).toHaveTextContent('With value 1');
+        expect(screen.getAllByRole('option')[1].getAttribute('aria-selected')).toBeTruthy();
+        expect(screen.getAllByRole('option')[1]).toHaveTextContent('With value 1');
         // 2 keydown
         keyDown();
-        expect(screen.getAllByRole('presentation')[3].getAttribute('aria-selected')).toBeTruthy();
-        expect(screen.getAllByRole('presentation')[3]).toHaveTextContent('With value 2');
+        expect(screen.getAllByRole('option')[3].getAttribute('aria-selected')).toBeTruthy();
+        expect(screen.getAllByRole('option')[3]).toHaveTextContent('With value 2');
         // 3 keydown. Should be again last not disabled with value item => 'With value 2'
         keyDown();
-        expect(screen.getAllByRole('presentation')[3].getAttribute('aria-selected')).toBeTruthy();
-        expect(screen.getAllByRole('presentation')[3]).toHaveTextContent('With value 2');
+        expect(screen.getAllByRole('option')[3].getAttribute('aria-selected')).toBeTruthy();
+        expect(screen.getAllByRole('option')[3]).toHaveTextContent('With value 2');
     });
 
     it('onChange should return passed value', async () => {
@@ -130,7 +130,7 @@ describe('Dropdown', () => {
         );
         await userEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
         expect(asFragment()).toMatchSnapshot();
-        expect(screen.getAllByRole('presentation')).toHaveLength(3);
+        expect(screen.getAllByRole('option')).toHaveLength(3);
     });
 
     it('should call cb when button is clicked', async () => {
@@ -200,7 +200,7 @@ describe('Dropdown', () => {
             </Dropdown>
         );
 
-        expect(screen.getAllByRole('presentation')).toHaveLength(3);
+        expect(screen.getAllByRole('option')).toHaveLength(3);
     });
 
     it('should allow for conditional rendering of items', async () => {

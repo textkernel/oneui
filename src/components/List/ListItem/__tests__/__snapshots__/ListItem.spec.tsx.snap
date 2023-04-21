@@ -3,8 +3,9 @@
 exports[`ListItem component should add clickable class when onClick is defined 1`] = `
 <DocumentFragment>
   <li
+    aria-selected="false"
     class="ListItem ListItem--clickable"
-    role="presentation"
+    role="option"
   >
     <span>
       An item
@@ -16,8 +17,9 @@ exports[`ListItem component should add clickable class when onClick is defined 1
 exports[`ListItem component should render ListItem correctly 1`] = `
 <DocumentFragment>
   <li
+    aria-selected="false"
     class="ListItem"
-    role="presentation"
+    role="option"
   >
     <p>
       An item
@@ -29,8 +31,9 @@ exports[`ListItem component should render ListItem correctly 1`] = `
 exports[`ListItem component should render correctly when disabled 1`] = `
 <DocumentFragment>
   <li
+    aria-selected="false"
     class="ListItem ListItem--disabled"
-    role="presentation"
+    role="option"
   >
     <span>
       An item
@@ -42,9 +45,10 @@ exports[`ListItem component should render correctly when disabled 1`] = `
 exports[`ListItem component should set disabled prop on li when required 1`] = `
 <DocumentFragment>
   <li
+    aria-selected="false"
     class="ListItem ListItem--disabled"
     disabled=""
-    role="presentation"
+    role="option"
   >
     <span>
       An item
@@ -56,8 +60,9 @@ exports[`ListItem component should set disabled prop on li when required 1`] = `
 exports[`ListItem component should turn string items to Text 1`] = `
 <DocumentFragment>
   <li
+    aria-selected="false"
     class="ListItem"
-    role="presentation"
+    role="option"
   >
     <span>
       Simple string

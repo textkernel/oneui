@@ -26,26 +26,26 @@ describe('ListItem component', () => {
     it('should not add clickable class when onClick is not defined', () => {
         render(<ListItem>An item</ListItem>);
 
-        expect(screen.getByRole('presentation')).toHaveClass('ListItem');
+        expect(screen.getByRole('option')).toHaveClass('ListItem');
     });
     it('should add clickable class when onClick is defined', () => {
         const view = render(<ListItem onClick={jest.fn()}>An item</ListItem>);
 
         expect(view.asFragment()).toMatchSnapshot();
-        expect(screen.getByRole('presentation')).toHaveClass('ListItem ListItem--clickable');
+        expect(screen.getByRole('option')).toHaveClass('ListItem ListItem--clickable');
     });
     it('should call onClick function when clicked', async () => {
         const onClick = jest.fn();
         render(<ListItem onClick={onClick}>An item</ListItem>);
 
-        await userEvent.click(screen.getByRole('presentation'));
+        await userEvent.click(screen.getByRole('option'));
         expect(onClick).toHaveBeenCalledTimes(1);
     });
     it('should render correctly when disabled', () => {
         const wrapper = render(<ListItem disabled>An item</ListItem>);
         expect(wrapper.asFragment()).toMatchSnapshot();
 
-        const li = screen.getByRole('presentation');
+        const li = screen.getByRole('option');
         expect(li).toHaveClass('ListItem ListItem--disabled');
     });
     it('should set disabled prop on li when required', () => {
@@ -56,7 +56,7 @@ describe('ListItem component', () => {
         );
         expect(view.asFragment()).toMatchSnapshot();
 
-        const li = screen.getByRole('presentation');
+        const li = screen.getByRole('option');
         expect(li).toHaveClass('ListItem--disabled');
         expect(li).toHaveAttribute('disabled', '');
 
@@ -65,6 +65,6 @@ describe('ListItem component', () => {
                 An item
             </ListItem>
         );
-        expect(screen.getByRole('presentation')).not.toHaveClass('ListItem--disabled');
+        expect(screen.getByRole('option')).not.toHaveClass('ListItem--disabled');
     });
 });

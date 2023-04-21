@@ -65,7 +65,7 @@ describe('Autosuggest', () => {
 
             expect(view.asFragment()).toMatchSnapshot();
             // TODO: will be fixed in ONEUI-364
-            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+            expect(screen.queryAllByRole('option')).toHaveLength(0);
         });
         it('should add additional attributes to input field when component is focused', async () => {
             const newProps = {
@@ -90,7 +90,7 @@ describe('Autosuggest', () => {
 
             expect(view.asFragment()).toMatchSnapshot();
             // TODO: will be fixed in ONEUI-364
-            expect(screen.getAllByRole('presentation')).toHaveLength(8);
+            expect(screen.getAllByRole('option')).toHaveLength(8);
         });
         it('should render component with suggestions', async () => {
             suggestionsList = SUGGESTIONS.slice(1, 20);
@@ -114,7 +114,7 @@ describe('Autosuggest', () => {
             await userEvent.type(inputNodeField, 'driver');
 
             // TODO: will be fixed in ONEUI-364
-            expect(screen.getAllByRole('presentation')).toHaveLength(5);
+            expect(screen.getAllByRole('option')).toHaveLength(5);
             // TODO: check the specific things
             expect(view.asFragment()).toMatchSnapshot();
         });
@@ -130,7 +130,7 @@ describe('Autosuggest', () => {
             await userEvent.type(inputNodeField, 'driver');
 
             // TODO: will be fixed in ONEUI-364
-            expect(screen.getAllByRole('presentation')).toHaveLength(7);
+            expect(screen.getAllByRole('option')).toHaveLength(7);
             expect(screen.getAllByRole('listitem')).toHaveLength(5);
         });
         it('should render empty component correctly when focused', async () => {

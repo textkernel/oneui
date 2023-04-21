@@ -7,16 +7,18 @@ exports[`List component Initial rendering should render List correctly 1`] = `
     tabindex="0"
   >
     <li
+      aria-selected="false"
       class="ListItem List__item"
-      role="presentation"
+      role="option"
     >
       <span>
         Item 1
       </span>
     </li>
     <li
+      aria-selected="false"
       class="ListItem List__item"
-      role="presentation"
+      role="option"
     >
       <span>
         Item 2
@@ -38,8 +40,9 @@ exports[`List component Initial rendering should render List correctly without k
       key=".0"
     >
       <li
+        aria-selected={false}
         className="ListItem List__item"
-        role="presentation"
+        role="option"
       >
         <Text
           inline={true}
@@ -56,8 +59,9 @@ exports[`List component Initial rendering should render List correctly without k
       key=".1"
     >
       <li
+        aria-selected={false}
         className="ListItem List__item"
-        role="presentation"
+        role="option"
       >
         <Text
           inline={true}

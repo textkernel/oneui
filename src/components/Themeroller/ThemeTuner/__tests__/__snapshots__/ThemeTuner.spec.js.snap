@@ -106,8 +106,9 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           key=".$Background color"
         >
           <li
+            aria-selected={false}
             className="ListItem List__item ThemeTuner__item"
-            role="presentation"
+            role="option"
           >
             <Text
               className="ThemeTuner__label"
@@ -181,8 +182,9 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           key=".$Foreground color"
         >
           <li
+            aria-selected={false}
             className="ListItem List__item ThemeTuner__item"
-            role="presentation"
+            role="option"
           >
             <Text
               className="ThemeTuner__label"
@@ -256,8 +258,9 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           key=".$Border radius"
         >
           <li
+            aria-selected={false}
             className="ListItem List__item ThemeTuner__item"
-            role="presentation"
+            role="option"
           >
             <Text
               className="ThemeTuner__label"
@@ -334,8 +337,9 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           key=".$Link decoration"
         >
           <li
+            aria-selected={false}
             className="ListItem List__item ThemeTuner__item"
-            role="presentation"
+            role="option"
           >
             <Text
               className="ThemeTuner__label"

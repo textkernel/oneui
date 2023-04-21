@@ -568,14 +568,15 @@ exports[`Select rendering should render focused component correctly 1`] = `
                         style={Object {}}
                       >
                         <li
-                          aria-selected={true}
+                          aria-selected={false}
                           className="ListItem ListItem--isHighlighted ListItem--clickable"
                           disabled={false}
                           id="downshift-1-item-0"
                           onClick={[Function]}
+                          onKeyDown={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -612,9 +613,10 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           disabled={false}
                           id="downshift-1-item-1"
                           onClick={[Function]}
+                          onKeyDown={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -651,9 +653,10 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           disabled={false}
                           id="downshift-1-item-2"
                           onClick={[Function]}
+                          onKeyDown={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -690,9 +693,10 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           disabled={false}
                           id="downshift-1-item-3"
                           onClick={[Function]}
+                          onKeyDown={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -729,9 +733,10 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           disabled={false}
                           id="downshift-1-item-4"
                           onClick={[Function]}
+                          onKeyDown={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -768,9 +773,10 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           disabled={false}
                           id="downshift-1-item-5"
                           onClick={[Function]}
+                          onKeyDown={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -807,9 +813,10 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           disabled={false}
                           id="downshift-1-item-6"
                           onClick={[Function]}
+                          onKeyDown={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -846,9 +853,10 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           disabled={false}
                           id="downshift-1-item-7"
                           onClick={[Function]}
+                          onKeyDown={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -885,9 +893,10 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           disabled={false}
                           id="downshift-1-item-8"
                           onClick={[Function]}
+                          onKeyDown={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -922,7 +931,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           disabled={true}
                           id="downshift-1-item-9"
                           onMouseDown={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText

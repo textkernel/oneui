@@ -54,8 +54,10 @@ export const ListItem = forwardRef<HTMLLIElement, Props>(
             <li
                 {...liProps}
                 ref={ref}
-                role="presentation"
+                role="option"
                 onClick={onClick}
+                aria-selected={isSelected}
+                onKeyDown={onClick}
                 {...block({
                     isHighlighted,
                     isSelected,
