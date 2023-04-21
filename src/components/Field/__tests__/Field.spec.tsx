@@ -6,7 +6,7 @@ import '@testing-library/jest-dom';
 describe('<Field> that renders an input field', () => {
     it('should render a component with a label properly', () => {
         const labelText = 'labelText';
-        const wrapper = render(
+        const view = render(
             <Field labelText={labelText} className="customClass">
                 <input />
             </Field>
@@ -14,6 +14,6 @@ describe('<Field> that renders an input field', () => {
         const button = screen.getByRole('textbox', { name: labelText });
 
         expect(button).toBeInTheDocument();
-        expect(wrapper.container).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 });
