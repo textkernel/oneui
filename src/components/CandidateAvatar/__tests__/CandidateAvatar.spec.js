@@ -1,36 +1,41 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 import { CandidateAvatar } from '../CandidateAvatar';
 
 describe('<CandidateAvatar> that renders a candidate profile image with match indication', () => {
     it('should render a default avatar', () => {
-        const wrapper = shallow(<CandidateAvatar />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const view = render(<CandidateAvatar />);
+
+        expect(view.container).toMatchSnapshot();
     });
 
     it('should render a custom sized avatar with good match percentage', () => {
         // Try odd size to see if it is forced to be even
-        const wrapper = shallow(<CandidateAvatar size={127} matchPercentage={100} />);
-        expect(wrapper.props().style).toEqual({
-            height: 128,
-            width: 128,
+        const view = render(<CandidateAvatar size={127} matchPercentage={100} />);
+
+        expect(view.container.firstChild).toHaveStyle({
+            height: '128px',
+            width: '128px',
         });
-        expect(wrapper.find('svg').props().style).toEqual({
-            height: 128,
-            width: 128,
+        expect(screen.getAllByRole('img')[1]).toHaveStyle({
+            height: '128px',
+            width: '128px',
         });
-        expect(wrapper.find('circle').props().strokeWidth).toBe(4);
-        expect(wrapper.find('circle').props().cx).toBe(64);
-        expect(wrapper.find('circle').props().cy).toBe(64);
+        const circle = screen.getByRole('progressbar');
+        expect(circle).toHaveAttribute('stroke-width', '4');
+        expect(circle).toHaveAttribute('cx', '64');
+        expect(circle).toHaveAttribute('cy', '64');
     });
 
     it('should render an avatar with average match percentage', () => {
-        const wrapper = shallow(<CandidateAvatar size={128} matchPercentage={34} />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const view = render(<CandidateAvatar size={128} matchPercentage={34} />);
+
+        expect(view.container).toMatchSnapshot();
     });
 
     it('should render an avatar with bad match percentage and avatar', () => {
-        const wrapper = shallow(
+        const view = render(
             <CandidateAvatar
                 imageUrl="/candidate.jpg"
                 size={128}
@@ -38,22 +43,22 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
                 showPercentageOnHover
             />
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+
+        expect(view.container).toMatchSnapshot();
     });
 
     it('should change avatar image', () => {
-        const wrapper = shallow(<CandidateAvatar imageUrl="/candidate.jpg" />);
-        expect(wrapper.find('.CandidateAvatar__image').props().style).toEqual({
+        render(<CandidateAvatar imageUrl="/candidate.jpg" />);
+
+        expect(screen.getAllByRole('img')[0]).toHaveStyle({
             backgroundImage: 'url(/candidate.jpg)',
         });
     });
 
     it('should add classes when props are changed', () => {
-        const wrapper = shallow(
-            <CandidateAvatar showPercentageOnHover matchPercentage={10} size={58} />
-        );
-        expect(wrapper.find('.CandidateAvatar__percentage')).toHaveLength(1);
-        expect(wrapper.find('.CandidateAvatar__percentage').text()).toBe('10%');
-        expect(wrapper.find('circle').props().strokeWidth).toBe(2);
+        render(<CandidateAvatar showPercentageOnHover matchPercentage={10} size={58} />);
+
+        expect(screen.getByText('10%')).toBeInTheDocument('10%');
+        expect(screen.getByRole('progressbar')).toHaveAttribute('stroke-width', '2');
     });
 });

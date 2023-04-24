@@ -1,132 +1,96 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<CandidateAvatar> that renders a candidate profile image with match indication should render a default avatar 1`] = `
-<div
-  className="CandidateAvatar"
-  style={
-    Object {
-      "height": 72,
-      "width": 72,
-    }
-  }
->
+<div>
   <div
-    className="CandidateAvatar__image"
-    style={
-      Object {
-        "backgroundImage": "url(undefined)",
-      }
-    }
-  />
-  <svg
-    className="CandidateAvatar__ring"
-    style={
-      Object {
-        "height": 72,
-        "width": 72,
-      }
-    }
-  />
+    class="CandidateAvatar"
+    style="width: 72px; height: 72px;"
+  >
+    <div
+      class="CandidateAvatar__image"
+      role="img"
+      style="background-image: url(undefined);"
+    />
+    <svg
+      class="CandidateAvatar__ring"
+      role="img"
+      style="width: 72px; height: 72px;"
+    />
+  </div>
 </div>
 `;
 
 exports[`<CandidateAvatar> that renders a candidate profile image with match indication should render an avatar with average match percentage 1`] = `
-<div
-  className="CandidateAvatar"
-  style={
-    Object {
-      "height": 128,
-      "width": 128,
-    }
-  }
->
+<div>
   <div
-    className="CandidateAvatar__image"
-    style={
-      Object {
-        "backgroundImage": "url(undefined)",
-      }
-    }
-  />
-  <svg
-    className="CandidateAvatar__ring"
-    style={
-      Object {
-        "height": 128,
-        "width": 128,
-      }
-    }
+    class="CandidateAvatar"
+    style="width: 128px; height: 128px;"
   >
-    <circle
-      className="CandidateAvatar__circle CandidateAvatar__circle--context_warning"
-      cx={64}
-      cy={64}
-      r={62}
-      strokeWidth={4}
-      style={
-        Object {
-          "strokeDasharray": "132.44954627534568 999",
-        }
-      }
+    <div
+      class="CandidateAvatar__image"
+      role="img"
+      style="background-image: url(undefined);"
     />
-  </svg>
+    <svg
+      class="CandidateAvatar__ring"
+      role="img"
+      style="width: 128px; height: 128px;"
+    >
+      <circle
+        class="CandidateAvatar__circle CandidateAvatar__circle--context_warning"
+        cx="64"
+        cy="64"
+        r="62"
+        role="progressbar"
+        stroke-width="4"
+        style="stroke-dasharray: 132.44954627534568 999;"
+      />
+    </svg>
+  </div>
 </div>
 `;
 
 exports[`<CandidateAvatar> that renders a candidate profile image with match indication should render an avatar with bad match percentage and avatar 1`] = `
-<div
-  className="CandidateAvatar"
-  style={
-    Object {
-      "height": 128,
-      "width": 128,
-    }
-  }
->
+<div>
   <div
-    className="CandidateAvatar__image"
-    style={
-      Object {
-        "backgroundImage": "url(/candidate.jpg)",
-      }
-    }
+    class="CandidateAvatar"
+    style="width: 128px; height: 128px;"
   >
-    <svg
-      className="CandidateAvatar__percentage"
-      viewBox="0 0 50 50"
+    <div
+      class="CandidateAvatar__image"
+      role="img"
+      style="background-image: url(/candidate.jpg);"
     >
-      <text
-        className="CandidateAvatar__percentage-value"
-        dominantBaseline="central"
-        textAnchor="middle"
-        x="50%"
-        y="50%"
+      <svg
+        class="CandidateAvatar__percentage"
+        viewBox="0 0 50 50"
       >
-        33%
-      </text>
+        <text
+          class="CandidateAvatar__percentage-value"
+          dominant-baseline="central"
+          text-anchor="middle"
+          x="50%"
+          y="50%"
+        >
+          33%
+        </text>
+      </svg>
+    </div>
+    <svg
+      class="CandidateAvatar__ring"
+      role="img"
+      style="width: 128px; height: 128px;"
+    >
+      <circle
+        class="CandidateAvatar__circle CandidateAvatar__circle--context_danger"
+        cx="64"
+        cy="64"
+        r="62"
+        role="progressbar"
+        stroke-width="4"
+        style="stroke-dasharray: 128.5539713848943 999;"
+      />
     </svg>
   </div>
-  <svg
-    className="CandidateAvatar__ring"
-    style={
-      Object {
-        "height": 128,
-        "width": 128,
-      }
-    }
-  >
-    <circle
-      className="CandidateAvatar__circle CandidateAvatar__circle--context_danger"
-      cx={64}
-      cy={64}
-      r={62}
-      strokeWidth={4}
-      style={
-        Object {
-          "strokeDasharray": "128.5539713848943 999",
-        }
-      }
-    />
-  </svg>
 </div>
 `;

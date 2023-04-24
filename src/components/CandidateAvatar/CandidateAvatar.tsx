@@ -52,6 +52,7 @@ export const CandidateAvatar: React.FC<Props> = ({
             }}
         >
             <div
+                role="img"
                 {...elem('image')}
                 style={{
                     backgroundImage: `url(${imageUrl})`,
@@ -72,6 +73,7 @@ export const CandidateAvatar: React.FC<Props> = ({
                 )}
             </div>
             <svg
+                role="img"
                 {...elem('ring')}
                 style={{
                     width: fixedSize,
@@ -80,6 +82,7 @@ export const CandidateAvatar: React.FC<Props> = ({
             >
                 {!!Number.isInteger(matchPercentage) && (
                     <circle
+                        role="progressbar"
                         r={radius}
                         cx={fixedSize / 2}
                         cy={fixedSize / 2}
