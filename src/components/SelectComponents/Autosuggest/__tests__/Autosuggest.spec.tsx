@@ -113,8 +113,7 @@ describe('Autosuggest', () => {
             await setFocus();
             await userEvent.type(inputNodeField, 'driver');
 
-            // TODO: will be fixed in ONEUI-364
-            expect(screen.getAllByRole('presentation')).toHaveLength(5);
+            expect(screen.getAllByRole('alert')).toHaveLength(5);
             // TODO: check the specific things
             expect(view.container).toMatchSnapshot();
         });
@@ -129,8 +128,7 @@ describe('Autosuggest', () => {
             await setFocus();
             await userEvent.type(inputNodeField, 'driver');
 
-            // TODO: will be fixed in ONEUI-364
-            expect(screen.getAllByRole('presentation')).toHaveLength(7);
+            expect(screen.getAllByRole('alert')).toHaveLength(5);
             expect(screen.getAllByRole('listitem')).toHaveLength(5);
         });
         it('should render empty component correctly when focused', async () => {
