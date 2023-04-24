@@ -45,7 +45,7 @@ describe('Combobox', () => {
 
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
         });
         it('should set focus on the input field', async () => {
             await setFocus();
@@ -68,15 +68,13 @@ describe('Combobox', () => {
             rerenderView(newProps);
             await setFocus();
 
-            expect(view.asFragment()).toMatchSnapshot();
-            // TODO: will be fixed in ONEUI-364
+            expect(view.container).toMatchSnapshot();
             expect(screen.getAllByRole('option')).toHaveLength(1);
             expect(screen.getByText(noSuggestionsPlaceholder)).toBeInTheDocument();
         });
         it('should render all suggestions from the list', async () => {
             await setFocus();
 
-            // TODO: will be fixed in ONEUI-364
             expect(screen.getAllByRole('option')).toHaveLength(suggestions.length);
         });
         describe('when blurred', () => {
@@ -92,7 +90,7 @@ describe('Combobox', () => {
                 rerenderView(newProps);
                 await setFocus();
 
-                expect(view.asFragment()).toMatchSnapshot();
+                expect(view.container).toMatchSnapshot();
                 expect(screen.getByText(SUGGESTIONS[1].name)).toBeInTheDocument();
             });
         });
@@ -179,11 +177,10 @@ describe('Combobox', () => {
     describe('callbacks', () => {
         describe('onSelectionAdd', () => {
             it('should be called on clicking on a suggestion', async () => {
-                expect(view.asFragment()).toMatchSnapshot();
+                expect(view.container).toMatchSnapshot();
                 await setFocus();
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
-                // TODO: will be fixed in ONEUI-364
                 await userEvent.click(screen.queryAllByRole('option')[0]);
 
                 expect(mockOnSelectionAdd).toHaveBeenCalledWith(SUGGESTIONS[0]);

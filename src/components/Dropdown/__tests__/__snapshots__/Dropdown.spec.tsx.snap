@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dropdown should allow for conditional rendering of items 1`] = `
-<DocumentFragment>
+<div>
   <button
     aria-expanded="true"
     aria-haspopup="listbox"
@@ -34,11 +34,11 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
       </span>
     </li>
   </ul>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Dropdown should downshift only by enabled items with value 1`] = `
-<DocumentFragment>
+<div>
   <button
     aria-expanded="true"
     aria-haspopup="listbox"
@@ -104,11 +104,11 @@ exports[`Dropdown should downshift only by enabled items with value 1`] = `
       </span>
     </li>
   </ul>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Dropdown should render correctly closed 1`] = `
-<DocumentFragment>
+<div>
   <button
     aria-expanded="false"
     aria-haspopup="listbox"
@@ -126,11 +126,11 @@ exports[`Dropdown should render correctly closed 1`] = `
     role="listbox"
     tabindex="-1"
   />
-</DocumentFragment>
+</div>
 `;
 
 exports[`Dropdown should render correctly opened 1`] = `
-<DocumentFragment>
+<div>
   <button
     aria-expanded="true"
     aria-haspopup="listbox"
@@ -172,11 +172,11 @@ exports[`Dropdown should render correctly opened 1`] = `
       </span>
     </li>
   </ul>
-</DocumentFragment>
+</div>
 `;
 
 exports[`Dropdown should render correctly with mixed children: array and single ListItem 1`] = `
-<DocumentFragment>
+<div>
   <button
     aria-expanded="true"
     aria-haspopup="listbox"
@@ -228,5 +228,5 @@ exports[`Dropdown should render correctly with mixed children: array and single 
       </span>
     </li>
   </ul>
-</DocumentFragment>
+</div>
 `;

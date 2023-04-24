@@ -187,7 +187,6 @@ exports[`Themeroller component should render component correctly 1`] = `
         <ul
           className="List"
           onKeyDown={[Function]}
-          role="listbox"
           tabIndex="0"
         >
           <ListItem

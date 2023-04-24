@@ -9,7 +9,7 @@ describe('<ListOptimizer> that optimally renders list items', () => {
                 {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 
     it('should render part of list items due to middle height of block', () => {
@@ -18,7 +18,7 @@ describe('<ListOptimizer> that optimally renders list items', () => {
                 {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
     it('should render full list on maximum height', () => {
         const view = render(
@@ -26,6 +26,6 @@ describe('<ListOptimizer> that optimally renders list items', () => {
                 {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
 });

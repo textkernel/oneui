@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FieldWithValidation when rendering message as text with no error message passed should simply render the child as it is 1`] = `
-<DocumentFragment>
+<div>
   <input
     class="Input"
     data-lpignore="true"
     type="text"
     value=""
   />
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWithValidation when using tooltip when error message is defined should remove the message when field is blurred 1`] = `
-<DocumentFragment>
+<div>
   <input
     class="Input Input--context_danger"
     data-lpignore="true"
@@ -24,11 +24,11 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
   >
     invalid field
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWithValidation when using tooltip when error message is defined should render the message when field is focused 1`] = `
-<DocumentFragment>
+<div>
   <input
     class="Input Input--context_danger"
     data-lpignore="true"
@@ -40,11 +40,11 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
   >
     invalid field
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWithValidation when using tooltip when error message is defined should set context to bad on child 1`] = `
-<DocumentFragment>
+<div>
   <input
     class="Input Input--context_danger"
     data-lpignore="true"
@@ -56,22 +56,22 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
   >
     invalid field
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWithValidation when using tooltip with no error message passed should not render a tooltip with no error message 1`] = `
-<DocumentFragment>
+<div>
   <input
     class="Input"
     data-lpignore="true"
     type="text"
     value=""
   />
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWithValidation with error message passed should render the message as text 1`] = `
-<DocumentFragment>
+<div>
   <input
     class="Input Input--context_danger"
     data-lpignore="true"
@@ -83,11 +83,11 @@ exports[`FieldWithValidation with error message passed should render the message
   >
     invalid field
   </p>
-</DocumentFragment>
+</div>
 `;
 
 exports[`FieldWithValidation with error message passed should set context to bad on child 1`] = `
-<DocumentFragment>
+<div>
   <input
     class="Input Input--context_danger"
     data-lpignore="true"
@@ -99,5 +99,5 @@ exports[`FieldWithValidation with error message passed should set context to bad
   >
     invalid field
   </p>
-</DocumentFragment>
+</div>
 `;

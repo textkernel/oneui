@@ -43,14 +43,14 @@ describe('ComboboxMulti', () => {
 
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
         });
         it('should add additional attributes to input field when component is blurred', () => {
             const newProps = {
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
             const inputField = screen.getAllByRole('textbox')[0];
 
             expect(inputField.outerHTML).toMatch('data-test="true"');
@@ -88,7 +88,7 @@ describe('ComboboxMulti', () => {
             rerenderView(newProps);
             await setFocus();
 
-            expect(view.asFragment()).toMatchSnapshot();
+            expect(view.container).toMatchSnapshot();
             expect(screen.getAllByRole('option')).toHaveLength(1);
             expect(screen.getByText(noSuggestionsPlaceholder)).toBeInTheDocument();
         });

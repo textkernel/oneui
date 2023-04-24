@@ -40,18 +40,18 @@ describe('Dropdown', () => {
     });
 
     it('should render correctly closed', () => {
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(screen.queryAllByRole('option')).toHaveLength(0);
     });
 
     it('should render correctly opened', async () => {
         await userEvent.click(screen.getByRole('button', { name: 'Click me!' }));
-        expect(view.asFragment()).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(screen.getAllByRole('listbox')).toHaveLength(1);
         expect(screen.getAllByRole('option')).toHaveLength(2);
     });
     it('should downshift only by enabled items with value', async () => {
-        const { asFragment } = render(
+        const { container } = render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -73,7 +73,7 @@ describe('Dropdown', () => {
             </Dropdown>
         );
         await userEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
-        expect(asFragment()).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
         const keyDown = () => userEvent.click(screen.getAllByRole('listbox')[1]);
 
         // 1 keydown
@@ -114,7 +114,7 @@ describe('Dropdown', () => {
     });
 
     it('should render correctly with mixed children: array and single ListItem', async () => {
-        const { asFragment } = render(
+        const { container } = render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -131,7 +131,7 @@ describe('Dropdown', () => {
             </Dropdown>
         );
         await userEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
-        expect(asFragment()).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
         expect(screen.getAllByRole('option')).toHaveLength(3);
     });
 
@@ -207,7 +207,7 @@ describe('Dropdown', () => {
 
     it('should allow for conditional rendering of items', async () => {
         const condition = false;
-        const { asFragment } = render(
+        const { container } = render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -226,7 +226,7 @@ describe('Dropdown', () => {
         );
         await userEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
 
-        expect(asFragment()).toMatchSnapshot();
+        expect(container).toMatchSnapshot();
         expect(screen.queryByText('false')).toBeNull();
     });
 });

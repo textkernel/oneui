@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ComboboxMulti rendering should add additional attributes to input field when component is blurred 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="SelectBase"
   >
@@ -64,11 +64,11 @@ exports[`ComboboxMulti rendering should add additional attributes to input field
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`ComboboxMulti rendering should initially render empty component correctly 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="SelectBase"
   >
@@ -129,11 +129,11 @@ exports[`ComboboxMulti rendering should initially render empty component correct
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;
 
 exports[`ComboboxMulti rendering should render noSuggestions placeholder when empty suggestions list is passed 1`] = `
-<DocumentFragment>
+<div>
   <div
     class="SelectBase"
   >
@@ -209,5 +209,5 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
       </div>
     </div>
   </div>
-</DocumentFragment>
+</div>
 `;

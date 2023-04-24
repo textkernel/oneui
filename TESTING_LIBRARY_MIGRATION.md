@@ -25,7 +25,7 @@ expect(component).toMatchSnapshot();
 import { render } from '@testing-library/react';
 
 const { asFragment } = render(<MyComponent />);
-expect(asFragment()).toMatchSnapshot();
+expect(container).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -41,7 +41,7 @@ expect(component).toMatchSnapshot();
 import { render } from '@testing-library/react';
 
 const { asFragment } = render(<MyComponent />);
-expect(asFragment()).toMatchSnapshot();
+expect(container).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -57,7 +57,7 @@ expect(component).toMatchSnapshot();
 import { render } from '@testing-library/react';
 
 const { asFragment } = render(<MyComponent />);
-expect(asFragment()).toMatchSnapshot();
+expect(container).toMatchSnapshot();
 ```
 
 ### Finding Elements
@@ -101,7 +101,7 @@ import { render, screen } from 'react-test-renderer';
 
 const { asFragment } = render(<MyComponent />);
 expect(screen.getByRole('value')).toBeInTheDocument();
-expect(asFragment()).toMatchSnapshot();
+expect(container).toMatchSnapshot();
 ```
 
 ### Simulating Events. `userEvent` [description](https://testing-library.com/docs/user-event/intro/)
@@ -123,7 +123,7 @@ import userEvent from '@testing-library/user-event';
 const { asFragment } = render(<MyComponent />);
 const user = userEvent.setup();
 await user.type(screen.getByDisplayValue(''), 'Utrecht');
-expect(asFragment()).toMatchSnapshot();
+expect(container).toMatchSnapshot();
 ```
 
 #### Before ⭕:
@@ -164,7 +164,7 @@ wrapper.setProps({ isArrowUp: true });
 import { render } from 'react-test-renderer';
 
 const { rerender, asFragment } = render(<MyComponent />);
-expect(asFragment()).toMatchSnapshot();
+expect(container).toMatchSnapshot();
 rerender(<MyComponent isArrowUp> </MyComponent>);
 ```
 
