@@ -1,9 +1,11 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
-import { BulkActionsToolbar } from '..';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { BulkActionsToolbar, BulkActionsToolbarAction } from '..';
+import '@testing-library/jest-dom';
 
 describe('BulkActionsToolbar component', () => {
-    let wrapper;
+    let view;
     let consoleError;
     const onToggleClick = jest.fn();
     const onCompareClick = jest.fn();
@@ -21,19 +23,19 @@ describe('BulkActionsToolbar component', () => {
             label: 'Compare',
             disabled: true,
             onClick: onCompareClick,
-        },
+        } as BulkActionsToolbarAction,
         {
             label: 'Import',
             disabled: false,
             context: 'primary',
             onClick: onImportClick,
-        },
+        } as BulkActionsToolbarAction,
         {
             label: 'Delete',
             disabled: false,
             context: 'primary',
             onClick: onDeleteClick,
-        },
+        } as BulkActionsToolbarAction,
     ];
 
     beforeEach(() => {
@@ -45,7 +47,7 @@ describe('BulkActionsToolbar component', () => {
     });
 
     it('should render BulkActionsToolbar correctly when selection amount is 0', () => {
-        wrapper = shallow(
+        view = render(
             <BulkActionsToolbar
                 selection={{
                     hasSelection: false,
@@ -56,12 +58,13 @@ describe('BulkActionsToolbar component', () => {
                 actions={actions}
             />
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
+
         expect(consoleError).not.toHaveBeenCalled();
     });
 
     it('should render BulkActionsToolbar correctly when selection amount is more then 0', () => {
-        wrapper = shallow(
+        view = render(
             <BulkActionsToolbar
                 selection={{
                     hasSelection: true,
@@ -72,12 +75,13 @@ describe('BulkActionsToolbar component', () => {
                 actions={actions}
             />
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
+
         expect(consoleError).not.toHaveBeenCalled();
     });
 
-    it('should render BulkActionsToolbar correctly when toggle is set to "all"', () => {
-        wrapper = shallow(
+    it('should render BulkActionsToolbar correctly when toggle is set to "all"', async () => {
+        view = render(
             <BulkActionsToolbar
                 selection={{
                     hasSelection: true,
@@ -88,14 +92,15 @@ describe('BulkActionsToolbar component', () => {
                 actions={actions}
             />
         );
-        wrapper.find('.BulkActionsToolbar__toggleButton').simulate('click');
+        await userEvent.click(screen.getByRole('button', { name: 'Select All' }));
+
         expect(onToggleClick).toHaveBeenCalledWith('all');
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(consoleError).not.toHaveBeenCalled();
     });
 
-    it('should render BulkActionsToolbar correctly when toggle is set to "none"', () => {
-        wrapper = shallow(
+    it('should render BulkActionsToolbar correctly when toggle is set to "none"', async () => {
+        view = render(
             <BulkActionsToolbar
                 selection={{
                     hasSelection: true,
@@ -106,14 +111,15 @@ describe('BulkActionsToolbar component', () => {
                 actions={actions}
             />
         );
-        wrapper.find('.BulkActionsToolbar__toggleButton').simulate('click');
+        await userEvent.click(screen.getByRole('button', { name: 'Select None' }));
+
         expect(onToggleClick).toHaveBeenCalledWith('none');
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(consoleError).not.toHaveBeenCalled();
     });
 
-    it('should render BulkActionsToolbar actions correctly', () => {
-        wrapper = shallow(
+    it('should render BulkActionsToolbar actions correctly', async () => {
+        view = render(
             <BulkActionsToolbar
                 selection={{
                     hasSelection: true,
@@ -124,19 +130,18 @@ describe('BulkActionsToolbar component', () => {
                 actions={actions}
             />
         );
+        expect(view.container).toMatchSnapshot();
 
-        // clicking on disabled "Compare" action
-        wrapper.find('.BulkActionsToolbar__action').at(0).simulate('click');
-        // clicking on enabled "Import" action
-        wrapper.find('.BulkActionsToolbar__action').at(1).simulate('click');
-        // clicking on enabled "Delete" action
-        wrapper.find('.BulkActionsToolbar__action').at(2).simulate('click');
-        expect(onCompareClick).toHaveBeenCalledTimes(1);
+        await userEvent.click(screen.getByRole('button', { name: 'Compare' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Import' }));
+        await userEvent.click(screen.getByRole('button', { name: 'Delete' }));
+
+        expect(onCompareClick).toHaveBeenCalledTimes(0);
         expect(onImportClick).toHaveBeenCalledTimes(1);
         expect(onDeleteClick).toHaveBeenCalledTimes(1);
-        expect(wrapper.find('.BulkActionsToolbar__action').at(0).prop('disabled')).toBe(true);
-        expect(wrapper.find('.BulkActionsToolbar__action').at(1).prop('disabled')).toBe(false);
-        expect(wrapper.find('.BulkActionsToolbar__action').at(2).prop('disabled')).toBe(false);
+        expect(screen.getByRole('button', { name: 'Compare' })).toHaveAttribute('disabled');
+        expect(screen.getByRole('button', { name: 'Import' })).not.toHaveAttribute('disabled');
+        expect(screen.getByRole('button', { name: 'Delete' })).not.toHaveAttribute('disabled');
         expect(consoleError).not.toHaveBeenCalled();
     });
 });
