@@ -59,6 +59,25 @@ import { render } from '@testing-library/react';
 const { container } = render(<MyComponent />);
 expect(container).toMatchSnapshot();
 ```
+### Rerender Components.
+
+#### Before ⭕:
+```ts
+import { mount } from 'enzyme';
+
+const wrapper = mount(<MyComponent />);
+wrapper.setProps({ isArrowUp: true });
+```
+
+#### After ✅:
+```ts
+import { render } from 'react-test-renderer';
+
+const { rerender, container } = render(<MyComponent />);
+expect(container).toMatchSnapshot();
+rerender(<MyComponent isArrowUp> </MyComponent>);
+```
+
 
 ### Finding Elements
 
@@ -147,24 +166,34 @@ await user.click(button);
 expect(handleClick).toHaveBeenCalled();
 ```
 
-### Rerender Components.
+### Checking for HTML Attributes
 
 #### Before ⭕:
 ```ts
-import { mount } from 'enzyme';
-
-const wrapper = mount(<MyComponent />);
-wrapper.setProps({ isArrowUp: true });
+const wrapper = mount(<Callout context="warning">some text</Callout>);
+expect(wrapper.find('.Callout').hasClass('Callout--context_warning')).toBe(true);
 ```
 
 #### After ✅:
 ```ts
-import { render } from 'react-test-renderer';
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
 
-const { rerender, container } = render(<MyComponent />);
-expect(container).toMatchSnapshot();
-rerender(<MyComponent isArrowUp> </MyComponent>);
+const view = render(<Callout context="warning">some text</Callout>);
+expect(view.container.firstChild).toHaveClass('Callout--context_warning');
+
 ```
 
+#### Before ⭕:
+```ts
+const wrapper = mount(<Button data-test="something">Click me</Button>);
+expect(wrapper.find('button').prop('data-test')).toEqual('something');```
+
+#### After ✅:
+```ts
+render(<Button data-test="something">Click me</Button>);
+expect(screen.getByRole('button').outerHTML).toMatch('data-test="something"');
+
+```
 
 
