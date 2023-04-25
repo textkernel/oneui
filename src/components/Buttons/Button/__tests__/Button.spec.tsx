@@ -37,7 +37,7 @@ describe('<Button> that renders a button', () => {
     it('should add string html attributes correctly', () => {
         render(<Button data-test="something">Click me</Button>);
 
-        expect(screen.getByRole('button').outerHTML).toMatch('data-test="something"');
+        expect(screen.getByRole('button')).toHaveAttribute('data-test', 'something');
     });
     it('should add functional html attributes correctly', async () => {
         const onMouseOverMock = jest.fn();

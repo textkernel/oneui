@@ -170,29 +170,26 @@ expect(handleClick).toHaveBeenCalled();
 
 #### Before ⭕:
 ```ts
-const wrapper = mount(<Callout context="warning">some text</Callout>);
 expect(wrapper.find('.Callout').hasClass('Callout--context_warning')).toBe(true);
 ```
 
 #### After ✅:
 ```ts
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
 
-const view = render(<Callout context="warning">some text</Callout>);
 expect(view.container.firstChild).toHaveClass('Callout--context_warning');
 
 ```
 
 #### Before ⭕:
 ```ts
-const wrapper = mount(<Button data-test="something">Click me</Button>);
 expect(wrapper.find('button').prop('data-test')).toEqual('something');```
 
 #### After ✅:
 ```ts
-render(<Button data-test="something">Click me</Button>);
-expect(screen.getByRole('button').outerHTML).toMatch('data-test="something"');
+import import '@testing-library/jest-dom';
+
+expect(screen.getByRole('button')).toHaveAttribute('data-test', 'something');
 
 ```
 
