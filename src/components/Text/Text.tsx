@@ -2,11 +2,10 @@ import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './Text.scss';
 import { Size, Context } from '../../constants';
-import { ReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Text content */
-    children: ReactNode;
+    children: React.ReactNode;
     /** Text should be rendered inline */
     inline?: boolean;
     /** The context of the text, effecting its color (e.g. primary, info, danger, success etc. 'neutral' added as special context here) */

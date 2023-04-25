@@ -6,7 +6,6 @@ import { Text, MarkedText } from '../../Text';
 import { ListOptimizer, ListItem } from '../../List';
 import { NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS } from '../../../constants';
 import styles from './SuggestionsList.scss';
-import { ReactNode } from '../../../customTypes/types';
 
 const { elem } = bem('SuggestionsList', styles);
 
@@ -22,7 +21,7 @@ export interface Props<S> {
     /** suggestionToKey(suggestion) makes a key to be used for a suggestion item */
     suggestionToKey?: (suggestion: S) => string;
     /** render function for suggestion list item. If undefined `suggestionToString` will be used */
-    suggestionItemRenderer?: (suggestion: S, index: number, array: S[]) => ReactNode;
+    suggestionItemRenderer?: (suggestion: S, index: number, array: S[]) => React.ReactNode;
     /** to be shown when no suggestions are available */
     noSuggestionsPlaceholder?: string;
     /** Defines if the first item of suggestions list is always visible */

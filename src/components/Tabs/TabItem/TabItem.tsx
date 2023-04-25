@@ -2,7 +2,6 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './TabItem.scss';
-import { ReactNode } from '../../../customTypes/types';
 
 export interface Props<T> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
     /** Id of this tab */
@@ -14,7 +13,7 @@ export interface Props<T> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
     /** A callback  when the tab is clicked. It will not be called for active or disabled tabs. This prop will be set by TabsBar if onSelect is defined there */
     onSelect?: (tabId: T) => void;
     /** Label of the tab. Expected to be a string like node. E.g. `label` or `label <span>(3)</span>`  */
-    children: ReactNode;
+    children: React.ReactNode;
     /** used for styling when TabsBar is full width. Will be set by TabsBar, no need to set manually */
     isBlock?: boolean;
 }

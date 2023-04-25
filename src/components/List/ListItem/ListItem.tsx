@@ -3,11 +3,10 @@ import { bem } from '../../../utils';
 import { Text } from '../../Text';
 import { Context } from '../../../constants';
 import styles from './ListItem.scss';
-import { ReactNode } from '../../../customTypes/types';
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
     /** List Items */
-    children?: ReactNode;
+    children?: React.ReactNode;
     /** A function to be called if the item is clicked */
     onClick?: (e: React.SyntheticEvent<HTMLDivElement>) => void;
     /** Formats this item as selected  */
