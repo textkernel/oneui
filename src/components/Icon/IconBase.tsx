@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import { NotEmptyReactNode } from '../../customTypes/types';
 import { bem } from '../../utils';
 import styles from './IconBase.scss';
 
@@ -18,7 +17,7 @@ export interface IconProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export interface Props extends IconProps {
     /** The SVG content */
-    children: NotEmptyReactNode;
+    children: React.ReactNode;
     /** The SVG viewbox */
     viewBox: string;
 }
@@ -47,6 +46,10 @@ export const IconBase = forwardRef<HTMLDivElement, Props>(
         { children, isPrimary, margin, size, preserveAspectRatio = false, title, viewBox, ...rest },
         ref
     ) => {
+        if (!children) {
+            return null;
+        }
+
         return (
             <div ref={ref} {...rest} {...block({ margin, isPrimary, ...rest })}>
                 <svg

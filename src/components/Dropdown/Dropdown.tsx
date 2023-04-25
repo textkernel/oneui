@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelect } from 'downshift';
 import { usePopper } from 'react-popper';
-import { EmptyElement, NotEmptyReactNode } from '../../customTypes/types';
+import { EmptyElement } from '../../customTypes/types';
 import { bem } from '../../utils/bem/bem';
 import { mergeRefs } from '../../utils/mergeRefs';
 import { PopupPlacement } from '../../constants';
@@ -96,8 +96,9 @@ export function Dropdown<V>({
 
     const childrenArray = React.Children.toArray(children);
     const valuesAvailableForHighlight: V[] = [];
-    childrenArray.forEach((child: NotEmptyReactNode) => {
+    childrenArray.forEach((child) => {
         if (
+            child &&
             React.isValidElement(child) &&
             child.props.value !== undefined &&
             child.props.value !== null &&

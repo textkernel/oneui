@@ -3,7 +3,6 @@ import { bem } from '../../utils';
 import { ContentPlaceholder } from '../ContentPlaceholder';
 import { GAUGE_RADIUS } from '../../constants';
 import styles from './Gauge.scss';
-import { NotEmptyReactNode } from '../../customTypes/types';
 
 const SET_PERCENTAGE_DELAY = 100;
 
@@ -17,7 +16,7 @@ export interface Props {
     /** Percentage of the progress bar to be filled */
     percentage?: number;
     /** Content component */
-    children: NotEmptyReactNode;
+    children: React.ReactNode;
     /** String value to be used as metric part below the child */
     metric?: string;
     /** Note component to be rendered below the gauge */
@@ -62,6 +61,10 @@ export const Gauge: React.FC<Props> = ({
     const progress = isProgressLoading ? 0 : percentageAdjusted;
     const circumference = 2 * Math.PI * GAUGE_RADIUS;
     const circumferenceHalf = circumference / 2;
+
+    if (!children) {
+        return null;
+    }
 
     return (
         <div {...rest} {...block({ isProgressLoading, isContentLoading, ...rest })}>

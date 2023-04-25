@@ -5,6 +5,11 @@ import { FieldWrapper } from '../FieldWrapper';
 import '@testing-library/jest-dom';
 
 describe('FieldWrapper', () => {
+    it('should render nothing if no children are provided', () => {
+        const { container } = render(<FieldWrapper>{}</FieldWrapper>);
+
+        expect(container.firstChild).toBeNull();
+    });
     it('should render correctly', () => {
         const { container } = render(<FieldWrapper>some children</FieldWrapper>);
 
