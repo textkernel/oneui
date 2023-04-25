@@ -2,7 +2,6 @@ import * as React from 'react';
 import { PopupBase } from '../PopupBase';
 import { PillButton } from './PillButton';
 import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
-import { SingleReactNode } from '../../customTypes/types';
 
 export interface Props {
     /** The dropdown content renderer function. It is called with:
@@ -16,8 +15,8 @@ export interface Props {
     onClose?: () => void;
     /** name describing the pill/filter */
     name: string;
-    /** label describing the content of an active filter/pill */
-    content?: SingleReactNode;
+    /** label describing the content of an active filter/pill. Note: it is rendered within a <span> */
+    content?: React.ReactNode;
     /** If pill is in default state, meaning it has content but cannot be reset. */
     isContentDefault?: boolean;
     /** label for the Done button */

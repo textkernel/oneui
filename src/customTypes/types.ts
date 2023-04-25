@@ -12,5 +12,4 @@ export type NotEmptyReactNode =
     | React.ReactElement[]
     | React.ReactFragment
     | React.ReactPortal;
-export type SingleReactNode = NotEmptySingleReactNode | boolean | null | undefined;
 export type EmptyElement = false | null | undefined;

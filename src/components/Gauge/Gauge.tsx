@@ -3,7 +3,7 @@ import { bem } from '../../utils';
 import { ContentPlaceholder } from '../ContentPlaceholder';
 import { GAUGE_RADIUS } from '../../constants';
 import styles from './Gauge.scss';
-import { NotEmptyReactNode, SingleReactNode } from '../../customTypes/types';
+import { NotEmptyReactNode } from '../../customTypes/types';
 
 const SET_PERCENTAGE_DELAY = 100;
 
@@ -21,7 +21,7 @@ export interface Props {
     /** String value to be used as metric part below the child */
     metric?: string;
     /** Note component to be rendered below the gauge */
-    note?: SingleReactNode;
+    note?: React.ReactNode;
 }
 
 /**
