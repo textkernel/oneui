@@ -22,7 +22,7 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
             height: '128px',
             width: '128px',
         });
-        const circle = screen.getByRole('progressbar');
+        const circle = screen.getByRole('meter');
         expect(circle).toHaveAttribute('stroke-width', '4');
         expect(circle).toHaveAttribute('cx', '64');
         expect(circle).toHaveAttribute('cy', '64');
@@ -59,6 +59,6 @@ describe('<CandidateAvatar> that renders a candidate profile image with match in
         render(<CandidateAvatar showPercentageOnHover matchPercentage={10} size={58} />);
 
         expect(screen.getByText('10%')).toBeInTheDocument('10%');
-        expect(screen.getByRole('progressbar')).toHaveAttribute('stroke-width', '2');
+        expect(screen.getByRole('meter')).toHaveAttribute('stroke-width', '2');
     });
 });

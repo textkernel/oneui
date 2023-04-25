@@ -37,11 +37,12 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
       style="width: 128px; height: 128px;"
     >
       <circle
+        aria-valuenow="34"
         class="CandidateAvatar__circle CandidateAvatar__circle--context_warning"
         cx="64"
         cy="64"
         r="62"
-        role="progressbar"
+        role="meter"
         stroke-width="4"
         style="stroke-dasharray: 132.44954627534568 999;"
       />
@@ -82,11 +83,12 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
       style="width: 128px; height: 128px;"
     >
       <circle
+        aria-valuenow="33"
         class="CandidateAvatar__circle CandidateAvatar__circle--context_danger"
         cx="64"
         cy="64"
         r="62"
-        role="progressbar"
+        role="meter"
         stroke-width="4"
         style="stroke-dasharray: 128.5539713848943 999;"
       />

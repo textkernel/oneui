@@ -82,7 +82,8 @@ export const CandidateAvatar: React.FC<Props> = ({
             >
                 {!!Number.isInteger(matchPercentage) && (
                     <circle
-                        role="progressbar"
+                        role="meter"
+                        aria-valuenow={percentage}
                         r={radius}
                         cx={fixedSize / 2}
                         cy={fixedSize / 2}
