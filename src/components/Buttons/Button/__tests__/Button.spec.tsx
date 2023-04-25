@@ -5,6 +5,11 @@ import userEvent from '@testing-library/user-event';
 import { Button } from '../Button';
 
 describe('<Button> that renders a button', () => {
+    it('should not render any HTML if no children are provided', () => {
+        const view = render(<Button>{null}</Button>);
+
+        expect(view.container.firstChild).toBeNull();
+    });
     it('should render default button correctly', () => {
         const view = render(<Button>Click me</Button>);
 

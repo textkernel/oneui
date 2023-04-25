@@ -5,6 +5,11 @@ import userEvent from '@testing-library/user-event';
 import { FileButton } from '../FileButton';
 
 describe('<FileButton> that renders a button', () => {
+    it('should render nothing if no children are provided', () => {
+        const { container } = render(<FileButton>{}</FileButton>);
+
+        expect(container.firstChild).toBeNull();
+    });
     it('should render default button correctly', () => {
         const view = render(<FileButton>Choose file</FileButton>);
 

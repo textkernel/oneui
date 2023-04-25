@@ -4,7 +4,6 @@ import { ContentPlaceholder } from '../ContentPlaceholder';
 import { ProgressBar } from '../ProgressBar';
 import { Text } from '../Text';
 import styles from './WeightedResultBar.scss';
-import { NotEmptySingleReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Description of the result */
@@ -12,7 +11,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Weight of this result in percentage */
     percentage: number;
     /** A react node with a weight of this result in absolute number */
-    count: NotEmptySingleReactNode;
+    count: React.ReactNode;
     /** Whether or not to render loading state */
     isLoading?: boolean;
 }
