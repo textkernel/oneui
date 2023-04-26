@@ -8,7 +8,7 @@ describe('<Button> that renders a button', () => {
     it('should not render any HTML if no children are provided', () => {
         const view = render(<Button>{null}</Button>);
 
-        expect(view.container.firstChild).toBeNull();
+        expect(view.container).toBeEmptyDOMElement();
     });
     it('should render default button correctly', () => {
         const view = render(<Button>Click me</Button>);

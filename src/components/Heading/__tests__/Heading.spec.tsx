@@ -1,4 +1,5 @@
 import React from 'react';
+import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { Heading } from '../Heading';
 
@@ -6,7 +7,7 @@ describe('<Heading> that renders a heading', () => {
     it('should not render any HTML if no children are provided', () => {
         const view = render(<Heading>{null}</Heading>);
 
-        expect(view.container.firstChild).toBeNull();
+        expect(view.container).toBeEmptyDOMElement();
     });
 
     it('should render default heading correctly', () => {

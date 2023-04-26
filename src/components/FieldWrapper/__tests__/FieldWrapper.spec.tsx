@@ -1,14 +1,14 @@
 import React from 'react';
+import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { FieldWrapper } from '../FieldWrapper';
-import '@testing-library/jest-dom';
 
 describe('FieldWrapper', () => {
     it('should render nothing if no children are provided', () => {
         const { container } = render(<FieldWrapper>{}</FieldWrapper>);
 
-        expect(container.firstChild).toBeNull();
+        expect(container).toBeEmptyDOMElement();
     });
     it('should render correctly', () => {
         const { container } = render(<FieldWrapper>some children</FieldWrapper>);

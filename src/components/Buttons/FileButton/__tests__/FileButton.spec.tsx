@@ -8,7 +8,7 @@ describe('<FileButton> that renders a button', () => {
     it('should render nothing if no children are provided', () => {
         const { container } = render(<FileButton>{}</FileButton>);
 
-        expect(container.firstChild).toBeNull();
+        expect(container).toBeEmptyDOMElement();
     });
     it('should render default button correctly', () => {
         const view = render(<FileButton>Choose file</FileButton>);
