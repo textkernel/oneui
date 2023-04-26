@@ -71,7 +71,7 @@ wrapper.setProps({ isArrowUp: true });
 
 #### After ✅:
 ```ts
-import { render } from 'react-test-renderer';
+import { render } from '@testing-library/react';
 
 const { rerender, container } = render(<MyComponent />);
 expect(container).toMatchSnapshot();
