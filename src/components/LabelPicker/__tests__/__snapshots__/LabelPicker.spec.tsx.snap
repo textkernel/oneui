@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LabelPicker> that renders a dropdown type component to apply/remove/add labels snapshot tests should render correctly in closed state 1`] = `
+<div>
+  <button
+    class="Button"
+    type="button"
+  >
+    Click me
+  </button>
+</div>
+`;
+
+exports[`<LabelPicker> that renders a dropdown type component to apply/remove/add labels snapshot tests should render correctly with dialog open 1`] = `
+<div>
+  <button
+    class="Button"
+    type="button"
+  >
+    Click me
+  </button>
+</div>
+`;
+
+exports[`<LabelPicker> that renders a dropdown type component to apply/remove/add labels toggling dialog visibility should toggle dialog when trigger button is clicked 1`] = `
+<div>
+  <button
+    class="Button"
+    id="trigger"
+    type="button"
+  >
+    Click me
+  </button>
+</div>
+`;

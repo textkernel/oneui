@@ -83,7 +83,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
         };
 
         return (
-            <div {...elem('dialog')}>
+            <div {...elem('dialog')} role="dialog">
                 {isOpen ? (
                     <div {...elem('container')}>
                         <div {...elem('scrollBox')}>
@@ -95,6 +95,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                                     onChange={getChangeHandler(label)}
                                     {...elem('checkbox')}
                                     asFlexbox
+                                    role="checkbox"
                                 >
                                     <Text inline {...elem('label')}>
                                         <Text inline {...elem('labelText')} title={label.name}>
