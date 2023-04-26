@@ -26,7 +26,6 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
 <div>
   <button
     class="Button"
-    id="trigger"
     type="button"
   >
     Click me

@@ -39,31 +39,23 @@ const defaultProps = {
 };
 
 let view;
-// const rerenderView = (props) => {
-//     view.rerender(
-//         <LabelPicker {...defaultProps} {...props}>
-//             <Button>Click me</Button>
-//         </LabelPicker>
-//     );
-// };
+
+const renderLabelPicker = () => {
+    view = render(
+        <LabelPicker {...defaultProps}>
+            <Button>Click me</Button>
+        </LabelPicker>
+    );
+};
 
 describe('<LabelPicker> that renders a dropdown type component to apply/remove/add labels', () => {
     describe('snapshot tests', () => {
         it('should render correctly in closed state', () => {
-            view = render(
-                <LabelPicker {...defaultProps}>
-                    <Button>Click me</Button>
-                </LabelPicker>
-            );
-
+            renderLabelPicker();
             expect(view.container).toMatchSnapshot();
         });
         it('should render correctly with dialog open', () => {
-            view = render(
-                <LabelPicker {...defaultProps}>
-                    <Button>Click me</Button>
-                </LabelPicker>
-            );
+            renderLabelPicker();
             screen.getByRole('button', { name: 'Click me' });
 
             expect(view.container).toMatchSnapshot();
@@ -71,11 +63,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
     });
     describe('trigger button', () => {
         it('should render trigger button correctly', () => {
-            view = render(
-                <LabelPicker {...defaultProps}>
-                    <Button>Click me</Button>
-                </LabelPicker>
-            );
+            renderLabelPicker();
             screen.getByRole('button', { name: 'Click me' });
 
             expect(screen.getAllByRole('button', { name: 'Click me' })).toHaveLength(1);
@@ -95,11 +83,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
     });
     describe('toggling dialog visibility', () => {
         it('should toggle dialog when trigger button is clicked', async () => {
-            view = render(
-                <LabelPicker {...defaultProps}>
-                    <Button id="trigger">Click me</Button>
-                </LabelPicker>
-            );
+            renderLabelPicker();
             expect(view.container).toMatchSnapshot();
             expect(screen.queryAllByRole('dialog').length).toBe(0);
 
@@ -115,12 +99,8 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
         });
         it('should close dialog on outer click', async () => {
             const clickDocument = useDocumentEvent('click');
+            renderLabelPicker();
 
-            view = render(
-                <LabelPicker {...defaultProps}>
-                    <Button>Click me</Button>
-                </LabelPicker>
-            );
             expect(screen.queryAllByRole('dialog').length).toBe(0);
 
             // open dialog
@@ -137,11 +117,8 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             expect(screen.queryAllByRole('dialog').length).toBe(0);
         });
         it('should not close dialog when it was clicked (e.g. a checkbox within the dialog etc.)', async () => {
-            view = render(
-                <LabelPicker {...defaultProps}>
-                    <Button>Click me</Button>
-                </LabelPicker>
-            );
+            renderLabelPicker();
+
             expect(screen.queryAllByRole('dialog').length).toBe(0);
 
             // open dialog
@@ -155,11 +132,8 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             expect(screen.getAllByRole('dialog').length).toBeGreaterThan(0);
         });
         it('should close dialog when Done button is clicked', async () => {
-            view = render(
-                <LabelPicker {...defaultProps}>
-                    <Button>Click me</Button>
-                </LabelPicker>
-            );
+            renderLabelPicker();
+
             expect(screen.queryAllByRole('dialog').length).toBe(0);
 
             // open dialog
@@ -175,11 +149,8 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
     });
     describe('labels rendering', () => {
         it('should render dialog with empty labels list', async () => {
-            view = render(
-                <LabelPicker {...defaultProps}>
-                    <Button>Click me</Button>
-                </LabelPicker>
-            );
+            renderLabelPicker();
+
             await userEvent.click(screen.getByRole('button', { name: 'Click me' }));
 
             expect(screen.queryAllByRole('checkbox').length).toBe(0);
@@ -268,25 +239,14 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             await userEvent.click(screen.getByRole('button', { name: 'Click me' }));
 
             expect(screen.getAllByRole('button')[1]).toHaveAttribute('disabled');
-            // wrapper
-            //     .find('Input')
-            //     .find('input')
-            //     .simulate('change', {
-            //         target: {
-            //             value: 'test',
-            //         },
-            //     });
-            // expect(wrapper.find('Button').at(1).prop('disabled')).toBeFalsy();
-            //
-            // wrapper
-            //     .find('Input')
-            //     .find('input')
-            //     .simulate('change', {
-            //         target: {
-            //             value: '',
-            //         },
-            //     });
-            // expect(wrapper.find('Button').at(1).prop('disabled')).toBeTruthy();
+
+            await userEvent.type(screen.getByRole('textbox'), 'test');
+
+            expect(screen.getAllByRole('button')[1]).not.toHaveAttribute('disabled');
+
+            // await userEvent.type(screen.getByRole('textbox'), '');
+
+            // expect(screen.getAllByRole('button')[1]).toHaveAttribute('disabled');
         });
         it('should clear the input value after add button was clicked', async () => {
             const mockOnAdd = jest.fn();
@@ -304,15 +264,9 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             // open dialog
             await userEvent.click(screen.getByRole('button', { name: 'Click me' }));
             // type in input field
-            // wrapper
-            //     .find('Input')
-            //     .find('input')
-            //     .simulate('change', {
-            //         target: {
-            //             value: 'test',
-            //         },
-            //     });
-            // expect(wrapper.find('input').prop('value')).toBe('test');
+            await userEvent.type(screen.getByRole('textbox'), 'test');
+
+            expect(screen.getByRole('textbox')).toHaveAttribute('value', 'test');
             // click add
             await userEvent.click(screen.getAllByRole('button')[1]);
 
@@ -391,19 +345,11 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
                 </LabelPicker>
             );
             await userEvent.click(screen.getByRole('button', { name: 'Click me' }));
-
-            // wrapper.find('#trigger').at(0).simulate('click');
-            // wrapper
-            //     .find('Input')
-            //     .find('input')
-            //     .simulate('change', {
-            //         target: {
-            //             value: 'test',
-            //         },
-            //     });
+            await userEvent.type(screen.getByRole('textbox'), 'test');
             await userEvent.click(screen.getAllByRole('button')[1]);
-            // expect(mockOnAdd).toHaveBeenCalledTimes(1);
-            // expect(mockOnAdd).toHaveBeenCalledWith('test');
+
+            expect(mockOnAdd).toHaveBeenCalledTimes(1);
+            expect(mockOnAdd).toHaveBeenCalledWith('test');
         });
         it('should call onAdd when add ENTER is pressed', async () => {
             const mockOnAdd = jest.fn();
@@ -419,19 +365,11 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
                 </LabelPicker>
             );
             await userEvent.click(screen.getByRole('button', { name: 'Click me' }));
-            // wrapper
-            //     .find('Input')
-            //     .find('input')
-            //     .simulate('change', {
-            //         target: {
-            //             value: 'test',
-            //         },
-            //     });
-            // wrapper.find('Input').find('input').simulate('keydown', {
-            //     key: ENTER_KEY,
-            // });
-            // expect(mockOnAdd).toHaveBeenCalledTimes(1);
-            // expect(mockOnAdd).toHaveBeenCalledWith('test');
+            await userEvent.type(screen.getByRole('textbox'), 'test');
+            await userEvent.keyboard('[Enter]');
+
+            expect(mockOnAdd).toHaveBeenCalledTimes(1);
+            expect(mockOnAdd).toHaveBeenCalledWith('test');
         });
         it('should call onClose when dialog is closed due to Done button click', async () => {
             const mockOnClose = jest.fn();
