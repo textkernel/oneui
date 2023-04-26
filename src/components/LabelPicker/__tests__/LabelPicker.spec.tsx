@@ -118,8 +118,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
 
             // click outside of component
             act(() => {
-                // @ts-ignore
-                clickDocument();
+                clickDocument('click');
             });
 
             expect(screen.queryAllByRole('dialog').length).toBe(0);
@@ -211,10 +210,6 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             await userEvent.type(screen.getByRole('textbox'), 'test');
 
             expect(screen.getAllByRole('button')[1]).not.toHaveAttribute('disabled');
-
-            // await userEvent.type(screen.getByRole('textbox'), '');
-
-            // expect(screen.getAllByRole('button')[1]).toHaveAttribute('disabled');
         });
         it('should clear the input value after add button was clicked', async () => {
             const mockOnAdd = jest.fn();
@@ -325,8 +320,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
 
             // click outside of component
             act(() => {
-                // @ts-ignore
-                clickDocument();
+                clickDocument('click');
             });
 
             expect(mockOnClose).toHaveBeenCalledTimes(1);
