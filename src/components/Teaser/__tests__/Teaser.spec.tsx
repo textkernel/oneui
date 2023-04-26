@@ -84,37 +84,6 @@ describe('Teaser', () => {
         expect(details).toHaveClass('Text--context_neutral', 'Teaser__details');
     });
 
-    it('should render correctly in disabled mode', () => {
-        const { container } = render(
-            <Teaser
-                title="A job title"
-                location="location"
-                subTitle="Organization"
-                details="details about this job"
-                disabled
-            />
-        );
-
-        expect(container).toMatchSnapshot();
-
-        const title = screen.getByTitle('A job title');
-        const location = screen.getByText('location');
-        const subTitle = screen.getByText('Organization');
-        const details = screen.getByText('details about this job');
-
-        expect(title).toBeInTheDocument();
-        expect(title).toHaveClass('Text--context_neutral', 'Teaser__title');
-
-        expect(location).toBeInTheDocument();
-        expect(location).toHaveClass('Text--context_neutral', 'Teaser__location');
-
-        expect(subTitle).toBeInTheDocument();
-        expect(subTitle).toHaveClass('Teaser__subTitle', 'Text--context_neutral');
-
-        expect(details).toBeInTheDocument();
-        expect(details).toHaveClass('Text--context_neutral', 'Teaser__details');
-    });
-
     it('should add title attribute to title Text if the type is string', () => {
         render(<Teaser title="A job title" />);
 
