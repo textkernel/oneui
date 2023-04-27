@@ -81,6 +81,7 @@ describe('BulkActionsToolbar component', () => {
     });
 
     it('should render BulkActionsToolbar correctly when toggle is set to "all"', async () => {
+        const user = userEvent.setup();
         view = render(
             <BulkActionsToolbar
                 selection={{
@@ -92,7 +93,7 @@ describe('BulkActionsToolbar component', () => {
                 actions={actions}
             />
         );
-        await userEvent.click(screen.getByRole('button', { name: 'Select All' }));
+        await user.click(screen.getByRole('button', { name: 'Select All' }));
 
         expect(onToggleClick).toHaveBeenCalledWith('all');
         expect(view.container).toMatchSnapshot();
@@ -100,6 +101,7 @@ describe('BulkActionsToolbar component', () => {
     });
 
     it('should render BulkActionsToolbar correctly when toggle is set to "none"', async () => {
+        const user = userEvent.setup();
         view = render(
             <BulkActionsToolbar
                 selection={{
@@ -111,7 +113,7 @@ describe('BulkActionsToolbar component', () => {
                 actions={actions}
             />
         );
-        await userEvent.click(screen.getByRole('button', { name: 'Select None' }));
+        await user.click(screen.getByRole('button', { name: 'Select None' }));
 
         expect(onToggleClick).toHaveBeenCalledWith('none');
         expect(view.container).toMatchSnapshot();
@@ -119,6 +121,7 @@ describe('BulkActionsToolbar component', () => {
     });
 
     it('should render BulkActionsToolbar actions correctly', async () => {
+        const user = userEvent.setup();
         view = render(
             <BulkActionsToolbar
                 selection={{
@@ -132,13 +135,15 @@ describe('BulkActionsToolbar component', () => {
         );
         expect(view.container).toMatchSnapshot();
 
-        await userEvent.click(screen.getByRole('button', { name: 'Compare' }));
-        await userEvent.click(screen.getByRole('button', { name: 'Import' }));
-        await userEvent.click(screen.getByRole('button', { name: 'Delete' }));
+        await user.click(screen.getByRole('button', { name: 'Compare' }));
+        await user.click(screen.getByRole('button', { name: 'Import' }));
+        await user.click(screen.getByRole('button', { name: 'Delete' }));
 
+        // because this button is disabled
         expect(onCompareClick).toHaveBeenCalledTimes(0);
         expect(onImportClick).toHaveBeenCalledTimes(1);
         expect(onDeleteClick).toHaveBeenCalledTimes(1);
+        // because this button is disabled
         expect(screen.getByRole('button', { name: 'Compare' })).toHaveAttribute('disabled');
         expect(screen.getByRole('button', { name: 'Import' })).not.toHaveAttribute('disabled');
         expect(screen.getByRole('button', { name: 'Delete' })).not.toHaveAttribute('disabled');
