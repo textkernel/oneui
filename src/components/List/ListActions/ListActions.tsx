@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { ReactNode } from '../../../customTypes/types';
 import { bem } from '../../../utils';
 import styles from './ListActions.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Actions to be pushed to the left side of a List Item */
-    children?: ReactNode;
+    children?: React.ReactNode;
 }
 
 const { block } = bem('ListActions', styles);

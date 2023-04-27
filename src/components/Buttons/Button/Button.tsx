@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react';
 import { bem } from '../../../utils';
 import styles from './Button.scss';
 import { ButtonType, Size } from '../../../constants';
-import { NotEmptySingleReactNode } from '../../../customTypes/types';
 
 export interface Props
     extends Omit<
@@ -11,7 +10,7 @@ export interface Props
         'size'
     > {
     /** The label of the button */
-    children: NotEmptySingleReactNode;
+    children: React.ReactNode;
     /** Should the button be in link style or not */
     isLink?: boolean;
     /** Should the button be in primary style or not */
@@ -51,6 +50,10 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         },
         ref
     ) => {
+        if (!children) {
+            return null;
+        }
+
         if (href) {
             return (
                 <a

@@ -5,6 +5,10 @@ import userEvent from '@testing-library/user-event';
 import { Callout } from '../Callout';
 
 describe('Callout', () => {
+    it('should render nothing if no children are provided', () => {
+        const view = render(<Callout>{}</Callout>);
+        expect(view.container).toBeEmptyDOMElement();
+    });
     it('should render correctly', () => {
         const view = render(<Callout>some text</Callout>);
 

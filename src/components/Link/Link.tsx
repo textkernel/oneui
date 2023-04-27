@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './Link.scss';
-import { NotEmptyReactNode } from '../../customTypes/types';
 
 export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Link content */
-    children: NotEmptyReactNode;
+    children: React.ReactNode;
     /** Color context */
     context?: 'primary' | 'neutral';
     /** Do not underline text on hover */
@@ -16,6 +15,10 @@ const { block } = bem('Link', styles);
 
 export const Link = React.forwardRef<HTMLAnchorElement, Props>(
     ({ children, context = 'primary', dontDecorateOnHover = false, ...rest }, ref) => {
+        if (!children) {
+            return null;
+        }
+
         return (
             <a ref={ref} {...rest} {...block({ context, dontDecorateOnHover, ...rest })}>
                 {children}

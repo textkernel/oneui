@@ -3,7 +3,6 @@ import { bem } from '../../utils';
 import { Text } from '../Text';
 import { Tooltip } from '../Tooltip';
 import styles from './Teaser.scss';
-import { SingleReactNode } from '../../customTypes/types';
 
 type Status = {
     label: string;
@@ -11,14 +10,14 @@ type Status = {
 };
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
-    /** The title of entity */
-    title: SingleReactNode;
-    /** The subtitle of the entity */
-    subTitle?: SingleReactNode;
-    /** The location of the entity */
-    location?: SingleReactNode;
-    /** Details related to the entity */
-    details?: SingleReactNode;
+    /** The title of entity. Note: it is rendered within a <span> */
+    title: React.ReactNode;
+    /** The subtitle of the entity. Note: it is rendered within a <span> */
+    subTitle?: React.ReactNode;
+    /** The location of the entity. Note: it is rendered within a <span> */
+    location?: React.ReactNode;
+    /** Details related to the entity. Note: it is rendered within a <span> */
+    details?: React.ReactNode;
     /** Statuses of entity containing status label and tooltip message */
     statuses?: Status[];
     /** Style the component as disabled */

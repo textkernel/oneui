@@ -2,7 +2,6 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import { ENTER_KEY, Size } from '../../../constants';
 import styles from './SelectButton.scss';
-import { NotEmptyReactNode } from '../../../customTypes/types';
 
 // These props will be passed by the parent <SelectButtonGroup>
 interface InternalProps<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -16,7 +15,7 @@ interface InternalProps<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
 
 export interface Props<V> extends InternalProps<V> {
     /** the label to be displayed on this button */
-    children: NotEmptyReactNode;
+    children: React.ReactNode;
     /** the value associated with this button */
     value: V;
     /** whether or not this button is selected */
@@ -37,6 +36,10 @@ export function SelectButton<V>({
     size = 'normal',
     ...rest
 }: Props<V>) {
+    if (!children) {
+        return null;
+    }
+
     const handleClick = () => {
         if (onChange) {
             onChange(value);

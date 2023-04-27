@@ -3,7 +3,6 @@ import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './RadioButton.scss';
 import { CHECKBOX_VIEWBOX } from '../../constants';
-import { SingleReactNode } from '../../customTypes/types';
 
 export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     /** A unique id to reference this radio button */
@@ -12,8 +11,8 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     name?: string;
     /** If the radio button should be disabled */
     disabled?: boolean;
-    /** The label for the radio button */
-    children?: SingleReactNode;
+    /** The label for the radio button. Note: it is rendered within a <span> */
+    children?: React.ReactNode;
 }
 
 const { block, elem } = bem('RadioButton', styles);

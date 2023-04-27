@@ -4,7 +4,6 @@ import { Heading } from '../../Heading';
 import { Button } from '../../Buttons';
 import { Modal, ModalProps } from '../../Modal';
 import styles from './Dialog.scss';
-import { ReactNode } from '../../../customTypes/types';
 
 export type ButtonProps = {
     onClick: () => void;
@@ -15,7 +14,7 @@ export interface DialogProps extends ModalProps {
     /** Should the alert appear */
     isOpen: boolean;
     /** The alert content */
-    children: ReactNode;
+    children: React.ReactNode;
     /** Dialog title */
     title?: string;
     /** Properties of the accept button */

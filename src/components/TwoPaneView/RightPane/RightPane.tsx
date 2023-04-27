@@ -1,11 +1,10 @@
 import * as React from 'react';
-import { ReactNode } from '../../../customTypes/types';
 import { bem } from '../../../utils';
 import styles from './RightPane.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node(s) to be rendered in the right pane */
-    children?: ReactNode;
+    children?: React.ReactNode;
 }
 
 const { block } = bem('RightPane', styles);

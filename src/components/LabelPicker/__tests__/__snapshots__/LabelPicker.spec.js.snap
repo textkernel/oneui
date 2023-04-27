@@ -458,14 +458,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
           isBlock={true}
           isPrimary={true}
           onClick={[Function]}
-        >
-          <button
-            className="Button Button--isPrimary Button--isBlock"
-            disabled={false}
-            onClick={[Function]}
-            type="button"
-          />
-        </Button>
+        />
       </div>
     </div>
   </PopupBase>

@@ -1,11 +1,10 @@
 import React, { forwardRef } from 'react';
 import { bem } from '../../../utils';
 import styles from './LeftPane.scss';
-import { ReactNode } from '../../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node(s) to be rendered in the left pane */
-    children?: ReactNode;
+    children?: React.ReactNode;
 }
 
 const { block } = bem('LeftPane', styles);

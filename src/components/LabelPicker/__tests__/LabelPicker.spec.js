@@ -134,7 +134,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
         });
         it('should close dialog when Done button is clicked', () => {
             const wrapper = mount(
-                <LabelPicker labels={[]}>
+                <LabelPicker labels={[]} doneLabel="Done">
                     <Button>Click me</Button>
                 </LabelPicker>
             );
@@ -342,7 +342,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
         it('should call onClose when dialog is closed due to Done button click', () => {
             const mockOnClose = jest.fn();
             const wrapper = mount(
-                <LabelPicker labels={labelsMock} onClose={mockOnClose}>
+                <LabelPicker labels={labelsMock} onClose={mockOnClose} doneLabel="Done">
                     <Button>Click me</Button>
                 </LabelPicker>
             );

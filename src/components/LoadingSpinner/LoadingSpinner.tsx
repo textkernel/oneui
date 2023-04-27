@@ -2,13 +2,12 @@ import * as React from 'react';
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './LoadingSpinner.scss';
-import { ReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Center the spinner relative to parent element or viewport */
     centerIn?: 'parent' | 'viewport';
     /** Loading text */
-    children?: ReactNode;
+    children?: React.ReactNode;
 
     /** Hides the spinner when true */
     hidden?: boolean;
