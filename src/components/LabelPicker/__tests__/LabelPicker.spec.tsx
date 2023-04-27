@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { act } from 'react-dom/test-utils';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { LabelPicker } from '../LabelPicker';
@@ -65,6 +64,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             expect(view.container).toMatchSnapshot();
         });
     });
+
     describe('trigger button', () => {
         it('should render trigger button correctly', () => {
             expect(screen.getAllByRole('button', { name: 'Click me' })).toHaveLength(1);
@@ -109,7 +109,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             expect(screen.getAllByRole('dialog').length).toBeGreaterThan(0);
 
             // click outside of component
-            act(() => {
+            await waitFor(() => {
                 clickDocument('click');
             });
 
@@ -308,7 +308,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             expect(screen.queryAllByRole('dialog').length).toBeGreaterThan(0);
 
             // click outside of component
-            act(() => {
+            await waitFor(() => {
                 clickDocument('click');
             });
 
