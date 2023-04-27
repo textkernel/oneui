@@ -174,7 +174,7 @@ describe('List component', () => {
             await navigateDown();
             await navigateDown();
             await navigateDown();
-            await userEvent.keyboard('[Enter]');
+            await user.keyboard('[Enter]');
 
             expect(mockOnClick).toBeCalledWith(2);
         });
