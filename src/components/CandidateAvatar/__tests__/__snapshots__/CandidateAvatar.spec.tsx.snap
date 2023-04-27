@@ -9,13 +9,24 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
     <div
       class="CandidateAvatar__image"
       role="img"
-      style="background-image: url(undefined);"
+      style="background-image: url(/candidate.jpg);"
     />
     <svg
       class="CandidateAvatar__ring"
       role="img"
       style="width: 72px; height: 72px;"
-    />
+    >
+      <circle
+        aria-valuenow="78"
+        class="CandidateAvatar__circle CandidateAvatar__circle--context_success"
+        cx="36"
+        cy="36"
+        r="34"
+        role="meter"
+        stroke-width="4"
+        style="stroke-dasharray: 166.63007434640267 999;"
+      />
+    </svg>
   </div>
 </div>
 `;
@@ -29,7 +40,7 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
     <div
       class="CandidateAvatar__image"
       role="img"
-      style="background-image: url(undefined);"
+      style="background-image: url(/candidate.jpg);"
     />
     <svg
       class="CandidateAvatar__ring"
