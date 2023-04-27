@@ -24,10 +24,6 @@ export const Heading = React.forwardRef<HTMLElement, Props>(
 
         const HtmlNodeType = level;
 
-        if (!children) {
-            return null;
-        }
-
         return (
             <HtmlNodeType ref={ref} {...rest} {...block({ level, align, isNeutral, ...rest })}>
                 {children}
