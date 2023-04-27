@@ -46,11 +46,12 @@ describe('List component', () => {
                 <List>
                     {condition ? <ListItem>Item 1</ListItem> : null}
                     <ListItem>Item 2</ListItem>
-                    {condition ? <ListItem>Item 3</ListItem> : null}
                 </List>
             );
             expect(view.container).toMatchSnapshot();
 
+            expect(screen.queryByText('false')).not.toBeInTheDocument();
+            expect(screen.queryByText('Item 1')).not.toBeInTheDocument();
             expect(screen.getByText('Item 2')).toBeInTheDocument();
         });
         it('should render List correctly without keyboard navigation', () => {
@@ -109,7 +110,7 @@ describe('List component', () => {
         it('should not have any item highlighted from the start', () => {
             expect(view.container).toMatchSnapshot();
             itemNumbersArray.forEach((number) => {
-                expect(getListItemAt(number)).not.toHaveAttribute('highlighted');
+                expect(getListItemAt(number)).not.toHaveAttribute('isHighlighted');
             });
         });
 
@@ -199,10 +200,10 @@ describe('List component', () => {
             await navigateDown();
             await navigateDown();
             await navigateDown();
-            // await userEvent.keyboard('[Enter]');
+            await userEvent.keyboard('[Enter]');
 
             expect(getListItemAt(0)).toHaveClass('ListItem ListItem--clickable List__item');
-            // expect(mockOnClick).toHaveBeenCalledTimes(4);
+            expect(mockOnClick).toHaveBeenCalledTimes(4);
         });
     });
 });
