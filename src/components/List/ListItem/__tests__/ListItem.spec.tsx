@@ -35,10 +35,11 @@ describe('ListItem component', () => {
         expect(screen.getByRole('option')).toHaveClass('ListItem ListItem--clickable');
     });
     it('should call onClick function when clicked', async () => {
+        const user = userEvent.setup();
         const onClick = jest.fn();
         render(<ListItem onClick={onClick}>An item</ListItem>);
 
-        await userEvent.click(screen.getByRole('option'));
+        await user.click(screen.getByRole('option'));
         expect(onClick).toHaveBeenCalledTimes(1);
     });
     it('should render correctly when disabled', () => {

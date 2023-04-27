@@ -6,7 +6,7 @@ import { ListActions } from '../ListActions';
 describe('<ListActions>', () => {
     it('should render ListActions', () => {
         const view = render(<ListActions>action</ListActions>);
-        expect(view).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
 
         expect(screen.getByText('action')).toBeInTheDocument();
     });

@@ -25,6 +25,7 @@ describe('List component', () => {
 
     describe('Initial rendering', () => {
         it('should render List correctly', async () => {
+            const user = userEvent.setup();
             consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
             view = render(
                 <List>
@@ -36,7 +37,7 @@ describe('List component', () => {
             expect(view.container).toMatchSnapshot();
 
             expect(screen.getAllByRole('option')).toHaveLength(2);
-            await userEvent.click(screen.getAllByRole('option')[0]);
+            await user.click(screen.getAllByRole('option')[0]);
             expect(consoleError).not.toHaveBeenCalled();
             jest.clearAllMocks();
         });
@@ -115,8 +116,9 @@ describe('List component', () => {
         });
 
         it('should move highlight on components in both directions properly', async () => {
+            const user = userEvent.setup();
             expect(view.container).toMatchSnapshot();
-            await userEvent.click(listItems[0]);
+            await user.click(listItems[0]);
             await navigateDown();
 
             expect(screen.getAllByRole('option')[0]).toHaveAttribute('aria-selected');
@@ -133,7 +135,8 @@ describe('List component', () => {
         });
 
         it('should not let highlighted item got out of list bounds', async () => {
-            await userEvent.click(listItems[0]);
+            const user = userEvent.setup();
+            await user.click(listItems[0]);
             await navigateUp();
             await navigateUp();
 
@@ -165,7 +168,8 @@ describe('List component', () => {
         });
 
         it('should call onClick after selecting the highlighted item', async () => {
-            await userEvent.click(listItems[0]);
+            const user = userEvent.setup();
+            await user.click(listItems[0]);
 
             await navigateDown();
             await navigateDown();
@@ -175,17 +179,19 @@ describe('List component', () => {
             expect(mockOnClick).toBeCalledWith(2);
         });
         it.skip('should not call onClick after navigating to the next highlighted item', async () => {
+            const user = userEvent.setup();
             listItems = screen.getAllByRole('option');
-            await userEvent.click(listItems[0]);
+            await user.click(listItems[0]);
 
             await navigateDown();
             await navigateDown();
             await navigateDown();
-            await userEvent.keyboard('[Enter]');
+            await user.keyboard('[Enter]');
 
             expect(mockOnClick).toHaveBeenCalledTimes(1);
         });
         it.skip('should call onClick after navigating to the next highlighted item with doSelectOnNavigate enabled', async () => {
+            const user = userEvent.setup();
             view = render(
                 <List doSelectOnNavigate>
                     {itemNumbersArray.map((number) => (
@@ -196,11 +202,11 @@ describe('List component', () => {
             expect(view.container).toMatchSnapshot();
             listItems = screen.getAllByRole('option');
 
-            await userEvent.click(listItems[0]);
+            await user.click(listItems[0]);
             await navigateDown();
             await navigateDown();
             await navigateDown();
-            await userEvent.keyboard('[Enter]');
+            await user.keyboard('[Enter]');
 
             expect(getListItemAt(0)).toHaveClass('ListItem ListItem--clickable List__item');
             expect(mockOnClick).toHaveBeenCalledTimes(4);

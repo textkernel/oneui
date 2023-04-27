@@ -9,6 +9,7 @@ describe('<ListOptimizer> that optimally renders list items', () => {
                 {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
+
         expect(view.container).toMatchSnapshot();
     });
 
@@ -18,6 +19,7 @@ describe('<ListOptimizer> that optimally renders list items', () => {
                 {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
+
         expect(view.container).toMatchSnapshot();
     });
     it('should render full list on maximum height', () => {
@@ -26,6 +28,7 @@ describe('<ListOptimizer> that optimally renders list items', () => {
                 {({ key, index, style }) => <span key={key} style={style}>{`Item ${index}`}</span>}
             </ListOptimizer>
         );
+
         expect(view.container).toMatchSnapshot();
     });
 });
