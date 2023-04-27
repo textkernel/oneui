@@ -405,12 +405,15 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                 role="listitem"
               >
                 <div
+                  aria-label="Loading"
                   class="ContentPlaceholder"
+                  role="alert"
                   style="animation-duration: 1s;"
                 >
                    
                   <div
                     class="ContentPlaceholder__mask"
+                    role="presentation"
                     style="width: 0%;"
                   />
                 </div>
@@ -425,12 +428,15 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                 role="listitem"
               >
                 <div
+                  aria-label="Loading"
                   class="ContentPlaceholder"
+                  role="alert"
                   style="animation-duration: 1s;"
                 >
                    
                   <div
                     class="ContentPlaceholder__mask"
+                    role="presentation"
                     style="width: 0%;"
                   />
                 </div>
@@ -445,12 +451,15 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                 role="listitem"
               >
                 <div
+                  aria-label="Loading"
                   class="ContentPlaceholder"
+                  role="alert"
                   style="animation-duration: 1s;"
                 >
                    
                   <div
                     class="ContentPlaceholder__mask"
+                    role="presentation"
                     style="width: 0%;"
                   />
                 </div>
@@ -465,12 +474,15 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                 role="listitem"
               >
                 <div
+                  aria-label="Loading"
                   class="ContentPlaceholder"
+                  role="alert"
                   style="animation-duration: 1s;"
                 >
                    
                   <div
                     class="ContentPlaceholder__mask"
+                    role="presentation"
                     style="width: 0%;"
                   />
                 </div>
@@ -485,12 +497,15 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
                 role="listitem"
               >
                 <div
+                  aria-label="Loading"
                   class="ContentPlaceholder"
+                  role="alert"
                   style="animation-duration: 1s;"
                 >
                    
                   <div
                     class="ContentPlaceholder__mask"
+                    role="presentation"
                     style="width: 0%;"
                   />
                 </div>

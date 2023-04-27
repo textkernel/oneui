@@ -1,27 +1,35 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { Callout } from '../Callout';
 
 describe('Callout', () => {
     it('should render correctly', () => {
-        const wrapper = shallow(<Callout>some text</Callout>);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const view = render(<Callout>some text</Callout>);
+
+        expect(view.container).toMatchSnapshot();
     });
 
     it('should apply correctly warning context', () => {
-        const wrapper = shallow(<Callout context="warning">some text</Callout>);
-        expect(wrapper.find('.Callout').hasClass('Callout--context_warning')).toBe(true);
+        const view = render(<Callout context="warning">some text</Callout>);
+
+        expect(view.container.firstChild).toHaveClass('Callout--context_warning');
     });
 
     it('should apply correctly danger context', () => {
-        const wrapper = shallow(<Callout context="danger">some text</Callout>);
-        expect(wrapper.find('.Callout').hasClass('Callout--context_danger')).toBe(true);
+        const view = render(<Callout context="danger">some text</Callout>);
+
+        expect(view.container.firstChild).toHaveClass('Callout--context_danger');
     });
 
-    it('should call onRequestClose', () => {
+    it('should call onRequestClose', async () => {
         const mockOnClick = jest.fn();
-        const wrapper = shallow(<Callout onRequestClose={mockOnClick}>some text</Callout>);
-        wrapper.find('.Callout__closeButton').simulate('click');
+        const user = userEvent.setup();
+        render(<Callout onRequestClose={mockOnClick}>some text</Callout>);
+
+        await user.click(screen.getByRole('button'));
+
         expect(mockOnClick).toHaveBeenCalledTimes(1);
     });
 });

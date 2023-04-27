@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { Autosuggest } from '../Autosuggest';
 import {
@@ -57,8 +58,8 @@ describe('Autosuggest', () => {
             rerenderView(newProps);
             const inputField = screen.getAllByRole('textbox')[0];
 
-            expect(inputField.outerHTML).toMatch('data-test="true"');
-            expect(inputField.outerHTML).toMatch('title="some title"');
+            expect(inputField).toHaveAttribute('data-test', 'true');
+            expect(inputField).toHaveAttribute('title', 'some title');
         });
         it('should initially render focused component correctly', async () => {
             await setFocus();
@@ -76,8 +77,8 @@ describe('Autosuggest', () => {
             const inputField = screen.getAllByRole('textbox')[0];
             await setFocus();
 
-            expect(inputField.outerHTML).toMatch('data-test="true"');
-            expect(inputField.outerHTML).toMatch('title="some title"');
+            expect(inputField).toHaveAttribute('data-test', 'true');
+            expect(inputField).toHaveAttribute('title', 'some title');
         });
         it('should initially render focused component with suggestions list correctly', async () => {
             suggestionsList = SUGGESTIONS.slice(0, 8);
@@ -113,8 +114,7 @@ describe('Autosuggest', () => {
             await setFocus();
             await userEvent.type(inputNodeField, 'driver');
 
-            // TODO: will be fixed in ONEUI-364
-            expect(screen.getAllByRole('presentation')).toHaveLength(5);
+            expect(screen.getAllByRole('alert')).toHaveLength(5);
             // TODO: check the specific things
             expect(view.container).toMatchSnapshot();
         });
@@ -129,8 +129,7 @@ describe('Autosuggest', () => {
             await setFocus();
             await userEvent.type(inputNodeField, 'driver');
 
-            // TODO: will be fixed in ONEUI-364
-            expect(screen.getAllByRole('presentation')).toHaveLength(7);
+            expect(screen.getAllByRole('alert')).toHaveLength(5);
             expect(screen.getAllByRole('listitem')).toHaveLength(5);
         });
         it('should render empty component correctly when focused', async () => {
