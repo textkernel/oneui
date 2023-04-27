@@ -12,7 +12,7 @@ const { block } = bem('Chip', styles);
 export const Chip = React.forwardRef<HTMLSpanElement, Props>((props, ref) => {
     const { children, ...rest } = props;
 
-    if (!children) {
+    if (typeof children !== 'number' && !children) {
         return null;
     }
 

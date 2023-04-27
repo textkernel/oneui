@@ -10,6 +10,11 @@ describe('<Button> that renders a button', () => {
 
         expect(view.container).toBeEmptyDOMElement();
     });
+    it('should render children when it is 0', () => {
+        const { container } = render(<Button>{0}</Button>);
+
+        expect(container).not.toBeEmptyDOMElement();
+    });
     it('should render default button correctly', () => {
         const view = render(<Button>Click me</Button>);
 

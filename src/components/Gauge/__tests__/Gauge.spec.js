@@ -10,6 +10,10 @@ describe('Gauge', () => {
         const wrapper = shallow(<Gauge />);
         expect(wrapper.html()).toBeNull();
     });
+    it('should render children 0', () => {
+        const wrapper = shallow(<Gauge>0</Gauge>);
+        expect(wrapper.html()).not.toBeNull();
+    });
     it('should render correctly', () => {
         const wrapper = shallow(
             <Gauge percentage={33} note="Value" metric="Metric">

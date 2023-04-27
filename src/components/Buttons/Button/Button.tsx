@@ -50,7 +50,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         },
         ref
     ) => {
-        if (!children) {
+        if (typeof children !== 'number' && !children) {
             return null;
         }
 
