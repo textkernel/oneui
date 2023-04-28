@@ -41,7 +41,7 @@ let view;
 
 beforeEach(() => {
     view = render(
-        <LabelPicker {...defaultProps}>
+        <LabelPicker {...defaultProps} doneLabel="Done">
             <Button>Click me</Button>
         </LabelPicker>
     );
@@ -49,7 +49,7 @@ beforeEach(() => {
 
 const rerenderView = (props) => {
     view.rerender(
-        <LabelPicker {...defaultProps} {...props}>
+        <LabelPicker {...defaultProps} {...props} doneLabel="Done">
             <Button>Click me</Button>
         </LabelPicker>
     );
@@ -295,7 +295,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             expect(mockOnAdd).toHaveBeenCalledWith('test');
         });
 
-        it.skip('should call onClose when dialog is closed due to Done button click', async () => {
+        it('should call onClose when dialog is closed due to Done button click', async () => {
             const mockOnClose = jest.fn();
             rerenderView({
                 onClose: mockOnClose,
