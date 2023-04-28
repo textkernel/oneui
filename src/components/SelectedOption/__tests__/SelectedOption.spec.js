@@ -14,6 +14,11 @@ describe('<SelectedOption>', () => {
         expect(wrapper.html()).toBeNull();
     });
 
+    it('should render children if it is 0', () => {
+        const wrapper = shallow(<SelectedOption>{0}</SelectedOption>);
+        expect(wrapper.html()).not.toBeNull();
+    });
+
     it('should render default props correctly with string as child', () => {
         const wrapper = mount(<SelectedOption onDelete={onDeleteMock}>My option</SelectedOption>);
         expect(toJson(wrapper)).toMatchSnapshot();

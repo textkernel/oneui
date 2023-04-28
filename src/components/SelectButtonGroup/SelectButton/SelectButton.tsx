@@ -36,7 +36,7 @@ export function SelectButton<V>({
     size = 'normal',
     ...rest
 }: Props<V>) {
-    if (!children) {
+    if (typeof children !== 'number' && !children) {
         return null;
     }
 

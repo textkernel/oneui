@@ -15,7 +15,7 @@ interface Props {
 }
 
 export const SuggestionTag: React.FC<Props> = ({ width = 'auto', children, onClick, ...rest }) => {
-    if (!children) {
+    if (typeof children !== 'number' && !children) {
         return null;
     }
 

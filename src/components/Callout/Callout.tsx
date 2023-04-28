@@ -21,7 +21,7 @@ export const Callout: React.FC<Props> = ({
     children,
     ...rest
 }) => {
-    if (!children) {
+    if (typeof children !== 'number' && !children) {
         return null;
     }
 

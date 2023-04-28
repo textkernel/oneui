@@ -9,6 +9,11 @@ describe('Callout', () => {
         const view = render(<Callout>{}</Callout>);
         expect(view.container).toBeEmptyDOMElement();
     });
+    it('should render children when it is 0', () => {
+        const { container } = render(<Callout>{0}</Callout>);
+
+        expect(container).not.toBeEmptyDOMElement();
+    });
     it('should render correctly', () => {
         const view = render(<Callout>some text</Callout>);
 

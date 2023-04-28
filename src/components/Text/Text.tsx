@@ -18,7 +18,7 @@ const { block } = bem('Text', styles);
 
 export const Text = React.forwardRef<HTMLElement, Props>(
     ({ children, context = 'default', inline = false, size = 'normal', ...rest }, ref) => {
-        if (!children) {
+        if (typeof children !== 'number' && !children) {
             return null;
         }
 

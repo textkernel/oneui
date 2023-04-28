@@ -10,6 +10,11 @@ describe('<FileButton> that renders a button', () => {
 
         expect(container).toBeEmptyDOMElement();
     });
+    it('should render children when it is 0', () => {
+        const { container } = render(<FileButton>{0}</FileButton>);
+
+        expect(container).not.toBeEmptyDOMElement();
+    });
     it('should render default button correctly', () => {
         const view = render(<FileButton>Choose file</FileButton>);
 

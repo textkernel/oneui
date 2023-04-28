@@ -9,6 +9,11 @@ describe('<Heading> that renders a heading', () => {
 
         expect(view.container).toBeEmptyDOMElement();
     });
+    it('should render children when it is 0', () => {
+        const { container } = render(<Heading>{0}</Heading>);
+
+        expect(container).not.toBeEmptyDOMElement();
+    });
 
     it('should render default heading correctly', () => {
         const view = render(<Heading>Some heading text</Heading>);

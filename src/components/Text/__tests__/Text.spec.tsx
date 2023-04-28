@@ -45,4 +45,14 @@ describe('<Text> that renders a text block', () => {
 
         expect(container).toBeEmptyDOMElement();
     });
+    it('should not render html when children is empty string', () => {
+        const { container } = render(<Text>{}</Text>);
+
+        expect(container).toBeEmptyDOMElement();
+    });
+    it('should render children when it is 0', () => {
+        const { container } = render(<Text>{0}</Text>);
+
+        expect(container).not.toBeEmptyDOMElement();
+    });
 });

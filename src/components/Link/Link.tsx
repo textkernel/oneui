@@ -15,7 +15,7 @@ const { block } = bem('Link', styles);
 
 export const Link = React.forwardRef<HTMLAnchorElement, Props>(
     ({ children, context = 'primary', dontDecorateOnHover = false, ...rest }, ref) => {
-        if (!children) {
+        if (typeof children !== 'number' && !children) {
             return null;
         }
 

@@ -7,6 +7,10 @@ describe('SuggestionTag', () => {
         const wrapper = shallow(<SuggestionTag />);
         expect(wrapper.html()).toBeNull();
     });
+    it('should render if children is 0', () => {
+        const wrapper = shallow(<SuggestionTag>{0}</SuggestionTag>);
+        expect(wrapper.html()).not.toBeNull();
+    });
     it('should render correctly', () => {
         const wrapper = mount(<SuggestionTag>tag</SuggestionTag>);
 

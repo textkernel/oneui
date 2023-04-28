@@ -62,7 +62,7 @@ export const Gauge: React.FC<Props> = ({
     const circumference = 2 * Math.PI * GAUGE_RADIUS;
     const circumferenceHalf = circumference / 2;
 
-    if (!children) {
+    if (typeof children !== 'number' && !children) {
         return null;
     }
 
