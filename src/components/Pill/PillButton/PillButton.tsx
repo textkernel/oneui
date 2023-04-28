@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { IoIosArrowDown, IoIosClose } from 'react-icons/io';
-import { SingleReactNode } from '../../../customTypes/types';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
@@ -16,8 +15,8 @@ export interface Props {
     onClear: () => void;
     /** name describing the pill/filter */
     name: string;
-    /** label describing the content of an active filter/pill */
-    content?: SingleReactNode;
+    /** label describing the content of an active filter/pill. Note: it is rendered within a <span> */
+    content?: React.ReactNode;
 }
 
 const { block, elem } = bem('PillButton', styles);

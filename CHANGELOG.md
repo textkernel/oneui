@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.3.0](https://github.com/textkernel/oneui/compare/19.2.0...19.3.0) (2023-04-27)
+
+
+### Features
+
+* simplify custom TS types ([#954](https://github.com/textkernel/oneui/issues/954)) ([f7634af](https://github.com/textkernel/oneui/commit/f7634af182589404757df28a2d10a6506542c55f))
+
+
+### Bug Fixes
+
+* Teaser title attributes ([#956](https://github.com/textkernel/oneui/issues/956)) ([7c0afa8](https://github.com/textkernel/oneui/commit/7c0afa8875bcd1487b67306e540a84693fb06fe6))
+
 ## [19.2.0](https://github.com/textkernel/oneui/compare/19.1.0...19.2.0) (2023-04-21)
 
 

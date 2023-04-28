@@ -30,6 +30,8 @@ export const ContentPlaceholder: React.FC<Props> = ({
 }) => {
     return (
         <div
+            role="alert"
+            aria-label="Loading"
             {...rest}
             {...block({ withoutMargin, ...rest })}
             style={{
@@ -38,7 +40,7 @@ export const ContentPlaceholder: React.FC<Props> = ({
             }}
         >
             &nbsp;
-            <div {...elem('mask')} style={calcMaskWidth(width)} />
+            <div role="presentation" {...elem('mask')} style={calcMaskWidth(width)} />
         </div>
     );
 };

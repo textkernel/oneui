@@ -4,6 +4,11 @@ import '@testing-library/jest-dom';
 import { IconBase } from '../IconBase';
 
 describe('<IconBase> that renders an SVG wrapper with all options included', () => {
+    it('should render nothing if no children are provided', () => {
+        const { container } = render(<IconBase viewBox="0 0 100 100">{}</IconBase>);
+
+        expect(container).toBeEmptyDOMElement();
+    });
     it('should render a default icon', () => {
         const view = render(
             <IconBase viewBox="0 0 100 100" title="Icon base" size={15} margin="right" isPrimary>

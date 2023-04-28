@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import classnames from './StickyHeader.scss';
-import { SingleReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node to be rendered as a sticky header */
-    children: SingleReactNode;
+    children: React.ReactNode;
 }
 
 const { block } = bem('StickyHeader', classnames);

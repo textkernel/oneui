@@ -105,8 +105,8 @@ describe('Combobox', () => {
                 await setFocus();
                 const inputField = screen.getAllByRole('textbox')[0];
 
-                expect(inputField.outerHTML).toMatch('data-test="true"');
-                expect(inputField.outerHTML).toMatch('title="some title"');
+                expect(inputField).toHaveAttribute('data-test', 'true');
+                expect(inputField).toHaveAttribute('title', 'some title');
             });
             it('should render selection placeholder', async () => {
                 await setFocus();

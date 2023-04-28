@@ -53,8 +53,8 @@ describe('ComboboxMulti', () => {
             expect(view.container).toMatchSnapshot();
             const inputField = screen.getAllByRole('textbox')[0];
 
-            expect(inputField.outerHTML).toMatch('data-test="true"');
-            expect(inputField.outerHTML).toMatch('title="some title"');
+            expect(inputField).toHaveAttribute('data-test', 'true');
+            expect(inputField).toHaveAttribute('title', 'some title');
         });
         it('should set focus on the input field', async () => {
             await setFocus();
@@ -78,8 +78,8 @@ describe('ComboboxMulti', () => {
             await setFocus();
             const inputField = screen.getAllByRole('textbox')[0];
 
-            expect(inputField.outerHTML).toMatch('data-test="true"');
-            expect(inputField.outerHTML).toMatch('title="some title"');
+            expect(inputField).toHaveAttribute('data-test', 'true');
+            expect(inputField).toHaveAttribute('title', 'some title');
         });
         it('should render noSuggestions placeholder when empty suggestions list is passed', async () => {
             const newProps = {

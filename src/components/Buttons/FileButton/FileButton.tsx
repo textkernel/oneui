@@ -2,11 +2,10 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import styles from './FileButton.scss';
 import { Size } from '../../../constants';
-import { NotEmptySingleReactNode } from '../../../customTypes/types';
 
 export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
     /** The label of the button */
-    children: NotEmptySingleReactNode;
+    children: React.ReactNode;
     /** The size of the button */
     size?: Size;
     /** Whether or not to show block-level button (full width) */
@@ -24,6 +23,10 @@ export const FileButton = React.forwardRef<HTMLInputElement, Props>(
         { children, disabled = false, isBlock = false, isInline = false, size = 'normal', ...rest },
         ref
     ) => {
+        if (!children) {
+            return null;
+        }
+
         return (
             // eslint-disable-next-line jsx-a11y/label-has-associated-control
             <label ref={ref} {...block({ size, isBlock, isInline, ...rest })} disabled={disabled}>

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './ProgressBar.scss';
-import { ReactNode } from '../../customTypes/types';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Percentage of progress bar to be filled */
@@ -9,7 +8,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Show progress activity with animation */
     animated?: boolean;
     /** Text to show instead of percentage */
-    children?: ReactNode;
+    children?: React.ReactNode;
     /** Hides the progress bar if true */
     hidden?: boolean;
     /** Renders a narrow bar without label or percentage */

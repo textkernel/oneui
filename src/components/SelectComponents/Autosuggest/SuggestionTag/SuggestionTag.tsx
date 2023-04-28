@@ -2,7 +2,6 @@ import * as React from 'react';
 import { MdClose } from 'react-icons/md';
 import { bem } from '../../../../utils';
 import styles from './SuggestionTag.scss';
-import { NotEmptyReactNode } from '../../../../customTypes/types';
 
 const { block, elem } = bem('SuggestionTag', styles);
 
@@ -12,10 +11,14 @@ interface Props {
     /** Clicked on delete button */
     onClick?: (e: React.MouseEvent) => void;
     /** Tag content */
-    children: NotEmptyReactNode;
+    children: React.ReactNode;
 }
 
 export const SuggestionTag: React.FC<Props> = ({ width = 'auto', children, onClick, ...rest }) => {
+    if (!children) {
+        return null;
+    }
+
     return (
         <div {...rest} {...block({ [width || 'auto']: true })}>
             <div title={children} {...elem('label')}>

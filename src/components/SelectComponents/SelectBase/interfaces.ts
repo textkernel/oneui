@@ -1,5 +1,4 @@
 import { GetItemPropsOptions, GetToggleButtonPropsOptions } from 'downshift';
-import { ReactNode } from '../../../customTypes/types';
 
 export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     /**
@@ -11,7 +10,7 @@ export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement
     /** suggestionToString(suggestion) should return a string to be displayed in the UI. e.g.: suggestion => suggestion.name */
     suggestionToString: (suggestions?: S | null) => string;
     /** render function for suggestion list item. If undefined, suggestionToString will be used. */
-    suggestionItemRenderer?: (suggestions: S | null, index: number, array: S[]) => ReactNode;
+    suggestionItemRenderer?: (suggestions: S | null, index: number, array: S[]) => React.ReactNode;
     /** root wrapper ref */
     rootRef?: React.RefObject<HTMLDivElement>;
     /** suggestions list ref */
@@ -43,7 +42,7 @@ export interface SelectInputFieldProps {
 
 export interface SelectClearButtonProps {
     /** to be shown as clear button title */
-    clearTitle?: ReactNode;
+    clearTitle?: React.ReactNode;
     /** function to be called if FieldWrapper clear button is clicked */
     onClearAllSelected?: () => void;
     /** show Clear button on hover even if there are no selectedSuggestions passed */
@@ -57,14 +56,14 @@ export type FocusedRendererHelpers<S> = (helpers: {
     onFocus: (callback: () => void) => void;
     inputValue: string;
     highlightedIndex: number | null;
-}) => ReactNode;
+}) => React.ReactNode;
 
 export type BlurredRendererHelpers<S> = (helpers: {
     getInputProps: (options: GetItemPropsOptions<S>) => object;
     getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
     onFocus: (callback: () => void) => void;
     onBlur: () => void;
-}) => ReactNode;
+}) => React.ReactNode;
 
 export type ListRendererHelper<S> = (props: {
     /** An array of objects that will be used to render the suggestions list. */
@@ -77,7 +76,7 @@ export type ListRendererHelper<S> = (props: {
     highlightedIndex: number | null;
     /** input field value to be highlighted in the item from the list */
     inputValue: string;
-}) => ReactNode;
+}) => React.ReactNode;
 
 export interface Props<S>
     extends BasicSelectProps<S>,
