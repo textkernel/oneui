@@ -5,20 +5,20 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
   <button
     aria-expanded="true"
     aria-haspopup="listbox"
-    aria-labelledby="downshift-103-label downshift-103-toggle-button"
+    aria-labelledby="downshift-105-label downshift-105-toggle-button"
     class="Button Button--isPrimary"
-    id="downshift-103-toggle-button"
+    id="downshift-105-toggle-button"
     type="button"
   >
     Click me!
   </button>
   <ul
-    aria-labelledby="downshift-103-label"
+    aria-labelledby="downshift-105-label"
     class="List Dropdown__list"
     data-popper-escaped="true"
     data-popper-placement="top-start"
     data-popper-reference-hidden="true"
-    id="downshift-103-menu"
+    id="downshift-105-menu"
     role="listbox"
     style="position: absolute; left: 0px; top: 0px; bottom: 0px; transform: translate(0px, -3px);"
     tabindex="-1"
@@ -26,7 +26,7 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
     <li
       aria-selected="false"
       class="ListItem ListItem--clickable List__item"
-      id="downshift-103-item-0"
+      id="downshift-105-item-0"
       role="option"
     >
       <span>
