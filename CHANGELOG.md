@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [19.3.1](https://github.com/textkernel/oneui/compare/19.3.0...19.3.1) (2023-04-28)
+
+
+### Bug Fixes
+
+* unintentional breaking changes where components don't render with children 0 ([#958](https://github.com/textkernel/oneui/issues/958)) ([aaec5b9](https://github.com/textkernel/oneui/commit/aaec5b91a1da141949a3f9f4a9e66af3d595de8d))
+
 ## [19.3.0](https://github.com/textkernel/oneui/compare/19.2.0...19.3.0) (2023-04-27)
 
 
