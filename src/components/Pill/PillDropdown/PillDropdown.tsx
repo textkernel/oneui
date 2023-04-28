@@ -2,7 +2,6 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import { Button } from '../../Buttons';
 import styles from './PillDropdown.scss';
-import { ReactNode } from '../../../customTypes/types';
 
 export interface PillDropdownChildrenParams {
     /** function that closes the dropdown */
@@ -17,7 +16,7 @@ export interface Props {
     /** The dropdown content renderer function. It is called with:
      *   * close {function} - see below
      */
-    children: (params: PillDropdownChildrenParams) => ReactNode;
+    children: (params: PillDropdownChildrenParams) => React.ReactNode;
     /** function that closes the dropdown */
     close: () => void;
     /** label for the Done button */

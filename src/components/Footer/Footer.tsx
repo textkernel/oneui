@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ReactNode } from '../../customTypes/types';
 import { bem } from '../../utils';
 import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Footer.scss';
@@ -7,11 +6,11 @@ import { LogoTextkernel } from '../Icon';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** supply copyright text ready to be rendered instead of the default one */
-    copyright?: ReactNode;
+    copyright?: React.ReactNode;
     /** Current year to be rendered as a part of copyright note */
     year?: number;
     /** Node(s) to be rendered on the right side of the header */
-    children?: ReactNode;
+    children?: React.ReactNode;
 }
 
 const currentYear = new Date().getFullYear();

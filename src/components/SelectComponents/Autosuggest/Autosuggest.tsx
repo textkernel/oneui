@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DictionaryOf, ReactNode } from '../../../customTypes/types';
+import { DictionaryOf } from '../../../customTypes/types';
 import { bem } from '../../../utils';
 import { SuggestionTag } from './SuggestionTag';
 import { SuggestionsList } from '../SuggestionsList';
@@ -43,7 +43,7 @@ export interface Props<S>
     isLoading?: boolean;
     /** Means to overwrite the look and feel of the UI in its blurred state.
      * It should be null or undefined if there is no selection yet */
-    customSelectionIndicator?: ReactNode;
+    customSelectionIndicator?: React.ReactNode;
     /** Additional HTML attributes to be applied to the input element */
     inputAttrs?: DictionaryOf<string | boolean>;
 }

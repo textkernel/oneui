@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.3.0](https://github.com/textkernel/oneui/compare/19.2.0...19.3.0) (2023-04-27)
+
+
+### Features
+
+* simplify custom TS types ([#954](https://github.com/textkernel/oneui/issues/954)) ([f7634af](https://github.com/textkernel/oneui/commit/f7634af182589404757df28a2d10a6506542c55f))
+
+
+### Bug Fixes
+
+* Teaser title attributes ([#956](https://github.com/textkernel/oneui/issues/956)) ([7c0afa8](https://github.com/textkernel/oneui/commit/7c0afa8875bcd1487b67306e540a84693fb06fe6))
+
+## [19.2.0](https://github.com/textkernel/oneui/compare/19.1.0...19.2.0) (2023-04-21)
+
+
+### Features
+
+* rtl tests refactoring ([#933](https://github.com/textkernel/oneui/issues/933)) ([ef7921b](https://github.com/textkernel/oneui/commit/ef7921bfd26a954593fbe4531e84997effb0ec19))
+* Text children accept undefined ([#945](https://github.com/textkernel/oneui/issues/945)) ([23b69c5](https://github.com/textkernel/oneui/commit/23b69c5d33041deaeadf9b7b9d15f32a10a33cca))
+
+
+### Bug Fixes
+
+* RadioButton Props extends ([#946](https://github.com/textkernel/oneui/issues/946)) ([c603300](https://github.com/textkernel/oneui/commit/c603300b31acafac2dbd62d9c71b0f84f6756a10))
+
 ## [19.1.0](https://github.com/textkernel/oneui/compare/19.0.0...19.1.0) (2023-04-18)
 
 

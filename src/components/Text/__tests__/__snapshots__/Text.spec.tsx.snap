@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text> that renders a text block should add classes when props are changed 1`] = `
+<div>
+  <span
+    class="Text--context_neutral Text--size_small"
+  >
+    Some inline, neutral text content
+  </span>
+</div>
+`;
+
+exports[`<Text> that renders a text block should render default text block correctly 1`] = `
+<div>
+  <p>
+    Some text content
+  </p>
+</div>
+`;
+
+exports[`<Text> that renders a text block should render html children correctly 1`] = `
+<div>
+  <p>
+    Some text, 
+    <span
+      style="color: blue;"
+    >
+      and some colored
+    </span>
+  </p>
+</div>
+`;

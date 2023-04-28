@@ -3,6 +3,10 @@ import toJson from 'enzyme-to-json';
 import { BlockWidthRestrictor } from '../BlockWidthRestrictor';
 
 describe('BlockWidthRestrictor', () => {
+    it('should render nothing if no children are provided', () => {
+        const wrapper = shallow(<BlockWidthRestrictor />);
+        expect(wrapper.html()).toBeNull();
+    });
     it('should render correctly', () => {
         const wrapper = shallow(<BlockWidthRestrictor>Some children</BlockWidthRestrictor>);
         expect(toJson(wrapper)).toMatchSnapshot();

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ContentPlaceholder> that renders a content placeholder should render default placeholder 1`] = `
+<div>
+  <div
+    aria-label="Loading"
+    class="ContentPlaceholder"
+    role="alert"
+    style="animation-duration: 1s;"
+  >
+     
+    <div
+      class="ContentPlaceholder__mask"
+      role="presentation"
+      style="width: 0%;"
+    />
+  </div>
+</div>
+`;

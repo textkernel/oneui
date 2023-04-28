@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { IoIosClose } from 'react-icons/io';
-import { NotEmptyReactNode } from '../../customTypes/types';
 import { bem } from '../../utils';
 import { ENTER_KEY } from '../../constants';
 import styles from './SelectedOption.scss';
@@ -11,13 +10,17 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
     /** callback on delete */
     onDelete: () => void;
     /** the text to be shown */
-    children: NotEmptyReactNode;
+    children: React.ReactNode;
 }
 
 const { block, elem } = bem('SelectedOption', styles);
 
 export const SelectedOption = React.forwardRef<HTMLElement, Props>(
     ({ As = 'div', children, onDelete, ...rest }, ref) => {
+        if (!children) {
+            return null;
+        }
+
         const handleKeyDown = (e) => {
             if (e.key === ENTER_KEY) {
                 onDelete();

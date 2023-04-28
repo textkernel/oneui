@@ -1,260 +1,132 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<ButtonGroup> that renders a button should add classes when props are changed 1`] = `
-<ButtonGroup
-  isBlock={true}
-  size="large"
->
+<div>
   <div
-    className="ButtonGroup ButtonGroup--isBlock"
+    class="ButtonGroup ButtonGroup--isBlock"
     role="group"
   >
-    <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
-      isPrimary={true}
-      key=".$a"
-      size="large"
+    <button
+      class="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
+      type="button"
     >
-      <button
-        className="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
-        disabled={false}
-        type="button"
-      >
-        A button
-      </button>
-    </Button>
-    <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
-      isPrimary={true}
-      key=".$b"
-      size="large"
+      A button
+    </button>
+    <button
+      class="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
+      type="button"
     >
-      <button
-        className="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
-        disabled={false}
-        type="button"
-      >
-        Another button
-      </button>
-    </Button>
+      Another button
+    </button>
   </div>
-</ButtonGroup>
+</div>
 `;
 
 exports[`<ButtonGroup> that renders a button should pass main props if child is array with size one 1`] = `
-<ButtonGroup
-  isBlock={true}
-  isPrimary={true}
-  size="small"
->
+<div>
   <div
-    className="ButtonGroup ButtonGroup--isBlock"
+    class="ButtonGroup ButtonGroup--isBlock"
     role="group"
   >
-    <Button
-      isBlock={true}
-      isPrimary={true}
-      key=".$a"
-      size="small"
+    <button
+      class="Button Button--isPrimary Button--isBlock Button--size_small"
+      type="button"
     >
-      <button
-        className="Button Button--isPrimary Button--isBlock Button--size_small"
-        disabled={false}
-        type="button"
-      >
-        A button
-      </button>
-    </Button>
+      A button
+    </button>
   </div>
-</ButtonGroup>
+</div>
 `;
 
 exports[`<ButtonGroup> that renders a button should pass main props, but not add styles if there is only 1 child 1`] = `
-<ButtonGroup
-  isBlock={true}
-  size="small"
->
+<div>
   <div
-    className="ButtonGroup ButtonGroup--isBlock"
+    class="ButtonGroup ButtonGroup--isBlock"
     role="group"
   >
-    <Button
-      isBlock={true}
-      isPrimary={true}
-      key=".$a"
-      size="small"
+    <button
+      class="Button Button--isPrimary Button--isBlock Button--size_small"
+      type="button"
     >
-      <button
-        className="Button Button--isPrimary Button--isBlock Button--size_small"
-        disabled={false}
-        type="button"
-      >
-        A button
-      </button>
-    </Button>
+      A button
+    </button>
   </div>
-</ButtonGroup>
+</div>
 `;
 
 exports[`<ButtonGroup> that renders a button should render default button correctly 1`] = `
-<ButtonGroup>
+<div>
   <div
-    className="ButtonGroup"
+    class="ButtonGroup"
     role="group"
   >
-    <Button
-      className="ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
-      isPrimary={true}
-      key=".$a"
-      size="normal"
+    <button
+      class="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
+      type="button"
     >
-      <button
-        className="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
-        disabled={false}
-        type="button"
-      >
-        A button
-      </button>
-    </Button>
-    <Button
-      className="ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--last"
-      isPrimary={true}
-      key=".$b"
-      size="normal"
+      A button
+    </button>
+    <button
+      class="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--last"
+      type="button"
     >
-      <button
-        className="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--last"
-        disabled={false}
-        type="button"
-      >
-        Another button
-      </button>
-    </Button>
+      Another button
+    </button>
   </div>
-</ButtonGroup>
+</div>
 `;
 
 exports[`<ButtonGroup> that renders a button should render with conditional JSX 1`] = `
-<ButtonGroup>
+<div>
   <div
-    className="ButtonGroup"
+    class="ButtonGroup"
     role="group"
   >
-    <Button
-      className="ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
-      isPrimary={true}
-      key=".$a"
-      size="normal"
+    <button
+      class="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
+      type="button"
     >
-      <button
-        className="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
-        disabled={false}
-        type="button"
-      >
-        A button
-      </button>
-    </Button>
+      A button
+    </button>
   </div>
-</ButtonGroup>
+</div>
 `;
 
 exports[`<ButtonGroup> that renders a button should support mixed element types 1`] = `
-<ButtonGroup
-  isBlock={true}
-  size="large"
->
+<div>
   <div
-    className="ButtonGroup ButtonGroup--isBlock"
+    class="ButtonGroup ButtonGroup--isBlock"
     role="group"
   >
-    <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
-      isPrimary={true}
-      key=".$a"
-      size="large"
+    <button
+      class="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
+      type="button"
     >
-      <button
-        className="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
-        disabled={false}
-        type="button"
-      >
-        A button
-      </button>
-    </Button>
-    <Button
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary"
+      A button
+    </button>
+    <a
+      class="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary"
       href="#"
-      isPrimary={true}
-      key=".$b"
-      size="large"
     >
-      <a
-        className="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary"
-        href="#"
-      >
-        An anchor
-      </a>
-    </Button>
-    <Dropdown
-      button={
-        <Button>
-          A dropdown button
-        </Button>
-      }
-      className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
-      isPrimary={true}
-      key=".$c"
-      onChange={[Function]}
-      placement="bottom-end"
-      size="large"
+      An anchor
+    </a>
+    <button
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-0-label downshift-0-toggle-button"
+      class="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
+      id="downshift-0-toggle-button"
+      type="button"
     >
-      <Button
-        aria-expanded={false}
-        aria-haspopup="listbox"
-        aria-labelledby="downshift-0-label downshift-0-toggle-button"
-        className="ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
-        id="downshift-0-toggle-button"
-        isPrimary={true}
-        onClick={[Function]}
-        onKeyDown={[Function]}
-        size="large"
-      >
-        <button
-          aria-expanded={false}
-          aria-haspopup="listbox"
-          aria-labelledby="downshift-0-label downshift-0-toggle-button"
-          className="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
-          disabled={false}
-          id="downshift-0-toggle-button"
-          onClick={[Function]}
-          onKeyDown={[Function]}
-          type="button"
-        >
-          A dropdown button
-        </button>
-      </Button>
-      <List
-        aria-labelledby="downshift-0-label"
-        id="downshift-0-menu"
-        isControlledNavigation={true}
-        onBlur={[Function]}
-        onKeyDown={[Function]}
-        onMouseLeave={[Function]}
-        role="listbox"
-        tabIndex={-1}
-      >
-        <ul
-          aria-labelledby="downshift-0-label"
-          className="List"
-          id="downshift-0-menu"
-          onBlur={[Function]}
-          onKeyDown={[Function]}
-          onMouseLeave={[Function]}
-          role="listbox"
-          tabIndex={-1}
-        />
-      </List>
-    </Dropdown>
+      A dropdown button
+    </button>
+    <ul
+      aria-labelledby="downshift-0-label"
+      class="List"
+      id="downshift-0-menu"
+      role="listbox"
+      tabindex="-1"
+    />
   </div>
-</ButtonGroup>
+</div>
 `;

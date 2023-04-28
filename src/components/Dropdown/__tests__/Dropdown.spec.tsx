@@ -227,6 +227,6 @@ describe('Dropdown', () => {
         await userEvent.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
 
         expect(container).toMatchSnapshot();
-        expect(screen.queryByText('false')).toBeNull();
+        expect(screen.queryByText('false')).not.toBeInTheDocument();
     });
 });

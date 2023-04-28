@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CandidateAvatar> that renders a candidate profile image with match indication should render a default avatar 1`] = `
+<div>
+  <div
+    class="CandidateAvatar"
+    style="width: 72px; height: 72px;"
+  >
+    <div
+      class="CandidateAvatar__image"
+      role="img"
+      style="background-image: url(/candidate.jpg);"
+    />
+    <svg
+      class="CandidateAvatar__ring"
+      role="img"
+      style="width: 72px; height: 72px;"
+    >
+      <circle
+        aria-valuenow="78"
+        class="CandidateAvatar__circle CandidateAvatar__circle--context_success"
+        cx="36"
+        cy="36"
+        r="34"
+        role="meter"
+        stroke-width="4"
+        style="stroke-dasharray: 166.63007434640267 999;"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`<CandidateAvatar> that renders a candidate profile image with match indication should render an avatar with average match percentage 1`] = `
+<div>
+  <div
+    class="CandidateAvatar"
+    style="width: 128px; height: 128px;"
+  >
+    <div
+      class="CandidateAvatar__image"
+      role="img"
+      style="background-image: url(/candidate.jpg);"
+    />
+    <svg
+      class="CandidateAvatar__ring"
+      role="img"
+      style="width: 128px; height: 128px;"
+    >
+      <circle
+        aria-valuenow="34"
+        class="CandidateAvatar__circle CandidateAvatar__circle--context_warning"
+        cx="64"
+        cy="64"
+        r="62"
+        role="meter"
+        stroke-width="4"
+        style="stroke-dasharray: 132.44954627534568 999;"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`<CandidateAvatar> that renders a candidate profile image with match indication should render an avatar with bad match percentage and avatar 1`] = `
+<div>
+  <div
+    class="CandidateAvatar"
+    style="width: 128px; height: 128px;"
+  >
+    <div
+      class="CandidateAvatar__image"
+      role="img"
+      style="background-image: url(/candidate.jpg);"
+    >
+      <svg
+        class="CandidateAvatar__percentage"
+        viewBox="0 0 50 50"
+      >
+        <text
+          class="CandidateAvatar__percentage-value"
+          dominant-baseline="central"
+          text-anchor="middle"
+          x="50%"
+          y="50%"
+        >
+          33%
+        </text>
+      </svg>
+    </div>
+    <svg
+      class="CandidateAvatar__ring"
+      role="img"
+      style="width: 128px; height: 128px;"
+    >
+      <circle
+        aria-valuenow="33"
+        class="CandidateAvatar__circle CandidateAvatar__circle--context_danger"
+        cx="64"
+        cy="64"
+        r="62"
+        role="meter"
+        stroke-width="4"
+        style="stroke-dasharray: 128.5539713848943 999;"
+      />
+    </svg>
+  </div>
+</div>
+`;

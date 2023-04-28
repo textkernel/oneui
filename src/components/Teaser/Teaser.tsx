@@ -3,7 +3,6 @@ import { bem } from '../../utils';
 import { Text } from '../Text';
 import { Tooltip } from '../Tooltip';
 import styles from './Teaser.scss';
-import { SingleReactNode } from '../../customTypes/types';
 
 type Status = {
     label: string;
@@ -11,14 +10,14 @@ type Status = {
 };
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
-    /** The title of entity */
-    title: SingleReactNode;
-    /** The subtitle of the entity */
-    subTitle?: SingleReactNode;
-    /** The location of the entity */
-    location?: SingleReactNode;
-    /** Details related to the entity */
-    details?: SingleReactNode;
+    /** The title of entity. Note: it is rendered within a <span> */
+    title: React.ReactNode;
+    /** The subtitle of the entity. Note: it is rendered within a <span> */
+    subTitle?: React.ReactNode;
+    /** The location of the entity. Note: it is rendered within a <span> */
+    location?: React.ReactNode;
+    /** Details related to the entity. Note: it is rendered within a <span> */
+    details?: React.ReactNode;
     /** Statuses of entity containing status label and tooltip message */
     statuses?: Status[];
     /** Style the component as disabled */
@@ -39,7 +38,7 @@ export const Teaser: React.FC<Props> = ({
     const subTitleElement = (
         <Text
             inline
-            title={subTitle}
+            title={typeof subTitle === 'string' ? subTitle : undefined}
             context={disabled ? 'neutral' : 'background'}
             {...elem('subTitle')}
         >
@@ -47,7 +46,12 @@ export const Teaser: React.FC<Props> = ({
         </Text>
     );
     const detailsElement = (
-        <Text inline title={details} context="neutral" {...elem('details')}>
+        <Text
+            inline
+            title={typeof details === 'string' ? details : undefined}
+            context="neutral"
+            {...elem('details')}
+        >
             {details}
         </Text>
     );
@@ -58,7 +62,7 @@ export const Teaser: React.FC<Props> = ({
                     inline
                     context={disabled ? 'neutral' : 'foreground'}
                     {...elem('title')}
-                    title={title}
+                    title={typeof title === 'string' ? title : undefined}
                 >
                     {title}
                 </Text>

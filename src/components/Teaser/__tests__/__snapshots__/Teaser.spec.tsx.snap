@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teaser should render correctly in disabled mode 1`] = `
+<div>
+  <div
+    class="Teaser"
+  >
+    <div
+      class="Teaser__line"
+    >
+      <span
+        class="Text--context_neutral Teaser__title"
+        title="A job title"
+      >
+        A job title
+      </span>
+      <span
+        class="Text--context_neutral Teaser__location"
+      >
+        location
+      </span>
+    </div>
+    <div
+      class="Teaser__line"
+    >
+      <span
+        class="Text--context_neutral Teaser__subTitle"
+        title="Organization"
+      >
+        Organization
+      </span>
+    </div>
+    <div
+      class="Teaser__line"
+    >
+      <span
+        class="Text--context_neutral Teaser__details"
+        title="details about this job"
+      >
+        details about this job
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Teaser should render correctly with just a title 1`] = `
+<div>
+  <div
+    class="Teaser"
+  >
+    <div
+      class="Teaser__line"
+    >
+      <span
+        class="Teaser__title"
+        title="some title"
+      >
+        some title
+      </span>
+      
+    </div>
+    <div
+      class="Teaser__line"
+    >
+      
+      
+    </div>
+    <div
+      class="Teaser__line"
+    >
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Teaser should render with all props defined 1`] = `
+<div>
+  <div
+    class="Teaser"
+  >
+    <div
+      class="Teaser__line"
+    >
+      <span
+        class="Teaser__title"
+        title="A job title"
+      >
+        A job title
+      </span>
+      <span
+        class="Text--context_neutral Teaser__location"
+      >
+        location
+      </span>
+    </div>
+    <div
+      class="Teaser__line"
+    >
+      <span
+        class="Teaser__subTitle"
+        title="Organization"
+      >
+        Organization
+      </span>
+    </div>
+    <div
+      class="Teaser__line"
+    >
+      <span
+        class="Text--context_neutral Teaser__details"
+        title="details about this job"
+      >
+        details about this job
+      </span>
+      <div
+        class="Teaser__statuses"
+      >
+        <span>
+          <span
+            class="Text--context_neutral Text--size_small"
+          >
+            Viewed
+          </span>
+          <span
+            class="Text--context_neutral Text--size_small"
+          >
+             & 
+          </span>
+        </span>
+        <span>
+          <span
+            class="Text--context_neutral Text--size_small"
+          >
+            Imported
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

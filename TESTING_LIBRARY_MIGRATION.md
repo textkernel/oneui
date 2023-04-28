@@ -24,7 +24,7 @@ expect(component).toMatchSnapshot();
 ```ts
 import { render } from '@testing-library/react';
 
-const { asFragment } = render(<MyComponent />);
+const { container } = render(<MyComponent />);
 expect(container).toMatchSnapshot();
 ```
 
@@ -40,7 +40,7 @@ expect(component).toMatchSnapshot();
 ```ts
 import { render } from '@testing-library/react';
 
-const { asFragment } = render(<MyComponent />);
+const { container } = render(<MyComponent />);
 expect(container).toMatchSnapshot();
 ```
 
@@ -56,9 +56,28 @@ expect(component).toMatchSnapshot();
 ```ts
 import { render } from '@testing-library/react';
 
-const { asFragment } = render(<MyComponent />);
+const { container } = render(<MyComponent />);
 expect(container).toMatchSnapshot();
 ```
+### Rerender Components.
+
+#### Before ⭕:
+```ts
+import { mount } from 'enzyme';
+
+const wrapper = mount(<MyComponent />);
+wrapper.setProps({ isArrowUp: true });
+```
+
+#### After ✅:
+```ts
+import { render } from '@testing-library/react';
+
+const { rerender, container } = render(<MyComponent />);
+expect(container).toMatchSnapshot();
+rerender(<MyComponent isArrowUp> </MyComponent>);
+```
+
 
 ### Finding Elements
 
@@ -91,17 +110,15 @@ expect(button).toBeInTheDocument();
 import { shallow } from 'enzyme';
 
 const component = shallow(<MyComponent />);
-expect(wrapper.find('value')).toHaveLength(1);
-expect(component).toMatchSnapshot();
+expect(wrapper.find('Button')).toHaveLength(1);
 ```
 
 #### After ✅:
 ```ts
 import { render, screen } from 'react-test-renderer';
 
-const { asFragment } = render(<MyComponent />);
-expect(screen.getByRole('value')).toBeInTheDocument();
-expect(container).toMatchSnapshot();
+const { container } = render(<MyComponent />);
+expect(screen.getByRole('button')).toBeInTheDocument();
 ```
 
 ### Simulating Events. `userEvent` [description](https://testing-library.com/docs/user-event/intro/)
@@ -120,7 +137,7 @@ expect(component).toMatchSnapshot();
 import { render, screen } from 'react-test-renderer';
 import userEvent from '@testing-library/user-event';
 
-const { asFragment } = render(<MyComponent />);
+const { container } = render(<MyComponent />);
 const user = userEvent.setup();
 await user.type(screen.getByDisplayValue(''), 'Utrecht');
 expect(container).toMatchSnapshot();
@@ -149,24 +166,31 @@ await user.click(button);
 expect(handleClick).toHaveBeenCalled();
 ```
 
-### Rerender Components.
+### Checking for HTML Attributes
 
 #### Before ⭕:
 ```ts
-import { mount } from 'enzyme';
-
-const wrapper = mount(<MyComponent />);
-wrapper.setProps({ isArrowUp: true });
+expect(wrapper.find('.Callout').hasClass('Callout--context_warning')).toBe(true);
 ```
 
 #### After ✅:
 ```ts
-import { render } from 'react-test-renderer';
+import '@testing-library/jest-dom';
 
-const { rerender, asFragment } = render(<MyComponent />);
-expect(container).toMatchSnapshot();
-rerender(<MyComponent isArrowUp> </MyComponent>);
+expect(view.container.firstChild).toHaveClass('Callout--context_warning');
+
 ```
 
+#### Before ⭕:
+```ts
+expect(wrapper.find('button').prop('data-test')).toEqual('something');```
+
+#### After ✅:
+```ts
+import import '@testing-library/jest-dom';
+
+expect(screen.getByRole('button')).toHaveAttribute('data-test', 'something');
+
+```
 
 
