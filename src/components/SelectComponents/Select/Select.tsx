@@ -4,7 +4,6 @@ import { SuggestionsList } from '../SuggestionsList';
 import { SelectBase } from '../SelectBase';
 import { Text } from '../../Text';
 import styles from './Select.scss';
-import { ReactNode } from '../../../customTypes/types';
 
 const { elem } = bem('Select', styles);
 
@@ -18,7 +17,7 @@ export interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
     /** itemToString(item) should return a string to be displayed in the UI. e.g.: item => item.name */
     itemToString: (item?: S | null) => string;
     /** render function for option list item. If undefined, itemToString will be used. */
-    optionItemRenderer?: (item?: S | null) => ReactNode;
+    optionItemRenderer?: (item?: S | null) => React.ReactNode;
     /** onChange(item) called when an item is selected */
     onChange: (item: S) => void;
     /** The item that is currently selected */

@@ -373,7 +373,9 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       >
         <ContentPlaceholder>
           <div
+            aria-label="Loading"
             className="ContentPlaceholder"
+            role="alert"
             style={
               Object {
                 "animationDuration": "1s",
@@ -384,6 +386,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
              
             <div
               className="ContentPlaceholder__mask"
+              role="presentation"
               style={
                 Object {
                   "width": "0%",
@@ -409,7 +412,9 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       >
         <ContentPlaceholder>
           <div
+            aria-label="Loading"
             className="ContentPlaceholder"
+            role="alert"
             style={
               Object {
                 "animationDuration": "1s",
@@ -420,6 +425,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
              
             <div
               className="ContentPlaceholder__mask"
+              role="presentation"
               style={
                 Object {
                   "width": "0%",
@@ -445,7 +451,9 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       >
         <ContentPlaceholder>
           <div
+            aria-label="Loading"
             className="ContentPlaceholder"
+            role="alert"
             style={
               Object {
                 "animationDuration": "1s",
@@ -456,6 +464,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
              
             <div
               className="ContentPlaceholder__mask"
+              role="presentation"
               style={
                 Object {
                   "width": "0%",
@@ -481,7 +490,9 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       >
         <ContentPlaceholder>
           <div
+            aria-label="Loading"
             className="ContentPlaceholder"
+            role="alert"
             style={
               Object {
                 "animationDuration": "1s",
@@ -492,6 +503,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
              
             <div
               className="ContentPlaceholder__mask"
+              role="presentation"
               style={
                 Object {
                   "width": "0%",
@@ -517,7 +529,9 @@ exports[`SuggestionsList should render isLoading state 1`] = `
       >
         <ContentPlaceholder>
           <div
+            aria-label="Loading"
             className="ContentPlaceholder"
+            role="alert"
             style={
               Object {
                 "animationDuration": "1s",
@@ -528,6 +542,7 @@ exports[`SuggestionsList should render isLoading state 1`] = `
              
             <div
               className="ContentPlaceholder__mask"
+              role="presentation"
               style={
                 Object {
                   "width": "0%",

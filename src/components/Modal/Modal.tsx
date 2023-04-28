@@ -2,11 +2,10 @@ import * as React from 'react';
 import ReactModal from 'react-modal';
 import { bem } from '../../utils';
 import styles from './Modal.scss';
-import { ReactNode } from '../../customTypes/types';
 
 interface Props extends ReactModal.Props {
     /** elements to be rendered within the modal */
-    children: ReactNode;
+    children: React.ReactNode;
     /** The state of the modal */
     isOpen: boolean;
     /** A title for the modal that will be used by screenreaders */

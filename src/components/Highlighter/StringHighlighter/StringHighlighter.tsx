@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { ReactNode } from '../../../customTypes/types';
 import {
     HighlighterCore,
     HighlighterCoreTerm,
     HighlighterCoreOptions,
 } from '../../../packages/Highlighter';
 
-export type HighlighterRenderer = ({ key, substring }) => ReactNode;
+export type HighlighterRenderer = ({ key, substring }) => React.ReactNode;
 
 export interface Props {
     /** Target string for highlight searching */

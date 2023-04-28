@@ -9,13 +9,18 @@ describe('<SelectedOption>', () => {
         jest.clearAllMocks();
     });
 
+    it('should render nothing if no children are provided', () => {
+        const wrapper = shallow(<SelectedOption />);
+        expect(wrapper.html()).toBeNull();
+    });
+
     it('should render default props correctly with string as child', () => {
         const wrapper = mount(<SelectedOption onDelete={onDeleteMock}>My option</SelectedOption>);
         expect(toJson(wrapper)).toMatchSnapshot();
         expect(wrapper.find('span')).toHaveLength(1);
     });
 
-    it('should render default props correctly with string as child', () => {
+    it('should render default props correctly with a react element as child', () => {
         const wrapper = mount(
             <SelectedOption onDelete={onDeleteMock}>
                 <p>My option</p>

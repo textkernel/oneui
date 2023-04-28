@@ -2,14 +2,13 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { Transition } from 'react-transition-group';
 import { IoIosArrowUp } from 'react-icons/io';
-import { ReactNode } from '../../customTypes/types';
 import { bem } from '../../utils';
 import { ENTER_KEY } from '../../constants';
 import styles from './Drawer.scss';
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'title'> {
     /** Drawer title */
-    title: ReactNode;
+    title: React.ReactNode;
     /** Set open/close status for initial state */
     initialIsExpanded?: boolean;
     /** Should the element be in primary style or not */
@@ -21,7 +20,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'title'
     /** Fired after click open/close button */
     onClick?: () => void;
     /** Node(s) to be rendered inside the container */
-    children: ReactNode;
+    children: React.ReactNode;
 }
 
 const TRANSITION_DURATION = {

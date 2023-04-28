@@ -1,17 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Heading> that renders a heading should add classes when props are changed 1`] = `
-<h3
-  className="Heading Heading--level_h3 Heading--align_right Heading--isNeutral"
->
-  Some heading text
-</h3>
+<div>
+  <h3
+    class="Heading Heading--level_h3 Heading--align_right Heading--isNeutral"
+  >
+    Some heading text
+  </h3>
+</div>
 `;
 
 exports[`<Heading> that renders a heading should render default heading correctly 1`] = `
-<h1
-  className="Heading Heading--level_h1"
->
-  Some heading text
-</h1>
+<div>
+  <h1
+    class="Heading Heading--level_h1"
+  >
+    Some heading text
+  </h1>
+</div>
 `;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Callout should render correctly 1`] = `
+<div>
+  <div
+    class="Callout Callout--context_info"
+  >
+    <div
+      class="Callout__content Callout__content--context_info"
+    >
+      some text
+    </div>
+  </div>
+</div>
+`;

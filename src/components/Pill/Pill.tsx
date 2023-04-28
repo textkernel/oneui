@@ -2,22 +2,21 @@ import * as React from 'react';
 import { PopupBase } from '../PopupBase';
 import { PillButton } from './PillButton';
 import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
-import { ReactNode, SingleReactNode } from '../../customTypes/types';
 
 export interface Props {
     /** The dropdown content renderer function. It is called with:
      *   * close {function} that closes the dropdown
      *   * innerPadding {string} that can be applied inside the component to set consistent padding
      */
-    children: (params: PillDropdownChildrenParams) => ReactNode;
+    children: (params: PillDropdownChildrenParams) => React.ReactNode;
     /** a function to be called to clear the pill/filter content */
     onClear: () => void;
     /** a function that is called when the dropdown closes via done-button-click, window-click or ESC */
     onClose?: () => void;
     /** name describing the pill/filter */
     name: string;
-    /** label describing the content of an active filter/pill */
-    content?: SingleReactNode;
+    /** label describing the content of an active filter/pill. Note: it is rendered within a <span> */
+    content?: React.ReactNode;
     /** If pill is in default state, meaning it has content but cannot be reset. */
     isContentDefault?: boolean;
     /** label for the Done button */

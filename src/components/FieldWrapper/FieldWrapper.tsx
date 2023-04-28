@@ -5,13 +5,12 @@ import { bem } from '../../utils';
 import { Button } from '../Buttons';
 import { ENTER_KEY } from '../../constants';
 import styles from './FieldWrapper.scss';
-import { NotEmptyReactNode } from '../../customTypes/types';
 
 const { block, elem } = bem('FieldWrapper', styles);
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** content of the wrapper */
-    children: NotEmptyReactNode;
+    children: React.ReactNode;
     /** show dropdown icon */
     showArrow?: boolean;
     /** set direction of dropdown icon (default drop down) */
@@ -46,6 +45,10 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
         },
         ref
     ) => {
+        if (!children) {
+            return null;
+        }
+
         const handleClear = (e) => {
             e.stopPropagation();
             if (onClear) {

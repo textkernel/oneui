@@ -26,6 +26,10 @@ describe('SelectButton', () => {
         jest.resetAllMocks();
     });
 
+    it('should render nothing if no children are provided', () => {
+        wrapper = mount(<SelectButton />);
+        expect(wrapper.html()).toBeNull();
+    });
     it('should render correctly', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });

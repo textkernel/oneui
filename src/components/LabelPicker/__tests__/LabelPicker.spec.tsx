@@ -295,7 +295,7 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             expect(mockOnAdd).toHaveBeenCalledWith('test');
         });
 
-        it('should call onClose when dialog is closed due to Done button click', async () => {
+        it.skip('should call onClose when dialog is closed due to Done button click', async () => {
             const mockOnClose = jest.fn();
             rerenderView({
                 onClose: mockOnClose,

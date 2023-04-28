@@ -4,20 +4,19 @@ import { bem } from '../../utils';
 import { Button } from '../Buttons/Button';
 import { Tooltip } from '../Tooltip';
 import styles from './BulkActionsToolbar.scss';
-import { SingleReactNode } from '../../customTypes/types';
 
 export type ToggleState = 'all' | 'none';
 
 export type BulkActionsToolbarSelection = {
     hasSelection: boolean;
-    label: SingleReactNode;
+    label: React.ReactNode;
     tooltip?: string;
 };
 
 export type BulkActionsToolbarToggle = {
-    selectAllLabel: SingleReactNode;
+    selectAllLabel: React.ReactNode;
     selectAllTooltip?: string;
-    selectNoneLabel: SingleReactNode;
+    selectNoneLabel: React.ReactNode;
     selectNoneTooltip?: string;
     onToggle: (toggleState: ToggleState) => void;
 };

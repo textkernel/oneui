@@ -3,6 +3,10 @@ import toJson from 'enzyme-to-json';
 import { SuggestionTag } from '../SuggestionTag';
 
 describe('SuggestionTag', () => {
+    it('should render nothing if no children are provided', () => {
+        const wrapper = shallow(<SuggestionTag />);
+        expect(wrapper.html()).toBeNull();
+    });
     it('should render correctly', () => {
         const wrapper = mount(<SuggestionTag>tag</SuggestionTag>);
 

@@ -6,6 +6,10 @@ describe('Gauge', () => {
     const mathRandomSpy = jest.spyOn(Math, 'random');
     mathRandomSpy.mockImplementation(() => 0.42);
 
+    it('should render nothing if no children are provided', () => {
+        const wrapper = shallow(<Gauge />);
+        expect(wrapper.html()).toBeNull();
+    });
     it('should render correctly', () => {
         const wrapper = shallow(
             <Gauge percentage={33} note="Value" metric="Metric">
