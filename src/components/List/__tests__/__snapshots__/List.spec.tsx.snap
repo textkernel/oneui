@@ -1,70 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`List component Callbacks should call onClick after navigating to the next highlighted item with doSelectOnNavigate enabled 1`] = `
-<DocumentFragment>
-  <ul
-    class="List"
-    role="listbox"
-    tabindex="0"
-  >
-    <li
-      aria-selected="false"
-      class="ListItem ListItem--clickable List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      0
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem ListItem--clickable List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      1
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem ListItem--clickable List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      2
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem ListItem--clickable List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      3
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem ListItem--clickable List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      4
-    </li>
-  </ul>
-</DocumentFragment>
-`;
-
 exports[`List component Initial rendering should allow for conditional rendering of items 1`] = `
 <div>
   <ul
     class="List"
+    role="listbox"
     tabindex="0"
   >
     <li
@@ -84,6 +24,7 @@ exports[`List component Initial rendering should render List correctly 1`] = `
 <div>
   <ul
     class="List"
+    role="listbox"
     tabindex="0"
   >
     <li
@@ -135,130 +76,11 @@ exports[`List component Initial rendering should render List correctly without k
 </div>
 `;
 
-exports[`List component Keyboard navigation should move highlight on components in both directions properly 1`] = `
-<div>
-  <ul
-    class="List"
-    tabindex="0"
-  >
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      0
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      1
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      2
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      3
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      4
-    </li>
-  </ul>
-</div>
-`;
-
-exports[`List component Keyboard navigation should not have any item highlighted from the start 1`] = `
-<div>
-  <ul
-    class="List"
-    tabindex="0"
-  >
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      0
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      1
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      2
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      3
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-      role="option"
-    >
-      <span>
-        Item $
-      </span>
-      4
-    </li>
-  </ul>
-</div>
-`;
-
 exports[`List component enriching children with props should not overwrite classes on children 1`] = `
 <div>
   <ul
     class="List"
+    role="listbox"
     tabindex="0"
   >
     <li

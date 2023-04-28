@@ -143,11 +143,10 @@ export const List = React.forwardRef<HTMLUListElement, Props>(
                 })}
             </ul>
         ) : (
-            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
             <ul
                 {...rest}
                 ref={ref}
-                /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */
+                role="listbox"
                 tabIndex="0"
                 onKeyDown={handleKeyDown}
                 {...block({ isDivided, ...rest })}
