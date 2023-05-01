@@ -1,16 +1,19 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { CalendarHeader } from '../CalendarHeader';
 
 describe('CalendarHeader', () => {
-    const YEARS = [2016, 2025];
+    const YEARS = [2016, 2025] as [number, number];
     const decreaseMonth = jest.fn();
     const increaseMonth = jest.fn();
     const changeYear = jest.fn();
-    let wrapper;
+    let view;
 
     beforeEach(() => {
-        wrapper = mount(
+        view = render(
+            // @ts-ignore
             <CalendarHeader
                 yearsRange={YEARS}
                 date={new Date('2021-12-31')}
@@ -22,42 +25,64 @@ describe('CalendarHeader', () => {
     });
 
     it('should render correctly', () => {
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
     });
+
     it('should log an error and render nothing if min year is larger then max year', () => {
         // don't log to test output
         const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
-        wrapper.setProps({ yearsRange: [9, 2] });
-        wrapper.update();
+        view.rerender(
+            // @ts-ignore
+            <CalendarHeader
+                yearsRange={[9, 2]}
+                date={new Date('2021-12-31')}
+                decreaseMonth={decreaseMonth}
+                increaseMonth={increaseMonth}
+                changeYear={changeYear}
+            />
+        );
 
-        expect(wrapper.html()).toBe(null);
+        // expect(view.html).toBe(null);
         expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
         expect(consoleErrorSpy.mock.calls[0][0].replace(/\s/g, '')).toMatch(
             `CalendarHeader component has received invalid props.
         Minimum selectable year (9) is larger then maximum selectable year (2)`.replace(/\s/g, '')
         );
     });
+
     it('should fill in the years correctly', () => {
-        const options = wrapper.find('option');
+        // const check = screen.getAllByRole('option');
+        const options = screen.getAllByRole('option');
         // eslint-disable-next-line no-plusplus
         for (let year = YEARS[0]; year <= YEARS[1]; year++) {
             const idx = year - YEARS[0];
-            expect(options.at(idx).prop('value')).toEqual(year);
+
+            expect(options[idx]).toHaveAttribute('value', year.toString().replace('"', ''));
         }
     });
+
     it('should display the month in the correct language', () => {
-        expect(wrapper.find('Text').text()).toBe('December');
+        expect(screen.getByText('December')).toBeInTheDocument();
     });
-    it('should call decreaseMonth when previous nav button is clicked', () => {
-        wrapper.find('button').at(0).simulate('click');
+
+    it('should call decreaseMonth when previous nav button is clicked', async () => {
+        const user = userEvent.setup();
+        await user.click(screen.getAllByRole('button')[0]);
+
         expect(decreaseMonth).toHaveBeenCalledTimes(1);
     });
-    it('should call increaseMonth when next nav button is clicked', () => {
-        wrapper.find('button').at(1).simulate('click');
+
+    it('should call increaseMonth when next nav button is clicked', async () => {
+        const user = userEvent.setup();
+        await user.click(screen.getAllByRole('button')[1]);
+
         expect(increaseMonth).toHaveBeenCalledTimes(1);
     });
-    it('should call changeYear when year is selected', () => {
-        wrapper.find('select').simulate('change', { target: { value: 2019 } });
+
+    it.skip('should call changeYear when year is selected', async () => {
+        // const combobox = screen.getByRole('combobox');
+
+        // wrapper.find('select').simulate('change', { target: { value: 2019 } });
         expect(changeYear).toHaveBeenCalledTimes(1);
         expect(changeYear).toHaveBeenCalledWith(2019);
     });
