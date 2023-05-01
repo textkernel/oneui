@@ -660,6 +660,7 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--disabled List__item"
+                      onKeyDown={[Function]}
                       role="option"
                     >
                       <Text

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { bem } from '../../../utils';
 import { Text } from '../../Text';
-import { Context } from '../../../constants';
+import { Context, ENTER_KEY } from '../../../constants';
 import styles from './ListItem.scss';
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
@@ -49,6 +49,12 @@ export const ListItem = forwardRef<HTMLLIElement, Props>(
             liProps.disabled = disabled;
         }
 
+        const handleKeyDown = (e) => {
+            if (e.key === ENTER_KEY && onClick) {
+                onClick(e);
+            }
+        };
+
         return (
             <li
                 {...liProps}
@@ -56,7 +62,7 @@ export const ListItem = forwardRef<HTMLLIElement, Props>(
                 role="option"
                 onClick={onClick}
                 aria-selected={isHighlighted}
-                onKeyDown={onClick}
+                onKeyDown={handleKeyDown}
                 {...block({
                     isHighlighted,
                     isSelected,
