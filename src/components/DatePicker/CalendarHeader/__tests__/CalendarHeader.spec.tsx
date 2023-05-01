@@ -42,7 +42,6 @@ describe('CalendarHeader', () => {
             />
         );
 
-        // expect(view.html).toBe(null);
         expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
         expect(consoleErrorSpy.mock.calls[0][0].replace(/\s/g, '')).toMatch(
             `CalendarHeader component has received invalid props.
@@ -57,7 +56,7 @@ describe('CalendarHeader', () => {
         for (let year = YEARS[0]; year <= YEARS[1]; year++) {
             const idx = year - YEARS[0];
 
-            expect(options[idx]).toHaveAttribute('value', year.toString().replace('"', ''));
+            expect(options[idx]).toHaveAttribute('value', year.toString().replace(/"/g, ''));
         }
     });
 
@@ -79,10 +78,10 @@ describe('CalendarHeader', () => {
         expect(increaseMonth).toHaveBeenCalledTimes(1);
     });
 
-    it.skip('should call changeYear when year is selected', async () => {
-        // const combobox = screen.getByRole('combobox');
+    it('should call changeYear when year is selected', async () => {
+        const user = userEvent.setup();
+        await user.selectOptions(screen.getByRole('combobox'), '2019');
 
-        // wrapper.find('select').simulate('change', { target: { value: 2019 } });
         expect(changeYear).toHaveBeenCalledTimes(1);
         expect(changeYear).toHaveBeenCalledWith(2019);
     });

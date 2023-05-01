@@ -19,6 +19,22 @@ exports[`DatePicker should render correctly 1`] = `
 </div>
 `;
 
+exports[`DatePicker should set year boundaries on header when minDate and maxDate are passed 1`] = `
+<option
+  value="2021"
+>
+  2021
+</option>
+`;
+
+exports[`DatePicker should set year boundaries on header when minDate and maxDate are passed 2`] = `
+<option
+  value="2023"
+>
+  2023
+</option>
+`;
+
 exports[`DatePicker when no min/max date props passed should set min/max date to default 1`] = `
 <div>
   <div
@@ -36,4 +52,20 @@ exports[`DatePicker when no min/max date props passed should set min/max date to
     </div>
   </div>
 </div>
+`;
+
+exports[`DatePicker when no min/max date props passed should set year boundaries on header to default 1`] = `
+<option
+  value="1921"
+>
+  1921
+</option>
+`;
+
+exports[`DatePicker when no min/max date props passed should set year boundaries on header to default 2`] = `
+<option
+  value="2121"
+>
+  2121
+</option>
 `;

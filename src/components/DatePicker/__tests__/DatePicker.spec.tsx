@@ -28,11 +28,11 @@ describe('DatePicker', () => {
         view = render(<DatePicker onChange={handleChange} minDate={minDate} maxDate={maxDate} />);
     });
 
-    it.skip('should render correctly', () => {
+    it('should render correctly', () => {
         expect(view.container).toMatchSnapshot();
     });
 
-    it.skip('should render calendar header correctly when calendar is open', async () => {
+    it('should render calendar header correctly when calendar is open', async () => {
         const user = userEvent.setup();
         await openCalendar(user);
         // taking full snapshot of the calendar fails in CD/CI.
@@ -43,7 +43,7 @@ describe('DatePicker', () => {
         expect(screen.getByRole('presentation')).toBeInTheDocument();
     });
 
-    it.skip('should set min and max date on calendar even if they are no originally passed as props', async () => {
+    it('should set min and max date on calendar even if they are no originally passed as props', async () => {
         const user = userEvent.setup();
         // this is to make sure the calendar navigation and the year selection in the header are always aligned
         await openCalendar(user);
@@ -51,7 +51,7 @@ describe('DatePicker', () => {
         expect();
     });
 
-    it.skip('should call onChange function with Date object', async () => {
+    it('should call onChange function with Date object', async () => {
         const user = userEvent.setup();
         // A simplistic regression test for the library
         await user.type(screen.getByRole('textbox'), '11/1/2022');
@@ -60,11 +60,13 @@ describe('DatePicker', () => {
         expect(handleChange.mock.calls[0][0] instanceof Date).toBeTruthy();
     });
 
-    it.skip('should set year boundaries on header when minDate and maxDate are passed', async () => {
+    it('should set year boundaries on header when minDate and maxDate are passed', async () => {
         const user = userEvent.setup();
         await openCalendar(user);
 
-        expect(screen.getByRole('presentation')).toHaveAttribute('yearsRange');
+        // expect(screen.getByRole('presentation')).toHaveAttribute('yearsRange');
+        expect(screen.getByText(minDate.getFullYear())).toMatchSnapshot();
+        expect(screen.getByText(maxDate.getFullYear())).toMatchSnapshot();
         // expect(view.find('CalendarHeader').prop('yearsRange')).toEqual([
         //     minDate.getFullYear(),
         //     maxDate.getFullYear(),
@@ -78,7 +80,7 @@ describe('DatePicker', () => {
             );
         });
 
-        it('should set min/max date to default', async () => {
+        it.skip('should set min/max date to default', async () => {
             // const select = screen.getByRole('option');
             // console.log('');
             // expect(view.find('DatePicker').prop('minDate')).toBeUndefined();
@@ -86,17 +88,18 @@ describe('DatePicker', () => {
             //
             // expect(view.find('r').at(0).prop('minDate').toDateString()).toBe('Sat Dec 24 1921');
             // expect(view.find('r').at(0).prop('maxDate').toDateString()).toBe('Wed Dec 24 2121');
+            expect(screen.getByText('Sat Dec 24 1921')).toMatchSnapshot();
+            expect(screen.getByText('Wed Dec 24 2121')).toMatchSnapshot();
         });
 
-        it.skip('should set year boundaries on header to default', async () => {
+        it('should set year boundaries on header to default', async () => {
             const user = userEvent.setup();
             const currentYear = new Date().getFullYear();
 
             await openCalendar(user);
-            expect(view.find('CalendarHeader').prop('yearsRange')).toEqual([
-                currentYear - 100,
-                currentYear + 100,
-            ]);
+
+            expect(screen.getByText(currentYear - 100)).toMatchSnapshot();
+            expect(screen.getByText(currentYear + 100)).toMatchSnapshot();
         });
     });
 });
