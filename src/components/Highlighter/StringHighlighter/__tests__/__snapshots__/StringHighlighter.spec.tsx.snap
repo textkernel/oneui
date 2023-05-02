@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StringHighlighter highlighted should highlight case sensitive terms by default 1`] = `
+<div>
+  We are looking for 
+  <b>
+    php
+  </b>
+  , java and javascript 
+  <b>
+    developer
+  </b>
+</div>
+`;
+
+exports[`StringHighlighter highlighted should highlight list of terms 1`] = `
+<div>
+  We are looking for 
+  <b>
+    php
+  </b>
+  , 
+  <b>
+    java
+  </b>
+   and 
+  <b>
+    javascript developer
+  </b>
+</div>
+`;
+
+exports[`StringHighlighter highlighted should highlight overlapping terms correctly 1`] = `
+<div>
+  We are looking for php, 
+  <b>
+    java and javascript developer
+  </b>
+</div>
+`;
+
+exports[`StringHighlighter highlighted should highlight terms with diacritics by default 1`] = `
+<div>
+  We are looking for php, java and javascript 
+  <b>
+    developer
+  </b>
+</div>
+`;
+
+exports[`StringHighlighter not highlighted should initially render empty component correctly 1`] = `
+<div>
+  
+</div>
+`;
+
+exports[`StringHighlighter not highlighted should not highlight case sensitive terms if ignoreCase is false 1`] = `
+<div>
+  We are looking for php, java and javascript developer
+</div>
+`;
+
+exports[`StringHighlighter not highlighted should not highlight not existed terms 1`] = `
+<div>
+  We are looking for php, java and javascript developer
+</div>
+`;
+
+exports[`StringHighlighter not highlighted should not highlight terms with diacritics if ignoreDiacritics is false 1`] = `
+<div>
+  We are looking for php, java and javascript developer
+</div>
+`;
