@@ -53,8 +53,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <MarkedText
@@ -82,8 +80,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     <li
       aria-selected={true}
       className="ListItem ListItem--isHighlighted"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <MarkedText
@@ -111,8 +107,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <MarkedText
@@ -140,8 +134,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <MarkedText
@@ -169,8 +161,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <MarkedText
@@ -198,8 +188,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <MarkedText
@@ -227,8 +215,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <MarkedText
@@ -256,8 +242,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <MarkedText
@@ -285,8 +269,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <MarkedText
@@ -314,8 +296,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
     <li
       aria-selected={false}
       className="ListItem ListItem--disabled"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <MarkedText
@@ -385,8 +365,6 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
     >
       <div
         className="SuggestionsList__loaderItem"
@@ -426,8 +404,6 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
     >
       <div
         className="SuggestionsList__loaderItem"
@@ -467,8 +443,6 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
     >
       <div
         className="SuggestionsList__loaderItem"
@@ -508,8 +482,6 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
     >
       <div
         className="SuggestionsList__loaderItem"
@@ -549,8 +521,6 @@ exports[`SuggestionsList should render isLoading state 1`] = `
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
     >
       <div
         className="SuggestionsList__loaderItem"
@@ -831,8 +801,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <span
@@ -852,8 +820,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     <li
       aria-selected={true}
       className="ListItem ListItem--isHighlighted"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <span
@@ -873,8 +839,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <span
@@ -894,8 +858,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <span
@@ -915,8 +877,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <span
@@ -936,8 +896,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <span
@@ -957,8 +915,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <span
@@ -978,8 +934,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <span
@@ -999,8 +953,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     <li
       aria-selected={false}
       className="ListItem"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <span
@@ -1020,8 +972,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
     <li
       aria-selected={false}
       className="ListItem ListItem--disabled"
-      onKeyDown={[Function]}
-      role="option"
       style={Object {}}
     >
       <span

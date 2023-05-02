@@ -237,7 +237,6 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                       id="downshift-5-item-0"
                       onClick={[Function]}
-                      onKeyDown={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -273,7 +272,6 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-5-item-1"
                       onClick={[Function]}
-                      onKeyDown={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -309,7 +307,6 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-5-item-2"
                       onClick={[Function]}
-                      onKeyDown={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -345,7 +342,6 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-5-item-3"
                       onClick={[Function]}
-                      onKeyDown={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -660,8 +656,6 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
                     <li
                       aria-selected={false}
                       className="ListItem ListItem--disabled List__item"
-                      onKeyDown={[Function]}
-                      role="option"
                     >
                       <Text
                         context="muted"
@@ -821,7 +815,6 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       className="ListItem ListItem--isHighlighted ListItem--clickable List__item"
                       id="downshift-6-item-0"
                       onClick={[Function]}
-                      onKeyDown={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -857,7 +850,6 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-6-item-1"
                       onClick={[Function]}
-                      onKeyDown={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -893,7 +885,6 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-6-item-2"
                       onClick={[Function]}
-                      onKeyDown={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"
@@ -929,7 +920,6 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       className="ListItem ListItem--clickable List__item"
                       id="downshift-6-item-3"
                       onClick={[Function]}
-                      onKeyDown={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
                       role="option"

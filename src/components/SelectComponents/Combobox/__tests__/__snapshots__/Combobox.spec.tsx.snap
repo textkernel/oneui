@@ -175,7 +175,6 @@ exports[`Combobox rendering should render noSuggestions placeholder when empty s
             <li
               aria-selected="false"
               class="ListItem ListItem--disabled"
-              role="option"
             >
               <p
                 class="Text--context_neutral"

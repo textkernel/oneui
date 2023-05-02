@@ -109,8 +109,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           <li
             aria-selected={false}
             className="ListItem List__item ThemeTuner__item"
-            onKeyDown={[Function]}
-            role="option"
           >
             <Text
               className="ThemeTuner__label"
@@ -186,8 +184,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           <li
             aria-selected={false}
             className="ListItem List__item ThemeTuner__item"
-            onKeyDown={[Function]}
-            role="option"
           >
             <Text
               className="ThemeTuner__label"
@@ -263,8 +259,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           <li
             aria-selected={false}
             className="ListItem List__item ThemeTuner__item"
-            onKeyDown={[Function]}
-            role="option"
           >
             <Text
               className="ThemeTuner__label"
@@ -343,8 +337,6 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           <li
             aria-selected={false}
             className="ListItem List__item ThemeTuner__item"
-            onKeyDown={[Function]}
-            role="option"
           >
             <Text
               className="ThemeTuner__label"

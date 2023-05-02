@@ -49,20 +49,19 @@ export const ListItem = forwardRef<HTMLLIElement, Props>(
             liProps.disabled = disabled;
         }
 
-        const handleKeyDown = (e) => {
-            if (e.key === ENTER_KEY && onClick) {
-                onClick(e);
-            }
-        };
+        const interactiveProps = onClick
+            ? {
+                  onClick,
+                  role: 'option',
+              }
+            : {};
 
         return (
             <li
                 {...liProps}
+                {...interactiveProps}
                 ref={ref}
-                role="option"
-                onClick={onClick}
                 aria-selected={isHighlighted}
-                onKeyDown={handleKeyDown}
                 {...block({
                     isHighlighted,
                     isSelected,

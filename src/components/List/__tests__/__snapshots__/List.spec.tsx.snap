@@ -10,7 +10,6 @@ exports[`List component Initial rendering should allow for conditional rendering
     <li
       aria-selected="false"
       class="ListItem List__item"
-      role="option"
     >
       <span>
         Item 2
@@ -30,7 +29,6 @@ exports[`List component Initial rendering should render List correctly 1`] = `
     <li
       aria-selected="false"
       class="ListItem List__item"
-      role="option"
     >
       <span>
         Item 1
@@ -39,7 +37,6 @@ exports[`List component Initial rendering should render List correctly 1`] = `
     <li
       aria-selected="false"
       class="ListItem List__item"
-      role="option"
     >
       <span>
         Item 2
@@ -57,7 +54,6 @@ exports[`List component Initial rendering should render List correctly without k
     <li
       aria-selected="false"
       class="ListItem List__item"
-      role="option"
     >
       <span>
         Item 1
@@ -66,7 +62,6 @@ exports[`List component Initial rendering should render List correctly without k
     <li
       aria-selected="false"
       class="ListItem List__item"
-      role="option"
     >
       <span>
         Item 2
@@ -86,7 +81,6 @@ exports[`List component enriching children with props should not overwrite class
     <li
       aria-selected="false"
       class="ListItem List__item test"
-      role="option"
     >
       <span>
         Item 1
@@ -95,7 +89,6 @@ exports[`List component enriching children with props should not overwrite class
     <li
       aria-selected="false"
       class="ListItem List__item test"
-      role="option"
     >
       <span>
         Item 1

@@ -162,6 +162,12 @@ export const List = React.forwardRef<HTMLUListElement, Props>(
                                   }),
                                   ref: index === selectedIndex ? navigationElementRef : null,
                                   isHighlighted: index === selectedIndex,
+                                  onClick: child.props.onClick
+                                      ? (e) => {
+                                            setSelectedIndex(index);
+                                            child.props.onClick?.(e);
+                                        }
+                                      : undefined,
                               });
                     }
                     return null;
