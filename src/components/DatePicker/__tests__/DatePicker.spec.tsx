@@ -30,6 +30,7 @@ describe('DatePicker', () => {
 
     it('should render correctly', () => {
         expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('textbox')).toBeInTheDocument();
     });
 
     it('should render calendar header correctly when calendar is open', async () => {
@@ -47,8 +48,8 @@ describe('DatePicker', () => {
         const user = userEvent.setup();
         // this is to make sure the calendar navigation and the year selection in the header are always aligned
         await openCalendar(user);
-        // @ts-ignore
-        expect();
+
+        expect(user);
     });
 
     it('should call onChange function with Date object', async () => {

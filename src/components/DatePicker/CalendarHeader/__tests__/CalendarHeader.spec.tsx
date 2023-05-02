@@ -26,6 +26,8 @@ describe('CalendarHeader', () => {
 
     it('should render correctly', () => {
         expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('presentation')).toBeInTheDocument();
+        expect(screen.getAllByRole('option')).toHaveLength(YEARS[1] - YEARS[0] + 1);
     });
 
     it('should log an error and render nothing if min year is larger then max year', () => {
