@@ -62,15 +62,11 @@ describe('DatePicker', () => {
 
     it('should set year boundaries on header when minDate and maxDate are passed', async () => {
         const user = userEvent.setup();
+
         await openCalendar(user);
 
-        // expect(screen.getByRole('presentation')).toHaveAttribute('yearsRange');
-        expect(screen.getByText(minDate.getFullYear())).toMatchSnapshot();
-        expect(screen.getByText(maxDate.getFullYear())).toMatchSnapshot();
-        // expect(view.find('CalendarHeader').prop('yearsRange')).toEqual([
-        //     minDate.getFullYear(),
-        //     maxDate.getFullYear(),
-        // ]);
+        expect(screen.getByText(minDate.getFullYear())).toBeInTheDocument();
+        expect(screen.getByText(maxDate.getFullYear())).toBeInTheDocument();
     });
 
     describe('when no min/max date props passed', () => {
@@ -80,16 +76,18 @@ describe('DatePicker', () => {
             );
         });
 
-        it.skip('should set min/max date to default', async () => {
-            // const select = screen.getByRole('option');
-            // console.log('');
-            // expect(view.find('DatePicker').prop('minDate')).toBeUndefined();
-            // expect(view.find('DatePicker').prop('maxDate')).toBeUndefined();
-            //
-            // expect(view.find('r').at(0).prop('minDate').toDateString()).toBe('Sat Dec 24 1921');
-            // expect(view.find('r').at(0).prop('maxDate').toDateString()).toBe('Wed Dec 24 2121');
-            expect(screen.getByText('Sat Dec 24 1921')).toMatchSnapshot();
-            expect(screen.getByText('Wed Dec 24 2121')).toMatchSnapshot();
+        it('should set min/max date to default', async () => {
+            const user = userEvent.setup();
+
+            await openCalendar(user);
+
+            expect(view.container).toMatchSnapshot();
+            expect(
+                screen.getByRole('option', { name: minDate.getFullYear().toString() })
+            ).toBeInTheDocument();
+            expect(
+                screen.getByRole('option', { name: maxDate.getFullYear().toString() })
+            ).toBeInTheDocument();
         });
 
         it('should set year boundaries on header to default', async () => {
@@ -98,8 +96,8 @@ describe('DatePicker', () => {
 
             await openCalendar(user);
 
-            expect(screen.getByText(currentYear - 100)).toMatchSnapshot();
-            expect(screen.getByText(currentYear + 100)).toMatchSnapshot();
+            expect(screen.getByText(currentYear - 100)).toBeInTheDocument();
+            expect(screen.getByText(currentYear + 100)).toBeInTheDocument();
         });
     });
 });

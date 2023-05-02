@@ -50,7 +50,6 @@ describe('CalendarHeader', () => {
     });
 
     it('should fill in the years correctly', () => {
-        // const check = screen.getAllByRole('option');
         const options = screen.getAllByRole('option');
         // eslint-disable-next-line no-plusplus
         for (let year = YEARS[0]; year <= YEARS[1]; year++) {
