@@ -98,7 +98,6 @@ export function Dropdown<V>({
     const valuesAvailableForHighlight: V[] = [];
     childrenArray.forEach((child) => {
         if (
-            child &&
             React.isValidElement(child) &&
             child.props.value !== undefined &&
             child.props.value !== null &&

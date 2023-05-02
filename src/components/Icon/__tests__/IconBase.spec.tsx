@@ -9,6 +9,11 @@ describe('<IconBase> that renders an SVG wrapper with all options included', () 
 
         expect(container).toBeEmptyDOMElement();
     });
+    it('should render children when it is 0', () => {
+        const { container } = render(<IconBase viewBox="0 0 100 100">{0}</IconBase>);
+
+        expect(container).not.toBeEmptyDOMElement();
+    });
     it('should render a default icon', () => {
         const view = render(
             <IconBase viewBox="0 0 100 100" title="Icon base" size={15} margin="right" isPrimary>

@@ -23,7 +23,7 @@ export const FileButton = React.forwardRef<HTMLInputElement, Props>(
         { children, disabled = false, isBlock = false, isInline = false, size = 'normal', ...rest },
         ref
     ) => {
-        if (!children) {
+        if (typeof children !== 'number' && !children) {
             return null;
         }
 

@@ -30,6 +30,10 @@ describe('SelectButton', () => {
         wrapper = mount(<SelectButton />);
         expect(wrapper.html()).toBeNull();
     });
+    it('should render children when it is 0', () => {
+        wrapper = mount(<SelectButton>{0}</SelectButton>);
+        expect(wrapper.html()).not.toBeNull();
+    });
     it('should render correctly', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });

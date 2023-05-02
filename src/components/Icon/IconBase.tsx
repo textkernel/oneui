@@ -46,7 +46,7 @@ export const IconBase = forwardRef<HTMLDivElement, Props>(
         { children, isPrimary, margin, size, preserveAspectRatio = false, title, viewBox, ...rest },
         ref
     ) => {
-        if (!children) {
+        if (typeof children !== 'number' && !children) {
             return null;
         }
 

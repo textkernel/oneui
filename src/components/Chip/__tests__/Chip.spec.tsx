@@ -9,6 +9,11 @@ describe('<Chip> that renders a pill shaped chip', () => {
 
         expect(container).toBeEmptyDOMElement();
     });
+    it('should render children when it is 0', () => {
+        const { container } = render(<Chip>{0}</Chip>);
+
+        expect(container).not.toBeEmptyDOMElement();
+    });
     it('should render correctly', () => {
         const { container } = render(<Chip>some text</Chip>);
 

@@ -17,7 +17,7 @@ const { block, elem } = bem('SelectedOption', styles);
 
 export const SelectedOption = React.forwardRef<HTMLElement, Props>(
     ({ As = 'div', children, onDelete, ...rest }, ref) => {
-        if (!children) {
+        if (typeof children !== 'number' && !children) {
             return null;
         }
 

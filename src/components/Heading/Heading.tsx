@@ -18,7 +18,7 @@ const { block } = bem('Heading', styles);
 
 export const Heading = React.forwardRef<HTMLElement, Props>(
     ({ align = 'left', children, isNeutral, level = 'h1', ...rest }, ref) => {
-        if (!children) {
+        if (typeof children !== 'number' && !children) {
             return null;
         }
 
