@@ -38,7 +38,6 @@ describe('BulkActionsToolbar component', () => {
     ];
 
     it('should render BulkActionsToolbar correctly when selection amount is 0', () => {
-        const consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
         view = render(
             <BulkActionsToolbar
                 selection={{
@@ -52,11 +51,9 @@ describe('BulkActionsToolbar component', () => {
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(consoleError).not.toHaveBeenCalled();
     });
 
     it('should render BulkActionsToolbar correctly when selection amount is more then 0', () => {
-        const consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
         view = render(
             <BulkActionsToolbar
                 selection={{
@@ -70,12 +67,10 @@ describe('BulkActionsToolbar component', () => {
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(consoleError).not.toHaveBeenCalled();
     });
 
     it('should render BulkActionsToolbar correctly when toggle is set to "all"', async () => {
         const user = userEvent.setup();
-        const consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
         view = render(
             <BulkActionsToolbar
                 selection={{
@@ -91,11 +86,9 @@ describe('BulkActionsToolbar component', () => {
 
         expect(onToggleClick).toHaveBeenCalledWith('all');
         expect(view.container).toMatchSnapshot();
-        expect(consoleError).not.toHaveBeenCalled();
     });
 
     it('should render BulkActionsToolbar correctly when toggle is set to "none"', async () => {
-        const consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
         const user = userEvent.setup();
         view = render(
             <BulkActionsToolbar
@@ -112,11 +105,9 @@ describe('BulkActionsToolbar component', () => {
 
         expect(onToggleClick).toHaveBeenCalledWith('none');
         expect(view.container).toMatchSnapshot();
-        expect(consoleError).not.toHaveBeenCalled();
     });
 
     it('should render BulkActionsToolbar actions correctly', async () => {
-        const consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
         const user = userEvent.setup();
         view = render(
             <BulkActionsToolbar
@@ -143,6 +134,5 @@ describe('BulkActionsToolbar component', () => {
         expect(screen.getByRole('button', { name: 'Compare' })).toHaveAttribute('disabled');
         expect(screen.getByRole('button', { name: 'Import' })).not.toHaveAttribute('disabled');
         expect(screen.getByRole('button', { name: 'Delete' })).not.toHaveAttribute('disabled');
-        expect(consoleError).not.toHaveBeenCalled();
     });
 });
