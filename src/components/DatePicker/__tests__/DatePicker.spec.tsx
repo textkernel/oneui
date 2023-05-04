@@ -45,11 +45,18 @@ describe('DatePicker', () => {
     });
 
     it('should set min and max date on calendar even if they are no originally passed as props', async () => {
+        view.rerender(<DatePicker onChange={handleChange} />);
         const user = userEvent.setup();
         // this is to make sure the calendar navigation and the year selection in the header are always aligned
         await openCalendar(user);
 
         expect(user);
+        expect(
+            screen.getByRole('option', { name: minDate.getFullYear().toString() })
+        ).toBeInTheDocument();
+        expect(
+            screen.getByRole('option', { name: maxDate.getFullYear().toString() })
+        ).toBeInTheDocument();
     });
 
     it('should call onChange function with Date object', async () => {
