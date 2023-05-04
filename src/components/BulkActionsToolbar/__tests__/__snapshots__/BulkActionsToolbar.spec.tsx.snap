@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BulkActionsToolbar component should render BulkActionsToolbar actions correctly 1`] = `
+<div>
+  <div
+    class="BulkActionsToolbar BulkActionsToolbar--hasSelection"
+  >
+    <div
+      class="BulkActionsToolbar__counter"
+    >
+      Some results selected
+    </div>
+    <div
+      class="BulkActionsToolbar__toggle"
+    >
+      <button
+        class="Button Button--isLink BulkActionsToolbar__toggleButton"
+        type="button"
+      >
+        Select None
+      </button>
+    </div>
+    <div
+      class="BulkActionsToolbar__actions"
+    >
+      <span
+        class="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          disabled=""
+          type="button"
+        >
+          Compare
+        </button>
+      </span>
+      <span
+        class="BulkActionsToolbar__actionWrapper"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          type="button"
+        >
+          Import
+        </button>
+      </span>
+      <span
+        class="BulkActionsToolbar__actionWrapper"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          type="button"
+        >
+          Delete
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly when selection amount is 0 1`] = `
+<div>
+  <div
+    class="BulkActionsToolbar"
+  >
+    <div
+      class="BulkActionsToolbar__toggle"
+    >
+      <button
+        class="Button Button--isLink BulkActionsToolbar__toggleButton"
+        type="button"
+      >
+        Select All
+      </button>
+    </div>
+    <div
+      class="BulkActionsToolbar__actions"
+    >
+      <span
+        class="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          disabled=""
+          type="button"
+        >
+          Compare
+        </button>
+      </span>
+      <span
+        class="BulkActionsToolbar__actionWrapper"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          type="button"
+        >
+          Import
+        </button>
+      </span>
+      <span
+        class="BulkActionsToolbar__actionWrapper"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          type="button"
+        >
+          Delete
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly when selection amount is more then 0 1`] = `
+<div>
+  <div
+    class="BulkActionsToolbar BulkActionsToolbar--hasSelection"
+  >
+    <div
+      class="BulkActionsToolbar__counter"
+    >
+      Some results selected
+    </div>
+    <div
+      class="BulkActionsToolbar__toggle"
+    >
+      <button
+        class="Button Button--isLink BulkActionsToolbar__toggleButton"
+        type="button"
+      >
+        Select All
+      </button>
+    </div>
+    <div
+      class="BulkActionsToolbar__actions"
+    >
+      <span
+        class="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          disabled=""
+          type="button"
+        >
+          Compare
+        </button>
+      </span>
+      <span
+        class="BulkActionsToolbar__actionWrapper"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          type="button"
+        >
+          Import
+        </button>
+      </span>
+      <span
+        class="BulkActionsToolbar__actionWrapper"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          type="button"
+        >
+          Delete
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly when toggle is set to "all" 1`] = `
+<div>
+  <div
+    class="BulkActionsToolbar BulkActionsToolbar--hasSelection"
+  >
+    <div
+      class="BulkActionsToolbar__counter"
+    >
+      Some results selected
+    </div>
+    <div
+      class="BulkActionsToolbar__toggle"
+    >
+      <button
+        class="Button Button--isLink BulkActionsToolbar__toggleButton"
+        type="button"
+      >
+        Select All
+      </button>
+    </div>
+    <div
+      class="BulkActionsToolbar__actions"
+    >
+      <span
+        class="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          disabled=""
+          type="button"
+        >
+          Compare
+        </button>
+      </span>
+      <span
+        class="BulkActionsToolbar__actionWrapper"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          type="button"
+        >
+          Import
+        </button>
+      </span>
+      <span
+        class="BulkActionsToolbar__actionWrapper"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          type="button"
+        >
+          Delete
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly when toggle is set to "none" 1`] = `
+<div>
+  <div
+    class="BulkActionsToolbar BulkActionsToolbar--hasSelection"
+  >
+    <div
+      class="BulkActionsToolbar__counter"
+    >
+      Some results selected
+    </div>
+    <div
+      class="BulkActionsToolbar__toggle"
+    >
+      <button
+        class="Button Button--isLink BulkActionsToolbar__toggleButton"
+        type="button"
+      >
+        Select None
+      </button>
+    </div>
+    <div
+      class="BulkActionsToolbar__actions"
+    >
+      <span
+        class="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          disabled=""
+          type="button"
+        >
+          Compare
+        </button>
+      </span>
+      <span
+        class="BulkActionsToolbar__actionWrapper"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          type="button"
+        >
+          Import
+        </button>
+      </span>
+      <span
+        class="BulkActionsToolbar__actionWrapper"
+      >
+        <button
+          class="Button Button--isPrimary BulkActionsToolbar__action"
+          type="button"
+        >
+          Delete
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;
