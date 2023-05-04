@@ -9,17 +9,29 @@ describe('CalendarHeader', () => {
     const decreaseMonth = jest.fn();
     const increaseMonth = jest.fn();
     const changeYear = jest.fn();
+    const changeMonth = jest.fn();
+    const decreaseYear = jest.fn();
+    const increaseYear = jest.fn();
+    const currentMonth = new Date();
     let view;
 
     beforeEach(() => {
         view = render(
-            // @ts-ignore
             <CalendarHeader
                 yearsRange={YEARS}
                 date={new Date('2021-12-31')}
                 decreaseMonth={decreaseMonth}
                 increaseMonth={increaseMonth}
                 changeYear={changeYear}
+                changeMonth={changeMonth}
+                customHeaderCount={0}
+                decreaseYear={decreaseYear}
+                increaseYear={increaseYear}
+                monthDate={currentMonth}
+                nextMonthButtonDisabled={false}
+                nextYearButtonDisabled
+                prevMonthButtonDisabled={false}
+                prevYearButtonDisabled
             />
         );
     });
@@ -34,13 +46,21 @@ describe('CalendarHeader', () => {
         // don't log to test output
         const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
         view.rerender(
-            // @ts-ignore
             <CalendarHeader
                 yearsRange={[9, 2]}
                 date={new Date('2021-12-31')}
                 decreaseMonth={decreaseMonth}
                 increaseMonth={increaseMonth}
                 changeYear={changeYear}
+                changeMonth={changeMonth}
+                customHeaderCount={0}
+                decreaseYear={decreaseYear}
+                increaseYear={increaseYear}
+                monthDate={currentMonth}
+                nextMonthButtonDisabled={false}
+                nextYearButtonDisabled
+                prevMonthButtonDisabled={false}
+                prevYearButtonDisabled
             />
         );
 
@@ -53,8 +73,7 @@ describe('CalendarHeader', () => {
 
     it('should fill in the years correctly', () => {
         const options = screen.getAllByRole('option');
-        // eslint-disable-next-line no-plusplus
-        for (let year = YEARS[0]; year <= YEARS[1]; year++) {
+        for (let year = YEARS[0]; year <= YEARS[1]; year += 1) {
             const idx = year - YEARS[0];
 
             expect(options[idx]).toHaveAttribute('value', year.toString().replace(/"/g, ''));
