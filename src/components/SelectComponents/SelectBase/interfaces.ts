@@ -49,6 +49,15 @@ export interface SelectClearButtonProps {
     showClearButton?: boolean;
 }
 
+export interface ToggleButtonProps {
+    /** show dropdown icon */
+    showArrow?: boolean;
+    /** Open/Down arrow name for ARIA labelling */
+    openArrowLabel?: string;
+    /** Close/Up arrow name for ARIA labelling */
+    closeArrowLabel?: string;
+}
+
 export type FocusedRendererHelpers<S> = (helpers: {
     getInputProps: (options: GetItemPropsOptions<S>) => object;
     getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
@@ -81,7 +90,8 @@ export type ListRendererHelper<S> = (props: {
 export interface Props<S>
     extends BasicSelectProps<S>,
         SelectClearButtonProps,
-        SelectInputFieldProps {
+        SelectInputFieldProps,
+        ToggleButtonProps {
     /** defines if the suggestion list should be collapsed once an item is selected */
     keepExpandedAfterSelection?: boolean;
     /** will be called when list of suggestions should be rendered */
@@ -92,6 +102,4 @@ export interface Props<S>
     blurredRenderer: BlurredRendererHelpers<S>;
     /** highlighting for first item will be added if input is empty */
     highlightOnEmptyInput?: boolean;
-    /** show dropdown icon */
-    showArrow?: boolean;
 }

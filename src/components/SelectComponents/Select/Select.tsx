@@ -26,6 +26,10 @@ export interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
     placeholder?: string;
     /** label for the Clear button */
     clearTooltipLabel?: string;
+    /** Open/Down arrow name for ARIA labelling */
+    openArrowLabel?: string;
+    /** Close/Up arrow name for ARIA labelling */
+    closeArrowLabel?: string;
     /** a class to be applied to the top level div */
     className?: string;
     /** onFocus() is called when the component is focused */
@@ -55,7 +59,9 @@ export function Select<S>({
     itemToString,
     optionItemRenderer = undefined,
     placeholder = '',
-    clearTooltipLabel = '',
+    clearTooltipLabel,
+    openArrowLabel,
+    closeArrowLabel,
     onChange,
     onBlur = undefined,
     onFocus = undefined,
@@ -112,6 +118,8 @@ export function Select<S>({
             focusedRenderer={focusedRenderer}
             showClearButton={onClear && Boolean(selectedItem)}
             clearTitle={clearTooltipLabel}
+            openArrowLabel={openArrowLabel}
+            closeArrowLabel={closeArrowLabel}
             listRef={listRef}
             onBlur={onBlur}
             onFocus={onFocus}

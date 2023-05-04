@@ -1,0 +1,295 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select rendering should initially render correctly 1`] = `
+<div>
+  <div
+    class="SelectBase someClass"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-0-label"
+      class="SelectBase__main"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-labelledby="downshift-0-label"
+            autocomplete="off"
+            class="Select__wrapper"
+            id="downshift-0-input"
+            role="searchbox"
+            tabindex="0"
+            value=""
+          >
+            <span
+              class="Select__selected"
+            >
+              Moon
+            </span>
+          </div>
+          <ul
+            aria-labelledby="downshift-0-label"
+            class="List"
+            id="downshift-0-menu"
+            role="listbox"
+          />
+        </div>
+        <svg
+          aria-label="arrow up"
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="button"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 192l128 128 128-128z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select rendering should not render clear button if onClear is not defined 1`] = `
+<div>
+  <div
+    class="SelectBase someClass"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-1-label"
+      class="SelectBase__main"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            aria-autocomplete="list"
+            aria-labelledby="downshift-1-label"
+            autocomplete="off"
+            class="Select__wrapper"
+            id="downshift-1-input"
+            role="searchbox"
+            tabindex="0"
+            value=""
+          >
+            <span
+              class="Select__selected"
+            >
+              Moon
+            </span>
+          </div>
+          <ul
+            aria-labelledby="downshift-1-label"
+            class="List"
+            id="downshift-1-menu"
+            role="listbox"
+          />
+        </div>
+        <svg
+          aria-label="arrow up"
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="button"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 192l128 128 128-128z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Select rendering should render focused component correctly 1`] = `
+<div>
+  <div
+    class="SelectBase someClass"
+  >
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-3-label"
+      aria-owns="downshift-3-menu"
+      class="SelectBase__main SelectBase__main--focused"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            aria-haspopup="true"
+            aria-label="close menu"
+            class="Select__wrapper Select__wrapper--isOpen"
+            data-toggle="true"
+            role="button"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="Select__selected"
+            >
+              Moon
+            </span>
+          </div>
+          <ul
+            aria-labelledby="downshift-3-label"
+            class="List SelectBase__list--focused"
+            id="downshift-3-menu"
+            role="listbox"
+          >
+            <li
+              aria-selected="true"
+              class="ListItem ListItem--isHighlighted ListItem--clickable"
+              id="downshift-3-item-0"
+              role="presentation"
+            >
+              <span>
+                Sun
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-3-item-1"
+              role="presentation"
+            >
+              <span>
+                Moon
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-3-item-2"
+              role="presentation"
+            >
+              <span>
+                Mercury
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-3-item-3"
+              role="presentation"
+            >
+              <span>
+                Venus
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-3-item-4"
+              role="presentation"
+            >
+              <span>
+                Earth
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-3-item-5"
+              role="presentation"
+            >
+              <span>
+                Mars
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-3-item-6"
+              role="presentation"
+            >
+              <span>
+                Jupiter
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-3-item-7"
+              role="presentation"
+            >
+              <span>
+                Saturn
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--clickable"
+              id="downshift-3-item-8"
+              role="presentation"
+            >
+              <span>
+                Neptune
+              </span>
+            </li>
+            <li
+              aria-selected="false"
+              class="ListItem ListItem--disabled"
+              disabled=""
+              id="downshift-3-item-9"
+              role="presentation"
+            >
+              <span>
+                Pluto
+              </span>
+            </li>
+          </ul>
+        </div>
+        <svg
+          aria-label="arrow down"
+          class="FieldWrapper__dropdownIcon"
+          fill="currentColor"
+          height="1em"
+          role="button"
+          stroke="currentColor"
+          stroke-width="0"
+          tabindex="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M128 320l128-128 128 128z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

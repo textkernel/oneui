@@ -12,8 +12,10 @@ const { block, elem } = bem('SelectBase', styles);
 export function SelectBase<S>({
     suggestions,
     suggestionToString,
-    clearTitle = '',
+    clearTitle,
     showArrow = false,
+    openArrowLabel,
+    closeArrowLabel,
     showClearButton = false,
     disabled,
     onFocus,
