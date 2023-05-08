@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { bem } from '../../../utils';
 import { Text } from '../../Text';
-import { Context, ENTER_KEY } from '../../../constants';
+import { Context } from '../../../constants';
 import styles from './ListItem.scss';
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> {
@@ -53,6 +53,7 @@ export const ListItem = forwardRef<HTMLLIElement, Props>(
             ? {
                   onClick,
                   role: 'option',
+                  'aria-selected': isHighlighted,
               }
             : {};
 
@@ -61,7 +62,6 @@ export const ListItem = forwardRef<HTMLLIElement, Props>(
                 {...liProps}
                 {...interactiveProps}
                 ref={ref}
-                aria-selected={isHighlighted}
                 {...block({
                     isHighlighted,
                     isSelected,
