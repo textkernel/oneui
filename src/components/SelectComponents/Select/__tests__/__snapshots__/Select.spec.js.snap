@@ -921,7 +921,6 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           className="ListItem ListItem--disabled"
                           disabled={true}
                           id="downshift-1-item-9"
-                          onKeyDown={[Function]}
                           onMouseDown={[Function]}
                           role="option"
                           style={Object {}}

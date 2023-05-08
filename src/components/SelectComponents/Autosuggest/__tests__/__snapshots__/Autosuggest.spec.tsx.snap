@@ -397,9 +397,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
             role="listbox"
           >
             <li
-              aria-selected="false"
               class="ListItem"
-              role="option"
             >
               <div
                 class="SuggestionsList__loaderItem"
@@ -421,9 +419,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
               </div>
             </li>
             <li
-              aria-selected="false"
               class="ListItem"
-              role="option"
             >
               <div
                 class="SuggestionsList__loaderItem"
@@ -445,9 +441,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
               </div>
             </li>
             <li
-              aria-selected="false"
               class="ListItem"
-              role="option"
             >
               <div
                 class="SuggestionsList__loaderItem"
@@ -469,9 +463,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
               </div>
             </li>
             <li
-              aria-selected="false"
               class="ListItem"
-              role="option"
             >
               <div
                 class="SuggestionsList__loaderItem"
@@ -493,9 +485,7 @@ exports[`Autosuggest rendering should render isLoading state 1`] = `
               </div>
             </li>
             <li
-              aria-selected="false"
               class="ListItem"
-              role="option"
             >
               <div
                 class="SuggestionsList__loaderItem"

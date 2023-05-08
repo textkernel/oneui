@@ -4,7 +4,8 @@ exports[`ListItem component should add aria label when item is highlighted 1`] =
 <div>
   <li
     aria-selected="true"
-    class="ListItem ListItem--isHighlighted"
+    class="ListItem ListItem--isHighlighted ListItem--clickable"
+    role="option"
   >
     <span>
       An item
@@ -30,7 +31,6 @@ exports[`ListItem component should add clickable class when onClick is defined 1
 exports[`ListItem component should render ListItem correctly 1`] = `
 <div>
   <li
-    aria-selected="false"
     class="ListItem"
   >
     <p>
@@ -43,7 +43,6 @@ exports[`ListItem component should render ListItem correctly 1`] = `
 exports[`ListItem component should render correctly when disabled 1`] = `
 <div>
   <li
-    aria-selected="false"
     class="ListItem ListItem--disabled"
   >
     <span>
@@ -70,7 +69,6 @@ exports[`ListItem component should render interactive ListItem correctly 1`] = `
 exports[`ListItem component should set disabled prop on li when required 1`] = `
 <div>
   <li
-    aria-selected="false"
     class="ListItem ListItem--disabled"
     disabled=""
   >
@@ -84,7 +82,6 @@ exports[`ListItem component should set disabled prop on li when required 1`] = `
 exports[`ListItem component should turn string items to Text 1`] = `
 <div>
   <li
-    aria-selected="false"
     class="ListItem"
   >
     <span>

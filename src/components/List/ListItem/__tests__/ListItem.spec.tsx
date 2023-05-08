@@ -17,7 +17,6 @@ describe('ListItem component', () => {
         expect(view.container).toMatchSnapshot();
         expect(screen.queryByRole('listitem')).toBeInTheDocument();
         expect(screen.queryByRole('option')).not.toBeInTheDocument();
-        expect(screen.getByRole('listitem')).toHaveAttribute('aria-selected', 'false');
     });
     it('should render interactive ListItem correctly', () => {
         const view = render(
@@ -29,6 +28,7 @@ describe('ListItem component', () => {
         expect(view.container).toMatchSnapshot();
         expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
         expect(screen.queryByRole('option')).toBeInTheDocument();
+        expect(screen.getByRole('option')).toHaveAttribute('aria-selected', 'false');
     });
 
     it('should turn string items to Text', () => {
@@ -54,17 +54,6 @@ describe('ListItem component', () => {
         render(<ListItem onClick={onClick}>An item</ListItem>);
 
         await user.click(screen.getByRole('option'));
-        expect(onClick).toHaveBeenCalledTimes(1);
-    });
-    it('should call onClick function via keyboard interaction', async () => {
-        const user = userEvent.setup();
-        const onClick = jest.fn();
-        render(<ListItem onClick={onClick}>An item</ListItem>);
-
-        await user.keyboard('[Tab]');
-        expect(screen.getByRole('option')).toHaveFocus();
-
-        await user.keyboard('[Enter]');
         expect(onClick).toHaveBeenCalledTimes(1);
     });
     it('should render correctly when disabled', () => {
@@ -95,12 +84,15 @@ describe('ListItem component', () => {
 
         expect(screen.getByRole('listitem')).not.toHaveClass('ListItem--disabled');
         expect(screen.getByRole('listitem')).not.toHaveAttribute('disabled');
-        expect(screen.getByRole('listitem')).not.toHaveAttribute('disabled');
     });
     it('should add aria label when item is highlighted', () => {
-        const view = render(<ListItem isHighlighted>An item</ListItem>);
+        const view = render(
+            <ListItem isHighlighted onClick={jest.fn()}>
+                An item
+            </ListItem>
+        );
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('listitem')).toHaveAttribute('aria-selected', 'true');
+        expect(screen.getByRole('option')).toHaveAttribute('aria-selected', 'true');
     });
 });

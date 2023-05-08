@@ -1,5 +1,5 @@
 import React from 'react';
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Dropdown } from '../Dropdown';
 import { Button } from '../../Buttons';
@@ -14,7 +14,7 @@ describe('Dropdown', () => {
     const mockOnDropdownStateChange = jest.fn();
     let view;
 
-    const getListItemAt = (index) => screen.getAllByRole('option')[index];
+    const getInteractiveListItemAt = (index) => screen.getAllByRole('option')[index];
 
     beforeEach(() => {
         view = render(
@@ -42,18 +42,21 @@ describe('Dropdown', () => {
     it('should render correctly closed', () => {
         expect(view.container).toMatchSnapshot();
         expect(screen.queryAllByRole('option')).toHaveLength(0);
+        expect(screen.queryAllByRole('listitem')).toHaveLength(0);
     });
 
     it('should render correctly opened', async () => {
         const user = userEvent.setup();
         await user.click(screen.getByRole('button', { name: 'Click me!' }));
+
         expect(view.container).toMatchSnapshot();
         expect(screen.getAllByRole('listbox')).toHaveLength(1);
-        expect(screen.getAllByRole('option')).toHaveLength(2);
+        expect(screen.getAllByRole('option')).toHaveLength(1);
+        expect(screen.getAllByRole('listitem')).toHaveLength(1);
     });
-    it('should downshift only by enabled items with value', async () => {
+    it('should access only enabled items with value during keyboard navigation', async () => {
         const user = userEvent.setup();
-        const { container } = render(
+        view.rerender(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -74,27 +77,29 @@ describe('Dropdown', () => {
                 </ListItem>
             </Dropdown>
         );
-        await user.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
-        expect(container).toMatchSnapshot();
-        const keyDown = () => user.click(screen.getAllByRole('listbox')[1]);
+        await user.click(screen.getByRole('button', { name: 'Click me!' }));
+        expect(view.container).toMatchSnapshot();
+        // focus list
+        await user.click(screen.getByRole('listbox'));
+        const navigateDown = async () => user.keyboard('[ArrowDown]');
 
         // 1 keydown
-        keyDown();
-        expect(getListItemAt(1).getAttribute('aria-selected')).toBeTruthy();
-        expect(getListItemAt(1)).toHaveTextContent('With value 1');
+        await navigateDown();
+        expect(getInteractiveListItemAt(0).getAttribute('aria-selected')).toBeTruthy();
+        expect(getInteractiveListItemAt(0)).toHaveTextContent('With value 1');
         // 2 keydown
-        keyDown();
-        expect(getListItemAt(3).getAttribute('aria-selected')).toBeTruthy();
-        expect(getListItemAt(3)).toHaveTextContent('With value 2');
+        await navigateDown();
+        expect(getInteractiveListItemAt(1).getAttribute('aria-selected')).toBeTruthy();
+        expect(getInteractiveListItemAt(1)).toHaveTextContent('With value 2');
         // 3 keydown. Should be again last not disabled with value item => 'With value 2'
-        keyDown();
-        expect(getListItemAt(3).getAttribute('aria-selected')).toBeTruthy();
-        expect(getListItemAt(3)).toHaveTextContent('With value 2');
+        await navigateDown();
+        expect(getInteractiveListItemAt(1).getAttribute('aria-selected')).toBeTruthy();
+        expect(getInteractiveListItemAt(1)).toHaveTextContent('With value 2');
     });
 
     it('onChange should return passed value', async () => {
         const user = userEvent.setup();
-        render(
+        view.rerender(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -108,7 +113,7 @@ describe('Dropdown', () => {
                 </ListItem>
             </Dropdown>
         );
-        await user.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
+        await user.click(screen.getByRole('button', { name: 'Click me!' }));
 
         await user.keyboard('[ArrowDown]');
         await user.keyboard('[Enter]');
@@ -118,7 +123,7 @@ describe('Dropdown', () => {
 
     it('should render correctly with mixed children: array and single ListItem', async () => {
         const user = userEvent.setup();
-        const { container } = render(
+        view.rerender(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -134,9 +139,10 @@ describe('Dropdown', () => {
                 ))}
             </Dropdown>
         );
-        await user.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
-        expect(container).toMatchSnapshot();
-        expect(screen.getAllByRole('option')).toHaveLength(3);
+        await user.click(screen.getByRole('button', { name: 'Click me!' }));
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getAllByRole('listitem')).toHaveLength(1);
+        expect(screen.getAllByRole('option')).toHaveLength(2);
     });
 
     it('should call cb when button is clicked', async () => {
@@ -189,8 +195,8 @@ describe('Dropdown', () => {
         });
     });
 
-    it('should open dropdown by default if corresponding prop is set', () => {
-        render(
+    it('should open dropdown by default if corresponding prop is set', async () => {
+        view = render(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -209,14 +215,17 @@ describe('Dropdown', () => {
                 ))}
             </Dropdown>
         );
+        // we need to wait for the popup state to finish updating
+        await waitFor(() => screen.getByRole('listitem'));
 
-        expect(screen.getAllByRole('option')).toHaveLength(3);
+        expect(screen.getAllByRole('listitem')).toHaveLength(1);
+        expect(screen.getAllByRole('option')).toHaveLength(2);
     });
 
     it('should allow for conditional rendering of items', async () => {
         const user = userEvent.setup();
         const condition = false;
-        const { container } = render(
+        view.rerender(
             <Dropdown
                 button={<Button isPrimary>Click me!</Button>}
                 onChange={mockOnChange}
@@ -235,7 +244,7 @@ describe('Dropdown', () => {
         );
         await user.click(screen.getAllByRole('button', { name: 'Click me!' })[1]);
 
-        expect(container).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(screen.queryByText('false')).not.toBeInTheDocument();
     });
 });

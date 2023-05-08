@@ -654,7 +654,6 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
                     key=".0"
                   >
                     <li
-                      aria-selected={false}
                       className="ListItem ListItem--disabled List__item"
                     >
                       <Text

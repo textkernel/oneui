@@ -8,7 +8,6 @@ exports[`List component Initial rendering should allow for conditional rendering
     tabindex="0"
   >
     <li
-      aria-selected="false"
       class="ListItem List__item"
     >
       <span>
@@ -19,7 +18,53 @@ exports[`List component Initial rendering should allow for conditional rendering
 </div>
 `;
 
-exports[`List component Initial rendering should render List correctly 1`] = `
+exports[`List component Initial rendering should render List correctly without keyboard navigation (isControlledNavigation) 1`] = `
+<div>
+  <ul
+    class="List"
+  >
+    <li
+      class="ListItem List__item"
+    >
+      <span>
+        Item 1
+      </span>
+    </li>
+    <li
+      class="ListItem List__item"
+    >
+      <span>
+        Item 2
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`List component Initial rendering should render List correctly without keyboard navigation (isControlledNavigation) 2`] = `
+<div>
+  <ul
+    class="List"
+  >
+    <li
+      class="ListItem List__item"
+    >
+      <span>
+        Item 1
+      </span>
+    </li>
+    <li
+      class="ListItem List__item"
+    >
+      <span>
+        Item 2
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`List component Initial rendering should render interactive List correctly 1`] = `
 <div>
   <ul
     class="List"
@@ -28,7 +73,8 @@ exports[`List component Initial rendering should render List correctly 1`] = `
   >
     <li
       aria-selected="false"
-      class="ListItem List__item"
+      class="ListItem ListItem--clickable List__item"
+      role="option"
     >
       <span>
         Item 1
@@ -36,32 +82,8 @@ exports[`List component Initial rendering should render List correctly 1`] = `
     </li>
     <li
       aria-selected="false"
-      class="ListItem List__item"
-    >
-      <span>
-        Item 2
-      </span>
-    </li>
-  </ul>
-</div>
-`;
-
-exports[`List component Initial rendering should render List correctly without keyboard navigation 1`] = `
-<div>
-  <ul
-    class="List"
-  >
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
-    >
-      <span>
-        Item 1
-      </span>
-    </li>
-    <li
-      aria-selected="false"
-      class="ListItem List__item"
+      class="ListItem ListItem--clickable List__item"
+      role="option"
     >
       <span>
         Item 2
@@ -80,7 +102,8 @@ exports[`List component enriching children with props should not overwrite class
   >
     <li
       aria-selected="false"
-      class="ListItem List__item test"
+      class="ListItem ListItem--clickable List__item test"
+      role="option"
     >
       <span>
         Item 1
@@ -88,7 +111,8 @@ exports[`List component enriching children with props should not overwrite class
     </li>
     <li
       aria-selected="false"
-      class="ListItem List__item test"
+      class="ListItem ListItem--clickable List__item test"
+      role="option"
     >
       <span>
         Item 1
