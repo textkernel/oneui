@@ -7,7 +7,12 @@ describe('StringHighlighter', () => {
     let view;
     const string = 'We are looking for php, java and javascript developer';
     const searchTerms = [];
-    const highlightRenderer = ({ substring, ...props }) => <b {...props}>{substring}</b>;
+    const highlightId = 'highlight';
+    const highlightRenderer = ({ substring, ...props }) => (
+        <b data-testid={highlightId} {...props}>
+            {substring}
+        </b>
+    );
     const defaultProps = {
         string,
         searchTerms,
@@ -35,7 +40,7 @@ describe('StringHighlighter', () => {
             });
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.getByText(string)).toBeInTheDocument();
+            expect(screen.queryByTestId(highlightId)).not.toBeInTheDocument();
         });
 
         it('should not highlight case sensitive terms if ignoreCase is false', () => {
@@ -67,7 +72,7 @@ describe('StringHighlighter', () => {
             });
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.queryByText(string)).not.toBeInTheDocument();
+            expect(screen.getAllByTestId(highlightId)).toHaveLength(3);
         });
 
         it('should highlight case sensitive terms by default', () => {
@@ -76,7 +81,7 @@ describe('StringHighlighter', () => {
             });
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.queryByText(string)).not.toBeInTheDocument();
+            expect(screen.getAllByTestId(highlightId)).toHaveLength(2);
         });
 
         it('should highlight terms with diacritics by default', () => {
@@ -85,7 +90,7 @@ describe('StringHighlighter', () => {
             });
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.queryByText(string)).not.toBeInTheDocument();
+            expect(screen.getAllByTestId(highlightId)).toHaveLength(1);
         });
 
         it('should highlight overlapping terms correctly', () => {
@@ -94,7 +99,7 @@ describe('StringHighlighter', () => {
             });
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.queryByText(string)).not.toBeInTheDocument();
+            expect(screen.queryByTestId(highlightId)).toBeInTheDocument();
         });
     });
 });
