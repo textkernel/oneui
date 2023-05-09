@@ -78,7 +78,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                         aria-labelledby="clear-button"
                         {...elem('clearButton', { rightIndent: showArrow })}
                     >
-                        <MdClear role="img" size={16} />
+                        <MdClear size={16} />
                     </Button>
                 )}
 
