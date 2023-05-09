@@ -22,6 +22,9 @@ _FieldWrapper.args = {
                 style={{ margin: 'var(--spacing-normal)' }}
                 placeholder="Add input field if needed..."
             />
+            <span id="clear-button" style={{ display: 'none'}}>Clear button</span>
+            <span id="arrow-up" style={{ display: 'none'}}>Arrow UP</span>
+            <span id="arrow-down" style={{ display: 'none'}}>Arrow Down</span>
         </>
     ),
 };

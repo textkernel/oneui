@@ -75,9 +75,10 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                         isLink
                         onClick={handleClear}
                         title={clearTooltipLabel}
+                        aria-labelledby="clear-button"
                         {...elem('clearButton', { rightIndent: showArrow })}
                     >
-                        <MdClear size={16} />
+                        <MdClear role="img" size={16} />
                     </Button>
                 )}
 
@@ -85,6 +86,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                     (isArrowUp ? (
                         <IoMdArrowDropup
                             tabIndex={0}
+                            aria-labelledby="arrow-up"
                             {...elem('dropdownIcon')}
                             onClick={handleArrowClick}
                             onKeyDown={handleArrowKeyDown}
@@ -93,6 +95,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                     ) : (
                         <IoMdArrowDropdown
                             tabIndex={0}
+                            aria-labelledby="arrow-down"
                             {...elem('dropdownIcon')}
                             onClick={handleArrowClick}
                             onKeyDown={handleArrowKeyDown}
