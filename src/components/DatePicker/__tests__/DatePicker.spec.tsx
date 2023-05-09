@@ -36,11 +36,10 @@ describe('DatePicker', () => {
     it('should render calendar header correctly when calendar is open', async () => {
         const user = userEvent.setup();
         await openCalendar(user);
+
         expect(view.container).toMatchSnapshot();
-        // Some small time difference in dates - needs further investigation.
-        // Since testing 3rd party library is not a good practice anyway,
-        // we will just check that our custom header is correct
-        // screen.getByRole('option');
+        expect(screen.getByRole('presentation')).toBeInTheDocument();
+        expect(screen.getAllByRole('option')).toHaveLength(3);
         expect(screen.getByRole('presentation')).toBeInTheDocument();
     });
 
