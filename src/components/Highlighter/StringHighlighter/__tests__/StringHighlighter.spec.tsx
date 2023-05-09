@@ -1,83 +1,105 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import '@testing-library/jest-dom';
+import { render, screen } from '@testing-library/react';
 import { StringHighlighter } from '../StringHighlighter';
 
 describe('StringHighlighter', () => {
+    let view;
     const string = 'We are looking for php, java and javascript developer';
     const searchTerms = [];
-    const ignoreDiacritics = true;
-    const ignoreCase = true;
-    // eslint-disable-next-line react/display-name, react/prop-types
-    const highlightRenderer = ({ substring, ...props }) => <b {...props}>{substring}</b>;
-    // eslint-disable-next-line react/display-name, react/prop-types
-    const renderComponent = (props) => {
-        return mount(
-            <StringHighlighter
-                string={string}
-                searchTerms={searchTerms}
-                highlighterCoreOptions={(ignoreDiacritics, ignoreCase)}
-                highlightRenderer={highlightRenderer}
-                {...props}
-            />
-        );
+    const highlightId = 'highlight';
+    const highlightRenderer = ({ substring, ...props }) => (
+        <b data-testid={highlightId} {...props}>
+            {substring}
+        </b>
+    );
+    const defaultProps = {
+        string,
+        searchTerms,
+        highlightRenderer,
     };
+    const rerenderView = (props) => {
+        view.rerender(<StringHighlighter {...defaultProps} {...props} />);
+    };
+    beforeEach(() => {
+        view = render(<StringHighlighter {...defaultProps} />);
+    });
 
     describe('not highlighted', () => {
         it('should initially render empty component correctly', () => {
-            const wrapper = renderComponent({
+            rerenderView({
                 string: '',
             });
-            expect(toJson(wrapper)).toMatchSnapshot();
+
+            expect(view.container).toMatchSnapshot();
         });
+
         it('should not highlight not existed terms', () => {
-            const wrapper = renderComponent({
+            rerenderView({
                 searchTerms: ['notExisting', 'dev', 'a'],
             });
-            expect(toJson(wrapper)).toMatchSnapshot();
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.queryByTestId(highlightId)).not.toBeInTheDocument();
         });
+
         it('should not highlight case sensitive terms if ignoreCase is false', () => {
-            const wrapper = renderComponent({
+            rerenderView({
                 searchTerms: ['DEVELOPER', 'Php'],
                 highlighterCoreOptions: {
                     ignoreCase: false,
                 },
             });
-            expect(toJson(wrapper)).toMatchSnapshot();
+
+            expect(view.container).toMatchSnapshot();
         });
+
         it('should not highlight terms with diacritics if ignoreDiacritics is false', () => {
-            const wrapper = renderComponent({
+            rerenderView({
                 searchTerms: ['dévéloper'],
                 highlighterCoreOptions: {
                     ignoreDiacritics: false,
                 },
             });
-            expect(toJson(wrapper)).toMatchSnapshot();
+
+            expect(view.container).toMatchSnapshot();
         });
     });
     describe('highlighted', () => {
         it('should highlight list of terms', () => {
-            const wrapper = renderComponent({
+            rerenderView({
                 searchTerms: ['javascript developer', 'php', 'java'],
             });
-            expect(toJson(wrapper)).toMatchSnapshot();
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.getAllByTestId(highlightId)).toHaveLength(3);
         });
+
         it('should highlight case sensitive terms by default', () => {
-            const wrapper = renderComponent({
+            rerenderView({
                 searchTerms: ['DEVELOPER', 'Php'],
             });
-            expect(toJson(wrapper)).toMatchSnapshot();
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.getAllByTestId(highlightId)).toHaveLength(2);
         });
+
         it('should highlight terms with diacritics by default', () => {
-            const wrapper = renderComponent({
+            rerenderView({
                 searchTerms: ['dévéloper'],
             });
-            expect(toJson(wrapper)).toMatchSnapshot();
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.getAllByTestId(highlightId)).toHaveLength(1);
         });
+
         it('should highlight overlapping terms correctly', () => {
-            const wrapper = renderComponent({
+            rerenderView({
                 searchTerms: ['javascript developer', 'java and javascript'],
             });
-            expect(toJson(wrapper)).toMatchSnapshot();
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.queryByTestId(highlightId)).toBeInTheDocument();
         });
     });
 });
