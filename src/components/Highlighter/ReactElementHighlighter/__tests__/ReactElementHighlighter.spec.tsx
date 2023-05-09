@@ -1,11 +1,13 @@
 import React from 'react';
+import '@testing-library/jest-dom';
+import { render } from '@testing-library/react';
 import { Highlighter } from '../../../../packages/Highlighter';
 import { ReactElementHighlighter } from '../ReactElementHighlighter';
 
 describe('ReactElementHighlighter', () => {
     const keywords = ['lorem', 'officia', 'dolore', 'dolor', 'irure dolor', 'qui officia deserunt'];
     const renderComponent = (props) => {
-        return mount(
+        return render(
             <ReactElementHighlighter
                 searchTerms={keywords}
                 highlightRenderer={(keyword) => {
@@ -35,9 +37,10 @@ describe('ReactElementHighlighter', () => {
         renderComponent({
             onComplete: (highlighter, result, root) => {
                 expect(root.outerHTML).toMatchSnapshot();
-                expect(result[0].length).toBe(5);
-                expect(result[1].length).toBe(1);
+                expect(result[0]).toHaveLength(5);
+                expect(result[1]).toHaveLength(1);
                 expect(highlighter).toBeInstanceOf(Highlighter);
+
                 done();
             },
         });
@@ -50,6 +53,7 @@ describe('ReactElementHighlighter', () => {
             },
             onComplete: (highlighter, result, root) => {
                 expect(root.outerHTML).toMatchSnapshot();
+
                 done();
             },
         });
