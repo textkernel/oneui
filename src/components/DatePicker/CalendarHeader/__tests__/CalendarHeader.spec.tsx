@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { CalendarHeader } from '../CalendarHeader';
@@ -13,7 +13,7 @@ describe('CalendarHeader', () => {
     const decreaseYear = jest.fn();
     const increaseYear = jest.fn();
     const currentMonth = new Date();
-    let view;
+    let view: RenderResult;
 
     beforeEach(() => {
         view = render(

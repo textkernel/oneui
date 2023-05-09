@@ -1,12 +1,12 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import MockDate from 'mockdate';
 import { DatePicker } from '../DatePicker';
 
 describe('DatePicker', () => {
-    let view;
+    let view: RenderResult;
     const handleChange = jest.fn();
 
     const minDate = new Date('2021-11-23');
@@ -36,7 +36,7 @@ describe('DatePicker', () => {
     it('should render calendar header correctly when calendar is open', async () => {
         const user = userEvent.setup();
         await openCalendar(user);
-        // taking full snapshot of the calendar fails in CD/CI.
+        expect(view.container).toMatchSnapshot();
         // Some small time difference in dates - needs further investigation.
         // Since testing 3rd party library is not a good practice anyway,
         // we will just check that our custom header is correct
@@ -50,7 +50,6 @@ describe('DatePicker', () => {
         // this is to make sure the calendar navigation and the year selection in the header are always aligned
         await openCalendar(user);
 
-        expect(user);
         expect(
             screen.getByRole('option', { name: minDate.getFullYear().toString() })
         ).toBeInTheDocument();
