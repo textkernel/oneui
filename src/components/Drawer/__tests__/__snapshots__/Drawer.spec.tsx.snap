@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Drawer should pass initial expand status 1`] = `<div />`;
+
 exports[`Drawer should render correctly 1`] = `<div />`;

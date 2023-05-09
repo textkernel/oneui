@@ -8,29 +8,33 @@ jest.mock('react-transition-group', () => {
     const FakeTransition = jest.fn(({ children }) => children({ state: 'entered' }));
     return { Transition: FakeTransition };
 });
-const onClickMock = jest.fn();
 
 describe('Drawer', () => {
+    let view;
+
     it('should render correctly', () => {
-        const view = render(<Drawer title="some title">some text</Drawer>);
+        view = render(<Drawer title="some title">some text</Drawer>);
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('heading', { name: 'some title' })).toBeInTheDocument();
     });
 
     it('should pass initial expand status', () => {
-        render(
+        const onClickMock = jest.fn();
+        view = render(
             <Drawer onClick={onClickMock} initialIsExpanded title="some title">
                 some text
             </Drawer>
         );
         const expandButton = screen.getByRole('button', { name: '' });
 
+        expect(view.container).toMatchSnapshot();
         expect(expandButton).toBeInTheDocument();
         expect(onClickMock).not.toHaveBeenCalled();
     });
 
     it('should pass initial close status', () => {
+        const onClickMock = jest.fn();
         render(
             <Drawer onClick={onClickMock} title="some title">
                 some text
@@ -41,6 +45,7 @@ describe('Drawer', () => {
     });
 
     it('should expand and close correctly', async () => {
+        const onClickMock = jest.fn();
         const user = userEvent.setup();
         render(
             <Drawer onClick={onClickMock} title="some title">
@@ -55,7 +60,7 @@ describe('Drawer', () => {
         await user.click(expandButton);
 
         expect(onClickMock).toHaveBeenCalledTimes(2);
-        expect(screen.getByRole('group', { hidden: true })).toHaveAttribute('aria-hidden', 'false');
+        expect(screen.getByRole('group')).toHaveAttribute('aria-hidden', 'false');
     });
 
     it('should be hidden when isShown is false', () => {
@@ -85,10 +90,11 @@ describe('Drawer', () => {
             </Drawer>
         );
 
-        expect(screen.getByRole('group', { hidden: true })).toHaveAttribute('aria-hidden', 'false');
+        expect(screen.getByRole('group')).toHaveAttribute('aria-hidden', 'false');
     });
 
     it('should fire callback function correctly on click expand/close button', async () => {
+        const onClickMock = jest.fn();
         const user = userEvent.setup();
         render(
             <Drawer onClick={onClickMock} title="some title">
@@ -99,6 +105,6 @@ describe('Drawer', () => {
         await user.click(expandButton);
 
         expect(onClickMock).toHaveBeenCalledTimes(1);
-        expect(screen.getByRole('group', { hidden: true })).toHaveAttribute('aria-hidden', 'false');
+        expect(screen.getByRole('group')).toHaveAttribute('aria-hidden', 'false');
     });
 });
