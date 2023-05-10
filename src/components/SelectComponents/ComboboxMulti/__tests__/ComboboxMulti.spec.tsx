@@ -89,7 +89,8 @@ describe('ComboboxMulti', () => {
             await setFocus();
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.getAllByRole('option')).toHaveLength(1);
+            expect(screen.queryByRole('option')).not.toBeInTheDocument();
+            expect(screen.getByRole('listitem')).toBeInTheDocument();
             expect(screen.getByText(noSuggestionsPlaceholder)).toBeInTheDocument();
         });
         it('should render selection placeholder when component is not focused', () => {

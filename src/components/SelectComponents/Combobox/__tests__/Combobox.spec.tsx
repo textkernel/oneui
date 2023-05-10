@@ -69,7 +69,8 @@ describe('Combobox', () => {
             await setFocus();
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.getAllByRole('option')).toHaveLength(1);
+            expect(screen.queryByRole('option')).not.toBeInTheDocument();
+            expect(screen.getByRole('listitem')).toBeInTheDocument();
             expect(screen.getByText(noSuggestionsPlaceholder)).toBeInTheDocument();
         });
         it('should render all suggestions from the list', async () => {

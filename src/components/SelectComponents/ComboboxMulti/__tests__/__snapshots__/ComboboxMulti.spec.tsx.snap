@@ -194,9 +194,7 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
             role="listbox"
           >
             <li
-              aria-selected="false"
               class="ListItem ListItem--disabled"
-              role="option"
             >
               <p
                 class="Text--context_neutral"

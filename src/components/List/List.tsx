@@ -14,8 +14,12 @@ export interface Props extends React.HTMLAttributes<HTMLUListElement> {
     isDivided?: boolean;
     /** Defines if selection should be made on navigate */
     doSelectOnNavigate?: boolean;
-    /** manage keyboard navigation externally */
+    /** manage keyboard navigation externally. This prop is practically same as isStaticList, just named differently */
     isControlledNavigation?: boolean;
+    /** When lists are statics and users cannot interact with them. When setting this to true:
+     * no keyboard navigation will be handled, and `ul` role stay be implicit.
+     * This prop is practically same as isControlledNavigation, just named differently */
+    isStaticList?: boolean;
 }
 
 const { block, elem } = bem('List', styles);
@@ -33,6 +37,7 @@ export const List = React.forwardRef<HTMLUListElement, Props>(
             isDivided = false,
             doSelectOnNavigate = false,
             isControlledNavigation = false,
+            isStaticList = false,
             ...rest
         },
         ref
@@ -125,7 +130,7 @@ export const List = React.forwardRef<HTMLUListElement, Props>(
             }
         };
 
-        return isControlledNavigation ? (
+        return isControlledNavigation || isStaticList ? (
             <ul {...rest} ref={ref} {...block({ isDivided, ...rest })}>
                 {React.Children.map(children, (child) => {
                     if (child) {
@@ -162,6 +167,12 @@ export const List = React.forwardRef<HTMLUListElement, Props>(
                                   }),
                                   ref: index === selectedIndex ? navigationElementRef : null,
                                   isHighlighted: index === selectedIndex,
+                                  onClick: child.props.onClick
+                                      ? (e) => {
+                                            setSelectedIndex(index);
+                                            child.props.onClick?.(e);
+                                        }
+                                      : undefined,
                               });
                     }
                     return null;

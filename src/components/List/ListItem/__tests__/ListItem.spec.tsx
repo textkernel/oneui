@@ -15,6 +15,20 @@ describe('ListItem component', () => {
         );
 
         expect(view.container).toMatchSnapshot();
+        expect(screen.queryByRole('listitem')).toBeInTheDocument();
+        expect(screen.queryByRole('option')).not.toBeInTheDocument();
+    });
+    it('should render interactive ListItem correctly', () => {
+        const view = render(
+            <ListItem onClick={jest.fn()}>
+                <Text>An item</Text>
+            </ListItem>
+        );
+
+        expect(view.container).toMatchSnapshot();
+        expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
+        expect(screen.queryByRole('option')).toBeInTheDocument();
+        expect(screen.getByRole('option')).toHaveAttribute('aria-selected', 'false');
     });
 
     it('should turn string items to Text', () => {
@@ -26,7 +40,7 @@ describe('ListItem component', () => {
     it('should not add clickable class when onClick is not defined', () => {
         render(<ListItem>An item</ListItem>);
 
-        expect(screen.getByRole('option')).not.toHaveClass('ListItem--clickable');
+        expect(screen.getByRole('listitem')).not.toHaveClass('ListItem--clickable');
     });
     it('should add clickable class when onClick is defined', () => {
         const view = render(<ListItem onClick={jest.fn()}>An item</ListItem>);
@@ -46,8 +60,9 @@ describe('ListItem component', () => {
         const view = render(<ListItem disabled>An item</ListItem>);
         expect(view.container).toMatchSnapshot();
 
-        const li = screen.getByRole('option');
+        const li = screen.getByRole('listitem');
         expect(li).toHaveClass('ListItem ListItem--disabled');
+        expect(li).not.toHaveAttribute('disabled');
     });
     it('should set disabled prop on li when required', () => {
         const view = render(
@@ -57,9 +72,9 @@ describe('ListItem component', () => {
         );
         expect(view.container).toMatchSnapshot();
 
-        const li = screen.getByRole('option');
+        const li = screen.getByRole('listitem');
         expect(li).toHaveClass('ListItem--disabled');
-        expect(li).toHaveAttribute('disabled', '');
+        expect(li).toHaveAttribute('disabled');
 
         view.rerender(
             <ListItem disabled={false} passDisabledToLi>
@@ -67,7 +82,17 @@ describe('ListItem component', () => {
             </ListItem>
         );
 
-        expect(screen.getByRole('option')).not.toHaveClass('ListItem--disabled');
-        expect(screen.getByRole('option')).not.toHaveAttribute('disabled');
+        expect(screen.getByRole('listitem')).not.toHaveClass('ListItem--disabled');
+        expect(screen.getByRole('listitem')).not.toHaveAttribute('disabled');
+    });
+    it('should add aria label when item is highlighted', () => {
+        const view = render(
+            <ListItem isHighlighted onClick={jest.fn()}>
+                An item
+            </ListItem>
+        );
+
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('option')).toHaveAttribute('aria-selected', 'true');
     });
 });

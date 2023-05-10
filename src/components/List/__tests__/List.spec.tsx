@@ -10,7 +10,8 @@ describe('List component', () => {
     const itemNumbersArray = [0, 1, 2, 3, 4];
     const mockOnClick = jest.fn();
 
-    const getListItemAt = (index) => screen.getAllByRole('option')[index];
+    const getInteractiveListItemAt = (index) => screen.getAllByRole('option')[index];
+    const getStaticListItemAt = (index) => screen.getAllByRole('listitem')[index];
     const navigateDown = async (user) => {
         await user.keyboard('[ArrowDown]');
     };
@@ -19,11 +20,11 @@ describe('List component', () => {
     };
 
     describe('Initial rendering', () => {
-        it('should render List correctly', async () => {
+        it('should render interactive List correctly', async () => {
             view = render(
                 <List>
-                    <ListItem>Item 1</ListItem>
-                    <ListItem>Item 2</ListItem>
+                    <ListItem onClick={jest.fn()}>Item 1</ListItem>
+                    <ListItem onClick={jest.fn()}>Item 2</ListItem>
                 </List>
             );
 
@@ -46,7 +47,7 @@ describe('List component', () => {
             expect(screen.queryByText('Item 1')).not.toBeInTheDocument();
             expect(screen.getByText('Item 2')).toBeInTheDocument();
         });
-        it('should render List correctly without keyboard navigation', () => {
+        it('should render List correctly without keyboard navigation (isControlledNavigation)', () => {
             view = render(
                 <List isControlledNavigation>
                     <ListItem>Item 1</ListItem>
@@ -54,7 +55,18 @@ describe('List component', () => {
                 </List>
             );
             expect(view.container).toMatchSnapshot();
-
+            expect(screen.getByRole('list')).toBeInTheDocument();
+            expect(screen.getByRole('list')).not.toHaveAttribute('tabindex', '0');
+        });
+        it('should render List correctly without keyboard navigation (isControlledNavigation)', () => {
+            view = render(
+                <List isStaticList>
+                    <ListItem>Item 1</ListItem>
+                    <ListItem>Item 2</ListItem>
+                </List>
+            );
+            expect(view.container).toMatchSnapshot();
+            expect(screen.getByRole('list')).toBeInTheDocument();
             expect(screen.getByRole('list')).not.toHaveAttribute('tabindex', '0');
         });
     });
@@ -62,14 +74,18 @@ describe('List component', () => {
         it('should not overwrite classes on children', () => {
             view = render(
                 <List>
-                    <ListItem className="test">Item 1</ListItem>
-                    <ListItem className="test">Item 1</ListItem>
+                    <ListItem className="test" onClick={jest.fn()}>
+                        Item 1
+                    </ListItem>
+                    <ListItem className="test" onClick={jest.fn()}>
+                        Item 1
+                    </ListItem>
                 </List>
             );
             expect(view.container).toMatchSnapshot();
 
-            expect(getListItemAt(0)).toHaveClass('ListItem List__item');
-            expect(getListItemAt(0)).toHaveClass('test');
+            expect(getInteractiveListItemAt(0)).toHaveClass('ListItem List__item');
+            expect(getInteractiveListItemAt(0)).toHaveClass('test');
         });
         it(`should not add extra class if has ${NOT_LIST_CHILD}`, () => {
             view = render(
@@ -77,12 +93,16 @@ describe('List component', () => {
                     <ListItem className="test" data-list-exception>
                         Item 1
                     </ListItem>
-                    <ListItem className="test">Item 1</ListItem>
+                    <ListItem className="test" onClick={jest.fn()}>
+                        Item 1
+                    </ListItem>
                 </List>
             );
 
-            expect(getListItemAt(0)).not.toHaveClass('List__item');
-            expect(getListItemAt(1)).toHaveClass('List__item');
+            expect(screen.getAllByRole('listitem')).toHaveLength(1);
+            expect(screen.getAllByRole('option')).toHaveLength(1);
+            expect(getStaticListItemAt(0)).not.toHaveClass('List__item');
+            expect(getInteractiveListItemAt(0)).toHaveClass('List__item');
         });
     });
 
@@ -91,15 +111,18 @@ describe('List component', () => {
             view = render(
                 <List>
                     {itemNumbersArray.map((number) => (
-                        <ListItem key={number}>Item ${number}</ListItem>
+                        <ListItem key={number} onClick={jest.fn()}>
+                            Item ${number}
+                        </ListItem>
                     ))}
                 </List>
             );
         });
 
         it('should not have any item selected by default', () => {
+            expect(screen.getAllByRole('option')).toHaveLength(itemNumbersArray.length);
             itemNumbersArray.forEach((number) => {
-                expect(getListItemAt(number)).toHaveAttribute('aria-selected', 'false');
+                expect(getInteractiveListItemAt(number)).toHaveAttribute('aria-selected', 'false');
             });
         });
         it('should focus list on Tab navigation', async () => {
@@ -111,7 +134,7 @@ describe('List component', () => {
         it('should focus list on click', async () => {
             const user = userEvent.setup();
             expect(screen.getByRole('listbox')).not.toHaveFocus();
-            await user.click(getListItemAt(0));
+            await user.click(getInteractiveListItemAt(0));
             expect(screen.getByRole('listbox')).toHaveFocus();
         });
         it('should move selection of children in both directions properly', async () => {
@@ -121,19 +144,25 @@ describe('List component', () => {
             await navigateDown(user);
             itemNumbersArray.forEach((number) => {
                 if (number === 0) {
-                    expect(getListItemAt(number)).toHaveAttribute('aria-selected', 'true');
+                    expect(getInteractiveListItemAt(number)).toHaveAttribute(
+                        'aria-selected',
+                        'true'
+                    );
                 } else {
-                    expect(getListItemAt(number)).toHaveAttribute('aria-selected', 'false');
+                    expect(getInteractiveListItemAt(number)).toHaveAttribute(
+                        'aria-selected',
+                        'false'
+                    );
                 }
             });
 
             await navigateDown(user);
-            expect(getListItemAt(0)).toHaveAttribute('aria-selected', 'false');
-            expect(getListItemAt(1)).toHaveAttribute('aria-selected', 'true');
+            expect(getInteractiveListItemAt(0)).toHaveAttribute('aria-selected', 'false');
+            expect(getInteractiveListItemAt(1)).toHaveAttribute('aria-selected', 'true');
 
             await navigateUp(user);
-            expect(getListItemAt(0)).toHaveAttribute('aria-selected', 'true');
-            expect(getListItemAt(1)).toHaveAttribute('aria-selected', 'false');
+            expect(getInteractiveListItemAt(0)).toHaveAttribute('aria-selected', 'true');
+            expect(getInteractiveListItemAt(1)).toHaveAttribute('aria-selected', 'false');
         });
 
         it('should not let highlighted item got out of list bounds', async () => {
@@ -142,7 +171,7 @@ describe('List component', () => {
             await navigateUp(user);
             await navigateUp(user);
 
-            expect(getListItemAt(0)).toHaveAttribute('aria-selected', 'true');
+            expect(getInteractiveListItemAt(0)).toHaveAttribute('aria-selected', 'true');
 
             await navigateDown(user);
             await navigateDown(user);
@@ -150,7 +179,7 @@ describe('List component', () => {
             await navigateDown(user);
             await navigateDown(user);
 
-            expect(getListItemAt(itemNumbersArray.length - 1)).toHaveAttribute(
+            expect(getInteractiveListItemAt(itemNumbersArray.length - 1)).toHaveAttribute(
                 'aria-selected',
                 'true'
             );
