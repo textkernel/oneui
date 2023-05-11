@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Confirm should render correctly 1`] = `<div />`;
+
+exports[`Confirm should render correctly with title 1`] = `<div />`;
