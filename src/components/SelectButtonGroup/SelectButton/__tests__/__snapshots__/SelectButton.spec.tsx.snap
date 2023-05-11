@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectButton should render children when it is 0 1`] = `undefined`;
+
+exports[`SelectButton should render correctly 1`] = `
+<div>
+  <div
+    class="SelectButton SelectButton--isEqualWidth SelectButton--isSelected SelectButton--size_large"
+    role="button"
+    tabindex="0"
+  >
+    Option 1
+  </div>
+</div>
+`;
+
+exports[`SelectButton should render nothing if no children are provided 1`] = `<div />`;
