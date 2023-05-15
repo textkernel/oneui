@@ -50,6 +50,7 @@ describe('ComboboxMulti', () => {
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
+
             expect(view.container).toMatchSnapshot();
             const inputField = screen.getAllByRole('textbox')[0];
 
@@ -89,7 +90,8 @@ describe('ComboboxMulti', () => {
             await setFocus();
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.getAllByRole('presentation')).toHaveLength(1);
+            expect(screen.queryByRole('option')).not.toBeInTheDocument();
+            expect(screen.getByRole('listitem')).toBeInTheDocument();
             expect(screen.getByText(noSuggestionsPlaceholder)).toBeInTheDocument();
         });
         it('should render selection placeholder when component is not focused', () => {

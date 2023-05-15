@@ -195,7 +195,6 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
           >
             <li
               class="ListItem ListItem--disabled"
-              role="presentation"
             >
               <p
                 class="Text--context_neutral"

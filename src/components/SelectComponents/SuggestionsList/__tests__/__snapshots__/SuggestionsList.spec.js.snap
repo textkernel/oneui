@@ -52,7 +52,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <MarkedText
@@ -79,7 +78,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem ListItem--isHighlighted"
-      role="presentation"
       style={Object {}}
     >
       <MarkedText
@@ -106,7 +104,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <MarkedText
@@ -133,7 +130,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <MarkedText
@@ -160,7 +156,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <MarkedText
@@ -187,7 +182,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <MarkedText
@@ -214,7 +208,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <MarkedText
@@ -241,7 +234,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <MarkedText
@@ -268,7 +260,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <MarkedText
@@ -295,7 +286,6 @@ exports[`SuggestionsList should initially render component correctly 1`] = `
   >
     <li
       className="ListItem ListItem--disabled"
-      role="presentation"
       style={Object {}}
     >
       <MarkedText
@@ -364,7 +354,6 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
     >
       <div
         className="SuggestionsList__loaderItem"
@@ -403,7 +392,6 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
     >
       <div
         className="SuggestionsList__loaderItem"
@@ -442,7 +430,6 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
     >
       <div
         className="SuggestionsList__loaderItem"
@@ -481,7 +468,6 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
     >
       <div
         className="SuggestionsList__loaderItem"
@@ -520,7 +506,6 @@ exports[`SuggestionsList should render isLoading state 1`] = `
   >
     <li
       className="ListItem"
-      role="presentation"
     >
       <div
         className="SuggestionsList__loaderItem"
@@ -800,7 +785,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <span
@@ -819,7 +803,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem ListItem--isHighlighted"
-      role="presentation"
       style={Object {}}
     >
       <span
@@ -838,7 +821,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <span
@@ -857,7 +839,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <span
@@ -876,7 +857,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <span
@@ -895,7 +875,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <span
@@ -914,7 +893,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <span
@@ -933,7 +911,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <span
@@ -952,7 +929,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem"
-      role="presentation"
       style={Object {}}
     >
       <span
@@ -971,7 +947,6 @@ exports[`SuggestionsList should run suggestionItemRenderer function correctly 1`
   >
     <li
       className="ListItem ListItem--disabled"
-      role="presentation"
       style={Object {}}
     >
       <span
