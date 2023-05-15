@@ -1,12 +1,12 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { Alert } from '../Alert';
 
 describe('Alert', () => {
     const mockOnAccept = jest.fn();
-    let view;
+    let view: RenderResult;
 
     beforeEach(() => {
         view = render(

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { Confirm } from '../Confirm';
@@ -7,7 +7,7 @@ import { Confirm } from '../Confirm';
 describe('Confirm', () => {
     const mockOnAccept = jest.fn();
     const mockOnCancel = jest.fn();
-    let view;
+    let view: RenderResult;
 
     beforeEach(() => {
         view = render(
@@ -47,13 +47,13 @@ describe('Confirm', () => {
         expect(screen.getAllByRole('heading')).toHaveLength(1);
     });
 
-    it('should call onAccept cb when button is clicked', async () => {
+    it('should call onCancel callback when button is clicked', async () => {
         const user = userEvent.setup();
         await user.click(screen.getAllByRole('button')[1]);
 
         expect(mockOnAccept).toHaveBeenCalledTimes(1);
     });
-    it('should call onAccept cb when button is clicked', async () => {
+    it('should call onCancel callback when button is clicked', async () => {
         const user = userEvent.setup();
         await user.click(screen.getAllByRole('button')[0]);
 
