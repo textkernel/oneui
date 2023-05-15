@@ -11,8 +11,8 @@ describe('Header component that renders a website header with a logo on the left
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getAllByRole('img')).toHaveLength(1);
-        expect(screen.queryAllByRole('link')).toHaveLength(0);
+        expect(screen.getByRole('img')).toBeInTheDocument();
+        expect(screen.queryByRole('link')).not.toBeInTheDocument();
     });
     it('should render correctly with simple logo image as a link', () => {
         const view = render(
@@ -37,6 +37,6 @@ describe('Header component that renders a website header with a logo on the left
         expect(view.container).toMatchSnapshot();
         expect(image).toBeInTheDocument();
         expect(image).toHaveAttribute('class', 'IconBase__svg');
-        expect(screen.getAllByRole('link')).toHaveLength(1);
+        expect(screen.getByRole('link')).toBeInTheDocument();
     });
 });
