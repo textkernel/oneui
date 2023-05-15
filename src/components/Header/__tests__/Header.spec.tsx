@@ -22,8 +22,8 @@ describe('Header component that renders a website header with a logo on the left
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getAllByRole('img')).toHaveLength(1);
-        expect(screen.getAllByRole('link')).toHaveLength(1);
+        expect(screen.getByRole('img')).toBeInTheDocument();
+        expect(screen.getByRole('link')).toBeInTheDocument();
     });
     it('should render correctly with logo passed as component', () => {
         const logo = (
@@ -32,11 +32,11 @@ describe('Header component that renders a website header with a logo on the left
             </a>
         );
         const view = render(<Header logo={logo}>This is a placeholder for children</Header>);
-        const images = screen.getAllByRole('img');
+        const image = screen.getByRole('img');
 
         expect(view.container).toMatchSnapshot();
-        expect(images).toHaveLength(1);
-        expect(images[0]).toHaveAttribute('class', 'IconBase__svg');
+        expect(image).toBeInTheDocument();
+        expect(image).toHaveAttribute('class', 'IconBase__svg');
         expect(screen.getAllByRole('link')).toHaveLength(1);
     });
 });
