@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem component should add aria label when item is highlighted 1`] = `
+<div>
+  <li
+    aria-selected="true"
+    class="ListItem ListItem--isHighlighted ListItem--clickable"
+    role="option"
+  >
+    <span>
+      An item
+    </span>
+  </li>
+</div>
+`;
+
+exports[`ListItem component should add clickable class when onClick is defined 1`] = `
+<div>
+  <li
+    aria-selected="false"
+    class="ListItem ListItem--clickable"
+    role="option"
+  >
+    <span>
+      An item
+    </span>
+  </li>
+</div>
+`;
+
+exports[`ListItem component should render ListItem correctly 1`] = `
+<div>
+  <li
+    class="ListItem"
+  >
+    <p>
+      An item
+    </p>
+  </li>
+</div>
+`;
+
+exports[`ListItem component should render correctly when disabled 1`] = `
+<div>
+  <li
+    class="ListItem ListItem--disabled"
+  >
+    <span>
+      An item
+    </span>
+  </li>
+</div>
+`;
+
+exports[`ListItem component should render interactive ListItem correctly 1`] = `
+<div>
+  <li
+    aria-selected="false"
+    class="ListItem ListItem--clickable"
+    role="option"
+  >
+    <p>
+      An item
+    </p>
+  </li>
+</div>
+`;
+
+exports[`ListItem component should set disabled prop on li when required 1`] = `
+<div>
+  <li
+    class="ListItem ListItem--disabled"
+    disabled=""
+  >
+    <span>
+      An item
+    </span>
+  </li>
+</div>
+`;
+
+exports[`ListItem component should turn string items to Text 1`] = `
+<div>
+  <li
+    class="ListItem"
+  >
+    <span>
+      Simple string
+    </span>
+  </li>
+</div>
+`;

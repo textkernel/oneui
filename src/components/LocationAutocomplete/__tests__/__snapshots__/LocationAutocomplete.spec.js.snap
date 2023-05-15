@@ -364,7 +364,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
-                        role="presentation"
+                        role="option"
                       >
                         <MarkedText
                           inline={true}
@@ -399,7 +399,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
-                        role="presentation"
+                        role="option"
                       >
                         <MarkedText
                           inline={true}
@@ -434,7 +434,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
-                        role="presentation"
+                        role="option"
                       >
                         <MarkedText
                           inline={true}
@@ -469,7 +469,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
-                        role="presentation"
+                        role="option"
                       >
                         <MarkedText
                           inline={true}
@@ -504,7 +504,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
                         onClick={[Function]}
                         onMouseDown={[Function]}
                         onMouseMove={[Function]}
-                        role="presentation"
+                        role="option"
                       >
                         <MarkedText
                           inline={true}
