@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { SelectButtonGroup } from '../SelectButtonGroup';
 import { SelectButton } from '../../SelectButton';
 
 describe('SelectButtonGroup', () => {
-    let view;
+    let view: RenderResult;
     let getButton;
     const onChangeMock = jest.fn();
     const defaultProps = {
