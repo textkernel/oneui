@@ -15,7 +15,7 @@ describe('Drawer', () => {
     it('should render correctly', () => {
         view = render(<Drawer title="some title">some text</Drawer>);
 
-        expect(view.container).toMatchSnapshot();
+        expect(view.baseElement).toMatchSnapshot();
         expect(screen.getByRole('heading', { name: 'some title' })).toBeInTheDocument();
     });
 
@@ -28,7 +28,7 @@ describe('Drawer', () => {
         );
         const expandButton = screen.getByRole('button', { name: '' });
 
-        expect(view.container).toMatchSnapshot();
+        expect(view.baseElement).toMatchSnapshot();
         expect(expandButton).toBeInTheDocument();
         expect(onClickMock).not.toHaveBeenCalled();
     });
