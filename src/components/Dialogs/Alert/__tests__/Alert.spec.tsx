@@ -22,7 +22,7 @@ describe('Alert', () => {
     });
 
     it('should render correctly', () => {
-        expect(view.container).toMatchSnapshot();
+        expect(view.baseElement).toMatchSnapshot();
         expect(screen.queryAllByRole('heading')).toHaveLength(0);
         expect(screen.getAllByRole('button')).toHaveLength(1);
     });
@@ -40,7 +40,7 @@ describe('Alert', () => {
             </Alert>
         );
 
-        expect(view.container).toMatchSnapshot();
+        expect(view.baseElement).toMatchSnapshot();
         expect(screen.getAllByRole('heading')).toHaveLength(1);
     });
 

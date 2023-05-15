@@ -24,7 +24,7 @@ describe('Confirm', () => {
     });
 
     it('should render correctly', () => {
-        expect(view.container).toMatchSnapshot();
+        expect(view.baseElement).toMatchSnapshot();
         expect(screen.queryAllByRole('heading')).toHaveLength(0);
         expect(screen.getAllByRole('button')).toHaveLength(2);
     });
@@ -43,7 +43,7 @@ describe('Confirm', () => {
             </Confirm>
         );
 
-        expect(view.container).toMatchSnapshot();
+        expect(view.baseElement).toMatchSnapshot();
         expect(screen.getAllByRole('heading')).toHaveLength(1);
     });
 
