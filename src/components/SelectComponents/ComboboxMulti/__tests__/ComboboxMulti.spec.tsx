@@ -50,6 +50,7 @@ describe('ComboboxMulti', () => {
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
+
             expect(view.container).toMatchSnapshot();
             const inputField = screen.getAllByRole('textbox')[0];
 

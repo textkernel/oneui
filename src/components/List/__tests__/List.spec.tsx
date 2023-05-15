@@ -55,6 +55,7 @@ describe('List component', () => {
                 </List>
             );
             expect(view.container).toMatchSnapshot();
+
             expect(screen.getByRole('list')).toBeInTheDocument();
             expect(screen.getByRole('list')).not.toHaveAttribute('tabindex', '0');
         });
@@ -66,6 +67,7 @@ describe('List component', () => {
                 </List>
             );
             expect(view.container).toMatchSnapshot();
+
             expect(screen.getByRole('list')).toBeInTheDocument();
             expect(screen.getByRole('list')).not.toHaveAttribute('tabindex', '0');
         });
