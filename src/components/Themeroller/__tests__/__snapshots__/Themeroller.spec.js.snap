@@ -187,6 +187,7 @@ exports[`Themeroller component should render component correctly 1`] = `
         <ul
           className="List"
           onKeyDown={[Function]}
+          role="listbox"
           tabIndex="0"
         >
           <ListItem
@@ -196,7 +197,6 @@ exports[`Themeroller component should render component correctly 1`] = `
           >
             <li
               className="ListItem List__item ThemeTuner__item"
-              role="presentation"
             >
               <Text
                 className="ThemeTuner__label"
@@ -271,7 +271,6 @@ exports[`Themeroller component should render component correctly 1`] = `
           >
             <li
               className="ListItem List__item ThemeTuner__item"
-              role="presentation"
             >
               <Text
                 className="ThemeTuner__label"
@@ -346,7 +345,6 @@ exports[`Themeroller component should render component correctly 1`] = `
           >
             <li
               className="ListItem List__item ThemeTuner__item"
-              role="presentation"
             >
               <Text
                 className="ThemeTuner__label"
@@ -424,7 +422,6 @@ exports[`Themeroller component should render component correctly 1`] = `
           >
             <li
               className="ListItem List__item ThemeTuner__item"
-              role="presentation"
             >
               <Text
                 className="ThemeTuner__label"

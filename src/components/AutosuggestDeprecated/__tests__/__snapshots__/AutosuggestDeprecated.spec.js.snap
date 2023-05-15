@@ -239,7 +239,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="presentation"
+                      role="option"
                     >
                       <MarkedText
                         inline={true}
@@ -274,7 +274,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="presentation"
+                      role="option"
                     >
                       <MarkedText
                         inline={true}
@@ -309,7 +309,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="presentation"
+                      role="option"
                     >
                       <MarkedText
                         inline={true}
@@ -344,7 +344,7 @@ exports[`AutosuggestDeprecated rendering should render all suggestions from the 
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="presentation"
+                      role="option"
                     >
                       <MarkedText
                         inline={true}
@@ -655,7 +655,6 @@ exports[`AutosuggestDeprecated rendering should render noSuggestions placeholder
                   >
                     <li
                       className="ListItem ListItem--disabled List__item"
-                      role="presentation"
                     >
                       <Text
                         context="muted"
@@ -817,7 +816,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="presentation"
+                      role="option"
                     >
                       <MarkedText
                         inline={true}
@@ -852,7 +851,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="presentation"
+                      role="option"
                     >
                       <MarkedText
                         inline={true}
@@ -887,7 +886,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="presentation"
+                      role="option"
                     >
                       <MarkedText
                         inline={true}
@@ -922,7 +921,7 @@ exports[`AutosuggestDeprecated rendering should render suggestions also if it pa
                       onClick={[Function]}
                       onMouseDown={[Function]}
                       onMouseMove={[Function]}
-                      role="presentation"
+                      role="option"
                     >
                       <MarkedText
                         inline={true}

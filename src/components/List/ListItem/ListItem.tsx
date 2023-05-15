@@ -49,12 +49,19 @@ export const ListItem = forwardRef<HTMLLIElement, Props>(
             liProps.disabled = disabled;
         }
 
+        const interactiveProps = onClick
+            ? {
+                  onClick,
+                  role: 'option',
+                  'aria-selected': isHighlighted,
+              }
+            : {};
+
         return (
             <li
                 {...liProps}
+                {...interactiveProps}
                 ref={ref}
-                role="presentation"
-                onClick={onClick}
                 {...block({
                     isHighlighted,
                     isSelected,

@@ -575,7 +575,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -614,7 +614,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -653,7 +653,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -692,7 +692,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -731,7 +731,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -770,7 +770,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -809,7 +809,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -848,7 +848,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -887,7 +887,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           onClick={[Function]}
                           onMouseDown={[Function]}
                           onMouseMove={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
@@ -922,7 +922,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
                           disabled={true}
                           id="downshift-1-item-9"
                           onMouseDown={[Function]}
-                          role="presentation"
+                          role="option"
                           style={Object {}}
                         >
                           <MarkedText
