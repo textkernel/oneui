@@ -93,6 +93,7 @@ export const Drawer: React.FC<Props> = ({
                     {...block({ [getStatus()]: state !== 'entering' })}
                     aria-hidden={!isShown}
                     {...rest}
+                    role="group"
                 >
                     <header
                         {...elem('head', { isPrimary })}
