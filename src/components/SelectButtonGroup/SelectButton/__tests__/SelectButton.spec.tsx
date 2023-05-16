@@ -69,9 +69,9 @@ describe('SelectButton', () => {
         expect(onChangeMock).toHaveBeenCalledWith('button 1');
     });
 
-    it.skip('should call onChange when Enter key was pressed on it', async () => {
+    it('should call onChange when Enter key was pressed on it', async () => {
         const user = userEvent.setup();
-        // TODO fix focus
+        screen.getByRole('button').focus();
         await user.keyboard('[ENTER]');
 
         expect(onChangeMock).toHaveBeenCalled();

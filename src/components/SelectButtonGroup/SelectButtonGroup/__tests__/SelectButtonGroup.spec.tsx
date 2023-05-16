@@ -158,7 +158,7 @@ describe('SelectButtonGroup', () => {
             expect(getButton(2)).not.toHaveClass('SelectButton SelectButton--isSelected');
         });
 
-        it.skip('should not allow deletion of last value if field is required', async () => {
+        it('should not allow deletion of last value if field is required', async () => {
             const newProps = {
                 isRequired: true,
             };
@@ -172,14 +172,14 @@ describe('SelectButtonGroup', () => {
 
             await user.click(getButton(1));
 
-            expect(getButton(0)).toHaveClass('SelectButton SelectButton--isSelected');
+            expect(getButton(0)).not.toHaveClass('SelectButton SelectButton--isSelected');
             expect(getButton(1)).toHaveClass('SelectButton SelectButton--isSelected');
             expect(getButton(2)).not.toHaveClass('SelectButton SelectButton--isSelected');
 
             await user.click(getButton(0));
 
-            expect(getButton(0)).not.toHaveClass('SelectButton SelectButton--isSelected');
-            expect(getButton(1)).toHaveClass('SelectButton SelectButton--isSelected');
+            expect(getButton(0)).toHaveClass('SelectButton SelectButton--isSelected');
+            expect(getButton(1)).not.toHaveClass('SelectButton SelectButton--isSelected');
             expect(getButton(2)).not.toHaveClass('SelectButton SelectButton--isSelected');
 
             await user.click(getButton(1));
