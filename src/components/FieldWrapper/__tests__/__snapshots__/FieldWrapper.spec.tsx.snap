@@ -47,7 +47,6 @@ exports[`FieldWrapper should call onArrowClick when arrow is accessed by keyboar
       some children
     </div>
     <svg
-      aria-label="arrow up"
       class="FieldWrapper__dropdownIcon"
       fill="currentColor"
       height="1em"
@@ -78,7 +77,6 @@ exports[`FieldWrapper should call onArrowClick when arrow is clicked 1`] = `
       some children
     </div>
     <svg
-      aria-label="arrow up"
       class="FieldWrapper__dropdownIcon"
       fill="currentColor"
       height="1em"
@@ -145,7 +143,7 @@ exports[`FieldWrapper should render arrow icon pointing down 1`] = `
       some children
     </div>
     <svg
-      aria-label="arrow up"
+      aria-label="open"
       class="FieldWrapper__dropdownIcon"
       fill="currentColor"
       height="1em"
@@ -176,7 +174,7 @@ exports[`FieldWrapper should render arrow icon pointing up 1`] = `
       some children
     </div>
     <svg
-      aria-label="arrow down"
+      aria-label="close"
       class="FieldWrapper__dropdownIcon"
       fill="currentColor"
       height="1em"

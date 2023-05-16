@@ -55,7 +55,6 @@ exports[`SelectBase callbacks should call onClearAllSelected on Clear button cli
           </svg>
         </button>
         <svg
-          aria-label="arrow up"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
@@ -186,7 +185,6 @@ exports[`SelectBase with toggle arrow should show arrows when showArrow is true 
           />
         </div>
         <svg
-          aria-label="arrow up"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
@@ -241,7 +239,6 @@ exports[`SelectBase with toggle arrow should toggle focus and the arrow when it 
           />
         </div>
         <svg
-          aria-label="arrow up"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"

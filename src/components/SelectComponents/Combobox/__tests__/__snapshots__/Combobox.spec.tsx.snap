@@ -44,7 +44,6 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
           />
         </div>
         <svg
-          aria-label="arrow up"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
@@ -110,7 +109,6 @@ exports[`Combobox rendering should initially render empty component correctly 1`
           />
         </div>
         <svg
-          aria-label="arrow up"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
@@ -186,7 +184,6 @@ exports[`Combobox rendering should render noSuggestions placeholder when empty s
           </ul>
         </div>
         <svg
-          aria-label="arrow down"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
@@ -250,7 +247,6 @@ exports[`Combobox rendering when blurred should show the selected value if avail
           />
         </div>
         <svg
-          aria-label="arrow up"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
