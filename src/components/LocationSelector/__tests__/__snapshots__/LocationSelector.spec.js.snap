@@ -129,19 +129,25 @@ exports[`LocationSelector component should render LocationSelector properly when
             type="button"
           >
             <MdClear
+              aria-label="Clear"
+              role="img"
               size={16}
             >
               <IconBase
+                aria-label="Clear"
                 attr={
                   Object {
                     "viewBox": "0 0 24 24",
                   }
                 }
+                role="img"
                 size={16}
               >
                 <svg
+                  aria-label="Clear"
                   fill="currentColor"
                   height={16}
+                  role="img"
                   size={16}
                   stroke="currentColor"
                   strokeWidth="0"
@@ -562,19 +568,25 @@ exports[`LocationSelector component should render LocationSelector propertly whe
             type="button"
           >
             <MdClear
+              aria-label="Clear"
+              role="img"
               size={16}
             >
               <IconBase
+                aria-label="Clear"
                 attr={
                   Object {
                     "viewBox": "0 0 24 24",
                   }
                 }
+                role="img"
                 size={16}
               >
                 <svg
+                  aria-label="Clear"
                   fill="currentColor"
                   height={16}
+                  role="img"
                   size={16}
                   stroke="currentColor"
                   strokeWidth="0"

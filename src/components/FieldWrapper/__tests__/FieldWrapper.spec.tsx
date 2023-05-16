@@ -27,18 +27,26 @@ describe('FieldWrapper', () => {
         expect(button).toBeInTheDocument();
     });
     it('should render arrow icon pointing down', () => {
-        const { container } = render(<FieldWrapper showArrow>some children</FieldWrapper>);
-
-        expect(container).toMatchSnapshot();
-    });
-    it('should render arrow icon pointing up', () => {
+        const openLabel = 'open';
         const { container } = render(
-            <FieldWrapper showArrow isArrowUp>
+            <FieldWrapper downArrowLabel={openLabel} showArrow>
                 some children
             </FieldWrapper>
         );
 
         expect(container).toMatchSnapshot();
+        expect(screen.getByLabelText(openLabel)).toBeInTheDocument();
+    });
+    it('should render arrow icon pointing up', () => {
+        const closeLabel = 'close';
+        const { container } = render(
+            <FieldWrapper upArrowLabel={closeLabel} showArrow isArrowUp>
+                some children
+            </FieldWrapper>
+        );
+
+        expect(container).toMatchSnapshot();
+        expect(screen.getByLabelText(closeLabel)).toBeInTheDocument();
     });
     it('should call onArrowClick when arrow is clicked', async () => {
         const onArrowClickMock = jest.fn();
@@ -75,6 +83,7 @@ describe('FieldWrapper', () => {
         expect(svg).toBeInTheDocument();
         await userEvent.keyboard('S');
         expect(onArrowClickMock).toHaveBeenCalledTimes(0);
+        // TODO: this doesn't test what the test suit claim to test
         await userEvent.click(svg);
         expect(onArrowClickMock).toHaveBeenCalledTimes(1);
         rerender(

@@ -8,7 +8,7 @@ exports[`SelectBase callbacks should call onClearAllSelected on Clear button cli
     <div
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby="downshift-11-label"
+      aria-labelledby="downshift-12-label"
       class="SelectBase__main"
       role="combobox"
     >
@@ -20,15 +20,15 @@ exports[`SelectBase callbacks should call onClearAllSelected on Clear button cli
         >
           <input
             aria-autocomplete="list"
-            aria-labelledby="downshift-11-label"
+            aria-labelledby="downshift-12-label"
             autocomplete="off"
-            id="downshift-11-input"
+            id="downshift-12-input"
             value=""
           />
           <ul
-            aria-labelledby="downshift-11-label"
+            aria-labelledby="downshift-12-label"
             class="List"
-            id="downshift-11-menu"
+            id="downshift-12-menu"
             role="listbox"
           />
         </div>
@@ -38,8 +38,10 @@ exports[`SelectBase callbacks should call onClearAllSelected on Clear button cli
           type="button"
         >
           <svg
+            aria-label="Clear"
             fill="currentColor"
             height="16"
+            role="img"
             size="16"
             stroke="currentColor"
             stroke-width="0"
@@ -82,7 +84,7 @@ exports[`SelectBase highlighting should highlight first item 1`] = `
     <div
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby="downshift-9-label"
+      aria-labelledby="downshift-10-label"
       class="SelectBase__main"
       role="combobox"
     >
@@ -94,15 +96,15 @@ exports[`SelectBase highlighting should highlight first item 1`] = `
         >
           <input
             aria-autocomplete="list"
-            aria-labelledby="downshift-9-label"
+            aria-labelledby="downshift-10-label"
             autocomplete="off"
-            id="downshift-9-input"
+            id="downshift-10-input"
             value=""
           />
           <ul
-            aria-labelledby="downshift-9-label"
+            aria-labelledby="downshift-10-label"
             class="List"
-            id="downshift-9-menu"
+            id="downshift-10-menu"
             role="listbox"
           />
         </div>

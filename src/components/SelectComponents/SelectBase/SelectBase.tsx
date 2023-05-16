@@ -12,8 +12,10 @@ const { block, elem } = bem('SelectBase', styles);
 export function SelectBase<S>({
     suggestions,
     suggestionToString,
-    clearTitle = '',
+    clearTitle,
     showArrow = false,
+    downArrowLabel,
+    upArrowLabel,
     showClearButton = false,
     disabled,
     onFocus,
@@ -239,6 +241,8 @@ export function SelectBase<S>({
                             isArrowUp={focused}
                             onArrowClick={focused ? handleOuterClick : handleWrapperClick(openMenu)}
                             clearTooltipLabel={clearTitle}
+                            downArrowLabel={downArrowLabel}
+                            upArrowLabel={upArrowLabel}
                             onClear={handleClearSelectedSuggestions}
                             showClearButton={!focused && showClearButton}
                             isFocused={focused && !disabled}

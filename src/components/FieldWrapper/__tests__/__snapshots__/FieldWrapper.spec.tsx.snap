@@ -16,8 +16,10 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
       type="button"
     >
       <svg
+        aria-label="Clear"
         fill="currentColor"
         height="16"
+        role="img"
         size="16"
         stroke="currentColor"
         stroke-width="0"
@@ -110,8 +112,10 @@ exports[`FieldWrapper should call onClear callback correctly 1`] = `
       type="button"
     >
       <svg
+        aria-label="Clear"
         fill="currentColor"
         height="16"
+        role="img"
         size="16"
         stroke="currentColor"
         stroke-width="0"
@@ -139,6 +143,7 @@ exports[`FieldWrapper should render arrow icon pointing down 1`] = `
       some children
     </div>
     <svg
+      aria-label="open"
       class="FieldWrapper__dropdownIcon"
       fill="currentColor"
       height="1em"
@@ -169,6 +174,7 @@ exports[`FieldWrapper should render arrow icon pointing up 1`] = `
       some children
     </div>
     <svg
+      aria-label="close"
       class="FieldWrapper__dropdownIcon"
       fill="currentColor"
       height="1em"
