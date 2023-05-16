@@ -36,7 +36,7 @@ exports[`ComboboxMulti rendering should add additional attributes to input field
             />
             <svg
               aria-haspopup="true"
-              aria-label="open menu"
+              aria-label="down arrow"
               class="ComboboxMulti__dropdownIcon"
               data-toggle="true"
               fill="currentColor"
@@ -101,7 +101,7 @@ exports[`ComboboxMulti rendering should initially render empty component correct
             />
             <svg
               aria-haspopup="true"
-              aria-label="open menu"
+              aria-label="down arrow"
               class="ComboboxMulti__dropdownIcon"
               data-toggle="true"
               fill="currentColor"
@@ -169,7 +169,7 @@ exports[`ComboboxMulti rendering should render noSuggestions placeholder when em
             />
             <svg
               aria-haspopup="true"
-              aria-label="close menu"
+              aria-label="up arrow"
               class="ComboboxMulti__dropdownIcon"
               data-toggle="true"
               fill="currentColor"
