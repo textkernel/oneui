@@ -3,7 +3,7 @@ import { IoMdArrowDropup, IoMdArrowDropdown } from 'react-icons/io';
 import { MdClear } from 'react-icons/md';
 import { bem } from '../../utils';
 import { Button } from '../Buttons';
-import { ENTER_KEY, CLOSE_ICON_LABEL, UP_ARROW_LABEL, DOWN_ARROW_LABEL } from '../../constants';
+import { ENTER_KEY } from '../../constants';
 import styles from './FieldWrapper.scss';
 
 const { block, elem } = bem('FieldWrapper', styles);
@@ -27,10 +27,10 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     isFocused?: boolean;
     /** defines if the component is disabled */
     disabled?: boolean;
-    /** Open/Down arrow name for ARIA labelling */
-    openArrowLabel?: string;
-    /** Close/Up arrow name for ARIA labelling */
-    closeArrowLabel?: string;
+    /** Down arrow name for ARIA labelling */
+    downArrowLabel?: string;
+    /** Up arrow name for ARIA labelling */
+    upArrowLabel?: string;
 }
 
 export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
@@ -40,13 +40,13 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
             showArrow = false,
             isArrowUp = false,
             onArrowClick,
-            clearTooltipLabel = CLOSE_ICON_LABEL,
+            clearTooltipLabel,
             showClearButton = false,
             onClear = null,
             isFocused = false,
             disabled = false,
-            openArrowLabel = DOWN_ARROW_LABEL,
-            closeArrowLabel = UP_ARROW_LABEL,
+            downArrowLabel,
+            upArrowLabel,
             ...rest
         },
         ref
@@ -98,7 +98,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                             onClick={handleArrowClick}
                             onKeyDown={handleArrowKeyDown}
                             role="button"
-                            aria-label={openArrowLabel}
+                            aria-label={upArrowLabel}
                         />
                     ) : (
                         <IoMdArrowDropdown
@@ -107,7 +107,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                             onClick={handleArrowClick}
                             onKeyDown={handleArrowKeyDown}
                             role="button"
-                            aria-label={closeArrowLabel}
+                            aria-label={downArrowLabel}
                         />
                     ))}
             </div>
