@@ -7,7 +7,6 @@ import { SelectButton } from '../../SelectButton';
 
 describe('SelectButtonGroup', () => {
     let view: RenderResult;
-    let getButton;
     const onChangeMock = jest.fn();
     const defaultProps = {
         defaultValue: ['1'],
@@ -28,6 +27,7 @@ describe('SelectButtonGroup', () => {
             </SelectButtonGroup>
         );
     };
+    const getButton = (number) => screen.getAllByRole('button')[number];
 
     beforeEach(() => {
         view = render(
@@ -43,8 +43,6 @@ describe('SelectButtonGroup', () => {
                 </SelectButton>
             </SelectButtonGroup>
         );
-
-        getButton = (number) => screen.getAllByRole('button')[number];
     });
 
     afterEach(() => {
