@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Map/> that renders a Map with markers should render with default props 1`] = `
+<div>
+  <div
+    style="height: 100%; width: 100%;"
+  />
+</div>
+`;
+
+exports[`<Map/> that renders a Map with markers should render with markers 1`] = `
+<div>
+  <div
+    style="height: 100%; width: 100%;"
+  />
+</div>
+`;
