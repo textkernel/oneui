@@ -36,6 +36,7 @@ describe('Select', () => {
         it('should initially render correctly', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(selectionText()).toEqual(SUGGESTION_TO_STRING(SUGGESTIONS[1]));
+            expect(wrapper.find('button.FieldWrapper__clearButton')).toHaveLength(1);
         });
         it('should render focused component correctly', () => {
             clickWrapper();
@@ -43,6 +44,11 @@ describe('Select', () => {
             expect(toJson(wrapper)).toMatchSnapshot();
             expect(wrapper.find('li')).toHaveLength(SUGGESTIONS.length);
             expect(selectionText()).toEqual(SUGGESTION_TO_STRING(SUGGESTIONS[1]));
+        });
+        it('should not render clear button if onClear is not defined', () => {
+            wrapper.setProps({ onClear: undefined });
+            expect(toJson(wrapper)).toMatchSnapshot();
+            expect(wrapper.find('button.FieldWrapper__clearButton')).toHaveLength(0);
         });
     });
     describe('toggling items list', () => {

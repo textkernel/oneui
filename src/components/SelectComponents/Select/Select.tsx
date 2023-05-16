@@ -110,7 +110,7 @@ export function Select<S>({
             onSelectionAdd={onChange}
             blurredRenderer={blurredRenderer}
             focusedRenderer={focusedRenderer}
-            showClearButton={Boolean(selectedItem)}
+            showClearButton={onClear && Boolean(selectedItem)}
             clearTitle={clearTooltipLabel}
             listRef={listRef}
             onBlur={onBlur}
