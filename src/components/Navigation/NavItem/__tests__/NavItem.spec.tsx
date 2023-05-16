@@ -111,7 +111,7 @@ describe('NavItem that renders a single navigation item', () => {
 
             expect(links).toHaveLength(2);
             expect(links[0]).toHaveClass('NavItem');
-            expect(typeof links[1].className).toBe('string');
+            expect(typeof links[1].onclick).toBe('function');
         });
     });
 });
