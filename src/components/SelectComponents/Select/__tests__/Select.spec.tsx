@@ -49,6 +49,7 @@ describe('Select', () => {
             expect(view.container.firstChild).toHaveTextContent(
                 SUGGESTION_TO_STRING(SUGGESTIONS[1])
             );
+            expect(screen.getByLabelText(downArrowLabel)).toBeInTheDocument();
         });
         it('should not render clear button if onClear is not defined', () => {
             expect(view.container).toMatchSnapshot();
