@@ -52,10 +52,10 @@ export interface SelectClearButtonProps {
 export interface ToggleButtonProps {
     /** show dropdown icon */
     showArrow?: boolean;
-    /** Open/Down arrow name for ARIA labelling */
-    openArrowLabel?: string;
-    /** Close/Up arrow name for ARIA labelling */
-    closeArrowLabel?: string;
+    /** Down arrow name for ARIA labelling, it is used when the component isn't focused */
+    downArrowLabel?: string;
+    /** Up arrow name for ARIA labelling, it is used when the component is focused and options are shown */
+    upArrowLabel?: string;
 }
 
 export type FocusedRendererHelpers<S> = (helpers: {

@@ -14,8 +14,8 @@ export function SelectBase<S>({
     suggestionToString,
     clearTitle,
     showArrow = false,
-    openArrowLabel,
-    closeArrowLabel,
+    downArrowLabel,
+    upArrowLabel,
     showClearButton = false,
     disabled,
     onFocus,
@@ -241,6 +241,8 @@ export function SelectBase<S>({
                             isArrowUp={focused}
                             onArrowClick={focused ? handleOuterClick : handleWrapperClick(openMenu)}
                             clearTooltipLabel={clearTitle}
+                            downArrowLabel={downArrowLabel}
+                            upArrowLabel={upArrowLabel}
                             onClear={handleClearSelectedSuggestions}
                             showClearButton={!focused && showClearButton}
                             isFocused={focused && !disabled}
