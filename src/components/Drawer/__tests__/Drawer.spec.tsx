@@ -40,8 +40,10 @@ describe('Drawer', () => {
             </Drawer>
         );
 
-        expect(screen.getByRole('group')).not.toHaveClass('Drawer--isShownAndExpanded');
-        expect(screen.getByRole('group')).toHaveClass('Drawer--isShownAndClosed');
+        const group = screen.getByRole('group');
+
+        expect(group).not.toHaveClass('Drawer--isShownAndExpanded');
+        expect(group).toHaveClass('Drawer--isShownAndClosed');
         expect(screen.getByRole('button', { name: '' })).not.toHaveClass(
             'Drawer__expandButton--isExpanded'
         );
@@ -52,16 +54,17 @@ describe('Drawer', () => {
         expect(view.baseElement).toMatchSnapshot();
         const user = userEvent.setup();
         const button = screen.getByRole('button', { name: '' });
+        const group = screen.getByRole('group');
         await user.click(button);
         // Expand Drawer
-        expect(screen.getByRole('group')).toHaveClass('Drawer--isShownAndExpanded');
-        expect(screen.getByRole('group')).not.toHaveClass('Drawer--isShownAndClosed');
+        expect(group).toHaveClass('Drawer--isShownAndExpanded');
+        expect(group).not.toHaveClass('Drawer--isShownAndClosed');
         expect(button).toHaveClass('Drawer__expandButton--isExpanded');
 
         // Close Drawer
         await user.click(button);
-        expect(screen.getByRole('group')).not.toHaveClass('Drawer--isShownAndExpanded');
-        expect(screen.getByRole('group')).toHaveClass('Drawer--isShownAndClosed');
+        expect(group).not.toHaveClass('Drawer--isShownAndExpanded');
+        expect(group).toHaveClass('Drawer--isShownAndClosed');
         expect(button).not.toHaveClass('Drawer__expandButton--isExpanded');
     });
 
