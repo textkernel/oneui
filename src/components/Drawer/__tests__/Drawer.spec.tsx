@@ -29,8 +29,7 @@ describe('Drawer', () => {
         const expandButton = screen.getByRole('button', { name: '' });
 
         expect(view.baseElement).toMatchSnapshot();
-        expect(expandButton).toBeInTheDocument();
-        expect(onClickMock).not.toHaveBeenCalled();
+        expect(expandButton).toHaveClass('Drawer__expandButton--isExpanded');
     });
 
     it('should pass initial close status', () => {
@@ -41,26 +40,29 @@ describe('Drawer', () => {
             </Drawer>
         );
 
-        expect(onClickMock).not.toHaveBeenCalled();
+        expect(screen.getByRole('group')).not.toHaveClass('Drawer--isShownAndExpanded');
+        expect(screen.getByRole('group')).toHaveClass('Drawer--isShownAndClosed');
+        expect(screen.getByRole('button', { name: '' })).not.toHaveClass(
+            'Drawer__expandButton--isExpanded'
+        );
     });
 
     it('should expand and close correctly', async () => {
-        const onClickMock = jest.fn();
+        view = render(<Drawer title="some title">some text</Drawer>);
+        expect(view.baseElement).toMatchSnapshot();
         const user = userEvent.setup();
-        render(
-            <Drawer onClick={onClickMock} title="some title">
-                some text
-            </Drawer>
-        );
-        const expandButton = screen.getByRole('button', { name: '' });
+        const button = screen.getByRole('button', { name: '' });
+        await user.click(button);
         // Expand Drawer
-        await user.click(expandButton);
+        expect(screen.getByRole('group')).toHaveClass('Drawer--isShownAndExpanded');
+        expect(screen.getByRole('group')).not.toHaveClass('Drawer--isShownAndClosed');
+        expect(button).toHaveClass('Drawer__expandButton--isExpanded');
 
         // Close Drawer
-        await user.click(expandButton);
-
-        expect(onClickMock).toHaveBeenCalledTimes(2);
-        expect(screen.getByRole('group')).toHaveAttribute('aria-hidden', 'false');
+        await user.click(button);
+        expect(screen.getByRole('group')).not.toHaveClass('Drawer--isShownAndExpanded');
+        expect(screen.getByRole('group')).toHaveClass('Drawer--isShownAndClosed');
+        expect(button).not.toHaveClass('Drawer__expandButton--isExpanded');
     });
 
     it('should be hidden when isShown is false', () => {
