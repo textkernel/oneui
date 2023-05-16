@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavItem that renders a single navigation item should add active class 1`] = `
+<div>
+  <a
+    aria-current="page"
+    class="NavItem NavItem--active"
+    href="/"
+  >
+    item
+  </a>
+</div>
+`;
+
+exports[`NavItem that renders a single navigation item should render correctly with default props 1`] = `
+<div>
+  <a
+    class="NavItem"
+    href="/"
+  >
+    item
+  </a>
+</div>
+`;
+
+exports[`NavItem that renders a single navigation item when supporting React Router NavLink should add activeClassName class for react-router version 5 1`] = `
+<div>
+  <a
+    activeclassname="NavItem__active"
+    class="NavItem"
+    href="/else"
+  >
+    item
+  </a>
+</div>
+`;
+
+exports[`NavItem that renders a single navigation item when supporting React Router NavLink should make className a function for react-router version 6 1`] = `
+<div>
+  <a
+    class="NavItem"
+    href="/else"
+  >
+    item
+  </a>
+</div>
+`;
