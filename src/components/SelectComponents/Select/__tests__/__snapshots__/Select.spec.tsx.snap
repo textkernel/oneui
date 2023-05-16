@@ -42,7 +42,7 @@ exports[`Select rendering should initially render correctly 1`] = `
           />
         </div>
         <svg
-          aria-label="arrow up"
+          aria-label="Open"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
@@ -106,7 +106,7 @@ exports[`Select rendering should not render clear button if onClear is not defin
           />
         </div>
         <svg
-          aria-label="arrow up"
+          aria-label="Open"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
@@ -172,7 +172,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
               aria-selected="true"
               class="ListItem ListItem--isHighlighted ListItem--clickable"
               id="downshift-3-item-0"
-              role="presentation"
+              role="option"
             >
               <span>
                 Sun
@@ -182,7 +182,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
               aria-selected="false"
               class="ListItem ListItem--clickable"
               id="downshift-3-item-1"
-              role="presentation"
+              role="option"
             >
               <span>
                 Moon
@@ -192,7 +192,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
               aria-selected="false"
               class="ListItem ListItem--clickable"
               id="downshift-3-item-2"
-              role="presentation"
+              role="option"
             >
               <span>
                 Mercury
@@ -202,7 +202,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
               aria-selected="false"
               class="ListItem ListItem--clickable"
               id="downshift-3-item-3"
-              role="presentation"
+              role="option"
             >
               <span>
                 Venus
@@ -212,7 +212,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
               aria-selected="false"
               class="ListItem ListItem--clickable"
               id="downshift-3-item-4"
-              role="presentation"
+              role="option"
             >
               <span>
                 Earth
@@ -222,7 +222,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
               aria-selected="false"
               class="ListItem ListItem--clickable"
               id="downshift-3-item-5"
-              role="presentation"
+              role="option"
             >
               <span>
                 Mars
@@ -232,7 +232,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
               aria-selected="false"
               class="ListItem ListItem--clickable"
               id="downshift-3-item-6"
-              role="presentation"
+              role="option"
             >
               <span>
                 Jupiter
@@ -242,7 +242,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
               aria-selected="false"
               class="ListItem ListItem--clickable"
               id="downshift-3-item-7"
-              role="presentation"
+              role="option"
             >
               <span>
                 Saturn
@@ -252,7 +252,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
               aria-selected="false"
               class="ListItem ListItem--clickable"
               id="downshift-3-item-8"
-              role="presentation"
+              role="option"
             >
               <span>
                 Neptune
@@ -263,7 +263,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
               class="ListItem ListItem--disabled"
               disabled=""
               id="downshift-3-item-9"
-              role="presentation"
+              role="option"
             >
               <span>
                 Pluto
@@ -272,7 +272,7 @@ exports[`Select rendering should render focused component correctly 1`] = `
           </ul>
         </div>
         <svg
-          aria-label="arrow down"
+          aria-label="Close"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"

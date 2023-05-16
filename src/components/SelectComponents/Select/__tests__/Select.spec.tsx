@@ -3,7 +3,6 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Select } from '../Select';
-import { CLOSE_ICON_LABEL, UP_ARROW_LABEL, DOWN_ARROW_LABEL } from '../../../../constants';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
@@ -16,14 +15,17 @@ describe('Select', () => {
     const mockOnFocus = jest.fn();
     const mockOnBlur = jest.fn();
     const mockOnClear = jest.fn();
+    const clearIconLabel = 'X';
+    const upArrowLabel = 'Close';
+    const downArrowLabel = 'Open';
 
     let view;
 
     const openWrapper = async (user) => {
-        await user.click(screen.getByLabelText(UP_ARROW_LABEL));
+        await user.click(screen.getByLabelText(downArrowLabel));
     };
     const closeWrapper = async (user) => {
-        await user.click(screen.getByLabelText(DOWN_ARROW_LABEL));
+        await user.click(screen.getByLabelText(upArrowLabel));
     };
 
     beforeEach(() => {
@@ -34,6 +36,9 @@ describe('Select', () => {
                 itemToString={SUGGESTION_TO_STRING}
                 selectedItem={SUGGESTIONS[1]}
                 onChange={mockOnChange}
+                clearTooltipLabel={clearIconLabel}
+                upArrowLabel={upArrowLabel}
+                downArrowLabel={downArrowLabel}
             />
         );
     });
@@ -47,7 +52,7 @@ describe('Select', () => {
         });
         it('should not render clear button if onClear is not defined', () => {
             expect(view.container).toMatchSnapshot();
-            expect(screen.queryByLabelText(CLOSE_ICON_LABEL)).not.toBeInTheDocument();
+            expect(screen.queryByLabelText(clearIconLabel)).not.toBeInTheDocument();
         });
         it('should render clear button onClear is defined', () => {
             view.rerender(
@@ -58,9 +63,12 @@ describe('Select', () => {
                     selectedItem={SUGGESTIONS[1]}
                     onChange={mockOnChange}
                     onClear={mockOnClear}
+                    clearTooltipLabel={clearIconLabel}
+                    upArrowLabel={upArrowLabel}
+                    downArrowLabel={downArrowLabel}
                 />
             );
-            expect(screen.getByLabelText(CLOSE_ICON_LABEL)).toBeInTheDocument();
+            expect(screen.getByLabelText(clearIconLabel)).toBeInTheDocument();
         });
 
         it('should render focused component correctly', async () => {
@@ -68,7 +76,7 @@ describe('Select', () => {
             await openWrapper(user);
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.getAllByRole('presentation')).toHaveLength(SUGGESTIONS.length);
+            expect(screen.getAllByRole('option')).toHaveLength(SUGGESTIONS.length);
             expect(view.container.firstChild).toHaveTextContent(
                 SUGGESTION_TO_STRING(SUGGESTIONS[1])
             );
@@ -78,46 +86,46 @@ describe('Select', () => {
         it('should open list when search box is clicked', async () => {
             const user = userEvent.setup();
             // originally to be closed
-            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+            expect(screen.queryAllByRole('option')).toHaveLength(0);
 
             // open items list
             await user.click(screen.getByRole('searchbox'));
-            expect(screen.getAllByRole('presentation')).toHaveLength(SUGGESTIONS.length);
+            expect(screen.getAllByRole('option')).toHaveLength(SUGGESTIONS.length);
         });
         it('should open list when arrow element is clicked', async () => {
             const user = userEvent.setup();
             // originally to be closed
-            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+            expect(screen.queryAllByRole('option')).toHaveLength(0);
 
             // open items list
             await openWrapper(user);
-            expect(screen.getAllByRole('presentation')).toHaveLength(SUGGESTIONS.length);
+            expect(screen.getAllByRole('option')).toHaveLength(SUGGESTIONS.length);
         });
         it('should close list when arrow element is clicked', async () => {
             const user = userEvent.setup();
             // originally to be closed
-            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+            expect(screen.queryAllByRole('option')).toHaveLength(0);
 
             // open items list
             await openWrapper(user);
-            expect(screen.getAllByRole('presentation')).toHaveLength(SUGGESTIONS.length);
+            expect(screen.getAllByRole('option')).toHaveLength(SUGGESTIONS.length);
 
             // close item list
             await closeWrapper(user);
-            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+            expect(screen.queryAllByRole('option')).toHaveLength(0);
         });
         it('should close list when item is selected', async () => {
             const user = userEvent.setup();
             // originally to be closed
-            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+            expect(screen.queryAllByRole('option')).toHaveLength(0);
 
             // open items list
             await openWrapper(user);
-            expect(screen.getAllByRole('presentation')).toHaveLength(SUGGESTIONS.length);
+            expect(screen.getAllByRole('option')).toHaveLength(SUGGESTIONS.length);
 
             // select item
-            await user.click(screen.queryAllByRole('presentation')[1]);
-            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+            await user.click(screen.queryAllByRole('option')[1]);
+            expect(screen.queryAllByRole('option')).toHaveLength(0);
         });
     });
 
@@ -132,6 +140,8 @@ describe('Select', () => {
                     items={SUGGESTIONS}
                     itemToString={SUGGESTION_TO_STRING}
                     onChange={mockOnChange}
+                    upArrowLabel={upArrowLabel}
+                    downArrowLabel={downArrowLabel}
                 />
             );
             expect(view.container.firstChild).toHaveTextContent('');
@@ -143,6 +153,8 @@ describe('Select', () => {
                     itemToString={SUGGESTION_TO_STRING}
                     onChange={mockOnChange}
                     placeholder="Choose..."
+                    upArrowLabel={upArrowLabel}
+                    downArrowLabel={downArrowLabel}
                 />
             );
             expect(view.container.firstChild).toHaveTextContent('Choose...');
@@ -163,6 +175,9 @@ describe('Select', () => {
                         itemToString={SUGGESTION_TO_STRING}
                         onChange={mockOnChange}
                         onFocus={mockOnFocus}
+                        clearTooltipLabel={clearIconLabel}
+                        upArrowLabel={upArrowLabel}
+                        downArrowLabel={downArrowLabel}
                     />
                 );
                 expect(mockOnFocus).not.toHaveBeenCalled();
@@ -181,6 +196,9 @@ describe('Select', () => {
                         itemToString={SUGGESTION_TO_STRING}
                         onChange={mockOnChange}
                         onBlur={mockOnBlur}
+                        clearTooltipLabel={clearIconLabel}
+                        upArrowLabel={upArrowLabel}
+                        downArrowLabel={downArrowLabel}
                     />
                 );
                 expect(mockOnBlur).not.toHaveBeenCalled();
@@ -200,6 +218,9 @@ describe('Select', () => {
                         itemToString={SUGGESTION_TO_STRING}
                         onChange={mockOnChange}
                         onBlur={mockOnBlur}
+                        clearTooltipLabel={clearIconLabel}
+                        upArrowLabel={upArrowLabel}
+                        downArrowLabel={downArrowLabel}
                     />
                 );
                 expect(mockOnBlur).not.toHaveBeenCalled();
@@ -207,7 +228,7 @@ describe('Select', () => {
                 await openWrapper(user);
                 expect(mockOnBlur).not.toHaveBeenCalled();
 
-                await user.click(screen.queryAllByRole('presentation')[1]);
+                await user.click(screen.queryAllByRole('option')[1]);
                 expect(mockOnBlur).toHaveBeenCalled();
             });
         });
@@ -217,7 +238,7 @@ describe('Select', () => {
                 await openWrapper(user);
                 expect(mockOnChange).not.toHaveBeenCalled();
 
-                await user.click(screen.queryAllByRole('presentation')[1]);
+                await user.click(screen.queryAllByRole('option')[1]);
                 expect(mockOnChange).toHaveBeenCalled();
             });
             it('should not be called on simply closing the dropdown', async () => {
@@ -239,12 +260,15 @@ describe('Select', () => {
                         selectedItem={SUGGESTIONS[1]}
                         onChange={mockOnChange}
                         onClear={mockOnClear}
+                        clearTooltipLabel={clearIconLabel}
+                        upArrowLabel={upArrowLabel}
+                        downArrowLabel={downArrowLabel}
                     />
                 );
-                expect(screen.getByLabelText(CLOSE_ICON_LABEL)).toBeInTheDocument();
+                expect(screen.getByLabelText(clearIconLabel)).toBeInTheDocument();
                 expect(mockOnClear).not.toHaveBeenCalled();
 
-                await user.click(screen.getByLabelText(CLOSE_ICON_LABEL));
+                await user.click(screen.getByLabelText(clearIconLabel));
                 expect(mockOnClear).toHaveBeenCalled();
             });
         });
