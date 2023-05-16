@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component that renders a website header with a logo on the left and optional children on the right side should render correctly with logo passed as component 1`] = `
+<div>
+  <header
+    class="Header"
+  >
+    <div
+      class="BlockWidthRestrictor Header__wrapper"
+    >
+      <a
+        class="Header__logo"
+        href="/test"
+      >
+        <div
+          class="IconBase"
+        >
+          <svg
+            class="IconBase__svg"
+            role="img"
+            style="width: 1em;"
+            viewBox="0 0 369.7 800"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M334.3,800C203.4,766.9,89.9,681.8,89.9,543.8V248.3H0v-104H89.9V0H223.1V144.2H349.2v104H223.1V554c0,76.5,56.7,109.6,146.6,130.8Z"
+            />
+          </svg>
+        </div>
+      </a>
+      <div>
+        This is a placeholder for children
+      </div>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`Header component that renders a website header with a logo on the left and optional children on the right side should render correctly with simple logo image 1`] = `
+<div>
+  <header
+    class="Header"
+  >
+    <div
+      class="BlockWidthRestrictor Header__wrapper"
+    >
+      <img
+        alt="our logo"
+        class="Header__logo"
+        src="jobfeed-logo.svg"
+      />
+      <div>
+        This is a placeholder for children
+      </div>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`Header component that renders a website header with a logo on the left and optional children on the right side should render correctly with simple logo image as a link 1`] = `
+<div>
+  <header
+    class="Header"
+  >
+    <div
+      class="BlockWidthRestrictor Header__wrapper"
+    >
+      <a
+        href="/"
+      >
+        <img
+          class="Header__logo"
+          src="jobfeed-logo.svg"
+        />
+      </a>
+      <div>
+        This is a placeholder for children
+      </div>
+    </div>
+  </header>
+</div>
+`;

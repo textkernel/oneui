@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gauge should render children 0 1`] = `
+<div>
+  <div
+    class="Gauge"
+  >
+    <svg
+      class="Gauge__svg"
+      width="100%"
+    >
+      <circle
+        class="Gauge__circleBackground"
+        cx="50%"
+        cy="25%"
+        r="100"
+        style="stroke-dasharray: 314.1592653589793 628.3185307179587;"
+      />
+      <circle
+        class="Gauge__circleForeground"
+        cx="50%"
+        cy="25%"
+        r="100"
+        style="stroke-dasharray: 0 628.3185307179587;"
+      />
+    </svg>
+    <div
+      class="Gauge__contentWrapper"
+    >
+      <div
+        class="Gauge__content"
+      >
+        0
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Gauge should render correctly 1`] = `
+<div>
+  <div
+    class="Gauge"
+  >
+    <svg
+      class="Gauge__svg"
+      width="100%"
+    >
+      <circle
+        class="Gauge__circleBackground"
+        cx="50%"
+        cy="25%"
+        r="100"
+        style="stroke-dasharray: 314.1592653589793 628.3185307179587;"
+      />
+      <circle
+        class="Gauge__circleForeground"
+        cx="50%"
+        cy="25%"
+        r="100"
+        style="stroke-dasharray: 0 628.3185307179587;"
+      />
+    </svg>
+    <div
+      class="Gauge__contentWrapper"
+    >
+      <div
+        class="Gauge__content"
+      >
+        Some content
+        <div
+          class="Gauge__metric"
+          title="Metric"
+        >
+          Metric
+        </div>
+      </div>
+    </div>
+    <div
+      class="Gauge__note"
+    >
+      Value
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Gauge should render nothing if no children are provided 1`] = `<div />`;
+
+exports[`Gauge should render with loading state correctly 1`] = `
+<div>
+  <div
+    class="Gauge"
+  >
+    <svg
+      class="Gauge__svg"
+      width="100%"
+    >
+      <circle
+        class="Gauge__circleBackground"
+        cx="50%"
+        cy="25%"
+        r="100"
+        style="stroke-dasharray: 314.1592653589793 628.3185307179587;"
+      />
+      <circle
+        class="Gauge__circleForeground Gauge__circleForeground--isProgressLoading"
+        cx="50%"
+        cy="25%"
+        r="100"
+        style="stroke-dasharray: 0 628.3185307179587;"
+      />
+    </svg>
+    <div
+      class="Gauge__contentWrapper Gauge__contentWrapper--isContentLoading"
+    >
+      <div
+        aria-label="Loading"
+        class="ContentPlaceholder Gauge__contentPlaceholder"
+        role="alert"
+        style="animation-duration: 1s; height: 28px;"
+      >
+         
+        <div
+          class="ContentPlaceholder__mask"
+          role="presentation"
+          style="width: 0%;"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
