@@ -193,4 +193,11 @@ expect(screen.getByRole('button')).toHaveAttribute('data-test', 'something');
 
 ```
 
+### Using [baseElement](https://testing-library.com/docs/react-testing-library/api/)
 
+```ts
+import { render } from '@testing-library/react';
+
+const view = render(<MyComponent />);
+expect(view.baseElement).toMatchSnapshot();
+```

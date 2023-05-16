@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Alert should render correctly 1`] = `
+exports[`Confirm should render correctly 1`] = `
 <body
   class="Modal__body"
 >
@@ -22,7 +22,7 @@ exports[`Alert should render correctly 1`] = `
       class="Modal__overlay Modal__overlay--entered"
     >
       <div
-        aria-label="Content label"
+        aria-label="Content Label"
         class="Modal__content Dialog Modal__content--entered"
         role="dialog"
         tabindex="-1"
@@ -31,11 +31,17 @@ exports[`Alert should render correctly 1`] = `
           class="Dialog__content"
           role="alert"
         >
-          Body of the alert
+          Body of the confirm
         </div>
         <div
           class="Dialog__actions"
         >
+          <button
+            class="Button Button--isLink Dialog__cancel"
+            type="button"
+          >
+            Cancel
+          </button>
           <button
             class="Button Button--isPrimary"
             type="button"
@@ -49,7 +55,7 @@ exports[`Alert should render correctly 1`] = `
 </body>
 `;
 
-exports[`Alert should render correctly with title 1`] = `
+exports[`Confirm should render correctly with title 1`] = `
 <body
   class="Modal__body"
 >
@@ -74,7 +80,7 @@ exports[`Alert should render correctly with title 1`] = `
       class="Modal__overlay Modal__overlay--entered"
     >
       <div
-        aria-label="Content label"
+        aria-label="Content Label"
         class="Modal__content Dialog Modal__content--entered"
         role="dialog"
         tabindex="-1"
@@ -88,11 +94,17 @@ exports[`Alert should render correctly with title 1`] = `
           >
             Title
           </h2>
-          Body of the alert
+          Body of the confirm
         </div>
         <div
           class="Dialog__actions"
         >
+          <button
+            class="Button Button--isLink Dialog__cancel"
+            type="button"
+          >
+            Cancel
+          </button>
           <button
             class="Button Button--isPrimary"
             type="button"

@@ -16,7 +16,7 @@ export interface Props {
     /** Percentage of the progress bar to be filled */
     percentage?: number;
     /** Content component */
-    children: React.ReactNode;
+    children?: React.ReactNode;
     /** String value to be used as metric part below the child */
     metric?: string;
     /** Note component to be rendered below the gauge */
