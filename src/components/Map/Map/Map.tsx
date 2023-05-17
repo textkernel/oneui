@@ -33,7 +33,7 @@ type RegionArea = {
 
 interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'options'> {
     /** The default parameters to determine the viewport when no circular or point markers are present. */
-    defaultArea:
+    defaultArea?:
         | {
               address: string;
           }
