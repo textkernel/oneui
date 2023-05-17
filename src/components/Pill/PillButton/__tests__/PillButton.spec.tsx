@@ -26,34 +26,38 @@ describe('<PillButton> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-
-            // expect(view.find('.PillButton__pill--isActive')).toHaveLength(0);
-            // expect(view.find('.PillButton__pill--isOpen')).toHaveLength(0);
+            expect(screen.getByRole('button', { name: '' })).not.toHaveClass(
+                'PillButton__button PillButton__button--isOpen'
+            );
+            expect(screen.getByRole('button', { name: `${name}` })).not.toHaveClass(
+                'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
+            );
         });
 
         it('should trigger toggle state once when clicked', async () => {
             const user = userEvent.setup();
-            await user.click(screen.getByRole('button', { name: 'Pill name' }));
+            await user.click(screen.getByRole('button', { name: `${name}` }));
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
 
         it('should trigger toggle state once on keyboard interaction', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: 'Pill name' });
+            const button = screen.getByRole('button', { name: `${name}` });
             button.focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
 
-        // it('should have arrow down label', () => {
-        //     expect(view.find('IoIosArrowDown')).toHaveLength(1);
-        // });
-        //
+        it('should have arrow down label', () => {
+            expect(screen.getByRole('img')).toBeInTheDocument();
+            expect(screen.getByRole('img')).toHaveClass('PillButton__arrowIcon');
+        });
+
         it('should trigger toggle state once when button is clicked', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: 'Pill name' });
+            const button = screen.getByRole('button', { name: `${name}` });
             await user.click(button);
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
@@ -61,7 +65,7 @@ describe('<PillButton> component', () => {
 
         it('should trigger toggle state once on keyboard interaction with button', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: 'Pill name' });
+            const button = screen.getByRole('button', { name: `${name}` });
             button.focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
@@ -83,17 +87,21 @@ describe('<PillButton> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            // expect(view.find('.PillButton__pill--isActive')).toHaveLength(0);
-            // expect(view.find('.PillButton__pill--isOpen')).toHaveLength(1);
+            expect(screen.getByRole('button', { name: '' })).toHaveClass(
+                'PillButton__button PillButton__button--isOpen'
+            );
+            expect(screen.getByRole('button', { name: `${name}` })).not.toHaveClass(
+                'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
+            );
         });
 
-        // it('should have arrow up label', () => {
-        //     expect(view.find('IoIosArrowDown.PillButton__arrowIcon--isOpen')).toHaveLength(1);
-        // });
-        //
+        it('should have arrow up label', () => {
+            expect(screen.getByRole('img')).toHaveClass('PillButton__arrowIcon--isOpen');
+        });
+
         it('should trigger toggle state once when button is clicked', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: 'Pill name' });
+            const button = screen.getByRole('button', { name: `${name}` });
             await user.click(button);
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
@@ -101,7 +109,7 @@ describe('<PillButton> component', () => {
 
         it('should trigger toggle state once on keyboard interaction with button', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: 'Pill name' });
+            const button = screen.getByRole('button', { name: `${name}` });
             button.focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
@@ -123,8 +131,12 @@ describe('<PillButton> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            // expect(view.find('.PillButton__pill--isActive')).toHaveLength(1);
-            // expect(view.find('.PillButton__pill--isOpen')).toHaveLength(0);
+            expect(screen.getByRole('button', { name: '' })).not.toHaveClass(
+                'PillButton__button PillButton__button--isOpen'
+            );
+            expect(screen.getByRole('button', { name: 'This pill is in use' })).toHaveClass(
+                'PillButton__pill PillButton__pill--isActive'
+            );
         });
 
         it('should not trigger toggle state but onClear only when button is clicked', async () => {
@@ -162,14 +174,18 @@ describe('<PillButton> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            // expect(view.find('.PillButton__pill--isActive')).toHaveLength(1);
-            // expect(view.find('.PillButton__pill--isOpen')).toHaveLength(1);
+            expect(screen.getByRole('button', { name: '' })).toHaveClass(
+                'PillButton__button PillButton__button--isOpen'
+            );
+            expect(screen.getByRole('button', { name: 'This pill is in use' })).toHaveClass(
+                'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
+            );
         });
 
-        // it('should have arrow up label', () => {
-        //     expect(view.find('IoIosArrowDown.PillButton__arrowIcon--isOpen')).toHaveLength(1);
-        // });
-        //
+        it('should have arrow up label', () => {
+            expect(screen.getByRole('img')).toHaveClass('PillButton__arrowIcon--isOpen');
+        });
+
         it('should trigger toggle state once when button is clicked', async () => {
             const user = userEvent.setup();
             const button = screen.getByRole('button', { name: '' });

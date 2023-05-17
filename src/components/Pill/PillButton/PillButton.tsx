@@ -55,11 +55,11 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
             }
         }, [isActive, labelRef, pillMinWidth, pillRef]);
 
-        let buttonIcon = <IoIosArrowDown {...elem('arrowIcon', propsForBem)} />;
+        let buttonIcon = <IoIosArrowDown {...elem('arrowIcon', propsForBem)} role="img" />;
         let isButtonClickable = false;
 
         if (isActive && !isOpen && !isContentDefault) {
-            buttonIcon = <IoIosClose size={22} />;
+            buttonIcon = <IoIosClose size={22} role="img" />;
             isButtonClickable = true;
         }
 
