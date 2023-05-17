@@ -12,7 +12,6 @@ describe('<Pill> component', () => {
     const contentMock = 'Pill content';
 
     let view: RenderResult;
-    let clickPillButton;
 
     beforeEach(() => {
         view = render(
@@ -26,11 +25,6 @@ describe('<Pill> component', () => {
                 {childrenMock}
             </Pill>
         );
-
-        const user = userEvent.setup();
-        clickPillButton = async () => {
-            await user.click(screen.getByRole('button', { name: '' }));
-        };
     });
 
     afterEach(() => {
@@ -39,46 +33,54 @@ describe('<Pill> component', () => {
 
     it('should render correctly', () => {
         expect(view.container).toMatchSnapshot();
-
         expect(screen.getByRole('button', { name: 'Pill content' })).toBeInTheDocument();
     });
 
-    it('should open dropdown when button is clicked', () => {
-        clickPillButton();
+    it('should open dropdown when button is clicked', async () => {
+        const user = userEvent.setup();
+        await user.click(screen.getByRole('button', { name: '' }));
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('button', { name: 'Pill content' })).toBeInTheDocument();
-        // expect(view.find('PillDropdown')).toHaveLength(1);
     });
 
-    it('should close dropdown when button is clicked again', () => {
-        clickPillButton();
-        // expect(view.find('PillDropdown')).toHaveLength(1);
+    it('should close dropdown when button is clicked again', async () => {
+        const button = screen.getByRole('button', { name: 'Pill content' });
+        const user = userEvent.setup();
+        await user.click(button);
 
-        clickPillButton();
-        // expect(view.find('PillDropdown')).toHaveLength(0);
+        expect(button).toBeInTheDocument();
+
+        await user.click(screen.getByRole('button', { name: '' }));
+
+        // expect(button).not.toBeInTheDocument();
     });
 
-    it.skip('should render children when dropdown is open', () => {
+    it('should render children when dropdown is open', async () => {
+        const button = screen.getByRole('button', { name: 'Pill content' });
+        const user = userEvent.setup();
+
         expect(childrenMock).not.toHaveBeenCalled();
+        expect(button).toBeInTheDocument();
 
-        clickPillButton();
-        // expect(view.find('PillDropdown')).toHaveLength(1);
+        await user.click(button);
+
         expect(childrenMock).toHaveBeenCalledTimes(1);
     });
 
-    it.skip('should call onClose when dropdown is closed via pill-button click', () => {
-        clickPillButton();
-        clickPillButton();
+    it.skip('should call onClose when dropdown is closed via pill-button click', async () => {
+        const user = userEvent.setup();
+        await user.click(screen.getByRole('button', { name: '' }));
+        await user.click(screen.getByRole('button', { name: '' }));
 
         expect(onCloseMock).toHaveBeenCalledTimes(1);
     });
 
-    it.skip('should call onClose when dropdown is closed via done-button click', () => {
-        clickPillButton();
+    it.skip('should call onClose when dropdown is closed via done-button click', async () => {
+        expect(view.container).toMatchSnapshot();
 
         const user = userEvent.setup();
-        user.click(screen.getByRole('button', { name: 'Pill content' }));
+        await user.click(screen.getByRole('button', { name: 'Pill content' }));
 
         expect(onCloseMock).toHaveBeenCalledTimes(1);
     });
