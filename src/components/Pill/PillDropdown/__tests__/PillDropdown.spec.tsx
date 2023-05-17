@@ -35,10 +35,10 @@ describe('<PillDropdown> component', () => {
             </PillDropdown>
         );
 
-        const dialog = screen.getByRole('dialog');
+        const contentInfo = screen.getByRole('contentinfo');
 
-        expect(dialog).toBeInTheDocument();
-        // expect(dialog).toHaveClass('PillDropdown__content');
+        expect(contentInfo).toBeInTheDocument();
+        expect(contentInfo).toHaveClass('PillDropdown__content');
     });
 
     it('should call children function with close as arguments', () => {

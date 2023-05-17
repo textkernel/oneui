@@ -41,7 +41,9 @@ export const PillDropdown = React.forwardRef<HTMLElement, Props>(
         return (
             <div ref={ref} role="presentation" {...rest} {...block({ noPadding, ...rest })}>
                 <div role="dialog" {...elem('dialog')}>
-                    <div {...elem('content', { noPadding })}>{children({ close })}</div>
+                    <div {...elem('content', { noPadding })} role="contentinfo">
+                        {children({ close })}
+                    </div>
                     <div {...elem('footer')}>
                         <Button isPrimary size="small" onClick={handleDoneClick}>
                             {doneLabel}

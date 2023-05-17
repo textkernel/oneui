@@ -12,6 +12,7 @@ exports[`<PillDropdown> component should render correctly 1`] = `
     >
       <div
         class="PillDropdown__content"
+        role="contentinfo"
       />
       <div
         class="PillDropdown__footer"
