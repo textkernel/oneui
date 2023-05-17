@@ -1,40 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PillDropdown> component should render correctly 1`] = `
-<PillDropdown
-  close={[MockFunction]}
-  doneLabel="Done"
->
+<div>
   <div
-    className="PillDropdown"
+    class="PillDropdown"
     role="presentation"
   >
     <div
-      className="PillDropdown__dialog"
+      class="PillDropdown__dialog"
       role="dialog"
     >
       <div
-        className="PillDropdown__content"
+        class="PillDropdown__content"
       />
       <div
-        className="PillDropdown__footer"
+        class="PillDropdown__footer"
       >
-        <Button
-          isPrimary={true}
-          onClick={[Function]}
-          size="small"
+        <button
+          class="Button Button--isPrimary Button--size_small"
+          type="button"
         >
-          <button
-            className="Button Button--isPrimary Button--size_small"
-            disabled={false}
-            onClick={[Function]}
-            type="button"
-          >
-            Done
-          </button>
-        </Button>
+          Done
+        </button>
       </div>
     </div>
   </div>
-</PillDropdown>
+</div>
 `;

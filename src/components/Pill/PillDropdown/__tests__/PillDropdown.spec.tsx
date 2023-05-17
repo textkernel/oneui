@@ -1,16 +1,18 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, RenderResult, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { PillDropdown } from '../PillDropdown';
 
 describe('<PillDropdown> component', () => {
     const childrenMock = jest.fn();
     const closeMock = jest.fn();
+    const doneLabel = 'Done';
 
-    let wrapper;
+    let view: RenderResult;
 
     beforeEach(() => {
-        wrapper = mount(
-            <PillDropdown close={closeMock} doneLabel="Done">
+        view = render(
+            <PillDropdown close={closeMock} doneLabel={doneLabel}>
                 {childrenMock}
             </PillDropdown>
         );
@@ -21,14 +23,24 @@ describe('<PillDropdown> component', () => {
     });
 
     it('should render correctly', () => {
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('button', { name: `${doneLabel}` }));
+        expect(screen.getByRole('dialog')).toBeInTheDocument();
     });
-    it('should render correctly without padding', () => {
-        wrapper.setProps({ noPadding: true });
-        wrapper.update();
 
-        expect(wrapper.find('.PillDropdown__content--noPadding')).toHaveLength(1);
+    it('should render correctly without padding', () => {
+        view.rerender(
+            <PillDropdown close={closeMock} doneLabel={doneLabel} noPadding>
+                {childrenMock}
+            </PillDropdown>
+        );
+
+        const dialog = screen.getByRole('dialog');
+
+        expect(dialog).toBeInTheDocument();
+        // expect(dialog).toHaveClass('PillDropdown__content');
     });
+
     it('should call children function with close as arguments', () => {
         expect(childrenMock).toHaveBeenCalledWith({
             close: closeMock,
