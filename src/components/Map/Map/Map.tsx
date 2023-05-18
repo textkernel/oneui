@@ -31,7 +31,7 @@ type RegionArea = {
     features: GeoJSON.GeoJsonObject[];
 };
 
-interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'options'> {
+interface Props {
     /** The default parameters to determine the viewport when no circular or point markers are present. */
     defaultArea?:
         | {
