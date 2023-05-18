@@ -51,10 +51,12 @@ describe('Select', () => {
             );
             expect(screen.getByLabelText(downArrowLabel)).toBeInTheDocument();
         });
+
         it('should not render clear button if onClear is not defined', () => {
             expect(view.container).toMatchSnapshot();
             expect(screen.queryByLabelText(clearIconLabel)).not.toBeInTheDocument();
         });
+
         it('should render clear button onClear is defined', () => {
             view.rerender(
                 <Select
@@ -93,6 +95,7 @@ describe('Select', () => {
             await user.click(screen.getByRole('searchbox'));
             expect(screen.getAllByRole('option')).toHaveLength(SUGGESTIONS.length);
         });
+
         it('should open list when arrow element is clicked', async () => {
             const user = userEvent.setup();
             // originally to be closed
@@ -102,6 +105,7 @@ describe('Select', () => {
             await openWrapper(user);
             expect(screen.getAllByRole('option')).toHaveLength(SUGGESTIONS.length);
         });
+
         it('should close list when arrow element is clicked', async () => {
             const user = userEvent.setup();
             // originally to be closed
@@ -115,6 +119,7 @@ describe('Select', () => {
             await closeWrapper(user);
             expect(screen.queryAllByRole('option')).toHaveLength(0);
         });
+
         it('should close list when item is selected', async () => {
             const user = userEvent.setup();
             // originally to be closed
@@ -187,6 +192,7 @@ describe('Select', () => {
                 expect(mockOnFocus).toHaveBeenCalledTimes(1);
             });
         });
+
         describe('onBlur', () => {
             it('should be called on clicking when closing the dropdown', async () => {
                 const user = userEvent.setup();
@@ -210,6 +216,7 @@ describe('Select', () => {
                 await closeWrapper(user);
                 expect(mockOnBlur).toHaveBeenCalled();
             });
+
             it('should be called on clicking when selecting an item', async () => {
                 const user = userEvent.setup();
                 view.rerender(
@@ -242,6 +249,7 @@ describe('Select', () => {
                 await user.click(screen.queryAllByRole('option')[1]);
                 expect(mockOnChange).toHaveBeenCalled();
             });
+
             it('should not be called on simply closing the dropdown', async () => {
                 const user = userEvent.setup();
                 await openWrapper(user);
@@ -250,6 +258,7 @@ describe('Select', () => {
                 expect(mockOnChange).not.toHaveBeenCalled();
             });
         });
+
         describe('onClear', () => {
             it('should be called on clicking on a clear button', async () => {
                 const user = userEvent.setup();
