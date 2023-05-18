@@ -1,53 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Pill> component should call onClose when dropdown is closed via done-button click 1`] = `
-<body>
-  <div>
-    <div
-      class="PillButton"
-    >
-      <div
-        class="PillButton__label PillButton__label--isActive"
-      >
-        Pill name
-      </div>
-      <div
-        class="PillButton__pill PillButton__pill--isActive"
-        role="button"
-        tabindex="0"
-      >
-        <span
-          class="PillButton__pillLabel"
-        >
-          Pill content
-        </span>
-        <button
-          class="PillButton__button"
-          type="button"
-        >
-          <svg
-            fill="currentColor"
-            height="22"
-            role="img"
-            size="22"
-            stroke="currentColor"
-            stroke-width="0"
-            viewBox="0 0 512 512"
-            width="22"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"
-            />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</body>
-`;
-
-exports[`<Pill> component should open dropdown when button is clicked 1`] = `
 <div>
   <div
     class="PillButton"
@@ -87,6 +40,80 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
           />
         </svg>
       </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Pill> component should open dropdown when button is clicked 1`] = `
+<div>
+  <div
+    class="PillButton"
+  >
+    <div
+      class="PillButton__label PillButton__label--isActive"
+    >
+      Pill name
+    </div>
+    <div
+      class="PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="PillButton__pillLabel"
+      >
+        Pill content
+      </span>
+      <button
+        class="PillButton__button PillButton__button--isOpen"
+        type="button"
+      >
+        <svg
+          class="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div
+    class="PillDropdown"
+    data-popper-escaped=""
+    data-popper-placement="bottom-start"
+    data-popper-reference-hidden=""
+    data-popup="true"
+    role="presentation"
+    style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
+  >
+    <div
+      class="PillDropdown__dialog"
+      role="dialog"
+    >
+      <div
+        class="PillDropdown__content"
+        role="contentinfo"
+      />
+      <div
+        class="PillDropdown__footer"
+      >
+        <button
+          class="Button Button--isPrimary Button--size_small"
+          type="button"
+        >
+          Done
+        </button>
+      </div>
     </div>
   </div>
 </div>
