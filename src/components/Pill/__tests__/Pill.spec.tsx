@@ -75,11 +75,11 @@ describe('<Pill> component', () => {
         expect(onCloseMock).toHaveBeenCalledTimes(1);
     });
 
-    it.skip('should call onClose when dropdown is closed via done-button click', async () => {
+    it('should call onClose when dropdown is closed via done-button click', async () => {
         const user = userEvent.setup();
+        await user.click(screen.getByRole('button', { name: 'Pill content' }));
         await user.click(screen.getByRole('button', { name: 'Done' }));
 
-        // wrapper.find('.PillDropdown__footer button').simulate('click');
         expect(onCloseMock).toHaveBeenCalledTimes(1);
     });
 });
