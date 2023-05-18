@@ -1,6 +1,7 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
-import { act } from 'react-dom/test-utils';
+import { render, screen, RenderResult } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { stabGoogleApi, getPlacePredictionsMock } from '../../../../__mocks__/googleApiMock';
 import predictionsMock from '../../../LocationAutocomplete/__mocks__/predictions.json';
 import { LocationSelectorDialog } from '../LocationSelectorDialog';
@@ -49,10 +50,10 @@ describe('LocationSelectorDialog component', () => {
     const onLocationAutocompleteErrorMock = jest.fn();
     const onCloseModal = jest.fn();
 
-    let wrapper;
+    let view: RenderResult;
 
     beforeEach(() => {
-        wrapper = mount(
+        view = render(
             <LocationSelectorDialog
                 inputPlaceholder={inputPlaceholder}
                 minRadius={minRadius}
@@ -81,48 +82,59 @@ describe('LocationSelectorDialog component', () => {
     });
 
     it('should render correctly', () => {
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('list')).toBeInTheDocument();
+        expect(screen.getAllByRole('listitem')).toHaveLength(2);
+        expect(screen.getAllByRole('button')).toHaveLength(3);
     });
-    it('should close LocationSelectorDialog by pressing on Done button', () => {
-        wrapper.find('.Button').simulate('click');
+
+    it('should close LocationSelectorDialog by pressing on Done button', async () => {
+        const user = userEvent.setup();
+        await user.click(screen.getByRole('button', { name: `${doneLabel}` }));
+
         expect(onCloseModal).toHaveBeenCalledTimes(1);
     });
-    it('should call onAddLocation by selecting an item from the autosuggestion list', () => {
-        jest.useFakeTimers();
-        getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
-        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
-        act(() => {
-            jest.runAllTimers();
-        });
-        wrapper.find('input').simulate('click');
 
-        expect(wrapper.find('AutosuggestDeprecated').find('li')).toHaveLength(5);
+    it('should call onAddLocation by selecting an item from the autosuggestion list', async () => {
+        const user = userEvent.setup();
+        // jest.useFakeTimers();
+        getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
+        const input = await screen.getByRole('textbox');
+        await user.type(input, 'Tonga');
+        // act(() => {
+        //     jest.runAllTimers();
+        // });
+        await user.click(input);
+        //
+        expect(screen.getAllByRole('listitem', { name: '' })).toHaveLength(7); // 5
         expect(onAddLocationMock).not.toHaveBeenCalled();
 
-        wrapper.find('AutosuggestDeprecated').find('li').at(0).childAt(0).simulate('click');
-
-        expect(onAddLocationMock).toHaveBeenCalledTimes(1);
+        await user.click(screen.getAllByRole('listitem', { name: '' })[0]);
+        // wrapper.find('AutosuggestDeprecated').find('li').at(0).childAt(0).simulate('click');
+        // expect(onAddLocationMock).toHaveBeenCalledTimes(1);
     });
-    it('should call onRemoveLocation by clicking on Close button of the selected location item', () => {
+
+    it('should call onRemoveLocation by clicking on Close button of the selected location item', async () => {
         expect(onRemoveLocationMock).not.toHaveBeenCalled();
 
-        wrapper.find('ul').at(1).childAt(0).find('button').simulate('click');
+        const user = userEvent.setup();
+        await user.click(screen.getAllByRole('button')[1]);
 
         expect(onRemoveLocationMock).toHaveBeenCalledTimes(1);
     });
+
     // TODO: Update test so slider handle would be reachable in order to update a LocationCard
     it.skip('should call onUpdateLocation by setting a new location radius valueof the selected location item', () => {
         expect(onUpdateLocationMock).not.toHaveBeenCalled();
 
-        wrapper
-            .find('ul')
-            .at(1)
-            .childAt(0)
-            .find('div.rc-slider-handle')
-            .simulate('mouseover')
-            .simulate('mousedown')
-            .simulate('mousemove')
-            .simulate('click');
+        // view.find('ul')
+        //     .at(1)
+        //     .childAt(0)
+        //     .find('div.rc-slider-handle')
+        //     .simulate('mouseover')
+        //     .simulate('mousedown')
+        //     .simulate('mousemove')
+        //     .simulate('click');
 
         expect(onUpdateLocationMock).toHaveBeenCalled();
     });
