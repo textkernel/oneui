@@ -121,7 +121,7 @@ describe('<PillButton> component', () => {
             expect(getButtonByName('')).not.toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(getButtonByName('This pill is in use')).toHaveClass(
+            expect(getButtonByName(content)).toHaveClass(
                 'PillButton__pill PillButton__pill--isActive'
             );
         });
@@ -164,7 +164,7 @@ describe('<PillButton> component', () => {
             expect(getButtonByName('')).toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(getButtonByName('This pill is in use')).toHaveClass(
+            expect(getButtonByName(content)).toHaveClass(
                 'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
             );
         });
