@@ -45,4 +45,8 @@ exports[`SuggestionTag should render if children is 0 1`] = `
 </div>
 `;
 
-exports[`SuggestionTag should render nothing if no children are provided 1`] = `<div />`;
+exports[`SuggestionTag should render nothing if no children are provided 1`] = `
+<body>
+  <div />
+</body>
+`;

@@ -8,13 +8,15 @@ describe('SuggestionTag', () => {
     it('should render nothing if no children are provided', () => {
         const view = render(<SuggestionTag />);
 
-        expect(view.container).toMatchSnapshot();
+        expect(view.baseElement).toMatchSnapshot();
+        expect(view.container.children).toHaveLength(0);
     });
 
     it('should render if children is 0', () => {
         const view = render(<SuggestionTag>{0}</SuggestionTag>);
 
         expect(view.container).toMatchSnapshot();
+        expect(view.container.children).toHaveLength(1);
         expect(screen.getByText('0')).toBeInTheDocument();
     });
 
@@ -22,7 +24,7 @@ describe('SuggestionTag', () => {
         const view = render(<SuggestionTag>tag</SuggestionTag>);
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.queryByRole('button')).not.toBeInTheDocument();
+        expect(screen.getByText('tag')).toBeInTheDocument();
     });
 
     it('should render correctly with styles modifier', () => {

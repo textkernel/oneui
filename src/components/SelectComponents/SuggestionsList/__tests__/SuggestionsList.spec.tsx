@@ -44,6 +44,8 @@ describe('SuggestionsList', () => {
         rerenderView({ useOptimizeRender: true });
 
         expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('grid')).toBeInTheDocument();
+        expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
     });
 
     it('should render noSuggestions placeholder when empty suggestions list is passed', () => {
@@ -56,6 +58,8 @@ describe('SuggestionsList', () => {
         rerenderView({ isLoading: true });
 
         expect(view.container).toMatchSnapshot();
+        expect(screen.getAllByRole('listitem')).toHaveLength(SUGGESTIONS.length);
+        expect(screen.getAllByRole('alert')).toHaveLength(5);
     });
 
     it('should run suggestionItemRenderer function correctly', () => {
@@ -63,6 +67,7 @@ describe('SuggestionsList', () => {
         rerenderView({ suggestionItemRenderer });
 
         expect(view.container).toMatchSnapshot();
+        expect(screen.getAllByText('some item text')).toHaveLength(SUGGESTIONS.length);
     });
 
     it('should render mixed suggestions and loading list if requested', () => {
