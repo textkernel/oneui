@@ -113,6 +113,7 @@ exports[`<PillButton> component in inactive, collapsed state (with minimal props
         type="button"
       >
         <svg
+          aria-label="down arrow"
           class="PillButton__arrowIcon"
           fill="currentColor"
           height="1em"

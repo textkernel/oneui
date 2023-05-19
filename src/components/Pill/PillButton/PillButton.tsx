@@ -17,6 +17,10 @@ export interface Props {
     name: string;
     /** label describing the content of an active filter/pill. Note: it is rendered within a <span> */
     content?: React.ReactNode;
+    /** Down arrow name for ARIA labelling */
+    downArrowLabel?: string;
+    /** Up arrow name for ARIA labelling */
+    closeArrowLabel?: string;
 }
 
 const { block, elem } = bem('PillButton', styles);
@@ -30,6 +34,8 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
             onClear,
             name,
             content = null,
+            downArrowLabel,
+            closeArrowLabel,
             ...rest
         },
         ref
@@ -55,11 +61,17 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
             }
         }, [isActive, labelRef, pillMinWidth, pillRef]);
 
-        let buttonIcon = <IoIosArrowDown {...elem('arrowIcon', propsForBem)} role="img" />;
+        let buttonIcon = (
+            <IoIosArrowDown
+                {...elem('arrowIcon', propsForBem)}
+                role="img"
+                aria-label={downArrowLabel}
+            />
+        );
         let isButtonClickable = false;
 
         if (isActive && !isOpen && !isContentDefault) {
-            buttonIcon = <IoIosClose size={22} role="img" />;
+            buttonIcon = <IoIosClose size={22} role="img" aria-label={closeArrowLabel} />;
             isButtonClickable = true;
         }
 

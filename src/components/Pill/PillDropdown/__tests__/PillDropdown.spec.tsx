@@ -35,7 +35,7 @@ describe('<PillDropdown> component', () => {
             </PillDropdown>
         );
 
-        const contentInfo = screen.getByRole('contentinfo');
+        const contentInfo = screen.getByRole('group');
 
         expect(contentInfo).toBeInTheDocument();
         expect(contentInfo).toHaveClass('PillDropdown__content');

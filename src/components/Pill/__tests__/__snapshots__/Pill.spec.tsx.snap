@@ -57,7 +57,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
     >
       <div
         class="PillDropdown__content"
-        role="contentinfo"
+        role="group"
       />
       <div
         class="PillDropdown__footer"

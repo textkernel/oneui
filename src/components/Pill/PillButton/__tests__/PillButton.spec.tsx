@@ -10,6 +10,8 @@ describe('<PillButton> component', () => {
     const onClearMock = jest.fn();
     const name = 'Pill name';
     const content = 'This pill is in use';
+    const downArrowLabel = 'down arrow';
+    const closeArrowLabel = 'close arrow';
 
     let view: RenderResult;
 
@@ -24,30 +26,36 @@ describe('<PillButton> component', () => {
     describe('in inactive, collapsed state (with minimal props)', () => {
         beforeEach(() => {
             view = render(
-                <PillButton toggleDropdown={toggleDropdownMock} onClear={onClearMock} name={name} />
+                <PillButton
+                    toggleDropdown={toggleDropdownMock}
+                    onClear={onClearMock}
+                    name={name}
+                    downArrowLabel={downArrowLabel}
+                    closeArrowLabel={closeArrowLabel}
+                />
             );
         });
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(getButtonByName('')).not.toHaveClass(
+            expect(getButtonByName(downArrowLabel)).not.toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(getButtonByName(name)).not.toHaveClass(
+            expect(getButtonByName(downArrowLabel)).not.toHaveClass(
                 'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
             );
         });
 
         it('should trigger toggle state once when clicked', async () => {
             const user = userEvent.setup();
-            await user.click(getButtonByName(name));
+            await user.click(getButtonByName(downArrowLabel));
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
 
         it('should trigger toggle state once on keyboard interaction', async () => {
             const user = userEvent.setup();
-            const button = getButtonByName(name);
+            const button = getButtonByName(downArrowLabel);
             button.focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
@@ -56,12 +64,13 @@ describe('<PillButton> component', () => {
 
         it('should have arrow down label', () => {
             expect(screen.getByRole('img')).toBeInTheDocument();
+
             expect(screen.getByRole('img')).toHaveClass('PillButton__arrowIcon');
         });
 
         it('should trigger toggle state once when button is clicked', async () => {
             const user = userEvent.setup();
-            const button = getButtonByName(name);
+            const button = getButtonByName(downArrowLabel);
             await user.click(button);
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);

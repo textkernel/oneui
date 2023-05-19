@@ -41,7 +41,7 @@ export const PillDropdown = React.forwardRef<HTMLElement, Props>(
         return (
             <div ref={ref} role="presentation" {...rest} {...block({ noPadding, ...rest })}>
                 <div role="dialog" {...elem('dialog')}>
-                    <div {...elem('content', { noPadding })} role="contentinfo">
+                    <div {...elem('content', { noPadding })} role="group">
                         {children({ close })}
                     </div>
                     <div {...elem('footer')}>
