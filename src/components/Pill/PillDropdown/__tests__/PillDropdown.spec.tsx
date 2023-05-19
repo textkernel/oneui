@@ -24,7 +24,7 @@ describe('<PillDropdown> component', () => {
 
     it('should render correctly', () => {
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('button', { name: `${doneLabel}` }));
+        expect(screen.getByRole('button', { name: doneLabel }));
         expect(screen.getByRole('dialog')).toBeInTheDocument();
     });
 

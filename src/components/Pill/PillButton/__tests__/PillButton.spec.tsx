@@ -13,6 +13,10 @@ describe('<PillButton> component', () => {
 
     let view: RenderResult;
 
+    const getButtonByName = (inputName) => {
+        return screen.getByRole('button', { name: `${inputName}` });
+    };
+
     afterEach(() => {
         jest.resetAllMocks();
     });
@@ -26,24 +30,24 @@ describe('<PillButton> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(screen.getByRole('button', { name: '' })).not.toHaveClass(
+            expect(getButtonByName('')).not.toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(screen.getByRole('button', { name: `${name}` })).not.toHaveClass(
+            expect(getButtonByName(name)).not.toHaveClass(
                 'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
             );
         });
 
         it('should trigger toggle state once when clicked', async () => {
             const user = userEvent.setup();
-            await user.click(screen.getByRole('button', { name: `${name}` }));
+            await user.click(getButtonByName(name));
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
 
         it('should trigger toggle state once on keyboard interaction', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: `${name}` });
+            const button = getButtonByName(name);
             button.focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
@@ -57,17 +61,8 @@ describe('<PillButton> component', () => {
 
         it('should trigger toggle state once when button is clicked', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: `${name}` });
+            const button = getButtonByName(name);
             await user.click(button);
-
-            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
-        });
-
-        it('should trigger toggle state once on keyboard interaction with button', async () => {
-            const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: `${name}` });
-            button.focus();
-            await user.keyboard(`[${ENTER_KEY}]`);
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
@@ -87,10 +82,10 @@ describe('<PillButton> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(screen.getByRole('button', { name: '' })).toHaveClass(
+            expect(getButtonByName('')).toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(screen.getByRole('button', { name: `${name}` })).not.toHaveClass(
+            expect(getButtonByName(name)).not.toHaveClass(
                 'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
             );
         });
@@ -99,17 +94,9 @@ describe('<PillButton> component', () => {
             expect(screen.getByRole('img')).toHaveClass('PillButton__arrowIcon--isOpen');
         });
 
-        it('should trigger toggle state once when button is clicked', async () => {
-            const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: `${name}` });
-            await user.click(button);
-
-            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
-        });
-
         it('should trigger toggle state once on keyboard interaction with button', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: `${name}` });
+            const button = getButtonByName(name);
             button.focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
@@ -131,17 +118,17 @@ describe('<PillButton> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(screen.getByRole('button', { name: '' })).not.toHaveClass(
+            expect(getButtonByName('')).not.toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(screen.getByRole('button', { name: 'This pill is in use' })).toHaveClass(
+            expect(getButtonByName('This pill is in use')).toHaveClass(
                 'PillButton__pill PillButton__pill--isActive'
             );
         });
 
         it('should not trigger toggle state but onClear only when button is clicked', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: '' });
+            const button = getButtonByName('');
             await user.click(button);
 
             expect(onClearMock).toHaveBeenCalledTimes(1);
@@ -150,7 +137,7 @@ describe('<PillButton> component', () => {
 
         it('should not trigger toggle state but onClear only on keyboard interaction with button', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: '' });
+            const button = getButtonByName('');
             button.focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
@@ -174,10 +161,10 @@ describe('<PillButton> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(screen.getByRole('button', { name: '' })).toHaveClass(
+            expect(getButtonByName('')).toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(screen.getByRole('button', { name: 'This pill is in use' })).toHaveClass(
+            expect(getButtonByName('This pill is in use')).toHaveClass(
                 'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
             );
         });
@@ -188,7 +175,7 @@ describe('<PillButton> component', () => {
 
         it('should trigger toggle state once when button is clicked', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: '' });
+            const button = getButtonByName('');
             await user.click(button);
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
@@ -196,7 +183,7 @@ describe('<PillButton> component', () => {
 
         it('should trigger toggle state once on keyboard interaction with button', async () => {
             const user = userEvent.setup();
-            const button = screen.getByRole('button', { name: '' });
+            const button = getButtonByName('');
             button.focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
