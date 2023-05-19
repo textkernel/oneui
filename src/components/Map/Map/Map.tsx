@@ -35,7 +35,7 @@ interface Props {
     /** The default parameters to determine the viewport when no circular or point markers are present. */
     defaultArea?:
         | {
-              address: string;
+              address: string | string[] | undefined;
           }
         | {
               center:
