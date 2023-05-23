@@ -1,14 +1,16 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, RenderResult, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { RadioButton } from '../RadioButton';
 import { RadioButtonGroup } from '../RadioButtonGroup';
 
 describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
-    let wrapper;
+    let view: RenderResult;
     const onChangeChildMock = jest.fn();
 
     beforeEach(() => {
-        wrapper = mount(
+        view = render(
             <RadioButtonGroup name="group_name">
                 <RadioButton onChange={onChangeChildMock} id="o1">
                     Option 1
@@ -19,29 +21,48 @@ describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
     });
 
     it('should render correctly', () => {
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getAllByRole('radio')).toHaveLength(2);
     });
+
     it('should pass name prop to children', () => {
-        wrapper
-            .find('RadioButton')
-            .forEach((option) => expect(option.prop('name')).toEqual('group_name'));
-    });
-    it('should not modify onChange prop of children if they are no defined on the group level', () => {
-        const child1OnChange = wrapper.find('RadioButton').first().prop('onChange');
-        const child2OnChange = wrapper.find('RadioButton').at(1).prop('onChange');
+        const namePropValue = 'group_name';
+        const buttons = screen.getAllByRole('radio');
 
-        expect(child1OnChange).toEqual(onChangeChildMock);
-        expect(child2OnChange).toEqual(undefined);
+        expect(buttons).toHaveLength(2);
+        expect(buttons[0]).toHaveAttribute('name', namePropValue);
+        expect(buttons[1]).toHaveAttribute('name', namePropValue);
     });
-    it('should pass onChange prop to children', () => {
+
+    it('should not modify onChange prop of children if they are no defined on the group level', async () => {
+        const user = userEvent.setup();
+        const buttons = screen.getAllByRole('radio');
+
+        expect(buttons).toHaveLength(2);
+
+        await user.click(buttons[0]);
+
+        expect(onChangeChildMock).toHaveBeenCalled();
+    });
+
+    it('should pass onChange prop to children', async () => {
+        const user = userEvent.setup();
         const onChangeGlobalMock = jest.fn();
-        wrapper.setProps({ onChange: onChangeGlobalMock });
-        wrapper.update();
+        view = render(
+            <RadioButtonGroup name="group_name">
+                <RadioButton onChange={onChangeGlobalMock} id="o1">
+                    Option 1
+                </RadioButton>
+                <RadioButton id="o2">Option 2</RadioButton>
+            </RadioButtonGroup>
+        );
 
-        const child1OnChange = wrapper.find('RadioButton').first().prop('onChange');
-        const child2OnChange = wrapper.find('RadioButton').at(1).prop('onChange');
+        const buttons = screen.getAllByRole('radio', { name: '' });
 
-        expect(child1OnChange).toEqual(onChangeGlobalMock);
-        expect(child2OnChange).toEqual(onChangeGlobalMock);
+        expect(buttons).toHaveLength(2);
+
+        await user.click(buttons[0]);
+
+        expect(onChangeGlobalMock).toHaveBeenCalled();
     });
 });
