@@ -57,11 +57,11 @@ describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
             </RadioButtonGroup>
         );
 
-        const buttons = screen.getAllByRole('radio', { name: '' });
+        const buttons = screen.getAllByRole('radio');
 
-        expect(buttons).toHaveLength(2);
+        expect(buttons).toHaveLength(4);
 
-        await user.click(buttons[0]);
+        await user.click(buttons[2]);
 
         expect(onChangeGlobalMock).toHaveBeenCalled();
     });
