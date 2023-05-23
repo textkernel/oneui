@@ -8,7 +8,8 @@ describe('<Input> that renders an input field', () => {
     let view: RenderResult;
 
     it('should render default input correctly', () => {
-        view = render(<Input value="Some value" />);
+        const onChange = jest.fn();
+        view = render(<Input value="Some value" onChange={onChange} />);
         const inputButton = screen.getByRole('textbox');
 
         expect(view.container).toMatchSnapshot();
