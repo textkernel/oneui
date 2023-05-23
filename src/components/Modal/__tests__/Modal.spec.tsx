@@ -9,7 +9,7 @@ describe('Modal', () => {
 
     it('should render correctly', () => {
         view = render(
-            <Modal isOpen contentLabel="Content label">
+            <Modal isOpen contentLabel="Content label" ariaHideApp={false}>
                 Some children
             </Modal>
         );
@@ -28,6 +28,7 @@ describe('Modal', () => {
                 className="content-class"
                 overlayClassName="overlay-class"
                 portalClassName="portal-class"
+                ariaHideApp={false}
             >
                 Some children
             </Modal>
