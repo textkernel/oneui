@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationCard component should render component correctly 1`] = `
+<div>
+  <div
+    class="LocationCard"
+  >
+    <div
+      class="LocationCard__header"
+    >
+      <p
+        class="Text--size_large LocationCard__title"
+        title="London"
+      >
+        London
+      </p>
+      <button
+        class="LocationCard__deleteButton"
+        type="button"
+      >
+        ×
+      </button>
+    </div>
+    <div
+      class="LocationCard__slider"
+    >
+      <div
+        class="rc-slider"
+      >
+        <div
+          class="rc-slider-rail"
+        />
+        <div
+          class="rc-slider-track"
+          style="left: 0%; width: 41.41414141414141%;"
+        />
+        <div
+          class="rc-slider-step"
+        />
+        <div
+          aria-disabled="false"
+          aria-valuemax="100"
+          aria-valuemin="1"
+          aria-valuenow="42"
+          class="rc-slider-handle"
+          role="slider"
+          style="left: 41.41414141414141%; transform: translateX(-50%);"
+          tabindex="0"
+        />
+        <div
+          class="rc-slider-mark"
+        />
+      </div>
+      <p
+        class="Text--size_small LocationCard__sliderLabel"
+      >
+        +42 km
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LocationCard component should render component correctly without radius slider 1`] = `
+<div>
+  <div
+    class="LocationCard"
+  >
+    <div
+      class="LocationCard__header"
+    >
+      <p
+        class="Text--size_large LocationCard__title"
+        title="London"
+      >
+        London
+      </p>
+      <button
+        class="LocationCard__deleteButton"
+        type="button"
+      >
+        ×
+      </button>
+    </div>
+  </div>
+</div>
+`;
