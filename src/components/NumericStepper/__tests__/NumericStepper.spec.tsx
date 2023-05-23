@@ -152,9 +152,8 @@ describe('<NumericStepper> component', () => {
         const inputButton = screen.getByRole('spinbutton');
 
         await user.type(inputButton, '9');
-        inputButton.blur();
 
-        expect(inputButton).toHaveAttribute('value', '109'); // change to 9
+        expect(inputButton).toHaveAttribute('value', '10');
     });
 
     it('should set top edge value if user enters value above allowed limit', async () => {
@@ -165,7 +164,7 @@ describe('<NumericStepper> component', () => {
         await user.type(inputButton, '11');
         await inputButton.blur();
 
-        expect(inputButton).toHaveAttribute('value', '10'); // change to 9
+        expect(inputButton).toHaveAttribute('value', '10');
     });
 
     it('should set value to the previous one when user enters invalid value', async () => {
@@ -236,7 +235,8 @@ describe('<NumericStepper> component', () => {
         });
 
         it('should set the displayed value to the defaultValue', () => {
-            expect(screen.getByRole('spinbutton')).toHaveAttribute('value', '6');
+            const inputButton = screen.getByRole('spinbutton');
+            expect(inputButton).toHaveAttribute('value', '6');
 
             view.rerender(
                 <NumericStepper
@@ -248,11 +248,12 @@ describe('<NumericStepper> component', () => {
                 />
             );
 
-            expect(screen.getByRole('spinbutton')).toHaveAttribute('value', '7');
+            expect(inputButton).toHaveAttribute('value', '7');
         });
 
         it('should set the displayed value to max allowed if it set to lower then current value', () => {
-            expect(screen.getByRole('spinbutton')).toHaveAttribute('value', '6');
+            const inputButton = screen.getByRole('spinbutton');
+            expect(inputButton).toHaveAttribute('value', '6');
 
             view.rerender(
                 <NumericStepper
@@ -264,11 +265,12 @@ describe('<NumericStepper> component', () => {
                 />
             );
 
-            expect(screen.getByRole('spinbutton')).toHaveAttribute('value', '5');
+            expect(inputButton).toHaveAttribute('value', '5');
         });
 
         it('should set the displayed value to min allowed if it set to higher then current value', () => {
-            expect(screen.getByRole('spinbutton'));
+            const inputButton = screen.getByRole('spinbutton');
+            expect(inputButton).toHaveAttribute('value', '6');
 
             view.rerender(
                 <NumericStepper
@@ -280,7 +282,7 @@ describe('<NumericStepper> component', () => {
                 />
             );
 
-            expect(screen.getByRole('spinbutton')).toHaveAttribute('value', '8');
+            expect(inputButton).toHaveAttribute('value', '8');
         });
     });
 });
