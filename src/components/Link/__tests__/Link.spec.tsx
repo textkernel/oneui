@@ -6,9 +6,11 @@ import { Link } from '../Link';
 describe('<Link> that renders a link', () => {
     let view: RenderResult;
 
-    it('should render nothing if no children are provided', () => {
+    beforeEach(() => {
         view = render(<Link href="https://textkernel.com" />);
+    });
 
+    it('should render nothing if no children are provided', () => {
         expect(view.container).toMatchSnapshot();
         expect(view.container.children).toHaveLength(0);
     });
@@ -23,14 +25,14 @@ describe('<Link> that renders a link', () => {
     });
 
     it('should render default link correctly', () => {
-        view = render(<Link href="https://textkernel.com">Click me</Link>);
+        view.rerender(<Link href="https://textkernel.com">Click me</Link>);
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('link')).toHaveAttribute('href', 'https://textkernel.com');
     });
 
     it('should add string html attributes correctly', () => {
-        view = render(
+        view.rerender(
             <Link href="https://textkernel.com" target="_blank">
                 Click me
             </Link>

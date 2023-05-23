@@ -6,9 +6,11 @@ import { LoadingSpinner } from '../LoadingSpinner';
 describe('<LoadingSpinner> that renders a circular loading spinner', () => {
     let view: RenderResult;
 
-    it('should render a default spinner correctly', () => {
+    beforeEach(() => {
         view = render(<LoadingSpinner />);
+    });
 
+    it('should render a default spinner correctly', () => {
         const { children } = view.container;
 
         expect(view.container).toMatchSnapshot();
@@ -18,7 +20,7 @@ describe('<LoadingSpinner> that renders a circular loading spinner', () => {
     });
 
     it('should render a spinner with label', () => {
-        view = render(<LoadingSpinner>Loading...</LoadingSpinner>);
+        view.rerender(<LoadingSpinner>Loading...</LoadingSpinner>);
 
         const { children } = view.container;
 
@@ -28,7 +30,7 @@ describe('<LoadingSpinner> that renders a circular loading spinner', () => {
     });
 
     it('should add classes when props are changed', () => {
-        view = render(<LoadingSpinner centerIn="viewport" size={12} hidden />);
+        view.rerender(<LoadingSpinner centerIn="viewport" size={12} hidden />);
 
         const { children } = view.container;
 

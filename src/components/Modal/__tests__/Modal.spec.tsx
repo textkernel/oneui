@@ -1,19 +1,27 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, RenderResult, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import ReactModal from 'react-modal';
 import { Modal } from '../Modal';
 
 describe('Modal', () => {
+    let view: RenderResult;
+
     it('should render correctly', () => {
-        const wrapper = shallow(
+        view = render(
             <Modal isOpen contentLabel="Content label">
                 Some children
             </Modal>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+
+        const dialog = screen.getByRole('dialog');
+
+        expect(view.baseElement).toMatchSnapshot();
+        expect(dialog).toBeInTheDocument();
     });
+
     it('should apply classnames from props correctly', () => {
-        const wrapper = shallow(
+        view = render(
             <Modal
                 isOpen
                 contentLabel="Content label"
@@ -25,15 +33,13 @@ describe('Modal', () => {
             </Modal>
         );
 
-        expect(wrapper.find('Modal').prop('className')).toEqual(
-            expect.objectContaining({ base: 'Modal__content content-class' })
-        );
-        expect(wrapper.find('Modal').prop('portalClassName')).not.toContain('content-class');
-        expect(wrapper.find('Modal').prop('portalClassName')).toContain('portal-class');
-        expect(wrapper.find('Modal').prop('overlayClassName')).toEqual(
-            expect.objectContaining({ base: 'Modal__overlay overlay-class' })
-        );
+        const dialog = screen.getByRole('dialog');
+
+        expect(view.baseElement).toMatchSnapshot();
+        expect(dialog).toBeInTheDocument();
+        expect(dialog).toHaveClass('Modal__content content-class Modal__content--entered');
     });
+
     it('should set app element via react-modal', () => {
         const setElSpy = jest.spyOn(ReactModal, 'setAppElement');
         setElSpy.mockImplementationOnce((key) => key);
