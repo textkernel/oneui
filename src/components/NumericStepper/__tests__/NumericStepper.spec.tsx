@@ -7,16 +7,6 @@ import { NumericStepper } from '../NumericStepper';
 describe('<NumericStepper> component', () => {
     let view: RenderResult;
     const onChangeMock = jest.fn();
-    const defaultProps = {
-        onChange: onChangeMock,
-    };
-
-    // beforeEach(() => {
-    //     view = render(<NumericStepper {...defaultProps} />);
-    // });
-    // const rerenderView = (props) => {
-    //     view.rerender(<NumericStepper {...defaultProps} {...props} />);
-    // };
 
     const decreaseClick = async () => {
         const user = userEvent.setup();
@@ -29,7 +19,7 @@ describe('<NumericStepper> component', () => {
     };
 
     it('should render correctly', () => {
-        view = render(<NumericStepper {...defaultProps} />);
+        view = render(<NumericStepper onChange={onChangeMock} />);
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('spinbutton')).toBeInTheDocument();
