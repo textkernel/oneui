@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TabItem> should render a tab item correctly with minimum props 1`] = `
+<div>
+  <div
+    aria-selected="false"
+    class="TabItem"
+    role="tab"
+    tabindex="0"
+  >
+    Tab label
+  </div>
+</div>
+`;
+
+exports[`<TabItem> should render correctly with all props 1`] = `
+<div>
+  <div
+    aria-selected="true"
+    class="TabItem TabItem--isActive TabItem--isBlock"
+    role="tab"
+    tabindex="0"
+  >
+    Tab label 
+    <span
+      style="color: grey;"
+    >
+      (3)
+    </span>
+  </div>
+</div>
+`;

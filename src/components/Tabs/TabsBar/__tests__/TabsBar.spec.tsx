@@ -1,20 +1,26 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, RenderResult, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { TabsBar } from '../TabsBar';
 import { TabItem } from '../../TabItem';
 
 describe('<TabsBar>', () => {
+    let view: RenderResult;
+
     it('should render tabs bar with minimal correctly', () => {
-        const wrapper = mount(
+        view = render(
             <TabsBar>
                 <TabItem tabId="1">Some tab</TabItem>
                 <TabItem tabId="2">Another tab</TabItem>
             </TabsBar>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+
+        expect(view.container).toMatchSnapshot();
     });
+
     it('should pass isBlock prop to TabItem children', () => {
-        const wrapper = mount(
+        view = render(
             <TabsBar isBlock>
                 <TabItem tabId="1">Some tab</TabItem>
                 <TabItem tabId="2">Another tab</TabItem>
@@ -22,54 +28,59 @@ describe('<TabsBar>', () => {
             </TabsBar>
         );
 
-        const tab1Props = wrapper.find('TabItem').first().props();
-        const tab2Props = wrapper.find('TabItem').at(1).props();
-        const otherChildProps = wrapper.find('span').props();
+        const tabs = screen.getAllByRole('tab');
+        const tabList = screen.getByRole('tablist');
 
-        expect(tab1Props.isBlock).toBeTruthy();
-        expect(tab2Props.isBlock).toBeTruthy();
-        expect(otherChildProps.isBlock).toBeFalsy();
+        expect(tabs).toHaveLength(2);
+        expect(tabList).toBeInTheDocument();
+        expect(tabList.children).toHaveLength(3);
+        expect(tabs[0]).toHaveClass('TabItem TabItem--isBlock');
+        expect(tabs[1]).toHaveClass('TabItem TabItem--isBlock');
+        expect(tabList.children[2].textContent).toBe('something else');
     });
+
     it('should set isActive prop on children', () => {
-        const wrapper = mount(
+        view = render(
             <TabsBar activeTabId="1">
                 <TabItem tabId="1">Some tab</TabItem>
                 <TabItem tabId="2">Another tab</TabItem>
             </TabsBar>
         );
 
-        const tab1Props = wrapper.find('TabItem').first().props();
-        const tab2Props = wrapper.find('TabItem').at(1).props();
+        const tabs = screen.getAllByRole('tab');
 
-        expect(tab1Props.isActive).toBeTruthy();
-        expect(tab2Props.isActive).toBeFalsy();
+        expect(tabs[0]).toHaveClass('TabItem TabItem--isActive');
+        expect(tabs[1]).toHaveClass('TabItem');
     });
-    it('should pass onSelect prop to children', () => {
+
+    it('should pass onSelect prop to children', async () => {
+        const user = userEvent.setup();
         const onSelectMock = jest.fn();
-        const wrapper = mount(
+        view = render(
             <TabsBar onSelect={onSelectMock}>
                 <TabItem tabId="1">Some tab</TabItem>
                 <TabItem tabId="2">Another tab</TabItem>
             </TabsBar>
         );
 
-        const tab1Props = wrapper.find('TabItem').first().props();
-        const tab2Props = wrapper.find('TabItem').at(1).props();
+        const tabs = screen.getAllByRole('tab');
+        await user.click(tabs[0]);
+        await user.click(tabs[1]);
 
-        expect(tab1Props.onSelect).toEqual(onSelectMock);
-        expect(tab2Props.onSelect).toEqual(onSelectMock);
+        expect(onSelectMock).toHaveBeenCalledTimes(2);
     });
 
     it('should allow for conditional rendering of items', () => {
         const condition = false;
-        const wrapper = mount(
+        view = render(
             <TabsBar>
                 {condition ? <TabItem tabId="1">Some tab</TabItem> : null}
                 <TabItem tabId="2">Another tab</TabItem>
-                {condition && <TabItem tabId="3">Another tab</TabItem>}
+                {condition ? <TabItem tabId="3">Another tab</TabItem> : null}
             </TabsBar>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.text()).not.toContain('false');
+
+        expect(view.container).toMatchSnapshot();
+        expect(view.container.children[0].textContent).not.toContain('false');
     });
 });

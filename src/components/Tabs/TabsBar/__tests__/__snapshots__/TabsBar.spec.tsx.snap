@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TabsBar> should allow for conditional rendering of items 1`] = `
+<div>
+  <div
+    class="TabsBar"
+    role="tablist"
+  >
+    <div
+      aria-selected="false"
+      class="TabItem"
+      role="tab"
+      tabindex="0"
+    >
+      Another tab
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TabsBar> should render tabs bar with minimal correctly 1`] = `
+<div>
+  <div
+    class="TabsBar"
+    role="tablist"
+  >
+    <div
+      aria-selected="false"
+      class="TabItem"
+      role="tab"
+      tabindex="0"
+    >
+      Some tab
+    </div>
+    <div
+      aria-selected="false"
+      class="TabItem"
+      role="tab"
+      tabindex="0"
+    >
+      Another tab
+    </div>
+  </div>
+</div>
+`;

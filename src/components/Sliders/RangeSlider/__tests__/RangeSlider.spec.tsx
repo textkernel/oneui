@@ -1,10 +1,24 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { RangeSlider } from '../RangeSlider';
 
 describe('RangeSlider component', () => {
+    const defaultAriaMax = '100';
+    const defaultAriaMin = '0';
+    const defaultAriaDisabled = 'false';
+    const defaultAriaNow = '0';
+
     it('should render component correctly', () => {
-        const wrapper = mount(<RangeSlider />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const view = render(<RangeSlider />);
+
+        const sliders = screen.getAllByRole('slider');
+
+        expect(view.container).toMatchSnapshot();
+        expect(sliders).toHaveLength(2);
+        expect(sliders[0]).toHaveAttribute('aria-valuemax', defaultAriaMax);
+        expect(sliders[0]).toHaveAttribute('aria-valuemin', defaultAriaMin);
+        expect(sliders[0]).toHaveAttribute('aria-disabled', defaultAriaDisabled);
+        expect(sliders[0]).toHaveAttribute('aria-valuenow', defaultAriaNow);
     });
 });
