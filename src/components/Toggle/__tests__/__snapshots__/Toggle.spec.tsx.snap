@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Toggle> that renders a toggle should render Toggle correctly with label 1`] = `
+<div>
+  <label
+    class="Toggle"
+    for="1"
+  >
+    <div
+      class="Toggle__toggleContainer"
+    >
+      <input
+        class="Toggle__realCheckbox"
+        id="1"
+        type="checkbox"
+      />
+      <div
+        class="Toggle__toggleButton"
+      />
+    </div>
+    <span
+      class="Toggle__text"
+    >
+      Title is here
+    </span>
+  </label>
+</div>
+`;
+
+exports[`<Toggle> that renders a toggle should render Toggle correctly without label 1`] = `
+<div>
+  <label
+    class="Toggle"
+    for="1-2"
+  >
+    <div
+      class="Toggle__toggleContainer"
+    >
+      <input
+        class="Toggle__realCheckbox"
+        id="1-2"
+        type="checkbox"
+      />
+      <div
+        class="Toggle__toggleButton"
+      />
+    </div>
+  </label>
+</div>
+`;
+
+exports[`<Toggle> that renders a toggle should rendered disabled toggle correctly 1`] = `
+<div>
+  <label
+    class="Toggle Toggle--disabled"
+    for="4"
+  >
+    <div
+      class="Toggle__toggleContainer"
+    >
+      <input
+        class="Toggle__realCheckbox"
+        disabled=""
+        id="4"
+        type="checkbox"
+      />
+      <div
+        class="Toggle__toggleButton"
+      />
+    </div>
+    <span
+      class="Text--context_neutral Toggle__text"
+    >
+      Cannot do anything =(
+    </span>
+  </label>
+</div>
+`;
