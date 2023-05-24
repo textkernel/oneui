@@ -4,10 +4,11 @@ import '@testing-library/jest-dom';
 import { Link } from '../Link';
 
 describe('<Link> that renders a link', () => {
+    const href = 'https://textkernel.com';
     let view: RenderResult;
 
     beforeEach(() => {
-        view = render(<Link href="https://textkernel.com" />);
+        view = render(<Link href={href} />);
     });
 
     it('should render nothing if no children are provided', () => {
@@ -16,7 +17,7 @@ describe('<Link> that renders a link', () => {
     });
 
     it('should render children when it is 0', () => {
-        view.rerender(<Link href="https://textkernel.com">{0}</Link>);
+        view.rerender(<Link href={href}>{0}</Link>);
 
         const { children } = view.container;
 
@@ -25,15 +26,15 @@ describe('<Link> that renders a link', () => {
     });
 
     it('should render default link correctly', () => {
-        view.rerender(<Link href="https://textkernel.com">Click me</Link>);
+        view.rerender(<Link href={href}>Click me</Link>);
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('link')).toHaveAttribute('href', 'https://textkernel.com');
+        expect(screen.getByRole('link')).toHaveAttribute('href', href);
     });
 
     it('should add string html attributes correctly', () => {
         view.rerender(
-            <Link href="https://textkernel.com" target="_blank">
+            <Link href={href} target="_blank">
                 Click me
             </Link>
         );
