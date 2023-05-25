@@ -9,7 +9,7 @@ describe('SuggestionTag', () => {
         const view = render(<SuggestionTag />);
 
         expect(view.baseElement).toMatchSnapshot();
-        expect(view.container.children).toHaveLength(0);
+        expect(view.container).toBeEmptyDOMElement();
     });
 
     it('should render if children is 0', () => {
