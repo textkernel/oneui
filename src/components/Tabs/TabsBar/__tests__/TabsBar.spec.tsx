@@ -17,6 +17,8 @@ describe('<TabsBar>', () => {
         );
 
         expect(view.container).toMatchSnapshot();
+        expect(screen.getAllByRole('tab')).toHaveLength(2);
+        expect(screen.getByRole('tablist')).toBeInTheDocument();
     });
 
     it('should pass isBlock prop to TabItem children', () => {
