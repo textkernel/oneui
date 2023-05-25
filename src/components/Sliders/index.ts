@@ -1,2 +1,2 @@
 export { Slider, SliderProps } from './Slider';
-export { RangeSlider, RangeProps } from './RangeSlider';
+export { RangeSlider } from './RangeSlider';
