@@ -37,13 +37,7 @@ describe('<Tag> component', () => {
             </Tag>
         );
 
-        const button = screen.getByRole('button', { name: 'Tag text' });
-        // expect(wrapper.find('.Tag').prop('className')).toContain('isSelected');
-        // expect(wrapper.find('.Tag').prop('style').backgroundColor).toEqual(bgColor);
-        // expect(wrapper.find('.Tag').prop('style').maxWidth).toEqual(maxWidth);
-        // expect(wrapper.find('Text').prop('size')).toEqual(textSize);
-        // expect(wrapper.find('Tag .Tag__deleteButton MdClose').exists()).toBeTruthy();
-        // expect(wrapper.find('.my-class')).toHaveLength(2);
+        const button = screen.getByRole('button', { name: text });
 
         expect(view.container).toMatchSnapshot();
         expect(button).toBeInTheDocument();
