@@ -13,7 +13,7 @@ describe('<Link> that renders a link', () => {
 
     it('should render nothing if no children are provided', () => {
         expect(view.container).toMatchSnapshot();
-        expect(view.container.children).toHaveLength(0);
+        expect(view.container).toBeEmptyDOMElement();
     });
 
     it('should render children when it is 0', () => {
