@@ -3,8 +3,9 @@ import { render, RenderResult, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { PaginationButton } from '../PaginationButton';
 
-let view: RenderResult;
 describe('<PaginationButton> that renders a page button', () => {
+    let view: RenderResult;
+
     beforeEach(() => {
         view = render(<PaginationButton data-page={1}>{1}</PaginationButton>);
     });
