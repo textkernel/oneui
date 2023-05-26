@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, RenderResult, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { TwoPaneView } from '../TwoPaneView';
 import { LeftPane } from '../LeftPane';
@@ -16,5 +15,7 @@ describe('<TwoPaneView> that renders a two pane view', () => {
         );
 
         expect(view.container).toMatchSnapshot();
+        expect(view.container.children).toHaveLength(1);
+        expect(view.container.children[0].textContent).toBe('Some contentSome content');
     });
 });
