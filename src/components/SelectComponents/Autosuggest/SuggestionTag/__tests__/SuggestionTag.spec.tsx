@@ -8,7 +8,7 @@ describe('SuggestionTag', () => {
     it('should render nothing if no children are provided', () => {
         const view = render(<SuggestionTag />);
 
-        expect(view.baseElement).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
         expect(view.container).toBeEmptyDOMElement();
     });
 
