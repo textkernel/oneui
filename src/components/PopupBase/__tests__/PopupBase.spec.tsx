@@ -25,6 +25,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
         it('should render with minimal props correctly', () => {
             expect(view.container).toMatchSnapshot();
+
             expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
 
