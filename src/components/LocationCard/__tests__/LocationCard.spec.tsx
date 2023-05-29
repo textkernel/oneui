@@ -24,10 +24,6 @@ describe('LocationCard component', () => {
         );
     });
 
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
-
     it('should render component correctly', () => {
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('button')).toBeInTheDocument();
