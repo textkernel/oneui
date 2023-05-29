@@ -7,23 +7,40 @@ describe('<Tooltip> that renders a Tooltip', () => {
     let view: RenderResult;
 
     it('should render default Tooltip correctly', () => {
-        view = render(<Tooltip placement="bottom" content="content" />);
+        view = render(
+            <Tooltip placement="bottom" content="content">
+                <>Hover me</>
+            </Tooltip>
+        );
 
-        expect(view.baseElement).toMatchSnapshot();
-        expect(view.container).toBeEmptyDOMElement();
+        expect(view.container).toMatchSnapshot();
+        expect(view.container).toBeInTheDocument();
     });
 
     it('should render Tooltip in disabled mode if content is empty', () => {
-        view = render(<Tooltip content="foo" />);
-        // expect(view).toMatchSnapshot();
+        view = render(
+            <Tooltip content="foo">
+                <>Hover me</>
+            </Tooltip>
+        );
         expect(view.container).not.toHaveAttribute('disabled');
-        // expect(wrapper1.prop('disabled')).toBeFalsy();
-        view = render(<Tooltip content="" />);
+        view = render(
+            <Tooltip content="">
+                <>Hover me</>
+            </Tooltip>
+        );
         expect(view.container).not.toHaveAttribute('disabled');
-        // expect(wrapper2.prop('disabled')).toBe(true);
-        view = render(<Tooltip content="" disabled={false} />);
+        view = render(
+            <Tooltip content="" disabled={false}>
+                <>Hover me</>
+            </Tooltip>
+        );
         // expect(view.container).toHaveAttribute('disabled', 'false');
-        view = render(<Tooltip content="" disabled />);
+        view = render(
+            <Tooltip content="" disabled>
+                <>Hover me</>
+            </Tooltip>
+        );
         // expect(view.container).toHaveAttribute('disabled', 'true');
     });
 });
