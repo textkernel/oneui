@@ -42,10 +42,6 @@ const ThemeRollerTestConfig = [
 ] as ThemerollerConfig;
 
 describe('Themeroller component', () => {
-    afterEach(() => {
-        jest.resetAllMocks();
-    });
-
     it('should render component correctly', () => {
         const view = render(<Themeroller config={ThemeRollerTestConfig} onChange={() => {}} />);
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { ThemerollerConfig } from '@textkernel/oneui';
 import { ThemeTuner } from '../ThemeTuner';
@@ -88,21 +89,16 @@ describe('ThemeTuner component', () => {
     });
 
     it.skip('should invoke onChange callback when first input was changed', async () => {
-        // const user = userEvent.setup();
+        const user = userEvent.setup();
         const view = render(
             <ThemeTuner config={ThemeRollerTestConfig} cssVars={{}} onChange={onChangeMock} />
         );
+
         expect(view.container).toMatchSnapshot();
 
-        // TODO
-        // wrapper
-        //     .find('ul li input')
-        //     .at(0)
-        //     .simulate('change', {
-        //         target: {
-        //             value: '#00000',
-        //         },
-        //     });
+        const firstInput = screen.getByRole('spinbutton');
+
+        await user.type(firstInput, '#00000');
 
         expect(onChangeMock).toHaveBeenCalledWith({
             '--color-background': '#00000',
