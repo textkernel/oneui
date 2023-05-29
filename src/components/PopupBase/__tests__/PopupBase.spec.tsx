@@ -25,7 +25,6 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
         it('should render with minimal props correctly', () => {
             expect(view.container).toMatchSnapshot();
-
             expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
 
@@ -83,11 +82,11 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
     });
 
     describe('click and keydown event handling', () => {
-        let togglePopup;
         const onCloseMock = jest.fn();
-        //
-        // const clickDocument = useDocumentEvent('click');
-        // const keydownDocument = useDocumentEvent('keydown');
+        const togglePopup = async () => {
+            const user = userEvent.setup();
+            await user.click(screen.getAllByRole('button')[0]);
+        };
 
         beforeEach(() => {
             view = render(
@@ -97,11 +96,6 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
                     onClose={onCloseMock}
                 />
             );
-
-            togglePopup = async () => {
-                const user = userEvent.setup();
-                await user.click(screen.getAllByRole('button')[0]);
-            };
         });
 
         it('should close open popup if outside is clicked', async () => {
@@ -151,21 +145,23 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
         });
 
         it('should close open popup on Escape press', async () => {
+            const user = userEvent.setup();
             await togglePopup();
 
             expect(screen.getByRole('group')).toBeInTheDocument();
 
-            // keydownDocument({ key: ESCAPE_KEY });
-            //
-            // expect(screen.queryByRole('group')).not.toBeInTheDocument();
+            await user.keyboard('[Escape]');
+
+            expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
 
         it('should call onClose on Escape press', async () => {
+            const user = userEvent.setup();
             await togglePopup();
 
-            // keydownDocument({ key: ESCAPE_KEY });
+            await user.keyboard('[Escape]');
 
-            // expect(onCloseMock).toHaveBeenCalled();
+            expect(onCloseMock).toHaveBeenCalled();
         });
     });
 });
