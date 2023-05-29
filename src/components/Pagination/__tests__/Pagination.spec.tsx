@@ -25,12 +25,8 @@ describe('<Pagination> that renders a pagination component', () => {
         );
     });
 
-    afterEach(() => {
-        jest.resetAllMocks();
-    });
-
     it('should render correctly with default props', () => {
-        view = render(<Pagination totalPages={20} />);
+        view.rerender(<Pagination totalPages={20} />);
 
         expect(view.container).toMatchSnapshot();
     });
