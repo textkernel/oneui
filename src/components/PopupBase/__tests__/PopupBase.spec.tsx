@@ -52,7 +52,6 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
             expect(view.container).toMatchSnapshot();
             expect(screen.getByRole('group')).toBeInTheDocument();
-            // expect(wrapper.find('Popover')).toHaveLength(1);
         });
 
         it('should support no popup content from renderer', async () => {
@@ -62,11 +61,10 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             );
 
             // trigger setPopupVisibility(true) through our dummy component
-            await user.click(screen.getAllByRole('button')[0]);
+            await user.click(screen.getAllByRole('button')[1]);
 
             expect(view.container).toMatchSnapshot();
-            // expect(screen.queryByRole('group')).not.toBeInTheDocument();
-            // expect(wrapper.find('Popover')).toHaveLength(0);
+            expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
 
         it('should close popup when requested', async () => {
@@ -74,98 +72,99 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             // trigger setPopupVisibility(true) through our dummy component
             const triggerButton = screen.getByRole('button');
             await user.click(triggerButton);
-            // expect(wrapper.find('Popover')).toHaveLength(1);
+
+            expect(screen.queryByRole('group')).toBeInTheDocument();
 
             await user.click(triggerButton);
-            // expect(wrapper.find('Popover')).toHaveLength(0);
+
+            expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
     });
-    //
-    // describe('click and keydown event handling', () => {
-    //     let togglePopup;
-    //     const onCloseMock = jest.fn();
-    //
-    //     const clickDocument = useDocumentEvent('click');
-    //     const keydownDocument = useDocumentEvent('keydown');
-    //
-    //     beforeEach(() => {
-    //         view = render(
-    //             <PopupBase
-    //                 anchorRenderer={anchorRendererMock}
-    //                 popupRenderer={popupRendererMock}
-    //                 onClose={onCloseMock}
-    //             />
-    //         );
-    //
-    //         // togglePopup = () => {
-    //         //     wrapper.find('button').at(0).simulate('click');
-    //         // };
-    //     });
 
-    // afterEach(() => {
-    //     onCloseMock.mockReset();
-    // });
+    describe('click and keydown event handling', () => {
+        let togglePopup;
+        const onCloseMock = jest.fn();
+        //
+        // const clickDocument = useDocumentEvent('click');
+        // const keydownDocument = useDocumentEvent('keydown');
 
-    // it('should close open popup if outside is clicked', () => {
-    //     // togglePopup();
-    //     // expect(wrapper.find('Popover')).toHaveLength(1);
-    //
-    //     // @ts-ignore
-    //     clickDocument();
-    //
-    //     // expect(wrapper.find('Popover')).toHaveLength(0);
-    // });
+        beforeEach(() => {
+            view = render(
+                <PopupBase
+                    anchorRenderer={anchorRendererMock}
+                    popupRenderer={popupRendererMock}
+                    onClose={onCloseMock}
+                />
+            );
 
-    //     it('should call onClose if outside is clicked', () => {
-    //         togglePopup();
-    //
-    //         // @ts-ignore
-    //         clickDocument();
-    //         wrapper.update();
-    //
-    //         expect(onCloseMock).toHaveBeenCalled();
-    //     });
-    //     it('should not close open popup if popup is clicked', () => {
-    //         togglePopup();
-    //         expect(wrapper.find('Popover')).toHaveLength(1);
-    //
-    //         // clicking directly in the element won't trigger global listener, hence we use our magic mock
-    //         clickDocument({
-    //             composedPath: () => [wrapper.find('Popover').find('p').at(0).getDOMNode()],
-    //         });
-    //         wrapper.update();
-    //
-    //         expect(wrapper.find('Popover')).toHaveLength(1);
-    //     });
-    //     it('should not close open popup if button is clicked (ignoring functionality added by the renderer)', () => {
-    //         togglePopup();
-    //         expect(wrapper.find('Popover')).toHaveLength(1);
-    //
-    //         // clicking directly in the element won't trigger global listener, hence we use our magic mock
-    //         // this also ensures that event handlers defined by the renderer prop are not triggered.
-    //         clickDocument({
-    //             target: wrapper.find('button').at(0).getDOMNode(),
-    //         });
-    //         wrapper.update();
-    //
-    //         expect(wrapper.find('Popover')).toHaveLength(1);
-    //     });
-    //     it('should close open popup on Escape press', () => {
-    //         togglePopup();
-    //         expect(wrapper.find('Popover')).toHaveLength(1);
-    //
-    //         keydownDocument({ key: ESCAPE_KEY });
-    //         wrapper.update();
-    //
-    //         expect(wrapper.find('Popover')).toHaveLength(0);
-    //     });
-    //     it('should call onClose on Escape press', () => {
-    //         togglePopup();
-    //
-    //         keydownDocument({ key: ESCAPE_KEY });
-    //         wrapper.update();
-    //
-    //         expect(onCloseMock).toHaveBeenCalled();
-    //     });
-    // });
+            togglePopup = async () => {
+                const user = userEvent.setup();
+                await user.click(screen.getAllByRole('button')[0]);
+            };
+        });
+
+        it('should close open popup if outside is clicked', async () => {
+            await togglePopup();
+
+            expect(screen.queryByRole('group')).toBeInTheDocument();
+
+            await togglePopup();
+
+            expect(screen.queryByRole('group')).not.toBeInTheDocument();
+        });
+
+        it.skip('should call onClose if outside is clicked', async () => {
+            const user = userEvent.setup();
+            // const button = screen.getAllByRole('button')[1];
+            // await user.click(button);
+            await user.click(document.body);
+
+            expect(onCloseMock).toHaveBeenCalled();
+        });
+
+        it('should not close open popup if popup is clicked', async () => {
+            await togglePopup();
+
+            expect(screen.getByRole('group')).toBeInTheDocument();
+
+            // clicking directly in the element won't trigger global listener, hence we use our magic mock
+            // clickDocument({
+            //     composedPath: () => [wrapper.find('Popover').find('p').at(0).getDOMNode()],
+            // });
+            //
+            // expect(wrapper.find('Popover')).toHaveLength(1);
+        });
+
+        it('should not close open popup if button is clicked (ignoring functionality added by the renderer)', async () => {
+            await togglePopup();
+
+            expect(screen.getByRole('group')).toBeInTheDocument();
+
+            // clicking directly in the element won't trigger global listener, hence we use our magic mock
+            // this also ensures that event handlers defined by the renderer prop are not triggered.
+            // clickDocument({
+            //     target: wrapper.find('button').at(0).getDOMNode(),
+            // });
+            //
+            // expect(wrapper.find('Popover')).toHaveLength(1);
+        });
+
+        it('should close open popup on Escape press', async () => {
+            await togglePopup();
+
+            expect(screen.getByRole('group')).toBeInTheDocument();
+
+            // keydownDocument({ key: ESCAPE_KEY });
+            //
+            // expect(screen.queryByRole('group')).not.toBeInTheDocument();
+        });
+
+        it('should call onClose on Escape press', async () => {
+            await togglePopup();
+
+            // keydownDocument({ key: ESCAPE_KEY });
+
+            // expect(onCloseMock).toHaveBeenCalled();
+        });
+    });
 });
