@@ -14,7 +14,7 @@ describe('<ProgressBar> that renders a horizontal progress bar', () => {
     });
 
     it('should render a progress bar with label', () => {
-        view = render(<ProgressBar percentage={25}>Loading...</ProgressBar>);
+        view.rerender(<ProgressBar percentage={25}>Loading...</ProgressBar>);
 
         const { children } = view.container;
         // Check that label is shown
