@@ -26,6 +26,10 @@ export interface Props<S>
     noSuggestionsPlaceholder: string;
     /** Additional HTML attributes to be applied to the input element */
     inputAttrs?: DictionaryOf<string | boolean>;
+    /** Down arrow name for ARIA labelling, it is used when the component isn't focused */
+    downArrowLabel?: string;
+    /** Up arrow name for ARIA labelling, it is used when the component is focused and options are shown */
+    upArrowLabel?: string;
 }
 
 /**
@@ -52,6 +56,8 @@ export function Combobox<S>({
     inputPlaceholder,
     inputAttrs = {},
     selectedSuggestion,
+    upArrowLabel,
+    downArrowLabel,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -118,6 +124,8 @@ export function Combobox<S>({
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
             showArrow
+            downArrowLabel={downArrowLabel}
+            upArrowLabel={upArrowLabel}
         />
     );
 }

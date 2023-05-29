@@ -13,6 +13,8 @@ describe('Combobox', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     const inputPlaceholder = 'type here...';
     const noSuggestionsPlaceholder = 'No suggestions...';
+    const upArrowLabel = 'up arrow';
+    const downArrowLabel = 'down arrow';
     const mockOnSelectionAdd = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnBlur = jest.fn();
@@ -30,6 +32,8 @@ describe('Combobox', () => {
         suggestionToString,
         inputPlaceholder,
         noSuggestionsPlaceholder,
+        upArrowLabel,
+        downArrowLabel,
         onSelectionAdd: mockOnSelectionAdd,
         onInputValueChange: mockOnInputValueChange,
         onBlur: mockOnBlur,
@@ -46,6 +50,7 @@ describe('Combobox', () => {
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
             expect(view.container).toMatchSnapshot();
+            expect(screen.getByLabelText(downArrowLabel)).toBeInTheDocument();
         });
         it('should set focus on the input field', async () => {
             await setFocus();
@@ -69,15 +74,14 @@ describe('Combobox', () => {
             await setFocus();
 
             expect(view.container).toMatchSnapshot();
-            // TODO: will be fixed in ONEUI-364
-            expect(screen.getAllByRole('presentation')).toHaveLength(1);
+            expect(screen.queryByRole('option')).not.toBeInTheDocument();
+            expect(screen.getByRole('listitem')).toBeInTheDocument();
             expect(screen.getByText(noSuggestionsPlaceholder)).toBeInTheDocument();
         });
         it('should render all suggestions from the list', async () => {
             await setFocus();
 
-            // TODO: will be fixed in ONEUI-364
-            expect(screen.getAllByRole('presentation')).toHaveLength(suggestions.length);
+            expect(screen.getAllByRole('option')).toHaveLength(suggestions.length);
         });
         describe('when blurred', () => {
             it('should render selection placeholder', () => {
@@ -143,10 +147,10 @@ describe('Combobox', () => {
             await setFocus();
             expect(getInputNode(viewContainer)).toBe(document.activeElement);
 
-            await userEvent.click(screen.queryAllByRole('presentation')[0]);
+            await userEvent.click(screen.queryAllByRole('option')[0]);
 
             expect(getInputNode(viewContainer)).not.toBe(document.activeElement);
-            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+            expect(screen.queryAllByRole('option')).toHaveLength(0);
         });
         it('should blur on pressing Escape button', async () => {
             await setFocus();
@@ -183,8 +187,7 @@ describe('Combobox', () => {
                 await setFocus();
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
-                // TODO: will be fixed in ONEUI-364
-                await userEvent.click(screen.queryAllByRole('presentation')[0]);
+                await userEvent.click(screen.queryAllByRole('option')[0]);
 
                 expect(mockOnSelectionAdd).toHaveBeenCalledWith(SUGGESTIONS[0]);
             });

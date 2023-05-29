@@ -80,6 +80,22 @@ describe('SelectBase', () => {
             await userEvent.click(svgFocused);
             expect(svgFocused).not.toBeInTheDocument();
         });
+        it('should have the correct ARIA label on the drop arrow', async () => {
+            const downArrowLabel = 'down';
+            const upArrowLabel = 'up';
+            const newProps = {
+                highlightOnEmptyInput: true,
+                showArrow: true,
+                downArrowLabel,
+                upArrowLabel,
+            };
+            rerenderView(newProps);
+
+            expect(screen.getByLabelText(downArrowLabel)).toBeInTheDocument();
+
+            await userEvent.click(screen.getByRole('button'));
+            expect(screen.getByLabelText(upArrowLabel)).toBeInTheDocument();
+        });
     });
     describe('search field interactions', () => {
         it('should set focus when wrapper element is clicked', async () => {
@@ -108,9 +124,9 @@ describe('SelectBase', () => {
             expect(inputNode).not.toBe(document.activeElement);
 
             await userEvent.click(screen.queryAllByRole('listbox')[0]);
-            await userEvent.click(screen.queryAllByRole('presentation')[0]);
+            await userEvent.click(screen.queryAllByRole('option')[0]);
 
-            expect(screen.queryAllByRole('presentation')).toHaveLength(0);
+            expect(screen.queryAllByRole('option')).toHaveLength(0);
         });
         it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', async () => {
             const newProps = {
@@ -123,8 +139,8 @@ describe('SelectBase', () => {
             await userEvent.click(screen.queryAllByRole('listbox')[0]);
             expect(inputNode).toBe(document.activeElement);
 
-            await userEvent.click(screen.queryAllByRole('presentation')[0]);
-            expect(screen.queryAllByRole('presentation')).toHaveLength(suggestions.length);
+            await userEvent.click(screen.queryAllByRole('option')[0]);
+            expect(screen.queryAllByRole('option')).toHaveLength(suggestions.length);
         });
         it('should clear the input field when a suggestion was selected', async () => {
             const textInputValue = 'driver';
@@ -133,7 +149,7 @@ describe('SelectBase', () => {
 
             expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            await userEvent.click(screen.queryAllByRole('presentation')[0]);
+            await userEvent.click(screen.queryAllByRole('option')[0]);
 
             expect(inputField.getAttribute('value')).toEqual('');
         });
@@ -149,7 +165,7 @@ describe('SelectBase', () => {
 
             expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            await userEvent.click(screen.queryAllByRole('presentation')[0]);
+            await userEvent.click(screen.queryAllByRole('option')[0]);
 
             expect(inputField.getAttribute('value')).toEqual(textInputValue);
         });
@@ -168,7 +184,7 @@ describe('SelectBase', () => {
 
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
-                await userEvent.click(screen.queryAllByRole('presentation')[0]);
+                await userEvent.click(screen.queryAllByRole('option')[0]);
 
                 expect(mockOnSelectionAdd).toHaveBeenCalled();
             });

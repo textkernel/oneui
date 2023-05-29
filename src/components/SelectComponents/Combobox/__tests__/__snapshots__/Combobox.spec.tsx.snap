@@ -44,6 +44,7 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
           />
         </div>
         <svg
+          aria-label="down arrow"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
@@ -109,6 +110,7 @@ exports[`Combobox rendering should initially render empty component correctly 1`
           />
         </div>
         <svg
+          aria-label="down arrow"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
@@ -174,7 +176,6 @@ exports[`Combobox rendering should render noSuggestions placeholder when empty s
           >
             <li
               class="ListItem ListItem--disabled"
-              role="presentation"
             >
               <p
                 class="Text--context_neutral"
@@ -185,6 +186,7 @@ exports[`Combobox rendering should render noSuggestions placeholder when empty s
           </ul>
         </div>
         <svg
+          aria-label="up arrow"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"
@@ -248,6 +250,7 @@ exports[`Combobox rendering when blurred should show the selected value if avail
           />
         </div>
         <svg
+          aria-label="down arrow"
           class="FieldWrapper__dropdownIcon"
           fill="currentColor"
           height="1em"

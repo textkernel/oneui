@@ -26,6 +26,7 @@ _Select.args = {
     style: { width: '650px' },
     items: SUGGESTIONS,
     itemToString: SUGGESTION_TO_STRING,
+    onClear: undefined,
 };
 
 export const Clearable = (args) => {
