@@ -1,10 +1,11 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { LocationAutocompleteWithGoogleLoader } from '../LocationAutocompleteWithGoogleLoader';
 
 describe('<LocationAutocompleteWithGoogleLoader/> that loads google api and renders a LocationAutocompleteWithGoogleLoader', () => {
     it('should render with default props', () => {
-        const wrapper = mount(
+        const view = render(
             <LocationAutocompleteWithGoogleLoader
                 apiKey="someKey"
                 inputPlaceholder="Location..."
@@ -13,6 +14,7 @@ describe('<LocationAutocompleteWithGoogleLoader/> that loads google api and rend
             />
         );
 
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('status')).toBeInTheDocument();
     });
 });

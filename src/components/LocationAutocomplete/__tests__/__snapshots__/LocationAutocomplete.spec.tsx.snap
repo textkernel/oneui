@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LocationAutocomplete/> that renders a location search field should render with minimal props 1`] = `
+<div>
+  <div
+    class="AutosuggestDeprecated"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-0-label"
+      class="AutosuggestDeprecated__main"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper AutosuggestDeprecated__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            class="AutosuggestDeprecated__wrapper"
+            role="searchbox"
+            tabindex="0"
+          >
+            <svg
+              class="AutosuggestDeprecated__spacedElem LocationAutocomplete__icon"
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 384 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+              />
+            </svg>
+            <input
+              aria-autocomplete="list"
+              aria-labelledby="downshift-0-label"
+              autocomplete="off"
+              class="AutosuggestDeprecated__input"
+              data-lpignore="true"
+              id="downshift-0-input"
+              placeholder="Location..."
+              value=""
+            />
+          </div>
+          <ul
+            aria-labelledby="downshift-0-label"
+            class="List"
+            id="downshift-0-menu"
+            role="listbox"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
