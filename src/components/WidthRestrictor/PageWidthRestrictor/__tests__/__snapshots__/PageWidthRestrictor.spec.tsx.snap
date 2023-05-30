@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageWidthRestrictor should render correctly 1`] = `
-<div
-  className="PageWidthRestrictor"
->
-  Some children
+<div>
+  <div
+    class="PageWidthRestrictor"
+    role="group"
+  >
+    Some children
+  </div>
 </div>
 `;

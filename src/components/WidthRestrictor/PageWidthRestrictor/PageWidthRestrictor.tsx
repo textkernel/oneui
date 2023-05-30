@@ -4,7 +4,7 @@ import styles from './PageWidthRestrictor.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node(s) to be rendered inside the container */
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 const { block } = bem('PageWidthRestrictor', styles);
@@ -15,7 +15,7 @@ export const PageWidthRestrictor: React.FC<Props> = ({ children, ...rest }) => {
     }
 
     return (
-        <div {...rest} {...block({ ...rest })}>
+        <div {...rest} {...block({ ...rest })} role="group">
             {children}
         </div>
     );
