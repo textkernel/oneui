@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GoogleMap, LoadScriptNext } from '@react-google-maps/api';
 import { LoadingSpinner } from '../../LoadingSpinner';
-import { Map } from '../Map/Map';
+import { Map, MapProps } from '../Map/Map';
 
 /**
  * ## Note about props
@@ -12,7 +12,7 @@ import { Map } from '../Map/Map';
  * so you can provide them all together.
  */
 
-interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'options'> {
+interface Props extends MapProps {
     /** Google API key */
     apiKey: string;
     /** Tha language code to be used for the map (e.g en). By default the users browser language will be used

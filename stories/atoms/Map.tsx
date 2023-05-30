@@ -88,7 +88,7 @@ export default {
                 },
             },
         },
-    }
+    },
 };
 
 export const _Map = ({ width, height, ...args }) => (
@@ -98,12 +98,11 @@ export const _Map = ({ width, height, ...args }) => (
             height,
         }}
     >
-        <MapWithGoogleLoader {...args} />
+        <MapWithGoogleLoader {...args} apiKey={apiKey} />
     </div>
 );
 
 _Map.args = {
-    apiKey,
     markers: 'none',
     defaultArea: 'address',
     defaultHighlight: 'NL',
