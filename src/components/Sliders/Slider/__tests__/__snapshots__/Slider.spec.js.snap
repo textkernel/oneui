@@ -2,138 +2,98 @@
 
 exports[`Slider component should render component correctly 1`] = `
 <Slider>
-  <ComponentEnhancer(undefined)
-    activeDotStyle={Object {}}
-    className=""
-    disabled={false}
-    dotStyle={Object {}}
-    dots={false}
-    handle={[Function]}
-    handleStyle={
-      Array [
-        Object {},
-      ]
-    }
-    included={true}
-    marks={Object {}}
-    max={100}
-    min={0}
-    onAfterChange={[Function]}
-    onBeforeChange={[Function]}
-    onChange={[Function]}
-    prefixCls="rc-slider"
-    railStyle={Object {}}
-    reverse={false}
-    step={1}
-    trackStyle={
-      Array [
-        Object {},
-      ]
-    }
-    vertical={false}
-  >
+  <Slider>
     <div
-      className="rc-slider"
-      onBlur={[Function]}
-      onFocus={[Function]}
-      onKeyDown={[Function]}
+      className="rc-slider rc-slider-horizontal"
       onMouseDown={[Function]}
-      onMouseUp={[Function]}
-      onTouchStart={[Function]}
     >
       <div
         className="rc-slider-rail"
-        style={Object {}}
       />
-      <Track
-        className="rc-slider-track"
-        included={true}
-        length={0}
-        offset={0}
-        reverse={false}
-        style={Object {}}
-        vertical={false}
-      >
-        <div
-          className="rc-slider-track"
-          style={
-            Object {
-              "left": "0%",
-              "right": "auto",
-              "width": "0%",
-            }
-          }
-        />
-      </Track>
-      <Steps
-        activeDotStyle={Object {}}
-        dotStyle={Object {}}
-        dots={false}
-        included={true}
-        lowerBound={0}
-        marks={Object {}}
-        max={100}
-        min={0}
+      <Tracks
+        onStartMove={null}
         prefixCls="rc-slider"
-        reverse={false}
-        step={1}
-        upperBound={0}
-        vertical={false}
+        values={
+          Array [
+            0,
+          ]
+        }
+      >
+        <Track
+          end={0}
+          index={0}
+          key="0"
+          onStartMove={null}
+          prefixCls="rc-slider"
+          start={0}
+        >
+          <div
+            className="rc-slider-track"
+            onMouseDown={[Function]}
+            onTouchStart={[Function]}
+            style={
+              Object {
+                "left": "0%",
+                "width": "0%",
+              }
+            }
+          />
+        </Track>
+      </Tracks>
+      <Steps
+        marks={Array []}
+        prefixCls="rc-slider"
       >
         <div
           className="rc-slider-step"
         />
       </Steps>
-      <Handle
-        className="rc-slider-handle"
-        disabled={false}
-        key="0"
-        max={100}
-        min={0}
-        offset={0}
+      <Handles
+        draggingIndex={-1}
+        onOffsetChange={[Function]}
+        onStartMove={[Function]}
         prefixCls="rc-slider"
-        reverse={false}
-        style={Object {}}
-        value={0}
-        vertical={false}
+        values={
+          Array [
+            0,
+          ]
+        }
       >
-        <div
-          aria-disabled={false}
-          aria-valuemax={100}
-          aria-valuemin={0}
-          aria-valuenow={0}
-          className="rc-slider-handle"
-          onBlur={[Function]}
-          onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          role="slider"
-          style={
-            Object {
-              "left": "0%",
-              "right": "auto",
-              "transform": "translateX(-50%)",
+        <Handle
+          dragging={false}
+          key="0"
+          onOffsetChange={[Function]}
+          onStartMove={[Function]}
+          prefixCls="rc-slider"
+          value={0}
+          valueIndex={0}
+        >
+          <div
+            aria-disabled={false}
+            aria-valuemax={100}
+            aria-valuemin={0}
+            aria-valuenow={0}
+            className="rc-slider-handle"
+            onKeyDown={[Function]}
+            onMouseDown={[Function]}
+            onTouchStart={[Function]}
+            role="slider"
+            style={
+              Object {
+                "left": "0%",
+                "transform": "translateX(-50%)",
+              }
             }
-          }
-          tabIndex={0}
-        />
-      </Handle>
+            tabIndex={0}
+          />
+        </Handle>
+      </Handles>
       <Marks
-        className="rc-slider-mark"
-        included={true}
-        lowerBound={0}
-        marks={Object {}}
-        max={100}
-        min={0}
-        onClickLabel={[Function]}
-        reverse={false}
-        upperBound={0}
-        vertical={false}
-      >
-        <div
-          className="rc-slider-mark"
-        />
-      </Marks>
+        marks={Array []}
+        onClick={[Function]}
+        prefixCls="rc-slider"
+      />
     </div>
-  </ComponentEnhancer(undefined)>
+  </Slider>
 </Slider>
 `;

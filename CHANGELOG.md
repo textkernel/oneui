@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.5.0](https://github.com/textkernel/oneui/compare/19.4.0...19.5.0) (2023-05-26)
+
+
+### Features
+
+* **Slider:** update rc-slider version to "10.1.1" ([#983](https://github.com/textkernel/oneui/issues/983)) ([a6ae667](https://github.com/textkernel/oneui/commit/a6ae667f4bb1d1791b956670414c036aaba1a3e7))
+
+## [19.4.0](https://github.com/textkernel/oneui/compare/19.3.1...19.4.0) (2023-05-17)
+
+
+### Features
+
+* **Select components:** add ARIA labels and props for toggle button; migrate Select tests ([#964](https://github.com/textkernel/oneui/issues/964)) ([4d04d5e](https://github.com/textkernel/oneui/commit/4d04d5ef335577d158696370f6f7c57444af00c7))
+
+
+### Bug Fixes
+
+* **List, ListItem:** Improve accessibility for List and migrate tests ([#949](https://github.com/textkernel/oneui/issues/949)) ([08d7ffe](https://github.com/textkernel/oneui/commit/08d7ffe5107a6a2a2f622f397260759cc6095b0c))
+* **Select:** don't show Clear button if onClear isn't defined ([#963](https://github.com/textkernel/oneui/issues/963)) ([0a5bd20](https://github.com/textkernel/oneui/commit/0a5bd200a71f06afb26ee5462095d0adfdf2b05f))
+
 ### [19.3.1](https://github.com/textkernel/oneui/compare/19.3.0...19.3.1) (2023-04-28)
 
 

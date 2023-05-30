@@ -15,7 +15,7 @@ interface InternalProps<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'o
 
 export interface Props<V> extends InternalProps<V> {
     /** the label to be displayed on this button */
-    children: React.ReactNode;
+    children?: React.ReactNode;
     /** the value associated with this button */
     value: V;
     /** whether or not this button is selected */
