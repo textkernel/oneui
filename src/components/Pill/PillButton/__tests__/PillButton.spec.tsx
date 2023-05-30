@@ -11,7 +11,8 @@ describe('<PillButton> component', () => {
     const name = 'Pill name';
     const content = 'This pill is in use';
     const downArrowLabel = 'down arrow';
-    const closeArrowLabel = 'close arrow';
+    const upArrowLabel = 'up arrow';
+    const clearLabel = 'clear label';
 
     let view: RenderResult;
 
@@ -31,7 +32,8 @@ describe('<PillButton> component', () => {
                     onClear={onClearMock}
                     name={name}
                     downArrowLabel={downArrowLabel}
-                    closeArrowLabel={closeArrowLabel}
+                    upArrowLabel={upArrowLabel}
+                    clearLabel={clearLabel}
                 />
             );
         });

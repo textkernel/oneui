@@ -17,10 +17,12 @@ export interface Props {
     name: string;
     /** label describing the content of an active filter/pill. Note: it is rendered within a <span> */
     content?: React.ReactNode;
-    /** Down arrow name for ARIA labelling */
+    /** Down arrow name for ARIA labelling, it is used when the component isn't focused */
     downArrowLabel?: string;
-    /** Up arrow name for ARIA labelling */
-    closeArrowLabel?: string;
+    /** Up arrow name for ARIA labelling, it is used when the component is focused and options are shown */
+    upArrowLabel?: string;
+    /** Clear label name for ARIA labelling, it is used when needs to clear data from component */
+    clearLabel?: string;
 }
 
 const { block, elem } = bem('PillButton', styles);
@@ -35,7 +37,8 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
             name,
             content = null,
             downArrowLabel,
-            closeArrowLabel,
+            upArrowLabel,
+            clearLabel,
             ...rest
         },
         ref
@@ -65,13 +68,13 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
             <IoIosArrowDown
                 {...elem('arrowIcon', propsForBem)}
                 role="img"
-                aria-label={downArrowLabel}
+                aria-label={isOpen ? upArrowLabel : downArrowLabel}
             />
         );
         let isButtonClickable = false;
 
         if (isActive && !isOpen && !isContentDefault) {
-            buttonIcon = <IoIosClose size={22} role="img" aria-label={closeArrowLabel} />;
+            buttonIcon = <IoIosClose size={22} role="img" aria-label={clearLabel} />;
             isButtonClickable = true;
         }
 

@@ -44,6 +44,9 @@ export const _PillButton = (args) => (
 _PillButton.args = {
     name: 'Pill name',
     content: 'This pill is used',
+    downArrowLabel: 'down arrow',
+    upArrowLabel: 'up arrow',
+    clearLabel: 'clear label',
 };
 
 export const _PillDropdown = (args) => (
