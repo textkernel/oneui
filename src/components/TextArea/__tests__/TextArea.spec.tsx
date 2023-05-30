@@ -30,12 +30,14 @@ describe('<TextArea> that renders a textarea', () => {
         const user = userEvent.setup();
         const onChange = jest.fn();
         view = render(<TextArea onChange={onChange} />);
+
         expect(view.container).toMatchSnapshot();
 
         const textarea = screen.getByRole('textbox', { hidden: true });
+
         expect(textarea).toBeInTheDocument();
 
-        await user.type(textarea, 'test'); // check
+        await user.type(textarea, data);
 
         expect(onChange).toHaveBeenCalledWith(data);
     });
