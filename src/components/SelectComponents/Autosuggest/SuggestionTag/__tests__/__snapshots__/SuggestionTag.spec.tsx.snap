@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuggestionTag should render correctly 1`] = `
+<div>
+  <div
+    class="SuggestionTag"
+  >
+    <div
+      class="SuggestionTag__label"
+      title="tag"
+    >
+      tag
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SuggestionTag should render correctly with styles modifier 1`] = `
+<div>
+  <div
+    class="SuggestionTag SuggestionTag--block"
+  >
+    <div
+      class="SuggestionTag__label"
+      title="tag"
+    >
+      tag
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SuggestionTag should render if children is 0 1`] = `
+<div>
+  <div
+    class="SuggestionTag"
+  >
+    <div
+      class="SuggestionTag__label"
+      title="0"
+    >
+      0
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SuggestionTag should render nothing if no children are provided 1`] = `<div />`;
