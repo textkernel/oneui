@@ -27,6 +27,10 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     isFocused?: boolean;
     /** defines if the component is disabled */
     disabled?: boolean;
+    /** Down arrow name for ARIA labelling */
+    downArrowLabel?: string;
+    /** Up arrow name for ARIA labelling */
+    upArrowLabel?: string;
 }
 
 export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
@@ -36,11 +40,13 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
             showArrow = false,
             isArrowUp = false,
             onArrowClick,
-            clearTooltipLabel = '',
+            clearTooltipLabel,
             showClearButton = false,
             onClear = null,
             isFocused = false,
             disabled = false,
+            downArrowLabel,
+            upArrowLabel,
             ...rest
         },
         ref
@@ -80,7 +86,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                         title={clearTooltipLabel}
                         {...elem('clearButton', { rightIndent: showArrow })}
                     >
-                        <MdClear size={16} />
+                        <MdClear size={16} role="img" aria-label={clearTooltipLabel} />
                     </Button>
                 )}
 
@@ -92,6 +98,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                             onClick={handleArrowClick}
                             onKeyDown={handleArrowKeyDown}
                             role="button"
+                            aria-label={upArrowLabel}
                         />
                     ) : (
                         <IoMdArrowDropdown
@@ -100,6 +107,7 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
                             onClick={handleArrowClick}
                             onKeyDown={handleArrowKeyDown}
                             role="button"
+                            aria-label={downArrowLabel}
                         />
                     ))}
             </div>

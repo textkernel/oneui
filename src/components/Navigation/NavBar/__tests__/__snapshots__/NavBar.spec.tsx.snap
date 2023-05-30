@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar that renders a container for navigation should render correctly 1`] = `
+<div>
+  <div
+    class="NavBar"
+  >
+    <nav
+      class="BlockWidthRestrictor NavBar__wrapper"
+    >
+      <a
+        href="/"
+      >
+        in item
+      </a>
+      <a
+        href="/"
+      >
+        other
+      </a>
+    </nav>
+  </div>
+</div>
+`;

@@ -20,6 +20,10 @@ export interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
     useOptimizeListRender?: boolean;
     /** Additional HTML attributes to be applied to the input element */
     inputAttrs?: DictionaryOf<string | boolean>;
+    /** Down arrow name for ARIA labelling, it is used when the component isn't focused */
+    downArrowLabel?: string;
+    /** Up arrow name for ARIA labelling, it is used when the component is focused and options are shown */
+    upArrowLabel?: string;
 }
 
 /**
@@ -45,6 +49,8 @@ export function ComboboxMulti<S>({
     onInputValueChange,
     disabled,
     inputPlaceholder,
+    upArrowLabel,
+    downArrowLabel,
     useOptimizeListRender = false,
     inputAttrs = {},
     ...rest
@@ -77,6 +83,7 @@ export function ComboboxMulti<S>({
                     {...elem('dropdownIcon', { disabled })}
                     {...getToggleButtonProps({ disabled, onClick: blur })}
                     role="button"
+                    aria-label={upArrowLabel}
                 />
             </div>
         );
@@ -106,6 +113,7 @@ export function ComboboxMulti<S>({
                     },
                 })}
                 role="button"
+                aria-label={downArrowLabel}
             />
         </div>
     );

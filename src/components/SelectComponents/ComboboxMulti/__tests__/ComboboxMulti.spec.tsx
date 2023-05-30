@@ -12,6 +12,8 @@ describe('ComboboxMulti', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
     const inputPlaceholder = 'type here...';
     const noSuggestionsPlaceholder = 'No suggestions...';
+    const upArrowLabel = 'up arrow';
+    const downArrowLabel = 'down arrow';
     const mockOnSelectionAdd = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnBlur = jest.fn();
@@ -28,6 +30,8 @@ describe('ComboboxMulti', () => {
         suggestionToString,
         inputPlaceholder,
         noSuggestionsPlaceholder,
+        downArrowLabel,
+        upArrowLabel,
         onSelectionAdd: mockOnSelectionAdd,
         onInputValueChange: mockOnInputValueChange,
         onBlur: mockOnBlur,
@@ -44,6 +48,7 @@ describe('ComboboxMulti', () => {
     describe('rendering', () => {
         it('should initially render empty component correctly', () => {
             expect(view.container).toMatchSnapshot();
+            expect(screen.getByLabelText(downArrowLabel)).toBeInTheDocument();
         });
         it('should add additional attributes to input field when component is blurred', () => {
             const newProps = {

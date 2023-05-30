@@ -80,6 +80,22 @@ describe('SelectBase', () => {
             await userEvent.click(svgFocused);
             expect(svgFocused).not.toBeInTheDocument();
         });
+        it('should have the correct ARIA label on the drop arrow', async () => {
+            const downArrowLabel = 'down';
+            const upArrowLabel = 'up';
+            const newProps = {
+                highlightOnEmptyInput: true,
+                showArrow: true,
+                downArrowLabel,
+                upArrowLabel,
+            };
+            rerenderView(newProps);
+
+            expect(screen.getByLabelText(downArrowLabel)).toBeInTheDocument();
+
+            await userEvent.click(screen.getByRole('button'));
+            expect(screen.getByLabelText(upArrowLabel)).toBeInTheDocument();
+        });
     });
     describe('search field interactions', () => {
         it('should set focus when wrapper element is clicked', async () => {
