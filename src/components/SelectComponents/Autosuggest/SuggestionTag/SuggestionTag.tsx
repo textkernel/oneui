@@ -11,7 +11,7 @@ interface Props {
     /** Clicked on delete button */
     onClick?: (e: React.MouseEvent) => void;
     /** Tag content */
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 export const SuggestionTag: React.FC<Props> = ({ width = 'auto', children, onClick, ...rest }) => {
