@@ -28,7 +28,7 @@ const pointMarker = {
 
 export default {
     title: 'Atoms/Map',
-    // component: MapWithGoogleLoader, // TODO
+    component: MapWithGoogleLoader,
     subcomponents: { Map },
     argTypes: {
         defaultArea: {

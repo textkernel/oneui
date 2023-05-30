@@ -12,7 +12,7 @@ import { Map, MapProps } from '../Map/Map';
  * so you can provide them all together.
  */
 
-interface Props extends MapProps {
+export interface Props extends MapProps {
     /** Google API key */
     apiKey: string;
     /** Tha language code to be used for the map (e.g en). By default the users browser language will be used
