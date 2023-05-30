@@ -29,6 +29,7 @@ describe('<Pagination> that renders a pagination component', () => {
         view.rerender(<Pagination totalPages={20} />);
 
         expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('navigation')).toBeInTheDocument();
     });
 
     it('should render correctly with all props', () => {
