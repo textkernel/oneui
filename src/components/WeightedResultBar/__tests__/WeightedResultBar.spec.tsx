@@ -14,12 +14,9 @@ describe('WeightedResultBar', () => {
                 Result
             </WeightedResultBar>
         );
-        // act(() => {
-        //     jest.runAllTimers();
-        //     wrapper.update();
-        // });
 
         expect(view.container).toMatchSnapshot();
+        expect(view.container).toHaveTextContent('Result');
     });
 
     it('should render correctly with a custom count', () => {
@@ -42,10 +39,10 @@ describe('WeightedResultBar', () => {
     it('should have consistent width of ContentPlaceholder in loading state, even when the component re-renders', () => {
         view = render(<WeightedResultBar percentage={67} count={<p>456</p>} isLoading />);
 
-        // expect(screen.getByRole('presentation')).toHaveAttribute('style', 'width: 66%;');
+        const { style } = screen.getByRole('presentation');
 
         view.rerender(<WeightedResultBar percentage={67} count={<p>45</p>} isLoading />);
 
-        // expect(screen.getByRole('presentation')).toHaveAttribute('style', 'width: 66%;');
+        expect(screen.getByRole('presentation').style).toBe(style);
     });
 });

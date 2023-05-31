@@ -16,6 +16,7 @@ describe('PageWidthRestrictor', () => {
         view = render(<PageWidthRestrictor>Some children</PageWidthRestrictor>);
 
         expect(view.container).toMatchSnapshot();
+        expect(view.container).toHaveTextContent('Some children');
         expect(screen.getByRole('group')).toBeInTheDocument();
     });
 });

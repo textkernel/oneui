@@ -16,6 +16,7 @@ describe('BlockWidthRestrictor', () => {
         view = render(<BlockWidthRestrictor>Some children</BlockWidthRestrictor>);
 
         expect(view.container).toMatchSnapshot();
+        expect(view.container).toHaveTextContent('Some children');
         expect(view.container.children[0].tagName).toBe('DIV');
     });
 
