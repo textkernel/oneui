@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input> that renders an input field should add classes when props are changed 1`] = `
+<div>
+  <input
+    class="Input Input--context_danger Input--size_large Input--isBlock"
+    data-lpignore="true"
+    disabled=""
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`<Input> that renders an input field should render default input correctly 1`] = `
+<div>
+  <input
+    class="Input"
+    data-lpignore="true"
+    type="text"
+    value="Some value"
+  />
+</div>
+`;
