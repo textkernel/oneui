@@ -32,8 +32,8 @@ describe('ThemeActions component', () => {
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('button', { name: 'Reset' }));
-        expect(screen.getByRole('button', { name: 'Download' }));
+        expect(screen.getByRole('button', { name: 'Reset' })).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Download' })).toBeInTheDocument();
     });
 
     it('should invoke onReset callback when reset button is clicked', async () => {

@@ -16,6 +16,6 @@ describe('<TwoPaneView> that renders a two pane view', () => {
 
         expect(view.container).toMatchSnapshot();
         expect(view.container.children).toHaveLength(1);
-        expect(view.container.children[0].textContent).toBe('Some contentSome content');
+        expect(view.container).toHaveTextContent('Some contentSome content');
     });
 });

@@ -8,6 +8,6 @@ describe('<LeftPane> that renders a left pane of a two pane view', () => {
         const view = render(<LeftPane>Some content</LeftPane>);
 
         expect(view.container).toMatchSnapshot();
-        expect(view.container.children[0].textContent).toBe('Some content');
+        expect(view.container).toHaveTextContent('Some content');
     });
 });

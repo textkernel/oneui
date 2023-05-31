@@ -88,6 +88,7 @@ describe('ThemeTuner component', () => {
         expect(view.container).toMatchSnapshot();
     });
 
+    // TODO can't change value
     it.skip('should invoke onChange callback when first input was changed', async () => {
         const user = userEvent.setup();
         const view = render(
