@@ -19,14 +19,15 @@ describe('<SelectedOption>', () => {
     it('should render children if it is 0', () => {
         view = render(<SelectedOption onDelete={onDeleteMock}>{0}</SelectedOption>);
 
-        expect(view.container.children).toHaveLength(1);
+        expect(view.container).toBeInTheDocument();
+        expect(view.container).toHaveTextContent('0');
     });
 
     it('should render default props correctly with string as child', () => {
         view = render(<SelectedOption onDelete={onDeleteMock}>My option</SelectedOption>);
 
         expect(view.container).toMatchSnapshot();
-        expect(view.container.children[0].textContent).toBe('My option');
+        expect(view.container).toHaveTextContent('My option');
         expect(view.container.children[0].children[1].tagName).toBe('SPAN');
     });
 
@@ -38,7 +39,7 @@ describe('<SelectedOption>', () => {
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(view.container.children[0].textContent).toBe('My option');
+        expect(view.container).toHaveTextContent('My option');
         expect(view.container.children[0].children[1].tagName).toBe('P');
     });
 
