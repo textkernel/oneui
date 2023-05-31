@@ -13,7 +13,7 @@ describe('<SelectedOption>', () => {
         view = render(<SelectedOption onDelete={onDeleteMock} />);
 
         expect(view.container).toMatchSnapshot();
-        expect(view.container).toBeInTheDocument();
+        expect(view.container).toBeEmptyDOMElement();
     });
 
     it('should render children if it is 0', () => {
