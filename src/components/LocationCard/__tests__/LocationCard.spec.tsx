@@ -46,6 +46,7 @@ describe('LocationCard component', () => {
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('button')).toBeInTheDocument();
+        expect(screen.queryByRole('slider')).not.toBeInTheDocument();
     });
 
     describe('Callbacks', () => {

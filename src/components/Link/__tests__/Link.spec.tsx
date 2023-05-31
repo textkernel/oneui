@@ -22,7 +22,7 @@ describe('<Link> that renders a link', () => {
         const { children } = view.container;
 
         expect(children).toHaveLength(1);
-        expect(children[0].textContent).toBe('0');
+        expect(screen.getByText('0')).toBeInTheDocument();
     });
 
     it('should render default link correctly', () => {

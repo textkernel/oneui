@@ -10,23 +10,21 @@ describe('<Input> that renders an input field', () => {
     it('should render default input correctly', () => {
         const onChange = jest.fn();
         view = render(<Input value="Some value" onChange={onChange} />);
-        const inputButton = screen.getByRole('textbox');
+        const textbox = screen.getByRole('textbox');
 
         expect(view.container).toMatchSnapshot();
-        expect(inputButton).toBeInTheDocument();
-        expect(inputButton).not.toHaveAttribute('disabled');
+        expect(textbox).toBeInTheDocument();
+        expect(textbox).not.toHaveAttribute('disabled');
     });
 
     it('should add classes when props are changed', () => {
         view = render(<Input context="danger" size="large" isBlock disabled />);
-        const inputButton = screen.getByRole('textbox');
+        const textbox = screen.getByRole('textbox');
 
         expect(view.container).toMatchSnapshot();
-        expect(inputButton).toBeInTheDocument();
-        expect(inputButton).toHaveClass(
-            'Input Input--context_danger Input--size_large Input--isBlock'
-        );
-        expect(inputButton).toHaveAttribute('disabled');
+        expect(textbox).toBeInTheDocument();
+        expect(textbox).toHaveClass('Input Input--context_danger Input--size_large Input--isBlock');
+        expect(textbox).toHaveAttribute('disabled');
     });
 
     it('should call change callback correctly', async () => {

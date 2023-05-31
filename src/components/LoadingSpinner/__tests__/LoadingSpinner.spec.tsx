@@ -14,7 +14,7 @@ describe('<LoadingSpinner> that renders a circular loading spinner', () => {
         const { children } = view.container;
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('status'));
+        expect(screen.getByRole('status')).toBeInTheDocument();
         expect(children).toHaveLength(1);
         expect(children[0].textContent).toBe('');
     });
