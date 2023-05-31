@@ -25,6 +25,7 @@ exports[`<PillButton> component in active, collapsed state (with content prop) s
         type="button"
       >
         <svg
+          aria-label="clear label"
           fill="currentColor"
           height="22"
           role="img"
@@ -70,6 +71,7 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
         type="button"
       >
         <svg
+          aria-label="up arrow"
           class="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
           fill="currentColor"
           height="1em"

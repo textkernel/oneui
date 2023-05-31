@@ -123,24 +123,26 @@ describe('<PillButton> component', () => {
                     onClear={onClearMock}
                     name={name}
                     content={content}
+                    downArrowLabel={downArrowLabel}
+                    upArrowLabel={upArrowLabel}
+                    clearLabel={clearLabel}
                 />
             );
         });
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(getButtonByName('')).not.toHaveClass(
+            expect(getButtonByName(clearLabel)).not.toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(getButtonByName(content)).toHaveClass(
+            expect(getButtonByName('This pill is in use clear label')).toHaveClass(
                 'PillButton__pill PillButton__pill--isActive'
             );
         });
 
         it('should not trigger toggle state but onClear only when button is clicked', async () => {
             const user = userEvent.setup();
-            const button = getButtonByName('');
-            await user.click(button);
+            await user.click(getButtonByName(clearLabel));
 
             expect(onClearMock).toHaveBeenCalledTimes(1);
             expect(toggleDropdownMock).toHaveBeenCalledTimes(0);
@@ -148,7 +150,7 @@ describe('<PillButton> component', () => {
 
         it('should not trigger toggle state but onClear only on keyboard interaction with button', async () => {
             const user = userEvent.setup();
-            const button = getButtonByName('');
+            const button = getButtonByName(clearLabel);
             button.focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
@@ -166,16 +168,19 @@ describe('<PillButton> component', () => {
                     name={name}
                     content={content}
                     isOpen
+                    downArrowLabel={downArrowLabel}
+                    upArrowLabel={upArrowLabel}
+                    clearLabel={clearLabel}
                 />
             );
         });
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(getButtonByName('')).toHaveClass(
+            expect(getButtonByName(upArrowLabel)).toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(getButtonByName(content)).toHaveClass(
+            expect(getButtonByName('This pill is in use up arrow')).toHaveClass(
                 'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
             );
         });
@@ -186,16 +191,14 @@ describe('<PillButton> component', () => {
 
         it('should trigger toggle state once when button is clicked', async () => {
             const user = userEvent.setup();
-            const button = getButtonByName('');
-            await user.click(button);
+            await user.click(getButtonByName(upArrowLabel));
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
 
         it('should trigger toggle state once on keyboard interaction with button', async () => {
             const user = userEvent.setup();
-            const button = getButtonByName('');
-            button.focus();
+            getButtonByName(upArrowLabel).focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
