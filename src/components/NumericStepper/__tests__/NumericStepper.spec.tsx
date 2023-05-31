@@ -8,13 +8,11 @@ describe('<NumericStepper> component', () => {
     let view: RenderResult;
     const onChangeMock = jest.fn();
 
-    const decreaseClick = async () => {
-        const user = userEvent.setup();
+    const decreaseClick = async (user) => {
         await user.click(screen.getAllByRole('button')[0]);
     };
 
-    const increaseClick = async () => {
-        const user = userEvent.setup();
+    const increaseClick = async (user) => {
         await user.click(screen.getAllByRole('button')[1]);
     };
 
@@ -67,11 +65,12 @@ describe('<NumericStepper> component', () => {
     });
 
     it('should react on stepDown click', async () => {
+        const user = userEvent.setup();
         view = render(<NumericStepper onChange={onChangeMock} step={2} defaultValue={4} />);
         const inputButton = screen.getByRole('spinbutton');
 
         // Decrease by 2 (to equal to 2) and make sure that number of onChange calls equal to 1
-        await decreaseClick();
+        await decreaseClick(user);
 
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(2);
@@ -79,7 +78,7 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toHaveBeenCalledWith(2);
 
         // Decrease by 2 (to equal to 0) and make sure that number of onChange calls equal to 2
-        await decreaseClick();
+        await decreaseClick(user);
 
         expect(onChangeMock).toBeCalledTimes(2);
         expect(onChangeMock).toBeCalledWith(0);
@@ -88,11 +87,12 @@ describe('<NumericStepper> component', () => {
     });
 
     it('should react on stepUp click', async () => {
+        const user = userEvent.setup();
         view = render(<NumericStepper onChange={onChangeMock} step={2} />);
         const inputButton = screen.getByRole('spinbutton');
 
         // Increase by 2 (to equal to 2) and make sure that number of onChange calls equal to 1
-        await increaseClick();
+        await increaseClick(user);
 
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(2);
@@ -100,7 +100,7 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toHaveBeenCalledWith(2);
 
         // Increase by 2 (to equal to 4) and make sure that number of onChange calls equal to 2
-        await increaseClick();
+        await increaseClick(user);
 
         expect(onChangeMock).toBeCalledTimes(2);
         expect(onChangeMock).toBeCalledWith(4);
@@ -117,7 +117,7 @@ describe('<NumericStepper> component', () => {
         const stepperButtons = screen.getAllByRole('button');
 
         // Simulate two clicks on stepUp button
-        await increaseClick();
+        await increaseClick(user);
 
         expect(inputButton).toHaveAttribute('value', '3');
         expect(onChangeMock).toBeCalledTimes(1);
@@ -163,7 +163,7 @@ describe('<NumericStepper> component', () => {
             <NumericStepper onChange={onChangeMock} minValue={2} maxValue={4} defaultValue={3} />
         );
 
-        await increaseClick();
+        await increaseClick(user);
 
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(4);
@@ -180,11 +180,12 @@ describe('<NumericStepper> component', () => {
     });
 
     it('should correctly react on increase click when top edge is overstepped', async () => {
+        const user = userEvent.setup();
         view = render(
             <NumericStepper onChange={onChangeMock} step={2} maxValue={4} defaultValue={3} />
         );
 
-        await increaseClick();
+        await increaseClick(user);
 
         expect(onChangeMock).toBeCalledWith(4);
         expect(screen.getByRole('spinbutton')).toHaveAttribute('value', '4');
@@ -192,11 +193,12 @@ describe('<NumericStepper> component', () => {
     });
 
     it('should correctly react on decrease click when bottom edge is overstepped', async () => {
+        const user = userEvent.setup();
         view = render(
             <NumericStepper onChange={onChangeMock} step={2} minValue={3} defaultValue={4} />
         );
 
-        await decreaseClick();
+        await decreaseClick(user);
 
         expect(onChangeMock).toBeCalledWith(3);
         expect(screen.getByRole('spinbutton')).toHaveAttribute('value', '3');
