@@ -25,7 +25,7 @@ exports[`LocationCard component should render component correctly 1`] = `
       class="LocationCard__slider"
     >
       <div
-        class="rc-slider"
+        class="rc-slider rc-slider-horizontal"
       >
         <div
           class="rc-slider-rail"
@@ -46,9 +46,6 @@ exports[`LocationCard component should render component correctly 1`] = `
           role="slider"
           style="left: 41.41414141414141%; transform: translateX(-50%);"
           tabindex="0"
-        />
-        <div
-          class="rc-slider-mark"
         />
       </div>
       <p
