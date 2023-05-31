@@ -7,7 +7,9 @@ import { RadioButtonGroup } from '../RadioButtonGroup';
 
 describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
     let view: RenderResult;
+
     const onChangeChildMock = jest.fn();
+    const namePropValue = 'group_name';
 
     beforeEach(() => {
         view = render(
@@ -26,7 +28,6 @@ describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
     });
 
     it('should pass name prop to children', () => {
-        const namePropValue = 'group_name';
         const buttons = screen.getAllByRole('radio');
 
         expect(buttons).toHaveLength(2);
@@ -43,26 +44,26 @@ describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
         await user.click(buttons[0]);
 
         expect(onChangeChildMock).toHaveBeenCalled();
+        expect(buttons[1]).not.toHaveAttribute('onChange');
     });
 
     it('should pass onChange prop to children', async () => {
         const user = userEvent.setup();
         const onChangeGlobalMock = jest.fn();
-        view = render(
-            <RadioButtonGroup name="group_name">
-                <RadioButton onChange={onChangeGlobalMock} id="o1">
-                    Option 1
-                </RadioButton>
+        view.rerender(
+            <RadioButtonGroup name="group_name" onChange={onChangeGlobalMock}>
+                <RadioButton id="o1">Option 1</RadioButton>
                 <RadioButton id="o2">Option 2</RadioButton>
             </RadioButtonGroup>
         );
 
         const buttons = screen.getAllByRole('radio');
 
-        expect(buttons).toHaveLength(4);
+        expect(buttons).toHaveLength(2);
 
-        await user.click(buttons[2]);
+        await user.click(buttons[0]);
 
         expect(onChangeGlobalMock).toHaveBeenCalled();
+        expect(buttons[1]).not.toHaveAttribute('onChange');
     });
 });

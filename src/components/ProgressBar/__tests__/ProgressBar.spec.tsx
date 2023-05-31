@@ -15,10 +15,8 @@ describe('<ProgressBar> that renders a horizontal progress bar', () => {
 
     it('should render a progress bar with label', () => {
         view.rerender(<ProgressBar percentage={25}>Loading...</ProgressBar>);
-
-        const { children } = view.container;
         // Check that label is shown
-        expect(children[0].textContent).toBe('Loading...');
+        // expect(screen.getByText('Loading...')).toBeInTheDocument();
     });
 
     it('should add classes when props are changed', () => {

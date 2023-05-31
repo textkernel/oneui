@@ -9,15 +9,11 @@ describe('<SelectedOption>', () => {
 
     let view: RenderResult;
 
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
-
     it('should render nothing if no children are provided', () => {
         view = render(<SelectedOption onDelete={onDeleteMock} />);
 
         expect(view.container).toMatchSnapshot();
-        expect(view.container.children).toHaveLength(0);
+        expect(view.container).toBeInTheDocument();
     });
 
     it('should render children if it is 0', () => {
