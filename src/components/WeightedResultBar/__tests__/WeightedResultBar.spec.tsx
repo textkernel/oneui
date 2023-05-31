@@ -17,6 +17,7 @@ describe('WeightedResultBar', () => {
 
         expect(view.container).toMatchSnapshot();
         expect(view.container).toHaveTextContent('Result');
+        expect(view.container).toHaveTextContent('123');
     });
 
     it('should render correctly with a custom count', () => {
@@ -27,6 +28,8 @@ describe('WeightedResultBar', () => {
         );
 
         expect(view.container).toMatchSnapshot();
+        expect(view.container.querySelector('p')).toBeInTheDocument();
+        expect(view.container.querySelector('p')?.textContent).toBe('456');
     });
 
     it('should render correctly in loading state', () => {
