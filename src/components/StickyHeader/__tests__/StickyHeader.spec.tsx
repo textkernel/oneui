@@ -15,9 +15,9 @@ describe('StickyHeader component', () => {
         );
 
         expect(view.container).toMatchSnapshot();
+        expect(view.container).toHaveTextContent('I am a header');
         expect(consoleError).not.toHaveBeenCalled();
         expect(screen.getByRole('group')).toBeInTheDocument();
-        expect(view.container.children[0].textContent).toBe('I am a header');
     });
 
     it('should render StickyHeader with headerClassName', () => {

@@ -38,7 +38,7 @@ describe('<TabsBar>', () => {
         expect(tabList.children).toHaveLength(3);
         expect(tabs[0]).toHaveClass('TabItem TabItem--isBlock');
         expect(tabs[1]).toHaveClass('TabItem TabItem--isBlock');
-        expect(tabList.children[2].textContent).toBe('something else');
+        expect(view.container).toHaveTextContent('something else');
     });
 
     it('should set isActive prop on children', () => {
@@ -83,6 +83,6 @@ describe('<TabsBar>', () => {
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(view.container.children[0].textContent).not.toContain('false');
+        expect(view.container).not.toHaveTextContent('false');
     });
 });
