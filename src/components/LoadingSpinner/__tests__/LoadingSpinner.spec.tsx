@@ -16,7 +16,7 @@ describe('<LoadingSpinner> that renders a circular loading spinner', () => {
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('status')).toBeInTheDocument();
         expect(children).toHaveLength(1);
-        expect(children[0].textContent).toBe('');
+        expect(view.container).toHaveTextContent('');
     });
 
     it('should render a spinner with label', () => {
