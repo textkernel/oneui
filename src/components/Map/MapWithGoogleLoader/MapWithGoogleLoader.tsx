@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { GoogleMap, LoadScriptNext } from '@react-google-maps/api';
 import { LoadingSpinner } from '../../LoadingSpinner';
-import { Map, MapProps } from '../Map/Map';
-
+import { Map, MapProps } from '../Map';
 /**
  * ## Note about props
  * `MapWithGoogleLoader` is a wrapper around the `Map` component, and it makes sure the Google API is loaded on the page.

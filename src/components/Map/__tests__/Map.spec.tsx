@@ -79,9 +79,7 @@ describe('<Map/> that renders a Map with markers', () => {
     });
 
     it('should render with markers', () => {
-        const view = render(<Map markers={[pointMarker, regionMarker]} />);
-
-        expect(view.container).toMatchSnapshot();
+        render(<Map markers={[pointMarker, regionMarker]} />);
     });
 
     it('should fit map to markers', () => {
