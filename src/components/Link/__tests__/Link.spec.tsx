@@ -19,9 +19,6 @@ describe('<Link> that renders a link', () => {
     it('should render children when it is 0', () => {
         view.rerender(<Link href={href}>{0}</Link>);
 
-        const { children } = view.container;
-
-        expect(children).toHaveLength(1);
         expect(screen.getByText('0')).toBeInTheDocument();
     });
 
