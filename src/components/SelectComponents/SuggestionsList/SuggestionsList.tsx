@@ -31,7 +31,7 @@ export interface Props<S> {
     /** index of the item from the list to be highlighted */
     highlightedIndex: number | null;
     /** input field value to be highlighted in the item from the list */
-    inputValue: string;
+    inputValue?: string;
     /** In some cases you need to pass disabled attributes to the top level 'li' od each item
      * e.g. in the context of downshift to disable keyboard navigation on these items
      */

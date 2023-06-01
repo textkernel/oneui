@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectButtonGroup Controlled behavior should render correctly 1`] = `
+<div>
+  <div
+    class="SelectButtonGroup"
+  >
+    <div
+      class="SelectButton SelectButton--isSelected"
+      role="button"
+      tabindex="0"
+    >
+      Option 1
+    </div>
+    <div
+      class="SelectButton"
+      role="button"
+      tabindex="0"
+    >
+      Option 2
+    </div>
+    <div
+      class="SelectButton"
+      role="button"
+      tabindex="0"
+    >
+      Option 3
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SelectButtonGroup should render correctly 1`] = `
+<div>
+  <div
+    class="SelectButtonGroup"
+  >
+    <div
+      class="SelectButton SelectButton--isSelected"
+      role="button"
+      tabindex="0"
+    >
+      Option 1
+    </div>
+    <div
+      class="SelectButton"
+      role="button"
+      tabindex="0"
+    >
+      Option 2
+    </div>
+    <div
+      class="SelectButton"
+      role="button"
+      tabindex="0"
+    >
+      Option 3
+    </div>
+  </div>
+</div>
+`;
