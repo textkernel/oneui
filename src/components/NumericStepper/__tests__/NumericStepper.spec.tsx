@@ -75,7 +75,6 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(2);
         expect(inputButton).toHaveAttribute('value', '2');
-        expect(onChangeMock).toHaveBeenCalledWith(2);
 
         // Decrease by 2 (to equal to 0) and make sure that number of onChange calls equal to 2
         await decreaseClick(user);
@@ -83,7 +82,6 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toBeCalledTimes(2);
         expect(onChangeMock).toBeCalledWith(0);
         expect(inputButton).toHaveAttribute('value', '0');
-        expect(onChangeMock).toHaveBeenCalledWith(0);
     });
 
     it('should react on stepUp click', async () => {
@@ -97,7 +95,6 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(2);
         expect(inputButton).toHaveAttribute('value', '2');
-        expect(onChangeMock).toHaveBeenCalledWith(2);
 
         // Increase by 2 (to equal to 4) and make sure that number of onChange calls equal to 2
         await increaseClick(user);
@@ -105,7 +102,6 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toBeCalledTimes(2);
         expect(onChangeMock).toBeCalledWith(4);
         expect(inputButton).toHaveAttribute('value', '4');
-        expect(onChangeMock).toHaveBeenCalledWith(4);
     });
 
     it('should disable buttons when limits are reached', async () => {
@@ -122,18 +118,19 @@ describe('<NumericStepper> component', () => {
         expect(inputButton).toHaveAttribute('value', '3');
         expect(onChangeMock).toBeCalledTimes(1);
         expect(stepperButtons[1]).toHaveAttribute('disabled');
-        expect(onChangeMock).toHaveBeenCalledWith(3);
+        expect(stepperButtons[0]).not.toHaveAttribute('disabled');
 
         // Simulate two clicks on stepDown button
-        await user.click(stepperButtons[0]);
+        await decreaseClick(user);
 
         expect(onChangeMock).toBeCalledTimes(2);
 
-        await user.click(stepperButtons[0]);
+        await decreaseClick(user);
 
         expect(onChangeMock).toBeCalledTimes(3);
         expect(inputButton).toHaveAttribute('value', '1');
         expect(stepperButtons[0]).toHaveAttribute('disabled');
+        expect(stepperButtons[1]).not.toHaveAttribute('disabled');
     });
 
     it('should set bottom edge value if user enters value below allowed limit', async () => {
@@ -168,13 +165,12 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toBeCalledTimes(1);
         expect(onChangeMock).toBeCalledWith(4);
         expect(screen.getByRole('spinbutton')).toHaveAttribute('value', '4');
-        expect(onChangeMock).toHaveBeenCalledWith(4);
 
         const inputButton = screen.getByRole('spinbutton');
         // Imagine users enters empty string
         await user.type(inputButton, '   ');
 
-        inputButton.blur();
+        await inputButton.blur();
 
         expect(inputButton).toHaveAttribute('value', '4');
     });
@@ -205,12 +201,15 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toHaveBeenCalledWith(3);
     });
 
-    // it('should react on keyup/keydown press', () => {
+    // it('should react on keyup/keydown press', async () => {
+    //     const user = userEvent.setup();
     //     /**
     //      * TODO: Test with E2E tests.
     //      * As we actually validate data on blur, its quite challenging to chain together mouseEnter, keyDown and blur.
     //      * I've tried multiple ways to do it, and don't want to spend way more time on that.
     //      */
+    //
+    //
     // });
 
     describe('when props change', () => {
