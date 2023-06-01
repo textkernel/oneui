@@ -201,16 +201,47 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toHaveBeenCalledWith(3);
     });
 
-    // it('should react on keyup/keydown press', async () => {
-    //     const user = userEvent.setup();
-    //     /**
-    //      * TODO: Test with E2E tests.
-    //      * As we actually validate data on blur, its quite challenging to chain together mouseEnter, keyDown and blur.
-    //      * I've tried multiple ways to do it, and don't want to spend way more time on that.
-    //      */
-    //
-    //
-    // });
+    it('should react on keydown press', async () => {
+        const user = userEvent.setup();
+        view = render(
+            <NumericStepper
+                onChange={onChangeMock}
+                step={1}
+                minValue={0}
+                maxValue={10}
+                defaultValue={4}
+            />
+        );
+
+        const input = screen.getByRole('spinbutton');
+        await input.focus();
+        await decreaseClick(user);
+        await user.keyboard('[ENTER]');
+
+        expect(onChangeMock).toBeCalledTimes(2);
+        expect(input).toHaveAttribute('value', '2');
+    });
+
+    it('should react on keyup press', async () => {
+        const user = userEvent.setup();
+        view = render(
+            <NumericStepper
+                onChange={onChangeMock}
+                step={1}
+                minValue={0}
+                maxValue={10}
+                defaultValue={4}
+            />
+        );
+
+        const input = screen.getByRole('spinbutton');
+        await input.focus();
+        await increaseClick(user);
+        await user.keyboard('[ENTER]');
+
+        expect(onChangeMock).toBeCalledTimes(2);
+        expect(input).toHaveAttribute('value', '6');
+    });
 
     describe('when props change', () => {
         beforeEach(() => {
