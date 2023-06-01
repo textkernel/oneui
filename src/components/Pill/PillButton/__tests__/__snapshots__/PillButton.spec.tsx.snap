@@ -159,6 +159,7 @@ exports[`<PillButton> component in inactive, open state (isOpen prop) should ren
         type="button"
       >
         <svg
+          aria-label="up arrow"
           class="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
           fill="currentColor"
           height="1em"

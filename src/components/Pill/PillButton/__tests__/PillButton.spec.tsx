@@ -20,10 +20,6 @@ describe('<PillButton> component', () => {
         return screen.getByRole('button', { name: `${inputName}` });
     };
 
-    afterEach(() => {
-        jest.resetAllMocks();
-    });
-
     describe('in inactive, collapsed state (with minimal props)', () => {
         beforeEach(() => {
             view = render(
@@ -43,9 +39,7 @@ describe('<PillButton> component', () => {
             expect(getButtonByName(downArrowLabel)).not.toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(getButtonByName(downArrowLabel)).not.toHaveClass(
-                'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
-            );
+            expect(getButtonByName(downArrowLabel)).not.toHaveClass('PillButton__button--isOpen');
         });
 
         it('should trigger toggle state once when clicked', async () => {
@@ -69,14 +63,6 @@ describe('<PillButton> component', () => {
 
             expect(screen.getByRole('img')).toHaveClass('PillButton__arrowIcon');
         });
-
-        it('should trigger toggle state once when button is clicked', async () => {
-            const user = userEvent.setup();
-            const button = getButtonByName(downArrowLabel);
-            await user.click(button);
-
-            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
-        });
     });
 
     describe('in inactive, open state (isOpen prop)', () => {
@@ -87,17 +73,20 @@ describe('<PillButton> component', () => {
                     onClear={onClearMock}
                     name={name}
                     isOpen
+                    downArrowLabel={downArrowLabel}
+                    upArrowLabel={upArrowLabel}
+                    clearLabel={clearLabel}
                 />
             );
         });
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(getButtonByName('')).toHaveClass(
+            expect(getButtonByName(upArrowLabel)).toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(getButtonByName(name)).not.toHaveClass(
-                'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
+            expect(getButtonByName('Pill name up arrow')).not.toHaveClass(
+                'PillButton__button--isOpen'
             );
         });
 
@@ -107,7 +96,7 @@ describe('<PillButton> component', () => {
 
         it('should trigger toggle state once on keyboard interaction with button', async () => {
             const user = userEvent.setup();
-            const button = getButtonByName(name);
+            const button = getButtonByName(upArrowLabel);
             button.focus();
             await user.keyboard(`[${ENTER_KEY}]`);
 
@@ -132,9 +121,7 @@ describe('<PillButton> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(getButtonByName(clearLabel)).not.toHaveClass(
-                'PillButton__button PillButton__button--isOpen'
-            );
+            expect(getButtonByName(clearLabel)).not.toHaveClass('PillButton__button--isOpen');
             expect(getButtonByName('This pill is in use clear label')).toHaveClass(
                 'PillButton__pill PillButton__pill--isActive'
             );
