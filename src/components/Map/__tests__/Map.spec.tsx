@@ -13,7 +13,7 @@ import {
     stabGoogleApi,
 } from '../../../__mocks__/googleApiMock';
 import { geocodeResponse } from '../__mocks__/geocodeResponse';
-import { CircularMarker, Map } from '..';
+import { CircularMarker, Map, RegionArea } from '..';
 import NL_PATHS from '../../../../stories/static/gadm36_NLD_0.json';
 import FR_FRIESLAND from '../../../../stories/static/FR_Friesland.json';
 
@@ -113,7 +113,7 @@ describe('<Map/> that renders a Map with markers', () => {
     });
 
     it('should add highlighted areas when geoJson objects are passed as markers', () => {
-        render(<Map markers={[FR_FRIESLAND as FeatureCollection]} />);
+        render(<Map markers={[FR_FRIESLAND as RegionArea]} />);
 
         expect(addGeoJsonMock).toHaveBeenCalledTimes(1);
         expect(setZoomMock).toHaveBeenCalledTimes(1);
@@ -121,7 +121,7 @@ describe('<Map/> that renders a Map with markers', () => {
     });
 
     it('should recenter the map and change zoom when geoJson objects are replaced by regular markers', () => {
-        const view = render(<Map markers={[FR_FRIESLAND as FeatureCollection]} />);
+        const view = render(<Map markers={[FR_FRIESLAND as RegionArea]} />);
 
         expect(setZoomMock).toHaveBeenCalledTimes(1);
         expect(setCenterMock).toHaveBeenCalledTimes(1);
