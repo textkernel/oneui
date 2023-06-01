@@ -47,6 +47,8 @@ describe('<PillButton> component', () => {
             await user.click(getButtonByName(downArrowLabel));
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
+            expect(getButtonByName(downArrowLabel)).toBeInTheDocument();
+            expect(screen.queryByText(upArrowLabel)).not.toBeInTheDocument();
         });
 
         it('should trigger toggle state once on keyboard interaction', async () => {
@@ -60,8 +62,7 @@ describe('<PillButton> component', () => {
 
         it('should have arrow down label', () => {
             expect(screen.getByRole('img')).toBeInTheDocument();
-
-            expect(screen.getByRole('img')).toHaveClass('PillButton__arrowIcon');
+            expect(getButtonByName(downArrowLabel)).toBeInTheDocument();
         });
     });
 
@@ -91,7 +92,8 @@ describe('<PillButton> component', () => {
         });
 
         it('should have arrow up label', () => {
-            expect(screen.getByRole('img')).toHaveClass('PillButton__arrowIcon--isOpen');
+            expect(screen.getByRole('img')).toBeInTheDocument();
+            expect(getButtonByName(upArrowLabel)).toBeInTheDocument();
         });
 
         it('should trigger toggle state once on keyboard interaction with button', async () => {
