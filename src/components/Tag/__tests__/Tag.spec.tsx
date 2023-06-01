@@ -61,7 +61,7 @@ describe('<Tag> component', () => {
         view = render(<Tag onClick={onTagClick}>{text}</Tag>);
 
         const button = screen.getByRole('button');
-        button.focus();
+        await button.focus();
         await user.keyboard('[ENTER]');
 
         expect(onTagClick).toHaveBeenCalledTimes(1);
@@ -90,7 +90,7 @@ describe('<Tag> component', () => {
         );
         const button = screen.getByRole('button', { name: '' });
 
-        button.focus();
+        await button.focus();
         await user.keyboard('[ENTER]');
 
         expect(onTagClick).toHaveBeenCalledTimes(0);

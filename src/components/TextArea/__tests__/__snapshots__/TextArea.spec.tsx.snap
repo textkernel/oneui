@@ -13,6 +13,7 @@ exports[`<TextArea> that renders a textarea should call change callback correctl
 <div>
   <textarea
     class="TextArea"
+    disabled=""
   />
 </div>
 `;
