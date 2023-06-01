@@ -83,8 +83,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
     describe('click and keydown event handling', () => {
         const onCloseMock = jest.fn();
-        const togglePopup = async () => {
-            const user = userEvent.setup();
+        const togglePopup = async (user) => {
             await user.click(screen.getAllByRole('button')[0]);
         };
 
@@ -99,11 +98,12 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
         });
 
         it('should close open popup if outside is clicked', async () => {
-            await togglePopup();
+            const user = userEvent.setup();
+            await togglePopup(user);
 
             expect(screen.queryByRole('group')).toBeInTheDocument();
 
-            await togglePopup();
+            await togglePopup(user);
 
             expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
@@ -118,7 +118,8 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
         });
 
         it('should not close open popup if popup is clicked', async () => {
-            await togglePopup();
+            const user = userEvent.setup();
+            await togglePopup(user);
 
             expect(screen.getByRole('group')).toBeInTheDocument();
 
@@ -131,7 +132,8 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
         });
 
         it('should not close open popup if button is clicked (ignoring functionality added by the renderer)', async () => {
-            await togglePopup();
+            const user = userEvent.setup();
+            await togglePopup(user);
 
             expect(screen.getByRole('group')).toBeInTheDocument();
 
@@ -146,7 +148,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
         it('should close open popup on Escape press', async () => {
             const user = userEvent.setup();
-            await togglePopup();
+            await togglePopup(user);
 
             expect(screen.getByRole('group')).toBeInTheDocument();
 
@@ -157,7 +159,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
         it('should call onClose on Escape press', async () => {
             const user = userEvent.setup();
-            await togglePopup();
+            await togglePopup(user);
 
             await user.keyboard('[Escape]');
 
