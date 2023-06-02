@@ -1,12 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PaginationButton> that renders a page button should render correctly with default props 1`] = `
-<Button
-  aria-current={null}
-  className="PaginationButton"
-  data-page={1}
-  isLink={true}
->
-  1
-</Button>
+<div>
+  <button
+    class="Button Button--isLink PaginationButton"
+    data-page="1"
+    type="button"
+  >
+    1
+  </button>
+</div>
 `;

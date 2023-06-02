@@ -1,37 +1,55 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, RenderResult, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { RadioButton } from '../RadioButton';
 
 describe('<RadioButton> that renders a radio button', () => {
+    let view: RenderResult;
+
     it('should render default radio button correctly', () => {
-        const wrapper = mount(<RadioButton id="c1" />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        view = render(<RadioButton id="c1" />);
+
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('radio', { name: '' })).toBeInTheDocument();
     });
+
     it('should render radio button with props and children correctly', () => {
-        const wrapper = mount(
+        view = render(
             <RadioButton id="c1" name="group_name">
                 Choose me
             </RadioButton>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('radio', { name: 'Choose me' })).toBeInTheDocument();
     });
-    it('should call onChange function when clicked', () => {
+
+    it('should call onChange function when clicked', async () => {
+        const user = userEvent.setup();
         const onChange = jest.fn();
-        const wrapper = mount(
+        view = render(
             <RadioButton id="c2" onChange={onChange}>
                 Choose me
             </RadioButton>
         );
-        wrapper.find('input').simulate('change');
+
+        await user.click(screen.getByRole('radio'));
+
         expect(onChange).toHaveBeenCalledTimes(1);
     });
+
     it('should rendered disabled radio button correctly', () => {
-        const wrapper = mount(
+        view = render(
             <RadioButton id="c3" disabled>
                 Useless radio button
             </RadioButton>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('input[disabled]')).toHaveLength(1);
+
+        const radioButton = screen.getByRole('radio');
+
+        expect(view.container).toMatchSnapshot();
+        expect(radioButton).toBeInTheDocument();
+        expect(radioButton).toHaveAttribute('disabled');
     });
 });
