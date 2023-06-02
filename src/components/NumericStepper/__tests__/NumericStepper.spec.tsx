@@ -214,7 +214,6 @@ describe('<NumericStepper> component', () => {
         );
 
         const input = screen.getByRole('spinbutton');
-        await input.focus();
         await screen.getAllByRole('button')[0].focus();
         await user.keyboard('[ENTER]');
 
@@ -235,7 +234,6 @@ describe('<NumericStepper> component', () => {
         );
 
         const input = screen.getByRole('spinbutton');
-        await input.focus();
         await screen.getAllByRole('button')[1].focus();
         await user.keyboard('[ENTER]');
 
