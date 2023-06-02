@@ -4,7 +4,7 @@ import styles from './Link.scss';
 
 export interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Link content */
-    children: React.ReactNode;
+    children?: React.ReactNode;
     /** Color context */
     context?: 'primary' | 'neutral';
     /** Do not underline text on hover */
