@@ -62,6 +62,9 @@ describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
         expect(buttons).toHaveLength(2);
 
         await user.click(buttons[0]);
+
+        expect(onChangeGlobalMock).toBeCalledTimes(1);
+
         await user.click(buttons[1]);
 
         expect(onChangeGlobalMock).toBeCalledTimes(2);
