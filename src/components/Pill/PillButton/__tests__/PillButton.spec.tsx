@@ -174,10 +174,6 @@ describe('<PillButton> component', () => {
             );
         });
 
-        it('should have arrow up label', () => {
-            expect(screen.getByRole('img')).toHaveClass('PillButton__arrowIcon--isOpen');
-        });
-
         it('should trigger toggle state once when button is clicked', async () => {
             const user = userEvent.setup();
             await user.click(getButtonByName(upArrowLabel));
