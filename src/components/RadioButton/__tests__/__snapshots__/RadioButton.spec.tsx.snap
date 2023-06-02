@@ -1,34 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<RadioButton> that renders a radio button should render default radio button correctly 1`] = `
-<RadioButton
-  id="c1"
->
+<div>
   <div>
     <input
-      className="RadioButton__input"
-      disabled={false}
+      class="RadioButton__input"
       id="c1"
       type="radio"
     />
     <label
-      className="RadioButton__label"
-      htmlFor="c1"
+      class="RadioButton__label"
+      for="c1"
     >
       <span
-        className="RadioButton__box"
+        class="RadioButton__box"
       >
         <svg
-          className="RadioButton__svg"
+          class="RadioButton__svg"
           height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
+          viewBox="0,0,10,10"
           width="12px"
         >
           <circle
@@ -40,40 +30,29 @@ exports[`<RadioButton> that renders a radio button should render default radio b
       </span>
     </label>
   </div>
-</RadioButton>
+</div>
 `;
 
 exports[`<RadioButton> that renders a radio button should render radio button with props and children correctly 1`] = `
-<RadioButton
-  id="c1"
-  name="group_name"
->
+<div>
   <div>
     <input
-      className="RadioButton__input"
-      disabled={false}
+      class="RadioButton__input"
       id="c1"
       name="group_name"
       type="radio"
     />
     <label
-      className="RadioButton__label"
-      htmlFor="c1"
+      class="RadioButton__label"
+      for="c1"
     >
       <span
-        className="RadioButton__box"
+        class="RadioButton__box"
       >
         <svg
-          className="RadioButton__svg"
+          class="RadioButton__svg"
           height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
+          viewBox="0,0,10,10"
           width="12px"
         >
           <circle
@@ -83,54 +62,38 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
           />
         </svg>
       </span>
-      <Text
-        className="RadioButton__text"
-        context="default"
-        inline={true}
+      <span
+        class="RadioButton__text"
       >
-        <span
-          className="RadioButton__text"
-        >
-          Choose me
-        </span>
-      </Text>
+        Choose me
+      </span>
     </label>
   </div>
-</RadioButton>
+</div>
 `;
 
 exports[`<RadioButton> that renders a radio button should rendered disabled radio button correctly 1`] = `
-<RadioButton
-  disabled={true}
-  id="c3"
->
+<div>
   <div
-    className="RadioButton--disabled"
+    class="RadioButton--disabled"
   >
     <input
-      className="RadioButton__input"
-      disabled={true}
+      class="RadioButton__input"
+      disabled=""
       id="c3"
       type="radio"
     />
     <label
-      className="RadioButton__label"
-      htmlFor="c3"
+      class="RadioButton__label"
+      for="c3"
     >
       <span
-        className="RadioButton__box"
+        class="RadioButton__box"
       >
         <svg
-          className="RadioButton__svg"
+          class="RadioButton__svg"
           height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
+          viewBox="0,0,10,10"
           width="12px"
         >
           <circle
@@ -140,18 +103,12 @@ exports[`<RadioButton> that renders a radio button should rendered disabled radi
           />
         </svg>
       </span>
-      <Text
-        className="RadioButton__text"
-        context="muted"
-        inline={true}
+      <span
+        class="RadioButton__text"
       >
-        <span
-          className="RadioButton__text"
-        >
-          Useless radio button
-        </span>
-      </Text>
+        Useless radio button
+      </span>
     </label>
   </div>
-</RadioButton>
+</div>
 `;
