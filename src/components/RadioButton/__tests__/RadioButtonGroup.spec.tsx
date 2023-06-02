@@ -51,7 +51,7 @@ describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
         const user = userEvent.setup();
         const onChangeGlobalMock = jest.fn();
         view.rerender(
-            <RadioButtonGroup name="group_name" onChange={onChangeGlobalMock}>
+            <RadioButtonGroup name={namePropValue} onChange={onChangeGlobalMock}>
                 <RadioButton id="o1">Option 1</RadioButton>
                 <RadioButton id="o2">Option 2</RadioButton>
             </RadioButtonGroup>
