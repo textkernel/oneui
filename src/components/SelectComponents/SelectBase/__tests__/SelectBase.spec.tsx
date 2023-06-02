@@ -53,6 +53,7 @@ describe('SelectBase', () => {
             expect(view.container).toMatchSnapshot();
         });
     });
+
     describe('with toggle arrow', () => {
         it('should show arrows when showArrow is true', () => {
             const newProps = {
@@ -64,7 +65,9 @@ describe('SelectBase', () => {
 
             expect(screen.getByRole('button')).toBeInTheDocument();
         });
+
         it('should toggle focus and the arrow when it is clicked', async () => {
+            const user = userEvent.setup();
             const newProps = {
                 highlightOnEmptyInput: true,
                 showArrow: true,
@@ -74,13 +77,19 @@ describe('SelectBase', () => {
             const svg = screen.getByRole('button');
 
             expect(svg).toBeInTheDocument();
-            await userEvent.click(svg);
+
+            await user.click(svg);
             const svgFocused = screen.getByRole('button');
+
             expect(svgFocused).toBeInTheDocument();
-            await userEvent.click(svgFocused);
+
+            await user.click(svgFocused);
+
             expect(svgFocused).not.toBeInTheDocument();
         });
+
         it('should have the correct ARIA label on the drop arrow', async () => {
+            const user = userEvent.setup();
             const downArrowLabel = 'down';
             const upArrowLabel = 'up';
             const newProps = {
@@ -93,22 +102,26 @@ describe('SelectBase', () => {
 
             expect(screen.getByLabelText(downArrowLabel)).toBeInTheDocument();
 
-            await userEvent.click(screen.getByRole('button'));
+            await user.click(screen.getByRole('button'));
+
             expect(screen.getByLabelText(upArrowLabel)).toBeInTheDocument();
         });
     });
+
     describe('search field interactions', () => {
         it('should set focus when wrapper element is clicked', async () => {
+            const user = userEvent.setup();
             const focusSpy = jest.spyOn(inputNode, 'focus');
 
             expect(inputNode).not.toBe(document.activeElement);
             expect(focusSpy).not.toHaveBeenCalled();
 
-            await userEvent.click(screen.queryAllByRole('listbox')[0]);
+            await user.click(screen.queryAllByRole('listbox')[0]);
 
             expect(inputNode).toBe(document.activeElement);
             expect(focusSpy).toHaveBeenCalled();
         });
+
         it('should be able to get a component by ref sent as a prop', () => {
             const newProps = {
                 ref: inputRef,
@@ -120,15 +133,20 @@ describe('SelectBase', () => {
 
             expect(screen.getAllByRole('textbox')[0]).toBeInTheDocument();
         });
+
         it('should lose focus when suggestion is selected', async () => {
+            const user = userEvent.setup();
+
             expect(inputNode).not.toBe(document.activeElement);
 
-            await userEvent.click(screen.queryAllByRole('listbox')[0]);
-            await userEvent.click(screen.queryAllByRole('option')[0]);
+            await user.click(screen.queryAllByRole('listbox')[0]);
+            await user.click(screen.queryAllByRole('option')[0]);
 
             expect(screen.queryAllByRole('option')).toHaveLength(0);
         });
+
         it('should stay focused when suggestion is selected with keepExpandedAfterSelection set to true', async () => {
+            const user = userEvent.setup();
             const newProps = {
                 highlightOnEmptyInput: true,
                 keepExpandedAfterSelection: true,
@@ -136,24 +154,28 @@ describe('SelectBase', () => {
             rerenderView(newProps);
             expect(inputNode).not.toBe(document.activeElement);
 
-            await userEvent.click(screen.queryAllByRole('listbox')[0]);
+            await user.click(screen.queryAllByRole('listbox')[0]);
             expect(inputNode).toBe(document.activeElement);
 
-            await userEvent.click(screen.queryAllByRole('option')[0]);
+            await user.click(screen.queryAllByRole('option')[0]);
             expect(screen.queryAllByRole('option')).toHaveLength(suggestions.length);
         });
+
         it('should clear the input field when a suggestion was selected', async () => {
+            const user = userEvent.setup();
             const textInputValue = 'driver';
             const inputField = screen.getAllByRole('textbox')[0];
-            await userEvent.type(inputField, textInputValue);
+            await user.type(inputField, textInputValue);
 
             expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            await userEvent.click(screen.queryAllByRole('option')[0]);
+            await user.click(screen.queryAllByRole('option')[0]);
 
             expect(inputField.getAttribute('value')).toEqual('');
         });
+
         it('should clear the input field when a suggestion was selected with keepExpandedAfterSelection set to true', async () => {
+            const user = userEvent.setup();
             const textInputValue = 'driver';
             const newProps = {
                 highlightOnEmptyInput: true,
@@ -161,15 +183,16 @@ describe('SelectBase', () => {
             };
             rerenderView(newProps);
             const inputField = screen.getAllByRole('textbox')[0];
-            await userEvent.type(inputField, textInputValue);
+            await user.type(inputField, textInputValue);
 
             expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            await userEvent.click(screen.queryAllByRole('option')[0]);
+            await user.click(screen.queryAllByRole('option')[0]);
 
             expect(inputField.getAttribute('value')).toEqual(textInputValue);
         });
     });
+
     describe('highlighting', () => {
         it('should highlight first item', () => {
             expect(view.container).toMatchSnapshot();
@@ -180,16 +203,19 @@ describe('SelectBase', () => {
     describe('callbacks', () => {
         describe('onSelectionAdd', () => {
             it('should be called on clicking on a suggestion', async () => {
-                await userEvent.click(screen.queryAllByRole('listbox')[0]);
+                const user = userEvent.setup();
+                await user.click(screen.queryAllByRole('listbox')[0]);
 
                 expect(mockOnSelectionAdd).not.toHaveBeenCalled();
 
-                await userEvent.click(screen.queryAllByRole('option')[0]);
+                await user.click(screen.queryAllByRole('option')[0]);
 
                 expect(mockOnSelectionAdd).toHaveBeenCalled();
             });
         });
+
         it('should call onClearAllSelected on Clear button click', async () => {
+            const user = userEvent.setup();
             const clearTitle = 'Clear';
             const newProps = {
                 highlightOnEmptyInput: true,
@@ -200,24 +226,27 @@ describe('SelectBase', () => {
             rerenderView(newProps);
             expect(view.container).toMatchSnapshot();
             const clearButton = screen.getByRole('button', { name: 'Clear' });
-            await userEvent.click(clearButton);
+            await user.click(clearButton);
 
             expect(mockOnClearAllSelected).toHaveBeenCalled();
         });
         // Despite everything is working good in real-case scenario,
         // 'blur' event can not be simulated in the way Downshift component to understand it.
         it.skip('should call onBlur', async () => {
-            await userEvent.click(screen.queryAllByRole('listbox')[0]);
+            const user = userEvent.setup();
+            await user.click(screen.queryAllByRole('listbox')[0]);
 
-            await userEvent.click(screen.queryAllByRole('listbox')[0]);
+            await user.click(screen.queryAllByRole('listbox')[0]);
 
             expect(mockOnBlur).toHaveBeenCalled();
         });
+
         it('should call onInputValueChange when typing into input field', async () => {
+            const user = userEvent.setup();
             expect(mockOnInputValueChange).not.toHaveBeenCalled();
 
             const inputField = screen.getAllByRole('textbox')[0];
-            await userEvent.type(inputField, 'drive');
+            await user.type(inputField, 'drive');
 
             expect(mockOnInputValueChange).toHaveBeenCalled();
         });
