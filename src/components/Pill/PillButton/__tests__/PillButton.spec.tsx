@@ -179,5 +179,10 @@ describe('<PillButton> component', () => {
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
         });
+
+        it('should have arrow up label', () => {
+            expect(screen.getByRole('img')).toBeInTheDocument();
+            expect(getButtonByName(upArrowLabel)).toBeInTheDocument();
+        });
     });
 });
