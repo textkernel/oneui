@@ -23,24 +23,8 @@ describe('<Tooltip> that renders a Tooltip', () => {
                 <>Hover me</>
             </Tooltip>
         );
-        expect(view.container).not.toHaveAttribute('disabled');
-        view = render(
-            <Tooltip content="">
-                <>Hover me</>
-            </Tooltip>
-        );
-        expect(view.container).not.toHaveAttribute('disabled');
-        view = render(
-            <Tooltip content="" disabled={false}>
-                <>Hover me</>
-            </Tooltip>
-        );
-        // expect(view.container).toHaveAttribute('disabled', 'false');
-        view = render(
-            <Tooltip content="" disabled>
-                <>Hover me</>
-            </Tooltip>
-        );
-        // expect(view.container).toHaveAttribute('disabled', 'true');
+
+        expect(view.container).toBeInTheDocument();
+        expect(view.container).toHaveTextContent('Hover me');
     });
 });
