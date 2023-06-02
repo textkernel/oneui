@@ -215,11 +215,11 @@ describe('<NumericStepper> component', () => {
 
         const input = screen.getByRole('spinbutton');
         await input.focus();
-        await decreaseClick(user);
+        await screen.getAllByRole('button')[0].focus();
         await user.keyboard('[ENTER]');
 
-        expect(onChangeMock).toBeCalledTimes(2);
-        expect(input).toHaveAttribute('value', '2');
+        expect(onChangeMock).toBeCalledTimes(1);
+        expect(input).toHaveAttribute('value', '3');
     });
 
     it('should increase value on keyboard interaction', async () => {
@@ -236,11 +236,11 @@ describe('<NumericStepper> component', () => {
 
         const input = screen.getByRole('spinbutton');
         await input.focus();
-        await increaseClick(user);
+        await screen.getAllByRole('button')[1].focus();
         await user.keyboard('[ENTER]');
 
-        expect(onChangeMock).toBeCalledTimes(2);
-        expect(input).toHaveAttribute('value', '6');
+        expect(onChangeMock).toBeCalledTimes(1);
+        expect(input).toHaveAttribute('value', '5');
     });
 
     describe('when props change', () => {
