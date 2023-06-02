@@ -48,15 +48,19 @@ describe('FieldWithValidation', () => {
     describe('when using tooltip', () => {
         describe('with no error message passed', () => {
             it('should not render a tooltip with no error message', () => {
+                const user = userEvent.setup();
                 const { container } = render(
                     <FieldWithValidation useTooltip>
                         <Input />
                     </FieldWithValidation>
                 );
+
                 expect(container).toMatchSnapshot();
-                userEvent.click(screen.getByDisplayValue(''));
+
+                user.click(screen.getByDisplayValue(''));
             });
         });
+
         describe('when error message is defined', () => {
             const message = 'invalid field';
 
@@ -66,25 +70,32 @@ describe('FieldWithValidation', () => {
                         <Input />
                     </FieldWithValidation>
                 );
+
                 expect(container).toMatchSnapshot();
+
                 const input = screen.getByRole('textbox');
+
                 expect(input).toHaveAttribute('class', 'Input Input--context_danger');
             });
+
             it('should render the message when field is focused', () => {
                 const { container } = render(
                     <FieldWithValidation errorMessage={message}>
                         <Input />
                     </FieldWithValidation>
                 );
+
                 expect(container).toMatchSnapshot();
                 expect(screen.queryByText(message)).toBeDefined();
             });
+
             it('should remove the message when field is blurred', () => {
                 const { container } = render(
                     <FieldWithValidation errorMessage={message}>
                         <Input />
                     </FieldWithValidation>
                 );
+
                 expect(container).toMatchSnapshot();
                 expect(screen.queryByText(message)).toBeDefined();
             });
