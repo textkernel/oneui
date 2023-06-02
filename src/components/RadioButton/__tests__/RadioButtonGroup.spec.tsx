@@ -13,7 +13,7 @@ describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
 
     beforeEach(() => {
         view = render(
-            <RadioButtonGroup name="group_name">
+            <RadioButtonGroup name={namePropValue}>
                 <RadioButton onChange={onChangeChildMock} id="o1">
                     Option 1
                 </RadioButton>
