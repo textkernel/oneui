@@ -19,7 +19,6 @@ describe('<SelectedOption>', () => {
     it('should render children if it is 0', () => {
         view = render(<SelectedOption onDelete={onDeleteMock}>{0}</SelectedOption>);
 
-        expect(view.container).toBeInTheDocument();
         expect(view.container).toHaveTextContent('0');
     });
 
