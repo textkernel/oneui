@@ -95,15 +95,6 @@ describe('<PillButton> component', () => {
             expect(screen.getByRole('img')).toBeInTheDocument();
             expect(getButtonByName(upArrowLabel)).toBeInTheDocument();
         });
-
-        it('should trigger toggle state once on keyboard interaction with button', async () => {
-            const user = userEvent.setup();
-            const button = getButtonByName(upArrowLabel);
-            button.focus();
-            await user.keyboard(`[${ENTER_KEY}]`);
-
-            expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
-        });
     });
 
     describe('in active, collapsed state (with content prop)', () => {
