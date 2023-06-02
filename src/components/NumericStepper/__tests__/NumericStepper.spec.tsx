@@ -201,7 +201,7 @@ describe('<NumericStepper> component', () => {
         expect(onChangeMock).toHaveBeenCalledWith(3);
     });
 
-    it('should react on keydown press', async () => {
+    it('should decrease value on keyboard interaction', async () => {
         const user = userEvent.setup();
         view = render(
             <NumericStepper
@@ -222,7 +222,7 @@ describe('<NumericStepper> component', () => {
         expect(input).toHaveAttribute('value', '2');
     });
 
-    it('should react on keyup press', async () => {
+    it('should increase value on keyboard interaction', async () => {
         const user = userEvent.setup();
         view = render(
             <NumericStepper
