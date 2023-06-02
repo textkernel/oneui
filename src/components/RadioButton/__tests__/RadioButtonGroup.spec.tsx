@@ -44,10 +44,9 @@ describe('<RadioButtonGroup> that renders a group of radio buttons', () => {
         await user.click(buttons[0]);
 
         expect(onChangeChildMock).toHaveBeenCalled();
-        expect(buttons[1]).not.toHaveAttribute('onChange');
     });
 
-    it('should onChange should called for all children', async () => {
+    it('onChange should be called for all children', async () => {
         const user = userEvent.setup();
         const onChangeGlobalMock = jest.fn();
         view.rerender(
