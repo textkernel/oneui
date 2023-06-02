@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NumericStepper> component should have correct values with custom props 1`] = `
+<div>
+  <div
+    class="NumericStepper"
+  >
+    <button
+      class="StepperButton"
+      type="button"
+    >
+      <svg
+        fill="currentColor"
+        height="75%"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 448 512"
+        width="75%"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          minus
+        </title>
+        <path
+          d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+        />
+      </svg>
+    </button>
+    <input
+      class="NumericStepper__stepperInput"
+      max="6"
+      min="2"
+      step="2"
+      style="width: 4ch;"
+      type="number"
+      value="4"
+    />
+    <button
+      class="StepperButton"
+      type="button"
+    >
+      <svg
+        fill="currentColor"
+        height="75%"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 448 512"
+        width="75%"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          plus
+        </title>
+        <path
+          d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`<NumericStepper> component should render correctly 1`] = `
+<div>
+  <div
+    class="NumericStepper"
+  >
+    <button
+      class="StepperButton"
+      disabled=""
+      type="button"
+    >
+      <svg
+        fill="currentColor"
+        height="75%"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 448 512"
+        width="75%"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          minus
+        </title>
+        <path
+          d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+        />
+      </svg>
+    </button>
+    <input
+      class="NumericStepper__stepperInput"
+      max="9007199254740991"
+      min="0"
+      step="1"
+      style="width: 3ch;"
+      type="number"
+      value="0"
+    />
+    <button
+      class="StepperButton"
+      type="button"
+    >
+      <svg
+        fill="currentColor"
+        height="75%"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 448 512"
+        width="75%"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title>
+          plus
+        </title>
+        <path
+          d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
