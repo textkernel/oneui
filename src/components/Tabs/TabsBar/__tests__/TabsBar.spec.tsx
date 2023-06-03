@@ -5,7 +5,7 @@ import '@testing-library/jest-dom';
 import { TabsBar } from '../TabsBar';
 import { TabItem } from '../../TabItem';
 
-describe('<TabsBar>', () => {
+describe('TabsBar component', () => {
     let view: RenderResult;
 
     it('should render tabs bar with minimal correctly', () => {

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<TabsBar> should allow for conditional rendering of items 1`] = `
+exports[`TabsBar component should allow for conditional rendering of items 1`] = `
 <div>
   <div
     class="TabsBar"
@@ -18,7 +18,7 @@ exports[`<TabsBar> should allow for conditional rendering of items 1`] = `
 </div>
 `;
 
-exports[`<TabsBar> should render tabs bar with minimal correctly 1`] = `
+exports[`TabsBar component should render tabs bar with minimal correctly 1`] = `
 <div>
   <div
     class="TabsBar"
