@@ -1,137 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RangeSlider component should render component correctly 1`] = `
-<RangeSlider>
-  <Slider
-    defaultValue={
-      Array [
-        0,
-        100,
-      ]
-    }
-    range={true}
+<div>
+  <div
+    class="rc-slider rc-slider-horizontal"
   >
     <div
-      className="rc-slider rc-slider-horizontal"
-      onMouseDown={[Function]}
-    >
-      <div
-        className="rc-slider-rail"
-      />
-      <Tracks
-        onStartMove={null}
-        prefixCls="rc-slider"
-        values={
-          Array [
-            0,
-            100,
-          ]
-        }
-      >
-        <Track
-          end={100}
-          index={0}
-          key="0"
-          onStartMove={null}
-          prefixCls="rc-slider"
-          start={0}
-        >
-          <div
-            className="rc-slider-track rc-slider-track-1"
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-            style={
-              Object {
-                "left": "0%",
-                "width": "100%",
-              }
-            }
-          />
-        </Track>
-      </Tracks>
-      <Steps
-        marks={Array []}
-        prefixCls="rc-slider"
-      >
-        <div
-          className="rc-slider-step"
-        />
-      </Steps>
-      <Handles
-        draggingIndex={-1}
-        onOffsetChange={[Function]}
-        onStartMove={[Function]}
-        prefixCls="rc-slider"
-        values={
-          Array [
-            0,
-            100,
-          ]
-        }
-      >
-        <Handle
-          dragging={false}
-          key="0"
-          onOffsetChange={[Function]}
-          onStartMove={[Function]}
-          prefixCls="rc-slider"
-          value={0}
-          valueIndex={0}
-        >
-          <div
-            aria-disabled={false}
-            aria-valuemax={100}
-            aria-valuemin={0}
-            aria-valuenow={0}
-            className="rc-slider-handle rc-slider-handle-1"
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-            role="slider"
-            style={
-              Object {
-                "left": "0%",
-                "transform": "translateX(-50%)",
-              }
-            }
-            tabIndex={0}
-          />
-        </Handle>
-        <Handle
-          dragging={false}
-          key="1"
-          onOffsetChange={[Function]}
-          onStartMove={[Function]}
-          prefixCls="rc-slider"
-          value={100}
-          valueIndex={1}
-        >
-          <div
-            aria-disabled={false}
-            aria-valuemax={100}
-            aria-valuemin={0}
-            aria-valuenow={100}
-            className="rc-slider-handle rc-slider-handle-2"
-            onKeyDown={[Function]}
-            onMouseDown={[Function]}
-            onTouchStart={[Function]}
-            role="slider"
-            style={
-              Object {
-                "left": "100%",
-                "transform": "translateX(-50%)",
-              }
-            }
-            tabIndex={0}
-          />
-        </Handle>
-      </Handles>
-      <Marks
-        marks={Array []}
-        onClick={[Function]}
-        prefixCls="rc-slider"
-      />
-    </div>
-  </Slider>
-</RangeSlider>
+      class="rc-slider-rail"
+    />
+    <div
+      class="rc-slider-track rc-slider-track-1"
+      style="left: 0%; width: 100%;"
+    />
+    <div
+      class="rc-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="rc-slider-handle rc-slider-handle-1"
+      role="slider"
+      style="left: 0%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="100"
+      class="rc-slider-handle rc-slider-handle-2"
+      role="slider"
+      style="left: 100%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+  </div>
+</div>
 `;
