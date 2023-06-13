@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { GoogleMap, LoadScriptNext } from '@react-google-maps/api';
+import { GoogleMap, LoadScriptNext, LoadScriptNextProps } from '@react-google-maps/api';
 import { LoadingSpinner } from '../../LoadingSpinner';
 import { Map, MapProps } from '../Map';
 /**
@@ -23,7 +23,7 @@ export interface Props extends MapProps {
      */
     region?: string;
     /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
-    additionalGoogleProps?: object;
+    additionalGoogleProps?: Omit<LoadScriptNextProps, 'googleMapsApiKey'>;
 }
 export const MapWithGoogleLoader = React.forwardRef<GoogleMap, Props>(
     ({ apiKey, language, region, additionalGoogleProps = {}, ...rest }, ref) => {

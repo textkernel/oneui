@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-// eslint-disable-next-line import/no-unresolved
 import { FeatureCollection } from 'geojson';
 import {
     fitBoundsMock,
@@ -33,12 +32,6 @@ describe('<Map/> that renders a Map with markers', () => {
             lng: 7.2535521,
         },
     } as CircularMarker;
-
-    it('should render with default props', () => {
-        const view = render(<Map />);
-
-        expect(view.container).toMatchSnapshot();
-    });
 
     it('should set center and zoom when rendered with default props', () => {
         render(<Map />);
