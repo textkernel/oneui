@@ -26,10 +26,7 @@ type CircularMarker = {
     description: string;
 };
 
-type RegionArea = {
-    type: string;
-    features: GeoJSON.GeoJsonObject[];
-};
+type RegionArea = GeoJSON.FeatureCollection;
 
 interface Props extends Omit<GoogleMapProps, 'onLoad' | 'mapContainerStyle' | 'options'> {
     /** The default parameters to determine the viewport when no circular or point markers are present. */

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MapWithGoogleLoader, Map } from '@textkernel/oneui';
+import { MapWithGoogleLoader, Map, MapProps } from '@textkernel/oneui';
 import { ensureApiKey } from '../utils/ensureApiKey';
 import NL_PATHS from '../static/gadm36_NLD_0.json';
 import FR_FRIESLAND from '../static/FR_Friesland.json';
@@ -91,14 +91,19 @@ export default {
     },
 };
 
-export const _Map = ({ width, height, ...args }) => (
+type MapArguments = {
+    width: string;
+    height: string;
+} & MapProps;
+
+export const _Map = ({ width, height, ...mapProps }: MapArguments) => (
     <div
         style={{
             width,
             height,
         }}
     >
-        <MapWithGoogleLoader {...args} apiKey={apiKey} />
+        <MapWithGoogleLoader {...mapProps} apiKey={apiKey} />
     </div>
 );
 

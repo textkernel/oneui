@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { FeatureCollection } from 'geojson';
 import {
     fitBoundsMock,
     setZoomMock,
@@ -13,8 +12,11 @@ import {
 } from '../../../__mocks__/googleApiMock';
 import { geocodeResponse } from '../__mocks__/geocodeResponse';
 import { CircularMarker, Map, RegionArea } from '..';
-import NL_PATHS from '../../../../stories/static/gadm36_NLD_0.json';
-import FR_FRIESLAND from '../../../../stories/static/FR_Friesland.json';
+import NL_PATHS_JSON from '../../../../stories/static/gadm36_NLD_0.json';
+import FR_FRIESLAND_JSON from '../../../../stories/static/FR_Friesland.json';
+
+const NL_PATHS = NL_PATHS_JSON as GeoJSON.FeatureCollection;
+const FR_FRIESLAND = FR_FRIESLAND_JSON as GeoJSON.FeatureCollection;
 
 stabGoogleApi();
 
@@ -51,28 +53,19 @@ describe('<Map/> that renders a Map with markers', () => {
     });
 
     it('should add default highlight', () => {
-        render(<Map defaultHighlight={NL_PATHS as GeoJSON.GeoJsonObject} />);
+        render(<Map defaultHighlight={NL_PATHS} />);
 
         expect(addGeoJsonMock).toHaveBeenCalledTimes(1);
     });
 
     it('should remove default highlight when markers added', () => {
-        const view = render(<Map defaultHighlight={NL_PATHS as GeoJSON.GeoJsonObject} />);
+        const view = render(<Map defaultHighlight={NL_PATHS} />);
 
         expect(addGeoJsonMock).toHaveBeenCalledTimes(1);
 
-        view.rerender(
-            <Map
-                defaultHighlight={NL_PATHS as GeoJSON.GeoJsonObject}
-                markers={[pointMarker, regionMarker]}
-            />
-        );
+        view.rerender(<Map defaultHighlight={NL_PATHS} markers={[pointMarker, regionMarker]} />);
         // will be called as many times as the length of the returned array from addGeoJsonMock
         expect(removeDataMock).toHaveBeenCalledTimes(1);
-    });
-
-    it('should render with markers', () => {
-        render(<Map markers={[pointMarker, regionMarker]} />);
     });
 
     it('should fit map to markers', () => {
@@ -86,12 +79,7 @@ describe('<Map/> that renders a Map with markers', () => {
 
         expect(fitBoundsMock).toHaveBeenCalledTimes(1);
 
-        view.rerender(
-            <Map
-                defaultHighlight={NL_PATHS as GeoJSON.GeoJsonObject}
-                markers={[pointMarker, regionMarker]}
-            />
-        );
+        view.rerender(<Map defaultHighlight={NL_PATHS} markers={[pointMarker, regionMarker]} />);
 
         // call count = original call + again for each marker + 1 more because markers are updated with a small delay
         expect(fitBoundsMock).toHaveBeenCalledTimes(3);
@@ -99,7 +87,7 @@ describe('<Map/> that renders a Map with markers', () => {
 
     it('should fit to default center and zoom if markers removed', () => {
         const view = render(<Map markers={[pointMarker, regionMarker]} />);
-        view.rerender(<Map defaultHighlight={NL_PATHS as GeoJSON.GeoJsonObject} markers={[]} />);
+        view.rerender(<Map defaultHighlight={NL_PATHS} markers={[]} />);
 
         expect(setZoomMock).toHaveBeenCalledTimes(1);
         expect(setCenterMock).toHaveBeenCalledTimes(1);
@@ -119,28 +107,18 @@ describe('<Map/> that renders a Map with markers', () => {
         expect(setZoomMock).toHaveBeenCalledTimes(1);
         expect(setCenterMock).toHaveBeenCalledTimes(1);
 
-        view.rerender(
-            <Map
-                defaultHighlight={NL_PATHS as GeoJSON.GeoJsonObject}
-                markers={[pointMarker, regionMarker]}
-            />
-        );
+        view.rerender(<Map defaultHighlight={NL_PATHS} markers={[pointMarker, regionMarker]} />);
 
         expect(setZoomMock).toHaveBeenCalledTimes(2);
         expect(setCenterMock).toHaveBeenCalledTimes(2);
     });
 
     it('should add default highlight when geoJson markers are reset', () => {
-        const view = render(
-            <Map
-                defaultHighlight={NL_PATHS as GeoJSON.GeoJsonObject}
-                markers={[FR_FRIESLAND as FeatureCollection]}
-            />
-        );
+        const view = render(<Map defaultHighlight={NL_PATHS} markers={[FR_FRIESLAND]} />);
 
         expect(addGeoJsonMock).toHaveBeenCalledTimes(1);
 
-        view.rerender(<Map defaultHighlight={NL_PATHS as GeoJSON.GeoJsonObject} markers={[]} />);
+        view.rerender(<Map defaultHighlight={NL_PATHS} markers={[]} />);
 
         expect(addGeoJsonMock).toHaveBeenCalledTimes(2);
     });
