@@ -24,7 +24,7 @@ export * from './components/Input';
 export * from './components/Link';
 export * from './components/List';
 export * from './components/Modal';
-export { MapWithGoogleLoader, Map } from './components/Map';
+export * from './components/Map';
 export * from './components/ProgressBar';
 export * from './components/SelectButtonGroup';
 export * from './components/SelectedOption';
