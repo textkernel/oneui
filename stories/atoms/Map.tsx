@@ -96,14 +96,14 @@ type MapArguments = {
     height: string;
 } & MapProps;
 
-export const _Map = ({ width, height, ...mapProps }: MapArguments) => (
+export const _Map = ({ width, height, ...args }: MapArguments) => (
     <div
         style={{
             width,
             height,
         }}
     >
-        <MapWithGoogleLoader {...mapProps} apiKey={apiKey} />
+        <MapWithGoogleLoader {...args} apiKey={apiKey} />
     </div>
 );
 
