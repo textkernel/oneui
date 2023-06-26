@@ -109,10 +109,9 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
 
-        it.skip('should call onClose if outside is clicked', async () => {
+        it('should call onClose if outside is clicked', async () => {
             const user = userEvent.setup();
-            // const button = screen.getAllByRole('button')[1];
-            // await user.click(button);
+            await togglePopup(user);
             await user.click(document.body);
 
             expect(onCloseMock).toHaveBeenCalled();
