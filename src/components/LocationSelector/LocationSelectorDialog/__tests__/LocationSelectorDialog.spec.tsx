@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, RenderResult } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
+import { LocationSelectorLocation } from '@textkernel/oneui';
 import { stabGoogleApi, getPlacePredictionsMock } from '../../../../__mocks__/googleApiMock';
 import predictionsMock from '../../../LocationAutocomplete/__mocks__/predictions.json';
 import { LocationSelectorDialog } from '../LocationSelectorDialog';
@@ -12,24 +13,18 @@ describe('LocationSelectorDialog component', () => {
     const selectedLocations = [
         {
             id: 'ajdo-219a-j19v-0491',
-            description: 'Amsterdam',
             center: {
                 lng: 4.894539799999961,
                 lat: 52.3666969,
             },
-            radius: 42,
-            sliderLabel: '42km',
-        },
+        } as LocationSelectorLocation,
         {
             id: 'ajdo-219a-j19v-0492',
-            description: 'Utrecht',
             center: {
                 lng: 5.121420100000023,
                 lat: 52.09073739999999,
             },
-            radius: 20,
-            sliderLabel: '20km',
-        },
+        } as LocationSelectorLocation,
     ];
 
     const minRadius = 1;

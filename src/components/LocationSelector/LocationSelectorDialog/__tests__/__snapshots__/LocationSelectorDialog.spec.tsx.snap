@@ -81,12 +81,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         <div
           class="LocationCard__header"
         >
-          <p
-            class="Text--size_large LocationCard__title"
-            title="Amsterdam"
-          >
-            Amsterdam
-          </p>
           <button
             class="LocationCard__deleteButton"
             type="button"
@@ -101,12 +95,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         <div
           class="LocationCard__header"
         >
-          <p
-            class="Text--size_large LocationCard__title"
-            title="Utrecht"
-          >
-            Utrecht
-          </p>
           <button
             class="LocationCard__deleteButton"
             type="button"
