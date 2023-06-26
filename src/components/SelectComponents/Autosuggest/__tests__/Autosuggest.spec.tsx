@@ -23,8 +23,7 @@ describe('Autosuggest', () => {
     let view;
     let inputNodeField;
 
-    const setFocus = async () => {
-        const user = userEvent.setup();
+    const setFocus = async (user) => {
         await user.click(screen.getByRole('listbox'));
     };
 
@@ -53,6 +52,7 @@ describe('Autosuggest', () => {
         it('should initially render empty component correctly', () => {
             expect(view.container).toMatchSnapshot();
         });
+
         it('should add additional attributes to input field when component is blurred', () => {
             const newProps = {
                 isLoading: false,
@@ -64,36 +64,43 @@ describe('Autosuggest', () => {
             expect(inputField).toHaveAttribute('data-test', 'true');
             expect(inputField).toHaveAttribute('title', 'some title');
         });
+
         it('should initially render focused component correctly', async () => {
-            await setFocus();
+            const user = userEvent.setup();
+            await setFocus(user);
 
             expect(view.container).toMatchSnapshot();
             expect(screen.queryAllByRole('option')).toHaveLength(0);
         });
+
         it('should add additional attributes to input field when component is focused', async () => {
+            const user = userEvent.setup();
             const newProps = {
                 isLoading: false,
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
             const inputField = screen.getAllByRole('textbox')[0];
-            await setFocus();
+            await setFocus(user);
 
             expect(inputField).toHaveAttribute('data-test', 'true');
             expect(inputField).toHaveAttribute('title', 'some title');
         });
+
         it('should initially render focused component with suggestions list correctly', async () => {
+            const user = userEvent.setup();
             suggestionsList = SUGGESTIONS.slice(0, 8);
             const newProps = {
                 isLoading: false,
                 suggestions: suggestionsList,
             };
             rerenderView(newProps);
-            await setFocus();
+            await setFocus(user);
 
             expect(view.container).toMatchSnapshot();
             expect(screen.getAllByRole('option')).toHaveLength(8);
         });
+
         it('should render component with suggestions', async () => {
             const user = userEvent.setup();
             suggestionsList = SUGGESTIONS.slice(1, 20);
@@ -102,11 +109,12 @@ describe('Autosuggest', () => {
                 suggestions: suggestionsList,
             };
             rerenderView(newProps);
-            await setFocus();
+            await setFocus(user);
             await user.type(inputNodeField, 'driver');
 
             expect(view.container).toMatchSnapshot();
         });
+
         it('should render isLoading state', async () => {
             const user = userEvent.setup();
             suggestionsList = SUGGESTIONS.slice(1, 20);
@@ -114,14 +122,16 @@ describe('Autosuggest', () => {
                 isLoading: true,
             };
             rerenderView(newProps);
-            await setFocus();
+            await setFocus(user);
             await user.type(inputNodeField, 'driver');
 
-            // TODO: check the specific things
             expect(view.container).toMatchSnapshot();
+            expect(screen.getAllByRole('presentation')).toHaveLength(5);
+            expect(screen.getAllByRole('alert', { name: 'Loading' })).toHaveLength(5);
             // TODO: for each loader there are 2 listitems, check why and fix
             expect(screen.getAllByRole('listitem')).toHaveLength(10);
         });
+
         it('should render mix suggestions and loader if allowMixingSuggestionsAndLoading is set to true', async () => {
             const user = userEvent.setup();
             suggestionsList = SUGGESTIONS.slice(1, 3);
@@ -131,15 +141,17 @@ describe('Autosuggest', () => {
                 allowMixingSuggestionsAndLoading: true,
             };
             rerenderView(newProps);
-            await setFocus();
+            await setFocus(user);
             await user.type(inputNodeField, 'driver');
 
             expect(screen.getAllByRole('option')).toHaveLength(2);
             // TODO: for each loader there are 2 listitems, check why and fix
             expect(screen.getAllByRole('listitem')).toHaveLength(10);
         });
+
         it('should render empty component correctly when focused', async () => {
-            await setFocus();
+            const user = userEvent.setup();
+            await setFocus(user);
 
             expect(document.activeElement).toBe(inputNodeField);
         });
