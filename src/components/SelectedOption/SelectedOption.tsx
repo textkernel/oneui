@@ -10,7 +10,7 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
     /** callback on delete */
     onDelete: () => void;
     /** the text to be shown */
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 const { block, elem } = bem('SelectedOption', styles);

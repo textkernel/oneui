@@ -23,7 +23,7 @@ describe('ComboboxMulti', () => {
     let view;
     let inputNodeField;
 
-    const setFocus = async () => userEvent.click(screen.getByRole('listbox'));
+    const setFocus = async (user) => user.click(screen.getByRole('listbox'));
 
     const defaultProps = {
         suggestions,
@@ -50,6 +50,7 @@ describe('ComboboxMulti', () => {
             expect(view.container).toMatchSnapshot();
             expect(screen.getByLabelText(downArrowLabel)).toBeInTheDocument();
         });
+
         it('should add additional attributes to input field when component is blurred', () => {
             const newProps = {
                 inputAttrs: { 'data-test': true, title: 'some title' },
@@ -62,43 +63,52 @@ describe('ComboboxMulti', () => {
             expect(inputField).toHaveAttribute('data-test', 'true');
             expect(inputField).toHaveAttribute('title', 'some title');
         });
+
         it('should set focus on the input field', async () => {
-            await setFocus();
+            const user = userEvent.setup();
+            await setFocus(user);
 
             expect(inputNodeField).toBe(document.activeElement);
         });
+
         it('should not set focus on the input field when the component is disabled', async () => {
+            const user = userEvent.setup();
             const newProps = {
                 disabled: true,
             };
             rerenderView(newProps);
-            await setFocus();
+            await setFocus(user);
 
             expect(inputNodeField).not.toBe(document.activeElement);
         });
+
         it('should add additional attributes to input field when component is focused', async () => {
+            const user = userEvent.setup();
             const newProps = {
                 inputAttrs: { 'data-test': true, title: 'some title' },
             };
             rerenderView(newProps);
-            await setFocus();
+            await setFocus(user);
             const inputField = screen.getAllByRole('textbox')[0];
 
             expect(inputField).toHaveAttribute('data-test', 'true');
             expect(inputField).toHaveAttribute('title', 'some title');
         });
+
         it('should render noSuggestions placeholder when empty suggestions list is passed', async () => {
+            const user = userEvent.setup();
             const newProps = {
                 suggestions: [],
             };
             rerenderView(newProps);
-            await setFocus();
+            await setFocus(user);
 
             expect(view.container).toMatchSnapshot();
             expect(screen.queryByRole('option')).not.toBeInTheDocument();
             expect(screen.getByRole('listitem')).toBeInTheDocument();
             expect(screen.getByText(noSuggestionsPlaceholder)).toBeInTheDocument();
         });
+
         it('should render selection placeholder when component is not focused', () => {
             const inputField = screen.getAllByRole('textbox')[0];
 

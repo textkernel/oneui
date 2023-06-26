@@ -1,279 +1,181 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PillButton> component in active, collapsed state (with content prop) should render correctly 1`] = `
-<PillButton
-  content="This pill is in use"
-  name="Pill name"
-  onClear={[MockFunction]}
-  toggleDropdown={[MockFunction]}
->
+<div>
   <div
-    className="PillButton"
+    class="PillButton"
   >
     <div
-      className="PillButton__label PillButton__label--isActive"
+      class="PillButton__label PillButton__label--isActive"
     >
       Pill name
     </div>
     <div
-      className="PillButton__pill PillButton__pill--isActive"
-      onClick={[MockFunction]}
-      onKeyDown={[Function]}
+      class="PillButton__pill PillButton__pill--isActive"
       role="button"
-      tabIndex="0"
+      tabindex="0"
     >
       <span
-        className="PillButton__pillLabel"
+        class="PillButton__pillLabel"
       >
         This pill is in use
       </span>
       <button
-        className="PillButton__button"
-        onClick={[Function]}
-        onKeyDown={[Function]}
+        class="PillButton__button"
         type="button"
       >
-        <IoIosClose
-          size={22}
+        <svg
+          aria-label="clear label"
+          fill="currentColor"
+          height="22"
+          role="img"
+          size="22"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="22"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <IconBase
-            attr={
-              Object {
-                "viewBox": "0 0 512 512",
-              }
-            }
-            size={22}
-          >
-            <svg
-              fill="currentColor"
-              height={22}
-              size={22}
-              stroke="currentColor"
-              strokeWidth="0"
-              style={
-                Object {
-                  "color": undefined,
-                }
-              }
-              viewBox="0 0 512 512"
-              width={22}
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"
-                key="0"
-              />
-            </svg>
-          </IconBase>
-        </IoIosClose>
+          <path
+            d="M278.6 256l68.2-68.2c6.2-6.2 6.2-16.4 0-22.6-6.2-6.2-16.4-6.2-22.6 0L256 233.4l-68.2-68.2c-6.2-6.2-16.4-6.2-22.6 0-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3l68.2 68.2-68.2 68.2c-3.1 3.1-4.7 7.2-4.7 11.3 0 4.1 1.6 8.2 4.7 11.3 6.2 6.2 16.4 6.2 22.6 0l68.2-68.2 68.2 68.2c6.2 6.2 16.4 6.2 22.6 0 6.2-6.2 6.2-16.4 0-22.6L278.6 256z"
+          />
+        </svg>
       </button>
     </div>
   </div>
-</PillButton>
+</div>
 `;
 
 exports[`<PillButton> component in active, open state (content and isOpen prop) should render correctly 1`] = `
-<PillButton
-  content="This pill is in use"
-  isOpen={true}
-  name="Pill name"
-  onClear={[MockFunction]}
-  toggleDropdown={[MockFunction]}
->
+<div>
   <div
-    className="PillButton"
+    class="PillButton"
   >
     <div
-      className="PillButton__label PillButton__label--isActive"
+      class="PillButton__label PillButton__label--isActive"
     >
       Pill name
     </div>
     <div
-      className="PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive"
-      onClick={[MockFunction]}
-      onKeyDown={[Function]}
+      class="PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive"
       role="button"
-      tabIndex="0"
+      tabindex="0"
     >
       <span
-        className="PillButton__pillLabel"
+        class="PillButton__pillLabel"
       >
         This pill is in use
       </span>
       <button
-        className="PillButton__button PillButton__button--isOpen"
+        class="PillButton__button PillButton__button--isOpen"
         type="button"
       >
-        <IoIosArrowDown
-          className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
+        <svg
+          aria-label="up arrow"
+          class="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <IconBase
-            attr={
-              Object {
-                "viewBox": "0 0 512 512",
-              }
-            }
-            className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
-          >
-            <svg
-              className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
-              fill="currentColor"
-              height="1em"
-              stroke="currentColor"
-              strokeWidth="0"
-              style={
-                Object {
-                  "color": undefined,
-                }
-              }
-              viewBox="0 0 512 512"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                key="0"
-              />
-            </svg>
-          </IconBase>
-        </IoIosArrowDown>
+          <path
+            d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+          />
+        </svg>
       </button>
     </div>
   </div>
-</PillButton>
+</div>
 `;
 
 exports[`<PillButton> component in inactive, collapsed state (with minimal props) should render correctly 1`] = `
-<PillButton
-  name="Pill name"
-  onClear={[MockFunction]}
-  toggleDropdown={[MockFunction]}
->
+<div>
   <div
-    className="PillButton"
+    class="PillButton"
   >
     <div
-      className="PillButton__label"
+      class="PillButton__label"
     />
     <div
-      className="PillButton__pill"
-      onClick={[MockFunction]}
-      onKeyDown={[Function]}
+      class="PillButton__pill"
       role="button"
-      tabIndex="0"
+      tabindex="0"
     >
       <span
-        className="PillButton__pillLabel"
+        class="PillButton__pillLabel"
       >
         Pill name
       </span>
       <button
-        className="PillButton__button"
+        class="PillButton__button"
         type="button"
       >
-        <IoIosArrowDown
-          className="PillButton__arrowIcon"
+        <svg
+          aria-label="down arrow"
+          class="PillButton__arrowIcon"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <IconBase
-            attr={
-              Object {
-                "viewBox": "0 0 512 512",
-              }
-            }
-            className="PillButton__arrowIcon"
-          >
-            <svg
-              className="PillButton__arrowIcon"
-              fill="currentColor"
-              height="1em"
-              stroke="currentColor"
-              strokeWidth="0"
-              style={
-                Object {
-                  "color": undefined,
-                }
-              }
-              viewBox="0 0 512 512"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                key="0"
-              />
-            </svg>
-          </IconBase>
-        </IoIosArrowDown>
+          <path
+            d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+          />
+        </svg>
       </button>
     </div>
   </div>
-</PillButton>
+</div>
 `;
 
 exports[`<PillButton> component in inactive, open state (isOpen prop) should render correctly 1`] = `
-<PillButton
-  isOpen={true}
-  name="Pill name"
-  onClear={[MockFunction]}
-  toggleDropdown={[MockFunction]}
->
+<div>
   <div
-    className="PillButton"
+    class="PillButton"
   >
     <div
-      className="PillButton__label"
+      class="PillButton__label"
     />
     <div
-      className="PillButton__pill PillButton__pill--isOpen"
-      onClick={[MockFunction]}
-      onKeyDown={[Function]}
+      class="PillButton__pill PillButton__pill--isOpen"
       role="button"
-      tabIndex="0"
+      tabindex="0"
     >
       <span
-        className="PillButton__pillLabel"
+        class="PillButton__pillLabel"
       >
         Pill name
       </span>
       <button
-        className="PillButton__button PillButton__button--isOpen"
+        class="PillButton__button PillButton__button--isOpen"
         type="button"
       >
-        <IoIosArrowDown
-          className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
+        <svg
+          aria-label="up arrow"
+          class="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <IconBase
-            attr={
-              Object {
-                "viewBox": "0 0 512 512",
-              }
-            }
-            className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
-          >
-            <svg
-              className="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
-              fill="currentColor"
-              height="1em"
-              stroke="currentColor"
-              strokeWidth="0"
-              style={
-                Object {
-                  "color": undefined,
-                }
-              }
-              viewBox="0 0 512 512"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-                key="0"
-              />
-            </svg>
-          </IconBase>
-        </IoIosArrowDown>
+          <path
+            d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+          />
+        </svg>
       </button>
     </div>
   </div>
-</PillButton>
+</div>
 `;
