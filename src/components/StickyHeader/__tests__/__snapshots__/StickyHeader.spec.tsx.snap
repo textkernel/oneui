@@ -1,11 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`StickyHeader component should render StickyHeader correctly 1`] = `
-<div
-  className="StickyHeader"
->
-  <div>
-    I am a header
+<div>
+  <div
+    class="StickyHeader"
+    role="group"
+  >
+    <div>
+      I am a header
+    </div>
   </div>
 </div>
 `;
