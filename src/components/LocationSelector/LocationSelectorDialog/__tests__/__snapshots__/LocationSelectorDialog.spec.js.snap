@@ -89,7 +89,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         className="LocationSelectorDialog__searchField"
         clearTitle=""
         defaultInputValue=""
-        getSuggestions={Array []}
         iconNode={
           <FaMapMarkerAlt
             className="LocationAutocomplete__icon"
@@ -120,6 +119,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         saveSelectedValueToInput={false}
         showClearButton={false}
         suggestionToString={[Function]}
+        suggestions={Array []}
       >
         <SelectBase
           blurredRenderer={[Function]}
@@ -128,7 +128,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           clearTitle=""
           defaultInputValue=""
           focusedRenderer={[Function]}
-          getSuggestions={Array []}
           highlightOnEmptyInput={false}
           iconNode={
             <FaMapMarkerAlt
@@ -158,11 +157,11 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           saveSelectedValueToInput={false}
           showClearButton={false}
           suggestionToString={[Function]}
+          suggestions={Array []}
         >
           <div
             className="SelectBase LocationSelectorDialog__searchField"
             defaultInputValue=""
-            getSuggestions={Array []}
             iconNode={
               <FaMapMarkerAlt
                 className="LocationAutocomplete__icon"

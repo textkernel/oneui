@@ -200,7 +200,7 @@ const LocationAutocomplete: React.FC<Props> = ({
 
     return (
         <Autosuggest
-            getSuggestions={suggestionsList}
+            suggestions={suggestionsList}
             suggestionToString={suggestionToString}
             isLoading={isLoading}
             isFocused={isFocused}
