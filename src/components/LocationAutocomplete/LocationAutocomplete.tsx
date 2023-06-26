@@ -62,8 +62,10 @@ const PLACE_TYPES = ['(regions)'];
  */
 const LocationAutocomplete: React.FC<Props> = ({
     inputRef,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isFocused = false,
     onSelectionChange,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     defaultInputValue = '',
     inputPlaceholder,
     clearTooltipLabel = '',
@@ -81,6 +83,7 @@ const LocationAutocomplete: React.FC<Props> = ({
     const [suggestionsList, setSuggestionsList] = React.useState<
         google.maps.places.AutocompletePrediction[]
     >([]);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [isLoading, setIsLoading] = React.useState(false);
     const [inputValue, setInputValue] = React.useState('');
     const debouncedInputValue = useDebounce(inputValue, DEBOUNCE_DELAY);
@@ -157,6 +160,7 @@ const LocationAutocomplete: React.FC<Props> = ({
         }
     };
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const handleSelection = (value) => {
         resetSuggestionsList();
         setInputValue(singleLocation ? value : '');
@@ -202,21 +206,21 @@ const LocationAutocomplete: React.FC<Props> = ({
         <Autosuggest
             suggestions={suggestionsList}
             suggestionToString={suggestionToString}
-            isLoading={isLoading}
-            isFocused={isFocused}
-            defaultInputValue={defaultInputValue}
+            // isLoading={isLoading}
+            // isFocused={isFocused}
+            // defaultInputValue={defaultInputValue}
             inputPlaceholder={inputPlaceholder}
             showClearButton={singleLocation}
             clearTitle={clearTooltipLabel}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             listRenderer={renderListPoweredByGoogle}
-            saveSelectedValueToInput={singleLocation}
+            // saveSelectedValueToInput={singleLocation}
             // @ts-ignore
             onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
-            onSelectionChange={handleSelection}
+            // onSelectionChange={handleSelection}
             onClearAllSelected={onRemoveAllLocations}
-            iconNode={<FaMapMarkerAlt {...elem('icon')} />}
+            iconnode={<FaMapMarkerAlt {...elem('icon')} />}
             {...rest}
             inputRef={inputRef}
         />

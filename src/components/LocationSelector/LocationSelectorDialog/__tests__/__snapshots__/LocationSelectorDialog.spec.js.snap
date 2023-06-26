@@ -88,8 +88,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       <Autosuggest
         className="LocationSelectorDialog__searchField"
         clearTitle=""
-        defaultInputValue=""
-        iconNode={
+        iconnode={
           <FaMapMarkerAlt
             className="LocationAutocomplete__icon"
           />
@@ -108,15 +107,11 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
             />,
           }
         }
-        isFocused={true}
-        isLoading={false}
         listRenderer={[Function]}
         noSuggestionsPlaceholder="noSuggestionsPlaceholder"
         onBlur={[Function]}
         onClearAllSelected={[MockFunction]}
         onInputValueChange={[Function]}
-        onSelectionChange={[Function]}
-        saveSelectedValueToInput={false}
         showClearButton={false}
         suggestionToString={[Function]}
         suggestions={Array []}
@@ -126,10 +121,9 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           className="LocationSelectorDialog__searchField"
           clearInputAfterSelection={true}
           clearTitle=""
-          defaultInputValue=""
           focusedRenderer={[Function]}
           highlightOnEmptyInput={false}
-          iconNode={
+          iconnode={
             <FaMapMarkerAlt
               className="LocationAutocomplete__icon"
             />
@@ -147,29 +141,22 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
               />,
             }
           }
-          isFocused={true}
           keepExpandedAfterSelection={true}
           listRenderer={[Function]}
           onBlur={[Function]}
           onClearAllSelected={[MockFunction]}
           onInputValueChange={[Function]}
-          onSelectionChange={[Function]}
-          saveSelectedValueToInput={false}
           showClearButton={false}
           suggestionToString={[Function]}
           suggestions={Array []}
         >
           <div
             className="SelectBase LocationSelectorDialog__searchField"
-            defaultInputValue=""
-            iconNode={
+            iconnode={
               <FaMapMarkerAlt
                 className="LocationAutocomplete__icon"
               />
             }
-            isFocused={true}
-            onSelectionChange={[Function]}
-            saveSelectedValueToInput={false}
           >
             <Downshift
               defaultHighlightedIndex={-1}
