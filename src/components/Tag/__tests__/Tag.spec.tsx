@@ -2,6 +2,7 @@ import React from 'react';
 import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
+import { ENTER_KEY } from '../../../constants';
 import { Tag } from '../Tag';
 
 describe('<Tag> component', () => {
@@ -62,7 +63,7 @@ describe('<Tag> component', () => {
 
         const button = screen.getByRole('button');
         await button.focus();
-        await user.keyboard('[ENTER]');
+        await user.keyboard(`[${ENTER_KEY}]`);
 
         expect(onTagClick).toHaveBeenCalledTimes(1);
     });
@@ -91,7 +92,7 @@ describe('<Tag> component', () => {
         const button = screen.getByRole('button', { name: '' });
 
         await button.focus();
-        await user.keyboard('[ENTER]');
+        await user.keyboard(`[${ENTER_KEY}]`);
 
         expect(onTagClick).toHaveBeenCalledTimes(0);
         expect(onDeleteClick).toHaveBeenCalledTimes(1);
