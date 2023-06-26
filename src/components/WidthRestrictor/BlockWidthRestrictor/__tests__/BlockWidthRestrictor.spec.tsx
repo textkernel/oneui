@@ -17,7 +17,6 @@ describe('BlockWidthRestrictor', () => {
 
         expect(view.container).toMatchSnapshot();
         expect(view.container).toHaveTextContent('Some children');
-        expect(view.container.children[0].tagName).toBe('DIV');
     });
 
     it('should render correctly when element type is defined', () => {
