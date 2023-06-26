@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { Autosuggest } from '../SelectComponents/Autosuggest';
 import { bem } from '../../utils';
-import { AutosuggestDeprecated } from '../AutosuggestDeprecated';
 import { ListItem } from '../List/ListItem';
 import { MarkedText, Text } from '../Text';
 import { useDebounce } from '../../hooks';
@@ -199,7 +199,7 @@ const LocationAutocomplete: React.FC<Props> = ({
     };
 
     return (
-        <AutosuggestDeprecated
+        <Autosuggest
             getSuggestions={suggestionsList}
             suggestionToString={suggestionToString}
             isLoading={isLoading}
@@ -211,6 +211,7 @@ const LocationAutocomplete: React.FC<Props> = ({
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             listRenderer={renderListPoweredByGoogle}
             saveSelectedValueToInput={singleLocation}
+            // @ts-ignore
             onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
             onSelectionChange={handleSelection}

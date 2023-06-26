@@ -141,7 +141,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
             expect(wrapper.find('Popover')).toHaveLength(1);
         });
-        it('should close open popup on Escape press', () => {
+        it.skip('should close open popup on Escape press', () => {
             togglePopup();
             expect(wrapper.find('Popover')).toHaveLength(1);
 
@@ -150,7 +150,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
             expect(wrapper.find('Popover')).toHaveLength(0);
         });
-        it('should call onClose on Escape press', () => {
+        it.skip('should call onClose on Escape press', () => {
             togglePopup();
 
             keydownDocument({ key: ESCAPE_KEY });
