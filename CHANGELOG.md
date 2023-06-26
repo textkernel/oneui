@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [19.5.0](https://github.com/textkernel/oneui/compare/19.4.0...19.5.0) (2023-05-26)
+
+
+### Features
+
+* **Slider:** update rc-slider version to "10.1.1" ([#983](https://github.com/textkernel/oneui/issues/983)) ([a6ae667](https://github.com/textkernel/oneui/commit/a6ae667f4bb1d1791b956670414c036aaba1a3e7))
+
 ## [19.4.0](https://github.com/textkernel/oneui/compare/19.3.1...19.4.0) (2023-05-17)
 
 

@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoadingSpinner> that renders a circular loading spinner should add classes when props are changed 1`] = `
+<div>
+  <div
+    aria-busy="false"
+    aria-hidden="true"
+    class="LoadingSpinner LoadingSpinner--hidden LoadingSpinner--centerIn_viewport"
+    role="status"
+  >
+    <svg
+      class="LoadingSpinner__svg"
+      style="width: 12px; height: 12px;"
+      viewBox="0,0,44,44"
+    >
+      <circle
+        class="LoadingSpinner__path"
+        cx="22"
+        cy="22"
+        fill="none"
+        r="20"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`<LoadingSpinner> that renders a circular loading spinner should render a default spinner correctly 1`] = `
+<div>
+  <div
+    aria-busy="true"
+    aria-hidden="false"
+    class="LoadingSpinner"
+    role="status"
+  >
+    <svg
+      class="LoadingSpinner__svg"
+      viewBox="0,0,44,44"
+    >
+      <circle
+        class="LoadingSpinner__path"
+        cx="22"
+        cy="22"
+        fill="none"
+        r="20"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`<LoadingSpinner> that renders a circular loading spinner should render a spinner with label 1`] = `
+<div>
+  <div
+    aria-busy="true"
+    aria-hidden="false"
+    class="LoadingSpinner"
+    role="status"
+  >
+    <svg
+      class="LoadingSpinner__svg"
+      viewBox="0,0,44,44"
+    >
+      <circle
+        class="LoadingSpinner__path"
+        cx="22"
+        cy="22"
+        fill="none"
+        r="20"
+        stroke-width="4"
+      />
+    </svg>
+    <span
+      class="LoadingSpinner__label"
+    >
+      Loading...
+    </span>
+  </div>
+</div>
+`;

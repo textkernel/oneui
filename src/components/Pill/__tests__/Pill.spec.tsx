@@ -1,5 +1,7 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, RenderResult, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { Pill } from '../Pill';
 
 describe('<Pill> component', () => {
@@ -9,11 +11,13 @@ describe('<Pill> component', () => {
     const nameMock = 'Pill name';
     const contentMock = 'Pill content';
 
-    let wrapper;
-    let clickPillButton;
+    let view: RenderResult;
+    const getButtonByName = (inputName) => {
+        return screen.getByRole('button', { name: `${inputName}` });
+    };
 
     beforeEach(() => {
-        wrapper = mount(
+        view = render(
             <Pill
                 onClear={onClearMock}
                 onClose={onCloseMock}
@@ -24,8 +28,6 @@ describe('<Pill> component', () => {
                 {childrenMock}
             </Pill>
         );
-
-        clickPillButton = () => wrapper.find('.PillButton__pill').simulate('click');
     });
 
     afterEach(() => {
@@ -33,38 +35,54 @@ describe('<Pill> component', () => {
     });
 
     it('should render correctly', () => {
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('PillButton')).toHaveLength(1);
-        expect(wrapper.find('PillDropdown')).toHaveLength(0);
+        expect(view.container).toMatchSnapshot();
+        expect(getButtonByName(contentMock)).toBeInTheDocument();
+        expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
     });
-    it('should open dropdown when button is clicked', () => {
-        clickPillButton();
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('PillButton')).toHaveLength(1);
-        expect(wrapper.find('PillDropdown')).toHaveLength(1);
-    });
-    it('should close dropdown when button is clicked again', () => {
-        clickPillButton();
-        expect(wrapper.find('PillDropdown')).toHaveLength(1);
 
-        clickPillButton();
-        expect(wrapper.find('PillDropdown')).toHaveLength(0);
+    it('should open dropdown when button is clicked', async () => {
+        const user = userEvent.setup();
+        await user.click(getButtonByName(contentMock));
+
+        expect(view.container).toMatchSnapshot();
+        expect(getButtonByName(contentMock)).toBeInTheDocument();
+        expect(screen.getByRole('dialog')).toBeInTheDocument();
     });
-    it('should render children when dropdown is open', () => {
+
+    it('should close dropdown when button is clicked again', async () => {
+        const user = userEvent.setup();
+        await user.click(getButtonByName(contentMock));
+
+        expect(screen.getByRole('dialog')).toBeInTheDocument();
+
+        await user.click(getButtonByName(contentMock));
+
+        expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    });
+
+    it('should render children when dropdown is open', async () => {
         expect(childrenMock).not.toHaveBeenCalled();
 
-        clickPillButton();
-        expect(wrapper.find('PillDropdown')).toHaveLength(1);
+        const user = userEvent.setup();
+        await user.click(getButtonByName(contentMock));
+
+        expect(screen.getByRole('dialog')).toBeInTheDocument();
         expect(childrenMock).toHaveBeenCalledTimes(1);
     });
-    it('should call onClose when dropdown is closed via pill-button click', () => {
-        clickPillButton();
-        clickPillButton();
+
+    it('should call onClose when dropdown is closed via pill-button click', async () => {
+        const user = userEvent.setup();
+        await user.click(getButtonByName(contentMock));
+        await user.click(getButtonByName(contentMock));
+
         expect(onCloseMock).toHaveBeenCalledTimes(1);
     });
-    it('should call onClose when dropdown is closed via done-button click', () => {
-        clickPillButton();
-        wrapper.find('.PillDropdown__footer button').simulate('click');
+
+    it('should call onClose when dropdown is closed via done-button click', async () => {
+        const user = userEvent.setup();
+        await user.click(getButtonByName(contentMock));
+        await user.click(screen.getByRole('button', { name: 'Done' }));
+
         expect(onCloseMock).toHaveBeenCalledTimes(1);
     });
 });
