@@ -1,35 +1,32 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, RenderResult, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { StickyHeader } from '..';
 
 describe('StickyHeader component', () => {
-    let wrapper;
-    let consoleError;
-
-    beforeEach(() => {
-        consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
-    });
-
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
+    let view: RenderResult;
 
     it('should render StickyHeader correctly', () => {
-        wrapper = shallow(
+        const consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
+        view = render(
             <StickyHeader>
                 <div>I am a header</div>
             </StickyHeader>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+
+        expect(view.container).toMatchSnapshot();
+        expect(view.container).toHaveTextContent('I am a header');
         expect(consoleError).not.toHaveBeenCalled();
+        expect(screen.getByRole('group')).toBeInTheDocument();
     });
 
     it('should render StickyHeader with headerClassName', () => {
-        wrapper = shallow(
+        view = render(
             <StickyHeader className="my-sticky-class">
                 <div>I am a header</div>
             </StickyHeader>
         );
-        expect(wrapper.find('.StickyHeader').hasClass('my-sticky-class')).toBe(true);
+
+        expect(screen.getByRole('group')).toHaveClass('my-sticky-class');
     });
 });

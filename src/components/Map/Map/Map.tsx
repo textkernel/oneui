@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { GoogleMap, Marker, Circle } from '@react-google-maps/api';
+import { GoogleMap, GoogleMapProps, Marker, Circle } from '@react-google-maps/api';
 
 const circleOptions = () => ({
     strokeColor: 'transparent',
@@ -26,16 +26,13 @@ type CircularMarker = {
     description: string;
 };
 
-type RegionArea = {
-    type: string;
-    features: GeoJSON.GeoJsonObject[];
-};
+type RegionArea = GeoJSON.FeatureCollection;
 
-interface Props extends Omit<GoogleMap, 'onLoad' | 'mapContainerStyle' | 'options'> {
+interface Props extends Omit<GoogleMapProps, 'onLoad' | 'mapContainerStyle' | 'options'> {
     /** The default parameters to determine the viewport when no circular or point markers are present. */
-    defaultArea:
+    defaultArea?:
         | {
-              address: string;
+              address: string | string[] | undefined;
           }
         | {
               center:
