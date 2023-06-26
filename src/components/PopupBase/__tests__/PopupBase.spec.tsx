@@ -6,6 +6,7 @@ import '@testing-library/jest-dom';
 import { Button } from '../../..';
 import { PopupBase } from '../PopupBase';
 import { PopoverDummy } from '../__mocks__/PopoverDummy';
+import { ESCAPE_KEY } from '../../../constants';
 
 describe('<PopupBase> that adds basic anchor/popup functionality to rendered components', () => {
     const anchorRendererMock = ({ setPopupVisibility, isOpen }) => (
@@ -152,7 +153,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
             expect(screen.getByRole('group')).toBeInTheDocument();
 
-            await user.keyboard('[Escape]');
+            await user.keyboard(`[${ESCAPE_KEY}]`);
 
             expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
@@ -161,7 +162,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             const user = userEvent.setup();
             await togglePopup(user);
 
-            await user.keyboard('[Escape]');
+            await user.keyboard(`[${ESCAPE_KEY}]`);
 
             expect(onCloseMock).toHaveBeenCalled();
         });
