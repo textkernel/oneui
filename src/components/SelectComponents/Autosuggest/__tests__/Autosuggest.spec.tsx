@@ -128,7 +128,6 @@ describe('Autosuggest', () => {
             expect(view.container).toMatchSnapshot();
             expect(screen.getAllByRole('presentation')).toHaveLength(5);
             expect(screen.getAllByRole('alert', { name: 'Loading' })).toHaveLength(5);
-            // TODO: for each loader there are 2 listitems, check why and fix
             expect(screen.getAllByRole('listitem')).toHaveLength(10);
         });
 
@@ -145,8 +144,7 @@ describe('Autosuggest', () => {
             await user.type(inputNodeField, 'driver');
 
             expect(screen.getAllByRole('option')).toHaveLength(2);
-            // TODO: for each loader there are 2 listitems, check why and fix
-            expect(screen.getAllByRole('listitem')).toHaveLength(10);
+            expect(screen.getAllByRole('alert')).toHaveLength(5);
         });
 
         it('should render empty component correctly when focused', async () => {
