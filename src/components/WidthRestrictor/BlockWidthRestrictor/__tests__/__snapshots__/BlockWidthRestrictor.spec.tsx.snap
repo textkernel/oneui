@@ -9,3 +9,13 @@ exports[`BlockWidthRestrictor should render correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`BlockWidthRestrictor should render correctly when element type is defined 1`] = `
+<div>
+  <nav
+    class="BlockWidthRestrictor"
+  >
+    Some children
+  </nav>
+</div>
+`;

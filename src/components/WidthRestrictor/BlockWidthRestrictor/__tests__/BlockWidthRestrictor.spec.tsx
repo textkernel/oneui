@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, RenderResult } from '@testing-library/react';
+import { render, RenderResult, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { BlockWidthRestrictor } from '../BlockWidthRestrictor';
 
@@ -23,7 +23,8 @@ describe('BlockWidthRestrictor', () => {
     it('should render correctly when element type is defined', () => {
         view = render(<BlockWidthRestrictor As="nav">Some children</BlockWidthRestrictor>);
 
-        expect(view.container.children).toHaveLength(1);
-        expect(view.container.children[0].tagName).toBe('NAV');
+        expect(view.container).toMatchSnapshot();
+        expect(view.container).toHaveTextContent('Some children');
+        expect(screen.getByRole('navigation')).toBeInTheDocument();
     });
 });
