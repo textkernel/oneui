@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PaginationButton> that renders a page button should render correctly with default props 1`] = `
+<div>
+  <button
+    class="Button Button--isLink PaginationButton"
+    data-page="1"
+    type="button"
+  >
+    1
+  </button>
+</div>
+`;

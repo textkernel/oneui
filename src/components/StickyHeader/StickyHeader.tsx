@@ -12,7 +12,7 @@ const { block } = bem('StickyHeader', classnames);
 export const StickyHeader: React.FC<Props> = (props) => {
     const { children, ...rest } = props;
     return (
-        <div {...rest} {...block(rest)}>
+        <div {...rest} {...block(rest)} role="group">
             {children}
         </div>
     );

@@ -1,126 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<RadioButtonGroup> that renders a group of radio buttons should render correctly 1`] = `
-<RadioButtonGroup
-  name="group_name"
->
+<div>
   <div>
-    <RadioButton
-      className="RadioButtonGroup__option"
-      id="o1"
-      key=".0"
-      name="group_name"
-      onChange={[MockFunction]}
+    <div
+      class="RadioButtonGroup__option"
     >
-      <div
-        className="RadioButtonGroup__option"
+      <input
+        class="RadioButton__input"
+        id="o1"
+        name="group_name"
+        type="radio"
+      />
+      <label
+        class="RadioButton__label"
+        for="o1"
       >
-        <input
-          className="RadioButton__input"
-          disabled={false}
-          id="o1"
-          name="group_name"
-          onChange={[MockFunction]}
-          type="radio"
-        />
-        <label
-          className="RadioButton__label"
-          htmlFor="o1"
+        <span
+          class="RadioButton__box"
         >
-          <span
-            className="RadioButton__box"
+          <svg
+            class="RadioButton__svg"
+            height="10px"
+            viewBox="0,0,10,10"
+            width="12px"
           >
-            <svg
-              className="RadioButton__svg"
-              height="10px"
-              viewBox={
-                Array [
-                  0,
-                  0,
-                  10,
-                  10,
-                ]
-              }
-              width="12px"
-            >
-              <circle
-                cx="5"
-                cy="6"
-                r="3"
-              />
-            </svg>
-          </span>
-          <Text
-            className="RadioButton__text"
-            context="default"
-            inline={true}
-          >
-            <span
-              className="RadioButton__text"
-            >
-              Option 1
-            </span>
-          </Text>
-        </label>
-      </div>
-    </RadioButton>
-    <RadioButton
-      className="RadioButtonGroup__option"
-      id="o2"
-      key=".1"
-      name="group_name"
+            <circle
+              cx="5"
+              cy="6"
+              r="3"
+            />
+          </svg>
+        </span>
+        <span
+          class="RadioButton__text"
+        >
+          Option 1
+        </span>
+      </label>
+    </div>
+    <div
+      class="RadioButtonGroup__option"
     >
-      <div
-        className="RadioButtonGroup__option"
+      <input
+        class="RadioButton__input"
+        id="o2"
+        name="group_name"
+        type="radio"
+      />
+      <label
+        class="RadioButton__label"
+        for="o2"
       >
-        <input
-          className="RadioButton__input"
-          disabled={false}
-          id="o2"
-          name="group_name"
-          type="radio"
-        />
-        <label
-          className="RadioButton__label"
-          htmlFor="o2"
+        <span
+          class="RadioButton__box"
         >
-          <span
-            className="RadioButton__box"
+          <svg
+            class="RadioButton__svg"
+            height="10px"
+            viewBox="0,0,10,10"
+            width="12px"
           >
-            <svg
-              className="RadioButton__svg"
-              height="10px"
-              viewBox={
-                Array [
-                  0,
-                  0,
-                  10,
-                  10,
-                ]
-              }
-              width="12px"
-            >
-              <circle
-                cx="5"
-                cy="6"
-                r="3"
-              />
-            </svg>
-          </span>
-          <Text
-            className="RadioButton__text"
-            context="default"
-            inline={true}
-          >
-            <span
-              className="RadioButton__text"
-            >
-              Option 2
-            </span>
-          </Text>
-        </label>
-      </div>
-    </RadioButton>
+            <circle
+              cx="5"
+              cy="6"
+              r="3"
+            />
+          </svg>
+        </span>
+        <span
+          class="RadioButton__text"
+        >
+          Option 2
+        </span>
+      </label>
+    </div>
   </div>
-</RadioButtonGroup>
+</div>
 `;
