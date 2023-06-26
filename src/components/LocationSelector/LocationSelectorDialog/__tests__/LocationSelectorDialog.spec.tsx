@@ -97,20 +97,15 @@ describe('LocationSelectorDialog component', () => {
 
     it('should call onAddLocation by selecting an item from the autosuggestion list', async () => {
         const user = userEvent.setup();
-        // jest.useFakeTimers();
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         const input = await screen.getByRole('textbox');
         await user.type(input, 'Tonga');
-        // act(() => {
-        //     jest.runAllTimers();
-        // });
         await user.click(input);
-        //
+
         expect(screen.getAllByRole('listitem', { name: '' })).toHaveLength(7); // 5
         expect(onAddLocationMock).not.toHaveBeenCalled();
 
         await user.click(screen.getAllByRole('listitem', { name: '' })[0]);
-        // wrapper.find('AutosuggestDeprecated').find('li').at(0).childAt(0).simulate('click');
         // expect(onAddLocationMock).toHaveBeenCalledTimes(1);
     });
 
