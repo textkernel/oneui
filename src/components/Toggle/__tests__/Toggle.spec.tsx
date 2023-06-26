@@ -6,18 +6,22 @@ import { Toggle } from '../Toggle';
 describe('<Toggle> that renders a toggle', () => {
     let view: RenderResult;
 
+    const getCheckboxByName = (inputName) => {
+        return screen.getByRole('checkbox', { name: `${inputName}` });
+    };
+
     it('should render Toggle correctly with label', () => {
         view = render(<Toggle id="1">Title is here</Toggle>);
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('checkbox', { name: 'Title is here' })).toBeInTheDocument();
+        expect(getCheckboxByName('Title is here')).toBeInTheDocument();
     });
 
     it('should render Toggle correctly without label', () => {
         view = render(<Toggle id="1-2" />);
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('checkbox', { name: '' })).toBeInTheDocument();
+        expect(getCheckboxByName('')).toBeInTheDocument();
     });
 
     it('should rendered disabled toggle correctly', () => {
@@ -27,7 +31,7 @@ describe('<Toggle> that renders a toggle', () => {
             </Toggle>
         );
 
-        const checkbox = screen.getByRole('checkbox', { name: 'Cannot do anything =(' });
+        const checkbox = getCheckboxByName('Cannot do anything =(');
 
         expect(view.container).toMatchSnapshot();
         expect(checkbox).toBeInTheDocument();

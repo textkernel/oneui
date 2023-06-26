@@ -11,6 +11,10 @@ describe('ThemeActions component', () => {
     const onDownloadMock = jest.fn();
     const onFileChangeMock = jest.fn();
 
+    const getButtonByName = (inputName) => {
+        return screen.getByRole('button', { name: `${inputName}` });
+    };
+
     it('should render component correctly without any actions', () => {
         view = render(<ThemeActions />);
 
@@ -32,15 +36,15 @@ describe('ThemeActions component', () => {
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('button', { name: 'Reset' })).toBeInTheDocument();
-        expect(screen.getByRole('button', { name: 'Download' })).toBeInTheDocument();
+        expect(getButtonByName('Reset')).toBeInTheDocument();
+        expect(getButtonByName('Download')).toBeInTheDocument();
     });
 
     it('should invoke onReset callback when reset button is clicked', async () => {
         const user = userEvent.setup();
         view = render(<ThemeActions resetLabel="Reset" onReset={onResetMock} />);
 
-        await user.click(screen.getByRole('button', { name: 'Reset' }));
+        await user.click(getButtonByName('Reset'));
 
         expect(onResetMock).toHaveBeenCalledTimes(1);
     });
@@ -49,7 +53,7 @@ describe('ThemeActions component', () => {
         const user = userEvent.setup();
         view = render(<ThemeActions downloadLabel="Download" onDownload={onDownloadMock} />);
 
-        await user.click(screen.getByRole('button', { name: 'Download' }));
+        await user.click(getButtonByName('Download'));
 
         expect(onDownloadMock).toHaveBeenCalledTimes(1);
     });
