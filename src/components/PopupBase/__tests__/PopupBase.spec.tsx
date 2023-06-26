@@ -128,7 +128,8 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             //     composedPath: () => [wrapper.find('Popover').find('p').at(0).getDOMNode()],
             // });
             //
-            // expect(wrapper.find('Popover')).toHaveLength(1);
+            //
+            expect(screen.queryByRole('group')).toBeInTheDocument();
         });
 
         it('should not close open popup if button is clicked (ignoring functionality added by the renderer)', async () => {
@@ -143,7 +144,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             //     target: wrapper.find('button').at(0).getDOMNode(),
             // });
             //
-            // expect(wrapper.find('Popover')).toHaveLength(1);
+            expect(screen.queryByRole('group')).toBeInTheDocument();
         });
 
         it('should close open popup on Escape press', async () => {
