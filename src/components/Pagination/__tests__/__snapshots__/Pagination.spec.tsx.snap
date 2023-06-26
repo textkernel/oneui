@@ -1,0 +1,170 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pagination> that renders a pagination component should render correctly with all props 1`] = `
+<div>
+  <nav
+    aria-label="pagination"
+    class="Pagination Pagination--align_center"
+  >
+    <button
+      aria-disabled="false"
+      class="Button Button--isLink Pagination__button"
+      data-page="5"
+      type="button"
+    >
+      ‹ Previous
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="1"
+      type="button"
+    >
+      1
+    </button>
+    <div
+      class="Pagination__gap"
+    >
+      …
+    </div>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="3"
+      type="button"
+    >
+      3
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="4"
+      type="button"
+    >
+      4
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="5"
+      type="button"
+    >
+      5
+    </button>
+    <button
+      aria-current="page"
+      class="Button Button--isLink PaginationButton"
+      data-page="6"
+      type="button"
+    >
+      6
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="7"
+      type="button"
+    >
+      7
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="8"
+      type="button"
+    >
+      8
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="9"
+      type="button"
+    >
+      9
+    </button>
+    <button
+      aria-disabled="false"
+      class="Button Button--isLink Pagination__button"
+      data-page="7"
+      type="button"
+    >
+      Next ›
+    </button>
+  </nav>
+</div>
+`;
+
+exports[`<Pagination> that renders a pagination component should render correctly with default props 1`] = `
+<div>
+  <nav
+    aria-label="pagination"
+    class="Pagination Pagination--align_center"
+  >
+    <button
+      aria-current="page"
+      class="Button Button--isLink PaginationButton"
+      data-page="1"
+      type="button"
+    >
+      1
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="2"
+      type="button"
+    >
+      2
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="3"
+      type="button"
+    >
+      3
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="4"
+      type="button"
+    >
+      4
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="5"
+      type="button"
+    >
+      5
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="6"
+      type="button"
+    >
+      6
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="7"
+      type="button"
+    >
+      7
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="8"
+      type="button"
+    >
+      8
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="9"
+      type="button"
+    >
+      9
+    </button>
+    <button
+      class="Button Button--isLink PaginationButton"
+      data-page="10"
+      type="button"
+    >
+      10
+    </button>
+  </nav>
+</div>
+`;
