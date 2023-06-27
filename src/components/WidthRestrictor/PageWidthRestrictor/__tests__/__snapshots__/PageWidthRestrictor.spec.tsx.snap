@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`PageWidthRestrictor should render correctly 1`] = `
-<div
-  className="PageWidthRestrictor"
->
-  Some children
+<div>
+  <section
+    aria-label="some children"
+    class="PageWidthRestrictor"
+  >
+    Some children
+  </section>
 </div>
 `;
