@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, RenderResult } from '@testing-library/react';
+import { render, screen, RenderResult } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { PageWidthRestrictor } from '../PageWidthRestrictor';
 
@@ -13,10 +13,12 @@ describe('PageWidthRestrictor', () => {
     });
 
     it('should render correctly', () => {
-        view = render(<PageWidthRestrictor>Some children</PageWidthRestrictor>);
+        view = render(
+            <PageWidthRestrictor aria-label="some children">Some children</PageWidthRestrictor>
+        );
 
         expect(view.container).toMatchSnapshot();
         expect(view.container).toHaveTextContent('Some children');
-        // expect(screen.getByRole('region')).toBeInTheDocument();
+        expect(screen.getByRole('region')).toBeInTheDocument();
     });
 });

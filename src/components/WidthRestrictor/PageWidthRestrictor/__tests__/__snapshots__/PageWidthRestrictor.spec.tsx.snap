@@ -3,6 +3,7 @@
 exports[`PageWidthRestrictor should render correctly 1`] = `
 <div>
   <section
+    aria-label="some children"
     class="PageWidthRestrictor"
   >
     Some children
