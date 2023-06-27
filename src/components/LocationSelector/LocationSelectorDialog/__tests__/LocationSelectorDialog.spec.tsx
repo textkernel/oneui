@@ -72,10 +72,6 @@ describe('LocationSelectorDialog component', () => {
         );
     });
 
-    afterEach(() => {
-        jest.resetAllMocks();
-    });
-
     it('should render correctly', () => {
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('list')).toBeInTheDocument();
@@ -99,9 +95,6 @@ describe('LocationSelectorDialog component', () => {
 
         expect(screen.getAllByRole('listitem', { name: '' })).toHaveLength(7); // 5
         expect(onAddLocationMock).not.toHaveBeenCalled();
-
-        await user.click(screen.getAllByRole('listitem', { name: '' })[0]);
-        // expect(onAddLocationMock).toHaveBeenCalledTimes(1);
     });
 
     it('should call onRemoveLocation by clicking on Close button of the selected location item', async () => {

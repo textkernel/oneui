@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen, RenderResult, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { stabGoogleApi } from '../../../__mocks__/googleApiMock';
 import { LocationSelector, LocationSelectorLocation } from '..';
+import { stabGoogleApi } from '../../../__mocks__/googleApiMock';
 
 stabGoogleApi();
 
@@ -102,51 +102,5 @@ describe('LocationSelector component', () => {
         await waitFor(() => {
             expect(button).not.toHaveAttribute('onRequestClose');
         });
-
-        // expect(button).toHaveAttribute('isOpen');
-        // expect(wrapper.find('Modal').at(0).props().isOpen).toBeTruthy();
-    });
-    //
-    // it('should add locations correctly', async () => {
-    //     geocodeMock.mockImplementationOnce((req, cb) => {
-    //         cb(geocodeResponse.results, geocodeResponse.status);
-    //     });
-    //
-    //     wrapper.find('FieldWrapper').simulate('click');
-    //
-    //     // Since LocationSelectorDialog is not rendered due to LoadScriptNext not resolving
-    //     // we hack the callback by calling it directly on LocationSelectorDialogWithGoogleLoader
-    //     await wrapper
-    //         .find('LocationSelectorDialogWithGoogleLoader')
-    //         .props()
-    //         .onAddLocation({ place_id: 'someId' });
-    //
-    //     expect(onAddLocationMock).toHaveBeenCalledWith({
-    //         center: { lat: 52.132633, lng: 5.291265999999999 },
-    //         id: 'someId',
-    //         place_id: 'someId',
-    //         radius: radiusDefaultValue,
-    //     });
-    // });
-    //
-    it('should get markers correctly', async () => {
-        const user = userEvent.setup();
-        // const expectedResponse = selectedLocations.map((location) => ({
-        //     center: {
-        //         lat: location.center.lat,
-        //         lng: location.center.lng,
-        //     },
-        //     description: location.description,
-        //     radius: location.radius * 1000,
-        // }));
-
-        await user.click(screen.getAllByRole('button')[0]);
-        // wrapper.find('FieldWrapper').simulate('click');
-
-        // Since LocationSelectorDialog is not rendered due to LoadScriptNext not resolving
-        // we hack the callback by calling it directly on LocationSelectorDialogWithGoogleLoader
-        // expect(wrapper.find('LocationSelectorDialogWithGoogleLoader').props().getMarkers()).toEqual(
-        //     expectedResponse
-        // );
     });
 });
