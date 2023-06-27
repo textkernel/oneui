@@ -188,18 +188,16 @@ describe('Combobox', () => {
             expect(getInputNode(viewContainer)).not.toBe(document.activeElement);
             expect(mockOnBlur).toHaveBeenCalled();
         });
-        // TODO: fixMe - the component doesn't get blurred, even though it does work in the UI
-        // it.skip('should blur on pressing Tab button', async (done) => {
-        //     const user = userEvent.setup();
-        //     await setFocus();
-        //     await user.keyboard('[Tab]');
-        //     setTimeout(() => {
-        //         expect(getInputNode()).not.toBe(document.activeElement);
-        //         // TODO: fixMe - the callback is not triggered, even though it does work in the UI
-        //         // expect(mockOnBlur).toHaveBeenCalled();
-        //         done();
-        //     });
-        // });
+
+        it('should blur on pressing Tab button', async () => {
+            const user = userEvent.setup();
+            await setFocus(user);
+            await user.keyboard('[Tab]');
+
+            expect(getInputNode(viewContainer)).not.toBe(document.activeElement);
+            expect(mockOnBlur).toHaveBeenCalled();
+        });
+
         it('should blur on pressing ENTER button', async () => {
             const user = userEvent.setup();
             await setFocus(user);

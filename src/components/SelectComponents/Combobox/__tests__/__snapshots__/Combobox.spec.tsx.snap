@@ -8,7 +8,7 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
     <div
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby="downshift-14-label"
+      aria-labelledby="downshift-15-label"
       class="SelectBase__main"
       role="combobox"
     >
@@ -20,10 +20,10 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
         >
           <div
             aria-autocomplete="list"
-            aria-labelledby="downshift-14-label"
+            aria-labelledby="downshift-15-label"
             autocomplete="off"
             class="Combobox__wrapper"
-            id="downshift-14-input"
+            id="downshift-15-input"
             role="searchbox"
             tabindex="0"
             value=""
@@ -37,9 +37,9 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
             </span>
           </div>
           <ul
-            aria-labelledby="downshift-14-label"
+            aria-labelledby="downshift-15-label"
             class="List"
-            id="downshift-14-menu"
+            id="downshift-15-menu"
             role="listbox"
           />
         </div>
