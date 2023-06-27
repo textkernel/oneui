@@ -1,17 +1,19 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { TwoPaneView } from '../TwoPaneView';
 import { LeftPane } from '../LeftPane';
 import { RightPane } from '../RightPane';
 
 describe('<TwoPaneView> that renders a two pane view', () => {
     it('should render correctly', () => {
-        const wrapper = mount(
+        const view = render(
             <TwoPaneView>
-                <LeftPane>Some content</LeftPane>
-                <RightPane>Some content</RightPane>
+                <LeftPane>Some content left pane</LeftPane>
+                <RightPane>Some content right pane</RightPane>
             </TwoPaneView>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+
+        expect(view.container).toMatchSnapshot();
     });
 });
