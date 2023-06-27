@@ -2,11 +2,10 @@
 
 exports[`PageWidthRestrictor should render correctly 1`] = `
 <div>
-  <div
+  <section
     class="PageWidthRestrictor"
-    role="group"
   >
     Some children
-  </div>
+  </section>
 </div>
 `;

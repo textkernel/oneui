@@ -15,9 +15,9 @@ export const PageWidthRestrictor: React.FC<Props> = ({ children, ...rest }) => {
     }
 
     return (
-        <div {...rest} {...block({ ...rest })} role="group">
+        <section {...rest} {...block({ ...rest })}>
             {children}
-        </div>
+        </section>
     );
 };
 
