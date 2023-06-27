@@ -9,14 +9,6 @@ exports[`<TextArea> that renders a textarea should add classes when props are ch
 </div>
 `;
 
-exports[`<TextArea> that renders a textarea should call change callback correctly 1`] = `
-<div>
-  <textarea
-    class="TextArea"
-  />
-</div>
-`;
-
 exports[`<TextArea> that renders a textarea should render default textarea correctly 1`] = `
 <div>
   <textarea

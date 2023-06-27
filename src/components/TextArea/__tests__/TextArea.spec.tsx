@@ -23,7 +23,7 @@ describe('<TextArea> that renders a textarea', () => {
 
         expect(view.container).toMatchSnapshot();
         expect(textarea).toBeInTheDocument();
-        expect(textarea).toHaveAttribute('disabled');
+        expect(textarea).toBeDisabled();
         expect(textarea).toHaveClass('TextArea TextArea--size_large TextArea--isBlock');
     });
 
@@ -32,15 +32,13 @@ describe('<TextArea> that renders a textarea', () => {
         const onChange = jest.fn();
         view = render(<TextArea onChange={onChange} />);
 
-        expect(view.container).toMatchSnapshot();
-
         const textarea = screen.getByRole('textbox');
 
         expect(textarea).toBeInTheDocument();
 
         await user.type(textarea, data);
 
-        expect(onChange).toHaveBeenCalled();
+        expect(onChange).toHaveBeenCalledTimes(data.length);
     });
 
     it('should add string html attributes correctly', () => {

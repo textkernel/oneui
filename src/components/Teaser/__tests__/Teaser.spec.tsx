@@ -9,7 +9,6 @@ describe('Teaser', () => {
         const { container } = render(<Teaser title="some title" />);
 
         expect(container).toMatchSnapshot();
-        expect(container).toBeInTheDocument();
         expect(container).toHaveTextContent('some title');
     });
 

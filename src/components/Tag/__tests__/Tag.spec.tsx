@@ -14,6 +14,7 @@ describe('<Tag> component', () => {
     const bgColor = '#ccc';
     const maxWidth = '30px';
     const textSize = 'large';
+    const closeLabel = 'close label';
 
     it('should render correctly with minimum amount of props', () => {
         view = render(<Tag>{text}</Tag>);
@@ -85,11 +86,11 @@ describe('<Tag> component', () => {
     it('should invoke onDelete when user interacts with delete button by pressing Enter', async () => {
         const user = userEvent.setup();
         view = render(
-            <Tag onClick={onTagClick} onDelete={onDeleteClick}>
+            <Tag onClick={onTagClick} onDelete={onDeleteClick} closeLabel={closeLabel}>
                 {text}
             </Tag>
         );
-        const button = screen.getByRole('button', { name: '' });
+        const button = screen.getByRole('button', { name: `${closeLabel}` });
 
         await button.focus();
         await user.keyboard(`[${ENTER_KEY}]`);

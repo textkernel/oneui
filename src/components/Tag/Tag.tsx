@@ -22,6 +22,8 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     contentClassName?: string;
     /** A css style to be applied to the content (child) */
     contentStyle?: React.CSSProperties;
+    /** Close label name for ARIA labelling, it is used when needs to clear data from component */
+    closeLabel?: string;
 }
 
 const { block, elem } = bem('Tag', styles);
@@ -38,6 +40,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
             isSelected = false,
             contentClassName,
             contentStyle,
+            closeLabel,
             ...rest
         },
         ref
@@ -100,7 +103,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
                         type="button"
                         {...elem('deleteButton')}
                     >
-                        <MdClose size="15px" />
+                        <MdClose size="15px" aria-label={closeLabel} />
                     </button>
                 )}
             </div>
