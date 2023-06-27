@@ -19,7 +19,7 @@ describe('<Tooltip> that renders a Tooltip', () => {
 
     it('should render Tooltip in disabled mode if content is empty', () => {
         view = render(
-            <Tooltip content="foo">
+            <Tooltip>
                 <>Hover me</>
             </Tooltip>
         );
