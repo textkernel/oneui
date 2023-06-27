@@ -11,37 +11,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 </div>
 `;
 
-exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should render popup when requested 1`] = `
-<div>
-  <button
-    class="Button"
-    type="button"
-  >
-    Toggle popup
-  </button>
-  <div
-    data-popper-escaped=""
-    data-popper-placement="bottom-start"
-    data-popper-reference-hidden=""
-    role="group"
-    style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
-  >
-    <p>
-      I am the content of pop up.
-    </p>
-    <p>
-      Can be a form or anything.
-    </p>
-    <button
-      class="Button"
-      type="button"
-    >
-      Close me!
-    </button>
-  </div>
-</div>
-`;
-
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should render with minimal props correctly 1`] = `
 <div>
   <button

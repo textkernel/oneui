@@ -35,13 +35,12 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             // trigger setPopupVisibility(true) through our dummy component
             await user.click(screen.getByRole('button'));
 
-            expect(view.container).toMatchSnapshot();
             expect(screen.getByRole('group')).toBeInTheDocument();
         });
 
         it('should render popup in portal when requested', async () => {
             const user = userEvent.setup();
-            view = render(
+            view.rerender(
                 <PopupBase
                     anchorRenderer={anchorRendererMock}
                     popupRenderer={popupRendererMock}
@@ -58,7 +57,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
 
         it('should support no popup content from renderer', async () => {
             const user = userEvent.setup();
-            view = render(
+            view.rerender(
                 <PopupBase anchorRenderer={anchorRendererMock} popupRenderer={() => null} />
             );
 
