@@ -52,7 +52,7 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             // trigger setPopupVisibility(true) through our dummy component
             await user.click(screen.getAllByRole('button', { name: 'Toggle popup' })[0]);
 
-            expect(view.container).toMatchSnapshot();
+            expect(view.baseElement).toMatchSnapshot();
             expect(screen.getByRole('group')).toBeInTheDocument();
         });
 
