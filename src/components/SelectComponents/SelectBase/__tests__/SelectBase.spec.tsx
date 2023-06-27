@@ -61,8 +61,8 @@ describe('SelectBase', () => {
                 showArrow: true,
             };
             rerenderView(newProps);
-            expect(view.container).toMatchSnapshot();
 
+            expect(view.container).toMatchSnapshot();
             expect(screen.getByRole('button')).toBeInTheDocument();
         });
 
@@ -73,7 +73,9 @@ describe('SelectBase', () => {
                 showArrow: true,
             };
             rerenderView(newProps);
+
             expect(view.container).toMatchSnapshot();
+
             const svg = screen.getByRole('button');
 
             expect(svg).toBeInTheDocument();
@@ -224,7 +226,9 @@ describe('SelectBase', () => {
                 showClearButton: true,
             };
             rerenderView(newProps);
+
             expect(view.container).toMatchSnapshot();
+
             const clearButton = screen.getByRole('button', { name: 'Clear' });
             await user.click(clearButton);
 
@@ -243,6 +247,7 @@ describe('SelectBase', () => {
 
         it('should call onInputValueChange when typing into input field', async () => {
             const user = userEvent.setup();
+
             expect(mockOnInputValueChange).not.toHaveBeenCalled();
 
             const inputField = screen.getAllByRole('textbox')[0];
