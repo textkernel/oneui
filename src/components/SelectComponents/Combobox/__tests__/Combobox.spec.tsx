@@ -7,6 +7,7 @@ import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
 } from '../../../AutosuggestDeprecated/__mocks__/suggestions';
+import { ESCAPE_KEY } from '../../../../constants';
 
 describe('Combobox', () => {
     window.focus = jest.fn();
@@ -182,7 +183,7 @@ describe('Combobox', () => {
             await setFocus(user);
             expect(getInputNode(viewContainer)).toBe(document.activeElement);
 
-            await user.keyboard('[Escape]');
+            await user.keyboard(`[${ESCAPE_KEY}]`);
 
             expect(getInputNode(viewContainer)).not.toBe(document.activeElement);
             expect(mockOnBlur).toHaveBeenCalled();

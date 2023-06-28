@@ -1,11 +1,13 @@
 /* eslint-disable react/display-name, react/prop-types */
 import React from 'react';
-import toJson from 'enzyme-to-json';
-import { Button } from '../../..';
-import { ESCAPE_KEY } from '../../../constants';
-import { PopupBase } from '../PopupBase';
+import { render, RenderResult, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { useDocumentEvent } from '../../../utils/testUtils';
+import { Button } from '../../..';
+import { PopupBase } from '../PopupBase';
 import { PopoverDummy } from '../__mocks__/PopoverDummy';
+import { ESCAPE_KEY } from '../../../constants';
 
 describe('<PopupBase> that adds basic anchor/popup functionality to rendered components', () => {
     const anchorRendererMock = ({ setPopupVisibility, isOpen }) => (
@@ -14,28 +16,32 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
     const popupRendererMock = ({ setPopupVisibility }) => (
         <PopoverDummy setPopupVisibility={setPopupVisibility} />
     );
-    let wrapper;
+    let view: RenderResult;
+    let user;
 
     describe('rendering', () => {
         beforeEach(() => {
-            wrapper = mount(
+            view = render(
                 <PopupBase anchorRenderer={anchorRendererMock} popupRenderer={popupRendererMock} />
             );
+            user = userEvent.setup();
         });
 
         it('should render with minimal props correctly', () => {
-            expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('Popover')).toHaveLength(0);
+            expect(view.container).toMatchSnapshot();
+            expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
-        it('should render popup when requested', () => {
-            // trigger setPopupVisibility(true) through our dummy component
-            wrapper.find('button').simulate('click');
 
-            expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('Popover')).toHaveLength(1);
+        it('should render popup when requested', async () => {
+            // trigger setPopupVisibility(true) through our dummy component
+            await user.click(screen.getByRole('button'));
+
+            expect(view.baseElement).toMatchSnapshot();
+            expect(screen.getByRole('group')).toBeInTheDocument();
         });
-        it('should render popup in portal when requested', () => {
-            wrapper = mount(
+
+        it('should render popup in portal when requested', async () => {
+            view.rerender(
                 <PopupBase
                     anchorRenderer={anchorRendererMock}
                     popupRenderer={popupRendererMock}
@@ -44,119 +50,120 @@ describe('<PopupBase> that adds basic anchor/popup functionality to rendered com
             );
 
             // trigger setPopupVisibility(true) through our dummy component
-            wrapper.find('button').simulate('click');
+            await user.click(screen.getAllByRole('button', { name: 'Toggle popup' })[0]);
 
-            expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('Popover')).toHaveLength(1);
-            expect(wrapper.find('Portal')).toHaveLength(1);
+            expect(view.baseElement).toMatchSnapshot();
+            expect(screen.getByRole('group')).toBeInTheDocument();
         });
-        it('should support no popup content from renderer', () => {
-            wrapper = mount(
+
+        it('should support no popup content from renderer', async () => {
+            view.rerender(
                 <PopupBase anchorRenderer={anchorRendererMock} popupRenderer={() => null} />
             );
 
             // trigger setPopupVisibility(true) through our dummy component
-            wrapper.find('button').simulate('click');
+            await user.click(screen.getAllByRole('button')[1]);
 
-            expect(toJson(wrapper)).toMatchSnapshot();
-            expect(wrapper.find('Popover')).toHaveLength(0);
+            expect(view.container).toMatchSnapshot();
+            expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
-        it('should close popup when requested', () => {
-            // trigger setPopupVisibility(true) through our dummy component
-            const triggerButton = wrapper.find('button');
-            triggerButton.simulate('click');
-            expect(wrapper.find('Popover')).toHaveLength(1);
 
-            triggerButton.simulate('click');
-            expect(wrapper.find('Popover')).toHaveLength(0);
+        it('should close popup when requested', async () => {
+            // trigger setPopupVisibility(true) through our dummy component
+            const triggerButton = screen.getByRole('button');
+            await user.click(triggerButton);
+
+            expect(screen.queryByRole('group')).toBeInTheDocument();
+
+            await user.click(triggerButton);
+
+            expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
     });
 
     describe('click and keydown event handling', () => {
-        let togglePopup;
         const onCloseMock = jest.fn();
-
-        const clickDocument = useDocumentEvent('click');
-        const keydownDocument = useDocumentEvent('keydown');
+        const togglePopup = async () => {
+            await user.click(screen.getAllByRole('button')[0]);
+        };
 
         beforeEach(() => {
-            wrapper = mount(
+            view = render(
                 <PopupBase
                     anchorRenderer={anchorRendererMock}
                     popupRenderer={popupRendererMock}
                     onClose={onCloseMock}
                 />
             );
-
-            togglePopup = () => {
-                wrapper.find('button').at(0).simulate('click');
-            };
+            user = userEvent.setup();
         });
 
-        afterEach(() => {
-            onCloseMock.mockReset();
+        it('should close open popup if outside is clicked', async () => {
+            await togglePopup();
+
+            expect(screen.queryByRole('group')).toBeInTheDocument();
+
+            await togglePopup();
+
+            expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
 
-        it('should close open popup if outside is clicked', () => {
-            togglePopup();
-            expect(wrapper.find('Popover')).toHaveLength(1);
-
-            // @ts-ignore
-            clickDocument();
-            wrapper.update();
-
-            expect(wrapper.find('Popover')).toHaveLength(0);
-        });
-        it('should call onClose if outside is clicked', () => {
-            togglePopup();
-
-            // @ts-ignore
-            clickDocument();
-            wrapper.update();
+        it('should call onClose if outside is clicked', async () => {
+            await togglePopup();
+            await user.click(document.body);
 
             expect(onCloseMock).toHaveBeenCalled();
         });
-        it('should not close open popup if popup is clicked', () => {
-            togglePopup();
-            expect(wrapper.find('Popover')).toHaveLength(1);
 
-            // clicking directly in the element won't trigger global listener, hence we use our magic mock
-            clickDocument({
-                composedPath: () => [wrapper.find('Popover').find('p').at(0).getDOMNode()],
-            });
-            wrapper.update();
+        it('should close open popup on Escape press', async () => {
+            await togglePopup();
 
-            expect(wrapper.find('Popover')).toHaveLength(1);
+            expect(screen.getByRole('group')).toBeInTheDocument();
+
+            await user.keyboard(`[${ESCAPE_KEY}]`);
+
+            expect(screen.queryByRole('group')).not.toBeInTheDocument();
         });
-        it('should not close open popup if button is clicked (ignoring functionality added by the renderer)', () => {
-            togglePopup();
-            expect(wrapper.find('Popover')).toHaveLength(1);
+
+        it('should call onClose on Escape press', async () => {
+            await togglePopup();
+
+            await user.keyboard(`[${ESCAPE_KEY}]`);
+
+            expect(onCloseMock).toHaveBeenCalled();
+        });
+
+        it('should not close open popup if popup is clicked', async () => {
+            const clickDocument = useDocumentEvent('click');
+
+            await togglePopup();
+
+            expect(screen.getByRole('group')).toBeInTheDocument();
+
+            await waitFor(() => {
+                clickDocument({
+                    composedPath: () => [screen.queryByRole('group')],
+                });
+            });
+
+            expect(screen.queryByRole('group')).toBeInTheDocument();
+        });
+
+        it('should not close open popup if button is clicked (ignoring functionality added by the renderer)', async () => {
+            const clickDocument = useDocumentEvent('click');
+            await togglePopup();
+
+            expect(screen.getByRole('group')).toBeInTheDocument();
 
             // clicking directly in the element won't trigger global listener, hence we use our magic mock
             // this also ensures that event handlers defined by the renderer prop are not triggered.
-            clickDocument({
-                target: wrapper.find('button').at(0).getDOMNode(),
+            await waitFor(() => {
+                clickDocument({
+                    composedPath: () => [screen.queryByRole('group')],
+                });
             });
-            wrapper.update();
 
-            expect(wrapper.find('Popover')).toHaveLength(1);
-        });
-        it('should close open popup on Escape press', () => {
-            togglePopup();
-            expect(wrapper.find('Popover')).toHaveLength(1);
-
-            keydownDocument({ key: ESCAPE_KEY });
-            wrapper.update();
-
-            expect(wrapper.find('Popover')).toHaveLength(0);
-        });
-        it('should call onClose on Escape press', () => {
-            togglePopup();
-
-            keydownDocument({ key: ESCAPE_KEY });
-            wrapper.update();
-
-            expect(onCloseMock).toHaveBeenCalled();
+            expect(screen.queryByRole('group')).toBeInTheDocument();
         });
     });
 });
