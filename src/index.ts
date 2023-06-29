@@ -68,5 +68,4 @@ export * from './components/SelectComponents';
 export * from './components/LocationAutocomplete';
 export * from './components/LocationSelector';
 export * from './components/LabelPicker';
-export * from './components/ProductTour';
 export * from './components/Themeroller';
