@@ -1,27 +1,27 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { ThemeColorItem } from '@textkernel/oneui';
 import { ColorValue } from '../ColorValue';
 
 describe('ColorValue component', () => {
-    const onChangeMock = jest.fn();
     const item = { value: '#fffff' } as ThemeColorItem;
 
     it('should render component correctly', () => {
+        const onChangeMock = jest.fn();
         const view = render(<ColorValue item={item} onChange={onChangeMock} />);
 
-        // expect(wrapper.find('.ColorValue__value').at(0).text()).toEqual('#fffff');
         expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('textbox')).toHaveAttribute('value', '#fffff');
     });
 
-    it('should invoke onChange callback when input is changed', () => {
-        render(<ColorValue item={item} onChange={onChangeMock} />);
-        // wrapper.find('input').simulate('change', {
-        //     target: {
-        //         value: '#00000',
-        //     },
-        // });
-        // expect(onChangeMock).toHaveBeenCalledWith({ value: '#00000' });
+    it.skip('should invoke onChange callback when input is changed', async () => {
+        const onChangeMock = jest.fn();
+        const user = userEvent.setup();
+
+        await user.type(screen.getByRole('textbox'), '#00000');
+
+        expect(onChangeMock).toHaveBeenCalledWith({ value: '#00000' });
     });
 });

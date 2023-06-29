@@ -5,6 +5,7 @@ exports[`FieldWithValidation when rendering message as text with no error messag
   <input
     class="Input"
     data-lpignore="true"
+    role="textbox"
     type="text"
     value=""
   />
@@ -16,6 +17,7 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
   <input
     class="Input Input--context_danger"
     data-lpignore="true"
+    role="textbox"
     type="text"
     value=""
   />
@@ -32,6 +34,7 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
   <input
     class="Input Input--context_danger"
     data-lpignore="true"
+    role="textbox"
     type="text"
     value=""
   />
@@ -48,6 +51,7 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
   <input
     class="Input Input--context_danger"
     data-lpignore="true"
+    role="textbox"
     type="text"
     value=""
   />
@@ -64,6 +68,7 @@ exports[`FieldWithValidation when using tooltip with no error message passed sho
   <input
     class="Input"
     data-lpignore="true"
+    role="textbox"
     type="text"
     value=""
   />
@@ -75,6 +80,7 @@ exports[`FieldWithValidation with error message passed should render the message
   <input
     class="Input Input--context_danger"
     data-lpignore="true"
+    role="textbox"
     type="text"
     value=""
   />
@@ -91,6 +97,7 @@ exports[`FieldWithValidation with error message passed should set context to bad
   <input
     class="Input Input--context_danger"
     data-lpignore="true"
+    role="textbox"
     type="text"
     value=""
   />

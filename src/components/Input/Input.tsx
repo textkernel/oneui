@@ -36,6 +36,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     ) => {
         const isLastPassDisabled = type !== 'password';
         return (
+            // eslint-disable-next-line jsx-a11y/no-redundant-roles
             <input
                 {...rest}
                 {...block({ context, size, isBlock, disabled, ...rest })}
@@ -44,6 +45,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                 disabled={disabled}
                 value={value}
                 data-lpignore={isLastPassDisabled}
+                role="textbox"
             />
         );
     }

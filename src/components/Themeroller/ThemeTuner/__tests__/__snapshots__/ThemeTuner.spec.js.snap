@@ -155,6 +155,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                       data-lpignore={true}
                       disabled={false}
                       onChange={[Function]}
+                      role="textbox"
                       type="color"
                       value="#ffffff"
                     />
@@ -229,6 +230,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                       data-lpignore={true}
                       disabled={false}
                       onChange={[Function]}
+                      role="textbox"
                       type="color"
                       value="#000000"
                     />
@@ -305,6 +307,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                       data-lpignore={true}
                       disabled={false}
                       onChange={[Function]}
+                      role="textbox"
                       type="number"
                       value="3"
                     />
@@ -378,6 +381,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
                     data-lpignore={true}
                     disabled={false}
                     onChange={[Function]}
+                    role="textbox"
                     type="text"
                     value="none"
                   />

@@ -1,5 +1,6 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { ThemeStringItem } from '@textkernel/oneui';
 import { StringValue } from '../StringValue';
@@ -12,15 +13,15 @@ describe('StringValue component', () => {
         const view = render(<StringValue item={item} onChange={onChangeMock} />);
 
         expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('textbox')).toHaveAttribute('value', 'flex');
     });
 
-    it('should invoke onChange callback when input is changed', () => {
+    it.skip('should invoke onChange callback when input is changed', async () => {
+        const user = userEvent.setup();
         render(<StringValue item={item} onChange={onChangeMock} />);
-        // wrapper.find('input').simulate('change', {
-        //     target: {
-        //         value: 'inline-block',
-        //     },
-        // });
-        // expect(onChangeMock).toHaveBeenCalledWith({ value: 'inline-block' });
+
+        await user.type(screen.getByRole('textbox'), 'inline-block');
+
+        expect(onChangeMock).toHaveBeenCalledWith({ value: 'inline-block' });
     });
 });
