@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorValue component should render component correctly 1`] = `
+<div>
+  <span>
+    <input
+      class="Input Input--size_small ColorValue__input"
+      data-lpignore="true"
+      type="color"
+      value="#fffff"
+    />
+    <span
+      class="Text--context_neutral ColorValue__value"
+    >
+      #fffff
+    </span>
+  </span>
+</div>
+`;

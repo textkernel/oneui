@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NumberValue component should render component correctly 1`] = `
+<div>
+  <input
+    class="Input Input--size_small"
+    data-lpignore="true"
+    type="number"
+    value="100"
+  />
+</div>
+`;
