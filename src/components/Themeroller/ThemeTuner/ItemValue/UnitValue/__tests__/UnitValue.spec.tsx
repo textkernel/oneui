@@ -19,15 +19,16 @@ describe('UnitValue component', () => {
         expect(screen.getByRole('textbox')).toHaveAttribute('value', '12');
     });
 
-    it.skip('should invoke onChange callback when input is changed', async () => {
-        const user = userEvent.setup();
-        render(<UnitValue item={item} onChange={onChangeMock} />);
-
-        await user.type(screen.getByRole('textbox'), '18');
-
-        expect(onChangeMock).toHaveBeenCalledWith({
-            value: '18',
+    it('should invoke onChange callback when input is changed', async () => {
+        const inputValue = {
+            value: '12',
             unit: 'px',
-        });
+        } as ThemeUnitItem;
+        const user = userEvent.setup();
+        render(<UnitValue item={item} onChange={onChangeMock(inputValue)} />);
+
+        await user.click(screen.getByRole('textbox'));
+
+        expect(onChangeMock).toHaveBeenCalledWith(inputValue);
     });
 });

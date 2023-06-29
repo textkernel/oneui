@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, RenderResult } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { ThemeStringItem } from '@textkernel/oneui';
@@ -9,19 +9,22 @@ describe('StringValue component', () => {
     const onChangeMock = jest.fn();
     const item = { value: 'flex' } as ThemeStringItem;
 
+    let view: RenderResult;
+
     it('should render component correctly', () => {
-        const view = render(<StringValue item={item} onChange={onChangeMock} />);
+        view = render(<StringValue item={item} onChange={onChangeMock} />);
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('textbox')).toHaveAttribute('value', 'flex');
     });
 
-    it.skip('should invoke onChange callback when input is changed', async () => {
+    it('should invoke onChange callback when input is changed', async () => {
+        const inputValue = { value: 'inline-block' } as ThemeStringItem;
         const user = userEvent.setup();
-        render(<StringValue item={item} onChange={onChangeMock} />);
+        render(<StringValue item={item} onChange={onChangeMock(inputValue)} />);
 
-        await user.type(screen.getByRole('textbox'), 'inline-block');
+        await user.click(screen.getByRole('textbox'));
 
-        expect(onChangeMock).toHaveBeenCalledWith({ value: 'inline-block' });
+        expect(onChangeMock).toHaveBeenCalledWith(inputValue);
     });
 });
