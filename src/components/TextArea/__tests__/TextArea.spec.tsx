@@ -1,33 +1,52 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, RenderResult, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { TextArea } from '../TextArea';
 
 describe('<TextArea> that renders a textarea', () => {
-    const data = {
-        target: {
-            value: 'test',
-        },
-    };
+    const data = 'test';
+
+    let view: RenderResult;
 
     it('should render default textarea correctly', () => {
-        const wrapper = shallow(<TextArea defaultValue="Some value" />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        view = render(<TextArea defaultValue="Some value" />);
+
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('textbox')).toBeInTheDocument();
     });
 
     it('should add classes when props are changed', () => {
-        const wrapper = shallow(<TextArea size="large" isBlock disabled />);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        view = render(<TextArea size="large" isBlock disabled />);
+
+        const textarea = screen.getByRole('textbox');
+
+        expect(view.container).toMatchSnapshot();
+        expect(textarea).toBeInTheDocument();
+        expect(textarea).toBeDisabled();
+        expect(textarea).toHaveClass('TextArea TextArea--size_large TextArea--isBlock');
     });
 
-    it('should call change callback correctly', () => {
+    it('should call change callback correctly', async () => {
+        const user = userEvent.setup();
         const onChange = jest.fn();
-        const wrapper = shallow(<TextArea onChange={onChange} />);
-        wrapper.find('textarea').simulate('change', data);
-        expect(onChange).toHaveBeenCalledWith(data);
+        view = render(<TextArea onChange={onChange} />);
+
+        const textarea = screen.getByRole('textbox');
+
+        expect(textarea).toBeInTheDocument();
+
+        await user.type(textarea, data);
+
+        expect(onChange).toHaveBeenCalledTimes(data.length);
     });
 
     it('should add string html attributes correctly', () => {
-        const wrapper = shallow(<TextArea data-test="something" />);
-        expect(wrapper.find('textarea').prop('data-test')).toEqual('something');
+        view = render(<TextArea data-test="something" />);
+
+        const textarea = screen.getByRole('textbox');
+
+        expect(textarea).toBeInTheDocument();
+        expect(textarea).toHaveAttribute('data-test', 'something');
     });
 });
