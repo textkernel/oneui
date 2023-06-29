@@ -90,7 +90,7 @@ describe('<Tag> component', () => {
                 {text}
             </Tag>
         );
-        const button = screen.getByRole('button', { name: `${closeLabel}` });
+        const button = screen.getByRole('button', { name: closeLabel });
 
         await button.focus();
         await user.keyboard(`[${ENTER_KEY}]`);
