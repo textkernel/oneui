@@ -10,15 +10,15 @@ describe('NumberValue component', () => {
 
     let view: RenderResult;
 
-    it.skip('should render component correctly', () => {
+    it('should render component correctly', () => {
         const onChangeMock = jest.fn();
         view = render(<NumberValue item={item} onChange={onChangeMock} ariaRole="number" />);
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('textbox')).toHaveAttribute('value', '100');
+        expect(screen.getByRole('number')).toHaveAttribute('value', '100');
     });
 
-    it.skip('should invoke onChange callback when input is changed', () => {
+    it('should invoke onChange callback when input is changed', () => {
         const onChangeMock = jest.fn();
         render(<NumberValue item={item} onChange={onChangeMock(inputValue)} />);
 

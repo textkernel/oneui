@@ -10,7 +10,7 @@ describe('ColorValue component', () => {
 
     let view: RenderResult;
 
-    it.skip('should render component correctly', () => {
+    it('should render component correctly', () => {
         const onChangeMock = jest.fn();
         view = render(<ColorValue item={item} onChange={onChangeMock} ariaRole="color" />);
 
@@ -18,7 +18,7 @@ describe('ColorValue component', () => {
         expect(screen.getByRole('color')).toHaveAttribute('value', '#fffff');
     });
 
-    it.skip('should invoke onChange callback when input is changed', () => {
+    it('should invoke onChange callback when input is changed', () => {
         const onChangeMock = jest.fn();
         render(<ColorValue item={item} onChange={onChangeMock(inputValue)} />);
 
