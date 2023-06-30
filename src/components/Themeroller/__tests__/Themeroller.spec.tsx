@@ -47,8 +47,8 @@ describe('Themeroller component', () => {
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getAllByRole('listitem')).toHaveLength(4);
-        expect(screen.getByRole('listbox')).toBeInTheDocument();
+        expect(screen.getByRole('listbox')).toBeVisible();
         expect(screen.getAllByRole('tab')).toHaveLength(2);
-        expect(screen.getByRole('tablist')).toBeInTheDocument();
+        expect(screen.getByRole('tablist')).toBeVisible();
     });
 });

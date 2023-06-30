@@ -60,8 +60,8 @@ describe('ThemeTuner component', () => {
         const inputTextBox = screen.getByRole('textbox');
         const inputSpinButton = screen.getByRole('spinbutton');
 
-        expect(screen.getByRole('tab', { hidden: true, name: 'Colors' })).toBeInTheDocument();
-        expect(screen.getByRole('tab', { hidden: true, name: 'Sizing' })).toBeInTheDocument();
+        expect(screen.getByRole('tab', { hidden: true, name: 'Colors' })).toBeVisible();
+        expect(screen.getByRole('tab', { hidden: true, name: 'Sizing' })).toBeVisible();
 
         expect(itemsList).toHaveLength(4);
 
@@ -77,11 +77,11 @@ describe('ThemeTuner component', () => {
         expect(itemsList[3].children[0].textContent).toBe('Link decoration');
         expect(itemsList[3].children[1].textContent).toBe('');
 
-        expect(inputSpinButton).toBeInTheDocument();
+        expect(inputSpinButton).toBeVisible();
         expect(inputSpinButton).toHaveAttribute('type', 'number');
         expect(inputSpinButton).toHaveAttribute('value', '3');
 
-        expect(inputTextBox).toBeInTheDocument();
+        expect(inputTextBox).toBeVisible();
         expect(inputTextBox).toHaveAttribute('type', 'text');
         expect(inputTextBox).toHaveAttribute('value', 'none');
 
