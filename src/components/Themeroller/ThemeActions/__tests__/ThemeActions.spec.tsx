@@ -7,13 +7,7 @@ import { ThemeActions } from '../ThemeActions';
 describe('ThemeActions component', () => {
     let view: RenderResult;
 
-    const onResetMock = jest.fn();
-    const onDownloadMock = jest.fn();
-    const onFileChangeMock = jest.fn();
-
-    const getButtonByName = (inputName) => {
-        return screen.getByRole('button', { name: `${inputName}` });
-    };
+    const getButtonByName = (inputName) => screen.getByRole('button', { name: `${inputName}` });
 
     it('should render component correctly without any actions', () => {
         view = render(<ThemeActions />);
@@ -23,6 +17,9 @@ describe('ThemeActions component', () => {
     });
 
     it('should render component correctly with all actions', () => {
+        const onResetMock = jest.fn();
+        const onDownloadMock = jest.fn();
+        const onFileChangeMock = jest.fn();
         view = render(
             <ThemeActions
                 downloadDisabled
@@ -36,11 +33,12 @@ describe('ThemeActions component', () => {
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(getButtonByName('Reset')).toBeInTheDocument();
-        expect(getButtonByName('Download')).toBeInTheDocument();
+        expect(getButtonByName('Reset')).toBeVisible();
+        expect(getButtonByName('Download')).toBeVisible();
     });
 
     it('should invoke onReset callback when reset button is clicked', async () => {
+        const onResetMock = jest.fn();
         const user = userEvent.setup();
         view = render(<ThemeActions resetLabel="Reset" onReset={onResetMock} />);
 
@@ -50,6 +48,7 @@ describe('ThemeActions component', () => {
     });
 
     it('should invoke onDownload callback when download button is clicked', async () => {
+        const onDownloadMock = jest.fn();
         const user = userEvent.setup();
         view = render(<ThemeActions downloadLabel="Download" onDownload={onDownloadMock} />);
 

@@ -14,14 +14,14 @@ describe('<Toggle> that renders a toggle', () => {
         view = render(<Toggle id="1">Title is here</Toggle>);
 
         expect(view.container).toMatchSnapshot();
-        expect(getCheckboxByName('Title is here')).toBeInTheDocument();
+        expect(getCheckboxByName('Title is here')).toBeVisible();
     });
 
     it('should render Toggle correctly without label', () => {
         view = render(<Toggle id="1-2" />);
 
         expect(view.container).toMatchSnapshot();
-        expect(getCheckboxByName('')).toBeInTheDocument();
+        expect(getCheckboxByName('')).toBeVisible();
     });
 
     it('should rendered disabled toggle correctly', () => {
@@ -34,7 +34,7 @@ describe('<Toggle> that renders a toggle', () => {
         const checkbox = getCheckboxByName('Cannot do anything =(');
 
         expect(view.container).toMatchSnapshot();
-        expect(checkbox).toBeInTheDocument();
+        expect(checkbox).toBeVisible();
         expect(checkbox).toHaveAttribute('disabled');
     });
 });
