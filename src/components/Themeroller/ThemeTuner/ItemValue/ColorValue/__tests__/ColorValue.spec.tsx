@@ -7,20 +7,21 @@ import { ColorValue } from '../ColorValue';
 describe('ColorValue component', () => {
     const item = { value: '#fffff' } as ThemeColorItem;
     const inputValue = { value: '#00000' } as ThemeColorItem;
+    const role = 'colorselector';
 
     let view: RenderResult;
 
     it('should render component correctly', () => {
         const onChangeMock = jest.fn();
-        view = render(<ColorValue item={item} onChange={onChangeMock} ariaRole="color" />);
+        view = render(<ColorValue item={item} onChange={onChangeMock} ariaRole={role} />);
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('color')).toHaveAttribute('value', '#fffff');
+        expect(screen.getByRole(role)).toHaveAttribute('value', '#fffff');
     });
 
     it('should invoke onChange callback when input is changed', () => {
         const onChangeMock = jest.fn();
-        render(<ColorValue item={item} onChange={onChangeMock(inputValue)} />);
+        render(<ColorValue item={item} onChange={onChangeMock(inputValue)} ariaRole={role} />);
 
         expect(onChangeMock).toHaveBeenCalledWith(inputValue);
     });
