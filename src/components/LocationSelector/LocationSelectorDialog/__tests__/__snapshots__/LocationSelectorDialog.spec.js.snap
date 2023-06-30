@@ -88,6 +88,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       <Autosuggest
         className="LocationSelectorDialog__searchField"
         clearTitle=""
+        defaultInputValue=""
         iconnode={
           <FaMapMarkerAlt
             className="LocationAutocomplete__icon"
@@ -107,6 +108,8 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
             />,
           }
         }
+        isFocused={true}
+        isLoading={false}
         listRenderer={[Function]}
         noSuggestionsPlaceholder="noSuggestionsPlaceholder"
         onBlur={[Function]}
@@ -121,6 +124,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           className="LocationSelectorDialog__searchField"
           clearInputAfterSelection={true}
           clearTitle=""
+          defaultInputValue=""
           focusedRenderer={[Function]}
           highlightOnEmptyInput={false}
           iconnode={
@@ -141,6 +145,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
               />,
             }
           }
+          isFocused={true}
           keepExpandedAfterSelection={true}
           listRenderer={[Function]}
           onBlur={[Function]}
@@ -152,11 +157,13 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         >
           <div
             className="SelectBase LocationSelectorDialog__searchField"
+            defaultInputValue=""
             iconnode={
               <FaMapMarkerAlt
                 className="LocationAutocomplete__icon"
               />
             }
+            isFocused={true}
           >
             <Downshift
               defaultHighlightedIndex={-1}

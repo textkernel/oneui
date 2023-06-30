@@ -206,9 +206,9 @@ const LocationAutocomplete: React.FC<Props> = ({
         <Autosuggest
             suggestions={suggestionsList}
             suggestionToString={suggestionToString}
-            // isLoading={isLoading}
-            // isFocused={isFocused}
-            // defaultInputValue={defaultInputValue}
+            isLoading={isLoading}
+            isFocused={isFocused}
+            defaultInputValue={defaultInputValue}
             inputPlaceholder={inputPlaceholder}
             showClearButton={singleLocation}
             clearTitle={clearTooltipLabel}

@@ -51,6 +51,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
 <div>
   <div
     class="SelectBase"
+    defaultinputvalue=""
     iconnode="[object Object]"
   >
     <div

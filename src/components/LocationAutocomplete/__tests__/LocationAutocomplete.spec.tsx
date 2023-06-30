@@ -34,35 +34,32 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         expect(view.container).toMatchSnapshot();
     });
 
-    it.skip('should set loading to true when user starts typing', async () => {
+    it('should set loading to true when user starts typing', async () => {
+        // expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
         const user = userEvent.setup();
-        await user.type(screen.getByRole('textbox'), 'Honolulu');
+        const textBox = screen.getByRole('textbox');
+        await user.type(textBox, 'Honolulu');
 
-        expect(screen.getByRole('textbox')).toHaveAttribute('value', 'Honolulu');
+        expect(textBox).toHaveAttribute('value', 'Honolulu');
     });
 
-    it.skip('should set loading to false when user deletes input value', async () => {
+    it('should set loading to false when user deletes input value', async () => {
         const user = userEvent.setup();
-        await user.type(screen.getByRole('textbox'), 'Honolulu');
+        const textBox = screen.getByRole('textbox');
+        await user.type(textBox, 'Honolulu');
 
-        expect(screen.getByRole('textbox')).toHaveAttribute('value', 'Honolulu');
+        expect(textBox).toHaveAttribute('value', 'Honolulu');
 
-        await user.type(screen.getByRole('textbox'), ' ');
+        await user.type(textBox, ' ');
     });
 
     it.skip('should request predictions from API when user types', async () => {
         const user = userEvent.setup();
         await user.type(screen.getByRole('textbox'), 'Tonga');
 
-        // await waitFor(() => {
-        //     jest.runAllTimers();
-        // });
         await focusField(user);
 
-        expect(getPlacePredictionsMock).toHaveBeenCalledWith(
-            expect.objectContaining({ input: 'Tonga' }),
-            expect.any(Function)
-        );
+        expect(getPlacePredictionsMock).toHaveBeenCalledWith('Tonga');
     });
 
     it.skip('should pass predictions to AutosuggestDeprecated', async () => {
@@ -70,9 +67,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
 
         await user.type(screen.getByRole('textbox'), 'Tonga');
-        // act(() => {
-        //     jest.runAllTimers();
-        // });
+
         await focusField(user);
 
         // expect(view.find('AutosuggestDeprecated').props().getSuggestions).toHaveLength(5);
