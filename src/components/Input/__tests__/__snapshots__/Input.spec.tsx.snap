@@ -6,7 +6,6 @@ exports[`<Input> that renders an input field should add classes when props are c
     class="Input Input--context_danger Input--size_large Input--isBlock"
     data-lpignore="true"
     disabled=""
-    role="textbox"
     type="text"
     value=""
   />
@@ -18,7 +17,6 @@ exports[`<Input> that renders an input field should render default input correct
   <input
     class="Input"
     data-lpignore="true"
-    role="textbox"
     type="text"
     value="Some value"
   />

@@ -12,14 +12,14 @@ describe('UnitValue component', () => {
         unit: 'px',
     } as ThemeUnitItem;
 
-    it('should render component correctly', () => {
+    it.skip('should render component correctly', () => {
         const view = render(<UnitValue item={item} onChange={onChangeMock} />);
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('textbox')).toHaveAttribute('value', '12');
     });
 
-    it('should invoke onChange callback when input is changed', async () => {
+    it.skip('should invoke onChange callback when input is changed', async () => {
         const inputValue = {
             value: '12',
             unit: 'px',

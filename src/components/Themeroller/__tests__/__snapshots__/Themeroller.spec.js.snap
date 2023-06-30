@@ -114,7 +114,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                 data-lpignore={true}
                 disabled={false}
                 onChange={[Function]}
-                role="textbox"
                 type="text"
                 value=""
               />
@@ -245,7 +244,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                         data-lpignore={true}
                         disabled={false}
                         onChange={[Function]}
-                        role="textbox"
                         type="color"
                         value="#ffffff"
                       />
@@ -320,7 +318,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                         data-lpignore={true}
                         disabled={false}
                         onChange={[Function]}
-                        role="textbox"
                         type="color"
                         value="#1d1d1b"
                       />
@@ -397,7 +394,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                         data-lpignore={true}
                         disabled={false}
                         onChange={[Function]}
-                        role="textbox"
                         type="number"
                         value="3"
                       />
@@ -471,7 +467,6 @@ exports[`Themeroller component should render component correctly 1`] = `
                       data-lpignore={true}
                       disabled={false}
                       onChange={[Function]}
-                      role="textbox"
                       type="text"
                       value="none"
                     />

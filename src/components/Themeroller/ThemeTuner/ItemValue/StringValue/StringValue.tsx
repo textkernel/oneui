@@ -5,6 +5,7 @@ import { ThemeStringItem } from '../../../../../themes/themerollerConfig';
 interface Props {
     item: ThemeStringItem;
     onChange: (value: ThemeStringItem) => void;
+    ariaRole?: string;
 }
 
 export const StringValue: React.FC<Props> = ({ item, onChange }) => {

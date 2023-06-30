@@ -6,7 +6,6 @@ exports[`UnitValue component should render component correctly 1`] = `
     <input
       class="Input Input--size_small UnitValue__input"
       data-lpignore="true"
-      role="textbox"
       type="number"
       value="12"
     />
