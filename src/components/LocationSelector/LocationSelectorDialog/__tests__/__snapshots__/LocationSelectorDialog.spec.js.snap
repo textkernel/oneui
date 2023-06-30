@@ -115,6 +115,8 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
         onBlur={[Function]}
         onClearAllSelected={[MockFunction]}
         onInputValueChange={[Function]}
+        onSelectionChange={[Function]}
+        saveSelectedValueToInput={false}
         showClearButton={false}
         suggestionToString={[Function]}
         suggestions={Array []}
@@ -151,6 +153,8 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           onBlur={[Function]}
           onClearAllSelected={[MockFunction]}
           onInputValueChange={[Function]}
+          onSelectionChange={[Function]}
+          saveSelectedValueToInput={false}
           showClearButton={false}
           suggestionToString={[Function]}
           suggestions={Array []}
@@ -164,6 +168,8 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
               />
             }
             isFocused={true}
+            onSelectionChange={[Function]}
+            saveSelectedValueToInput={false}
           >
             <Downshift
               defaultHighlightedIndex={-1}
