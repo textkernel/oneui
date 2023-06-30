@@ -1,8 +1,10 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { ThemerollerConfig } from '@textkernel/oneui';
 import { Themeroller } from '../Themeroller';
 
-export const ThemerollerConfig = [
+const ThemeRollerTestConfig = [
     {
         fieldsetName: 'Colors',
         items: [
@@ -37,23 +39,16 @@ export const ThemerollerConfig = [
         fieldsetName: 'Sizing',
         items: [],
     },
-];
+] as ThemerollerConfig;
 
 describe('Themeroller component', () => {
-    afterEach(() => {
-        jest.resetAllMocks();
-    });
-
     it('should render component correctly', () => {
-        const wrapper = mount(
-            <Themeroller
-                config={ThemerollerConfig}
-                cssVars={{
-                    '--color-neutral': '#000000',
-                }}
-                onChange={() => {}}
-            />
-        );
-        expect(toJson(wrapper)).toMatchSnapshot();
+        const view = render(<Themeroller config={ThemeRollerTestConfig} onChange={() => {}} />);
+
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getAllByRole('listitem')).toHaveLength(4);
+        expect(screen.getByRole('listbox')).toBeVisible();
+        expect(screen.getAllByRole('tab')).toHaveLength(2);
+        expect(screen.getByRole('tablist')).toBeVisible();
     });
 });

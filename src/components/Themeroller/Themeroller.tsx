@@ -13,7 +13,7 @@ import { ThemeTuner } from './ThemeTuner';
 import { ThemeActions } from './ThemeActions';
 import styles from './Themeroller.scss';
 
-type CssVars = {
+export type CssVars = {
     [key: string]: string;
 };
 

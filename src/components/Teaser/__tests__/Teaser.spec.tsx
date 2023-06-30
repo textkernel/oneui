@@ -9,6 +9,7 @@ describe('Teaser', () => {
         const { container } = render(<Teaser title="some title" />);
 
         expect(container).toMatchSnapshot();
+        expect(container).toHaveTextContent('some title');
     });
 
     it('should render with all props defined', () => {
