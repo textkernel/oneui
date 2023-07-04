@@ -56,79 +56,73 @@ describe('<Checkbox> that renders a checkbox', () => {
         expect(screen.getByRole('checkbox')).toHaveAttribute('disabled');
     });
 
-    it('should render the indeterminate svg when checked is false and indeterminate true', () => {
-        view = render(
-            <Checkbox
-                id="c4"
-                checked={false}
-                indeterminate
-                onChange={() => {}}
-                lineLabel={lineLabel}
-                polylineLabel={polylineLabel}
-            >
-                Useless checkbox
-            </Checkbox>
-        );
+    describe('svg render', () => {
+        const defaultProps = {
+            id: 'c4',
+            checked: true,
+            indeterminate: true,
+            onChange: () => {},
+            lineLabel,
+            polylineLabel,
+        };
 
-        expect(view.container).toMatchSnapshot();
-        expect(screen.queryByRole('img', { name: polylineLabel })).not.toBeInTheDocument();
-        expect(screen.getByRole('img', { name: lineLabel })).toBeInTheDocument();
-    });
+        beforeEach(() => {
+            view = render(<Checkbox {...defaultProps}>Useless checkbox</Checkbox>);
+        });
 
-    it('should render the checked svg when checked is true and indeterminate false', () => {
-        view = render(
-            <Checkbox
-                id="c5"
-                checked
-                indeterminate={false}
-                onChange={() => {}}
-                lineLabel={lineLabel}
-                polylineLabel={polylineLabel}
-            >
-                Useless checkbox
-            </Checkbox>
-        );
+        const rerenderView = (props) => {
+            view.rerender(<Checkbox {...defaultProps} {...props} />);
+        };
 
-        expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('img', { name: polylineLabel })).toBeInTheDocument();
-        expect(screen.queryByRole('img', { name: lineLabel })).not.toBeInTheDocument();
-    });
+        it('should render the indeterminate svg when checked is false and indeterminate true', () => {
+            const newProps = {
+                checked: false,
+            };
 
-    it('should render the indeterminate svg when checked and indeterminate are true', () => {
-        view = render(
-            <Checkbox
-                id="c6"
-                checked
-                indeterminate
-                onChange={() => {}}
-                lineLabel={lineLabel}
-                polylineLabel={polylineLabel}
-            >
-                Useless checkbox
-            </Checkbox>
-        );
+            rerenderView(newProps);
 
-        expect(view.container).toMatchSnapshot();
-        expect(screen.queryByRole('img', { name: polylineLabel })).not.toBeInTheDocument();
-        expect(screen.getByRole('img', { name: lineLabel })).toBeInTheDocument();
-    });
+            expect(view.container).toMatchSnapshot();
+            expect(screen.queryByRole('img', { name: polylineLabel })).not.toBeInTheDocument();
+            expect(screen.getByRole('img', { name: lineLabel })).toBeInTheDocument();
+        });
 
-    it('should not render any svg when checked and indeterminate are both false', () => {
-        view = render(
-            <Checkbox
-                id="c7"
-                checked={false}
-                indeterminate={false}
-                onChange={() => {}}
-                lineLabel={lineLabel}
-                polylineLabel={polylineLabel}
-            >
-                Useless checkbox
-            </Checkbox>
-        );
+        it('should render the checked svg when checked is true and indeterminate false', () => {
+            const newProps = {
+                id: 'c5',
+                indeterminate: false,
+            };
 
-        expect(view.container).toMatchSnapshot();
-        expect(screen.queryByRole(polylineLabel)).not.toBeInTheDocument();
-        expect(screen.queryByRole(lineLabel)).not.toBeInTheDocument();
+            rerenderView(newProps);
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.getByRole('img', { name: polylineLabel })).toBeInTheDocument();
+            expect(screen.queryByRole('img', { name: lineLabel })).not.toBeInTheDocument();
+        });
+
+        it('should render the indeterminate svg when checked and indeterminate are true', () => {
+            const newProps = {
+                id: 'c6',
+            };
+
+            rerenderView(newProps);
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.queryByRole('img', { name: polylineLabel })).not.toBeInTheDocument();
+            expect(screen.getByRole('img', { name: lineLabel })).toBeInTheDocument();
+        });
+
+        it('should not render any svg when checked and indeterminate are both false', () => {
+            const newProps = {
+                id: 'c7',
+                checked: false,
+                indeterminate: false,
+            };
+
+            rerenderView(newProps);
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.queryByRole(polylineLabel)).not.toBeInTheDocument();
+            expect(screen.queryByRole(lineLabel)).not.toBeInTheDocument();
+        });
     });
 });
