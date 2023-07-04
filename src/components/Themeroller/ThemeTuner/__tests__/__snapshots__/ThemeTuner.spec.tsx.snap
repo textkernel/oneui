@@ -1,0 +1,233 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeTuner component should invoke onChange callback when first input was changed 1`] = `
+<div>
+  <div>
+    <div
+      class="TabsBar"
+      role="tablist"
+    >
+      <div
+        aria-selected="true"
+        class="TabItem TabItem--isActive"
+        role="tab"
+        tabindex="0"
+      >
+        Colors
+      </div>
+      <div
+        aria-selected="false"
+        class="TabItem"
+        role="tab"
+        tabindex="0"
+      >
+        Sizing
+      </div>
+    </div>
+    <ul
+      class="List"
+      role="listbox"
+      tabindex="0"
+    >
+      <li
+        class="ListItem List__item ThemeTuner__item"
+      >
+        <p
+          class="ThemeTuner__label"
+        >
+          Background color
+        </p>
+        <span>
+          <input
+            class="Input Input--size_small ColorValue__input"
+            data-lpignore="true"
+            type="color"
+            value="#ffffff"
+          />
+          <span
+            class="Text--context_neutral ColorValue__value"
+          >
+            #ffffff
+          </span>
+        </span>
+      </li>
+      <li
+        class="ListItem List__item ThemeTuner__item"
+      >
+        <p
+          class="ThemeTuner__label"
+        >
+          Foreground color
+        </p>
+        <span>
+          <input
+            class="Input Input--size_small ColorValue__input"
+            data-lpignore="true"
+            type="color"
+            value="#1d1d1b"
+          />
+          <span
+            class="Text--context_neutral ColorValue__value"
+          >
+            #1d1d1b
+          </span>
+        </span>
+      </li>
+      <li
+        class="ListItem List__item ThemeTuner__item"
+      >
+        <p
+          class="ThemeTuner__label"
+        >
+          Border radius
+        </p>
+        <span>
+          <input
+            class="Input Input--size_small UnitValue__input"
+            data-lpignore="true"
+            type="number"
+            value="3"
+          />
+          <span
+            class="Text--context_neutral UnitValue__value"
+          >
+            3
+            px
+          </span>
+        </span>
+      </li>
+      <li
+        class="ListItem List__item ThemeTuner__item"
+      >
+        <p
+          class="ThemeTuner__label"
+        >
+          Link decoration
+        </p>
+        <input
+          class="Input Input--size_small"
+          data-lpignore="true"
+          type="text"
+          value="none"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`ThemeTuner component should render component correctly 1`] = `
+<div>
+  <div>
+    <div
+      class="TabsBar"
+      role="tablist"
+    >
+      <div
+        aria-selected="true"
+        class="TabItem TabItem--isActive"
+        role="tab"
+        tabindex="0"
+      >
+        Colors
+      </div>
+      <div
+        aria-selected="false"
+        class="TabItem"
+        role="tab"
+        tabindex="0"
+      >
+        Sizing
+      </div>
+    </div>
+    <ul
+      class="List"
+      role="listbox"
+      tabindex="0"
+    >
+      <li
+        class="ListItem List__item ThemeTuner__item"
+      >
+        <p
+          class="ThemeTuner__label"
+        >
+          Background color
+        </p>
+        <span>
+          <input
+            class="Input Input--size_small ColorValue__input"
+            data-lpignore="true"
+            type="color"
+            value="#ffffff"
+          />
+          <span
+            class="Text--context_neutral ColorValue__value"
+          >
+            #ffffff
+          </span>
+        </span>
+      </li>
+      <li
+        class="ListItem List__item ThemeTuner__item"
+      >
+        <p
+          class="ThemeTuner__label"
+        >
+          Foreground color
+        </p>
+        <span>
+          <input
+            class="Input Input--size_small ColorValue__input"
+            data-lpignore="true"
+            type="color"
+            value="#000000"
+          />
+          <span
+            class="Text--context_neutral ColorValue__value"
+          >
+            #000000
+          </span>
+        </span>
+      </li>
+      <li
+        class="ListItem List__item ThemeTuner__item"
+      >
+        <p
+          class="ThemeTuner__label"
+        >
+          Border radius
+        </p>
+        <span>
+          <input
+            class="Input Input--size_small UnitValue__input"
+            data-lpignore="true"
+            type="number"
+            value="3"
+          />
+          <span
+            class="Text--context_neutral UnitValue__value"
+          >
+            3
+            px
+          </span>
+        </span>
+      </li>
+      <li
+        class="ListItem List__item ThemeTuner__item"
+      >
+        <p
+          class="ThemeTuner__label"
+        >
+          Link decoration
+        </p>
+        <input
+          class="Input Input--size_small"
+          data-lpignore="true"
+          type="text"
+          value="none"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;

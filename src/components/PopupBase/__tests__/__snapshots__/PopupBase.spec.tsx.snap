@@ -1,115 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should render popup in portal when requested 1`] = `
-<PopupBase
-  anchorRenderer={[Function]}
-  popupRenderer={[Function]}
-  renderInPortal={true}
->
-  <Button
-    onClick={[Function]}
-  >
+<body>
+  <div>
     <button
-      className="Button"
-      disabled={false}
-      onClick={[Function]}
+      class="Button"
       type="button"
     >
       Toggle popup
     </button>
-  </Button>
-  <Portal
-    containerInfo={
-      <body>
-        <div
-          style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); position: absolute; left: 0px; top: 0px; margin: 0px;"
-        >
-          <p>
-            I am the content of pop up.
-          </p>
-          <p>
-            Can be a form or anything.
-          </p>
-          <button
-            class="Button"
-            type="button"
-          >
-            Close me!
-          </button>
-        </div>
-      </body>
-    }
+  </div>
+  <div
+    data-popper-escaped=""
+    data-popper-placement="bottom-start"
+    data-popper-reference-hidden=""
+    role="group"
+    style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
   >
-    <Popover
-      data-popup="true"
-      setPopupVisibility={[Function]}
+    <p>
+      I am the content of pop up.
+    </p>
+    <p>
+      Can be a form or anything.
+    </p>
+    <button
+      class="Button"
+      type="button"
     >
-      <div
-        style={
-          Object {
-            "backgroundColor": "#FFEEDD",
-            "border": "1px solid #CCC",
-            "borderRadius": "5px",
-            "boxShadow": "0 3px 6px 6px rgba(0, 0, 0, 0.05)",
-            "padding": "10px",
-          }
-        }
-      >
-        <p>
-          I am the content of pop up.
-        </p>
-        <p>
-          Can be a form or anything.
-        </p>
-        <Button
-          onClick={[Function]}
-        >
-          <button
-            className="Button"
-            disabled={false}
-            onClick={[Function]}
-            type="button"
-          >
-            Close me!
-          </button>
-        </Button>
-      </div>
-    </Popover>
-  </Portal>
-</PopupBase>
+      Close me!
+    </button>
+  </div>
+</body>
 `;
 
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should render popup when requested 1`] = `
-<PopupBase
-  anchorRenderer={[Function]}
-  popupRenderer={[Function]}
->
-  <Button
-    onClick={[Function]}
-  >
+<body>
+  <div>
     <button
-      className="Button"
-      disabled={false}
-      onClick={[Function]}
+      class="Button"
       type="button"
     >
       Toggle popup
     </button>
-  </Button>
-  <Popover
-    data-popup="true"
-    setPopupVisibility={[Function]}
-  >
     <div
-      style={
-        Object {
-          "backgroundColor": "#FFEEDD",
-          "border": "1px solid #CCC",
-          "borderRadius": "5px",
-          "boxShadow": "0 3px 6px 6px rgba(0, 0, 0, 0.05)",
-          "padding": "10px",
-        }
-      }
+      data-popper-escaped=""
+      data-popper-placement="bottom-start"
+      data-popper-reference-hidden=""
+      role="group"
+      style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
     >
       <p>
         I am the content of pop up.
@@ -117,59 +55,35 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
       <p>
         Can be a form or anything.
       </p>
-      <Button
-        onClick={[Function]}
+      <button
+        class="Button"
+        type="button"
       >
-        <button
-          className="Button"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          Close me!
-        </button>
-      </Button>
+        Close me!
+      </button>
     </div>
-  </Popover>
-</PopupBase>
+  </div>
+</body>
 `;
 
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should render with minimal props correctly 1`] = `
-<PopupBase
-  anchorRenderer={[Function]}
-  popupRenderer={[Function]}
->
-  <Button
-    onClick={[Function]}
+<div>
+  <button
+    class="Button"
+    type="button"
   >
-    <button
-      className="Button"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Toggle popup
-    </button>
-  </Button>
-</PopupBase>
+    Toggle popup
+  </button>
+</div>
 `;
 
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should support no popup content from renderer 1`] = `
-<PopupBase
-  anchorRenderer={[Function]}
-  popupRenderer={[Function]}
->
-  <Button
-    onClick={[Function]}
+<div>
+  <button
+    class="Button"
+    type="button"
   >
-    <button
-      className="Button"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Toggle popup
-    </button>
-  </Button>
-</PopupBase>
+    Toggle popup
+  </button>
+</div>
 `;

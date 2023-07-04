@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeightedResultBar should render correctly 1`] = `
+<div>
+  <div
+    class="WeightedResultBar"
+  >
+    <div
+      class="WeightedResultBar__details"
+    >
+      <span>
+        Result
+      </span>
+      <span>
+        123
+      </span>
+    </div>
+    <div
+      aria-hidden="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="67"
+      class="ProgressBar ProgressBar--small"
+      role="progressbar"
+    >
+      <div
+        class="ProgressBar__fill ProgressBar__fill--small"
+        style="width: 67%;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`WeightedResultBar should render correctly with a custom count 1`] = `
+<div>
+  <div
+    class="WeightedResultBar"
+  >
+    <div
+      class="WeightedResultBar__details"
+    >
+      <span>
+        Result
+      </span>
+      <p>
+        456
+      </p>
+    </div>
+    <div
+      aria-hidden="false"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="67"
+      class="ProgressBar ProgressBar--small"
+      role="progressbar"
+    >
+      <div
+        class="ProgressBar__fill ProgressBar__fill--small"
+        style="width: 67%;"
+      />
+    </div>
+  </div>
+</div>
+`;
