@@ -15,6 +15,10 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     asFlexbox?: boolean;
     /** Indeterminate status, show minus sign across checkbox. This property overrides the checked state visually  */
     indeterminate?: boolean;
+    /** Line name for ARIA labelling */
+    lineLabel?: string;
+    /** Polyline name for ARIA labelling */
+    polylineLabel?: string;
 }
 
 const { block, elem } = bem('Checkbox', styles);
@@ -30,6 +34,8 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
             style,
             indeterminate = false,
             checked,
+            lineLabel,
+            polylineLabel,
             ...rest
         },
         ref
@@ -61,10 +67,12 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
                             width="12px"
                             height="10px"
                             viewBox={CHECKBOX_VIEWBOX}
+                            role="img"
+                            aria-label={indeterminate ? lineLabel : polylineLabel}
                         >
-                            {indeterminate && <line x1="2" y1="6" x2="8" y2="6" />}
-                            {!indeterminate && (checked === undefined || checked === true) && (
-                                <polyline points="1.5 6 3.5 9 8 3" />
+                            {indeterminate && <line x1="2" y1="6" x2="8" y2="6" role={lineLabel} />}
+                            {!indeterminate && (checked === undefined || checked) && (
+                                <polyline points="1.5 6 3.5 9 8 3" role={polylineLabel} />
                             )}
                         </svg>
                     </span>

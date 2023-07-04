@@ -1,87 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Checkbox> that renders a checkbox should not render any svg when checked and indeterminate are both false 1`] = `
-<Checkbox
-  checked={false}
-  id="c7"
-  indeterminate={false}
-  onChange={[Function]}
->
+<div>
   <div>
     <input
-      checked={false}
-      className="Checkbox__input"
-      disabled={false}
+      class="Checkbox__input"
       id="c7"
-      onChange={[Function]}
       type="checkbox"
     />
     <label
-      className="Checkbox__label"
-      htmlFor="c7"
+      class="Checkbox__label"
+      for="c7"
     >
       <span
-        className="Checkbox__box"
+        class="Checkbox__box"
       >
         <svg
-          className="Checkbox__svg"
+          aria-label="polyline label"
+          class="Checkbox__svg"
           height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
+          role="img"
+          viewBox="0,0,10,10"
           width="12px"
         />
       </span>
-      <Text
-        className="Checkbox__text"
-        context="default"
-        inline={true}
+      <span
+        class="Checkbox__text"
       >
-        <span
-          className="Checkbox__text"
-        >
-          Useless checkbox
-        </span>
-      </Text>
+        Useless checkbox
+      </span>
     </label>
   </div>
-</Checkbox>
+</div>
 `;
 
 exports[`<Checkbox> that renders a checkbox should render checkbox with complex children 1`] = `
-<Checkbox
-  id="c1"
->
+<div>
   <div>
     <input
-      className="Checkbox__input"
-      disabled={false}
+      class="Checkbox__input"
       id="c1"
       type="checkbox"
     />
     <label
-      className="Checkbox__label"
-      htmlFor="c1"
+      class="Checkbox__label"
+      for="c1"
     >
       <span
-        className="Checkbox__box"
+        class="Checkbox__box"
       >
         <svg
-          className="Checkbox__svg"
+          class="Checkbox__svg"
           height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
+          role="img"
+          viewBox="0,0,10,10"
           width="12px"
         >
           <polyline
@@ -97,38 +69,29 @@ exports[`<Checkbox> that renders a checkbox should render checkbox with complex 
       </span>
     </label>
   </div>
-</Checkbox>
+</div>
 `;
 
 exports[`<Checkbox> that renders a checkbox should render default checkbox correctly 1`] = `
-<Checkbox
-  id="c1"
->
+<div>
   <div>
     <input
-      className="Checkbox__input"
-      disabled={false}
+      class="Checkbox__input"
       id="c1"
       type="checkbox"
     />
     <label
-      className="Checkbox__label"
-      htmlFor="c1"
+      class="Checkbox__label"
+      for="c1"
     >
       <span
-        className="Checkbox__box"
+        class="Checkbox__box"
       >
         <svg
-          className="Checkbox__svg"
+          class="Checkbox__svg"
           height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
+          role="img"
+          viewBox="0,0,10,10"
           width="12px"
         >
           <polyline
@@ -136,116 +99,82 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
           />
         </svg>
       </span>
-      <Text
-        className="Checkbox__text"
-        context="default"
-        inline={true}
+      <span
+        class="Checkbox__text"
       >
-        <span
-          className="Checkbox__text"
-        >
-          Check this out
-        </span>
-      </Text>
+        Check this out
+      </span>
     </label>
   </div>
-</Checkbox>
+</div>
 `;
 
 exports[`<Checkbox> that renders a checkbox should render the checked svg when checked is true and indeterminate false 1`] = `
-<Checkbox
-  checked={true}
-  id="c5"
-  indeterminate={false}
-  onChange={[Function]}
->
+<div>
   <div>
     <input
-      checked={true}
-      className="Checkbox__input"
-      disabled={false}
+      checked=""
+      class="Checkbox__input"
       id="c5"
-      onChange={[Function]}
       type="checkbox"
     />
     <label
-      className="Checkbox__label"
-      htmlFor="c5"
+      class="Checkbox__label"
+      for="c5"
     >
       <span
-        className="Checkbox__box"
+        class="Checkbox__box"
       >
         <svg
-          className="Checkbox__svg"
+          aria-label="polyline label"
+          class="Checkbox__svg"
           height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
+          role="img"
+          viewBox="0,0,10,10"
           width="12px"
         >
           <polyline
             points="1.5 6 3.5 9 8 3"
+            role="polyline label"
           />
         </svg>
       </span>
-      <Text
-        className="Checkbox__text"
-        context="default"
-        inline={true}
+      <span
+        class="Checkbox__text"
       >
-        <span
-          className="Checkbox__text"
-        >
-          Useless checkbox
-        </span>
-      </Text>
+        Useless checkbox
+      </span>
     </label>
   </div>
-</Checkbox>
+</div>
 `;
 
 exports[`<Checkbox> that renders a checkbox should render the indeterminate svg when checked and indeterminate are true 1`] = `
-<Checkbox
-  checked={true}
-  id="c6"
-  indeterminate={true}
-  onChange={[Function]}
->
+<div>
   <div>
     <input
-      checked={true}
-      className="Checkbox__input Checkbox__input--indeterminate"
-      disabled={false}
+      checked=""
+      class="Checkbox__input Checkbox__input--indeterminate"
       id="c6"
-      onChange={[Function]}
       type="checkbox"
     />
     <label
-      className="Checkbox__label"
-      htmlFor="c6"
+      class="Checkbox__label"
+      for="c6"
     >
       <span
-        className="Checkbox__box"
+        class="Checkbox__box"
       >
         <svg
-          className="Checkbox__svg"
+          aria-label="line label"
+          class="Checkbox__svg"
           height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
+          role="img"
+          viewBox="0,0,10,10"
           width="12px"
         >
           <line
+            role="line label"
             x1="2"
             x2="8"
             y1="6"
@@ -253,59 +182,41 @@ exports[`<Checkbox> that renders a checkbox should render the indeterminate svg 
           />
         </svg>
       </span>
-      <Text
-        className="Checkbox__text"
-        context="default"
-        inline={true}
+      <span
+        class="Checkbox__text"
       >
-        <span
-          className="Checkbox__text"
-        >
-          Useless checkbox
-        </span>
-      </Text>
+        Useless checkbox
+      </span>
     </label>
   </div>
-</Checkbox>
+</div>
 `;
 
 exports[`<Checkbox> that renders a checkbox should render the indeterminate svg when checked is false and indeterminate true 1`] = `
-<Checkbox
-  checked={false}
-  id="c4"
-  indeterminate={true}
-  onChange={[Function]}
->
+<div>
   <div>
     <input
-      checked={false}
-      className="Checkbox__input Checkbox__input--indeterminate"
-      disabled={false}
+      class="Checkbox__input Checkbox__input--indeterminate"
       id="c4"
-      onChange={[Function]}
       type="checkbox"
     />
     <label
-      className="Checkbox__label"
-      htmlFor="c4"
+      class="Checkbox__label"
+      for="c4"
     >
       <span
-        className="Checkbox__box"
+        class="Checkbox__box"
       >
         <svg
-          className="Checkbox__svg"
+          aria-label="line label"
+          class="Checkbox__svg"
           height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
+          role="img"
+          viewBox="0,0,10,10"
           width="12px"
         >
           <line
+            role="line label"
             x1="2"
             x2="8"
             y1="6"
@@ -313,52 +224,37 @@ exports[`<Checkbox> that renders a checkbox should render the indeterminate svg 
           />
         </svg>
       </span>
-      <Text
-        className="Checkbox__text"
-        context="default"
-        inline={true}
+      <span
+        class="Checkbox__text"
       >
-        <span
-          className="Checkbox__text"
-        >
-          Useless checkbox
-        </span>
-      </Text>
+        Useless checkbox
+      </span>
     </label>
   </div>
-</Checkbox>
+</div>
 `;
 
 exports[`<Checkbox> that renders a checkbox should rendered disabled checkbox correctly 1`] = `
-<Checkbox
-  disabled={true}
-  id="c3"
->
+<div>
   <div>
     <input
-      className="Checkbox__input"
-      disabled={true}
+      class="Checkbox__input"
+      disabled=""
       id="c3"
       type="checkbox"
     />
     <label
-      className="Checkbox__label"
-      htmlFor="c3"
+      class="Checkbox__label"
+      for="c3"
     >
       <span
-        className="Checkbox__box"
+        class="Checkbox__box"
       >
         <svg
-          className="Checkbox__svg"
+          class="Checkbox__svg"
           height="10px"
-          viewBox={
-            Array [
-              0,
-              0,
-              10,
-              10,
-            ]
-          }
+          role="img"
+          viewBox="0,0,10,10"
           width="12px"
         >
           <polyline
@@ -366,18 +262,12 @@ exports[`<Checkbox> that renders a checkbox should rendered disabled checkbox co
           />
         </svg>
       </span>
-      <Text
-        className="Checkbox__text"
-        context="neutral"
-        inline={true}
+      <span
+        class="Text--context_neutral Checkbox__text"
       >
-        <span
-          className="Text--context_neutral Checkbox__text"
-        >
-          Useless checkbox
-        </span>
-      </Text>
+        Useless checkbox
+      </span>
     </label>
   </div>
-</Checkbox>
+</div>
 `;
