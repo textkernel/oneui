@@ -93,8 +93,11 @@ describe('LocationSelectorDialog component', () => {
         await user.type(input, 'Tonga');
         await user.click(input);
 
-        expect(screen.getAllByRole('listitem', { name: '' })).toHaveLength(7); // 5
+        expect(screen.getAllByRole('alert')).toHaveLength(5);
         expect(onAddLocationMock).not.toHaveBeenCalled();
+
+        // await user.click(screen.getAllByRole('alert')[0]);
+        // expect(onAddLocationMock).toHaveBeenCalled();
     });
 
     it('should call onRemoveLocation by clicking on Close button of the selected location item', async () => {
