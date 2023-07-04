@@ -7,7 +7,7 @@ import styles from './WeightedResultBar.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Description of the result */
-    children: string;
+    children?: string;
     /** Weight of this result in percentage */
     percentage: number;
     /** A react node with a weight of this result in absolute number */

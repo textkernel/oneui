@@ -22,6 +22,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
     containerInfo={
       <body>
         <div
+          role="group"
           style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); position: absolute; left: 0px; top: 0px; margin: 0px;"
         >
           <p>
@@ -45,6 +46,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
       setPopupVisibility={[Function]}
     >
       <div
+        role="group"
         style={
           Object {
             "backgroundColor": "#FFEEDD",
@@ -101,6 +103,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
     setPopupVisibility={[Function]}
   >
     <div
+      role="group"
       style={
         Object {
           "backgroundColor": "#FFEEDD",
