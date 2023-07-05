@@ -10,6 +10,7 @@ describe('<Pill> component', () => {
     const onCloseMock = jest.fn();
     const nameMock = 'Pill name';
     const contentMock = 'Pill content';
+    const dialogRole = 'dialog';
 
     let view: RenderResult;
     const getButtonByName = (inputName) => {
@@ -30,14 +31,10 @@ describe('<Pill> component', () => {
         );
     });
 
-    afterEach(() => {
-        jest.resetAllMocks();
-    });
-
     it('should render correctly', () => {
         expect(view.container).toMatchSnapshot();
         expect(getButtonByName(contentMock)).toBeInTheDocument();
-        expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+        expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
     });
 
     it('should open dropdown when button is clicked', async () => {
@@ -46,18 +43,18 @@ describe('<Pill> component', () => {
 
         expect(view.container).toMatchSnapshot();
         expect(getButtonByName(contentMock)).toBeInTheDocument();
-        expect(screen.getByRole('dialog')).toBeInTheDocument();
+        expect(screen.getByRole(dialogRole)).toBeInTheDocument();
     });
 
     it('should close dropdown when button is clicked again', async () => {
         const user = userEvent.setup();
         await user.click(getButtonByName(contentMock));
 
-        expect(screen.getByRole('dialog')).toBeInTheDocument();
+        expect(screen.getByRole(dialogRole)).toBeInTheDocument();
 
         await user.click(getButtonByName(contentMock));
 
-        expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+        expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
     });
 
     it('should render children when dropdown is open', async () => {
@@ -66,7 +63,7 @@ describe('<Pill> component', () => {
         const user = userEvent.setup();
         await user.click(getButtonByName(contentMock));
 
-        expect(screen.getByRole('dialog')).toBeInTheDocument();
+        expect(screen.getByRole(dialogRole)).toBeInTheDocument();
         expect(childrenMock).toHaveBeenCalledTimes(1);
     });
 

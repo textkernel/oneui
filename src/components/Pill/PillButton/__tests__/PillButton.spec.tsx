@@ -13,6 +13,7 @@ describe('<PillButton> component', () => {
     const downArrowLabel = 'down arrow';
     const upArrowLabel = 'up arrow';
     const clearLabel = 'clear label';
+    const imgRole = 'img';
 
     let view: RenderResult;
 
@@ -61,7 +62,7 @@ describe('<PillButton> component', () => {
         });
 
         it('should have arrow down label', () => {
-            expect(screen.getByRole('img')).toBeInTheDocument();
+            expect(screen.getByRole(imgRole)).toBeInTheDocument();
             expect(getButtonByName(downArrowLabel)).toBeInTheDocument();
         });
     });
@@ -92,7 +93,7 @@ describe('<PillButton> component', () => {
         });
 
         it('should have arrow up label', () => {
-            expect(screen.getByRole('img')).toBeInTheDocument();
+            expect(screen.getByRole(imgRole)).toBeInTheDocument();
             expect(getButtonByName(upArrowLabel)).toBeInTheDocument();
         });
     });
@@ -181,7 +182,7 @@ describe('<PillButton> component', () => {
         });
 
         it('should have arrow up label', () => {
-            expect(screen.getByRole('img')).toBeInTheDocument();
+            expect(screen.getByRole(imgRole)).toBeInTheDocument();
             expect(getButtonByName(upArrowLabel)).toBeInTheDocument();
         });
     });
