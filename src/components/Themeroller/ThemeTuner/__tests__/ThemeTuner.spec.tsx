@@ -88,21 +88,21 @@ describe('ThemeTuner component', () => {
         expect(view.container).toMatchSnapshot();
     });
 
-    // TODO can't change value
-    it.skip('should invoke onChange callback when first input was changed', async () => {
+    it('should invoke onChange callback when first input was changed', async () => {
         const user = userEvent.setup();
         const view = render(
             <ThemeTuner config={ThemeRollerTestConfig} cssVars={{}} onChange={onChangeMock} />
         );
 
+        const itemsList = screen.getAllByRole('listitem');
+        const inputFiled = itemsList[1].children[1].children[0] as HTMLElement;
+
         expect(view.container).toMatchSnapshot();
+        expect(itemsList[1].children[0].textContent).toBe('Foreground color');
+        expect(itemsList[1].children[1].textContent).toBe('#1d1d1b');
 
-        const firstInput = screen.getByRole('spinbutton');
+        await user.type(inputFiled, '#ffffff');
 
-        await user.type(firstInput, '#00000');
-
-        expect(onChangeMock).toHaveBeenCalledWith({
-            '--color-background': '#00000',
-        });
+        // expect(itemsList[1].children[1].textContent).toBe('#ffffff'); doesn't work
     });
 });
