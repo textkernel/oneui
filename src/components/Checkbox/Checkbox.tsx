@@ -19,7 +19,7 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const { block, elem } = bem('Checkbox', styles);
 
-export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
+export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
     (
         {
             id,
