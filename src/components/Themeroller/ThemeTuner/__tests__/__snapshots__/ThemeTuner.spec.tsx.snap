@@ -41,6 +41,7 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
+            role="log"
             type="color"
             value="#ffffff"
           />
@@ -63,6 +64,7 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
+            role="log"
             type="color"
             value="#1d1d1b"
           />
