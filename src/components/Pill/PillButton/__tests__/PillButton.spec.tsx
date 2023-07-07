@@ -41,6 +41,8 @@ describe('<PillButton> component', () => {
                 'PillButton__button PillButton__button--isOpen'
             );
             expect(getButtonByName(downArrowLabel)).not.toHaveClass('PillButton__button--isOpen');
+            expect(screen.queryByText(upArrowLabel)).not.toBeInTheDocument();
+            expect(screen.queryByText(clearLabel)).not.toBeInTheDocument();
         });
 
         it('should trigger toggle state once when clicked', async () => {
@@ -50,6 +52,7 @@ describe('<PillButton> component', () => {
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
             expect(getButtonByName(downArrowLabel)).toBeInTheDocument();
             expect(screen.queryByText(upArrowLabel)).not.toBeInTheDocument();
+            expect(screen.queryByText(clearLabel)).not.toBeInTheDocument();
         });
 
         it('should trigger toggle state once on keyboard interaction', async () => {
@@ -64,6 +67,8 @@ describe('<PillButton> component', () => {
         it('should have arrow down label', () => {
             expect(screen.getByRole(imgRole)).toBeInTheDocument();
             expect(getButtonByName(downArrowLabel)).toBeInTheDocument();
+            expect(screen.queryByText(upArrowLabel)).not.toBeInTheDocument();
+            expect(screen.queryByText(clearLabel)).not.toBeInTheDocument();
         });
     });
 
@@ -87,9 +92,8 @@ describe('<PillButton> component', () => {
             expect(getButtonByName(upArrowLabel)).toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(getButtonByName('Pill name up arrow')).not.toHaveClass(
-                'PillButton__button--isOpen'
-            );
+            expect(screen.queryByText(upArrowLabel)).not.toBeInTheDocument();
+            expect(screen.queryByText(clearLabel)).not.toBeInTheDocument();
         });
 
         it('should have arrow up label', () => {
@@ -164,6 +168,8 @@ describe('<PillButton> component', () => {
             expect(getButtonByName('This pill is in use up arrow')).toHaveClass(
                 'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
             );
+            expect(screen.queryByText(upArrowLabel)).not.toBeInTheDocument();
+            expect(screen.queryByText(clearLabel)).not.toBeInTheDocument();
         });
 
         it('should trigger toggle state once when button is clicked', async () => {
@@ -171,6 +177,8 @@ describe('<PillButton> component', () => {
             await user.click(getButtonByName(upArrowLabel));
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
+            expect(screen.queryByText(upArrowLabel)).not.toBeInTheDocument();
+            expect(screen.queryByText(clearLabel)).not.toBeInTheDocument();
         });
 
         it('should trigger toggle state once on keyboard interaction with button', async () => {
