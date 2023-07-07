@@ -5,13 +5,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should not
   <div
     class="SelectBase"
     defaultinputvalue=""
-    getsuggestions=""
     iconnode="[object Object]"
   >
     <div
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-labelledby="downshift-3-label"
+      aria-labelledby="downshift-8-label"
       class="SelectBase__main"
       role="combobox"
     >
@@ -26,7 +25,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should not
           >
             <input
               aria-autocomplete="list"
-              aria-labelledby="downshift-3-label"
+              aria-labelledby="downshift-8-label"
               autocomplete="off"
               class="Autosuggest__input"
               data-lpignore="true"
@@ -35,11 +34,171 @@ exports[`<LocationAutocomplete/> that renders a location search field should not
             />
           </div>
           <ul
-            aria-labelledby="downshift-3-label"
+            aria-labelledby="downshift-8-label"
             class="List"
-            id="downshift-3-menu"
+            id="downshift-8-menu"
             role="listbox"
           />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<LocationAutocomplete/> that renders a location search field should pass predictions to AutosuggestDeprecated 1`] = `
+<div>
+  <div
+    class="SelectBase"
+    defaultinputvalue=""
+    iconnode="[object Object]"
+  >
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-labelledby="downshift-4-label"
+      aria-owns="downshift-4-menu"
+      class="SelectBase__main SelectBase__main--focused"
+      role="combobox"
+    >
+      <div
+        class="FieldWrapper FieldWrapper--isFocused SelectBase__field"
+      >
+        <div
+          class="FieldWrapper__content"
+        >
+          <div
+            class="Autosuggest__wrapper Autosuggest__wrapper--isFocused"
+          >
+            <input
+              aria-activedescendant="downshift-4-item-0"
+              aria-autocomplete="list"
+              aria-controls="downshift-4-menu"
+              aria-labelledby="downshift-4-label"
+              autocomplete="off"
+              class="Autosuggest__input"
+              data-lpignore="true"
+              placeholder="Location..."
+              value="Tonga"
+            />
+          </div>
+          <ul
+            aria-labelledby="downshift-4-label"
+            class="List SelectBase__list--focused"
+            id="downshift-4-menu"
+            role="listbox"
+          >
+            <li
+              class="ListItem"
+            >
+              <div
+                class="SuggestionsList__loaderItem"
+                role="listitem"
+              >
+                <div
+                  aria-label="Loading"
+                  class="ContentPlaceholder"
+                  role="alert"
+                  style="animation-duration: 1s;"
+                >
+                   
+                  <div
+                    class="ContentPlaceholder__mask"
+                    role="presentation"
+                    style="width: 0%;"
+                  />
+                </div>
+              </div>
+            </li>
+            <li
+              class="ListItem"
+            >
+              <div
+                class="SuggestionsList__loaderItem"
+                role="listitem"
+              >
+                <div
+                  aria-label="Loading"
+                  class="ContentPlaceholder"
+                  role="alert"
+                  style="animation-duration: 1s;"
+                >
+                   
+                  <div
+                    class="ContentPlaceholder__mask"
+                    role="presentation"
+                    style="width: 0%;"
+                  />
+                </div>
+              </div>
+            </li>
+            <li
+              class="ListItem"
+            >
+              <div
+                class="SuggestionsList__loaderItem"
+                role="listitem"
+              >
+                <div
+                  aria-label="Loading"
+                  class="ContentPlaceholder"
+                  role="alert"
+                  style="animation-duration: 1s;"
+                >
+                   
+                  <div
+                    class="ContentPlaceholder__mask"
+                    role="presentation"
+                    style="width: 0%;"
+                  />
+                </div>
+              </div>
+            </li>
+            <li
+              class="ListItem"
+            >
+              <div
+                class="SuggestionsList__loaderItem"
+                role="listitem"
+              >
+                <div
+                  aria-label="Loading"
+                  class="ContentPlaceholder"
+                  role="alert"
+                  style="animation-duration: 1s;"
+                >
+                   
+                  <div
+                    class="ContentPlaceholder__mask"
+                    role="presentation"
+                    style="width: 0%;"
+                  />
+                </div>
+              </div>
+            </li>
+            <li
+              class="ListItem"
+            >
+              <div
+                class="SuggestionsList__loaderItem"
+                role="listitem"
+              >
+                <div
+                  aria-label="Loading"
+                  class="ContentPlaceholder"
+                  role="alert"
+                  style="animation-duration: 1s;"
+                >
+                   
+                  <div
+                    class="ContentPlaceholder__mask"
+                    role="presentation"
+                    style="width: 0%;"
+                  />
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
