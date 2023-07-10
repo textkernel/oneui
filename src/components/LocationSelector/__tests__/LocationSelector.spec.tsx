@@ -96,9 +96,6 @@ describe('LocationSelector component', () => {
         expect(button).not.toHaveAttribute('isOpen');
         await user.click(button);
 
-        // Since JSDom cannot click outside of component,
-        // and because LocationSelectorDialog is not rendered due to LoadScriptNext not resolving
-        // we hack the callback by calling it directly on Modal
         await waitFor(() => {
             expect(button).not.toHaveAttribute('onRequestClose');
         });

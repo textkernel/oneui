@@ -17,6 +17,8 @@ describe('LocationSelectorDialog component', () => {
                 lng: 4.894539799999961,
                 lat: 52.3666969,
             },
+            description: 'Amsterdam',
+            radius: 42,
         } as LocationSelectorLocation,
         {
             id: 'ajdo-219a-j19v-0492',
@@ -24,6 +26,8 @@ describe('LocationSelectorDialog component', () => {
                 lng: 5.121420100000023,
                 lat: 52.09073739999999,
             },
+            description: 'Utrecht',
+            radius: 20,
         } as LocationSelectorLocation,
     ];
 
@@ -95,9 +99,6 @@ describe('LocationSelectorDialog component', () => {
 
         expect(screen.getAllByRole('alert')).toHaveLength(5);
         expect(onAddLocationMock).not.toHaveBeenCalled();
-
-        // await user.click(screen.getAllByRole('alert')[0]);
-        // expect(onAddLocationMock).toHaveBeenCalled();
     });
 
     it('should call onRemoveLocation by clicking on Close button of the selected location item', async () => {
@@ -113,14 +114,15 @@ describe('LocationSelectorDialog component', () => {
     it.skip('should call onUpdateLocation by setting a new location radius valueof the selected location item', () => {
         expect(onUpdateLocationMock).not.toHaveBeenCalled();
 
-        // view.find('ul')
-        //     .at(1)
-        //     .childAt(0)
-        //     .find('div.rc-slider-handle')
-        //     .simulate('mouseover')
-        //     .simulate('mousedown')
-        //     .simulate('mousemove')
-        //     .simulate('click');
+        // @ts-ignore
+        view.find('ul')
+            .at(1)
+            .childAt(0)
+            .find('div.rc-slider-handle')
+            .simulate('mouseover')
+            .simulate('mousedown')
+            .simulate('mousemove')
+            .simulate('click');
 
         expect(onUpdateLocationMock).toHaveBeenCalled();
     });
