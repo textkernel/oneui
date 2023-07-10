@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [20.0.1](https://github.com/textkernel/oneui/compare/20.0.0...20.0.1) (2023-07-10)
+
+
+### Bug Fixes
+
+* **PaginationButton:** isActive class wasn't being applied ([#1015](https://github.com/textkernel/oneui/issues/1015)) ([9ea8515](https://github.com/textkernel/oneui/commit/9ea85153635cfd3cc78f9c378cfae53fa5f9c617))
+
 ## [20.0.0](https://github.com/textkernel/oneui/compare/19.5.0...20.0.0) (2023-07-06)
 
 
