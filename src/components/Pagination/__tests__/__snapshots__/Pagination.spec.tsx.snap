@@ -49,7 +49,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     </button>
     <button
       aria-current="page"
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink PaginationButton PaginationButton--isActive"
       data-page="6"
       type="button"
     >
@@ -96,7 +96,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
   >
     <button
       aria-current="page"
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink PaginationButton PaginationButton--isActive"
       data-page="1"
       type="button"
     >
