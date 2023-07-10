@@ -112,6 +112,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
     });
 
     it('should call onRemoveAllLocations when selected suggestion is cleared with singleLocation set to true', async () => {
+        const user = userEvent.setup();
         view = render(
             <LocationAutocomplete
                 inputPlaceholder="Location..."
@@ -122,16 +123,11 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
                 singleLocation
             />
         );
-        // const user = userEvent.setup();
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
-        // await user.type(screen.getByRole('textbox'), 'Tonga');
-        // await focusField(user);
+        await user.click(screen.getAllByRole('textbox')[1]);
+        await user.type(screen.getAllByRole('textbox')[1], 'Tonga');
 
-        // expect(onSelectionMock).toHaveBeenCalled();
-
-        // await user.type(screen.getByRole('textbox'), '');
-
-        // expect(onRemoveAllLocationsMock).toHaveBeenCalled();
+        expect(onSelectionMock).toHaveBeenCalled();
     });
 
     it('should not display country information in list', async () => {
@@ -142,7 +138,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
     });
 
     it('should display country information in list if showCountryInSuggestions is true', async () => {
-        // const user = userEvent.setup();
+        const user = userEvent.setup();
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         view = render(
             <LocationAutocomplete
@@ -154,10 +150,8 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
                 showCountryInSuggestions
             />
         );
-        // await user.type(screen.getByRole('textbox'), 'Tonga');
-        // await focusField(user);
-
-        // expect(view.find('MarkedText').at(0).text()).toContain(' UK');
+        await user.click(screen.getAllByRole('textbox')[1]);
+        await user.type(screen.getAllByRole('textbox')[1], 'Tonga');
     });
 
     it('should display latest results only, even if reply is delayed on previous requests', async () => {

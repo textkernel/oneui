@@ -65,7 +65,6 @@ const LocationAutocomplete: React.FC<Props> = ({
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isFocused = false,
     onSelectionChange,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     defaultInputValue = '',
     inputPlaceholder,
     clearTooltipLabel = '',
@@ -204,18 +203,16 @@ const LocationAutocomplete: React.FC<Props> = ({
             suggestions={suggestionsList}
             suggestionToString={suggestionToString}
             isLoading={isLoading}
-            isFocused={isFocused}
-            defaultInputValue={defaultInputValue}
+            defaultValue={defaultInputValue}
             inputPlaceholder={inputPlaceholder}
             showClearButton={singleLocation}
             clearTitle={clearTooltipLabel}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
             listRenderer={renderListPoweredByGoogle}
-            saveSelectedValueToInput={singleLocation}
             // @ts-ignore
             onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
-            onSelectionChange={handleSelection}
+            onChange={handleSelection}
             onClearAllSelected={onRemoveAllLocations}
             iconnode={<FaMapMarkerAlt {...elem('icon')} />}
             {...rest}

@@ -4,7 +4,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should not
 <div>
   <div
     class="SelectBase"
-    defaultinputvalue=""
     iconnode="[object Object]"
   >
     <div
@@ -50,7 +49,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
 <div>
   <div
     class="SelectBase"
-    defaultinputvalue=""
     iconnode="[object Object]"
   >
     <div
@@ -210,7 +208,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
 <div>
   <div
     class="SelectBase"
-    defaultinputvalue=""
     iconnode="[object Object]"
   >
     <div
