@@ -86,10 +86,11 @@ describe('LocationSelectorDialog component', () => {
     it('should close LocationSelectorDialog by pressing on Done button', async () => {
         const user = userEvent.setup();
         await user.click(screen.getByRole('button', { name: `${doneLabel}` }));
+
         expect(onCloseModal).toHaveBeenCalledTimes(1);
     });
 
-    it.skip('should call onAddLocation by selecting an item from the autosuggestion list', async () => {
+    it('should call onAddLocation by selecting an item from the autosuggestion list', async () => {
         const user = userEvent.setup();
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         const input = await screen.getByRole('textbox');
@@ -97,7 +98,7 @@ describe('LocationSelectorDialog component', () => {
         await user.click(input);
 
         expect(screen.getAllByRole('alert')).toHaveLength(5);
-        expect(onAddLocationMock).not.toHaveBeenCalled();
+        expect(onAddLocationMock).toHaveBeenCalled();
     });
 
     it('should call onRemoveLocation by clicking on Close button of the selected location item', async () => {
