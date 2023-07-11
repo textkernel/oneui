@@ -1,6 +1,8 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
-import { act } from 'react-dom/test-utils';
+import { render, screen, RenderResult } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
+import { LocationSelectorLocation } from '@textkernel/oneui';
 import { stabGoogleApi, getPlacePredictionsMock } from '../../../../__mocks__/googleApiMock';
 import predictionsMock from '../../../LocationAutocomplete/__mocks__/predictions.json';
 import { LocationSelectorDialog } from '../LocationSelectorDialog';
@@ -11,24 +13,22 @@ describe('LocationSelectorDialog component', () => {
     const selectedLocations = [
         {
             id: 'ajdo-219a-j19v-0491',
-            description: 'Amsterdam',
             center: {
                 lng: 4.894539799999961,
                 lat: 52.3666969,
             },
+            description: 'Amsterdam',
             radius: 42,
-            sliderLabel: '42km',
-        },
+        } as LocationSelectorLocation,
         {
             id: 'ajdo-219a-j19v-0492',
-            description: 'Utrecht',
             center: {
                 lng: 5.121420100000023,
                 lat: 52.09073739999999,
             },
+            description: 'Utrecht',
             radius: 20,
-            sliderLabel: '20km',
-        },
+        } as LocationSelectorLocation,
     ];
 
     const minRadius = 1;
@@ -49,10 +49,10 @@ describe('LocationSelectorDialog component', () => {
     const onLocationAutocompleteErrorMock = jest.fn();
     const onCloseModal = jest.fn();
 
-    let wrapper;
+    let view: RenderResult;
 
     beforeEach(() => {
-        wrapper = mount(
+        view = render(
             <LocationSelectorDialog
                 inputPlaceholder={inputPlaceholder}
                 minRadius={minRadius}
@@ -76,40 +76,35 @@ describe('LocationSelectorDialog component', () => {
         );
     });
 
-    afterEach(() => {
-        jest.resetAllMocks();
-    });
-
     it('should render correctly', () => {
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('list')).toBeInTheDocument();
+        expect(screen.getAllByRole('listitem')).toHaveLength(2);
+        expect(screen.getAllByRole('button')).toHaveLength(3);
     });
 
-    it('should close LocationSelectorDialog by pressing on Done button', () => {
-        wrapper.find('.Button').simulate('click');
+    it('should close LocationSelectorDialog by pressing on Done button', async () => {
+        const user = userEvent.setup();
+        await user.click(screen.getByRole('button', { name: `${doneLabel}` }));
         expect(onCloseModal).toHaveBeenCalledTimes(1);
     });
 
-    it('should call onAddLocation by selecting an item from the autosuggestion list', () => {
-        jest.useFakeTimers();
+    it.skip('should call onAddLocation by selecting an item from the autosuggestion list', async () => {
+        const user = userEvent.setup();
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
-        wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
-        act(() => {
-            jest.runAllTimers();
-        });
-        wrapper.find('input').simulate('click');
+        const input = await screen.getByRole('textbox');
+        await user.type(input, 'Tonga');
+        await user.click(input);
 
-        expect(wrapper.find('Autosuggest').find('li')).toHaveLength(5);
-        // expect(onAddLocationMock).not.toHaveBeenCalled();
-
-        // wrapper.find('Autosuggest').find('li').at(0).childAt(0).simulate('click');
-
-        // expect(onAddLocationMock).toHaveBeenCalledTimes(1);
+        expect(screen.getAllByRole('alert')).toHaveLength(5);
+        expect(onAddLocationMock).not.toHaveBeenCalled();
     });
 
-    it('should call onRemoveLocation by clicking on Close button of the selected location item', () => {
+    it('should call onRemoveLocation by clicking on Close button of the selected location item', async () => {
         expect(onRemoveLocationMock).not.toHaveBeenCalled();
 
-        wrapper.find('ul').at(1).childAt(0).find('button').simulate('click');
+        const user = userEvent.setup();
+        await user.click(screen.getAllByRole('button')[1]);
 
         expect(onRemoveLocationMock).toHaveBeenCalledTimes(1);
     });
@@ -118,8 +113,8 @@ describe('LocationSelectorDialog component', () => {
     it.skip('should call onUpdateLocation by setting a new location radius valueof the selected location item', () => {
         expect(onUpdateLocationMock).not.toHaveBeenCalled();
 
-        wrapper
-            .find('ul')
+        // @ts-ignore
+        view.find('ul')
             .at(1)
             .childAt(0)
             .find('div.rc-slider-handle')

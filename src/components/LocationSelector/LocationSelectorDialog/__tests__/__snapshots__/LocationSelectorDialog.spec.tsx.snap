@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationSelectorDialog component should render correctly 1`] = `
+<div>
+  <div
+    class="LocationSelectorDialog__inputLine"
+    role="presentation"
+  >
+    <div
+      class="SelectBase LocationSelectorDialog__searchField"
+      iconnode="[object Object]"
+    >
+      <div
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-labelledby="downshift-0-label"
+        class="SelectBase__main"
+        role="combobox"
+      >
+        <div
+          class="FieldWrapper SelectBase__field"
+        >
+          <div
+            class="FieldWrapper__content"
+          >
+            <div
+              class="Autosuggest__wrapper"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-labelledby="downshift-0-label"
+                autocomplete="off"
+                class="Autosuggest__input"
+                data-lpignore="true"
+                placeholder="inputPlaceholder"
+                value=""
+              />
+            </div>
+            <ul
+              aria-labelledby="downshift-0-label"
+              class="List"
+              id="downshift-0-menu"
+              role="listbox"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="Button Button--isPrimary LocationSelectorDialog__button"
+      type="button"
+    >
+      doneLabel
+    </button>
+  </div>
+  <div
+    class="LocationSelectorDialog__locationsWrapper"
+  >
+    <ul
+      class="LocationSelectorDialog__locationCardsContainer"
+    >
+      <li
+        class="LocationCard LocationSelectorDialog__locationCard"
+      >
+        <div
+          class="LocationCard__header"
+        >
+          <p
+            class="Text--size_large LocationCard__title"
+            title="Amsterdam"
+          >
+            Amsterdam
+          </p>
+          <button
+            class="LocationCard__deleteButton"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </li>
+      <li
+        class="LocationCard LocationSelectorDialog__locationCard"
+      >
+        <div
+          class="LocationCard__header"
+        >
+          <p
+            class="Text--size_large LocationCard__title"
+            title="Utrecht"
+          >
+            Utrecht
+          </p>
+          <button
+            class="LocationCard__deleteButton"
+            type="button"
+          >
+            ×
+          </button>
+        </div>
+      </li>
+    </ul>
+    <div
+      style="height: 100%; width: 100%;"
+    />
+  </div>
+</div>
+`;
