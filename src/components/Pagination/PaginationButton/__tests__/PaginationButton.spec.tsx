@@ -16,6 +16,7 @@ describe('<PaginationButton> that renders a page button', () => {
         expect(view.container).toMatchSnapshot();
         expect(button).toBeInTheDocument();
         expect(button).not.toHaveAttribute('aria-current');
+        expect(button).not.toHaveClass('PaginationButton--isActive');
     });
 
     it('should add correct classes for active state', () => {
@@ -28,5 +29,6 @@ describe('<PaginationButton> that renders a page button', () => {
 
         expect(button).toBeInTheDocument();
         expect(button).toHaveAttribute('aria-current');
+        expect(button).toHaveClass('PaginationButton--isActive');
     });
 });

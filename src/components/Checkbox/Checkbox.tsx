@@ -15,6 +15,8 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     asFlexbox?: boolean;
     /** Indeterminate status, show minus sign across checkbox. This property overrides the checked state visually  */
     indeterminate?: boolean;
+    /** Checkbox input ref */
+    inputRef?: React.RefObject<HTMLInputElement>;
     /** Line name for ARIA labelling */
     lineLabel?: string;
     /** Polyline name for ARIA labelling */
@@ -23,7 +25,7 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const { block, elem } = bem('Checkbox', styles);
 
-export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
+export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
     (
         {
             id,
@@ -34,6 +36,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
             style,
             indeterminate = false,
             checked,
+            inputRef,
             lineLabel,
             polylineLabel,
             ...rest
@@ -50,15 +53,15 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>(
         }
 
         return (
-            <div style={style} {...block({ className, asFlexbox, ...rest })}>
+            <div ref={ref} style={style} {...block({ className, asFlexbox, ...rest })}>
                 <input
                     {...rest}
                     {...elem('input', { asFlexbox, indeterminate })}
-                    ref={ref}
                     type="checkbox"
                     id={id}
                     disabled={disabled}
                     checked={checked}
+                    ref={inputRef}
                 />
                 <label {...elem('label', { asFlexbox })} htmlFor={id}>
                     <span {...elem('box', { asFlexbox })}>
