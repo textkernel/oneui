@@ -96,8 +96,8 @@ describe('<PillButton> component', () => {
             expect(getButtonByName(upArrowLabel)).toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(screen.queryByText(upArrowLabel)).not.toBeInTheDocument();
-            expect(screen.queryByText(clearLabel)).not.toBeInTheDocument();
+            expect(getButtonByName(upArrowLabel)).toBeVisible();
+            expect(getButtonByNameQuerySearch(clearLabel)).not.toBeInTheDocument();
         });
 
         it('should have arrow up label', () => {
