@@ -33,7 +33,7 @@ describe('<Pill> component', () => {
 
     it('should render correctly', () => {
         expect(view.container).toMatchSnapshot();
-        expect(getButtonByName(contentMock)).toBeInTheDocument();
+        expect(getButtonByName(contentMock)).toBeVisible();
         expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
     });
 
@@ -42,15 +42,15 @@ describe('<Pill> component', () => {
         await user.click(getButtonByName(contentMock));
 
         expect(view.container).toMatchSnapshot();
-        expect(getButtonByName(contentMock)).toBeInTheDocument();
-        expect(screen.getByRole(dialogRole)).toBeInTheDocument();
+        expect(getButtonByName(contentMock)).toBeVisible();
+        expect(screen.getByRole(dialogRole)).toBeVisible();
     });
 
     it('should close dropdown when button is clicked again', async () => {
         const user = userEvent.setup();
         await user.click(getButtonByName(contentMock));
 
-        expect(screen.getByRole(dialogRole)).toBeInTheDocument();
+        expect(screen.getByRole(dialogRole)).toBeVisible();
 
         await user.click(getButtonByName(contentMock));
 
@@ -63,7 +63,7 @@ describe('<Pill> component', () => {
         const user = userEvent.setup();
         await user.click(getButtonByName(contentMock));
 
-        expect(screen.getByRole(dialogRole)).toBeInTheDocument();
+        expect(screen.getByRole(dialogRole)).toBeVisible();
         expect(childrenMock).toHaveBeenCalledTimes(1);
     });
 

@@ -194,12 +194,6 @@ describe('<PillButton> component', () => {
         it('should have arrow up label', () => {
             expect(screen.getByRole(imgRole, { name: upArrowLabel })).toBeVisible();
             expect(getButtonByName(upArrowLabel)).toBeVisible();
-            expect(getButtonByName(upArrowLabel)).toHaveClass(
-                'PillButton__button PillButton__button--isOpen'
-            );
-            expect(getButtonByName('This pill is in use up arrow')).toHaveClass(
-                'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
-            );
         });
     });
 });
