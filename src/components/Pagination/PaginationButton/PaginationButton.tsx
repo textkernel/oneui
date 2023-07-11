@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { bem } from '../../../utils';
-import styles from './PaginationButton.scss';
 import { Button } from '../../Buttons';
+import styles from './PaginationButton.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLElement> {
     children: number;
@@ -12,7 +12,7 @@ const { block } = bem('PaginationButton', styles);
 
 export const PaginationButton: React.FC<Props> = ({ children, isActive = false, ...rest }) => {
     return (
-        <Button {...rest} isLink {...block(isActive)} aria-current={isActive ? 'page' : null}>
+        <Button {...rest} isLink {...block({ isActive })} aria-current={isActive ? 'page' : null}>
             {children}
         </Button>
     );
