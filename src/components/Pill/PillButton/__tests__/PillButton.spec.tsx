@@ -127,6 +127,8 @@ describe('<PillButton> component', () => {
             expect(getButtonByName('This pill is in use clear label')).toHaveClass(
                 'PillButton__pill PillButton__pill--isActive'
             );
+            expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
+            expect(getButtonByNameQuerySearch(downArrowLabel)).not.toBeInTheDocument();
         });
 
         it('should not trigger toggle state but onClear only when button is clicked', async () => {
