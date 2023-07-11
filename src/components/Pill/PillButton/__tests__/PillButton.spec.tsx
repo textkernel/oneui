@@ -127,6 +127,7 @@ describe('<PillButton> component', () => {
             expect(getButtonByName('This pill is in use clear label')).toHaveClass(
                 'PillButton__pill PillButton__pill--isActive'
             );
+            expect(getButtonByName(clearLabel)).toBeVisible();
             expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
             expect(getButtonByNameQuerySearch(downArrowLabel)).not.toBeInTheDocument();
         });
@@ -137,6 +138,17 @@ describe('<PillButton> component', () => {
 
             expect(onClearMock).toHaveBeenCalledTimes(1);
             expect(toggleDropdownMock).toHaveBeenCalledTimes(0);
+        });
+
+        it('should not clear content when clear button is clicked', async () => {
+            const user = userEvent.setup();
+
+            expect(screen.getByText(content)).toBeVisible();
+
+            await user.click(getButtonByName(clearLabel));
+
+            expect(screen.getByText(content)).toBeVisible();
+            expect(onClearMock).toHaveBeenCalledTimes(1);
         });
 
         it('should not trigger toggle state but onClear only on keyboard interaction with button', async () => {
