@@ -160,6 +160,25 @@ describe('<PillButton> component', () => {
             expect(onClearMock).toHaveBeenCalledTimes(1);
             expect(toggleDropdownMock).toHaveBeenCalledTimes(0);
         });
+
+        it('should show down arrow label when isContentDefault is true', () => {
+            view.rerender(
+                <PillButton
+                    toggleDropdown={toggleDropdownMock}
+                    onClear={onClearMock}
+                    name={name}
+                    content={content}
+                    downArrowLabel={downArrowLabel}
+                    upArrowLabel={upArrowLabel}
+                    clearLabel={clearLabel}
+                    isContentDefault
+                />
+            );
+
+            expect(getButtonByNameQuerySearch(downArrowLabel)).toBeVisible();
+            expect(getButtonByNameQuerySearch(clearLabel)).not.toBeInTheDocument();
+            expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
+        });
     });
 
     describe('in active, open state (content and isOpen prop)', () => {
