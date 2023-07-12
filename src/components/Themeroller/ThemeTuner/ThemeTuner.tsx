@@ -35,7 +35,6 @@ export const ThemeTuner: React.FC<Props> = ({
     const activeItems = config.find((fieldset) => fieldset.fieldsetName === activeTab)?.items || [];
 
     const handleItemChange = (item: ThemeItem) => {
-        console.log('HANDLE ITEM CHANGE');
         if (onChange) {
             onChange({
                 ...cssVars,

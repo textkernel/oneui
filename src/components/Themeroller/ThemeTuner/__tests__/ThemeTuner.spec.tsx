@@ -43,7 +43,7 @@ export const ThemeRollerTestConfig = [
 ] as ThemerollerConfig;
 
 describe('ThemeTuner component', () => {
-    it.skip('should render component correctly', () => {
+    it('should render component correctly', () => {
         const onChangeMock = jest.fn();
         const view = render(
             <ThemeTuner
@@ -90,57 +90,12 @@ describe('ThemeTuner component', () => {
     it('should invoke onChange callback when first input was changed', async () => {
         const onChangeMock = jest.fn();
         const user = userEvent.setup();
-        const view = render(
-            <ThemeTuner
-                config={ThemeRollerTestConfig}
-                cssVars={{}}
-                onChange={() => onChangeMock('#ffffff')}
-            />
-        );
+        render(<ThemeTuner config={ThemeRollerTestConfig} cssVars={{}} onChange={onChangeMock} />);
 
-        const itemsList = screen.getAllByRole('listitem');
-        const inputFiled = itemsList[1].children[1].children[0] as HTMLElement;
+        const value = '#ffffff';
 
-        expect(view.container).toMatchSnapshot();
-        expect(itemsList[1].children[0].textContent).toBe('Foreground color');
-        expect(itemsList[1].children[1].textContent).toBe('#1d1d1b');
+        await user.type(screen.getByRole('textbox'), value);
 
-        await inputFiled.focus();
-        await inputFiled.click();
-        await user.click(inputFiled);
-        await user.type(inputFiled, '#ffffff');
-
-        // const spinButton = screen.getByRole('spinbutton');
-        // const textBox = screen.getByRole('textbox');
-        // const listItem = screen.getAllByRole('listitem');
-        // const listBox = screen.getByRole('listbox');
-        // const tab = screen.getByRole('tab', { name: 'Colors' });
-        // const tabList = screen.getByRole('tablist');
-        //
-        // await user.click(spinButton);
-        // await user.click(textBox);
-        // await user.click(listItem[0]);
-        // await user.click(listBox);
-        // await user.click(tab);
-        // await user.click(tabList);
-
-        // wrapper
-        //     .find('ul li input')
-        //     .at(0)
-        //     .simulate('change', {
-        //         target: {
-        //             value: '#00000',
-        //         },
-        //     });
-        //
-        const ch = screen.getAllByRole('log')[1];
-        await ch.focus();
-        // await ch.click();
-        await user.click(ch);
-        await user.type(ch, '#ffffff');
-        // await user.selectOptions(ch, 'value: #f' );
-        // await user.click(ch);
         expect(onChangeMock).toHaveBeenCalled();
-        // expect(itemsList[1].children[1].textContent).toBe('#ffffff');
     });
 });

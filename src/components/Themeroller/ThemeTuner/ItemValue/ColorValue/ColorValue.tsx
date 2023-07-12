@@ -27,7 +27,6 @@ export const ColorValue: React.FC<Props> = ({ item, onChange }) => {
                 size="small"
                 value={item.value}
                 onChange={handleOnChange}
-                role="log"
             />
             <Text {...elem('value')} inline context="neutral">
                 {item.value}
