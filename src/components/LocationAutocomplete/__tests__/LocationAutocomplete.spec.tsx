@@ -48,8 +48,11 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         await user.type(textBox, 'Honolulu');
 
         expect(textBox).toHaveAttribute('value', 'Honolulu');
+        expect(screen.getAllByRole('alert', { name: 'Loading' })).toHaveLength(5);
 
-        await user.type(textBox, ' ');
+        await user.click(document.body);
+
+        expect(screen.queryByRole('alert')).not.toBeInTheDocument();
     });
 
     it('should request predictions from API when user types', async () => {
