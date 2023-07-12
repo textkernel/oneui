@@ -1,10 +1,11 @@
 import React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { LocationSelectorDialogWithGoogleLoader } from '..';
 
 describe('<LocationSelectorDialogWithGoogleLoader/> that loads google api and renders a Location selector dialog', () => {
     it('should render with default props', () => {
-        const wrapper = mount(
+        const view = render(
             <LocationSelectorDialogWithGoogleLoader
                 apiKey="someKey"
                 language="en"
@@ -26,6 +27,7 @@ describe('<LocationSelectorDialogWithGoogleLoader/> that loads google api and re
             />
         );
 
-        expect(toJson(wrapper)).toMatchSnapshot();
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('status')).toBeInTheDocument();
     });
 });

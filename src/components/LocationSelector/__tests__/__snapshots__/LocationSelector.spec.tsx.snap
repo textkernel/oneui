@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LocationSelector component should render LocationSelector properly when modal is open 1`] = `
+<div>
+  <div>
+    <div
+      class="FieldWrapper FieldWrapper--isFocused LocationSelector__mainTextButtonWrapper"
+      title="inputPlaceholder"
+    >
+      <div
+        class="FieldWrapper__content"
+      >
+        <svg
+          class="LocationSelector__icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 384 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+          />
+        </svg>
+        <button
+          class="LocationSelector__mainTextButton LocationSelector__mainTextButton--muted"
+          type="button"
+        >
+          inputPlaceholder
+        </button>
+      </div>
+      <button
+        class="Button Button--isLink Button--isInline FieldWrapper__clearButton"
+        title="Clear"
+        type="button"
+      >
+        <svg
+          aria-label="Clear"
+          fill="currentColor"
+          height="16"
+          role="img"
+          size="16"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LocationSelector component should render LocationSelector propertly when modal is closed 1`] = `
+<div>
+  <div>
+    <div
+      class="FieldWrapper LocationSelector__mainTextButtonWrapper"
+      title="inputPlaceholder"
+    >
+      <div
+        class="FieldWrapper__content"
+      >
+        <svg
+          class="LocationSelector__icon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 384 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"
+          />
+        </svg>
+        <button
+          class="LocationSelector__mainTextButton LocationSelector__mainTextButton--muted"
+          type="button"
+        >
+          inputPlaceholder
+        </button>
+      </div>
+      <button
+        class="Button Button--isLink Button--isInline FieldWrapper__clearButton"
+        title="Clear"
+        type="button"
+      >
+        <svg
+          aria-label="Clear"
+          fill="currentColor"
+          height="16"
+          role="img"
+          size="16"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
