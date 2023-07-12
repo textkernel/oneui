@@ -12,8 +12,7 @@ describe('ColorValue component', () => {
     let view: RenderResult;
 
     it('should render component correctly', () => {
-        const onChangeMock = jest.fn();
-        view = render(<ColorValue item={item} onChange={onChangeMock} ariaRole={role} />);
+        view = render(<ColorValue item={item} onChange={jest.fn()} ariaRole={role} />);
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole(role)).toHaveAttribute('value', '#fffff');

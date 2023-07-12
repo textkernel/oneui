@@ -18,7 +18,7 @@ describe('ItemTag', () => {
         const onClickMock = jest.fn();
         view = render(<ItemTag onClick={onClickMock}>tag</ItemTag>);
 
-        expect(screen.getByRole('button')).toBeInTheDocument();
+        expect(screen.getByRole('button')).toBeVisible();
     });
 
     it('should call onClick callback correctly', async () => {

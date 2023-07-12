@@ -5,8 +5,8 @@ import '@testing-library/jest-dom';
 import { Checkbox } from '../Checkbox';
 
 describe('<Checkbox> that renders a checkbox', () => {
-    const lineLabel = 'line label';
-    const polylineLabel = 'polyline label';
+    const lineRole = 'line label';
+    const polylineRole = 'polyline label';
     let view: RenderResult;
 
     it('should render default checkbox correctly', () => {
@@ -27,7 +27,7 @@ describe('<Checkbox> that renders a checkbox', () => {
         expect(view.container).toMatchSnapshot();
         expect(
             screen.getByRole('checkbox', { name: 'Check this out something else' })
-        ).toBeInTheDocument();
+        ).toBeVisible();
     });
 
     it('should call onChange function when clicked', async () => {
@@ -52,7 +52,7 @@ describe('<Checkbox> that renders a checkbox', () => {
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('checkbox')).toBeInTheDocument();
+        expect(screen.getByRole('checkbox')).toBeVisible();
         expect(screen.getByRole('checkbox')).toHaveAttribute('disabled');
     });
 
@@ -62,8 +62,8 @@ describe('<Checkbox> that renders a checkbox', () => {
             checked: true,
             indeterminate: true,
             onChange: () => {},
-            lineLabel,
-            polylineLabel,
+            lineRole,
+            polylineRole,
         };
 
         beforeEach(() => {
@@ -82,8 +82,8 @@ describe('<Checkbox> that renders a checkbox', () => {
             rerenderView(newProps);
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.queryByRole('img', { name: polylineLabel })).not.toBeInTheDocument();
-            expect(screen.getByRole('img', { name: lineLabel })).toBeInTheDocument();
+            expect(screen.queryByRole('img', { name: polylineRole })).not.toBeInTheDocument();
+            expect(screen.getByRole('img', { name: lineRole })).toBeVisible();
         });
 
         it('should render the checked svg when checked is true and indeterminate false', () => {
@@ -95,8 +95,8 @@ describe('<Checkbox> that renders a checkbox', () => {
             rerenderView(newProps);
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.getByRole('img', { name: polylineLabel })).toBeInTheDocument();
-            expect(screen.queryByRole('img', { name: lineLabel })).not.toBeInTheDocument();
+            expect(screen.getByRole('img', { name: polylineRole })).toBeVisible();
+            expect(screen.queryByRole('img', { name: lineRole })).not.toBeInTheDocument();
         });
 
         it('should render the indeterminate svg when checked and indeterminate are true', () => {
@@ -107,8 +107,8 @@ describe('<Checkbox> that renders a checkbox', () => {
             rerenderView(newProps);
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.queryByRole('img', { name: polylineLabel })).not.toBeInTheDocument();
-            expect(screen.getByRole('img', { name: lineLabel })).toBeInTheDocument();
+            expect(screen.queryByRole('img', { name: polylineRole })).not.toBeInTheDocument();
+            expect(screen.getByRole('img', { name: lineRole })).toBeVisible();
         });
 
         it('should not render any svg when checked and indeterminate are both false', () => {
@@ -121,8 +121,8 @@ describe('<Checkbox> that renders a checkbox', () => {
             rerenderView(newProps);
 
             expect(view.container).toMatchSnapshot();
-            expect(screen.queryByRole(polylineLabel)).not.toBeInTheDocument();
-            expect(screen.queryByRole(lineLabel)).not.toBeInTheDocument();
+            expect(screen.queryByRole(polylineRole)).not.toBeInTheDocument();
+            expect(screen.queryByRole(lineRole)).not.toBeInTheDocument();
         });
     });
 });

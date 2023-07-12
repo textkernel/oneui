@@ -17,10 +17,10 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     indeterminate?: boolean;
     /** Checkbox input ref */
     inputRef?: React.RefObject<HTMLInputElement>;
-    /** Line name for ARIA labelling */
-    lineLabel?: string;
-    /** Polyline name for ARIA labelling */
-    polylineLabel?: string;
+    /** Line name for ARIA role */
+    lineRole?: string;
+    /** Polyline name for ARIA role */
+    polylineRole?: string;
 }
 
 const { block, elem } = bem('Checkbox', styles);
@@ -37,8 +37,8 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
             indeterminate = false,
             checked,
             inputRef,
-            lineLabel,
-            polylineLabel,
+            lineRole,
+            polylineRole,
             ...rest
         },
         ref
@@ -71,11 +71,11 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
                             height="10px"
                             viewBox={CHECKBOX_VIEWBOX}
                             role="img"
-                            aria-label={indeterminate ? lineLabel : polylineLabel}
+                            aria-label={indeterminate ? lineRole : polylineRole}
                         >
-                            {indeterminate && <line x1="2" y1="6" x2="8" y2="6" role={lineLabel} />}
+                            {indeterminate && <line x1="2" y1="6" x2="8" y2="6" role={lineRole} />}
                             {!indeterminate && (checked === undefined || checked) && (
-                                <polyline points="1.5 6 3.5 9 8 3" role={polylineLabel} />
+                                <polyline points="1.5 6 3.5 9 8 3" role={polylineRole} />
                             )}
                         </svg>
                     </span>
