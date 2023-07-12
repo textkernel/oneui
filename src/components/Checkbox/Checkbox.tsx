@@ -17,9 +17,9 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     indeterminate?: boolean;
     /** Checkbox input ref */
     inputRef?: React.RefObject<HTMLInputElement>;
-    /** Line name for ARIA role */
+    /** Line role */
     lineRole?: string;
-    /** Polyline name for ARIA role */
+    /** Polyline role */
     polylineRole?: string;
 }
 

@@ -38,10 +38,8 @@ describe('<MarkedText> that renders a text block while marking matched substring
     });
 
     it('should mark special characters', () => {
-        view = render(
-            // eslint-disable-next-line react/no-unescaped-entities
-            <MarkedText marker=".?!#$%^&()[]:;\?''">.?!#$%^&()[]:;\?''</MarkedText>
-        );
+        const marker = ".?!#$%^&()[]:;\\?''";
+        view = render(<MarkedText marker={marker}>{marker}</MarkedText>);
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('contentinfo')).toBeVisible();
