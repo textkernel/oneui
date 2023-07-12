@@ -26,9 +26,9 @@ exports[`<LocationAutocomplete/> that renders a location search field should not
               aria-autocomplete="list"
               aria-labelledby="downshift-8-label"
               autocomplete="off"
-              class="Autosuggest__input"
+              class="Autosuggest__input Autosuggest__input--hidden"
               data-lpignore="true"
-              placeholder="Location..."
+              placeholder=""
               value=""
             />
           </div>
@@ -230,9 +230,9 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
               aria-autocomplete="list"
               aria-labelledby="downshift-0-label"
               autocomplete="off"
-              class="Autosuggest__input"
+              class="Autosuggest__input Autosuggest__input--hidden"
               data-lpignore="true"
-              placeholder="Location..."
+              placeholder=""
               value=""
             />
           </div>

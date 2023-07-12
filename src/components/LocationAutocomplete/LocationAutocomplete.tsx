@@ -215,8 +215,10 @@ const LocationAutocomplete: React.FC<Props> = ({
             onChange={handleSelection}
             onClearAllSelected={onRemoveAllLocations}
             iconnode={<FaMapMarkerAlt {...elem('icon')} />}
-            {...rest}
             inputRef={inputRef}
+            autoFocus={isFocused}
+            selectedSuggestions={[singleLocation]}
+            {...rest}
         />
     );
 };

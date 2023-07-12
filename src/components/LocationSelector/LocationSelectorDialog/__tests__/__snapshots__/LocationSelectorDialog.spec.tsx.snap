@@ -30,9 +30,9 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
                 aria-autocomplete="list"
                 aria-labelledby="downshift-0-label"
                 autocomplete="off"
-                class="Autosuggest__input"
+                class="Autosuggest__input Autosuggest__input--hidden"
                 data-lpignore="true"
-                placeholder="inputPlaceholder"
+                placeholder=""
                 value=""
               />
             </div>
