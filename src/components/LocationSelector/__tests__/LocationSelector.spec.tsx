@@ -95,9 +95,10 @@ describe('LocationSelector component', () => {
         const button = screen.getByRole('button', { name: 'inputPlaceholder' });
         expect(button).not.toHaveAttribute('isOpen');
         await user.click(button);
-
+        expect(screen.getByRole('dialog')).toBeVisible();
         await waitFor(() => {
             expect(button).not.toHaveAttribute('onRequestClose');
         });
+        expect(screen.getByRole('dialog')).toBeVisible();
     });
 });
