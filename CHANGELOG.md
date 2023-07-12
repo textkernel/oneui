@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [20.0.1](https://github.com/textkernel/oneui/compare/20.0.0...20.0.1) (2023-07-10)
+
+
+### Bug Fixes
+
+* **PaginationButton:** isActive class wasn't being applied ([#1015](https://github.com/textkernel/oneui/issues/1015)) ([9ea8515](https://github.com/textkernel/oneui/commit/9ea85153635cfd3cc78f9c378cfae53fa5f9c617))
+
+## [20.0.0](https://github.com/textkernel/oneui/compare/19.5.0...20.0.0) (2023-07-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* Change target of forward ref. New inputRef prop added
+* ProductTour was removed
+
+### Features
+
+* **Pill:** add accessibility label props; migrate tests ([#975](https://github.com/textkernel/oneui/issues/975)) ([eae9cb4](https://github.com/textkernel/oneui/commit/eae9cb465f569ce5a3686a54148c7f774131ee57))
+* remove ProductTour component ([675cc5e](https://github.com/textkernel/oneui/commit/675cc5e7c435bdc7cfb02b953417505f2a13cb6b))
+
+
+### Bug Fixes
+
+* checkbox forward ref ([#1009](https://github.com/textkernel/oneui/issues/1009)) ([7d575cb](https://github.com/textkernel/oneui/commit/7d575cb196d7ecf75767958b83c6750464d222ff))
+* **deps:** update dependency @types/enzyme to v3.10.13 ([a280ed9](https://github.com/textkernel/oneui/commit/a280ed9fc14171766349e8d06419c4953052ebeb))
+* **deps:** update dependency react-virtualized to v9.22.5 ([32a6aea](https://github.com/textkernel/oneui/commit/32a6aead409ac0eb1302ccf3bacb9329236389ec))
+* **PageWidthRestrictor:** improve semantic HTML | test: migrate WeightedResultBar, BlockWidthRestrictor and PageWidthRestrictor ([#987](https://github.com/textkernel/oneui/issues/987)) ([569f635](https://github.com/textkernel/oneui/commit/569f63592d5fde7d7684680553218db7fc44341c))
+
 ## [19.5.0](https://github.com/textkernel/oneui/compare/19.4.0...19.5.0) (2023-05-26)
 
 

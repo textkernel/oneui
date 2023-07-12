@@ -13,11 +13,16 @@ describe('<PillButton> component', () => {
     const downArrowLabel = 'down arrow';
     const upArrowLabel = 'up arrow';
     const clearLabel = 'clear label';
+    const imgRole = 'img';
 
     let view: RenderResult;
 
     const getButtonByName = (inputName) => {
-        return screen.getByRole('button', { name: `${inputName}` });
+        return screen.getByRole('button', { name: inputName });
+    };
+
+    const getButtonByNameQuerySearch = (inputName) => {
+        return screen.queryByRole('button', { name: inputName });
     };
 
     describe('in inactive, collapsed state (with minimal props)', () => {
@@ -40,6 +45,8 @@ describe('<PillButton> component', () => {
                 'PillButton__button PillButton__button--isOpen'
             );
             expect(getButtonByName(downArrowLabel)).not.toHaveClass('PillButton__button--isOpen');
+            expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
+            expect(getButtonByNameQuerySearch(clearLabel)).not.toBeInTheDocument();
         });
 
         it('should trigger toggle state once when clicked', async () => {
@@ -47,8 +54,9 @@ describe('<PillButton> component', () => {
             await user.click(getButtonByName(downArrowLabel));
 
             expect(toggleDropdownMock).toHaveBeenCalledTimes(1);
-            expect(getButtonByName(downArrowLabel)).toBeInTheDocument();
-            expect(screen.queryByText(upArrowLabel)).not.toBeInTheDocument();
+            expect(getButtonByName(downArrowLabel)).toBeVisible();
+            expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
+            expect(getButtonByNameQuerySearch(clearLabel)).not.toBeInTheDocument();
         });
 
         it('should trigger toggle state once on keyboard interaction', async () => {
@@ -61,8 +69,10 @@ describe('<PillButton> component', () => {
         });
 
         it('should have arrow down label', () => {
-            expect(screen.getByRole('img')).toBeInTheDocument();
-            expect(getButtonByName(downArrowLabel)).toBeInTheDocument();
+            expect(screen.getByRole(imgRole)).toBeVisible();
+            expect(getButtonByName(downArrowLabel)).toBeVisible();
+            expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
+            expect(getButtonByNameQuerySearch(clearLabel)).not.toBeInTheDocument();
         });
     });
 
@@ -86,14 +96,13 @@ describe('<PillButton> component', () => {
             expect(getButtonByName(upArrowLabel)).toHaveClass(
                 'PillButton__button PillButton__button--isOpen'
             );
-            expect(getButtonByName('Pill name up arrow')).not.toHaveClass(
-                'PillButton__button--isOpen'
-            );
+            expect(getButtonByName(upArrowLabel)).toBeVisible();
+            expect(getButtonByNameQuerySearch(clearLabel)).not.toBeInTheDocument();
         });
 
         it('should have arrow up label', () => {
-            expect(screen.getByRole('img')).toBeInTheDocument();
-            expect(getButtonByName(upArrowLabel)).toBeInTheDocument();
+            expect(screen.getByRole(imgRole)).toBeVisible();
+            expect(getButtonByName(upArrowLabel)).toBeVisible();
         });
     });
 
@@ -118,6 +127,9 @@ describe('<PillButton> component', () => {
             expect(getButtonByName('This pill is in use clear label')).toHaveClass(
                 'PillButton__pill PillButton__pill--isActive'
             );
+            expect(getButtonByName(clearLabel)).toBeVisible();
+            expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
+            expect(getButtonByNameQuerySearch(downArrowLabel)).not.toBeInTheDocument();
         });
 
         it('should not trigger toggle state but onClear only when button is clicked', async () => {
@@ -128,6 +140,17 @@ describe('<PillButton> component', () => {
             expect(toggleDropdownMock).toHaveBeenCalledTimes(0);
         });
 
+        it('should not clear content when clear button is clicked', async () => {
+            const user = userEvent.setup();
+
+            expect(screen.getByText(content)).toBeVisible();
+
+            await user.click(getButtonByName(clearLabel));
+
+            expect(screen.getByText(content)).toBeVisible();
+            expect(onClearMock).toHaveBeenCalledTimes(1);
+        });
+
         it('should not trigger toggle state but onClear only on keyboard interaction with button', async () => {
             const user = userEvent.setup();
             const button = getButtonByName(clearLabel);
@@ -136,6 +159,25 @@ describe('<PillButton> component', () => {
 
             expect(onClearMock).toHaveBeenCalledTimes(1);
             expect(toggleDropdownMock).toHaveBeenCalledTimes(0);
+        });
+
+        it('should show down arrow label when isContentDefault is true', () => {
+            view.rerender(
+                <PillButton
+                    toggleDropdown={toggleDropdownMock}
+                    onClear={onClearMock}
+                    name={name}
+                    content={content}
+                    downArrowLabel={downArrowLabel}
+                    upArrowLabel={upArrowLabel}
+                    clearLabel={clearLabel}
+                    isContentDefault
+                />
+            );
+
+            expect(getButtonByNameQuerySearch(downArrowLabel)).toBeVisible();
+            expect(getButtonByNameQuerySearch(clearLabel)).not.toBeInTheDocument();
+            expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
         });
     });
 
@@ -163,6 +205,8 @@ describe('<PillButton> component', () => {
             expect(getButtonByName('This pill is in use up arrow')).toHaveClass(
                 'PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive'
             );
+            expect(getButtonByName(upArrowLabel)).toBeVisible();
+            expect(getButtonByNameQuerySearch(clearLabel)).not.toBeInTheDocument();
         });
 
         it('should trigger toggle state once when button is clicked', async () => {
@@ -181,8 +225,8 @@ describe('<PillButton> component', () => {
         });
 
         it('should have arrow up label', () => {
-            expect(screen.getByRole('img')).toBeInTheDocument();
-            expect(getButtonByName(upArrowLabel)).toBeInTheDocument();
+            expect(screen.getByRole(imgRole, { name: upArrowLabel })).toBeVisible();
+            expect(getButtonByName(upArrowLabel)).toBeVisible();
         });
     });
 });
