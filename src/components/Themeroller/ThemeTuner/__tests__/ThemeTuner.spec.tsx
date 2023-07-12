@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, RenderResult } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { ThemerollerConfig } from '@textkernel/oneui';
@@ -43,9 +43,11 @@ export const ThemeRollerTestConfig = [
 ] as ThemerollerConfig;
 
 describe('ThemeTuner component', () => {
+    let view: RenderResult;
+
     it('should render component correctly', () => {
         const onChangeMock = jest.fn();
-        const view = render(
+        view = render(
             <ThemeTuner
                 config={ThemeRollerTestConfig}
                 cssVars={{
@@ -90,11 +92,12 @@ describe('ThemeTuner component', () => {
     it('should invoke onChange callback when first input was changed', async () => {
         const onChangeMock = jest.fn();
         const user = userEvent.setup();
-        render(<ThemeTuner config={ThemeRollerTestConfig} cssVars={{}} onChange={onChangeMock} />);
+        view = render(
+            <ThemeTuner config={ThemeRollerTestConfig} cssVars={{}} onChange={onChangeMock} />
+        );
+        expect(view.container).toMatchSnapshot();
 
-        const value = '#ffffff';
-
-        await user.type(screen.getByRole('textbox'), value);
+        await user.type(screen.getByRole('textbox'), '#ffffff');
 
         expect(onChangeMock).toHaveBeenCalled();
     });
