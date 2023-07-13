@@ -62,7 +62,6 @@ const PLACE_TYPES = ['(regions)'];
  */
 const LocationAutocomplete: React.FC<Props> = ({
     inputRef,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isFocused = false,
     onSelectionChange,
     defaultInputValue = '',
