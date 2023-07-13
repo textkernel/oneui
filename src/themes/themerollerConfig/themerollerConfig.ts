@@ -23,7 +23,7 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 value: '#0097d1',
             },
             {
-                label: 'info color',
+                label: 'Info color',
                 type: 'color',
                 var: 'color-primary',
                 value: '#182642',
