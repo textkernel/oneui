@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Autosuggest, AutosuggestProps } from '@textkernel/oneui';
 import {
-    SUGGESTIONS,
-    SUGGESTION_TO_STRING,
     COMPLEX_SUGGESTIONS,
+    SUGGESTION_TO_STRING,
+    SUGGESTIONS,
 } from '../../src/constants/suggestions';
 
 type TSuggestion = { name: string };
@@ -23,13 +23,12 @@ export const Multiselect = ({ hasSuggestions, ...args }) => {
     const [selectedSuggestions, setSelectedSuggestions] = React.useState<TSuggestion[]>([]);
 
     const getSuggestions = (): TSuggestion[] => {
-        const suggestions = SUGGESTIONS.filter(
+        return SUGGESTIONS.filter(
             (item: TSuggestion) =>
                 !selectedSuggestions.some(
                     (i) => item.name.toLocaleLowerCase() === i.name.toLocaleLowerCase()
                 )
         );
-        return suggestions;
     };
 
     const onSelectionAdd = (item: TSuggestion) => {
@@ -175,13 +174,12 @@ export const CustomRender = (args) => {
     const [selectedSuggestions, setSelectedSuggestions] = React.useState<TComplexSuggestion[]>([]);
 
     const getSuggestions = (): TComplexSuggestion[] => {
-        const suggestions = COMPLEX_SUGGESTIONS.filter(
+        return COMPLEX_SUGGESTIONS.filter(
             (item: TComplexSuggestion) =>
                 !selectedSuggestions.some(
                     (i) => item.name.toLocaleLowerCase() === i.name.toLocaleLowerCase()
                 )
         );
-        return suggestions;
     };
 
     const onSelectionAdd = (item: TComplexSuggestion) => {
