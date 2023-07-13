@@ -8,11 +8,12 @@ import styles from './ColorValue.scss';
 interface Props {
     item: ThemeColorItem;
     onChange: (value: ThemeColorItem) => void;
+    ariaRole?: string;
 }
 
 const { elem } = bem('ColorValue', styles);
 
-export const ColorValue: React.FC<Props> = ({ item, onChange }) => {
+export const ColorValue: React.FC<Props> = ({ item, onChange, ariaRole }) => {
     const handleOnChange = (event) => {
         onChange({
             ...item,
@@ -27,6 +28,7 @@ export const ColorValue: React.FC<Props> = ({ item, onChange }) => {
                 size="small"
                 value={item.value}
                 onChange={handleOnChange}
+                role={ariaRole}
             />
             <Text {...elem('value')} inline context="neutral">
                 {item.value}

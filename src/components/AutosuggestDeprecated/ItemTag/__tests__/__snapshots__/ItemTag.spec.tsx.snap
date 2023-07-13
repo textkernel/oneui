@@ -1,18 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ItemTag should render correctly 1`] = `
-<ItemTag
-  onClick={null}
->
+<div>
   <div
-    className="ItemTag"
+    class="ItemTag"
   >
     <span
-      className="ItemTag__label"
+      class="ItemTag__label"
       title="tag"
     >
       tag
     </span>
   </div>
-</ItemTag>
+</div>
 `;
