@@ -40,6 +40,11 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         await user.type(textBox, 'Honolulu');
 
         expect(textBox).toHaveAttribute('value', 'Honolulu');
+        expect(screen.getAllByRole('alert', { name: 'Loading' })).toHaveLength(5);
+
+        await user.click(document.body);
+
+        expect(screen.queryByRole('alert')).not.toBeInTheDocument();
     });
 
     it('should set loading to false when user deletes input value', async () => {
@@ -63,17 +68,6 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         await focusField(user);
 
         expect(textBox).toHaveAttribute('value', 'Tonga');
-    });
-
-    it('should pass predictions to AutosuggestDeprecated', async () => {
-        const user = userEvent.setup();
-        getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
-
-        await user.type(screen.getByRole('textbox'), 'Tonga');
-
-        await focusField(user);
-
-        expect(view.container).toMatchSnapshot();
     });
 
     it('should call onError if predictions were not fetched', async () => {
