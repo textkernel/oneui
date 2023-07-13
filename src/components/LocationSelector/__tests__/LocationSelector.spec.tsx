@@ -90,14 +90,20 @@ describe('LocationSelector component', () => {
         expect(screen.getByRole('status')).toBeInTheDocument();
     });
 
-    it('should open and close modal when requested', async () => {
+    it('should open modal when requested', async () => {
         const user = userEvent.setup();
         const button = screen.getByRole('button', { name: 'inputPlaceholder' });
+
         expect(button).not.toHaveAttribute('isOpen');
+
         await user.click(button);
+
+        expect(screen.getByRole('dialog')).toBeVisible();
 
         await waitFor(() => {
             expect(button).not.toHaveAttribute('onRequestClose');
         });
+
+        expect(screen.getByRole('dialog')).toBeVisible();
     });
 });

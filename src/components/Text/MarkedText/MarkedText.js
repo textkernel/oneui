@@ -16,7 +16,7 @@ export const MarkedText = (props) => {
         result = children.split(re).map((part, i) =>
             part.toLowerCase() === marker.toLowerCase() ? (
                 // eslint-disable-next-line react/no-array-index-key
-                <mark key={`match${i}`} {...elem('marked', props)}>
+                <mark key={`match${i}`} {...elem('marked', props)} role="contentinfo">
                     {part}
                 </mark>
             ) : (

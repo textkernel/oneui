@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MarkedText> that renders a text block while marking matched substrings should mark special characters 1`] = `
+<div>
+  <p>
+    <mark
+      class="MarkedText__marked"
+      role="contentinfo"
+    >
+      .?!#$%^&()[]:;\\?''
+    </mark>
+  </p>
+</div>
+`;
+
+exports[`<MarkedText> that renders a text block while marking matched substrings should pass props to Text 1`] = `
+<div>
+  <span
+    class="Text--context_primary"
+  >
+    Some 
+    <mark
+      class="MarkedText__marked"
+      role="contentinfo"
+    >
+      text
+    </mark>
+     content
+  </span>
+</div>
+`;
+
+exports[`<MarkedText> that renders a text block while marking matched substrings should render correctly when there are matches 1`] = `
+<div>
+  <p>
+    Some 
+    <mark
+      class="MarkedText__marked"
+      role="contentinfo"
+    >
+      text
+    </mark>
+     content
+  </p>
+</div>
+`;
+
+exports[`<MarkedText> that renders a text block while marking matched substrings should render correctly when there are no matches 1`] = `
+<div>
+  <p>
+    Some text content
+  </p>
+</div>
+`;
+
+exports[`<MarkedText> that renders a text block while marking matched substrings should render correctly with multiple matches 1`] = `
+<div>
+  <p>
+    Some 
+    <mark
+      class="MarkedText__marked"
+      role="contentinfo"
+    >
+      te
+    </mark>
+    xt con
+    <mark
+      class="MarkedText__marked"
+      role="contentinfo"
+    >
+      te
+    </mark>
+    nt that has 
+    <mark
+      class="MarkedText__marked"
+      role="contentinfo"
+    >
+      te
+    </mark>
+    xt more then once
+  </p>
+</div>
+`;
