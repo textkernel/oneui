@@ -3,10 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { Autosuggest } from '../Autosuggest';
-import {
-    SUGGESTIONS,
-    SUGGESTION_TO_STRING,
-} from '../../../AutosuggestDeprecated/__mocks__/suggestions';
+import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../../constants/suggestions';
 
 describe('Autosuggest', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
@@ -89,6 +86,7 @@ describe('Autosuggest', () => {
 
         it('should initially render focused component with suggestions list correctly', async () => {
             const user = userEvent.setup();
+            // @ts-ignore
             suggestionsList = SUGGESTIONS.slice(0, 8);
             const newProps = {
                 isLoading: false,
@@ -103,6 +101,7 @@ describe('Autosuggest', () => {
 
         it('should render component with suggestions', async () => {
             const user = userEvent.setup();
+            // @ts-ignore
             suggestionsList = SUGGESTIONS.slice(1, 20);
             const newProps = {
                 isLoading: false,
@@ -117,6 +116,7 @@ describe('Autosuggest', () => {
 
         it('should render isLoading state', async () => {
             const user = userEvent.setup();
+            // @ts-ignore
             suggestionsList = SUGGESTIONS.slice(1, 20);
             const newProps = {
                 isLoading: true,
@@ -133,6 +133,7 @@ describe('Autosuggest', () => {
 
         it('should render mix suggestions and loader if allowMixingSuggestionsAndLoading is set to true', async () => {
             const user = userEvent.setup();
+            // @ts-ignore
             suggestionsList = SUGGESTIONS.slice(1, 3);
             const newProps = {
                 isLoading: true,
