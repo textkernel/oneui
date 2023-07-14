@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, RenderResult, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ThemerollerConfig } from '@textkernel/oneui';
 import { ThemeTuner } from '../ThemeTuner';
@@ -43,10 +42,11 @@ export const ThemeRollerTestConfig = [
 ] as ThemerollerConfig;
 
 describe('ThemeTuner component', () => {
-    const onChangeMock = jest.fn();
+    let view: RenderResult;
 
     it('should render component correctly', () => {
-        const view = render(
+        const onChangeMock = jest.fn();
+        view = render(
             <ThemeTuner
                 config={ThemeRollerTestConfig}
                 cssVars={{
@@ -88,21 +88,22 @@ describe('ThemeTuner component', () => {
         expect(view.container).toMatchSnapshot();
     });
 
-    // TODO can't change value
-    it.skip('should invoke onChange callback when first input was changed', async () => {
-        const user = userEvent.setup();
-        const view = render(
+    it('should invoke onChange callback when first input was changed', () => {
+        const onChangeMock = jest.fn();
+        view = render(
             <ThemeTuner config={ThemeRollerTestConfig} cssVars={{}} onChange={onChangeMock} />
         );
-
         expect(view.container).toMatchSnapshot();
 
-        const firstInput = screen.getByRole('spinbutton');
+        fireEvent.change(screen.getByRole('textbox'), {
+            target: {
+                value: '#00000',
+            },
+        });
 
-        await user.type(firstInput, '#00000');
-
+        expect(onChangeMock).toHaveBeenCalledTimes(1);
         expect(onChangeMock).toHaveBeenCalledWith({
-            '--color-background': '#00000',
+            '--link-decoration-normal': '#00000',
         });
     });
 });

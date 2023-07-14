@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { SelectBase } from '../SelectBase';
@@ -163,15 +163,20 @@ describe('SelectBase', () => {
             expect(screen.queryAllByRole('option')).toHaveLength(suggestions.length);
         });
 
-        it('should clear the input field when a suggestion was selected', async () => {
-            const user = userEvent.setup();
+        it('should clear the input field when a suggestion was selected', () => {
             const textInputValue = 'driver';
             const inputField = screen.getAllByRole('textbox')[0];
-            await user.type(inputField, textInputValue);
+            fireEvent.change(screen.getByRole('textbox'), {
+                target: {
+                    value: textInputValue,
+                },
+            });
+            expect(mockOnInputValueChange).toHaveBeenCalledTimes(1);
+            expect(mockOnInputValueChange).toHaveBeenCalledWith(textInputValue);
 
             expect(inputField.getAttribute('value')).toEqual(textInputValue);
 
-            await user.click(screen.queryAllByRole('option')[0]);
+            fireEvent.click(screen.queryAllByRole('option')[0]);
 
             expect(inputField.getAttribute('value')).toEqual('');
         });
