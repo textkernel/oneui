@@ -1,6 +1,5 @@
 import React from 'react';
-import { render, screen, RenderResult } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { render, screen, RenderResult, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { ThemerollerConfig } from '@textkernel/oneui';
 import { ThemeTuner } from '../ThemeTuner';
@@ -89,16 +88,22 @@ describe('ThemeTuner component', () => {
         expect(view.container).toMatchSnapshot();
     });
 
-    it('should invoke onChange callback when first input was changed', async () => {
+    it('should invoke onChange callback when first input was changed', () => {
         const onChangeMock = jest.fn();
-        const user = userEvent.setup();
         view = render(
             <ThemeTuner config={ThemeRollerTestConfig} cssVars={{}} onChange={onChangeMock} />
         );
         expect(view.container).toMatchSnapshot();
 
-        await user.type(screen.getByRole('textbox'), '#ffffff');
+        fireEvent.change(screen.getByRole('textbox'), {
+            target: {
+                value: '#00000',
+            },
+        });
 
-        expect(onChangeMock).toHaveBeenCalled();
+        expect(onChangeMock).toHaveBeenCalledTimes(1);
+        expect(onChangeMock).toHaveBeenCalledWith({
+            '--link-decoration-normal': '#00000',
+        });
     });
 });
