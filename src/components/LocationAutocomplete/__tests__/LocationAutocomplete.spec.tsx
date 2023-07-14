@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, RenderResult } from '@testing-library/react';
+import { render, screen, RenderResult, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { stabGoogleApi, getPlacePredictionsMock } from '../../../__mocks__/googleApiMock';
@@ -64,7 +64,9 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         const user = userEvent.setup();
         await user.type(screen.getByRole('textbox'), 'Tonga');
         const textBox = screen.getByRole('textbox');
-
+        await waitFor(() => {
+            jest.runAllTimers();
+        });
         await focusField(user);
 
         expect(textBox).toHaveAttribute('value', 'Tonga');
@@ -81,6 +83,9 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
             cb(predictionsMock, 'REQUEST_DENIED')
         );
         await user.type(screen.getByRole('textbox'), 'Tonga');
+        await waitFor(() => {
+            jest.runAllTimers();
+        });
         await focusField(user);
 
         expect(onErrorMock).toHaveBeenCalled();
@@ -109,7 +114,9 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         const user = userEvent.setup();
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         await user.type(screen.getByRole('textbox'), 'Tonga');
-
+        await waitFor(() => {
+            jest.runAllTimers();
+        });
         await focusField(user);
         await user.click(screen.getByRole('listbox'));
     });
@@ -137,6 +144,9 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         const user = userEvent.setup();
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         await user.type(screen.getByRole('textbox'), 'Tonga');
+        // await waitFor(() => {
+        //     jest.runAllTimers();
+        // });
         await focusField(user);
     });
 
