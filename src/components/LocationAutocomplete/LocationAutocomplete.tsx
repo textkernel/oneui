@@ -198,7 +198,8 @@ const LocationAutocomplete: React.FC<Props> = ({
     };
 
     return (
-        <Autosuggest
+        <Autosuggest<google.maps.places.AutocompletePrediction>
+            onSelectionAdd={handleSelection}
             suggestions={suggestionsList}
             suggestionToString={suggestionToString}
             isLoading={isLoading}
@@ -212,7 +213,6 @@ const LocationAutocomplete: React.FC<Props> = ({
             onClearAllSelected={onRemoveAllLocations}
             inputRef={inputRef}
             autoFocus={isFocused}
-            selectedSuggestions={[singleLocation]}
             {...rest}
         />
     );
