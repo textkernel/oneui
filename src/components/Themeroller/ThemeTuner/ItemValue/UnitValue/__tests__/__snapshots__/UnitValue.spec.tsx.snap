@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnitValue component should render component correctly 1`] = `
+<div>
+  <span>
+    <input
+      class="Input Input--size_small UnitValue__input"
+      data-lpignore="true"
+      type="number"
+      value="12"
+    />
+    <span
+      class="Text--context_neutral UnitValue__value"
+    >
+      12
+      px
+    </span>
+  </span>
+</div>
+`;

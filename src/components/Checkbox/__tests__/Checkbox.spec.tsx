@@ -1,88 +1,128 @@
 import * as React from 'react';
-import toJson from 'enzyme-to-json';
+import { render, RenderResult, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import { Checkbox } from '../Checkbox';
 
 describe('<Checkbox> that renders a checkbox', () => {
+    const lineRole = 'line label';
+    const polylineRole = 'polyline label';
+    let view: RenderResult;
+
     it('should render default checkbox correctly', () => {
-        const wrapper = mount(<Checkbox id="c1">Check this out</Checkbox>);
-        expect(toJson(wrapper)).toMatchSnapshot();
+        view = render(<Checkbox id="c1">Check this out</Checkbox>);
+
+        expect(view.container).toMatchSnapshot();
     });
+
     it('should render checkbox with complex children', () => {
-        const wrapper = mount(
+        view = render(
             <Checkbox id="c1">
                 <span>
                     Check this out <span>something else</span>
                 </span>
             </Checkbox>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
+
+        expect(view.container).toMatchSnapshot();
+        expect(
+            screen.getByRole('checkbox', { name: 'Check this out something else' })
+        ).toBeVisible();
     });
-    it('should call onChange function when clicked', () => {
+
+    it('should call onChange function when clicked', async () => {
+        const user = userEvent.setup();
         const onChange = jest.fn();
-        const wrapper = mount(
+        view = render(
             <Checkbox id="c2" onChange={onChange}>
                 Check this out
             </Checkbox>
         );
-        wrapper.find('input').simulate('change');
+
+        await user.click(screen.getByRole('checkbox'));
+
         expect(onChange).toHaveBeenCalledTimes(1);
     });
+
     it('should rendered disabled checkbox correctly', () => {
-        const wrapper = mount(
+        view = render(
             <Checkbox id="c3" disabled>
                 Useless checkbox
             </Checkbox>
         );
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('input[disabled]')).toHaveLength(1);
-        expect(wrapper.find('.Text--context_neutral')).toHaveLength(1);
+
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByRole('checkbox')).toBeVisible();
+        expect(screen.getByRole('checkbox')).toHaveAttribute('disabled');
     });
 
-    it('should render the indeterminate svg when checked is false and indeterminate true', () => {
-        const wrapper = mount(
-            <Checkbox id="c4" checked={false} indeterminate onChange={() => {}}>
-                Useless checkbox
-            </Checkbox>
-        );
+    describe('svg render', () => {
+        const defaultProps = {
+            id: 'c4',
+            checked: true,
+            indeterminate: true,
+            onChange: () => {},
+            lineRole,
+            polylineRole,
+        };
 
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('svg polyline')).toHaveLength(0);
-        expect(wrapper.find('svg line')).toHaveLength(1);
-    });
+        beforeEach(() => {
+            view = render(<Checkbox {...defaultProps}>Useless checkbox</Checkbox>);
+        });
 
-    it('should render the checked svg when checked is true and indeterminate false', () => {
-        const wrapper = mount(
-            <Checkbox id="c5" checked indeterminate={false} onChange={() => {}}>
-                Useless checkbox
-            </Checkbox>
-        );
+        const rerenderView = (props) => {
+            view.rerender(<Checkbox {...defaultProps} {...props} />);
+        };
 
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('svg polyline')).toHaveLength(1);
-        expect(wrapper.find('svg line')).toHaveLength(0);
-    });
+        it('should render the indeterminate svg when checked is false and indeterminate true', () => {
+            const newProps = {
+                checked: false,
+            };
 
-    it('should render the indeterminate svg when checked and indeterminate are true', () => {
-        const wrapper = mount(
-            <Checkbox id="c6" checked indeterminate onChange={() => {}}>
-                Useless checkbox
-            </Checkbox>
-        );
+            rerenderView(newProps);
 
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('svg polyline')).toHaveLength(0);
-        expect(wrapper.find('svg line')).toHaveLength(1);
-    });
+            expect(view.container).toMatchSnapshot();
+            expect(screen.queryByRole('img', { name: polylineRole })).not.toBeInTheDocument();
+            expect(screen.getByRole('img', { name: lineRole })).toBeVisible();
+        });
 
-    it('should not render any svg when checked and indeterminate are both false', () => {
-        const wrapper = mount(
-            <Checkbox id="c7" checked={false} indeterminate={false} onChange={() => {}}>
-                Useless checkbox
-            </Checkbox>
-        );
+        it('should render the checked svg when checked is true and indeterminate false', () => {
+            const newProps = {
+                id: 'c5',
+                indeterminate: false,
+            };
 
-        expect(toJson(wrapper)).toMatchSnapshot();
-        expect(wrapper.find('svg polyline')).toHaveLength(0);
-        expect(wrapper.find('svg line')).toHaveLength(0);
+            rerenderView(newProps);
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.getByRole('img', { name: polylineRole })).toBeVisible();
+            expect(screen.queryByRole('img', { name: lineRole })).not.toBeInTheDocument();
+        });
+
+        it('should render the indeterminate svg when checked and indeterminate are true', () => {
+            const newProps = {
+                id: 'c6',
+            };
+
+            rerenderView(newProps);
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.queryByRole('img', { name: polylineRole })).not.toBeInTheDocument();
+            expect(screen.getByRole('img', { name: lineRole })).toBeVisible();
+        });
+
+        it('should not render any svg when checked and indeterminate are both false', () => {
+            const newProps = {
+                id: 'c7',
+                checked: false,
+                indeterminate: false,
+            };
+
+            rerenderView(newProps);
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.queryByRole(polylineRole)).not.toBeInTheDocument();
+            expect(screen.queryByRole(lineRole)).not.toBeInTheDocument();
+        });
     });
 });
