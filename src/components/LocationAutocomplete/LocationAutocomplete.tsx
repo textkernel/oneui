@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { Autosuggest } from '@textkernel/oneui/components/SelectComponents';
+import { Autosuggest } from '../SelectComponents/Autosuggest';
 import { bem } from '../../utils';
 import { ListItem } from '../List/ListItem';
 import { MarkedText, Text } from '../Text';
