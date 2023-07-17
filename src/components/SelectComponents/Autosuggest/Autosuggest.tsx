@@ -91,6 +91,7 @@ export function Autosuggest<S>({
     inputAttrs = {},
     isFocused,
     iconNode,
+    listRenderer,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -228,7 +229,9 @@ export function Autosuggest<S>({
                 noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                 passDisabledToListItems
             />
-        ) : null;
+        ) : (
+            listRenderer || null
+        );
     };
 
     const isClearButtonShown = customSelectionIndicator
