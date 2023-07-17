@@ -14,8 +14,6 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
     const onErrorMock = jest.fn();
     const onRemoveAllLocationsMock = jest.fn();
 
-    // const focusField = () => view.find('input').simulate('click');
-
     beforeEach(() => {
         view = render(
             <LocationAutocomplete
@@ -48,14 +46,15 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
     });
 
     it('should set loading to false when user deletes input value', () => {
-        // expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
+        expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+
         fireEvent.change(screen.getByRole('textbox'), {
             target: {
                 value: 'Honolulu',
             },
         });
 
-        // expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeTruthy();
+        expect(screen.getAllByRole('alert', { name: 'Loading' })).toHaveLength(5);
 
         fireEvent.change(screen.getByRole('textbox'), {
             target: {
@@ -63,7 +62,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
             },
         });
 
-        // expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
+        expect(screen.queryByRole('alert')).not.toBeInTheDocument();
     });
 
     it('should request predictions from API when user types', () => {
@@ -130,8 +129,8 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         expect(screen.getByRole('img', { name: 'Powered by Google' })).toBeVisible();
     });
 
-    it.skip('should not display powerByGoogle logo if hidePoweredByGoogleLogo set to true', () => {
-        view = render(
+    it('should not display powerByGoogle logo if hidePoweredByGoogleLogo set to true', () => {
+        view.rerender(
             <LocationAutocomplete
                 inputPlaceholder="Location..."
                 noSuggestionsPlaceholder="No suggestions..."
@@ -169,24 +168,17 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         expect(onSelectionMock).toHaveBeenCalled();
     });
 
-    // it('should call onRemoveAllLocations when selected suggestion is cleared with singleLocation set to true', () => {
-    //     wrapper.setProps({ singleLocation: true });
-    //     getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
-    //     wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
-    //     act(() => {
-    //         jest.runAllTimers();
-    //     });
-    //     focusField();
-    //     wrapper.find('li').at(0).children().simulate('click');
-    //
-    //     expect(onSelectionMock).toHaveBeenCalled();
-    //
-    //     wrapper.find('input').simulate('change', { target: { value: '' } });
-    //
-    //     expect(onRemoveAllLocationsMock).toHaveBeenCalled();
-    // });
-
-    it.skip('should not display country information in list', () => {
+    it('should call onRemoveAllLocations when selected suggestion is cleared with singleLocation set to true', () => {
+        view.rerender(
+            <LocationAutocomplete
+                inputPlaceholder="Location..."
+                noSuggestionsPlaceholder="No suggestions..."
+                onSelectionChange={onSelectionMock}
+                onError={onErrorMock}
+                onRemoveAllLocations={onRemoveAllLocationsMock}
+                singleLocation
+            />
+        );
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         fireEvent.change(screen.getByRole('textbox'), {
             target: {
@@ -196,13 +188,21 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         act(() => {
             jest.runAllTimers();
         });
+        fireEvent.click(screen.getAllByRole('option')[0]);
 
-        // expect(wrapper.find('MarkedText').at(0).text()).not.toContain(' UK');
+        expect(onSelectionMock).toHaveBeenCalled();
+
+        fireEvent.change(screen.getByRole('textbox'), {
+            target: {
+                value: '',
+            },
+        });
+
+        expect(onRemoveAllLocationsMock).toHaveBeenCalled();
     });
 
-    it.skip('should display country information in list if showCountryInSuggestions is true', () => {
+    it('should not display country information in list', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
-        // wrapper.setProps({ showCountryInSuggestions: true });
         fireEvent.change(screen.getByRole('textbox'), {
             target: {
                 value: 'Tonga',
@@ -211,9 +211,32 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         act(() => {
             jest.runAllTimers();
         });
-        // focusField();
 
-        // expect(wrapper.find('MarkedText').at(0).text()).toContain(' UK');
+        expect(screen.getAllByRole('option')[0]).not.toHaveTextContent(' UK');
+    });
+
+    it('should display country information in list if showCountryInSuggestions is true', () => {
+        getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
+        view.rerender(
+            <LocationAutocomplete
+                inputPlaceholder="Location..."
+                noSuggestionsPlaceholder="No suggestions..."
+                onSelectionChange={onSelectionMock}
+                onError={onErrorMock}
+                onRemoveAllLocations={onRemoveAllLocationsMock}
+                showCountryInSuggestions
+            />
+        );
+        fireEvent.change(screen.getByRole('textbox'), {
+            target: {
+                value: 'Tonga',
+            },
+        });
+        act(() => {
+            jest.runAllTimers();
+        });
+
+        expect(screen.getAllByRole('option')[0]).toHaveTextContent(' UK');
     });
 
     it('should display latest results only, even if reply is delayed on previous requests', () => {
@@ -222,7 +245,6 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
                 setTimeout(() => cb([predictionsMock[0]], 'OK'), 1000)
             ) // delay the reply to the first request
             .mockImplementationOnce((req, cb) => cb([predictionsMock[1]], 'OK'));
-
         fireEvent.change(screen.getByRole('textbox'), {
             target: {
                 value: 'One',
@@ -245,8 +267,5 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
 
         // TODO: check why it is called 3 times and not 2 only
         expect(getPlacePredictionsMock).toHaveBeenCalledTimes(3);
-        // expect(screen.getByRole('option').textContent).toBe(
-        //     predictionsMock[1].structured_formatting.main_text
-        // );
     });
 });
