@@ -200,6 +200,7 @@ const LocationAutocomplete: React.FC<Props> = ({
     };
 
     return (
+        // @ts-ignore
         <Autosuggest<google.maps.places.AutocompletePrediction>
             onSelectionAdd={handleSelection}
             suggestions={suggestionsList}

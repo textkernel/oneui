@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { JSXElementConstructor, ReactElement } from 'react';
 import { DictionaryOf } from '../../../customTypes/types';
 import { bem } from '../../../utils';
 import { SuggestionTag } from './SuggestionTag';
