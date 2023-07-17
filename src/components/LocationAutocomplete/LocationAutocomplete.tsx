@@ -43,6 +43,8 @@ interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onError'> {
     onError?: (error: google.maps.places.PlacesServiceStatus) => void;
     /** To hide powered by google logo. For legal reasons only set it to true if Google map is displayed on the same screen as this component! */
     hidePoweredByGoogleLogo?: boolean;
+
+    autoFocus?: boolean;
 }
 
 const { elem } = bem('LocationAutocomplete', styles);
@@ -212,7 +214,8 @@ const LocationAutocomplete: React.FC<Props> = ({
             onChange={handleSelection}
             onClearAllSelected={onRemoveAllLocations}
             inputRef={inputRef}
-            autoFocus={isFocused}
+            isFocused={isFocused}
+            iconNode={<FaMapMarkerAlt {...elem('icon')} />}
             {...rest}
         />
     );

@@ -46,6 +46,9 @@ export interface Props<S>
     customSelectionIndicator?: React.ReactNode;
     /** Additional HTML attributes to be applied to the input element */
     inputAttrs?: DictionaryOf<string | boolean>;
+    /** trigger of the initial focus of the input field */
+    isFocused?: boolean;
+    iconNode?: React.ReactElement;
 }
 
 const { elem } = bem('Autosuggest', styles);
@@ -83,6 +86,8 @@ export function Autosuggest<S>({
     customSelectionIndicator = undefined,
     initInputValue,
     inputAttrs = {},
+    isFocused,
+    iconNode,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -147,6 +152,18 @@ export function Autosuggest<S>({
         }
     };
 
+    const renderIcon = () => {
+        return (
+            iconNode &&
+            React.cloneElement(
+                iconNode,
+                elem('spacedElem', {
+                    elemClassName: iconNode.props.className,
+                })
+            )
+        );
+    };
+
     // eslint-disable-next-line react/display-name
     const renderFocused: FocusedRendererHelpers<S> = ({
         getInputProps,
@@ -155,6 +172,7 @@ export function Autosuggest<S>({
     }) => (
         <div {...elem('wrapper', { isFocused: true })}>
             {renderFullTagsList()}
+            {renderIcon()}
             <input
                 {...getInputProps({
                     ...inputAttrs,
@@ -179,6 +197,7 @@ export function Autosuggest<S>({
         return (
             <div {...elem('wrapper')}>
                 {selectionIndicator}
+                {renderIcon()}
                 <input
                     {...getInputProps({
                         ...inputAttrs,
@@ -231,6 +250,7 @@ export function Autosuggest<S>({
             keepExpandedAfterSelection
             initInputValue={initInputValue}
             clearInputAfterSelection
+            autoFocus={isFocused}
         />
     );
 }
