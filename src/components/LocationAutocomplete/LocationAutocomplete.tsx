@@ -216,6 +216,7 @@ const LocationAutocomplete: React.FC<Props> = ({
             inputRef={inputRef}
             isFocused={isFocused}
             iconNode={<FaMapMarkerAlt {...elem('icon')} />}
+            listRenderer={renderListPoweredByGoogle}
             {...rest}
         />
     );
