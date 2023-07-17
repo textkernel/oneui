@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { Autosuggest } from '@textkernel/oneui/components/SelectComponents';
 import { bem } from '../../utils';
 import { AutosuggestDeprecated } from '../AutosuggestDeprecated';
 import { ListItem } from '../List/ListItem';
@@ -199,21 +200,20 @@ const LocationAutocomplete: React.FC<Props> = ({
     };
 
     return (
-        <AutosuggestDeprecated
-            getSuggestions={suggestionsList}
+        // @ts-ignore
+        <Autosuggest
+            suggestions={suggestionsList || renderListPoweredByGoogle}
+            onSelectionAdd={handleSelection}
+            selectedSuggestions={suggestionsList}
             suggestionToString={suggestionToString}
             isLoading={isLoading}
             isFocused={isFocused}
-            defaultInputValue={defaultInputValue}
+            defaultValue={defaultInputValue}
             inputPlaceholder={inputPlaceholder}
             showClearButton={singleLocation}
             clearTitle={clearTooltipLabel}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
-            listRenderer={renderListPoweredByGoogle}
-            saveSelectedValueToInput={singleLocation}
-            onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
-            onSelectionChange={handleSelection}
             onClearAllSelected={onRemoveAllLocations}
             iconNode={<FaMapMarkerAlt {...elem('icon')} />}
             {...rest}
