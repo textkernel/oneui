@@ -553,6 +553,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
     isFocused={false}
     isLoading={false}
     noSuggestionsPlaceholder="No suggestions..."
+    onBlur={[Function]}
     onClearAllSelected={[MockFunction]}
     onInputValueChange={[Function]}
     onSelectionAdd={[Function]}
@@ -584,6 +585,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
       }
       keepExpandedAfterSelection={true}
       listRenderer={[Function]}
+      onBlur={[Function]}
       onClearAllSelected={[MockFunction]}
       onInputValueChange={[Function]}
       onSelectionAdd={[Function]}
