@@ -35,21 +35,21 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
     it('should render with minimal props', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
-    it.skip('should set loading to true when user starts typing', () => {
-        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
+    it('should set loading to true when user starts typing', () => {
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
         wrapper.find('input').simulate('change', { target: { value: 'Honolulu' } });
 
-        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeTruthy();
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeTruthy();
     });
-    it.skip('should set loading to false when user deletes input value', () => {
-        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
+    it('should set loading to false when user deletes input value', () => {
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
         wrapper.find('input').simulate('change', { target: { value: 'Honolulu' } });
 
-        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeTruthy();
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeTruthy();
 
         wrapper.find('input').simulate('change', { target: { value: '' } });
 
-        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
     });
     it('should request predictions from API when user types', () => {
         wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
@@ -63,7 +63,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
             expect.any(Function)
         );
     });
-    it.skip('should pass predictions to AutosuggestDeprecated', () => {
+    it('should pass predictions to AutosuggestDeprecated', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {
@@ -71,7 +71,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         });
         focusField();
 
-        expect(wrapper.find('AutosuggestDeprecated').props().getSuggestions).toHaveLength(5);
+        expect(wrapper.find('Autosuggest').props().selectedSuggestions).toHaveLength(5);
         expect(getPlacePredictionsMock).toHaveBeenCalled();
         expect(toJson(wrapper)).toMatchSnapshot();
     });
