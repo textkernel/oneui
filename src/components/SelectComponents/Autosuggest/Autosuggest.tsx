@@ -50,6 +50,8 @@ export interface Props<S>
     isFocused?: boolean;
     /** icon which should render */
     iconNode?: React.ReactElement;
+    /** render custom list values */
+    customListRender?: (suggestions) => React.ReactNode;
 }
 
 const { elem } = bem('Autosuggest', styles);
@@ -89,6 +91,7 @@ export function Autosuggest<S>({
     inputAttrs = {},
     isFocused,
     iconNode,
+    customListRender,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -215,6 +218,11 @@ export function Autosuggest<S>({
     };
 
     const renderList: ListRendererHelper<S> = (listProps) => {
+        if (customListRender !== undefined) {
+            return customListRender({
+                ...listProps,
+            });
+        }
         return suggestions.length > 0 || inputValue ? (
             <SuggestionsList
                 {...listProps}

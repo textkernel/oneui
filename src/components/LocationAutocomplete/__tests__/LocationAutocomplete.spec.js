@@ -87,7 +87,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
 
         expect(onErrorMock).toHaveBeenCalled();
     });
-    it.skip('should display powerByGoogle logo', () => {
+    it('should display powerByGoogle logo', () => {
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {
@@ -135,7 +135,9 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
 
         expect(onRemoveAllLocationsMock).toHaveBeenCalled();
     });
-    it.skip('should not display country information in list', () => {
+    it('should not display country information in list', () => {
+        expect(toJson(wrapper)).toMatchSnapshot();
+
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {

@@ -200,7 +200,7 @@ const LocationAutocomplete: React.FC<Props> = ({
 
     return (
         <Autosuggest
-            suggestions={suggestionsList || renderListPoweredByGoogle}
+            suggestions={suggestionsList}
             onSelectionAdd={handleSelection}
             selectedSuggestions={suggestionsList}
             suggestionToString={suggestionToString}
@@ -215,6 +215,7 @@ const LocationAutocomplete: React.FC<Props> = ({
             onClearAllSelected={onRemoveAllLocations}
             iconNode={<FaMapMarkerAlt {...elem('icon')} />}
             onBlur={resetSuggestionsList}
+            customListRender={renderListPoweredByGoogle}
             {...rest}
             inputRef={inputRef}
         />
