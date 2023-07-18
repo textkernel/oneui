@@ -97,7 +97,7 @@ describe('LocationSelectorDialog component', () => {
         await user.type(input, 'Tonga');
         await user.click(input);
 
-        // expect(screen.getAllByRole('alert')).toHaveLength(5);
+        expect(screen.getAllByRole('alert')).toHaveLength(5);
         expect(onAddLocationMock).not.toHaveBeenCalled();
     });
 
