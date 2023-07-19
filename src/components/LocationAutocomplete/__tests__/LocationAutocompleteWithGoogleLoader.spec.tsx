@@ -15,6 +15,6 @@ describe('<LocationAutocompleteWithGoogleLoader/> that loads google api and rend
         );
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('status')).toBeInTheDocument();
+        expect(screen.getByRole('status')).toBeVisible();
     });
 });
