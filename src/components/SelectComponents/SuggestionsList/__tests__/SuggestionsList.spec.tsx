@@ -2,7 +2,10 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen, RenderResult } from '@testing-library/react';
 import { SuggestionsList } from '..';
-import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../../constants/suggestions';
+import {
+    SUGGESTIONS,
+    SUGGESTION_TO_STRING,
+} from '../../../AutosuggestDeprecated/__mocks__/suggestions';
 
 const noSuggestionsPlaceholder = 'noSuggestionsPlaceholder';
 const getItemProps = (props) => ({ disabled: props.disabled });

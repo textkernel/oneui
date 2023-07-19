@@ -6,8 +6,7 @@ import { Autosuggest } from '../Autosuggest';
 import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
-    SuggestionsType,
-} from '../../../../constants/suggestions';
+} from '../../../AutosuggestDeprecated/__mocks__/suggestions';
 
 describe('Autosuggest', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
@@ -18,7 +17,7 @@ describe('Autosuggest', () => {
     const mockOnInputValueChange = jest.fn();
     const mockOnBlur = jest.fn();
 
-    let suggestionsList: SuggestionsType[] = [];
+    let suggestionsList = [];
     const selectedSuggestions = [];
 
     let view;

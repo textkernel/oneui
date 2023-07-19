@@ -3,7 +3,10 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { Combobox } from '../Combobox';
-import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../../constants/suggestions';
+import {
+    SUGGESTIONS,
+    SUGGESTION_TO_STRING,
+} from '../../../AutosuggestDeprecated/__mocks__/suggestions';
 import { ESCAPE_KEY } from '../../../../constants';
 
 describe('Combobox', () => {

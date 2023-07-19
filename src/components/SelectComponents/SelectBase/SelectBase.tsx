@@ -35,7 +35,6 @@ export function SelectBase<S>({
     clearInputAfterSelection = false,
     highlightOnEmptyInput = true,
     initInputValue,
-    autoFocus = false,
     ...rest
 }: Props<S>) {
     const [inputRef, setInputRef] = React.useState(
@@ -50,7 +49,7 @@ export function SelectBase<S>({
 
     const [inputValue, setInputValue] = React.useState(initInputValue || '');
     const [inputValueRecall, setInputValueRecall] = React.useState('');
-    const [focused, setFocused] = React.useState(autoFocus);
+    const [focused, setFocused] = React.useState(false);
     const isBrowserTabVisible = useBrowserTabVisibilityChange();
 
     // focus input field if component is focused

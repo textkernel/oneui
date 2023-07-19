@@ -3,7 +3,10 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Select } from '../Select';
-import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../../constants/suggestions';
+import {
+    SUGGESTIONS,
+    SUGGESTION_TO_STRING,
+} from '../../../AutosuggestDeprecated/__mocks__/suggestions';
 
 // TODO: these tests use the wrong role to find items in the list.
 // This should be remedied in or following https://textkernel.atlassian.net/browse/ONEUI-364

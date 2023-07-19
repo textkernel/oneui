@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { Autosuggest } from '../SelectComponents/Autosuggest';
 import { bem } from '../../utils';
+import { AutosuggestDeprecated } from '../AutosuggestDeprecated';
 import { ListItem } from '../List/ListItem';
 import { MarkedText, Text } from '../Text';
 import { useDebounce } from '../../hooks';
@@ -10,7 +10,7 @@ import POWERED_BY_GOOGLE_ON_WHITE_2X from './images/powered_by_google_on_white@2
 import POWERED_BY_GOOGLE_ON_WHITE_3X from './images/powered_by_google_on_white@3x.png';
 import styles from './LocationAutocomplete.scss';
 
-interface Props {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onError'> {
     /** input field ref */
     inputRef?: React.RefObject<HTMLInputElement>;
     /** to be shown in the input field when no value is typed */
@@ -199,23 +199,23 @@ const LocationAutocomplete: React.FC<Props> = ({
     };
 
     return (
-        <Autosuggest
-            suggestions={suggestionsList}
-            onSelectionAdd={handleSelection}
-            selectedSuggestions={suggestionsList}
+        <AutosuggestDeprecated
+            getSuggestions={suggestionsList}
             suggestionToString={suggestionToString}
             isLoading={isLoading}
             isFocused={isFocused}
-            defaultValue={defaultInputValue}
+            defaultInputValue={defaultInputValue}
             inputPlaceholder={inputPlaceholder}
             showClearButton={singleLocation}
             clearTitle={clearTooltipLabel}
             noSuggestionsPlaceholder={noSuggestionsPlaceholder}
+            listRenderer={renderListPoweredByGoogle}
+            saveSelectedValueToInput={singleLocation}
+            onBlur={resetSuggestionsList}
             onInputValueChange={handleInputValueChange}
+            onSelectionChange={handleSelection}
             onClearAllSelected={onRemoveAllLocations}
             iconNode={<FaMapMarkerAlt {...elem('icon')} />}
-            onBlur={resetSuggestionsList}
-            customListRender={renderListPoweredByGoogle}
             {...rest}
             inputRef={inputRef}
         />

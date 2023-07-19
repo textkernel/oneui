@@ -46,12 +46,6 @@ export interface Props<S>
     customSelectionIndicator?: React.ReactNode;
     /** Additional HTML attributes to be applied to the input element */
     inputAttrs?: DictionaryOf<string | boolean>;
-    /** trigger of the initial focus of the input field */
-    isFocused?: boolean;
-    /** icon which should render */
-    iconNode?: React.ReactElement;
-    /** render custom list values */
-    customListRender?: (suggestions) => React.ReactNode;
 }
 
 const { elem } = bem('Autosuggest', styles);
@@ -89,9 +83,6 @@ export function Autosuggest<S>({
     customSelectionIndicator = undefined,
     initInputValue,
     inputAttrs = {},
-    isFocused,
-    iconNode,
-    customListRender,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -108,18 +99,6 @@ export function Autosuggest<S>({
                 {suggestionToString(item)}
             </SuggestionTag>
         ));
-    };
-
-    const renderIcon = () => {
-        return (
-            iconNode &&
-            React.cloneElement(
-                iconNode,
-                elem('spacedElem', {
-                    elemClassName: iconNode.props.className,
-                })
-            )
-        );
     };
 
     const renderShortTagsList = () => {
@@ -176,7 +155,6 @@ export function Autosuggest<S>({
     }) => (
         <div {...elem('wrapper', { isFocused: true })}>
             {renderFullTagsList()}
-            {renderIcon()}
             <input
                 {...getInputProps({
                     ...inputAttrs,
@@ -201,7 +179,6 @@ export function Autosuggest<S>({
         return (
             <div {...elem('wrapper')}>
                 {selectionIndicator}
-                {renderIcon()}
                 <input
                     {...getInputProps({
                         ...inputAttrs,
@@ -218,11 +195,6 @@ export function Autosuggest<S>({
     };
 
     const renderList: ListRendererHelper<S> = (listProps) => {
-        if (customListRender !== undefined && !isLoading) {
-            return customListRender({
-                ...listProps,
-            });
-        }
         return suggestions.length > 0 || inputValue ? (
             <SuggestionsList
                 {...listProps}
@@ -259,7 +231,6 @@ export function Autosuggest<S>({
             keepExpandedAfterSelection
             initInputValue={initInputValue}
             clearInputAfterSelection
-            autoFocus={isFocused}
         />
     );
 }
