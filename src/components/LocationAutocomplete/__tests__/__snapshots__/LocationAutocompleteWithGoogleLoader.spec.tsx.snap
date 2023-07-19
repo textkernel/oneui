@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LocationAutocompleteWithGoogleLoader/> that loads google api and renders a LocationAutocompleteWithGoogleLoader should render with default props 1`] = `
+<div>
+  <div
+    aria-busy="true"
+    aria-hidden="false"
+    class="LoadingSpinner LoadingSpinner--centerIn_parent"
+    role="status"
+  >
+    <svg
+      class="LoadingSpinner__svg"
+      viewBox="0,0,44,44"
+    >
+      <circle
+        class="LoadingSpinner__path"
+        cx="22"
+        cy="22"
+        fill="none"
+        r="20"
+        stroke-width="4"
+      />
+    </svg>
+  </div>
+</div>
+`;
