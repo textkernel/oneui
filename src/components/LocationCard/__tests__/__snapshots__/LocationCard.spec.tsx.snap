@@ -39,6 +39,7 @@ exports[`LocationCard component should render component correctly 1`] = `
         />
         <div
           aria-disabled="false"
+          aria-orientation="horizontal"
           aria-valuemax="100"
           aria-valuemin="1"
           aria-valuenow="42"
