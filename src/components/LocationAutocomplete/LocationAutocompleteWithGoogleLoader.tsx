@@ -41,6 +41,7 @@ const LocationAutocompleteWithGoogleLoader: React.FC<Props> = ({
             language={language}
             region={region}
             loadingElement={<LoadingSpinner centerIn="parent" />}
+            // @ts-ignore
             libraries={GOOGLE_API_LIBRARIES}
             {...additionalGoogleProps}
         >
