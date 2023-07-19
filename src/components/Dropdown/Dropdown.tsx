@@ -140,6 +140,7 @@ export function Dropdown<V>({
             {React.cloneElement(button, {
                 ...rest,
                 ...toggleButtonProps,
+                // @ts-ignore
                 ref: mergeRefs([setReferenceElement, toggleButtonProps.ref, button.ref]),
             })}
             <List
@@ -163,6 +164,7 @@ export function Dropdown<V>({
                                     index: currentValueIndex,
                                     item: child.props.value,
                                 }),
+                                // @ts-ignore
                                 isHighlighted: highlightedIndex === currentValueIndex,
                             });
                         }

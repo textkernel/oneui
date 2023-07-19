@@ -260,6 +260,7 @@ export function SelectBase<S>({
                                       inputValue,
                                   })
                                 : blurredRenderer({
+                                      // @ts-ignore
                                       getInputProps,
                                       getToggleButtonProps,
                                       onFocus: handleInputOnFocus(openMenu),
