@@ -36,20 +36,20 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         expect(toJson(wrapper)).toMatchSnapshot();
     });
     it('should set loading to true when user starts typing', () => {
-        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
         wrapper.find('input').simulate('change', { target: { value: 'Honolulu' } });
 
-        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeTruthy();
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeTruthy();
     });
     it('should set loading to false when user deletes input value', () => {
-        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
         wrapper.find('input').simulate('change', { target: { value: 'Honolulu' } });
 
-        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeTruthy();
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeTruthy();
 
         wrapper.find('input').simulate('change', { target: { value: '' } });
 
-        expect(wrapper.find('AutosuggestDeprecated').props().isLoading).toBeFalsy();
+        expect(wrapper.find('Autosuggest').props().isLoading).toBeFalsy();
     });
     it('should request predictions from API when user types', () => {
         wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
@@ -71,7 +71,7 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         });
         focusField();
 
-        expect(wrapper.find('AutosuggestDeprecated').props().getSuggestions).toHaveLength(5);
+        expect(wrapper.find('Autosuggest').props().selectedSuggestions).toHaveLength(5);
         expect(getPlacePredictionsMock).toHaveBeenCalled();
         expect(toJson(wrapper)).toMatchSnapshot();
     });
@@ -136,6 +136,8 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         expect(onRemoveAllLocationsMock).toHaveBeenCalled();
     });
     it('should not display country information in list', () => {
+        expect(toJson(wrapper)).toMatchSnapshot();
+
         getPlacePredictionsMock.mockImplementationOnce((req, cb) => cb(predictionsMock, 'OK'));
         wrapper.find('input').simulate('change', { target: { value: 'Tonga' } });
         act(() => {
