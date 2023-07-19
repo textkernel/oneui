@@ -19,11 +19,12 @@ exports[`Alert should render correctly 1`] = `
     class="ReactModalPortal"
   >
     <div
-      class="Modal__overlay Modal__overlay--entered"
+      class="Modal__overlay"
     >
       <div
         aria-label="Content label"
-        class="Modal__content Dialog Modal__content--entered"
+        aria-modal="true"
+        class="Modal__content Dialog"
         role="dialog"
         tabindex="-1"
       >
@@ -71,11 +72,12 @@ exports[`Alert should render correctly with title 1`] = `
     class="ReactModalPortal"
   >
     <div
-      class="Modal__overlay Modal__overlay--entered"
+      class="Modal__overlay"
     >
       <div
         aria-label="Content label"
-        class="Modal__content Dialog Modal__content--entered"
+        aria-modal="true"
+        class="Modal__content Dialog"
         role="dialog"
         tabindex="-1"
       >
