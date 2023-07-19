@@ -85,10 +85,6 @@ exports[`ThemeActions component should render component correctly without any ac
 <div>
   <div
     class="ThemeActions"
-  >
-    
-    
-    
-  </div>
+  />
 </div>
 `;
