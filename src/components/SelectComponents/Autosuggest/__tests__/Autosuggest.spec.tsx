@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Autosuggest } from '../Autosuggest';
 import { SUGGESTIONS, SUGGESTION_TO_STRING, SuggestionsType } from '../__mocks__/suggestions';
 
@@ -149,6 +150,16 @@ describe('Autosuggest', () => {
             await setFocus(user);
 
             expect(document.activeElement).toBe(inputNodeField);
+        });
+
+        it('should render iconNode', () => {
+            const newProps = {
+                iconNode: <FaMapMarkerAlt role="img" />,
+            };
+            rerenderView(newProps);
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.getByRole('img')).toBeVisible();
         });
     });
 });

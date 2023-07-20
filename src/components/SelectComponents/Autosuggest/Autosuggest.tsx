@@ -218,7 +218,7 @@ export function Autosuggest<S>({
     };
 
     const renderList: ListRendererHelper<S> = (listProps) => {
-        if (customListRender !== undefined && !isLoading) {
+        if (customListRender !== undefined && !isLoading && inputValue) {
             return customListRender({
                 ...listProps,
             });
