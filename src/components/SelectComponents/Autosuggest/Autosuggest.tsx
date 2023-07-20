@@ -223,7 +223,7 @@ export function Autosuggest<S>({
                 ...listProps,
             });
         }
-        return suggestions.length > 0 || inputValue ? (
+        return (suggestions && suggestions.length > 0) || inputValue ? (
             <SuggestionsList
                 {...listProps}
                 allowMixingSuggestionsAndLoading={allowMixingSuggestionsAndLoading}
