@@ -4,7 +4,7 @@ import {
     SUGGESTIONS,
     SUGGESTION_TO_STRING,
     COMPLEX_SUGGESTIONS,
-} from '../../src/constants/suggestions';
+} from '@textkernel/oneui/components/SelectComponents/Autosuggest/__mocks__/suggestions';
 
 type TSuggestion = { name: string };
 type TComplexSuggestion = { name: string; type: string };

@@ -3,11 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { Autosuggest } from '../Autosuggest';
-import {
-    SUGGESTIONS,
-    SUGGESTION_TO_STRING,
-    SuggestionsType,
-} from '../../../../constants/suggestions';
+import { SUGGESTIONS, SUGGESTION_TO_STRING, SuggestionsType } from '../__mocks__/suggestions';
 
 describe('Autosuggest', () => {
     const suggestionToString = SUGGESTION_TO_STRING;

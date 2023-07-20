@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { ComboboxMulti } from '@textkernel/oneui';
-import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../src/constants/suggestions';
+import {
+    SUGGESTIONS,
+    SUGGESTION_TO_STRING,
+} from '@textkernel/oneui/components/SelectComponents/Autosuggest/__mocks__/suggestions';
 
 type TSuggestion = { name: string };
 

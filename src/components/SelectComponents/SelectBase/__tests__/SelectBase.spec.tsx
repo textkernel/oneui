@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { SelectBase } from '../SelectBase';
 import { SuggestionsList } from '../../SuggestionsList';
-import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../../../constants/suggestions';
+import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../Autosuggest/__mocks__/suggestions';
 
 describe('SelectBase', () => {
     const inputRef = React.createRef();
