@@ -14,6 +14,7 @@ describe('Autosuggest', () => {
     const mockOnSelectionRemove = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnBlur = jest.fn();
+    const customListRender = jest.fn();
 
     let suggestionsList: SuggestionsType[] = [];
     const selectedSuggestions = [];
@@ -160,6 +161,18 @@ describe('Autosuggest', () => {
 
             expect(view.container).toMatchSnapshot();
             expect(screen.getByRole('img')).toBeVisible();
+        });
+
+        it('should call customListRender', async () => {
+            const user = userEvent.setup();
+            const newProps = {
+                customListRender,
+            };
+            rerenderView(newProps);
+            await setFocus(user);
+            await user.type(inputNodeField, 'driver');
+
+            expect(customListRender).toHaveBeenCalled();
         });
     });
 });
