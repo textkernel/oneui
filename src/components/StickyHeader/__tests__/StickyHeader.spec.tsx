@@ -7,7 +7,7 @@ describe('StickyHeader component', () => {
     let view: RenderResult;
 
     it('should render StickyHeader correctly', () => {
-        // const consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
+        const consoleError = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
         view = render(
             <StickyHeader>
                 <div>I am a header</div>
@@ -16,7 +16,7 @@ describe('StickyHeader component', () => {
 
         expect(view.container).toMatchSnapshot();
         expect(view.container).toHaveTextContent('I am a header');
-        // expect(consoleError).not.toHaveBeenCalled();
+        expect(consoleError).not.toHaveBeenCalled();
         expect(screen.getByRole('group')).toBeInTheDocument();
     });
 
