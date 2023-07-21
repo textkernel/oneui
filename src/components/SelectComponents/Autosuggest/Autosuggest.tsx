@@ -175,8 +175,8 @@ export function Autosuggest<S>({
         highlightedIndex,
     }) => (
         <div {...elem('wrapper', { isFocused: true })}>
-            {renderFullTagsList()}
             {renderIcon()}
+            {renderFullTagsList()}
             <input
                 {...getInputProps({
                     ...inputAttrs,
@@ -200,8 +200,8 @@ export function Autosuggest<S>({
 
         return (
             <div {...elem('wrapper')}>
-                {selectionIndicator}
                 {renderIcon()}
+                {selectionIndicator}
                 <input
                     {...getInputProps({
                         ...inputAttrs,
