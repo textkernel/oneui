@@ -11,12 +11,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should not
   <Autosuggest
     clearTitle=""
     customListRender={[Function]}
-    defaultValue=""
     iconNode={
       <FaMapMarkerAlt
         className="LocationAutocomplete__icon"
       />
     }
+    initInputValue=""
     inputPlaceholder="Location..."
     isFocused={false}
     isLoading={false}
@@ -35,9 +35,9 @@ exports[`<LocationAutocomplete/> that renders a location search field should not
       blurredRenderer={[Function]}
       clearInputAfterSelection={true}
       clearTitle=""
-      defaultValue=""
       focusedRenderer={[Function]}
       highlightOnEmptyInput={false}
+      initInputValue=""
       inputRef={
         Object {
           "current": <input
@@ -63,7 +63,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should not
     >
       <div
         className="SelectBase"
-        defaultValue=""
       >
         <Downshift
           defaultHighlightedIndex={-1}
@@ -196,12 +195,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
   <Autosuggest
     clearTitle=""
     customListRender={[Function]}
-    defaultValue=""
     iconNode={
       <FaMapMarkerAlt
         className="LocationAutocomplete__icon"
       />
     }
+    initInputValue=""
     inputPlaceholder="Location..."
     isFocused={false}
     isLoading={false}
@@ -596,9 +595,9 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
       blurredRenderer={[Function]}
       clearInputAfterSelection={true}
       clearTitle=""
-      defaultValue=""
       focusedRenderer={[Function]}
       highlightOnEmptyInput={false}
+      initInputValue=""
       inputRef={
         Object {
           "current": <input
@@ -814,7 +813,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
     >
       <div
         className="SelectBase"
-        defaultValue=""
       >
         <Downshift
           defaultHighlightedIndex={-1}
@@ -1377,12 +1375,12 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   <Autosuggest
     clearTitle=""
     customListRender={[Function]}
-    defaultValue=""
     iconNode={
       <FaMapMarkerAlt
         className="LocationAutocomplete__icon"
       />
     }
+    initInputValue=""
     inputPlaceholder="Location..."
     isFocused={false}
     isLoading={false}
@@ -1401,9 +1399,9 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
       blurredRenderer={[Function]}
       clearInputAfterSelection={true}
       clearTitle=""
-      defaultValue=""
       focusedRenderer={[Function]}
       highlightOnEmptyInput={false}
+      initInputValue=""
       inputRef={
         Object {
           "current": <input
@@ -1429,7 +1427,6 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
     >
       <div
         className="SelectBase"
-        defaultValue=""
       >
         <Downshift
           defaultHighlightedIndex={-1}
