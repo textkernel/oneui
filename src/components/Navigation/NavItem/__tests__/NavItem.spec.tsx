@@ -39,9 +39,9 @@ describe('NavItem that renders a single navigation item', () => {
                 err.includes('NavItem should have a single child only') ||
                 err.includes('The above error occurred in the')
             ) {
-                // return;
+                return;
             }
-            // console.error(err);
+            console.error(err);
         });
 
         expect(() =>
@@ -78,9 +78,9 @@ describe('NavItem that renders a single navigation item', () => {
             // suppress error related to the test actually using version 6
             jest.spyOn(console, 'error').mockImplementation((err) => {
                 if (err.includes('Warning: React does not recognize the')) {
-                    // return;
+                    return;
                 }
-                // console.error(err);
+                console.error(err);
             });
 
             view = render(

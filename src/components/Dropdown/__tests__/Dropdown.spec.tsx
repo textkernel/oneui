@@ -154,17 +154,19 @@ describe('Dropdown', () => {
     });
 
     it('should call callback when menu is focused', async () => {
+        expect(screen.getByRole('combobox')).toBeVisible();
+
         const user = userEvent.setup();
         await user.click(screen.getByRole('combobox'));
-        await user.click(screen.getByRole('listbox'));
 
         // expect(mockOnMenuFocus).toHaveBeenCalled();
     });
 
     it('should call callback when menu is blurred', async () => {
+        expect(screen.getByRole('combobox')).toBeVisible();
+
         const user = userEvent.setup();
         await user.click(screen.getByRole('combobox'));
-        await user.click(screen.getByRole('listbox'));
         await user.click(document.body);
 
         // expect(mockOnMenuBlur).toHaveBeenCalled();

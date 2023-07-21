@@ -13,8 +13,8 @@ describe('<ProgressBar> that renders a horizontal progress bar', () => {
         expect(screen.getByRole('progressbar')).toBeInTheDocument();
     });
 
-    it.skip('should render a progress bar with label', () => {
-        view.rerender(<ProgressBar percentage={25}>Loading...</ProgressBar>);
+    it('should render a progress bar with label', () => {
+        view = render(<ProgressBar percentage={25}>Loading...</ProgressBar>);
         // Check that label is shown
         expect(view.container).toHaveTextContent('Loading...');
     });
