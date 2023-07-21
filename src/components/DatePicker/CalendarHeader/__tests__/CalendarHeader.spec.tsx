@@ -44,7 +44,7 @@ describe('CalendarHeader', () => {
 
     it('should log an error and render nothing if min year is larger then max year', () => {
         // don't log to test output
-        // const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
+        const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementationOnce(() => {});
         view.rerender(
             <CalendarHeader
                 yearsRange={[9, 2]}
@@ -64,11 +64,11 @@ describe('CalendarHeader', () => {
             />
         );
 
-        // expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
-        // expect(consoleErrorSpy.mock.calls[0][0].replace(/\s/g, '')).toMatch(
-        //     `CalendarHeader component has received invalid props.
-        // Minimum selectable year (9) is larger then maximum selectable year (2)`.replace(/\s/g, '')
-        // );
+        expect(consoleErrorSpy).toHaveBeenCalledTimes(1);
+        expect(consoleErrorSpy.mock.calls[0][0].replace(/\s/g, '')).toMatch(
+            `CalendarHeader component has received invalid props.
+        Minimum selectable year (9) is larger then maximum selectable year (2)`.replace(/\s/g, '')
+        );
     });
 
     it('should fill in the years correctly', () => {
