@@ -26,7 +26,6 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         );
         jest.useFakeTimers();
     });
-
     afterEach(() => {
         jest.resetAllMocks();
     });
