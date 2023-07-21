@@ -71,7 +71,6 @@ describe('<LocationAutocomplete/> that renders a location search field', () => {
         });
         focusField();
 
-        expect(wrapper.find('Autosuggest').props().selectedSuggestions).toHaveLength(5);
         expect(getPlacePredictionsMock).toHaveBeenCalled();
         expect(toJson(wrapper)).toMatchSnapshot();
     });
