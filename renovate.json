@@ -9,10 +9,6 @@
             "groupName": "eslint"
         },
         {
-            "matchPackagePatterns": ["^enzyme"],
-            "groupName": "enzyme"
-        },
-        {
             "matchPackagePatterns": ["^stylelint"],
             "groupName": "stylelint"
         },
