@@ -165,7 +165,7 @@ const LocationAutocomplete: React.FC<Props> = ({
 
     // eslint-disable-next-line react/display-name
     const renderListPoweredByGoogle = ({ listInputValue, getItemProps, highlightedIndex }) => {
-        const elems = suggestionsList.map((item, index) => (
+        const elems = suggestionsList?.map((item, index) => (
             <ListItem
                 key={suggestionToString(item)}
                 {...getItemProps({
