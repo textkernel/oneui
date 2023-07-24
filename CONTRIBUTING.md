@@ -10,7 +10,7 @@ Any new implementation is expected to meet the following standards before it can
 -   The component has a [**displayName**](#display-names) defined.
 -   The implementation complies with [**accessibility**](#accessibility) standards.
 -   The component is **properly exported** in `src/index.js` (maintain alphabetical order).
--   The implementation is thoroughly [**covered by tests**](#testing) (Jest / Enzyme, preferably 100%), not only with snapshots.
+-   The implementation is thoroughly [**covered by tests**](#testing) (Jest, preferably 100%), not only with snapshots.
 -   The component [**comes with a story**](#component-showcases) in Storybook that allows props to be changed with knobs.
 -   The implementation is **reviewed** by another contributor.
 -   The complete **build is passing** (including tests and code linting).
