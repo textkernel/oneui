@@ -34,4 +34,8 @@ module.exports = {
         '.+\\.(svg|png|jpe?g|gif)$': '<rootDir>/src/__mocks__/testFileMock.js',
         '.+\\.css\\?external$': 'jest-css-modules-transform',
     },
+
+    preset: 'ts-jest/presets/js-with-ts',
+
+    testEnvironment: 'jsdom',
 };
