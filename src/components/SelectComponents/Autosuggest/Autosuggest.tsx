@@ -52,6 +52,7 @@ export interface Props<S>
     iconNode?: React.ReactElement;
     /** render custom list values */
     customListRender?: (suggestions) => React.ReactNode;
+    clearInputAfterSelection?: boolean;
 }
 
 const { elem } = bem('Autosuggest', styles);
@@ -92,6 +93,7 @@ export function Autosuggest<S>({
     isFocused,
     iconNode,
     customListRender,
+    clearInputAfterSelection = true,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -258,7 +260,7 @@ export function Autosuggest<S>({
             highlightOnEmptyInput={false}
             keepExpandedAfterSelection
             initInputValue={initInputValue}
-            clearInputAfterSelection
+            clearInputAfterSelection={clearInputAfterSelection}
             autoFocus={isFocused}
         />
     );

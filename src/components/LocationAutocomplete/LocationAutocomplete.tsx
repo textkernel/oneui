@@ -217,6 +217,7 @@ const LocationAutocomplete: React.FC<Props> = ({
             customListRender={renderListPoweredByGoogle}
             {...rest}
             inputRef={inputRef}
+            clearInputAfterSelection={false}
         />
     );
 };

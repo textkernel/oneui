@@ -9,6 +9,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should not
   onSelectionChange={[MockFunction]}
 >
   <Autosuggest
+    clearInputAfterSelection={false}
     clearTitle=""
     customListRender={[Function]}
     iconNode={
@@ -32,7 +33,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should not
     <SelectBase
       autoFocus={false}
       blurredRenderer={[Function]}
-      clearInputAfterSelection={true}
+      clearInputAfterSelection={false}
       clearTitle=""
       focusedRenderer={[Function]}
       highlightOnEmptyInput={false}
@@ -192,6 +193,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
   onSelectionChange={[MockFunction]}
 >
   <Autosuggest
+    clearInputAfterSelection={false}
     clearTitle=""
     customListRender={[Function]}
     iconNode={
@@ -403,7 +405,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should pas
     <SelectBase
       autoFocus={false}
       blurredRenderer={[Function]}
-      clearInputAfterSelection={true}
+      clearInputAfterSelection={false}
       clearTitle=""
       focusedRenderer={[Function]}
       highlightOnEmptyInput={false}
@@ -933,6 +935,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
   onSelectionChange={[MockFunction]}
 >
   <Autosuggest
+    clearInputAfterSelection={false}
     clearTitle=""
     customListRender={[Function]}
     iconNode={
@@ -956,7 +959,7 @@ exports[`<LocationAutocomplete/> that renders a location search field should ren
     <SelectBase
       autoFocus={false}
       blurredRenderer={[Function]}
-      clearInputAfterSelection={true}
+      clearInputAfterSelection={false}
       clearTitle=""
       focusedRenderer={[Function]}
       highlightOnEmptyInput={false}
