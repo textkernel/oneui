@@ -8,10 +8,6 @@ module.exports = {
     // A list of paths to directories that Jest should use to search for files in
     roots: ['<rootDir>/src'],
 
-    // The path to a module that runs some code to configure or set up the testing framework
-    // before each test
-    setupFiles: ['<rootDir>scripts/test/enzyme.setup.js'],
-
     // The glob patterns Jest uses to detect test files
     testMatch: [
         '**/__tests__/**/*.spec.js',
@@ -38,4 +34,8 @@ module.exports = {
         '.+\\.(svg|png|jpe?g|gif)$': '<rootDir>/src/__mocks__/testFileMock.js',
         '.+\\.css\\?external$': 'jest-css-modules-transform',
     },
+
+    preset: 'ts-jest/presets/js-with-ts',
+
+    testEnvironment: 'jsdom',
 };
