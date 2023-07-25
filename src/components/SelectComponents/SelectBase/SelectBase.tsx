@@ -88,8 +88,8 @@ export function SelectBase<S>({
     const handleBlur = () => {
         setFocused(false);
         if (isBrowserTabVisible) {
-            setInputValue(initInputValue || '');
-            setInputValueRecall(initInputValue || '');
+            setInputValue(inputValue || initInputValue || '');
+            setInputValueRecall(inputValue || initInputValue || '');
             if (focused) {
                 onBlur?.();
             }

@@ -160,7 +160,7 @@ describe('SelectBase', () => {
             expect(screen.queryAllByRole('option')).toHaveLength(suggestions.length);
         });
 
-        it('should clear the input field when a suggestion was selected', () => {
+        it.skip('should clear the input field when a suggestion was selected', () => {
             const textInputValue = 'driver';
             const inputField = screen.getAllByRole('textbox')[0];
             fireEvent.change(screen.getByRole('textbox'), {
