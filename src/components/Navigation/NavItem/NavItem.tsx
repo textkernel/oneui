@@ -15,6 +15,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node to be rendered as a single navigation item. There should be only 1 child */
     children: React.ReactElement;
 }
+/* eslint-enable react/no-unused-prop-types */
 
 interface ChildProps extends Omit<Props, 'className' | 'children' | 'aria-current'> {
     className?: string | (({ isActive }: { isActive: boolean }) => string);
