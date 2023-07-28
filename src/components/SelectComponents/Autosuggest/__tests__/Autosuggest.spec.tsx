@@ -2,12 +2,9 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Autosuggest } from '../Autosuggest';
-import {
-    SUGGESTIONS,
-    SUGGESTION_TO_STRING,
-    SuggestionsType,
-} from '../../../AutosuggestDeprecated/__mocks__/suggestions';
+import { SUGGESTIONS, SUGGESTION_TO_STRING, SuggestionsType } from '../__mocks__/suggestions';
 
 describe('Autosuggest', () => {
     const suggestionToString = SUGGESTION_TO_STRING;
@@ -17,6 +14,7 @@ describe('Autosuggest', () => {
     const mockOnSelectionRemove = jest.fn();
     const mockOnInputValueChange = jest.fn();
     const mockOnBlur = jest.fn();
+    const customListRender = jest.fn();
 
     let suggestionsList: SuggestionsType[] = [];
     const selectedSuggestions = [];
@@ -153,6 +151,28 @@ describe('Autosuggest', () => {
             await setFocus(user);
 
             expect(document.activeElement).toBe(inputNodeField);
+        });
+
+        it('should render iconNode', () => {
+            const newProps = {
+                iconNode: <FaMapMarkerAlt role="img" />,
+            };
+            rerenderView(newProps);
+
+            expect(view.container).toMatchSnapshot();
+            expect(screen.getByRole('img')).toBeVisible();
+        });
+
+        it('should call customListRender', async () => {
+            const user = userEvent.setup();
+            const newProps = {
+                customListRender,
+            };
+            rerenderView(newProps);
+            await setFocus(user);
+            await user.type(inputNodeField, 'driver');
+
+            expect(customListRender).toHaveBeenCalled();
         });
     });
 });
