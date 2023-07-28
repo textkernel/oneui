@@ -107,20 +107,20 @@ const LocationSelector: React.FC<Props> = ({
 
     const hasLocationsSelected = selectedLocations && selectedLocations.length > 0;
 
-    function handleOpenModal() {
+    const handleOpenModal = () => {
         if (!isOpen && !isWrapperFocused && isBrowserTabVisible) {
             buttonRef.current?.focus();
             setIsOpen(true);
         }
         setIsWrapperFocused(true);
-    }
+    };
 
-    function handleCloseModal() {
+    const handleCloseModal = () => {
         if (isOpen && isBrowserTabVisible) {
             setIsOpen(false);
             onBlur?.();
         }
-    }
+    };
 
     function handleButtonKeyPress(e: React.KeyboardEvent<HTMLButtonElement>) {
         if (e.key === ESCAPE_KEY) {
@@ -151,7 +151,7 @@ const LocationSelector: React.FC<Props> = ({
      * add it along with passed location object to the selectedLocations array
      * if this location was not selected yet
      */
-    function handleAddLocation(location: LocationSelectorLocation) {
+    const handleAddLocation = (location: LocationSelectorLocation) => {
         return findGeoCenterForPlaceId(location.place_id)
             .then((center) => {
                 const lng = center.lng();
@@ -182,15 +182,15 @@ const LocationSelector: React.FC<Props> = ({
                 }
             })
             .catch(/* TODO: add error handling */);
-    }
+    };
 
-    function getMarkers() {
+    const getMarkers = () => {
         return selectedLocations.map((location) => ({
             description: location.description,
             center: location.center,
             radius: hasRadius ? getRadiusInMeters(location.radius, radiusUnits) : 0,
         }));
-    }
+    };
 
     return (
         <div {...rest} {...block({ ...rest })}>

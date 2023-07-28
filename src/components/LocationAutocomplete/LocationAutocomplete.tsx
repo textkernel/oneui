@@ -109,7 +109,7 @@ const LocationAutocomplete: React.FC<Props> = ({
                             return;
                         }
 
-                        if (ACCEPTABLE_API_STATUSES.includes(status)) {
+                        if (ACCEPTABLE_API_STATUSES.includes(status) && predictions) {
                             setSuggestionsList(predictions);
                         } else {
                             // TODO: check desired behaviour with Carlo

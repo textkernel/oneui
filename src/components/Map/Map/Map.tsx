@@ -102,7 +102,7 @@ const Map = React.forwardRef<GoogleMap, Props>(
 
                     const fitBoundsByAddress = (address) => {
                         geocoder.geocode({ address }, (result, status) => {
-                            if (status === 'OK') {
+                            if (result && status === 'OK') {
                                 map.fitBounds(result[0].geometry.viewport);
                             } else {
                                 // TODO: add error handling
@@ -150,14 +150,14 @@ const Map = React.forwardRef<GoogleMap, Props>(
                                 center: firstMarker.center,
                                 radius: DEFAULT_RADIUS_FOR_SINGLE_POINT_MARKER,
                             });
-                            bounds.union(circle.getBounds());
+                            bounds.union(circle.getBounds() as google.maps.LatLngBounds);
                             map.fitBounds(bounds);
                         }
                     } else if (circularMarkers.length) {
                         circularMarkers.forEach(({ center, radius }) => {
                             if (radius) {
                                 const circle = new CircleClass({ center, radius });
-                                bounds.union(circle.getBounds());
+                                bounds.union(circle.getBounds() as google.maps.LatLngBounds);
                             } else {
                                 bounds.extend(center);
                             }

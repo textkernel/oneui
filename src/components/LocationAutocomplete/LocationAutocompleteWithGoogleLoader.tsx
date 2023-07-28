@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LoadScriptNext, LoadScriptNextProps } from '@react-google-maps/api';
+import { Libraries, LoadScriptNext, LoadScriptNextProps } from '@react-google-maps/api';
 import { LoadingSpinner } from '../LoadingSpinner';
 import { LocationAutocomplete, LocationAutocompleteProps } from './LocationAutocomplete';
 
@@ -41,7 +41,7 @@ const LocationAutocompleteWithGoogleLoader: React.FC<Props> = ({
             language={language}
             region={region}
             loadingElement={<LoadingSpinner centerIn="parent" />}
-            libraries={GOOGLE_API_LIBRARIES}
+            libraries={GOOGLE_API_LIBRARIES as Libraries}
             {...additionalGoogleProps}
         >
             <LocationAutocomplete {...rest} />

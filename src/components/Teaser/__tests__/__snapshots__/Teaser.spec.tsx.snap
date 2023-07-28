@@ -58,19 +58,13 @@ exports[`Teaser should render correctly with just a title 1`] = `
       >
         some title
       </span>
-      
     </div>
     <div
       class="Teaser__line"
-    >
-      
-      
-    </div>
+    />
     <div
       class="Teaser__line"
-    >
-      
-    </div>
+    />
   </div>
 </div>
 `;

@@ -38,7 +38,7 @@ describe('Modal', () => {
 
         expect(view.baseElement).toMatchSnapshot();
         expect(dialog).toBeInTheDocument();
-        expect(dialog).toHaveClass('Modal__content content-class Modal__content--entered');
+        expect(dialog).toHaveClass('Modal__content content-class');
     });
 
     it('should set app element via react-modal', () => {

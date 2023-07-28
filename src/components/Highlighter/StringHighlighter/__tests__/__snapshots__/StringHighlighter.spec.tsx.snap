@@ -62,11 +62,7 @@ exports[`StringHighlighter highlighted should highlight terms with diacritics by
 </div>
 `;
 
-exports[`StringHighlighter not highlighted should initially render empty component correctly 1`] = `
-<div>
-  
-</div>
-`;
+exports[`StringHighlighter not highlighted should initially render empty component correctly 1`] = `<div />`;
 
 exports[`StringHighlighter not highlighted should not highlight case sensitive terms if ignoreCase is false 1`] = `
 <div>

@@ -19,13 +19,7 @@ exports[`Themeroller component should render component correctly 1`] = `
       </label>
       <div
         class="ThemeActions"
-      >
-        
-        
-        
-        
-      </div>
-      
+      />
     </form>
     <div
       class="TabsBar"

@@ -42,7 +42,7 @@ export const findGeoCenterForPlaceId = (placeId: string): Promise<LatLng> => {
     return new Promise<LatLng>((resolve, reject) => {
         geocoder.geocode({ placeId }, (results, status) => {
             if (status === 'OK') {
-                if (results[0]) {
+                if (results && results[0]) {
                     resolve(results[0].geometry.location);
                 } else {
                     reject(new Error(`No results found when searching for placeId ${placeId}`));
@@ -63,7 +63,7 @@ export const convertCoordinatesIntoAddress = (location: LatLngLiteral): Promise<
     return new Promise<GeocoderResult>((resolve, reject) => {
         geocoder.geocode({ location }, (results, status) => {
             if (status === 'OK') {
-                if (results[0]) {
+                if (results && results[0]) {
                     resolve(results[0]);
                 } else {
                     reject(
