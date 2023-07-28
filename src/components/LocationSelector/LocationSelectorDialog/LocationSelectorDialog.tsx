@@ -107,23 +107,23 @@ const LocationSelectorDialog: React.FC<Props> = ({
         return undefined;
     }
 
-    function handleAddLocation(location) {
+    const handleAddLocation = (location) => {
         if (locationInputRef.current && !withoutLocationCards) {
             setTimeout(() => locationInputRef.current?.focus());
         }
         onAddLocation(location);
-    }
+    };
 
-    function handleRemoveLocation(locationId) {
+    const handleRemoveLocation = (locationId) => {
         if (locationInputRef.current) {
             locationInputRef.current.focus();
         }
         onRemoveLocation(locationId);
-    }
+    };
 
-    function handleRadiusChange(radius) {
+    const handleRadiusChange = (radius) => {
         onUpdateLocation(firstSelectedLocation.id, radius);
-    }
+    };
 
     function handleInputFormSubmit(e) {
         if (e.key === ENTER_KEY) {

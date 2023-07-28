@@ -2,6 +2,7 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import styles from './NavItem.scss';
 
+/* eslint-disable react/no-unused-prop-types */
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Add active class to the item. For controlled components */
     active?: boolean;
