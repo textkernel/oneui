@@ -4,10 +4,7 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { SelectBase } from '../SelectBase';
 import { SuggestionsList } from '../../SuggestionsList';
-import {
-    SUGGESTIONS,
-    SUGGESTION_TO_STRING,
-} from '../../../AutosuggestDeprecated/__mocks__/suggestions';
+import { SUGGESTIONS, SUGGESTION_TO_STRING } from '../../Autosuggest/__mocks__/suggestions';
 
 describe('SelectBase', () => {
     const inputRef = React.createRef();
@@ -163,7 +160,7 @@ describe('SelectBase', () => {
             expect(screen.queryAllByRole('option')).toHaveLength(suggestions.length);
         });
 
-        it('should clear the input field when a suggestion was selected', () => {
+        it('should not clear the input field when a suggestion was selected', () => {
             const textInputValue = 'driver';
             const inputField = screen.getAllByRole('textbox')[0];
             fireEvent.change(screen.getByRole('textbox'), {
@@ -178,7 +175,7 @@ describe('SelectBase', () => {
 
             fireEvent.click(screen.queryAllByRole('option')[0]);
 
-            expect(inputField.getAttribute('value')).toEqual('');
+            expect(inputField.getAttribute('value')).toEqual(textInputValue);
         });
 
         it('should clear the input field when a suggestion was selected with keepExpandedAfterSelection set to true', async () => {
