@@ -59,7 +59,8 @@
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/ban-types": "off",
-        "react/require-default-props": "off"
+        "react/require-default-props": "off",
+        "@typescript-eslint/no-explicit-any": "off"
     },
     "overrides": [
         {
