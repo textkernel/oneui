@@ -58,7 +58,7 @@ export function SuggestionsList<S>({
         let disabled = false;
         if (typeof currentItem === 'object' && currentItem !== null && 'disabled' in currentItem) {
             // eslint-disable-next-line @typescript-eslint/dot-notation
-            disabled = currentItem['disabled']; // TS only happy with this syntax
+            disabled = currentItem['disabled'] as boolean; // TS only happy with this syntax
         }
 
         return (
