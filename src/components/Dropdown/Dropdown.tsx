@@ -119,14 +119,13 @@ export function Dropdown<V>({
             ...additionalSelectProps,
         });
 
-    const menuProps = getMenuProps({
-        onBlur: onMenuBlur,
-        onFocus: onMenuFocus,
-    });
+    const menuProps = getMenuProps();
     const toggleButtonProps = getToggleButtonProps({
         onClick: () => {
             onToggleClick?.(isOpen);
         },
+        onBlur: onMenuBlur,
+        onFocus: onMenuFocus,
     });
     const openPopperProps = isOpen && {
         style: state.styles.popper,
@@ -137,7 +136,7 @@ export function Dropdown<V>({
     };
     return (
         <>
-            {React.cloneElement(button, {
+            {React.cloneElement<any>(button, {
                 ...rest,
                 ...toggleButtonProps,
                 ref: mergeRefs([setReferenceElement, toggleButtonProps.ref, button.ref]),
@@ -158,7 +157,7 @@ export function Dropdown<V>({
                                 (val) => val === child.props.value
                             );
 
-                            return React.cloneElement(child, {
+                            return React.cloneElement<any>(child, {
                                 ...getItemProps({
                                     index: currentValueIndex,
                                     item: child.props.value,

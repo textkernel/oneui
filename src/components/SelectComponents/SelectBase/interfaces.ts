@@ -1,4 +1,4 @@
-import { GetItemPropsOptions, GetToggleButtonPropsOptions } from 'downshift';
+import { GetItemPropsOptions, GetToggleButtonPropsOptions, PropGetters } from 'downshift';
 
 export interface BasicSelectProps<S> extends React.HTMLAttributes<HTMLDivElement> {
     /**
@@ -68,7 +68,7 @@ export type FocusedRendererHelpers<S> = (helpers: {
 }) => React.ReactNode;
 
 export type BlurredRendererHelpers<S> = (helpers: {
-    getInputProps: (options: GetItemPropsOptions<S>) => object;
+    getInputProps: (options: PropGetters<S>) => object;
     getToggleButtonProps: (options: GetToggleButtonPropsOptions) => object;
     onFocus: (callback: () => void) => void;
     onBlur: () => void;
