@@ -25,6 +25,8 @@ expect(container).toMatchSnapshot();
 
 ## Rerender Components
 
+#### Use when changing props. Note that if you use render twice, it will render the component again, and you will have 2 instances in the DOM.
+
 ```ts
 import { render } from '@testing-library/react';
 
@@ -43,6 +45,23 @@ const button = screen.getByRole('button', { name: 'click me' });
 expect(button).toBeInTheDocument();
 ```
 
+#### Sometimes the element is rendered in the DOM but for some reason it is hidden and you want to test that the element is there but it is not visible. Using `toBeInTheDocument` it will always return a positive status. To test this, we should use `toBeVisible`
+```ts
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+
+// eg. Button2 is hidden using CSS
+render(
+    <div>
+        <Button1 />
+        <Button2 isHidden />
+    </div>
+);
+const button = screen.getAllByRole('button');
+expect(button[0]).toBeVisible();
+expect(button[1]).not.toBeVisible();
+```
+
 ## Simulating Events.
 
 #### Prefer to use [userEvent](https://testing-library.com/docs/user-event/intro/) instead of [fireEvent](https://testing-library.com/docs/dom-testing-library/api-events/).
@@ -56,7 +75,7 @@ import userEvent from '@testing-library/user-event';
 const { container } = render(<MyComponent />);
 const user = userEvent.setup();
 await user.type(screen.getByDisplayValue(''), 'Utrecht');
-expect(container).toMatchSnapshot();
+expect(screen.getByDisplayValue('Utrecht')).toBeInTheDocument();
 ```
 
 ```ts
@@ -72,16 +91,17 @@ expect(handleClick).toHaveBeenCalled();
 ```
 
 ### Using `fireEvent`
+#### If you want to dispatch a specific DOM event you should use `fireEvent`. Not all events are possible using `userEvent` for example focusing a element.
 
 ```ts
 import { render, fireEvent } from '@testing-library/react';
 
-const handleClick = jest.fn();
-render(<MyComponent onClick={handleClick} />);
+const handleOnFocus = jest.fn();
+render(<MyComponent onFocus={handleOnFocus} />);
 const button = screen.getByRole('button', { name: 'click me' });
-fireEvent.click(button);
+fireEvent.focus(button);
 
-expect(handleClick).toHaveBeenCalled();
+expect(handleOnFocus).toHaveBeenCalled();
 ```
 
 ## Checking for HTML Attributes
