@@ -90,6 +90,16 @@ await user.click(button);
 expect(handleClick).toHaveBeenCalled();
 ```
 
+### User events with fake timers
+
+When fake timers are used, the user event will not happen, unless we progress the timers. We need to add that option during [user setup](https://testing-library.com/docs/user-event/options) like this:
+
+```ts
+jest.useFakeTimers()
+// ...
+const user = userEvent.setup({ advanceTimers: jest.advanceTimersByTime });
+```
+
 ### Using `fireEvent`
 #### If you want to dispatch a specific DOM event you should use `fireEvent`. Not all events are possible using `userEvent` for example focusing a element.
 
@@ -103,6 +113,7 @@ fireEvent.focus(button);
 
 expect(handleOnFocus).toHaveBeenCalled();
 ```
+
 
 ## Checking for HTML Attributes
 
