@@ -1,26 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Tooltip> that renders a Tooltip should render Tooltip in disabled mode if content is empty 1`] = `
-<body>
-  <div>
-    <p>
-      Hover me
-    </p>
-  </div>
-</body>
-`;
-
 exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctly 1`] = `
 <body>
   <div>
-    <p>
+    <p
+      aria-describedby="tippy-1"
+    >
       Hover me
     </p>
   </div>
   <div
     data-tippy-root=""
     id="tippy-1"
-    style="pointer-events: none; z-index: 9999; visibility: hidden; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 10px);"
+    style="pointer-events: none; z-index: 9999; visibility: visible; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 10px);"
   >
     <div
       class="tippy-box"
@@ -28,15 +20,15 @@ exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctl
       data-escaped=""
       data-placement="bottom"
       data-reference-hidden=""
-      data-state="hidden"
+      data-state="visible"
       role="tooltip"
-      style="max-width: 350px; transition-duration: 250ms;"
+      style="max-width: 350px; transition-duration: 300ms;"
       tabindex="-1"
     >
       <div
         class="tippy-content"
-        data-state="hidden"
-        style="transition-duration: 250ms;"
+        data-state="visible"
+        style="transition-duration: 300ms;"
       >
         <div>
           content

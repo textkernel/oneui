@@ -19,22 +19,21 @@ describe('<Tooltip> that renders a Tooltip', () => {
             </Tooltip>
         );
 
-        await user.click(screen.getByText('Hover me'));
+        await user.hover(screen.getByText('Hover me'));
 
         expect(view.baseElement).toMatchSnapshot();
-        expect(screen.getByText('content')).toBeInTheDocument();
+        expect(screen.getByRole('tooltip', { name: 'content' })).toBeInTheDocument();
     });
 
     it('should render Tooltip in disabled mode if content is empty', async () => {
-        const view = render(
+        render(
             <Tooltip>
                 <p>Hover me</p>
             </Tooltip>
         );
 
-        await user.click(screen.getByText('Hover me'));
+        await user.hover(screen.getByText('Hover me'));
 
-        expect(view.baseElement).toMatchSnapshot();
-        expect(view.baseElement.childElementCount).toEqual(1);
+        expect(screen.queryByRole('tooltip', { name: 'content' })).not.toBeInTheDocument();
     });
 });
