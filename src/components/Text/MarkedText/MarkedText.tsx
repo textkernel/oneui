@@ -1,16 +1,15 @@
 import * as React from 'react';
-import { Context } from '@textkernel/oneui/constants';
 import { bem } from '../../../utils';
-import { Text } from '../Text';
+import { Text, Props as TextProps } from '../Text';
 import styles from './MarkedText.scss';
 
 const { block, elem } = bem('MarkedText', styles);
 
-interface Props {
+interface Props extends Omit<TextProps, 'size' | 'children'> {
+    /** String that will be rendered as text */
     children: string;
+    /** Part of the text that will be bolded */
     marker: string;
-    inline?: boolean;
-    context?: Context | 'primary';
 }
 
 export const MarkedText = (props: Props) => {
