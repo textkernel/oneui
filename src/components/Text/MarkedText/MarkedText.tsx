@@ -5,7 +5,7 @@ import styles from './MarkedText.scss';
 
 const { block, elem } = bem('MarkedText', styles);
 
-interface Props extends Omit<TextProps, 'size' | 'children'> {
+interface Props extends Omit<TextProps, 'children'> {
     /** String that will be rendered as text */
     children: string;
     /** Part of the text that will be bolded */
