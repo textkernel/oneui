@@ -1,15 +1,22 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { bem } from '../../../utils';
-import { Text } from '../Text';
+import { Text, Props as TextProps } from '../Text';
 import styles from './MarkedText.scss';
 
 const { block, elem } = bem('MarkedText', styles);
 
-export const MarkedText = (props) => {
+interface Props extends Omit<TextProps, 'children'> {
+    /** String that will be rendered as text */
+    children: string;
+    /** Part of the text that will be bolded */
+    marker: string;
+}
+
+export const MarkedText = (props: Props) => {
     const { marker, children, ...rest } = props;
 
-    let result = children;
+    let result: string | (string | React.JSX.Element)[] = children;
+
     if (marker) {
         const escapedMarker = marker.replace(/[-[\]{}()*+?.,^$|#]/g, '\\$&');
         const re = new RegExp(`(${escapedMarker})`, 'gi');
@@ -33,10 +40,3 @@ export const MarkedText = (props) => {
 };
 
 MarkedText.displayName = 'MarkedText';
-
-MarkedText.propTypes = {
-    /** Text content */
-    children: PropTypes.string.isRequired,
-    /** The text that should be marked if found within the children */
-    marker: PropTypes.string.isRequired,
-};
