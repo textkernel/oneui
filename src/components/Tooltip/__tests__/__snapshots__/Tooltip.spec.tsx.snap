@@ -1,7 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctly 1`] = `
-<div>
-  Hover me
-</div>
+<body>
+  <div>
+    <p
+      aria-describedby="tippy-1"
+    >
+      Hover me
+    </p>
+  </div>
+  <div
+    data-tippy-root=""
+    id="tippy-1"
+    style="pointer-events: none; z-index: 9999; visibility: visible; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 10px);"
+  >
+    <div
+      class="tippy-box"
+      data-animation="fade"
+      data-escaped=""
+      data-placement="bottom"
+      data-reference-hidden=""
+      data-state="visible"
+      role="tooltip"
+      style="max-width: 350px; transition-duration: 300ms;"
+      tabindex="-1"
+    >
+      <div
+        class="tippy-content"
+        data-state="visible"
+        style="transition-duration: 300ms;"
+      >
+        <div>
+          content
+        </div>
+      </div>
+      <div
+        class="tippy-arrow"
+        style="position: absolute; left: 0px; transform: translate(3px, 0px);"
+      />
+    </div>
+  </div>
+</body>
 `;
