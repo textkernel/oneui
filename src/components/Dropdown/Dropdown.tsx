@@ -144,7 +144,7 @@ export function Dropdown<V>({
             <List
                 {...menuProps}
                 {...openPopperProps}
-                ref={mergeRefs([isOpen && setPopperElement, menuProps.ref])}
+                ref={mergeRefs([isOpen ? setPopperElement : undefined, menuProps.ref])}
                 isControlledNavigation
             >
                 {isOpen &&

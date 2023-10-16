@@ -1,6 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -18,17 +16,12 @@ const { oneui } = require('../../package.json');
 const { libraryName: LIBRARY_NAME } = oneui;
 
 const plugins = {
-    namedModulesPlugin: new webpack.NamedModulesPlugin(),
-    hashedModuleIdsPlugin: new webpack.HashedModuleIdsPlugin({
-        hashDigestLength: 6,
-    }),
     cssPlugin: new MiniCssExtractPlugin({
         filename: `${LIBRARY_NAME}.min.css`,
     }),
     styleLintPlugin: new StyleLintPlugin({
         context: SOURCE_PATH,
     }),
-    optimizeCssAssetsPlugin: new OptimizeCssAssetsPlugin(),
     bundleAnalyzerPlugin: new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         reportFilename: '../reports/bundle-size.html',
@@ -64,11 +57,13 @@ const getRules = (env = 'prod') => ({
 
 const baseConfig = {
     context: SOURCE_PATH,
-
     entry: {
         main: './index.ts',
     },
-
+    optimization: {
+        moduleIds: 'named',
+        minimize: true,
+    },
     output: {
         filename: `${LIBRARY_NAME}.js`,
         path: DIST_PATH,
@@ -76,7 +71,6 @@ const baseConfig = {
         libraryTarget: 'umd',
         umdNamedDefine: true,
     },
-
     resolve: {
         modules: [NODE_MODULES_PATH],
         extensions: ['.js', '.ts', '.tsx'],
