@@ -7,7 +7,6 @@ module.exports = {
     mode: 'development',
     devtool: 'eval-source-map',
     plugins: [
-        plugins.namedModulesPlugin,
         plugins.cssPlugin,
         plugins.styleLintPlugin,
         plugins.bundleAnalyzerPlugin,
