@@ -27,12 +27,12 @@ module.exports = {
 
         config.resolve.alias['@textkernel/oneui'] = path.resolve(__dirname, '../src');
         // Make whatever fine-grained changes you need
-        config.module.rules.push(rules.js, rules.scss);
-        config.plugins.push(
-            new MiniCssExtractPlugin({
-                filename: `${LIBRARY_NAME}.min.css`,
-            })
-        );
+        config.module.rules.push(rules.js, rules.ts, rules.scss);
+        // config.plugins.push(
+        //     new MiniCssExtractPlugin({
+        //         filename: `${LIBRARY_NAME}.min.css`,
+        //     })
+        // );
 
         // Return the altered config
         return config;
