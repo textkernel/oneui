@@ -82,7 +82,7 @@
             }
         },
         {
-            "files": ["stories/**/*"],
+            "files": ["stories/**/*", "stories.new/**/*"],
             "rules": {
                 "import/extensions": ["off", "ignorePackages"],
                 "react/display-name": "off",

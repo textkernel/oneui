@@ -7,7 +7,7 @@ const { getRuleJS, getRuleTS, getRuleCSS, getRuleSCSS, getRuleFiles } = require(
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
 const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
-const STORIES_PATH = path.resolve(PROJECT_ROOT_PATH, 'stories');
+const STORIES_PATH = path.resolve(PROJECT_ROOT_PATH, 'stories.new');
 const DIST_PATH = path.resolve(PROJECT_ROOT_PATH, 'dist');
 const NODE_MODULES_PATH = path.resolve(SOURCE_PATH, '../node_modules');
 

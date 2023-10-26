@@ -17,5 +17,5 @@
             "@textkernel/oneui/*": ["src/*"]
         }
     },
-    "include": ["src", "stories", "scripts"]
+    "include": ["src", "stories", "stories.new", "scripts"]
 }
