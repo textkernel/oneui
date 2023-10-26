@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [21.0.0](https://github.com/textkernel/oneui/compare/20.0.1...21.0.0) (2023-10-26)
+
+
+### ⚠ BREAKING CHANGES
+
+* component AutosuggestDeprecated was deleted
+* component AutosuggestDeprecated was deleted
+
+### Features
+
+* add props which exist in autosuggest deprecated to autosuggest ([dea3ac8](https://github.com/textkernel/oneui/commit/dea3ac81ea899110e0c081eb6f81bb0b7602458c))
+* revert update selectbase, autosuggest components ([6291759](https://github.com/textkernel/oneui/commit/62917596c78afa956eed9b423297f4e065c8ea27))
+* update selectbase, autosuggest components ([1b4414e](https://github.com/textkernel/oneui/commit/1b4414e5a719a1d4f5e03720c39e58a13be1a3a3))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-google-maps/api to v2.19.2 ([eae0f4b](https://github.com/textkernel/oneui/commit/eae0f4b2193d275599754cc543552a95feedeb0b))
+* **deps:** update dependency @types/react-modal to v3.16.1 ([a454e76](https://github.com/textkernel/oneui/commit/a454e767ebd5181d0d0a2f9cd874f6e8e5c8cd19))
+* **deps:** update dependency css-vars-ponyfill to v2.4.8 ([b731d45](https://github.com/textkernel/oneui/commit/b731d4584f6c61c0c57e686d4e270f3f0c7f582f))
+* LocationSelector component text color ([239fa6e](https://github.com/textkernel/oneui/commit/239fa6eb270a4d8b7983b8411fc03e91d7c00aea))
+
 ### [20.0.1](https://github.com/textkernel/oneui/compare/20.0.0...20.0.1) (2023-07-10)
 
 
