@@ -9,19 +9,18 @@ module.exports = {
         ...baseConfig.output,
         filename: `${LIBRARY_NAME}.min.js`,
     },
+    optimization: {
+        ...baseConfig.optimization,
+        usedExports: true,
+    },
     plugins: [
-        plugins.hashedModuleIdsPlugin,
         plugins.cssPlugin,
         plugins.styleLintPlugin,
-        plugins.optimizeCssAssetsPlugin,
         plugins.bundleAnalyzerPlugin,
         plugins.cleanWebpackPlugin,
     ],
     module: {
         rules: [rules.js, rules.ts, rules.externalCss, rules.scss, rules.files],
-    },
-    optimization: {
-        usedExports: true,
     },
     externals: {
         // Don't bundle react or react-dom
