@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { PopupBase } from '../PopupBase';
-import { PillButton } from './PillButton';
+import { PillButton, PillButtonProps } from './PillButton';
 import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
 
-export interface Props {
+export interface Props extends Omit<PillButtonProps, 'toggleDropdown'> {
     /** The dropdown content renderer function. It is called with:
      *   * close {function} that closes the dropdown
      *   * innerPadding {string} that can be applied inside the component to set consistent padding

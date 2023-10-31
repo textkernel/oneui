@@ -11,10 +11,13 @@ describe('<Pill> component', () => {
     const nameMock = 'Pill name';
     const contentMock = 'Pill content';
     const dialogRole = 'dialog';
+    const downArrowLabel = 'Open';
+    const upArrowLabel = 'Close';
+    const clearLabel = 'Clear';
 
     let view: RenderResult;
     const getButtonByName = (inputName) => {
-        return screen.getByRole('button', { name: `${inputName}` });
+        return screen.getByRole('button', { name: new RegExp(inputName) });
     };
 
     beforeEach(() => {
@@ -25,6 +28,9 @@ describe('<Pill> component', () => {
                 name={nameMock}
                 content={contentMock}
                 doneLabel="Done"
+                downArrowLabel={downArrowLabel}
+                upArrowLabel={upArrowLabel}
+                clearLabel={clearLabel}
             >
                 {childrenMock}
             </Pill>
@@ -55,6 +61,13 @@ describe('<Pill> component', () => {
         await user.click(getButtonByName(contentMock));
 
         expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
+    });
+
+    it('should call onClear when button is clicked', async () => {
+        const user = userEvent.setup();
+
+        await user.click(screen.getByRole('button', { name: clearLabel }));
+        expect(onClearMock).toHaveBeenCalledTimes(1);
     });
 
     it('should render children when dropdown is open', async () => {
