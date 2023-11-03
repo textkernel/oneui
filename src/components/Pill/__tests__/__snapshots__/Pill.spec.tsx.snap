@@ -25,6 +25,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
         type="button"
       >
         <svg
+          aria-label="Close"
           class="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
           fill="currentColor"
           height="1em"
@@ -99,6 +100,7 @@ exports[`<Pill> component should render correctly 1`] = `
         type="button"
       >
         <svg
+          aria-label="Clear"
           fill="currentColor"
           height="22"
           role="img"
