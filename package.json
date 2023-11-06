@@ -142,7 +142,7 @@
         "react-icons": "4.10.1",
         "react-router-dom": "6.15.0",
         "react-transition-group": "4.4.5",
-        "sass": "1.69.3",
+        "sass": "1.69.5",
         "sass-loader": "13.3.2",
         "standard-version": "9.5.0",
         "style-loader": "3.3.3",
