@@ -10,12 +10,10 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
 
 const { block } = bem('PaginationButton', styles);
 
-export const PaginationButton: React.FC<Props> = ({ children, isActive = false, ...rest }) => {
-    return (
-        <Button {...rest} isLink {...block({ isActive })} aria-current={isActive ? 'page' : null}>
-            {children}
-        </Button>
-    );
-};
+export const PaginationButton: React.FC<Props> = ({ children, isActive = false, ...rest }) => (
+    <Button {...rest} isLink {...block({ isActive })} aria-current={isActive ? 'page' : null}>
+        {children}
+    </Button>
+);
 
 PaginationButton.displayName = 'PaginationButton';

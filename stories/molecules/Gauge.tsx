@@ -13,21 +13,19 @@ const Template: ComponentStory<typeof Gauge> = (args) => (
     </div>
 );
 
-export const _Gauge = (args) => {
-    return (
-        <div style={{ display: 'flex' }}>
-            <div style={{ width: '33%' }}>
-                <Gauge {...args} />
-            </div>
-            <div style={{ width: '33%' }}>
-                <Gauge {...args}>12</Gauge>
-            </div>
-            <div style={{ width: '33%' }}>
-                <Gauge {...args}>$54,321</Gauge>
-            </div>
+export const _Gauge = (args) => (
+    <div style={{ display: 'flex' }}>
+        <div style={{ width: '33%' }}>
+            <Gauge {...args} />
         </div>
-    );
-};
+        <div style={{ width: '33%' }}>
+            <Gauge {...args}>12</Gauge>
+        </div>
+        <div style={{ width: '33%' }}>
+            <Gauge {...args}>$54,321</Gauge>
+        </div>
+    </div>
+);
 _Gauge.args = {
     percentage: 33,
     metric: 'Postings per job',

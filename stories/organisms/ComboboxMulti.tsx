@@ -17,13 +17,12 @@ export const _ComboboxMulti = (args) => {
     const [inputValue, setInputValue] = React.useState('');
     const [disabled, setDisabled] = React.useState(false);
 
-    const getSuggestions = (): TSuggestion[] => {
-        return SUGGESTIONS.filter(
+    const getSuggestions = (): TSuggestion[] =>
+        SUGGESTIONS.filter(
             (item) =>
                 !selectedSuggestions.includes(item) &&
                 item.name.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())
         );
-    };
 
     const onInputValueChange = (value: string) => {
         console.log(`onInputValueChange was called with ${value}`);

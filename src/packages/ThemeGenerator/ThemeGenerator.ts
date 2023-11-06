@@ -15,9 +15,10 @@ export class ThemeGenerator {
     public result: ThemeResult;
 
     public static generateCss(cssVars: CssVars = {}): string {
-        return Object.entries(cssVars).reduce((result, [varName, varValue]) => {
-            return `${result}${[varName]}: ${[varValue]};\n\t`;
-        }, '');
+        return Object.entries(cssVars).reduce(
+            (result, [varName, varValue]) => `${result}${[varName]}: ${[varValue]};\n\t`,
+            ''
+        );
     }
 
     public static wrapInCssRoot(styles: string): string {

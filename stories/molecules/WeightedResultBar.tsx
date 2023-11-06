@@ -34,25 +34,23 @@ const ClickableCount = ({ count }) => (
         {count}
     </Button>
 );
-export const WithACustomCount = (args) => {
-    return (
-        <div style={{ width: 500 }}>
-            <WeightedResultBar {...args} />
-            <WeightedResultBar percentage={76} count={<ClickableCount count={94} />}>
-                Sales Manager
-            </WeightedResultBar>
-            <WeightedResultBar percentage={64} count={<ClickableCount count={79} />}>
-                Software Engineer
-            </WeightedResultBar>
-            <WeightedResultBar percentage={64} count={<ClickableCount count={79} />}>
-                Operations Manager
-            </WeightedResultBar>
-            <WeightedResultBar percentage={58} count={<ClickableCount count={72} />}>
-                Business Development Manager
-            </WeightedResultBar>
-        </div>
-    );
-};
+export const WithACustomCount = (args) => (
+    <div style={{ width: 500 }}>
+        <WeightedResultBar {...args} />
+        <WeightedResultBar percentage={76} count={<ClickableCount count={94} />}>
+            Sales Manager
+        </WeightedResultBar>
+        <WeightedResultBar percentage={64} count={<ClickableCount count={79} />}>
+            Software Engineer
+        </WeightedResultBar>
+        <WeightedResultBar percentage={64} count={<ClickableCount count={79} />}>
+            Operations Manager
+        </WeightedResultBar>
+        <WeightedResultBar percentage={58} count={<ClickableCount count={72} />}>
+            Business Development Manager
+        </WeightedResultBar>
+    </div>
+);
 WithACustomCount.storyName = 'With a custom count';
 WithACustomCount.args = {
     percentage: 100,

@@ -23,44 +23,42 @@ export const LoadingSpinner: React.FC<Props> = ({
     hidden = false,
     size,
     ...rest
-}) => {
-    return (
-        <div
-            {...rest}
-            {...block({ hidden, centerIn, ...rest })}
-            role="status"
-            aria-busy={!hidden}
-            aria-hidden={hidden}
+}) => (
+    <div
+        {...rest}
+        {...block({ hidden, centerIn, ...rest })}
+        role="status"
+        aria-busy={!hidden}
+        aria-hidden={hidden}
+    >
+        <svg
+            viewBox={[0, 0, 44, 44]}
+            style={((s) => {
+                if (!s) {
+                    return null;
+                }
+                return {
+                    width: s,
+                    height: s,
+                };
+            })(size)}
+            {...elem('svg', { hidden, centerIn })}
         >
-            <svg
-                viewBox={[0, 0, 44, 44]}
-                style={((s) => {
-                    if (!s) {
-                        return null;
-                    }
-                    return {
-                        width: s,
-                        height: s,
-                    };
-                })(size)}
-                {...elem('svg', { hidden, centerIn })}
-            >
-                <circle
-                    cx="22"
-                    cy="22"
-                    r="20"
-                    fill="none"
-                    strokeWidth="4"
-                    {...elem('path', { hidden, centerIn })}
-                />
-            </svg>
-            {!!children && (
-                <Text inline {...elem('label')}>
-                    {children}
-                </Text>
-            )}
-        </div>
-    );
-};
+            <circle
+                cx="22"
+                cy="22"
+                r="20"
+                fill="none"
+                strokeWidth="4"
+                {...elem('path', { hidden, centerIn })}
+            />
+        </svg>
+        {!!children && (
+            <Text inline {...elem('label')}>
+                {children}
+            </Text>
+        )}
+    </div>
+);
 
 LoadingSpinner.displayName = 'LoadingSpinner';

@@ -86,7 +86,8 @@ export const TwoPaneView: React.FC<Props> = ({ children, ...rest }) => {
                 if (React.isValidElement(child)) {
                     const childStyle = child.props.style;
                     return child.type === RightPane
-                        ? React.cloneElement<any>(child, {
+                        ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          React.cloneElement<any>(child, {
                               style: {
                                   ...childStyle,
                                   position: rightPosition,
@@ -96,7 +97,8 @@ export const TwoPaneView: React.FC<Props> = ({ children, ...rest }) => {
                                   display: doDisplayRightPane ? 'inline-block' : 'none',
                               },
                           })
-                        : React.cloneElement<any>(child, {
+                        : // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                          React.cloneElement<any>(child, {
                               ref: leftRef,
                           });
                 }

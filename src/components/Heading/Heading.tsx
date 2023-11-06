@@ -7,7 +7,7 @@ export interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
     /** Heading text */
     children: React.ReactNode;
     /** Heading size (h1, h2, ...) */
-    level?: typeof HEADING_SIZES[number];
+    level?: (typeof HEADING_SIZES)[number];
     /** Heading text alignment */
     align?: 'left' | 'center' | 'right';
     /** Should the heading have neutral color or not */

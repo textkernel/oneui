@@ -27,22 +27,20 @@ export const ContentPlaceholder: React.FC<Props> = ({
     width = 100,
     withoutMargin = false,
     ...rest
-}) => {
-    return (
-        <div
-            role="alert"
-            aria-label="Loading"
-            {...rest}
-            {...block({ withoutMargin, ...rest })}
-            style={{
-                animationDuration: calcDuration(duration),
-                height,
-            }}
-        >
-            &nbsp;
-            <div role="presentation" {...elem('mask')} style={calcMaskWidth(width)} />
-        </div>
-    );
-};
+}) => (
+    <div
+        role="alert"
+        aria-label="Loading"
+        {...rest}
+        {...block({ withoutMargin, ...rest })}
+        style={{
+            animationDuration: calcDuration(duration),
+            height,
+        }}
+    >
+        &nbsp;
+        <div role="presentation" {...elem('mask')} style={calcMaskWidth(width)} />
+    </div>
+);
 
 ContentPlaceholder.displayName = 'ContentPlaceholder';

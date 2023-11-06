@@ -75,26 +75,24 @@ export const BulkActionsToolbar: React.FC<BulkActionsToolbarProps> = ({
                 </Tooltip>
             </div>
             <div {...elem('actions')}>
-                {actions.map((action, index) => {
+                {actions.map((action, index) => (
                     // We have to wrap the button into <span/> in order to
                     // be able to show the tooltip on disabled button.
                     // https://github.com/atomiks/tippyjs-react/issues/123
-                    return (
-                        <Tooltip key={action.label} content={action.tooltip} delay={tooltipDelay}>
-                            <span {...elem('actionWrapper', { first: index === 0 })}>
-                                <Button
-                                    isPrimary
-                                    disabled={action.disabled}
-                                    onClick={action.onClick}
-                                    {...elem('action')}
-                                >
-                                    {action.icon && <span {...elem('icon')}>{action.icon} </span>}
-                                    {action.label}
-                                </Button>
-                            </span>
-                        </Tooltip>
-                    );
-                })}
+                    <Tooltip key={action.label} content={action.tooltip} delay={tooltipDelay}>
+                        <span {...elem('actionWrapper', { first: index === 0 })}>
+                            <Button
+                                isPrimary
+                                disabled={action.disabled}
+                                onClick={action.onClick}
+                                {...elem('action')}
+                            >
+                                {action.icon && <span {...elem('icon')}>{action.icon} </span>}
+                                {action.label}
+                            </Button>
+                        </span>
+                    </Tooltip>
+                ))}
             </div>
         </div>
     );

@@ -28,21 +28,19 @@ export const StepperButton: React.FC<Props> = ({
     href,
     title,
     ...rest
-}) => {
-    return (
-        <button
-            {...rest}
-            {...block({ isPrimary, disabled, ...rest })}
-            type="button"
-            disabled={disabled}
-        >
-            {icon === 'plus' ? (
-                <FaPlus size="75%" title={title || 'plus'} />
-            ) : (
-                <FaMinus size="75%" title={title || 'minus'} />
-            )}
-        </button>
-    );
-};
+}) => (
+    <button
+        {...rest}
+        {...block({ isPrimary, disabled, ...rest })}
+        type="button"
+        disabled={disabled}
+    >
+        {icon === 'plus' ? (
+            <FaPlus size="75%" title={title || 'plus'} />
+        ) : (
+            <FaMinus size="75%" title={title || 'minus'} />
+        )}
+    </button>
+);
 
 StepperButton.displayName = 'StepperButton';

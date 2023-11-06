@@ -26,19 +26,17 @@ export interface Props extends MapProps {
     additionalGoogleProps?: Omit<LoadScriptNextProps, 'googleMapsApiKey'>;
 }
 export const MapWithGoogleLoader = React.forwardRef<GoogleMap, Props>(
-    ({ apiKey, language, region, additionalGoogleProps = {}, ...rest }, ref) => {
-        return (
-            <LoadScriptNext
-                googleMapsApiKey={apiKey}
-                language={language}
-                region={region}
-                loadingElement={<LoadingSpinner centerIn="parent" />}
-                {...additionalGoogleProps}
-            >
-                <Map ref={ref} {...rest} />
-            </LoadScriptNext>
-        );
-    }
+    ({ apiKey, language, region, additionalGoogleProps = {}, ...rest }, ref) => (
+        <LoadScriptNext
+            googleMapsApiKey={apiKey}
+            language={language}
+            region={region}
+            loadingElement={<LoadingSpinner centerIn="parent" />}
+            {...additionalGoogleProps}
+        >
+            <Map ref={ref} {...rest} />
+        </LoadScriptNext>
+    )
 );
 
 MapWithGoogleLoader.displayName = 'MapWithGoogleLoader';

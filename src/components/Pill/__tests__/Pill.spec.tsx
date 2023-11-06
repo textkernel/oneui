@@ -16,9 +16,8 @@ describe('<Pill> component', () => {
     const clearLabel = 'Clear';
 
     let view: RenderResult;
-    const getButtonByName = (inputName) => {
-        return screen.getByRole('button', { name: new RegExp(inputName) });
-    };
+    const getButtonByName = (inputName) =>
+        screen.getByRole('button', { name: new RegExp(inputName) });
 
     beforeEach(() => {
         view = render(

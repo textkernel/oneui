@@ -6,9 +6,7 @@ import { Toggle } from '../Toggle';
 describe('<Toggle> that renders a toggle', () => {
     let view: RenderResult;
 
-    const getCheckboxByName = (inputName) => {
-        return screen.getByRole('checkbox', { name: `${inputName}` });
-    };
+    const getCheckboxByName = (inputName) => screen.getByRole('checkbox', { name: `${inputName}` });
 
     it('should render Toggle correctly with label', () => {
         view = render(<Toggle id="1">Title is here</Toggle>);

@@ -6,8 +6,8 @@ import { ReactElementHighlighter } from '../ReactElementHighlighter';
 
 describe('ReactElementHighlighter', () => {
     const keywords = ['lorem', 'officia', 'dolore', 'dolor', 'irure dolor', 'qui officia deserunt'];
-    const renderComponent = (props) => {
-        return render(
+    const renderComponent = (props) =>
+        render(
             <ReactElementHighlighter
                 searchTerms={keywords}
                 highlightRenderer={(keyword) => {
@@ -31,7 +31,6 @@ describe('ReactElementHighlighter', () => {
                 </>
             </ReactElementHighlighter>
         );
-    };
 
     it('should highlight and return result', (done) => {
         renderComponent({

@@ -104,25 +104,21 @@ export function Autosuggest<S>({
         setInputValue(value);
     };
 
-    const renderFullTagsList = () => {
-        return selectedSuggestions.map((item) => (
+    const renderFullTagsList = () =>
+        selectedSuggestions.map((item) => (
             <SuggestionTag key={suggestionToString(item)} onClick={() => onSelectionRemove?.(item)}>
                 {suggestionToString(item)}
             </SuggestionTag>
         ));
-    };
 
-    const renderIcon = () => {
-        return (
-            iconNode &&
-            React.cloneElement(
-                iconNode,
-                elem('spacedElem', {
-                    elemClassName: iconNode.props.className,
-                })
-            )
+    const renderIcon = () =>
+        iconNode &&
+        React.cloneElement(
+            iconNode,
+            elem('spacedElem', {
+                elemClassName: iconNode.props.className,
+            })
         );
-    };
 
     const renderShortTagsList = () => {
         const visibleTags = selectedSuggestions.slice(0, numberOfVisibleTags);

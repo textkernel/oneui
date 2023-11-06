@@ -20,6 +20,6 @@ export const COLORS = [
     '#75DFFB',
 ];
 
-export type ValidationContext = typeof VALIDATION_CONTEXTS[number];
-export type Context = typeof CONTEXTS[number];
-export type Size = typeof SIZES[number];
+export type ValidationContext = (typeof VALIDATION_CONTEXTS)[number];
+export type Context = (typeof CONTEXTS)[number];
+export type Size = (typeof SIZES)[number];

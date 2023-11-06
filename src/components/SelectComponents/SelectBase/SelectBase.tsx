@@ -210,11 +210,10 @@ export function SelectBase<S>({
 
     const stateAndProps = { focused };
 
-    const getInputPropsWithUpdatedRef = (getInputProps) => (inputProps) => {
-        return inputRefFromProps
+    const getInputPropsWithUpdatedRef = (getInputProps) => (inputProps) =>
+        inputRefFromProps
             ? getInputProps(inputProps)
             : getInputProps({ ...inputProps, ref: inputRef });
-    };
 
     return (
         <div {...rest} ref={rootRef} {...block({ ...stateAndProps, className })}>

@@ -15,17 +15,15 @@ export default {
     },
 };
 
-export const _Tag = (args) => {
-    return (
-        <div
-            style={{
-                padding: '5px',
-            }}
-        >
-            <Tag {...args} />
-        </div>
-    );
-};
+export const _Tag = (args) => (
+    <div
+        style={{
+            padding: '5px',
+        }}
+    >
+        <Tag {...args} />
+    </div>
+);
 _Tag.args = {
     bgColor: '#3eff2b',
     isSelected: false,
@@ -34,17 +32,15 @@ _Tag.args = {
     children: 'This is an extremely long long text!',
 };
 
-export const TagWithIcon = (args) => {
-    return (
-        <div
-            style={{
-                padding: '5px',
-            }}
-        >
-            <Tag {...args} />
-        </div>
-    );
-};
+export const TagWithIcon = (args) => (
+    <div
+        style={{
+            padding: '5px',
+        }}
+    >
+        <Tag {...args} />
+    </div>
+);
 TagWithIcon.args = {
     bgColor: '#3eff2b',
     isSelected: false,
