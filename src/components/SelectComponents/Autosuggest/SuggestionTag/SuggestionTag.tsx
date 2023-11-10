@@ -5,7 +5,7 @@ import styles from './SuggestionTag.scss';
 
 const { block, elem } = bem('SuggestionTag', styles);
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Defines with behavior for tag */
     width?: 'block' | 'small' | 'auto';
     /** Clicked on delete button */

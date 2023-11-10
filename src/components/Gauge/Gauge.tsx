@@ -8,7 +8,7 @@ const SET_PERCENTAGE_DELAY = 100;
 
 const { block, elem } = bem('Gauge', styles);
 
-export interface Props {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Defines if progress bar is in loading state */
     isProgressLoading?: boolean;
     /** Defines if content part is in loading state */

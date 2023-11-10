@@ -6,7 +6,7 @@ import { bem } from '../../utils';
 import { ENTER_KEY } from '../../constants';
 import styles from './Drawer.scss';
 
-export interface Props extends Omit<React.HTMLAttributes<HTMLLIElement>, 'title'> {
+export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
     /** Drawer title */
     title: React.ReactNode;
     /** Set open/close status for initial state */

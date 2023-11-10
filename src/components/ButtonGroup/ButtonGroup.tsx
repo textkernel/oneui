@@ -5,7 +5,7 @@ import styles from './ButtonGroup.scss';
 import { Size } from '../../constants';
 import { ButtonProps } from '../Buttons';
 
-export interface Props {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** The buttons in this group */
     children: React.ReactElement<ButtonProps> | (React.ReactElement<ButtonProps> | EmptyElement)[];
     /** Should the button be in primary style or not */

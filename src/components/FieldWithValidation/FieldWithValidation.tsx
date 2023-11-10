@@ -4,7 +4,7 @@ import { Tooltip } from '../Tooltip';
 import { Text } from '../Text';
 import styles from './FieldWithValidation.scss';
 
-export interface Props {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** a single form field, e.g. Input, TextArea, etc. It should support context=”danger” prop.
      * When useTooltip is set to true, children that are ReactComponents should support forwardRef */
     children: React.ReactElement;

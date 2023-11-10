@@ -12,7 +12,7 @@ export interface PillDropdownChildrenParams {
     innerPadding?: string;
 }
 
-export interface Props {
+export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
     /** The dropdown content renderer function. It is called with:
      *   * close {function} - see below
      */

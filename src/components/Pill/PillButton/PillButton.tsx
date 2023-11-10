@@ -4,7 +4,7 @@ import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
 
-export interface Props {
+export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
     /** Wether the dropdown is open or closed */
     isOpen?: boolean;
     /** If pill is in default state, meaning it has content but cannot be reset. */
