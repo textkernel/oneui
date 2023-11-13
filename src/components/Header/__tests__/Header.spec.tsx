@@ -28,8 +28,7 @@ describe('Header component that renders a website header with a logo on the left
     it('should render correctly with logo passed as component', () => {
         const logo = (
             <a href="/test">
-                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                <IconTextkernel />
+                <IconTextkernel aria-label="textkernel icon" />
             </a>
         );
         const view = render(<Header logo={logo}>This is a placeholder for children</Header>);
