@@ -136,6 +136,7 @@ export function Dropdown<V>({
     };
     return (
         <>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {React.cloneElement<any>(button, {
                 ...rest,
                 ...toggleButtonProps,
@@ -157,6 +158,7 @@ export function Dropdown<V>({
                                 (val) => val === child.props.value
                             );
 
+                            // eslint-disable-next-line @typescript-eslint/no-explicit-any
                             return React.cloneElement<any>(child, {
                                 ...getItemProps({
                                     index: currentValueIndex,

@@ -28,7 +28,7 @@ describe('Header component that renders a website header with a logo on the left
     it('should render correctly with logo passed as component', () => {
         const logo = (
             <a href="/test">
-                <IconTextkernel />
+                <IconTextkernel aria-label="textkernel icon" />
             </a>
         );
         const view = render(<Header logo={logo}>This is a placeholder for children</Header>);

@@ -11,7 +11,7 @@ export const SUGGESTIONS = [
     { name: 'Pluto', disabled: true },
 ];
 
-export type SuggestionsType = typeof SUGGESTIONS[number];
+export type SuggestionsType = (typeof SUGGESTIONS)[number];
 
 export const COMPLEX_SUGGESTIONS = [
     { name: 'Sun', type: 'star' },

@@ -31,7 +31,7 @@ export enum TokenType {
 }
 type TokenPattern = [
     TokenType, // Token type
-    RegExp // Pattern of a token in a RegExp form
+    RegExp, // Pattern of a token in a RegExp form
 ];
 type Token = {
     type: TokenType;

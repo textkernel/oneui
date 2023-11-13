@@ -2,7 +2,6 @@
     "extends": [
         "airbnb-typescript",
         "prettier",
-        "prettier/react",
         "plugin:@typescript-eslint/recommended"
     ],
     "plugins": ["react", "prettier", "react-hooks", "@typescript-eslint"],

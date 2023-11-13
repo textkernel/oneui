@@ -18,16 +18,14 @@ export default {
     },
 };
 
-export const _Pill = (args) => {
-    return (
-        <div style={{ position: 'relative', display: 'flex', gap: '4px' }}>
-            <Pill {...args}>{({ close }) => <DummyComponent close={close} />}</Pill>
-            <Pill {...args} content={undefined}>
-                {({ close }) => <DummyComponent close={close} />}
-            </Pill>
-        </div>
-    );
-};
+export const _Pill = (args) => (
+    <div style={{ position: 'relative', display: 'flex', gap: '4px' }}>
+        <Pill {...args}>{({ close }) => <DummyComponent close={close} />}</Pill>
+        <Pill {...args} content={undefined}>
+            {({ close }) => <DummyComponent close={close} />}
+        </Pill>
+    </div>
+);
 _Pill.args = {
     doneLabel: 'Done',
     name: 'Pill name',

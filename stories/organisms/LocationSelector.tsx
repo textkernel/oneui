@@ -74,6 +74,7 @@ const Template: Story<LocationSelectorProps & { useDefaultHighlight: boolean }> 
     ...args
 }) => {
     const apiKey = ensureApiKey();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [selectedLocations, setSelectedLocations] = React.useState<any[]>([]);
 
     const handleAddLocation = (location) => {

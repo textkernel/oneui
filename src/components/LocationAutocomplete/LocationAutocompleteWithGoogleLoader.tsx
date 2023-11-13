@@ -34,20 +34,18 @@ const LocationAutocompleteWithGoogleLoader: React.FC<Props> = ({
     region = undefined,
     additionalGoogleProps = {},
     ...rest
-}) => {
-    return (
-        <LoadScriptNext
-            googleMapsApiKey={apiKey}
-            language={language}
-            region={region}
-            loadingElement={<LoadingSpinner centerIn="parent" />}
-            libraries={GOOGLE_API_LIBRARIES as Libraries}
-            {...additionalGoogleProps}
-        >
-            <LocationAutocomplete {...rest} />
-        </LoadScriptNext>
-    );
-};
+}) => (
+    <LoadScriptNext
+        googleMapsApiKey={apiKey}
+        language={language}
+        region={region}
+        loadingElement={<LoadingSpinner centerIn="parent" />}
+        libraries={GOOGLE_API_LIBRARIES as Libraries}
+        {...additionalGoogleProps}
+    >
+        <LocationAutocomplete {...rest} />
+    </LoadScriptNext>
+);
 
 LocationAutocompleteWithGoogleLoader.displayName = 'LocationAutocompleteWithGoogleLoader';
 

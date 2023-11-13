@@ -13,6 +13,7 @@ exports[`Header component that renders a website header with a logo on the left 
         href="/test"
       >
         <div
+          aria-label="textkernel icon"
           class="IconBase"
         >
           <svg

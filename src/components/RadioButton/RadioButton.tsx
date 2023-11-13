@@ -18,33 +18,31 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
 const { block, elem } = bem('RadioButton', styles);
 
 export const RadioButton = forwardRef<HTMLInputElement, Props>(
-    ({ id, children, disabled = false, name, ...rest }, ref) => {
-        return (
-            <div {...block({ ...rest, disabled })}>
-                <input
-                    {...rest}
-                    {...elem('input')}
-                    ref={ref}
-                    type="radio"
-                    id={id}
-                    name={name}
-                    disabled={disabled}
-                />
-                <label {...elem('label')} htmlFor={id}>
-                    <span {...elem('box')}>
-                        <svg {...elem('svg')} width="12px" height="10px" viewBox={CHECKBOX_VIEWBOX}>
-                            <circle cx="5" cy="6" r="3" />
-                        </svg>
-                    </span>
-                    {!!children && (
-                        <Text {...elem('text')} inline context={disabled ? 'muted' : 'default'}>
-                            {children}
-                        </Text>
-                    )}
-                </label>
-            </div>
-        );
-    }
+    ({ id, children, disabled = false, name, ...rest }, ref) => (
+        <div {...block({ ...rest, disabled })}>
+            <input
+                {...rest}
+                {...elem('input')}
+                ref={ref}
+                type="radio"
+                id={id}
+                name={name}
+                disabled={disabled}
+            />
+            <label {...elem('label')} htmlFor={id}>
+                <span {...elem('box')}>
+                    <svg {...elem('svg')} width="12px" height="10px" viewBox={CHECKBOX_VIEWBOX}>
+                        <circle cx="5" cy="6" r="3" />
+                    </svg>
+                </span>
+                {!!children && (
+                    <Text {...elem('text')} inline context={disabled ? 'muted' : 'default'}>
+                        {children}
+                    </Text>
+                )}
+            </label>
+        </div>
+    )
 );
 
 RadioButton.displayName = 'RadioButton';

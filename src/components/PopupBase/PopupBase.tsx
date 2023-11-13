@@ -146,12 +146,10 @@ export const PopupBase: React.FC<Props> = ({
         }
     };
 
-    const getArgs = () => {
-        return {
-            setPopupVisibility,
-            isOpen,
-        };
-    };
+    const getArgs = () => ({
+        setPopupVisibility,
+        isOpen,
+    });
 
     const renderAnchor = () => {
         const anchorElem = anchorRenderer(getArgs());

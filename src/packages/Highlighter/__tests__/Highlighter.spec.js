@@ -2,15 +2,13 @@ import { Highlighter } from '../Highlighter';
 
 describe('Highlighter', () => {
     window.scrollTo = () => {};
-    const createOnMatchCallback = (keyword) => {
-        return (node, onMatch) => {
-            if (node.textContent === keyword) {
-                const newNode = document.createElement('mark');
-                newNode.innerHTML = node.textContent;
-                onMatch(newNode);
-                node.replaceWith(newNode);
-            }
-        };
+    const createOnMatchCallback = (keyword) => (node, onMatch) => {
+        if (node.textContent === keyword) {
+            const newNode = document.createElement('mark');
+            newNode.innerHTML = node.textContent;
+            onMatch(newNode);
+            node.replaceWith(newNode);
+        }
     };
     const html = `
         <div>

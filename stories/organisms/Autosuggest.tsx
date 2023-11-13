@@ -94,14 +94,12 @@ export const SingleSelect = ({ hasSuggestions, ...args }) => {
 
     const inputRef = React.createRef<HTMLInputElement>();
 
-    const getSuggestions = (): TSuggestion[] => {
+    const getSuggestions = (): TSuggestion[] =>
         // filtering suggestions from some other source
-        return SUGGESTIONS.filter((item: TSuggestion) =>
+        SUGGESTIONS.filter((item: TSuggestion) =>
             // suggestion is relevant to input
             item.name.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())
         );
-    };
-
     const onInputValueChange = (value: string) => {
         console.log(`onInputValueChange was called with ${value}`);
         setInputValue(value);

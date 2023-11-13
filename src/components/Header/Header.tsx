@@ -3,18 +3,22 @@ import { bem } from '../../utils';
 import { BlockWidthRestrictor } from '../WidthRestrictor';
 import styles from './Header.scss';
 
+type TLogo = {
+    /** path to the logo source file */
+    src: string;
+    /** path to where the logo should link to if clicked */
+    link?: string;
+    /** a name for the logo, it will used as alternative text to the img */
+    title?: string;
+};
+
+function isLogo(logo: TLogo | React.ReactElement): logo is TLogo {
+    return (logo as TLogo) !== undefined;
+}
+
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** supply a logo ready to be rendered or attributes to build a simple one. */
-    logo:
-        | {
-              /** path to the logo source file */
-              src: string;
-              /** path to where the logo should link to if clicked */
-              link?: string;
-              /** a name for the logo, it will used as alternative text to the img */
-              title?: string;
-          }
-        | React.ReactElement;
+    logo: TLogo | React.ReactElement;
     /** Node(s) to be rendered on the right side of the header */
     children?: React.ReactNode;
 }
@@ -28,16 +32,18 @@ export const Header: React.FC<Props> = (props) => {
 
     if (React.isValidElement(logo)) {
         renderedLogo = React.cloneElement(logo, { ...elem('logo', props) });
-    } else if (logo.link) {
-        renderedLogo = (
-            <a href={logo.link}>
-                <img src={logo.src} alt={logo.title} {...elem('logo', props)} />
-            </a>
-        );
-    } else {
-        renderedLogo = (
-            <img src={logo.src} alt={logo.title || 'our logo'} {...elem('logo', props)} />
-        );
+    } else if (isLogo(logo)) {
+        if (logo.link) {
+            renderedLogo = (
+                <a href={logo.link}>
+                    <img src={logo.src} alt={logo.title} {...elem('logo', props)} />
+                </a>
+            );
+        } else {
+            renderedLogo = (
+                <img src={logo.src} alt={logo.title || 'our logo'} {...elem('logo', props)} />
+            );
+        }
     }
 
     return (

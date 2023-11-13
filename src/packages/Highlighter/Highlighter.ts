@@ -211,9 +211,8 @@ export class Highlighter {
                 highlighterCore: new HighlighterCore([term], {
                     ...highlighterCoreOptions,
                 }),
-                highlightRenderer: (highlightTerm) => {
-                    return Highlighter.createHighlightWrapper(highlightTerm, styles);
-                },
+                highlightRenderer: (highlightTerm) =>
+                    Highlighter.createHighlightWrapper(highlightTerm, styles),
             });
             this.findKeywordInNodes(term, (node, onMatch) => {
                 highlighterNode.find(node, (highlightedNode) => {

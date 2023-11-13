@@ -151,8 +151,8 @@ const LocationSelector: React.FC<Props> = ({
      * add it along with passed location object to the selectedLocations array
      * if this location was not selected yet
      */
-    const handleAddLocation = (location: LocationSelectorLocation) => {
-        return findGeoCenterForPlaceId(location.place_id)
+    const handleAddLocation = (location: LocationSelectorLocation) =>
+        findGeoCenterForPlaceId(location.place_id)
             .then((center) => {
                 const lng = center.lng();
                 const lat = center.lat();
@@ -182,15 +182,13 @@ const LocationSelector: React.FC<Props> = ({
                 }
             })
             .catch(/* TODO: add error handling */);
-    };
 
-    const getMarkers = () => {
-        return selectedLocations.map((location) => ({
+    const getMarkers = () =>
+        selectedLocations.map((location) => ({
             description: location.description,
             center: location.center,
             radius: hasRadius ? getRadiusInMeters(location.radius, radiusUnits) : 0,
         }));
-    };
 
     return (
         <div {...rest} {...block({ ...rest })}>

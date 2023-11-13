@@ -17,13 +17,10 @@ describe('<PillButton> component', () => {
 
     let view: RenderResult;
 
-    const getButtonByName = (inputName) => {
-        return screen.getByRole('button', { name: inputName });
-    };
+    const getButtonByName = (inputName) => screen.getByRole('button', { name: inputName });
 
-    const getButtonByNameQuerySearch = (inputName) => {
-        return screen.queryByRole('button', { name: inputName });
-    };
+    const getButtonByNameQuerySearch = (inputName) =>
+        screen.queryByRole('button', { name: inputName });
 
     describe('in inactive, collapsed state (with minimal props)', () => {
         beforeEach(() => {

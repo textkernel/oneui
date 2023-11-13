@@ -52,13 +52,11 @@ export function SuggestionsList<S>({
     inputValue = '',
     passDisabledToListItems = false,
 }: Props<S>) {
-    // eslint-disable-next-line react/display-name
     const renderItem = ({ key, index, style = {} }) => {
         const currentItem = suggestions[index];
         let disabled = false;
         if (typeof currentItem === 'object' && currentItem !== null && 'disabled' in currentItem) {
-            // eslint-disable-next-line @typescript-eslint/dot-notation
-            disabled = currentItem['disabled']; // TS only happy with this syntax
+            disabled = currentItem.disabled as boolean;
         }
 
         return (
@@ -84,22 +82,18 @@ export function SuggestionsList<S>({
         );
     };
 
-    // eslint-disable-next-line react/display-name
     const renderLoadingPlaceholders = () =>
         Array(NUMBER_OF_SUGGESTION_LOADING_PLACEHOLDERS)
             .fill('')
-            .map((el, i) => {
-                return (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <ListItem key={i}>
-                        <div {...elem('loaderItem')} role="listitem">
-                            <ContentPlaceholder />
-                        </div>
-                    </ListItem>
-                );
-            });
+            .map((el, i) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <ListItem key={i}>
+                    <div {...elem('loaderItem')} role="listitem">
+                        <ContentPlaceholder />
+                    </div>
+                </ListItem>
+            ));
 
-    // eslint-disable-next-line react/display-name
     const renderSuggestionsList = () => (
         <>
             {useOptimizeRender ? (

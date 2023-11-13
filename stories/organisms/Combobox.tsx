@@ -16,11 +16,10 @@ export const _Combobox = (args) => {
     const [selectedSuggestion, setSelectedSuggestion] = React.useState<TSuggestion | undefined>();
     const [inputValue, setInputValue] = React.useState('');
 
-    const getSuggestions = (): TSuggestion[] => {
-        return SUGGESTIONS.filter((item) =>
+    const getSuggestions = (): TSuggestion[] =>
+        SUGGESTIONS.filter((item) =>
             item.name.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())
         );
-    };
 
     const onInputValueChange = (value: string) => {
         console.log(`onInputValueChange was called with ${value}`);
@@ -68,11 +67,10 @@ export const Clearable = (args) => {
     const [selectedSuggestion, setSelectedSuggestion] = React.useState<TSuggestion | undefined>();
     const [inputValue, setInputValue] = React.useState('');
 
-    const getSuggestions = (): TSuggestion[] => {
-        return SUGGESTIONS.filter((item) =>
+    const getSuggestions = (): TSuggestion[] =>
+        SUGGESTIONS.filter((item) =>
             item.name.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())
         );
-    };
 
     const onInputValueChange = (value: string) => {
         console.log(`onInputValueChange was called with ${value}`);
