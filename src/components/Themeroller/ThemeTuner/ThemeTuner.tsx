@@ -11,7 +11,7 @@ type CssVars = {
     [key: string]: string;
 };
 
-interface Props {
+interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /** Themeroller config */
     config: ThemerollerConfig;
     /** Theme changed styles */

@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { bem } from '../../utils';
 import styles from './RadioButtonGroup.scss';
 
-export interface Props {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** The name of the group this radio button belongs to */
     name: string;
     /** common onChange handler that will be passed to all children */

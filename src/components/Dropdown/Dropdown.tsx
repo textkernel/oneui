@@ -12,7 +12,7 @@ import styles from './Dropdown.scss';
 
 const { elem } = bem('Dropdown', styles);
 
-export interface Props<V> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface Props<V> extends Omit<React.HTMLAttributes<HTMLButtonElement>, 'onChange'> {
     /**
      *  Popup content to be placed inside List.
      *  Navigation available only if element has not empty `value` attribute

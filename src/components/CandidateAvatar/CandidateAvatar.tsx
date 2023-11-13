@@ -2,7 +2,7 @@ import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './CandidateAvatar.scss';
 
-export interface Props {
+export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Path to the avatar image resource */
     imageUrl: string;
     /** The match percentage; ranging from 0 (danger) - 100 (success) */

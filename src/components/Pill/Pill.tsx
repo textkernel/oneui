@@ -3,7 +3,7 @@ import { PopupBase } from '../PopupBase';
 import { PillButton, PillButtonProps } from './PillButton';
 import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
 
-export interface Props extends Omit<PillButtonProps, 'toggleDropdown'> {
+export interface Props extends Omit<PillButtonProps, 'toggleDropdown' | 'children'> {
     /** The dropdown content renderer function. It is called with:
      *   * close {function} that closes the dropdown
      *   * innerPadding {string} that can be applied inside the component to set consistent padding
