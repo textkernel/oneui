@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [22.0.1](https://github.com/textkernel/oneui/compare/22.0.0...22.0.1) (2023-11-13)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/react-modal to v3.16.2 ([dd75bd3](https://github.com/textkernel/oneui/commit/dd75bd316bdd7dd3679937b3ff9b77dadf6aacf0))
+* **TS:** extend Prop interfaces where base element props were not included ([#1086](https://github.com/textkernel/oneui/issues/1086)) ([3a87b57](https://github.com/textkernel/oneui/commit/3a87b5780e9b33b5cea21737b98bbd8a3dd8f89d))
+
 ## [22.0.0](https://github.com/textkernel/oneui/compare/20.0.1...22.0.0) (2023-11-03)
 
 
