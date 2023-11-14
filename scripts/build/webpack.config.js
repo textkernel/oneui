@@ -67,6 +67,7 @@ const baseConfig = {
     output: {
         filename: `${LIBRARY_NAME}.js`,
         path: DIST_PATH,
+        publicPath: '',
         library: LIBRARY_NAME,
         libraryTarget: 'umd',
         umdNamedDefine: true,
