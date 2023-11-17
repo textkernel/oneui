@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [22.0.3](https://github.com/textkernel/oneui/compare/22.0.2...22.0.3) (2023-11-17)
+
+
+### Bug Fixes
+
+* **bundle:** add empty publicPath to webpack config ([#1091](https://github.com/textkernel/oneui/issues/1091)) ([3fbb205](https://github.com/textkernel/oneui/commit/3fbb20589c2812a3f0c03edd46102fa0e3f88903))
+
 ### [22.0.2](https://github.com/textkernel/oneui/compare/22.0.0...22.0.2) (2023-11-13)
 
 
