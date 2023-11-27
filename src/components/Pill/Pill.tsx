@@ -61,7 +61,6 @@ export const Pill: React.FC<Props> = ({
         [dropdownRefFromProps]
     );
 
-    // eslint-disable-next-line react/display-name, react/prop-types
     const buttonRenderer = ({ setPopupVisibility, isOpen }) => {
         const toggleDropdown = () => {
             if (isOpen && onClose) {

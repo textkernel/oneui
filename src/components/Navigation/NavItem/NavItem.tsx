@@ -2,7 +2,6 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import styles from './NavItem.scss';
 
-/* eslint-disable react/no-unused-prop-types */
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Add active class to the item. For controlled components */
     active?: boolean;
@@ -15,7 +14,6 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Node to be rendered as a single navigation item. There should be only 1 child */
     children: React.ReactElement;
 }
-/* eslint-enable react/no-unused-prop-types */
 
 interface ChildProps extends Omit<Props, 'className' | 'children' | 'aria-current'> {
     className?: string | (({ isActive }: { isActive: boolean }) => string);
