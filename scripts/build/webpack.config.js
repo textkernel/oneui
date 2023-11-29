@@ -7,7 +7,7 @@ const { getRuleJS, getRuleTS, getRuleCSS, getRuleSCSS, getRuleFiles } = require(
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
 const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
-const STORIES_PATH = path.resolve(PROJECT_ROOT_PATH, 'stories.new');
+const STORIES_PATH = path.resolve(PROJECT_ROOT_PATH, 'stories_new');
 const DIST_PATH = path.resolve(PROJECT_ROOT_PATH, 'dist');
 const NODE_MODULES_PATH = path.resolve(SOURCE_PATH, '../node_modules');
 
@@ -39,7 +39,7 @@ const getRules = (env = 'prod') => ({
         includePaths: [SOURCE_PATH],
     }),
     ts: getRuleTS({
-        includePaths: env === 'prod' ? [SOURCE_PATH] : [SOURCE_PATH, STORIES_PATH],
+        includePaths: env === 'prod' ? [SOURCE_PATH, STORIES_PATH] : [SOURCE_PATH, STORIES_PATH],
     }),
     externalCss: getRuleCSS({
         styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',

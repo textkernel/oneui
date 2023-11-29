@@ -6,11 +6,11 @@ const { oneui } = require('../package.json');
 const { libraryName: LIBRARY_NAME } = oneui;
 
 module.exports = {
-    staticDirs: ['../stories.new/static'],
+    staticDirs: ['../stories_new/static'],
 
     stories: [
-        '../stories.new/atoms/*.@(js|jsx|ts|tsx)',
-        '../stories.new/**/*.@(js|jsx|ts|tsx)',
+        '../stories_new/atoms/*.@(js|jsx|ts|tsx)',
+        '../stories_new/**/*.@(js|jsx|ts|tsx)',
     ],
 
     // staticDirs: ['../stories/static'],
@@ -50,18 +50,10 @@ module.exports = {
 
         const PROJECT_ROOT_PATH = path.resolve(__dirname, '../');
         const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
-        const NODE_MODULES_PATH = path.resolve(SOURCE_PATH, '../node_modules');
 
         config.resolve.alias['@textkernel/oneui'] = path.resolve(__dirname, '../src');
         // Make whatever fine-grained changes you need
-        config.module.rules.push(rules.js, rules.ts, {
-            test: /\.css$/i,
-            exclude: [NODE_MODULES_PATH],
-            use: [MiniCssExtractPlugin.loader, {
-                loader: 'css-loader',
-            },],
-          },
-          rules.scss);
+        config.module.rules.push(rules.js, rules.ts, rules.scss);
         config.plugins.push(
             new MiniCssExtractPlugin({
                 filename: `${LIBRARY_NAME}.min.css`,
