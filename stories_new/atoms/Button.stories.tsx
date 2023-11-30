@@ -5,7 +5,7 @@ import { Button, SearchButton, StepperButton, FileButton, SIZES } from '@textker
 import { FaUpload } from 'react-icons/fa';
 
 export default {
-    title: 'Atoms/Button',
+    // title: 'Atoms/Button',
     component: Button,
     subcomponents: { SearchButton, StepperButton, FileButton },
 } as Meta<typeof Button>;
@@ -31,6 +31,7 @@ export const ButtonAsALink: StoryButton = {
         href: 'https://github.com/textkernel/oneui',
         children: 'Click me!',
     },
+    // skip
     render: (args) => <Button {...args} />,
 };
 
