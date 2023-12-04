@@ -16,31 +16,6 @@ module.exports = {
         '../stories/*.@(mdx)',
     ],
 
-    // staticDirs: ['../stories/static'],
-
-    // stories: [
-    //     '../stories/theme/*.@(js|jsx|ts|tsx)',
-    //     '../stories/atoms/*.@(js|jsx|ts|tsx)',
-    //     '../stories/molecules/*.@(js|jsx|ts|tsx)',
-    //     '../stories/organisms/*.@(js|jsx|ts|tsx)',
-    //     '../stories/packages/*.@(js|jsx|ts|tsx)',
-    //     '../stories/**/*.@(js|jsx|ts|tsx)',
-    // ],
-
-    addons: [
-        '@storybook/addon-links',
-        '@storybook/addon-essentials',
-        '@storybook/addon-interactions',
-    ],
-
-    // typescript: {
-    //     reactDocgen: 'react-docgen',
-    // },
-
-    // features: {
-    //     storyStoreV7: false, // 👈 Opt out of on-demand story loading
-    // },
-
     framework: {
         name: '@storybook/react-webpack5',
         options: {}
