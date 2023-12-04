@@ -16,9 +16,19 @@ module.exports = {
         '../stories/*.@(mdx)',
     ],
 
+    addons: [
+        '@storybook/addon-links',
+        '@storybook/addon-essentials',
+        '@storybook/addon-interactions',
+    ],
+
     framework: {
         name: '@storybook/react-webpack5',
         options: {}
+    },
+
+    docs: {
+        autodocs: true,
     },
 
     webpackFinal: async (config, { configType }) => {
@@ -33,8 +43,4 @@ module.exports = {
         // Return the altered config
         return config;
     },
-
-    docs: {
-        autodocs: true
-    }
 };

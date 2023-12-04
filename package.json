@@ -90,8 +90,6 @@
         "@storybook/addon-essentials": "7.5.1",
         "@storybook/addon-interactions": "7.5.1",
         "@storybook/addon-links": "7.5.1",
-        "@storybook/addon-onboarding": "1.0.8",
-        "@storybook/blocks": "7.6.0",
         "@storybook/react": "7.5.1",
         "@storybook/react-webpack5": "7.5.1",
         "@storybook/storybook-deployer": "2.8.16",
@@ -162,5 +160,4 @@
         "webpack-cli": "5.1.4",
         "webpack-dev-server": "4.15.1"
     }
-  }
-  
+}
