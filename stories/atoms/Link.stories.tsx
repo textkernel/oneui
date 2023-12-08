@@ -5,7 +5,6 @@ import { Link } from '@textkernel/oneui';
 const meta: Meta<typeof Link> = {
     title: 'Atoms/Link',
     component: Link,
-    render: (args) => <Link {...args} />,
 };
 
 export default meta;
@@ -19,4 +18,5 @@ export const _Link: Story = {
         href: 'https://textkernel.com',
         children: 'Click me',
     },
+    render: (args) => <Link {...args} />,
 };

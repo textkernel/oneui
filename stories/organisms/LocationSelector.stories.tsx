@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { LocationSelector, LocationSelectorProps } from '@textkernel/oneui';
 import { ensureApiKey } from '../utils/ensureApiKey';
 import NL_PATHS from '../static/gadm36_NLD_0.json';
@@ -7,6 +7,7 @@ import NL_PATHS from '../static/gadm36_NLD_0.json';
 const mockSelectedLocations = [
     {
         id: 'ajdo-219a-j19v-0491',
+        place_id: 'ajdo-219a-j19v-0491',
         description: 'Amsterdam',
         center: {
             lng: 4.894539799999961,
@@ -16,6 +17,7 @@ const mockSelectedLocations = [
     },
     {
         id: 'ajdo-219a-j19v-0492',
+        place_id: 'ajdo-219a-j19v-0492',
         description: 'Utrecht',
         center: {
             lng: 5.121420100000023,
@@ -25,54 +27,55 @@ const mockSelectedLocations = [
     },
 ];
 
-export default {
+const meta: Meta<typeof LocationSelector> = {
     title: 'Organisms/LocationSelector',
     component: LocationSelector,
     argTypes: {
-        useDefaultHighlight: { control: 'boolean' },
+        defaultHighlight: {
+            options: ['true', 'false'],
+            mapping: {
+                true: NL_PATHS as GeoJSON.GeoJsonObject,
+                false: undefined,
+            },
+        },
     },
 };
 
-export const Basic = ({ useDefaultHighlight, ...args }) => {
-    const apiKey = ensureApiKey();
+export default meta;
 
-    return (
-        <LocationSelector
-            {...(args as LocationSelectorProps)}
-            apiKey={apiKey || ''}
-            defaultHighlight={
-                args.useDefaultHighlight ? (NL_PATHS as GeoJSON.GeoJsonObject) : undefined
-            }
-        />
-    );
-};
-Basic.args = {
-    className: 'test-class',
-    selectedLocations: mockSelectedLocations,
-    country: 'NL',
-    language: 'EN',
-    region: 'NL',
-    initialMapAddress: '',
-    radiusUnits: 'km',
-    renderRadiusLabel: (r) => `+ ${r} km`,
-    hasRadius: true,
-    minRadius: 1,
-    maxRadius: 100,
-    radiusStep: 1,
-    modalContentLabel: 'Location selection',
-    inputPlaceholder: 'Location...',
-    modalInputPlaceholder: '',
-    noSuggestionsPlaceholder: 'noSuggestionsPlaceholder',
-    selectionPlaceholder: 'selectionPlaceholder',
-    doneLabel: 'Done',
-    clearTooltipLabel: 'Clear',
-    useDefaultHighlight: true,
+type Story = StoryObj<typeof LocationSelector>;
+
+export const Basic: Story = {
+    name: 'Basic',
+    args: {
+        className: 'test-class',
+        selectedLocations: mockSelectedLocations,
+        country: 'NL',
+        language: 'EN',
+        region: 'NL',
+        initialMapAddress: '',
+        radiusUnits: 'km',
+        renderRadiusLabel: (r) => `+ ${r} km`,
+        hasRadius: true,
+        minRadius: 1,
+        maxRadius: 100,
+        radiusStep: 1,
+        modalContentLabel: 'Location selection',
+        inputPlaceholder: 'Location...',
+        modalInputPlaceholder: '',
+        noSuggestionsPlaceholder: 'noSuggestionsPlaceholder',
+        selectionPlaceholder: 'selectionPlaceholder',
+        doneLabel: 'Done',
+        clearTooltipLabel: 'Clear',
+    },
+    render: (args) => {
+        const apiKey = ensureApiKey();
+
+        return <LocationSelector {...(args as LocationSelectorProps)} apiKey={apiKey || ''} />;
+    },
 };
 
-const Template: Story<LocationSelectorProps & { useDefaultHighlight: boolean }> = ({
-    useDefaultHighlight,
-    ...args
-}) => {
+const Template = (args: LocationSelectorProps) => {
     const apiKey = ensureApiKey();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [selectedLocations, setSelectedLocations] = React.useState<any[]>([]);
@@ -126,60 +129,63 @@ const Template: Story<LocationSelectorProps & { useDefaultHighlight: boolean }> 
             onLocationAutocompleteError={() =>
                 console.log('onLocationAutocompleteError was called')
             }
-            defaultHighlight={useDefaultHighlight ? (NL_PATHS as GeoJSON.GeoJsonObject) : undefined}
         />
     );
 };
 
-export const SingleSelect = Template.bind({});
-SingleSelect.args = {
-    withoutLocationCards: true,
-    region: 'NL',
-    country: 'NL',
-    language: 'EN',
-    initialMapAddress: 'Netherlands',
-    radiusUnits: 'km',
-    renderRadiusLabel: (r) => `+ ${r} km`,
-    hasRadius: true,
-    minRadius: 1,
-    maxRadius: 100,
-    radiusDefaultValue: 5,
-    radiusStep: 1,
-    placeTypes: ['(regions)'],
-    openOnEnterPress: true,
-    shouldGetAddressInfo: false,
-    showCountryInSuggestions: true,
-    modalContentLabel: 'Location selection',
-    inputPlaceholder: 'Location...',
-    modalInputPlaceholder: '',
-    noSuggestionsPlaceholder: 'noSuggestionsPlaceholder',
-    doneLabel: 'Done',
-    clearTooltipLabel: 'Clear',
-    useDefaultHighlight: true,
+export const SingleSelect: Story = {
+    name: 'SingleSelect',
+    args: {
+        withoutLocationCards: true,
+        region: 'NL',
+        country: 'NL',
+        language: 'EN',
+        initialMapAddress: 'Netherlands',
+        radiusUnits: 'km',
+        renderRadiusLabel: (r) => `+ ${r} km`,
+        hasRadius: true,
+        minRadius: 1,
+        maxRadius: 100,
+        radiusDefaultValue: 5,
+        radiusStep: 1,
+        placeTypes: ['(regions)'],
+        openOnEnterPress: true,
+        shouldGetAddressInfo: false,
+        showCountryInSuggestions: true,
+        modalContentLabel: 'Location selection',
+        inputPlaceholder: 'Location...',
+        modalInputPlaceholder: '',
+        noSuggestionsPlaceholder: 'noSuggestionsPlaceholder',
+        doneLabel: 'Done',
+        clearTooltipLabel: 'Clear',
+    },
+    render: Template,
 };
 
-export const MultiSelect = Template.bind({});
-MultiSelect.args = {
-    region: 'NL',
-    country: 'NL',
-    language: 'EN',
-    initialMapAddress: 'Netherlands',
-    radiusUnits: 'km',
-    renderRadiusLabel: (r) => `+ ${r} km`,
-    hasRadius: true,
-    minRadius: 1,
-    maxRadius: 100,
-    radiusDefaultValue: 5,
-    radiusStep: 1,
-    placeTypes: ['(regions)'],
-    openOnEnterPress: true,
-    shouldGetAddressInfo: false,
-    showCountryInSuggestions: true,
-    modalContentLabel: 'Location selection',
-    inputPlaceholder: 'Location...',
-    modalInputPlaceholder: '',
-    noSuggestionsPlaceholder: 'noSuggestionsPlaceholder',
-    doneLabel: 'Done',
-    clearTooltipLabel: 'Clear',
-    useDefaultHighlight: true,
+export const MultiSelect: Story = {
+    name: 'MultiSelect',
+    args: {
+        region: 'NL',
+        country: 'NL',
+        language: 'EN',
+        initialMapAddress: 'Netherlands',
+        radiusUnits: 'km',
+        renderRadiusLabel: (r) => `+ ${r} km`,
+        hasRadius: true,
+        minRadius: 1,
+        maxRadius: 100,
+        radiusDefaultValue: 5,
+        radiusStep: 1,
+        placeTypes: ['(regions)'],
+        openOnEnterPress: true,
+        shouldGetAddressInfo: false,
+        showCountryInSuggestions: true,
+        modalContentLabel: 'Location selection',
+        inputPlaceholder: 'Location...',
+        modalInputPlaceholder: '',
+        noSuggestionsPlaceholder: 'noSuggestionsPlaceholder',
+        doneLabel: 'Done',
+        clearTooltipLabel: 'Clear',
+    },
+    render: Template,
 };

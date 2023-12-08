@@ -89,6 +89,7 @@
                 "react/destructuring-assignment": "off",
                 "react/prop-types": "off",
                 "react/jsx-setDefaultAreaHighlight-newline": "off",
+                "react-hooks/rules-of-hooks": "off",
                 "import/no-default-export": "off",
                 "no-underscore-dangle": "off",
                 "@typescript-eslint/naming-convention": "off"

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { LabelPicker, Button, LabelPickerLabel } from '@textkernel/oneui';
 
 type MyLabel = LabelPickerLabel & { id: number };
@@ -17,36 +18,48 @@ const LABELS = [
     },
 ];
 
-export default {
+const meta: Meta<typeof LabelPicker> = {
     title: 'Organisms/LabelPicker',
     component: LabelPicker,
 };
 
-export const _LabelPicker = (args) => {
-    const [labels, setLabels] = React.useState<MyLabel[]>([...LABELS]);
+export default meta;
 
-    const handleChange = (label: MyLabel) => {
-        console.log(`onChange was called with ${JSON.stringify(label)}`);
+type Story = StoryObj<typeof LabelPicker>;
 
-        const idx = labels.findIndex((element) => element.id === label.id);
-        const newLabels = [...labels];
-        newLabels.splice(idx, 1, { ...label, isSelected: !label.isSelected });
-        setLabels(newLabels);
-    };
+export const _LabelPicker: Story = {
+    name: 'LabelPicker',
+    args: {
+        inputPlaceholder: 'Create a new label..',
+        doneLabel: 'Done',
+    },
+    render: (args) => {
+        const [labels, setLabels] = React.useState<MyLabel[]>([...LABELS]);
 
-    const handleAdd = (name: string) => {
-        console.log(`onAdd was called with ${name}`);
+        const handleChange = (label: MyLabel) => {
+            console.log(`onChange was called with ${JSON.stringify(label)}`);
 
-        setLabels([...labels, { name, isSelected: true, id: labels.length + 1 }]);
-    };
+            const idx = labels.findIndex((element) => element.id === label.id);
+            const newLabels = [...labels];
+            newLabels.splice(idx, 1, { ...label, isSelected: !label.isSelected });
+            setLabels(newLabels);
+        };
 
-    return (
-        <LabelPicker<MyLabel> {...args} labels={labels} onChange={handleChange} onAdd={handleAdd}>
-            <Button isLink>Apply label</Button>
-        </LabelPicker>
-    );
-};
-_LabelPicker.args = {
-    inputPlaceholder: 'Create a new label..',
-    doneLabel: 'Done',
+        const handleAdd = (name: string) => {
+            console.log(`onAdd was called with ${name}`);
+
+            setLabels([...labels, { name, isSelected: true, id: labels.length + 1 }]);
+        };
+
+        return (
+            <LabelPicker<MyLabel>
+                {...args}
+                labels={labels}
+                onChange={handleChange}
+                onAdd={handleAdd}
+            >
+                <Button isLink>Apply label</Button>
+            </LabelPicker>
+        );
+    },
 };

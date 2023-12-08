@@ -1,20 +1,29 @@
 import * as React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Toggle } from '@textkernel/oneui';
 
-export default {
+const meta: Meta<typeof Toggle> = {
     title: 'Molecules/Toggle',
     component: Toggle,
 };
 
-export const ToggleWithLabel = (args) => <Toggle {...args} />;
-ToggleWithLabel.storyName = 'Toggle with label';
-ToggleWithLabel.args = {
-    id: 'my-toggle-1',
-    children: 'This is title!',
+export default meta;
+
+type Story = StoryObj<typeof Toggle>;
+
+export const ToggleWithLabel: Story = {
+    name: 'Toggle with label',
+    args: {
+        id: 'my-toggle-1',
+        children: 'This is title!',
+    },
+    render: (args) => <Toggle {...args} />,
 };
 
-export const ToggleWithoutLabel = (args) => <Toggle {...args} />;
-ToggleWithoutLabel.storyName = 'Toggle without label';
-ToggleWithoutLabel.args = {
-    id: 'my-toggle-2',
+export const ToggleWithoutLabel: Story = {
+    name: 'Toggle without label',
+    args: {
+        id: 'my-toggle-2',
+    },
+    render: (args) => <Toggle {...args} />,
 };
