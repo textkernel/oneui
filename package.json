@@ -105,7 +105,7 @@
         "@types/rc-slider": "9.3.1",
         "@types/react": "18.2.43",
         "@types/react-datepicker": "4.15.0",
-        "@types/react-virtualized": "9.21.28",
+        "@types/react-virtualized": "9.21.29",
         "@typescript-eslint/eslint-plugin": "6.9.1",
         "@typescript-eslint/parser": "6.9.1",
         "autoprefixer": "10.4.16",
