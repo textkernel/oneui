@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { MapWithGoogleLoader, Map, MapProps } from '@textkernel/oneui';
+import type { Meta, StoryObj } from '@storybook/react';
+import { MapWithGoogleLoader, Map } from '@textkernel/oneui';
 import { ensureApiKey } from '../utils/ensureApiKey';
 import NL_PATHS from '../static/gadm36_NLD_0.json';
 import FR_FRIESLAND from '../static/FR_Friesland.json';
@@ -26,10 +27,11 @@ const pointMarker = {
     },
 };
 
-export default {
+const meta: Meta<typeof MapWithGoogleLoader> = {
     title: 'Atoms/Map',
     component: MapWithGoogleLoader,
-    subcomponents: { Map },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    subcomponents: { Map } as any,
     argTypes: {
         defaultArea: {
             options: ['address', 'centre'],
@@ -91,26 +93,35 @@ export default {
     },
 };
 
-type MapArguments = {
+export default meta;
+
+type Size = {
+    markers: string;
+    defaultArea: string;
+    defaultHighlight: string;
     width: string;
     height: string;
-} & MapProps;
+};
 
-export const _Map = ({ width, height, ...args }: MapArguments) => (
-    <div
-        style={{
-            width,
-            height,
-        }}
-    >
-        <MapWithGoogleLoader {...args} apiKey={apiKey} />
-    </div>
-);
+type Story = StoryObj<typeof MapWithGoogleLoader | Size>;
 
-_Map.args = {
-    markers: 'none',
-    defaultArea: 'address',
-    defaultHighlight: 'NL',
-    width: '800px',
-    height: '400px',
+export const _Map: Story = {
+    name: 'Map',
+    args: {
+        markers: 'none',
+        defaultArea: 'address',
+        defaultHighlight: 'NL',
+        width: '800px',
+        height: '400px',
+    },
+    render: (args) => (
+        <div
+            style={{
+                width: args.width,
+                height: args.height,
+            }}
+        >
+            <MapWithGoogleLoader {...args} apiKey={apiKey} />
+        </div>
+    ),
 };
