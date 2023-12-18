@@ -11,11 +11,13 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
             - uses: ./.github/actions/npm-cache/
             - uses: actions/setup-node@v4
               with:
                 node-version: 18
+            - name: Install packages
+              run: npm ci
             - name: Deploy storybook to Github Pages
               run: npm run storybook:deploy -- --ci
               env:
