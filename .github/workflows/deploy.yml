@@ -13,6 +13,8 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: ./.github/actions/npm-cache/
+            - name: Node version
+              run: node --version
             - name: Deploy storybook to Github Pages
               run: npm run storybook:deploy -- --ci
               env:
