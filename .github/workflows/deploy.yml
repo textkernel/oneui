@@ -13,9 +13,10 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: ./.github/actions/npm-cache/
-            - name: Node version
-              run: node --version
             - name: Deploy storybook to Github Pages
+              uses: actions/setup-node@v4
+              with:
+                node-version: 18
               run: npm run storybook:deploy -- --ci
               env:
                   GH_TOKEN: Textkernel:${{ secrets.GITHUB_TOKEN }}
