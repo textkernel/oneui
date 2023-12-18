@@ -11,16 +11,22 @@ jobs:
     install:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
             - uses: ./.github/actions/npm-cache/
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 18
             - run: npm install --prefer-offline --ignore-scripts --no-audit
               shell: bash
     test:
         needs: install
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
             - uses: ./.github/actions/npm-cache/
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 18
             - run: npm run test:coverage -- -w 1 # set max workers to 1
             - uses: coverallsapp/github-action@v1.2.5
               with:
@@ -29,14 +35,20 @@ jobs:
         needs: install
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 18
             - uses: ./.github/actions/npm-cache/
             - run: npm run build:prod
     lint:
         needs: install
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
             - uses: ./.github/actions/npm-cache/
+            - uses: actions/setup-node@v4
+              with:
+                node-version: 18
             - run: npm run lint:ci
             - run: npm run lint:styles
