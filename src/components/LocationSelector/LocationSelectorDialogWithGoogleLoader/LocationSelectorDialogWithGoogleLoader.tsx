@@ -14,7 +14,7 @@ interface Props extends LocationSelectorDialogProps {
      */
     region?: string;
     /** other props to pass to the google loader. For details see: https://react-google-maps-api-docs.netlify.com/#loadscriptnext */
-    additionalGoogleProps?: LoadScriptNextProps; // eslint-disable-line react/forbid-prop-types
+    additionalGoogleProps?: LoadScriptNextProps;
 }
 
 const LocationSelectorDialogWithGoogleLoader: React.FC<Props> = ({
