@@ -1,13 +1,8 @@
 import * as React from 'react';
-import { ComponentStory } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Modal, Button } from '@textkernel/oneui';
 
-export default {
-    title: 'Atoms/Modal',
-    component: Modal,
-};
-
-const Template: ComponentStory<typeof Modal> = (args) => {
+const ModalImplementation = (args) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const onClose = () => {
         setIsOpen(false);
@@ -20,6 +15,16 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         </div>
     );
 };
+
+const meta: Meta<typeof Modal> = {
+    title: 'Atoms/Modal',
+    component: Modal,
+    render: (args) => <ModalImplementation {...args} />,
+};
+
+export default meta;
+
+type Story = StoryObj<typeof Modal>;
 
 const longText = (
     <>
@@ -52,17 +57,19 @@ const longText = (
     </>
 );
 
-export const ScrollingModal = Template.bind({});
-ScrollingModal.storyName = 'Modal that scrolls';
-ScrollingModal.args = {
-    contentLabel: 'My superb modal',
-    children: longText,
+export const ScrollingModal: Story = {
+    name: 'Modal that scrolls',
+    args: {
+        contentLabel: 'My superb modal',
+        children: longText,
+    },
 };
 
-export const FixedModal = Template.bind({});
-FixedModal.storyName = 'Modal with fixed position';
-FixedModal.args = {
-    contentLabel: 'My superb modal',
-    children: longText,
-    isPositionFixed: true,
+export const FixedModal: Story = {
+    name: 'Modal with fixed position',
+    args: {
+        contentLabel: 'My superb modal',
+        children: longText,
+        isPositionFixed: true,
+    },
 };

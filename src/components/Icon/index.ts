@@ -1,3 +1,4 @@
+export { IconBase } from './IconBase';
 export { IconExtract } from './IconExtract';
 export { IconHarvester } from './IconHarvester';
 export { IconJobfeed } from './IconJobfeed';

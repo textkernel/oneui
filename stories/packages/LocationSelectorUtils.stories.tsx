@@ -20,7 +20,7 @@ export const ConvertCoordinatesIntoAddress = () => {
     const [lat, setLet] = React.useState(52.3675734); // Amsterdam lat
     const [lng, setLng] = React.useState(4.9041389); // Amsterdam lng
     const [address, setAddress] = React.useState({});
-    const apiKey = ensureApiKey();
+    const apiKey = ensureApiKey() || '';
     React.useEffect(() => {
         initGoogleMapServices({ apiKey });
     });

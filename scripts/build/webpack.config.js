@@ -39,7 +39,7 @@ const getRules = (env = 'prod') => ({
         includePaths: [SOURCE_PATH],
     }),
     ts: getRuleTS({
-        includePaths: env === 'prod' ? [SOURCE_PATH] : [SOURCE_PATH, STORIES_PATH],
+        includePaths: env === 'prod' ? [SOURCE_PATH, STORIES_PATH] : [SOURCE_PATH, STORIES_PATH],
     }),
     externalCss: getRuleCSS({
         styleLoader: env === 'prod' ? MiniCssExtractPlugin.loader : 'style-loader',

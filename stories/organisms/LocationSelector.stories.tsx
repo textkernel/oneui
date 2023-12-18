@@ -39,7 +39,7 @@ export const Basic = ({ useDefaultHighlight, ...args }) => {
     return (
         <LocationSelector
             {...(args as LocationSelectorProps)}
-            apiKey={apiKey}
+            apiKey={apiKey || ''}
             defaultHighlight={
                 args.useDefaultHighlight ? (NL_PATHS as GeoJSON.GeoJsonObject) : undefined
             }
@@ -113,7 +113,7 @@ const Template: Story<LocationSelectorProps & { useDefaultHighlight: boolean }> 
     return (
         <LocationSelector
             {...args}
-            apiKey={apiKey}
+            apiKey={apiKey || ''}
             selectedLocations={selectedLocations}
             selectionPlaceholder={getPlaceholder()}
             onAddLocation={handleAddLocation}
