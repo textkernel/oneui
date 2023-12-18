@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [22.0.4](https://github.com/textkernel/oneui/compare/22.0.3...22.0.4) (2023-12-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/react-modal to v3.16.3 ([8dfc962](https://github.com/textkernel/oneui/commit/8dfc96237896fd9ed61e767b3edb2b54c3c2b6e2))
+* **deps:** update dependency downshift to v8.2.3 ([12be6b9](https://github.com/textkernel/oneui/commit/12be6b9f69fa1b22d59613a7da11ffea67f2ad26))
+
 ### [22.0.3](https://github.com/textkernel/oneui/compare/22.0.2...22.0.3) (2023-11-17)
 
 
