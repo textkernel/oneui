@@ -13,7 +13,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: ./.github/actions/npm-cache/
-            - run: npm install --prefer-offline --ignore-scripts --no-audit
+            - run: npm install
               shell: bash
     test:
         needs: install
