@@ -2,18 +2,14 @@ name: Deploy
 on:
   push:
     tags:
-      - '[0-9]+.[0-9]+.[0-9]+'
-  pull_request:
-    types: [opened, reopened, synchronize, auto_merge_enabled]
-    branches-ignore:
-      - 'gh-pages'    
+      - '[0-9]+.[0-9]+.[0-9]+'    
 jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - uses: ./.github/actions/npm-cache/
-            - run: npm ci # fix job in GitLab, otherwise job is failing
+            - run: npm ci # fix job in GitLab, otherwise job will fail
             - name: Deploy storybook to Github Pages
               run: npm run storybook:deploy -- --ci
               env:
