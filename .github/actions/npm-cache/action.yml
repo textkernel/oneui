@@ -16,6 +16,6 @@ runs:
           uses: actions/cache@v3
           with:
               path: ./node_modules
-              key: ${{ runner.os }}-node_modules-${{ hashFiles('**/package-lock.json') }}
+              key: somekey
               restore-keys: |
                   ${{ runner.os }}-node_modules-
