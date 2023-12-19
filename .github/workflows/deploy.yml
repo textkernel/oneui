@@ -13,8 +13,8 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: ./.github/actions/npm-cache/
+            - run: npm ci
             - name: Deploy storybook to Github Pages
-              run: npm ci
               run: npm run storybook:deploy -- --ci
               env:
                   GH_TOKEN: Textkernel:${{ secrets.GITHUB_TOKEN }}
