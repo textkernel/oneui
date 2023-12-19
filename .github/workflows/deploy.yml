@@ -9,6 +9,7 @@ on:
       - 'gh-pages'    
 jobs:
     deploy:
+        needs: install
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
