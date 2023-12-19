@@ -11,7 +11,7 @@
         "start": "npm run storybook",
         "storybook": "storybook dev -p 9001",
         "storybook:build": "storybook build -o .out",
-        "storybook:deploy": "storybook-to-ghpages --script=storybook:build --out=.out --ci",
+        "storybook:deploy": "storybook-to-ghpages --script=storybook:build --out=.out",
         "build": "webpack --config ./scripts/build/webpack.dev.config.js",
         "build:prod": "webpack --config ./scripts/build/webpack.prod.config.js",
         "lint": "npm run lint:ci -- --fix",
