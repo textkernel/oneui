@@ -1,9 +1,5 @@
 {
-    "extends": [
-        "airbnb-typescript",
-        "prettier",
-        "plugin:@typescript-eslint/recommended"
-    ],
+    "extends": ["airbnb-typescript", "prettier", "plugin:@typescript-eslint/recommended"],
     "plugins": ["react", "prettier", "react-hooks", "@typescript-eslint"],
     "env": {
         "jest": true
@@ -35,6 +31,7 @@
         "react/jsx-indent": [2, 4],
         "react/button-has-type": 0,
         "react/prop-types": 0,
+        "react/no-unused-prop-types": 0,
         "react/display-name": [
             2,
             {
@@ -73,12 +70,6 @@
                 "@typescript-eslint/camelcase": "off",
                 "@typescript-eslint/no-empty-function": "off",
                 "@typescript-eslint/class-name-casing": "off"
-            }
-        },
-        {
-            "files": ["**/*.js"],
-            "rules": {
-                "react/prop-types": 2
             }
         },
         {

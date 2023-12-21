@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name, react/prop-types */
 import React from 'react';
 import { render, RenderResult, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
