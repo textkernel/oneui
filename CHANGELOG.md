@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [22.1.0](https://github.com/textkernel/oneui/compare/22.0.4...22.1.0) (2023-12-21)
+
+
+### Features
+
+* migrated stories to new format v7 ([#1103](https://github.com/textkernel/oneui/issues/1103)) ([2022d55](https://github.com/textkernel/oneui/commit/2022d5505d8563e396a0f6904ece9de10f2784a3))
+
 ### [22.0.4](https://github.com/textkernel/oneui/compare/22.0.3...22.0.4) (2023-12-18)
 
 
