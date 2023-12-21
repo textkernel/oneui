@@ -30,6 +30,8 @@ export interface Props<S>
     downArrowLabel?: string;
     /** Up arrow name for ARIA labelling, it is used when the component is focused and options are shown */
     upArrowLabel?: string;
+    /** enable ListOptimizer component for decreasing render time */
+    useOptimizeListRender?: boolean;
 }
 
 /**
@@ -58,6 +60,7 @@ export function Combobox<S>({
     selectedSuggestion,
     upArrowLabel,
     downArrowLabel,
+    useOptimizeListRender,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -118,6 +121,7 @@ export function Combobox<S>({
                     isLoading={false}
                     noSuggestionsPlaceholder={noSuggestionsPlaceholder}
                     suggestionItemRenderer={suggestionItemRenderer}
+                    useOptimizeRender={useOptimizeListRender}
                     passDisabledToListItems
                 />
             )}

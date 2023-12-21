@@ -1,16 +1,24 @@
 import * as React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { NumericStepper } from '@textkernel/oneui';
 
-export default {
+const meta: Meta<typeof NumericStepper> = {
     title: 'Molecules/NumericStepper',
     component: NumericStepper,
 };
 
-export const _NumericStepper = (args) => <NumericStepper {...args} />;
-_NumericStepper.args = {
-    step: 10,
-    minValue: 0,
-    maxValue: 100,
-    defaultValue: 50,
-    customWidth: '3ch',
+export default meta;
+
+type Story = StoryObj<typeof NumericStepper>;
+
+export const _NumericStepper: Story = {
+    name: 'NumericStepper',
+    args: {
+        step: 10,
+        minValue: 0,
+        maxValue: 100,
+        defaultValue: 50,
+        customWidth: '3ch',
+    },
+    render: (args) => <NumericStepper {...args} />,
 };

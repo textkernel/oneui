@@ -1,12 +1,20 @@
 import * as React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { LoadingSpinner } from '@textkernel/oneui';
 
-export default {
+const meta: Meta<typeof LoadingSpinner> = {
     title: 'Molecules/LoadingSpinner',
     component: LoadingSpinner,
 };
 
-export const _LoadingSpinner = (args) => <LoadingSpinner {...args} />;
-_LoadingSpinner.args = {
-    children: 'Loading...',
+export default meta;
+
+type Story = StoryObj<typeof LoadingSpinner>;
+
+export const _LoadingSpinner: Story = {
+    name: 'LoadingSpinner',
+    args: {
+        children: 'Loading...',
+    },
+    render: (args) => <LoadingSpinner {...args} />,
 };
