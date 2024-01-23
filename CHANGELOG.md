@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [22.1.1](https://github.com/textkernel/oneui/compare/22.1.0...22.1.1) (2024-01-23)
+
+
+### Bug Fixes
+
+* **Autosuggest:** change autosuggest focused input height ([6e088e9](https://github.com/textkernel/oneui/commit/6e088e9850f0f76747038059e5a8a2a7234e190a))
+
 ## [22.1.0](https://github.com/textkernel/oneui/compare/22.0.4...22.1.0) (2023-12-21)
 
 
