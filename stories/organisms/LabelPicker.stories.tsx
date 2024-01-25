@@ -31,7 +31,6 @@ export const _LabelPicker: Story = {
     name: 'LabelPicker',
     args: {
         inputPlaceholder: 'Create a new label..',
-        doneLabel: 'Done',
     },
     render: (args) => {
         const [labels, setLabels] = React.useState<MyLabel[]>([...LABELS]);
