@@ -31,7 +31,6 @@ const labelsMock = [
 
 const defaultProps = {
     labels: [],
-    doneLabel: '',
     inputPlaceholder: '',
     onAdd: () => {},
     onChange: () => {},
@@ -41,7 +40,7 @@ let view;
 
 beforeEach(() => {
     view = render(
-        <LabelPicker {...defaultProps} doneLabel="Done">
+        <LabelPicker {...defaultProps}>
             <Button>Click me</Button>
         </LabelPicker>
     );
@@ -49,7 +48,7 @@ beforeEach(() => {
 
 const rerenderView = (props) => {
     view.rerender(
-        <LabelPicker {...defaultProps} {...props} doneLabel="Done">
+        <LabelPicker {...defaultProps} {...props}>
             <Button>Click me</Button>
         </LabelPicker>
     );
@@ -135,21 +134,6 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
             await user.click(screen.getByRole('textbox'));
 
             expect(screen.getAllByRole('dialog').length).toBeGreaterThan(0);
-        });
-
-        it('should close dialog when Done button is clicked', async () => {
-            const user = userEvent.setup();
-            expect(screen.queryAllByRole('dialog')).toHaveLength(0);
-
-            // open dialog
-            await user.click(screen.getByRole('button', { name: 'Click me' }));
-
-            expect(screen.getAllByRole('dialog').length).toBeGreaterThan(0);
-
-            // click in the dialog
-            await user.click(screen.getAllByRole('button')[0]);
-
-            expect(screen.queryAllByRole('dialog')).toHaveLength(0);
         });
     });
 
@@ -313,19 +297,6 @@ describe('<LabelPicker> that renders a dropdown type component to apply/remove/a
 
             expect(mockOnAdd).toHaveBeenCalledTimes(1);
             expect(mockOnAdd).toHaveBeenCalledWith('test');
-        });
-
-        it('should call onClose when dialog is closed due to Done button click', async () => {
-            const user = userEvent.setup();
-            const mockOnClose = jest.fn();
-            rerenderView({
-                onClose: mockOnClose,
-                labels: labelsMock,
-            });
-            await user.click(screen.getByRole('button', { name: 'Click me' }));
-            await user.click(screen.getAllByRole('button')[2]);
-
-            expect(mockOnClose).toHaveBeenCalledTimes(1);
         });
 
         it('should call onClose when dialog is closed due to outer click', async () => {

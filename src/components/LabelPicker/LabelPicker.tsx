@@ -33,12 +33,10 @@ export interface Props<L extends Label> {
     onClose?: () => void;
     /** text to be shown as input placeholder for adding labels */
     inputPlaceholder: string;
-    /** label for the done button */
-    doneLabel: string;
 }
 
 export function LabelPicker<L extends Label>(props: Props<L>) {
-    const { labels, children, onChange, onAdd, onClose, inputPlaceholder, doneLabel } = props;
+    const { labels, children, onChange, onAdd, onClose, inputPlaceholder } = props;
     const [inputValue, setInputValue] = React.useState('');
 
     const getChangeHandler = (label) => (event) => {
@@ -76,68 +74,58 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
         });
     };
 
-    const renderDialog = ({ setPopupVisibility, isOpen }) => {
-        const handleDone = () => {
-            setPopupVisibility(false);
-            onClose?.();
-        };
-
-        return (
-            <div {...elem('dialog')} role="dialog">
-                {isOpen ? (
-                    <div {...elem('container')}>
-                        <div {...elem('scrollBox')}>
-                            {labels.map((label) => (
-                                <Checkbox
-                                    key={label.name}
-                                    id={label.name}
-                                    checked={label.isSelected}
-                                    onChange={getChangeHandler(label)}
-                                    {...elem('checkbox')}
-                                    asFlexbox
-                                    role="checkbox"
-                                >
-                                    <Text inline {...elem('label')}>
-                                        <Text inline {...elem('labelText')} title={label.name}>
-                                            {label.name}
-                                        </Text>
-                                        {label.count ? (
-                                            <Text inline context="neutral" {...elem('count')}>
-                                                ({label.count})
-                                            </Text>
-                                        ) : null}
-                                    </Text>
-                                </Checkbox>
-                            ))}
-                        </div>
-                        <div {...elem('inputLine')}>
-                            <Input
-                                placeholder={inputPlaceholder}
-                                size="small"
-                                onChange={handleInputChange}
-                                onKeyDown={handleKeyPress}
-                                value={inputValue}
-                                {...elem('input')}
-                                isBlock
-                            />
-                            <Button
-                                isPrimary
-                                size="small"
-                                onClick={handleAdd}
-                                disabled={!inputValue}
-                                {...elem('addButton')}
+    const renderDialog = ({ isOpen }) => (
+        <div {...elem('dialog')} role="dialog">
+            {isOpen ? (
+                <div {...elem('container')}>
+                    <div {...elem('scrollBox')}>
+                        {labels.map((label) => (
+                            <Checkbox
+                                key={label.name}
+                                id={label.name}
+                                checked={label.isSelected}
+                                onChange={getChangeHandler(label)}
+                                {...elem('checkbox')}
+                                asFlexbox
+                                role="checkbox"
                             >
-                                <FaPlus width="24px" height="24px" />
-                            </Button>
-                        </div>
-                        <Button onClick={handleDone} isPrimary isBlock>
-                            {doneLabel}
+                                <Text inline {...elem('label')}>
+                                    <Text inline {...elem('labelText')} title={label.name}>
+                                        {label.name}
+                                    </Text>
+                                    {label.count ? (
+                                        <Text inline context="neutral" {...elem('count')}>
+                                            ({label.count})
+                                        </Text>
+                                    ) : null}
+                                </Text>
+                            </Checkbox>
+                        ))}
+                    </div>
+                    <div {...elem('inputLine')}>
+                        <Input
+                            placeholder={inputPlaceholder}
+                            size="small"
+                            onChange={handleInputChange}
+                            onKeyDown={handleKeyPress}
+                            value={inputValue}
+                            {...elem('input')}
+                            isBlock
+                        />
+                        <Button
+                            isPrimary
+                            size="small"
+                            onClick={handleAdd}
+                            disabled={!inputValue}
+                            {...elem('addButton')}
+                        >
+                            <FaPlus width="24px" height="24px" />
                         </Button>
                     </div>
-                ) : null}
-            </div>
-        );
-    };
+                </div>
+            ) : null}
+        </div>
+    );
 
     return (
         <PopupBase
