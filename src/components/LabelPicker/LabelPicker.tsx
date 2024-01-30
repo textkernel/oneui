@@ -29,7 +29,7 @@ export interface Props<L extends Label> {
     onChange: (label: L, event: React.ChangeEventHandler<HTMLInputElement>) => void;
     /** callback to add new label */
     onAdd: (name: string) => void;
-    /** callback fired when the component closes, clicking Done, outer click or through the trigger button */
+    /** callback fired when the component closes, outer click or through the trigger button */
     onClose?: () => void;
     /** text to be shown as input placeholder for adding labels */
     inputPlaceholder: string;
