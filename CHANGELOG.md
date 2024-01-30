@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [22.1.2](https://github.com/textkernel/oneui/compare/22.1.1...22.1.2) (2024-01-30)
+
+
+### Bug Fixes
+
+* **LabelPicker:** Delete 'Done' button ([9dad853](https://github.com/textkernel/oneui/commit/9dad853e66daf884c3574af28bffb76b1ed9b558))
+
 ### [22.1.1](https://github.com/textkernel/oneui/compare/22.1.0...22.1.1) (2024-01-23)
 
 
