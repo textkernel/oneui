@@ -143,7 +143,7 @@
         "sass-loader": "13.3.3",
         "standard-version": "9.5.0",
         "storybook": "7.6.6",
-        "style-loader": "3.3.3",
+        "style-loader": "3.3.4",
         "stylelint": "15.11.0",
         "stylelint-config-recommended": "13.0.0",
         "stylelint-config-recommended-scss": "13.1.0",
