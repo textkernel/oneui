@@ -1,0 +1,40 @@
+.container {
+    height: 44px;
+    padding: var(--spacing-4x) var(--spacing-5x);
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-5x);
+    border: {
+        radius: var(--border-radius);
+        width: var(--line-normal);
+        style: solid;
+        color: #a6a9b5;
+    }
+}
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2x);
+    overflow: hidden;
+
+    .title {
+        font-weight: var(--font-weight-normal);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .subtitle {
+        color: #808080;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.trailing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
