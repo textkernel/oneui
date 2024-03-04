@@ -54,7 +54,7 @@
         "@googlemaps/js-api-loader": "1.12.11",
         "@popperjs/core": "2.9.0",
         "@react-google-maps/api": "2.19.3",
-        "@storybook/addon-styling-webpack": "0.0.5",
+        "@storybook/addon-styling-webpack": "0.0.6",
         "@textkernel/bem": "0.2.4",
         "@tippyjs/react": "4.2.6",
         "ajv": "8.12.0",
