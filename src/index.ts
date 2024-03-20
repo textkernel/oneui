@@ -15,6 +15,7 @@ export * from './customTypes/types';
 export * from './components/Buttons';
 export * from './components/Callout';
 export * from './components/CandidateAvatar';
+export * from './components/Card';
 export * from './components/Chip';
 export * from './components/ContentPlaceholder';
 export * from './components/Heading';

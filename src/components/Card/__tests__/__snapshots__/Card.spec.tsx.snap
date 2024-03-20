@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render Card only with the title 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <div
+      class="leftColumn"
+    >
+      <h3
+        class="Heading Heading--level_h3 title"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit expedita labore laborum culpa harum incidunt.
+      </h3>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card should render Card only with the title and trailing 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <div
+      class="leftColumn"
+    >
+      <h3
+        class="Heading Heading--level_h3 title"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit expedita labore laborum culpa harum incidunt.
+      </h3>
+    </div>
+    <div
+      class="trailing"
+    >
+      <h1
+        class="Heading Heading--level_h1"
+      >
+        1
+      </h1>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Card should render correctly 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <div
+      class="leftColumn"
+    >
+      <h3
+        class="Heading Heading--level_h3 title"
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit expedita labore laborum culpa harum incidunt.
+      </h3>
+      <span
+        class="subtitle"
+      >
+        Fugit expedita labore laborum culpa harum incidunt.
+      </span>
+    </div>
+    <div
+      class="trailing"
+    >
+      <h1
+        class="Heading Heading--level_h1"
+      >
+        1
+      </h1>
+    </div>
+  </div>
+</div>
+`;
