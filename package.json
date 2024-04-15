@@ -104,7 +104,7 @@
         "@types/react": "18.2.78",
         "@types/react-datepicker": "4.15.0",
         "@types/react-modal": "3.16.3",
-        "@types/react-virtualized": "9.21.29",
+        "@types/react-virtualized": "9.21.30",
         "@typescript-eslint/eslint-plugin": "6.9.1",
         "@typescript-eslint/parser": "6.9.1",
         "autoprefixer": "10.4.19",
