@@ -129,7 +129,7 @@
         "jest-cli": "29.7.0",
         "jest-css-modules-transform": "4.4.2",
         "jest-environment-jsdom": "29.7.0",
-        "mini-css-extract-plugin": "2.7.7",
+        "mini-css-extract-plugin": "2.9.0",
         "mockdate": "3.0.5",
         "postcss": "8.4.38",
         "postcss-loader": "7.3.4",
