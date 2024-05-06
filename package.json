@@ -50,7 +50,7 @@
     "homepage": "https://github.com/textkernel/oneui#readme",
     "sideEffects": false,
     "dependencies": {
-        "@babel/runtime": "7.24.4",
+        "@babel/runtime": "7.24.5",
         "@googlemaps/js-api-loader": "1.12.11",
         "@popperjs/core": "2.9.0",
         "@react-google-maps/api": "2.19.3",
@@ -79,10 +79,10 @@
         "react-transition-group": ">=4.3.0"
     },
     "devDependencies": {
-        "@babel/cli": "7.24.1",
-        "@babel/core": "7.24.4",
+        "@babel/cli": "7.24.5",
+        "@babel/core": "7.24.5",
         "@babel/plugin-transform-runtime": "7.24.3",
-        "@babel/preset-env": "7.24.4",
+        "@babel/preset-env": "7.24.5",
         "@babel/preset-react": "7.24.1",
         "@storybook/addon-essentials": "7.6.18",
         "@storybook/addon-interactions": "7.6.18",
