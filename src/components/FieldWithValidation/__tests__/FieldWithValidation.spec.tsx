@@ -30,7 +30,7 @@ describe('FieldWithValidation', () => {
             );
             expect(container).toMatchSnapshot();
             const input = screen.getByRole('textbox');
-            expect(input).toHaveAttribute('class', 'Input Input--context_danger');
+            expect(input).toHaveAttribute('class', 'Input Input--context_critical');
             expect(input).toBeInTheDocument();
             expect(screen.getByText(message)).toBeInTheDocument();
         });
@@ -75,7 +75,7 @@ describe('FieldWithValidation', () => {
 
                 const input = screen.getByRole('textbox');
 
-                expect(input).toHaveAttribute('class', 'Input Input--context_danger');
+                expect(input).toHaveAttribute('class', 'Input Input--context_critical');
             });
 
             it('should render the message when field is focused', () => {

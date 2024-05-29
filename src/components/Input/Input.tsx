@@ -6,7 +6,7 @@ import { ValidationContext, InputType, Size } from '../../constants';
 // Any other attributes (onChange, onKeyUp etc.) are
 // supported although not defined in props type definition
 export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-    /** The input field context (e.g. primary, primary, danger, success etc. - defaults to primary) */
+    /** The input field context (e.g. primary, critical, success etc. - defaults to primary) */
     context?: ValidationContext;
     /** Should the input field be disabled or not */
     disabled?: boolean;

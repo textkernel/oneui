@@ -8,7 +8,7 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
     children: React.ReactNode;
     /** Text should be rendered inline */
     inline?: boolean;
-    /** The context of the text, effecting its color (e.g. primary, info, danger, success etc. 'neutral' added as special context here) */
+    /** The context of the text, effecting its color (e.g. primary, info, critical, success etc. 'neutral' added as special context here) */
     context?: Context | 'neutral' | 'primary' | 'default';
     /** Custom text sizes */
     size?: Size;

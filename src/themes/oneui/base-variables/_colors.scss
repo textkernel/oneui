@@ -11,9 +11,6 @@ $color-neutral: #46494B !default;
 $color-light: #D0D3D5 !default;
 $color-primary: #0097d1 !default;
 
-//Context colors
-$color-danger: #f42534 !default;
-
 // Accent colors
 $color-accent-10: #FEE8D5 !default;
 $color-accent-20: #FCD1AA !default;
@@ -67,6 +64,16 @@ $color-cautious-70: #997A01 !default;
 $color-cautious-80: #665200 !default;
 $color-cautious-90: #332900 !default;
 
+$color-critical-10: #FFEBEA !default;
+$color-critical-20: #FFC4C1 !default;
+$color-critical-30: #FF9D97 !default;
+$color-critical-40: #FF766D !default;
+$color-critical-50: #FF3B2F !default;
+$color-critical-60: #CC2F26 !default;
+$color-critical-70: #99231C !default;
+$color-critical-80: #661813 !default;
+$color-critical-90: #330C09 !default;
+
 
 :root {
     @each $context,
@@ -74,7 +81,6 @@ $color-cautious-90: #332900 !default;
             neutral: $color-neutral,
             primary: $color-primary,
             light: $color-light,
-            danger: $color-danger
         )
     {
         --color-#{ $context }: #{$value};
@@ -129,6 +135,16 @@ $color-cautious-90: #332900 !default;
     --color-cautious-70: #{$color-cautious-70};
     --color-cautious-80: #{$color-cautious-80};
     --color-cautious-90: #{$color-cautious-90};
+
+    --color-critical-10: #{$color-critical-10};
+    --color-critical-20: #{$color-critical-20};
+    --color-critical-30: #{$color-critical-30};
+    --color-critical-40: #{$color-critical-40};
+    --color-critical-50: #{$color-critical-50};
+    --color-critical-60: #{$color-critical-60};
+    --color-critical-70: #{$color-critical-70};
+    --color-critical-80: #{$color-critical-80};
+    --color-critical-90: #{$color-critical-90};
 
     --transparent: #{$transparent};
     --color-background: #{$color-background};

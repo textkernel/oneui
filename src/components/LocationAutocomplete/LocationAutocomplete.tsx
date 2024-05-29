@@ -141,7 +141,7 @@ const LocationAutocomplete: React.FC<Props> = ({
         // eslint-disable-next-line no-console
         console.error(errorMessage);
         return (
-            <Text context="danger" inline>
+            <Text context="critical" inline>
                 Error while rendering LocationAutocomplete
             </Text>
         );
