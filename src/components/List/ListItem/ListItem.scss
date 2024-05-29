@@ -1,4 +1,4 @@
-$contexts: (neutral, primary, info, success, warning, danger);
+$contexts: (neutral, primary, info, success, cautious, danger);
 
 .ListItem {
     display: flex;
@@ -30,17 +30,17 @@ $contexts: (neutral, primary, info, success, warning, danger);
     &--highlightContext {
         @each $context in $contexts {
             &_#{ $context }:hover:not(.ListItem--disabled) {
-                background-color: var(--color-#{$context});
+                background-color: var(--color-#{$context}-50);
                 color: var(--color-background);
             }
 
             &_#{ $context }.ListItem--isSelected {
-                background-color: var(--color-#{$context});
+                background-color: var(--color-#{$context}-50);
                 color: var(--color-background);
             }
 
             &_#{ $context }.ListItem--isHighlighted:not(.ListItem--disabled) {
-                background-color: var(--color-#{$context});
+                background-color: var(--color-#{$context}-50);
                 color: var(--color-highlight-background);
             }
         }

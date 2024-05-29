@@ -120,7 +120,7 @@ expect(handleOnFocus).toHaveBeenCalled();
 ```ts
 import '@testing-library/jest-dom';
 
-expect(view.container.firstChild).toHaveClass('Callout--context_warning');
+expect(view.container.firstChild).toHaveClass('Callout--context_cautious');
 ```
 
 ```ts

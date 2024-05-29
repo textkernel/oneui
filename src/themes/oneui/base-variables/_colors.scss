@@ -12,7 +12,6 @@ $color-light: #D0D3D5 !default;
 $color-primary: #0097d1 !default;
 
 //Context colors
-$color-warning: #ffb819 !default;
 $color-danger: #f42534 !default;
 
 // Accent colors
@@ -58,6 +57,16 @@ $color-success-70: #1F7735 !default;
 $color-success-80: #155024 !default;
 $color-success-90: #0A2812 !default;
 
+$color-cautious-10: #FFFAE6 !default;
+$color-cautious-20: #FFF0B3 !default;
+$color-cautious-30: #FFE680 !default;
+$color-cautious-40: #FFDB4D !default;
+$color-cautious-50: #FFCC01 !default;
+$color-cautious-60: #CCA301 !default;
+$color-cautious-70: #997A01 !default;
+$color-cautious-80: #665200 !default;
+$color-cautious-90: #332900 !default;
+
 
 :root {
     @each $context,
@@ -65,7 +74,6 @@ $color-success-90: #0A2812 !default;
             neutral: $color-neutral,
             primary: $color-primary,
             light: $color-light,
-            warning: $color-warning,
             danger: $color-danger
         )
     {
@@ -111,6 +119,16 @@ $color-success-90: #0A2812 !default;
     --color-success-70: #{$color-success-70};
     --color-success-80: #{$color-success-80};
     --color-success-90: #{$color-success-90};
+
+    --color-cautious-10: #{$color-cautious-10};
+    --color-cautious-20: #{$color-cautious-20};
+    --color-cautious-30: #{$color-cautious-30};
+    --color-cautious-40: #{$color-cautious-40};
+    --color-cautious-50: #{$color-cautious-50};
+    --color-cautious-60: #{$color-cautious-60};
+    --color-cautious-70: #{$color-cautious-70};
+    --color-cautious-80: #{$color-cautious-80};
+    --color-cautious-90: #{$color-cautious-90};
 
     --transparent: #{$transparent};
     --color-background: #{$color-background};

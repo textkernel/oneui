@@ -21,9 +21,9 @@
         transform-origin: 50% 50%;
 
         &--context {
-            @each $context in (success, warning, danger) {
+            @each $context in (success, cautious, danger) {
                 &_#{$context} {
-                    stroke: var(--color-#{$context});
+                    stroke: var(--color-#{$context}-50);
                 }
             }
         }

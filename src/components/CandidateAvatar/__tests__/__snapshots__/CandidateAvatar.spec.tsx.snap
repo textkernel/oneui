@@ -49,7 +49,7 @@ exports[`<CandidateAvatar> that renders a candidate profile image with match ind
     >
       <circle
         aria-valuenow="34"
-        class="CandidateAvatar__circle CandidateAvatar__circle--context_warning"
+        class="CandidateAvatar__circle CandidateAvatar__circle--context_cautious"
         cx="64"
         cy="64"
         r="62"

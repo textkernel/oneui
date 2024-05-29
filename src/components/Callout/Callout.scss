@@ -35,7 +35,7 @@ $icon-size: 16px;
             background-color: var(--color-#{$context}-10);
         }
         &__content--context_#{ $context } {
-            color: var(--color-#{$context}-75);
+            color: var(--color-#{$context}-80);
         }
 
         &__closeButton--context_#{ $context } {
@@ -44,7 +44,7 @@ $icon-size: 16px;
 
         &__closeButton--context_#{ $context }:hover,
         &__closeButton--context_#{ $context }:focus {
-            color: var(--color-#{$context}-75);
+            color: var(--color-#{$context}-80);
         }
     }
 }

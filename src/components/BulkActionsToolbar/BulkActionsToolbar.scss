@@ -10,12 +10,12 @@
     transition: background-color var(--transition-duration) ease;
 
     &--hasSelection {
-        background-color: var(--color-warning-10);
+        background-color: var(--color-cautious-10);
     }
 
     &__counter {
         padding-right: var(--spacing-5x);
-        color: var(--color-warning-75);
+        color: var(--color-cautious-80);
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;

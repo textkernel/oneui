@@ -26,13 +26,13 @@ describe('BulkActionsToolbar component', () => {
         {
             label: 'Import',
             disabled: false,
-            context: 'warning',
+            context: 'cautious',
             onClick: onImportClick,
         } as BulkActionsToolbarAction,
         {
             label: 'Delete',
             disabled: false,
-            context: 'warning',
+            context: 'cautious',
             onClick: onDeleteClick,
         } as BulkActionsToolbarAction,
     ];

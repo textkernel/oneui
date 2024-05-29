@@ -22,12 +22,12 @@ export const CandidateAvatar: React.FC<Props> = ({
     matchPercentage,
     ...rest
 }) => {
-    const getContext = (percentage: number): 'danger' | 'warning' | 'success' => {
+    const getContext = (percentage: number): 'danger' | 'cautious' | 'success' => {
         if (percentage <= 33) {
             return 'danger';
         }
         if (percentage <= 66) {
-            return 'warning';
+            return 'cautious';
         }
         return 'success';
     };
