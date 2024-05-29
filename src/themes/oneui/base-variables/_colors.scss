@@ -17,32 +17,6 @@ $color-success: #5cb85c !default;
 $color-warning: #ffb819 !default;
 $color-danger: #f42534 !default;
 
-$color-bright-1: #142459 !default;
-$color-bright-2: #507D9B !default;
-$color-bright-3: #F6C85F !default;
-$color-bright-4: #6F4D7C !default;
-$color-bright-5: #9CD766 !default;
-$color-bright-6: #CA472F !default;
-$color-bright-7: #820401 !default;
-$color-bright-8: #EE9A3A !default;
-$color-bright-9: #E7E34E !default;
-$color-bright-10: #D9DADD !default;
-
-$color-muted-1: #AFF5E2  !default;
-$color-muted-2: #D6F481 !default;
-$color-muted-3: #FFF16B !default;
-$color-muted-4: #FFD571 !default;
-$color-muted-5: #FFC4A6 !default;
-$color-muted-6: #E5DAC9 !default;
-$color-muted-7: #ECCBFF !default;
-$color-muted-8: #FFC5EB !default;
-$color-muted-9: #FCC1CF !default;
-$color-muted-10: #C4D7FC !default;
-$color-muted-11: #ADDDFF !default;
-$color-muted-12: #75DFFB !default;
-
-
-
 :root {
     @each $context,
         $value in (
@@ -90,28 +64,4 @@ $color-muted-12: #75DFFB !default;
 
     --color-highlight-background: #{color.mix($color-background, $color-primary, 90%)};
     --color-shadow-background: #{color.mix($color-neutral, $color-background, 20%)};
-
-    --color-bright-1: #{$color-bright-1};
-    --color-bright-2: #{$color-bright-2};
-    --color-bright-3: #{$color-bright-3};
-    --color-bright-4: #{$color-bright-4};
-    --color-bright-5: #{$color-bright-5};
-    --color-bright-6: #{$color-bright-6};
-    --color-bright-7: #{$color-bright-7};
-    --color-bright-8: #{$color-bright-8};
-    --color-bright-9: #{$color-bright-9};
-    --color-bright-10: #{$color-bright-10};
-
-    --color-muted-1: #{$color-muted-1};
-    --color-muted-2: #{$color-muted-2};
-    --color-muted-3: #{$color-muted-3};
-    --color-muted-4: #{$color-muted-4};
-    --color-muted-5: #{$color-muted-5};
-    --color-muted-6: #{$color-muted-6};
-    --color-muted-7: #{$color-muted-7};
-    --color-muted-8: #{$color-muted-8};
-    --color-muted-9: #{$color-muted-9};
-    --color-muted-10: #{$color-muted-10};
-    --color-muted-11: #{$color-muted-11};
-    --color-muted-12: #{$color-muted-12};
 }
