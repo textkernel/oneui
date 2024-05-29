@@ -17,6 +17,28 @@ $color-success: #5cb85c !default;
 $color-warning: #ffb819 !default;
 $color-danger: #f42534 !default;
 
+// Accent colors
+$color-accent-10: #FEE8D5 !default;
+$color-accent-20: #FCD1AA !default;
+$color-accent-30: #FBBB80 !default;
+$color-accent-40: #F9A455 !default;
+$color-accent-50: #F88D2B !default;
+$color-accent-60: #C67122 !default;
+$color-accent-70: #95551A !default;
+$color-accent-80: #633811 !default;
+$color-accent-90: #321C09 !default;
+
+// AI colors
+$color-ai-10: #EEEEFB !default;
+$color-ai-20: #CDCCF3 !default;
+$color-ai-30: #ACABEB !default;
+$color-ai-40: #8A89E2 !default;
+$color-ai-50: #5856D6 !default;
+$color-ai-60: #4645AB !default;
+$color-ai-70: #353480 !default;
+$color-ai-80: #232256 !default;
+$color-ai-90: #12112B !default;
+
 :root {
     @each $context,
         $value in (
@@ -32,31 +54,25 @@ $color-danger: #f42534 !default;
         --color-#{ $context }: #{$value};
     }
 
-    // Shades
-    @each $context,
-        $value in (
-            neutral: $color-neutral,
-            primary: $color-primary,
-            light: $color-light,
-            info: $color-info,
-            success: $color-success,
-            warning: $color-warning,
-            danger: $color-danger
-        )
-    {
-        @each $factor in (20, 50, 80) {
-            --color-#{ $context }-#{ 50 - math.div($factor, 2) }: #{color.mix(
-                $color-background,
-                $value,
-                $factor * 1%
-            )};
-            --color-#{ $context }-#{ 50 + math.div($factor, 2) }: #{color.mix(
-                $color-foreground,
-                $value,
-                $factor * 1%
-            )};
-        }
-    }
+    --color-accent-10: #{$color-accent-10};
+    --color-accent-20: #{$color-accent-20};
+    --color-accent-30: #{$color-accent-30};
+    --color-accent-40: #{$color-accent-40};
+    --color-accent-50: #{$color-accent-50};
+    --color-accent-60: #{$color-accent-60};
+    --color-accent-70: #{$color-accent-70};
+    --color-accent-80: #{$color-accent-80};
+    --color-accent-90: #{$color-accent-90};
+
+    --color-ai-10: #{$color-ai-10};
+    --color-ai-20: #{$color-ai-20};
+    --color-ai-30: #{$color-ai-30};
+    --color-ai-40: #{$color-ai-40};
+    --color-ai-50: #{$color-ai-50};
+    --color-ai-60: #{$color-ai-60};
+    --color-ai-70: #{$color-ai-70};
+    --color-ai-80: #{$color-ai-80};
+    --color-ai-90: #{$color-ai-90};
 
     --transparent: #{$transparent};
     --color-background: #{$color-background};
