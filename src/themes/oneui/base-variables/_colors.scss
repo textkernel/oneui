@@ -12,7 +12,6 @@ $color-light: #D0D3D5 !default;
 $color-primary: #0097d1 !default;
 
 //Context colors
-$color-info: #63dfec !default;
 $color-success: #5cb85c !default;
 $color-warning: #ffb819 !default;
 $color-danger: #f42534 !default;
@@ -39,13 +38,24 @@ $color-ai-70: #353480 !default;
 $color-ai-80: #232256 !default;
 $color-ai-90: #12112B !default;
 
+// Message level colors
+$color-info-10: #EEEEFB !default;
+$color-info-20: #B3D7FF !default;
+$color-info-30: #80BDFF !default;
+$color-info-40: #4DA2FF !default;
+$color-info-50: #007AFF !default;
+$color-info-60: #0062CC !default;
+$color-info-70: #004999 !default;
+$color-info-80: #003166 !default;
+$color-info-90: #001833 !default;
+
+
 :root {
     @each $context,
         $value in (
             neutral: $color-neutral,
             primary: $color-primary,
             light: $color-light,
-            info: $color-info,
             success: $color-success,
             warning: $color-warning,
             danger: $color-danger
@@ -73,6 +83,16 @@ $color-ai-90: #12112B !default;
     --color-ai-70: #{$color-ai-70};
     --color-ai-80: #{$color-ai-80};
     --color-ai-90: #{$color-ai-90};
+
+    --color-info-10: #{$color-info-10};
+    --color-info-20: #{$color-info-20};
+    --color-info-30: #{$color-info-30};
+    --color-info-40: #{$color-info-40};
+    --color-info-50: #{$color-info-50};
+    --color-info-60: #{$color-info-60};
+    --color-info-70: #{$color-info-70};
+    --color-info-80: #{$color-info-80};
+    --color-info-90: #{$color-info-90};
 
     --transparent: #{$transparent};
     --color-background: #{$color-background};

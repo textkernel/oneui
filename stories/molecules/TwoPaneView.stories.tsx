@@ -21,7 +21,7 @@ export const _TwoPaneView: Story = {
             <LeftPane
                 style={{
                     minHeight: '600px',
-                    backgroundColor: 'var(--color-info-25)',
+                    backgroundColor: 'var(--color-info-30)',
                     border: 'solid 1px var(--color-neutral-40)',
                     borderRadius: 'var(--border-radius) 0 0 var(--border-radius)',
                 }}
