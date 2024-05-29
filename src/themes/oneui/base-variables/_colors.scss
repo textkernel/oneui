@@ -12,7 +12,6 @@ $color-light: #D0D3D5 !default;
 $color-primary: #0097d1 !default;
 
 //Context colors
-$color-success: #5cb85c !default;
 $color-warning: #ffb819 !default;
 $color-danger: #f42534 !default;
 
@@ -49,6 +48,16 @@ $color-info-70: #004999 !default;
 $color-info-80: #003166 !default;
 $color-info-90: #001833 !default;
 
+$color-success-10: #EBF9EE !default;
+$color-success-20: #C2EECD !default;
+$color-success-30: #9AE3AC !default;
+$color-success-40: #71D88B !default;
+$color-success-50: #34C759 !default;
+$color-success-60: #2A9F47 !default;
+$color-success-70: #1F7735 !default;
+$color-success-80: #155024 !default;
+$color-success-90: #0A2812 !default;
+
 
 :root {
     @each $context,
@@ -56,7 +65,6 @@ $color-info-90: #001833 !default;
             neutral: $color-neutral,
             primary: $color-primary,
             light: $color-light,
-            success: $color-success,
             warning: $color-warning,
             danger: $color-danger
         )
@@ -93,6 +101,16 @@ $color-info-90: #001833 !default;
     --color-info-70: #{$color-info-70};
     --color-info-80: #{$color-info-80};
     --color-info-90: #{$color-info-90};
+
+    --color-success-10: #{$color-success-10};
+    --color-success-20: #{$color-success-20};
+    --color-success-30: #{$color-success-30};
+    --color-success-40: #{$color-success-40};
+    --color-success-50: #{$color-success-50};
+    --color-success-60: #{$color-success-60};
+    --color-success-70: #{$color-success-70};
+    --color-success-80: #{$color-success-80};
+    --color-success-90: #{$color-success-90};
 
     --transparent: #{$transparent};
     --color-background: #{$color-background};
