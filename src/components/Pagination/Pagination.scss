@@ -4,7 +4,7 @@
     display: flex;
 
     &__gap {
-        color: var(--color-neutral);
+        color: var(--color-neutral-70);
         display: inline-flex;
         align-items: center;
         padding: 0 var(--spacing-3x);
@@ -20,11 +20,11 @@
     }
 
     &__button {
-        color: var(--color-neutral-75);
+        color: var(--color-neutral-80);
 
         &:focus,
         &:hover {
-            color: var(--color-neutral-75);
+            color: var(--color-neutral-80);
             background-color: var(--color-light-25);
         }
 

@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: baseline;
     margin-bottom: var(--spacing-3x);
-    color: var(--color-neutral-75);
+    color: var(--color-neutral-80);
 
     &__navButton {
         width: 33px;
@@ -16,7 +16,7 @@
         margin-left: var(--spacing-normal);
         background-color: var(--color-background);
         border: 0;
-        border-bottom: 1px var(--color-neutral) solid;
+        border-bottom: 1px var(--color-neutral-70) solid;
         font-size: var(--font-size-large);
 
         &:focus {

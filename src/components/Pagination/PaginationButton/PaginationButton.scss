@@ -1,14 +1,14 @@
 .PaginationButton {
     transition: none;
     border: transparent;
-    color: var(--color-neutral-75);
+    color: var(--color-neutral-80);
 
     + .PaginationButton {
         margin-left: var(--spacing-normal);
     }
 
     &:hover {
-        color: var(--color-neutral-75);
+        color: var(--color-neutral-80);
         background-color: var(--color-light-25);
         text-decoration: none;
     }
@@ -20,7 +20,7 @@
 
         &:hover {
             color: var(--color-background);
-            background-color: var(--color-neutral-75);
+            background-color: var(--color-neutral-80);
         }
     }
 }

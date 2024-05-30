@@ -7,7 +7,6 @@ $transparent: transparent !default;
 $color-background: #fff !default;
 $color-foreground: #2d3234 !default;
 
-$color-neutral: #46494B !default;
 $color-light: #D0D3D5 !default;
 $color-primary: #0097d1 !default;
 
@@ -21,6 +20,22 @@ $color-accent-60: #C67122 !default;
 $color-accent-70: #95551A !default;
 $color-accent-80: #633811 !default;
 $color-accent-90: #321C09 !default;
+
+// Neutral colors
+$color-neutral-0: #ffffff !default;
+$color-neutral-5: #F3F3F3 !default;
+$color-neutral-10: #E6E6E6 !default;
+$color-neutral-20: #CCCCCC !default;
+$color-neutral-30: #B3B3B3 !default;
+$color-neutral-40: #999999 !default;
+$color-neutral-50: #808080 !default;
+$color-neutral-60: #666666 !default;
+$color-neutral-70: #4D4D4D !default;
+$color-neutral-80: #333333 !default;
+$color-neutral-90: #1A1A1A !default;
+$color-neutral-100: #000000 !default;
+$color-neutral-100-20: #00000020 !default;
+$color-neutral-100-80: #00000080 !default;
 
 // AI colors
 $color-ai-10: #EEEEFB !default;
@@ -78,13 +93,27 @@ $color-critical-90: #330C09 !default;
 :root {
     @each $context,
         $value in (
-            neutral: $color-neutral,
             primary: $color-primary,
             light: $color-light,
         )
     {
         --color-#{ $context }: #{$value};
     }
+
+    --color-neutral-0: #{$color-neutral-0};
+    --color-neutral-5: #{$color-neutral-5};
+    --color-neutral-10: #{$color-neutral-10};
+    --color-neutral-20: #{$color-neutral-20};
+    --color-neutral-30: #{$color-neutral-30};
+    --color-neutral-40: #{$color-neutral-40};
+    --color-neutral-50: #{$color-neutral-50};
+    --color-neutral-60: #{$color-neutral-60};
+    --color-neutral-70: #{$color-neutral-70};
+    --color-neutral-80: #{$color-neutral-80};
+    --color-neutral-90: #{$color-neutral-90};
+    --color-neutral-100: #{$color-neutral-100};
+    --color-neutral-100-20: #{$color-neutral-100-20};
+    --color-neutral-100-80: #{$color-neutral-100-80};
 
     --color-accent-10: #{$color-accent-10};
     --color-accent-20: #{$color-accent-20};
@@ -151,5 +180,5 @@ $color-critical-90: #330C09 !default;
     --color-foreground: #{$color-foreground};
 
     --color-highlight-background: #{color.mix($color-background, $color-primary, 90%)};
-    --color-shadow-background: #{color.mix($color-neutral, $color-background, 20%)};
+    --color-shadow-background: #{color.mix($color-neutral-70, $color-background, 20%)};
 }

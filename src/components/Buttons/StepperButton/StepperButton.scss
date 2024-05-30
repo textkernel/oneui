@@ -14,7 +14,7 @@
     border: none;
     border-radius: calc(var(--stepper-button-size) / 2);
 
-    color: var(--color-neutral-75);
+    color: var(--color-neutral-80);
     background-color: var(--color-neutral-10);
 
     cursor: pointer;
@@ -24,7 +24,7 @@
 
     &:focus,
     &:hover {
-        background-color: var(--color-neutral-25);
+        background-color: var(--color-neutral-30);
     }
 
     &[disabled] {

@@ -163,7 +163,7 @@ const LocationSelectorDialog: React.FC<Props> = ({
                             min={minRadius}
                             max={maxRadius}
                             step={radiusStep}
-                            railStyle={{ backgroundColor: 'var(--color-neutral-25)' }}
+                            railStyle={{ backgroundColor: 'var(--color-neutral-30)' }}
                             onChange={handleRadiusChange}
                         />
                         <Text size={SIZES[0]} {...elem('sliderLabel')}>

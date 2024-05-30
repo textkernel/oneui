@@ -30,12 +30,12 @@ $modal-min-height: 400px;
         pointer-events: none;
 
         &--muted {
-            color: var(--color-neutral-25);
+            color: var(--color-neutral-30);
         }
     }
 
     &__icon {
-        color: var(--color-neutral-25);
+        color: var(--color-neutral-30);
         margin: $icon-margin-adjustment;
     }
 

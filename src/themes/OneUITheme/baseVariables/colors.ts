@@ -6,9 +6,23 @@ export const colorVariables = {
     '--color-background': '#ffffff',
     '--color-foreground': '#2d3234',
 
-    '--color-neutral': '#46494B',
     '--color-primary': '#0097d1',
     '--color-light': '#D0D3D5',
+
+    '--color-neutral-0': '#ffffff',
+    '--color-neutral-5': '#F3F3F3',
+    '--color-neutral-10': '#E6E6E6',
+    '--color-neutral-20': '#CCCCCC',
+    '--color-neutral-30': '#B3B3B3',
+    '--color-neutral-40': '#999999',
+    '--color-neutral-50': '#808080',
+    '--color-neutral-60': '#666666',
+    '--color-neutral-70': '#4D4D4D',
+    '--color-neutral-80': '#333333',
+    '--color-neutral-90': '#1A1A1A',
+    '--color-neutral-100': '#000000',
+    '--color-neutral-100-20': 'rgba(0, 0, 0, 0.1254901961)',
+    '--color-neutral-100-80': 'rgba(0, 0, 0, 0.5019607843)',
 
     '--color-accent-10': '#FEE8D5',
     '--color-accent-20': '#FCD1AA',
@@ -75,7 +89,6 @@ export const computedColorVariables = (baseVariables: CssVars): CssVars => {
     const generateColorShadesFromVariables = (name: string) =>
         generateColorShades(baseVariables, name);
     return {
-        ...generateColorShadesFromVariables('--color-neutral'),
         ...generateColorShadesFromVariables('--color-primary'),
         ...generateColorShadesFromVariables('--color-light'),
         '--color-highlight-background': mixTwoColors(

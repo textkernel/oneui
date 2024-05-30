@@ -22,7 +22,7 @@
     box-sizing: border-box;
     color: var(--color-foreground);
     background-color: var(--color-background);
-    border-color: var(--color-neutral-75);
+    border-color: var(--color-neutral-80);
     cursor: pointer;
     font: {
         size: var(--font-size-base);
@@ -48,8 +48,8 @@
     &[disabled] {
         cursor: not-allowed;
         color: var(--color-background);
-        background-color: var(--color-neutral-25);
-        border-color: var(--color-neutral-25);
+        background-color: var(--color-neutral-30);
+        border-color: var(--color-neutral-30);
     }
 
     &.Button--isLoading {
@@ -108,7 +108,7 @@
         }
 
         &[disabled] {
-            color: var(--color-neutral-25);
+            color: var(--color-neutral-30);
             background-color: transparent;
             border-color: transparent;
 

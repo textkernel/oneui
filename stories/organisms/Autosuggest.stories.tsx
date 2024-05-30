@@ -243,7 +243,7 @@ export const CustomRender: Story = {
                 return (
                     <div
                         style={{
-                            borderTop: '1px solid var(--color-neutral-25)',
+                            borderTop: '1px solid var(--color-neutral-30)',
                             width: '100%',
                             margin: '-12px',
                             padding: '12px',

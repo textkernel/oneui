@@ -16,7 +16,7 @@
 
         &--disabled {
             cursor: not-allowed;
-            background-color: var(--color-neutral-25);
+            background-color: var(--color-neutral-30);
         }
     }
 
@@ -35,12 +35,12 @@
         }
 
         &::placeholder {
-            color: var(--color-neutral-25);
+            color: var(--color-neutral-30);
         }
 
         &--disabled {
             cursor: not-allowed;
-            background-color: var(--color-neutral-25);
+            background-color: var(--color-neutral-30);
         }
     }
 
@@ -52,7 +52,7 @@
         color: var(--color-neutral-60);
 
         &--disabled {
-            color: var(--color-neutral-75);
+            color: var(--color-neutral-80);
         }
     }
 }

@@ -4,7 +4,7 @@
 
     &__box {
         background-color: var(--color-background);
-        border: 1px solid var(--color-neutral-25);
+        border: 1px solid var(--color-neutral-30);
         border-radius: 50%;
         box-sizing: content-box;
         display: inline-block;
@@ -81,7 +81,7 @@
         &:hover {
             .RadioButton__label {
                 .RadioButton__box {
-                    border-color: var(--color-neutral);
+                    border-color: var(--color-neutral-70);
                 }
             }
         }
@@ -94,8 +94,8 @@
             &:checked {
                 + .RadioButton__label {
                     .RadioButton__box {
-                        border-color: var(--color-neutral);
-                        background: var(--color-neutral);
+                        border-color: var(--color-neutral-70);
+                        background: var(--color-neutral-70);
                     }
                 }
             }

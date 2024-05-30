@@ -3,13 +3,13 @@
     height: 36px;
     background-color: var(--color-background);
     border: {
-        color: var(--color-neutral-25);
+        color: var(--color-neutral-30);
         radius: var(--border-radius);
         style: solid;
         width: var(--line-normal);
     }
     box-sizing: border-box;
-    color: var(--color-neutral-75);
+    color: var(--color-neutral-80);
     font: {
         family: var(--font-family-primary);
         size: var(--font-size-normal);
@@ -30,8 +30,8 @@
     }
 
     &[disabled] {
-        background-color: var(--color-neutral-25);
-        color: var(--color-neutral-75);
+        background-color: var(--color-neutral-30);
+        color: var(--color-neutral-80);
         cursor: not-allowed;
     }
 }

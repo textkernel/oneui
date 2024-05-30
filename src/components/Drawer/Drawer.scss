@@ -31,7 +31,7 @@ $icon-size: 26px;
         display: flex;
         align-items: center;
         height: $drawer-head-height;
-        background-color: var(--color-neutral-75);
+        background-color: var(--color-neutral-80);
         border-radius: 4px 4px 0 0;
         cursor: pointer;
         outline: 0;
@@ -78,7 +78,7 @@ $icon-size: 26px;
 
         &:hover,
         &:focus {
-            background-color: var(--color-neutral);
+            background-color: var(--color-neutral-70);
         }
 
         &:active {
