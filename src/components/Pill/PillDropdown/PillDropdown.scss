@@ -22,7 +22,7 @@
         background: var(--color-background);
         margin: var(--spacing-2x) 0;
         border-radius: var(--border-radius);
-        border: 1px solid var(--color-light);
+        border: 1px solid var(--color-neutral-30);
         box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%);
         transform-origin: top left;
         animation: dropdownAppear var(--transition-duration-quick) forwards;
@@ -39,7 +39,7 @@
 
     &__footer {
         display: flex;
-        border-top: solid 1px var(--color-light);
+        border-top: solid 1px var(--color-neutral-30);
         justify-content: flex-end;
         padding: var(--pill-dropdown-padding);
     }

@@ -60,12 +60,12 @@ $half-pill-height: math.div($pill-height, 2);
         &:hover {
             outline: none;
             border-color: var(--color-neutral-80);
-            background-color: var(--color-light-25);
+            background-color: var(--color-neutral-10);
         }
 
         &--isOpen {
             &:hover {
-                background-color: var(--color-light-25);
+                background-color: var(--color-neutral-10);
             }
         }
 

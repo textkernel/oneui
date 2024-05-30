@@ -13,7 +13,7 @@
     &:hover,
     &:focus {
         border-bottom: 4px solid var(--color-background);
-        background-color: var(--color-light-25);
+        background-color: var(--color-neutral-10);
         border-radius: var(--border-radius);
     }
 
@@ -41,12 +41,12 @@
 
     &--disabled {
         cursor: not-allowed;
-        color: var(--color-light);
+        color: var(--color-neutral-30);
 
         &:hover,
         &:focus {
             border-bottom: 4px solid transparent;
-            color: var(--color-light);
+            color: var(--color-neutral-30);
         }
     }
 }

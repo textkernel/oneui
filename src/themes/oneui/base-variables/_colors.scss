@@ -7,7 +7,6 @@ $transparent: transparent !default;
 $color-background: #fff !default;
 $color-foreground: #2d3234 !default;
 
-$color-light: #D0D3D5 !default;
 $color-primary: #0097d1 !default;
 
 // Accent colors
@@ -94,7 +93,6 @@ $color-critical-90: #330C09 !default;
     @each $context,
         $value in (
             primary: $color-primary,
-            light: $color-light,
         )
     {
         --color-#{ $context }: #{$value};

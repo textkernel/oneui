@@ -7,7 +7,6 @@ export const colorVariables = {
     '--color-foreground': '#2d3234',
 
     '--color-primary': '#0097d1',
-    '--color-light': '#D0D3D5',
 
     '--color-neutral-0': '#ffffff',
     '--color-neutral-5': '#F3F3F3',
@@ -90,7 +89,6 @@ export const computedColorVariables = (baseVariables: CssVars): CssVars => {
         generateColorShades(baseVariables, name);
     return {
         ...generateColorShadesFromVariables('--color-primary'),
-        ...generateColorShadesFromVariables('--color-light'),
         '--color-highlight-background': mixTwoColors(
             baseVariables['--color-primary'],
             baseVariables['--color-background'],

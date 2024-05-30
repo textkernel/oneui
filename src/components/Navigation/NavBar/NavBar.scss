@@ -1,13 +1,13 @@
 @import '../../../themes/oneui/oneui';
 
 .NavBar {
-    background-color: var(--color-light-10);
+    background-color: var(--color-neutral-5);
     color: var(--color-primary);
     width: 100%;
     min-width: var(--site-container-min-size);
     height: var(--navigation-height);
-    border-bottom: 2px solid var(--color-light-25);
-    border-top: 2px solid var(--color-light-25);
+    border-bottom: 2px solid var(--color-neutral-10);
+    border-top: 2px solid var(--color-neutral-10);
 
     &__wrapper {
         box-sizing: border-box;

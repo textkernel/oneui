@@ -7,11 +7,11 @@ $contexts: (neutral, primary, info, success, cautious, critical);
     box-sizing: border-box;
 
     &:hover:not(.ListItem--disabled) {
-        background-color: var(--color-light-25);
+        background-color: var(--color-neutral-10);
     }
 
     &--isHighlighted {
-        background-color: var(--color-light-25);
+        background-color: var(--color-neutral-10);
     }
 
     &--isSelected {

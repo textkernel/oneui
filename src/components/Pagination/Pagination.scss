@@ -25,11 +25,11 @@
         &:focus,
         &:hover {
             color: var(--color-neutral-80);
-            background-color: var(--color-light-25);
+            background-color: var(--color-neutral-10);
         }
 
         &:active {
-            background-color: var(--color-light-60);
+            background-color: var(--color-neutral-40);
         }
     }
 }

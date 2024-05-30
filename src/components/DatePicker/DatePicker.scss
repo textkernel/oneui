@@ -22,7 +22,7 @@
 :global .react-datepicker {
     font-family: var(--font-family-primary);
     border-radius: var(--border-radius);
-    border: var(--color-light) 1px solid;
+    border: var(--color-neutral-30) 1px solid;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
     padding: var(--spacing-3x);
 }
@@ -52,7 +52,7 @@
 /* Days */
 
 :global .react-datepicker__week {
-    border: var(--color-light-25) 1px solid;
+    border: var(--color-neutral-10) 1px solid;
 }
 
 :global .react-datepicker__week ~ .react-datepicker__week {
@@ -69,12 +69,12 @@
     color: var(--color-neutral-80);
 
     & ~ .react-datepicker__day {
-        border-left: var(--color-light-25) 1px solid;
+        border-left: var(--color-neutral-10) 1px solid;
     }
 
     &:hover {
         border-radius: 0;
-        background-color: var(--color-light-25);
+        background-color: var(--color-neutral-10);
         color: var(--color-neutral-80);
     }
 }
@@ -85,7 +85,7 @@
 
 :global .react-datepicker__day--keyboard-selected {
     border-radius: 0;
-    background-color: var(--color-light);
+    background-color: var(--color-neutral-30);
     color: var(--color-neutral-80);
 
     &:hover {
