@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import OneUI, { Themeroller, THEMEROLLER_CONFIG } from '@textkernel/oneui';
+import { Themeroller } from '@textkernel/oneui';
+// import OneUI, { Themeroller, THEMEROLLER_CONFIG } from '@textkernel/oneui';
 
 const meta: Meta<typeof Themeroller> = {
     title: 'Theme/Themeroller',
@@ -11,9 +12,9 @@ export default meta;
 
 type Story = StoryObj<typeof Themeroller>;
 
-const handleChange = (themeResult) => {
-    sessionStorage.setItem(OneUI.THEME_ELEMENT_ID, JSON.stringify(themeResult));
-};
+// const handleChange = (themeResult) => {
+//     sessionStorage.setItem(OneUI.THEME_ELEMENT_ID, JSON.stringify(themeResult));
+// };
 
 export const ThemeBuilder: Story = {
     name: 'Theme builder',
