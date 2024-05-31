@@ -4,10 +4,10 @@
     justify-content: space-between;
     align-items: center;
     font-size: var(--font-size-normal);
-    padding: 0 var(--spacing-normal);
+    padding: 0 var(--space-50);
     background-color: var(--color-neutral-10);
     border-radius: var(--border-radius);
-    margin: var(--spacing-normal);
+    margin: var(--space-50);
     margin-top: var(--margin);
     margin-bottom: 4px;
     max-width: 200px;
@@ -27,7 +27,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        padding: 0 var(--spacing-2x) 0;
+        padding: 0 var(--space-75) 0;
         color: var(--color-foreground);
     }
 

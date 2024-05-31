@@ -7,7 +7,7 @@
         height: 34px;
         box-sizing: border-box;
         outline: none;
-        padding: var(--spacing-normal);
+        padding: var(--space-50);
         padding-bottom: var(--margin);
 
         &--focused {
@@ -22,9 +22,9 @@
 
     &__input {
         border: 0;
-        margin: var(--spacing-normal);
-        padding-left: var(--spacing-normal);
-        padding-right: var(--spacing-normal);
+        margin: var(--space-50);
+        padding-left: var(--space-50);
+        padding-right: var(--space-50);
         flex: 1;
         font-size: var(--font-size-normal);
         background-color: var(--color-background);
@@ -48,7 +48,7 @@
         display: inline-block;
         vertical-align: middle;
         font-size: 20px;
-        margin-right: var(--spacing-normal);
+        margin-right: var(--space-50);
         color: var(--color-neutral-60);
 
         &--disabled {

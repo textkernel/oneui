@@ -3,7 +3,7 @@
 .SelectButton {
     box-sizing: border-box;
     border: var(--line-normal) solid transparent;
-    padding: var(--spacing-2x) var(--spacing-4x);
+    padding: var(--space-75) var(--space-150);
     line-height: var(--line-height-normal);
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -53,12 +53,12 @@
         &_small {
             font-size: var(--font-size-small);
             line-height: var(--line-height-small);
-            padding: var(--spacing-normal) var(--spacing-2x);
+            padding: var(--space-50) var(--space-75);
         }
         &_large {
             font-size: var(--font-size-large);
             line-height: var(--line-height-large);
-            padding: var(--spacing-3x) var(--spacing-5x);
+            padding: var(--space-100) var(--space-200);
         }
     }
 

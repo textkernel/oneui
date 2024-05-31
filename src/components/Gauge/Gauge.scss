@@ -9,14 +9,14 @@
 
     &__circleBackground {
         stroke: var(--color-neutral-30);
-        stroke-width: var(--spacing-2x);
+        stroke-width: var(--space-75);
         stroke-linecap: round;
         fill: none;
     }
 
     &__circleForeground {
         stroke: var(--color-brand-80);
-        stroke-width: var(--spacing-4x);
+        stroke-width: var(--space-150);
         stroke-linecap: round;
         fill: none;
         transition: all var(--transition-duration) ease-out;
@@ -34,7 +34,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-top: var(--spacing-normal);
+        margin-top: var(--space-50);
         transform: translate(-50%, -100%);
         text-align: center;
 

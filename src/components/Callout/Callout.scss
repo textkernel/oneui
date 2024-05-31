@@ -4,7 +4,7 @@ $icon-size: 16px;
 
 .Callout {
     display: flex;
-    padding: var(--spacing-5x);
+    padding: var(--space-200);
     align-items: flex-start;
 
     &__content {
@@ -17,7 +17,7 @@ $icon-size: 16px;
         height: var(--icon-size);
         width: var(--icon-size);
         padding: 0;
-        padding-left: var(--spacing-5x);
+        padding-left: var(--space-200);
         margin-left: auto;
         cursor: pointer;
         background-color: var(--transparent);

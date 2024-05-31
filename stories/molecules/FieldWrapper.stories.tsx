@@ -20,11 +20,11 @@ export const _FieldWrapper: Story = {
         style: { width: '600px', minHeight: '40px' },
         children: (
             <>
-                <Text style={{ margin: 'var(--spacing-normal)' }} context="neutral">
+                <Text style={{ margin: 'var(--space-50)' }} context="neutral">
                     Some text or elements to be rendered within the wrapper
                 </Text>
                 <input
-                    style={{ margin: 'var(--spacing-normal)' }}
+                    style={{ margin: 'var(--space-50)' }}
                     placeholder="Add input field if needed..."
                 />
             </>

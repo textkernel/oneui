@@ -1,19 +1,19 @@
 .ThemeActions {
     display: flex;
     flex-wrap: wrap;
-    padding: var(--spacing-5x) var(--spacing-2x) var(--spacing-2x) 0;
+    padding: var(--space-200) var(--space-75) var(--space-75) 0;
 
     &__button {
-        margin-right: var(--spacing-3x);
-        margin-bottom: var(--spacing-3x);
+        margin-right: var(--space-100);
+        margin-bottom: var(--space-100);
     }
 
     &__icon {
-        padding-right: var(--spacing-normal);
+        padding-right: var(--space-50);
     }
 
     &__closeIcon {
-        padding-right: var(--spacing-normal);
+        padding-right: var(--space-50);
         font-size: 16px;
     }
 }

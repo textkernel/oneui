@@ -2,11 +2,11 @@
 
 .WeightedResultBar {
     + .WeightedResultBar {
-        margin-top: var(--spacing-4x);
+        margin-top: var(--space-150);
     }
 
     &__details {
-        margin-bottom: var(--spacing-2x);
+        margin-bottom: var(--space-75);
         display: flex;
         justify-content: space-between;
         align-items: center;

@@ -1,7 +1,7 @@
 @import '../../themes/oneui/oneui';
 
 .BulkActionsToolbar {
-    padding: var(--spacing-2x);
+    padding: var(--space-75);
     background-color: var(--color-neutral-5);
     border-radius: var(--border-radius);
     display: flex;
@@ -14,7 +14,7 @@
     }
 
     &__counter {
-        padding-right: var(--spacing-5x);
+        padding-right: var(--space-200);
         color: var(--color-cautious-80);
         text-overflow: ellipsis;
         overflow: hidden;
@@ -23,7 +23,7 @@
 
 
     &__toggle {
-        padding-right: var(--spacing-5x);
+        padding-right: var(--space-200);
         overflow: hidden;
         white-space: nowrap;
     }
@@ -39,13 +39,13 @@
     &__counter,
     &__toggleButton,
     &__action {
-        padding: var(--spacing-2x) var(--spacing-3x);
+        padding: var(--space-75) var(--space-100);
     }
 
     &__actionWrapper {
         overflow: hidden;
         display: block;
-        margin-left: var(--spacing-normal);
+        margin-left: var(--space-50);
 
         &--first {
             margin-left: 0;
@@ -55,7 +55,7 @@
     &__icon {
         font-size: 15px;
         display: inline-flex;
-        padding-right: var(--spacing-normal);
+        padding-right: var(--space-50);
     }
 
     &__action {

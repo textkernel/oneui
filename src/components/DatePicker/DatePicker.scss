@@ -13,10 +13,10 @@
 
 /* Calendar container */
 :global .react-datepicker-popper[data-placement^='bottom'] {
-    padding-top: var(--spacing-2x);
+    padding-top: var(--space-75);
 }
 :global .react-datepicker-popper[data-placement^='top'] {
-    padding-bottom: var(--spacing-2x);
+    padding-bottom: var(--space-75);
 }
 
 :global .react-datepicker {
@@ -24,7 +24,7 @@
     border-radius: var(--border-radius);
     border: var(--color-neutral-30) 1px solid;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-    padding: var(--spacing-3x);
+    padding: var(--space-100);
 }
 
 /* Header area */
@@ -64,7 +64,7 @@
     width: 35px;
     height: 35px;
     font-size: var(--font-size-normal);
-    padding: var(--spacing-normal);
+    padding: var(--space-50);
     box-sizing: border-box;
     color: var(--color-neutral-80);
 
@@ -130,6 +130,6 @@
 /* Today button */
 :global .react-datepicker__today-button {
     background-color: var(--color-background);
-    padding: var(--spacing-2x) var(--spacing-4x) 0 var(--spacing-4x);
+    padding: var(--space-75) var(--space-150) 0 var(--space-150);
     border: 0;
 }

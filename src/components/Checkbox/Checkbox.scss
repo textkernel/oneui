@@ -14,7 +14,7 @@
         transform: scale(1);
         transition: all var(--transition-duration) ease;
         vertical-align: middle;
-        margin-right: var(--spacing-2x);
+        margin-right: var(--space-75);
 
         &--asFlexbox {
             flex-shrink: 0;
@@ -85,7 +85,7 @@
     }
 
     &__text {
-        padding: var(--spacing-normal) 0;
+        padding: var(--space-50) 0;
     }
 
     &--disabled {

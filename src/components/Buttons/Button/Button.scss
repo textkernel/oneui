@@ -33,7 +33,7 @@
     line-height: var(--line-height-normal);
     margin: 0;
     outline: none;
-    padding: var(--spacing-2x) var(--spacing-4x);
+    padding: var(--space-75) var(--space-150);
     text-align: center;
     transition: all var(--transition-duration);
     white-space: nowrap;
@@ -65,12 +65,12 @@
         &_small {
             font-size: var(--font-size-small);
             line-height: var(--line-height-small);
-            padding: var(--spacing-normal) var(--spacing-2x);
+            padding: var(--space-50) var(--space-75);
         }
         &_large {
             font-size: var(--font-size-large);
             line-height: var(--line-height-large);
-            padding: var(--spacing-3x) var(--spacing-5x);
+            padding: var(--space-100) var(--space-200);
         }
     }
 
@@ -79,7 +79,7 @@
     }
 
     &--isInline {
-        padding: 0 var(--spacing-2x);
+        padding: 0 var(--space-75);
     }
 
     &--isLoading {

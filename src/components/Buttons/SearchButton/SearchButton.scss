@@ -41,12 +41,12 @@
 
     &--withLabel {
         width: auto;
-        padding: 0 var(--spacing-4x);
+        padding: 0 var(--space-150);
     }
 
     &__searchIcon {
         &--withLabel {
-            padding-right: var(--spacing-2x);
+            padding-right: var(--space-75);
         }
     }
 }
