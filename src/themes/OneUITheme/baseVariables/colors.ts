@@ -92,17 +92,15 @@ export const colorVariables = {
     '--color-critical-90': '#330C09',
 };
 
-export const computedColorVariables = (baseVariables: CssVars): CssVars => {
-    return {
-        '--color-highlight-background': mixTwoColors(
-            baseVariables['--color-brand-50'],
-            baseVariables['--color-background'],
-            90
-        ),
-        '--color-shadow-background': mixTwoColors(
-            baseVariables['--color-foreground'],
-            baseVariables['--color-background'],
-            20
-        ),
-    };
-};
+export const computedColorVariables = (baseVariables: CssVars): CssVars => ({
+    '--color-highlight-background': mixTwoColors(
+        baseVariables['--color-brand-50'],
+        baseVariables['--color-background'],
+        90
+    ),
+    '--color-shadow-background': mixTwoColors(
+        baseVariables['--color-foreground'],
+        baseVariables['--color-background'],
+        20
+    ),
+});
