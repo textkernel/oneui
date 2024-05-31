@@ -1,24 +1,24 @@
 @import '../../themes/oneui/oneui';
 
 .Link {
-    color: var(--color-primary);
+    color: var(--color-brand-50);
     text-decoration: var(--link-decoration-normal);
     transition: color var(--transition-duration);
 
     &:hover,
     &:focus {
-        color: var(--color-primary-60);
+        color: var(--color-brand-60);
         text-decoration: var(--link-decoration-hover);
     }
 
     &:focus {
         outline: none;
         border-radius: 5px;
-        border: var(--color-primary) solid 2px;
+        border: var(--color-brand-50) solid 2px;
     }
 
     &:active {
-        color: var(--color-primary-75);
+        color: var(--color-brand-80);
     }
 
     &--dontDecorateOnHover:hover {

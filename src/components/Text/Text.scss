@@ -11,7 +11,7 @@
         }
     }
 
-    @include context-attribute-with-color('color', (light, primary, info));
+    @include context-attribute-with-color('color', (brand, info));
 
     &--context_neutral {
         color: var(--color-neutral-30);

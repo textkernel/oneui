@@ -7,7 +7,16 @@ $transparent: transparent !default;
 $color-background: #fff !default;
 $color-foreground: #2d3234 !default;
 
-$color-primary: #0097d1 !default;
+// Primary colors
+$color-brand-10: #E6F5FA !default;
+$color-brand-20: #B3E0F1 !default;
+$color-brand-30: #80CBE8 !default;
+$color-brand-40: #4DB6DF !default;
+$color-brand-50: #0097D1 !default;
+$color-brand-60: #0079A7 !default;
+$color-brand-70: #005B7D !default;
+$color-brand-80: #003C54 !default;
+$color-brand-90: #001E2A !default;
 
 // Accent colors
 $color-accent-10: #FEE8D5 !default;
@@ -90,13 +99,15 @@ $color-critical-90: #330C09 !default;
 
 
 :root {
-    @each $context,
-        $value in (
-            primary: $color-primary,
-        )
-    {
-        --color-#{ $context }: #{$value};
-    }
+    --color-brand-10: #{$color-brand-10};
+    --color-brand-20: #{$color-brand-20};
+    --color-brand-30: #{$color-brand-30};
+    --color-brand-40: #{$color-brand-40};
+    --color-brand-50: #{$color-brand-50};
+    --color-brand-60: #{$color-brand-60};
+    --color-brand-70: #{$color-brand-70};
+    --color-brand-80: #{$color-brand-80};
+    --color-brand-90: #{$color-brand-90};
 
     --color-neutral-0: #{$color-neutral-0};
     --color-neutral-5: #{$color-neutral-5};
@@ -177,6 +188,6 @@ $color-critical-90: #330C09 !default;
     --color-background: #{$color-background};
     --color-foreground: #{$color-foreground};
 
-    --color-highlight-background: #{color.mix($color-background, $color-primary, 90%)};
+    --color-highlight-background: #{color.mix($color-background, $color-brand-50, 90%)};
     --color-shadow-background: #{color.mix($color-neutral-70, $color-background, 20%)};
 }

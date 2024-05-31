@@ -16,7 +16,7 @@ exports[`<MarkedText> that renders a text block while marking matched substrings
 exports[`<MarkedText> that renders a text block while marking matched substrings should pass props to Text 1`] = `
 <div>
   <span
-    class="Text--context_primary"
+    class="Text--context_brand"
   >
     Some 
     <mark

@@ -7,7 +7,7 @@
     &:focus,
     &:focus-visible {
         outline: none;
-        border-color: var(--color-primary);
+        border-color: var(--color-brand-50);
     }
 }
 
@@ -105,7 +105,7 @@
 
 :global .react-datepicker__day--selected {
     border-radius: 0;
-    background-color: var(--color-primary);
+    background-color: var(--color-brand-50);
     color: var(--color-background);
 }
 
@@ -115,7 +115,7 @@
     .react-datepicker__day--in-selecting-range:not(.react-datepicker__month-text--in-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--in-range),
 :global .react-datepicker__day--in-range {
     border-radius: 0;
-    background-color: var(--color-primary-40);
+    background-color: var(--color-brand-40);
     color: var(--color-background);
 }
 /* stylelint-enable */
@@ -123,7 +123,7 @@
 :global .react-datepicker__day--selecting-range-start,
 :global .react-datepicker__day--selecting-range-end {
     border-radius: 0;
-    background-color: var(--color-primary);
+    background-color: var(--color-brand-50);
     color: var(--color-background);
 }
 

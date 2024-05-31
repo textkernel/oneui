@@ -16,7 +16,7 @@ $slider-padding: 5px 0;
     position: absolute;
     height: $slider-rail-height;
     border-radius: math.div($slider-rail-height, 2);
-    background-color: var(--color-primary);
+    background-color: var(--color-brand-50);
     transition: background-color var(--transition-duration) ease;
 }
 
@@ -25,7 +25,7 @@ $slider-padding: 5px 0;
     width: $slider-handle-size;
     height: $slider-handle-size;
     margin-top: $slider-handle-margin-top;
-    border: solid $slider-handle-border-width var(--color-primary);
+    border: solid $slider-handle-border-width var(--color-brand-50);
     border-radius: 50%;
     transition: background-color var(--transition-duration) ease,
         transform var(--transition-duration), box-shadow var(--transition-duration);
@@ -39,7 +39,7 @@ $slider-padding: 5px 0;
 
     &:focus {
         outline: none;
-        background-color: var(--color-primary);
+        background-color: var(--color-brand-50);
     }
 }
 
@@ -50,7 +50,7 @@ $slider-padding: 5px 0;
     width: 100%;
 
     &:hover .rc-slider-track {
-        background-color: var(--color-primary-40);
+        background-color: var(--color-brand-40);
     }
 
     &:hover .rc-slider-handle {
@@ -58,7 +58,7 @@ $slider-padding: 5px 0;
     }
 
     &:active .rc-slider-track {
-        background-color: var(--color-primary-40);
+        background-color: var(--color-brand-40);
     }
 
     * {

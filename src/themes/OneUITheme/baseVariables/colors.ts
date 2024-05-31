@@ -1,4 +1,4 @@
-import { generateColorShades, mixTwoColors } from '../utils';
+import { mixTwoColors } from '../utils';
 import type { CssVars } from '../OneUITheme';
 
 export const colorVariables = {
@@ -6,7 +6,15 @@ export const colorVariables = {
     '--color-background': '#ffffff',
     '--color-foreground': '#2d3234',
 
-    '--color-primary': '#0097d1',
+    '--color-brand-10': '#E6F5FA',
+    '--color-brand-20': '#B3E0F1',
+    '--color-brand-30': '#80CBE8',
+    '--color-brand-40': '#4DB6DF',
+    '--color-brand-50': '#0097D1',
+    '--color-brand-60': '#0079A7',
+    '--color-brand-70': '#005B7D',
+    '--color-brand-80': '#003C54',
+    '--color-brand-90': '#001E2A',
 
     '--color-neutral-0': '#ffffff',
     '--color-neutral-5': '#F3F3F3',
@@ -85,12 +93,9 @@ export const colorVariables = {
 };
 
 export const computedColorVariables = (baseVariables: CssVars): CssVars => {
-    const generateColorShadesFromVariables = (name: string) =>
-        generateColorShades(baseVariables, name);
     return {
-        ...generateColorShadesFromVariables('--color-primary'),
         '--color-highlight-background': mixTwoColors(
-            baseVariables['--color-primary'],
+            baseVariables['--color-brand-50'],
             baseVariables['--color-background'],
             90
         ),

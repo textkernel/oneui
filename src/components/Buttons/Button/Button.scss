@@ -94,7 +94,7 @@
     }
 
     &--isLink{
-        color: var(--color-primary);
+        color: var(--color-brand-50);
         border-color: var(--transparent);
         background-color: var(--transparent);
         text-decoration: var(--link-decoration-normal);
@@ -103,7 +103,7 @@
         &:focus,
         &:active {
             box-shadow: none;
-            color: var(--color-primary-60);
+            color: var(--color-brand-60);
             background-color: var(--color-highlight-background);
         }
 
@@ -119,31 +119,31 @@
     }
 
     &--isPrimary {
-        background-color: var(--color-primary);
-        border-color: var(--color-primary);
+        background-color: var(--color-brand-50);
+        border-color: var(--color-brand-50);
         color: var(--color-background);
 
 
         &:hover,
         &:focus,
         &:active {
-            border-color: var(--color-primary-60);
-            background-color: var(--color-primary-60);
+            border-color: var(--color-brand-60);
+            background-color: var(--color-brand-60);
         }
 
         &[disabled] {
             color: var(--color-background);
-            background-color: var(--color-primary-25);
-            border-color: var(--color-primary-25);
+            background-color: var(--color-brand-20);
+            border-color: var(--color-brand-20);
         }
 
         &.Button--isLoading {
-            --button-gradient: linear-gradient(to right, var(--color-primary-40) 0%, var(--color-primary-40) 50%, var(--color-primary) 80%);
+            --button-gradient: linear-gradient(to right, var(--color-brand-40) 0%, var(--color-brand-40) 50%, var(--color-brand-50) 80%);
             background-image: var(--button-gradient);
             border-image: var(--button-gradient);
 
             &[disabled] {
-                background-image: linear-gradient(to right, var(--color-primary-25) 0%, var(--color-primary-25) 50%, var(--color-primary-40) 80%);
+                background-image: linear-gradient(to right, var(--color-brand-20) 0%, var(--color-brand-20) 50%, var(--color-brand-40) 80%);
             }
 
             &:hover:not([disabled]) {
