@@ -17,8 +17,8 @@ export const ThemeRollerTestConfig = [
             {
                 label: 'Foreground color',
                 type: 'color',
-                var: '--color-neutral',
-                value: '#1d1d1b',
+                var: '--color-foreground',
+                value: '#000000',
             },
             {
                 label: 'Border radius',
@@ -50,7 +50,7 @@ describe('ThemeTuner component', () => {
             <ThemeTuner
                 config={ThemeRollerTestConfig}
                 cssVars={{
-                    '--color-neutral': '#000000',
+                    '--color-foreground': '#000000',
                 }}
                 onChange={onChangeMock}
             />

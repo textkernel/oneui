@@ -12,10 +12,10 @@ global.Date = class extends RealDate {
 describe('ThemeResult', () => {
     const cssVariables = {
         '--transparent': 'transparent',
-        '--color-primary': 'blue',
-        '--color-primary-10': '#101010',
-        '--color-primary-20': '#202020',
-        '--color-primary-30': '#303030',
+        '--color-brand': 'blue',
+        '--color-brand-10': '#101010',
+        '--color-brand-20': '#202020',
+        '--color-brand-30': '#303030',
     };
     const jsonTheme = {
         name: 'dark-theme',
