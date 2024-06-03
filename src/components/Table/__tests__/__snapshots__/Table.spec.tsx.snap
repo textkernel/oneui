@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Table> and its sub elements should render correctly 1`] = `
+<div>
+  <table
+    class="Table"
+  >
+    <thead>
+      <tr
+        class="TableRow"
+      >
+        <th
+          class="TableHeaderCell"
+        >
+          column header 1
+        </th>
+        <th
+          class="TableHeaderCell"
+        >
+          column header 2
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        class="TableRow"
+      >
+        <th
+          class="TableHeaderCell"
+        >
+          Row header 1
+        </th>
+        <td
+          class="TableCell"
+        >
+          Cell 1
+        </td>
+      </tr>
+      <tr
+        class="TableRow"
+      >
+        <th
+          class="TableHeaderCell"
+        >
+          Row header 2
+        </th>
+        <td
+          class="TableCell"
+        >
+          Cell 2 with some longer text
+        </td>
+      </tr>
+      <tr
+        class="TableRow"
+      >
+        <th
+          class="TableHeaderCell"
+          title="Row header 3 that is a bit longer then the rest"
+        >
+          Row header 3 that is a bit longer then the rest
+        </th>
+        <td
+          class="TableCell"
+        >
+          Cell 3 with some very very long text | 03/05 - 11/2010 Magellan Health Services/Icore Healthcare Division, Clinical Sales Representative * Managed outside sales of New York's tri-state territory for Injectable Medications. * Consulted Hospital Staff; Endocrinologists, and Gastroenterologists on injectable Growth Hormone, a Magellan Health Services/Icore Healthcare Division, Clinical Sales Representative * Managed outside sales of New York's tri-state territory for Injectable Medications. * Consulted Hospital Staff; Endocrinologists, and Gastroenterologists on injectable Growth
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
