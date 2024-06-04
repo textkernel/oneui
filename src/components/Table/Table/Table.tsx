@@ -3,7 +3,7 @@ import { bem } from '../../../utils';
 import styles from './Table.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLTableElement> {
-    /** The content of the Table (<table />)  */
+    /** The content of the Table (`<table />`)  */
     children: React.ReactNode;
 }
 

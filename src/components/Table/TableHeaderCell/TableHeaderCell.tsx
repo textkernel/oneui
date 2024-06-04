@@ -3,7 +3,7 @@ import { bem } from '../../../utils';
 import styles from './TableHeaderCell.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLTableCellElement> {
-    /** The content of the Table Header Cell (<th/>) */
+    /** The content of the Table Header Cell (`<th/>`) */
     children: React.ReactNode;
 }
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export interface Props extends React.HTMLAttributes<HTMLTableSectionElement> {
-    /** The content of the Table Head (<thead/>) */
+    /** The content of the Table Head (`<thead/>`) */
     children: React.ReactNode;
 }
 
