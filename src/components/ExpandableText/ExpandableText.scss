@@ -1,0 +1,23 @@
+.ExpandableText {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5x);
+    align-items: flex-start;
+
+    &__content {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        transition: height var(--transition-duration) ease;
+    }
+
+    &__buttonArrow {
+        margin-left: var(--spacing-normal);
+        width: 16px;
+        height: 16px;
+        transition: transform var(--transition-duration);
+    }
+
+    &__buttonArrow--isCollapsed {
+        transform: rotateX(180deg);
+    }
+}

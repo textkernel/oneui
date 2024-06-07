@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ExpandableText> should render short text simply as is 1`] = `
+<div>
+  <div
+    class="ExpandableText"
+  >
+    <div
+      class="ExpandableText__content"
+      style="max-height: calc(var(--line-height-normal) * 5);"
+    >
+      some short text
+    </div>
+  </div>
+</div>
+`;
