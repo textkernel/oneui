@@ -26,7 +26,6 @@ export const ExpandableText = React.forwardRef<HTMLDivElement, Props>((props, re
     const collapsedHeight = `calc(var(--line-height-normal) * ${threshold})`;
 
     // After first render determine if the text is longer or not then the maximum allowed
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     React.useLayoutEffect(() => {
         if (!isExpandable && contentRef.current) {
             contentRef.current.style.maxHeight = collapsedHeight;
@@ -37,7 +36,7 @@ export const ExpandableText = React.forwardRef<HTMLDivElement, Props>((props, re
                 contentRef.current.style.maxHeight = 'initial';
             }
         }
-    });
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const collapseSection = () => {
         if (!contentRef.current) {
