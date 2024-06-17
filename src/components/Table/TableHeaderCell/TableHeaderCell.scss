@@ -1,0 +1,9 @@
+.TableHeaderCell {
+    padding: var(--spacing-5x);
+    white-space: nowrap;
+    max-width: 240px;
+    vertical-align: top;
+    text-align: left;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}

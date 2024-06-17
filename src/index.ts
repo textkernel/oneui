@@ -31,6 +31,7 @@ export * from './components/SelectedOption';
 export * from './components/Sliders';
 export * from './components/StickyHeader';
 export * from './components/Drawer';
+export * from './components/Table';
 export * from './components/Tabs';
 export * from './components/Text';
 export * from './components/TextArea';
