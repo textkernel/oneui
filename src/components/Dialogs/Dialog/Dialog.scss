@@ -4,23 +4,23 @@
     width: 400px;
 
     &__content {
-        padding: var(--spacing-5x);
+        padding: var(--space-200);
     }
 
     &__actions {
         display: flex;
         justify-content: flex-end;
         align-content: baseline;
-        margin-top: var(--spacing-2x);
-        padding: var(--spacing-3x);
-        border-top: 1px solid var(--color-light-40);
+        margin-top: var(--space-75);
+        padding: var(--space-100);
+        border-top: 1px solid var(--color-neutral-20);
     }
 
     &__cancel {
-        margin-right: var(--spacing-2x);
+        margin-right: var(--space-75);
     }
 
     &__title {
-        margin-bottom: var(--spacing-2x);
+        margin-bottom: var(--space-75);
     }
 }

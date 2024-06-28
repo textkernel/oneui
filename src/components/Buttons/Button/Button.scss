@@ -22,7 +22,7 @@
     box-sizing: border-box;
     color: var(--color-foreground);
     background-color: var(--color-background);
-    border-color: var(--color-neutral-75);
+    border-color: var(--color-neutral-80);
     cursor: pointer;
     font: {
         size: var(--font-size-base);
@@ -33,7 +33,7 @@
     line-height: var(--line-height-normal);
     margin: 0;
     outline: none;
-    padding: var(--spacing-2x) var(--spacing-4x);
+    padding: var(--space-75) var(--space-150);
     text-align: center;
     transition: all var(--transition-duration);
     white-space: nowrap;
@@ -42,14 +42,14 @@
     &:hover,
     &:focus,
     &:active {
-        background-color: var(--color-light-25);
+        background-color: var(--color-neutral-10);
     }
 
     &[disabled] {
         cursor: not-allowed;
         color: var(--color-background);
-        background-color: var(--color-neutral-25);
-        border-color: var(--color-neutral-25);
+        background-color: var(--color-neutral-30);
+        border-color: var(--color-neutral-30);
     }
 
     &.Button--isLoading {
@@ -65,12 +65,12 @@
         &_small {
             font-size: var(--font-size-small);
             line-height: var(--line-height-small);
-            padding: var(--spacing-normal) var(--spacing-2x);
+            padding: var(--space-50) var(--space-75);
         }
         &_large {
             font-size: var(--font-size-large);
             line-height: var(--line-height-large);
-            padding: var(--spacing-3x) var(--spacing-5x);
+            padding: var(--space-100) var(--space-200);
         }
     }
 
@@ -79,7 +79,7 @@
     }
 
     &--isInline {
-        padding: 0 var(--spacing-2x);
+        padding: 0 var(--space-75);
     }
 
     &--isLoading {
@@ -94,7 +94,7 @@
     }
 
     &--isLink{
-        color: var(--color-primary);
+        color: var(--color-brand-50);
         border-color: var(--transparent);
         background-color: var(--transparent);
         text-decoration: var(--link-decoration-normal);
@@ -103,12 +103,12 @@
         &:focus,
         &:active {
             box-shadow: none;
-            color: var(--color-primary-60);
+            color: var(--color-brand-60);
             background-color: var(--color-highlight-background);
         }
 
         &[disabled] {
-            color: var(--color-neutral-25);
+            color: var(--color-neutral-30);
             background-color: transparent;
             border-color: transparent;
 
@@ -119,31 +119,31 @@
     }
 
     &--isPrimary {
-        background-color: var(--color-primary);
-        border-color: var(--color-primary);
+        background-color: var(--color-brand-50);
+        border-color: var(--color-brand-50);
         color: var(--color-background);
 
 
         &:hover,
         &:focus,
         &:active {
-            border-color: var(--color-primary-60);
-            background-color: var(--color-primary-60);
+            border-color: var(--color-brand-60);
+            background-color: var(--color-brand-60);
         }
 
         &[disabled] {
             color: var(--color-background);
-            background-color: var(--color-primary-25);
-            border-color: var(--color-primary-25);
+            background-color: var(--color-brand-20);
+            border-color: var(--color-brand-20);
         }
 
         &.Button--isLoading {
-            --button-gradient: linear-gradient(to right, var(--color-primary-40) 0%, var(--color-primary-40) 50%, var(--color-primary) 80%);
+            --button-gradient: linear-gradient(to right, var(--color-brand-40) 0%, var(--color-brand-40) 50%, var(--color-brand-50) 80%);
             background-image: var(--button-gradient);
             border-image: var(--button-gradient);
 
             &[disabled] {
-                background-image: linear-gradient(to right, var(--color-primary-25) 0%, var(--color-primary-25) 50%, var(--color-primary-40) 80%);
+                background-image: linear-gradient(to right, var(--color-brand-20) 0%, var(--color-brand-20) 50%, var(--color-brand-40) 80%);
             }
 
             &:hover:not([disabled]) {

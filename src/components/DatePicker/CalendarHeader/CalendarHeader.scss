@@ -2,21 +2,21 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: var(--spacing-3x);
-    color: var(--color-neutral-75);
+    margin-bottom: var(--space-100);
+    color: var(--color-neutral-80);
 
     &__navButton {
         width: 33px;
         height: 33px;
-        padding: var(--spacing-normal);
+        padding: var(--space-50);
         border: transparent;
     }
 
     &__select {
-        margin-left: var(--spacing-normal);
+        margin-left: var(--space-50);
         background-color: var(--color-background);
         border: 0;
-        border-bottom: 1px var(--color-neutral) solid;
+        border-bottom: 1px var(--color-neutral-70) solid;
         font-size: var(--font-size-large);
 
         &:focus {

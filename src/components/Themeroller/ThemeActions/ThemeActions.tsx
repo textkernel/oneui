@@ -64,7 +64,7 @@ export const ThemeActions: React.FC<Props> = ({
                     {...elem('button')}
                     type="reset"
                     size="small"
-                    context="danger"
+                    context="critical"
                     onClick={onReset}
                 >
                     <>

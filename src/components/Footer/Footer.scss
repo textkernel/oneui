@@ -1,7 +1,7 @@
 @import '../../themes/oneui/oneui';
 
 .Footer {
-    background-color: var(--color-neutral-75);
+    background-color: var(--color-neutral-80);
     color: var(--footer-foreground-color);
     min-width: var(--site-container-min-size);
     height: var(--footer-height);
@@ -18,8 +18,8 @@
 
     &__wrapper {
         box-sizing: border-box;
-        padding-top: var(--spacing-normal);
-        padding-bottom: var(--spacing-normal);
+        padding-top: var(--space-50);
+        padding-bottom: var(--space-50);
         min-height: 100%;
         display: flex;
         justify-content: space-between;

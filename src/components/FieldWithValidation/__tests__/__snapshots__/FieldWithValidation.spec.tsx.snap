@@ -14,13 +14,13 @@ exports[`FieldWithValidation when rendering message as text with no error messag
 exports[`FieldWithValidation when using tooltip when error message is defined should remove the message when field is blurred 1`] = `
 <div>
   <input
-    class="Input Input--context_danger"
+    class="Input Input--context_critical"
     data-lpignore="true"
     type="text"
     value=""
   />
   <p
-    class="Text--context_danger Text--size_small FieldWithValidation"
+    class="Text--context_critical Text--size_small FieldWithValidation"
   >
     invalid field
   </p>
@@ -30,13 +30,13 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
 exports[`FieldWithValidation when using tooltip when error message is defined should render the message when field is focused 1`] = `
 <div>
   <input
-    class="Input Input--context_danger"
+    class="Input Input--context_critical"
     data-lpignore="true"
     type="text"
     value=""
   />
   <p
-    class="Text--context_danger Text--size_small FieldWithValidation"
+    class="Text--context_critical Text--size_small FieldWithValidation"
   >
     invalid field
   </p>
@@ -46,13 +46,13 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
 exports[`FieldWithValidation when using tooltip when error message is defined should set context to bad on child 1`] = `
 <div>
   <input
-    class="Input Input--context_danger"
+    class="Input Input--context_critical"
     data-lpignore="true"
     type="text"
     value=""
   />
   <p
-    class="Text--context_danger Text--size_small FieldWithValidation"
+    class="Text--context_critical Text--size_small FieldWithValidation"
   >
     invalid field
   </p>
@@ -73,13 +73,13 @@ exports[`FieldWithValidation when using tooltip with no error message passed sho
 exports[`FieldWithValidation with error message passed should render the message as text 1`] = `
 <div>
   <input
-    class="Input Input--context_danger"
+    class="Input Input--context_critical"
     data-lpignore="true"
     type="text"
     value=""
   />
   <p
-    class="Text--context_danger Text--size_small FieldWithValidation"
+    class="Text--context_critical Text--size_small FieldWithValidation"
   >
     invalid field
   </p>
@@ -89,13 +89,13 @@ exports[`FieldWithValidation with error message passed should render the message
 exports[`FieldWithValidation with error message passed should set context to bad on child 1`] = `
 <div>
   <input
-    class="Input Input--context_danger"
+    class="Input Input--context_critical"
     data-lpignore="true"
     type="text"
     value=""
   />
   <p
-    class="Text--context_danger Text--size_small FieldWithValidation"
+    class="Text--context_critical Text--size_small FieldWithValidation"
   >
     invalid field
   </p>

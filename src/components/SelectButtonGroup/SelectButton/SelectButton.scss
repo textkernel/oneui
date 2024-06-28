@@ -3,7 +3,7 @@
 .SelectButton {
     box-sizing: border-box;
     border: var(--line-normal) solid transparent;
-    padding: var(--spacing-2x) var(--spacing-4x);
+    padding: var(--space-75) var(--space-150);
     line-height: var(--line-height-normal);
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -11,7 +11,7 @@
     overflow: hidden;
     cursor: pointer;
     outline: none;
-    color: var(--color-neutral-75);
+    color: var(--color-neutral-80);
     font-weight: var(--font-weight-bold);
 
     &:first-child {
@@ -25,7 +25,7 @@
     }
 
     &:hover {
-        background: var(--color-light);
+        background: var(--color-neutral-30);
     }
 
     + .SelectButton {
@@ -37,14 +37,14 @@
     }
 
     &--isSelected.SelectButton {
-        border-color: var(--color-primary);
-        background-color: var(--color-primary);
+        border-color: var(--color-brand-50);
+        background-color: var(--color-brand-50);
         color: var(--color-background);
         font-weight: var(--font-weight-bold);
 
         &:hover {
-            border-color: var(--color-primary-60);
-            background-color: var(--color-primary-60);
+            border-color: var(--color-brand-60);
+            background-color: var(--color-brand-60);
         }
 
     }
@@ -53,12 +53,12 @@
         &_small {
             font-size: var(--font-size-small);
             line-height: var(--line-height-small);
-            padding: var(--spacing-normal) var(--spacing-2x);
+            padding: var(--space-50) var(--space-75);
         }
         &_large {
             font-size: var(--font-size-large);
             line-height: var(--line-height-large);
-            padding: var(--spacing-3x) var(--spacing-5x);
+            padding: var(--space-100) var(--space-200);
         }
     }
 

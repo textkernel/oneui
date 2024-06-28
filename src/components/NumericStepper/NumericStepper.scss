@@ -29,10 +29,10 @@
     }
 
     &:hover &__stepperInput{
-        border-color: var(--color-neutral);
+        border-color: var(--color-neutral-70);
     }
 
     &:hover &__stepperInput:focus{
-        border-color: var(--color-primary);
+        border-color: var(--color-brand-50);
     }
 }

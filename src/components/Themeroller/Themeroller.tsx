@@ -168,7 +168,7 @@ export const Themeroller: React.FC<Props> = ({
                     onFileChange={handleFileChange}
                 />
                 {error && (
-                    <Callout {...elem('error')} context="danger">
+                    <Callout {...elem('error')} context="critical">
                         {error}
                     </Callout>
                 )}

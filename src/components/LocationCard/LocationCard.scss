@@ -8,8 +8,8 @@ $slider-indication-width: 110px;
 .LocationCard {
     box-sizing: border-box;
     width: $location-card-width;
-    padding: var(--spacing-4x) var(--spacing-5x);
-    background-color: var(--color-light-40);
+    padding: var(--space-150) var(--space-200);
+    background-color: var(--color-neutral-20);
 
     &__header {
         display: flex;
@@ -26,7 +26,7 @@ $slider-indication-width: 110px;
 
     &__deleteButton {
         position: relative;
-        bottom: var(--spacing-normal);
+        bottom: var(--space-50);
         width: $close-button-width;
         height: $close-button-height;
         margin: 0;
@@ -46,7 +46,7 @@ $slider-indication-width: 110px;
         }
         flex-direction: row;
         display: flex;
-        margin: var(--spacing-5x) 0px;
+        margin: var(--space-200) 0px;
     }
 
     &__sliderLabel {

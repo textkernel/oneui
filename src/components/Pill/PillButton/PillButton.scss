@@ -29,7 +29,7 @@ $half-pill-height: math.div($pill-height, 2);
         padding: 0 $half-pill-height;
         font-size: var(--font-size-normal);
         text-transform: uppercase;
-        color: var(--color-primary);
+        color: var(--color-brand-50);
 
         &--isActive {
             animation: labelIn var(--transition-duration) forwards;
@@ -49,35 +49,35 @@ $half-pill-height: math.div($pill-height, 2);
         box-sizing: border-box;
         height: $pill-height;
         border-radius: $half-pill-height;
-        border: 1px solid var(--color-neutral-25);
-        padding-right: var(--spacing-2x);
+        border: 1px solid var(--color-neutral-30);
+        padding-right: var(--space-75);
         padding-left: $half-pill-height;
-        color: var(--color-neutral);
+        color: var(--color-neutral-70);
         cursor: pointer;
         transition: all var(--transition-duration) ease;
 
         &:focus,
         &:hover {
             outline: none;
-            border-color: var(--color-neutral-75);
-            background-color: var(--color-light-25);
+            border-color: var(--color-neutral-80);
+            background-color: var(--color-neutral-10);
         }
 
         &--isOpen {
             &:hover {
-                background-color: var(--color-light-25);
+                background-color: var(--color-neutral-10);
             }
         }
 
         &--isActive {
-            border: 1px solid var(--color-primary);
-            background-color: var(--color-primary);
+            border: 1px solid var(--color-brand-50);
+            background-color: var(--color-brand-50);
             color: var(--color-background);
 
             &:focus,
             &:hover {
-                background-color: var(--color-primary-60);
-                border-color: var(--color-primary-60);
+                background-color: var(--color-brand-60);
+                border-color: var(--color-brand-60);
             }
         }
     }
@@ -92,7 +92,7 @@ $half-pill-height: math.div($pill-height, 2);
         font-size: 16px;
         border: 1px solid transparent;
         border-radius: 50%;
-        margin-left: var(--spacing-2x);
+        margin-left: var(--space-75);
         background-color: transparent;
         color: inherit;
         cursor: pointer;

@@ -64,12 +64,12 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
             type="color"
-            value="#1d1d1b"
+            value="#000000"
           />
           <span
             class="Text--context_neutral ColorValue__value"
           >
-            #1d1d1b
+            #000000
           </span>
         </span>
       </li>

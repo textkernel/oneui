@@ -115,7 +115,7 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
     describe('#applyThemeStyle()', () => {
         it('should create theme <style> element with CSS styles', () => {
             document.body.innerHTML = '<head></head>';
-            const themeStyles = ':root{--color-primary:blue};';
+            const themeStyles = ':root{--color-brand-50:blue};';
 
             OneUI.applyThemeStyle(themeStyles);
 
@@ -124,8 +124,8 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
 
         it('should overwrite theme <style> element with new CSS styles', () => {
             document.body.innerHTML = '<head></head>';
-            const themeStyles = ':root{--color-primary:blue};';
-            const newThemeStyles = ':root{--color-primary:blue};';
+            const themeStyles = ':root{--color-brand-50:blue};';
+            const newThemeStyles = ':root{--color-brand-50:teak};';
 
             OneUI.applyThemeStyle(themeStyles);
             OneUI.applyThemeStyle(newThemeStyles);
@@ -137,7 +137,7 @@ describe('OneUI loader that starts the ponyfill and attach the theme to DOM', ()
     describe('#removeThemeStyle()', () => {
         it('should remove theme <style> element', () => {
             document.body.innerHTML = '<head></head>';
-            const themeStyles = ':root{--color-primary:blue};';
+            const themeStyles = ':root{--color-brand-50:blue};';
 
             OneUI.applyThemeStyle(themeStyles);
             expect(document.getElementsByTagName('style')[0].textContent).toBe(themeStyles);

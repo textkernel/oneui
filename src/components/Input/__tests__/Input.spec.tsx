@@ -18,12 +18,14 @@ describe('<Input> that renders an input field', () => {
     });
 
     it('should add classes when props are changed', () => {
-        view = render(<Input context="danger" size="large" isBlock disabled />);
+        view = render(<Input context="critical" size="large" isBlock disabled />);
         const textbox = screen.getByRole('textbox');
 
         expect(view.container).toMatchSnapshot();
         expect(textbox).toBeInTheDocument();
-        expect(textbox).toHaveClass('Input Input--context_danger Input--size_large Input--isBlock');
+        expect(textbox).toHaveClass(
+            'Input Input--context_critical Input--size_large Input--isBlock'
+        );
         expect(textbox).toHaveAttribute('disabled');
     });
 

@@ -5,12 +5,12 @@
     color: var(--header-foreground-color);
     width: 100%;
     height: var(--header-height);
-    border-bottom: 1px solid var(--color-light-40);
+    border-bottom: 1px solid var(--color-neutral-20);
 
     &__wrapper {
         box-sizing: border-box;
-        padding-top: var(--spacing-normal);
-        padding-bottom: var(--spacing-normal);
+        padding-top: var(--space-50);
+        padding-bottom: var(--space-50);
         height: 100%;
         display: flex;
         justify-content: space-between;

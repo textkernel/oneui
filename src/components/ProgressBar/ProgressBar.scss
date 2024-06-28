@@ -23,18 +23,18 @@
         size: var(--progress-font-size);
         weight: var(--font-weight-bold);
     }
-    margin: var(--spacing-normal) 0;
+    margin: var(--space-50) 0;
 
     &__fill {
         border-radius: var(--border-radius);
         box-sizing: border-box;
         color: var(--color-background);
-        padding: 0 var(--spacing-2x);
+        padding: 0 var(--space-75);
         position: relative;
         text-align: center;
         transition: all var(--transition-duration);
         white-space: nowrap;
-        background-color: var(--color-bright-2);
+        background-color: var(--color-brand-80);
         line-height: var(--line-height-large);
 
         &--animated {
@@ -52,7 +52,7 @@
 
         &--small {
             padding: 0;
-            height: var(--spacing-2x);
+            height: var(--space-75);
         }
     }
 
@@ -61,6 +61,6 @@
     }
 
     &--small {
-        height: var(--spacing-2x);
+        height: var(--space-75);
     }
 }

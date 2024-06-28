@@ -1,8 +1,8 @@
 .TabItem {
-    color: var(--color-neutral-75);
+    color: var(--color-neutral-80);
     cursor: pointer;
     outline: none;
-    padding: var(--spacing-2x) var(--spacing-4x) var(--spacing-3x) var(--spacing-4x);
+    padding: var(--space-75) var(--space-150) var(--space-100) var(--space-150);
     text-decoration: none;
     transition: all var(--transition-duration);
     text-align: center;
@@ -13,14 +13,14 @@
     &:hover,
     &:focus {
         border-bottom: 4px solid var(--color-background);
-        background-color: var(--color-light-25);
+        background-color: var(--color-neutral-10);
         border-radius: var(--border-radius);
     }
 
     &--isActive,
     &:active {
-        color: var(--color-primary);
-        border-bottom: 4px solid var(--color-primary);
+        color: var(--color-brand-50);
+        border-bottom: 4px solid var(--color-brand-50);
         background-color: var(--color-background);
         border-radius: 0;
     }
@@ -28,8 +28,8 @@
     &--isActive {
         &:hover,
         &:focus {
-            color: var(--color-primary);
-            border-bottom: 4px solid var(--color-primary);
+            color: var(--color-brand-50);
+            border-bottom: 4px solid var(--color-brand-50);
             background-color: var(--color-highlight-background);
             border-radius: 0;
         }
@@ -41,12 +41,12 @@
 
     &--disabled {
         cursor: not-allowed;
-        color: var(--color-light);
+        color: var(--color-neutral-30);
 
         &:hover,
         &:focus {
             border-bottom: 4px solid transparent;
-            color: var(--color-light);
+            color: var(--color-neutral-30);
         }
     }
 }

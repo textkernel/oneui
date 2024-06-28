@@ -2,11 +2,11 @@
     display: flex;
     align-items: center;
 
-    padding: var(--spacing-normal) var(--spacing-2x);
+    padding: var(--space-50) var(--space-75);
     border-radius: var(--border-radius);
 
     &--isSelected {
-        box-shadow: 0 0 0 2px var(--color-primary);
+        box-shadow: 0 0 0 2px var(--color-brand-50);
     }
 
     &--clickable {
@@ -33,6 +33,6 @@
         background-color: var(--transparent);
 
         padding: 0;
-        margin-left: var(--spacing-normal);
+        margin-left: var(--space-50);
     }
 }

@@ -21,7 +21,7 @@ export const _TwoPaneView: Story = {
             <LeftPane
                 style={{
                     minHeight: '600px',
-                    backgroundColor: 'var(--color-info-25)',
+                    backgroundColor: 'var(--color-info-30)',
                     border: 'solid 1px var(--color-neutral-40)',
                     borderRadius: 'var(--border-radius) 0 0 var(--border-radius)',
                 }}
@@ -30,7 +30,7 @@ export const _TwoPaneView: Story = {
             </LeftPane>
             <RightPane
                 style={{
-                    backgroundColor: 'var(--color-success-25)',
+                    backgroundColor: 'var(--color-success-20)',
                     border: 'solid 1px var(--color-neutral-40)',
                     borderRadius: '0 var(--border-radius) var(--border-radius) 0',
                     borderLeft: 0,

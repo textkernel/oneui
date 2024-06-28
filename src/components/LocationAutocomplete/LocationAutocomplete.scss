@@ -5,13 +5,13 @@ $icon-margin-adjustment: 7.5px 1px 0px 3px;
 .LocationAutocomplete {
     &__poweredByGoogleImage {
         position: absolute;
-        right: var(--spacing-4x);
-        bottom: var(--spacing-4x);
-        top: var(--spacing-3x);
+        right: var(--space-150);
+        bottom: var(--space-150);
+        top: var(--space-100);
     }
 
     &__icon {
-        color: var(--color-neutral-25);
+        color: var(--color-neutral-30);
         margin: $icon-margin-adjustment;
     }
 }

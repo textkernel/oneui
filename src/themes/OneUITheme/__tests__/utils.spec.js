@@ -11,19 +11,19 @@ describe('OneUITheme/utils', () => {
         it('should generate color shades correctly', () => {
             const computedColors = generateColorShades(
                 {
-                    '--color-primary': '#0097d1',
+                    '--color-brand': '#0097d1',
                     '--color-background': '#fff',
                     '--color-neutral': '#1d1d1b',
                 },
-                '--color-primary'
+                '--color-brand'
             );
             expect(computedColors).toEqual({
-                '--color-primary-10': '#CCEAF6',
-                '--color-primary-25': '#80CBE8',
-                '--color-primary-40': '#33ACDA',
-                '--color-primary-60': '#0079A7',
-                '--color-primary-75': '#004C69',
-                '--color-primary-90': '#001E2A',
+                '--color-brand-10': '#CCEAF6',
+                '--color-brand-25': '#80CBE8',
+                '--color-brand-40': '#33ACDA',
+                '--color-brand-60': '#0079A7',
+                '--color-brand-75': '#004C69',
+                '--color-brand-90': '#001E2A',
             });
         });
     });

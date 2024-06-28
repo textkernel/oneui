@@ -5,7 +5,7 @@ import styles from './CandidateAvatar.scss';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Path to the avatar image resource */
     imageUrl: string;
-    /** The match percentage; ranging from 0 (danger) - 100 (success) */
+    /** The match percentage; ranging from 0 (critical) - 100 (success) */
     matchPercentage: number;
     /** Whether to show the match percentage when hovering the image */
     showPercentageOnHover?: boolean;
@@ -22,12 +22,12 @@ export const CandidateAvatar: React.FC<Props> = ({
     matchPercentage,
     ...rest
 }) => {
-    const getContext = (percentage: number): 'danger' | 'warning' | 'success' => {
+    const getContext = (percentage: number): 'critical' | 'cautious' | 'success' => {
         if (percentage <= 33) {
-            return 'danger';
+            return 'critical';
         }
         if (percentage <= 66) {
-            return 'warning';
+            return 'cautious';
         }
         return 'success';
     };

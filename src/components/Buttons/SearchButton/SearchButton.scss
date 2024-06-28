@@ -15,7 +15,7 @@
     border-radius: calc(var(--search-button-size) / 2);
 
     color: var(--color-background);
-    background-color: var(--color-primary);
+    background-color: var(--color-brand-50);
 
     cursor: pointer;
     text-decoration: none;
@@ -23,30 +23,30 @@
     transition: all var(--transition-duration);
 
     &:hover {
-        background-color: var(--color-primary-60);
+        background-color: var(--color-brand-60);
     }
 
     &[disabled] {
-        background-color: var(--color-primary-25);
+        background-color: var(--color-brand-20);
         cursor: not-allowed;
     }
 
     &:focus {
-        background-color: var(--color-primary-75);
+        background-color: var(--color-brand-80);
     }
 
     &:active {
-        background-color: var(--color-primary-75);
+        background-color: var(--color-brand-80);
     }
 
     &--withLabel {
         width: auto;
-        padding: 0 var(--spacing-4x);
+        padding: 0 var(--space-150);
     }
 
     &__searchIcon {
         &--withLabel {
-            padding-right: var(--spacing-2x);
+            padding-right: var(--space-75);
         }
     }
 }

@@ -22,22 +22,22 @@
 
 
         &:not(.ButtonGroup__button--first):not(:focus) {
-            border-left-color: var(--color-neutral-25);
+            border-left-color: var(--color-neutral-30);
         }
 
         &:not(.ButtonGroup__button--last):not(:focus) {
-            border-right-color: var(--color-neutral-25);
+            border-right-color: var(--color-neutral-30);
         }
 
     }
 
     &__button--isPrimary {
         &:not(.ButtonGroup__button--first):not(:focus) {
-            border-left-color: var(--color-primary-25);
+            border-left-color: var(--color-brand-20);
         }
 
         &:not(.ButtonGroup__button--last):not(:focus) {
-            border-right-color: var(--color-primary-25);
+            border-right-color: var(--color-brand-20);
         }
     }
 

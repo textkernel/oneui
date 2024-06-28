@@ -7,7 +7,7 @@ $slider-indication-width: 90px;
         display: flex;
         box-sizing: border-box;
         height: $input-line-height;
-        padding: var(--spacing-4x);
+        padding: var(--space-150);
     }
 
     &__searchField {
@@ -20,7 +20,7 @@ $slider-indication-width: 90px;
         max-width: 400px;
         flex-direction: row;
         display: flex;
-        margin: var(--spacing-5x) 5px var(--spacing-5x) 25px;
+        margin: var(--space-200) 5px var(--space-200) 25px;
     }
 
     &__sliderLabel {
@@ -31,7 +31,7 @@ $slider-indication-width: 90px;
 
     &__button {
         flex-basis: 20%;
-        margin-left: var(--spacing-4x);
+        margin-left: var(--space-150);
         height: 38px;
     }
 
@@ -45,12 +45,12 @@ $slider-indication-width: 90px;
         margin: 0;
         width: $location-card-width;
         min-width: $location-card-width;
-        padding-right: calc(var(--spacing-4x) - 1px);
+        padding-right: calc(var(--space-150) - 1px);
         overflow: auto;
         height: 100%;
     }
 
     &__locationCard:not(:last-child) {
-        margin-bottom: var(--spacing-normal);
+        margin-bottom: var(--space-50);
     }
 }

@@ -10,7 +10,7 @@
         height: 20px;
         border-radius: 20px;
         position: relative;
-        background-color: var(--color-light);
+        background-color: var(--color-neutral-30);
         transition: border-color 300ms;
         flex-shrink: 0;
 
@@ -50,14 +50,14 @@
                 }
 
                 &[disabled] + .Toggle__toggleButton {
-                    background-color: var(--color-success-25);
+                    background-color: var(--color-success-20);
                 }
             }
         }
     }
 
     &__text {
-        padding: var(--spacing-normal) 0 var(--spacing-normal) var(--spacing-2x);
+        padding: var(--space-50) 0 var(--space-50) var(--space-75);
     }
 
     &--disabled {

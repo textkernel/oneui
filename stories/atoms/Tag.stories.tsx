@@ -57,7 +57,7 @@ export const TagWithIcon: Story = {
         contentStyle: {
             display: 'flex',
             alignItems: 'center',
-            gap: 'var(--spacing-2x)',
+            gap: 'var(--space-75)',
         },
         onDelete: undefined,
     },

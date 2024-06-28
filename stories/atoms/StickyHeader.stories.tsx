@@ -18,7 +18,7 @@ export const _StickyHeader: Story = {
             padding: '5px',
             margin: '5px',
             borderRadius: '3px',
-            backgroundColor: 'var(--color-warning-10)',
+            backgroundColor: 'var(--color-cautious-10)',
         };
         const bodyStyle = {
             color: '#FFF',

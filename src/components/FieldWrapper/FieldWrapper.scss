@@ -3,10 +3,10 @@
 .FieldWrapper {
     position: relative;
     box-sizing: border-box;
-    border: 1px solid var(--color-light-40);
+    border: 1px solid var(--color-neutral-20);
     border-radius: var(--border-radius);
     cursor: pointer;
-    padding: var(--spacing-normal);
+    padding: var(--space-50);
     transition: all var(--transition-duration);
     display: flex;
     align-items: center;
@@ -15,9 +15,9 @@
     &__clearButton {
         display: none;
         max-width: 30%;
-        margin-right: var(--spacing-2x);
+        margin-right: var(--space-75);
         margin-left: auto;
-        padding: var(--spacing-normal);
+        padding: var(--space-50);
         flex-shrink: 0;
         white-space: nowrap;
         overflow: hidden;
@@ -34,25 +34,25 @@
         width: 100%;
 
         .ListItem:hover:not(.ListItem--disabled) {
-            background-color: var(--color-light-25);
+            background-color: var(--color-neutral-10);
         }
     }
 
     &__dropdownIcon {
         position: absolute;
-        top: var(--spacing-3x);
-        right: var(--spacing-normal);
+        top: var(--space-100);
+        right: var(--space-50);
         font-size: 20px;
     }
 
     &--isFocused,
     &:focus {
-        border-color: var(--color-primary);
+        border-color: var(--color-brand-50);
         outline: none;
     }
 
     &:hover:not(.FieldWrapper--disabled) {
-        border-color: var(--color-primary);
+        border-color: var(--color-brand-50);
 
         & .FieldWrapper__content {
             overflow: hidden;

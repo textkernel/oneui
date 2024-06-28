@@ -5,10 +5,10 @@ import { Text } from '../Text';
 import styles from './FieldWithValidation.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
-    /** a single form field, e.g. Input, TextArea, etc. It should support context=”danger” prop.
+    /** a single form field, e.g. Input, TextArea, etc. It should support context=critical prop.
      * When useTooltip is set to true, children that are ReactComponents should support forwardRef */
     children: React.ReactElement;
-    /** if this is not empty, this message will be rendered and context danger will be applied to the child */
+    /** if this is not empty, this message will be rendered and context critical will be applied to the child */
     errorMessage?: string;
     /** if set to true the error message will be rendered as a tooltip. Otherwise it will be a text under the field */
     useTooltip?: boolean;
@@ -35,7 +35,7 @@ export const FieldWithValidation: React.FC<Props> = ({
     if (errorMessage && useTooltip) {
         const clonedChild = errorMessage
             ? React.cloneElement(children, {
-                  context: 'danger',
+                  context: 'critical',
                   onFocus: handleFocus,
                   onBlur: handleBlur,
               })
@@ -49,12 +49,12 @@ export const FieldWithValidation: React.FC<Props> = ({
     }
 
     if (errorMessage) {
-        const clonedChild = React.cloneElement(children, { context: 'danger' });
+        const clonedChild = React.cloneElement(children, { context: 'critical' });
 
         return (
             <>
                 {clonedChild}
-                <Text {...rest} {...block()} context="danger" size="small">
+                <Text {...rest} {...block()} context="critical" size="small">
                     {errorMessage}
                 </Text>
             </>

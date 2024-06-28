@@ -4,12 +4,12 @@
     @extend %input;
 
     &::placeholder {
-        color: var(--color-neutral-25);
+        color: var(--color-neutral-30);
         opacity: 1;
     }
 
     &:focus {
-        border-color: var(--color-primary);
+        border-color: var(--color-brand-50);
     }
 
     &--isBlock {
@@ -20,12 +20,12 @@
         &_small {
             font-size: var(--font-size-small);
             line-height: var(--line-height-small);
-            padding: var(--spacing-normal);
+            padding: var(--space-50);
         }
         &_large {
             font-size: var(--font-size-large);
             line-height: var(--line-height-large);
-            padding: var(--spacing-3x);
+            padding: var(--space-100);
         }
     }
 }

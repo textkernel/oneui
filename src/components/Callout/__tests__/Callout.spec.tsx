@@ -20,16 +20,16 @@ describe('Callout', () => {
         expect(view.container).toMatchSnapshot();
     });
 
-    it('should apply correctly warning context', () => {
-        const view = render(<Callout context="warning">some text</Callout>);
+    it('should apply correctly cautious context', () => {
+        const view = render(<Callout context="cautious">some text</Callout>);
 
-        expect(view.container.firstChild).toHaveClass('Callout--context_warning');
+        expect(view.container.firstChild).toHaveClass('Callout--context_cautious');
     });
 
-    it('should apply correctly danger context', () => {
-        const view = render(<Callout context="danger">some text</Callout>);
+    it('should apply correctly critical context', () => {
+        const view = render(<Callout context="critical">some text</Callout>);
 
-        expect(view.container.firstChild).toHaveClass('Callout--context_danger');
+        expect(view.container.firstChild).toHaveClass('Callout--context_critical');
     });
 
     it('should call onRequestClose', async () => {

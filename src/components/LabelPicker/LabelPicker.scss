@@ -10,10 +10,10 @@ $labelingDialogWidth: 200px;
 
     &__container {
         background-color: var(--color-background);
-        border: 1px solid var(--color-light);
+        border: 1px solid var(--color-neutral-30);
         border-radius: var(--border-radius);
         box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-        padding: var(--spacing-2x);
+        padding: var(--space-75);
     }
 
     &__scrollBox {
@@ -22,7 +22,7 @@ $labelingDialogWidth: 200px;
     }
 
     &__checkbox {
-        margin-bottom: var(--spacing-3x);
+        margin-bottom: var(--space-100);
     }
 
     &__label {
@@ -38,13 +38,13 @@ $labelingDialogWidth: 200px;
     }
 
     &__count {
-        margin-left: var(--spacing-normal);
+        margin-left: var(--space-50);
     }
 
     &__inputLine {
         display: flex;
         align-items: center;
-        margin: var(--spacing-2x) 0 var(--spacing-3x);
+        margin: var(--space-75) 0 var(--space-100);
     }
 
     &__input {
