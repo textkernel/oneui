@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MdKeyboardArrowUp } from 'react-icons/md';
+import ExpandIcon from '@material-design-icons/svg/round/expand_more.svg';
 import { bem } from '../../utils';
 import styles from './ExpandableText.scss';
 import { Button } from '../Buttons';
@@ -72,7 +72,7 @@ export const ExpandableText = React.forwardRef<HTMLDivElement, Props>((props, re
             {isExpandable && (
                 <Button isLink isInline onClick={handleToggleClick} {...elem('button')}>
                     {isCollapsed ? showMoreButtonLabel : showLessButtonLabel}
-                    <MdKeyboardArrowUp {...elem('buttonArrow', { isCollapsed })} />
+                    <ExpandIcon {...elem('buttonArrow', { isCollapsed })} />
                 </Button>
             )}
         </div>
