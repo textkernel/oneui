@@ -6,4 +6,6 @@ declare module '*.scss' {
     export = classNames;
 }
 
+declare module '*.svg';
+
 declare module '*.png';
