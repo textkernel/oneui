@@ -1,7 +1,7 @@
 .ExpandableText {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-200);
+    gap: var(--space-200);
     align-items: flex-start;
 
     &__content {
@@ -10,12 +10,8 @@
         transition: height var(--transition-duration) ease;
     }
 
-    &__button {
-        margin-top: var(--spacing-200);
-    }
-
     &__buttonArrow {
-        margin-left: var(--spacing-normal);
+        margin-left: var(--space-25);
         transition: transform var(--transition-duration);
     }
 
