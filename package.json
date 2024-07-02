@@ -52,6 +52,7 @@
     "dependencies": {
         "@babel/runtime": "7.24.7",
         "@googlemaps/js-api-loader": "1.12.11",
+        "@material-design-icons/svg": "0.14.13",
         "@popperjs/core": "2.9.0",
         "@react-google-maps/api": "2.19.3",
         "@storybook/addon-styling-webpack": "0.0.6",
@@ -93,6 +94,7 @@
         "@storybook/storybook-deployer": "2.8.16",
         "@storybook/test": "7.6.20",
         "@storybook/testing-library": "0.2.2",
+        "@svgr/webpack": "8.1.0",
         "@testing-library/jest-dom": "5.17.0",
         "@testing-library/react": "14.3.1",
         "@testing-library/user-event": "14.5.2",

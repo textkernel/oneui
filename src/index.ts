@@ -47,6 +47,7 @@ export * from './components/Dropdown';
 export * from './components/Footer';
 export * from './components/Header';
 export * from './components/Gauge';
+export * from './components/ExpandableText';
 export * from './components/Field';
 export * from './components/FieldWithValidation';
 export * from './components/FieldWrapper';

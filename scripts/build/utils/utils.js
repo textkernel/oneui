@@ -62,7 +62,7 @@ function getRuleSCSS({ styleLoader, localIdentName, includePaths }) {
 
 function getRuleFiles({ fileLoader }) {
     return {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif)$/i,
         use: [
             {
                 loader: fileLoader,
@@ -72,10 +72,15 @@ function getRuleFiles({ fileLoader }) {
     };
 }
 
+function getRuleSVG() {
+    return { test: /\.svg$/, use: ['@svgr/webpack'], sideEffects: true };
+}
+
 module.exports = {
     getRuleJS,
     getRuleTS,
     getRuleCSS,
     getRuleSCSS,
     getRuleFiles,
+    getRuleSVG,
 };
