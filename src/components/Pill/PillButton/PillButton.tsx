@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IoIosArrowDown, IoIosClose } from 'react-icons/io';
+import { IoIosArrowDown, IoMdClose } from 'react-icons/io';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
@@ -74,7 +74,7 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
         let isButtonClickable = false;
 
         if (isActive && !isOpen && !isContentDefault) {
-            buttonIcon = <IoIosClose size={22} role="img" aria-label={clearLabel} />;
+            buttonIcon = <IoMdClose role="img" aria-label={clearLabel} />;
             isButtonClickable = true;
         }
 
