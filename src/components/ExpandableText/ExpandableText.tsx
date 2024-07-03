@@ -38,29 +38,18 @@ export const ExpandableText = React.forwardRef<HTMLDivElement, Props>((props, re
         }
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-    const collapseSection = () => {
-        if (!contentRef.current) {
-            return;
-        }
-
-        contentRef.current.style.height = collapsedHeight;
-    };
-
-    const expandSection = () => {
-        if (!contentRef.current) {
-            return;
-        }
-
-        const sectionHeight = contentRef.current.scrollHeight;
-        contentRef.current.style.height = `${sectionHeight}px`;
-    };
-
     const handleToggleClick = () => {
-        if (isCollapsed) {
-            expandSection();
-        } else {
-            collapseSection();
+        if (!contentRef.current) {
+            return;
         }
+
+        if (isCollapsed) {
+            const sectionHeight = contentRef.current.scrollHeight;
+            contentRef.current.style.height = `${sectionHeight}px`;
+        } else {
+            contentRef.current.style.height = collapsedHeight;
+        }
+
         setIsCollapsed((prevIsCollapsed) => !prevIsCollapsed);
     };
 
