@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [23.0.0](https://github.com/textkernel/oneui/compare/22.1.2...23.0.0) (2024-07-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* **css-variables:** CSS variables related to colors and spacing have been moved/deprecated to a new set. See details in Jira (https://textkernel.atlassian.net/browse/ONEUI-439) and documents attached there
+* **css-variables:** Color related Context props have been renamed to be similar to color tokens. See details in Jira (https://textkernel.atlassian.net/browse/ONEUI-439).
+* **css-variables:** Theme roller doesn't work as expected with new (not calculated) color values, hence it was disabled. Currently used theme will partially work only, due to mismatch of variable names.
+
+### Features
+
+* **css-variables:** Add/migrate to new primitive tokens ([#1186](https://github.com/textkernel/oneui/issues/1186)) ([b90a80a](https://github.com/textkernel/oneui/commit/b90a80a9058c9f33977bc7c5e5fbc68f177e305a))
+* **Table:** new opinionated component to render HTML semantic tables ([#1191](https://github.com/textkernel/oneui/issues/1191)) ([6772ea9](https://github.com/textkernel/oneui/commit/6772ea9b59acd3cb63d9cdd64632f6713c42e0c8))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @react-google-maps/api to v2.19.3 ([e1d4077](https://github.com/textkernel/oneui/commit/e1d4077e20745c24dc9dd2951edc94cb8a2e54d3))
+* **deps:** update dependency @storybook/addon-styling-webpack to v0.0.6 ([cb79d53](https://github.com/textkernel/oneui/commit/cb79d53c382b47af097bc1c815a780f1506954bb))
+* **deps:** update dependency css-vars-ponyfill to v2.4.9 ([ca828b4](https://github.com/textkernel/oneui/commit/ca828b4a84c02544e4dbc60cc59ab0e2cf78e8cd))
+* IosClose icon have lots of padding arround, changed to MdClose ([#1205](https://github.com/textkernel/oneui/issues/1205)) ([7defce8](https://github.com/textkernel/oneui/commit/7defce8248d56b3fefbb0c72db73c99a50f1c181))
+
 ### [22.1.2](https://github.com/textkernel/oneui/compare/22.1.1...22.1.2) (2024-01-30)
 
 
