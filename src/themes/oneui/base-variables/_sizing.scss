@@ -1,35 +1,7 @@
-// borders
-$border-radius: 3px !default;
-
-// lines
-$line-normal: 1px !default;
-$line-medium: 1.5 * $line-normal !default;
-$line-thick: 2 * $line-normal !default;
-
-// outlines
-$outline-size: 3px;
-
-// containers
-$site-container-min-size: 1150px !default;
-$site-container-max-size: 1400px !default;
-$site-container-padding: 20px !default;
-
-$two-pane-left-width: 550px !default;
-
-// SearchButton size
-$search-button-size: 36px !default;
-
-// StepperButton size
-$stepper-button-size: 24px !default;
-
 :root {
-    --border-radius: #{$border-radius};
+    --border-radius: 3px;
 
-    --line-normal: #{$line-normal};
-    --line-medium: #{$line-medium};
-    --line-thick: #{$line-thick};
-
-    --outline-size: #{$outline-size};
+    --line-normal: 1px;
 
     --space-0: 0px;
     --space-25: calc(0.25 * var(--space-100));
@@ -48,12 +20,12 @@ $stepper-button-size: 24px !default;
 
     --margin: var(--space-25);
 
-    --site-container-min-size: #{$site-container-min-size};
-    --site-container-max-size: #{$site-container-max-size};
-    --site-container-padding: #{$site-container-padding};
+    --site-container-min-size: 1150px;
+    --site-container-max-size: 1400px;
+    --site-container-padding: 20px;
 
-    --two-pane-left-width: #{$two-pane-left-width};
+    --two-pane-left-width: 550px;
 
-    --search-button-size: #{$search-button-size};
-    --stepper-button-size: #{$stepper-button-size};
+    --search-button-size: 36px;
+    --stepper-button-size: 24px;
 }

@@ -1,7 +1,6 @@
 export const sizingVariables = {
     '--border-radius': '3px',
     '--line-normal': '3px',
-    '--outline-size': '3px',
     '--space-0': '0px',
     '--space-25': '2px',
     '--site-container-min-size': '1150px',
@@ -10,8 +9,6 @@ export const sizingVariables = {
     '--two-pane-left-width': '550px',
     '--search-button-size': '36px',
     '--stepper-button-size': '24px',
-    '--line-medium': 'calc(var(--line-normal) * 1.5px)',
-    '--line-thick': 'calc(var(--line-normal) * 2px)',
     '--space-50': 'calc(var(--space-25) * 2px)',
     '--space-75': 'calc(var(--space-50) * 3px)',
     '--space-100': 'calc(var(--space-25) * 4px)',

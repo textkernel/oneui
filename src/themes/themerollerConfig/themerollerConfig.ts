@@ -84,13 +84,6 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 unit: 'px',
             },
             {
-                label: 'Box shadow outline',
-                type: 'unit',
-                var: '--outline-size',
-                value: '3',
-                unit: 'px',
-            },
-            {
                 label: 'Space regular',
                 type: 'unit',
                 var: '--space-25',
@@ -142,13 +135,6 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 type: 'unit',
                 var: '--font-size-normal',
                 value: '14',
-                unit: 'px',
-            },
-            {
-                label: 'X small font size',
-                type: 'unit',
-                var: '--font-size-x-small',
-                value: '10',
                 unit: 'px',
             },
             {

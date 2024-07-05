@@ -1,10 +1,6 @@
 @use 'sass:math';
 @use 'sass:color';
 
-$color-background: #fff !default;
-$color-brand-50: #0097D1 !default;
-$color-neutral-70: #4D4D4D !default;
-
 :root {
     // Primary colors
     --color-brand-5: #E6F5FA;
@@ -108,8 +104,12 @@ $color-neutral-70: #4D4D4D !default;
     --transparent-100-80: rgba(0, 0, 0, .8);
 
     // Base colors
-    --color-background: #fff;
+    --color-background: #ffffff;
     --color-foreground: #2d3234;
+
+    $color-background: #ffffff; // var(--color-background)
+    $color-brand-50: #0097D1; // var(--color-brand-50)
+    $color-neutral-70: #4D4D4D; // var(--color-neutral-70);
 
     --color-highlight-background: #{color.mix($color-background, $color-brand-50, 90%)};
     --color-shadow-background: #{color.mix($color-neutral-70, $color-background, 20%)};
