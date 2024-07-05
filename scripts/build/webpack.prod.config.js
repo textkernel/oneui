@@ -20,7 +20,7 @@ module.exports = {
         plugins.cleanWebpackPlugin,
     ],
     module: {
-        rules: [rules.js, rules.ts, rules.externalCss, rules.scss, rules.files],
+        rules: [rules.js, rules.ts, rules.externalCss, rules.scss, rules.files, rules.svg],
     },
     externals: {
         // Don't bundle react or react-dom

@@ -21,6 +21,7 @@
     }
     box-sizing: border-box;
     color: var(--color-foreground);
+    fill: var(--color-foreground);
     background-color: var(--color-background);
     border-color: var(--color-neutral-80);
     cursor: pointer;
@@ -48,6 +49,7 @@
     &[disabled] {
         cursor: not-allowed;
         color: var(--color-background);
+        fill: var(--color-background);
         background-color: var(--color-neutral-30);
         border-color: var(--color-neutral-30);
     }
@@ -84,7 +86,7 @@
 
     &--isLoading {
         background-size: 200% 100%;
-        animation:{
+        animation: {
             duration: 2s;
             fill-mode: forwards;
             iteration-count: infinite;
@@ -93,8 +95,9 @@
         }
     }
 
-    &--isLink{
+    &--isLink {
         color: var(--color-brand-50);
+        fill: var(--color-brand-50);
         border-color: var(--transparent);
         background-color: var(--transparent);
         text-decoration: var(--link-decoration-normal);
@@ -104,11 +107,13 @@
         &:active {
             box-shadow: none;
             color: var(--color-brand-60);
+            fill: var(--color-brand-60);
             background-color: var(--color-highlight-background);
         }
 
         &[disabled] {
             color: var(--color-neutral-30);
+            fill: var(--color-neutral-30);
             background-color: transparent;
             border-color: transparent;
 
@@ -122,7 +127,7 @@
         background-color: var(--color-brand-50);
         border-color: var(--color-brand-50);
         color: var(--color-background);
-
+        fill: var(--color-background);
 
         &:hover,
         &:focus,
@@ -133,17 +138,28 @@
 
         &[disabled] {
             color: var(--color-background);
+            fill: var(--color-background);
             background-color: var(--color-brand-20);
             border-color: var(--color-brand-20);
         }
 
         &.Button--isLoading {
-            --button-gradient: linear-gradient(to right, var(--color-brand-40) 0%, var(--color-brand-40) 50%, var(--color-brand-50) 80%);
+            --button-gradient: linear-gradient(
+                to right,
+                var(--color-brand-40) 0%,
+                var(--color-brand-40) 50%,
+                var(--color-brand-50) 80%
+            );
             background-image: var(--button-gradient);
             border-image: var(--button-gradient);
 
             &[disabled] {
-                background-image: linear-gradient(to right, var(--color-brand-20) 0%, var(--color-brand-20) 50%, var(--color-brand-40) 80%);
+                background-image: linear-gradient(
+                    to right,
+                    var(--color-brand-20) 0%,
+                    var(--color-brand-20) 50%,
+                    var(--color-brand-40) 80%
+                );
             }
 
             &:hover:not([disabled]) {

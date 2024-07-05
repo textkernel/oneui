@@ -36,8 +36,13 @@ module.exports = {
         const rules = getRules(type);
 
         config.resolve.alias['@textkernel/oneui'] = path.resolve(__dirname, '../src');
+        // remove built in SVG rules
+        config.module.rules
+            .filter((rule) => rule && rule.test && rule.test.test('.svg'))
+            .forEach((rule) => (rule.exclude = /\.svg$/i));
+
         // Make whatever fine-grained changes you need
-        config.module.rules.push(rules.js, rules.ts, rules.scss);
+        config.module.rules.push(rules.js, rules.ts, rules.scss, rules.svg);
         config.plugins.push(plugins.cssPlugin);
 
         // Return the altered config

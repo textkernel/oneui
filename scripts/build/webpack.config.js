@@ -3,7 +3,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { getRuleJS, getRuleTS, getRuleCSS, getRuleSCSS, getRuleFiles } = require('./utils');
+const {
+    getRuleJS,
+    getRuleTS,
+    getRuleCSS,
+    getRuleSCSS,
+    getRuleFiles,
+    getRuleSVG,
+} = require('./utils');
 
 const PROJECT_ROOT_PATH = path.resolve(__dirname, '../../');
 const SOURCE_PATH = path.resolve(PROJECT_ROOT_PATH, 'src');
@@ -53,6 +60,7 @@ const getRules = (env = 'prod') => ({
     files: getRuleFiles({
         fileLoader: 'file-loader',
     }),
+    svg: getRuleSVG(),
 });
 
 const baseConfig = {
