@@ -221,22 +221,10 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 value: 'Noto Sans, Noto Sans JP, Noto Sans SC, Noto Sans Hebrew, sans-serif',
             },
             {
-                label: 'Font weight light',
-                type: 'number',
-                var: '--font-weight-light',
-                value: '200',
-            },
-            {
                 label: 'Font weight normal',
                 type: 'number',
                 var: '--font-weight-normal',
                 value: '400',
-            },
-            {
-                label: 'Font weight medium',
-                type: 'number',
-                var: '--font-weight-medium',
-                value: '500',
             },
             {
                 label: 'Font weight bold',
