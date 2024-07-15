@@ -229,7 +229,7 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 label: 'Link decoration',
                 type: 'string',
                 var: '--link-decoration-normal',
-                value: 'none',
+                value: 'underline',
             },
             {
                 label: 'Link hover decoration',
