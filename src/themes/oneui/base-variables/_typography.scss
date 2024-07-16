@@ -2,10 +2,12 @@
 
 :root {
     --font-size-base: 14px;
+    --font-size-x-small: 10px;
     --font-size-small: 12px;
     --font-size-normal: var(--font-size-base);
     --font-size-large: 16.8px;
 
+    --line-height-x-small: calc(1.4 * var(--font-size-x-small));
     --line-height-small: calc(1.4 * var(--font-size-small));
     --line-height-normal: calc(1.4 * var(--font-size-normal));
     --line-height-large: calc(1.4 * var(--font-size-large));

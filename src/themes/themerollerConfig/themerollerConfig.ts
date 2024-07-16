@@ -138,6 +138,13 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 unit: 'px',
             },
             {
+                label: 'X small font size',
+                type: 'unit',
+                var: '--font-size-x-small',
+                value: '10',
+                unit: 'px',
+            },
+            {
                 label: 'Small font size',
                 type: 'unit',
                 var: '--font-size-small',
