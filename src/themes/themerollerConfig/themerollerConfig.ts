@@ -84,13 +84,6 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 unit: 'px',
             },
             {
-                label: 'Box shadow outline',
-                type: 'unit',
-                var: '--outline-size',
-                value: '3',
-                unit: 'px',
-            },
-            {
                 label: 'Space regular',
                 type: 'unit',
                 var: '--space-25',

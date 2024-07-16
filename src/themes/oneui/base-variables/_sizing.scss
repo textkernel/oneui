@@ -1,77 +1,31 @@
-// borders
-$border-radius: 3px !default;
-
-// lines
-$line-normal: 1px !default;
-$line-medium: 1.5 * $line-normal !default;
-$line-thick: 2 * $line-normal !default;
-
-// outlines
-$outline-size: 3px;
-
-// space
-$space-0: 0px !default;
-$space-25: 2px !default;
-$space-50: 2 * $space-25 !default;
-$space-75: 3 * $space-25 !default;
-$space-100: 4 * $space-25 !default;
-$space-150: 6 * $space-25 !default;
-$space-200: 8 * $space-25 !default;
-$space-250: 10 * $space-25 !default;
-$space-300: 12 * $space-25 !default;
-$space-400: 16 * $space-25 !default;
-$space-500: 20 * $space-25 !default;
-$space-600: 24 * $space-25 !default;
-$space-800: 32 * $space-25 !default;
-$space-1000: 40 * $space-25 !default;
-
-$margin: 0.5 * $space-50 !default;
-
-// containers
-$site-container-min-size: 1150px !default;
-$site-container-max-size: 1400px !default;
-$site-container-padding: 20px !default;
-
-$two-pane-left-width: 550px !default;
-
-// SearchButton size
-$search-button-size: 36px !default;
-
-// StepperButton size
-$stepper-button-size: 24px !default;
-
 :root {
-    --border-radius: #{$border-radius};
+    --border-radius: 3px;
 
-    --line-normal: #{$line-normal};
-    --line-medium: #{$line-medium};
-    --line-thick: #{$line-thick};
+    --line-normal: 1px;
 
-    --outline-size: #{$outline-size};
+    --space-0: 0px;
+    --space-25: calc(0.25 * var(--space-100));
+    --space-50: calc(0.5 * var(--space-100));
+    --space-75: calc(0.75 * var(--space-100));
+    --space-100: 8px;
+    --space-150: calc(1.5 * var(--space-100));
+    --space-200: calc(2 * var(--space-100));
+    --space-250: calc(2.5 * var(--space-100));
+    --space-300: calc(3 * var(--space-100));
+    --space-400: calc(4 * var(--space-100));
+    --space-500: calc(5 * var(--space-100));
+    --space-600: calc(6 * var(--space-100));
+    --space-800: calc(8 * var(--space-100));
+    --space-1000: calc(10 * var(--space-100));
 
-    --space-0: #{$space-0};
-    --space-25: #{$space-25};
-    --space-50: #{$space-50};
-    --space-75: #{$space-75};
-    --space-100: #{$space-100};
-    --space-150: #{$space-150};
-    --space-200: #{$space-200};
-    --space-250: #{$space-250};
-    --space-300: #{$space-300};
-    --space-400: #{$space-400};
-    --space-500: #{$space-500};
-    --space-600: #{$space-600};
-    --space-800: #{$space-800};
-    --space-1000: #{$space-1000}; 
+    --margin: var(--space-25);
 
-    --margin: #{$margin};
+    --site-container-min-size: 1150px;
+    --site-container-max-size: 1400px;
+    --site-container-padding: 20px;
 
-    --site-container-min-size: #{$site-container-min-size};
-    --site-container-max-size: #{$site-container-max-size};
-    --site-container-padding: #{$site-container-padding};
+    --two-pane-left-width: 550px;
 
-    --two-pane-left-width: #{$two-pane-left-width};
-
-    --search-button-size: #{$search-button-size};
-    --stepper-button-size: #{$stepper-button-size};
+    --search-button-size: 36px;
+    --stepper-button-size: 24px;
 }

@@ -1,25 +1,12 @@
-$transition-duration-quick: 0.1s !default;
-$transition-duration: 0.3s !default;
-
-// ProgressBar variables
-$progress-font-size: var(--font-size-small) !default;
-
-// Drawer variables
-$drawer-width: 400px;
-$drawer-z-index: 800;
-$drawer-head-background-color: #333 !default;
-$drawer-expand-active-background-color: #797777 !default;
-$drawer-expand-hover-background-color: #565656 !default;
-
 :root {
-    --transition-duration-quick: #{$transition-duration-quick};
-    --transition-duration: #{$transition-duration};
+    --transition-duration-quick: 0.1s;
+    --transition-duration: 0.3s;
 
-    --progress-font-size: #{$progress-font-size};
+    --progress-font-size: var(--font-size-small);
 
-    --drawer-width: #{$drawer-width};
-    --drawer-z-index: #{$drawer-z-index};
-    --drawer-head-background-color: #{$drawer-head-background-color};
-    --drawer-expand-active-background-color: #{$drawer-expand-active-background-color};
-    --drawer-expand-hover-background-color: #{$drawer-expand-hover-background-color};
+    --drawer-width: 400px;
+    --drawer-z-index: 800;
+    --drawer-head-background-color: #333;
+    --drawer-expand-active-background-color: #797777;
+    --drawer-expand-hover-background-color: #565656;
 }

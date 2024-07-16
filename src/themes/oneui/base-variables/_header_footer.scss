@@ -1,27 +1,13 @@
-// Header variables
-$header-background-color: var(--color-background) !default;
-$header-foreground-color: var(--color-foreground) !default;
-$header-height: 50px !default;
-
-// Footer variables
-$footer-background-color: var(--color-brand-50) !default;
-$footer-foreground-color: var(--color-background) !default;
-$footer-link-color: var(--color-neutral-60) !default;
-$footer-height: 100px !default;
-
-// navigation bar
-$navigation-height: 48px !default;
-
 :root {
-    --header-background-color: #{$header-background-color};
-    --header-foreground-color: #{$header-foreground-color};
-    --header-height: #{$header-height};
-    --header-content-height: #{$header-height - 10px};
+    --header-background-color: var(--color-background);
+    --header-foreground-color: var(--color-foreground);
+    --header-height: 50px;
+    --header-content-height: calc(var(--header-height) - 10px);
 
-    --footer-background-color: #{$footer-background-color};
-    --footer-foreground-color: #{$footer-foreground-color};
-    --footer-link-color: #{$footer-link-color};
-    --footer-height: #{$footer-height};
+    --footer-background-color: var(--color-brand-50);
+    --footer-foreground-color: var(--color-background);
+    --footer-link-color: var(--color-neutral-60);
+    --footer-height: 100px;
 
-    --navigation-height: #{$navigation-height};
+    --navigation-height: 48px;
 }
