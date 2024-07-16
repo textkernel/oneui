@@ -218,31 +218,13 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 label: 'Primary font family',
                 type: 'string',
                 var: '--font-family-primary',
-                value: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Droid Sans, Helvetica Neue, sans-serif',
-            },
-            {
-                label: 'Secondary font family',
-                type: 'string',
-                var: '--font-family-secondary',
-                value: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Droid Sans, Helvetica Neue, sans-serif',
-            },
-            {
-                label: 'Font weight light',
-                type: 'number',
-                var: '--font-weight-light',
-                value: '200',
+                value: 'Noto Sans, Noto Sans JP, Noto Sans SC, Noto Sans Hebrew, sans-serif',
             },
             {
                 label: 'Font weight normal',
                 type: 'number',
                 var: '--font-weight-normal',
                 value: '400',
-            },
-            {
-                label: 'Font weight medium',
-                type: 'number',
-                var: '--font-weight-medium',
-                value: '500',
             },
             {
                 label: 'Font weight bold',

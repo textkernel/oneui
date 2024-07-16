@@ -10,13 +10,8 @@ export const typographyVariables = {
     '--h4-font-size': '14px',
     '--h5-font-size': '12px',
     '--h6-font-size': '10px',
-    '--font-family-primary':
-        '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Droid Sans, Helvetica Neue, sans-serif',
-    '--font-family-info':
-        '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Droid Sans, Helvetica Neue, sans-serif',
-    '--font-weight-light': '200',
+    '--font-family-primary': 'Noto Sans, Noto Sans JP, Noto Sans SC, Noto Sans Hebrew, sans-serif',
     '--font-weight-normal': '400',
-    '--font-weight-medium': '500',
     '--font-weight-bold': '600',
     '--link-decoration-normal': 'none',
     '--link-decoration-hover': 'underline',
@@ -24,6 +19,6 @@ export const typographyVariables = {
     '--line-height-small': 'calc(var(--font-size-small) * 1.4px)',
     '--line-height-normal': 'calc(var(--font-size-normal) * 1.4px)',
     '--line-height-large': 'calc(var(--font-size-large) * 1.4px)',
-    '--heading-font-family': 'var(--font-family-info)',
+    '--heading-font-family': 'var(--font-family-primary)',
     '--heading-font-weight': 'var(--font-weight-bold)',
 };

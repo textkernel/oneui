@@ -1,3 +1,5 @@
+@import '../fonts/NotoSans';
+
 // fonts sizes
 $font-size-base: 14px !default;
 $font-size-x-small: 10px !default;
@@ -17,25 +19,9 @@ $h4-font-size: 14px !default;
 $h5-font-size: 12px !default;
 $h6-font-size: 10px !default;
 
-// font family
-$font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Droid Sans', 'Helvetica Neue', sans-serif !default;
-$font-family-secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Droid Sans', 'Helvetica Neue', sans-serif !default;
-
-// font weight
-$font-weight-light: 200 !default;
-$font-weight-normal: 400 !default;
-$font-weight-medium: 500 !default;
-$font-weight-bold: 600 !default;
-
 // decoration
 $link-decoration-normal: none !default;
 $link-decoration-hover: underline !default;
-
-// other
-$heading-font-family: $font-family-secondary !default;
-$heading-font-weight: $font-weight-bold !default;
 
 :root {
     --font-size-base: #{$font-size-base};
@@ -56,17 +42,14 @@ $heading-font-weight: $font-weight-bold !default;
     --h5-font-size: #{$h5-font-size};
     --h6-font-size: #{$h6-font-size};
 
-    --font-family-primary: #{$font-family-primary};
-    --font-family-secondary: #{$font-family-secondary};
+    --font-family-primary: 'Noto Sans', 'Noto Sans JP', 'Noto Sans SC', 'Noto Sans Hebrew', sans-serif;
 
-    --font-weight-light: #{$font-weight-light};
-    --font-weight-normal: #{$font-weight-normal};
-    --font-weight-medium: #{$font-weight-medium};
-    --font-weight-bold: #{$font-weight-bold};
+    --font-weight-normal: 400;
+    --font-weight-bold: 600;
 
     --link-decoration-normal: #{$link-decoration-normal};
     --link-decoration-hover: #{$link-decoration-hover};
 
-    --heading-font-family: #{$heading-font-family};
-    --heading-font-weight: #{$heading-font-weight};
+    --heading-font-family: var(--font-family-primary);
+    --heading-font-weight: var(--font-weight-bold);
 }
