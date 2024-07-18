@@ -5,17 +5,15 @@ import { Context } from '../../constants';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Short and descriptive title */
-    title: string;
+    title?: string;
     /** Body content */
-    content?: string;
+    content: string;
     /** The Toast context (e.g. info, critical, success or cautious - defaults to info) */
     context?: Context;
-    /** If there are actions (links or buttons) in the toast */
-    actionable?: boolean;
     /** Action object, containing item text and href to action */
-    actionOne?: { text: string; href: string };
+    actionOne?: { text: string; callback?: () => void; href?: string };
     /** Action object, containing item text and href to action */
-    actionTwo?: { text: string; href: string };
+    actionTwo?: { text: string; callback?: () => void; href?: string };
 }
 
 // const { block } = bem('Toast', styles);

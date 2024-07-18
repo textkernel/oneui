@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Toast } from '@textkernel/oneui';
+import { CONTEXTS, Toast } from '@textkernel/oneui';
 
 const meta: Meta<typeof Toast> = {
     title: 'Molecules/Toast',
@@ -16,8 +16,7 @@ export const NotActionableToast: Story = {
     args: {
         title: 'Success',
         content: 'This is a toast',
-        context: 'success',
-        actionable: false,
+        context: CONTEXTS[1],
     },
     render: (args) => <Toast {...args} />,
 };
@@ -27,8 +26,7 @@ export const ActionableToast: Story = {
     args: {
         title: 'Success',
         content: 'This is an Actionable toast',
-        context: 'success',
-        actionable: true,
+        context: CONTEXTS[1],
         actionOne: {
             text: 'Action 1',
             href: '/action-one',
