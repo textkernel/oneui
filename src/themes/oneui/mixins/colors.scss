@@ -1,8 +1,10 @@
+@use 'sass:list';
+
 $contexts: (success, cautious, critical);
 
 @mixin context-attribute-with-color($attribute, $extra: ()) {
     &--context {
-        @each $context in join($contexts, $extra) {
+        @each $context in list.join($contexts, $extra) {
             &_#{ $context } {
                 #{$attribute}: var(--color-#{$context}-50);
             }
