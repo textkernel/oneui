@@ -2,6 +2,8 @@
 // They structure assumes that .OneUI-body-text is applied to <body> in the document
 
 :global(.OneUI-body-text) {
+    color: var(--color-text-bold);
+    font-family: var(--font-family-primary);
     font-size: var(--font-size-normal);
     font-style: normal;
     font-weight: var(--font-weight-normal);
