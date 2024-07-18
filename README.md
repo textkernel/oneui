@@ -31,6 +31,16 @@ In your application main Javascript, make sure to import the OneUI base styleshe
 import '@textkernel/oneui/dist/oneui.min.css';
 ```
 
+### Assign base class to <body>
+
+Assign the base class that has all font definitions to <body> or to <html>
+
+```html
+<body class="OneUI-body-text">
+    ...
+</body>
+```
+
 ### Custom themes and browser support
 
 To enable support for older browsers that don’t support CSS variables natively and to apply custom a theme, OneUI comes with a utility that takes on all of these responsibilities. See [Theming](#theming) for more on custom themes.
