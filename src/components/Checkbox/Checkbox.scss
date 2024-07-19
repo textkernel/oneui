@@ -20,18 +20,6 @@
         &--asFlexbox {
             flex-shrink: 0;
         }
-
-        &:focus {
-            box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
-        }
-
-        &:hover {
-            background: var(--color-background-selected-subtlest-hover, #CCE4FF);
-        }
-
-        &:active {
-            background: var(--color-background-selected-subtlest-pressed, #99CAFF);
-        }
     }
 
     &__label {
@@ -43,6 +31,18 @@
         &--asFlexbox {
             display: flex;
             align-items: center;
+        }
+
+        &:hover {
+            .Checkbox__box {
+                background: var(--color-background-selected-subtlest-hover, #CCE4FF);
+            }
+        }
+
+        &:active {
+            .Checkbox__box {
+                background: var(--color-background-selected-subtlest-pressed, #99CAFF);
+            }
         }
     }
 
@@ -73,7 +73,16 @@
     }
 
     &__input {
-        display: none;
+        width: 0;
+        height: 0;
+
+        &:focus {
+            + .Checkbox__label {
+                .Checkbox__box {
+                    box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
+                }
+            }
+        }
 
         &:checked {
             + .Checkbox__label {
@@ -84,13 +93,17 @@
                     & svg {
                         display: block;
                     }
+                }
                     
-                    &:hover {
+                &:hover {
+                    .Checkbox__box {
                         background: var(--color-background-selected-bold-hover, #0062CC);
                         border-color: var(--color-background-selected-bold-hover, #0062CC);
                     }
+                }
                     
-                    &:active {
+                &:active {
+                    .Checkbox__box {
                         background: var(--color-background-selected-bold-pressed, #004999);
                         border-color: var(--color-background-selected-bold-pressed, #0062CC);
                     }
@@ -106,6 +119,7 @@
 
     /* stylelint-disable no-duplicate-selectors */
     &--disabled {
+        /* stylelint-disable no-descending-specificity */
         .Checkbox__input {
             + .Checkbox__label {
                 cursor: not-allowed;
@@ -121,5 +135,5 @@
             }
         }
     }
-    /* stylelint-enable no-duplicate-selectors */
+    /* stylelint-enable no-duplicate-selectors, no-descending-specificity */
 }
