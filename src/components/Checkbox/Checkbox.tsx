@@ -66,8 +66,8 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
                     <span {...elem('box', { asFlexbox })}>
                         <svg
                             {...elem('svg', { asFlexbox })}
-                            width="16px"
-                            height="12px"
+                            width="12px"
+                            height="8px"
                             viewBox="0 0 12 9"
                             role="img"
                             aria-label={indeterminate ? lineRole : polylineRole}

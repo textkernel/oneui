@@ -19,10 +19,10 @@ exports[`<Checkbox> that renders a checkbox should render checkbox with complex 
       >
         <svg
           class="Checkbox__svg"
-          height="12px"
+          height="8px"
           role="img"
           viewBox="0 0 12 9"
-          width="16px"
+          width="12px"
         >
           <polyline
             points="1.5 5 4 8 10.5 2"
@@ -59,10 +59,10 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
       >
         <svg
           class="Checkbox__svg"
-          height="12px"
+          height="8px"
           role="img"
           viewBox="0 0 12 9"
-          width="16px"
+          width="12px"
         >
           <polyline
             points="1.5 5 4 8 10.5 2"
@@ -99,10 +99,10 @@ exports[`<Checkbox> that renders a checkbox should rendered disabled checkbox co
       >
         <svg
           class="Checkbox__svg"
-          height="12px"
+          height="8px"
           role="img"
           viewBox="0 0 12 9"
-          width="16px"
+          width="12px"
         >
           <polyline
             points="1.5 5 4 8 10.5 2"
@@ -140,10 +140,10 @@ exports[`<Checkbox> that renders a checkbox svg render should not render any svg
         <svg
           aria-label="polyline label"
           class="Checkbox__svg"
-          height="12px"
+          height="8px"
           role="img"
           viewBox="0 0 12 9"
-          width="16px"
+          width="12px"
         />
       </span>
     </label>
@@ -172,10 +172,10 @@ exports[`<Checkbox> that renders a checkbox svg render should render the checked
         <svg
           aria-label="polyline label"
           class="Checkbox__svg"
-          height="12px"
+          height="8px"
           role="img"
           viewBox="0 0 12 9"
-          width="16px"
+          width="12px"
         >
           <polyline
             points="1.5 5 4 8 10.5 2"
@@ -209,10 +209,10 @@ exports[`<Checkbox> that renders a checkbox svg render should render the indeter
         <svg
           aria-label="line label"
           class="Checkbox__svg"
-          height="12px"
+          height="8px"
           role="img"
           viewBox="0 0 12 9"
-          width="16px"
+          width="12px"
         >
           <line
             role="line label"
@@ -249,10 +249,10 @@ exports[`<Checkbox> that renders a checkbox svg render should render the indeter
         <svg
           aria-label="line label"
           class="Checkbox__svg"
-          height="12px"
+          height="8px"
           role="img"
           viewBox="0 0 12 9"
-          width="16px"
+          width="12px"
         >
           <line
             role="line label"
