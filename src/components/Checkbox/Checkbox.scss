@@ -73,6 +73,8 @@
         margin: 0;
         width: 0;
         height: 0;
+        border: none;
+        appearance: none;
 
         &:focus {
             + .Checkbox__label {
