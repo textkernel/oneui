@@ -16,6 +16,8 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     isVisible: boolean;
     /** a function that is called when the toast closes via close-button-click */
     onClose?: () => void;
+    /** A label for the close button that will be used by screenreaders */
+    closeButtonLabel: string;
 }
 
 // const { block } = bem('Toast', styles);

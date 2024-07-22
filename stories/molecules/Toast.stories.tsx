@@ -32,6 +32,7 @@ export const NotActionableToast: Story = {
         title: 'Success',
         content: 'This is a toast',
         context: CONTEXTS[1],
+        closeButtonLabel: 'closeButton',
     },
     render: (args) => <Toast {...args} />,
 };
@@ -48,6 +49,7 @@ export const ActionableToast: Story = {
                 href: '/action-one',
             },
         ],
+        closeButtonLabel: 'closeButton',
     },
     render: (args) => <Toast {...args} />,
 };
