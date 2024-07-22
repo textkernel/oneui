@@ -120,16 +120,26 @@ export const ThreeStateCheckbox: Story = {
             <>
                 <Checkbox
                     {...args}
-                    checked={mainStatus === 'checked'}
+                    checked={mainStatus !== 'unchecked'}
                     onChange={handleMainCheckboxChange}
                     indeterminate={mainStatus === 'mixed'}
                 >
                     Main
                 </Checkbox>
-                <Checkbox checked={subOneChecked} onChange={handleSubOneCheckboxChange} id="2">
+                <Checkbox
+                    checked={subOneChecked}
+                    onChange={handleSubOneCheckboxChange}
+                    id="2"
+                    style={{ marginLeft: '10px' }}
+                >
                     Sub One
                 </Checkbox>
-                <Checkbox checked={subTwoChecked} onChange={handleSubTowCheckboxChange} id="3">
+                <Checkbox
+                    checked={subTwoChecked}
+                    onChange={handleSubTowCheckboxChange}
+                    id="3"
+                    style={{ marginLeft: '10px' }}
+                >
                     Sub Two
                 </Checkbox>
             </>
