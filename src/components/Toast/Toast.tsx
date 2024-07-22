@@ -10,10 +10,12 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     content: string;
     /** The Toast context (e.g. info, critical, success or cautious - defaults to info) */
     context?: Context;
-    /** Action object, containing item text and href to action */
-    actionOne?: { text: string; callback?: () => void; href?: string };
-    /** Action object, containing item text and href to action */
-    actionTwo?: { text: string; callback?: () => void; href?: string };
+    /** Action array, each containing item text, callback and href to action. Max 2 */
+    actions?: { text: string; callback?: () => void; href?: string }[];
+    /** The state of the toast */
+    isVisible: boolean;
+    /** a function that is called when the toast closes via close-button-click */
+    onClose?: () => void;
 }
 
 // const { block } = bem('Toast', styles);
