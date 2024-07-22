@@ -23,10 +23,7 @@
     }
 
     &__label {
-        margin: auto;
-        user-select: none;
         cursor: pointer;
-        display: block;
 
         &--asFlexbox {
             display: flex;
@@ -73,6 +70,7 @@
     }
 
     &__input {
+        margin: 0;
         width: 0;
         height: 0;
 
