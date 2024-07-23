@@ -1,70 +1,68 @@
 .RadioButton {
 
     &__box {
-        background-color: var(--color-background);
-        border: 1px solid var(--color-neutral-30);
+        background: var(--color-background-selected-subtlest-default, #E6F2FF);
+        border: var(--border-width-thick) solid var(--color-border-input, #808080);
         border-radius: 50%;
-        box-sizing: content-box;
+        box-sizing: border-box;
         display: inline-block;
         position: relative;
         top: -1px;
-        width: 12px;
-        height: 12px;
-        transform: scale(1);
+        width: var(--font-size-normal);
+        height: var(--font-size-normal);
         transition: all var(--transition-duration) ease;
         vertical-align: middle;
-
-        &:before {
-            content: "";
-            width: 100%;
-            height: 100%;
-            background: var(--color-brand-50);
-            display: block;
-            transform: scale(0);
-            opacity: 1;
-            border-radius: 50%;
-        }
-
-        &:focus,
-        &:hover {
-            border: 1px solid var(--color-brand-50);
-            stroke: var(--color-highlight-background);
-            background-color: var(--color-highlight-background);
-        }
+        margin-right: var(--space-75);
     }
 
     &__label {
-        margin: auto;
-        user-select: none;
         cursor: pointer;
-        display: block;
 
-        &:focus,
         &:hover {
             .RadioButton__box {
-                border-color: var(--color-brand-50);
+                background: var(--color-background-selected-subtlest-hover, #CCE4FF);
+            }
+        }
+
+        &:active {
+            .RadioButton__box {
+                background: var(--color-background-selected-subtlest-pressed, #99CAFF);
             }
         }
     }
 
-    &__svg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        fill: var(--color-background);
-    }
-
     &__input {
-        display: none;
+        margin: 0;
+        width: 0;
+        height: 0;
+        border: none;
+        appearance: none;
+
+        &:focus {
+            + .RadioButton__label {
+                .RadioButton__box {
+                    box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
+                }
+            }
+        }
 
         &:checked {
             + .RadioButton__label {
                 .RadioButton__box {
-                    background: var(--color-brand-50);
-                    border-color: var(--color-brand-50);
+                    background: var(--color-background-input-default);
+                    border-color: var(--color-background-selected-bold-default);
+                    border-width: 4px;
+                }
 
-                    .RadioButton__svg {
-                        stroke-dashoffset: 0;
+                &:hover {
+                    .RadioButton__box {
+                        border-color: var(--color-background-selected-bold-hover, #0062CC);
+                    }
+                }
+
+                &:active {
+                    .RadioButton__box {
+                        border-color: var(--color-background-selected-bold-pressed, #004999);
                     }
                 }
             }
@@ -72,31 +70,54 @@
     }
 
     &__text {
-        padding: var(--space-50) 0 var(--space-50) var(--space-75);
+        composes: OneUI-label-text from global;
+        padding: var(--space-50) 0;
     }
 
     &--disabled {
-        &:hover {
-            .RadioButton__label {
-                .RadioButton__box {
-                    border-color: var(--color-neutral-70);
-                }
-            }
+        /* stylelint-disable no-descending-specificity */
+        .RadioButton__label .RadioButton__box {
+         /* stylelint-enable no-descending-specificity */
+         border-color: var(--color-border-disabled, #CCC);
+            background: var(--color-background-input-default);
         }
 
-        .RadioButton__input{
+        .RadioButton__input {
+            /* stylelint-disable no-descending-specificity */
             + .RadioButton__label {
+            /* stylelint-enable no-descending-specificity */
                 cursor: not-allowed;
+
+                &:hover {
+                    .RadioButton__box {
+                        background: var(--color-background-input-default);
+                    }
+                }
+        
+                &:active {
+                    .RadioButton__box {
+                        background: var(--color-background-input-default);
+                    }
+                }
             }
 
             &:checked {
                 + .RadioButton__label {
                     .RadioButton__box {
-                        border-color: var(--color-neutral-70);
-                        background: var(--color-neutral-70);
+                        border-color: var(--color-background-selected-bold-disabled, #99CAFF);
+                    }
+
+                    &:hover {
+                        .RadioButton__box {
+                            background: var(--color-background-input-default);
+                        }
                     }
                 }
             }
+        }
+
+        .RadioButton__text {
+            color: var(--color-text-disabled);
         }
     }
 }
