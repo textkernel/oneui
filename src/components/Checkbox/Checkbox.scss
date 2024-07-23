@@ -134,6 +134,10 @@
                 }
             }
         }
+        /* stylelint-enable no-duplicate-selectors, no-descending-specificity */
+
+        .Checkbox__text {
+            color: var(--color-text-disabled);
+        }
     }
-    /* stylelint-enable no-duplicate-selectors, no-descending-specificity */
 }
