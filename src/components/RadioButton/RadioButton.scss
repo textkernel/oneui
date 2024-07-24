@@ -38,7 +38,7 @@
         border: none;
         appearance: none;
 
-        &:focus {
+        &:focus-visible {
             + .RadioButton__label {
                 .RadioButton__box {
                     box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
