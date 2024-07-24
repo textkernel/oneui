@@ -76,7 +76,7 @@
         border: none;
         appearance: none;
 
-        &:focus {
+        &:focus-visible {
             + .Checkbox__label {
                 .Checkbox__box {
                     box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
