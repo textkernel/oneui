@@ -77,8 +77,8 @@
     &--disabled {
         /* stylelint-disable no-descending-specificity */
         .RadioButton__label .RadioButton__box {
-         /* stylelint-enable no-descending-specificity */
-         border-color: var(--color-border-disabled, #CCC);
+        /* stylelint-enable no-descending-specificity */
+            border-color: var(--color-border-disabled, #CCC);
             background: var(--color-background-input-default);
         }
 
