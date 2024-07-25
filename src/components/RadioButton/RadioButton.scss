@@ -10,7 +10,7 @@
         top: -1px;
         width: var(--font-size-normal);
         height: var(--font-size-normal);
-        transition: all var(--transition-duration) ease;
+        transition: all var(--transition-duration) ease-in;
         vertical-align: middle;
         margin-right: var(--space-75);
     }
