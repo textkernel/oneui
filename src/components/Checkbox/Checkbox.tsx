@@ -2,7 +2,6 @@ import * as React from 'react';
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './Checkbox.scss';
-import { CHECKBOX_VIEWBOX } from '../../constants';
 
 export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     /** A unique id to reference this checkbox */
@@ -53,7 +52,7 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
         }
 
         return (
-            <div ref={ref} style={style} {...block({ className, asFlexbox, ...rest })}>
+            <div ref={ref} style={style} {...block({ className, asFlexbox, disabled, ...rest })}>
                 <input
                     {...rest}
                     {...elem('input', { asFlexbox, indeterminate })}
@@ -68,14 +67,14 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
                         <svg
                             {...elem('svg', { asFlexbox })}
                             width="12px"
-                            height="10px"
-                            viewBox={CHECKBOX_VIEWBOX}
+                            height="8px"
+                            viewBox="0 0 12 9"
                             role="img"
                             aria-label={indeterminate ? lineRole : polylineRole}
                         >
-                            {indeterminate && <line x1="2" y1="6" x2="8" y2="6" role={lineRole} />}
+                            {indeterminate && <line x1="3" y1="5" x2="9" y2="5" role={lineRole} />}
                             {!indeterminate && (checked === undefined || checked) && (
-                                <polyline points="1.5 6 3.5 9 8 3" role={polylineRole} />
+                                <polyline points="1.5 5 4 8 10.5 2" role={polylineRole} />
                             )}
                         </svg>
                     </span>
