@@ -1,0 +1,103 @@
+// These styles can be used to quickly apply typography settings to text
+// They structure assumes that .OneUI-body-text is applied to <body> in the document
+
+:global(.OneUI-body-text) {
+    color: var(--color-text-bold);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-normal);
+    font-style: normal;
+    font-weight: var(--font-weight-normal);
+    line-height: var(--line-height-normal);
+    text-decoration: none;
+}
+
+:global(.OneUI-body-text-bold) {
+    font-weight: var(--font-weight-bold);
+}
+
+:global(.OneUI-body-link-text) {
+    text-decoration: var(--link-decoration-normal);
+}
+
+:global(.OneUI-body-link-text-bold) {
+    font-weight: var(--font-weight-bold);
+    text-decoration: var(--link-decoration-normal);
+}
+
+:global(.OneUI-label-text) {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+}
+
+:global(.OneUI-label-text-bold) {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-small);
+}
+
+:global(.OneUI-label-link-text) {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-small);
+    text-decoration: var(--link-decoration-normal);
+}
+
+:global(.OneUI-label-link-text-bold) {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-small);
+    text-decoration: var(--link-decoration-normal);
+}
+
+:global(.OneUI-caption-text) {
+    font-size: var(--font-size-x-small);
+    line-height: var(--line-height-x-small);
+}
+
+:global(.OneUI-caption-text-bold) {
+    font-size: var(--font-size-x-small);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-x-small);
+}
+
+:global(.OneUI-caption-link-text) {
+    font-size: var(--font-size-x-small);
+    line-height: var(--line-height-x-small);
+    text-decoration: var(--link-decoration-normal);
+}
+
+:global(.OneUI-caption-link-text-bold) {
+    font-size: var(--font-size-x-small);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-x-small);
+    text-decoration: var(--link-decoration-normal);
+}
+
+:global(.OneUI-caption-upper-case-text) {
+    font-size: var(--font-size-x-small);
+    line-height: var(--line-height-x-small);
+    text-transform: uppercase;
+}
+
+:global(.OneUI-caption-upper-case-text-bold) {
+    font-size: var(--font-size-x-small);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-x-small);
+    text-transform: uppercase;
+}
+
+:global(.OneUI-heading-1) {
+    font-size: var(--h1-font-size);
+    font-weight: var(--heading-font-weight);
+    line-height: var(--line-height-x-large);
+}
+
+:global(.OneUI-heading-2) {
+    font-size: var(--h2-font-size);
+    font-weight: var(--heading-font-weight);
+    line-height: var(--line-height-large);
+}
+
+:global(.OneUI-heading-3) {
+    font-size: var(--h3-font-size);
+    font-weight: var(--heading-font-weight);
+}

@@ -1,23 +1,25 @@
 @import '../fonts/NotoSans';
 
 :root {
-    --font-size-base: 14px;
-    --font-size-x-small: 10px;
-    --font-size-small: 12px;
+    --font-size-base: 16px;
+    --font-size-x-small: 12px;
+    --font-size-small: 14px;
     --font-size-normal: var(--font-size-base);
-    --font-size-large: 16.8px;
+    --font-size-large: 18px;
 
-    --line-height-x-small: calc(1.4 * var(--font-size-x-small));
-    --line-height-small: calc(1.4 * var(--font-size-small));
-    --line-height-normal: calc(1.4 * var(--font-size-normal));
-    --line-height-large: calc(1.4 * var(--font-size-large));
+    --line-height-x-small: 16px;
+    --line-height-small: 20px;
+    --line-height-normal: 24px;
+    --line-height-large: 28px;
+    --line-height-x-large: 32px;
 
-    --h1-font-size: 24px;
-    --h2-font-size: 18px;
-    --h3-font-size: 16px;
-    --h4-font-size: 14px;
-    --h5-font-size: 12px;
-    --h6-font-size: 10px;
+    --h1-font-size: 28px;
+    --h2-font-size: 24px;
+    --h3-font-size: 20px;
+    // the following are not part of the design system, but added here for convenience during transition
+    --h4-font-size: 18px; // this and the following are deprecated
+    --h5-font-size: 16px;
+    --h6-font-size: 14px;
 
     --font-family-primary: 'Noto Sans', 'Noto Sans JP', 'Noto Sans SC', 'Noto Sans Hebrew',
         sans-serif;
@@ -25,7 +27,7 @@
     --font-weight-normal: 400;
     --font-weight-bold: 600;
 
-    --link-decoration-normal: none;
+    --link-decoration-normal: underline;
     --link-decoration-hover: underline;
 
     --heading-font-family: var(--font-family-primary);

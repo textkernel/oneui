@@ -1,5 +1,3 @@
-@import '../../themes/oneui/oneui';
-
 @keyframes shimmer {
     0% {
         background-position: 100% 0;
@@ -11,7 +9,7 @@
 }
 
 .ContentPlaceholder {
-    animation:{
+    animation: {
         duration: 1s;
         fill-mode: forwards;
         iteration-count: infinite;

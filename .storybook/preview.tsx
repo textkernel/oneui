@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Title, Subtitle, Description, Primary, ArgsTable, Stories } from '@storybook/blocks';
+import '../src/themes/oneui/oneui.scss';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },

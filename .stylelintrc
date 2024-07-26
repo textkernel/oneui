@@ -1,5 +1,8 @@
 {
-    "extends": "stylelint-config-recommended-scss",
+    "extends": [
+        "stylelint-config-recommended-scss",
+        "stylelint-config-css-modules"
+    ],
     "syntax": "scss",
     "plugins": [
         "stylelint-order"
@@ -8,15 +11,10 @@
         "declaration-no-important": true,
         "font-family-name-quotes": "always-where-recommended",
         "font-weight-notation": "numeric",
-        "indentation": 4,
-        "no-missing-end-of-source-newline": true,
-        "selector-attribute-brackets-space-inside": "never",
         "selector-pseudo-class-no-unknown": [true, {
-            ignorePseudoClasses: ["global"]
+            "ignorePseudoClasses": ["global"]
         }],
-        "selector-attribute-quotes": "always",
         "selector-max-id": 0,
-        "unit-case": "lower",
         "order/order": [
             [
                 "custom-properties",
@@ -25,6 +23,6 @@
             {
                 "disableFix": true
             }
-        ],
+        ]
     }
 }
