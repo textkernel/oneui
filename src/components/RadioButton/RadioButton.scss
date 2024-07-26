@@ -1,5 +1,4 @@
 .RadioButton {
-
     &__box {
         background: var(--color-background-selected-subtlest-default, #E6F2FF);
         border: var(--border-width-thick) solid var(--color-border-input, #808080);
@@ -10,7 +9,6 @@
         top: -1px;
         width: var(--font-size-normal);
         height: var(--font-size-normal);
-        transition: all var(--transition-duration) ease-in;
         vertical-align: middle;
         margin-right: var(--space-75);
     }
