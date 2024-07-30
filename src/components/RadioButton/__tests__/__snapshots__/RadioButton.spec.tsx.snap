@@ -14,20 +14,7 @@ exports[`<RadioButton> that renders a radio button should render default radio b
     >
       <span
         class="RadioButton__box"
-      >
-        <svg
-          class="RadioButton__svg"
-          height="10px"
-          viewBox="0,0,10,10"
-          width="12px"
-        >
-          <circle
-            cx="5"
-            cy="6"
-            r="3"
-          />
-        </svg>
-      </span>
+      />
     </label>
   </div>
 </div>
@@ -48,20 +35,7 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
     >
       <span
         class="RadioButton__box"
-      >
-        <svg
-          class="RadioButton__svg"
-          height="10px"
-          viewBox="0,0,10,10"
-          width="12px"
-        >
-          <circle
-            cx="5"
-            cy="6"
-            r="3"
-          />
-        </svg>
-      </span>
+      />
       <span
         class="RadioButton__text"
       >
@@ -89,20 +63,7 @@ exports[`<RadioButton> that renders a radio button should rendered disabled radi
     >
       <span
         class="RadioButton__box"
-      >
-        <svg
-          class="RadioButton__svg"
-          height="10px"
-          viewBox="0,0,10,10"
-          width="12px"
-        >
-          <circle
-            cx="5"
-            cy="6"
-            r="3"
-          />
-        </svg>
-      </span>
+      />
       <span
         class="RadioButton__text"
       >

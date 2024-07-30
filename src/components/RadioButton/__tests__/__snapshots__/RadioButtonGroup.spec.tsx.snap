@@ -18,20 +18,7 @@ exports[`<RadioButtonGroup> that renders a group of radio buttons should render 
       >
         <span
           class="RadioButton__box"
-        >
-          <svg
-            class="RadioButton__svg"
-            height="10px"
-            viewBox="0,0,10,10"
-            width="12px"
-          >
-            <circle
-              cx="5"
-              cy="6"
-              r="3"
-            />
-          </svg>
-        </span>
+        />
         <span
           class="RadioButton__text"
         >
@@ -54,20 +41,7 @@ exports[`<RadioButtonGroup> that renders a group of radio buttons should render 
       >
         <span
           class="RadioButton__box"
-        >
-          <svg
-            class="RadioButton__svg"
-            height="10px"
-            viewBox="0,0,10,10"
-            width="12px"
-          >
-            <circle
-              cx="5"
-              cy="6"
-              r="3"
-            />
-          </svg>
-        </span>
+        />
         <span
           class="RadioButton__text"
         >
