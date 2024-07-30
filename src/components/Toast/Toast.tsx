@@ -1,8 +1,14 @@
 /* eslint-disable import/no-unresolved */
 import * as React from 'react';
 import { Toaster, toast } from 'sonner';
-// import { bem } from '../../utils';
+import { MdClose } from 'react-icons/md';
+import CautiousIcon from '@material-design-icons/svg/round/warning.svg';
+import CriticalIcon from '@material-design-icons/svg/round/error.svg';
+import InfoIcon from '@material-design-icons/svg/round/info.svg';
+import SuccessIcon from '@material-design-icons/svg/round/check_circle.svg';
+import styles from './Toast.scss';
 import { Context } from '../../constants';
+import { bem } from '../../utils';
 
 export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Short and descriptive title */
@@ -21,12 +27,52 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
     // closeButtonLabel: string;
 }
 
-// const { block, elem } = bem('Toast', styles);
+const { block, elem } = bem('Toast', styles);
 
-export const Toast = ({ title, description }: ToastProps) =>
-    toast(title, {
-        description,
-    });
+const ContextIcon = ({ context }) => {
+    switch (context) {
+        case 'info':
+            return <InfoIcon />;
+        case 'success':
+            return <SuccessIcon />;
+        case 'cautious':
+            return <CautiousIcon />;
+        case 'critical':
+            return <CriticalIcon />;
+        default:
+            return <InfoIcon />;
+    }
+};
+
+export const Toast = ({ title, description, context, isClosable = true }: ToastProps) =>
+    toast.custom(
+        (t) => (
+            <div {...block({ context })}>
+                <div {...elem('contextIcon')}>
+                    <ContextIcon context={context} />
+                </div>
+                <div {...elem('content')}>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                </div>
+                {isClosable && (
+                    <button {...elem('closeButton')} type="button" onClick={() => toast.dismiss(t)}>
+                        <MdClose {...elem('closeIcon')} />
+                    </button>
+                )}
+                {/* <div {...elem('closeButton')}>close</div> */}
+                {/* This is a custom component <button onClick={() => toast.dismiss(t)}>close</button> */}
+            </div>
+        )
+        // title, {
+        //     description,
+        //     action: {
+        //         label: 'Action',
+        //         onClick: () => console.log('Action!'),
+        //       },
+        //     closeButton: true
+        // });
+    );
 
 export const OneToaster = ({ children }) => (
     <>
@@ -37,3 +83,4 @@ export const OneToaster = ({ children }) => (
 
 Toast.displayName = 'Toast';
 OneToaster.displayName = 'Toaster';
+ContextIcon.displayName = 'ContextIcon';

@@ -7,6 +7,7 @@ const ToastImplementation = (args: ToastProps) => {
         Toast({
             title: args.title,
             description: args.description,
+            context: args.context,
         });
     // const openActionToast = () =>
     //     Toast({
