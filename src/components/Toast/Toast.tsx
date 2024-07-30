@@ -1,27 +1,39 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable import/no-unresolved */
 import * as React from 'react';
-import { bem } from '../../utils';
+import { Toaster, toast } from 'sonner';
+// import { bem } from '../../utils';
 import { Context } from '../../constants';
 
-export interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Short and descriptive title */
     title?: string;
     /** Body content */
-    content: string;
+    description: string;
     /** The Toast context (e.g. info, critical, success or cautious - defaults to info) */
     context?: Context;
     /** Action array, each containing item text, callback and href to action. Max 2 */
     actions?: { text: string; callback?: () => void; href?: string }[];
-    /** The state of the toast */
-    isVisible: boolean;
-    /** a function that is called when the toast closes via close-button-click */
-    onClose?: () => void;
-    /** A label for the close button that will be used by screenreaders */
-    closeButtonLabel: string;
+    /** Has a close button, default: true */
+    isClosable?: boolean;
+    // /** a function that is called when the toast closes via close-button-click */
+    // onClose?: () => void;
+    // /** A label for the close button that will be used by screenreaders */
+    // closeButtonLabel: string;
 }
 
-// const { block } = bem('Toast', styles);
+// const { block, elem } = bem('Toast', styles);
 
-export const Toast: React.FC<Props> = (props) => <div />;
+export const Toast = ({ title, description }: ToastProps) =>
+    toast(title, {
+        description,
+    });
+
+export const OneToaster = ({ children }) => (
+    <>
+        {children}
+        <Toaster />
+    </>
+);
 
 Toast.displayName = 'Toast';
+OneToaster.displayName = 'Toaster';

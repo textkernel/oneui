@@ -1,55 +1,52 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, CONTEXTS, Toast } from '@textkernel/oneui';
+import { Button, CONTEXTS, Toast, OneToaster, ToastProps } from '@textkernel/oneui';
 
-const ToastImplementation = (args) => {
-    const [isVisible, setIsVisible] = React.useState(false);
-    const onClose = () => {
-        setIsVisible(false);
-        console.log('Modal was requested to be closed.');
-    };
+const ToastImplementation = (args: ToastProps) => {
+    const openToast = () =>
+        Toast({
+            title: args.title,
+            description: args.description,
+        });
+    // const openActionToast = () =>
+    //     Toast({
+    //         title: args.title,
+    //         description: args.description,
+    //         actions: [
+    //             {
+    //                 text: 'Action',
+    //                 callback: () => {
+    //                     console.log('Action!');
+    //                 },
+    //             },
+    //         ],
+    //     });
     return (
-        <div>
-            <Button onClick={() => setIsVisible(true)}>Make Toast Appear</Button>
-            <Toast {...args} isVisible={isVisible} onClose={onClose} />
-        </div>
+        <>
+            <OneToaster>
+                <Button onClick={openToast}>Make Toast Appear</Button>
+                {/* <Button onClick={openActionToast}>Make Actionable Toast Appear</Button> */}
+            </OneToaster>
+        </>
     );
 };
 
-const meta: Meta<typeof Toast> = {
+const meta: Meta<typeof OneToaster> = {
     title: 'Molecules/Toast',
-    component: Toast,
-    render: (args) => <ToastImplementation {...args} />,
+    component: OneToaster,
+    render: (args) => <ToastImplementation {...(args as ToastProps)} />,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Toast>;
+type Story = StoryObj<typeof ToastImplementation>;
 
-export const NotActionableToast: Story = {
-    name: 'Normal Toast',
+export const RegularToast: Story = {
+    name: 'Toast',
     args: {
         title: 'Success',
-        content: 'This is a toast',
+        description: 'This is a toast',
         context: CONTEXTS[1],
-        closeButtonLabel: 'closeButton',
     },
-    render: (args) => <Toast {...args} />,
-};
-
-export const ActionableToast: Story = {
-    name: 'Actionable Toast',
-    args: {
-        title: 'Success',
-        content: 'This is an Actionable toast',
-        context: CONTEXTS[1],
-        actions: [
-            {
-                text: 'Action 1',
-                href: '/action-one',
-            },
-        ],
-        closeButtonLabel: 'closeButton',
-    },
-    render: (args) => <Toast {...args} />,
+    render: (args) => <ToastImplementation {...(args as ToastProps)} />,
 };
