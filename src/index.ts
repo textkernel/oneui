@@ -59,6 +59,7 @@ export * from './components/LocationCard';
 export * from './components/Navigation';
 export * from './components/Pagination';
 export * from './components/Pill';
+export * from './components/PriorityBadge';
 export * from './components/RadioButton';
 export * from './components/Teaser';
 export * from './components/Toggle';
