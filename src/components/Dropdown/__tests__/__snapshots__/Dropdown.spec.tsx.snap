@@ -24,7 +24,7 @@ exports[`Dropdown should access only enabled items with value during keyboard na
     data-popper-reference-hidden="true"
     id="downshift-:r2:-menu"
     role="listbox"
-    style="position: absolute; left: 0px; top: 0px; bottom: 0px; transform: translate(0px, -3px);"
+    style="position: absolute; left: 0px; top: 0px; width: auto; bottom: 0px; transform: translate(0px, -3px);"
   >
     <li
       class="ListItem ListItem--disabled List__item"
@@ -95,7 +95,7 @@ exports[`Dropdown should allow for conditional rendering of items 1`] = `
     data-popper-reference-hidden="true"
     id="downshift-:rb:-menu"
     role="listbox"
-    style="position: absolute; left: 0px; top: 0px; bottom: 0px; transform: translate(0px, -3px);"
+    style="position: absolute; left: 0px; top: 0px; width: auto; bottom: 0px; transform: translate(0px, -3px);"
   >
     <li
       aria-disabled="false"
@@ -161,7 +161,7 @@ exports[`Dropdown should render correctly opened 1`] = `
     data-popper-reference-hidden="true"
     id="downshift-:r1:-menu"
     role="listbox"
-    style="position: absolute; left: 0px; top: 0px; bottom: 0px; transform: translate(0px, -3px);"
+    style="position: absolute; left: 0px; top: 0px; width: auto; bottom: 0px; transform: translate(0px, -3px);"
   >
     <li
       class="ListItem ListItem--disabled List__item"
@@ -209,7 +209,7 @@ exports[`Dropdown should render correctly with mixed children: array and single 
     data-popper-reference-hidden="true"
     id="downshift-:r4:-menu"
     role="listbox"
-    style="position: absolute; left: 0px; top: 0px; bottom: 0px; transform: translate(0px, -3px);"
+    style="position: absolute; left: 0px; top: 0px; width: auto; bottom: 0px; transform: translate(0px, -3px);"
   >
     <li
       class="ListItem ListItem--disabled List__item"

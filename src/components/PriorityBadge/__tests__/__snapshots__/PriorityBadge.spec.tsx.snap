@@ -1,0 +1,470 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PriorityBadge Option button should handle option change correctly 1`] = `
+<div>
+  <div
+    class="PriorityBadge"
+  >
+    <button
+      aria-activedescendant=""
+      aria-controls="downshift-:re:-menu"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-label="mandatory priority button"
+      aria-labelledby="downshift-:re:-label"
+      class="PriorityBadge__priorityButton"
+      id="downshift-:re:-toggle-button"
+      role="combobox"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        class="PriorityBadge__icon PriorityBadge__icon--mandatory"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M6 17.59L7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
+        />
+        <path
+          d="M6 11l1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
+        />
+      </svg>
+    </button>
+    <ul
+      aria-labelledby="downshift-:re:-label"
+      class="List"
+      id="downshift-:re:-menu"
+      role="listbox"
+    />
+    <button
+      aria-activedescendant=""
+      aria-controls="downshift-:rf:-menu"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-label="Option 1 option button"
+      aria-labelledby="downshift-:rf:-label"
+      class="PriorityBadge__optionButton"
+      id="downshift-:rf:-toggle-button"
+      role="combobox"
+      tabindex="0"
+    >
+      <span
+        class="PriorityBadge__optionButton--valueText"
+        title="Test Child"
+      >
+        Test Child
+      </span>
+      <span
+        class="PriorityBadge__optionButton--optionText"
+        title="Option 1"
+      >
+        Option 1
+      </span>
+    </button>
+    <ul
+      aria-labelledby="downshift-:rf:-label"
+      class="List Dropdown__list"
+      data-popper-escaped="true"
+      data-popper-placement="bottom"
+      data-popper-reference-hidden="true"
+      id="downshift-:rf:-menu"
+      role="listbox"
+      style="position: absolute; left: 0px; top: 0px; width: auto; transform: translate(0px, 3px);"
+    >
+      <div
+        class="List__item PriorityBadge__listHeadline"
+      />
+      <li
+        aria-disabled="false"
+        aria-selected="false"
+        class="ListItem ListItem--clickable List__item"
+        id="downshift-:rf:-item-0"
+        role="option"
+      >
+        <span>
+          Option 1
+        </span>
+      </li>
+      <li
+        aria-disabled="false"
+        aria-selected="false"
+        class="ListItem ListItem--clickable List__item"
+        id="downshift-:rf:-item-1"
+        role="option"
+      >
+        <span>
+          Option 2
+        </span>
+      </li>
+    </ul>
+    <button
+      aria-label="closeButton"
+      class="PriorityBadge__closeButton"
+      type="button"
+    >
+      <svg
+        aria-label="closeButtonIcon"
+        fill="currentColor"
+        height="20px"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="20px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`PriorityBadge Priority button renders correctly with all props provided 1`] = `
+<div>
+  <div
+    class="PriorityBadge"
+  >
+    <button
+      aria-activedescendant=""
+      aria-controls="downshift-:r0:-menu"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-label="mandatory priority button"
+      aria-labelledby="downshift-:r0:-label"
+      class="PriorityBadge__priorityButton"
+      id="downshift-:r0:-toggle-button"
+      role="combobox"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        class="PriorityBadge__icon PriorityBadge__icon--mandatory"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M6 17.59L7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
+        />
+        <path
+          d="M6 11l1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
+        />
+      </svg>
+    </button>
+    <ul
+      aria-labelledby="downshift-:r0:-label"
+      class="List"
+      id="downshift-:r0:-menu"
+      role="listbox"
+    />
+    <button
+      aria-activedescendant=""
+      aria-controls="downshift-:r1:-menu"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-label="Option 1 option button"
+      aria-labelledby="downshift-:r1:-label"
+      class="PriorityBadge__optionButton"
+      id="downshift-:r1:-toggle-button"
+      role="combobox"
+      tabindex="0"
+    >
+      <span
+        class="PriorityBadge__optionButton--valueText"
+        title="Test Child"
+      >
+        Test Child
+      </span>
+      <span
+        class="PriorityBadge__optionButton--optionText"
+        title="Option 1"
+      >
+        Option 1
+      </span>
+    </button>
+    <ul
+      aria-labelledby="downshift-:r1:-label"
+      class="List"
+      id="downshift-:r1:-menu"
+      role="listbox"
+    />
+    <button
+      aria-label="closeButton"
+      class="PriorityBadge__closeButton"
+      type="button"
+    >
+      <svg
+        aria-label="closeButtonIcon"
+        fill="currentColor"
+        height="20px"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="20px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`PriorityBadge Priority button should handle priority change correctly 1`] = `
+<div>
+  <div
+    class="PriorityBadge"
+  >
+    <button
+      aria-activedescendant=""
+      aria-controls="downshift-:r5:-menu"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-label="mandatory priority button"
+      aria-labelledby="downshift-:r5:-label"
+      class="PriorityBadge__priorityButton"
+      id="downshift-:r5:-toggle-button"
+      role="combobox"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        class="PriorityBadge__icon PriorityBadge__icon--mandatory"
+        fill="currentColor"
+        height="1em"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M6 17.59L7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
+        />
+        <path
+          d="M6 11l1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
+        />
+      </svg>
+    </button>
+    <ul
+      aria-labelledby="downshift-:r5:-label"
+      class="List Dropdown__list"
+      data-popper-escaped="true"
+      data-popper-placement="bottom-start"
+      data-popper-reference-hidden="true"
+      id="downshift-:r5:-menu"
+      role="listbox"
+      style="position: absolute; left: 0px; top: 0px; width: auto; transform: translate(0px, 3px);"
+    >
+      <li
+        aria-disabled="false"
+        aria-selected="false"
+        class="ListItem ListItem--clickable List__item"
+        id="downshift-:r5:-item-0"
+        role="option"
+      >
+        <svg
+          class="PriorityBadge__icon PriorityBadge__icon--mandatory"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M6 17.59L7.41 19 12 14.42 16.59 19 18 17.59l-6-6z"
+          />
+          <path
+            d="M6 11l1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
+          />
+        </svg>
+        <span>
+          Mandatory
+        </span>
+      </li>
+      <li
+        aria-disabled="false"
+        aria-selected="false"
+        class="ListItem ListItem--clickable List__item"
+        id="downshift-:r5:-item-1"
+        role="option"
+      >
+        <svg
+          class="PriorityBadge__icon PriorityBadge__icon--important"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
+          />
+        </svg>
+        <span>
+          Important
+        </span>
+      </li>
+      <li
+        aria-disabled="false"
+        aria-selected="false"
+        class="ListItem ListItem--clickable List__item"
+        id="downshift-:r5:-item-2"
+        role="option"
+      >
+        <svg
+          class="PriorityBadge__icon PriorityBadge__icon--optional"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
+          />
+          <path
+            d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+          />
+        </svg>
+        <span>
+          Optional
+        </span>
+      </li>
+      <li
+        aria-disabled="false"
+        aria-selected="false"
+        class="ListItem ListItem--clickable List__item"
+        id="downshift-:r5:-item-3"
+        role="option"
+      >
+        <svg
+          class="PriorityBadge__icon PriorityBadge__icon--exclude"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+          />
+        </svg>
+        <span>
+          Exclude
+        </span>
+      </li>
+    </ul>
+    <button
+      aria-activedescendant=""
+      aria-controls="downshift-:r6:-menu"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-label="Option 1 option button"
+      aria-labelledby="downshift-:r6:-label"
+      class="PriorityBadge__optionButton"
+      id="downshift-:r6:-toggle-button"
+      role="combobox"
+      tabindex="0"
+    >
+      <span
+        class="PriorityBadge__optionButton--valueText"
+        title="Test Child"
+      >
+        Test Child
+      </span>
+      <span
+        class="PriorityBadge__optionButton--optionText"
+        title="Option 1"
+      >
+        Option 1
+      </span>
+    </button>
+    <ul
+      aria-labelledby="downshift-:r6:-label"
+      class="List"
+      id="downshift-:r6:-menu"
+      role="listbox"
+    />
+    <button
+      aria-label="closeButton"
+      class="PriorityBadge__closeButton"
+      type="button"
+    >
+      <svg
+        aria-label="closeButtonIcon"
+        fill="currentColor"
+        height="20px"
+        stroke="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        width="20px"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+        <path
+          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
