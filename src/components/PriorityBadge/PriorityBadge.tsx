@@ -162,7 +162,9 @@ export const PriorityBadge: React.FC<Props> = ({
                             {renderPriorityIcon(priority, isPriorityButtonDisabled)}
                         </button>
                     }
-                    additionalSelectProps={(state) => toggleDropdown('priority', state.isOpen)}
+                    additionalSelectProps={{
+                        onStateChange: (state) => toggleDropdown('priority', state.isOpen),
+                    }}
                     onChange={(newPriority) => onPriorityChange(newPriority)}
                     placement="bottom-start"
                     refElement={badgeRef}
@@ -207,7 +209,9 @@ export const PriorityBadge: React.FC<Props> = ({
                         )}
                     </button>
                 }
-                additionalSelectProps={(state) => toggleDropdown('option', state.isOpen)}
+                additionalSelectProps={{
+                    onStateChange: (state) => toggleDropdown('option', state.isOpen),
+                }}
                 onChange={(newOption) => onChange(newOption)}
                 placement="bottom"
                 refElement={badgeRef}

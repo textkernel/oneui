@@ -4,16 +4,19 @@
     $hoverColor: var(--color-neutral-10),
     $activeColor: var(--color-neutral-20)
 ) {
-    align-items: center;
-    background-color: var(--transparent);
-    cursor: pointer;
-    display: flex;
-    flex-shrink: 0;
-    height: var(--space-400);
-    justify-content: center;
-    width: var(--space-400);
+    & {
+        align-items: center;
+        background-color: var(--transparent);
+        cursor: pointer;
+        display: flex;
+        flex-shrink: 0;
+        height: var(--space-400);
+        justify-content: center;
+        width: var(--space-400);
+    }
 
-    &:hover:not([disabled]) {
+    &:hover:not([disabled]),
+    &:focus:not([disabled]) {
         background-color: $hoverColor;
     }
     &:active:not([disabled]) {
@@ -30,8 +33,11 @@
     $hoverColor: var(--color-info-10),
     $activeColor: var(--color-info-20)
 ) {
-    background-color: $selectedColor;
-    &:hover:not([disabled]) {
+    & {
+        background-color: $selectedColor;
+    }
+    &:hover:not([disabled]),
+    &:focus:not([disabled]) {
         background-color: $hoverColor;
     }
     &:active:not([disabled]) {
