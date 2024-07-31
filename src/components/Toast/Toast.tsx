@@ -21,13 +21,37 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
     actions?: { text: string; callback?: () => void; href?: string }[];
     /** Has a close button, default: true */
     isClosable?: boolean;
-    // /** a function that is called when the toast closes via close-button-click */
-    // onClose?: () => void;
-    // /** A label for the close button that will be used by screenreaders */
-    // closeButtonLabel: string;
+    /** A label for the close button that will be used by screenreaders */
+    closeButtonLabel?: string;
+}
+
+interface ActionProps {
+    action: {
+        text: string;
+        callback?: () => void;
+        href?: string;
+    };
 }
 
 const { block, elem } = bem('Toast', styles);
+
+const ActionItem: React.FC<ActionProps> = ({ action }) => {
+    if (action.callback) {
+        return (
+            <p onClick={action.callback} {...elem('toast-action')} role="presentation">
+                {action.text}
+            </p>
+        );
+    }
+    if (action.href) {
+        return (
+            <p href={action.href} {...elem('toast-action')}>
+                {action.text}
+            </p>
+        );
+    }
+    return <></>;
+};
 
 const ContextIcon = ({ context }) => {
     switch (context) {
@@ -44,43 +68,63 @@ const ContextIcon = ({ context }) => {
     }
 };
 
-export const Toast = ({ title, description, context, isClosable = true }: ToastProps) =>
-    toast.custom(
-        (t) => (
-            <div {...block({ context })}>
-                <div {...elem('contextIcon')}>
-                    <ContextIcon context={context} />
-                </div>
-                <div {...elem('content')}>
+export const Toast = ({
+    title,
+    description,
+    context = 'info',
+    actions,
+    isClosable = true,
+    closeButtonLabel = 'closeButton',
+}: ToastProps) =>
+    toast.custom((t) => (
+        <div {...block({ context })}>
+            <div {...elem('contextIcon')}>
+                <ContextIcon context={context} />
+            </div>
+            <div {...elem('content')}>
+                <div {...elem('message')}>
                     <h3>{title}</h3>
                     <p>{description}</p>
                 </div>
-                {isClosable && (
-                    <button {...elem('closeButton')} type="button" onClick={() => toast.dismiss(t)}>
-                        <MdClose {...elem('closeIcon')} />
-                    </button>
-                )}
-                {/* <div {...elem('closeButton')}>close</div> */}
-                {/* This is a custom component <button onClick={() => toast.dismiss(t)}>close</button> */}
+                <div {...elem('actions')}>
+                    {actions && actions[0] && <ActionItem action={actions[0]} />}
+                    {actions && actions[1] && (
+                        <>
+                            {' '}
+                            • <ActionItem action={actions[1]} />
+                        </>
+                    )}
+                </div>
             </div>
-        )
-        // title, {
-        //     description,
-        //     action: {
-        //         label: 'Action',
-        //         onClick: () => console.log('Action!'),
-        //       },
-        //     closeButton: true
-        // });
-    );
+            {isClosable && (
+                <button
+                    {...elem('closeButton')}
+                    type="button"
+                    onClick={() => toast.dismiss(t)}
+                    aria-label={closeButtonLabel}
+                >
+                    <MdClose {...elem('closeIcon')} />
+                </button>
+            )}
+        </div>
+    ));
 
-export const OneToaster = ({ children }) => (
+export const OneToaster = ({ children, ...props }) => (
     <>
         {children}
-        <Toaster />
+        <Toaster {...props} />
     </>
 );
+
+OneToaster.defaultProps = {
+    duration: Infinity,
+    position: 'bottom-right',
+    closeButton: true,
+    offset: '16px',
+    gap: 8,
+};
 
 Toast.displayName = 'Toast';
 OneToaster.displayName = 'Toaster';
 ContextIcon.displayName = 'ContextIcon';
+ActionItem.displayName = 'ActionItem';

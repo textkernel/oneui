@@ -6,45 +6,75 @@ $icon-size: 20px;
     display: flex;
     flex-direction: row;
     gap: 12px;
-    width: 400px;
-    margin: 0 16px 16px 0;
+    min-width: 400px;
+    // margin: 0 16px 16px 0;
     padding: 16px;
     border: 1px solid;
     border-radius: 12px;
 
-
     &__contextIcon {
+        padding: 0;
+        margin: 0;
         font-size: 24px;
-        border: 1px solid blue;
     }
 
     &__content {
         flex-grow: 1; 
         display: flex;
-        gap: 8px;
         flex-direction: column;
-        border: 1px solid red;
+        gap: 12px;
     }
 
+    &__message {
+        gap: 8px;
+        display: flex; 
+        flex-direction: column;
+        
+        h3 {
+            margin: 0;  
+            padding: 0;
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        p {
+            margin: 0;
+            font-size: 16px;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+        color: var(--color-info-60);
+    }
+
+    &__toast-action {
+        color: var(--color-info-60);
+        font-size: 14px;
+        cursor: pointer;
+    }
+       
     &__closeButton {
-        flex-shrink: 0;
-        text-align: start;
         display: flex;
         align-items: flex-start;
-
-        height: var(--icon-size);
-        width: var(--icon-size);
+        height: 20px;
+        width: 20px;
         padding: 0;
         cursor: pointer;
         background-color: var(--transparent);
         border: none;
-        // outline: 0;
-        // // transition: color var(--transition-duration) ease;
+        outline: 0;
+        &:focus {
+            border: 1 blue;
+            border-radius: 4px;
+        }
     }
 
     &__closeIcon {
         font-size: 20px;
-        color: var(--color-icon-subtle)
+        color: var(--color-icon-subtle);  
     }
 
 
@@ -53,17 +83,5 @@ $icon-size: 20px;
             background-color: var(--color-#{$context}-5);
             border-color: var(--color-#{$context}-30);
         }
-        // &__content--context_#{ $context } {
-        //     color: var(--color-#{$context}-80);
-        // }
-
-        // &__closeButton--context_#{ $context } {
-        //     color: var(--color-#{$context}-60);
-        // }
-
-        // &__closeButton--context_#{ $context }:hover,
-        // &__closeButton--context_#{ $context }:focus {
-        //     color: var(--color-#{$context}-80);
-        // }
     }
 }
