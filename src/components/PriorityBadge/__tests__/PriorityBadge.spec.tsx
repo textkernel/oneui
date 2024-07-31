@@ -105,7 +105,7 @@ describe('PriorityBadge', () => {
 
         it('renders priority button as disabled when provided from props', () => {
             renderPriorityBadge({
-                isPriorityDisabled: true,
+                isPriorityButtonDisabled: true,
             });
             const priorityButton = screen.getByLabelText('mandatory priority button');
             expect(priorityButton).toBeDisabled();
@@ -139,7 +139,7 @@ describe('PriorityBadge', () => {
 
         it('renders option button as disabled when provided from props', () => {
             renderPriorityBadge({
-                isOptionDisabled: true,
+                isOptionButtonDisabled: true,
             });
             const optionButton = screen.getByLabelText('Option 1 option button');
             expect(optionButton).toBeDisabled();

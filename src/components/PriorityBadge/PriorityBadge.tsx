@@ -74,29 +74,29 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCha
      * Boolean indicating whether the priority selection is disabled.
      * Used to lock priority changes in specific situations.
      */
-    isPriorityDisabled?: boolean;
+    isPriorityButtonDisabled?: boolean;
     /**
      * Boolean indicating whether the option selection is disabled.
      * Useful for controlling access to option changes dynamically.
      */
-    isOptionDisabled?: boolean;
+    isOptionButtonDisabled?: boolean;
 }
 
 const { block, elem } = bem('PriorityBadge', styles);
 
 export const PriorityBadge: React.FC<Props> = ({
     children,
-    priorityLabels,
-    priority = 'mandatory',
+    isCloseButtonDisabled = false,
+    isOptionButtonDisabled = false,
+    isPriorityButtonDisabled = false,
+    onChange,
+    onClose = undefined,
+    onPriorityChange = undefined,
     option,
     optionList,
     optionListHeader,
-    onClose = undefined,
-    onPriorityChange = undefined,
-    isPriorityDisabled = false,
-    isOptionDisabled = false,
-    isCloseButtonDisabled = false,
-    onChange,
+    priority = 'mandatory',
+    priorityLabels,
     ...rest
 }) => {
     const [dropdownStates, setDropdownStates] = React.useState({
@@ -137,6 +137,10 @@ export const PriorityBadge: React.FC<Props> = ({
     );
 
     const toggleDropdown = React.useCallback((type: 'priority' | 'option', isOpen: boolean) => {
+        /**
+         * Updates the dropdown state only if 'isOpen' is explicitly defined,
+         *  unintended state changes happen by mouse events cause 'isOpen' to become undefined
+         * */
         if (isOpen !== undefined) {
             setDropdownStates((prev) => ({ ...prev, [type]: isOpen }));
         }
@@ -149,13 +153,13 @@ export const PriorityBadge: React.FC<Props> = ({
                     button={
                         <button
                             aria-label={`${priority} priority button`}
-                            disabled={isPriorityDisabled}
+                            disabled={isPriorityButtonDisabled}
                             type="button"
                             {...elem('priorityButton', {
                                 isSelected: dropdownStates.priority,
                             })}
                         >
-                            {renderPriorityIcon(priority, isPriorityDisabled)}
+                            {renderPriorityIcon(priority, isPriorityButtonDisabled)}
                         </button>
                     }
                     additionalSelectProps={(state) => toggleDropdown('priority', state.isOpen)}
@@ -166,7 +170,9 @@ export const PriorityBadge: React.FC<Props> = ({
                     {Object.entries(priorityLabels).map(([key, label]) => (
                         <ListItem key={key} value={key}>
                             {renderPriorityIcon(key as Priority)}
-                            <Text inline>{label}</Text>
+                            <Text inline size="small">
+                                {label}
+                            </Text>
                         </ListItem>
                     ))}
                 </Dropdown>
@@ -179,10 +185,11 @@ export const PriorityBadge: React.FC<Props> = ({
                             isSelected: dropdownStates.option,
                         })}
                         aria-label={`${option?.label} option button`}
-                        disabled={isOptionDisabled}
+                        disabled={isOptionButtonDisabled}
                     >
                         <Text
                             inline
+                            size="small"
                             {...elem('optionButton--valueText')}
                             {...(typeof children === 'string' && { title: children })}
                         >
@@ -193,6 +200,7 @@ export const PriorityBadge: React.FC<Props> = ({
                                 {...elem('optionButton--optionText')}
                                 inline
                                 title={option?.label}
+                                size="small"
                             >
                                 {option.label}
                             </Text>
@@ -205,13 +213,15 @@ export const PriorityBadge: React.FC<Props> = ({
                 refElement={badgeRef}
             >
                 <div {...elem('listHeadline')}>
-                    <Text inline title={optionListHeader}>
+                    <Text inline size="small" title={optionListHeader}>
                         {optionListHeader?.toUpperCase()}
                     </Text>
                 </div>
                 {optionList?.map((opt) => (
                     <ListItem key={opt.value} value={opt}>
-                        <Text inline>{opt.label}</Text>
+                        <Text inline size="small">
+                            {opt.label}
+                        </Text>
                     </ListItem>
                 ))}
             </Dropdown>

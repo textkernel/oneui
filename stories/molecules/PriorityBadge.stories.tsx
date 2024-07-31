@@ -38,13 +38,21 @@ export const _PriorityBadge: Story = {
         const [priority, setPriority] = React.useState<Priority>(args.priority);
         const [selectedOption, setSelectedOption] = React.useState(args.option);
 
-        const handlePriorityChange = (newPriority: Priority) => {
-            setPriority(newPriority);
-        };
+        React.useEffect(() => {
+            setPriority(args.priority);
+        }, [args.priority]);
 
-        const handleOptionChange = (newOption: Option) => {
+        React.useEffect(() => {
+            setSelectedOption(args.option);
+        }, [args.option]);
+
+        const handlePriorityChange = React.useCallback((newPriority: Priority) => {
+            setPriority(newPriority);
+        }, []);
+
+        const handleOptionChange = React.useCallback((newOption: Option) => {
             setSelectedOption(newOption);
-        };
+        }, []);
 
         const handleClose = () => {
             console.log('PriorityBadge closed');
@@ -68,7 +76,7 @@ export const _PriorityBadge: Story = {
 };
 
 export const PriorityBadgeWithoutPriorityButton: Story = {
-    name: 'Without Priority Button',
+    name: 'PriorityBadge - No Priority Control',
     args: {
         ...commonArgs,
         onPriorityChange: undefined,
@@ -76,9 +84,13 @@ export const PriorityBadgeWithoutPriorityButton: Story = {
     render: (args) => {
         const [selectedOption, setSelectedOption] = React.useState(args.option);
 
-        const handleOptionChange = (newOption: Option) => {
+        React.useEffect(() => {
+            setSelectedOption(args.option);
+        }, [args.option]);
+
+        const handleOptionChange = React.useCallback((newOption: Option) => {
             setSelectedOption(newOption);
-        };
+        }, []);
 
         const handleClose = () => {
             console.log('PriorityBadge closed');
@@ -100,7 +112,7 @@ export const PriorityBadgeWithoutPriorityButton: Story = {
 };
 
 export const PriorityBadgeWithoutCloseButton: Story = {
-    name: 'Without Close Button',
+    name: 'PriorityBadge - No Close Functionality',
     args: {
         ...commonArgs,
         priority: 'mandatory',
@@ -116,13 +128,21 @@ export const PriorityBadgeWithoutCloseButton: Story = {
         const [priority, setPriority] = React.useState<Priority>(args.priority);
         const [selectedOption, setSelectedOption] = React.useState(args.option);
 
-        const handlePriorityChange = (newPriority: Priority) => {
-            setPriority(newPriority);
-        };
+        React.useEffect(() => {
+            setPriority(args.priority);
+        }, [args.priority]);
 
-        const handleOptionChange = (newOption: Option) => {
+        React.useEffect(() => {
+            setSelectedOption(args.option);
+        }, [args.option]);
+
+        const handlePriorityChange = React.useCallback((newPriority: Priority) => {
+            setPriority(newPriority);
+        }, []);
+
+        const handleOptionChange = React.useCallback((newOption: Option) => {
             setSelectedOption(newOption);
-        };
+        }, []);
 
         return (
             <div style={{ width: '200px' }}>
