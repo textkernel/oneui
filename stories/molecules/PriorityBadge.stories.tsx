@@ -46,13 +46,13 @@ export const _PriorityBadge: Story = {
             setSelectedOption(args.option);
         }, [args.option]);
 
-        const handlePriorityChange = React.useCallback((newPriority: Priority) => {
+        const handlePriorityChange = (newPriority: Priority) => {
             setPriority(newPriority);
-        }, []);
+        };
 
-        const handleOptionChange = React.useCallback((newOption: Option) => {
+        const handleOptionChange = (newOption: Option) => {
             setSelectedOption(newOption);
-        }, []);
+        };
 
         const handleClose = () => {
             console.log('PriorityBadge closed');

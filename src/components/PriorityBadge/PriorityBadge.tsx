@@ -126,17 +126,14 @@ export const PriorityBadge: React.FC<Props> = ({
         ) : null;
     }
 
-    const handleOnClose = React.useCallback(
-        (e: React.KeyboardEvent | React.MouseEvent) => {
-            e.stopPropagation();
-            if (onClose) {
-                onClose(e);
-            }
-        },
-        [onClose]
-    );
+    function handleOnClose(e: React.KeyboardEvent | React.MouseEvent) {
+        e.stopPropagation();
+        if (onClose) {
+            onClose(e);
+        }
+    }
 
-    const toggleDropdown = React.useCallback((type: 'priority' | 'option', isOpen: boolean) => {
+    function toggleDropdown(type: 'priority' | 'option', isOpen: boolean) {
         /**
          * Updates the dropdown state only if 'isOpen' is explicitly defined,
          *  unintended state changes happen by mouse events cause 'isOpen' to become undefined
@@ -144,7 +141,7 @@ export const PriorityBadge: React.FC<Props> = ({
         if (isOpen !== undefined) {
             setDropdownStates((prev) => ({ ...prev, [type]: isOpen }));
         }
-    }, []);
+    }
 
     return (
         <div {...rest} {...block({ ...rest })} ref={badgeRef}>

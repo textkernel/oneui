@@ -140,7 +140,7 @@ export function Dropdown<V>({
     const openPopperProps = isOpen && {
         style: {
             ...state.styles.popper,
-            width: refElement?.current?.scrollWidth || 'auto',
+            ...(refElement ? { width: refElement?.current?.scrollWidth } : {}),
         },
         ...state.attributes.popper,
         ...elem('list', {

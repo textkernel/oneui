@@ -53,7 +53,7 @@ exports[`PriorityBadge Option button should handle option change correctly 1`] =
       aria-haspopup="listbox"
       aria-label="Option 1 option button"
       aria-labelledby="downshift-:rf:-label"
-      class="PriorityBadge__optionButton"
+      class="PriorityBadge__optionButton PriorityBadge__optionButton--isSelected"
       id="downshift-:rf:-toggle-button"
       role="combobox"
       tabindex="0"
@@ -79,7 +79,7 @@ exports[`PriorityBadge Option button should handle option change correctly 1`] =
       data-popper-reference-hidden="true"
       id="downshift-:rf:-menu"
       role="listbox"
-      style="position: absolute; left: 0px; top: 0px; width: auto; transform: translate(0px, 3px);"
+      style="position: absolute; left: 0px; top: 0px; width: 0px; transform: translate(0px, 3px);"
     >
       <div
         class="List__item PriorityBadge__listHeadline"
@@ -256,7 +256,7 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
       aria-haspopup="listbox"
       aria-label="mandatory priority button"
       aria-labelledby="downshift-:r5:-label"
-      class="PriorityBadge__priorityButton"
+      class="PriorityBadge__priorityButton PriorityBadge__priorityButton--isSelected"
       id="downshift-:r5:-toggle-button"
       role="combobox"
       tabindex="0"
@@ -292,7 +292,7 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
       data-popper-reference-hidden="true"
       id="downshift-:r5:-menu"
       role="listbox"
-      style="position: absolute; left: 0px; top: 0px; width: auto; transform: translate(0px, 3px);"
+      style="position: absolute; left: 0px; top: 0px; width: 0px; transform: translate(0px, 3px);"
     >
       <li
         aria-disabled="false"
