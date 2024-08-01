@@ -112,15 +112,14 @@ export const Toast = ({
 export const OneToaster = ({ children, ...props }) => (
     <>
         {children}
-        <Toaster {...props} />
+        <Toaster {...props} className="Toaster" />
     </>
 );
 
 OneToaster.defaultProps = {
     duration: Infinity,
-    position: 'bottom-right',
     closeButton: true,
-    offset: '16px',
+    offset: 16,
     gap: 8,
 };
 

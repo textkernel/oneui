@@ -1,13 +1,10 @@
 @import '../../themes/oneui/oneui';
 
-$icon-size: 20px;
-
 .Toast {
     display: flex;
     flex-direction: row;
     gap: 12px;
     min-width: 400px;
-    // margin: 0 16px 16px 0;
     padding: 16px;
     border: 1px solid;
     border-radius: 12px;
@@ -31,16 +28,23 @@ $icon-size: 20px;
         flex-direction: column;
         
         h3 {
-            margin: 0;  
-            padding: 0;
-            font-size: 20px;
+            font: {
+                size: 20px;
+                weight: var(--font-weight-bold);
+                family: var(--font-family-primary);
+            }
             line-height: 24px;
+            margin: 0;  
         }
 
         p {
+            font: {
+                weight: var(--font-weight-normal);
+                size:  var(--h3-font-size); 
+                family: var(--font-family-primary);
+            }
+            line-height: 24px;
             margin: 0;
-            padding: 0;
-            font-size: 16px;
         }
     }
 
@@ -71,8 +75,7 @@ $icon-size: 20px;
         outline: 0;
         
         &:focus {
-            box-shadow: 0px 0px 0px 2px #0070C080;
-            // border: 1px solid blue;
+            box-shadow: 0px 0px 0px 2px var(--color-neutral-20);
             border-radius: 4px;
         }
     }
@@ -88,5 +91,16 @@ $icon-size: 20px;
             background-color: var(--color-#{$context}-5);
             border-color: var(--color-#{$context}-30);
         }
+    }
+}
+
+.Toaster {
+    --width: unset;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &[data-y-position='bottom'] {
+        bottom: 16px;
     }
 }

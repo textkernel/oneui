@@ -26,7 +26,7 @@ const ToastImplementation = (args: ToastProps) => {
             actions: args.actions,
         });
     return (
-        <div>
+        <div style={{ height: 400 }}>
             <OneToaster>
                 <Button onClick={openToast}>Make Toast Appear</Button>
             </OneToaster>
