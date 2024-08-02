@@ -137,6 +137,16 @@ describe('PriorityBadge', () => {
             expect(mockOnChange).toHaveBeenCalledWith({ value: 'opt2', label: 'Option 2' });
         });
 
+        it('does not render option button but displays plain text with passed children if onChanged is not provided.', () => {
+            const { getByText, queryByText } = renderPriorityBadge({
+                option: undefined,
+                onChange: undefined,
+            });
+
+            expect(queryByText('option button')).not.toBeInTheDocument();
+            expect(getByText(defaultProps.children)).toBeInTheDocument();
+        });
+
         it('renders option button as disabled when provided from props', () => {
             renderPriorityBadge({
                 isOptionButtonDisabled: true,
