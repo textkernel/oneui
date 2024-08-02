@@ -149,14 +149,14 @@ describe('PriorityBadge', () => {
     describe('Close button', () => {
         it('should not render close button if onClose is not provided', () => {
             const { queryByLabelText } = renderPriorityBadge({ onClose: undefined });
-            expect(queryByLabelText('closeButton')).not.toBeInTheDocument();
+            expect(queryByLabelText('close button')).not.toBeInTheDocument();
         });
 
         it('should handle close button functionality', async () => {
             const { getByLabelText } = renderPriorityBadge();
 
             const user = userEvent.setup();
-            const closeButton = getByLabelText('closeButton');
+            const closeButton = getByLabelText('close button');
             await user.click(closeButton);
 
             expect(mockOnClose).toHaveBeenCalled();
@@ -167,7 +167,7 @@ describe('PriorityBadge', () => {
                 isCloseButtonDisabled: true,
             });
 
-            expect(getByLabelText('closeButton')).toBeDisabled();
+            expect(getByLabelText('close button')).toBeDisabled();
         });
     });
 

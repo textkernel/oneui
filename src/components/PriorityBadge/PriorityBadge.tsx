@@ -11,6 +11,13 @@ import { ListItem } from '../List';
 import { Text } from '../Text';
 import styles from './PriorityBadge.scss';
 
+const iconMap = {
+    mandatory: MdKeyboardDoubleArrowUp,
+    important: MdKeyboardArrowUp,
+    optional: MdKeyboardArrowDown,
+    exclude: MdClose,
+};
+
 export type Priority = 'mandatory' | 'important' | 'optional' | 'exclude';
 
 export interface Option {
@@ -46,7 +53,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCha
      * Array of options available for selection.
      * Each option is an object with a value and a label.
      */
-    optionList: Array<Option>;
+    optionList?: Array<Option>;
     /**
      * Optional header title for the options list when displayed, such as in a dropdown.
      */
@@ -108,32 +115,22 @@ export const PriorityBadge: React.FC<Props> = ({
 
     const hasPriorityLabels = priorityLabels && Object.keys(priorityLabels).length > 0;
 
-    const iconMap = React.useMemo(
-        () => ({
-            mandatory: MdKeyboardDoubleArrowUp,
-            important: MdKeyboardArrowUp,
-            optional: MdKeyboardArrowDown,
-            exclude: MdClose,
-        }),
-        []
-    );
-
-    function renderPriorityIcon(priorityType: Priority, disabled: boolean = false) {
+    const renderPriorityIcon = (priorityType: Priority, disabled: boolean = false) => {
         const IconComponent = iconMap[priorityType];
 
         return IconComponent ? (
             <IconComponent {...elem('icon', { [priorityType]: true })} disabled={disabled} />
         ) : null;
-    }
+    };
 
-    function handleOnClose(e: React.KeyboardEvent | React.MouseEvent) {
+    const handleOnClose = (e: React.KeyboardEvent | React.MouseEvent) => {
         e.stopPropagation();
         if (onClose) {
             onClose(e);
         }
-    }
+    };
 
-    function toggleDropdown(type: 'priority' | 'option', isOpen: boolean) {
+    const toggleDropdown = (type: 'priority' | 'option', isOpen: boolean) => {
         /**
          * Updates the dropdown state only if 'isOpen' is explicitly defined,
          *  unintended state changes happen by mouse events cause 'isOpen' to become undefined
@@ -141,7 +138,7 @@ export const PriorityBadge: React.FC<Props> = ({
         if (isOpen !== undefined) {
             setDropdownStates((prev) => ({ ...prev, [type]: isOpen }));
         }
-    }
+    };
 
     return (
         <div {...rest} {...block({ ...rest })} ref={badgeRef}>
@@ -177,65 +174,80 @@ export const PriorityBadge: React.FC<Props> = ({
                 </Dropdown>
             )}
 
-            <Dropdown<Option>
-                button={
-                    <button
-                        {...elem('optionButton', {
-                            isSelected: dropdownStates.option,
-                        })}
-                        aria-label={`${option?.label} option button`}
-                        disabled={isOptionButtonDisabled}
-                    >
-                        <Text
-                            inline
-                            size="small"
-                            {...elem('optionButton--valueText')}
-                            {...(typeof children === 'string' && { title: children })}
+            {optionList ? (
+                <Dropdown<Option>
+                    button={
+                        <button
+                            {...elem('optionButton', {
+                                isSelected: dropdownStates.option,
+                            })}
+                            aria-label={`${option?.label} option button`}
+                            disabled={isOptionButtonDisabled}
                         >
-                            {children}
-                        </Text>
-                        {option && (
                             <Text
-                                {...elem('optionButton--optionText')}
                                 inline
-                                title={option?.label}
                                 size="small"
+                                {...elem('valueText')}
+                                {...(typeof children === 'string' && { title: children })}
                             >
-                                {option.label}
+                                {children}
                             </Text>
-                        )}
-                    </button>
-                }
-                additionalSelectProps={{
-                    onStateChange: (state) => toggleDropdown('option', state.isOpen),
-                }}
-                onChange={(newOption) => onChange(newOption)}
-                placement="bottom"
-                refElement={badgeRef}
-            >
-                <div {...elem('listHeadline')}>
-                    <Text inline size="small" title={optionListHeader}>
-                        {optionListHeader?.toUpperCase()}
+                            {option && (
+                                <Text
+                                    {...elem('optionText')}
+                                    inline
+                                    title={option?.label}
+                                    size="small"
+                                >
+                                    {option.label}
+                                </Text>
+                            )}
+                        </button>
+                    }
+                    additionalSelectProps={{
+                        onStateChange: (state) => toggleDropdown('option', state.isOpen),
+                    }}
+                    onChange={(newOption) => onChange(newOption)}
+                    placement="bottom"
+                    refElement={badgeRef}
+                >
+                    {optionListHeader ? (
+                        <div {...elem('listHeadline')}>
+                            <Text inline size="small" title={optionListHeader}>
+                                {optionListHeader?.toUpperCase()}
+                            </Text>
+                        </div>
+                    ) : null}
+                    {optionList?.map((opt) => (
+                        <ListItem key={opt.value} value={opt}>
+                            <Text inline size="small">
+                                {opt.label}
+                            </Text>
+                        </ListItem>
+                    ))}
+                </Dropdown>
+            ) : (
+                <div {...elem('valueContainer')}>
+                    <Text
+                        inline
+                        size="small"
+                        {...elem('valueText')}
+                        {...(typeof children === 'string' && { title: children })}
+                    >
+                        {children}
                     </Text>
                 </div>
-                {optionList?.map((opt) => (
-                    <ListItem key={opt.value} value={opt}>
-                        <Text inline size="small">
-                            {opt.label}
-                        </Text>
-                    </ListItem>
-                ))}
-            </Dropdown>
+            )}
 
             {onClose && (
                 <button
                     {...elem('closeButton')}
-                    aria-label="closeButton"
+                    aria-label="close button"
                     disabled={isCloseButtonDisabled}
                     onClick={handleOnClose}
                     type="button"
                 >
-                    <MdClose size="20px" aria-label="closeButtonIcon" />
+                    <MdClose size="20px" />
                 </button>
             )}
         </div>

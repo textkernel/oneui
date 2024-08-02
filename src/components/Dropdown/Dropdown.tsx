@@ -56,7 +56,12 @@ export interface Props<V> extends Omit<React.HTMLAttributes<HTMLButtonElement>, 
     listClassName?: string;
     /** Popup placement relative to button */
     placement?: PopupPlacement;
-    /** Reference element for the drodown which is not a button */
+    /**
+     * Reference element for the dropdown.
+     * By default, the dropdown uses a button as its reference element for positioning. However, if alignment
+     * with a different element is needed, a refElement can be provided. When it is provided, the dropdown's width will be
+     * aligned with the refElement.
+     */
     refElement?: React.RefObject<HTMLElement | null>;
 }
 

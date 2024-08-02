@@ -50,36 +50,36 @@
 
 $icon-status-colors: (
     mandatory: (
-        normal: var(--color-success-60),
-        disabled: var(--color-success-30),
+        normal: var(--color-icon-success-default),
+        disabled: var(--color-icon-success-disabled),
     ),
     important: (
-        normal: var(--color-cautious-60),
-        disabled: var(--color-cautious-30),
+        normal: var(--color-icon-caution-default),
+        disabled: var(--color-icon-caution-disabled),
     ),
     optional: (
-        normal: var(--color-neutral-60),
-        disabled: var(--color-neutral-30),
+        normal: var(--color-icon-information-default),
+        disabled: var(--color-icon-success-disabled),
     ),
     exclude: (
-        normal: var(--color-critical-60),
-        disabled: var(--color-critical-30),
+        normal: var(--color-icon-critical-default),
+        disabled: var(--color-icon-critical-disabled),
     ),
 );
 
 .PriorityBadge {
-    align-items: center;
-    border-radius: var(--space-100);
-    border: 1px solid var(--color-neutral-30);
-    cursor: pointer;
-    display: flex;
     height: var(--space-400);
+    border: 1px solid var(--color-neutral-30);
+    border-radius: var(--space-100);
+    display: flex;
+    align-items: center;
     overflow: hidden;
+    cursor: pointer;
 
     &__priorityButton {
+        padding: 0;
         border: 0;
         border-right: 1px solid #b3b3b3;
-        padding: 0;
 
         @include common-button-style();
     }
@@ -99,25 +99,11 @@ $icon-status-colors: (
     }
 
     &__optionButton {
+        width: 100%;
+        padding: 0 var(--space-100);
         border: 0;
-        box-sizing: border-box;
         flex-grow: 1;
         gap: var(--space-50);
-        padding: 0 var(--space-100);
-        width: 100%;
-
-        &--valueText {
-            max-width: 136px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        &--optionText {
-            color: var(--color-info-60);
-            flex-shrink: 0;
-            width: fit-content;
-        }
 
         &[disabled] {
             .PriorityBadge__optionButton--optionText {
@@ -133,24 +119,47 @@ $icon-status-colors: (
         @include selected-state();
     }
 
+    &__valueContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    &__valueText {
+        max-width: 136px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__optionText {
+        min-width: var(--space-600);
+        color: var(--color-info-60);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 0 0;
+    }
+
     .Dropdown {
         &__list {
+            width: 100%;
             border-radius: var(--space-100);
             overflow: hidden;
-            width: 100%;
 
             .ListItem {
-                align-items: center;
                 display: flex;
-                gap: var(--space-100);
+                align-items: center;
                 justify-content: flex-start;
+                gap: var(--space-100);
             }
         }
     }
 
     &__listHeadline {
-        background-color: var(--color-brand-5);
         padding: 12px 12px 4px;
+        background-color: var(--color-brand-5);
         font-weight: var(--font-weight-bold);
         color: var(--color-brand-60);
     }

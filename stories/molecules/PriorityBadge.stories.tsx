@@ -111,6 +111,51 @@ export const PriorityBadgeWithoutPriorityButton: Story = {
     },
 };
 
+export const PriorityBadgeWithoutOptions: Story = {
+    name: 'PriorityBadge - No Options',
+    args: {
+        ...commonArgs,
+        onChange: undefined,
+        option: undefined,
+        optionList: undefined,
+        priority: 'mandatory',
+        priorityLabels: {
+            mandatory: 'Mandatory',
+            important: 'Important',
+            optional: 'Optional',
+            exclude: 'Exclude',
+        },
+    },
+    render: (args) => {
+        const [priority, setPriority] = React.useState<Priority>(args.priority);
+
+        React.useEffect(() => {
+            setPriority(args.priority);
+        }, [args.priority]);
+
+        const handlePriorityChange = React.useCallback((newPriority: Priority) => {
+            setPriority(newPriority);
+        }, []);
+
+        const handleClose = () => {
+            console.log('PriorityBadge closed');
+        };
+
+        return (
+            <div style={{ width: '200px' }}>
+                <PriorityBadge
+                    {...args}
+                    priority={priority}
+                    onPriorityChange={handlePriorityChange}
+                    onClose={handleClose}
+                >
+                    {args.children}
+                </PriorityBadge>
+            </div>
+        );
+    },
+};
+
 export const PriorityBadgeWithoutCloseButton: Story = {
     name: 'PriorityBadge - No Close Functionality',
     args: {

@@ -59,13 +59,13 @@ exports[`PriorityBadge Option button should handle option change correctly 1`] =
       tabindex="0"
     >
       <span
-        class="Text--size_small PriorityBadge__optionButton--valueText"
+        class="Text--size_small PriorityBadge__valueText"
         title="Test Child"
       >
         Test Child
       </span>
       <span
-        class="Text--size_small PriorityBadge__optionButton--optionText"
+        class="Text--size_small PriorityBadge__optionText"
         title="Option 1"
       >
         Option 1
@@ -81,9 +81,6 @@ exports[`PriorityBadge Option button should handle option change correctly 1`] =
       role="listbox"
       style="position: absolute; left: 0px; top: 0px; width: 0px; transform: translate(0px, 3px);"
     >
-      <div
-        class="List__item PriorityBadge__listHeadline"
-      />
       <li
         aria-disabled="false"
         aria-selected="false"
@@ -112,12 +109,11 @@ exports[`PriorityBadge Option button should handle option change correctly 1`] =
       </li>
     </ul>
     <button
-      aria-label="closeButton"
+      aria-label="close button"
       class="PriorityBadge__closeButton"
       type="button"
     >
       <svg
-        aria-label="closeButtonIcon"
         fill="currentColor"
         height="20px"
         stroke="currentColor"
@@ -198,13 +194,13 @@ exports[`PriorityBadge Priority button renders correctly with all props provided
       tabindex="0"
     >
       <span
-        class="Text--size_small PriorityBadge__optionButton--valueText"
+        class="Text--size_small PriorityBadge__valueText"
         title="Test Child"
       >
         Test Child
       </span>
       <span
-        class="Text--size_small PriorityBadge__optionButton--optionText"
+        class="Text--size_small PriorityBadge__optionText"
         title="Option 1"
       >
         Option 1
@@ -217,12 +213,11 @@ exports[`PriorityBadge Priority button renders correctly with all props provided
       role="listbox"
     />
     <button
-      aria-label="closeButton"
+      aria-label="close button"
       class="PriorityBadge__closeButton"
       type="button"
     >
       <svg
-        aria-label="closeButtonIcon"
         fill="currentColor"
         height="20px"
         stroke="currentColor"
@@ -435,13 +430,13 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
       tabindex="0"
     >
       <span
-        class="Text--size_small PriorityBadge__optionButton--valueText"
+        class="Text--size_small PriorityBadge__valueText"
         title="Test Child"
       >
         Test Child
       </span>
       <span
-        class="Text--size_small PriorityBadge__optionButton--optionText"
+        class="Text--size_small PriorityBadge__optionText"
         title="Option 1"
       >
         Option 1
@@ -454,12 +449,11 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
       role="listbox"
     />
     <button
-      aria-label="closeButton"
+      aria-label="close button"
       class="PriorityBadge__closeButton"
       type="button"
     >
       <svg
-        aria-label="closeButtonIcon"
         fill="currentColor"
         height="20px"
         stroke="currentColor"
