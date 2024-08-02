@@ -9,7 +9,7 @@ import { bem } from '../../utils';
 import { Dropdown } from '../Dropdown';
 import { ListItem } from '../List';
 import { Text } from '../Text';
-import styles from './PriorityBadge.scss';
+import styles from './SelectBadge.scss';
 
 const iconMap = {
     mandatory: MdKeyboardDoubleArrowUp,
@@ -89,9 +89,9 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCha
     isOptionButtonDisabled?: boolean;
 }
 
-const { block, elem } = bem('PriorityBadge', styles);
+const { block, elem } = bem('SelectBadge', styles);
 
-export const PriorityBadge: React.FC<Props> = ({
+export const SelectBadge: React.FC<Props> = ({
     children,
     isCloseButtonDisabled = false,
     isOptionButtonDisabled = false,
@@ -254,4 +254,4 @@ export const PriorityBadge: React.FC<Props> = ({
     );
 };
 
-PriorityBadge.displayName = 'PriorityBadge';
+SelectBadge.displayName = 'SelectBadge';

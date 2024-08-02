@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
-import { Priority, PriorityBadge } from '../PriorityBadge';
+import { Priority, SelectBadge } from '../SelectBadge';
 
 const mockOnChange = jest.fn();
 const mockOnPriorityChange = jest.fn();
@@ -27,12 +27,12 @@ const defaultProps = {
     onClose: mockOnClose,
 };
 
-const renderPriorityBadge = (props = {}) => render(<PriorityBadge {...defaultProps} {...props} />);
+const renderSelectBadge = (props = {}) => render(<SelectBadge {...defaultProps} {...props} />);
 
-describe('PriorityBadge', () => {
+describe('SelectBadge', () => {
     describe('Priority button', () => {
         it('renders correctly with all props provided', () => {
-            const view = renderPriorityBadge();
+            const view = renderSelectBadge();
             expect(view.container).toMatchSnapshot();
         });
 
@@ -41,7 +41,7 @@ describe('PriorityBadge', () => {
                 mandatory: 'Mandatory',
                 important: 'Important',
             };
-            const { getByLabelText, getByText, queryByText } = renderPriorityBadge({
+            const { getByLabelText, getByText, queryByText } = renderSelectBadge({
                 priorityLabels,
             });
 
@@ -56,13 +56,13 @@ describe('PriorityBadge', () => {
         });
 
         it('renders no priority buttons when priorityLabels is empty', () => {
-            const { queryByLabelText } = renderPriorityBadge({ priorityLabels: {} });
+            const { queryByLabelText } = renderSelectBadge({ priorityLabels: {} });
 
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
         });
 
         it('should handle priority change correctly', async () => {
-            const view = renderPriorityBadge();
+            const view = renderSelectBadge();
 
             const user = userEvent.setup();
             const priorityButton = screen.getByLabelText('mandatory priority button');
@@ -77,7 +77,7 @@ describe('PriorityBadge', () => {
         });
 
         it('does not render the priority button when priorityLabels are not provided', () => {
-            const { queryByLabelText } = renderPriorityBadge({
+            const { queryByLabelText } = renderSelectBadge({
                 priorityLabels: undefined,
                 onPriorityChange: jest.fn(),
             });
@@ -86,7 +86,7 @@ describe('PriorityBadge', () => {
         });
 
         it('does not render the priority button when onPriorityChange is not provided', () => {
-            const { queryByText } = renderPriorityBadge({
+            const { queryByText } = renderSelectBadge({
                 priorityLabels: { mandatory: 'Mandatory' },
                 onPriorityChange: undefined,
             });
@@ -95,7 +95,7 @@ describe('PriorityBadge', () => {
         });
 
         it('does not render the priority button when neither priorityLabels nor onPriorityChange are provided', () => {
-            const { queryByText } = renderPriorityBadge({
+            const { queryByText } = renderSelectBadge({
                 priorityLabels: undefined,
                 onPriorityChange: undefined,
             });
@@ -104,7 +104,7 @@ describe('PriorityBadge', () => {
         });
 
         it('renders priority button as disabled when provided from props', () => {
-            renderPriorityBadge({
+            renderSelectBadge({
                 isPriorityButtonDisabled: true,
             });
             const priorityButton = screen.getByLabelText('mandatory priority button');
@@ -113,7 +113,7 @@ describe('PriorityBadge', () => {
     });
     describe('Option button', () => {
         it('renders option list headline when provided', async () => {
-            const { getByText } = renderPriorityBadge({ optionListHeader: 'Select an Option' });
+            const { getByText } = renderSelectBadge({ optionListHeader: 'Select an Option' });
 
             const user = userEvent.setup();
             const optionButton = screen.getByText('Option 1');
@@ -123,7 +123,7 @@ describe('PriorityBadge', () => {
         });
 
         it('should handle option change correctly', async () => {
-            const view = renderPriorityBadge();
+            const view = renderSelectBadge();
 
             const user = userEvent.setup();
             const optionButton = screen.getByText('Option 1');
@@ -138,7 +138,7 @@ describe('PriorityBadge', () => {
         });
 
         it('does not render option button but displays plain text with passed children if optionList is not provided.', () => {
-            const { getByText, queryByText } = renderPriorityBadge({
+            const { getByText, queryByText } = renderSelectBadge({
                 optionList: undefined,
             });
 
@@ -147,7 +147,7 @@ describe('PriorityBadge', () => {
         });
 
         it('renders option button as disabled when provided from props', () => {
-            renderPriorityBadge({
+            renderSelectBadge({
                 isOptionButtonDisabled: true,
             });
             const optionButton = screen.getByLabelText('Option 1 option button');
@@ -157,12 +157,12 @@ describe('PriorityBadge', () => {
 
     describe('Close button', () => {
         it('should not render close button if onClose is not provided', () => {
-            const { queryByLabelText } = renderPriorityBadge({ onClose: undefined });
+            const { queryByLabelText } = renderSelectBadge({ onClose: undefined });
             expect(queryByLabelText('close button')).not.toBeInTheDocument();
         });
 
         it('should handle close button functionality', async () => {
-            const { getByLabelText } = renderPriorityBadge();
+            const { getByLabelText } = renderSelectBadge();
 
             const user = userEvent.setup();
             const closeButton = getByLabelText('close button');
@@ -172,7 +172,7 @@ describe('PriorityBadge', () => {
         });
 
         it('renders close button as disabled when provided from props', () => {
-            const { getByLabelText } = renderPriorityBadge({
+            const { getByLabelText } = renderSelectBadge({
                 isCloseButtonDisabled: true,
             });
 
@@ -181,7 +181,7 @@ describe('PriorityBadge', () => {
     });
 
     it('maintains state correctly after multiple interactions', async () => {
-        const { getByText } = renderPriorityBadge();
+        const { getByText } = renderSelectBadge();
 
         const user = userEvent.setup();
         const priorityButton = screen.getByLabelText('mandatory priority button');

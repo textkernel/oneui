@@ -1,15 +1,15 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Option, Priority, PriorityBadge } from '@textkernel/oneui';
+import { Option, Priority, SelectBadge } from '@textkernel/oneui';
 
-const meta: Meta<typeof PriorityBadge> = {
-    title: 'Molecules/PriorityBadge',
-    component: PriorityBadge,
+const meta: Meta<typeof SelectBadge> = {
+    title: 'Molecules/SelectBadge',
+    component: SelectBadge,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof PriorityBadge>;
+type Story = StoryObj<typeof SelectBadge>;
 
 const commonArgs = {
     children: 'London',
@@ -22,8 +22,8 @@ const commonArgs = {
     optionListHeader: 'Radius',
 };
 
-export const _PriorityBadge: Story = {
-    name: 'PriorityBadge',
+export const _SelectBadge: Story = {
+    name: 'SelectBadge',
     args: {
         ...commonArgs,
         priority: 'mandatory',
@@ -55,12 +55,12 @@ export const _PriorityBadge: Story = {
         };
 
         const handleClose = () => {
-            console.log('PriorityBadge closed');
+            console.log('SelectBadge closed');
         };
 
         return (
             <div style={{ width: '200px' }}>
-                <PriorityBadge
+                <SelectBadge
                     {...args}
                     priority={priority}
                     option={selectedOption}
@@ -69,14 +69,14 @@ export const _PriorityBadge: Story = {
                     onClose={handleClose}
                 >
                     {args.children}
-                </PriorityBadge>
+                </SelectBadge>
             </div>
         );
     },
 };
 
-export const PriorityBadgeWithoutPriorityButton: Story = {
-    name: 'PriorityBadge - No Priority Control',
+export const SelectBadgeWithoutPriorityButton: Story = {
+    name: 'SelectBadge - No Priority Control',
     args: {
         ...commonArgs,
         onPriorityChange: undefined,
@@ -93,26 +93,26 @@ export const PriorityBadgeWithoutPriorityButton: Story = {
         }, []);
 
         const handleClose = () => {
-            console.log('PriorityBadge closed');
+            console.log('SelectBadge closed');
         };
 
         return (
             <div style={{ width: '200px' }}>
-                <PriorityBadge
+                <SelectBadge
                     {...args}
                     option={selectedOption}
                     onChange={handleOptionChange}
                     onClose={handleClose}
                 >
                     {args.children}
-                </PriorityBadge>
+                </SelectBadge>
             </div>
         );
     },
 };
 
-export const PriorityBadgeWithoutOptions: Story = {
-    name: 'PriorityBadge - No Options',
+export const SelectBadgeWithoutOptions: Story = {
+    name: 'SelectBadge - No Options',
     args: {
         ...commonArgs,
         onChange: undefined,
@@ -138,26 +138,26 @@ export const PriorityBadgeWithoutOptions: Story = {
         }, []);
 
         const handleClose = () => {
-            console.log('PriorityBadge closed');
+            console.log('SelectBadge closed');
         };
 
         return (
             <div style={{ width: '200px' }}>
-                <PriorityBadge
+                <SelectBadge
                     {...args}
                     priority={priority}
                     onPriorityChange={handlePriorityChange}
                     onClose={handleClose}
                 >
                     {args.children}
-                </PriorityBadge>
+                </SelectBadge>
             </div>
         );
     },
 };
 
-export const PriorityBadgeWithoutCloseButton: Story = {
-    name: 'PriorityBadge - No Close Functionality',
+export const SelectBadgeWithoutCloseButton: Story = {
+    name: 'SelectBadge - No Close Functionality',
     args: {
         ...commonArgs,
         priority: 'mandatory',
@@ -191,7 +191,7 @@ export const PriorityBadgeWithoutCloseButton: Story = {
 
         return (
             <div style={{ width: '200px' }}>
-                <PriorityBadge
+                <SelectBadge
                     {...args}
                     priority={priority}
                     option={selectedOption}
@@ -199,7 +199,7 @@ export const PriorityBadgeWithoutCloseButton: Story = {
                     onChange={handleOptionChange}
                 >
                     {args.children}
-                </PriorityBadge>
+                </SelectBadge>
             </div>
         );
     },

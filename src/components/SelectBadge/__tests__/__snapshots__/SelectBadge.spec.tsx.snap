@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PriorityBadge Option button should handle option change correctly 1`] = `
+exports[`SelectBadge Option button should handle option change correctly 1`] = `
 <div>
   <div
-    class="PriorityBadge"
+    class="SelectBadge"
   >
     <button
       aria-activedescendant=""
@@ -12,14 +12,14 @@ exports[`PriorityBadge Option button should handle option change correctly 1`] =
       aria-haspopup="listbox"
       aria-label="mandatory priority button"
       aria-labelledby="downshift-:re:-label"
-      class="PriorityBadge__priorityButton"
+      class="SelectBadge__priorityButton"
       id="downshift-:re:-toggle-button"
       role="combobox"
       tabindex="0"
       type="button"
     >
       <svg
-        class="PriorityBadge__icon PriorityBadge__icon--mandatory"
+        class="SelectBadge__icon SelectBadge__icon--mandatory"
         fill="currentColor"
         height="1em"
         stroke="currentColor"
@@ -53,19 +53,19 @@ exports[`PriorityBadge Option button should handle option change correctly 1`] =
       aria-haspopup="listbox"
       aria-label="Option 1 option button"
       aria-labelledby="downshift-:rf:-label"
-      class="PriorityBadge__optionButton PriorityBadge__optionButton--isSelected"
+      class="SelectBadge__optionButton SelectBadge__optionButton--isSelected"
       id="downshift-:rf:-toggle-button"
       role="combobox"
       tabindex="0"
     >
       <span
-        class="Text--size_small PriorityBadge__valueText"
+        class="Text--size_small SelectBadge__valueText"
         title="Test Child"
       >
         Test Child
       </span>
       <span
-        class="Text--size_small PriorityBadge__optionText"
+        class="Text--size_small SelectBadge__optionText"
         title="Option 1"
       >
         Option 1
@@ -110,7 +110,7 @@ exports[`PriorityBadge Option button should handle option change correctly 1`] =
     </ul>
     <button
       aria-label="close button"
-      class="PriorityBadge__closeButton"
+      class="SelectBadge__closeButton"
       type="button"
     >
       <svg
@@ -135,10 +135,10 @@ exports[`PriorityBadge Option button should handle option change correctly 1`] =
 </div>
 `;
 
-exports[`PriorityBadge Priority button renders correctly with all props provided 1`] = `
+exports[`SelectBadge Priority button renders correctly with all props provided 1`] = `
 <div>
   <div
-    class="PriorityBadge"
+    class="SelectBadge"
   >
     <button
       aria-activedescendant=""
@@ -147,14 +147,14 @@ exports[`PriorityBadge Priority button renders correctly with all props provided
       aria-haspopup="listbox"
       aria-label="mandatory priority button"
       aria-labelledby="downshift-:r0:-label"
-      class="PriorityBadge__priorityButton"
+      class="SelectBadge__priorityButton"
       id="downshift-:r0:-toggle-button"
       role="combobox"
       tabindex="0"
       type="button"
     >
       <svg
-        class="PriorityBadge__icon PriorityBadge__icon--mandatory"
+        class="SelectBadge__icon SelectBadge__icon--mandatory"
         fill="currentColor"
         height="1em"
         stroke="currentColor"
@@ -188,19 +188,19 @@ exports[`PriorityBadge Priority button renders correctly with all props provided
       aria-haspopup="listbox"
       aria-label="Option 1 option button"
       aria-labelledby="downshift-:r1:-label"
-      class="PriorityBadge__optionButton"
+      class="SelectBadge__optionButton"
       id="downshift-:r1:-toggle-button"
       role="combobox"
       tabindex="0"
     >
       <span
-        class="Text--size_small PriorityBadge__valueText"
+        class="Text--size_small SelectBadge__valueText"
         title="Test Child"
       >
         Test Child
       </span>
       <span
-        class="Text--size_small PriorityBadge__optionText"
+        class="Text--size_small SelectBadge__optionText"
         title="Option 1"
       >
         Option 1
@@ -214,7 +214,7 @@ exports[`PriorityBadge Priority button renders correctly with all props provided
     />
     <button
       aria-label="close button"
-      class="PriorityBadge__closeButton"
+      class="SelectBadge__closeButton"
       type="button"
     >
       <svg
@@ -239,10 +239,10 @@ exports[`PriorityBadge Priority button renders correctly with all props provided
 </div>
 `;
 
-exports[`PriorityBadge Priority button should handle priority change correctly 1`] = `
+exports[`SelectBadge Priority button should handle priority change correctly 1`] = `
 <div>
   <div
-    class="PriorityBadge"
+    class="SelectBadge"
   >
     <button
       aria-activedescendant=""
@@ -251,14 +251,14 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
       aria-haspopup="listbox"
       aria-label="mandatory priority button"
       aria-labelledby="downshift-:r5:-label"
-      class="PriorityBadge__priorityButton PriorityBadge__priorityButton--isSelected"
+      class="SelectBadge__priorityButton SelectBadge__priorityButton--isSelected"
       id="downshift-:r5:-toggle-button"
       role="combobox"
       tabindex="0"
       type="button"
     >
       <svg
-        class="PriorityBadge__icon PriorityBadge__icon--mandatory"
+        class="SelectBadge__icon SelectBadge__icon--mandatory"
         fill="currentColor"
         height="1em"
         stroke="currentColor"
@@ -297,7 +297,7 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
         role="option"
       >
         <svg
-          class="PriorityBadge__icon PriorityBadge__icon--mandatory"
+          class="SelectBadge__icon SelectBadge__icon--mandatory"
           fill="currentColor"
           height="1em"
           stroke="currentColor"
@@ -331,7 +331,7 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
         role="option"
       >
         <svg
-          class="PriorityBadge__icon PriorityBadge__icon--important"
+          class="SelectBadge__icon SelectBadge__icon--important"
           fill="currentColor"
           height="1em"
           stroke="currentColor"
@@ -362,7 +362,7 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
         role="option"
       >
         <svg
-          class="PriorityBadge__icon PriorityBadge__icon--optional"
+          class="SelectBadge__icon SelectBadge__icon--optional"
           fill="currentColor"
           height="1em"
           stroke="currentColor"
@@ -393,7 +393,7 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
         role="option"
       >
         <svg
-          class="PriorityBadge__icon PriorityBadge__icon--exclude"
+          class="SelectBadge__icon SelectBadge__icon--exclude"
           fill="currentColor"
           height="1em"
           stroke="currentColor"
@@ -424,19 +424,19 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
       aria-haspopup="listbox"
       aria-label="Option 1 option button"
       aria-labelledby="downshift-:r6:-label"
-      class="PriorityBadge__optionButton"
+      class="SelectBadge__optionButton"
       id="downshift-:r6:-toggle-button"
       role="combobox"
       tabindex="0"
     >
       <span
-        class="Text--size_small PriorityBadge__valueText"
+        class="Text--size_small SelectBadge__valueText"
         title="Test Child"
       >
         Test Child
       </span>
       <span
-        class="Text--size_small PriorityBadge__optionText"
+        class="Text--size_small SelectBadge__optionText"
         title="Option 1"
       >
         Option 1
@@ -450,7 +450,7 @@ exports[`PriorityBadge Priority button should handle priority change correctly 1
     />
     <button
       aria-label="close button"
-      class="PriorityBadge__closeButton"
+      class="SelectBadge__closeButton"
       type="button"
     >
       <svg
