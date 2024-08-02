@@ -137,10 +137,9 @@ describe('PriorityBadge', () => {
             expect(mockOnChange).toHaveBeenCalledWith({ value: 'opt2', label: 'Option 2' });
         });
 
-        it('does not render option button but displays plain text with passed children if onChanged is not provided.', () => {
+        it('does not render option button but displays plain text with passed children if optionList is not provided.', () => {
             const { getByText, queryByText } = renderPriorityBadge({
-                option: undefined,
-                onChange: undefined,
+                optionList: undefined,
             });
 
             expect(queryByText('option button')).not.toBeInTheDocument();
