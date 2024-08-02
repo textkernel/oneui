@@ -101,9 +101,10 @@ $icon-status-colors: (
         width: 100%;
         padding: 0 var(--space-100);
         border: 0;
+        justify-content: space-around;
         flex-grow: 1;
         gap: var(--space-50);
-        justify-content: space-around;
+
         &[disabled] {
             .SelectBadge__optionButton--optionText {
                 color: var(--color-info-30);
