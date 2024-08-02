@@ -87,6 +87,12 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCha
      * Useful for controlling access to option changes dynamically.
      */
     isOptionButtonDisabled?: boolean;
+    /** Priority button label name for ARIA labelling */
+    priorityButtonLabel?: string;
+    /** Option button label name for ARIA labelling */
+    optionButtonLabel?: string;
+    /** Close button label name for ARIA labelling */
+    closeButtonLabel?: string;
 }
 
 const { block, elem } = bem('SelectBadge', styles);
@@ -104,6 +110,9 @@ export const SelectBadge: React.FC<Props> = ({
     optionListHeader,
     priority = 'mandatory',
     priorityLabels,
+    priorityButtonLabel = 'priority button',
+    optionButtonLabel = 'option button',
+    closeButtonLabel = 'close button',
     ...rest
 }) => {
     const [dropdownStates, setDropdownStates] = React.useState({
@@ -146,7 +155,7 @@ export const SelectBadge: React.FC<Props> = ({
                 <Dropdown<Priority>
                     button={
                         <button
-                            aria-label={`${priority} priority button`}
+                            aria-label={`${priority} ${priorityButtonLabel}`}
                             disabled={isPriorityButtonDisabled}
                             type="button"
                             {...elem('priorityButton', {
@@ -181,7 +190,7 @@ export const SelectBadge: React.FC<Props> = ({
                             {...elem('optionButton', {
                                 isSelected: dropdownStates.option,
                             })}
-                            aria-label={`${option?.label} option button`}
+                            aria-label={`${option?.label} ${optionButtonLabel}`}
                             disabled={isOptionButtonDisabled}
                         >
                             <Text
@@ -242,7 +251,7 @@ export const SelectBadge: React.FC<Props> = ({
             {onClose && (
                 <button
                     {...elem('closeButton')}
-                    aria-label="close button"
+                    aria-label={closeButtonLabel}
                     disabled={isCloseButtonDisabled}
                     onClick={handleOnClose}
                     type="button"
