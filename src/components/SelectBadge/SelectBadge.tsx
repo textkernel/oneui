@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {
-    MdClose,
-    MdKeyboardArrowDown,
-    MdKeyboardArrowUp,
-    MdKeyboardDoubleArrowUp,
-} from 'react-icons/md';
+import Close from '@material-design-icons/svg/round/close.svg';
+import KeyboardDoubleArrowUp from '@material-design-icons/svg/round/keyboard_double_arrow_up.svg';
+import KeyboardArrowUp from '@material-design-icons/svg/round/keyboard_arrow_up.svg';
+import KeyboardArrowDown from '@material-design-icons/svg/round/keyboard_arrow_down.svg';
 import { bem } from '../../utils';
 import { Dropdown } from '../Dropdown';
 import { ListItem } from '../List';
@@ -12,10 +10,10 @@ import { Text } from '../Text';
 import styles from './SelectBadge.scss';
 
 const iconMap = {
-    mandatory: MdKeyboardDoubleArrowUp,
-    important: MdKeyboardArrowUp,
-    optional: MdKeyboardArrowDown,
-    exclude: MdClose,
+    mandatory: KeyboardDoubleArrowUp,
+    important: KeyboardArrowUp,
+    optional: KeyboardArrowDown,
+    exclude: Close,
 };
 
 export type Priority = 'mandatory' | 'important' | 'optional' | 'exclude';
@@ -115,7 +113,11 @@ export const SelectBadge: React.FC<Props> = ({
         const IconComponent = iconMap[priorityType];
 
         return IconComponent ? (
-            <IconComponent {...elem('icon', { [priorityType]: true })} disabled={disabled} />
+            <IconComponent
+                {...elem('icon', { [priorityType]: true })}
+                disabled={disabled}
+                viewBox="0 0 24 24"
+            />
         ) : null;
     };
 
@@ -243,7 +245,13 @@ export const SelectBadge: React.FC<Props> = ({
                     onClick={handleOnDelete}
                     type="button"
                 >
-                    <MdClose size="20px" />
+                    <Close
+                        viewBox="0 0 24 24"
+                        style={{
+                            width: '20px',
+                            height: '20px',
+                        }}
+                    />
                 </button>
             )}
         </div>

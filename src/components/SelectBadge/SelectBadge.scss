@@ -58,8 +58,8 @@ $icon-status-colors: (
         disabled: var(--color-icon-caution-disabled),
     ),
     optional: (
-        normal: var(--color-icon-information-default),
-        disabled: var(--color-icon-success-disabled),
+        normal: var(--color-icon-subtle),
+        disabled: var(--color-icon-disabled),
     ),
     exclude: (
         normal: var(--color-icon-critical-default),
@@ -84,14 +84,15 @@ $icon-status-colors: (
     }
 
     &__icon {
-        font-size: 20px;
+        height: 20px;
+        width: 20px;
 
         @each $status, $colors in $icon-status-colors {
             &--#{$status} {
-                color: map.get($colors, normal);
+                fill: map.get($colors, normal);
 
                 &[disabled] {
-                    color: map.get($colors, disabled);
+                    fill: map.get($colors, disabled);
                 }
             }
         }
@@ -174,8 +175,8 @@ $icon-status-colors: (
         padding: 0;
 
         &[disabled] {
-            .svg {
-                color: var(--color-background-information-subtlest-disabled);
+            & svg {
+                fill: var(--color-icon-disabled);
             }
         }
 
