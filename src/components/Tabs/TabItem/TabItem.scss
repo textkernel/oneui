@@ -4,50 +4,54 @@
     padding: var(--space-100) var(--space-150);
     text-decoration: none;
     text-align: center;
-    border-bottom: 1px solid var(--color-border-subtle);
+    border-bottom: var(--line-normal) solid var(--color-border-subtle);
     font-weight: var(--font-weight-bold);
     outline: none;
 
     &:hover {
-        border-bottom: 2px solid var(--color-border-subtle);
+        border-bottom: var(--border-width-thick) solid var(--color-border-subtle);
         color: var(--color-text-bold);
     }
 
     &:focus {
-        border: 2px solid var(--color-border-brand-subtle-brand);
         color: var(--color-text-subtle);
+        border: var(--border-width-thick) solid var(--color-border-brand-subtle-brand);
+        padding-left: calc(var(--space-150) - var(--border-width-thick));
+        padding-right: calc(var(--space-150) - var(--border-width-thick));
+        padding-top: calc(var(--space-100) - var(--border-width-thick));
     }
 
     &--isActive,
     &:active {
         color: var(--color-text-selected-default);
-        border-bottom: 2px solid var(--color-border-selected);
-
-        &:focus {
-            border: 2px solid var(--color-border-brand-subtle-brand);
-            color: var(--color-text-selected-default);
-        }
+        border-bottom: var(--border-width-thick) solid var(--color-border-selected);
 
         &:hover {
             color: var(--color-text-selected-default);
+            border-bottom: var(--border-width-thick) solid var(--color-border-selected);
+        }
+
+        &:focus {
+            color: var(--color-text-selected-default);
+            border: var(--border-width-thick) solid var(--color-border-brand-subtle-brand);
         }
     }
 
     &--disabled {
         cursor: not-allowed;
-        border-bottom: 1px solid var(--color-border-subtle);
+        border-bottom: var(--line-normal) solid var(--color-border-subtle);
         color: var(--color-text-disabled);
     }
 
     &--disabled.TabItem:focus {
         border: none;
-        border-bottom: 1px solid var(--color-border-subtle);
+        border-bottom: var(--line-normal) solid var(--color-border-subtle);
         color: var(--color-text-disabled);
     }
 
     &--disabled.TabItem:hover {
         border: none;
-        border-bottom: 1px solid var(--color-border-subtle);
+        border-bottom: var(--line-normal) solid var(--color-border-subtle);
         color: var(--color-text-disabled);
     }
 
