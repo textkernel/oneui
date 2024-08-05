@@ -88,7 +88,9 @@ exports[`SelectBadge Option button should handle option change correctly 1`] = `
         id="downshift-:rf:-item-0"
         role="option"
       >
-        <span>
+        <span
+          class="Text--size_small"
+        >
           Option 1
         </span>
       </li>
@@ -99,7 +101,9 @@ exports[`SelectBadge Option button should handle option change correctly 1`] = `
         id="downshift-:rf:-item-1"
         role="option"
       >
-        <span>
+        <span
+          class="Text--size_small"
+        >
           Option 2
         </span>
       </li>
@@ -313,7 +317,9 @@ exports[`SelectBadge Priority button should handle priority change correctly 1`]
             d="M6 11l1.41 1.41L12 7.83l4.59 4.58L18 11l-6-6z"
           />
         </svg>
-        <span>
+        <span
+          class="Text--size_small"
+        >
           Mandatory
         </span>
       </li>
@@ -342,7 +348,9 @@ exports[`SelectBadge Priority button should handle priority change correctly 1`]
             d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
           />
         </svg>
-        <span>
+        <span
+          class="Text--size_small"
+        >
           Important
         </span>
       </li>
@@ -371,7 +379,9 @@ exports[`SelectBadge Priority button should handle priority change correctly 1`]
             d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
           />
         </svg>
-        <span>
+        <span
+          class="Text--size_small"
+        >
           Optional
         </span>
       </li>
@@ -400,7 +410,9 @@ exports[`SelectBadge Priority button should handle priority change correctly 1`]
             d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
           />
         </svg>
-        <span>
+        <span
+          class="Text--size_small"
+        >
           Exclude
         </span>
       </li>

@@ -175,7 +175,9 @@ export const SelectBadge: React.FC<Props> = ({
                     {Object.entries(priorityLabels).map(([key, label]) => (
                         <ListItem key={key} value={key}>
                             {renderPriorityIcon(key as Priority)}
-                            <Text inline>{label}</Text>
+                            <Text inline size="small">
+                                {label}
+                            </Text>
                         </ListItem>
                     ))}
                 </Dropdown>
@@ -227,7 +229,9 @@ export const SelectBadge: React.FC<Props> = ({
                     ) : null}
                     {optionList?.map((opt) => (
                         <ListItem key={opt.value} value={opt}>
-                            <Text inline>{opt.label}</Text>
+                            <Text inline size="small">
+                                {opt.label}
+                            </Text>
                         </ListItem>
                     ))}
                 </Dropdown>
