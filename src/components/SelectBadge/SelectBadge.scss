@@ -153,6 +153,10 @@ $icon-status-colors: (
                 align-items: center;
                 justify-content: flex-start;
                 gap: var(--space-100);
+
+                & span {
+                    font-size: var(--font-size-x-small);
+                }
             }
         }
     }
@@ -162,6 +166,10 @@ $icon-status-colors: (
         background-color: var(--color-brand-5);
         font-weight: var(--font-weight-bold);
         color: var(--color-brand-60);
+
+        & span {
+            font-size: var(--font-size-x-small);
+        }
     }
 
     &__closeButton {
