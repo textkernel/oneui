@@ -172,6 +172,10 @@ $icon-status-colors: (
         border-left: 1px solid var(--color-border-subtle);
         padding: 0;
 
+        & svg {
+            fill: var(--color-icon-subtle);
+        }
+
         &[disabled] {
             & svg {
                 fill: var(--color-icon-disabled);
