@@ -15,8 +15,7 @@
         width: var(--space-400);
     }
 
-    &:hover:not([disabled]),
-    &:focus:not([disabled]) {
+    &:hover:not([disabled]) {
         background-color: $hoverColor;
     }
     &:active:not([disabled]) {
@@ -36,8 +35,7 @@
     & {
         background-color: $selectedColor;
     }
-    &:hover:not([disabled]),
-    &:focus:not([disabled]) {
+    &:hover:not([disabled]) {
         background-color: $hoverColor;
     }
     &:active:not([disabled]) {
