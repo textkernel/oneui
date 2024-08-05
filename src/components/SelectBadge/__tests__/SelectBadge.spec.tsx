@@ -6,7 +6,7 @@ import { Priority, SelectBadge } from '../SelectBadge';
 
 const mockOnChange = jest.fn();
 const mockOnPriorityChange = jest.fn();
-const mockOnClose = jest.fn();
+const mockOnDelete = jest.fn();
 
 const defaultProps = {
     children: 'Test Child',
@@ -24,7 +24,7 @@ const defaultProps = {
     ],
     onChange: mockOnChange,
     onPriorityChange: mockOnPriorityChange,
-    onClose: mockOnClose,
+    onDelete: mockOnDelete,
 };
 
 const renderSelectBadge = (props = {}) => render(<SelectBadge {...defaultProps} {...props} />);
@@ -46,7 +46,7 @@ describe('SelectBadge', () => {
             });
 
             const user = userEvent.setup();
-            const priorityButton = getByLabelText('mandatory priority button');
+            const priorityButton = getByLabelText('priority button');
             await user.click(priorityButton);
 
             expect(getByText('Mandatory')).toBeInTheDocument();
@@ -65,7 +65,7 @@ describe('SelectBadge', () => {
             const view = renderSelectBadge();
 
             const user = userEvent.setup();
-            const priorityButton = screen.getByLabelText('mandatory priority button');
+            const priorityButton = screen.getByLabelText('priority button');
             await user.click(priorityButton);
 
             expect(view.container).toMatchSnapshot();
@@ -82,7 +82,7 @@ describe('SelectBadge', () => {
                 onPriorityChange: jest.fn(),
             });
 
-            expect(queryByLabelText('mandatory priority button')).not.toBeInTheDocument();
+            expect(queryByLabelText('priority button')).not.toBeInTheDocument();
         });
 
         it('does not render the priority button when onPriorityChange is not provided', () => {
@@ -91,7 +91,7 @@ describe('SelectBadge', () => {
                 onPriorityChange: undefined,
             });
 
-            expect(queryByText('mandatory priority button')).not.toBeInTheDocument();
+            expect(queryByText('priority button')).not.toBeInTheDocument();
         });
 
         it('does not render the priority button when neither priorityLabels nor onPriorityChange are provided', () => {
@@ -102,15 +102,8 @@ describe('SelectBadge', () => {
 
             expect(queryByText('priority button')).not.toBeInTheDocument();
         });
-
-        it('renders priority button as disabled when provided from props', () => {
-            renderSelectBadge({
-                isPriorityButtonDisabled: true,
-            });
-            const priorityButton = screen.getByLabelText('mandatory priority button');
-            expect(priorityButton).toBeDisabled();
-        });
     });
+
     describe('Option button', () => {
         it('renders option list headline when provided', async () => {
             const { getByText } = renderSelectBadge({ optionListHeader: 'Select an Option' });
@@ -145,46 +138,40 @@ describe('SelectBadge', () => {
             expect(queryByText('option button')).not.toBeInTheDocument();
             expect(getByText(defaultProps.children)).toBeInTheDocument();
         });
-
-        it('renders option button as disabled when provided from props', () => {
-            renderSelectBadge({
-                isOptionButtonDisabled: true,
-            });
-            const optionButton = screen.getByLabelText('Option 1 option button');
-            expect(optionButton).toBeDisabled();
-        });
     });
 
-    describe('Close button', () => {
-        it('should not render close button if onClose is not provided', () => {
-            const { queryByLabelText } = renderSelectBadge({ onClose: undefined });
-            expect(queryByLabelText('close button')).not.toBeInTheDocument();
+    describe('Delete button', () => {
+        it('should not render delete button if onDelete is not provided', () => {
+            const { queryByLabelText } = renderSelectBadge({ onDelete: undefined });
+            expect(queryByLabelText('delete button')).not.toBeInTheDocument();
         });
 
-        it('should handle close button functionality', async () => {
+        it('should handle delete button functionality', async () => {
             const { getByLabelText } = renderSelectBadge();
 
             const user = userEvent.setup();
-            const closeButton = getByLabelText('close button');
-            await user.click(closeButton);
+            const deleteButton = getByLabelText('delete button');
+            await user.click(deleteButton);
 
-            expect(mockOnClose).toHaveBeenCalled();
+            expect(mockOnDelete).toHaveBeenCalled();
+        });
+    });
+
+    it('renders all the buttons disabled when provided from props', () => {
+        const { getByLabelText } = renderSelectBadge({
+            isDisabled: true,
         });
 
-        it('renders close button as disabled when provided from props', () => {
-            const { getByLabelText } = renderSelectBadge({
-                isCloseButtonDisabled: true,
-            });
-
-            expect(getByLabelText('close button')).toBeDisabled();
-        });
+        expect(getByLabelText('priority button')).toBeDisabled();
+        expect(getByLabelText('Option 1 option button')).toBeDisabled();
+        expect(getByLabelText('delete button')).toBeDisabled();
     });
 
     it('maintains state correctly after multiple interactions', async () => {
         const { getByText } = renderSelectBadge();
 
         const user = userEvent.setup();
-        const priorityButton = screen.getByLabelText('mandatory priority button');
+        const priorityButton = screen.getByLabelText('priority button');
 
         await user.click(priorityButton); // Open
         await user.click(priorityButton); // Close

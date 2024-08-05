@@ -59,9 +59,9 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCha
      */
     optionListHeader?: string;
     /**
-     * Function to be called when the close button is clicked.
+     * Function to be called when the delete button is clicked.
      */
-    onClose?: (e: React.KeyboardEvent | React.MouseEvent) => void;
+    onDelete?: (e: React.KeyboardEvent | React.MouseEvent) => void;
     /**
      * Callback function triggered when a new priority is selected.
      * Provides the newly selected priority as an argument.
@@ -73,37 +73,24 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCha
      */
     onChange: (newOption: Option) => void;
     /**
-     * Boolean indicating whether the close button should be disabled.
-     * Can be used to prevent closing under certain conditions.
+     * Boolean indicating whether the whole badge should be disabled.
      */
-    isCloseButtonDisabled?: boolean;
-    /**
-     * Boolean indicating whether the priority selection is disabled.
-     * Used to lock priority changes in specific situations.
-     */
-    isPriorityButtonDisabled?: boolean;
-    /**
-     * Boolean indicating whether the option selection is disabled.
-     * Useful for controlling access to option changes dynamically.
-     */
-    isOptionButtonDisabled?: boolean;
+    isDisabled?: boolean;
     /** Priority button label name for ARIA labelling */
     priorityButtonLabel?: string;
     /** Option button label name for ARIA labelling */
     optionButtonLabel?: string;
-    /** Close button label name for ARIA labelling */
-    closeButtonLabel?: string;
+    /** Delete button label name for ARIA labelling */
+    deleteButtonLabel?: string;
 }
 
 const { block, elem } = bem('SelectBadge', styles);
 
 export const SelectBadge: React.FC<Props> = ({
     children,
-    isCloseButtonDisabled = false,
-    isOptionButtonDisabled = false,
-    isPriorityButtonDisabled = false,
+    isDisabled = false,
     onChange,
-    onClose = undefined,
+    onDelete = undefined,
     onPriorityChange = undefined,
     option,
     optionList,
@@ -112,7 +99,7 @@ export const SelectBadge: React.FC<Props> = ({
     priorityLabels,
     priorityButtonLabel = 'priority button',
     optionButtonLabel = 'option button',
-    closeButtonLabel = 'close button',
+    deleteButtonLabel = 'delete button',
     ...rest
 }) => {
     const [dropdownStates, setDropdownStates] = React.useState({
@@ -132,10 +119,10 @@ export const SelectBadge: React.FC<Props> = ({
         ) : null;
     };
 
-    const handleOnClose = (e: React.KeyboardEvent | React.MouseEvent) => {
+    const handleOnDelete = (e: React.KeyboardEvent | React.MouseEvent) => {
         e.stopPropagation();
-        if (onClose) {
-            onClose(e);
+        if (onDelete) {
+            onDelete(e);
         }
     };
 
@@ -155,14 +142,14 @@ export const SelectBadge: React.FC<Props> = ({
                 <Dropdown<Priority>
                     button={
                         <button
-                            aria-label={`${priority} ${priorityButtonLabel}`}
-                            disabled={isPriorityButtonDisabled}
+                            aria-label={`${priorityButtonLabel}`}
+                            disabled={isDisabled}
                             type="button"
                             {...elem('priorityButton', {
                                 isSelected: dropdownStates.priority,
                             })}
                         >
-                            {renderPriorityIcon(priority, isPriorityButtonDisabled)}
+                            {renderPriorityIcon(priority, isDisabled)}
                         </button>
                     }
                     additionalSelectProps={{
@@ -191,7 +178,7 @@ export const SelectBadge: React.FC<Props> = ({
                                 isSelected: dropdownStates.option,
                             })}
                             aria-label={`${option?.label} ${optionButtonLabel}`}
-                            disabled={isOptionButtonDisabled}
+                            disabled={isDisabled}
                         >
                             <Text
                                 inline
@@ -248,12 +235,12 @@ export const SelectBadge: React.FC<Props> = ({
                 </div>
             )}
 
-            {onClose && (
+            {onDelete && (
                 <button
-                    {...elem('closeButton')}
-                    aria-label={closeButtonLabel}
-                    disabled={isCloseButtonDisabled}
-                    onClick={handleOnClose}
+                    {...elem('deleteButton')}
+                    aria-label={deleteButtonLabel}
+                    disabled={isDisabled}
+                    onClick={handleOnDelete}
                     type="button"
                 >
                     <MdClose size="20px" />

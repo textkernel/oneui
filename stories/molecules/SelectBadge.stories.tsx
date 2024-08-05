@@ -54,8 +54,8 @@ export const _SelectBadge: Story = {
             setSelectedOption(newOption);
         };
 
-        const handleClose = () => {
-            console.log('SelectBadge closed');
+        const handleDelete = () => {
+            console.log('SelectBadge deleted');
         };
 
         return (
@@ -66,7 +66,7 @@ export const _SelectBadge: Story = {
                     option={selectedOption}
                     onPriorityChange={handlePriorityChange}
                     onChange={handleOptionChange}
-                    onClose={handleClose}
+                    onDelete={handleDelete}
                 >
                     {args.children}
                 </SelectBadge>
@@ -92,8 +92,8 @@ export const SelectBadgeWithoutPriorityButton: Story = {
             setSelectedOption(newOption);
         }, []);
 
-        const handleClose = () => {
-            console.log('SelectBadge closed');
+        const handleDelete = () => {
+            console.log('SelectBadge deleted');
         };
 
         return (
@@ -102,7 +102,7 @@ export const SelectBadgeWithoutPriorityButton: Story = {
                     {...args}
                     option={selectedOption}
                     onChange={handleOptionChange}
-                    onClose={handleClose}
+                    onDelete={handleDelete}
                 >
                     {args.children}
                 </SelectBadge>
@@ -137,8 +137,8 @@ export const SelectBadgeWithoutOptions: Story = {
             setPriority(newPriority);
         }, []);
 
-        const handleClose = () => {
-            console.log('SelectBadge closed');
+        const handleDelete = () => {
+            console.log('SelectBadge deleted');
         };
 
         return (
@@ -147,7 +147,7 @@ export const SelectBadgeWithoutOptions: Story = {
                     {...args}
                     priority={priority}
                     onPriorityChange={handlePriorityChange}
-                    onClose={handleClose}
+                    onDelete={handleDelete}
                 >
                     {args.children}
                 </SelectBadge>
@@ -157,7 +157,7 @@ export const SelectBadgeWithoutOptions: Story = {
 };
 
 export const SelectBadgeWithoutCloseButton: Story = {
-    name: 'SelectBadge - No Close Functionality',
+    name: 'SelectBadge - No Delete Functionality',
     args: {
         ...commonArgs,
         priority: 'mandatory',
@@ -167,7 +167,7 @@ export const SelectBadgeWithoutCloseButton: Story = {
             optional: 'Optional',
             exclude: 'Exclude',
         },
-        onClose: undefined,
+        onDelete: undefined,
     },
     render: (args) => {
         const [priority, setPriority] = React.useState<Priority>(args.priority);
