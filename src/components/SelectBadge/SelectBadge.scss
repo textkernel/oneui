@@ -97,6 +97,14 @@ $icon-status-colors: (
         }
     }
 
+    &__optionText {
+        min-width: var(--space-600);
+        color: var(--color-text-information-default);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
     &__optionButton {
         width: 100%;
         padding: 0 var(--space-100);
@@ -106,7 +114,7 @@ $icon-status-colors: (
         gap: var(--space-50);
 
         &[disabled] {
-            .SelectBadge__optionButton--optionText {
+            .SelectBadge__optionText {
                 color: var(--color-text-information-disabled);
             }
         }
@@ -129,14 +137,6 @@ $icon-status-colors: (
 
     &__valueText {
         max-width: 136px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
-
-    &__optionText {
-        min-width: var(--space-600);
-        color: var(--color-text-information-default);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

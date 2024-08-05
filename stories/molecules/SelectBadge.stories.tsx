@@ -48,10 +48,14 @@ export const _SelectBadge: Story = {
 
         const handlePriorityChange = (newPriority: Priority) => {
             setPriority(newPriority);
+
+            console.log(`Priority changed to ${newPriority}`);
         };
 
         const handleOptionChange = (newOption: Option) => {
             setSelectedOption(newOption);
+
+            console.log(`Option changed to ${newOption.value}`);
         };
 
         const handleDelete = () => {
@@ -90,6 +94,8 @@ export const SelectBadgeWithoutPriorityButton: Story = {
 
         const handleOptionChange = React.useCallback((newOption: Option) => {
             setSelectedOption(newOption);
+
+            console.log(`Option changed to ${newOption}`);
         }, []);
 
         const handleDelete = () => {
@@ -135,6 +141,8 @@ export const SelectBadgeWithoutOptions: Story = {
 
         const handlePriorityChange = React.useCallback((newPriority: Priority) => {
             setPriority(newPriority);
+
+            console.log(`Priority changed to ${newPriority}`);
         }, []);
 
         const handleDelete = () => {
@@ -183,10 +191,14 @@ export const SelectBadgeWithoutCloseButton: Story = {
 
         const handlePriorityChange = React.useCallback((newPriority: Priority) => {
             setPriority(newPriority);
+
+            console.log(`Priority changed to ${newPriority}`);
         }, []);
 
         const handleOptionChange = React.useCallback((newOption: Option) => {
             setSelectedOption(newOption);
+
+            console.log(`Option changed to ${newOption.value}`);
         }, []);
 
         return (
