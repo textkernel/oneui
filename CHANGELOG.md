@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [24.0.0](https://github.com/textkernel/oneui/compare/23.0.0...24.0.0) (2024-08-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **css variables:** some unused CSS variables removed: `--line-medium`, `--line-thick`, `--outline-size`
+* **fonts:** `--font-weight-light` and `--font-wight-medium` were removed from the library
+
+### Features
+
+* **Checkbox:** migrate to new design ([#1213](https://github.com/textkernel/oneui/issues/1213)) ([13ed96a](https://github.com/textkernel/oneui/commit/13ed96a8f7650894d750911aaec5a8ab194ae84a))
+* create SelectBadge component ([#1228](https://github.com/textkernel/oneui/issues/1228)) ([f1b4fb6](https://github.com/textkernel/oneui/commit/f1b4fb6b7f6313d772a3f4517de4f5021608eae7))
+* **ExpandableText:** new component ([#1192](https://github.com/textkernel/oneui/issues/1192)) ([4d78c38](https://github.com/textkernel/oneui/commit/4d78c381082dd20a6695b23a179d17f83eb53048))
+* **fonts:** use Noto Sans as main font ([#1209](https://github.com/textkernel/oneui/issues/1209)) ([33266f6](https://github.com/textkernel/oneui/commit/33266f6e5cf05e274b0c4fd025396c2c222f2ea2))
+* **RadioButton:** migrate to new design ([#1217](https://github.com/textkernel/oneui/issues/1217)) ([1263f9d](https://github.com/textkernel/oneui/commit/1263f9d15ddb04994987fd1e1b932376deffd00e))
+* **typography:** Global classes added to manage typography ([#1212](https://github.com/textkernel/oneui/issues/1212)) ([5dd4713](https://github.com/textkernel/oneui/commit/5dd4713096ffd0e3ba5e8bed10cfc13320824ff2))
+
+
+* **css variables:** define them directly not via SCSS ([#1204](https://github.com/textkernel/oneui/issues/1204)) ([70e9478](https://github.com/textkernel/oneui/commit/70e947859f51c544d17fa7f952e8620805a413f0))
+
 ## [23.0.0](https://github.com/textkernel/oneui/compare/22.1.2...23.0.0) (2024-07-03)
 
 
