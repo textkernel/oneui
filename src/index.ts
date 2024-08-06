@@ -59,7 +59,6 @@ export * from './components/LocationCard';
 export * from './components/Navigation';
 export * from './components/Pagination';
 export * from './components/Pill';
-export * from './components/SelectBadge';
 export * from './components/RadioButton';
 export * from './components/Teaser';
 export * from './components/Toggle';
@@ -70,6 +69,7 @@ export * from './components/NumericStepper';
 // Organisms
 export * from './components/Dialogs';
 export * from './components/SelectComponents';
+export * from './components/SelectBadge';
 export * from './components/LocationAutocomplete';
 export * from './components/LocationSelector';
 export * from './components/LabelPicker';
