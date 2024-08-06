@@ -1,0 +1,1 @@
+{"version":3,"file":"2133.oneui.min.css","mappings":"AAAA","sources":["webpack://@textkernel/oneui/./src/components/StickyHeader/StickyHeader.scss"],"sourcesContent":[".StickyHeader {\n    position: sticky;\n    top: 0;\n}\n\n"],"names":[],"sourceRoot":""}
