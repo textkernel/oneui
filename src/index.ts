@@ -68,6 +68,7 @@ export * from './components/WeightedResultBar';
 export * from './components/NumericStepper';
 // Organisms
 export * from './components/Dialogs';
+export * from './components/SelectBadge';
 export * from './components/SelectComponents';
 export * from './components/LocationAutocomplete';
 export * from './components/LocationSelector';
