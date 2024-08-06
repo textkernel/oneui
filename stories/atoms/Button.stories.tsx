@@ -18,6 +18,7 @@ export const _Button: StoryButton = {
         size: SIZES[1],
         type: 'submit',
         children: 'Click me!',
+        context: 'secondary',
     },
     render: (args) => <Button {...args} />,
 };

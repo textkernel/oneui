@@ -3,7 +3,7 @@
 exports[`<LabelPicker> that renders a dropdown type component to apply/remove/add labels snapshot tests should render correctly in closed state 1`] = `
 <div>
   <button
-    class="Button"
+    class="Button Button--context"
     type="button"
   >
     Click me
@@ -14,7 +14,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
 exports[`<LabelPicker> that renders a dropdown type component to apply/remove/add labels snapshot tests should render correctly with dialog open 1`] = `
 <div>
   <button
-    class="Button"
+    class="Button Button--context"
     type="button"
   >
     Click me
@@ -25,7 +25,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
 exports[`<LabelPicker> that renders a dropdown type component to apply/remove/add labels toggling dialog visibility should toggle dialog when trigger button is clicked 1`] = `
 <div>
   <button
-    class="Button"
+    class="Button Button--context"
     type="button"
   >
     Click me

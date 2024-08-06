@@ -171,7 +171,7 @@ const LocationSelectorDialog: React.FC<Props> = ({
                         </Text>
                     </div>
                 )}
-                <Button {...elem('button')} onClick={onCloseModal} isPrimary>
+                <Button {...elem('button')} onClick={onCloseModal}>
                     {doneLabel}
                 </Button>
             </div>

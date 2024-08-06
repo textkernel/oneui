@@ -8,14 +8,14 @@ exports[`<Pagination> that renders a pagination component should render correctl
   >
     <button
       aria-disabled="false"
-      class="Button Button--isLink Pagination__button"
+      class="Button Button--isLink Button--context Pagination__button"
       data-page="5"
       type="button"
     >
       ‹ Previous
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="1"
       type="button"
     >
@@ -27,21 +27,21 @@ exports[`<Pagination> that renders a pagination component should render correctl
       …
     </div>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="3"
       type="button"
     >
       3
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="4"
       type="button"
     >
       4
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="5"
       type="button"
     >
@@ -49,28 +49,28 @@ exports[`<Pagination> that renders a pagination component should render correctl
     </button>
     <button
       aria-current="page"
-      class="Button Button--isLink PaginationButton PaginationButton--isActive"
+      class="Button Button--isLink Button--context PaginationButton PaginationButton--isActive"
       data-page="6"
       type="button"
     >
       6
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="7"
       type="button"
     >
       7
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="8"
       type="button"
     >
       8
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="9"
       type="button"
     >
@@ -78,7 +78,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     </button>
     <button
       aria-disabled="false"
-      class="Button Button--isLink Pagination__button"
+      class="Button Button--isLink Button--context Pagination__button"
       data-page="7"
       type="button"
     >
@@ -96,70 +96,70 @@ exports[`<Pagination> that renders a pagination component should render correctl
   >
     <button
       aria-current="page"
-      class="Button Button--isLink PaginationButton PaginationButton--isActive"
+      class="Button Button--isLink Button--context PaginationButton PaginationButton--isActive"
       data-page="1"
       type="button"
     >
       1
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="2"
       type="button"
     >
       2
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="3"
       type="button"
     >
       3
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="4"
       type="button"
     >
       4
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="5"
       type="button"
     >
       5
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="6"
       type="button"
     >
       6
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="7"
       type="button"
     >
       7
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="8"
       type="button"
     >
       8
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="9"
       type="button"
     >
       9
     </button>
     <button
-      class="Button Button--isLink PaginationButton"
+      class="Button Button--isLink Button--context PaginationButton"
       data-page="10"
       type="button"
     >

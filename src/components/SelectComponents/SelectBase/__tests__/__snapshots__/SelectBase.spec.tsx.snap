@@ -33,7 +33,7 @@ exports[`SelectBase callbacks should call onClearAllSelected on Clear button cli
           />
         </div>
         <button
-          class="Button Button--isLink Button--isInline FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
+          class="Button Button--isLink Button--isInline Button--context FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
           title="Clear"
           type="button"
         >

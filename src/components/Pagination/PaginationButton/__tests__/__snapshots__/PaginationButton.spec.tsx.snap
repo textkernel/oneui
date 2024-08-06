@@ -3,7 +3,7 @@
 exports[`<PaginationButton> that renders a page button should render correctly with default props 1`] = `
 <div>
   <button
-    class="Button Button--isLink PaginationButton"
+    class="Button Button--isLink Button--context PaginationButton"
     data-page="1"
     type="button"
   >

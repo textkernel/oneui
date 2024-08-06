@@ -11,7 +11,7 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
       some children
     </div>
     <button
-      class="Button Button--isLink Button--isInline FieldWrapper__clearButton"
+      class="Button Button--isLink Button--isInline Button--context FieldWrapper__clearButton"
       title="Clear"
       type="button"
     >
@@ -110,7 +110,7 @@ exports[`FieldWrapper should call onClear callback correctly 1`] = `
       tag
     </div>
     <button
-      class="Button Button--isLink Button--isInline FieldWrapper__clearButton"
+      class="Button Button--isLink Button--isInline Button--context FieldWrapper__clearButton"
       title="Clear"
       type="button"
     >

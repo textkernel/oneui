@@ -82,7 +82,6 @@ export const BulkActionsToolbar: React.FC<BulkActionsToolbarProps> = ({
                     <Tooltip key={action.label} content={action.tooltip} delay={tooltipDelay}>
                         <span {...elem('actionWrapper', { first: index === 0 })}>
                             <Button
-                                isPrimary
                                 disabled={action.disabled}
                                 onClick={action.onClick}
                                 {...elem('action')}

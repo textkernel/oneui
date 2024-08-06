@@ -47,7 +47,7 @@ exports[`DatePicker should render calendar header correctly when calendar is ope
                 class="CalendarHeader"
               >
                 <button
-                  class="Button CalendarHeader__navButton"
+                  class="Button Button--context CalendarHeader__navButton"
                   type="button"
                 >
                   <svg
@@ -94,7 +94,7 @@ exports[`DatePicker should render calendar header correctly when calendar is ope
                   </select>
                 </div>
                 <button
-                  class="Button CalendarHeader__navButton"
+                  class="Button Button--context CalendarHeader__navButton"
                   type="button"
                 >
                   <svg
@@ -608,7 +608,7 @@ exports[`DatePicker when no min/max date props passed should set min/max date to
                 class="CalendarHeader"
               >
                 <button
-                  class="Button CalendarHeader__navButton"
+                  class="Button Button--context CalendarHeader__navButton"
                   type="button"
                 >
                   <svg
@@ -1645,7 +1645,7 @@ exports[`DatePicker when no min/max date props passed should set min/max date to
                   </select>
                 </div>
                 <button
-                  class="Button CalendarHeader__navButton"
+                  class="Button Button--context CalendarHeader__navButton"
                   type="button"
                 >
                   <svg

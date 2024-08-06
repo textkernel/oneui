@@ -38,13 +38,13 @@ exports[`Confirm should render correctly 1`] = `
           class="Dialog__actions"
         >
           <button
-            class="Button Button--isLink Dialog__cancel"
+            class="Button Button--isLink Button--context Dialog__cancel"
             type="button"
           >
             Cancel
           </button>
           <button
-            class="Button Button--isPrimary"
+            class="Button Button--context"
             type="button"
           >
             OK
@@ -102,13 +102,13 @@ exports[`Confirm should render correctly with title 1`] = `
           class="Dialog__actions"
         >
           <button
-            class="Button Button--isLink Dialog__cancel"
+            class="Button Button--isLink Button--context Dialog__cancel"
             type="button"
           >
             Cancel
           </button>
           <button
-            class="Button Button--isPrimary"
+            class="Button Button--context"
             type="button"
           >
             OK

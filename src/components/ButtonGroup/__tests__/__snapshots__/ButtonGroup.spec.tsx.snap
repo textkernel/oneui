@@ -7,13 +7,13 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
     role="group"
   >
     <button
-      class="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
+      class="Button Button--size_large Button--context ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--first"
       type="button"
     >
       A button
     </button>
     <button
-      class="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
+      class="Button Button--size_large Button--context ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--last"
       type="button"
     >
       Another button
@@ -29,7 +29,7 @@ exports[`<ButtonGroup> that renders a button should pass main props if child is 
     role="group"
   >
     <button
-      class="Button Button--isPrimary Button--isBlock Button--size_small"
+      class="Button Button--isBlock Button--size_small Button--context"
       type="button"
     >
       A button
@@ -45,7 +45,7 @@ exports[`<ButtonGroup> that renders a button should pass main props, but not add
     role="group"
   >
     <button
-      class="Button Button--isPrimary Button--isBlock Button--size_small"
+      class="Button Button--isBlock Button--size_small Button--context"
       type="button"
     >
       A button
@@ -61,13 +61,13 @@ exports[`<ButtonGroup> that renders a button should render default button correc
     role="group"
   >
     <button
-      class="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
+      class="Button Button--context ButtonGroup__button ButtonGroup__button--first"
       type="button"
     >
       A button
     </button>
     <button
-      class="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--last"
+      class="Button Button--context ButtonGroup__button ButtonGroup__button--last"
       type="button"
     >
       Another button
@@ -83,7 +83,7 @@ exports[`<ButtonGroup> that renders a button should render with conditional JSX 
     role="group"
   >
     <button
-      class="Button Button--isPrimary ButtonGroup__button ButtonGroup__button--isPrimary ButtonGroup__button--first"
+      class="Button Button--context ButtonGroup__button ButtonGroup__button--first"
       type="button"
     >
       A button
@@ -99,13 +99,13 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
     role="group"
   >
     <button
-      class="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--first"
+      class="Button Button--size_large Button--context ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--first"
       type="button"
     >
       A button
     </button>
     <a
-      class="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary"
+      class="Button Button--size_large Button--context ButtonGroup__button ButtonGroup__button--isBlock"
       href="#"
     >
       An anchor
@@ -116,7 +116,7 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-labelledby="downshift-:r0:-label"
-      class="Button Button--isPrimary Button--size_large ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--isPrimary ButtonGroup__button--last"
+      class="Button Button--size_large Button--context ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--last"
       id="downshift-:r0:-toggle-button"
       role="combobox"
       tabindex="0"

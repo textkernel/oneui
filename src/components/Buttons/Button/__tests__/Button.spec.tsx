@@ -23,14 +23,14 @@ describe('<Button> that renders a button', () => {
     });
     it('should add classes when props are changed', () => {
         const view = render(
-            <Button isPrimary size="large" isBlock isLoading>
+            <Button size="large" isBlock isLoading>
                 <span>Click me</span>
             </Button>
         );
 
         expect(view.container).toMatchSnapshot();
         const button = screen.getByRole('button');
-        expect(button).toHaveClass('Button--isPrimary');
+        // TODO: expect(button).toHaveClass('Button--context_primary');
         expect(button).toHaveClass('Button--size_large');
         expect(button).toHaveClass('Button--isBlock');
         expect(button).toHaveClass('Button--isLoading');

@@ -64,7 +64,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
         class="PillDropdown__footer"
       >
         <button
-          class="Button Button--isPrimary Button--size_small"
+          class="Button Button--size_small Button--context"
           type="button"
         >
           Done

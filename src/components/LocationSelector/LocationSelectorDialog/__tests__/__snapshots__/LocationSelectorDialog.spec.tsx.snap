@@ -60,7 +60,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       </div>
     </div>
     <button
-      class="Button Button--isPrimary LocationSelectorDialog__button"
+      class="Button Button--context LocationSelectorDialog__button"
       type="button"
     >
       doneLabel
