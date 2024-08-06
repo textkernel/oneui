@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Option, Priority, SelectBadge } from '@textkernel/oneui';
 
 const meta: Meta<typeof SelectBadge> = {
-    title: 'Molecules/SelectBadge',
+    title: 'Organisms/SelectBadge',
     component: SelectBadge,
 };
 
