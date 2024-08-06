@@ -18,6 +18,8 @@ export default meta;
 type Story = StoryObj<typeof OneToaster>;
 
 const ToastImplementation = (args: ToastProps) => {
+    const [duration, setDuration] = React.useState<number>(Infinity);
+
     const openToast = () =>
         Toast({
             title: args.title,
@@ -25,10 +27,16 @@ const ToastImplementation = (args: ToastProps) => {
             context: args.context,
             actions: args.actions,
         });
+    const handleOnClick = (timeDuration: number) => {
+        setDuration(timeDuration);
+        openToast();
+    };
+
     return (
         <div style={{ height: 400 }}>
-            <OneToaster>
-                <Button onClick={openToast}>Make Toast Appear</Button>
+            <OneToaster duration={duration}>
+                <Button onClick={() => handleOnClick(Infinity)}>Make Infinity Toast Appear</Button>
+                <Button onClick={() => handleOnClick(2500)}>Make Toast Appear</Button>
             </OneToaster>
         </div>
     );
@@ -49,9 +57,7 @@ export const RegularToast: Story = {
             },
             {
                 text: 'Action 2',
-                callback: () => {
-                    console.log('action 2');
-                },
+                href: '/login',
             },
         ],
     },

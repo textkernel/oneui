@@ -6,8 +6,9 @@ import CautiousIcon from '@material-design-icons/svg/round/warning.svg';
 import CriticalIcon from '@material-design-icons/svg/round/error.svg';
 import InfoIcon from '@material-design-icons/svg/round/info.svg';
 import SuccessIcon from '@material-design-icons/svg/round/check_circle.svg';
+
 import styles from './Toast.scss';
-import { Context } from '../../constants';
+import { Context, ENTER_KEY } from '../../constants';
 import { bem } from '../../utils';
 
 export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -31,23 +32,44 @@ interface ActionProps {
         callback?: () => void;
         href?: string;
     };
+    handleClose: () => void;
 }
 
 const { block, elem } = bem('Toast', styles);
 
-const ActionItem: React.FC<ActionProps> = ({ action }) => {
+const ActionItem: React.FC<ActionProps> = ({ action, handleClose }) => {
     if (action.callback) {
+        const handleOnClick = () => {
+            action.callback!();
+            handleClose();
+        };
+        const handleKeyDown = (e) => {
+            if (e.key === ENTER_KEY) {
+                handleOnClick();
+            }
+        };
         return (
-            <p onClick={action.callback} {...elem('toast-action')} role="presentation">
+            <p
+                onClick={handleOnClick}
+                onKeyDown={handleKeyDown}
+                {...elem('toast-action')}
+                role="presentation"
+            >
                 {action.text}
             </p>
         );
     }
     if (action.href) {
         return (
-            <p href={action.href} {...elem('toast-action')}>
+            <a
+                onClick={handleClose}
+                href={action.href}
+                target="_blank"
+                rel="noreferrer"
+                {...elem('toast-action')}
+            >
                 {action.text}
-            </p>
+            </a>
         );
     }
     return <></>;
@@ -56,13 +78,13 @@ const ActionItem: React.FC<ActionProps> = ({ action }) => {
 const ContextIcon = ({ context }) => {
     switch (context) {
         case 'info':
-            return <InfoIcon />;
+            return <InfoIcon data-testid="info-icon" />;
         case 'success':
-            return <SuccessIcon />;
+            return <SuccessIcon data-testid="success-icon" />;
         case 'cautious':
-            return <CautiousIcon />;
+            return <CautiousIcon data-testid="cautious-icon" />;
         case 'critical':
-            return <CriticalIcon />;
+            return <CriticalIcon data-testid="critical-icon" />;
         default:
             return <InfoIcon />;
     }
@@ -76,38 +98,47 @@ export const Toast = ({
     isClosable = true,
     closeButtonLabel = 'closeButton',
 }: ToastProps) =>
-    toast.custom((t) => (
-        <div {...block({ context })}>
-            <div {...elem('contextIcon')}>
-                <ContextIcon context={context} />
-            </div>
-            <div {...elem('content')}>
-                <div {...elem('message')}>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
+    toast.custom(
+        (t) => (
+            <div {...block({ context })}>
+                <div {...elem('contextIcon')}>
+                    <ContextIcon context={context} />
                 </div>
-                <div {...elem('actions')}>
-                    {actions && actions[0] && <ActionItem action={actions[0]} />}
-                    {actions && actions[1] && (
-                        <>
-                            {' '}
-                            • <ActionItem action={actions[1]} />
-                        </>
-                    )}
+                <div {...elem('content')}>
+                    <div {...elem('message')}>
+                        <h3>{title}</h3>
+                        <p>{description}</p>
+                    </div>
+                    <div {...elem('actions')}>
+                        {actions && actions[0] && (
+                            <ActionItem action={actions[0]} handleClose={() => toast.dismiss(t)} />
+                        )}
+                        {actions && actions[1] && (
+                            <>
+                                {' '}
+                                •{' '}
+                                <ActionItem
+                                    action={actions[1]}
+                                    handleClose={() => toast.dismiss(t)}
+                                />
+                            </>
+                        )}
+                    </div>
                 </div>
+                {isClosable && (
+                    <button
+                        {...elem('closeButton')}
+                        type="button"
+                        onClick={() => toast.dismiss(t)}
+                        aria-label={closeButtonLabel}
+                    >
+                        <MdClose {...elem('closeIcon')} />
+                    </button>
+                )}
             </div>
-            {isClosable && (
-                <button
-                    {...elem('closeButton')}
-                    type="button"
-                    onClick={() => toast.dismiss(t)}
-                    aria-label={closeButtonLabel}
-                >
-                    <MdClose {...elem('closeIcon')} />
-                </button>
-            )}
-        </div>
-    ));
+        ),
+        actions ? { important: true } : {} // focused if actionable
+    );
 
 export const OneToaster = ({ children, ...props }) => (
     <>
@@ -117,7 +148,7 @@ export const OneToaster = ({ children, ...props }) => (
 );
 
 OneToaster.defaultProps = {
-    duration: Infinity,
+    duration: 2500,
     closeButton: true,
     offset: 16,
     gap: 8,
