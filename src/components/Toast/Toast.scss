@@ -1,4 +1,5 @@
 @import '../../themes/oneui/oneui';
+$contexts: (info, success, cautious, critical);
 
 .Toast {
     display: flex;
