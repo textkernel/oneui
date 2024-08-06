@@ -75,11 +75,11 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCha
      */
     isDisabled?: boolean;
     /** Priority button label name for ARIA labelling */
-    priorityButtonLabel?: string;
+    priorityButtonLabel: string;
     /** Option button label name for ARIA labelling */
-    optionButtonLabel?: string;
+    optionButtonLabel: string;
     /** Delete button label name for ARIA labelling */
-    deleteButtonLabel?: string;
+    deleteButtonLabel: string;
 }
 
 const { block, elem } = bem('SelectBadge', styles);
@@ -95,9 +95,9 @@ export const SelectBadge: React.FC<Props> = ({
     optionListHeader,
     priority = 'mandatory',
     priorityLabels,
-    priorityButtonLabel = 'priority button',
-    optionButtonLabel = 'option button',
-    deleteButtonLabel = 'delete button',
+    priorityButtonLabel,
+    optionButtonLabel,
+    deleteButtonLabel,
     ...rest
 }) => {
     const [dropdownStates, setDropdownStates] = React.useState({
@@ -123,9 +123,7 @@ export const SelectBadge: React.FC<Props> = ({
 
     const handleOnDelete = (e: React.KeyboardEvent | React.MouseEvent) => {
         e.stopPropagation();
-        if (onDelete) {
-            onDelete(e);
-        }
+        onDelete?.(e);
     };
 
     const toggleDropdown = (type: 'priority' | 'option', isOpen: boolean) => {
