@@ -10,16 +10,16 @@ export const colorVariables = {
     '--color-background': '#ffffff',
     '--color-foreground': '#2d3234',
 
-    '--color-brand-5': '#E6F5FA',
-    '--color-brand-10': '#CCEAF6',
-    '--color-brand-20': '#99D5ED',
-    '--color-brand-30': '#66C1E3',
-    '--color-brand-40': '#33ACDA',
-    '--color-brand-50': '#0097D1',
-    '--color-brand-60': '#0079A7',
-    '--color-brand-70': '#005B7D',
-    '--color-brand-80': '#003C54',
-    '--color-brand-90': '#001E2A',
+    '--color-primary-5': '#E6F5FA',
+    '--color-primary-10': '#CCEAF6',
+    '--color-primary-20': '#99D5ED',
+    '--color-primary-30': '#66C1E3',
+    '--color-primary-40': '#33ACDA',
+    '--color-primary-50': '#0097D1',
+    '--color-primary-60': '#0079A7',
+    '--color-primary-70': '#005B7D',
+    '--color-primary-80': '#003C54',
+    '--color-primary-90': '#001E2A',
 
     '--color-neutral-0': '#ffffff',
     '--color-neutral-5': '#F2F2F2',
@@ -103,7 +103,7 @@ export const colorVariables = {
 
 export const computedColorVariables = (baseVariables: CssVars): CssVars => ({
     '--color-highlight-background': mixTwoColors(
-        baseVariables['--color-brand-50'],
+        baseVariables['--color-primary-50'],
         baseVariables['--color-background'],
         90
     ),

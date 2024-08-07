@@ -40,21 +40,21 @@
     }
 
     &--isPrimary {
-        background-color: var(--color-brand-50);
+        background-color: var(--color-primary-50);
         color: var(--color-background);
 
         &:hover {
-            background-color: var(--color-brand-60);
+            background-color: var(--color-primary-60);
         }
 
         &[disabled] {
-            background-color: var(--color-brand-20);
+            background-color: var(--color-primary-20);
             cursor: not-allowed;
         }
 
         &:focus,
         &:active {
-            background-color: var(--color-brand-80);
+            background-color: var(--color-primary-80);
         }
     }
 }

@@ -17,9 +17,9 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 value: '#4d4d4d',
             },
             {
-                label: 'Brand color',
+                label: 'Primary color',
                 type: 'color',
-                var: '--color-brand-50',
+                var: '--color-primary-50',
                 value: '#0097d1',
             },
             {

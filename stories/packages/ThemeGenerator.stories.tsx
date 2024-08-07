@@ -6,7 +6,7 @@ const meta: Meta<CssVars> = {
     title: 'packages/ThemeGenerator',
     argTypes: {
         '--color-neutral': { control: 'color' },
-        '--color-brand': { control: 'color' },
+        '--color-primary': { control: 'color' },
         '--color-info': { control: 'color' },
         '--color-success': { control: 'color' },
         '--color-cautious': { control: 'color' },
@@ -24,7 +24,7 @@ export const _ThemeGenerator: Story = {
     args: {
         '--color-background': '#ffffff',
         '--color-neutral': '#4d4d4d',
-        '--color-brand': '#0097d1',
+        '--color-primary': '#0097d1',
         '--color-info': '#007AFF',
         '--color-success': '#34C759',
         '--color-cautious': '#FFCC01',

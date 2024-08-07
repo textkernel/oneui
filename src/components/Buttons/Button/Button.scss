@@ -64,6 +64,7 @@
     &--size {
         &_small {
             font-size: var(--font-size-small);
+            height: 24px;
             line-height: var(--line-height-small);
             padding: var(--space-50) var(--space-75);
         }
@@ -94,8 +95,8 @@
     }
 
     &--isLink {
-        color: var(--color-brand-50);
-        fill: var(--color-brand-50);
+        color: var(--color-primary-50);
+        fill: var(--color-primary-50);
         border-color: var(--transparent);
         background-color: var(--transparent);
         text-decoration: var(--link-decoration-normal);
@@ -104,8 +105,8 @@
         &:focus,
         &:active {
             box-shadow: none;
-            color: var(--color-brand-60);
-            fill: var(--color-brand-60);
+            color: var(--color-primary-60);
+            fill: var(--color-primary-60);
             background-color: var(--color-highlight-background);
         }
 
@@ -122,31 +123,31 @@
     }
 
     &--context {
-        background-color: var(--color-brand-50);
-        border-color: var(--color-brand-50);
+        background-color: var(--color-primary-50);
+        border-color: var(--color-primary-50);
         color: var(--color-background);
         fill: var(--color-background);
 
         &:hover,
         &:focus,
         &:active {
-            border-color: var(--color-brand-60);
-            background-color: var(--color-brand-60);
+            border-color: var(--color-primary-60);
+            background-color: var(--color-primary-60);
         }
 
         &[disabled] {
             color: var(--color-background);
             fill: var(--color-background);
-            background-color: var(--color-brand-20);
-            border-color: var(--color-brand-20);
+            background-color: var(--color-primary-20);
+            border-color: var(--color-primary-20);
         }
 
         &.Button--isLoading {
             --button-gradient: linear-gradient(
                 to right,
-                var(--color-brand-40) 0%,
-                var(--color-brand-40) 50%,
-                var(--color-brand-50) 80%
+                var(--color-primary-40) 0%,
+                var(--color-primary-40) 50%,
+                var(--color-primary-50) 80%
             );
             background-image: var(--button-gradient);
             border-image: var(--button-gradient);
@@ -154,9 +155,9 @@
             &[disabled] {
                 background-image: linear-gradient(
                     to right,
-                    var(--color-brand-20) 0%,
-                    var(--color-brand-20) 50%,
-                    var(--color-brand-40) 80%
+                    var(--color-primary-20) 0%,
+                    var(--color-primary-20) 50%,
+                    var(--color-primary-40) 80%
                 );
             }
 

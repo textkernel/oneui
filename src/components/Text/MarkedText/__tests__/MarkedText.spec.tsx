@@ -47,7 +47,7 @@ describe('<MarkedText> that renders a text block while marking matched substring
 
     it('should pass props to Text', () => {
         view = render(
-            <MarkedText marker="text" inline context="brand">
+            <MarkedText marker="text" inline context="primary">
                 Some text content
             </MarkedText>
         );

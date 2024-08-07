@@ -19,8 +19,8 @@
 
     &--isActive,
     &:active {
-        color: var(--color-brand-50);
-        border-bottom: 4px solid var(--color-brand-50);
+        color: var(--coprimary-50);
+        border-bottom: 4px solid var(--color-primary-50);
         background-color: var(--color-background);
         border-radius: 0;
     }
@@ -28,8 +28,8 @@
     &--isActive {
         &:hover,
         &:focus {
-            color: var(--color-brand-50);
-            border-bottom: 4px solid var(--color-brand-50);
+            color: var(--color-primary-50);
+            border-bottom: 4px solid var(--color-primary-50);
             background-color: var(--color-highlight-background);
             border-radius: 0;
         }
