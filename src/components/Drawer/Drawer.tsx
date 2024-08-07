@@ -102,9 +102,9 @@ export const Drawer: React.FC<Props> = ({
                         onKeyPress={handleKeyPress}
                         onClick={handleClick}
                     >
-                        <h4 title={title} {...elem('headTitle')}>
+                        <h3 title={title} {...elem('headTitle')}>
                             {title}
-                        </h4>
+                        </h3>
                         <div {...elem('headButtons')}>
                             <button
                                 {...elem('expandButton', { isExpanded, isPrimary })}

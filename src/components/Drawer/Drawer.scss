@@ -40,15 +40,11 @@ $icon-size: 26px;
     }
 
     &__headTitle {
+        composes: OneUI-heading-3 from global;
         color: var(--color-background);
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font: {
-            family: var(--font-family-primary);
-            size: var(--h4-font-size);
-            weight: var(--font-weight-normal);
-        }
     }
 
     &__headButtons {
