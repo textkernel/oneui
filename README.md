@@ -31,7 +31,7 @@ In your application main Javascript, make sure to import the OneUI base styleshe
 import '@textkernel/oneui/dist/oneui.min.css';
 ```
 
-### Assign base class to <body>
+### Assign base class to `<body>`
 
 Assign the base class that has all font definitions to <body> or to <html>
 
