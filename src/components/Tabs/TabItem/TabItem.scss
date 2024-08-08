@@ -13,7 +13,7 @@
         color: var(--color-text-bold);
     }
 
-    &:focus {
+    &:focus-visible {
         color: var(--color-text-subtle);
         border: var(--border-width-thick) solid var(--color-border-brand-subtle-brand);
         padding-left: calc(var(--space-150) - var(--border-width-thick));
@@ -31,7 +31,7 @@
             border-bottom: var(--border-width-thick) solid var(--color-border-selected);
         }
 
-        &:focus {
+        &:focus-visible {
             color: var(--color-text-selected-default);
             border: var(--border-width-thick) solid var(--color-border-brand-subtle-brand);
         }
