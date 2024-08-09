@@ -3,7 +3,6 @@ export const VALIDATION_CONTEXTS = ['success', 'cautious', 'critical'] as const;
 export const CONTEXTS = ['info', ...VALIDATION_CONTEXTS] as const;
 
 export const SIZES = ['small', 'normal', 'large'] as const;
-export const HEADING_SIZES = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] as const;
 export const COLORS = [
     '#AFF5E2',
     '#D6F481',

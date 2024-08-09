@@ -1,21 +1,20 @@
 .Heading {
-    font: {
-        family: var(--heading-font-family);
-        weight: var(--heading-font-weight);
-    }
-    color: var(--color-foreground);
     text-align: left;
     margin: 0;
 
     &--isNeutral {
-        color: var(--color-neutral-30);
+        color: var(--color-text-subtlest);
     }
 
     &--level {
-        @for $level from 1 to 7 {
-            &_h#{ $level } {
-                font-size: var(--h#{$level}-font-size);
-            }
+        &_h1 {
+            composes: OneUI-heading-1 from global;
+        }
+        &_h2 {
+            composes: OneUI-heading-2 from global;
+        }
+        &_h3 {
+            composes: OneUI-heading-3 from global;
         }
     }
     &--align {

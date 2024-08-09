@@ -13,12 +13,12 @@ exports[`Drawer should expand and close correctly 1`] = `
       role="button"
       tabindex="-1"
     >
-      <h4
+      <span
         class="Drawer__headTitle"
         title="some title"
       >
         some title
-      </h4>
+      </span>
       <div
         class="Drawer__headButtons"
       >
@@ -66,12 +66,12 @@ exports[`Drawer should pass initial expand status 1`] = `
       role="button"
       tabindex="-1"
     >
-      <h4
+      <span
         class="Drawer__headTitle"
         title="some title"
       >
         some title
-      </h4>
+      </span>
       <div
         class="Drawer__headButtons"
       >
@@ -119,12 +119,12 @@ exports[`Drawer should render correctly 1`] = `
       role="button"
       tabindex="-1"
     >
-      <h4
+      <span
         class="Drawer__headTitle"
         title="some title"
       >
         some title
-      </h4>
+      </span>
       <div
         class="Drawer__headButtons"
       >

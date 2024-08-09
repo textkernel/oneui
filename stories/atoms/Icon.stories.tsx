@@ -12,7 +12,6 @@ import {
     LogoTextkernel,
 } from '@textkernel/oneui';
 import type { Meta, StoryObj } from '@storybook/react';
-import { HEADING_SIZES } from '../../src/constants';
 
 const meta: Meta<typeof IconBase> = {
     title: 'Atoms/Icon',
@@ -29,7 +28,7 @@ export const AlignWithText: Story = {
         margin: 'right',
     },
     render: (args) => (
-        <Heading level={HEADING_SIZES[0]}>
+        <Heading level="h1">
             <IconSearch {...args} />
             Some heading
         </Heading>
