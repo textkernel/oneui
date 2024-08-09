@@ -7,6 +7,7 @@ exports[`TabsBar component should allow for conditional rendering of items 1`] =
     role="tablist"
   >
     <div
+      aria-disabled="false"
       aria-selected="false"
       class="TabItem"
       role="tab"
@@ -25,6 +26,7 @@ exports[`TabsBar component should render tabs bar with minimal correctly 1`] = `
     role="tablist"
   >
     <div
+      aria-disabled="false"
       aria-selected="false"
       class="TabItem"
       role="tab"
@@ -33,6 +35,7 @@ exports[`TabsBar component should render tabs bar with minimal correctly 1`] = `
       Some tab
     </div>
     <div
+      aria-disabled="false"
       aria-selected="false"
       class="TabItem"
       role="tab"

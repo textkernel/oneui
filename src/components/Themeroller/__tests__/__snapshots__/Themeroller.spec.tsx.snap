@@ -26,6 +26,7 @@ exports[`Themeroller component should render component correctly 1`] = `
       role="tablist"
     >
       <div
+        aria-disabled="false"
         aria-selected="true"
         class="TabItem TabItem--isActive"
         role="tab"
@@ -34,6 +35,7 @@ exports[`Themeroller component should render component correctly 1`] = `
         Colors
       </div>
       <div
+        aria-disabled="false"
         aria-selected="false"
         class="TabItem"
         role="tab"

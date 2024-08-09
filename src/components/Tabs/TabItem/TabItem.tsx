@@ -45,9 +45,10 @@ export function TabItem<T = string | number>({
         <div
             tabIndex={0}
             {...rest}
-            {...block({ isActive, isBlock, ...rest })}
+            {...block({ isActive, isBlock, disabled, ...rest })}
             role="tab"
             aria-selected={isActive}
+            aria-disabled={disabled}
             onClick={handleClick}
             onKeyDown={handleKeyDown}
         >

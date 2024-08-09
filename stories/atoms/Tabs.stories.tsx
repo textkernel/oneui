@@ -28,13 +28,20 @@ export const _TabBar: Story = {
         const tabs = [1, 2, 3];
 
         return (
-            <TabsBar {...args}>
-                {tabs.map((tab) => (
-                    <TabItem tabId={tab} key={tab}>
-                        {`${tab}. tab`}
-                    </TabItem>
-                ))}
-            </TabsBar>
+            <>
+                <p>
+                    In this story you can see how different props effect the state of the whole tab
+                    bar. However no additional logic is implemented and so the tabs will not
+                    &quot;work&quot; as expected in a real scenario.
+                </p>
+                <TabsBar {...args}>
+                    {tabs.map((tab) => (
+                        <TabItem tabId={tab} key={tab}>
+                            {`${tab}. tab`}
+                        </TabItem>
+                    ))}
+                </TabsBar>
+            </>
         );
     },
 };
@@ -47,22 +54,31 @@ export const _TabItem: TabItemStory = {
         tabId: 'my-tab',
         isActive: false,
         children: 'My tab',
+        disabled: false,
     },
     render: (args) => {
         const tabs = [1, 2, 3];
         const initActive = [true, false, false];
 
         return (
-            <TabsBar>
-                <>
-                    <TabItem key="my-tab" {...args} />
-                    {tabs.map((tab, i) => (
-                        <TabItem tabId={tab} key={tab} isActive={initActive[i]}>
-                            {`${tab}. tab`}
-                        </TabItem>
-                    ))}
-                </>
-            </TabsBar>
+            <>
+                <p>
+                    In this story you can see how different props effect the state of the first tab,
+                    how keyboard and mouse interactions effect the look and feel of the tabs.
+                    However no additional logic is implemented and so the tabs will not
+                    &quot;work&quot; as expected in a real scenario.
+                </p>
+                <TabsBar>
+                    <>
+                        <TabItem key="my-tab" {...args} />
+                        {tabs.map((tab, i) => (
+                            <TabItem tabId={tab} key={tab} isActive={initActive[i]}>
+                                {`${tab}. tab`}
+                            </TabItem>
+                        ))}
+                    </>
+                </TabsBar>
+            </>
         );
     },
 };
@@ -95,6 +111,9 @@ export const FullImplement: TabItemStory = {
                     <Tooltip content="some additional information" placement="top">
                         <div>Tab with Tooltip</div>
                     </Tooltip>
+                </TabItem>
+                <TabItem tabId="t4" key={4} disabled>
+                    Disabled tab
                 </TabItem>
             </TabsBar>
         );
