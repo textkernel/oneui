@@ -112,6 +112,9 @@ export const FullImplement: TabItemStory = {
                         <div>Tab with Tooltip</div>
                     </Tooltip>
                 </TabItem>
+                <TabItem tabId="t4" key={4} disabled>
+                    Disabled tab
+                </TabItem>
             </TabsBar>
         );
     },

@@ -47,6 +47,7 @@
         border: none;
         border-bottom: var(--line-normal) solid var(--color-border-subtle);
         color: var(--color-text-disabled);
+        padding: var(--space-100) var(--space-150);
     }
 
     &--disabled.TabItem:hover {
