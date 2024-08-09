@@ -40,7 +40,6 @@ $icon-size: 26px;
     }
 
     &__headTitle {
-        composes: OneUI-heading-3 from global;
         color: var(--color-background);
         white-space: nowrap;
         overflow: hidden;
