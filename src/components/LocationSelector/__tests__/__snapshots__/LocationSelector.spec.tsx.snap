@@ -32,7 +32,8 @@ exports[`LocationSelector component should render LocationSelector properly when
         </button>
       </div>
       <button
-        class="Button Button--isLink Button--isInline Button--context FieldWrapper__clearButton"
+        class="Button Button--size_small Button--variant_ghost Button--context_primary FieldWrapper__clearButton"
+        style="width: 0px;"
         title="Clear"
         type="button"
       >
@@ -93,7 +94,8 @@ exports[`LocationSelector component should render LocationSelector propertly whe
         </button>
       </div>
       <button
-        class="Button Button--isLink Button--isInline Button--context FieldWrapper__clearButton"
+        class="Button Button--size_small Button--variant_ghost Button--context_primary FieldWrapper__clearButton"
+        style="width: 0px;"
         title="Clear"
         type="button"
       >

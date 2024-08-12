@@ -14,7 +14,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar actions c
       class="BulkActionsToolbar__toggle"
     >
       <button
-        class="Button Button--isLink Button--context BulkActionsToolbar__toggleButton"
+        class="Button Button--variant_ghost Button--context_primary BulkActionsToolbar__toggleButton"
+        style="width: 0px;"
         type="button"
       >
         Select None
@@ -27,8 +28,9 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar actions c
         class="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
           disabled=""
+          style="width: 0px;"
           type="button"
         >
           Compare
@@ -38,7 +40,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar actions c
         class="BulkActionsToolbar__actionWrapper"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
+          style="width: 0px;"
           type="button"
         >
           Import
@@ -48,7 +51,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar actions c
         class="BulkActionsToolbar__actionWrapper"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
+          style="width: 0px;"
           type="button"
         >
           Delete
@@ -68,7 +72,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       class="BulkActionsToolbar__toggle"
     >
       <button
-        class="Button Button--isLink Button--context BulkActionsToolbar__toggleButton"
+        class="Button Button--variant_ghost Button--context_primary BulkActionsToolbar__toggleButton"
+        style="width: 0px;"
         type="button"
       >
         Select All
@@ -81,8 +86,9 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
           disabled=""
+          style="width: 0px;"
           type="button"
         >
           Compare
@@ -92,7 +98,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
+          style="width: 0px;"
           type="button"
         >
           Import
@@ -102,7 +109,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
+          style="width: 0px;"
           type="button"
         >
           Delete
@@ -127,7 +135,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       class="BulkActionsToolbar__toggle"
     >
       <button
-        class="Button Button--isLink Button--context BulkActionsToolbar__toggleButton"
+        class="Button Button--variant_ghost Button--context_primary BulkActionsToolbar__toggleButton"
+        style="width: 0px;"
         type="button"
       >
         Select All
@@ -140,8 +149,9 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
           disabled=""
+          style="width: 0px;"
           type="button"
         >
           Compare
@@ -151,7 +161,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
+          style="width: 0px;"
           type="button"
         >
           Import
@@ -161,7 +172,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
+          style="width: 0px;"
           type="button"
         >
           Delete
@@ -186,7 +198,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       class="BulkActionsToolbar__toggle"
     >
       <button
-        class="Button Button--isLink Button--context BulkActionsToolbar__toggleButton"
+        class="Button Button--variant_ghost Button--context_primary BulkActionsToolbar__toggleButton"
+        style="width: 0px;"
         type="button"
       >
         Select All
@@ -199,8 +212,9 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
           disabled=""
+          style="width: 0px;"
           type="button"
         >
           Compare
@@ -210,7 +224,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
+          style="width: 0px;"
           type="button"
         >
           Import
@@ -220,7 +235,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
+          style="width: 0px;"
           type="button"
         >
           Delete
@@ -245,7 +261,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       class="BulkActionsToolbar__toggle"
     >
       <button
-        class="Button Button--isLink Button--context BulkActionsToolbar__toggleButton"
+        class="Button Button--variant_ghost Button--context_primary BulkActionsToolbar__toggleButton"
+        style="width: 0px;"
         type="button"
       >
         Select None
@@ -258,8 +275,9 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper BulkActionsToolbar__actionWrapper--first"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
           disabled=""
+          style="width: 0px;"
           type="button"
         >
           Compare
@@ -269,7 +287,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
+          style="width: 0px;"
           type="button"
         >
           Import
@@ -279,7 +298,8 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
         class="BulkActionsToolbar__actionWrapper"
       >
         <button
-          class="Button Button--context BulkActionsToolbar__action"
+          class="Button Button--variant_filled Button--context_primary BulkActionsToolbar__action"
+          style="width: 0px;"
           type="button"
         >
           Delete

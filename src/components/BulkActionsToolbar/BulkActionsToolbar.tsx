@@ -66,7 +66,7 @@ export const BulkActionsToolbar: React.FC<BulkActionsToolbarProps> = ({
             <div {...elem('toggle')}>
                 <Tooltip content={toggleTooltip}>
                     <Button
-                        isLink
+                        variant="ghost"
                         onClick={() => toggle.onToggle(toggleState)}
                         {...elem('toggleButton')}
                     >

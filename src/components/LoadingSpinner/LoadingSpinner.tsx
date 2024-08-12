@@ -13,7 +13,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     hidden?: boolean;
     /** Custom spinner size (will affect both width and height) */
     size?: number;
-    /**  Define the context, eg. primary, secondary, critical (default: primary) */
+    /**  Define the context, eg. primary, secondary, critical */
     context?: ButtonContext | 'whiteSpinner';
 }
 
@@ -24,7 +24,7 @@ export const LoadingSpinner: React.FC<Props> = ({
     children,
     hidden = false,
     size,
-    context = 'primary',
+    context,
     ...rest
 }) => (
     <div

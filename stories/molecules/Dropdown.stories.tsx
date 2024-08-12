@@ -53,7 +53,7 @@ export const _Dropdown: Story = {
             <Button>
                 <HiDotsVertical />
             </Button>,
-            <Button isLink>Select any</Button>,
+            <Button variant="ghost">Select any</Button>,
         ];
 
         return (

@@ -3,12 +3,32 @@
 exports[`<Button> that renders a button should add classes when props are changed 1`] = `
 <div>
   <button
-    class="Button Button--isBlock Button--isLoading Button--size_large Button--context"
+    class="Button Button--isBlock Button--size_large Button--variant_filled Button--context_primary"
+    disabled=""
+    style="width: 0px;"
     type="button"
   >
-    <span>
-      Click me
-    </span>
+    <div
+      aria-busy="true"
+      aria-hidden="false"
+      class="LoadingSpinner"
+      role="status"
+    >
+      <svg
+        class="LoadingSpinner__svg"
+        style="width: 16px; height: 16px;"
+        viewBox="0,0,44,44"
+      >
+        <circle
+          class="LoadingSpinner__path LoadingSpinner__path--context_whiteSpinner"
+          cx="22"
+          cy="22"
+          fill="none"
+          r="20"
+          stroke-width="4"
+        />
+      </svg>
+    </div>
   </button>
 </div>
 `;
@@ -16,8 +36,9 @@ exports[`<Button> that renders a button should add classes when props are change
 exports[`<Button> that renders a button should render an ancor element if href is defined 1`] = `
 <div>
   <a
-    class="Button Button--context"
+    class="Button Button--variant_filled Button--context_primary"
     href="/"
+    style="width: 0px;"
   >
     Click me
   </a>
@@ -27,7 +48,8 @@ exports[`<Button> that renders a button should render an ancor element if href i
 exports[`<Button> that renders a button should render default button correctly 1`] = `
 <div>
   <button
-    class="Button Button--context"
+    class="Button Button--variant_filled Button--context_primary"
+    style="width: 0px;"
     type="button"
   >
     Click me

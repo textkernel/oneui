@@ -62,7 +62,7 @@ export const _DatePicker: Story = {
                 selected={selected}
                 minDate={minDate}
                 maxDate={maxDate}
-                todayButton={<Button isLink>Today</Button>}
+                todayButton={<Button variant="ghost">Today</Button>}
                 locale={args.locale}
             />
         );

@@ -57,7 +57,7 @@ export const _LabelPicker: Story = {
                 onChange={handleChange}
                 onAdd={handleAdd}
             >
-                <Button isLink>Apply label</Button>
+                <Button variant="ghost">Apply label</Button>
             </LabelPicker>
         );
     },

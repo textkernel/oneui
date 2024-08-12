@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react';
 import { bem } from '../../../utils';
+import { mergeRefs } from '../../../utils/mergeRefs';
 import styles from './Button.scss';
 import { ButtonContext, ButtonType, ButtonVariant, Size } from '../../../constants';
+import { LoadingSpinner } from '../../LoadingSpinner';
 
 export interface Props
     extends Omit<
@@ -11,16 +13,12 @@ export interface Props
     > {
     /** The label of the button */
     children: React.ReactNode;
-    /** Should the button be in link style or not */
-    isLink?: boolean;
-    /** Define the button context, eg. primary, secondary */
+    /** Define the button context, eg. primary, secondary, critical */
     context?: ButtonContext;
     /** The size of the button */
     size?: Size;
     /** Whether or not to show block-level button (full width) */
     isBlock?: boolean;
-    /** Whether or not to show inline button (without padding) */
-    isInline?: boolean;
     /** Whether or not to show the button in loading state */
     isLoading?: boolean;
     /** Should button be disabled or not */
@@ -41,9 +39,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
             children,
             disabled = false,
             isBlock = false,
-            isInline = false,
             isLoading = false,
-            isLink = false,
             type = 'button',
             href,
             size = 'normal',
@@ -53,6 +49,15 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         },
         ref
     ) => {
+        const buttonRef = React.useRef<HTMLButtonElement>();
+        const [buttonWidth, setButtonWidth] = React.useState<number>();
+        // figure out width of button, and add that width as styling
+        React.useLayoutEffect(() => {
+            if (buttonRef && buttonRef.current) {
+                setButtonWidth(buttonRef.current.offsetWidth);
+            }
+        }, [buttonRef]);
+
         if (typeof children !== 'number' && !children) {
             return null;
         }
@@ -62,17 +67,16 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
                 <a
                     {...rest}
                     {...block({
-                        isLink,
                         isBlock,
-                        isInline,
                         isLoading,
                         size,
                         variant,
                         context,
                         ...rest,
                     })}
-                    ref={ref}
+                    ref={mergeRefs([ref, buttonRef])}
                     href={href}
+                    style={{ width: buttonWidth }}
                 >
                     {children}
                 </a>
@@ -83,20 +87,26 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
             <button
                 {...rest}
                 {...block({
-                    isLink,
                     isBlock,
-                    isInline,
                     isLoading,
                     size,
                     variant,
                     context,
                     ...rest,
                 })}
-                ref={ref}
+                ref={mergeRefs([ref, buttonRef])}
                 type={type}
-                disabled={disabled}
+                style={{ width: buttonWidth }}
+                disabled={disabled || isLoading}
             >
-                {children}
+                {isLoading ? (
+                    <LoadingSpinner
+                        size={16}
+                        context={variant === 'filled' ? 'whiteSpinner' : context}
+                    />
+                ) : (
+                    children
+                )}
             </button>
         );
     }

@@ -38,7 +38,11 @@ export const _WeightedResultBar: Story = {
 };
 
 const ClickableCount = ({ count }) => (
-    <Button size="small" isLink onClick={() => console.log(`WeightedResultBar count: ${count}`)}>
+    <Button
+        size="small"
+        variant="ghost"
+        onClick={() => console.log(`WeightedResultBar count: ${count}`)}
+    >
         {count}
     </Button>
 );

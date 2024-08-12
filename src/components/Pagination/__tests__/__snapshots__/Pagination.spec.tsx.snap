@@ -8,15 +8,17 @@ exports[`<Pagination> that renders a pagination component should render correctl
   >
     <button
       aria-disabled="false"
-      class="Button Button--isLink Button--context Pagination__button"
+      class="Button Button--variant_ghost Button--context_primary Pagination__button"
       data-page="5"
+      style="width: 0px;"
       type="button"
     >
       ‹ Previous
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="1"
+      style="width: 0px;"
       type="button"
     >
       1
@@ -27,59 +29,67 @@ exports[`<Pagination> that renders a pagination component should render correctl
       …
     </div>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="3"
+      style="width: 0px;"
       type="button"
     >
       3
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="4"
+      style="width: 0px;"
       type="button"
     >
       4
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="5"
+      style="width: 0px;"
       type="button"
     >
       5
     </button>
     <button
       aria-current="page"
-      class="Button Button--isLink Button--context PaginationButton PaginationButton--isActive"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton PaginationButton--isActive"
       data-page="6"
+      style="width: 0px;"
       type="button"
     >
       6
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="7"
+      style="width: 0px;"
       type="button"
     >
       7
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="8"
+      style="width: 0px;"
       type="button"
     >
       8
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="9"
+      style="width: 0px;"
       type="button"
     >
       9
     </button>
     <button
       aria-disabled="false"
-      class="Button Button--isLink Button--context Pagination__button"
+      class="Button Button--variant_ghost Button--context_primary Pagination__button"
       data-page="7"
+      style="width: 0px;"
       type="button"
     >
       Next ›
@@ -96,71 +106,81 @@ exports[`<Pagination> that renders a pagination component should render correctl
   >
     <button
       aria-current="page"
-      class="Button Button--isLink Button--context PaginationButton PaginationButton--isActive"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton PaginationButton--isActive"
       data-page="1"
+      style="width: 0px;"
       type="button"
     >
       1
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="2"
+      style="width: 0px;"
       type="button"
     >
       2
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="3"
+      style="width: 0px;"
       type="button"
     >
       3
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="4"
+      style="width: 0px;"
       type="button"
     >
       4
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="5"
+      style="width: 0px;"
       type="button"
     >
       5
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="6"
+      style="width: 0px;"
       type="button"
     >
       6
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="7"
+      style="width: 0px;"
       type="button"
     >
       7
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="8"
+      style="width: 0px;"
       type="button"
     >
       8
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="9"
+      style="width: 0px;"
       type="button"
     >
       9
     </button>
     <button
-      class="Button Button--isLink Button--context PaginationButton"
+      class="Button Button--variant_ghost Button--context_primary PaginationButton"
       data-page="10"
+      style="width: 0px;"
       type="button"
     >
       10
