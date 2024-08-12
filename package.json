@@ -133,7 +133,7 @@
         "jest-environment-jsdom": "29.7.0",
         "mini-css-extract-plugin": "2.9.0",
         "mockdate": "3.0.5",
-        "postcss": "8.4.40",
+        "postcss": "8.4.41",
         "postcss-loader": "7.3.4",
         "prettier": "3.3.3",
         "react": "18.3.1",
