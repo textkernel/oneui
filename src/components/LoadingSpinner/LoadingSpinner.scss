@@ -1,3 +1,13 @@
+@use "sass:map";
+$contexts: (primary, secondary, critical, whiteSpinner);
+
+$contextMap: (
+    'secondary': 'neutral',
+    'primary': 'primary',
+    'critical': 'critical',
+    'whiteSpinner': 'whiteSpinner'
+);
+
 @keyframes rotate {
     100% {
         transform: rotate(360deg);
@@ -38,12 +48,22 @@
     }
 
     &__path {
+        stroke: var(--color-primary-50);
         stroke-dasharray: 1, 150;
         stroke-dashoffset: 0;
         stroke-linecap: round;
         animation: dash 1.5s ease-in-out infinite;
         transition: stroke var(--transition-duration);
-        stroke: var(--color-primary-50);
+        @each $context in $contexts {
+            &--context_#{ $context } {
+                $mappedContext: map.get($contextMap, $context);
+                @if ($mappedContext == 'whiteSpinner') {
+                    stroke: var(--color-background);
+                } @else {
+                    stroke: var(--color-#{$mappedContext}-30);
+                }
+            }  
+        }
     }
 
     &__label {

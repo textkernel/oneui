@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ButtonContext } from '@textkernel/oneui/constants';
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './LoadingSpinner.scss';
@@ -8,11 +9,12 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     centerIn?: 'parent' | 'viewport';
     /** Loading text */
     children?: React.ReactNode;
-
     /** Hides the spinner when true */
     hidden?: boolean;
     /** Custom spinner size (will affect both width and height) */
     size?: number;
+    /**  Define the context, eg. primary, secondary, critical (default: primary) */
+    context?: ButtonContext | 'whiteSpinner';
 }
 
 const { block, elem } = bem('LoadingSpinner', styles);
@@ -22,11 +24,12 @@ export const LoadingSpinner: React.FC<Props> = ({
     children,
     hidden = false,
     size,
+    context = 'primary',
     ...rest
 }) => (
     <div
         {...rest}
-        {...block({ hidden, centerIn, ...rest })}
+        {...block({ hidden, centerIn, context, ...rest })}
         role="status"
         aria-busy={!hidden}
         aria-hidden={hidden}
@@ -50,7 +53,7 @@ export const LoadingSpinner: React.FC<Props> = ({
                 r="20"
                 fill="none"
                 strokeWidth="4"
-                {...elem('path', { hidden, centerIn })}
+                {...elem('path', { context, hidden, centerIn })}
             />
         </svg>
         {!!children && (
