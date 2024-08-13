@@ -35,14 +35,14 @@
     }
 
     &--isSelected.SelectButton {
-        border-color: var(--color-primary-50);
-        background-color: var(--color-primary-50);
+        border-color: var(--color-brand-50);
+        background-color: var(--color-brand-50);
         color: var(--color-background);
         font-weight: var(--font-weight-bold);
 
         &:hover {
-            border-color: var(--color-primary-60);
-            background-color: var(--color-primary-60);
+            border-color: var(--color-brand-60);
+            background-color: var(--color-brand-60);
         }
 
     }

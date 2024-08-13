@@ -13,7 +13,7 @@
     border-radius: calc(var(--search-button-size) / 2);
 
     color: var(--color-background);
-    background-color: var(--color-primary-50);
+    background-color: var(--color-brand-50);
 
     cursor: pointer;
     text-decoration: none;
@@ -21,20 +21,20 @@
     transition: all var(--transition-duration);
 
     &:hover {
-        background-color: var(--color-primary-60);
+        background-color: var(--color-brand-60);
     }
 
     &[disabled] {
-        background-color: var(--color-primary-20);
+        background-color: var(--color-brand-20);
         cursor: not-allowed;
     }
 
     &:focus {
-        background-color: var(--color-primary-80);
+        background-color: var(--color-brand-80);
     }
 
     &:active {
-        background-color: var(--color-primary-80);
+        background-color: var(--color-brand-80);
     }
 
     &--withLabel {

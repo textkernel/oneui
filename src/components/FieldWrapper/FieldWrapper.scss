@@ -45,12 +45,12 @@
 
     &--isFocused,
     &:focus {
-        border-color: var(--color-primary-50);
+        border-color: var(--color-brand-50);
         outline: none;
     }
 
     &:hover:not(.FieldWrapper--disabled) {
-        border-color: var(--color-primary-50);
+        border-color: var(--color-brand-50);
 
         & .FieldWrapper__content {
             overflow: hidden;

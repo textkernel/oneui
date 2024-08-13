@@ -103,7 +103,7 @@ $ npm i -g @storybook/cli
 All CSS variables (‘[custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)’) exposed by OneUI can be customized. A theme file is an additional stylesheet that consists of a reassignment of all variables with values that are different from their defaults. Theme files should not contain any CSS selectors or properties - only CSS variables and values, e.g.:
 
 ```css
---color-primary-50: red;
+--color-brand-50: red;
 --font-size-base: 12px;
 ```
 

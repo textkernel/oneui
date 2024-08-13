@@ -19,10 +19,10 @@ global.Date = class extends RealDate {
 describe('ThemeGenerator', () => {
     const cssVariables = {
         '--transparent': 'transparent',
-        '--color-primary': 'blue',
-        '--color-primary-10': '#101010',
-        '--color-primary-20': '#202020',
-        '--color-primary-30': '#303030',
+        '--color-brand': 'blue',
+        '--color-brand-10': '#101010',
+        '--color-brand-20': '#202020',
+        '--color-brand-30': '#303030',
     };
     const jsonTheme = {
         name: 'dark-theme',
@@ -62,10 +62,10 @@ describe('ThemeGenerator', () => {
         it('should set theme with styles', () => {
             const themeGenerator = new ThemeGenerator(OneUITheme);
             const cssVars = {
-                '--color-primary': 'red',
-                '--color-primary-10': '#111111',
-                '--color-primary-20': '#222222',
-                '--color-primary-30': '#333333',
+                '--color-brand': 'red',
+                '--color-brand-10': '#111111',
+                '--color-brand-20': '#222222',
+                '--color-brand-30': '#333333',
             };
             themeGenerator.setTheme('dark-theme', cssVars);
             expect(themeGenerator.result.name).toEqual('dark-theme');
@@ -96,7 +96,7 @@ describe('ThemeGenerator', () => {
         it('should pass correct arguments to save function', () => {
             const themeGenerator = new ThemeGenerator(OneUITheme);
             const cssVars = {
-                '--color-primary': 'red',
+                '--color-brand': 'red',
             };
             themeGenerator.setTheme('dark-theme', cssVars);
             themeGenerator.saveAsJson();
@@ -109,11 +109,11 @@ describe('ThemeGenerator', () => {
         it('should return theme CSS styles', () => {
             const themeGenerator = new ThemeGenerator(OneUITheme);
             const cssVars = {
-                '--color-primary': 'red',
+                '--color-brand': 'red',
             };
             themeGenerator.setTheme('dark-theme', cssVars);
             expect(themeGenerator.getStyles().replace(/\s+/g, '')).toEqual(
-                ':root{--color-primary:red;};'
+                ':root{--color-brand:red;};'
             );
         });
     });
