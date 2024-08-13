@@ -1,1 +1,1 @@
-export { Toast, ToastProps, OneToaster } from './Toast';
+export { toast, ToastProps, Toaster } from './Toast';

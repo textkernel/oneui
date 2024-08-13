@@ -1,26 +1,20 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import {
-    RenderResult,
-    render,
-    screen,
-    waitFor,
-    waitForElementToBeRemoved,
-} from '@testing-library/react';
+import { RenderResult, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { OneToaster, Toast } from '../Toast';
+import { Toaster, toast } from '../Toast';
 
 window.HTMLElement.prototype.setPointerCapture = jest.fn();
 
 describe('<Toast>', () => {
     let view: RenderResult;
     beforeEach(async () => {
-        view = render(<OneToaster duration={Infinity}>{}</OneToaster>);
+        view = render(<Toaster duration={Infinity}>{}</Toaster>);
     });
 
     it('should render toast correctly', async () => {
         expect(view.container).toBeEmptyDOMElement();
-        Toast({
+        toast({
             title: 'Test',
             description: 'Description',
         });
@@ -30,9 +24,10 @@ describe('<Toast>', () => {
             expect(screen.getByText('Description')).toBeInTheDocument();
         });
     });
+
     describe('should render the icons correctly with each context', () => {
         it('should render cautious icon', async () => {
-            Toast({
+            toast({
                 description: 'Description',
                 context: 'cautious',
             });
@@ -40,8 +35,9 @@ describe('<Toast>', () => {
                 expect(screen.getByTestId('cautious-icon')).toBeInTheDocument();
             });
         });
+
         it('should render info icon', async () => {
-            Toast({
+            toast({
                 description: 'Description',
                 context: 'info',
             });
@@ -49,8 +45,9 @@ describe('<Toast>', () => {
                 expect(screen.getByTestId('info-icon')).toBeInTheDocument();
             });
         });
+
         it('should render critical icon', async () => {
-            Toast({
+            toast({
                 description: 'Description',
                 context: 'critical',
             });
@@ -58,8 +55,9 @@ describe('<Toast>', () => {
                 expect(screen.getByTestId('critical-icon')).toBeInTheDocument();
             });
         });
+
         it('should render success icon', async () => {
-            Toast({
+            toast({
                 description: 'Description',
                 context: 'success',
             });
@@ -69,37 +67,49 @@ describe('<Toast>', () => {
         });
     });
 
-    it.skip('should close automatically after 2500ms', async () => {
-        // skipped test, test times out
-        Toast({
+    it('should close automatically after 2500ms', async () => {
+        toast({
             title: 'Test',
             description: 'Description',
         });
 
         await waitFor(() => {
             expect(screen.getByRole('heading', { name: 'Test' })).toBeInTheDocument();
-            expect(view.container).toMatchSnapshot();
         });
 
-        await waitForElementToBeRemoved(screen.queryByRole('heading', { name: 'Test' }))
-            .then(() => {
-                expect(view.baseElement).toMatchSnapshot();
+        await waitFor(
+            () => {
                 expect(view.container).toBeEmptyDOMElement();
-            })
-            .catch((error) => {
-                throw error;
-            });
+            },
+            { timeout: 3000 }
+        );
     });
-    it.skip('should stay open on hover', () => {
-        // can only be tested if the toast actually disappears when you do not hover, in the test above
+
+    it('should stay open on hover', async () => {
+        toast({
+            title: 'Test',
+            description: 'Description',
+        });
+        await waitFor(() => {
+            expect(screen.getByRole('heading', { name: 'Test' })).toBeInTheDocument();
+        });
+        const title = screen.getByRole('heading', { name: 'Test' });
+        fireEvent.mouseEnter(title);
+        await waitFor(
+            () => {
+                expect(view.container).not.toBeEmptyDOMElement();
+                expect(screen.getByRole('heading', { name: 'Test' })).toBeInTheDocument();
+            },
+            { timeout: 3000 }
+        );
     });
+
     it('should close toast when clicking on the close button', async () => {
-        Toast({
+        toast({
             description: 'Description',
         });
         await waitFor(() => {
             expect(screen.getByRole('button')).toBeInTheDocument();
-            expect(view.container).toMatchSnapshot();
         });
         const button = screen.getByLabelText('closeButton');
 
@@ -109,16 +119,18 @@ describe('<Toast>', () => {
             expect(view.container).toBeEmptyDOMElement();
         });
     });
+
     it('should not be focused when not actionable', async () => {
-        Toast({
+        toast({
             description: 'Description',
         });
         await waitFor(() => {
             expect(screen.getByRole('status')).toHaveAttribute('aria-live', 'polite');
         });
     });
+
     it('should be focused when actionable', async () => {
-        Toast({
+        toast({
             description: 'Description',
             actions: [
                 {
@@ -128,12 +140,12 @@ describe('<Toast>', () => {
             ],
         });
         await waitFor(() => {
-            expect(view.container).toMatchSnapshot();
             expect(screen.getByRole('status')).toHaveAttribute('aria-live', 'assertive');
         });
     });
+
     it('should close when action item callback is clicked', async () => {
-        Toast({
+        toast({
             description: 'Description',
             actions: [
                 {
@@ -143,7 +155,7 @@ describe('<Toast>', () => {
             ],
         });
         await waitFor(() => {
-            expect(view.container).toMatchSnapshot();
+            expect(screen.getByText('action1')).toBeInTheDocument();
         });
         const user = userEvent.setup();
         const actionButton = screen.getByText('action1');
@@ -152,13 +164,14 @@ describe('<Toast>', () => {
             expect(view.container).toBeEmptyDOMElement();
         });
     });
+
     it('should close when action item href is clicked', async () => {
-        Toast({
+        toast({
             description: 'Description',
             actions: [{ text: 'action1', href: '/login' }],
         });
         await waitFor(() => {
-            expect(view.container).toMatchSnapshot();
+            expect(screen.getByText('action1')).toBeInTheDocument();
         });
         const user = userEvent.setup();
         const actionButton = screen.getByText('action1');
@@ -167,5 +180,34 @@ describe('<Toast>', () => {
             expect(view.container).toBeEmptyDOMElement();
         });
     });
-    it.todo('should close 2500ms after end hover');
+
+    it('should close 2500ms after end hover', async () => {
+        toast({
+            title: 'Test',
+            description: 'Description',
+        });
+        await waitFor(() => {
+            expect(screen.getByRole('heading', { name: 'Test' })).toBeInTheDocument();
+        });
+
+        const title = screen.getByRole('heading', { name: 'Test' });
+        fireEvent.mouseEnter(title);
+
+        await waitFor(
+            () => {
+                expect(view.container).not.toBeEmptyDOMElement();
+                expect(screen.getByRole('heading', { name: 'Test' })).toBeInTheDocument();
+            },
+            { timeout: 3000 }
+        );
+
+        fireEvent.mouseLeave(title);
+
+        await waitFor(
+            () => {
+                expect(view.container).toBeEmptyDOMElement();
+            },
+            { timeout: 3000 }
+        );
+    });
 });

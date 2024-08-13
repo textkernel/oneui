@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, Toast, OneToaster, ToastProps } from '@textkernel/oneui';
+import { Button, toast, Toaster, ToastProps } from '@textkernel/oneui';
 
-const meta: Meta<typeof OneToaster> = {
+const meta: Meta<typeof Toaster> = {
     title: 'Molecules/Toast',
-    component: OneToaster,
+    component: Toaster,
     argTypes: {
         context: {
             options: ['info', 'cautious', 'success', 'critical'],
@@ -15,18 +15,19 @@ const meta: Meta<typeof OneToaster> = {
 
 export default meta;
 
-type Story = StoryObj<typeof OneToaster>;
+type Story = StoryObj<typeof Toaster>;
 
 const ToastImplementation = (args: ToastProps) => {
     const [duration, setDuration] = React.useState<number>(Infinity);
 
     const openToast = () =>
-        Toast({
+        toast({
             title: args.title,
             description: args.description,
             context: args.context,
             actions: args.actions,
         });
+
     const handleOnClick = (timeDuration: number) => {
         setDuration(timeDuration);
         openToast();
@@ -34,10 +35,9 @@ const ToastImplementation = (args: ToastProps) => {
 
     return (
         <div style={{ height: 400 }}>
-            <OneToaster duration={duration}>
-                <Button onClick={() => handleOnClick(Infinity)}>Make Infinity Toast Appear</Button>
-                <Button onClick={() => handleOnClick(2500)}>Make Toast Appear</Button>
-            </OneToaster>
+            <Toaster duration={duration} />
+            <Button onClick={() => handleOnClick(Infinity)}>Make Infinity Toast Appear</Button>
+            <Button onClick={() => handleOnClick(2500)}>Make Toast Appear</Button>
         </div>
     );
 };

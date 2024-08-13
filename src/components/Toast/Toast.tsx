@@ -1,12 +1,11 @@
 /* eslint-disable import/no-unresolved */
 import * as React from 'react';
-import { Toaster, toast } from 'sonner';
-import { MdClose } from 'react-icons/md';
+import { Toaster as SonnerToaster, toast as sonnerToast } from 'sonner';
+import CloseIcon from '@material-design-icons/svg/round/close.svg';
 import CautiousIcon from '@material-design-icons/svg/round/warning.svg';
 import CriticalIcon from '@material-design-icons/svg/round/error.svg';
 import InfoIcon from '@material-design-icons/svg/round/info.svg';
 import SuccessIcon from '@material-design-icons/svg/round/check_circle.svg';
-
 import styles from './Toast.scss';
 import { Context, ENTER_KEY } from '../../constants';
 import { bem } from '../../utils';
@@ -52,7 +51,7 @@ const ActionItem: React.FC<ActionProps> = ({ action, handleClose }) => {
             <p
                 onClick={handleOnClick}
                 onKeyDown={handleKeyDown}
-                {...elem('toast-action')}
+                {...elem('toastAction')}
                 role="presentation"
             >
                 {action.text}
@@ -66,13 +65,13 @@ const ActionItem: React.FC<ActionProps> = ({ action, handleClose }) => {
                 href={action.href}
                 target="_blank"
                 rel="noreferrer"
-                {...elem('toast-action')}
+                {...elem('toastAction')}
             >
                 {action.text}
             </a>
         );
     }
-    return <></>;
+    return null;
 };
 
 const ContextIcon = ({ context }) => {
@@ -90,7 +89,7 @@ const ContextIcon = ({ context }) => {
     }
 };
 
-export const Toast = ({
+export const toast = ({
     title,
     description,
     context = 'info',
@@ -98,7 +97,7 @@ export const Toast = ({
     isClosable = true,
     closeButtonLabel = 'closeButton',
 }: ToastProps) =>
-    toast.custom(
+    sonnerToast.custom(
         (t) => (
             <div {...block({ context })}>
                 <div {...elem('contextIcon')}>
@@ -111,7 +110,10 @@ export const Toast = ({
                     </div>
                     <div {...elem('actions')}>
                         {actions && actions[0] && (
-                            <ActionItem action={actions[0]} handleClose={() => toast.dismiss(t)} />
+                            <ActionItem
+                                action={actions[0]}
+                                handleClose={() => sonnerToast.dismiss(t)}
+                            />
                         )}
                         {actions && actions[1] && (
                             <>
@@ -119,7 +121,7 @@ export const Toast = ({
                                 •{' '}
                                 <ActionItem
                                     action={actions[1]}
-                                    handleClose={() => toast.dismiss(t)}
+                                    handleClose={() => sonnerToast.dismiss(t)}
                                 />
                             </>
                         )}
@@ -129,32 +131,27 @@ export const Toast = ({
                     <button
                         {...elem('closeButton')}
                         type="button"
-                        onClick={() => toast.dismiss(t)}
+                        onClick={() => sonnerToast.dismiss(t)}
                         aria-label={closeButtonLabel}
                     >
-                        <MdClose {...elem('closeIcon')} />
+                        <CloseIcon {...elem('closeIcon')} />
                     </button>
                 )}
             </div>
         ),
-        actions ? { important: true } : {} // focused if actionable
+        actions ? { important: true, duration: 2500 } : { duration: 2500 } // focused if actionable
     );
 
-export const OneToaster = ({ children, ...props }) => (
-    <>
-        {children}
-        <Toaster {...props} className="Toaster" />
-    </>
-);
+export const Toaster = ({ ...props }) => <SonnerToaster {...props} className="Toaster" />;
 
-OneToaster.defaultProps = {
-    duration: 2500,
+Toaster.defaultProps = {
+    // duration: 2500,
     closeButton: true,
     offset: 16,
     gap: 8,
 };
 
-Toast.displayName = 'Toast';
-OneToaster.displayName = 'Toaster';
+toast.displayName = 'toast';
+Toaster.displayName = 'Toaster';
 ContextIcon.displayName = 'ContextIcon';
 ActionItem.displayName = 'ActionItem';
