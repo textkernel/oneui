@@ -105,8 +105,8 @@ export const toast = ({
                 </div>
                 <div {...elem('content')}>
                     <div {...elem('message')}>
-                        <h3>{title}</h3>
-                        <p>{description}</p>
+                        <h3 className="OneUI-heading-3">{title}</h3>
+                        <p className="OneUI-body-text">{description}</p>
                     </div>
                     <div {...elem('actions')}>
                         {actions && actions[0] && (

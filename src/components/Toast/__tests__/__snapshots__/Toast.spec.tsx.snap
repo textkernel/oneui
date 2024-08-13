@@ -56,10 +56,14 @@ exports[`<Toast> should render toast correctly 2`] = `
             <div
               class="Toast__message"
             >
-              <h3>
+              <h3
+                class="OneUI-heading-3"
+              >
                 Test
               </h3>
-              <p>
+              <p
+                class="OneUI-body-text"
+              >
                 Description
               </p>
             </div>

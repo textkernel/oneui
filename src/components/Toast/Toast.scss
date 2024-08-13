@@ -35,25 +35,10 @@ $contextMap: (
         gap: var(--space-100);
         display: flex; 
         flex-direction: column;
-        
-        h3 {
-            font: {
-                size: var(--h3-font-size);
-                weight: var(--font-weight-bold);
-                family: var(--font-family-primary);
-            }
-            line-height: var(--space-300);
-            margin: 0;  
-        }
-
-        p {
-            font: {
-                weight: var(--font-weight-normal);
-                size:  var(--h5-font-size); 
-                family: var(--font-family-primary);
-            }
-            line-height: var(--space-300);
-            margin: 0;
+        margin: 0;
+        font-family: var(--font-family-primary);
+        h3, p {
+            margin: 0; 
         }
     }
 
