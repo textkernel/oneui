@@ -41,22 +41,22 @@ $contextMap: (
     flex-wrap: nowrap;
 
     // Default variant (filled) and context (primary)
-    background-color: var(--color-brand-50);
+    background-color: var(--color-background-brand-bold-default);
     color: var(--color-background);
 
     &:hover {
-        background-color: var(--color-brand-60);
+        background-color: var(--color-background-brand-bold-hover);
     }
     &:active {
-        background-color: var(--color-brand-70);
+        background-color: var(--color-background-critical-bold-pressed);
     }
     &:focus {
-        box-shadow: 0px 0px 0px 2px var(--color-info-20);
+        box-shadow: 0px 0px 0px 2px var(--color-background-information-subtlest-pressed);
     }
     
     &[disabled] {
         cursor: not-allowed;
-        background-color: var(--color-neutral-30);
+        background-color: var(--color-background-brand-bold-disabled);
         color: var(--color-background);
     }
 
@@ -84,65 +84,65 @@ $contextMap: (
         .Button--context_#{$context}.Button--variant_#{$variant} {
             @if $variant == filled {
                 @if $mappedContext == neutral {
-                    background-color: var(--color-neutral-10);
-                    color: var(--color-neutral-100);
+                    background-color: var(--color-background-neutral-subtle-default);
+                    color: var(--color-text-bold);
 
                     &:hover {
-                        background-color: var(--color-neutral-20);
+                        background-color: var(--color-background-neutral-subtle-hover);
                     }
                     &:active {
-                        background-color: var(--color-neutral-30);
+                        background-color: var(--color-background-neutral-subtle-pressed);
                     }
                     &[disabled]{
-                        background-color: var(--color-neutral-10);
-                        color: var(--color-neutral-50);
+                        background-color: var(--color-background-neutral-subtle-disabled);
+                        color: var(--color-text-subtlest);
                     }
                 } @else {
-                    background-color: var(--color-#{$mappedContext}-50);
+                    background-color: var(--color-background-#{$mappedContext}-bold-default);
                     color: var(--color-background);
 
                     &:hover {
-                        background-color: var(--color-#{$mappedContext}-60);
+                        background-color: var(--color-background-#{$mappedContext}-bold-hover);
                     }
                     &:active {
-                        background-color: var(--color-#{$mappedContext}-70);
+                        background-color: var(--color-background-#{$mappedContext}-bold-pressed);
                     }
                     &[disabled] {
-                        background-color: var(--color-#{$mappedContext}-20);
+                        background-color: var(--color-background-#{$mappedContext}-bold-disabled);
                     }
                 }
             } @else if $variant == outlined {
-                color: var(--color-#{$mappedContext}-60);
+                color: var(--color-text-#{$mappedContext}-default);
                 background-color: transparent;
                 border-width: var(--line-normal);
                 border-style: solid;
-                border-color: var(--color-#{$mappedContext}-50);
+                border-color: var(--color-border-#{$mappedContext}-bold-default);
 
                 &:hover {
-                    background-color: var(--color-#{$mappedContext}-10);
+                    background-color: var(--color-background-#{$mappedContext}-subtlest-hover);
                 }
                 &:active {
-                    background-color: var(--color-#{$mappedContext}-20);
+                    background-color: var(--color-background-#{$mappedContext}-subtlest-pressed);
                 }
                 &[disabled]{
-                    color: var(--color-#{$mappedContext}-30);
+                    color: var(--color-text-#{$mappedContext}-default);
                     &:hover,
                     &:active {
                         background-color: var(--transparent);
                     }
-                    border-color: var(--color-#{$mappedContext}-30);
+                    border-color: var(--color-border-#{$mappedContext}-subtle-brand);
                 }
             } @else if $variant == ghost {
-                color: var(--color-#{$mappedContext}-60);
+                color: var(--color-text-#{$mappedContext}-default);
                 background-color: var(--transparent);
                 &:hover {
-                    background-color: var(--color-#{$mappedContext}-10);
+                    background-color: var(--color-background-#{$mappedContext}-subtlest-hover);
                 }
                 &:active {
-                    background-color: var(--color-#{$mappedContext}-20);
+                    background-color: var(--color-background-#{$mappedContext}-subtlest-pressed);
                 }
                 &[disabled] {
-                    color: var(--color-#{$mappedContext}-30);
+                    color: var(--color-text-#{$mappedContext}-disabled);
                     &:hover,
                     &:active {
                         background-color: var(--transparent);
