@@ -1,11 +1,11 @@
 @use "sass:map";
-$contexts: (primary, secondary, critical, whiteSpinner);
+$contexts: (primary, secondary, critical, inverted);
 
 $contextMap: (
     'secondary': 'neutral',
     'primary': 'brand',
     'critical': 'critical',
-    'whiteSpinner': 'whiteSpinner'
+    'inverted': 'inverted'
 );
 
 @keyframes rotate {
@@ -57,7 +57,7 @@ $contextMap: (
         @each $context in $contexts {
             &--context_#{ $context } {
                 $mappedContext: map.get($contextMap, $context);
-                @if ($mappedContext == 'whiteSpinner') {
+                @if ($mappedContext == 'inverted') {
                     stroke: var(--color-background);
                 } @else {
                     stroke: var(--color-#{$mappedContext}-30);

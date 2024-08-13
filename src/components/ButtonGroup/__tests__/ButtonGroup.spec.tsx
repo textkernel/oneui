@@ -83,7 +83,7 @@ describe('<ButtonGroup> that renders a button', () => {
 
         expect(view.container).toMatchSnapshot();
         const button = screen.getByRole('button');
-        // TODO: expect(button).toHaveClass('Button--isPrimary');
+        expect(button).toHaveClass('Button--variant_filled');
         expect(button).toHaveClass('Button--size_small');
         expect(button).toHaveClass('Button--isBlock');
     });
@@ -100,7 +100,7 @@ describe('<ButtonGroup> that renders a button', () => {
 
         expect(view.container).toMatchSnapshot();
         const button = screen.getByRole('button');
-        // TODO: expect(button).toHaveClass('Button--context_primary');
+        expect(button).toHaveClass('Button--context_primary');
         expect(button).toHaveClass('Button--size_small');
         expect(button).toHaveClass('Button--isBlock');
     });

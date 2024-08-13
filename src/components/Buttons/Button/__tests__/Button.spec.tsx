@@ -33,7 +33,6 @@ describe('<Button> that renders a button', () => {
         expect(button).toHaveClass('Button--context_primary');
         expect(button).toHaveClass('Button--size_large');
         expect(button).toHaveClass('Button--isBlock');
-        // TODO: expect(button).toHaveClass('Button--isLoading');
     });
     it('should call click callback correctly', async () => {
         const onClickMock = jest.fn();

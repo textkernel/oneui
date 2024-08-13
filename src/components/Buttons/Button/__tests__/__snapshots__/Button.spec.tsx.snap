@@ -20,7 +20,7 @@ exports[`<Button> that renders a button should add classes when props are change
         viewBox="0,0,44,44"
       >
         <circle
-          class="LoadingSpinner__path LoadingSpinner__path--context_whiteSpinner"
+          class="LoadingSpinner__path LoadingSpinner__path--context_inverted"
           cx="22"
           cy="22"
           fill="none"

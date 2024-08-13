@@ -102,7 +102,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
                 {isLoading ? (
                     <LoadingSpinner
                         size={16}
-                        context={variant === 'filled' ? 'whiteSpinner' : context}
+                        context={variant === 'filled' ? 'inverted' : context}
                     />
                 ) : (
                     children

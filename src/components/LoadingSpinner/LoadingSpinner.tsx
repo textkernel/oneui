@@ -14,7 +14,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Custom spinner size (will affect both width and height) */
     size?: number;
     /**  Define the context, eg. primary, secondary, critical */
-    context?: ButtonContext | 'whiteSpinner';
+    context?: ButtonContext | 'inverted';
 }
 
 const { block, elem } = bem('LoadingSpinner', styles);
