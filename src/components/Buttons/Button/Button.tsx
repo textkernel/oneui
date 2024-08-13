@@ -42,7 +42,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
             isLoading = false,
             type = 'button',
             href,
-            size = 'normal',
+            size = 'medium',
             variant = 'filled',
             context = 'primary',
             ...rest

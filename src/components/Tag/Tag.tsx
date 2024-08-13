@@ -13,7 +13,7 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** Max-width of a component */
     maxWidth?: string;
     /** Size of the text */
-    size?: 'small' | 'normal' | 'large';
+    size?: 'small' | 'medium' | 'large';
     /** Callback, that is fired when a user clicks on a delete icon */
     onDelete?: (e: React.KeyboardEvent | React.MouseEvent) => void;
     /** Callback, that is fired when a user clicks on an element */
@@ -34,7 +34,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
             children,
             bgColor = 'var(--color-background)',
             maxWidth = 'fit-content',
-            size = 'normal',
+            size = 'medium',
             onDelete = undefined,
             onClick = undefined,
             isSelected = false,

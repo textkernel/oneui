@@ -15,7 +15,7 @@ export interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement>
 const { block } = bem('TextArea', styles);
 
 export const TextArea = forwardRef<HTMLTextAreaElement, Props>(
-    ({ disabled = false, isBlock = false, size = 'normal', ...rest }, ref) => (
+    ({ disabled = false, isBlock = false, size = 'medium', ...rest }, ref) => (
         <textarea {...rest} {...block({ ...rest, size, isBlock })} ref={ref} disabled={disabled} />
     )
 );

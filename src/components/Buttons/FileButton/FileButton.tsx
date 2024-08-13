@@ -17,7 +17,7 @@ export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>,
 const { block } = bem('Button', styles);
 
 export const FileButton = React.forwardRef<HTMLInputElement, Props>(
-    ({ children, disabled = false, isBlock = false, size = 'normal', ...rest }, ref) => {
+    ({ children, disabled = false, isBlock = false, size = 'medium', ...rest }, ref) => {
         if (typeof children !== 'number' && !children) {
             return null;
         }

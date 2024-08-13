@@ -33,7 +33,7 @@ export function SelectButton<V>({
     isEqualWidth = false,
     isBlock,
     isSelected = false,
-    size = 'normal',
+    size = 'medium',
     ...rest
 }: Props<V>) {
     if (typeof children !== 'number' && !children) {

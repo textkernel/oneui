@@ -35,7 +35,7 @@ export function SelectButtonGroup<V>({
     isEqualWidth = false,
     isBlock = false,
     onChange = () => null,
-    size = 'normal',
+    size = 'medium',
     value = null,
     defaultValue = [],
     ...rest

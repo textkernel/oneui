@@ -27,7 +27,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             context,
             disabled = false,
             isBlock = false,
-            size = 'normal',
+            size = 'medium',
             type = 'text',
             value,
             ...rest

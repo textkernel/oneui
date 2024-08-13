@@ -21,7 +21,7 @@ const { block, elem } = bem('ButtonGroup', styles);
 export const ButtonGroup = ({
     children,
     context = 'primary',
-    size = 'normal',
+    size = 'medium',
     isBlock = false,
     ...rest
 }: Props) => {
