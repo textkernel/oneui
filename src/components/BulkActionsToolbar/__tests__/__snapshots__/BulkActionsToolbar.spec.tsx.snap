@@ -14,7 +14,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar actions c
       class="BulkActionsToolbar__toggle"
     >
       <button
-        class="Button Button--variant_ghost Button--context_primary BulkActionsToolbar__toggleButton"
+        class="Button Button--variant_ghost Button--context_secondary BulkActionsToolbar__toggleButton"
         style="width: 0px;"
         type="button"
       >
@@ -72,7 +72,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       class="BulkActionsToolbar__toggle"
     >
       <button
-        class="Button Button--variant_ghost Button--context_primary BulkActionsToolbar__toggleButton"
+        class="Button Button--variant_ghost Button--context_secondary BulkActionsToolbar__toggleButton"
         style="width: 0px;"
         type="button"
       >
@@ -135,7 +135,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       class="BulkActionsToolbar__toggle"
     >
       <button
-        class="Button Button--variant_ghost Button--context_primary BulkActionsToolbar__toggleButton"
+        class="Button Button--variant_ghost Button--context_secondary BulkActionsToolbar__toggleButton"
         style="width: 0px;"
         type="button"
       >
@@ -198,7 +198,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       class="BulkActionsToolbar__toggle"
     >
       <button
-        class="Button Button--variant_ghost Button--context_primary BulkActionsToolbar__toggleButton"
+        class="Button Button--variant_ghost Button--context_secondary BulkActionsToolbar__toggleButton"
         style="width: 0px;"
         type="button"
       >
@@ -261,7 +261,7 @@ exports[`BulkActionsToolbar component should render BulkActionsToolbar correctly
       class="BulkActionsToolbar__toggle"
     >
       <button
-        class="Button Button--variant_ghost Button--context_primary BulkActionsToolbar__toggleButton"
+        class="Button Button--variant_ghost Button--context_secondary BulkActionsToolbar__toggleButton"
         style="width: 0px;"
         type="button"
       >

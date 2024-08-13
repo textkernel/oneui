@@ -3,7 +3,7 @@
 exports[`<PaginationButton> that renders a page button should render correctly with default props 1`] = `
 <div>
   <button
-    class="Button Button--variant_ghost Button--context_primary PaginationButton"
+    class="Button Button--variant_ghost Button--context_secondary PaginationButton"
     data-page="1"
     style="width: 0px;"
     type="button"

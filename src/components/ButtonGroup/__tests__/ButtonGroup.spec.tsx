@@ -91,7 +91,7 @@ describe('<ButtonGroup> that renders a button', () => {
     it('should pass main props if child is array with size one', () => {
         const buttonContent = ['A button'];
         const view = render(
-            <ButtonGroup size="small" isBlock>
+            <ButtonGroup context="primary" size="small" isBlock>
                 {buttonContent.map((content) => (
                     <Button key="a">{content}</Button>
                 ))}

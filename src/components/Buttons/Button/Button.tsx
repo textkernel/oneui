@@ -44,7 +44,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
             href,
             size = 'medium',
             variant = 'filled',
-            context = 'primary',
+            context = 'secondary',
             ...rest
         },
         ref

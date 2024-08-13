@@ -49,7 +49,7 @@ export const _Dropdown: Story = {
         };
 
         const customButtonsDemo = [
-            <Button>Click me!</Button>,
+            <Button context="primary">Click me!</Button>,
             <Button>
                 <HiDotsVertical />
             </Button>,

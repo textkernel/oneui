@@ -38,7 +38,7 @@ exports[`Confirm should render correctly 1`] = `
           class="Dialog__actions"
         >
           <button
-            class="Button Button--variant_ghost Button--context_primary Dialog__cancel"
+            class="Button Button--variant_ghost Button--context_secondary Dialog__cancel"
             style="width: 0px;"
             type="button"
           >
@@ -104,7 +104,7 @@ exports[`Confirm should render correctly with title 1`] = `
           class="Dialog__actions"
         >
           <button
-            class="Button Button--variant_ghost Button--context_primary Dialog__cancel"
+            class="Button Button--variant_ghost Button--context_secondary Dialog__cancel"
             style="width: 0px;"
             type="button"
           >

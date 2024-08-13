@@ -36,7 +36,7 @@ exports[`<Button> that renders a button should add classes when props are change
 exports[`<Button> that renders a button should render an ancor element if href is defined 1`] = `
 <div>
   <a
-    class="Button Button--variant_filled Button--context_primary"
+    class="Button Button--variant_filled Button--context_secondary"
     href="/"
     style="width: 0px;"
   >
@@ -48,7 +48,7 @@ exports[`<Button> that renders a button should render an ancor element if href i
 exports[`<Button> that renders a button should render default button correctly 1`] = `
 <div>
   <button
-    class="Button Button--variant_filled Button--context_primary"
+    class="Button Button--variant_filled Button--context_secondary"
     style="width: 0px;"
     type="button"
   >

@@ -4,7 +4,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 <body>
   <div>
     <button
-      class="Button Button--variant_filled Button--context_primary"
+      class="Button Button--variant_filled Button--context_secondary"
       style="width: 0px;"
       type="button"
     >
@@ -25,7 +25,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
       Can be a form or anything.
     </p>
     <button
-      class="Button Button--variant_filled Button--context_primary"
+      class="Button Button--variant_filled Button--context_secondary"
       style="width: 0px;"
       type="button"
     >
@@ -39,7 +39,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 <body>
   <div>
     <button
-      class="Button Button--variant_filled Button--context_primary"
+      class="Button Button--variant_filled Button--context_secondary"
       style="width: 0px;"
       type="button"
     >
@@ -59,7 +59,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
         Can be a form or anything.
       </p>
       <button
-        class="Button Button--variant_filled Button--context_primary"
+        class="Button Button--variant_filled Button--context_secondary"
         style="width: 0px;"
         type="button"
       >
@@ -73,7 +73,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should render with minimal props correctly 1`] = `
 <div>
   <button
-    class="Button Button--variant_filled Button--context_primary"
+    class="Button Button--variant_filled Button--context_secondary"
     style="width: 0px;"
     type="button"
   >
@@ -85,7 +85,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 exports[`<PopupBase> that adds basic anchor/popup functionality to rendered components rendering should support no popup content from renderer 1`] = `
 <div>
   <button
-    class="Button Button--variant_filled Button--context_primary"
+    class="Button Button--variant_filled Button--context_secondary"
     style="width: 0px;"
     type="button"
   >

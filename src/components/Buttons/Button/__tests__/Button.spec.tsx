@@ -23,7 +23,7 @@ describe('<Button> that renders a button', () => {
     });
     it('should add classes when props are changed', () => {
         const view = render(
-            <Button size="large" isBlock isLoading>
+            <Button context="primary" size="large" isBlock isLoading>
                 <span>Click me</span>
             </Button>
         );
