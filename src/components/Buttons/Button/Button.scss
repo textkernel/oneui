@@ -25,13 +25,9 @@ $contextMap: (
     height: var(--space-400);
     box-sizing: border-box;
     cursor: pointer;
-    font: {
-        size: var(--font-size-small);
-        weight: var(--font-weight-bold);
-        family: var(--font-family-primary);
-    }
+    composes: OneUI-label-text-bold from global;
+    font-family: var(--font-family-primary);
     text-decoration: none;
-    line-height: var(--line-height-small);
     margin: 0;
     outline: none;
     padding: var(--space-0) var(--space-150);
