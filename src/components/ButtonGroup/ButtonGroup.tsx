@@ -8,7 +8,7 @@ import { ButtonProps } from '../Buttons';
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** The buttons in this group */
     children: React.ReactElement<ButtonProps> | (React.ReactElement<ButtonProps> | EmptyElement)[];
-    /** Should the button be in primary style or not */
+    /** Define the button group context, eg. primary, secondary, critical */
     context?: ButtonContext;
     /** Whether or not to show block-level button group (full width) */
     isBlock?: boolean;

@@ -59,6 +59,8 @@ $contextMap: (
                 $mappedContext: map.get($contextMap, $context);
                 @if ($mappedContext == 'inverted') {
                     stroke: var(--color-icon-inverse);
+                } @else if ($mappedContext == 'neutral') {
+                    stroke: var(--color-icon-disabled);
                 } @else {
                     stroke: var(--color-icon-#{$mappedContext}-disabled);
                 }
