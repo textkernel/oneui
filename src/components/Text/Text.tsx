@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './Text.scss';
-import { Size, Context } from '../../constants';
+import { OldSize as Size, Context } from '../../constants';
 
 export interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Text content */
@@ -17,7 +17,7 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
 const { block } = bem('Text', styles);
 
 export const Text = React.forwardRef<HTMLElement, Props>(
-    ({ children, context = 'default', inline = false, size = 'medium', ...rest }, ref) => {
+    ({ children, context = 'default', inline = false, size = 'normal', ...rest }, ref) => {
         if (typeof children !== 'number' && !children) {
             return null;
         }

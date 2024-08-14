@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { bem } from '../../../utils';
-import { ENTER_KEY, Size } from '../../../constants';
+import { ENTER_KEY, OldSize as Size } from '../../../constants';
 import styles from './SelectButton.scss';
 
 // These props will be passed by the parent <SelectButtonGroup>
@@ -33,7 +33,7 @@ export function SelectButton<V>({
     isEqualWidth = false,
     isBlock,
     isSelected = false,
-    size = 'medium',
+    size = 'normal',
     ...rest
 }: Props<V>) {
     if (typeof children !== 'number' && !children) {

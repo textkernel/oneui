@@ -51,7 +51,7 @@ export const _BooleanQueryTokenizer: Story = {
                         isBlock
                         onChange={tokenizeBooleanQuery}
                         placeholder="Enter a boolean query..."
-                        size="medium"
+                        size="normal"
                         style={{
                             resize: 'vertical',
                             height: '100%',

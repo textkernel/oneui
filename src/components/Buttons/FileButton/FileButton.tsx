@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { bem } from '../../../utils';
 import styles from './FileButton.scss';
-import { Size } from '../../../constants';
+import { OldSize as Size } from '../../../constants';
 
 export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
     /** The label of the button */
@@ -17,7 +17,7 @@ export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>,
 const { block } = bem('Button', styles);
 
 export const FileButton = React.forwardRef<HTMLInputElement, Props>(
-    ({ children, disabled = false, isBlock = false, size = 'medium', ...rest }, ref) => {
+    ({ children, disabled = false, isBlock = false, size = 'normal', ...rest }, ref) => {
         if (typeof children !== 'number' && !children) {
             return null;
         }

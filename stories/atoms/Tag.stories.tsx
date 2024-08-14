@@ -11,7 +11,7 @@ const meta: Meta<typeof Tag> = {
             options: ['#3eff2b', '#ffa139', 'var(--color-background)'],
         },
         size: {
-            options: ['small', 'medium', 'large'],
+            options: ['small', 'normal', 'large'],
         },
     },
 };
@@ -26,7 +26,7 @@ export const _Tag: Story = {
         bgColor: '#3eff2b',
         isSelected: false,
         maxWidth: 'fit-content',
-        size: 'medium',
+        size: 'normal',
         children: 'This is an extremely long long text!',
     },
     render: (args) => (
@@ -46,7 +46,7 @@ export const TagWithIcon: Story = {
         bgColor: '#3eff2b',
         isSelected: false,
         maxWidth: 'fit-content',
-        size: 'medium',
+        size: 'normal',
         children: (
             <>
                 <FiCheck />

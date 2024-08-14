@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './Input.scss';
-import { ValidationContext, InputType, Size } from '../../constants';
+import { ValidationContext, InputType, OldSize as Size } from '../../constants';
 
 // Any other attributes (onChange, onKeyUp etc.) are
 // supported although not defined in props type definition
@@ -27,7 +27,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             context,
             disabled = false,
             isBlock = false,
-            size = 'medium',
+            size = 'normal',
             type = 'text',
             value,
             ...rest
