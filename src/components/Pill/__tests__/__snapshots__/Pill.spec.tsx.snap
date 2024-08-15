@@ -65,7 +65,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
       >
         <button
           class="Button Button--size_small Button--variant_filled Button--context_primary"
-          style="width: 0px;"
+          style="width: auto;"
           type="button"
         >
           Done

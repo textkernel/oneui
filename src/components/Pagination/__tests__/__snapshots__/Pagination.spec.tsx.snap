@@ -10,7 +10,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
       aria-disabled="false"
       class="Button Button--variant_ghost Button--context_secondary Pagination__button"
       data-page="5"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       ‹ Previous
@@ -18,7 +18,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="1"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       1
@@ -31,7 +31,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="3"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       3
@@ -39,7 +39,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="4"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       4
@@ -47,7 +47,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="5"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       5
@@ -56,7 +56,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
       aria-current="page"
       class="Button Button--variant_ghost Button--context_secondary PaginationButton PaginationButton--isActive"
       data-page="6"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       6
@@ -64,7 +64,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="7"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       7
@@ -72,7 +72,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="8"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       8
@@ -80,7 +80,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="9"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       9
@@ -89,7 +89,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
       aria-disabled="false"
       class="Button Button--variant_ghost Button--context_secondary Pagination__button"
       data-page="7"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       Next ›
@@ -108,7 +108,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
       aria-current="page"
       class="Button Button--variant_ghost Button--context_secondary PaginationButton PaginationButton--isActive"
       data-page="1"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       1
@@ -116,7 +116,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="2"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       2
@@ -124,7 +124,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="3"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       3
@@ -132,7 +132,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="4"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       4
@@ -140,7 +140,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="5"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       5
@@ -148,7 +148,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="6"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       6
@@ -156,7 +156,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="7"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       7
@@ -164,7 +164,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="8"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       8
@@ -172,7 +172,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="9"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       9
@@ -180,7 +180,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     <button
       class="Button Button--variant_ghost Button--context_secondary PaginationButton"
       data-page="10"
-      style="width: 0px;"
+      style="width: auto;"
       type="button"
     >
       10

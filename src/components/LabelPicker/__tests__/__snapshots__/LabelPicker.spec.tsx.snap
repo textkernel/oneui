@@ -4,7 +4,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
 <div>
   <button
     class="Button Button--variant_filled Button--context_secondary"
-    style="width: 0px;"
+    style="width: auto;"
     type="button"
   >
     Click me
@@ -16,7 +16,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
 <div>
   <button
     class="Button Button--variant_filled Button--context_secondary"
-    style="width: 0px;"
+    style="width: auto;"
     type="button"
   >
     Click me
@@ -28,7 +28,7 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
 <div>
   <button
     class="Button Button--variant_filled Button--context_secondary"
-    style="width: 0px;"
+    style="width: auto;"
     type="button"
   >
     Click me

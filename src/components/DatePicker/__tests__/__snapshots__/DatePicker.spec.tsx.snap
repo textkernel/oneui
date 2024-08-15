@@ -48,7 +48,7 @@ exports[`DatePicker should render calendar header correctly when calendar is ope
               >
                 <button
                   class="Button Button--variant_filled Button--context_secondary CalendarHeader__navButton"
-                  style="width: 0px;"
+                  style="width: auto;"
                   type="button"
                 >
                   <svg
@@ -96,7 +96,7 @@ exports[`DatePicker should render calendar header correctly when calendar is ope
                 </div>
                 <button
                   class="Button Button--variant_filled Button--context_secondary CalendarHeader__navButton"
-                  style="width: 0px;"
+                  style="width: auto;"
                   type="button"
                 >
                   <svg
@@ -611,7 +611,7 @@ exports[`DatePicker when no min/max date props passed should set min/max date to
               >
                 <button
                   class="Button Button--variant_filled Button--context_secondary CalendarHeader__navButton"
-                  style="width: 0px;"
+                  style="width: auto;"
                   type="button"
                 >
                   <svg
@@ -1649,7 +1649,7 @@ exports[`DatePicker when no min/max date props passed should set min/max date to
                 </div>
                 <button
                   class="Button Button--variant_filled Button--context_secondary CalendarHeader__navButton"
-                  style="width: 0px;"
+                  style="width: auto;"
                   type="button"
                 >
                   <svg
