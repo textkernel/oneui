@@ -53,10 +53,13 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         const [buttonWidth, setButtonWidth] = React.useState<number>();
         // figure out width of button, and add that width as styling
         React.useLayoutEffect(() => {
-            if (buttonRef && buttonRef.current) {
+            if (buttonRef && buttonRef.current && !buttonWidth) {
                 setButtonWidth(buttonRef.current.offsetWidth);
             }
-        }, [buttonRef]);
+            if (!isLoading && buttonWidth) {
+                setButtonWidth(undefined); // Reset to auto width when not loading
+            }
+        }, [buttonRef, isLoading]);
 
         if (typeof children !== 'number' && !children) {
             return null;
@@ -76,9 +79,16 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
                     })}
                     ref={mergeRefs([ref, buttonRef])}
                     href={href}
-                    style={{ width: buttonWidth }}
+                    style={{ width: buttonWidth ? `${buttonWidth}px` : 'auto' }}
                 >
-                    {children}
+                    {isLoading ? (
+                        <LoadingSpinner
+                            size={16}
+                            context={variant === 'filled' ? 'inverted' : context}
+                        />
+                    ) : (
+                        children
+                    )}
                 </a>
             );
         }
@@ -96,7 +106,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
                 })}
                 ref={mergeRefs([ref, buttonRef])}
                 type={type}
-                style={{ width: buttonWidth }}
+                style={{ width: buttonWidth ? `${buttonWidth}px` : 'auto' }}
                 disabled={disabled || isLoading}
             >
                 {isLoading ? (
