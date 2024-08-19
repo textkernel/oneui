@@ -26,7 +26,6 @@ $contextMap: (
     box-sizing: border-box;
     cursor: pointer;
     composes: OneUI-label-text-bold from global;
-    font-family: var(--font-family-primary);
     text-decoration: none;
     margin: 0;
     outline: none;
@@ -55,7 +54,7 @@ $contextMap: (
         cursor: not-allowed;
         pointer-events: none;
         background-color: var(--color-background-brand-bold-disabled);
-        color: var(--color-background);
+        color: var(--color-text-inverse);
     }
 
     &--isBlock {
@@ -108,7 +107,7 @@ $contextMap: (
                     }
                 } @else {
                     background-color: var(--color-background-#{$mappedContext}-bold-default);
-                    color: var(--color-background);
+                    color: var(--color-text-inverse);
 
                     &:hover {
                         background-color: var(--color-background-#{$mappedContext}-bold-hover);
