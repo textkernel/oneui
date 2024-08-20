@@ -99,22 +99,19 @@ export function SelectBadge<V, O>({
 
     const hasPriorityItems = priorityItems && priorityItems.length > 0;
 
-    const renderPriorityIcon = (
-        priorityType: Priority = 'mandatory',
-        disabled: boolean = false
-    ) => {
-        const IconComponent = iconMap[priorityType];
-        if (!IconComponent) {
+    const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
+        if (!priorityType) {
             return null;
         }
+        const IconComponent = iconMap[priorityType];
 
-        return (
+        return IconComponent ? (
             <IconComponent
                 {...elem('icon', { [priorityType]: true })}
                 disabled={disabled}
                 viewBox="0 0 24 24"
             />
-        );
+        ) : null;
     };
 
     const handleOnDelete = (e: React.KeyboardEvent | React.MouseEvent) => {
