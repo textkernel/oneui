@@ -32,7 +32,7 @@ export interface Props<V, O> extends Omit<React.HTMLAttributes<HTMLDivElement>, 
     children: React.ReactNode;
     /** Array of availible priority items. */
     priorityItems?: Array<PriorityItem<V>>;
-    /** Currently selected priority item,  that indicates the importance of the component. */
+    /** Currently selected priority item that indicates the importance of the component. */
     priorityItem?: PriorityItem<V>;
     /** Represents the currently selected option. */
     option?: O;
