@@ -216,7 +216,7 @@ export function SelectBadge<V, O>({
                             </Text>
                         </div>
                     ) : null}
-                    {optionList?.map((opt) => (
+                    {optionList.map((opt) => (
                         <ListItem
                             className={styles.badgeListItem}
                             key={optionToKey ? optionToKey(opt) : optionToLabel(opt)}
