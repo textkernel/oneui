@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Option, Priority, SelectBadge } from '@textkernel/oneui';
+import { SelectBadge, SelectBadgePriorityItem } from '@textkernel/oneui';
 
 const meta: Meta<typeof SelectBadge> = {
     title: 'Organisms/SelectBadge',
@@ -9,53 +9,56 @@ const meta: Meta<typeof SelectBadge> = {
 
 export default meta;
 
-type Story = StoryObj<typeof SelectBadge>;
+type Story = StoryObj<typeof SelectBadge<string, string>>;
 
 const commonArgs = {
     children: 'London',
-    option: { value: '15', label: '+15 km' },
-    optionList: [
-        { value: '5', label: '+5 km' },
-        { value: '15', label: '+15 km' },
-        { value: '25', label: '+25 km' },
-    ],
+    option: undefined,
+    optionList: ['5', '10', '15', '25'],
     optionListHeader: 'Radius',
 };
+
+const priorityItems: Array<SelectBadgePriorityItem<string>> = [
+    { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+    { priority: 'important', label: 'Important', value: 'strongly_favored' },
+    { priority: 'optional', label: 'Optional', value: 'favored' },
+    { priority: 'exclude', label: 'Exclude', value: 'banned' },
+];
 
 export const _SelectBadge: Story = {
     name: 'SelectBadge',
     args: {
         ...commonArgs,
-        priority: 'mandatory',
-        priorityLabels: {
-            mandatory: 'Mandatory',
-            important: 'Important',
-            optional: 'Optional',
-            exclude: 'Exclude',
-        },
+        priorityItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+        priorityItems,
     },
     render: (args) => {
-        const [priority, setPriority] = React.useState<Priority>(args.priority);
+        const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
+            SelectBadgePriorityItem<string> | undefined
+        >(args.priorityItem);
         const [selectedOption, setSelectedOption] = React.useState(args.option);
 
         React.useEffect(() => {
-            setPriority(args.priority);
-        }, [args.priority]);
+            setSelectedPriorityItem(selectedPriorityItem);
+        }, [selectedPriorityItem]);
 
         React.useEffect(() => {
-            setSelectedOption(args.option);
-        }, [args.option]);
+            setSelectedOption(selectedOption);
+        }, [selectedOption]);
 
-        const handlePriorityChange = (newPriority: Priority) => {
-            setPriority(newPriority);
+        const optionToLabel = (option: string | undefined) => `+${option}`;
 
-            console.log(`Priority changed to ${newPriority}`);
+        const handlePriorityChange = (newPriorityItem: SelectBadgePriorityItem<string>) => {
+            console.log(newPriorityItem);
+            setSelectedPriorityItem(newPriorityItem);
+
+            console.log(`Priority changed to ${newPriorityItem.priority}`);
         };
 
-        const handleOptionChange = (newOption: Option) => {
+        const handleOptionChange = (newOption: string) => {
             setSelectedOption(newOption);
 
-            console.log(`Option changed to ${newOption.value}`);
+            console.log(`Option changed to ${newOption}`);
         };
 
         const handleDelete = () => {
@@ -66,8 +69,9 @@ export const _SelectBadge: Story = {
             <div style={{ width: '200px' }}>
                 <SelectBadge
                     {...args}
-                    priority={priority}
+                    priorityItem={selectedPriorityItem}
                     option={selectedOption}
+                    optionToLabel={optionToLabel}
                     onPriorityChange={handlePriorityChange}
                     onChange={handleOptionChange}
                     onDelete={handleDelete}
@@ -92,7 +96,9 @@ export const SelectBadgeWithoutPriorityButton: Story = {
             setSelectedOption(args.option);
         }, [args.option]);
 
-        const handleOptionChange = React.useCallback((newOption: Option) => {
+        const optionToLabel = (option: string | undefined) => `+${option}`;
+
+        const handleOptionChange = React.useCallback((newOption: string) => {
             setSelectedOption(newOption);
 
             console.log(`Option changed to ${newOption}`);
@@ -109,6 +115,7 @@ export const SelectBadgeWithoutPriorityButton: Story = {
                     option={selectedOption}
                     onChange={handleOptionChange}
                     onDelete={handleDelete}
+                    optionToLabel={optionToLabel}
                 >
                     {args.children}
                 </SelectBadge>
@@ -124,26 +131,23 @@ export const SelectBadgeWithoutOptions: Story = {
         onChange: undefined,
         option: undefined,
         optionList: undefined,
-        priority: 'mandatory',
-        priorityLabels: {
-            mandatory: 'Mandatory',
-            important: 'Important',
-            optional: 'Optional',
-            exclude: 'Exclude',
-        },
+        priorityItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+        priorityItems,
     },
     render: (args) => {
-        const [priority, setPriority] = React.useState<Priority>(args.priority);
+        const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
+            SelectBadgePriorityItem<string> | undefined
+        >(args.priorityItem);
 
         React.useEffect(() => {
-            setPriority(args.priority);
-        }, [args.priority]);
+            setSelectedPriorityItem(args.priorityItem);
+        }, [args.priorityItem]);
 
-        const handlePriorityChange = React.useCallback((newPriority: Priority) => {
-            setPriority(newPriority);
+        const handlePriorityChange = (newPriorityItem: SelectBadgePriorityItem<string>) => {
+            setSelectedPriorityItem(newPriorityItem);
 
-            console.log(`Priority changed to ${newPriority}`);
-        }, []);
+            console.log(`Priority changed to ${newPriorityItem}`);
+        };
 
         const handleDelete = () => {
             console.log('SelectBadge deleted');
@@ -153,7 +157,7 @@ export const SelectBadgeWithoutOptions: Story = {
             <div style={{ width: '200px' }}>
                 <SelectBadge
                     {...args}
-                    priority={priority}
+                    priorityItem={selectedPriorityItem}
                     onPriorityChange={handlePriorityChange}
                     onDelete={handleDelete}
                 >
@@ -168,45 +172,45 @@ export const SelectBadgeWithoutCloseButton: Story = {
     name: 'SelectBadge - No Delete Functionality',
     args: {
         ...commonArgs,
-        priority: 'mandatory',
-        priorityLabels: {
-            mandatory: 'Mandatory',
-            important: 'Important',
-            optional: 'Optional',
-            exclude: 'Exclude',
-        },
+        priorityItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+        priorityItems,
         onDelete: undefined,
     },
     render: (args) => {
-        const [priority, setPriority] = React.useState<Priority>(args.priority);
+        const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
+            SelectBadgePriorityItem<string> | undefined
+        >(args.priorityItem);
         const [selectedOption, setSelectedOption] = React.useState(args.option);
 
         React.useEffect(() => {
-            setPriority(args.priority);
-        }, [args.priority]);
+            setSelectedPriorityItem(args.priorityItem);
+        }, [args.priorityItem]);
 
         React.useEffect(() => {
             setSelectedOption(args.option);
         }, [args.option]);
 
-        const handlePriorityChange = React.useCallback((newPriority: Priority) => {
-            setPriority(newPriority);
+        const optionToLabel = (option: string | undefined) => `+${option}`;
 
-            console.log(`Priority changed to ${newPriority}`);
-        }, []);
+        const handlePriorityChange = (newPriorityItem: SelectBadgePriorityItem<string>) => {
+            setSelectedPriorityItem(newPriorityItem);
 
-        const handleOptionChange = React.useCallback((newOption: Option) => {
+            console.log(`Priority changed to ${newPriorityItem}`);
+        };
+
+        const handleOptionChange = (newOption: string) => {
             setSelectedOption(newOption);
 
-            console.log(`Option changed to ${newOption.value}`);
-        }, []);
+            console.log(`Option changed to ${newOption}`);
+        };
 
         return (
             <div style={{ width: '200px' }}>
                 <SelectBadge
                     {...args}
-                    priority={priority}
+                    priorityItem={selectedPriorityItem}
                     option={selectedOption}
+                    optionToLabel={optionToLabel}
                     onPriorityChange={handlePriorityChange}
                     onChange={handleOptionChange}
                 >

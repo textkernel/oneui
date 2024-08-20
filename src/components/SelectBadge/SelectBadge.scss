@@ -97,11 +97,13 @@ $icon-status-colors: (
     }
 
     &__optionText {
-        min-width: var(--space-600);
+        max-width: var(--space-600);
+        min-width: var(--space-300);
         color: var(--color-text-information-default);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        flex-shrink: 0;
     }
 
     &__optionButton {
@@ -152,19 +154,17 @@ $icon-status-colors: (
         }
     }
 
-    .Dropdown {
-        &__list {
-            width: 100%;
-            border-radius: var(--space-100);
-            overflow: hidden;
+    .badgeDropdownList {
+        width: 100%;
+        border-radius: var(--space-100);
+        overflow: hidden;
+    }
 
-            .ListItem {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                gap: var(--space-100);
-            }
-        }
+    &__badgeListItem {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--space-100);
     }
 
     &__deleteButton {

@@ -18,12 +18,13 @@ const iconMap = {
 
 export type Priority = 'mandatory' | 'important' | 'optional' | 'exclude';
 
-export interface Option {
-    value: string;
+export type PriorityItem<V> = {
+    priority: Priority;
     label: string;
-}
+    value?: V;
+};
 
-export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface Props<V, O> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /**
      * Children nodes to be rendered within the component,
      * specifically used to display the selected value from parent component.
@@ -32,26 +33,39 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCha
     /**
      * Optional object containing labels for different priorities, used primarily for localization.
      */
-    priorityLabels?: {
-        mandatory?: string;
-        important?: string;
-        optional?: string;
-        exclude?: string;
-    };
+    priorityItems?: Array<PriorityItem<V>>;
     /**
      * Current priority value that indicates the importance of the component.
      * Uses the Priority type which can be 'mandatory', 'important', 'optional', or 'exclude'.
      */
-    priority: Priority;
+    priorityItem?: PriorityItem<V>;
     /**
      * Optional object specifying the currently selected option with value and label properties.
      */
-    option?: Option;
+    option?: O;
+    /**
+     * Optional function to convert an option into a string label for display.
+     * This function is required if `option` or `optionList` is provided, as it
+     * determines how each option is presented to the user.
+     *
+     * @param option - The option that needs to be converted to a label.
+     * @returns The label string corresponding to the given option.
+     */
+    optionToLabel?: (option: O) => string;
+    /**
+     * Optional function to extract a unique key from an option.
+     * This function should be provided if `option` or `optionList` is provided.
+     * If not provided, the option itself will be used as the key for the list.
+     *
+     * @param option - The option from which to extract a unique key.
+     * @returns The unique key string corresponding to the given option.
+     */
+    optionToKey?: (option: O) => string;
     /**
      * Array of options available for selection.
      * Each option is an object with a value and a label.
      */
-    optionList?: Array<Option>;
+    optionList?: Array<O>;
     /**
      * Optional header title for the options list when displayed, such as in a dropdown.
      */
@@ -64,12 +78,12 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCha
      * Callback function triggered when a new priority is selected.
      * Provides the newly selected priority as an argument.
      */
-    onPriorityChange?: (newPriority: Priority) => void;
+    onPriorityChange?: (newPriorityItem: PriorityItem<V>) => void;
     /**
      * Callback function triggered when a new option is selected.
      * Provides the newly selected option object as an argument.
      */
-    onChange: (newOption: Option) => void;
+    onChange?: (newOption: O) => void;
     /**
      * Boolean indicating whether the whole badge should be disabled.
      */
@@ -84,22 +98,24 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onCha
 
 const { block, elem } = bem('SelectBadge', styles);
 
-export const SelectBadge: React.FC<Props> = ({
+export function SelectBadge<V, O>({
     children,
     isDisabled = false,
-    onChange,
+    onChange = undefined,
     onDelete = undefined,
     onPriorityChange = undefined,
     option,
+    optionToLabel,
+    optionToKey,
     optionList,
     optionListHeader,
-    priority = 'mandatory',
-    priorityLabels,
+    priorityItem,
+    priorityItems,
     priorityButtonLabel,
     optionButtonLabel,
     deleteButtonLabel,
     ...rest
-}) => {
+}: Props<V, O>) {
     const [dropdownStates, setDropdownStates] = React.useState({
         priority: false,
         option: false,
@@ -107,18 +123,24 @@ export const SelectBadge: React.FC<Props> = ({
 
     const badgeRef = React.useRef<HTMLDivElement | null>(null);
 
-    const hasPriorityLabels = priorityLabels && Object.keys(priorityLabels).length > 0;
+    const hasPriorityItems = priorityItems && priorityItems.length > 0;
 
-    const renderPriorityIcon = (priorityType: Priority, disabled: boolean = false) => {
+    const renderPriorityIcon = (
+        priorityType: Priority = 'mandatory',
+        disabled: boolean = false
+    ) => {
         const IconComponent = iconMap[priorityType];
+        if (!IconComponent) {
+            return null;
+        }
 
-        return IconComponent ? (
+        return (
             <IconComponent
                 {...elem('icon', { [priorityType]: true })}
                 disabled={disabled}
                 viewBox="0 0 24 24"
             />
-        ) : null;
+        );
     };
 
     const handleOnDelete = (e: React.KeyboardEvent | React.MouseEvent) => {
@@ -138,47 +160,53 @@ export const SelectBadge: React.FC<Props> = ({
 
     return (
         <div {...rest} {...block({ ...rest })} ref={badgeRef}>
-            {hasPriorityLabels && onPriorityChange && (
-                <Dropdown<Priority>
+            {hasPriorityItems && onPriorityChange && (
+                <Dropdown<PriorityItem<V>>
                     button={
                         <button
-                            aria-label={`${priorityButtonLabel}`}
-                            disabled={isDisabled}
-                            type="button"
                             {...elem('priorityButton', {
                                 isSelected: dropdownStates.priority,
                             })}
+                            aria-label={`${priorityButtonLabel}`}
+                            disabled={isDisabled}
+                            type="button"
                         >
-                            {renderPriorityIcon(priority, isDisabled)}
+                            {renderPriorityIcon(priorityItem?.priority, isDisabled)}
                         </button>
                     }
                     additionalSelectProps={{
                         onStateChange: (state) => toggleDropdown('priority', state.isOpen),
                     }}
-                    onChange={(newPriority) => onPriorityChange(newPriority)}
+                    onChange={(newPriorityItem) => onPriorityChange(newPriorityItem)}
                     placement="bottom-start"
+                    listClassName="badgeDropdownList"
                     refElement={badgeRef}
                 >
-                    {Object.entries(priorityLabels).map(([key, label]) => (
-                        <ListItem key={key} value={key}>
-                            {renderPriorityIcon(key as Priority)}
+                    {priorityItems.map((item) => (
+                        <ListItem {...elem('badgeListItem')} key={item.priority} value={item}>
+                            {renderPriorityIcon(item.priority)}
                             <Text inline size="small">
-                                {label}
+                                {item.label}
                             </Text>
                         </ListItem>
                     ))}
                 </Dropdown>
             )}
 
-            {optionList ? (
-                <Dropdown<Option>
+            {optionList && optionList?.length > 0 && onChange ? (
+                <Dropdown<O>
                     button={
                         <button
                             {...elem('optionButton', {
                                 isSelected: dropdownStates.option,
                             })}
-                            aria-label={`${option?.label} ${optionButtonLabel}`}
+                            aria-label={
+                                option
+                                    ? `${optionToLabel && optionToLabel(option)} ${optionButtonLabel}`
+                                    : optionButtonLabel
+                            }
                             disabled={isDisabled}
+                            type="button"
                         >
                             <Text
                                 inline
@@ -192,10 +220,10 @@ export const SelectBadge: React.FC<Props> = ({
                                 <Text
                                     {...elem('optionText')}
                                     inline
-                                    title={option?.label}
+                                    title={optionToLabel ? optionToLabel(option) : option}
                                     size="small"
                                 >
-                                    {option.label}
+                                    {optionToLabel ? optionToLabel(option) : option}
                                 </Text>
                             )}
                         </button>
@@ -206,6 +234,7 @@ export const SelectBadge: React.FC<Props> = ({
                     onChange={(newOption) => onChange(newOption)}
                     placement="bottom"
                     refElement={badgeRef}
+                    listClassName="badgeDropdownList"
                 >
                     {optionListHeader ? (
                         <div {...elem('listHeadline')}>
@@ -215,9 +244,13 @@ export const SelectBadge: React.FC<Props> = ({
                         </div>
                     ) : null}
                     {optionList?.map((opt) => (
-                        <ListItem key={opt.value} value={opt}>
+                        <ListItem
+                            {...elem('badgeListItem')}
+                            key={optionToKey ? optionToKey(opt) : opt}
+                            value={opt}
+                        >
                             <Text inline size="small">
-                                {opt.label}
+                                {optionToLabel && optionToLabel(opt)}
                             </Text>
                         </ListItem>
                     ))}
@@ -254,6 +287,6 @@ export const SelectBadge: React.FC<Props> = ({
             )}
         </div>
     );
-};
+}
 
 SelectBadge.displayName = 'SelectBadge';
