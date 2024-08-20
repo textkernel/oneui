@@ -58,9 +58,17 @@ describe('SelectBadge', () => {
             });
         });
 
-        it('renders no priority buttons when priorityItems are not provided', () => {
+        it('does not render priority button when priorityItems are not provided', () => {
             const { queryByLabelText } = renderSelectBadge({
                 priorityItems: undefined,
+            });
+
+            expect(queryByLabelText('priority button')).not.toBeInTheDocument();
+        });
+
+        it('does not render priority button when priorityItems array is empty', () => {
+            const { queryByLabelText } = renderSelectBadge({
+                priorityItems: [],
             });
 
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
@@ -74,8 +82,17 @@ describe('SelectBadge', () => {
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
         });
 
-        it('does not render the priority button when neither priorityItems nor onPriorityChange are provided', () => {
+        it('does not render the priority button when priority item is not provided', () => {
             const { queryByLabelText } = renderSelectBadge({
+                priorityItem: undefined,
+            });
+
+            expect(queryByLabelText('priority button')).not.toBeInTheDocument();
+        });
+
+        it('does not render the priority button when neither priorityItems, nor priorityItems, nor onPriorityChange are provided', () => {
+            const { queryByLabelText } = renderSelectBadge({
+                priorityItem: undefined,
                 priorityLabels: undefined,
                 onPriorityChange: undefined,
             });
@@ -122,6 +139,24 @@ describe('SelectBadge', () => {
             defaultProps?.optionList?.forEach((opt) =>
                 expect(getAllByText(`Label for ${opt}`)[0]).toBeInTheDocument()
             );
+        });
+
+        it('does not render option button but displays plain text with passed children if optionList is not provided', () => {
+            const { getByText, queryByText } = renderSelectBadge({
+                optionList: undefined,
+            });
+
+            expect(queryByText('option button')).not.toBeInTheDocument();
+            expect(getByText('Test Child')).toBeInTheDocument();
+        });
+
+        it('does not render option button but displays plain text with passed children if optionList is an empty', () => {
+            const { getByText, queryByText } = renderSelectBadge({
+                optionList: [],
+            });
+
+            expect(queryByText('option button')).not.toBeInTheDocument();
+            expect(getByText('Test Child')).toBeInTheDocument();
         });
     });
 

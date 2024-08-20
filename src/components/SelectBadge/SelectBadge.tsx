@@ -98,6 +98,7 @@ export function SelectBadge<V, O>({
     const badgeRef = React.useRef<HTMLDivElement | null>(null);
 
     const hasPriorityItems = priorityItems && priorityItems.length > 0;
+    const hasOptionList = optionList && optionList.length > 0;
 
     const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
         if (!priorityType) {
@@ -131,7 +132,7 @@ export function SelectBadge<V, O>({
 
     return (
         <div {...rest} {...block({ ...rest })} ref={badgeRef}>
-            {hasPriorityItems && onPriorityChange && (
+            {hasPriorityItems && priorityItem && onPriorityChange && (
                 <Dropdown<PriorityItem<V>>
                     button={
                         <button
@@ -164,7 +165,7 @@ export function SelectBadge<V, O>({
                 </Dropdown>
             )}
 
-            {optionList && optionList?.length > 0 && optionToLabel ? (
+            {hasOptionList && optionToLabel && onChange ? (
                 <Dropdown<O>
                     button={
                         <button
@@ -202,7 +203,7 @@ export function SelectBadge<V, O>({
                     additionalSelectProps={{
                         onStateChange: (state) => toggleDropdown('option', state.isOpen),
                     }}
-                    onChange={(newOption) => onChange?.(newOption)}
+                    onChange={(newOption) => onChange(newOption)}
                     placement="bottom"
                     refElement={badgeRef}
                     listClassName={styles.badgeDropdownList}
