@@ -100,19 +100,20 @@ export function SelectBadge<V, O>({
     const hasPriorityItems = priorityItems && priorityItems.length > 0;
     const hasOptionList = optionList && optionList.length > 0;
 
-    const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
-        if (!priorityType) {
-            return null;
-        }
+    const renderPriorityIcon = (priorityType: Priority, disabled: boolean = false) => {
         const IconComponent = iconMap[priorityType];
 
-        return IconComponent ? (
+        if (!IconComponent) {
+            return null;
+        }
+
+        return (
             <IconComponent
                 {...elem('icon', { [priorityType]: true })}
                 disabled={disabled}
                 viewBox="0 0 24 24"
             />
-        ) : null;
+        );
     };
 
     const handleOnDelete = (e: React.KeyboardEvent | React.MouseEvent) => {
@@ -143,7 +144,7 @@ export function SelectBadge<V, O>({
                             disabled={isDisabled}
                             type="button"
                         >
-                            {renderPriorityIcon(priorityItem?.priority, isDisabled)}
+                            {renderPriorityIcon(priorityItem.priority, isDisabled)}
                         </button>
                     }
                     additionalSelectProps={{
