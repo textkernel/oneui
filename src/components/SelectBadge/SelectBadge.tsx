@@ -30,63 +30,37 @@ export interface Props<V, O> extends Omit<React.HTMLAttributes<HTMLDivElement>, 
      * specifically used to display the selected value from parent component.
      */
     children: React.ReactNode;
-    /**
-     * Optional object containing labels for different priorities, used primarily for localization.
-     */
+    /** Array of availible priority items. */
     priorityItems?: Array<PriorityItem<V>>;
-    /**
-     * Current priority value that indicates the importance of the component.
-     * Uses the Priority type which can be 'mandatory', 'important', 'optional', or 'exclude'.
-     */
+    /** Currently selected priority item,  that indicates the importance of the component. */
     priorityItem?: PriorityItem<V>;
-    /**
-     * Optional object specifying the currently selected option with value and label properties.
-     */
+    /** Represents the currently selected option. */
     option?: O;
     /**
-     * Optional function to convert an option into a string label for display.
-     * This function is required if `option` or `optionList` is provided, as it
-     * determines how each option is presented to the user.
+     * Converts an option to a string label for display. Required if `option` or `optionList` is used.
      *
      * @param option - The option that needs to be converted to a label.
      * @returns The label string corresponding to the given option.
      */
     optionToLabel?: (option: O) => string;
     /**
-     * Optional function to extract a unique key from an option.
-     * This function should be provided if `option` or `optionList` is provided.
-     * If not provided, the option itself will be used as the key for the list.
+     * Generates a unique key for an option. If not provided, `optionToLabel` will be used.
      *
      * @param option - The option from which to extract a unique key.
      * @returns The unique key string corresponding to the given option.
      */
     optionToKey?: (option: O) => string;
-    /**
-     * Array of options available for selection.
-     * Each option is an object with a value and a label.
-     */
+    /** Array of options available for selection. */
     optionList?: Array<O>;
-    /**
-     * Optional header title for the options list when displayed, such as in a dropdown.
-     */
+    /** Header title for the options list. */
     optionListHeader?: string;
-    /**
-     * Function to be called when the delete button is clicked.
-     */
+    /** Function to be called when the delete button is clicked. */
     onDelete?: (e: React.KeyboardEvent | React.MouseEvent) => void;
-    /**
-     * Callback function triggered when a new priority is selected.
-     * Provides the newly selected priority as an argument.
-     */
+    /** Callback function triggered when a new priority is selected. */
     onPriorityChange?: (newPriorityItem: PriorityItem<V>) => void;
-    /**
-     * Callback function triggered when a new option is selected.
-     * Provides the newly selected option object as an argument.
-     */
+    /** Callback function triggered when a new option is selected. */
     onChange?: (newOption: O) => void;
-    /**
-     * Boolean indicating whether the whole badge should be disabled.
-     */
+    /** Boolean indicating whether the whole badge should be disabled. */
     isDisabled?: boolean;
     /** Priority button label name for ARIA labelling */
     priorityButtonLabel: string;
@@ -193,7 +167,7 @@ export function SelectBadge<V, O>({
                 </Dropdown>
             )}
 
-            {optionList && optionList?.length > 0 && optionToLabel && onChange ? (
+            {optionList && optionList?.length > 0 && optionToLabel ? (
                 <Dropdown<O>
                     button={
                         <button
@@ -202,7 +176,7 @@ export function SelectBadge<V, O>({
                             })}
                             aria-label={
                                 option
-                                    ? `${optionToLabel?.(option)} ${optionButtonLabel}`
+                                    ? `${optionToLabel(option)} ${optionButtonLabel}`
                                     : optionButtonLabel
                             }
                             disabled={isDisabled}
@@ -223,7 +197,7 @@ export function SelectBadge<V, O>({
                                     title={optionToLabel?.(option)}
                                     size="small"
                                 >
-                                    {optionToLabel?.(option)}
+                                    {optionToLabel(option)}
                                 </Text>
                             )}
                         </button>
@@ -231,7 +205,7 @@ export function SelectBadge<V, O>({
                     additionalSelectProps={{
                         onStateChange: (state) => toggleDropdown('option', state.isOpen),
                     }}
-                    onChange={(newOption) => onChange(newOption)}
+                    onChange={(newOption) => onChange?.(newOption)}
                     placement="bottom"
                     refElement={badgeRef}
                     listClassName={styles.badgeDropdownList}
@@ -246,11 +220,11 @@ export function SelectBadge<V, O>({
                     {optionList?.map((opt) => (
                         <ListItem
                             className={styles.badgeListItem}
-                            key={optionToKey ? optionToKey(opt) : optionToLabel?.(opt)}
+                            key={optionToKey ? optionToKey(opt) : optionToLabel(opt)}
                             value={opt}
                         >
                             <Text inline size="small">
-                                {optionToLabel?.(opt)}
+                                {optionToLabel(opt)}
                             </Text>
                         </ListItem>
                     ))}

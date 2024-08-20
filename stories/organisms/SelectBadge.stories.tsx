@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { SelectBadge, SelectBadgePriorityItem } from '@textkernel/oneui';
+import { SelectBadge, SelectBadgePriorityItem, SelectBadgeProps } from '@textkernel/oneui';
 
 const meta: Meta<typeof SelectBadge> = {
     title: 'Organisms/SelectBadge',
@@ -11,9 +11,9 @@ export default meta;
 
 type Story = StoryObj<typeof SelectBadge<string, string>>;
 
-const commonArgs = {
+const commonArgs: Partial<SelectBadgeProps<string, string>> = {
     children: 'London',
-    option: undefined,
+    option: '5',
     optionList: ['5', '10', '15', '25'],
     optionListHeader: 'Radius',
 };
@@ -29,6 +29,7 @@ export const _SelectBadge: Story = {
     name: 'SelectBadge',
     args: {
         ...commonArgs,
+        option: undefined,
         priorityItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         priorityItems,
     },
@@ -46,10 +47,9 @@ export const _SelectBadge: Story = {
             setSelectedOption(selectedOption);
         }, [selectedOption]);
 
-        const optionToLabel = (option: string | undefined) => `+${option}`;
+        const optionToLabel = (option) => option && `+${option}`;
 
         const handlePriorityChange = (newPriorityItem: SelectBadgePriorityItem<string>) => {
-            console.log(newPriorityItem);
             setSelectedPriorityItem(newPriorityItem);
 
             console.log(`Priority changed to ${newPriorityItem.priority}`);
@@ -96,7 +96,7 @@ export const SelectBadgeWithoutPriorityButton: Story = {
             setSelectedOption(args.option);
         }, [args.option]);
 
-        const optionToLabel = (option: string | undefined) => `+${option}`;
+        const optionToLabel = (option) => option && `+${option}`;
 
         const handleOptionChange = React.useCallback((newOption: string) => {
             setSelectedOption(newOption);
@@ -190,7 +190,7 @@ export const SelectBadgeWithoutCloseButton: Story = {
             setSelectedOption(args.option);
         }, [args.option]);
 
-        const optionToLabel = (option: string | undefined) => `+${option}`;
+        const optionToLabel = (option) => option && `+${option}`;
 
         const handlePriorityChange = (newPriorityItem: SelectBadgePriorityItem<string>) => {
             setSelectedPriorityItem(newPriorityItem);
