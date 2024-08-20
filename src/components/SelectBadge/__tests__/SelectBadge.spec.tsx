@@ -58,7 +58,7 @@ describe('SelectBadge', () => {
             });
         });
 
-        it('does not render priority button when priorityItems are not provided', () => {
+        it('does not render the priority button when priorityItems are not provided', () => {
             const { queryByLabelText } = renderSelectBadge({
                 priorityItems: undefined,
             });
@@ -66,7 +66,7 @@ describe('SelectBadge', () => {
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
         });
 
-        it('does not render priority button when priorityItems array is empty', () => {
+        it('does not render the priority button when priorityItems array is empty', () => {
             const { queryByLabelText } = renderSelectBadge({
                 priorityItems: [],
             });
@@ -141,7 +141,7 @@ describe('SelectBadge', () => {
             );
         });
 
-        it('does not render option button but displays plain text with passed children if optionList is not provided', () => {
+        it('does not render the option button but displays plain text with passed children if optionList is not provided', () => {
             const { getByText, queryByText } = renderSelectBadge({
                 optionList: undefined,
             });
@@ -150,7 +150,7 @@ describe('SelectBadge', () => {
             expect(getByText('Test Child')).toBeInTheDocument();
         });
 
-        it('does not render option button but displays plain text with passed children if optionList is an empty', () => {
+        it('does not render the option button but displays plain text with passed children if optionList is an empty', () => {
             const { getByText, queryByText } = renderSelectBadge({
                 optionList: [],
             });
@@ -161,12 +161,12 @@ describe('SelectBadge', () => {
     });
 
     describe('Delete button', () => {
-        it('should not render delete button if onDelete is not provided', () => {
+        it('should not render the delete button if onDelete is not provided', () => {
             const { queryByLabelText } = renderSelectBadge({ onDelete: undefined });
             expect(queryByLabelText('delete button')).not.toBeInTheDocument();
         });
 
-        it('should handle delete button functionality', async () => {
+        it('should handle the delete button functionality correctly', async () => {
             const { getByLabelText } = renderSelectBadge();
 
             const user = userEvent.setup();
