@@ -1,13 +1,13 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, toast, Toaster, ToastProps } from '@textkernel/oneui';
+import { Button, CONTEXTS, toast, Toaster, ToastProps } from '@textkernel/oneui';
 
 const meta: Meta<typeof Toaster> = {
     title: 'Molecules/Toast',
     component: Toaster,
     argTypes: {
         context: {
-            options: ['info', 'cautious', 'success', 'critical'],
+            options: CONTEXTS,
             control: { type: 'radio' },
         },
     },
