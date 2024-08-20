@@ -45,6 +45,7 @@ $contextMap: (
     &__actions {
         display: flex;
         flex-direction: row;
+        align-items: center;
         gap: var(--space-100);
         color: var(--color-link-default);
     }

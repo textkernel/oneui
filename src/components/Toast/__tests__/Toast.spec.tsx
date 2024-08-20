@@ -107,6 +107,7 @@ describe('<Toast>', () => {
     it('should close toast when clicking on the close button', async () => {
         toast({
             description: 'Description',
+            closeButtonLabel: 'closeButton',
         });
         await waitFor(() => {
             expect(screen.getByRole('button')).toBeInTheDocument();

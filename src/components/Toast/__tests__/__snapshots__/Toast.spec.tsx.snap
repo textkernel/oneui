@@ -72,7 +72,6 @@ exports[`<Toast> should render toast correctly 2`] = `
             />
           </div>
           <button
-            aria-label="closeButton"
             class="Toast__closeButton"
             type="button"
           >
