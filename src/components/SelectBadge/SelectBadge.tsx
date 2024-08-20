@@ -191,7 +191,7 @@ export function SelectBadge<V, O>({
                                 <Text
                                     {...elem('optionText')}
                                     inline
-                                    title={optionToLabel?.(option)}
+                                    title={optionToLabel(option)}
                                     size="small"
                                 >
                                     {optionToLabel(option)}
@@ -210,7 +210,7 @@ export function SelectBadge<V, O>({
                     {optionListHeader ? (
                         <div {...elem('listHeadline')}>
                             <Text inline title={optionListHeader}>
-                                {optionListHeader?.toUpperCase()}
+                                {optionListHeader.toUpperCase()}
                             </Text>
                         </div>
                     ) : null}
