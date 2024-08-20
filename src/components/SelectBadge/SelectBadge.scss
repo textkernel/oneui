@@ -98,7 +98,7 @@ $icon-status-colors: (
 
     &__optionText {
         max-width: var(--space-600);
-        min-width: var(--space-300);
+        min-width: var(--space-200);
         color: var(--color-text-information-default);
         overflow: hidden;
         text-overflow: ellipsis;
@@ -160,7 +160,7 @@ $icon-status-colors: (
         overflow: hidden;
     }
 
-    &__badgeListItem {
+    .badgeListItem {
         display: flex;
         align-items: center;
         justify-content: flex-start;

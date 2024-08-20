@@ -179,11 +179,11 @@ export function SelectBadge<V, O>({
                     }}
                     onChange={(newPriorityItem) => onPriorityChange(newPriorityItem)}
                     placement="bottom-start"
-                    listClassName="badgeDropdownList"
+                    listClassName={styles.badgeDropdownList}
                     refElement={badgeRef}
                 >
                     {priorityItems.map((item) => (
-                        <ListItem {...elem('badgeListItem')} key={item.priority} value={item}>
+                        <ListItem className={styles.badgeListItem} key={item.priority} value={item}>
                             {renderPriorityIcon(item.priority)}
                             <Text inline size="small">
                                 {item.label}
@@ -193,7 +193,7 @@ export function SelectBadge<V, O>({
                 </Dropdown>
             )}
 
-            {optionList && optionList?.length > 0 && onChange ? (
+            {optionList && optionList?.length > 0 && optionToLabel && onChange ? (
                 <Dropdown<O>
                     button={
                         <button
@@ -202,7 +202,7 @@ export function SelectBadge<V, O>({
                             })}
                             aria-label={
                                 option
-                                    ? `${optionToLabel && optionToLabel(option)} ${optionButtonLabel}`
+                                    ? `${optionToLabel?.(option)} ${optionButtonLabel}`
                                     : optionButtonLabel
                             }
                             disabled={isDisabled}
@@ -220,10 +220,10 @@ export function SelectBadge<V, O>({
                                 <Text
                                     {...elem('optionText')}
                                     inline
-                                    title={optionToLabel ? optionToLabel(option) : option}
+                                    title={optionToLabel?.(option)}
                                     size="small"
                                 >
-                                    {optionToLabel ? optionToLabel(option) : option}
+                                    {optionToLabel?.(option)}
                                 </Text>
                             )}
                         </button>
@@ -234,7 +234,7 @@ export function SelectBadge<V, O>({
                     onChange={(newOption) => onChange(newOption)}
                     placement="bottom"
                     refElement={badgeRef}
-                    listClassName="badgeDropdownList"
+                    listClassName={styles.badgeDropdownList}
                 >
                     {optionListHeader ? (
                         <div {...elem('listHeadline')}>
@@ -245,12 +245,12 @@ export function SelectBadge<V, O>({
                     ) : null}
                     {optionList?.map((opt) => (
                         <ListItem
-                            {...elem('badgeListItem')}
-                            key={optionToKey ? optionToKey(opt) : opt}
+                            className={styles.badgeListItem}
+                            key={optionToKey ? optionToKey(opt) : optionToLabel?.(opt)}
                             value={opt}
                         >
                             <Text inline size="small">
-                                {optionToLabel && optionToLabel(opt)}
+                                {optionToLabel?.(opt)}
                             </Text>
                         </ListItem>
                     ))}
