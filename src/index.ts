@@ -61,7 +61,7 @@ export * from './components/Pagination';
 export * from './components/Pill';
 export * from './components/RadioButton';
 export * from './components/Teaser';
-export * from './components/Toast';
+export * from './components/Toaster';
 export * from './components/Toggle';
 export * from './components/Tooltip';
 export * from './components/TwoPaneView';

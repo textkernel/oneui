@@ -2,7 +2,7 @@ import React from 'react';
 import '@testing-library/jest-dom';
 import { RenderResult, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Toaster, toast } from '../Toast';
+import { Toaster, toast } from '../Toaster';
 
 window.HTMLElement.prototype.setPointerCapture = jest.fn();
 

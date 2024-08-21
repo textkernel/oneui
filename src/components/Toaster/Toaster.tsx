@@ -7,9 +7,10 @@ import CriticalIcon from '@material-design-icons/svg/round/error.svg';
 import InfoIcon from '@material-design-icons/svg/round/info.svg';
 import SuccessIcon from '@material-design-icons/svg/round/check_circle.svg';
 import { assertNever } from '../../utils/misc';
-import styles from './Toast.scss';
-import { Context, ENTER_KEY } from '../../constants';
+import styles from './Toaster.scss';
+import { Context } from '../../constants';
 import { bem } from '../../utils';
+import { ActionItem, ActionProps } from './ActionItem';
 
 export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Short and descriptive title */
@@ -19,63 +20,14 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
     /** The Toast context (e.g. info, critical, success or cautious - defaults to info) */
     context?: Context;
     /** Action array, each containing item text, callback and/or href to action. Max 2 */
-    actions?: { text: string; callback?: () => void; href?: string }[];
+    actions?: ActionProps[];
     /** Has a close button, default: true */
     isClosable?: boolean;
     /** A label for the close button that will be used by screenreaders */
     closeButtonLabel?: string;
 }
 
-interface ActionProps {
-    /** Action object, containing text, callback and/or href to action  */
-    action: {
-        text: string;
-        callback?: () => void;
-        href?: string;
-    };
-    /** callback function that closes toast */
-    dismissToast: () => void;
-}
-
 const { block, elem } = bem('Toast', styles);
-
-const ActionItem: React.FC<ActionProps> = ({ action, dismissToast }) => {
-    if (action.callback) {
-        const handleOnClick = () => {
-            action.callback!();
-            dismissToast();
-        };
-        const handleKeyDown = (e) => {
-            if (e.key === ENTER_KEY) {
-                handleOnClick();
-            }
-        };
-        return (
-            <p
-                onClick={handleOnClick}
-                onKeyDown={handleKeyDown}
-                {...elem('toastAction')}
-                role="presentation"
-            >
-                {action.text}
-            </p>
-        );
-    }
-    if (action.href) {
-        return (
-            <a
-                onClick={dismissToast}
-                href={action.href}
-                target="_blank"
-                rel="noreferrer"
-                {...elem('toastAction')}
-            >
-                {action.text}
-            </a>
-        );
-    }
-    return null;
-};
 
 const ContextIcon = ({ context }: { context: Context }) => {
     switch (context) {
@@ -88,7 +40,7 @@ const ContextIcon = ({ context }: { context: Context }) => {
         case 'critical':
             return <CriticalIcon data-testid="critical-icon" />;
         default:
-            return assertNever(context, 'Toast.tsx');
+            return assertNever(context, 'Toaster.tsx');
     }
 };
 
@@ -155,4 +107,3 @@ export const Toaster = ({ duration = 2500, ...props }) => (
 toast.displayName = 'toast';
 Toaster.displayName = 'Toaster';
 ContextIcon.displayName = 'ContextIcon';
-ActionItem.displayName = 'ActionItem';
