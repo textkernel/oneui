@@ -52,14 +52,14 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
         const buttonRef = React.useRef<HTMLButtonElement>();
         const [buttonWidth, setButtonWidth] = React.useState<number>();
         // figure out width of button, and add that width as styling
-        React.useLayoutEffect(() => {
-            if (buttonRef && buttonRef.current && !buttonWidth) {
-                setButtonWidth(buttonRef.current.offsetWidth);
-            }
-            if (!isLoading && buttonWidth) {
-                setButtonWidth(undefined); // Reset to auto width when not loading
-            }
-        }, [buttonRef, isLoading]);
+
+        if (buttonRef.current && isLoading && !buttonWidth) {
+            setButtonWidth(buttonRef.current.offsetWidth);
+        }
+
+        if (!isLoading && buttonWidth) {
+            setButtonWidth(undefined); // Reset to auto width when not loading
+        }
 
         if (typeof children !== 'number' && !children) {
             return null;
