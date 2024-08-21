@@ -18,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof Toaster>;
 
 const ToastImplementation = (args: ToastProps) => {
-    const [duration, setDuration] = React.useState<number>(Infinity);
+    const [duration, setDuration] = React.useState<number>();
 
     const openToast = () =>
         toast({
@@ -28,8 +28,12 @@ const ToastImplementation = (args: ToastProps) => {
             actions: args.actions,
         });
 
-    const handleOnClick = (timeDuration: number) => {
-        setDuration(timeDuration);
+    const handleOnClick = (timeDuration?: number) => {
+        if (timeDuration) {
+            setDuration(timeDuration);
+        } else {
+            setDuration(undefined);
+        }
         openToast();
     };
 
@@ -37,7 +41,7 @@ const ToastImplementation = (args: ToastProps) => {
         <div style={{ height: 400 }}>
             <Toaster duration={duration} />
             <Button onClick={() => handleOnClick(Infinity)}>Make Infinity Toast Appear</Button>
-            <Button onClick={() => handleOnClick(2500)}>Make Toast Appear</Button>
+            <Button onClick={() => handleOnClick()}>Make Toast Appear</Button>
         </div>
     );
 };

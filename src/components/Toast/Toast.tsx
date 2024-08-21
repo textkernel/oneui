@@ -139,11 +139,11 @@ export const toast = ({
         actions ? { important: true } : {} // focused if actionable
     );
 
-export const Toaster = ({ ...props }) => (
+export const Toaster = ({ duration = 2500, ...props }) => (
     <SonnerToaster
         {...{
             ...props,
-            duration: 2500,
+            duration,
             closeButton: true,
             offset: 16,
             gap: 8,

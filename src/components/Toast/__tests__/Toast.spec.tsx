@@ -9,7 +9,7 @@ window.HTMLElement.prototype.setPointerCapture = jest.fn();
 describe('<Toast>', () => {
     let view: RenderResult;
     beforeEach(async () => {
-        view = render(<Toaster duration={Infinity}>{}</Toaster>);
+        view = render(<Toaster>{}</Toaster>);
     });
 
     it('should render toast correctly', async () => {

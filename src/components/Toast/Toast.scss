@@ -97,6 +97,7 @@ $contextMap: (
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    z-index: 1000;
     &[data-y-position='bottom'] {
         bottom: var(--space-200);
     }
