@@ -242,22 +242,18 @@ export const SelectBadgeWithoutCloseButton: Story = {
                 <SelectBadge
                     {...args}
                     priority={
-                        args.priority
-                            ? {
-                                  ...args.priority,
-                                  priorityItem: selectedPriorityItem,
-                                  onPriorityItemChange: handlePriorityChange,
-                              }
-                            : undefined
+                        args.priority && {
+                            ...args.priority,
+                            priorityItem: selectedPriorityItem,
+                            onPriorityItemChange: handlePriorityChange,
+                        }
                     }
                     option={
-                        args.option
-                            ? {
-                                  ...args.option,
-                                  optionItem: selectedOptionItem,
-                                  onOptionItemChange: handleOptionChange,
-                              }
-                            : undefined
+                        args.option && {
+                            ...args.option,
+                            optionItem: selectedOptionItem,
+                            onOptionItemChange: handleOptionChange,
+                        }
                     }
                 >
                     {args.children}
