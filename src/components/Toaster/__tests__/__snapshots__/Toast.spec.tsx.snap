@@ -44,7 +44,7 @@ exports[`<Toast> should render toast correctly 2`] = `
           class="Toast Toast--context_info"
         >
           <div
-            class="Toast__contextIcon"
+            class="Toast__contextIcon Toast__contextIcon--context_info"
           >
             <svg
               data-testid="info-icon"

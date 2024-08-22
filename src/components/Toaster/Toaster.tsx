@@ -55,7 +55,7 @@ export const toast = ({
     sonnerToast.custom(
         (t) => (
             <div {...block({ context })}>
-                <div {...elem('contextIcon')}>
+                <div {...elem('contextIcon', { context })}>
                     <ContextIcon context={context} />
                 </div>
                 <div {...elem('content')}>

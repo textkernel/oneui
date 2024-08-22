@@ -22,6 +22,12 @@ $contextMap: (
         padding: 0;
         margin: 0;
         font-size: var(--space-300);
+        @each $context in $contexts {
+            $mappedContext: map.get($contextMap, $context);
+            &--context_#{$context} {
+                fill: var(--color-icon-#{$mappedContext}-default);
+            }
+        }
     }
 
     &__content {
@@ -80,6 +86,7 @@ $contextMap: (
     &__closeIcon {
         font-size: var(--space-300);
         color: var(--color-icon-subtle);  
+        fill: var(--color-icon-subtle);
     }
 
     @each $context in $contexts {
