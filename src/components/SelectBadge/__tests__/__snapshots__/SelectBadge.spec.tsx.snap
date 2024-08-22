@@ -7,13 +7,13 @@ exports[`SelectBadge Option button should handle option change correctly 1`] = `
   >
     <button
       aria-activedescendant=""
-      aria-controls="downshift-:rb:-menu"
+      aria-controls="downshift-:r9:-menu"
       aria-expanded="false"
       aria-haspopup="listbox"
       aria-label="priority button"
-      aria-labelledby="downshift-:rb:-label"
+      aria-labelledby="downshift-:r9:-label"
       class="SelectBadge__priorityButton"
-      id="downshift-:rb:-toggle-button"
+      id="downshift-:r9:-toggle-button"
       role="combobox"
       tabindex="0"
       type="button"
@@ -25,20 +25,20 @@ exports[`SelectBadge Option button should handle option change correctly 1`] = `
       />
     </button>
     <ul
-      aria-labelledby="downshift-:rb:-label"
+      aria-labelledby="downshift-:r9:-label"
       class="List"
-      id="downshift-:rb:-menu"
+      id="downshift-:r9:-menu"
       role="listbox"
     />
     <button
       aria-activedescendant=""
-      aria-controls="downshift-:rc:-menu"
+      aria-controls="downshift-:ra:-menu"
       aria-expanded="true"
       aria-haspopup="listbox"
       aria-label="Label for 15 option button"
-      aria-labelledby="downshift-:rc:-label"
+      aria-labelledby="downshift-:ra:-label"
       class="SelectBadge__optionButton SelectBadge__optionButton--isSelected"
-      id="downshift-:rc:-toggle-button"
+      id="downshift-:ra:-toggle-button"
       role="combobox"
       tabindex="0"
       type="button"
@@ -57,12 +57,12 @@ exports[`SelectBadge Option button should handle option change correctly 1`] = `
       </span>
     </button>
     <ul
-      aria-labelledby="downshift-:rc:-label"
+      aria-labelledby="downshift-:ra:-label"
       class="List Dropdown__list badgeDropdownList"
       data-popper-escaped="true"
       data-popper-placement="bottom"
       data-popper-reference-hidden="true"
-      id="downshift-:rc:-menu"
+      id="downshift-:ra:-menu"
       role="listbox"
       style="position: absolute; left: 0px; top: 0px; width: 0px; transform: translate(0px, 3px);"
     >
@@ -70,7 +70,7 @@ exports[`SelectBadge Option button should handle option change correctly 1`] = `
         aria-disabled="false"
         aria-selected="false"
         class="ListItem ListItem--clickable List__item badgeListItem"
-        id="downshift-:rc:-item-0"
+        id="downshift-:ra:-item-0"
         role="option"
       >
         <span
@@ -83,7 +83,7 @@ exports[`SelectBadge Option button should handle option change correctly 1`] = `
         aria-disabled="false"
         aria-selected="false"
         class="ListItem ListItem--clickable List__item badgeListItem"
-        id="downshift-:rc:-item-1"
+        id="downshift-:ra:-item-1"
         role="option"
       >
         <span
@@ -96,7 +96,7 @@ exports[`SelectBadge Option button should handle option change correctly 1`] = `
         aria-disabled="false"
         aria-selected="false"
         class="ListItem ListItem--clickable List__item badgeListItem"
-        id="downshift-:rc:-item-2"
+        id="downshift-:ra:-item-2"
         role="option"
       >
         <span

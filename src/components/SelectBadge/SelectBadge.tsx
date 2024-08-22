@@ -18,78 +18,68 @@ const iconMap = {
 
 export type Priority = 'mandatory' | 'important' | 'optional' | 'exclude';
 
-export type PriorityItem<V> = {
+export type PriorityItem<PriorityItemValue> = {
     priority: Priority;
     label: string;
-    value?: V;
+    value?: PriorityItemValue;
 };
 
-export interface Props<V, O> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+// Priority related props
+type PriorityProps<PriorityItemValue> = {
+    /** Currently selected priority item that indicates the importance of the component. */
+    priorityItem?: PriorityItem<PriorityItemValue>;
+    /** Array of availible priority items. */
+    priorityItemList: Array<PriorityItem<PriorityItemValue>>;
+    /** Callback function triggered when a new priority is selected. */
+    onPriorityItemChange: (newPriorityItem: PriorityItem<PriorityItemValue>) => void;
+    /** Priority button label name for ARIA labelling */
+    priorityButtonLabel: string;
+};
+
+// Option related props
+type OptionProps<OptionItem> = {
+    /** Currently selected option item. */
+    optionItem?: OptionItem;
+    /** Header title for the options list. */
+    optionItemListHeader?: string;
+    /** Array of options available for selection. */
+    optionItemList?: Array<OptionItem>;
+    /** Converts an option to a string label for display. */
+    optionToLabel: (option: OptionItem) => string;
+    /** Generates a unique key for an option. If not provided, `optionToLabel` will be used. */
+    optionToKey?: (option: OptionItem) => string;
+    /** Callback function triggered when a new option is selected. */
+    onOptionItemChange?: (newOptionItem: OptionItem) => void;
+    /** Option button label name for ARIA labelling */
+    optionButtonLabel: string;
+};
+
+export interface Props<PriorityItemValue, OptionItem> extends React.HTMLAttributes<HTMLDivElement> {
     /**
      * Children nodes to be rendered within the component,
      * specifically used to display the selected value from parent component.
      */
     children: React.ReactNode;
-    /** Array of availible priority items. */
-    priorityItems?: Array<PriorityItem<V>>;
-    /** Currently selected priority item that indicates the importance of the component. */
-    priorityItem?: PriorityItem<V>;
-    /** Represents the currently selected option. */
-    option?: O;
-    /**
-     * Converts an option to a string label for display. Required if `option` or `optionList` is used.
-     *
-     * @param option - The option that needs to be converted to a label.
-     * @returns The label string corresponding to the given option.
-     */
-    optionToLabel?: (option: O) => string;
-    /**
-     * Generates a unique key for an option. If not provided, `optionToLabel` will be used.
-     *
-     * @param option - The option from which to extract a unique key.
-     * @returns The unique key string corresponding to the given option.
-     */
-    optionToKey?: (option: O) => string;
-    /** Array of options available for selection. */
-    optionList?: Array<O>;
-    /** Header title for the options list. */
-    optionListHeader?: string;
     /** Function to be called when the delete button is clicked. */
     onDelete?: (e: React.KeyboardEvent | React.MouseEvent) => void;
-    /** Callback function triggered when a new priority is selected. */
-    onPriorityChange?: (newPriorityItem: PriorityItem<V>) => void;
-    /** Callback function triggered when a new option is selected. */
-    onChange?: (newOption: O) => void;
     /** Boolean indicating whether the whole badge should be disabled. */
     isDisabled?: boolean;
-    /** Priority button label name for ARIA labelling */
-    priorityButtonLabel: string;
-    /** Option button label name for ARIA labelling */
-    optionButtonLabel: string;
     /** Delete button label name for ARIA labelling */
-    deleteButtonLabel: string;
+    deleteButtonLabel?: string;
+    priority?: PriorityProps<PriorityItemValue>;
+    option?: OptionProps<OptionItem>;
 }
 
 const { block, elem } = bem('SelectBadge', styles);
-
-export function SelectBadge<V, O>({
+export function SelectBadge<PriorityItemValue, OptionItem>({
     children,
     isDisabled = false,
-    onChange = undefined,
     onDelete = undefined,
-    onPriorityChange = undefined,
-    option,
-    optionToLabel,
-    optionToKey,
-    optionList,
-    optionListHeader,
-    priorityItem,
-    priorityItems,
-    priorityButtonLabel,
-    optionButtonLabel,
     deleteButtonLabel,
+    priority,
+    option,
     ...rest
-}: Props<V, O>) {
+}: Props<PriorityItemValue, OptionItem>) {
     const [dropdownStates, setDropdownStates] = React.useState({
         priority: false,
         option: false,
@@ -97,23 +87,25 @@ export function SelectBadge<V, O>({
 
     const badgeRef = React.useRef<HTMLDivElement | null>(null);
 
-    const hasPriorityItems = priorityItems && priorityItems.length > 0;
-    const hasOptionList = optionList && optionList.length > 0;
+    const hasPriorityItemList =
+        priority && priority.priorityItemList && priority.priorityItemList.length > 0;
 
-    const renderPriorityIcon = (priorityType: Priority, disabled: boolean = false) => {
-        const IconComponent = iconMap[priorityType];
+    const hasOptionItemList = option && option.optionItemList && option.optionItemList.length > 0;
 
-        if (!IconComponent) {
+    const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
+        if (!priorityType) {
             return null;
         }
 
-        return (
+        const IconComponent = iconMap[priorityType];
+
+        return IconComponent ? (
             <IconComponent
                 {...elem('icon', { [priorityType]: true })}
                 disabled={disabled}
                 viewBox="0 0 24 24"
             />
-        );
+        ) : null;
     };
 
     const handleOnDelete = (e: React.KeyboardEvent | React.MouseEvent) => {
@@ -133,29 +125,29 @@ export function SelectBadge<V, O>({
 
     return (
         <div {...rest} {...block({ ...rest })} ref={badgeRef}>
-            {hasPriorityItems && priorityItem && onPriorityChange && (
-                <Dropdown<PriorityItem<V>>
+            {hasPriorityItemList && (
+                <Dropdown<PriorityItem<PriorityItemValue>>
                     button={
                         <button
                             {...elem('priorityButton', {
                                 isSelected: dropdownStates.priority,
                             })}
-                            aria-label={`${priorityButtonLabel}`}
+                            aria-label={`${priority.priorityButtonLabel}`}
                             disabled={isDisabled}
                             type="button"
                         >
-                            {renderPriorityIcon(priorityItem.priority, isDisabled)}
+                            {renderPriorityIcon(priority.priorityItem?.priority, isDisabled)}
                         </button>
                     }
                     additionalSelectProps={{
                         onStateChange: (state) => toggleDropdown('priority', state.isOpen),
                     }}
-                    onChange={(newPriorityItem) => onPriorityChange(newPriorityItem)}
+                    onChange={(newPriorityItem) => priority.onPriorityItemChange(newPriorityItem)}
                     placement="bottom-start"
                     listClassName={styles.badgeDropdownList}
                     refElement={badgeRef}
                 >
-                    {priorityItems.map((item) => (
+                    {priority.priorityItemList.map((item) => (
                         <ListItem className={styles.badgeListItem} key={item.priority} value={item}>
                             {renderPriorityIcon(item.priority)}
                             <Text inline size="small">
@@ -166,17 +158,22 @@ export function SelectBadge<V, O>({
                 </Dropdown>
             )}
 
-            {hasOptionList && optionToLabel && onChange ? (
-                <Dropdown<O>
+            {hasOptionItemList ? (
+                <Dropdown<OptionItem>
                     button={
                         <button
                             {...elem('optionButton', {
                                 isSelected: dropdownStates.option,
                             })}
+                            /**
+                             * If optionItem is provided, the aria-label will concatenate the option's label
+                             * (generated by the optionToLabel function) with optionButtonLabel;
+                             * or it will use just optionButtonLabel if there is no option item.
+                             */
                             aria-label={
-                                option
-                                    ? `${optionToLabel(option)} ${optionButtonLabel}`
-                                    : optionButtonLabel
+                                option.optionItem
+                                    ? `${option.optionToLabel(option.optionItem)} ${option.optionButtonLabel}`
+                                    : option.optionButtonLabel
                             }
                             disabled={isDisabled}
                             type="button"
@@ -189,14 +186,14 @@ export function SelectBadge<V, O>({
                             >
                                 {children}
                             </Text>
-                            {option && (
+                            {option.optionItem && (
                                 <Text
                                     {...elem('optionText')}
                                     inline
-                                    title={optionToLabel(option)}
+                                    title={option.optionToLabel(option.optionItem)}
                                     size="small"
                                 >
-                                    {optionToLabel(option)}
+                                    {option.optionToLabel(option.optionItem)}
                                 </Text>
                             )}
                         </button>
@@ -204,26 +201,30 @@ export function SelectBadge<V, O>({
                     additionalSelectProps={{
                         onStateChange: (state) => toggleDropdown('option', state.isOpen),
                     }}
-                    onChange={(newOption) => onChange(newOption)}
+                    onChange={(newOptionItem) => option.onOptionItemChange?.(newOptionItem)}
                     placement="bottom"
                     refElement={badgeRef}
                     listClassName={styles.badgeDropdownList}
                 >
-                    {optionListHeader ? (
+                    {option.optionItemListHeader ? (
                         <div {...elem('listHeadline')}>
-                            <Text inline title={optionListHeader}>
-                                {optionListHeader.toUpperCase()}
+                            <Text inline title={option.optionItemListHeader}>
+                                {option.optionItemListHeader.toUpperCase()}
                             </Text>
                         </div>
                     ) : null}
-                    {optionList.map((opt) => (
+                    {option.optionItemList?.map((opt) => (
                         <ListItem
                             className={styles.badgeListItem}
-                            key={optionToKey ? optionToKey(opt) : optionToLabel(opt)}
+                            key={
+                                option.optionToKey
+                                    ? option.optionToKey(opt)
+                                    : option.optionToLabel(opt)
+                            }
                             value={opt}
                         >
                             <Text inline size="small">
-                                {optionToLabel(opt)}
+                                {option.optionToLabel(opt)}
                             </Text>
                         </ListItem>
                     ))}
@@ -238,6 +239,16 @@ export function SelectBadge<V, O>({
                     >
                         {children}
                     </Text>
+                    {option && option.optionItem && (
+                        <Text
+                            {...elem('optionText')}
+                            inline
+                            title={option.optionToLabel(option.optionItem)}
+                            size="small"
+                        >
+                            {option.optionToLabel(option.optionItem)}
+                        </Text>
+                    )}
                 </div>
             )}
 

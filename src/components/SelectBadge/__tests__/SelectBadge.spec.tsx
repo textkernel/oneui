@@ -5,28 +5,32 @@ import '@testing-library/jest-dom/extend-expect';
 import { SelectBadge } from '../SelectBadge';
 import { SelectBadgeProps } from '..';
 
-const mockOnChange = jest.fn();
-const mockOnPriorityChange = jest.fn();
+const mockonOptionItemChange = jest.fn();
+const mockonPriorityItemChange = jest.fn();
 const mockOnDelete = jest.fn();
 
 const defaultProps: SelectBadgeProps<string, string> = {
     children: 'Test Child',
-    priorityItems: [
-        { priority: 'mandatory', label: 'Mandatory', value: 'required' },
-        { priority: 'important', label: 'Important', value: 'strongly_favored' },
-        { priority: 'optional', label: 'Optional', value: 'favored' },
-        { priority: 'exclude', label: 'Exclude', value: 'banned' },
-    ],
-    priorityItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
-    option: '15',
-    optionList: ['5', '15', '25'],
-    priorityButtonLabel: 'priority button',
-    optionButtonLabel: 'option button',
+    priority: {
+        priorityItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+        priorityItemList: [
+            { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+            { priority: 'important', label: 'Important', value: 'strongly_favored' },
+            { priority: 'optional', label: 'Optional', value: 'favored' },
+            { priority: 'exclude', label: 'Exclude', value: 'banned' },
+        ],
+        priorityButtonLabel: 'priority button',
+        onPriorityItemChange: mockonPriorityItemChange,
+    },
+    option: {
+        optionItem: '15',
+        optionItemList: ['5', '15', '25'],
+        optionToLabel: (option) => `Label for ${option}`,
+        optionToKey: (option) => `key-${option}`,
+        onOptionItemChange: mockonOptionItemChange,
+        optionButtonLabel: 'option button',
+    },
     deleteButtonLabel: 'delete button',
-    optionToLabel: (option) => `Label for ${option}`,
-    optionToKey: (option) => `key-${option}`,
-    onChange: mockOnChange,
-    onPriorityChange: mockOnPriorityChange,
     onDelete: mockOnDelete,
 };
 
@@ -50,51 +54,33 @@ describe('SelectBadge', () => {
 
             await user.click(screen.getByText('Important'));
 
-            expect(mockOnPriorityChange).toHaveBeenCalledTimes(1);
-            expect(mockOnPriorityChange).toHaveBeenCalledWith({
+            expect(mockonPriorityItemChange).toHaveBeenCalledTimes(1);
+            expect(mockonPriorityItemChange).toHaveBeenCalledWith({
                 priority: 'important',
                 label: 'Important',
                 value: 'strongly_favored',
             });
         });
 
-        it('does not render the priority button when priorityItems are not provided', () => {
+        it('does not render the priority button when priority is not provided', () => {
             const { queryByLabelText } = renderSelectBadge({
-                priorityItems: undefined,
+                priority: undefined,
             });
 
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
         });
 
-        it('does not render the priority button when priorityItems array is empty', () => {
+        it('does not render the priority button when priorityItemList are not provided', () => {
             const { queryByLabelText } = renderSelectBadge({
-                priorityItems: [],
+                priority: { priorityItemList: undefined },
             });
 
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
         });
 
-        it('does not render the priority button when onPriorityChange is not provided', () => {
+        it('does not render the priority button when priorityItemList array is empty', () => {
             const { queryByLabelText } = renderSelectBadge({
-                onPriorityChange: undefined,
-            });
-
-            expect(queryByLabelText('priority button')).not.toBeInTheDocument();
-        });
-
-        it('does not render the priority button when priority item is not provided', () => {
-            const { queryByLabelText } = renderSelectBadge({
-                priorityItem: undefined,
-            });
-
-            expect(queryByLabelText('priority button')).not.toBeInTheDocument();
-        });
-
-        it('does not render the priority button when neither priorityItems, nor priorityItems, nor onPriorityChange are provided', () => {
-            const { queryByLabelText } = renderSelectBadge({
-                priorityItem: undefined,
-                priorityLabels: undefined,
-                onPriorityChange: undefined,
+                priority: { priorityItemList: [] },
             });
 
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
@@ -104,7 +90,7 @@ describe('SelectBadge', () => {
     describe('Option button', () => {
         it('renders option list headline when provided', async () => {
             const { getByLabelText, getByText } = renderSelectBadge({
-                optionListHeader: 'Select an Option',
+                option: { ...defaultProps.option, optionItemListHeader: 'Select an Option' },
             });
 
             const user = userEvent.setup();
@@ -125,8 +111,8 @@ describe('SelectBadge', () => {
 
             await user.click(screen.getByText('Label for 25'));
 
-            expect(mockOnChange).toHaveBeenCalledTimes(1);
-            expect(mockOnChange).toHaveBeenCalledWith('25');
+            expect(mockonOptionItemChange).toHaveBeenCalledTimes(1);
+            expect(mockonOptionItemChange).toHaveBeenCalledWith('25');
         });
 
         it('renders the correct labels using optionToLabel', async () => {
@@ -136,14 +122,23 @@ describe('SelectBadge', () => {
             const optionButton = getByLabelText('Label for 15 option button');
             await user.click(optionButton);
 
-            defaultProps?.optionList?.forEach((opt) =>
+            defaultProps?.option?.optionItemList?.forEach((opt) =>
                 expect(getAllByText(`Label for ${opt}`)[0]).toBeInTheDocument()
             );
         });
 
+        it('does not render the option button but displays plain text with passed children if option is not provided', () => {
+            const { getByText, queryByText } = renderSelectBadge({
+                option: undefined,
+            });
+
+            expect(queryByText('option button')).not.toBeInTheDocument();
+            expect(getByText('Test Child')).toBeInTheDocument();
+        });
+
         it('does not render the option button but displays plain text with passed children if optionList is not provided', () => {
             const { getByText, queryByText } = renderSelectBadge({
-                optionList: undefined,
+                option: { optionItemList: undefined },
             });
 
             expect(queryByText('option button')).not.toBeInTheDocument();
@@ -152,7 +147,7 @@ describe('SelectBadge', () => {
 
         it('does not render the option button but displays plain text with passed children if optionList is an empty', () => {
             const { getByText, queryByText } = renderSelectBadge({
-                optionList: [],
+                option: { optionItemList: [] },
             });
 
             expect(queryByText('option button')).not.toBeInTheDocument();
@@ -197,14 +192,14 @@ describe('SelectBadge', () => {
         await user.click(priorityButton); // Close
         await user.click(priorityButton); // Re-open
 
-        defaultProps?.priorityItems?.forEach(({ label }) => {
+        defaultProps?.priority?.priorityItemList?.forEach(({ label }) => {
             expect(screen.getByText(label)).toBeInTheDocument();
         });
 
         await user.click(getByText('Optional'));
 
-        expect(defaultProps.onPriorityChange).toHaveBeenCalledTimes(1);
-        expect(defaultProps.onPriorityChange).toHaveBeenCalledWith({
+        expect(defaultProps?.priority?.onPriorityItemChange).toHaveBeenCalledTimes(1);
+        expect(defaultProps?.priority?.onPriorityItemChange).toHaveBeenCalledWith({
             label: 'Optional',
             priority: 'optional',
             value: 'favored',
