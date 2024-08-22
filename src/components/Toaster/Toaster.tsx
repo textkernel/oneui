@@ -91,8 +91,11 @@ export const toast = ({
         actions ? { important: true } : {} // focused if actionable
     );
 
+const bemToaster = bem('Toaster', styles);
+
 export const Toaster = ({ duration = 2500, ...props }) => (
     <SonnerToaster
+        {...bemToaster.block()}
         {...{
             ...props,
             duration,
@@ -100,7 +103,6 @@ export const Toaster = ({ duration = 2500, ...props }) => (
             offset: 16,
             gap: 8,
         }}
-        className="Toaster"
     />
 );
 
