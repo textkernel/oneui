@@ -5,30 +5,30 @@ import '@testing-library/jest-dom/extend-expect';
 import { SelectBadge } from '../SelectBadge';
 import { SelectBadgeProps } from '..';
 
-const mockonOptionItemChange = jest.fn();
-const mockonPriorityItemChange = jest.fn();
+const mockOnOptionItemChange = jest.fn();
+const mockOnPriorityItemChange = jest.fn();
 const mockOnDelete = jest.fn();
 
 const defaultProps: SelectBadgeProps<string, string> = {
     children: 'Test Child',
     priority: {
-        priorityItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
-        priorityItemList: [
+        selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+        list: [
             { priority: 'mandatory', label: 'Mandatory', value: 'required' },
             { priority: 'important', label: 'Important', value: 'strongly_favored' },
             { priority: 'optional', label: 'Optional', value: 'favored' },
             { priority: 'exclude', label: 'Exclude', value: 'banned' },
         ],
-        priorityButtonLabel: 'priority button',
-        onPriorityItemChange: mockonPriorityItemChange,
+        buttonLabel: 'priority button',
+        onChange: mockOnPriorityItemChange,
     },
     option: {
-        optionItem: '15',
-        optionItemList: ['5', '15', '25'],
-        optionToLabel: (option) => `Label for ${option}`,
-        optionToKey: (option) => `key-${option}`,
-        onOptionItemChange: mockonOptionItemChange,
-        optionButtonLabel: 'option button',
+        selectedItem: '15',
+        list: ['5', '15', '25'],
+        toLabel: (option) => `Label for ${option}`,
+        toKey: (option) => `key-${option}`,
+        onChange: mockOnOptionItemChange,
+        buttonLabel: 'option button',
     },
     deleteButtonLabel: 'delete button',
     onDelete: mockOnDelete,
@@ -54,8 +54,8 @@ describe('SelectBadge', () => {
 
             await user.click(screen.getByText('Important'));
 
-            expect(mockonPriorityItemChange).toHaveBeenCalledTimes(1);
-            expect(mockonPriorityItemChange).toHaveBeenCalledWith({
+            expect(mockOnPriorityItemChange).toHaveBeenCalledTimes(1);
+            expect(mockOnPriorityItemChange).toHaveBeenCalledWith({
                 priority: 'important',
                 label: 'Important',
                 value: 'strongly_favored',
@@ -70,17 +70,17 @@ describe('SelectBadge', () => {
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
         });
 
-        it('does not render the priority button when priorityItemList are not provided', () => {
+        it('does not render the priority button when priority list is not provided', () => {
             const { queryByLabelText } = renderSelectBadge({
-                priority: { priorityItemList: undefined },
+                priority: { list: undefined },
             });
 
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
         });
 
-        it('does not render the priority button when priorityItemList array is empty', () => {
+        it('does not render the priority button when priority list is empty', () => {
             const { queryByLabelText } = renderSelectBadge({
-                priority: { priorityItemList: [] },
+                priority: { list: [] },
             });
 
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
@@ -90,7 +90,7 @@ describe('SelectBadge', () => {
     describe('Option button', () => {
         it('renders option list headline when provided', async () => {
             const { getByLabelText, getByText } = renderSelectBadge({
-                option: { ...defaultProps.option, optionItemListHeader: 'Select an Option' },
+                option: { ...defaultProps.option, listHeader: 'Select an Option' },
             });
 
             const user = userEvent.setup();
@@ -111,18 +111,18 @@ describe('SelectBadge', () => {
 
             await user.click(screen.getByText('Label for 25'));
 
-            expect(mockonOptionItemChange).toHaveBeenCalledTimes(1);
-            expect(mockonOptionItemChange).toHaveBeenCalledWith('25');
+            expect(mockOnOptionItemChange).toHaveBeenCalledTimes(1);
+            expect(mockOnOptionItemChange).toHaveBeenCalledWith('25');
         });
 
-        it('renders the correct labels using optionToLabel', async () => {
+        it('renders the correct labels using toLabel', async () => {
             const { getAllByText, getByLabelText } = renderSelectBadge();
 
             const user = userEvent.setup();
             const optionButton = getByLabelText('Label for 15 option button');
             await user.click(optionButton);
 
-            defaultProps?.option?.optionItemList?.forEach((opt) =>
+            defaultProps?.option?.list?.forEach((opt) =>
                 expect(getAllByText(`Label for ${opt}`)[0]).toBeInTheDocument()
             );
         });
@@ -136,18 +136,18 @@ describe('SelectBadge', () => {
             expect(getByText('Test Child')).toBeInTheDocument();
         });
 
-        it('does not render the option button but displays plain text with passed children if optionList is not provided', () => {
+        it('does not render the option button but displays plain text with passed children if option list is not provided', () => {
             const { getByText, queryByText } = renderSelectBadge({
-                option: { optionItemList: undefined },
+                option: { list: undefined },
             });
 
             expect(queryByText('option button')).not.toBeInTheDocument();
             expect(getByText('Test Child')).toBeInTheDocument();
         });
 
-        it('does not render the option button but displays plain text with passed children if optionList is an empty', () => {
+        it('does not render the option button but displays plain text with passed children if option list is empty', () => {
             const { getByText, queryByText } = renderSelectBadge({
-                option: { optionItemList: [] },
+                option: { list: [] },
             });
 
             expect(queryByText('option button')).not.toBeInTheDocument();
@@ -192,14 +192,14 @@ describe('SelectBadge', () => {
         await user.click(priorityButton); // Close
         await user.click(priorityButton); // Re-open
 
-        defaultProps?.priority?.priorityItemList?.forEach(({ label }) => {
+        defaultProps?.priority?.list?.forEach(({ label }) => {
             expect(screen.getByText(label)).toBeInTheDocument();
         });
 
         await user.click(getByText('Optional'));
 
-        expect(defaultProps?.priority?.onPriorityItemChange).toHaveBeenCalledTimes(1);
-        expect(defaultProps?.priority?.onPriorityItemChange).toHaveBeenCalledWith({
+        expect(defaultProps?.priority?.onChange).toHaveBeenCalledTimes(1);
+        expect(defaultProps?.priority?.onChange).toHaveBeenCalledWith({
             label: 'Optional',
             priority: 'optional',
             value: 'favored',
