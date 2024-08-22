@@ -97,7 +97,7 @@ export const SelectBadgeWithoutPriorityButton: Story = {
         children: 'London',
         priority: undefined,
         option: {
-            optionItem: '555',
+            optionItem: '5',
             optionItemList: ['5', '10', '15', '25'],
             optionItemListHeader: 'Radius',
             optionButtonLabel: 'Option button',
