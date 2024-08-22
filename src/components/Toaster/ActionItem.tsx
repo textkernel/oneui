@@ -25,14 +25,15 @@ export const ActionItem = (props: { action: ActionProps; dismissToast: () => voi
             }
         };
         return (
-            <p
+            <div
                 onClick={handleOnClick}
                 onKeyDown={handleKeyDown}
                 {...elem('toastAction')}
-                role="presentation"
+                tabIndex="0"
+                role="button"
             >
                 {action.text}
-            </p>
+            </div>
         );
     }
     if (action.href) {

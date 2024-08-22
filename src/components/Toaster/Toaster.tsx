@@ -95,13 +95,13 @@ const bemToaster = bem('Toaster', styles);
 
 export const Toaster = ({ duration = 2500, ...props }) => (
     <SonnerToaster
-        {...bemToaster.block()}
         {...{
             ...props,
             duration,
             closeButton: true,
             offset: 16,
             gap: 8,
+            ...bemToaster.block(props),
         }}
     />
 );
