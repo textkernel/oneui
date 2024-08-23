@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [25.0.0](https://github.com/textkernel/oneui/compare/24.0.0...25.0.0) (2024-08-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Heading:** `h4`, `h5` and `h6` are no longer supported by the library, please use `h3` instead
+
+### Features
+
+* **Heading:** migrate to new design ([#1229](https://github.com/textkernel/oneui/issues/1229)) ([2885354](https://github.com/textkernel/oneui/commit/2885354284a1f71982ee55cf3e0ea30fcf45b0eb))
+* **SelectBadge:** Components improvements ([#1238](https://github.com/textkernel/oneui/issues/1238)) ([a936732](https://github.com/textkernel/oneui/commit/a936732b941247f913d30e2d49ed9de8e3c1c746))
+* **TabsBar:** migrate to new design ([#1225](https://github.com/textkernel/oneui/issues/1225)) ([01096e3](https://github.com/textkernel/oneui/commit/01096e3cef62284f44877c04f9429677c29e7cbd))
+* **Toggle:** migrate to new design ([#1231](https://github.com/textkernel/oneui/issues/1231)) ([a6da7f5](https://github.com/textkernel/oneui/commit/a6da7f5bfdfea9f34dd0eb2468e7550eff393162))
+
 ## [24.0.0](https://github.com/textkernel/oneui/compare/23.0.0...24.0.0) (2024-08-06)
 
 
