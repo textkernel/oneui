@@ -132,7 +132,7 @@ export function SelectBadge<PriorityItemValue, OptionItem>({
                             {...elem('priorityButton', {
                                 isSelected: dropdownStates.priority,
                             })}
-                            aria-label={`${priority.buttonAriaLabel}`}
+                            aria-label={priority.buttonAriaLabel}
                             disabled={isDisabled}
                             type="button"
                         >
