@@ -24,7 +24,7 @@ export const _SelectBadge: Story = {
         children: 'London',
         priority: {
             list: priorityList,
-            buttonLabel: 'Priority',
+            buttonAriaLabel: 'Priority',
             onChange: () => {},
             selectedItem: undefined,
         },
@@ -32,8 +32,9 @@ export const _SelectBadge: Story = {
             selectedItem: undefined,
             list: ['5', '10', '15', '25'],
             listHeader: 'Radius',
-            buttonLabel: 'Option button',
+            buttonAriaLabel: 'Option button',
             toLabel: (option: string) => `+${option}`,
+            toKey: (option: string) => `key-${option}`,
         },
     },
     render: (args) => {
@@ -102,8 +103,9 @@ export const SelectBadgeWithoutPriorityButton: Story = {
             selectedItem: '5',
             list: ['5', '10', '15', '25'],
             listHeader: 'Radius',
-            buttonLabel: 'Option button',
+            buttonAriaLabel: 'Option button',
             toLabel: (option: string) => `+${option}`,
+            toKey: (option: string) => `key-${option}`,
         },
     },
     render: (args) => {
@@ -150,14 +152,15 @@ export const SelectBadgeWithoutOptions: Story = {
         children: 'London',
         priority: {
             list: priorityList,
-            buttonLabel: 'Priority button',
+            buttonAriaLabel: 'Priority button',
             onChange: () => {},
             selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },
         option: {
             selectedItem: '5',
-            buttonLabel: 'Option button',
+            buttonAriaLabel: 'Option button',
             toLabel: (option: string) => `+${option}`,
+            toKey: (option: string) => `key-${option}`,
         },
     },
     render: (args) => {
@@ -204,7 +207,7 @@ export const SelectBadgeWithoutCloseButton: Story = {
         children: 'London',
         priority: {
             list: priorityList,
-            buttonLabel: 'Priority button',
+            buttonAriaLabel: 'Priority button',
             onChange: () => {},
             selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },
@@ -212,8 +215,9 @@ export const SelectBadgeWithoutCloseButton: Story = {
             selectedItem: '5',
             list: ['5', '10', '15', '25'],
             listHeader: 'Radius',
-            buttonLabel: 'Option button',
+            buttonAriaLabel: 'Option button',
             toLabel: (option: string) => `+${option}`,
+            toKey: (option: string) => `key-${option}`,
         },
         onDelete: undefined,
     },

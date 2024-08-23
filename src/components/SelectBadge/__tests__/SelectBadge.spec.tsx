@@ -19,7 +19,7 @@ const defaultProps: SelectBadgeProps<string, string> = {
             { priority: 'optional', label: 'Optional', value: 'favored' },
             { priority: 'exclude', label: 'Exclude', value: 'banned' },
         ],
-        buttonLabel: 'priority button',
+        buttonAriaLabel: 'priority button',
         onChange: mockOnPriorityItemChange,
     },
     option: {
@@ -28,9 +28,9 @@ const defaultProps: SelectBadgeProps<string, string> = {
         toLabel: (option) => `Label for ${option}`,
         toKey: (option) => `key-${option}`,
         onChange: mockOnOptionItemChange,
-        buttonLabel: 'option button',
+        buttonAriaLabel: 'option button',
     },
-    deleteButtonLabel: 'delete button',
+    deleteButtonAriaLabel: 'delete button',
     onDelete: mockOnDelete,
 };
 
@@ -94,7 +94,7 @@ describe('SelectBadge', () => {
             });
 
             const user = userEvent.setup();
-            const optionButton = getByLabelText('Label for 15 option button');
+            const optionButton = getByLabelText('option button');
             await user.click(optionButton);
 
             expect(getByText('SELECT AN OPTION')).toBeInTheDocument();
@@ -104,7 +104,7 @@ describe('SelectBadge', () => {
             const view = renderSelectBadge();
 
             const user = userEvent.setup();
-            const optionButton = screen.getByLabelText('Label for 15 option button');
+            const optionButton = screen.getByLabelText('option button');
             await user.click(optionButton);
 
             expect(view.container).toMatchSnapshot();
@@ -119,7 +119,7 @@ describe('SelectBadge', () => {
             const { getAllByText, getByLabelText } = renderSelectBadge();
 
             const user = userEvent.setup();
-            const optionButton = getByLabelText('Label for 15 option button');
+            const optionButton = getByLabelText('option button');
             await user.click(optionButton);
 
             defaultProps?.option?.list?.forEach((opt) =>
@@ -178,7 +178,7 @@ describe('SelectBadge', () => {
         });
 
         expect(getByLabelText('priority button')).toBeDisabled();
-        expect(getByLabelText('Label for 15 option button')).toBeDisabled();
+        expect(getByLabelText('option button')).toBeDisabled();
         expect(getByLabelText('delete button')).toBeDisabled();
     });
 
