@@ -1,0 +1,70 @@
+.SuggestionItem {
+    all: unset;
+    display: flex;
+    text-decoration: none;
+    padding: 10px var(--space-150);
+    width: 100%;
+
+    &:hover {
+        background-color: var(--color-background-neutral-subtlest-hover);
+    }
+
+    &:active {
+        background-color: var(--color-background-neutral-subtlest-pressed);
+    }
+
+    &:focus-visible {
+        border: var(--border-width-thick) solid var(--color-info-20);
+        outline: none;
+    }
+
+    &--isDisabled.SuggestionItem:hover {
+        background-color: var(--color-background-neutral-subtlest-disabled);
+        color: var(--color-text-disabled);
+        border: none;
+    }
+
+    &--isDisabled {
+        background-color: var(--color-background-neutral-subtlest-disabled);
+        color: var(--color-text-disabled);
+        border: none;
+        cursor: not-allowed;
+    }
+
+    &--isSelected.SuggestionItem:hover {
+        background-color: var(--color-background-selected-subtlest-default);
+        color: var(--color-link-default);
+        border: none;
+    }
+
+    &--isSelected {
+        background-color: var(--color-background-selected-subtlest-default);
+        color: var(--color-text-selected-default);
+
+        &:hover {
+            background-color: var(--color-background-selected-subtlest-hover);
+        }
+
+        &:active {
+            background-color: var(--color-background-selected-subtlest-pressed);
+        }
+    }
+
+    &--isSelected.SuggestionItem--isDisabled {
+        background-color: var(--color-background-selected-subtlest-default);
+        color: var(--color-link-default);
+    }
+}
+
+.SuggestionItem__checkbox {
+    width: 100%;
+    display: flex;
+
+    label {
+        flex-grow: 1;
+    }
+
+    &--isDisabled {
+        color: var(--color-text-selected-disabled);
+    }
+}
