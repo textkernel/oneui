@@ -5,14 +5,14 @@
     $activeColor: var(--color-background-neutral-subtlest-pressed)
 ) {
     & {
+        width: var(--space-400);
+        height: var(--space-400);
         align-items: center;
         background-color: var(--transparent);
         cursor: pointer;
         display: flex;
         flex-shrink: 0;
-        height: var(--space-400);
         justify-content: center;
-        width: var(--space-400);
     }
 
     &:hover:not([disabled]) {
@@ -66,6 +66,7 @@ $icon-status-colors: (
 );
 
 .SelectBadge {
+    width: 100%;
     height: var(--space-400);
     border: 1px solid var(--color-border-subtle);
     border-radius: var(--space-100);
@@ -97,18 +98,19 @@ $icon-status-colors: (
     }
 
     &__optionText {
-        min-width: var(--space-600);
+        max-width: var(--space-600);
+        min-width: var(--space-200);
         color: var(--color-text-information-default);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        flex-shrink: 0;
     }
 
     &__optionButton {
         width: 100%;
         padding: 0 var(--space-100);
         border: 0;
-        justify-content: space-around;
         flex-grow: 1;
         gap: var(--space-50);
 
@@ -127,10 +129,13 @@ $icon-status-colors: (
     }
 
     &__valueContainer {
+        width: 100%;
+        padding: 0 var(--space-100);
+        float: left;
         display: flex;
-        align-items: center;
         justify-content: center;
-        flex-grow: 1;
+        gap: var(--space-50);
+        overflow: auto;
         cursor: default;
     }
 
@@ -152,19 +157,17 @@ $icon-status-colors: (
         }
     }
 
-    .Dropdown {
-        &__list {
-            width: 100%;
-            border-radius: var(--space-100);
-            overflow: hidden;
+    .badgeDropdownList {
+        width: 100%;
+        border-radius: var(--space-100);
+        overflow: hidden;
+    }
 
-            .ListItem {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                gap: var(--space-100);
-            }
-        }
+    .badgeListItem {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--space-100);
     }
 
     &__deleteButton {
