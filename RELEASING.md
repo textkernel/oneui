@@ -66,7 +66,7 @@ A new version of Storybook will be deployed automatically when pushing new tags.
 
 Sometimes the script might fail midway through the process. This could be due to not being logged in to NPM, for example.
 
-Another possible reason is required two-factor authentication (2FA) for write actions, which will ask for a one-time code every time you want to make a release. To disable this, go to your account settings, modify the 2FA settings, and under **Additional actions**, uncheck the checkbox labeled **Require two-factor authentication for write actions.**. Then, click **Update Preferences**.
+Another possible reason is required two-factor authentication (2FA) for write actions, which will ask for a one-time code every time you want to make a release. To disable this, go to your account settings, modify the 2FA settings, and under **Additional actions**, uncheck the checkbox labeled **Require two-factor authentication for write actions**. Then, click **Update Preferences**.
 
 If you encounter any problems, including the ones mentioned above, you will need to follow these steps to revert changes that have already been made locally and pushed to remote.
 
