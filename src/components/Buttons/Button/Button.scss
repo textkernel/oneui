@@ -136,7 +136,7 @@ $contextMap: (
                   
                     &[disabled],
                     &.Button--isLoading {
-                        color: var(--color-text-disabled);
+                        color: var(--color-text-subtlest);
                         &:hover,
                         &:active {
                             background-color: var(--transparent);
@@ -154,7 +154,7 @@ $contextMap: (
                     
                     &[disabled],
                     &.Button--isLoading {
-                        color: var(--color-text-#{$mappedContext}-default);
+                        color: var(--color-text-#{$mappedContext}-disabled);
                         &:hover,
                         &:active {
                             background-color: var(--transparent);
@@ -164,20 +164,47 @@ $contextMap: (
 
                 }
             } @else if $variant == ghost {
-                color: var(--color-text-#{$mappedContext}-default);
-                background-color: var(--transparent);
-                &:hover {
-                    background-color: var(--color-background-#{$mappedContext}-subtlest-hover);
-                }
-                &:active {
-                    background-color: var(--color-background-#{$mappedContext}-subtlest-pressed);
-                }
-                &[disabled],
-                &.Button--isLoading {
-                    color: var(--color-text-#{$mappedContext}-disabled);
-                    &:hover,
+                @if $context == secondary {
+                    color: var(--color-text-subtle);
+                    background-color: var(--transparent);
+
+                    &:hover {
+                        background-color: var(--color-background-neutral-subtlest-hover);
+                    }
+
                     &:active {
+                        background-color: var(--color-background-neutral-subtlest-pressed);
+                    }
+
+                    &:focus {
+                        box-shadow: 0px 0px 0px 2px var(--color-background-information-subtlest-pressed);
+                    }
+
+                    &[disabled],
+                    &.Button--isLoading {
+                        color: var(--color-text-disabled);
                         background-color: var(--transparent);
+                        &:hover,
+                        &:active {
+                            background-color: var(--transparent);
+                        }
+                    }
+                } @else if $variant == ghost {
+                    color: var(--color-text-#{$mappedContext}-default);
+                    background-color: var(--transparent);
+                    &:hover {
+                        background-color: var(--color-background-#{$mappedContext}-subtlest-hover);
+                    }
+                    &:active {
+                        background-color: var(--color-background-#{$mappedContext}-subtlest-pressed);
+                    }
+                    &[disabled],
+                    &.Button--isLoading {
+                        color: var(--color-text-#{$mappedContext}-disabled);
+                        &:hover,
+                        &:active {
+                            background-color: var(--transparent);
+                        }
                     }
                 }
             }
