@@ -23,12 +23,24 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
     for="input-field"
   />
   <input
+    aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
     data-lpignore="true"
     id="input-field"
     type="text"
     value=""
   />
+  <div
+    class="Input__errorMessageWrapper"
+  >
+    <test-file-stub
+      classname="Input__icon"
+      viewbox="0 0 24 24"
+    />
+    <p
+      class="Input__errorMessage"
+    />
+  </div>
   <p
     class="Text--context_critical Text--size_small FieldWithValidation"
   >
@@ -44,12 +56,24 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
     for="input-field"
   />
   <input
+    aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
     data-lpignore="true"
     id="input-field"
     type="text"
     value=""
   />
+  <div
+    class="Input__errorMessageWrapper"
+  >
+    <test-file-stub
+      classname="Input__icon"
+      viewbox="0 0 24 24"
+    />
+    <p
+      class="Input__errorMessage"
+    />
+  </div>
   <p
     class="Text--context_critical Text--size_small FieldWithValidation"
   >
@@ -65,12 +89,24 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
     for="input-field"
   />
   <input
+    aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
     data-lpignore="true"
     id="input-field"
     type="text"
     value=""
   />
+  <div
+    class="Input__errorMessageWrapper"
+  >
+    <test-file-stub
+      classname="Input__icon"
+      viewbox="0 0 24 24"
+    />
+    <p
+      class="Input__errorMessage"
+    />
+  </div>
   <p
     class="Text--context_critical Text--size_small FieldWithValidation"
   >
@@ -102,12 +138,24 @@ exports[`FieldWithValidation with error message passed should render the message
     for="input-field"
   />
   <input
+    aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
     data-lpignore="true"
     id="input-field"
     type="text"
     value=""
   />
+  <div
+    class="Input__errorMessageWrapper"
+  >
+    <test-file-stub
+      classname="Input__icon"
+      viewbox="0 0 24 24"
+    />
+    <p
+      class="Input__errorMessage"
+    />
+  </div>
   <p
     class="Text--context_critical Text--size_small FieldWithValidation"
   >
@@ -123,12 +171,24 @@ exports[`FieldWithValidation with error message passed should set context to bad
     for="input-field"
   />
   <input
+    aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
     data-lpignore="true"
     id="input-field"
     type="text"
     value=""
   />
+  <div
+    class="Input__errorMessageWrapper"
+  >
+    <test-file-stub
+      classname="Input__icon"
+      viewbox="0 0 24 24"
+    />
+    <p
+      class="Input__errorMessage"
+    />
+  </div>
   <p
     class="Text--context_critical Text--size_small FieldWithValidation"
   >

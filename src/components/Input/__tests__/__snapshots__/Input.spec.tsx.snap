@@ -5,8 +5,11 @@ exports[`<Input> that renders an input field should add classes when props are c
   <label
     class="Input__label"
     for="input-field"
-  />
+  >
+    Input Label
+  </label>
   <input
+    aria-invalid="true"
     class="Input Input--context_critical Input--size_medium Input--isBlock"
     data-lpignore="true"
     disabled=""
@@ -14,6 +17,17 @@ exports[`<Input> that renders an input field should add classes when props are c
     type="text"
     value=""
   />
+  <div
+    class="Input__errorMessageWrapper"
+  >
+    <test-file-stub
+      classname="Input__icon"
+      viewbox="0 0 24 24"
+    />
+    <p
+      class="Input__errorMessage"
+    />
+  </div>
 </div>
 `;
 
@@ -22,7 +36,9 @@ exports[`<Input> that renders an input field should render default input correct
   <label
     class="Input__label"
     for="input-field"
-  />
+  >
+    Input Label
+  </label>
   <input
     class="Input Input--size_medium"
     data-lpignore="true"
@@ -30,5 +46,10 @@ exports[`<Input> that renders an input field should render default input correct
     type="text"
     value="Some value"
   />
+  <p
+    class="Input__helperText"
+  >
+    This is a helper text
+  </p>
 </div>
 `;

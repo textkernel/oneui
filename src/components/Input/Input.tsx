@@ -8,11 +8,14 @@ type FieldSize = 'small' | 'medium';
 
 type ErrorContext = 'critical';
 
-// Any other attributes (onChange, onKeyUp etc.) are
-// supported although not defined in props type definition
-export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+type ErrorStateProps = {
     /** The input error field context (critical) */
     context?: ErrorContext;
+    /** This message will be rendered under the input when context critical will be applied */
+    errorMessage: string;
+};
+
+interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
     /** Should the input field be disabled or not */
     disabled?: boolean;
     /** Should the input field be readOnly or not */
@@ -25,9 +28,11 @@ export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>,
     type?: InputType;
     /** Field label */
     label?: string;
-    /** Helper text under the field, display the error when the context is critical */
+    /** Helper text under the input, display the error when the context is critical */
     helperText?: string;
 }
+
+export type Props = BaseProps & (ErrorStateProps | { context?: never; errorMessage?: never });
 
 const { block, elem } = bem('Input', styles);
 
@@ -44,6 +49,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             value,
             label,
             helperText,
+            errorMessage,
             ...rest
         },
         ref
@@ -52,7 +58,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
 
         const isLastPassDisabled = type !== 'password';
 
-        const handleInput = (event) => {
+        const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
             setIsActive(event.target.value.length > 0);
         };
 
@@ -76,14 +82,16 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                     value={value}
                     onInput={handleInput}
                     onBlur={handleOnBlur}
+                    aria-invalid={context === 'critical' ? 'true' : undefined}
                     data-lpignore={isLastPassDisabled}
                 />
-
-                {helperText && (
-                    <div {...elem('helperTextWrapper')}>
-                        {context && <Error viewBox="0 0 24 24" {...elem('icon')} />}
-                        <p {...elem('helperText', { context })}>{helperText}</p>
+                {context === 'critical' ? (
+                    <div {...elem('errorMessageWrapper')}>
+                        <Error viewBox="0 0 24 24" {...elem('icon')} />
+                        <p {...elem('errorMessage', { context })}>{errorMessage}</p>
                     </div>
+                ) : (
+                    helperText && <p {...elem('helperText')}>{helperText}</p>
                 )}
             </>
         );

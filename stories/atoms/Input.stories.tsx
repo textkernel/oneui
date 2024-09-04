@@ -16,6 +16,7 @@ export const _Input: StoryInput = {
         placeholder: 'While typing, check your console log...',
         label: 'Label',
         helperText: 'Optional helper text',
+        errorMessage: 'Error message',
     },
     render: (args) => <Input {...args} />,
 };

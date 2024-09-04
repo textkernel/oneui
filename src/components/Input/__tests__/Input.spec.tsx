@@ -2,14 +2,24 @@ import React from 'react';
 import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
+import { InputProps } from '@textkernel/oneui';
 import { Input } from '../Input';
+
+const defaultProps: InputProps = {
+    label: 'Input Label',
+    type: 'text',
+    helperText: 'This is a helper text',
+    context: undefined,
+};
+
+const renderComponent = (props = {}) => render(<Input {...defaultProps} {...props} />);
 
 describe('<Input> that renders an input field', () => {
     let view: RenderResult;
 
     it('should render default input correctly', () => {
         const onChange = jest.fn();
-        view = render(<Input value="Some value" onChange={onChange} />);
+        view = renderComponent({ value: 'Some value', onChange });
         const textbox = screen.getByRole('textbox');
 
         expect(view.container).toMatchSnapshot();
@@ -18,7 +28,11 @@ describe('<Input> that renders an input field', () => {
     });
 
     it('should add classes when props are changed', () => {
-        view = render(<Input context="critical" isBlock disabled />);
+        view = renderComponent({
+            context: 'critical',
+            isBlock: true,
+            disabled: true,
+        });
         const textbox = screen.getByRole('textbox');
 
         expect(view.container).toMatchSnapshot();
@@ -31,7 +45,7 @@ describe('<Input> that renders an input field', () => {
 
     it('should render input with label', () => {
         const label = 'Input Label';
-        view = render(<Input label={label} />);
+        view = renderComponent({ label });
         const labelText = screen.getByText(label);
 
         expect(labelText).toBeInTheDocument();
@@ -40,15 +54,34 @@ describe('<Input> that renders an input field', () => {
 
     it('should show helper text when provided', () => {
         const helperText = 'This is helper text';
-        view = render(<Input helperText={helperText} context="critical" />);
+        view = renderComponent({
+            helperText,
+        });
         const helperTextElement = screen.getByText(helperText);
 
         expect(helperTextElement).toBeInTheDocument();
-        expect(helperTextElement).toHaveClass('Input__helperText--context_critical');
+        expect(helperTextElement).toHaveClass('Input__helperText');
+    });
+
+    it('should display errorMessage instead of helper text when context is critical', () => {
+        const helperText = 'This is helper text';
+        const errorMessage = 'Value is invalid';
+        view = renderComponent({
+            context: 'critical',
+            errorMessage,
+            helperText,
+        });
+
+        const errorMessageElement = screen.getByText(errorMessage);
+        expect(errorMessageElement).toBeInTheDocument();
+        expect(errorMessageElement).toHaveClass('Input__errorMessage');
+
+        expect(screen.queryByText(helperText)).not.toBeInTheDocument();
     });
 
     it('should handle readOnly state correctly', () => {
-        view = render(<Input readOnly />);
+        view = renderComponent({ readOnly: true });
+
         const textbox = screen.getByRole('textbox');
 
         expect(textbox).toHaveAttribute('readOnly');
@@ -57,7 +90,7 @@ describe('<Input> that renders an input field', () => {
     it('should call change callback correctly', async () => {
         const user = userEvent.setup();
         const onChange = jest.fn();
-        view = render(<Input onChange={onChange} />);
+        view = renderComponent({ onChange });
 
         await user.type(screen.getByRole('textbox'), 'test');
 
@@ -65,7 +98,7 @@ describe('<Input> that renders an input field', () => {
     });
 
     it('should add string html attributes correctly', () => {
-        view = render(<Input data-test="something" />);
+        view = renderComponent({ 'data-test': 'something' });
 
         expect(screen.getByRole('textbox')).toHaveAttribute('data-test', 'something');
     });
