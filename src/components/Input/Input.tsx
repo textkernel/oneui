@@ -10,7 +10,7 @@ type ErrorContext = 'critical';
 
 type ErrorStateProps = {
     /** The input error field context (critical) */
-    context?: ErrorContext;
+    context: ErrorContext;
     /** This message will be rendered under the input when context critical will be applied */
     errorMessage: string;
 };
