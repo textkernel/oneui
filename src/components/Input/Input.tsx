@@ -4,7 +4,7 @@ import { bem } from '../../utils';
 import styles from './Input.scss';
 import { InputType } from '../../constants';
 
-type FieldSize = 'small' | 'medium';
+type InputSize = 'small' | 'medium';
 
 type ErrorContext = 'critical';
 
@@ -23,7 +23,7 @@ interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 's
     /** Whether or not to show block-level input field (full width) */
     isBlock?: boolean;
     /** The size of the input field */
-    size?: FieldSize;
+    size?: InputSize;
     /** Type of the input field */
     type?: InputType;
     /** Field label */
