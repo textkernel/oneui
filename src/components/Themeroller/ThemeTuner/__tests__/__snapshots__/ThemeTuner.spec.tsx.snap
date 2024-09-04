@@ -8,6 +8,7 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
       role="tablist"
     >
       <div
+        aria-disabled="false"
         aria-selected="true"
         class="TabItem TabItem--isActive"
         role="tab"
@@ -16,6 +17,7 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
         Colors
       </div>
       <div
+        aria-disabled="false"
         aria-selected="false"
         class="TabItem"
         role="tab"
@@ -124,6 +126,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
       role="tablist"
     >
       <div
+        aria-disabled="false"
         aria-selected="true"
         class="TabItem TabItem--isActive"
         role="tab"
@@ -132,6 +135,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
         Colors
       </div>
       <div
+        aria-disabled="false"
         aria-selected="false"
         class="TabItem"
         role="tab"

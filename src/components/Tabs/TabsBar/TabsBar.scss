@@ -1,10 +1,10 @@
 .TabsBar {
-    border-bottom: 1px solid var(--color-neutral-20);
     display: flex;
     justify-content: flex-start;
     padding: {
         top: var(--space-75);
     }
+    height: 40px;
 
     &--isBlock {
         justify-content: space-evenly;

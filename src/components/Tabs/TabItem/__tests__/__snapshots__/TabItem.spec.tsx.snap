@@ -3,6 +3,7 @@
 exports[`<TabItem> should render a tab item correctly with minimum props 1`] = `
 <div>
   <div
+    aria-disabled="false"
     aria-selected="false"
     class="TabItem"
     role="tab"
@@ -16,6 +17,7 @@ exports[`<TabItem> should render a tab item correctly with minimum props 1`] = `
 exports[`<TabItem> should render correctly with all props 1`] = `
 <div>
   <div
+    aria-disabled="false"
     aria-selected="true"
     class="TabItem TabItem--isActive TabItem--isBlock"
     role="tab"

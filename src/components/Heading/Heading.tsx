@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './Heading.scss';
-import { HEADING_SIZES } from '../../constants';
+
+const HEADING_SIZES = ['h1', 'h2', 'h3'] as const;
 
 export interface Props extends React.HTMLAttributes<HTMLHeadingElement> {
     /** Heading text */

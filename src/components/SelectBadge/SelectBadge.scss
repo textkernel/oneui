@@ -1,0 +1,190 @@
+@use 'sass:map';
+
+@mixin common-button-style(
+    $hoverColor: var(--color-background-neutral-subtlest-hover),
+    $activeColor: var(--color-background-neutral-subtlest-pressed)
+) {
+    & {
+        width: var(--space-400);
+        height: var(--space-400);
+        align-items: center;
+        background-color: var(--transparent);
+        cursor: pointer;
+        display: flex;
+        flex-shrink: 0;
+        justify-content: center;
+    }
+
+    &:hover:not([disabled]) {
+        background-color: $hoverColor;
+    }
+    &:active:not([disabled]) {
+        background-color: $activeColor;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
+}
+
+@mixin selected-state(
+    $selectedColor: var(--color-background-selected-subtlest-default),
+    $hoverColor: var(--color-background-selected-subtlest-hover),
+    $activeColor: var(--color-background-selected-subtlest-pressed)
+) {
+    & {
+        background-color: $selectedColor;
+    }
+    &:hover:not([disabled]) {
+        background-color: $hoverColor;
+    }
+    &:active:not([disabled]) {
+        background-color: $activeColor;
+    }
+    &[disabled] {
+        background-color: $selectedColor;
+    }
+}
+
+$icon-status-colors: (
+    mandatory: (
+        normal: var(--color-icon-success-default),
+        disabled: var(--color-icon-success-disabled),
+    ),
+    important: (
+        normal: var(--color-icon-caution-default),
+        disabled: var(--color-icon-caution-disabled),
+    ),
+    optional: (
+        normal: var(--color-icon-subtle),
+        disabled: var(--color-icon-disabled),
+    ),
+    exclude: (
+        normal: var(--color-icon-critical-default),
+        disabled: var(--color-icon-critical-disabled),
+    ),
+);
+
+.SelectBadge {
+    width: 100%;
+    height: var(--space-400);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: var(--space-100);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+
+    &__priorityButton {
+        padding: 0;
+        border: 0;
+        border-right: 1px solid var(--color-border-subtle);
+
+        @include common-button-style();
+    }
+
+    &__icon {
+        height: 20px;
+        width: 20px;
+
+        @each $status, $colors in $icon-status-colors {
+            &--#{$status} {
+                fill: map.get($colors, normal);
+
+                &[disabled] {
+                    fill: map.get($colors, disabled);
+                }
+            }
+        }
+    }
+
+    &__optionText {
+        max-width: var(--space-600);
+        min-width: var(--space-200);
+        color: var(--color-text-information-default);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    &__optionButton {
+        width: 100%;
+        padding: 0 var(--space-100);
+        border: 0;
+        flex-grow: 1;
+        gap: var(--space-50);
+
+        &[disabled] {
+            .SelectBadge__optionText {
+                color: var(--color-text-information-disabled);
+            }
+        }
+
+        @include common-button-style();
+    }
+
+    &__priorityButton--isSelected,
+    &__optionButton--isSelected {
+        @include selected-state();
+    }
+
+    &__valueContainer {
+        width: 100%;
+        padding: 0 var(--space-100);
+        float: left;
+        display: flex;
+        justify-content: center;
+        gap: var(--space-50);
+        overflow: auto;
+        cursor: default;
+    }
+
+    &__valueText {
+        max-width: 136px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__listHeadline {
+        padding: var(--space-75) var(--space-75) var(--space-50);
+        background-color: var(--color-background-brand-subtlest-default);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-text-brand-default);
+
+        & span {
+            font-size: var(--font-size-x-small);
+        }
+    }
+
+    .badgeDropdownList {
+        width: 100%;
+        border-radius: var(--space-100);
+        overflow: hidden;
+    }
+
+    .badgeListItem {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: var(--space-100);
+    }
+
+    &__deleteButton {
+        border: 0;
+        border-left: 1px solid var(--color-border-subtle);
+        padding: 0;
+
+        & svg {
+            fill: var(--color-icon-subtle);
+        }
+
+        &[disabled] {
+            & svg {
+                fill: var(--color-icon-disabled);
+            }
+        }
+
+        @include common-button-style();
+    }
+}

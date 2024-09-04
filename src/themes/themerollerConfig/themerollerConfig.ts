@@ -187,27 +187,6 @@ export const THEMEROLLER_CONFIG: ThemerollerConfig = [
                 unit: 'px',
             },
             {
-                label: 'H4 font size',
-                type: 'unit',
-                var: '--h4-font-size',
-                value: '18',
-                unit: 'px',
-            },
-            {
-                label: 'H5 font size',
-                type: 'unit',
-                var: '--h5-font-size',
-                value: '16',
-                unit: 'px',
-            },
-            {
-                label: 'H6 font size',
-                type: 'unit',
-                var: '--h6-font-size',
-                value: '14',
-                unit: 'px',
-            },
-            {
                 label: 'Primary font family',
                 type: 'string',
                 var: '--font-family-primary',

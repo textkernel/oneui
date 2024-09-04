@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelect } from 'downshift';
 import { usePopper } from 'react-popper';
 import { EmptyElement } from '../../customTypes/types';
@@ -56,6 +56,13 @@ export interface Props<V> extends Omit<React.HTMLAttributes<HTMLButtonElement>, 
     listClassName?: string;
     /** Popup placement relative to button */
     placement?: PopupPlacement;
+    /**
+     * Reference element for the dropdown.
+     * By default, the dropdown uses a button as its reference element for positioning. However, if alignment
+     * with a different element is needed, a refElement can be provided. When it is provided, the dropdown's width will be
+     * aligned with the refElement.
+     */
+    refElement?: React.RefObject<HTMLElement | null>;
 }
 
 /**
@@ -79,10 +86,17 @@ export function Dropdown<V>({
     placement = 'bottom-end',
     additionalSelectProps = {},
     listClassName = '',
+    refElement,
     ...rest
 }: Props<V>) {
-    const [referenceElement, setReferenceElement] = useState(null);
-    const [popperElement, setPopperElement] = useState(null);
+    const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+    const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(null);
+    const [popperElement, setPopperElement] = useState<HTMLElement | null>(null);
+
+    useEffect(() => {
+        setReferenceElement(refElement?.current || buttonRef.current);
+    }, [refElement]);
 
     const state = usePopper(referenceElement, popperElement, {
         placement,
@@ -127,20 +141,25 @@ export function Dropdown<V>({
         onBlur: onMenuBlur,
         onFocus: onMenuFocus,
     });
+
     const openPopperProps = isOpen && {
-        style: state.styles.popper,
+        style: {
+            ...state.styles.popper,
+            ...(refElement ? { width: refElement?.current?.scrollWidth } : {}),
+        },
         ...state.attributes.popper,
         ...elem('list', {
             elemClassName: listClassName,
         }),
     };
+
     return (
         <>
             {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             {React.cloneElement<any>(button, {
                 ...rest,
                 ...toggleButtonProps,
-                ref: mergeRefs([setReferenceElement, toggleButtonProps.ref, button.ref]),
+                ref: mergeRefs([buttonRef, toggleButtonProps.ref, button.ref]),
             })}
             <List
                 {...menuProps}

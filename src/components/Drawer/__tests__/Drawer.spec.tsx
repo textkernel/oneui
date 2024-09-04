@@ -16,7 +16,7 @@ describe('Drawer', () => {
         view = render(<Drawer title="some title">some text</Drawer>);
 
         expect(view.baseElement).toMatchSnapshot();
-        expect(screen.getByRole('heading', { name: 'some title' })).toBeInTheDocument();
+        expect(screen.getByText('some title')).toBeInTheDocument();
     });
 
     it('should pass initial expand status', () => {

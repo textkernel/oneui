@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [25.0.0](https://github.com/textkernel/oneui/compare/24.0.0...25.0.0) (2024-08-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Heading:** `h4`, `h5` and `h6` are no longer supported by the library, please use `h3` instead
+
+### Features
+
+* **Heading:** migrate to new design ([#1229](https://github.com/textkernel/oneui/issues/1229)) ([2885354](https://github.com/textkernel/oneui/commit/2885354284a1f71982ee55cf3e0ea30fcf45b0eb))
+* **SelectBadge:** Components improvements ([#1238](https://github.com/textkernel/oneui/issues/1238)) ([a936732](https://github.com/textkernel/oneui/commit/a936732b941247f913d30e2d49ed9de8e3c1c746))
+* **TabsBar:** migrate to new design ([#1225](https://github.com/textkernel/oneui/issues/1225)) ([01096e3](https://github.com/textkernel/oneui/commit/01096e3cef62284f44877c04f9429677c29e7cbd))
+* **Toggle:** migrate to new design ([#1231](https://github.com/textkernel/oneui/issues/1231)) ([a6da7f5](https://github.com/textkernel/oneui/commit/a6da7f5bfdfea9f34dd0eb2468e7550eff393162))
+
+## [24.0.0](https://github.com/textkernel/oneui/compare/23.0.0...24.0.0) (2024-08-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **css variables:** some unused CSS variables removed: `--line-medium`, `--line-thick`, `--outline-size`
+* **fonts:** `--font-weight-light` and `--font-wight-medium` were removed from the library
+* **typography:** changes to how basic text styles are applied to consuming applications see [README](/README.md#assign-base-class-to-body)
+
+### Features
+
+* **Checkbox:** migrate to new design ([#1213](https://github.com/textkernel/oneui/issues/1213)) ([13ed96a](https://github.com/textkernel/oneui/commit/13ed96a8f7650894d750911aaec5a8ab194ae84a))
+* create SelectBadge component ([#1228](https://github.com/textkernel/oneui/issues/1228)) ([f1b4fb6](https://github.com/textkernel/oneui/commit/f1b4fb6b7f6313d772a3f4517de4f5021608eae7))
+* **ExpandableText:** new component ([#1192](https://github.com/textkernel/oneui/issues/1192)) ([4d78c38](https://github.com/textkernel/oneui/commit/4d78c381082dd20a6695b23a179d17f83eb53048))
+* **fonts:** use Noto Sans as main font ([#1209](https://github.com/textkernel/oneui/issues/1209)) ([33266f6](https://github.com/textkernel/oneui/commit/33266f6e5cf05e274b0c4fd025396c2c222f2ea2))
+* **RadioButton:** migrate to new design ([#1217](https://github.com/textkernel/oneui/issues/1217)) ([1263f9d](https://github.com/textkernel/oneui/commit/1263f9d15ddb04994987fd1e1b932376deffd00e))
+* **typography:** Global classes added to manage typography ([#1212](https://github.com/textkernel/oneui/issues/1212)) ([5dd4713](https://github.com/textkernel/oneui/commit/5dd4713096ffd0e3ba5e8bed10cfc13320824ff2))
+
+
+* **css variables:** define them directly not via SCSS ([#1204](https://github.com/textkernel/oneui/issues/1204)) ([70e9478](https://github.com/textkernel/oneui/commit/70e947859f51c544d17fa7f952e8620805a413f0))
+
 ## [23.0.0](https://github.com/textkernel/oneui/compare/22.1.2...23.0.0) (2024-07-03)
 
 
