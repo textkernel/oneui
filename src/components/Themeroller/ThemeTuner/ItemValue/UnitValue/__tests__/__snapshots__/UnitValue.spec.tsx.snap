@@ -3,10 +3,6 @@
 exports[`UnitValue component should render component correctly 1`] = `
 <div>
   <span>
-    <label
-      class="Input__label"
-      for="input-field"
-    />
     <input
       class="Input Input--size_small UnitValue__input"
       data-lpignore="true"

@@ -50,7 +50,6 @@ export const ConvertCoordinatesIntoAddress: Story = {
                         isBlock
                         onChange={(e) => setLet(parseFloat(e.target.value))}
                         placeholder="Enter Lat..."
-                        size="small"
                     />
                     <Input
                         value={lng}
@@ -58,7 +57,6 @@ export const ConvertCoordinatesIntoAddress: Story = {
                         isBlock
                         onChange={(e) => setLng(parseFloat(e.target.value))}
                         placeholder="Enter Lng..."
-                        size="small"
                     />
                     <br />
                     <Button onClick={getAddress}>Get Address</Button>

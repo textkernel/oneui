@@ -68,9 +68,11 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
 
         return (
             <>
-                <label {...elem('label')} htmlFor="input-field">
-                    {label}
-                </label>
+                {label && (
+                    <label {...elem('label')} htmlFor="input-field">
+                        {label}
+                    </label>
+                )}
                 <input
                     {...rest}
                     {...block({ context, size, isBlock, disabled, isActive, ...rest })}

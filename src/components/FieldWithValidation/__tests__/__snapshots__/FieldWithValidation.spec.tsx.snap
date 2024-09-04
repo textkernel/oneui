@@ -2,10 +2,6 @@
 
 exports[`FieldWithValidation when rendering message as text with no error message passed should simply render the child as it is 1`] = `
 <div>
-  <label
-    class="Input__label"
-    for="input-field"
-  />
   <input
     class="Input Input--size_medium"
     data-lpignore="true"
@@ -18,10 +14,6 @@ exports[`FieldWithValidation when rendering message as text with no error messag
 
 exports[`FieldWithValidation when using tooltip when error message is defined should remove the message when field is blurred 1`] = `
 <div>
-  <label
-    class="Input__label"
-    for="input-field"
-  />
   <input
     aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
@@ -40,10 +32,6 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
 
 exports[`FieldWithValidation when using tooltip when error message is defined should render the message when field is focused 1`] = `
 <div>
-  <label
-    class="Input__label"
-    for="input-field"
-  />
   <input
     aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
@@ -62,10 +50,6 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
 
 exports[`FieldWithValidation when using tooltip when error message is defined should set context to bad on child 1`] = `
 <div>
-  <label
-    class="Input__label"
-    for="input-field"
-  />
   <input
     aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
@@ -84,10 +68,6 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
 
 exports[`FieldWithValidation when using tooltip with no error message passed should not render a tooltip with no error message 1`] = `
 <div>
-  <label
-    class="Input__label"
-    for="input-field"
-  />
   <input
     class="Input Input--size_medium"
     data-lpignore="true"
@@ -100,10 +80,6 @@ exports[`FieldWithValidation when using tooltip with no error message passed sho
 
 exports[`FieldWithValidation with error message passed should render the message as text 1`] = `
 <div>
-  <label
-    class="Input__label"
-    for="input-field"
-  />
   <input
     aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
@@ -122,10 +98,6 @@ exports[`FieldWithValidation with error message passed should render the message
 
 exports[`FieldWithValidation with error message passed should set context to bad on child 1`] = `
 <div>
-  <label
-    class="Input__label"
-    for="input-field"
-  />
   <input
     aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
