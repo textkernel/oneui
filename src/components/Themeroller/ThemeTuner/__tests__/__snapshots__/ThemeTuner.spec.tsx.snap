@@ -40,9 +40,14 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           Background color
         </p>
         <span>
+          <label
+            class="Input__label"
+            for="input-field"
+          />
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
+            id="input-field"
             type="color"
             value="#ffffff"
           />
@@ -62,9 +67,14 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           Foreground color
         </p>
         <span>
+          <label
+            class="Input__label"
+            for="input-field"
+          />
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
+            id="input-field"
             type="color"
             value="#000000"
           />
@@ -84,9 +94,14 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           Border radius
         </p>
         <span>
+          <label
+            class="Input__label"
+            for="input-field"
+          />
           <input
             class="Input Input--size_small UnitValue__input"
             data-lpignore="true"
+            id="input-field"
             type="number"
             value="3"
           />
@@ -106,9 +121,14 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
         >
           Link decoration
         </p>
+        <label
+          class="Input__label"
+          for="input-field"
+        />
         <input
           class="Input Input--size_small"
           data-lpignore="true"
+          id="input-field"
           type="text"
           value="none"
         />
@@ -158,9 +178,14 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           Background color
         </p>
         <span>
+          <label
+            class="Input__label"
+            for="input-field"
+          />
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
+            id="input-field"
             type="color"
             value="#ffffff"
           />
@@ -180,9 +205,14 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           Foreground color
         </p>
         <span>
+          <label
+            class="Input__label"
+            for="input-field"
+          />
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
+            id="input-field"
             type="color"
             value="#000000"
           />
@@ -202,9 +232,14 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           Border radius
         </p>
         <span>
+          <label
+            class="Input__label"
+            for="input-field"
+          />
           <input
             class="Input Input--size_small UnitValue__input"
             data-lpignore="true"
+            id="input-field"
             type="number"
             value="3"
           />
@@ -224,9 +259,14 @@ exports[`ThemeTuner component should render component correctly 1`] = `
         >
           Link decoration
         </p>
+        <label
+          class="Input__label"
+          for="input-field"
+        />
         <input
           class="Input Input--size_small"
           data-lpignore="true"
+          id="input-field"
           type="text"
           value="none"
         />

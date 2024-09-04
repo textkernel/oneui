@@ -18,15 +18,40 @@ describe('<Input> that renders an input field', () => {
     });
 
     it('should add classes when props are changed', () => {
-        view = render(<Input context="critical" size="large" isBlock disabled />);
+        view = render(<Input context="critical" isBlock disabled />);
         const textbox = screen.getByRole('textbox');
 
         expect(view.container).toMatchSnapshot();
         expect(textbox).toBeInTheDocument();
         expect(textbox).toHaveClass(
-            'Input Input--context_critical Input--size_large Input--isBlock'
+            'Input Input--context_critical Input--size_medium Input--isBlock'
         );
         expect(textbox).toHaveAttribute('disabled');
+    });
+
+    it('should render input with label', () => {
+        const label = 'Input Label';
+        view = render(<Input label={label} />);
+        const labelText = screen.getByText(label);
+
+        expect(labelText).toBeInTheDocument();
+        expect(labelText).toHaveAttribute('for', 'input-field');
+    });
+
+    it('should show helper text when provided', () => {
+        const helperText = 'This is helper text';
+        view = render(<Input helperText={helperText} context="critical" />);
+        const helperTextElement = screen.getByText(helperText);
+
+        expect(helperTextElement).toBeInTheDocument();
+        expect(helperTextElement).toHaveClass('Input__helperText--context_critical');
+    });
+
+    it('should handle readOnly state correctly', () => {
+        view = render(<Input readOnly />);
+        const textbox = screen.getByRole('textbox');
+
+        expect(textbox).toHaveAttribute('readOnly');
     });
 
     it('should call change callback correctly', async () => {

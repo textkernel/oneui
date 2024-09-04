@@ -2,9 +2,14 @@
 
 exports[`NumberValue component should render component correctly 1`] = `
 <div>
+  <label
+    class="Input__label"
+    for="input-field"
+  />
   <input
     class="Input Input--size_small"
     data-lpignore="true"
+    id="input-field"
     role="numberselector"
     type="number"
     value="100"

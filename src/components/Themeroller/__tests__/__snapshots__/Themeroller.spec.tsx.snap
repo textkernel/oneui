@@ -10,9 +10,14 @@ exports[`Themeroller component should render component correctly 1`] = `
         <p
           class="Field__label"
         />
+        <label
+          class="Input__label"
+          for="input-field"
+        />
         <input
           class="Input Input--size_small"
           data-lpignore="true"
+          id="input-field"
           type="text"
           value=""
         />
@@ -58,9 +63,14 @@ exports[`Themeroller component should render component correctly 1`] = `
           Background color
         </p>
         <span>
+          <label
+            class="Input__label"
+            for="input-field"
+          />
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
+            id="input-field"
             type="color"
             value="#ffffff"
           />
@@ -80,9 +90,14 @@ exports[`Themeroller component should render component correctly 1`] = `
           Foreground color
         </p>
         <span>
+          <label
+            class="Input__label"
+            for="input-field"
+          />
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
+            id="input-field"
             type="color"
             value="#000000"
           />
@@ -102,9 +117,14 @@ exports[`Themeroller component should render component correctly 1`] = `
           Border radius
         </p>
         <span>
+          <label
+            class="Input__label"
+            for="input-field"
+          />
           <input
             class="Input Input--size_small UnitValue__input"
             data-lpignore="true"
+            id="input-field"
             type="number"
             value="3"
           />
@@ -124,9 +144,14 @@ exports[`Themeroller component should render component correctly 1`] = `
         >
           Link decoration
         </p>
+        <label
+          class="Input__label"
+          for="input-field"
+        />
         <input
           class="Input Input--size_small"
           data-lpignore="true"
+          id="input-field"
           type="text"
           value="none"
         />

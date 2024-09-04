@@ -2,10 +2,15 @@
 
 exports[`<Input> that renders an input field should add classes when props are changed 1`] = `
 <div>
+  <label
+    class="Input__label"
+    for="input-field"
+  />
   <input
-    class="Input Input--context_critical Input--size_large Input--isBlock"
+    class="Input Input--context_critical Input--size_medium Input--isBlock"
     data-lpignore="true"
     disabled=""
+    id="input-field"
     type="text"
     value=""
   />
@@ -14,9 +19,14 @@ exports[`<Input> that renders an input field should add classes when props are c
 
 exports[`<Input> that renders an input field should render default input correctly 1`] = `
 <div>
+  <label
+    class="Input__label"
+    for="input-field"
+  />
   <input
-    class="Input"
+    class="Input Input--size_medium"
     data-lpignore="true"
+    id="input-field"
     type="text"
     value="Some value"
   />

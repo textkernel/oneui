@@ -3,9 +3,14 @@
 exports[`ColorValue component should render component correctly 1`] = `
 <div>
   <span>
+    <label
+      class="Input__label"
+      for="input-field"
+    />
     <input
       class="Input Input--size_small ColorValue__input"
       data-lpignore="true"
+      id="input-field"
       role="colorselector"
       type="color"
       value="#fffff"
