@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Toast> should render toast correctly 1`] = `<div />`;
+
+exports[`<Toast> should render toast correctly 2`] = `
+<div>
+  <section
+    aria-label="Notifications alt+T"
+    tabindex="-1"
+  >
+    <ol
+      class="Toaster"
+      data-sonner-toaster="true"
+      data-theme="light"
+      data-x-position="right"
+      data-y-position="bottom"
+      dir=""
+      style="--front-toast-height: 0px; --offset: 16px; --width: 356px; --gap: 8px;"
+      tabindex="-1"
+    >
+      <li
+        aria-atomic="true"
+        aria-live="polite"
+        class=""
+        data-dismissible="true"
+        data-expanded="false"
+        data-front="true"
+        data-index="0"
+        data-mounted="false"
+        data-promise="false"
+        data-removed="false"
+        data-sonner-toast=""
+        data-styled="false"
+        data-swipe-out="false"
+        data-swiping="false"
+        data-visible="true"
+        data-x-position="right"
+        data-y-position="bottom"
+        role="status"
+        style="--index: 0; --toasts-before: 0; --z-index: 1; --offset: -8px; --initial-height: 0px;"
+        tabindex="0"
+      >
+        <div
+          class="Toast Toast--context_info"
+        >
+          <div
+            class="Toast__contextIcon Toast__contextIcon--context_info"
+          >
+            <svg
+              data-testid="info-icon"
+            />
+          </div>
+          <div
+            class="Toast__content"
+          >
+            <div
+              class="Toast__message"
+            >
+              <h3
+                class="OneUI-heading-3"
+              >
+                Test
+              </h3>
+              <p
+                class="OneUI-body-text"
+              >
+                Description
+              </p>
+            </div>
+            <div
+              class="Toast__actions"
+            />
+          </div>
+          <button
+            class="Toast__closeButton"
+            type="button"
+          >
+            <svg
+              data-testid="default-icon"
+            />
+          </button>
+        </div>
+      </li>
+    </ol>
+  </section>
+</div>
+`;

@@ -21,6 +21,7 @@ module.exports = {
         '^.+\\.jsx?$': 'babel-jest',
         '^.+\\.tsx?$': 'ts-jest',
         '^.+\\.scss$': 'jest-css-modules-transform',
+        '^.+\\.svg$': '<rootDir>/src/__mocks__/svgTransform.js',
     },
 
     // An array of glob patterns indicating a set of files for which coverage information should be
@@ -31,8 +32,9 @@ module.exports = {
 
     // A map from regular expressions to module names that allow to stub out resources with a single module
     moduleNameMapper: {
-        '.+\\.(svg|png|jpe?g|gif)$': '<rootDir>/src/__mocks__/testFileMock.js',
+        '.+\\.(png|jpe?g|gif)$': '<rootDir>/src/__mocks__/testFileMock.js',
         '.+\\.css\\?external$': 'jest-css-modules-transform',
+        '\\.svg$': '<rootDir>/src/__mocks__/svgMock.js',
     },
 
     preset: 'ts-jest/presets/js-with-ts',

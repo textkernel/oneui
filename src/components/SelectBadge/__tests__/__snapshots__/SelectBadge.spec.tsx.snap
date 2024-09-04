@@ -18,10 +18,8 @@ exports[`SelectBadge Option button should handle option change correctly 1`] = `
       tabindex="0"
       type="button"
     >
-      <test-file-stub
-        classname="SelectBadge__icon SelectBadge__icon--mandatory"
-        disabled="false"
-        viewbox="0 0 24 24"
+      <svg
+        data-testid="default-icon"
       />
     </button>
     <ul
@@ -111,9 +109,8 @@ exports[`SelectBadge Option button should handle option change correctly 1`] = `
       class="SelectBadge__deleteButton"
       type="button"
     >
-      <test-file-stub
-        style="width: 20px; height: 20px;"
-        viewbox="0 0 24 24"
+      <svg
+        data-testid="default-icon"
       />
     </button>
   </div>
@@ -138,10 +135,8 @@ exports[`SelectBadge Priority button renders correctly with all props provided 1
       tabindex="0"
       type="button"
     >
-      <test-file-stub
-        classname="SelectBadge__icon SelectBadge__icon--mandatory"
-        disabled="false"
-        viewbox="0 0 24 24"
+      <svg
+        data-testid="default-icon"
       />
     </button>
     <ul
@@ -187,9 +182,8 @@ exports[`SelectBadge Priority button renders correctly with all props provided 1
       class="SelectBadge__deleteButton"
       type="button"
     >
-      <test-file-stub
-        style="width: 20px; height: 20px;"
-        viewbox="0 0 24 24"
+      <svg
+        data-testid="default-icon"
       />
     </button>
   </div>
@@ -214,10 +208,8 @@ exports[`SelectBadge Priority button should handle priority change correctly 1`]
       tabindex="0"
       type="button"
     >
-      <test-file-stub
-        classname="SelectBadge__icon SelectBadge__icon--mandatory"
-        disabled="false"
-        viewbox="0 0 24 24"
+      <svg
+        data-testid="default-icon"
       />
     </button>
     <ul
@@ -237,10 +229,8 @@ exports[`SelectBadge Priority button should handle priority change correctly 1`]
         id="downshift-:r2:-item-0"
         role="option"
       >
-        <test-file-stub
-          classname="SelectBadge__icon SelectBadge__icon--mandatory"
-          disabled="false"
-          viewbox="0 0 24 24"
+        <svg
+          data-testid="default-icon"
         />
         <span
           class="Text--size_small"
@@ -255,10 +245,8 @@ exports[`SelectBadge Priority button should handle priority change correctly 1`]
         id="downshift-:r2:-item-1"
         role="option"
       >
-        <test-file-stub
-          classname="SelectBadge__icon SelectBadge__icon--important"
-          disabled="false"
-          viewbox="0 0 24 24"
+        <svg
+          data-testid="default-icon"
         />
         <span
           class="Text--size_small"
@@ -273,10 +261,8 @@ exports[`SelectBadge Priority button should handle priority change correctly 1`]
         id="downshift-:r2:-item-2"
         role="option"
       >
-        <test-file-stub
-          classname="SelectBadge__icon SelectBadge__icon--optional"
-          disabled="false"
-          viewbox="0 0 24 24"
+        <svg
+          data-testid="default-icon"
         />
         <span
           class="Text--size_small"
@@ -291,10 +277,8 @@ exports[`SelectBadge Priority button should handle priority change correctly 1`]
         id="downshift-:r2:-item-3"
         role="option"
       >
-        <test-file-stub
-          classname="SelectBadge__icon SelectBadge__icon--exclude"
-          disabled="false"
-          viewbox="0 0 24 24"
+        <svg
+          data-testid="default-icon"
         />
         <span
           class="Text--size_small"
@@ -340,9 +324,8 @@ exports[`SelectBadge Priority button should handle priority change correctly 1`]
       class="SelectBadge__deleteButton"
       type="button"
     >
-      <test-file-stub
-        style="width: 20px; height: 20px;"
-        viewbox="0 0 24 24"
+      <svg
+        data-testid="default-icon"
       />
     </button>
   </div>
