@@ -8,6 +8,10 @@ export const BUTTON_TYPES = ['submit', 'button', 'reset'] as const;
 
 export type ButtonType = (typeof BUTTON_TYPES)[number];
 
+export type ButtonContext = 'primary' | 'secondary' | 'critical';
+
+export type ButtonVariant = 'filled' | 'outlined' | 'ghost';
+
 /** Input */
 export const INPUT_TYPES = [
     'text',

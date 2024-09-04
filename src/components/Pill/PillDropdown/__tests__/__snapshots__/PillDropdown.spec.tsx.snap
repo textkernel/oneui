@@ -18,7 +18,8 @@ exports[`<PillDropdown> component should render correctly 1`] = `
         class="PillDropdown__footer"
       >
         <button
-          class="Button Button--isPrimary Button--size_small"
+          class="Button Button--size_small Button--variant_filled Button--context_primary"
+          style="width: auto;"
           type="button"
         >
           Done

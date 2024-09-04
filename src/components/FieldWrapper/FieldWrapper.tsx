@@ -80,8 +80,8 @@ export const FieldWrapper = React.forwardRef<HTMLDivElement, Props>(
 
                 {showClearButton && (
                     <Button
-                        isInline
-                        isLink
+                        size="small"
+                        variant="ghost"
                         onClick={handleClear}
                         title={clearTooltipLabel}
                         {...elem('clearButton', { rightIndent: showArrow })}

@@ -2,7 +2,7 @@ import * as React from 'react';
 import { bem } from '../../utils';
 import { Slider } from '../Sliders';
 import { Text } from '../Text';
-import { CROSS_CHAR, SIZES } from '../../constants';
+import { CROSS_CHAR, OLD_SIZES as SIZES } from '../../constants';
 import styles from './LocationCard.scss';
 
 interface Props extends React.HTMLAttributes<HTMLElement> {

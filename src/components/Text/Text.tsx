@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { bem } from '../../utils';
 import styles from './Text.scss';
-import { Size, Context } from '../../constants';
+import { OldSize as Size, Context } from '../../constants';
 
 export interface Props extends React.HTMLAttributes<HTMLElement> {
     /** Text content */

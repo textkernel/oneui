@@ -83,7 +83,7 @@ describe('<ButtonGroup> that renders a button', () => {
 
         expect(view.container).toMatchSnapshot();
         const button = screen.getByRole('button');
-        expect(button).toHaveClass('Button--isPrimary');
+        expect(button).toHaveClass('Button--variant_filled');
         expect(button).toHaveClass('Button--size_small');
         expect(button).toHaveClass('Button--isBlock');
     });
@@ -91,7 +91,7 @@ describe('<ButtonGroup> that renders a button', () => {
     it('should pass main props if child is array with size one', () => {
         const buttonContent = ['A button'];
         const view = render(
-            <ButtonGroup isPrimary size="small" isBlock>
+            <ButtonGroup context="primary" size="small" isBlock>
                 {buttonContent.map((content) => (
                     <Button key="a">{content}</Button>
                 ))}
@@ -100,7 +100,7 @@ describe('<ButtonGroup> that renders a button', () => {
 
         expect(view.container).toMatchSnapshot();
         const button = screen.getByRole('button');
-        expect(button).toHaveClass('Button--isPrimary');
+        expect(button).toHaveClass('Button--context_primary');
         expect(button).toHaveClass('Button--size_small');
         expect(button).toHaveClass('Button--isBlock');
     });

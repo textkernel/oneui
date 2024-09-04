@@ -6,7 +6,7 @@ import { Slider } from '../../Sliders';
 import { Button } from '../../Buttons';
 import { LocationAutocomplete, LocationAutocompleteProps } from '../../LocationAutocomplete';
 import { Map, CircularMarker } from '../../Map';
-import { SIZES, ENTER_KEY } from '../../../constants';
+import { OLD_SIZES as SIZES, ENTER_KEY } from '../../../constants';
 import styles from './LocationSelectorDialog.scss';
 import { LocationSelectorLocation } from '../utils';
 
@@ -171,7 +171,7 @@ const LocationSelectorDialog: React.FC<Props> = ({
                         </Text>
                     </div>
                 )}
-                <Button {...elem('button')} onClick={onCloseModal} isPrimary>
+                <Button {...elem('button')} onClick={onCloseModal} context="primary">
                     {doneLabel}
                 </Button>
             </div>

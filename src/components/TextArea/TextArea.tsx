@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { bem } from '../../utils';
 import styles from './TextArea.scss';
-import { Size } from '../../constants';
+import { OldSize as Size } from '../../constants';
 
 export interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
     /** Should the input field be disabled or not */

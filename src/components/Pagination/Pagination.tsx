@@ -77,7 +77,7 @@ export const Pagination: React.FC<Props> = ({
                     {...elem('button', { align })}
                     onClick={handleClick}
                     disabled={isPrevDisabled}
-                    isLink
+                    variant="ghost"
                     data-page={currentPage - 1}
                     aria-disabled={isPrevDisabled}
                 >
@@ -112,7 +112,7 @@ export const Pagination: React.FC<Props> = ({
                     {...elem('button', { align })}
                     onClick={handleClick}
                     disabled={isNextDisabled}
-                    isLink
+                    variant="ghost"
                     data-page={currentPage + 1}
                     aria-disabled={isNextDisabled}
                 >
