@@ -85,7 +85,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                     aria-invalid={context === 'critical' ? 'true' : undefined}
                     data-lpignore={isLastPassDisabled}
                 />
-                {context === 'critical' ? (
+                {context === 'critical' && errorMessage ? (
                     <div {...elem('errorMessageWrapper')}>
                         <Error viewBox="0 0 24 24" {...elem('icon')} />
                         <p {...elem('errorMessage', { context })}>{errorMessage}</p>

@@ -17,17 +17,11 @@ exports[`<Input> that renders an input field should add classes when props are c
     type="text"
     value=""
   />
-  <div
-    class="Input__errorMessageWrapper"
+  <p
+    class="Input__helperText"
   >
-    <test-file-stub
-      classname="Input__icon"
-      viewbox="0 0 24 24"
-    />
-    <p
-      class="Input__errorMessage"
-    />
-  </div>
+    This is a helper text
+  </p>
 </div>
 `;
 
