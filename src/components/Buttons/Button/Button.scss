@@ -189,7 +189,7 @@ $contextMap: (
                             background-color: var(--transparent);
                         }
                     }
-                } @else if $variant == ghost {
+                } @else {
                     color: var(--color-text-#{$mappedContext}-default);
                     background-color: var(--transparent);
                     &:hover {
