@@ -84,11 +84,13 @@
     &--context_critical,
     &:invalid {
         border: 2px solid var(--color-border-critical-bold-default);
+        outline: none;
 
         &:focus,
         &:hover {
             border: 2px solid var(--color-border-critical-bold-default);
             background-color: inherit;
+            outline: none;
         }
     }
 
