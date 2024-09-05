@@ -6,6 +6,12 @@ import { Input } from '@textkernel/oneui';
 export default {
     title: 'Atoms/Input',
     component: Input,
+    argTypes: {
+        context: {
+            control: { type: 'radio' },
+            options: [undefined, 'critical'],
+        },
+    },
 } as Meta<typeof Input>;
 
 type StoryInput = StoryObj<typeof Input>;
@@ -17,6 +23,7 @@ export const _Input: StoryInput = {
         label: 'Label',
         helperText: 'Optional helper text',
         errorMessage: 'Error message',
+        context: undefined,
     },
     render: (args) => <Input {...args} />,
 };
