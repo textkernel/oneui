@@ -1,33 +1,26 @@
 .Link {
-    color: var(--color-brand-50);
-    text-decoration: var(--link-decoration-normal);
-    transition: color var(--transition-duration);
-
-    &:hover,
-    &:focus {
-        color: var(--color-brand-60);
-        text-decoration: var(--link-decoration-hover);
-    }
+    color: var(--color-link-default);
+    text-decoration: underline;
 
     &:focus {
-        outline: none;
-        border-radius: 5px;
-        border: var(--color-brand-50) solid 2px;
+        outline: 2px solid var(--color-border-information-subtle-default, #66AFFF);
     }
 
-    &:active {
-        color: var(--color-brand-80);
+    &:hover {
+        color: var(--color-link-pressed, #004999);
     }
 
-    &--dontDecorateOnHover:hover {
-        text-decoration: var(--link-decoration-normal);
-    }
-
-    &--isMuted {
-        color: var(--color-neutral-30);
+    &:visited {
+        color: var(--color-link-visited-default, #003166);
 
         &:hover {
-            color: var(--color-neutral-30);
+            color: var(--color-link-visited-pressed, #001833);
         }
+    } 
+
+    &__icon {
+        fill: currentColor;
+        vertical-align: bottom;
+        padding-right: var(--space-25);
     }
 }
