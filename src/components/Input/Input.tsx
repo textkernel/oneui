@@ -32,7 +32,7 @@ interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 's
     helperText?: string;
 }
 
-export type Props = BaseProps & (ErrorStateProps | { context?: never; errorMessage?: never });
+export type Props = BaseProps & (ErrorStateProps | { context?: undefined; errorMessage?: never });
 
 const { block, elem } = bem('Input', styles);
 
@@ -40,7 +40,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     (
         {
             children,
-            context,
+            context = undefined,
             disabled = false,
             readOnly = false,
             isBlock = false,
