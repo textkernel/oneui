@@ -76,6 +76,7 @@ exports[`<Toast> should render toast correctly 2`] = `
             type="button"
           >
             <svg
+              class="Toast__closeIcon"
               data-testid="default-icon"
             />
           </button>
