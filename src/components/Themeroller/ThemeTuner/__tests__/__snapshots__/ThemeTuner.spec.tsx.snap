@@ -43,7 +43,7 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
-            id="input-field"
+            id=":r4:"
             type="color"
             value="#ffffff"
           />
@@ -66,7 +66,7 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
-            id="input-field"
+            id=":r5:"
             type="color"
             value="#000000"
           />
@@ -89,7 +89,7 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           <input
             class="Input Input--size_small UnitValue__input"
             data-lpignore="true"
-            id="input-field"
+            id=":r6:"
             type="number"
             value="3"
           />
@@ -112,7 +112,7 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
         <input
           class="Input Input--size_small"
           data-lpignore="true"
-          id="input-field"
+          id=":r7:"
           type="text"
           value="none"
         />
@@ -165,7 +165,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
-            id="input-field"
+            id=":r0:"
             type="color"
             value="#ffffff"
           />
@@ -188,7 +188,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           <input
             class="Input Input--size_small ColorValue__input"
             data-lpignore="true"
-            id="input-field"
+            id=":r1:"
             type="color"
             value="#000000"
           />
@@ -211,7 +211,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           <input
             class="Input Input--size_small UnitValue__input"
             data-lpignore="true"
-            id="input-field"
+            id=":r2:"
             type="number"
             value="3"
           />
@@ -234,7 +234,7 @@ exports[`ThemeTuner component should render component correctly 1`] = `
         <input
           class="Input Input--size_small"
           data-lpignore="true"
-          id="input-field"
+          id=":r3:"
           type="text"
           value="none"
         />

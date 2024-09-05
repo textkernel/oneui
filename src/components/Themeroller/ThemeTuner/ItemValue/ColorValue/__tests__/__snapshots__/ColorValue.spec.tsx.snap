@@ -6,7 +6,7 @@ exports[`ColorValue component should render component correctly 1`] = `
     <input
       class="Input Input--size_small ColorValue__input"
       data-lpignore="true"
-      id="input-field"
+      id=":r0:"
       role="colorselector"
       type="color"
       value="#fffff"

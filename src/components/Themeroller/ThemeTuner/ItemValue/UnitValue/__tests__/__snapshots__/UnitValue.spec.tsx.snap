@@ -6,7 +6,7 @@ exports[`UnitValue component should render component correctly 1`] = `
     <input
       class="Input Input--size_small UnitValue__input"
       data-lpignore="true"
-      id="input-field"
+      id=":r0:"
       type="number"
       value="12"
     />

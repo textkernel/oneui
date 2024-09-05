@@ -5,7 +5,7 @@ exports[`StringValue component should render component correctly 1`] = `
   <input
     class="Input Input--size_small"
     data-lpignore="true"
-    id="input-field"
+    id=":r0:"
     type="text"
     value="flex"
   />

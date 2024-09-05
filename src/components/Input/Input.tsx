@@ -56,6 +56,8 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     ) => {
         const [isActive, setIsActive] = React.useState(false);
 
+        const idRef = React.useId();
+
         const isLastPassDisabled = type !== 'password';
 
         const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,14 +71,14 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         return (
             <>
                 {label && (
-                    <label {...elem('label')} htmlFor="input-field">
+                    <label {...elem('label')} htmlFor={idRef}>
                         {label}
                     </label>
                 )}
                 <input
                     {...rest}
                     {...block({ context, size, isBlock, disabled, isActive, ...rest })}
-                    id="input-field"
+                    id={idRef}
                     ref={ref}
                     type={type}
                     disabled={disabled}

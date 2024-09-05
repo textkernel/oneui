@@ -2,10 +2,9 @@ import React from 'react';
 import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
-import { InputProps } from '@textkernel/oneui';
-import { Input } from '../Input';
+import { Input, Props } from '../Input';
 
-const defaultProps: InputProps = {
+const defaultProps: Props = {
     label: 'Input Label',
     type: 'text',
     helperText: 'This is a helper text',
@@ -49,7 +48,7 @@ describe('<Input> that renders an input field', () => {
         const labelText = screen.getByText(label);
 
         expect(labelText).toBeInTheDocument();
-        expect(labelText).toHaveAttribute('for', 'input-field');
+        expect(screen.getByLabelText(label)).toBeInTheDocument();
     });
 
     it('should show helper text when provided', () => {

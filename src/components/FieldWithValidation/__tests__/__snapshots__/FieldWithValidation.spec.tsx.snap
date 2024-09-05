@@ -5,7 +5,7 @@ exports[`FieldWithValidation when rendering message as text with no error messag
   <input
     class="Input Input--size_medium"
     data-lpignore="true"
-    id="input-field"
+    id=":r0:"
     type="text"
     value=""
   />
@@ -18,7 +18,7 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
     aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
     data-lpignore="true"
-    id="input-field"
+    id=":r6:"
     type="text"
     value=""
   />
@@ -36,7 +36,7 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
     aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
     data-lpignore="true"
-    id="input-field"
+    id=":r5:"
     type="text"
     value=""
   />
@@ -54,7 +54,7 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
     aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
     data-lpignore="true"
-    id="input-field"
+    id=":r4:"
     type="text"
     value=""
   />
@@ -71,7 +71,7 @@ exports[`FieldWithValidation when using tooltip with no error message passed sho
   <input
     class="Input Input--size_medium"
     data-lpignore="true"
-    id="input-field"
+    id=":r3:"
     type="text"
     value=""
   />
@@ -84,7 +84,7 @@ exports[`FieldWithValidation with error message passed should render the message
     aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
     data-lpignore="true"
-    id="input-field"
+    id=":r2:"
     type="text"
     value=""
   />
@@ -102,7 +102,7 @@ exports[`FieldWithValidation with error message passed should set context to bad
     aria-invalid="true"
     class="Input Input--context_critical Input--size_medium"
     data-lpignore="true"
-    id="input-field"
+    id=":r1:"
     type="text"
     value=""
   />

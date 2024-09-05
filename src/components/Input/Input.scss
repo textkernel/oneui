@@ -1,12 +1,12 @@
-@import '../../themes/oneui/placeholders/input';
-@import '../../themes/oneui/constants/colors';
-
 .Input {
-    @extend %input;
-
-    border-color: var(--color-neutral-20);
-    border-radius: var(--space-100);
-    font-size: var(--font-size-small);
+    border: {
+        color: var(--color-neutral-20);
+        radius: var(--space-100);
+        style: solid;
+        width: var(--line-normal);
+    }
+    box-sizing: border-box;
+    composes: OneUI-label-text from global;
 
     &::placeholder {
         color: var(--color-text-subtlest);
@@ -25,13 +25,15 @@
 
     &:focus {
         background-color: inherit;
-        border: 1px solid var(--color-info-20);
+        border: 1px solid var(--color-neutral-20);
+        outline: 1px solid var(--color-info-20);
     }
 
     &[disabled] {
         background-color: var(--color-background-input-default);
         color: var(--color-text-disabled);
         border: 1px solid var(--color-border-disabled);
+        cursor: not-allowed;
 
         &::placeholder {
             color: var(--color-text-disabled);
@@ -57,11 +59,13 @@
 
     &--isActive {
         border: 2px solid var(--color-border-selected);
+        outline: none;
 
         &:hover,
         &:focus {
             border: 2px solid var(--color-border-selected);
             background-color: inherit;
+            outline: none;
         }
     }
 
@@ -69,13 +73,11 @@
         &_small {
             padding: var(--space-75) var(--space-100);
             height: 32px;
-            line-height: var(--line-height-small);
         }
 
         &_medium {
             padding: calc(var(--space-25) * 5) var(--space-150);
             height: 40px;
-            line-height: var(--line-height-large);
         }
     }
 
@@ -93,9 +95,7 @@
     &__label {
         margin-bottom: var(--space-50);
         padding: 0 var(--space-50);
-        font-size: var(--font-size-x-small);
-        font-weight: var(--font-weight-bold);
-        line-height: var(--line-height-x-small);
+        composes: OneUI-caption-text-bold from global;
         display: block;
     }
 
@@ -109,16 +109,14 @@
 
     &__errorMessage {
         margin: 0;
-        font-size: var(--font-size-x-small);
-        line-height: var(--line-height-x-small);
+        composes: OneUI-caption-text from global;
         color: var(--color-text-critical-default);
     }
 
     &__helperText {
         margin: var(--space-50) 0 0;
         padding: 0 var(--space-50);
-        font-size: var(--font-size-x-small);
-        line-height: var(--line-height-x-small);
+        composes: OneUI-caption-text from global;
         color: var(--color-text-subtlest);
     }
 
