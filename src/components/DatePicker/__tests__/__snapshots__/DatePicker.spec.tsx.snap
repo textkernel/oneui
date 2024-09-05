@@ -69,9 +69,7 @@ exports[`DatePicker should render calendar header correctly when calendar is ope
                 <div
                   role="presentation"
                 >
-                  <span
-                    class="Text--size_large"
-                  >
+                  <span>
                     December
                   </span>
                   <select
@@ -632,9 +630,7 @@ exports[`DatePicker when no min/max date props passed should set min/max date to
                 <div
                   role="presentation"
                 >
-                  <span
-                    class="Text--size_large"
-                  >
+                  <span>
                     December
                   </span>
                   <select

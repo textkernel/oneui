@@ -31,7 +31,9 @@ exports[`Combobox callbacks onSelectionAdd should be called on clicking on a sug
             <span
               class="Combobox__selection"
             >
-              <span>
+              <span
+                class="Text--context_neutral"
+              >
                 type here...
               </span>
             </span>
@@ -97,7 +99,9 @@ exports[`Combobox rendering should initially render empty component correctly 1`
             <span
               class="Combobox__selection"
             >
-              <span>
+              <span
+                class="Text--context_neutral"
+              >
                 type here...
               </span>
             </span>

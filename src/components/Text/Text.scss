@@ -1,19 +1,27 @@
-@import '../../themes/oneui/mixins/colors';
-
 .Text {
     &--size {
         &_small {
-            font-size: var(--font-size-small);
+            composes: OneUI-caption-text from global;
         }
 
-        &_large {
-            font-size: var(--font-size-large);
+        &_medium {
+            composes: OneUI-label-text from global;
         }
     }
 
-    @include context-attribute-with-color('color', (brand, info));
+    &--context {
+        @each $context in (success, cautious, critical, brand) {
+            &_#{ $context } {
+                color: var(--color-text-#{$context}-default);
+            }
+        }
+    }
+
+    &--context_info {
+        color: var(--color-text-information-default);
+    }
 
     &--context_neutral {
-        color: var(--color-neutral-30);
+        color: var(--color-text-subtlest);
     }
 }

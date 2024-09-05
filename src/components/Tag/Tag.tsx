@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MdClose } from 'react-icons/md';
 import { bem } from '../../utils';
 import { Text } from '../Text';
-import { ENTER_KEY, OldSize as Size } from '../../constants';
+import { ENTER_KEY, Size } from '../../constants';
 import styles from './Tag.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -34,7 +34,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
             children,
             bgColor = 'var(--color-background)',
             maxWidth = 'fit-content',
-            size = 'normal',
+            size = 'large',
             onDelete = undefined,
             onClick = undefined,
             isSelected = false,
