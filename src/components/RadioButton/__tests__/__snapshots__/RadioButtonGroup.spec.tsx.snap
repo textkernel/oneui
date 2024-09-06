@@ -20,7 +20,7 @@ exports[`<RadioButtonGroup> that renders a group of radio buttons should render 
           class="RadioButton__box"
         />
         <span
-          class="RadioButton__text"
+          class="Text--size_medium RadioButton__text"
         >
           Option 1
         </span>
@@ -43,7 +43,7 @@ exports[`<RadioButtonGroup> that renders a group of radio buttons should render 
           class="RadioButton__box"
         />
         <span
-          class="RadioButton__text"
+          class="Text--size_medium RadioButton__text"
         >
           Option 2
         </span>
