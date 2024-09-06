@@ -55,20 +55,10 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         },
         ref
     ) => {
-        const [isActive, setIsActive] = React.useState(false);
-
         const fallbackId = React.useId();
         const idRef = id || fallbackId;
 
         const isLastPassDisabled = type !== 'password';
-
-        const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-            setIsActive(event.target.value.length > 0);
-        };
-
-        const handleOnBlur = () => {
-            setIsActive(false);
-        };
 
         return (
             <>
@@ -79,15 +69,13 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                 )}
                 <input
                     {...rest}
-                    {...block({ context, size, isBlock, disabled, isActive, ...rest })}
+                    {...block({ context, size, isBlock, disabled, ...rest })}
                     id={idRef}
                     ref={ref}
                     type={type}
                     disabled={disabled}
                     readOnly={readOnly}
                     value={value}
-                    onInput={handleInput}
-                    onBlur={handleOnBlur}
                     aria-invalid={context === 'critical' ? 'true' : undefined}
                     data-lpignore={isLastPassDisabled}
                 />

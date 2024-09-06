@@ -26,8 +26,8 @@
 
     &:focus {
         background-color: inherit;
-        border: 1px solid var(--color-neutral-20);
-        outline: 1px solid var(--color-info-20);
+        border: 2px solid var(--color-border-selected);
+        outline: none;
     }
 
     &[disabled] {
@@ -39,35 +39,11 @@
         &::placeholder {
             color: var(--color-text-disabled);
         }
-
-        &:hover,
-        &:focus {
-            background-color: var(--color-background-input-default);
-            border: 1px solid var(--color-border-disabled);
-        }
     }
 
     &[readOnly] {
         background-color: var(--color-background-input-read-only);
         border: none;
-
-        &:hover,
-        &:focus {
-            background-color: var(--color-background-input-read-only);
-            border: none;
-        }
-    }
-
-    &--isActive {
-        border: 2px solid var(--color-border-selected);
-        outline: none;
-
-        &:hover,
-        &:focus {
-            border: 2px solid var(--color-border-selected);
-            background-color: inherit;
-            outline: none;
-        }
     }
 
     &--size {
