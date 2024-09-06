@@ -24,4 +24,8 @@
     &--context_neutral {
         color: var(--color-text-subtlest);
     }
+
+    &--isBold {
+        font-weight: var(--font-weight-bold);
+    }
 }
