@@ -86,12 +86,12 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                 />
 
                 {context === 'critical' && errorMessage ? (
-                    <div {...elem('messageWrapper')}>
+                    <div {...elem('errorMessageWrapper')}>
                         <Error viewBox="0 0 24 24" {...elem('icon')} />
                         <p {...elem('errorMessage', { context })}>{errorMessage}</p>
                     </div>
                 ) : reserveErrorSpace && !helperText ? (
-                    <div {...elem('messageWrapper', { reserveErrorSpace })} />
+                    <div {...elem('errorMessageWrapper', { reserveErrorSpace })} />
                 ) : (
                     helperText && <p {...elem('helperText')}>{helperText}</p>
                 )}
