@@ -84,14 +84,21 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                     data-lpignore={isLastPassDisabled}
                 />
 
-                {context !== 'critical' && reserveErrorMessageSpace && !helperText && (
-                    <div {...elem('errorMessageWrapper', { reserveErrorMessageSpace })} />
-                )}
-
-                {context === 'critical' && errorMessage ? (
-                    <div {...elem('errorMessageWrapper')}>
-                        <Error viewBox="0 0 24 24" {...elem('icon')} />
-                        <p {...elem('errorMessage', { context })}>{errorMessage}</p>
+                {(context === 'critical' && errorMessage) ||
+                (reserveErrorMessageSpace && !helperText) ? (
+                    <div {...elem('errorMessageWrapper', { reserveErrorMessageSpace })}>
+                        <Error
+                            viewBox="0 0 24 24"
+                            {...elem('icon', { context, reserveErrorMessageSpace })}
+                        />
+                        <p
+                            {...elem('errorMessage', {
+                                context,
+                                reserveErrorMessageSpace,
+                            })}
+                        >
+                            {errorMessage}
+                        </p>
                     </div>
                 ) : (
                     helperText && <p {...elem('helperText')}>{helperText}</p>

@@ -95,6 +95,15 @@
         margin: 0;
         composes: OneUI-caption-text from global;
         color: var(--color-text-critical-default);
+
+        &--reserveErrorMessageSpace {
+            display: none;
+        }
+
+        &--context_critical,
+        &:invalid {
+            display: block;
+        }
     }
 
     &__helperText {
@@ -108,5 +117,14 @@
         width: 16px;
         height: 16px;
         fill: var(--color-icon-critical-default);
+
+        &--reserveErrorMessageSpace {
+            display: none;
+        }
+
+        &--context_critical,
+        &:invalid {
+            display: block;
+        }
     }
 }
