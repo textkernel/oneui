@@ -78,12 +78,17 @@
         display: block;
     }
 
-    &__errorMessageWrapper {
+    &__messageWrapper {
         margin-top: var(--space-50);
         padding: 0 var(--space-50);
         display: flex;
         gap: var(--space-25);
         align-items: center;
+
+        &--reserveErrorSpace {
+            min-height: 16px;
+            box-sizing: content-box;
+        }
     }
 
     &__errorMessage {

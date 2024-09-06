@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import * as React from 'react';
 import Error from '@material-design-icons/svg/round/error.svg';
 import { bem } from '../../utils';
@@ -30,6 +31,9 @@ interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 's
     label?: string;
     /** Helper text under the input, display the error when the context is critical */
     helperText?: string;
+    /**  Controls whether space is reserved for error messages under the input field when validation is expected
+     *  to avoid "jumping" UI. */
+    reserveErrorSpace?: boolean;
 }
 
 export type Props = BaseProps & (ErrorStateProps | { context?: undefined; errorMessage?: never });
@@ -51,6 +55,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             label,
             helperText,
             errorMessage,
+            reserveErrorSpace = false,
             ...rest
         },
         ref
@@ -79,11 +84,14 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                     aria-invalid={context === 'critical' ? 'true' : undefined}
                     data-lpignore={isLastPassDisabled}
                 />
+
                 {context === 'critical' && errorMessage ? (
-                    <div {...elem('errorMessageWrapper')}>
+                    <div {...elem('messageWrapper')}>
                         <Error viewBox="0 0 24 24" {...elem('icon')} />
                         <p {...elem('errorMessage', { context })}>{errorMessage}</p>
                     </div>
+                ) : reserveErrorSpace && !helperText ? (
+                    <div {...elem('messageWrapper', { reserveErrorSpace })} />
                 ) : (
                     helperText && <p {...elem('helperText')}>{helperText}</p>
                 )}
