@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import * as React from 'react';
 import Error from '@material-design-icons/svg/round/error.svg';
 import { bem } from '../../utils';
@@ -85,13 +84,15 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                     data-lpignore={isLastPassDisabled}
                 />
 
+                {context !== 'critical' && reserveErrorMessageSpace && !helperText && (
+                    <div {...elem('errorMessageWrapper', { reserveErrorMessageSpace })} />
+                )}
+
                 {context === 'critical' && errorMessage ? (
                     <div {...elem('errorMessageWrapper')}>
                         <Error viewBox="0 0 24 24" {...elem('icon')} />
                         <p {...elem('errorMessage', { context })}>{errorMessage}</p>
                     </div>
-                ) : reserveErrorMessageSpace && !helperText ? (
-                    <div {...elem('errorMessageWrapper', { reserveErrorMessageSpace })} />
                 ) : (
                     helperText && <p {...elem('helperText')}>{helperText}</p>
                 )}
