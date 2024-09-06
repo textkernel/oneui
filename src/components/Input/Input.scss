@@ -1,10 +1,11 @@
 .Input {
     border: {
-        color: var(--color-neutral-20);
+        color: var(--color-border-input);
         radius: var(--space-100);
         style: solid;
         width: var(--line-normal);
     }
+    background-color: var(--color-background-input-default);
     box-sizing: border-box;
     composes: OneUI-label-text from global;
 

@@ -39,6 +39,7 @@ const { block, elem } = bem('Input', styles);
 export const Input = React.forwardRef<HTMLInputElement, Props>(
     (
         {
+            id,
             children,
             context = undefined,
             disabled = false,
@@ -56,7 +57,8 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     ) => {
         const [isActive, setIsActive] = React.useState(false);
 
-        const idRef = React.useId();
+        const fallbackId = React.useId(); // More descriptive name for generated ID
+        const idRef = id || fallbackId;
 
         const isLastPassDisabled = type !== 'password';
 
