@@ -33,7 +33,7 @@ interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 's
     helperText?: string;
     /**  Controls whether space is reserved for error messages under the input field when validation is expected
      *  to avoid "jumping" UI. */
-    reserveErrorSpace?: boolean;
+    reserveErrorMessageSpace?: boolean;
 }
 
 export type Props = BaseProps & (ErrorStateProps | { context?: undefined; errorMessage?: never });
@@ -55,7 +55,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             label,
             helperText,
             errorMessage,
-            reserveErrorSpace = false,
+            reserveErrorMessageSpace = false,
             ...rest
         },
         ref
@@ -90,8 +90,8 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                         <Error viewBox="0 0 24 24" {...elem('icon')} />
                         <p {...elem('errorMessage', { context })}>{errorMessage}</p>
                     </div>
-                ) : reserveErrorSpace && !helperText ? (
-                    <div {...elem('errorMessageWrapper', { reserveErrorSpace })} />
+                ) : reserveErrorMessageSpace && !helperText ? (
+                    <div {...elem('errorMessageWrapper', { reserveErrorMessageSpace })} />
                 ) : (
                     helperText && <p {...elem('helperText')}>{helperText}</p>
                 )}
