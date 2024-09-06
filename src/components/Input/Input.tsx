@@ -57,7 +57,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     ) => {
         const [isActive, setIsActive] = React.useState(false);
 
-        const fallbackId = React.useId(); // More descriptive name for generated ID
+        const fallbackId = React.useId();
         const idRef = id || fallbackId;
 
         const isLastPassDisabled = type !== 'password';
