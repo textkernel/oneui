@@ -1,9 +1,7 @@
-import { bem } from '@textkernel/oneui/utils';
 import React, { useId } from 'react';
-import styles from './SuggestionItem.scss';
+import { bem } from '../../utils';
 import { Checkbox } from '../Checkbox';
-
-const { block, elem } = bem('SuggestionItem', styles);
+import styles from './SuggestionItem.scss';
 
 export interface Props {
     /** Disable state */
@@ -11,7 +9,7 @@ export interface Props {
     /** Selected state */
     isSelected?: boolean;
     /** Add a checkbox to the item */
-    hasCheckbox: boolean;
+    hasCheckbox?: boolean;
     /** A function to be called when the button is clicked */
     onClick: () => void;
     /** A function to be called when the checkbox checked status changes */
@@ -20,10 +18,12 @@ export interface Props {
     children: React.ReactNode;
 }
 
+const { block, elem } = bem('SuggestionItem', styles);
+
 export function SuggestionItem({
     isDisabled = false,
     isSelected = false,
-    hasCheckbox = true,
+    hasCheckbox = false,
     onClick,
     onChange,
     children,
