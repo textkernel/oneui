@@ -68,7 +68,6 @@
     }
 
     &__text {
-        composes: OneUI-label-text from global;
         padding: var(--space-50) 0;
     }
 

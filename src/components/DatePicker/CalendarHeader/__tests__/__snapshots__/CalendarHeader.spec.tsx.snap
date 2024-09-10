@@ -28,9 +28,7 @@ exports[`CalendarHeader should render correctly 1`] = `
     <div
       role="presentation"
     >
-      <span
-        class="Text--size_large"
-      >
+      <span>
         December
       </span>
       <select

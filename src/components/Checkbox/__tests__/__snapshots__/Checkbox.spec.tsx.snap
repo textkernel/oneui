@@ -70,7 +70,7 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
         </svg>
       </span>
       <span
-        class="Checkbox__text"
+        class="Text--size_medium Checkbox__text"
       >
         Check this out
       </span>
@@ -110,7 +110,7 @@ exports[`<Checkbox> that renders a checkbox should rendered disabled checkbox co
         </svg>
       </span>
       <span
-        class="Text--context_neutral Checkbox__text"
+        class="Text--context_neutral Text--size_medium Checkbox__text"
       >
         Useless checkbox
       </span>

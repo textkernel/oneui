@@ -3,9 +3,9 @@
 exports[`<Text> that renders a text block should add classes when props are changed 1`] = `
 <div>
   <span
-    class="Text--context_neutral Text--size_small"
+    class="Text--context_neutral Text--size_small Text--isBold"
   >
-    Some inline, neutral text content
+    Some inline, neutral, bold text content
   </span>
 </div>
 `;

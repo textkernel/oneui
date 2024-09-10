@@ -50,9 +50,7 @@ export const CalendarHeader: React.FC<Props> = ({
                 <ImArrowLeft2 />
             </Button>
             <div role="presentation">
-                <Text size="large" inline>
-                    {monthName}
-                </Text>
+                <Text inline>{monthName}</Text>
                 <select
                     {...elem('select')}
                     value={date.getFullYear()}
