@@ -1,50 +1,109 @@
 import * as React from 'react';
+import Error from '@material-design-icons/svg/round/error.svg';
 import { bem } from '../../utils';
 import styles from './Input.scss';
-import { ValidationContext, InputType, OldSize as Size } from '../../constants';
+import { InputType } from '../../constants';
 
-// Any other attributes (onChange, onKeyUp etc.) are
-// supported although not defined in props type definition
-export interface Props extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-    /** The input field context (e.g. brand, critical, success etc. - defaults to brand) */
-    context?: ValidationContext;
+type InputSize = 'small' | 'medium';
+
+type ErrorContext = 'critical';
+
+type ErrorStateProps = {
+    /** The input error field context (critical) */
+    context: ErrorContext;
+    /** This message will be rendered under the input when context critical will be applied */
+    errorMessage: string;
+};
+
+interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
     /** Should the input field be disabled or not */
     disabled?: boolean;
+    /** Should the input field be readOnly or not */
+    readOnly?: boolean;
     /** Whether or not to show block-level input field (full width) */
     isBlock?: boolean;
     /** The size of the input field */
-    size?: Size;
+    size?: InputSize;
     /** Type of the input field */
     type?: InputType;
+    /** Field label */
+    label?: string;
+    /** Helper text under the input, display the error when the context is critical */
+    helperText?: string;
+    /**  Controls whether space is reserved for error messages under the input field when validation is expected
+     *  to avoid "jumping" UI. */
+    reserveErrorMessageSpace?: boolean;
 }
 
-const { block } = bem('Input', styles);
+export type Props = BaseProps & (ErrorStateProps | { context?: undefined; errorMessage?: never });
+
+const { block, elem } = bem('Input', styles);
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(
     (
         {
+            id,
             children,
-            context,
+            context = undefined,
             disabled = false,
+            readOnly = false,
             isBlock = false,
-            size = 'normal',
+            size = 'medium',
             type = 'text',
             value,
+            label,
+            helperText,
+            errorMessage,
+            reserveErrorMessageSpace = false,
             ...rest
         },
         ref
     ) => {
+        const fallbackId = React.useId();
+        const idRef = id || fallbackId;
+
         const isLastPassDisabled = type !== 'password';
+
         return (
-            <input
-                {...rest}
-                {...block({ context, size, isBlock, disabled, ...rest })}
-                ref={ref}
-                type={type}
-                disabled={disabled}
-                value={value}
-                data-lpignore={isLastPassDisabled}
-            />
+            <>
+                {label && (
+                    <label {...elem('label')} htmlFor={idRef}>
+                        {label}
+                    </label>
+                )}
+                <input
+                    {...rest}
+                    {...block({ context, size, isBlock, disabled, ...rest })}
+                    id={idRef}
+                    ref={ref}
+                    type={type}
+                    disabled={disabled}
+                    readOnly={readOnly}
+                    value={value}
+                    aria-invalid={context === 'critical' ? 'true' : undefined}
+                    data-lpignore={isLastPassDisabled}
+                />
+
+                {(context === 'critical' && errorMessage) ||
+                (reserveErrorMessageSpace && !helperText) ? (
+                    <div {...elem('errorMessageWrapper', { reserveErrorMessageSpace })}>
+                        <Error
+                            viewBox="0 0 24 24"
+                            {...elem('icon', { context, reserveErrorMessageSpace })}
+                        />
+                        <p
+                            {...elem('errorMessage', {
+                                context,
+                                reserveErrorMessageSpace,
+                            })}
+                        >
+                            {errorMessage}
+                        </p>
+                    </div>
+                ) : (
+                    helperText && <p {...elem('helperText')}>{helperText}</p>
+                )}
+            </>
         );
     }
 );
