@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom/extend-expect';
 import { SelectedItemBadge } from '../SelectedItemBadge';
 import { SelectedItemBadgeProps } from '..';
+import { ListItem } from '../../List';
 
 const mockOnPriorityItemChange = jest.fn();
 const mockOnDelete = jest.fn();
@@ -71,17 +72,68 @@ describe('SelectedItemBadge', () => {
             expect(queryByLabelText('priority button')).not.toBeInTheDocument();
         });
     });
+    describe('Main button', () => {
+        it('renders children correctly', async () => {
+            const user = userEvent.setup();
+            const mockOnChange = jest.fn();
 
-    describe('Option button', () => {
-        it.skip('renders children list headline when provided', async () => {});
+            const { getByText, getByLabelText } = renderSelectedItemBadge({
+                label: 'Main Button',
+                children: [
+                    <ListItem key="option1" value="option1">
+                        Option 1
+                    </ListItem>,
+                    <ListItem key="option2" value="option2">
+                        Option 2
+                    </ListItem>,
+                ],
+                onChange: mockOnChange,
+            });
 
-        it.skip('should handle change correctly', async () => {});
+            expect(getByText('Main Button')).toBeInTheDocument();
 
-        it.skip('does not render the option button but displays plain text with passed children if option is not provided', () => {});
+            const mainButton = getByLabelText('Main Button');
+            await user.click(mainButton);
 
-        it.skip('does not render the option button but displays plain text with passed children if option list is not provided', () => {});
+            expect(getByText('Main Button')).toBeInTheDocument();
+            expect(getByText('Main Button')).toBeInTheDocument();
+        });
 
-        it.skip('does not render the option button but displays plain text with passed children if option list is empty', () => {});
+        it('should handle change correctly', async () => {
+            const mockOnChange = jest.fn();
+            const user = userEvent.setup();
+
+            const { getByText, getByLabelText } = renderSelectedItemBadge({
+                label: 'Main Button',
+                children: [
+                    <ListItem key="option1" value="option1">
+                        Option 1
+                    </ListItem>,
+                    <ListItem key="option2" value="option2">
+                        Option 2
+                    </ListItem>,
+                ],
+                onChange: mockOnChange,
+            });
+
+            const mainButton = getByLabelText('Main Button');
+            await user.click(mainButton);
+
+            await user.click(getByText('Option 2'));
+
+            expect(mockOnChange).toHaveBeenCalledTimes(1);
+            expect(mockOnChange).toHaveBeenCalledWith('option2');
+        });
+
+        it('does not render the main button but displays plain text if children are not provided', () => {
+            const { getByText, queryByRole } = renderSelectedItemBadge({
+                label: 'Plain Text Label',
+                children: undefined,
+            });
+
+            expect(getByText('Plain Text Label')).toBeInTheDocument();
+            expect(queryByRole('button', { name: 'Plain Text Label' })).not.toBeInTheDocument();
+        });
     });
 
     describe('Delete button', () => {

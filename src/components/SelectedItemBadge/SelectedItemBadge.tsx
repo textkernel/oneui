@@ -166,7 +166,7 @@ export function SelectedItemBadge<PriorityItemValue, ChildrenItemValue>({
                             {...elem('optionButton', {
                                 isSelected: dropdownStates.main,
                             })}
-                            {...(typeof label === 'string' && { ariaLlabel: label })}
+                            {...(typeof label === 'string' && { 'aria-label': label })}
                             disabled={isDisabled}
                             type="button"
                         >
