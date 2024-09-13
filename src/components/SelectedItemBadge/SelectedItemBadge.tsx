@@ -54,10 +54,7 @@ export interface Props<PriorityItemValue, ChildrenItemValue>
     label: React.ReactNode;
     /** Additional label represents radius or amount of synonyms */
     additionalLabel?: React.ReactNode;
-    /**
-     * Callback called on selecting one of the passed as children items.
-     * Value parameter it is a `value` attribute of children item ({@link ListItemProps.value}).
-     */
+    /** Callback called on selecting one of the passed as children items. */
     onChange?: (value: ChildrenItemValue) => void;
     /** Determines if the children represent a multi-select dropdown */
     isMultiSelect?: boolean;
