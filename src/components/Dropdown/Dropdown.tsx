@@ -143,30 +143,24 @@ export function Dropdown<V>({
         }
     }
 
-    const {
-        isOpen,
-        getItemProps,
-        getMenuProps,
-        getToggleButtonProps,
-        highlightedIndex,
-        closeMenu,
-    } = useSelect<V>({
-        items: valuesAvailableForHighlight,
-        ...(isMultiSelect ? { stateReducer } : {}),
-        onSelectedItemChange: ({ selectedItem }) => {
-            if (selectedItem) {
-                onChange(selectedItem);
-            }
-        },
-        ...additionalSelectProps,
-    });
+    const { isOpen, getItemProps, getMenuProps, getToggleButtonProps, highlightedIndex } =
+        useSelect<V>({
+            items: valuesAvailableForHighlight,
+            ...(isMultiSelect ? { stateReducer } : {}),
+            onSelectedItemChange: ({ selectedItem }) => {
+                if (selectedItem) {
+                    onChange(selectedItem);
+                }
+            },
+            ...additionalSelectProps,
+        });
 
     const menuProps = getMenuProps();
     const toggleButtonProps = getToggleButtonProps({
         onClick: () => {
             onToggleClick?.(isOpen);
         },
-        onBlur: isMultiSelect ? closeMenu : onMenuBlur,
+        onBlur: onMenuBlur,
         onFocus: onMenuFocus,
     });
 
