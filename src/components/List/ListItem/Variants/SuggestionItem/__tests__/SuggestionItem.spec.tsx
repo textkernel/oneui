@@ -9,13 +9,9 @@ describe('SuggestionItem', () => {
         const user = userEvent.setup();
         const mockOnClick = jest.fn();
 
-        const { container } = render(
-            <SuggestionItem onClick={mockOnClick} onChange={jest.fn()}>
-                Item 1
-            </SuggestionItem>
-        );
+        const { container } = render(<SuggestionItem onClick={mockOnClick}>Item 1</SuggestionItem>);
 
-        await user.click(screen.getByRole('button', { name: 'Item 1' }));
+        await user.click(screen.getByRole('option', { name: 'Item 1' }));
 
         expect(mockOnClick).toHaveBeenCalled();
         expect(screen.queryByRole('checkbox')).not.toBeInTheDocument();

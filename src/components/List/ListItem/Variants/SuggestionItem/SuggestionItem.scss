@@ -3,28 +3,31 @@
     display: flex;
     text-decoration: none;
     padding: 10px var(--space-150);
-    width: 100%;
+    outline: none;
 
     &:hover {
         background-color: var(--color-background-neutral-subtlest-hover);
+        padding: 10px var(--space-150);
     }
 
     &:active {
         background-color: var(--color-background-neutral-subtlest-pressed);
     }
 
-    &:focus-visible {
+    &:focus-visible,
+    &--isHighlighted {
         border: var(--border-width-thick) solid var(--color-info-20);
-        outline: none;
+        padding: calc(10px - var(--border-width-thick))
+            calc(var(--space-150) - var(--border-width-thick));
     }
 
-    &--isDisabled.SuggestionItem:hover {
+    &--disabled.SuggestionItem:hover {
         background-color: var(--color-background-neutral-subtlest-disabled);
         color: var(--color-text-disabled);
         border: none;
     }
 
-    &--isDisabled {
+    &--disabled {
         background-color: var(--color-background-neutral-subtlest-disabled);
         color: var(--color-text-disabled);
         border: none;
@@ -32,27 +35,27 @@
     }
 
     &--isSelected.SuggestionItem:hover {
-        background-color: var(--color-background-selected-subtlest-default);
+        background-color: var(--color-background-selected-subtlest-hover);
         color: var(--color-link-default);
         border: none;
+    }
+
+    &--isSelected.SuggestionItem:active {
+        background-color: var(--color-background-selected-subtlest-pressed);
     }
 
     &--isSelected {
         background-color: var(--color-background-selected-subtlest-default);
         color: var(--color-text-selected-default);
-
-        &:hover {
-            background-color: var(--color-background-selected-subtlest-hover);
-        }
-
-        &:active {
-            background-color: var(--color-background-selected-subtlest-pressed);
-        }
     }
 
-    &--isSelected.SuggestionItem--isDisabled {
+    &--isSelected.SuggestionItem--disabled {
         background-color: var(--color-background-selected-subtlest-default);
         color: var(--color-link-default);
+
+        &:active {
+            background-color: var(--color-background-selected-subtlest-hover);
+        }
     }
 }
 
@@ -64,7 +67,7 @@
         flex-grow: 1;
     }
 
-    &--isDisabled {
+    &--isSelected.SuggestionItem__checkbox--disabled {
         color: var(--color-text-selected-disabled);
     }
 }
