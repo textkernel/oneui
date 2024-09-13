@@ -28,9 +28,9 @@ export const _SelectAllSuggestions: StorySelectAllSuggestions = {
                 </Text>
                 <ul
                     style={{
-                        margin: 0,
                         padding: 0,
                         listStyleType: 'none',
+                        width: '200px',
                     }}
                 >
                     <SelectAllSuggestions {...args} isSelected={isSelected} onChange={handleChange}>
