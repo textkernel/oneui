@@ -2,8 +2,8 @@ import React, { useId } from 'react';
 import { bem } from '../../../../../utils';
 import { Checkbox } from '../../../../Checkbox';
 import { Props as ListItemProps } from '../../ListItem';
-import styles from './SuggestionItem.scss';
 import { Text } from '../../../../Text';
+import styles from './SuggestionItem.scss';
 
 type MultiSelectProps = {
     /** Add a checkbox to the item */
