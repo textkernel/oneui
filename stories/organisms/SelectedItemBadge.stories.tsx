@@ -149,15 +149,15 @@ export const _SelectedItemBadgeMultiSelect: Story = {
         const handleOnChange = (synonym: string) => {
             const index = selectedSynonyms.indexOf(synonym);
 
-            if (index > 0) {
+            if (index > -1) {
                 setSelectedSynonyms([
                     ...selectedSynonyms.slice(0, index),
                     ...selectedSynonyms.slice(index + 1),
                 ]);
-            } else if (index === 0) {
-                setSelectedSynonyms([...selectedSynonyms.slice(1)]);
+                console.log(`${synonym} removed from the list of synonyms.`);
             } else {
                 setSelectedSynonyms([...selectedSynonyms, synonym]);
+                console.log(`${synonym} added to the list of synonyms`);
             }
         };
 
