@@ -149,9 +149,9 @@ export function Dropdown<V>({
             items: valuesAvailableForHighlight,
             ...(isMultiSelect ? { stateReducer } : {}),
             selectedItem: null,
-            onSelectedItemChange: (data) => {
-                if (data.selectedItem) {
-                    onChange(data.selectedItem);
+            onSelectedItemChange: ({ selectedItem }) => {
+                if (selectedItem) {
+                    onChange(selectedItem);
                 }
             },
             ...additionalSelectProps,
