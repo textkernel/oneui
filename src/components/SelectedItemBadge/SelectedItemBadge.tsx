@@ -39,10 +39,9 @@ type PriorityProps<PriorityItemValue> = {
 
 export interface Props<PriorityItemValue, ChildrenItemValue>
     extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
-    /**
-     * Children nodes to be rendered within the component,
-     * specifically used to display the selected value from parent component.
-     */
+    /** Children nodes to be rendered within the Dropdown,
+     *  which is triggered by the main button
+     * */
     children?:
         | React.ReactElement<ListItemProps>
         | (React.ReactElement<ListItemProps> | EmptyElement)[]
