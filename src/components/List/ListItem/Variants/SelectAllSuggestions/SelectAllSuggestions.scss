@@ -7,21 +7,21 @@
         outline: 2px solid var(--color-info-20, #99CAFF);
     }
 
-    &:hover,
+    &:has(label:hover),
     &--isHighlighted {
         background: var(--color-background-neutral-subtlest-hover, #E6E6E6);
     }
 
-    &:active {
+    &:has(label:active) {
         background: var(--color-background-neutral-subtlest-pressed, #CCC);
     }
 
     &--disabled {
         &:focus-visible,
-        &:hover,
+        &:has(label:hover),
         &.SelectAllSuggestions--isHighlighted,
-        &:active {
-        background: var(--color-background-neutral-subtlest-disabled, #FFF);
+        &:has(label:active) {
+            background: var(--color-background-neutral-subtlest-disabled, #FFF);
         }
     }
 }

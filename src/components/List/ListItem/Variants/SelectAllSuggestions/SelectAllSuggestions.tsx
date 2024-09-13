@@ -59,7 +59,7 @@ export const SelectAllSuggestions = React.forwardRef<HTMLLIElement, Props>(
                 ref={ref}
                 role="option"
                 aria-selected={isSelected}
-                tabIndex={0}
+                tabIndex={disabled ? -1 : 0}
                 {...block({
                     isHighlighted,
                     isSelected,
