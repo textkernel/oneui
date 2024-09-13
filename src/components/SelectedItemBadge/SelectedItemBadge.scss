@@ -65,7 +65,7 @@ $icon-status-colors: (
     ),
 );
 
-.SelectBadge {
+.SelectedItemBadge {
     width: 100%;
     height: var(--space-400);
     border: 1px solid var(--color-border-subtle);
@@ -115,7 +115,7 @@ $icon-status-colors: (
         gap: var(--space-50);
 
         &[disabled] {
-            .SelectBadge__optionText {
+            .SelectedItemBadge__optionText {
                 color: var(--color-text-information-disabled);
             }
         }
@@ -144,17 +144,6 @@ $icon-status-colors: (
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-    }
-
-    &__listHeadline {
-        padding: var(--space-75) var(--space-75) var(--space-50);
-        background-color: var(--color-background-brand-subtlest-default);
-        font-weight: var(--font-weight-bold);
-        color: var(--color-text-brand-default);
-
-        & span {
-            font-size: var(--font-size-x-small);
-        }
     }
 
     .badgeDropdownList {

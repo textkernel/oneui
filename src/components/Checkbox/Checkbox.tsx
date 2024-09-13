@@ -5,7 +5,7 @@ import styles from './Checkbox.scss';
 
 export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     /** A unique id to reference this checkbox */
-    id: string;
+    id?: string;
     /** If the checkbox should be disabled */
     disabled?: boolean;
     /** The label for the checkbox */
@@ -59,10 +59,10 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
         return (
             <div ref={ref} style={style} {...block({ className, asFlexbox, disabled, ...rest })}>
                 <input
+                    id={id}
                     {...rest}
                     {...elem('input', { asFlexbox, indeterminate })}
                     type="checkbox"
-                    id={id}
                     disabled={disabled}
                     checked={checked}
                     ref={inputRef}

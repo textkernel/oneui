@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useSelect } from 'downshift';
+import { useSelect, UseSelectState, UseSelectStateChangeOptions } from 'downshift';
 import { usePopper } from 'react-popper';
 import { EmptyElement } from '../../customTypes/types';
 import { bem } from '../../utils/bem/bem';
@@ -50,6 +50,8 @@ export interface Props<V> extends Omit<React.HTMLAttributes<HTMLButtonElement>, 
      * Additional select props that enrich and use downshift API
      */
     additionalSelectProps?: {};
+    /** Control multi-select behavior and do not let the dropdown to be closed right after onChange is invoked */
+    isMultiSelect?: boolean;
     /**
      * ClassName that is assigned to <ul> element of the dropdown
      */
@@ -85,6 +87,7 @@ export function Dropdown<V>({
     onMenuFocus = undefined,
     placement = 'bottom-end',
     additionalSelectProps = {},
+    isMultiSelect = false,
     listClassName = '',
     refElement,
     ...rest
@@ -121,24 +124,49 @@ export function Dropdown<V>({
         }
     });
 
-    const { isOpen, getItemProps, getMenuProps, getToggleButtonProps, highlightedIndex, reset } =
-        useSelect<V>({
-            items: valuesAvailableForHighlight,
-            onSelectedItemChange: ({ selectedItem }) => {
-                if (selectedItem) {
-                    onChange(selectedItem);
-                    reset();
-                }
-            },
-            ...additionalSelectProps,
-        });
+    function stateReducer<T>(
+        states: UseSelectState<T>,
+        actionAndChanges: UseSelectStateChangeOptions<T>
+    ) {
+        const { changes, type } = actionAndChanges;
+        switch (type) {
+            case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
+            case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
+            case useSelect.stateChangeTypes.ItemClick:
+                return {
+                    ...changes,
+                    isOpen: true, // keep menu open after selection.
+                    highlightedIndex: states.highlightedIndex,
+                };
+            default:
+                return changes;
+        }
+    }
+
+    const {
+        isOpen,
+        getItemProps,
+        getMenuProps,
+        getToggleButtonProps,
+        highlightedIndex,
+        closeMenu,
+    } = useSelect<V>({
+        items: valuesAvailableForHighlight,
+        ...(isMultiSelect ? { stateReducer } : {}),
+        onSelectedItemChange: ({ selectedItem }) => {
+            if (selectedItem) {
+                onChange(selectedItem);
+            }
+        },
+        ...additionalSelectProps,
+    });
 
     const menuProps = getMenuProps();
     const toggleButtonProps = getToggleButtonProps({
         onClick: () => {
             onToggleClick?.(isOpen);
         },
-        onBlur: onMenuBlur,
+        onBlur: isMultiSelect ? closeMenu : onMenuBlur,
         onFocus: onMenuFocus,
     });
 
@@ -176,7 +204,6 @@ export function Dropdown<V>({
                             const currentValueIndex = valuesAvailableForHighlight.findIndex(
                                 (val) => val === child.props.value
                             );
-
                             // eslint-disable-next-line @typescript-eslint/no-explicit-any
                             return React.cloneElement<any>(child, {
                                 ...getItemProps({
