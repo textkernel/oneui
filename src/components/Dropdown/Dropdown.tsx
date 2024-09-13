@@ -132,12 +132,13 @@ export function Dropdown<V>({
         switch (type) {
             case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
             case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
-            case useSelect.stateChangeTypes.ItemClick:
+            case useSelect.stateChangeTypes.ItemClick: {
                 return {
                     ...changes,
                     isOpen: true, // keep menu open after selection.
                     highlightedIndex: states.highlightedIndex,
                 };
+            }
             default:
                 return changes;
         }
@@ -147,9 +148,10 @@ export function Dropdown<V>({
         useSelect<V>({
             items: valuesAvailableForHighlight,
             ...(isMultiSelect ? { stateReducer } : {}),
-            onSelectedItemChange: ({ selectedItem }) => {
-                if (selectedItem) {
-                    onChange(selectedItem);
+            selectedItem: null,
+            onSelectedItemChange: (data) => {
+                if (data.selectedItem) {
+                    onChange(data.selectedItem);
                 }
             },
             ...additionalSelectProps,
@@ -198,6 +200,7 @@ export function Dropdown<V>({
                             const currentValueIndex = valuesAvailableForHighlight.findIndex(
                                 (val) => val === child.props.value
                             );
+
                             // eslint-disable-next-line @typescript-eslint/no-explicit-any
                             return React.cloneElement<any>(child, {
                                 ...getItemProps({

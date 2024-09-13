@@ -66,6 +66,7 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
                     disabled={disabled}
                     checked={checked}
                     ref={inputRef}
+                    {...(!id && typeof children === 'string' && { 'aria-label': children })}
                 />
                 <label {...elem('label', { asFlexbox })} htmlFor={id}>
                     <span {...elem('box', { asFlexbox })}>
