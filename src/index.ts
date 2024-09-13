@@ -29,7 +29,6 @@ export * from './components/List';
 export * from './components/Modal';
 export * from './components/Map';
 export * from './components/ProgressBar';
-export * from './components/SelectAllSuggestions';
 export * from './components/SelectButtonGroup';
 export * from './components/SelectedOption';
 export * from './components/Sliders';

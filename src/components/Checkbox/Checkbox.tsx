@@ -9,7 +9,7 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     /** If the checkbox should be disabled */
     disabled?: boolean;
     /** The label for the checkbox */
-    children?: string | React.ReactElement;
+    children?: React.ReactNode;
     /** Optionally render checkbox in a flexbox */
     asFlexbox?: boolean;
     /** Indeterminate status, show minus sign across checkbox. This property overrides the checked state visually  */

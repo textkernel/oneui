@@ -1,9 +1,9 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { SelectAllSuggestions } from '@textkernel/oneui';
+import { SelectAllSuggestions, Text } from '@textkernel/oneui';
 
 export default {
-    title: 'Atoms/SelectAllSuggestions',
+    title: 'Atoms/List/SelectAllSuggestions',
     component: SelectAllSuggestions,
 } as Meta<typeof SelectAllSuggestions>;
 
@@ -13,18 +13,31 @@ export const _SelectAllSuggestions: StorySelectAllSuggestions = {
     name: 'SelectAllSuggestions',
     args: {
         disabled: false,
-        isSelected: false,
-        onChange: () => console.log('Select all has been clicked'),
     },
-    render: (args) => (
-        <ul
-            style={{
-                margin: 0,
-                padding: 0,
-                listStyleType: 'none',
-            }}
-        >
-            <SelectAllSuggestions {...args}>Select All</SelectAllSuggestions>
-        </ul>
-    ),
+    render: (args) => {
+        const [isSelected, setIsSelected] = React.useState(false);
+        const handleChange = () => {
+            setIsSelected(!isSelected);
+            console.log('Select all has been clicked');
+        };
+
+        return (
+            <>
+                <Text>
+                    Note: this is a controlled component. You have to set `isSelected` prop yourself
+                </Text>
+                <ul
+                    style={{
+                        margin: 0,
+                        padding: 0,
+                        listStyleType: 'none',
+                    }}
+                >
+                    <SelectAllSuggestions {...args} isSelected={isSelected} onChange={handleChange}>
+                        Select All
+                    </SelectAllSuggestions>
+                </ul>
+            </>
+        );
+    },
 };
