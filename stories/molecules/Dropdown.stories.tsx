@@ -6,6 +6,7 @@ import {
     ListItem,
     IconTextkernel,
     SingleSelectItem,
+    Separator,
     MultiSelectItem,
 } from '@textkernel/oneui';
 import { HiDotsVertical } from 'react-icons/hi';
@@ -75,14 +76,17 @@ export const _Dropdown: Story = {
                     <ListItem key="disabled-key" disabled style={styles.divider}>
                         Disabled ListItem
                     </ListItem>
+                    <Separator title="Section title" />
                     <ListItem key="first-key" value="first-value">
                         ListItem with value
                     </ListItem>
+                    <Separator />
                     {['ListItem with value 1', 'ListItem with value 2'].map((value) => (
                         <ListItem key={value} value={value}>
                             {value}
                         </ListItem>
                     ))}
+
                     <ListItem key="second-key" value="second-value">
                         <div style={styles.customListItem}>
                             <IconTextkernel style={styles.icon} />
