@@ -31,6 +31,7 @@ export * from './components/Map';
 export * from './components/ProgressBar';
 export * from './components/SelectButtonGroup';
 export * from './components/SelectedOption';
+export * from './components/Separators';
 export * from './components/Sliders';
 export * from './components/StickyHeader';
 export * from './components/Drawer';

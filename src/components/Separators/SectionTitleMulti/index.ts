@@ -1,0 +1,1 @@
+export { SectionTitleMulti } from './SectionTitleMulti';
