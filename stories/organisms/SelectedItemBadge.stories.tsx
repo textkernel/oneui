@@ -205,6 +205,7 @@ export const _SelectedItemBadgeMultiSelect: Story = {
                     {synonyms.map((synonym) => (
                         <ListItem value={synonym}>
                             <Checkbox
+                                id={synonym}
                                 onChange={() => null}
                                 checked={selectedSynonyms.includes(synonym)}
                             >

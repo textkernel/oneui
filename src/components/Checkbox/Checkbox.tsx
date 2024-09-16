@@ -5,7 +5,7 @@ import styles from './Checkbox.scss';
 
 export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     /** A unique id to reference this checkbox */
-    id?: string;
+    id: string;
     /** If the checkbox should be disabled */
     disabled?: boolean;
     /** The label for the checkbox */
@@ -66,7 +66,6 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
                     disabled={disabled}
                     checked={checked}
                     ref={inputRef}
-                    {...(!id && typeof children === 'string' && { 'aria-label': children })}
                 />
                 <label {...elem('label', { asFlexbox })} htmlFor={id}>
                     <span {...elem('box', { asFlexbox })}>

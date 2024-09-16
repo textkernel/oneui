@@ -190,6 +190,7 @@ export function Dropdown<V>({
                 {...openPopperProps}
                 ref={mergeRefs([isOpen ? setPopperElement : undefined, menuProps.ref])}
                 isControlledNavigation
+                onClick={(e) => e.preventDefault()} // To prevent the dropdown from closing when focusable elements are used inside it for multi-selection
             >
                 {isOpen &&
                     childrenArray.map((child) => {
