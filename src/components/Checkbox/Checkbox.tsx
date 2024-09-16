@@ -59,10 +59,10 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
         return (
             <div ref={ref} style={style} {...block({ className, asFlexbox, disabled, ...rest })}>
                 <input
-                    id={id}
                     {...rest}
                     {...elem('input', { asFlexbox, indeterminate })}
                     type="checkbox"
+                    id={id}
                     disabled={disabled}
                     checked={checked}
                     ref={inputRef}
