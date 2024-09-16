@@ -147,7 +147,7 @@ export function Dropdown<V>({
     const { isOpen, getItemProps, getMenuProps, getToggleButtonProps, highlightedIndex } =
         useSelect<V>({
             items: valuesAvailableForHighlight,
-            ...(isMultiSelect ? { stateReducer } : {}),
+            ...(isMultiSelect && { stateReducer }),
             selectedItem: null,
             onSelectedItemChange: ({ selectedItem }) => {
                 if (selectedItem) {

@@ -35,7 +35,6 @@ exports[`SelectedItemBadge Priority button renders correctly with all props prov
     >
       <span
         class="Text--size_small SelectedItemBadge__valueText"
-        title="London"
       >
         London
       </span>
@@ -167,7 +166,6 @@ exports[`SelectedItemBadge Priority button should handle priority change correct
     >
       <span
         class="Text--size_small SelectedItemBadge__valueText"
-        title="London"
       >
         London
       </span>

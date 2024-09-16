@@ -34,7 +34,7 @@ type PriorityProps<PriorityItemValue> = {
     /** Callback function triggered when a new priority is selected. */
     onChange: (newPriorityItem: PriorityItem<PriorityItemValue>) => void;
     /** Priority button label name for ARIA labelling */
-    buttonAriaLabel: string;
+    buttonLabel: string;
 };
 
 export interface Props<PriorityItemValue, ChildrenItemValue>
@@ -43,8 +43,8 @@ export interface Props<PriorityItemValue, ChildrenItemValue>
      *  which is triggered by the main button
      * */
     children?:
+        | React.ReactElement
         | React.ReactElement<ListItemProps>
-        | (React.ReactElement<ListItemProps> | EmptyElement)[]
         | (
               | React.ReactElement<ListItemProps>
               | React.ReactElement<ListItemProps>[]
@@ -52,7 +52,7 @@ export interface Props<PriorityItemValue, ChildrenItemValue>
           )[];
     /** Label of the currently selected option item from filter */
     label: React.ReactNode;
-    /** Additional label represents radius or amount of synonyms */
+    /** An additional label displayed next to the main label (e.g., the number of synonyms) */
     additionalLabel?: React.ReactNode;
     /** Callback called on selecting one of the passed as children items. */
     onChange?: (value: ChildrenItemValue) => void;
@@ -62,6 +62,8 @@ export interface Props<PriorityItemValue, ChildrenItemValue>
     onDelete?: (e: React.KeyboardEvent | React.MouseEvent) => void;
     /** Boolean indicating whether the whole badge should be disabled. */
     isDisabled?: boolean;
+    /** Main button label name for ARIA labelling */
+    buttonLabel?: string;
     /** Delete button label name for ARIA labelling */
     deleteButtonLabel?: string;
     priority?: PriorityProps<PriorityItemValue>;
@@ -76,6 +78,7 @@ export function SelectedItemBadge<PriorityItemValue, ChildrenItemValue>({
     isDisabled = false,
     onChange,
     onDelete = undefined,
+    buttonLabel,
     deleteButtonLabel,
     priority,
     ...rest
@@ -129,7 +132,7 @@ export function SelectedItemBadge<PriorityItemValue, ChildrenItemValue>({
                             {...elem('priorityButton', {
                                 isSelected: dropdownStates.priority,
                             })}
-                            aria-label={priority.buttonAriaLabel}
+                            aria-label={priority.buttonLabel}
                             disabled={isDisabled}
                             type="button"
                         >
@@ -162,27 +165,15 @@ export function SelectedItemBadge<PriorityItemValue, ChildrenItemValue>({
                             {...elem('optionButton', {
                                 isSelected: dropdownStates.main,
                             })}
-                            {...(typeof label === 'string' && { 'aria-label': label })}
+                            aria-label={buttonLabel}
                             disabled={isDisabled}
                             type="button"
                         >
-                            <Text
-                                inline
-                                size="small"
-                                {...elem('valueText')}
-                                {...(typeof label === 'string' && { title: label })}
-                            >
+                            <Text inline size="small" {...elem('valueText')}>
                                 {label}
                             </Text>
                             {additionalLabel && (
-                                <Text
-                                    {...elem('optionText')}
-                                    inline
-                                    {...(typeof additionalLabel === 'string' && {
-                                        title: additionalLabel,
-                                    })}
-                                    size="small"
-                                >
+                                <Text {...elem('optionText')} inline size="small">
                                     {additionalLabel}
                                 </Text>
                             )}
@@ -201,23 +192,11 @@ export function SelectedItemBadge<PriorityItemValue, ChildrenItemValue>({
                 </Dropdown>
             ) : (
                 <div {...elem('valueContainer')}>
-                    <Text
-                        inline
-                        size="small"
-                        {...elem('valueText')}
-                        {...(typeof label === 'string' && { title: label })}
-                    >
+                    <Text inline size="small" {...elem('valueText')}>
                         {label}
                     </Text>
                     {additionalLabel && (
-                        <Text
-                            {...elem('optionText')}
-                            inline
-                            {...(typeof additionalLabel === 'string' && {
-                                title: additionalLabel,
-                            })}
-                            size="small"
-                        >
+                        <Text {...elem('optionText')} inline size="small">
                             {additionalLabel}
                         </Text>
                     )}

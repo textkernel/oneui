@@ -34,10 +34,11 @@ export const _SelectedItemBadge: Story = {
         label: 'London',
         priority: {
             list: priorityList,
-            buttonAriaLabel: 'Priority',
+            buttonLabel: 'Priority',
             onChange: () => {},
             selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },
+        buttonLabel: 'Select radius',
     },
     render: (args) => {
         const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
@@ -129,10 +130,11 @@ export const _SelectedItemBadgeMultiSelect: Story = {
         isMultiSelect: true,
         priority: {
             list: priorityList,
-            buttonAriaLabel: 'Priority',
+            buttonLabel: 'Priority',
             onChange: () => {},
             selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },
+        buttonLabel: 'Select synonyms',
     },
     render: (args) => {
         const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
@@ -289,7 +291,7 @@ export const SelectedItemBadgeWithoutChildren: Story = {
         label: 'London',
         priority: {
             list: priorityList,
-            buttonAriaLabel: 'Priority',
+            buttonLabel: 'Priority',
             onChange: () => {},
             selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },
@@ -355,7 +357,7 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
         label: 'London',
         priority: {
             list: priorityList,
-            buttonAriaLabel: 'Priority',
+            buttonLabel: 'Priority',
             onChange: () => {},
             selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },

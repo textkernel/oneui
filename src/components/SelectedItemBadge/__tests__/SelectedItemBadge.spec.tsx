@@ -19,9 +19,10 @@ const defaultProps: SelectedItemBadgeProps<string, string> = {
             { priority: 'optional', label: 'Optional', value: 'favored' },
             { priority: 'exclude', label: 'Exclude', value: 'banned' },
         ],
-        buttonAriaLabel: 'priority button',
+        buttonLabel: 'priority button',
         onChange: mockOnPriorityItemChange,
     },
+    buttonLabel: 'main button',
     deleteButtonLabel: 'delete button',
     onDelete: mockOnDelete,
 };
@@ -78,7 +79,7 @@ describe('SelectedItemBadge', () => {
             const mockOnChange = jest.fn();
 
             const { getByText, getByLabelText } = renderSelectedItemBadge({
-                label: 'Main Button',
+                label: 'Option',
                 children: [
                     <ListItem key="option1" value="option1">
                         Option 1
@@ -90,13 +91,13 @@ describe('SelectedItemBadge', () => {
                 onChange: mockOnChange,
             });
 
-            expect(getByText('Main Button')).toBeInTheDocument();
+            expect(getByText('Option')).toBeInTheDocument();
 
-            const mainButton = getByLabelText('Main Button');
+            const mainButton = getByLabelText('main button');
             await user.click(mainButton);
 
-            expect(getByText('Main Button')).toBeInTheDocument();
-            expect(getByText('Main Button')).toBeInTheDocument();
+            expect(getByText('Option 1')).toBeInTheDocument();
+            expect(getByText('Option 2')).toBeInTheDocument();
         });
 
         it('should handle change correctly', async () => {
@@ -104,7 +105,7 @@ describe('SelectedItemBadge', () => {
             const user = userEvent.setup();
 
             const { getByText, getByLabelText } = renderSelectedItemBadge({
-                label: 'Main Button',
+                label: 'Option',
                 children: [
                     <ListItem key="option1" value="option1">
                         Option 1
@@ -116,7 +117,7 @@ describe('SelectedItemBadge', () => {
                 onChange: mockOnChange,
             });
 
-            const mainButton = getByLabelText('Main Button');
+            const mainButton = getByLabelText('main button');
             await user.click(mainButton);
 
             await user.click(getByText('Option 2'));
