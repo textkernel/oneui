@@ -45,6 +45,7 @@ export interface Props<PriorityItemValue, ChildrenItemValue>
     children?:
         | React.ReactElement
         | React.ReactElement<ListItemProps>
+        | (React.ReactElement<ListItemProps> | EmptyElement)[]
         | (
               | React.ReactElement<ListItemProps>
               | React.ReactElement<ListItemProps>[]
