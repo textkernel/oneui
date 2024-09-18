@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Divider, SectionTitle, SectionTitleMulti } from '@textkernel/oneui';
 
 const meta: Meta<typeof Divider> = {
-    title: 'Atoms/Seperators',
+    title: 'Atoms/Separators',
     component: Divider,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     subcomponents: { Divider, SectionTitle } as any,
