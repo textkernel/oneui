@@ -1,13 +1,20 @@
 /* eslint-disable react/no-children-prop */
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, SearchButton, StepperButton, FileButton, SIZES } from '@textkernel/oneui';
-import { FaUpload } from 'react-icons/fa';
+import {
+    Button,
+    SearchButton,
+    StepperButton,
+    FileButton,
+    IconButton,
+    SIZES,
+} from '@textkernel/oneui';
+import { FaPlus, FaUpload } from 'react-icons/fa';
 
 export default {
     title: 'Atoms/Button',
     component: Button,
-    subcomponents: { SearchButton, StepperButton, FileButton },
+    subcomponents: { SearchButton, StepperButton, FileButton, IconButton },
 } as Meta<typeof Button>;
 
 type StoryButton = StoryObj<typeof Button>;
@@ -58,4 +65,19 @@ export const _FileButton: StoryFileButton = {
         ),
     },
     render: (args) => <FileButton {...args} />,
+};
+
+type StoryIconButton = StoryObj<typeof IconButton>;
+
+export const _IconButton: StoryIconButton = {
+    name: 'IconButton',
+    args: {
+        children: <FaPlus />,
+        context: 'primary',
+        variant: 'filled',
+        size: 'medium',
+        disabled: false,
+        isLoading: false,
+    },
+    render: (args) => <IconButton {...args} />,
 };

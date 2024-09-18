@@ -1,0 +1,32 @@
+@import '../Button/Button';
+
+.IconButton {
+    &--size {
+        &_small {
+            padding: var(--space-75);
+        }
+        &_medium {
+            padding: var(--space-100);
+        }
+        &_large {
+            padding: 10px;
+        }
+    }
+}
+
+.IconButton__icon {
+    &--size {
+        &_small {
+            width: var(--space-150);
+            height: var(--space-150);
+        }
+        &_medium {
+            width: var(--space-200);
+            height: var(--space-200);
+        }
+        &_large {
+            width: var(--space-250);
+            height: var(--space-250);
+        }
+    }
+}
