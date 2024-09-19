@@ -82,8 +82,8 @@ export const ListShowingResults: Story = {
             <ListItem onClick={onClickJob('First')}>
                 <Teaser
                     title="My first job"
-                    location="Melbourne"
-                    subTitle="Awsome inc."
+                    // location="Melbourne"
+                    subtitle="Awsome inc."
                     details="It was posted here, yesterday"
                 />
                 <ListActions>
@@ -95,8 +95,8 @@ export const ListShowingResults: Story = {
             <ListItem onClick={onClickJob('Second')}>
                 <Teaser
                     title="Job with a very, very, very long title to be truncated by css"
-                    location="Melbourne"
-                    subTitle="Awsome inc."
+                    // location="Melbourne"
+                    subtitle="Awsome inc."
                     details="It was posted there, yesterday"
                 />
                 <ListActions>

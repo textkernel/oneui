@@ -1,52 +1,92 @@
 .Teaser {
-    min-width: 0;
-    margin: 0;
+    padding: var(--space-150);
     display: flex;
-    flex: 1;
-    flex-direction: column;
-    height: 63px;
+    gap: var(--space-150);
     color: var(--color-neutral-60);
 
-    &__line {
-        display: flex;
-        flex: 1;
-        align-items: center;
-        padding-bottom: var(--space-75);
+    &:active {
+        background-color: var(--color-background-information-subtlest-default);
+    }
 
-        &:last-child {
-            padding-bottom: 0;
-            justify-content: flex-end;
-        }
+    &__row {
+        display: flex;
+        align-items: center;
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
     }
 
     &__title {
-        font-weight: var(--font-weight-bold);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        flex-grow: 1;
+        composes: OneUI-body-text-bold from global;
+        color: var(--color-link-default);
     }
-    &__location {
-        white-space: nowrap;
 
-        &::before {
-            content: '\00a0\2014\00a0';
+    &__titleRow {
+        justify-content: space-between;
+    }
+
+    &__subtitle {
+        composes: OneUI-label-text from global;
+        color: var(--color-text-bold);
+    }
+
+    &__infoText {
+        composes: OneUI-label-text from global;
+        color: var(--color-text-subtle);
+    }
+
+    &__link {
+        composes: OneUI-label-text from global;
+    }
+
+    &__timestamp {
+        composes: OneUI-caption-text from global;
+        color: var(--color-text-subtle);
+        margin-right: var(--space-100);
+    }
+
+    &__emptyPlaceholder {
+        height: var(--space-250);
+    }
+
+    &__visibility {
+        height: var(--space-150);
+        width: var(--space-150);
+        border-radius: 50%;
+        border: 1px solid var(--color-border-subtle);
+
+        &--isVisited {
+            background-color: var(--color-icon-information-default);
+            border: 1px solid var(--color-border-information-bold-default);
         }
     }
 
-    &__subTitle {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+    // &__location {
+    //     white-space: nowrap;
 
-    &__details {
-        flex: 1;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+    //     &::before {
+    //         content: '\00a0\2014\00a0';
+    //     }
+    // }
 
-    &__statuses {
-        padding-left: var(--space-200);
-    }
+    // &__subTitle {
+    //     white-space: nowrap;
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
+
+    // &__details {
+    //     flex: 1;
+    //     white-space: nowrap;
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    // }
+
+    // &__statuses {
+    //     padding-left: var(--space-200);
+    // }
 }
