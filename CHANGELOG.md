@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [26.0.0](https://github.com/textkernel/oneui/compare/25.0.0...26.0.0) (2024-09-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* **SelectedItemBadge:** rename `SelectBadge` to `SelectedItemBadge`, update all references to `SelectBadge` with `SelectedItemBadge`
+* **SelectedItemBadge:** move previously passed `children` text to the `label` prop
+* **SelectedItemBadge:** use `children` to pass items to the main dropdown content
+* **SelectedItemBadge:** remove separate handler `option.onChange` for option change, use generalized `onChange` to handle changes in the main dropdown
+* **SelectedItemBadge:** rename `deleteButtonAriaLabel` to `deleteButtonLabel`
+* **SelectedItemBadge:** remove all option-related props and the usage of the Option type
+* **SelectedItemBadge:** ensure that `priority.selectedItem` is always provided, as it is now mandatory
+* **SelectedItemBadge:** use new `additionalLabel` prop to aria label on the main button
+* **Input:** `size` prop is limited to `small` or `medium`, with `medium` as the default, replace size="large" or omitting size (previously defaulting to `normal`) with size="medium", or use size="small" as needed
+* **Input:** `context` prop only accepts `critical`. Remove any usage of `brand` or `success` context. Provide `errorMessage` if critical context is expected
+* **Input:** replace any custom methods for setting inputs as non-editable with new prop `readOnly`
+* **Input:** replace existing approaches for displaying helper text with the new `helperText` prop
+* **Input:** use the `label` prop for input labels, replacing any previous label handling
+* **Input:** use the `reserveErrorMessageSpace` prop to determine whether space should be reserved for error message under the input field when validation is expected, especially if no helper text is present
+* **Link:** `context` and `doNotDecorateOnHover` props are no longer supported for Link component
+* **Text:** `size='normal'` is renamed `size='medium'` for `Text` and `Tag` components
+* **Button:** button props `isLink` & `isInline` & `isPrimary` are removed
+* **Button:** button prop `isInline` button should be replaced by `size="small"`
+* **Button:** button prop `isLink` should be replaced by `variant="ghost"`
+* **Button:** button prop `isPrimary` should be replaced with `variant="filled"` (default) or removed
+* **Button:** button prop `size: "normal"` is replaced with `size: "medium"`
+
+### Features
+
+* **Button:** button redesign ([#1234](https://github.com/textkernel/oneui/issues/1234)) ([d365559](https://github.com/textkernel/oneui/commit/d36555903c953f39f9af2950b15babe6f5459361))
+* **Input:** migrate to new design ([#1248](https://github.com/textkernel/oneui/issues/1248)) ([#1255](https://github.com/textkernel/oneui/issues/1255)) ([34640e5](https://github.com/textkernel/oneui/commit/34640e524e1d9867f0231744d13f746f9e7b0a72))
+* **Link:** implement new design ([#1249](https://github.com/textkernel/oneui/issues/1249)) ([3749df3](https://github.com/textkernel/oneui/commit/3749df340d31bbfa6b221d43216ee55f186a953d))
+* **SelectedItemBadge:** update the component ([#1257](https://github.com/textkernel/oneui/issues/1257)) ([90d07a8](https://github.com/textkernel/oneui/commit/90d07a833c6195f946a76f2cffe7f14ef792714c))
+* **Text:** migrate to new design ([#1250](https://github.com/textkernel/oneui/issues/1250)) ([1e7cb2d](https://github.com/textkernel/oneui/commit/1e7cb2d30ef7d6f802b170c9082f4e6112f1860a))
+* **Toast:** New Component ([#1214](https://github.com/textkernel/oneui/issues/1214)) ([ad4fcd3](https://github.com/textkernel/oneui/commit/ad4fcd314040fb6dc4d7fdc68da895d1c7c97f19))
+
 ## [25.0.0](https://github.com/textkernel/oneui/compare/24.0.0...25.0.0) (2024-08-23)
 
 
