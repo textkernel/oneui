@@ -32,9 +32,10 @@
     &__subtitle {
         composes: OneUI-label-text from global;
         color: var(--color-text-bold);
+        margin-bottom: var(--space-100);
     }
 
-    &__infoText {
+    &__info {
         composes: OneUI-label-text from global;
         color: var(--color-text-subtle);
     }
@@ -43,7 +44,7 @@
         composes: OneUI-label-text from global;
     }
 
-    &__timestamp {
+    &__caption {
         composes: OneUI-caption-text from global;
         color: var(--color-text-subtle);
         margin-right: var(--space-100);
@@ -65,28 +66,28 @@
         }
     }
 
-    // &__location {
-    //     white-space: nowrap;
+    &__sourceContainer {
+        margin-top: var(--space-100);
+        gap: var(--space-50);
+    }
 
-    //     &::before {
-    //         content: '\00a0\2014\00a0';
-    //     }
-    // }
+    &__sourceIcon {
+        width: var(--space-200);
+        height: var(--space-200);
+    }
 
-    // &__subTitle {
-    //     white-space: nowrap;
-    //     overflow: hidden;
-    //     text-overflow: ellipsis;
-    // }
+    &__tags {
+        display: flex;
+        gap: var(--space-100);
+        margin-top: var(--space-100);
+        composes: OneUI-label-text from global;
+        color: var(--color-text-subtle);
+    }
 
-    // &__details {
-    //     flex: 1;
-    //     white-space: nowrap;
-    //     overflow: hidden;
-    //     text-overflow: ellipsis;
-    // }
-
-    // &__statuses {
-    //     padding-left: var(--space-200);
-    // }
+    &__matchIndicator {
+        width: var(--space-300);
+        height: var(--space-300);
+        transform: rotate(-90deg);
+        margin-left: var(--space-100);
+    }
 }

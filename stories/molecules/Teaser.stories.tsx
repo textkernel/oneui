@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Teaser } from '@textkernel/oneui';
+import { Tag, Teaser } from '@textkernel/oneui';
+import { FaLinkedinIn } from 'react-icons/fa';
 
 const titleText = 'My first job';
 
@@ -19,22 +20,14 @@ export const WithAllFields: Story = {
         title: titleText,
         subtitle: 'Awsome inc.',
         hasCheckbox: true,
-        primaryInfo: { text: 'Primary', href: 'https://google.com' },
+        timestamp: 'Today',
+        primaryInfo: { text: 'Primary', href: 'https://textkernel.com' },
         secondaryInfo: { text: 'Secondary' },
         tercearyInfo: { text: 'Terceary' },
-        details: 'It was posted here',
+        sourceInfo: { text: 'Source', icon: <FaLinkedinIn /> },
         isVisited: true,
-        timestamp: 'Today',
-        statuses: [
-            {
-                label: 'Viewed',
-                tooltip: 'Viewed one day ago',
-            },
-            {
-                label: 'Imported',
-                tooltip: 'Imported two days ago',
-            },
-        ],
+        matchingIndicatorPercentage: 50,
+        tags: [<Tag bgColor="yellow">First</Tag>, <Tag bgColor="lightblue">Second</Tag>],
     },
     render: (args) => {
         const [isSelected, setIsSelected] = React.useState(false);
@@ -44,31 +37,3 @@ export const WithAllFields: Story = {
         );
     },
 };
-
-// export const WithOneStatus: Story = {
-//     name: 'With one status',
-//     args: {
-//         title: <span title={titleText}>{titleText}</span>,
-//         subtitle: 'Awsome inc.',
-//         location: 'Melbourne',
-//         details: 'It was posted here',
-//         statuses: [
-//             {
-//                 label: 'Viewed',
-//                 tooltip: 'Viewed one day ago',
-//             },
-//         ],
-//     },
-//     render: (args) => <Teaser {...args} />,
-// };
-
-// export const WithoutStatus: Story = {
-//     name: 'Without statuses',
-//     args: {
-//         title: <span title={titleText}>{titleText}</span>,
-//         subtitle: 'Awsome inc.',
-//         location: 'Melbourne',
-//         details: 'It was posted here',
-//     },
-//     render: (args) => <Teaser {...args} />,
-// };
