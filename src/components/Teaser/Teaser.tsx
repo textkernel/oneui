@@ -118,7 +118,7 @@ export const Teaser: React.FC<Props> = ({
                         {matchingIndicatorPercentage !== undefined &&
                             matchingIndicatorPercentage >= 0 &&
                             matchingIndicatorPercentage <= 100 && (
-                                <svg {...elem('matchIndicator')}>
+                                <svg {...elem('matchIndicator')} aria-label="Matching indicator">
                                     <circle
                                         r="9"
                                         cx="50%"
@@ -151,7 +151,10 @@ export const Teaser: React.FC<Props> = ({
                             </Text>
                         )}
                         {typeof isVisited !== 'undefined' && (
-                            <div {...elem('visibility', { isVisited })} />
+                            <div
+                                {...elem('visibility', { isVisited })}
+                                aria-label="Visibility indicator"
+                            />
                         )}
                     </div>
                 </div>
