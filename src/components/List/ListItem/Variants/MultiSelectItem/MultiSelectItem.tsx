@@ -47,7 +47,7 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props>(
 
         const handleKeyDown = (e: React.KeyboardEvent<HTMLLIElement | HTMLInputElement>) => {
             e.stopPropagation();
-            if (e.key === SPACE_KEY) {
+            if ((e.target as HTMLElement).nodeName === 'LI' && e.key === SPACE_KEY) {
                 handleChange(e);
             }
         };

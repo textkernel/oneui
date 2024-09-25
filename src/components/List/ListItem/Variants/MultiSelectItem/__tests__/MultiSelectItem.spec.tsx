@@ -45,4 +45,36 @@ describe('MultiSelectItem', () => {
         expect(handleChange).toHaveBeenCalledTimes(1);
         expect(handleChange).toHaveBeenCalledWith(expect.any(Object), value);
     });
+
+    it('should call onChange callback correctly with keyboard interaction on <li>', async () => {
+        const user = userEvent.setup();
+        const handleChange = jest.fn();
+        const value = 'select_all';
+        render(
+            <MultiSelectItem value={value} onChange={handleChange}>
+                Select all
+            </MultiSelectItem>
+        );
+
+        await user.type(screen.getByRole('option'), ' ');
+
+        expect(handleChange).toHaveBeenCalledTimes(1);
+        expect(handleChange).toHaveBeenCalledWith(expect.any(Object), value);
+    });
+
+    it('should call onChange callback correctly with keyboard interaction on <input>', async () => {
+        const user = userEvent.setup();
+        const handleChange = jest.fn();
+        const value = 'select_all';
+        render(
+            <MultiSelectItem value={value} onChange={handleChange}>
+                Select all
+            </MultiSelectItem>
+        );
+
+        await user.type(screen.getByRole('checkbox'), ' ');
+
+        expect(handleChange).toHaveBeenCalledTimes(2);
+        expect(handleChange).toHaveBeenCalledWith(expect.any(Object), value);
+    });
 });
