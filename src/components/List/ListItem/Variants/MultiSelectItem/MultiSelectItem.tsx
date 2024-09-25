@@ -1,23 +1,23 @@
 import React from 'react';
 import { bem } from '../../../../../utils';
 import { Props as ListItemProps } from '../../ListItem';
-import styles from './SelectAllSuggestions.scss';
+import styles from './MultiSelectItem.scss';
 import { Checkbox } from '../../../../Checkbox';
 import { SPACE_KEY } from '../../../../../constants';
 
 export interface Props
     extends Omit<ListItemProps, 'onClick' | 'onChange' | 'value' | 'highlightContext'> {
     /** A function to be called if the item is clicked */
-    onChange: (e: React.SyntheticEvent<HTMLInputElement | HTMLLIElement>, value) => void;
+    onChange?: (e: React.SyntheticEvent<HTMLInputElement | HTMLLIElement>, value) => void;
     /** Item identifier is used in {@link Dropdown} to select/navigate through children */
     value: unknown;
     /** Id for the checkbox */
     id?: string;
 }
 
-const { block } = bem('SelectAllSuggestions', styles);
+const { block } = bem('MultiSelectItem', styles);
 
-export const SelectAllSuggestions = React.forwardRef<HTMLLIElement, Props>(
+export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props>(
     (
         {
             children,
@@ -42,7 +42,7 @@ export const SelectAllSuggestions = React.forwardRef<HTMLLIElement, Props>(
 
         const handleChange = (e: React.SyntheticEvent<HTMLLIElement | HTMLInputElement>) => {
             e.stopPropagation();
-            onChange(e, value);
+            onChange?.(e, value);
         };
 
         const handleKeyDown = (e: React.KeyboardEvent<HTMLLIElement | HTMLInputElement>) => {
@@ -82,4 +82,4 @@ export const SelectAllSuggestions = React.forwardRef<HTMLLIElement, Props>(
     }
 );
 
-SelectAllSuggestions.displayName = 'SelectAllSuggestions';
+MultiSelectItem.displayName = 'MultiSelectItem';

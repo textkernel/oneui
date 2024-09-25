@@ -1,14 +1,14 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { SelectAllSuggestions } from '../SelectAllSuggestions';
+import { MultiSelectItem } from '../MultiSelectItem';
 
-describe('SelectAllSuggestions', () => {
+describe('MultiSelectItem', () => {
     it('should render correctly', () => {
         const view = render(
-            <SelectAllSuggestions value="select_all" onChange={jest.fn()}>
+            <MultiSelectItem value="select_all" onChange={jest.fn()}>
                 Select all
-            </SelectAllSuggestions>
+            </MultiSelectItem>
         );
 
         expect(view.container).toMatchSnapshot();
@@ -19,9 +19,9 @@ describe('SelectAllSuggestions', () => {
         const handleChange = jest.fn();
         const value = 'select_all';
         render(
-            <SelectAllSuggestions value={value} onChange={handleChange}>
+            <MultiSelectItem value={value} onChange={handleChange}>
                 Select all
-            </SelectAllSuggestions>
+            </MultiSelectItem>
         );
 
         await user.keyboard('[Tab]');
@@ -35,9 +35,9 @@ describe('SelectAllSuggestions', () => {
         const handleChange = jest.fn();
         const value = 'select_all';
         render(
-            <SelectAllSuggestions value={value} onChange={handleChange}>
+            <MultiSelectItem value={value} onChange={handleChange}>
                 Select all
-            </SelectAllSuggestions>
+            </MultiSelectItem>
         );
 
         await user.click(screen.getByRole('checkbox'));

@@ -1,16 +1,16 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { SelectAllSuggestions, Text } from '@textkernel/oneui';
+import { MultiSelectItem, Text } from '@textkernel/oneui';
 
 export default {
-    title: 'Atoms/List/SelectAllSuggestions',
-    component: SelectAllSuggestions,
-} as Meta<typeof SelectAllSuggestions>;
+    title: 'Atoms/List/MultiSelectItem',
+    component: MultiSelectItem,
+} as Meta<typeof MultiSelectItem>;
 
-type StorySelectAllSuggestions = StoryObj<typeof SelectAllSuggestions>;
+type StoryMultiSelectItem = StoryObj<typeof MultiSelectItem>;
 
-export const _SelectAllSuggestions: StorySelectAllSuggestions = {
-    name: 'SelectAllSuggestions',
+export const _MultiSelectItem: StoryMultiSelectItem = {
+    name: 'MultiSelectItem',
     args: {
         disabled: false,
     },
@@ -33,9 +33,9 @@ export const _SelectAllSuggestions: StorySelectAllSuggestions = {
                         width: '200px',
                     }}
                 >
-                    <SelectAllSuggestions {...args} isSelected={isSelected} onChange={handleChange}>
+                    <MultiSelectItem {...args} isSelected={isSelected} onChange={handleChange}>
                         Select All
-                    </SelectAllSuggestions>
+                    </MultiSelectItem>
                 </ul>
             </>
         );

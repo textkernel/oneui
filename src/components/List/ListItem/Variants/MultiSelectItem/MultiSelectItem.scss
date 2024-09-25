@@ -1,4 +1,4 @@
-.SelectAllSuggestions {
+.MultiSelectItem {
     composes: OneUI-label-text-bold from global;
     padding: var(--space-150);
     border-bottom: 1px solid var(--color-border-subtle);
@@ -19,7 +19,7 @@
     &--disabled {
         &:focus-visible,
         &:has(label:hover),
-        &.SelectAllSuggestions--isHighlighted,
+        &.MultiSelectItem--isHighlighted,
         &:has(label:active) {
             background: var(--color-background-neutral-subtlest-disabled, #FFF);
         }

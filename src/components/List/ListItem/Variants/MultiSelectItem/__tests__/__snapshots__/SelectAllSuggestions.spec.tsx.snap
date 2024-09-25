@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SelectAllSuggestions should render correctly 1`] = `
+exports[`MultiSelectItem should render correctly 1`] = `
 <div>
   <li
     aria-selected="false"
-    class="SelectAllSuggestions"
+    class="MultiSelectItem"
     role="option"
     tabindex="0"
   >
