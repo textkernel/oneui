@@ -1,7 +1,7 @@
 /* eslint-disable react/no-children-prop */
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Input } from '@textkernel/oneui';
+import { Input, SearchInput } from '@textkernel/oneui';
 
 export default {
     title: 'Atoms/Input',
@@ -26,4 +26,18 @@ export const _Input: StoryInput = {
         context: undefined,
     },
     render: (args) => <Input {...args} />,
+};
+
+type StorySearchInput = StoryObj<typeof SearchInput>;
+
+export const _SearchInput: StorySearchInput = {
+    name: 'SearchInput',
+    args: {
+        placeholder: 'While typing, check your console log...',
+        label: 'Label',
+        helperText: 'Optional helper text',
+        errorMessage: 'Error message',
+        context: undefined,
+    },
+    render: (args) => <SearchInput {...args} />,
 };

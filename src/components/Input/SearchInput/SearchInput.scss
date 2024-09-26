@@ -1,0 +1,197 @@
+.SearchInput {
+    border: {
+        color: var(--color-border-input);
+        radius: var(--space-100);
+        style: solid;
+        width: var(--line-normal);
+    }
+    background-color: var(--color-background-input-default);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: var(--space-50);
+    padding: var(--space-150);
+    composes: OneUI-label-text from global;
+    width: 200px;
+
+    &::placeholder {
+        color: var(--color-text-subtlest);
+        line-height: var(--line-height-small);
+        opacity: 1;
+    }
+
+    &--isBlock {
+        width: 100%;
+    }
+
+    &:hover:not(.SearchInput--disabled):not(.SearchInput--readOnly):not(.SearchInput--context_critical) {
+        background-color: var(--color-background-input-hover);
+        border: 1px solid var(--color-border-input);
+    }
+
+    &:focus-within:not(.SearchInput--disabled):not(.SearchInput--readOnly):not(.SearchInput--context_critical) {
+        background-color: inherit;
+        border: 2px solid var(--color-border-selected);
+        outline: none;
+    }
+
+    &--disabled {
+        background-color: var(--color-background-input-default);
+        color: var(--color-text-disabled);
+        border: 1px solid var(--color-border-disabled);
+        cursor: not-allowed;
+
+        &::placeholder {
+            color: var(--color-text-disabled);
+        }
+    }
+
+    &--readOnly {
+        background-color: var(--color-background-input-read-only);
+        border: none;
+    }
+
+    &--size {
+        &_small {
+            height: 32px;
+        }
+
+        &_medium {
+            height: 40px;
+        }
+    }
+
+    &--context_critical,
+    &:invalid {
+        border: 2px solid var(--color-border-critical-bold-default);
+        outline: none;
+
+        &:focus,
+        &:hover {
+            border: 2px solid var(--color-border-critical-bold-default);
+            background-color: inherit;
+            outline: none;
+        }
+    }
+
+    &__input {
+        flex-grow: 1;
+        width: 100%;
+        border: inherit;
+        border-left: none;
+        border-right: none;
+        background-color: inherit;
+        color: inherit;
+        box-sizing: border-box;
+    
+        &:focus {
+            outline: none;
+        }
+    
+        &[disabled] {
+            color: var(--color-text-disabled);
+            cursor: not-allowed;
+    
+            &::placeholder {
+                color: var(--color-text-disabled);
+            }
+        }
+    
+        &[readOnly] {
+            background-color: var(--color-background-input-read-only);
+        }
+        
+        &--size {
+            &_small {
+                height: 32px;
+                padding: 0;
+            }
+    
+            &_medium {
+                height: 40px;
+                padding: 0;
+            }
+        }
+      
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: 16px;
+        height: 16px;
+        fill: var(--color-icon-critical-default);
+
+        &--type_search {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-icon-subtlest);
+        }
+
+        &--type_clear {
+            width: 16px;
+            height: 16px;
+            fill: var(--color-icon-subtlest);
+            display: none;
+        }
+
+        &--bold {
+            fill: var(--color-icon-bold);
+        }
+
+        &--visible {
+            display: inline;
+            cursor: pointer;
+        }
+       
+        &--reserveErrorMessageSpace {
+            display: none;
+        }
+
+        &--context_critical,
+        &:invalid {
+            display: block;
+        }
+    }
+
+    &__label {
+        margin-bottom: var(--space-50);
+        padding: 0 var(--space-50);
+        composes: OneUI-caption-text-bold from global;
+        display: block;
+    }
+
+    &__errorMessageWrapper {
+        margin-top: var(--space-50);
+        padding: 0 var(--space-50);
+        display: flex;
+        gap: var(--space-25);
+        align-items: center;
+
+        &--reserveErrorMessageSpace {
+            min-height: 16px;
+            box-sizing: content-box;
+        }
+    }
+
+    &__errorMessage {
+        margin: 0;
+        composes: OneUI-caption-text from global;
+        color: var(--color-text-critical-default);
+
+        &--reserveErrorMessageSpace {
+            display: none;
+        }
+
+        &--context_critical,
+        &:invalid {
+            display: block;
+        }
+    }
+
+    &__helperText {
+        margin: var(--space-50) 0 0;
+        padding: 0 var(--space-50);
+        composes: OneUI-caption-text from global;
+        color: var(--color-text-subtlest);
+    }
+}
