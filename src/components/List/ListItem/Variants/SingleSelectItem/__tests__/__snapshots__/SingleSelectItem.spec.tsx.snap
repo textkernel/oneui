@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleSelectItem should render correctly 1`] = `
+<div>
+  <li
+    aria-selected="false"
+    class="SingleSelectItem SingleSelectItem--isHighlighted"
+    role="option"
+    tabindex="0"
+  >
+    <span
+      class="SingleSelectItem__text"
+    >
+      Item 1
+    </span>
+  </li>
+</div>
+`;

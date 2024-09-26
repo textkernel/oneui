@@ -1,2 +1,2 @@
 export { ListItem, Props as ListItemProps } from './ListItem';
-export * from './Variants/SuggestionItem';
+export * from './Variants/SingleSelectItem';

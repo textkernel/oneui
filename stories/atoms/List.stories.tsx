@@ -8,6 +8,7 @@ import {
     Text,
     Button,
     Checkbox,
+    SingleSelectItem,
 } from '@textkernel/oneui';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -58,6 +59,8 @@ export const _List: Story = {
                 <Checkbox id="item4" />
                 Clickable item
             </ListItem>,
+            <SingleSelectItem>Suggestion Item</SingleSelectItem>,
+            <SingleSelectItem isSelected>Suggestion Item Selected</SingleSelectItem>,
         ],
     },
     render: (args) => <List {...args} />,

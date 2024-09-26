@@ -1,9 +1,18 @@
-.SuggestionItem {
+.SingleSelectItem {
     all: unset;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     text-decoration: none;
     padding: 10px var(--space-150);
     outline: none;
+
+    &:focus-visible,
+    &--isHighlighted {
+        border: var(--border-width-thick) solid var(--color-info-20);
+        padding: calc(10px - var(--border-width-thick))
+            calc(var(--space-150) - var(--border-width-thick));
+    }
 
     &:hover {
         background-color: var(--color-background-neutral-subtlest-hover);
@@ -14,14 +23,7 @@
         background-color: var(--color-background-neutral-subtlest-pressed);
     }
 
-    &:focus-visible,
-    &--isHighlighted {
-        border: var(--border-width-thick) solid var(--color-info-20);
-        padding: calc(10px - var(--border-width-thick))
-            calc(var(--space-150) - var(--border-width-thick));
-    }
-
-    &--disabled.SuggestionItem:hover {
+    &--disabled.SingleSelectItem:hover {
         background-color: var(--color-background-neutral-subtlest-disabled);
         color: var(--color-text-disabled);
         border: none;
@@ -34,13 +36,13 @@
         cursor: not-allowed;
     }
 
-    &--isSelected.SuggestionItem:hover {
+    &--isSelected.SingleSelectItem:hover {
         background-color: var(--color-background-selected-subtlest-hover);
         color: var(--color-link-default);
         border: none;
     }
 
-    &--isSelected.SuggestionItem:active {
+    &--isSelected.SingleSelectItem:active {
         background-color: var(--color-background-selected-subtlest-pressed);
     }
 
@@ -49,25 +51,20 @@
         color: var(--color-text-selected-default);
     }
 
-    &--isSelected.SuggestionItem--disabled {
+    &--isSelected.SingleSelectItem--disabled {
         background-color: var(--color-background-selected-subtlest-default);
         color: var(--color-link-default);
 
         &:active {
             background-color: var(--color-background-selected-subtlest-hover);
         }
-    }
-}
 
-.SuggestionItem__checkbox {
-    width: 100%;
-    display: flex;
-
-    label {
-        flex-grow: 1;
+        &:hover {
+            background-color: var(--color-background-selected-subtlest-default);
+        }
     }
 
-    &--isSelected.SuggestionItem__checkbox--disabled {
-        color: var(--color-text-selected-disabled);
+    &__text {
+        composes: OneUI-label-text from global;
     }
 }
