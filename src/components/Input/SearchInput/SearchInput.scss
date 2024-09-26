@@ -24,6 +24,19 @@
         width: 100%;
     }
 
+    &--context_critical,
+    &:invalid {
+        border: 2px solid var(--color-border-critical-bold-default);
+        outline: none;
+
+        &:focus,
+        &:hover {
+            border: 2px solid var(--color-border-critical-bold-default);
+            background-color: inherit;
+            outline: none;
+        }
+    }
+
     &:hover:not(.SearchInput--disabled):not(.SearchInput--readOnly):not(.SearchInput--context_critical) {
         background-color: var(--color-background-input-hover);
         border: 1px solid var(--color-border-input);
@@ -58,19 +71,6 @@
 
         &_medium {
             height: 40px;
-        }
-    }
-
-    &--context_critical,
-    &:invalid {
-        border: 2px solid var(--color-border-critical-bold-default);
-        outline: none;
-
-        &:focus,
-        &:hover {
-            border: 2px solid var(--color-border-critical-bold-default);
-            background-color: inherit;
-            outline: none;
         }
     }
 
