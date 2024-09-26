@@ -59,7 +59,7 @@
         background: var(--color-background-selected-subtlest-default, #E6F2FF);
 
         &:has(label:hover),
-        &--isHighlighted {
+        &.MultiSelectItem--isHighlighted {
             background: var(--color-background-selected-subtlest-hover, #CCE4FF);
         }
     
