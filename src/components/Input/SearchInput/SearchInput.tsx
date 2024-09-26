@@ -80,7 +80,10 @@ export const SearchInput = React.forwardRef<HTMLInputElement, Props>(
                         {label}
                     </label>
                 )}
-                <div {...block({ withIcon: true, context, size, isBlock, disabled, readOnly })}>
+                <div
+                    data-testid="searchInputContainer"
+                    {...block({ withIcon: true, context, size, isBlock, disabled, readOnly })}
+                >
                     <Search
                         {...elem('icon', { type: 'search', bold: hasText, size })}
                         viewBox="0 0 24 24"
