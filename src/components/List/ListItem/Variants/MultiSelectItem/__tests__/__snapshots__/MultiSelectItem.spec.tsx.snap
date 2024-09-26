@@ -4,7 +4,7 @@ exports[`MultiSelectItem should render correctly 1`] = `
 <div>
   <li
     aria-selected="false"
-    class="MultiSelectItem"
+    class="MultiSelectItem MultiSelectItem--variant_option"
     role="option"
     tabindex="0"
   >
@@ -32,9 +32,7 @@ exports[`MultiSelectItem should render correctly 1`] = `
             width="12px"
           />
         </span>
-        <span
-          class="Text--size_medium Checkbox__text"
-        >
+        <span>
           Select all
         </span>
       </label>

@@ -1,9 +1,10 @@
 import React from 'react';
 import { bem } from '../../../../../utils';
 import { Props as ListItemProps } from '../../ListItem';
-import styles from './MultiSelectItem.scss';
 import { Checkbox } from '../../../../Checkbox';
+import { Text } from '../../../../Text';
 import { SPACE_KEY } from '../../../../../constants';
+import styles from './MultiSelectItem.scss';
 
 export interface Props
     extends Omit<ListItemProps, 'onClick' | 'onChange' | 'value' | 'highlightContext'> {
@@ -13,6 +14,10 @@ export interface Props
     value: unknown;
     /** Id for the checkbox */
     id?: string;
+    /** a variant to determine the look and feel of component */
+    variant?: 'option' | 'select-all' | 'group-title';
+    /** to add a priority badge before the label */
+    hasPriority?: boolean;
 }
 
 const { block } = bem('MultiSelectItem', styles);
@@ -28,6 +33,8 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props>(
             value,
             disabled = false,
             passDisabledToLi = false,
+            variant = 'option',
+            hasPriority = false, // eslint-disable-line @typescript-eslint/no-unused-vars
             ...rest
         },
         ref
@@ -65,6 +72,7 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props>(
                     isSelected,
                     disabled,
                     passDisabledToLi,
+                    variant,
                     ...rest,
                 })}
             >
@@ -75,7 +83,10 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props>(
                     onChange={handleChange}
                     tabIndex={-1}
                 >
-                    {children}
+                    <>
+                        {/* to be implemented: {hasPriority && <PriorityBadge />} */}
+                        <Text inline>{children}</Text>
+                    </>
                 </Checkbox>
             </li>
         );
