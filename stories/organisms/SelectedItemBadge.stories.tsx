@@ -5,6 +5,7 @@ import {
     ListItem,
     SelectedItemBadge,
     SelectedItemBadgePriorityItem,
+    SingleSelectItem,
     Text,
 } from '@textkernel/oneui';
 
@@ -434,6 +435,63 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
                                 {radius}
                             </Text>
                         </ListItem>
+                    ))}
+                </SelectedItemBadge>
+            </div>
+        );
+    },
+};
+
+export const SelectedItemBadgeWithSingleSelectItems: Story = {
+    name: 'SelectedItemBadge - SingleSelectItem',
+    args: {
+        label: 'London',
+        onDelete: undefined,
+    },
+    render: (args) => {
+        const [selectedRadius, setSelectedRadius] = React.useState<string>();
+
+        React.useEffect(() => {
+            setSelectedRadius(selectedRadius);
+        }, [selectedRadius]);
+
+        const handleRadiusChange = (newRadius: string) => {
+            setSelectedRadius(newRadius);
+            console.log(`Option changed to ${newRadius}`);
+        };
+
+        return (
+            <div style={{ width: '200px' }}>
+                <SelectedItemBadge
+                    {...args}
+                    onChange={handleRadiusChange}
+                    additionalLabel={selectedRadius && `+${selectedRadius} km`}
+                >
+                    <div
+                        style={{
+                            padding: 'var(--space-75) var(--space-75) var(--space-50)',
+                            backgroundColor: 'var(--color-background-brand-subtlest-default)',
+                            fontWeight: 'var(--font-weight-bold)',
+                            color: 'var(--color-text-brand-default)',
+                        }}
+                    >
+                        <Text inline title="Radius" size="small">
+                            {'Radius'.toUpperCase()}
+                        </Text>
+                    </div>
+                    {radiusList.map((radius) => (
+                        <SingleSelectItem
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'flex-start',
+                                gap: '8px',
+                            }}
+                            key={radius}
+                            value={radius}
+                        >
+                            {radius}
+                        </SingleSelectItem>
                     ))}
                 </SelectedItemBadge>
             </div>

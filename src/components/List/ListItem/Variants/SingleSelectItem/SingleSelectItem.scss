@@ -7,6 +7,12 @@
     padding: var(--space-150);
     outline: none;
 
+    &:focus-visible,
+    &--isHighlighted {
+        border: var(--border-width-thick) solid var(--color-info-20);
+        padding: calc(var(--space-150) - var(--border-width-thick));
+    }
+
     &--disabled.SingleSelectItem--isSelected.SingleSelectItem--isHighlighted {
         &:hover {
             padding: var(--space-150);
@@ -15,12 +21,6 @@
 
     &--disabled.SingleSelectItem--isHighlighted:hover {
         padding: var(--space-150);
-    }
-
-    &:focus-visible,
-    &--isHighlighted {
-        border: var(--border-width-thick) solid var(--color-info-20);
-        padding: calc(var(--space-150) - var(--border-width-thick));
     }
 
     &:not(.SingleSelectItem--disabled).SingleSelectItem--isHighlighted {

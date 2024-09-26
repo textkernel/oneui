@@ -4,9 +4,8 @@ exports[`SingleSelectItem should render correctly 1`] = `
 <div>
   <li
     aria-selected="false"
-    class="SingleSelectItem SingleSelectItem--isHighlighted"
+    class="SingleSelectItem"
     role="option"
-    tabindex="0"
   >
     <span
       class="SingleSelectItem__text"

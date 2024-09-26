@@ -9,7 +9,7 @@ const { block, elem } = bem('SingleSelectItem', styles);
 export const SingleSelectItem = ({
     disabled = false,
     isSelected = false,
-    isHighlighted = true,
+    isHighlighted = false,
     passDisabledToLi = false,
     onClick,
     children,
@@ -24,7 +24,6 @@ export const SingleSelectItem = ({
         <li
             {...liProps}
             role="option"
-            tabIndex={0}
             onClick={onClick}
             onKeyDown={onClick}
             aria-selected={isSelected}
