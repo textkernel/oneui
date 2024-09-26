@@ -6,8 +6,8 @@ exports[`ThemeActions component should render component correctly with all actio
     class="ThemeActions"
   >
     <button
-      class="Button Button--size_small ThemeActions__button"
-      context="critical"
+      class="Button Button--size_small Button--variant_filled Button--context_critical ThemeActions__button"
+      style="width: auto;"
       type="reset"
     >
       <svg
@@ -60,8 +60,9 @@ exports[`ThemeActions component should render component correctly with all actio
     </div>
     <span>
       <button
-        class="Button Button--size_small ThemeActions__button"
+        class="Button Button--size_small Button--variant_filled Button--context_secondary ThemeActions__button"
         disabled=""
+        style="width: auto;"
         type="button"
       >
         <svg

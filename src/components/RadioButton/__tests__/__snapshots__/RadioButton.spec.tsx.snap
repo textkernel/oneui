@@ -37,7 +37,7 @@ exports[`<RadioButton> that renders a radio button should render radio button wi
         class="RadioButton__box"
       />
       <span
-        class="RadioButton__text"
+        class="Text--size_medium RadioButton__text"
       >
         Choose me
       </span>
@@ -65,7 +65,7 @@ exports[`<RadioButton> that renders a radio button should rendered disabled radi
         class="RadioButton__box"
       />
       <span
-        class="RadioButton__text"
+        class="Text--context_neutral Text--size_medium RadioButton__text"
       >
         Useless radio button
       </span>

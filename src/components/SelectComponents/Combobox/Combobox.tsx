@@ -96,7 +96,7 @@ export function Combobox<S>({
                 {selectedSuggestion ? (
                     suggestionToString(selectedSuggestion)
                 ) : (
-                    <Text inline {...elem('placeholder')} context="muted">
+                    <Text inline {...elem('placeholder')} context="neutral">
                         {inputPlaceholder}
                     </Text>
                 )}

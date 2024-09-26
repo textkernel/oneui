@@ -59,7 +59,7 @@ export const ExpandableText = React.forwardRef<HTMLDivElement, Props>((props, re
                 {children}
             </div>
             {isExpandable && (
-                <Button isLink isInline onClick={handleToggleClick}>
+                <Button variant="ghost" size="small" onClick={handleToggleClick}>
                     {isCollapsed ? showMoreButtonLabel : showLessButtonLabel}
                     <ExpandIcon {...elem('buttonArrow', { isCollapsed })} />
                 </Button>

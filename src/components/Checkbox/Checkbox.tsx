@@ -45,7 +45,12 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
         let text = children;
         if (children && typeof children === 'string') {
             text = (
-                <Text {...elem('text')} inline context={disabled ? 'neutral' : 'default'}>
+                <Text
+                    {...elem('text')}
+                    size="medium"
+                    inline
+                    context={disabled ? 'neutral' : 'default'}
+                >
                     {children}
                 </Text>
             );

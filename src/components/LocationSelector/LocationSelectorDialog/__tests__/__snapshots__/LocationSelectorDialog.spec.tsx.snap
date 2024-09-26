@@ -60,7 +60,8 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
       </div>
     </div>
     <button
-      class="Button Button--isPrimary LocationSelectorDialog__button"
+      class="Button Button--variant_filled Button--context_primary LocationSelectorDialog__button"
+      style="width: auto;"
       type="button"
     >
       doneLabel
@@ -79,7 +80,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           class="LocationCard__header"
         >
           <p
-            class="Text--size_large LocationCard__title"
+            class="LocationCard__title"
             title="Amsterdam"
           >
             Amsterdam
@@ -99,7 +100,7 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
           class="LocationCard__header"
         >
           <p
-            class="Text--size_large LocationCard__title"
+            class="LocationCard__title"
             title="Utrecht"
           >
             Utrecht

@@ -23,17 +23,17 @@ describe('<Button> that renders a button', () => {
     });
     it('should add classes when props are changed', () => {
         const view = render(
-            <Button isPrimary size="large" isBlock isLoading>
+            <Button context="primary" size="large" isBlock isLoading>
                 <span>Click me</span>
             </Button>
         );
 
         expect(view.container).toMatchSnapshot();
         const button = screen.getByRole('button');
-        expect(button).toHaveClass('Button--isPrimary');
+        expect(button).toHaveClass('Button--context_primary');
         expect(button).toHaveClass('Button--size_large');
         expect(button).toHaveClass('Button--isBlock');
-        expect(button).toHaveClass('Button--isLoading');
+        expect(button).toHaveAttribute('disabled');
     });
     it('should call click callback correctly', async () => {
         const onClickMock = jest.fn();

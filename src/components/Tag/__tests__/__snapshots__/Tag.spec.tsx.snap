@@ -9,7 +9,7 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
     tabindex="0"
   >
     <p
-      class="Text--size_large Tag__text my-class"
+      class="Tag__text my-class"
       style="color: red;"
       title="Tag text"
     >

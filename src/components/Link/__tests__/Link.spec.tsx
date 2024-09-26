@@ -39,4 +39,16 @@ describe('<Link> that renders a link', () => {
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
     });
+
+    it('should render correctly with external link', () => {
+        const label = 'external link';
+        view.rerender(
+            <Link href={href} isExternal externalLinkIconLabel={label}>
+                external link
+            </Link>
+        );
+
+        expect(view.container).toMatchSnapshot();
+        expect(screen.getByLabelText(label)).toBeInTheDocument();
+    });
 });

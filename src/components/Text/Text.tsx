@@ -12,12 +12,17 @@ export interface Props extends React.HTMLAttributes<HTMLElement> {
     context?: Context | 'neutral' | 'brand' | 'default';
     /** Custom text sizes */
     size?: Size;
+    /** for bold text */
+    isBold?: boolean;
 }
 
 const { block } = bem('Text', styles);
 
 export const Text = React.forwardRef<HTMLElement, Props>(
-    ({ children, context = 'default', inline = false, size = 'normal', ...rest }, ref) => {
+    (
+        { children, context = 'default', inline = false, size = 'large', isBold = false, ...rest },
+        ref
+    ) => {
         if (typeof children !== 'number' && !children) {
             return null;
         }
@@ -25,7 +30,7 @@ export const Text = React.forwardRef<HTMLElement, Props>(
         const HtmlNodeType = inline ? 'span' : 'p';
 
         return (
-            <HtmlNodeType ref={ref} {...rest} {...block({ context, size, ...rest })}>
+            <HtmlNodeType ref={ref} {...rest} {...block({ context, size, isBold, ...rest })}>
                 {children}
             </HtmlNodeType>
         );

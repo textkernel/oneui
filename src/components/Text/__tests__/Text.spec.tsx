@@ -13,13 +13,16 @@ describe('<Text> that renders a text block', () => {
 
     it('should add classes when props are changed', () => {
         const { container } = render(
-            <Text inline context="neutral" size="small">
-                Some inline, neutral text content
+            <Text inline context="neutral" size="small" isBold>
+                Some inline, neutral, bold text content
             </Text>
         );
 
         expect(container).toMatchSnapshot();
-        expect(screen.getByText('Some inline, neutral text content')).toBeInTheDocument();
+        expect(screen.getByText('Some inline, neutral, bold text content')).toBeInTheDocument();
+        expect(screen.getByText('Some inline, neutral, bold text content')).toHaveClass(
+            'Text--context_neutral Text--size_small Text--isBold'
+        );
     });
 
     it('should render html children correctly', () => {

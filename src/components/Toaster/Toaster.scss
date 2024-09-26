@@ -1,0 +1,111 @@
+@use "sass:map";
+@import '../../themes/oneui/oneui';
+
+$contexts: (info, success, cautious, critical);
+$contextMap: (
+    'info': 'information',
+    'success': 'success',
+    'cautious': 'caution',
+    'critical': 'critical'
+);
+
+.Toast {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-150);
+    min-width: 400px;
+    padding: var(--space-200);
+    border: 1px solid;
+    border-radius: var(--space-150);
+
+    &__contextIcon {
+        padding: 0;
+        margin: 0;
+        font-size: var(--space-300);
+        @each $context in $contexts {
+            $mappedContext: map.get($contextMap, $context);
+            &--context_#{$context} {
+                fill: var(--color-icon-#{$mappedContext}-default);
+            }
+        }
+    }
+
+    &__content {
+        flex-grow: 1; 
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-150);
+    }
+
+    &__message {
+        gap: var(--space-100);
+        display: flex; 
+        flex-direction: column;
+        margin: 0;
+        font-family: var(--font-family-primary);
+        h3, p {
+            margin: 0; 
+        }
+    }
+
+    &__actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-100);
+        color: var(--color-link-default);
+    }
+
+    &__toastAction {
+        composes: OneUI-label-text-bold from global;
+        text-decoration: none;
+        color: var(--color-link-default);
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+    }
+       
+    &__closeButton {
+        display: flex;
+        align-items: flex-start;
+        height: var(--space-300);
+        width: var(--space-300);
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        background-color: var(--transparent);
+        border: none;
+        outline: 0;
+        
+        &:focus {
+            box-shadow: 0px 0px 0px 2px var(--color-background-neutral-subtlest-pressed);
+            border-radius: var(--space-50);;
+        }
+    }
+
+    &__closeIcon {
+        font-size: var(--space-300);
+        color: var(--color-icon-subtle);  
+        fill: var(--color-icon-subtle);
+    }
+
+    @each $context in $contexts {
+        $mappedContext: map.get($contextMap, $context);
+        &--context_#{$context} {
+            background-color: var(--color-background-#{$mappedContext}-subtlest-default);
+            border-color: var(--color-border-#{$mappedContext}-subtle-#{$mappedContext});
+        }
+    }
+}
+
+.Toaster {
+    --width: unset;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 1000;
+    &[data-y-position='bottom'] {
+        bottom: var(--space-200);
+    }
+}

@@ -2,14 +2,14 @@ import * as React from 'react';
 import { EmptyElement } from '@textkernel/oneui/customTypes/types';
 import { bem } from '../../utils';
 import styles from './ButtonGroup.scss';
-import { Size } from '../../constants';
+import { ButtonContext, Size } from '../../constants';
 import { ButtonProps } from '../Buttons';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     /** The buttons in this group */
     children: React.ReactElement<ButtonProps> | (React.ReactElement<ButtonProps> | EmptyElement)[];
-    /** Should the button be in primary style or not */
-    isPrimary?: boolean;
+    /** Define the button group context, eg. primary, secondary, critical */
+    context?: ButtonContext;
     /** Whether or not to show block-level button group (full width) */
     isBlock?: boolean;
     /** The size of the buttons in the button group */
@@ -20,8 +20,8 @@ const { block, elem } = bem('ButtonGroup', styles);
 
 export const ButtonGroup = ({
     children,
-    isPrimary = true,
-    size = 'normal',
+    context = 'primary',
+    size = 'medium',
     isBlock = false,
     ...rest
 }: Props) => {
@@ -37,7 +37,7 @@ export const ButtonGroup = ({
                 if (totalNumberOfButtons === 1) {
                     return React.cloneElement(button, {
                         ...button.props,
-                        isPrimary,
+                        context,
                         size,
                         isBlock,
                     });
@@ -46,10 +46,10 @@ export const ButtonGroup = ({
                 return React.cloneElement(button, {
                     ...button.props,
                     size,
-                    isPrimary,
+                    context,
                     ...elem('button', {
                         isBlock,
-                        isPrimary,
+                        context,
                         first: i === 0,
                         last: i + 1 === totalNumberOfButtons,
                     }),

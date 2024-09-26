@@ -1,24 +1,17 @@
-@import '../../themes/oneui/placeholders/input';
-@import '../../themes/oneui/mixins/colors';
-
 .Input {
-    @extend %input;
-
-    border-color: var(--color-neutral-20);
-
-    &--context {
-        @each $context in ($contexts) {
-            &_#{ $context } {
-                border-color: var(--color-#{$context}-50);
-                &:focus {
-                    border-color: var(--color-#{$context}-50);
-                }
-            }
-        }
+    border: {
+        color: var(--color-border-input);
+        radius: var(--space-100);
+        style: solid;
+        width: var(--line-normal);
     }
+    background-color: var(--color-background-input-default);
+    box-sizing: border-box;
+    composes: OneUI-label-text from global;
 
     &::placeholder {
-        color: var(--color-neutral-30);
+        color: var(--color-text-subtlest);
+        line-height: var(--line-height-small);
         opacity: 1;
     }
 
@@ -26,22 +19,128 @@
         width: 100%;
     }
 
+    &:hover {
+        background-color: var(--color-background-input-hover);
+        border: 1px solid var(--color-border-input);
+    }
+
+    &:focus {
+        background-color: inherit;
+        border: 2px solid var(--color-border-selected);
+        outline: none;
+    }
+
     &[disabled] {
-        background-color: var(--color-background);
+        background-color: var(--color-background-input-default);
+        color: var(--color-text-disabled);
+        border: 1px solid var(--color-border-disabled);
+        cursor: not-allowed;
+
+        &::placeholder {
+            color: var(--color-text-disabled);
+        }
+    }
+
+    &[readOnly] {
+        background-color: var(--color-background-input-read-only);
+        border: none;
     }
 
     &--size {
         &_small {
-            min-height: 26px;
-            height: 26px;
-            font-size: var(--font-size-small);
-            line-height: var(--line-height-small);
-            padding: var(--space-50);
+            padding: var(--space-75) var(--space-100);
+            height: 32px;
+
+            &:focus:not(.Input--context_critical):not([readOnly]) {
+                padding: var(--space-75) calc(var(--space-100) - 1px);
+            }
+
+            &.Input--context_critical {
+                padding: var(--space-75) calc(var(--space-100) - 1px);
+            }
         }
-        &_large {
-            font-size: var(--font-size-large);
-            line-height: var(--line-height-large);
-            padding: var(--space-100);
+
+        &_medium {
+            padding: calc(var(--space-25) * 5) var(--space-150);
+            height: 40px;
+
+            &:focus:not(.Input--context_critical):not([readOnly]) {
+                padding: calc(var(--space-25) * 5) calc(var(--space-150) - 1px);
+            }
+
+            &.Input--context_critical {
+                padding: calc(var(--space-25) * 5) calc(var(--space-150) - 1px);
+            }
+        }
+    }
+
+    &--context_critical,
+    &:invalid {
+        border: 2px solid var(--color-border-critical-bold-default);
+        outline: none;
+
+        &:focus,
+        &:hover {
+            border: 2px solid var(--color-border-critical-bold-default);
+            background-color: inherit;
+            outline: none;
+        }
+    }
+
+    &__label {
+        margin-bottom: var(--space-50);
+        padding: 0 var(--space-50);
+        composes: OneUI-caption-text-bold from global;
+        display: block;
+    }
+
+    &__errorMessageWrapper {
+        margin-top: var(--space-50);
+        padding: 0 var(--space-50);
+        display: flex;
+        gap: var(--space-25);
+        align-items: center;
+
+        &--reserveErrorMessageSpace {
+            min-height: 16px;
+            box-sizing: content-box;
+        }
+    }
+
+    &__errorMessage {
+        margin: 0;
+        composes: OneUI-caption-text from global;
+        color: var(--color-text-critical-default);
+
+        &--reserveErrorMessageSpace {
+            display: none;
+        }
+
+        &--context_critical,
+        &:invalid {
+            display: block;
+        }
+    }
+
+    &__helperText {
+        margin: var(--space-50) 0 0;
+        padding: 0 var(--space-50);
+        composes: OneUI-caption-text from global;
+        color: var(--color-text-subtlest);
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        fill: var(--color-icon-critical-default);
+
+        &--reserveErrorMessageSpace {
+            display: none;
+        }
+
+        &--context_critical,
+        &:invalid {
+            display: block;
         }
     }
 }

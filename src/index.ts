@@ -61,6 +61,7 @@ export * from './components/Pagination';
 export * from './components/Pill';
 export * from './components/RadioButton';
 export * from './components/Teaser';
+export * from './components/Toaster';
 export * from './components/Toggle';
 export * from './components/Tooltip';
 export * from './components/TwoPaneView';
@@ -68,7 +69,7 @@ export * from './components/WeightedResultBar';
 export * from './components/NumericStepper';
 // Organisms
 export * from './components/Dialogs';
-export * from './components/SelectBadge';
+export * from './components/SelectedItemBadge';
 export * from './components/SelectComponents';
 export * from './components/LocationAutocomplete';
 export * from './components/LocationSelector';

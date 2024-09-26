@@ -18,18 +18,7 @@ export const _Button: StoryButton = {
         size: SIZES[1],
         type: 'submit',
         children: 'Click me!',
-    },
-    render: (args) => <Button {...args} />,
-};
-
-export const ButtonAsALink: StoryButton = {
-    name: 'Button as a link',
-    args: {
-        target: '_blank',
-        isLink: true,
-        size: SIZES[1],
-        href: 'https://github.com/textkernel/oneui',
-        children: 'Click me!',
+        context: 'secondary',
     },
     render: (args) => <Button {...args} />,
 };

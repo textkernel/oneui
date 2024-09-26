@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { bem } from '../../../utils';
-import { Size } from '../../../constants';
+import { OldSize as Size } from '../../../constants';
 import { SelectButtonProps } from '../SelectButton';
 import styles from './SelectButtonGroup.scss';
 

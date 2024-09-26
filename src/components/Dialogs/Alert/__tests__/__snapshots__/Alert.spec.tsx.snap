@@ -38,7 +38,8 @@ exports[`Alert should render correctly 1`] = `
           class="Dialog__actions"
         >
           <button
-            class="Button Button--isPrimary"
+            class="Button Button--variant_filled Button--context_primary"
+            style="width: auto;"
             type="button"
           >
             OK
@@ -96,7 +97,8 @@ exports[`Alert should render correctly with title 1`] = `
           class="Dialog__actions"
         >
           <button
-            class="Button Button--isPrimary"
+            class="Button Button--variant_filled Button--context_primary"
+            style="width: auto;"
             type="button"
           >
             OK

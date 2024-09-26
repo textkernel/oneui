@@ -6,7 +6,8 @@ exports[`CalendarHeader should render correctly 1`] = `
     class="CalendarHeader"
   >
     <button
-      class="Button CalendarHeader__navButton"
+      class="Button Button--variant_filled Button--context_secondary CalendarHeader__navButton"
+      style="width: auto;"
       type="button"
     >
       <svg
@@ -27,9 +28,7 @@ exports[`CalendarHeader should render correctly 1`] = `
     <div
       role="presentation"
     >
-      <span
-        class="Text--size_large"
-      >
+      <span>
         December
       </span>
       <select
@@ -88,7 +87,8 @@ exports[`CalendarHeader should render correctly 1`] = `
       </select>
     </div>
     <button
-      class="Button CalendarHeader__navButton"
+      class="Button Button--variant_filled Button--context_secondary CalendarHeader__navButton"
+      style="width: auto;"
       type="button"
     >
       <svg

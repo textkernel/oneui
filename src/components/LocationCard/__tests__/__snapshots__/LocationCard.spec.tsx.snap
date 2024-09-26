@@ -9,7 +9,7 @@ exports[`LocationCard component should render component correctly 1`] = `
       class="LocationCard__header"
     >
       <p
-        class="Text--size_large LocationCard__title"
+        class="LocationCard__title"
         title="London"
       >
         London
@@ -68,7 +68,7 @@ exports[`LocationCard component should render component correctly without radius
       class="LocationCard__header"
     >
       <p
-        class="Text--size_large LocationCard__title"
+        class="LocationCard__title"
         title="London"
       >
         London

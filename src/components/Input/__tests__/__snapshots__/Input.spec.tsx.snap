@@ -2,23 +2,48 @@
 
 exports[`<Input> that renders an input field should add classes when props are changed 1`] = `
 <div>
+  <label
+    class="Input__label"
+    for=":r1:"
+  >
+    Input Label
+  </label>
   <input
-    class="Input Input--context_critical Input--size_large Input--isBlock"
+    aria-invalid="true"
+    class="Input Input--context_critical Input--size_medium Input--isBlock"
     data-lpignore="true"
     disabled=""
+    id=":r1:"
     type="text"
     value=""
   />
+  <p
+    class="Input__helperText"
+  >
+    This is a helper text
+  </p>
 </div>
 `;
 
 exports[`<Input> that renders an input field should render default input correctly 1`] = `
 <div>
+  <label
+    class="Input__label"
+    for=":r0:"
+  >
+    Input Label
+  </label>
   <input
-    class="Input"
+    class="Input Input--size_medium"
     data-lpignore="true"
+    id=":r0:"
     type="text"
     value="Some value"
   />
+  <p
+    class="Input__helperText"
+  >
+    This is a helper text
+  </p>
 </div>
 `;

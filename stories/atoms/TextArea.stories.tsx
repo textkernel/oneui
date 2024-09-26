@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { TextArea } from '@textkernel/oneui';
-import { SIZES } from '@textkernel/oneui/constants';
+import { OLD_SIZES as SIZES } from '@textkernel/oneui/constants';
 
 const meta: Meta<typeof TextArea> = {
     title: 'Atoms/TextArea',

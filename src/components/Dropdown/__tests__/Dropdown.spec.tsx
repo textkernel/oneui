@@ -19,7 +19,7 @@ describe('Dropdown', () => {
     beforeEach(() => {
         view = render(
             <Dropdown
-                button={<Button isPrimary>Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
                 onToggleClick={mockOnButtonClick}
@@ -59,7 +59,7 @@ describe('Dropdown', () => {
         const user = userEvent.setup();
         view.rerender(
             <Dropdown
-                button={<Button isPrimary>Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >
@@ -102,7 +102,7 @@ describe('Dropdown', () => {
         const user = userEvent.setup();
         view.rerender(
             <Dropdown
-                button={<Button isPrimary>Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >
@@ -126,7 +126,7 @@ describe('Dropdown', () => {
         const user = userEvent.setup();
         view.rerender(
             <Dropdown
-                button={<Button isPrimary>Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >
@@ -200,7 +200,7 @@ describe('Dropdown', () => {
     it('should open dropdown by default if corresponding prop is set', async () => {
         view = render(
             <Dropdown
-                button={<Button isPrimary>Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
                 additionalSelectProps={{
@@ -229,7 +229,7 @@ describe('Dropdown', () => {
         const condition = false;
         view.rerender(
             <Dropdown
-                button={<Button isPrimary>Click me!</Button>}
+                button={<Button context="primary">Click me!</Button>}
                 onChange={mockOnChange}
                 placement="top-start"
             >

@@ -31,7 +31,7 @@ export const _List: Story = {
             <ListItem>
                 First item passed as string
                 <ListActions>
-                    <Button isLink isInline>
+                    <Button variant="ghost" size="small">
                         Action
                     </Button>
                 </ListActions>
@@ -87,7 +87,7 @@ export const ListShowingResults: Story = {
                     details="It was posted here, yesterday"
                 />
                 <ListActions>
-                    <Button isLink onClick={onClickAction} isInline>
+                    <Button variant="ghost" size="small" onClick={onClickAction}>
                         Action
                     </Button>
                 </ListActions>
@@ -100,7 +100,7 @@ export const ListShowingResults: Story = {
                     details="It was posted there, yesterday"
                 />
                 <ListActions>
-                    <Button isLink onClick={onClickAction} isInline>
+                    <Button variant="ghost" size="small" onClick={onClickAction}>
                         Action
                     </Button>
                 </ListActions>
@@ -108,7 +108,7 @@ export const ListShowingResults: Story = {
             <ListItem onClick={onClickJob('Third')}>
                 <Teaser title="An other job with a very, very, very long title to be truncated by css if it doesn't fit" />
                 <ListActions>
-                    <Button isLink onClick={onClickAction} isInline>
+                    <Button variant="ghost" size="small" onClick={onClickAction}>
                         Action
                     </Button>
                 </ListActions>

@@ -12,6 +12,22 @@ exports[`<Link> that renders a link should add string html attributes correctly 
 </div>
 `;
 
+exports[`<Link> that renders a link should render correctly with external link 1`] = `
+<div>
+  <a
+    class="Link"
+    href="https://textkernel.com"
+  >
+    <svg
+      aria-label="external link"
+      class="Link__icon"
+      data-testid="default-icon"
+    />
+    external link
+  </a>
+</div>
+`;
+
 exports[`<Link> that renders a link should render default link correctly 1`] = `
 <div>
   <a

@@ -1,0 +1,186 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectedItemBadge Priority button renders correctly with all props provided 1`] = `
+<div>
+  <div
+    class="SelectedItemBadge"
+  >
+    <button
+      aria-activedescendant=""
+      aria-controls="downshift-:r0:-menu"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-label="priority button"
+      aria-labelledby="downshift-:r0:-label"
+      class="SelectedItemBadge__priorityButton"
+      id="downshift-:r0:-toggle-button"
+      role="combobox"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        class="SelectedItemBadge__icon SelectedItemBadge__icon--mandatory"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+    </button>
+    <ul
+      aria-labelledby="downshift-:r0:-label"
+      class="List"
+      id="downshift-:r0:-menu"
+      role="listbox"
+    />
+    <div
+      class="SelectedItemBadge__valueContainer"
+    >
+      <span
+        class="Text--size_small SelectedItemBadge__valueText"
+      >
+        London
+      </span>
+    </div>
+    <button
+      aria-label="delete button"
+      class="SelectedItemBadge__deleteButton"
+      type="button"
+    >
+      <svg
+        data-testid="default-icon"
+        style="width: 20px; height: 20px;"
+        viewBox="0 0 24 24"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`SelectedItemBadge Priority button should handle priority change correctly 1`] = `
+<div>
+  <div
+    class="SelectedItemBadge"
+  >
+    <button
+      aria-activedescendant=""
+      aria-controls="downshift-:r1:-menu"
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-label="priority button"
+      aria-labelledby="downshift-:r1:-label"
+      class="SelectedItemBadge__priorityButton SelectedItemBadge__priorityButton--isSelected"
+      id="downshift-:r1:-toggle-button"
+      role="combobox"
+      tabindex="0"
+      type="button"
+    >
+      <svg
+        class="SelectedItemBadge__icon SelectedItemBadge__icon--mandatory"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+    </button>
+    <ul
+      aria-labelledby="downshift-:r1:-label"
+      class="List Dropdown__list badgeDropdownList"
+      data-popper-escaped="true"
+      data-popper-placement="bottom-start"
+      data-popper-reference-hidden="true"
+      id="downshift-:r1:-menu"
+      role="listbox"
+      style="position: absolute; left: 0px; top: 0px; width: 0px; transform: translate(0px, 3px);"
+    >
+      <li
+        aria-disabled="false"
+        aria-selected="false"
+        class="ListItem ListItem--clickable List__item badgeListItem"
+        id="downshift-:r1:-item-0"
+        role="option"
+      >
+        <svg
+          class="SelectedItemBadge__icon SelectedItemBadge__icon--mandatory"
+          data-testid="default-icon"
+          viewBox="0 0 24 24"
+        />
+        <span
+          class="Text--size_small"
+        >
+          Mandatory
+        </span>
+      </li>
+      <li
+        aria-disabled="false"
+        aria-selected="false"
+        class="ListItem ListItem--clickable List__item badgeListItem"
+        id="downshift-:r1:-item-1"
+        role="option"
+      >
+        <svg
+          class="SelectedItemBadge__icon SelectedItemBadge__icon--important"
+          data-testid="default-icon"
+          viewBox="0 0 24 24"
+        />
+        <span
+          class="Text--size_small"
+        >
+          Important
+        </span>
+      </li>
+      <li
+        aria-disabled="false"
+        aria-selected="false"
+        class="ListItem ListItem--clickable List__item badgeListItem"
+        id="downshift-:r1:-item-2"
+        role="option"
+      >
+        <svg
+          class="SelectedItemBadge__icon SelectedItemBadge__icon--optional"
+          data-testid="default-icon"
+          viewBox="0 0 24 24"
+        />
+        <span
+          class="Text--size_small"
+        >
+          Optional
+        </span>
+      </li>
+      <li
+        aria-disabled="false"
+        aria-selected="false"
+        class="ListItem ListItem--clickable List__item badgeListItem"
+        id="downshift-:r1:-item-3"
+        role="option"
+      >
+        <svg
+          class="SelectedItemBadge__icon SelectedItemBadge__icon--exclude"
+          data-testid="default-icon"
+          viewBox="0 0 24 24"
+        />
+        <span
+          class="Text--size_small"
+        >
+          Exclude
+        </span>
+      </li>
+    </ul>
+    <div
+      class="SelectedItemBadge__valueContainer"
+    >
+      <span
+        class="Text--size_small SelectedItemBadge__valueText"
+      >
+        London
+      </span>
+    </div>
+    <button
+      aria-label="delete button"
+      class="SelectedItemBadge__deleteButton"
+      type="button"
+    >
+      <svg
+        data-testid="default-icon"
+        style="width: 20px; height: 20px;"
+        viewBox="0 0 24 24"
+      />
+    </button>
+  </div>
+</div>
+`;

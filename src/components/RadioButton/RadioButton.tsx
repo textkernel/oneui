@@ -31,7 +31,12 @@ export const RadioButton = forwardRef<HTMLInputElement, Props>(
             <label {...elem('label')} htmlFor={id}>
                 <span {...elem('box')} />
                 {!!children && (
-                    <Text {...elem('text')} inline context={disabled ? 'muted' : 'default'}>
+                    <Text
+                        {...elem('text')}
+                        size="medium"
+                        inline
+                        context={disabled ? 'neutral' : 'default'}
+                    >
                         {children}
                     </Text>
                 )}

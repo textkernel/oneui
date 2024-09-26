@@ -1,168 +1,212 @@
+@use "sass:map";
+$contexts: (primary, secondary, critical);
+$variants: (filled, outlined, ghost);
+
+$contextMap: (
+    'secondary': 'neutral',
+    'primary': 'brand',
+    'critical': 'critical'
+);
+
 @keyframes buttonLoading {
     0% {
         background-position: 100% 0;
     }
-
     100% {
         background-position: -100% 0;
     }
 }
-
 .Button {
+    font-family: inherit;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: {
-        radius: var(--border-radius);
-        width: var(--line-normal);
-        style: solid;
-    }
+    border-radius: var(--space-75);
+    border: none;
+    height: var(--space-400);
     box-sizing: border-box;
-    color: var(--color-foreground);
-    fill: var(--color-foreground);
-    background-color: var(--color-background);
-    border-color: var(--color-neutral-80);
     cursor: pointer;
-    font: {
-        size: var(--font-size-base);
-        weight: var(--font-weight-bold);
-        family: var(--font-family-primary);
-    }
+    composes: OneUI-label-text-bold from global;
     text-decoration: none;
-    line-height: var(--line-height-normal);
     margin: 0;
     outline: none;
-    padding: var(--space-75) var(--space-150);
+    padding: var(--space-0) var(--space-150);
     text-align: center;
     transition: all var(--transition-duration);
     white-space: nowrap;
     flex-wrap: nowrap;
 
-    &:hover,
-    &:focus,
+    // Default variant (filled) and context (primary)
+    background-color: var(--color-background-brand-bold-default);
+    color: var(--color-background);
+
+    &:hover {
+        background-color: var(--color-background-brand-bold-hover);
+    }
     &:active {
-        background-color: var(--color-neutral-10);
+        background-color: var(--color-background-critical-bold-pressed);
     }
-
-    &[disabled] {
+    &:focus {
+        box-shadow: 0px 0px 0px 2px var(--color-background-information-subtlest-pressed);
+    }
+    
+    &[disabled],
+    &--isLoading {
         cursor: not-allowed;
-        color: var(--color-background);
-        fill: var(--color-background);
-        background-color: var(--color-neutral-30);
-        border-color: var(--color-neutral-30);
-    }
-
-    &.Button--isLoading {
-        --button-gradient: linear-gradient(to right, white 0%, var(--color-neutral-10) 80%);
-        background-image: var(--button-gradient);
-
-        &:hover:not([disabled]) {
-            background-image: none;
-        }
-    }
-
-    &--size {
-        &_small {
-            font-size: var(--font-size-small);
-            line-height: var(--line-height-small);
-            padding: var(--space-50) var(--space-75);
-        }
-        &_large {
-            font-size: var(--font-size-large);
-            line-height: var(--line-height-large);
-            padding: var(--space-100) var(--space-200);
-        }
+        pointer-events: none;
+        background-color: var(--color-background-brand-bold-disabled);
+        color: var(--color-text-inverse);
     }
 
     &--isBlock {
         width: 100%;
     }
 
-    &--isInline {
-        padding: 0 var(--space-75);
-    }
-
-    &--isLoading {
-        background-size: 200% 100%;
-        animation: {
-            duration: 2s;
-            fill-mode: forwards;
-            iteration-count: infinite;
-            name: buttonLoading;
-            timing-function: ease-out;
+    &--size {
+        &_small {
+            border-radius: var(--space-50);
+            height: var(--space-300);
+            padding: var(--space-0) var(--space-100);
+        }
+        &_large {
+            border-radius: var(--space-100);
+            height: var(--space-500);
+            padding: var(--space-0) var(--space-200);
         }
     }
+}
 
-    &--isLink {
-        color: var(--color-brand-50);
-        fill: var(--color-brand-50);
-        border-color: var(--transparent);
-        background-color: var(--transparent);
-        text-decoration: var(--link-decoration-normal);
+@each $context in $contexts {
+    @each $variant in $variants {
+        $mappedContext: map.get($contextMap, $context);
+        .Button--context_#{$context}.Button--variant_#{$variant} {
+            @if $variant == filled {
+                &:hover {
+                    background-color: var(--color-background-#{$mappedContext}-subtlest-hover);
+                }
+                &:active {
+                    background-color: var(--color-background-#{$mappedContext}-subtlest-pressed);
+                }
+                @if $mappedContext == neutral {
+                    background-color: var(--color-background-neutral-subtle-default);
+                    color: var(--color-text-bold);
 
-        &:hover,
-        &:focus,
-        &:active {
-            box-shadow: none;
-            color: var(--color-brand-60);
-            fill: var(--color-brand-60);
-            background-color: var(--color-highlight-background);
-        }
+                    &:hover {
+                        background-color: var(--color-background-neutral-subtle-hover);
+                    }
+                    &:active {
+                        background-color: var(--color-background-neutral-subtle-pressed);
+                    }
+                    &[disabled],
+                    &.Button--isLoading {
+                        background-color: var(--color-background-neutral-subtle-disabled);
+                        color: var(--color-text-subtlest);
+                        &:hover,
+                        &:active {
+                            background-color: var(--color-background-neutral-subtle-disabled)
+                        }
+                    }
+                } @else {
+                    background-color: var(--color-background-#{$mappedContext}-bold-default);
+                    color: var(--color-text-inverse);
 
-        &[disabled] {
-            color: var(--color-neutral-30);
-            fill: var(--color-neutral-30);
-            background-color: transparent;
-            border-color: transparent;
+                    &:hover {
+                        background-color: var(--color-background-#{$mappedContext}-bold-hover);
+                    }
+                    &:active {
+                        background-color: var(--color-background-#{$mappedContext}-bold-pressed);
+                    }
+                    &[disabled],
+                    &.Button--isLoading {
+                        background-color: var(--color-background-#{$mappedContext}-bold-disabled);
+                        &:hover,
+                        &:active {
+                            background-color: var(--color-background-#{$mappedContext}-bold-disabled);
+                        }
+                    }
+                }
+            } @else if $variant == outlined {
+                @if $mappedContext == neutral {
+                    color: var(--color-text-subtle);
+                    background-color: transparent;
+                    border-width: var(--line-normal);
+                    border-style: solid;
+                    border-color: var(--color-border-bold);
+    
+                  
+                    &[disabled],
+                    &.Button--isLoading {
+                        color: var(--color-text-subtlest);
+                        &:hover,
+                        &:active {
+                            background-color: var(--transparent);
+                        }
+                        border-color: var(--color-border-disabled);
+                    }
 
-            &:hover {
-                text-decoration: none;
-            }
-        }
-    }
+                    
+                } @else {
+                    color: var(--color-text-#{$mappedContext}-default);
+                    background-color: transparent;
+                    border-width: var(--line-normal);
+                    border-style: solid;
+                    border-color: var(--color-border-#{$mappedContext}-bold-default);
+                    
+                    &[disabled],
+                    &.Button--isLoading {
+                        color: var(--color-text-#{$mappedContext}-disabled);
+                        &:hover,
+                        &:active {
+                            background-color: var(--transparent);
+                        }
+                        border-color: var(--color-border-#{$mappedContext}-subtle-brand);
+                    }
 
-    &--isPrimary {
-        background-color: var(--color-brand-50);
-        border-color: var(--color-brand-50);
-        color: var(--color-background);
-        fill: var(--color-background);
+                }
+            } @else if $variant == ghost {
+                @if $context == secondary {
+                    color: var(--color-text-subtle);
+                    background-color: var(--transparent);
 
-        &:hover,
-        &:focus,
-        &:active {
-            border-color: var(--color-brand-60);
-            background-color: var(--color-brand-60);
-        }
+                    &:hover {
+                        background-color: var(--color-background-neutral-subtlest-hover);
+                    }
 
-        &[disabled] {
-            color: var(--color-background);
-            fill: var(--color-background);
-            background-color: var(--color-brand-20);
-            border-color: var(--color-brand-20);
-        }
+                    &:active {
+                        background-color: var(--color-background-neutral-subtlest-pressed);
+                    }
 
-        &.Button--isLoading {
-            --button-gradient: linear-gradient(
-                to right,
-                var(--color-brand-40) 0%,
-                var(--color-brand-40) 50%,
-                var(--color-brand-50) 80%
-            );
-            background-image: var(--button-gradient);
-            border-image: var(--button-gradient);
+                    &:focus {
+                        box-shadow: 0px 0px 0px 2px var(--color-background-information-subtlest-pressed);
+                    }
 
-            &[disabled] {
-                background-image: linear-gradient(
-                    to right,
-                    var(--color-brand-20) 0%,
-                    var(--color-brand-20) 50%,
-                    var(--color-brand-40) 80%
-                );
-            }
-
-            &:hover:not([disabled]) {
-                background-image: none;
-                border-image: none;
+                    &[disabled],
+                    &.Button--isLoading {
+                        color: var(--color-text-disabled);
+                        background-color: var(--transparent);
+                        &:hover,
+                        &:active {
+                            background-color: var(--transparent);
+                        }
+                    }
+                } @else {
+                    color: var(--color-text-#{$mappedContext}-default);
+                    background-color: var(--transparent);
+                    &:hover {
+                        background-color: var(--color-background-#{$mappedContext}-subtlest-hover);
+                    }
+                    &:active {
+                        background-color: var(--color-background-#{$mappedContext}-subtlest-pressed);
+                    }
+                    &[disabled],
+                    &.Button--isLoading {
+                        color: var(--color-text-#{$mappedContext}-disabled);
+                        &:hover,
+                        &:active {
+                            background-color: var(--transparent);
+                        }
+                    }
+                }
             }
         }
     }

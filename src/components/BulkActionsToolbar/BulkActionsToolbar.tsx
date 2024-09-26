@@ -66,7 +66,7 @@ export const BulkActionsToolbar: React.FC<BulkActionsToolbarProps> = ({
             <div {...elem('toggle')}>
                 <Tooltip content={toggleTooltip}>
                     <Button
-                        isLink
+                        variant="ghost"
                         onClick={() => toggle.onToggle(toggleState)}
                         {...elem('toggleButton')}
                     >
@@ -82,7 +82,7 @@ export const BulkActionsToolbar: React.FC<BulkActionsToolbarProps> = ({
                     <Tooltip key={action.label} content={action.tooltip} delay={tooltipDelay}>
                         <span {...elem('actionWrapper', { first: index === 0 })}>
                             <Button
-                                isPrimary
+                                context="primary"
                                 disabled={action.disabled}
                                 onClick={action.onClick}
                                 {...elem('action')}

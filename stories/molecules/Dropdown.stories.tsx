@@ -49,11 +49,11 @@ export const _Dropdown: Story = {
         };
 
         const customButtonsDemo = [
-            <Button isPrimary>Click me!</Button>,
+            <Button context="primary">Click me!</Button>,
             <Button>
                 <HiDotsVertical />
             </Button>,
-            <Button isLink>Select any</Button>,
+            <Button variant="ghost">Select any</Button>,
         ];
 
         return (
