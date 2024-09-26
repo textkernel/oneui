@@ -1,12 +1,12 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-    Checkbox,
     ListItem,
     SelectedItemBadge,
     SelectedItemBadgePriorityItem,
     SingleSelectItem,
     Text,
+    MultiSelectItem,
 } from '@textkernel/oneui';
 
 const meta: Meta<typeof SelectedItemBadge> = {
@@ -28,6 +28,7 @@ const priorityList: Array<SelectedItemBadgePriorityItem<string>> = [
 const radiusList = ['5', '10', '15', '25'];
 
 const synonyms = ['Java developer', 'Java engineer', 'Java Programmer', 'Java Architect'];
+const synonyms2 = ['Developer', 'Engineer', 'Programmer', 'Architect'];
 
 export const _SelectedItemBadge: Story = {
     name: 'SelectedItemBadge',
@@ -178,46 +179,63 @@ export const _SelectedItemBadgeMultiSelect: Story = {
         };
 
         return (
-            <div style={{ width: '200px' }}>
-                <SelectedItemBadge
-                    {...args}
-                    priority={
-                        args.priority && {
-                            ...args.priority,
-                            selectedItem: selectedPriorityItem,
-                            onChange: handlePriorityChange,
+            <>
+                <Text>
+                    Note: group selection and Select all is not correctly implemented in this
+                    example. We only showcasing the layout here.
+                </Text>
+                <div style={{ width: '200px' }}>
+                    <SelectedItemBadge
+                        {...args}
+                        priority={
+                            args.priority && {
+                                ...args.priority,
+                                selectedItem: selectedPriorityItem,
+                                onChange: handlePriorityChange,
+                            }
                         }
-                    }
-                    onDelete={handleDelete}
-                    onChange={handleOnChange}
-                    isMultiSelect={args.isMultiSelect}
-                    additionalLabel={selectedSynonyms.length > 0 && `+${selectedSynonyms.length}`}
-                >
-                    <div
-                        style={{
-                            padding: 'var(--space-75) var(--space-75) var(--space-50)',
-                            backgroundColor: 'var(--color-background-brand-subtlest-default)',
-                            fontWeight: 'var(--font-weight-bold)',
-                            color: 'var(--color-text-brand-default)',
-                        }}
+                        onDelete={handleDelete}
+                        onChange={handleOnChange}
+                        isMultiSelect={args.isMultiSelect}
+                        additionalLabel={
+                            selectedSynonyms.length > 0 && `+${selectedSynonyms.length}`
+                        }
                     >
-                        <Text inline title="Radius" size="small">
-                            {'English'.toUpperCase()}
-                        </Text>
-                    </div>
-                    {synonyms.map((synonym) => (
-                        <ListItem value={synonym}>
-                            <Checkbox
+                        <MultiSelectItem
+                            value="All"
+                            variant="select-all"
+                            isSelected={selectedSynonyms.includes('All')}
+                        >
+                            Select all
+                        </MultiSelectItem>
+                        {synonyms2.map((synonym) => (
+                            <MultiSelectItem
+                                value={synonym}
                                 id={synonym}
-                                onChange={() => null}
-                                checked={selectedSynonyms.includes(synonym)}
+                                isSelected={selectedSynonyms.includes(synonym)}
                             >
                                 {synonym}
-                            </Checkbox>
-                        </ListItem>
-                    ))}
-                </SelectedItemBadge>
-            </div>
+                            </MultiSelectItem>
+                        ))}
+                        <MultiSelectItem
+                            value="English"
+                            variant="group-title"
+                            isSelected={selectedSynonyms.includes('English')}
+                        >
+                            English
+                        </MultiSelectItem>
+                        {synonyms.map((synonym) => (
+                            <MultiSelectItem
+                                value={synonym}
+                                id={synonym}
+                                isSelected={selectedSynonyms.includes(synonym)}
+                            >
+                                {synonym}
+                            </MultiSelectItem>
+                        ))}
+                    </SelectedItemBadge>
+                </div>
+            </>
         );
     },
 };
