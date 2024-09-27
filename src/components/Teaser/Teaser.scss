@@ -83,11 +83,4 @@
         composes: OneUI-label-text from global;
         color: var(--color-text-subtle);
     }
-
-    &__matchIndicator {
-        width: var(--space-300);
-        height: var(--space-300);
-        transform: rotate(-90deg);
-        margin-left: var(--space-100);
-    }
 }

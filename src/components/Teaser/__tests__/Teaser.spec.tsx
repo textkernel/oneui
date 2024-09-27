@@ -67,7 +67,6 @@ describe('Teaser', () => {
 
         const matchingIndicator = screen.getByLabelText('Matching indicator');
         expect(matchingIndicator).toBeInTheDocument();
-        expect(matchingIndicator).toHaveClass('Teaser__matchIndicator');
 
         expect(screen.getByTitle('First Tag')).toBeInTheDocument();
         expect(screen.getByTitle('Second Tag')).toBeInTheDocument();

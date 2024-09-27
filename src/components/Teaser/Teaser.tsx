@@ -3,6 +3,7 @@ import { bem } from '../../utils';
 import { Text } from '../Text';
 import { Checkbox } from '../Checkbox';
 import { Link } from '../Link';
+import { MatchingIndicator } from '../MatchingIndicator';
 import { TagProps } from '../Tag';
 import styles from './Teaser.scss';
 
@@ -81,7 +82,7 @@ export const Teaser: React.FC<Props> = ({
     subtitle,
     hasCheckbox = false,
     id,
-    isSelected,
+    isSelected = false,
     onChange,
     primaryInfo,
     secondaryInfo,
@@ -96,16 +97,6 @@ export const Teaser: React.FC<Props> = ({
     const useId = React.useId();
     const checkboxId = id ?? useId;
 
-    const computeMatchingIndicatorPercentageColor = (value: number) => {
-        if (value <= 30) {
-            return 'var(--color-icon-critical-default)';
-        }
-        if (value <= 50) {
-            return 'var(--color-icon-caution-default)';
-        }
-        return 'var(--color-icon-success-default)';
-    };
-
     return (
         <div {...rest} {...block({ ...rest })}>
             {hasCheckbox && <Checkbox id={checkboxId} checked={isSelected} onChange={onChange} />}
@@ -115,33 +106,9 @@ export const Teaser: React.FC<Props> = ({
                         <Text inline title={title} {...elem('title')}>
                             {title}
                         </Text>
-                        {matchingIndicatorPercentage !== undefined &&
-                            matchingIndicatorPercentage >= 0 &&
-                            matchingIndicatorPercentage <= 100 && (
-                                <svg {...elem('matchIndicator')} aria-label="Matching indicator">
-                                    <circle
-                                        r="9"
-                                        cx="50%"
-                                        cy="50%"
-                                        stroke="var(--color-background-neutral-subtle-default)"
-                                        fill="none"
-                                        strokeWidth="3"
-                                        strokeLinecap="round"
-                                    />
-                                    <circle
-                                        r="9"
-                                        cx="50%"
-                                        cy="50%"
-                                        stroke={computeMatchingIndicatorPercentageColor(
-                                            matchingIndicatorPercentage
-                                        )}
-                                        fill="none"
-                                        strokeWidth="3"
-                                        strokeLinecap="round"
-                                        strokeDasharray={`${(matchingIndicatorPercentage / 100) * 56}, 56`}
-                                    />
-                                </svg>
-                            )}
+                        {matchingIndicatorPercentage !== undefined && (
+                            <MatchingIndicator percentage={matchingIndicatorPercentage} />
+                        )}
                     </div>
 
                     <div {...elem('row')}>

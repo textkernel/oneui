@@ -82,7 +82,7 @@ exports[`Teaser should render with all props defined 1`] = `
           </span>
           <svg
             aria-label="Matching indicator"
-            class="Teaser__matchIndicator"
+            class="MatchingIndicator"
           >
             <circle
               cx="50%"

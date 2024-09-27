@@ -28,6 +28,7 @@ export * from './components/Link';
 export * from './components/List';
 export * from './components/Modal';
 export * from './components/Map';
+export * from './components/MatchingIndicator';
 export * from './components/ProgressBar';
 export * from './components/SelectButtonGroup';
 export * from './components/SelectedOption';
