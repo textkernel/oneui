@@ -7,9 +7,7 @@ exports[`SingleSelectItem should render correctly 1`] = `
     class="SingleSelectItem"
     role="option"
   >
-    <span
-      class="SingleSelectItem__text"
-    >
+    <span>
       Item 1
     </span>
   </li>

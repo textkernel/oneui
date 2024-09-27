@@ -489,6 +489,7 @@ export const SelectedItemBadgeWithSingleSelectItems: Story = {
                             }}
                             key={radius}
                             value={radius}
+                            isSelected={selectedRadius === radius}
                         >
                             {radius}
                         </SingleSelectItem>

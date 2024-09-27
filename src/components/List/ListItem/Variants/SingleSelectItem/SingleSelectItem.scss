@@ -1,86 +1,61 @@
 .SingleSelectItem {
-    all: unset;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-decoration: none;
     padding: var(--space-150);
-    outline: none;
+    composes: OneUI-label-text from global;
 
-    &:focus-visible,
+    &:focus-visible {
+        outline: 2px solid var(--color-info-20, #99caff);
+    }
+
+    &:hover,
     &--isHighlighted {
-        border: var(--border-width-thick) solid var(--color-info-20);
-        padding: calc(var(--space-150) - var(--border-width-thick));
-    }
-
-    &--disabled.SingleSelectItem--isSelected.SingleSelectItem--isHighlighted {
-        &:hover {
-            padding: var(--space-150);
-        }
-    }
-
-    &--disabled.SingleSelectItem--isHighlighted:hover {
-        padding: var(--space-150);
-    }
-
-    &:not(.SingleSelectItem--disabled).SingleSelectItem--isHighlighted {
-        &:hover {
-            padding: var(--space-150);
-        }
-    }
-
-    &:hover {
-        background-color: var(--color-background-neutral-subtlest-hover);
-        padding: var(--space-150);
+        background: var(--color-background-neutral-subtlest-hover, #e6e6e6);
     }
 
     &:active {
-        background-color: var(--color-background-neutral-subtlest-pressed);
-    }
-
-    &--disabled.SingleSelectItem:hover {
-        background-color: var(--color-background-neutral-subtlest-disabled);
-        color: var(--color-text-disabled);
-        border: none;
+        background: var(--color-background-neutral-subtlest-pressed, #ccc);
     }
 
     &--disabled {
-        background-color: var(--color-background-neutral-subtlest-disabled);
         color: var(--color-text-disabled);
-        border: none;
         cursor: not-allowed;
-        padding: var(--space-150);
-    }
 
-    &--isSelected.SingleSelectItem:hover {
-        background-color: var(--color-background-selected-subtlest-hover);
-        color: var(--color-link-default);
-        border: none;
-    }
-
-    &--isSelected.SingleSelectItem:active {
-        background-color: var(--color-background-selected-subtlest-pressed);
+        &:focus-visible,
+        &:hover,
+        &.SingleSelectItem--isHighlighted,
+        &:active {
+            background: var(--color-background-neutral-subtlest-disabled, #fff);
+        }
     }
 
     &--isSelected {
-        background-color: var(--color-background-selected-subtlest-default);
-        color: var(--color-text-selected-default);
-    }
+        color: var(--color-text-selected-default, #004999);
 
-    &--isSelected.SingleSelectItem--disabled {
-        background-color: var(--color-background-selected-subtlest-default);
-        color: var(--color-link-default);
-
-        &:active {
-            background-color: var(--color-background-selected-subtlest-hover);
-        }
-
-        &:hover {
-            background-color: var(--color-background-selected-subtlest-default);
+        &.SingleSelectItem--disabled {
+            color: var(--color-link-default, #0062cc);
+            cursor: not-allowed;
         }
     }
 
-    &__text {
-        composes: OneUI-label-text from global;
+    &--isSelected.SingleSelectItem {
+        background: var(--color-background-selected-subtlest-default, #e6f2ff);
+
+        &:hover:not(.SingleSelectItem--disabled),
+        &.SingleSelectItem--isHighlighted {
+            background: var(--color-background-selected-subtlest-hover, #cce4ff);
+        }
+
+        &:active:not(.SingleSelectItem--disabled) {
+            background: var(--color-background-selected-subtlest-pressed, #99caff);
+        }
+
+        &.SingleSelectItem--disabled {
+            &:focus-visible,
+            &:has(label:hover),
+            &.SingleSelectItem--isHighlighted,
+            &:has(label:active) {
+                background: var(--color-background-selected-subtlest-default, #e6f2ff);
+            }
+        }
     }
 }
