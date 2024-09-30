@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Separator> should render SectionTitle when title is given 1`] = `
+<div>
+  <li
+    class="SectionTitle"
+  >
+    section title
+  </li>
+</div>
+`;
+
+exports[`<Separator> should render Separator correctly when there is no title 1`] = `
+<div>
+  <li
+    class="Divider"
+  />
+</div>
+`;
