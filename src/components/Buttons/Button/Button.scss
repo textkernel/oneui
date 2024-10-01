@@ -1,11 +1,11 @@
-@use "sass:map";
+@use 'sass:map';
 $contexts: (primary, secondary, critical);
 $variants: (filled, outlined, ghost);
 
 $contextMap: (
     'secondary': 'neutral',
     'primary': 'brand',
-    'critical': 'critical'
+    'critical': 'critical',
 );
 
 @keyframes buttonLoading {
@@ -46,10 +46,10 @@ $contextMap: (
     &:active {
         background-color: var(--color-background-critical-bold-pressed);
     }
-    &:focus {
+    &:focus-visible {
         box-shadow: 0px 0px 0px 2px var(--color-background-information-subtlest-pressed);
     }
-    
+
     &[disabled],
     &--isLoading {
         cursor: not-allowed;
@@ -103,7 +103,7 @@ $contextMap: (
                         color: var(--color-text-subtlest);
                         &:hover,
                         &:active {
-                            background-color: var(--color-background-neutral-subtle-disabled)
+                            background-color: var(--color-background-neutral-subtle-disabled);
                         }
                     }
                 } @else {
@@ -121,7 +121,9 @@ $contextMap: (
                         background-color: var(--color-background-#{$mappedContext}-bold-disabled);
                         &:hover,
                         &:active {
-                            background-color: var(--color-background-#{$mappedContext}-bold-disabled);
+                            background-color: var(
+                                --color-background-#{$mappedContext}-bold-disabled
+                            );
                         }
                     }
                 }
@@ -132,8 +134,7 @@ $contextMap: (
                     border-width: var(--line-normal);
                     border-style: solid;
                     border-color: var(--color-border-bold);
-    
-                  
+
                     &[disabled],
                     &.Button--isLoading {
                         color: var(--color-text-subtlest);
@@ -143,15 +144,13 @@ $contextMap: (
                         }
                         border-color: var(--color-border-disabled);
                     }
-
-                    
                 } @else {
                     color: var(--color-text-#{$mappedContext}-default);
                     background-color: transparent;
                     border-width: var(--line-normal);
                     border-style: solid;
                     border-color: var(--color-border-#{$mappedContext}-bold-default);
-                    
+
                     &[disabled],
                     &.Button--isLoading {
                         color: var(--color-text-#{$mappedContext}-disabled);
@@ -161,7 +160,6 @@ $contextMap: (
                         }
                         border-color: var(--color-border-#{$mappedContext}-subtle-brand);
                     }
-
                 }
             } @else if $variant == ghost {
                 @if $context == secondary {
@@ -176,8 +174,12 @@ $contextMap: (
                         background-color: var(--color-background-neutral-subtlest-pressed);
                     }
 
-                    &:focus {
-                        box-shadow: 0px 0px 0px 2px var(--color-background-information-subtlest-pressed);
+                    &:focus-visible {
+                        box-shadow: 0px
+                            0px
+                            0px
+                            2px
+                            var(--color-background-information-subtlest-pressed);
                     }
 
                     &[disabled],
@@ -196,7 +198,9 @@ $contextMap: (
                         background-color: var(--color-background-#{$mappedContext}-subtlest-hover);
                     }
                     &:active {
-                        background-color: var(--color-background-#{$mappedContext}-subtlest-pressed);
+                        background-color: var(
+                            --color-background-#{$mappedContext}-subtlest-pressed
+                        );
                     }
                     &[disabled],
                     &.Button--isLoading {
