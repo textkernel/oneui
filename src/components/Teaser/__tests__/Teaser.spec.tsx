@@ -60,6 +60,7 @@ describe('Teaser', () => {
         expect(sourceInfo).toBeInTheDocument();
         expect(sourceInfo).toHaveClass('Teaser__caption');
         expect(screen.getByLabelText('plane')).toBeInTheDocument();
+        expect(screen.queryByRole('link', { name: 'plane Source Info' })).not.toBeInTheDocument();
 
         const date = screen.getByTitle('Today');
         expect(date).toBeInTheDocument();
@@ -79,10 +80,30 @@ describe('Teaser', () => {
     });
 
     it('should render checkbox not checked', () => {
-        render(<Teaser title="some title" hasCheckbox isSelected={false} />);
+        const { container } = render(<Teaser title="some title" hasCheckbox isSelected={false} />);
 
         const checkbox = screen.getByRole('checkbox');
         expect(checkbox).toBeInTheDocument();
         expect(checkbox).not.toBeChecked();
+
+        expect(container).toMatchSnapshot();
+    });
+
+    it('should render source info row with icon and link', () => {
+        const { container } = render(
+            <Teaser
+                title="some title"
+                sourceInfo={{
+                    text: 'Link',
+                    href: 'https://textkernel.nl',
+                    icon: <FaPlane aria-label="plane" />,
+                }}
+            />
+        );
+
+        expect(screen.getByRole('link', { name: 'plane Link' })).toBeInTheDocument();
+        expect(screen.getByLabelText('plane')).toBeInTheDocument();
+
+        expect(container).toMatchSnapshot();
     });
 });
