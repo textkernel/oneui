@@ -10,7 +10,7 @@
     --space-75: calc(0.75 * var(--space-100));
     --space-100: 8px;
     // FIXME: Temporary fix, till we decide how we should proceed
-    --space-125: 10px;
+    --space-125: calc(1.25 * var(--space-100));
     --space-150: calc(1.5 * var(--space-100));
     --space-200: calc(2 * var(--space-100));
     --space-250: calc(2.5 * var(--space-100));
