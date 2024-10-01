@@ -32,7 +32,7 @@ export const SingleSelectItem = React.forwardRef<HTMLLIElement, ListItemProps>(
                 onKeyDown={onClick}
                 aria-selected={isSelected}
                 ref={ref}
-                {...block({ isSelected, disabled, isHighlighted })}
+                {...block({ isSelected, disabled, isHighlighted, ...rest })}
             >
                 <Text inline>{children}</Text>
             </li>

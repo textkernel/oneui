@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, Dropdown, ListItem, IconTextkernel } from '@textkernel/oneui';
+import { Button, Dropdown, ListItem, IconTextkernel, SingleSelectItem } from '@textkernel/oneui';
 import { HiDotsVertical } from 'react-icons/hi';
 
 const styles = {
@@ -83,6 +83,44 @@ export const _Dropdown: Story = {
                         </div>
                     </ListItem>
                     <div style={styles.customDiv}>Just custom div element</div>
+                </Dropdown>
+            </div>
+        );
+    },
+};
+
+export const _DropdownWithSingleSelectItem: Story = {
+    name: 'Dropdown - Single Select Item',
+    args: {},
+    render: (args) => {
+        const [selectedValue, setSelectedValue] = React.useState<string>();
+
+        const onDropdownStateChange = (object) => {
+            console.log(
+                'onDropdownStateChange was called with the following:',
+                JSON.stringify(object)
+            );
+        };
+
+        return (
+            <div style={styles.content}>
+                <Dropdown<string>
+                    {...args}
+                    button={<Button context="primary">Click me!</Button>}
+                    onChange={(value) => setSelectedValue(value)}
+                    additionalSelectProps={{
+                        onStateChange: onDropdownStateChange,
+                    }}
+                >
+                    {['Value 1', 'Value 2', 'Value 3'].map((value) => (
+                        <SingleSelectItem
+                            key={value}
+                            value={value}
+                            isSelected={selectedValue === value}
+                        >
+                            {value}
+                        </SingleSelectItem>
+                    ))}
                 </Dropdown>
             </div>
         );
