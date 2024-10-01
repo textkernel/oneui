@@ -1,0 +1,61 @@
+.SingleSelectItem {
+    display: flex;
+    padding: var(--space-150);
+    composes: OneUI-label-text from global;
+
+    &:focus-visible {
+        outline: 2px solid var(--color-info-20, #99caff);
+    }
+
+    &:hover,
+    &--isHighlighted {
+        background: var(--color-background-neutral-subtlest-hover, #e6e6e6);
+    }
+
+    &:active {
+        background: var(--color-background-neutral-subtlest-pressed, #ccc);
+    }
+
+    &--disabled {
+        color: var(--color-text-disabled);
+        cursor: not-allowed;
+
+        &:focus-visible,
+        &:hover,
+        &.SingleSelectItem--isHighlighted,
+        &:active {
+            background: var(--color-background-neutral-subtlest-disabled, #fff);
+        }
+    }
+
+    &--isSelected {
+        color: var(--color-text-selected-default, #004999);
+
+        &.SingleSelectItem--disabled {
+            color: var(--color-link-default, #0062cc);
+            cursor: not-allowed;
+        }
+    }
+
+    &--isSelected.SingleSelectItem {
+        background: var(--color-background-selected-subtlest-default, #e6f2ff);
+
+        &:hover:not(.SingleSelectItem--disabled),
+        &.SingleSelectItem--isHighlighted {
+            background: var(--color-background-selected-subtlest-hover, #cce4ff);
+        }
+
+        &:active:not(.SingleSelectItem--disabled) {
+            background: var(--color-background-selected-subtlest-pressed, #99caff);
+        }
+
+        &.SingleSelectItem--disabled {
+            &:focus-visible,
+            &:has(label:hover),
+            &.SingleSelectItem--isHighlighted,
+            &:has(label:active) {
+                background: var(--color-background-selected-subtlest-default, #e6f2ff);
+            }
+        }
+    }
+}

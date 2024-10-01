@@ -32,12 +32,6 @@
         "react/button-has-type": 0,
         "react/prop-types": 0,
         "react/no-unused-prop-types": 0,
-        "react/display-name": [
-            2,
-            {
-                "ignoreTranspilerName": true
-            }
-        ],
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "react/jsx-props-no-spreading": "off",
