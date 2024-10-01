@@ -22,7 +22,7 @@ exports[`MultiSelectItem should render correctly 1`] = `
         for=":r0:"
       >
         <span
-          class="Checkbox__box"
+          class="Checkbox__box Checkbox__box--useLargeGap"
         >
           <svg
             class="Checkbox__svg"

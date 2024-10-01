@@ -82,6 +82,7 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props>(
                     disabled={disabled}
                     onChange={handleChange}
                     tabIndex={-1}
+                    useLargeGap
                 >
                     <>
                         {/* to be implemented: {hasPriority && <PriorityBadge />} */}

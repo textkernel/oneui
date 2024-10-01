@@ -15,6 +15,16 @@ describe('<Checkbox> that renders a checkbox', () => {
         expect(view.container).toMatchSnapshot();
     });
 
+    it('should render with larger gap for label', () => {
+        view = render(
+            <Checkbox id="c1" useLargeGap>
+                Check this out
+            </Checkbox>
+        );
+
+        expect(view.container).toMatchSnapshot();
+    });
+
     it('should render checkbox with complex children', () => {
         view = render(
             <Checkbox id="c1">

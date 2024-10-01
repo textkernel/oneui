@@ -79,6 +79,45 @@ exports[`<Checkbox> that renders a checkbox should render default checkbox corre
 </div>
 `;
 
+exports[`<Checkbox> that renders a checkbox should render with larger gap for label 1`] = `
+<div>
+  <div
+    class="Checkbox"
+  >
+    <input
+      class="Checkbox__input"
+      id="c1"
+      type="checkbox"
+    />
+    <label
+      class="Checkbox__label"
+      for="c1"
+    >
+      <span
+        class="Checkbox__box Checkbox__box--useLargeGap"
+      >
+        <svg
+          class="Checkbox__svg"
+          height="8px"
+          role="img"
+          viewBox="0 0 12 9"
+          width="12px"
+        >
+          <polyline
+            points="1.5 5 4 8 10.5 2"
+          />
+        </svg>
+      </span>
+      <span
+        class="Text--size_medium Checkbox__text"
+      >
+        Check this out
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
 exports[`<Checkbox> that renders a checkbox should rendered disabled checkbox correctly 1`] = `
 <div>
   <div
