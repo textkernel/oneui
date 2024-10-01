@@ -12,6 +12,8 @@ export const sizingVariables = {
     '--space-50': 'calc(var(--space-25) * 2px)',
     '--space-75': 'calc(var(--space-50) * 3px)',
     '--space-100': 'calc(var(--space-25) * 4px)',
+    // FIXME: Temporary fix, till we decide how we should proceed
+    '--space-125': 'calc(var(--space-25) * 5px)',
     '--space-150': 'calc(var(--space-25) * 6px)',
     '--space-200': 'calc(var(--space-25) * 8px)',
     '--space-250': 'calc(var(--space-25) * 10px)',
