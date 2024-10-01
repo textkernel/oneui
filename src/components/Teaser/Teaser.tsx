@@ -4,7 +4,6 @@ import { Text } from '../Text';
 import { Checkbox } from '../Checkbox';
 import { Link } from '../Link';
 import { MatchingIndicator } from '../MatchingIndicator';
-import { TagProps } from '../Tag';
 import styles from './Teaser.scss';
 
 type Info = {
@@ -36,46 +35,17 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title
     tercearyInfo?: Info;
     /** Line containing the source of the information */
     sourceInfo?: Info;
-    /** Render little blue bubble */
+    /** Render little blue bubble, if undefined it will not be rendered */
     isVisited?: boolean;
-    /** Render timestamp information */
-    timestamp?: string;
-    /** Render tags */
-    tags?: React.ReactElement<TagProps>[];
+    /** Render date information as text */
+    date?: string;
     /** Matching indicator percentage */
     matchingIndicatorPercentage?: number;
+    /** Render bottom elements */
+    bottom?: React.ReactNode;
 }
 
 const { block, elem } = bem('Teaser', styles);
-
-const InfoComponent = ({ text, href, icon }: Info) => {
-    const textComponent = (
-        <Text inline title={text}>
-            {text}
-        </Text>
-    );
-
-    if (icon) {
-        return (
-            <div {...elem(['row', 'sourceContainer'])}>
-                {React.cloneElement(icon, { ...elem('sourceIcon') })}
-                <Text inline title={text} {...elem('caption')}>
-                    {text}
-                </Text>
-            </div>
-        );
-    }
-
-    if (href) {
-        return (
-            <Link href={href} {...elem('link')}>
-                {textComponent}
-            </Link>
-        );
-    }
-
-    return React.cloneElement(textComponent, { ...elem('info') });
-};
 
 export const Teaser: React.FC<Props> = ({
     title,
@@ -89,13 +59,52 @@ export const Teaser: React.FC<Props> = ({
     tercearyInfo,
     sourceInfo,
     isVisited,
-    timestamp,
-    tags,
+    date,
     matchingIndicatorPercentage,
+    bottom,
     ...rest
 }) => {
     const useId = React.useId();
     const checkboxId = id ?? useId;
+
+    const composeInfoComponent = ({ text, icon, href }: Info) => {
+        if (icon) {
+            const iconComponent = (
+                <div {...elem(['row', 'sourceContainer'])}>
+                    {React.cloneElement(icon, { ...elem('sourceIcon') })}
+                    <Text inline title={text} {...elem('caption')}>
+                        {text}
+                    </Text>
+                </div>
+            );
+
+            if (href) {
+                return (
+                    <Link href={href} {...elem('link')}>
+                        {iconComponent}
+                    </Link>
+                );
+            }
+
+            return iconComponent;
+        }
+
+        const textComponent = (
+            <Text inline title={text}>
+                {text}
+            </Text>
+        );
+
+        if (href) {
+            return (
+                <Link href={href} {...elem('link')}>
+                    {textComponent}
+                </Link>
+            );
+        }
+
+        return React.cloneElement(textComponent, { ...elem('info') });
+    };
 
     return (
         <div {...rest} {...block({ ...rest })}>
@@ -112,9 +121,9 @@ export const Teaser: React.FC<Props> = ({
                     </div>
 
                     <div {...elem('row')}>
-                        {timestamp && (
-                            <Text inline title={timestamp} {...elem('caption')}>
-                                {timestamp}
+                        {date && (
+                            <Text inline title={date} {...elem('caption')}>
+                                {date}
                             </Text>
                         )}
                         {typeof isVisited !== 'undefined' && (
@@ -130,19 +139,11 @@ export const Teaser: React.FC<Props> = ({
                         {subtitle}
                     </Text>
                 )}
-                {primaryInfo && <InfoComponent text={primaryInfo.text} href={primaryInfo.href} />}
-                {secondaryInfo && (
-                    <InfoComponent text={secondaryInfo.text} href={secondaryInfo.href} />
-                )}
-                {tercearyInfo && (
-                    <InfoComponent text={tercearyInfo.text} href={tercearyInfo.href} />
-                )}
-                {sourceInfo && <InfoComponent text={sourceInfo.text} icon={sourceInfo.icon} />}
-                {tags && (
-                    <div {...elem('tags')}>
-                        {tags.map((tag) => React.cloneElement(tag, { size: 'small' }))}
-                    </div>
-                )}
+                {primaryInfo && composeInfoComponent(primaryInfo)}
+                {secondaryInfo && composeInfoComponent(secondaryInfo)}
+                {tercearyInfo && composeInfoComponent(tercearyInfo)}
+                {sourceInfo && composeInfoComponent(sourceInfo)}
+                {bottom && <div {...elem('bottom')}>{bottom}</div>}
             </div>
         </div>
     );

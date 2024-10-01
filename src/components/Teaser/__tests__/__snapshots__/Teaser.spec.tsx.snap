@@ -174,14 +174,14 @@ exports[`Teaser should render with all props defined 1`] = `
         </span>
       </div>
       <div
-        class="Teaser__tags"
+        class="Teaser__bottom"
       >
         <div
           class="Tag"
           style="background-color: yellow; max-width: fit-content;"
         >
           <p
-            class="Text--size_small Tag__text"
+            class="Tag__text"
             title="First Tag"
           >
             First Tag
@@ -192,7 +192,7 @@ exports[`Teaser should render with all props defined 1`] = `
           style="background-color: lightblue; max-width: fit-content;"
         >
           <p
-            class="Text--size_small Tag__text"
+            class="Tag__text"
             title="Second Tag"
           >
             Second Tag

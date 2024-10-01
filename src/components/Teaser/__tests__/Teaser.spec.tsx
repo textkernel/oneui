@@ -22,9 +22,9 @@ describe('Teaser', () => {
                 secondaryInfo={{ text: 'Secondary Info' }}
                 tercearyInfo={{ text: 'Terceary Info' }}
                 sourceInfo={{ text: 'Source Info', icon: <FaPlane aria-label="plane" /> }}
-                timestamp="Today"
+                date="Today"
                 matchingIndicatorPercentage={50}
-                tags={[
+                bottom={[
                     <Tag bgColor="yellow">First Tag</Tag>,
                     <Tag bgColor="lightblue">Second Tag</Tag>,
                 ]}
@@ -61,9 +61,9 @@ describe('Teaser', () => {
         expect(sourceInfo).toHaveClass('Teaser__caption');
         expect(screen.getByLabelText('plane')).toBeInTheDocument();
 
-        const timestamp = screen.getByTitle('Today');
-        expect(timestamp).toBeInTheDocument();
-        expect(timestamp).toHaveClass('Teaser__caption');
+        const date = screen.getByTitle('Today');
+        expect(date).toBeInTheDocument();
+        expect(date).toHaveClass('Teaser__caption');
 
         const matchingIndicator = screen.getByLabelText('Matching indicator');
         expect(matchingIndicator).toBeInTheDocument();
