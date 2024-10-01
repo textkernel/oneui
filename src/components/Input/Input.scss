@@ -84,8 +84,8 @@
         color: inherit;
         box-sizing: border-box;
 
-        &--type_search {
-            appearance: none;
+        &--type_search::-webkit-search-cancel-button {
+            display: none;
         }
     
         &:focus {
