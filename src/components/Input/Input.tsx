@@ -1,7 +1,5 @@
 import * as React from 'react';
 import Error from '@material-design-icons/svg/round/error.svg';
-import Search from '@material-design-icons/svg/round/search.svg';
-import Clear from '@material-design-icons/svg/round/cancel.svg';
 import { bem } from '../../utils';
 import styles from './Input.scss';
 import { InputType } from '../../constants';
@@ -32,19 +30,17 @@ interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 's
     label?: string;
     /** Helper text under the input, display the error when the context is critical */
     helperText?: string;
-    /** */
-    leadingIcon?: boolean;
-    /** */
-    deleteButton?: boolean;
-    /** */
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    /** Icon before input, optional */
+    leadingIcon?: React.ReactElement;
+    /** Icon after input, which can trigger callback as a button, optional */
+    trailingIcon?: { icon: React.ReactElement; callback: () => void };
     /**  Controls whether space is reserved for error messages under the input field when validation is expected
      *  to avoid "jumping" UI. */
     reserveErrorMessageSpace?: boolean;
 }
 
 export type Props = BaseProps &
-    (ErrorStateProps | { context?: undefined | string; errorMessage?: never });
+    (ErrorStateProps | { context?: undefined | string; errorMessage?: undefined | string });
 
 const { block, elem } = bem('InputContainer', styles);
 
@@ -59,11 +55,11 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             isBlock = false,
             size = 'medium',
             type = 'text',
-            value: initialValue = '',
+            value,
             label,
             helperText,
-            leadingIcon = false,
-            deleteButton = false,
+            leadingIcon,
+            trailingIcon,
             errorMessage,
             reserveErrorMessageSpace = false,
             ...rest
@@ -72,25 +68,17 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     ) => {
         const fallbackId = React.useId();
         const idRef = id || fallbackId;
-        const [value, setValue] = React.useState(initialValue);
-        const [hasText, setHasText] = React.useState<boolean>(!!initialValue);
+        const [hasText, setHasText] = React.useState<boolean>(!!value);
+
+        React.useEffect(() => {
+            setHasText(!!value);
+        }, [value]);
 
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            setValue(e.target.value);
             setHasText(!!e.target.value);
             if (rest.onChange) {
                 rest.onChange(e);
             }
-        };
-
-        React.useEffect(() => {
-            setValue(initialValue);
-        }, [initialValue]);
-
-        // Function to clear the input value
-        const handleClear = () => {
-            setValue('');
-            setHasText(false);
         };
 
         const isLastPassDisabled = type !== 'password';
@@ -113,12 +101,11 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                         readOnly,
                     })}
                 >
-                    {leadingIcon && (
-                        <Search
-                            {...elem('icon', { type: 'search', bold: hasText, size })}
-                            viewBox="0 0 24 24"
-                        />
-                    )}
+                    {leadingIcon &&
+                        React.cloneElement(leadingIcon, {
+                            viewBox: '0 0 24 24',
+                            ...elem('icon', { type: 'leading', bold: hasText, size }),
+                        })}
                     <input
                         {...rest}
                         {...elem('input', { context, size, isBlock, disabled, type })}
@@ -132,13 +119,12 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                         aria-invalid={context === 'critical' ? 'true' : undefined}
                         data-lpignore={isLastPassDisabled}
                     />
-                    {deleteButton && (
-                        <Clear
-                            {...elem('icon', { type: 'clear', visible: hasText, size })}
-                            viewBox="0 0 24 24"
-                            onClick={handleClear}
-                        />
-                    )}
+                    {trailingIcon &&
+                        React.cloneElement(trailingIcon.icon, {
+                            viewBox: '0 0 24 24',
+                            ...elem('icon', { type: 'trailing', visible: hasText, size }),
+                            onClick: trailingIcon.callback,
+                        })}
                 </div>
 
                 {(context === 'critical' && errorMessage) ||
