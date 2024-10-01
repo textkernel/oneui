@@ -125,13 +125,13 @@
         height: 16px;
         fill: var(--color-icon-critical-default);
 
-        &--type_search {
+        &--type_leading {
             width: 20px;
             height: 20px;
             fill: var(--color-icon-subtlest);
         }
 
-        &--type_clear {
+        &--type_trailing {
             width: 16px;
             height: 16px;
             fill: var(--color-icon-subtlest);
