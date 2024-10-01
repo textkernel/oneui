@@ -10,13 +10,18 @@ exports[`Themeroller component should render component correctly 1`] = `
         <p
           class="Field__label"
         />
-        <input
-          class="Input Input--size_small"
-          data-lpignore="true"
-          id=":r0:"
-          type="text"
-          value=""
-        />
+        <div
+          class="InputContainer InputContainer--size_small"
+          data-testid="inputContainer"
+        >
+          <input
+            class="InputContainer__input InputContainer__input--size_small"
+            data-lpignore="true"
+            id=":r0:"
+            type="text"
+            value=""
+          />
+        </div>
       </label>
       <div
         class="ThemeActions"
@@ -59,13 +64,18 @@ exports[`Themeroller component should render component correctly 1`] = `
           Background color
         </p>
         <span>
-          <input
-            class="Input Input--size_small ColorValue__input"
-            data-lpignore="true"
-            id=":r1:"
-            type="color"
-            value="#ffffff"
-          />
+          <div
+            class="InputContainer InputContainer--size_small"
+            data-testid="inputContainer"
+          >
+            <input
+              class="InputContainer__input InputContainer__input--size_small"
+              data-lpignore="true"
+              id=":r1:"
+              type="color"
+              value="#ffffff"
+            />
+          </div>
           <span
             class="Text--context_neutral ColorValue__value"
           >
@@ -82,13 +92,18 @@ exports[`Themeroller component should render component correctly 1`] = `
           Foreground color
         </p>
         <span>
-          <input
-            class="Input Input--size_small ColorValue__input"
-            data-lpignore="true"
-            id=":r2:"
-            type="color"
-            value="#000000"
-          />
+          <div
+            class="InputContainer InputContainer--size_small"
+            data-testid="inputContainer"
+          >
+            <input
+              class="InputContainer__input InputContainer__input--size_small"
+              data-lpignore="true"
+              id=":r2:"
+              type="color"
+              value="#000000"
+            />
+          </div>
           <span
             class="Text--context_neutral ColorValue__value"
           >
@@ -105,13 +120,18 @@ exports[`Themeroller component should render component correctly 1`] = `
           Border radius
         </p>
         <span>
-          <input
-            class="Input Input--size_small UnitValue__input"
-            data-lpignore="true"
-            id=":r3:"
-            type="number"
-            value="3"
-          />
+          <div
+            class="InputContainer InputContainer--size_small"
+            data-testid="inputContainer"
+          >
+            <input
+              class="InputContainer__input InputContainer__input--size_small"
+              data-lpignore="true"
+              id=":r3:"
+              type="number"
+              value="3"
+            />
+          </div>
           <span
             class="Text--context_neutral UnitValue__value"
           >
@@ -128,13 +148,18 @@ exports[`Themeroller component should render component correctly 1`] = `
         >
           Link decoration
         </p>
-        <input
-          class="Input Input--size_small"
-          data-lpignore="true"
-          id=":r4:"
-          type="text"
-          value="none"
-        />
+        <div
+          class="InputContainer InputContainer--size_small"
+          data-testid="inputContainer"
+        >
+          <input
+            class="InputContainer__input InputContainer__input--size_small"
+            data-lpignore="true"
+            id=":r4:"
+            type="text"
+            value="none"
+          />
+        </div>
       </li>
     </ul>
   </div>

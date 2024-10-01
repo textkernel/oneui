@@ -1,42 +1,5 @@
 import * as React from 'react';
-import Error from '@material-design-icons/svg/round/error.svg';
-import Clear from '@material-design-icons/svg/round/cancel.svg';
-import Search from '@material-design-icons/svg/round/search.svg';
-import { bem } from '../../../utils';
-import styles from './SearchInput.scss';
-
-type InputSize = 'small' | 'medium';
-
-type ErrorContext = 'critical';
-
-type ErrorStateProps = {
-    /** The input error field context (critical) */
-    context: ErrorContext;
-    /** This message will be rendered under the input when context critical will be applied */
-    errorMessage: string;
-};
-
-interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
-    /** Should the input field be disabled or not */
-    disabled?: boolean;
-    /** Should the input field be readOnly or not */
-    readOnly?: boolean;
-    /** Whether or not to show block-level input field (full width) */
-    isBlock?: boolean;
-    /** The size of the input field */
-    size?: InputSize;
-    /** Field label */
-    label?: string;
-    /** Helper text under the input, display the error when the context is critical */
-    helperText?: string;
-    /**  Controls whether space is reserved for error messages under the input field when validation is expected
-     *  to avoid "jumping" UI. */
-    reserveErrorMessageSpace?: boolean;
-}
-
-export type Props = BaseProps & (ErrorStateProps | { context?: undefined; errorMessage?: never });
-
-const { block, elem } = bem('SearchInput', styles);
+import { Input, Props } from '../Input';
 
 export const SearchInput = React.forwardRef<HTMLInputElement, Props>(
     (
@@ -48,7 +11,7 @@ export const SearchInput = React.forwardRef<HTMLInputElement, Props>(
             readOnly = false,
             isBlock = false,
             size = 'medium',
-            value: initialValue = '',
+            value,
             label,
             helperText,
             errorMessage,
@@ -56,80 +19,24 @@ export const SearchInput = React.forwardRef<HTMLInputElement, Props>(
             ...rest
         },
         ref
-    ) => {
-        const fallbackId = React.useId();
-        const idRef = id || fallbackId;
-        const [value, setValue] = React.useState(initialValue);
-        const [hasText, setHasText] = React.useState<boolean>(!!initialValue);
-
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            setValue(e.target.value);
-            setHasText(!!e.target.value);
-        };
-
-        // Function to clear the input value
-        const handleClear = () => {
-            setValue('');
-            setHasText(false);
-        };
-
-        return (
-            <>
-                {label && (
-                    <label {...elem('label')} htmlFor={idRef}>
-                        {label}
-                    </label>
-                )}
-                <div
-                    data-testid="searchInputContainer"
-                    {...block({ withIcon: true, context, size, isBlock, disabled, readOnly })}
-                >
-                    <Search
-                        {...elem('icon', { type: 'search', bold: hasText, size })}
-                        viewBox="0 0 24 24"
-                    />
-                    <input
-                        {...elem('input', { size })}
-                        {...rest}
-                        id={idRef}
-                        ref={ref}
-                        type="text"
-                        disabled={disabled}
-                        readOnly={readOnly}
-                        value={value}
-                        onChange={handleChange}
-                        aria-invalid={context === 'critical' ? 'true' : undefined}
-                        data-lpignore
-                    />
-                    <Clear
-                        {...elem('icon', { type: 'clear', visible: hasText, size })}
-                        viewBox="0 0 24 24"
-                        onClick={handleClear}
-                    />
-                </div>
-
-                {(context === 'critical' && errorMessage) ||
-                (reserveErrorMessageSpace && !helperText) ? (
-                    <div {...elem('errorMessageWrapper', { reserveErrorMessageSpace })}>
-                        <Error
-                            viewBox="0 0 24 24"
-                            {...elem('icon', { context, reserveErrorMessageSpace })}
-                        />
-                        <p
-                            {...elem('errorMessage', {
-                                context,
-                                reserveErrorMessageSpace,
-                            })}
-                        >
-                            {errorMessage}
-                        </p>
-                    </div>
-                ) : (
-                    helperText && <p {...elem('helperText')}>{helperText}</p>
-                )}
-            </>
-        );
-    }
+    ) => (
+        <Input
+            ref={ref}
+            disabled={disabled}
+            readOnly={readOnly}
+            isBlock={isBlock}
+            context={context}
+            size={size}
+            label={label}
+            helperText={helperText}
+            type="search"
+            value={value}
+            leadingIcon
+            deleteButton
+            reserveErrorMessageSpace={reserveErrorMessageSpace}
+            {...rest}
+        />
+    )
 );
 
 SearchInput.displayName = 'SearchInput';

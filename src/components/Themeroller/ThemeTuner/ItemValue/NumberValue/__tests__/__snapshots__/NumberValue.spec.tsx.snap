@@ -2,13 +2,18 @@
 
 exports[`NumberValue component should render component correctly 1`] = `
 <div>
-  <input
-    class="Input Input--size_small"
-    data-lpignore="true"
-    id=":r0:"
-    role="numberselector"
-    type="number"
-    value="100"
-  />
+  <div
+    class="InputContainer InputContainer--size_small"
+    data-testid="inputContainer"
+  >
+    <input
+      class="InputContainer__input InputContainer__input--size_small"
+      data-lpignore="true"
+      id=":r0:"
+      role="numberselector"
+      type="number"
+      value="100"
+    />
+  </div>
 </div>
 `;

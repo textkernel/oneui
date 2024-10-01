@@ -36,12 +36,12 @@ describe('<Input> that renders an input field', () => {
             disabled: true,
         });
         const textbox = screen.getByRole('textbox');
+        const inputContainer = screen.getByTestId('inputContainer');
 
         expect(view.container).toMatchSnapshot();
         expect(textbox).toBeInTheDocument();
-        expect(textbox).toHaveClass(
-            'Input Input--context_critical Input--size_medium Input--isBlock'
-        );
+        expect(textbox).toHaveClass('InputContainer__input InputContainer__input--size_medium');
+        expect(inputContainer).toHaveClass('InputContainer--context_critical');
         expect(textbox).toHaveAttribute('disabled');
     });
 
@@ -62,7 +62,7 @@ describe('<Input> that renders an input field', () => {
         const helperTextElement = screen.getByText(helperText);
 
         expect(helperTextElement).toBeInTheDocument();
-        expect(helperTextElement).toHaveClass('Input__helperText');
+        expect(helperTextElement).toHaveClass('InputContainer__helperText');
     });
 
     it('should display errorMessage instead of helper text when context is critical', () => {
@@ -76,7 +76,7 @@ describe('<Input> that renders an input field', () => {
 
         const errorMessageElement = screen.getByText(errorMessage);
         expect(errorMessageElement).toBeInTheDocument();
-        expect(errorMessageElement).toHaveClass('Input__errorMessage');
+        expect(errorMessageElement).toHaveClass('InputContainer__errorMessage');
 
         expect(screen.queryByText(helperText)).not.toBeInTheDocument();
     });
@@ -125,14 +125,14 @@ describe('<SearchInput> that renders an input field', () => {
             disabled: true,
         });
         const input = screen.getByRole('textbox');
-        const inputContainer = screen.getByTestId('searchInputContainer');
+        const inputContainer = screen.getByTestId('inputContainer');
 
         expect(input).toHaveAttribute('disabled');
 
         expect(view.container).toMatchSnapshot();
         expect(inputContainer).toBeInTheDocument();
         expect(inputContainer).toHaveClass(
-            'SearchInput SearchInput--context_critical SearchInput--isBlock SearchInput--disabled'
+            'InputContainer InputContainer--context_critical InputContainer--isBlock InputContainer--disabled'
         );
     });
 
@@ -140,26 +140,26 @@ describe('<SearchInput> that renders an input field', () => {
         view = renderSearchInputComponent({ value: 'Some value' });
 
         const searchIcon = screen.getAllByTestId('default-icon')[0];
-        expect(searchIcon).toHaveClass('SearchInput__icon--bold');
+        expect(searchIcon).toHaveClass('InputContainer__icon--bold');
     });
     it('should not render the search icon bold when there is a value', () => {
         view = renderSearchInputComponent({});
 
         const searchIcon = screen.getAllByTestId('default-icon')[0];
-        expect(searchIcon).not.toHaveClass('SearchInput__icon--bold');
+        expect(searchIcon).not.toHaveClass('InputContainer__icon--bold');
     });
 
     it('should not show the clear icon when there is no value', () => {
         view = renderSearchInputComponent({});
 
         const clearIcon = screen.getAllByTestId('default-icon')[1];
-        expect(clearIcon).not.toHaveClass('SearchInput__icon--visible');
+        expect(clearIcon).not.toHaveClass('InputContainer__icon--visible');
     });
     it('should show the clear icon when there is a value', () => {
         view = renderSearchInputComponent({ value: 'Some value' });
 
         const clearIcon = screen.getAllByTestId('default-icon')[1];
-        expect(clearIcon).toHaveClass('SearchInput__icon--visible');
+        expect(clearIcon).toHaveClass('InputContainer__icon--visible');
     });
 
     it('should delete value when clear icon is clicked', async () => {

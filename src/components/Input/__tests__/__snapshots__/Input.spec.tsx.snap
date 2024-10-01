@@ -3,22 +3,27 @@
 exports[`<Input> that renders an input field should add classes when props are changed 1`] = `
 <div>
   <label
-    class="Input__label"
+    class="InputContainer__label"
     for=":r1:"
   >
     Input Label
   </label>
-  <input
-    aria-invalid="true"
-    class="Input Input--context_critical Input--size_medium Input--isBlock"
-    data-lpignore="true"
-    disabled=""
-    id=":r1:"
-    type="text"
-    value=""
-  />
+  <div
+    class="InputContainer InputContainer--context_critical InputContainer--size_medium InputContainer--isBlock InputContainer--disabled"
+    data-testid="inputContainer"
+  >
+    <input
+      aria-invalid="true"
+      class="InputContainer__input InputContainer__input--size_medium"
+      data-lpignore="true"
+      disabled=""
+      id=":r1:"
+      type="text"
+      value=""
+    />
+  </div>
   <p
-    class="Input__helperText"
+    class="InputContainer__helperText"
   >
     This is a helper text
   </p>
@@ -28,20 +33,25 @@ exports[`<Input> that renders an input field should add classes when props are c
 exports[`<Input> that renders an input field should render default input correctly 1`] = `
 <div>
   <label
-    class="Input__label"
+    class="InputContainer__label"
     for=":r0:"
   >
     Input Label
   </label>
-  <input
-    class="Input Input--size_medium"
-    data-lpignore="true"
-    id=":r0:"
-    type="text"
-    value="Some value"
-  />
+  <div
+    class="InputContainer InputContainer--size_medium"
+    data-testid="inputContainer"
+  >
+    <input
+      class="InputContainer__input InputContainer__input--size_medium"
+      data-lpignore="true"
+      id=":r0:"
+      type="text"
+      value="Some value"
+    />
+  </div>
   <p
-    class="Input__helperText"
+    class="InputContainer__helperText"
   >
     This is a helper text
   </p>
@@ -51,23 +61,23 @@ exports[`<Input> that renders an input field should render default input correct
 exports[`<SearchInput> that renders an input field should add classes when props are changed 1`] = `
 <div>
   <label
-    class="SearchInput__label"
+    class="InputContainer__label"
     for=":r9:"
   >
     Input Label
   </label>
   <div
-    class="SearchInput SearchInput--context_critical SearchInput--size_medium SearchInput--isBlock SearchInput--disabled"
-    data-testid="searchInputContainer"
+    class="InputContainer InputContainer--context_critical InputContainer--size_medium InputContainer--isBlock InputContainer--disabled"
+    data-testid="inputContainer"
   >
     <svg
-      class="SearchInput__icon SearchInput__icon--type_search"
+      class="InputContainer__icon InputContainer__icon--type_search"
       data-testid="default-icon"
       viewBox="0 0 24 24"
     />
     <input
       aria-invalid="true"
-      class="SearchInput__input SearchInput__input--size_medium"
+      class="InputContainer__input InputContainer__input--size_medium"
       data-lpignore="true"
       disabled=""
       id=":r9:"
@@ -75,13 +85,13 @@ exports[`<SearchInput> that renders an input field should add classes when props
       value=""
     />
     <svg
-      class="SearchInput__icon SearchInput__icon--type_clear"
+      class="InputContainer__icon InputContainer__icon--type_clear"
       data-testid="default-icon"
       viewBox="0 0 24 24"
     />
   </div>
   <p
-    class="SearchInput__helperText"
+    class="InputContainer__helperText"
   >
     This is a helper text
   </p>
@@ -91,35 +101,35 @@ exports[`<SearchInput> that renders an input field should add classes when props
 exports[`<SearchInput> that renders an input field should render default SearchInput correctly 1`] = `
 <div>
   <label
-    class="SearchInput__label"
+    class="InputContainer__label"
     for=":r8:"
   >
     Input Label
   </label>
   <div
-    class="SearchInput SearchInput--size_medium"
-    data-testid="searchInputContainer"
+    class="InputContainer InputContainer--size_medium"
+    data-testid="inputContainer"
   >
     <svg
-      class="SearchInput__icon SearchInput__icon--type_search SearchInput__icon--bold"
+      class="InputContainer__icon InputContainer__icon--type_search InputContainer__icon--bold"
       data-testid="default-icon"
       viewBox="0 0 24 24"
     />
     <input
-      class="SearchInput__input SearchInput__input--size_medium"
+      class="InputContainer__input InputContainer__input--size_medium"
       data-lpignore="true"
       id=":r8:"
       type="text"
       value="Some value!"
     />
     <svg
-      class="SearchInput__icon SearchInput__icon--type_clear SearchInput__icon--visible"
+      class="InputContainer__icon InputContainer__icon--type_clear InputContainer__icon--visible"
       data-testid="default-icon"
       viewBox="0 0 24 24"
     />
   </div>
   <p
-    class="SearchInput__helperText"
+    class="InputContainer__helperText"
   >
     This is a helper text
   </p>
