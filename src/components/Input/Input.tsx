@@ -1,5 +1,7 @@
 import * as React from 'react';
 import Error from '@material-design-icons/svg/round/error.svg';
+import Search from '@material-design-icons/svg/round/search.svg';
+import Clear from '@material-design-icons/svg/round/cancel.svg';
 import { bem } from '../../utils';
 import styles from './Input.scss';
 import { InputType } from '../../constants';
@@ -30,14 +32,21 @@ interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 's
     label?: string;
     /** Helper text under the input, display the error when the context is critical */
     helperText?: string;
+    /** */
+    leadingIcon?: boolean;
+    /** */
+    deleteButton?: boolean;
+    /** */
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     /**  Controls whether space is reserved for error messages under the input field when validation is expected
      *  to avoid "jumping" UI. */
     reserveErrorMessageSpace?: boolean;
 }
 
-export type Props = BaseProps & (ErrorStateProps | { context?: undefined; errorMessage?: never });
+export type Props = BaseProps &
+    (ErrorStateProps | { context?: undefined | string; errorMessage?: never });
 
-const { block, elem } = bem('Input', styles);
+const { block, elem } = bem('InputContainer', styles);
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(
     (
@@ -50,9 +59,11 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             isBlock = false,
             size = 'medium',
             type = 'text',
-            value,
+            value: initialValue = '',
             label,
             helperText,
+            leadingIcon = false,
+            deleteButton = false,
             errorMessage,
             reserveErrorMessageSpace = false,
             ...rest
@@ -61,6 +72,26 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
     ) => {
         const fallbackId = React.useId();
         const idRef = id || fallbackId;
+        const [value, setValue] = React.useState(initialValue);
+        const [hasText, setHasText] = React.useState<boolean>(!!initialValue);
+
+        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            setValue(e.target.value);
+            setHasText(!!e.target.value);
+            if (rest.onChange) {
+                rest.onChange(e);
+            }
+        };
+
+        React.useEffect(() => {
+            setValue(initialValue);
+        }, [initialValue]);
+
+        // Function to clear the input value
+        const handleClear = () => {
+            setValue('');
+            setHasText(false);
+        };
 
         const isLastPassDisabled = type !== 'password';
 
@@ -71,18 +102,44 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                         {label}
                     </label>
                 )}
-                <input
-                    {...rest}
-                    {...block({ context, size, isBlock, disabled, ...rest })}
-                    id={idRef}
-                    ref={ref}
-                    type={type}
-                    disabled={disabled}
-                    readOnly={readOnly}
-                    value={value}
-                    aria-invalid={context === 'critical' ? 'true' : undefined}
-                    data-lpignore={isLastPassDisabled}
-                />
+                <div
+                    data-testid="inputContainer"
+                    {...block({
+                        withIcon: leadingIcon,
+                        context,
+                        size,
+                        isBlock,
+                        disabled,
+                        readOnly,
+                    })}
+                >
+                    {leadingIcon && (
+                        <Search
+                            {...elem('icon', { type: 'search', bold: hasText, size })}
+                            viewBox="0 0 24 24"
+                        />
+                    )}
+                    <input
+                        {...rest}
+                        {...elem('input', { context, size, isBlock, disabled })}
+                        id={idRef}
+                        ref={ref}
+                        type={type}
+                        disabled={disabled}
+                        readOnly={readOnly}
+                        value={value}
+                        onChange={handleChange}
+                        aria-invalid={context === 'critical' ? 'true' : undefined}
+                        data-lpignore={isLastPassDisabled}
+                    />
+                    {deleteButton && (
+                        <Clear
+                            {...elem('icon', { type: 'clear', visible: hasText, size })}
+                            viewBox="0 0 24 24"
+                            onClick={handleClear}
+                        />
+                    )}
+                </div>
 
                 {(context === 'critical' && errorMessage) ||
                 (reserveErrorMessageSpace && !helperText) ? (

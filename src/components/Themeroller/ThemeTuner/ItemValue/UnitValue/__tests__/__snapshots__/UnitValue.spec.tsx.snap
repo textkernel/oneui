@@ -3,13 +3,18 @@
 exports[`UnitValue component should render component correctly 1`] = `
 <div>
   <span>
-    <input
-      class="Input Input--size_small UnitValue__input"
-      data-lpignore="true"
-      id=":r0:"
-      type="number"
-      value="12"
-    />
+    <div
+      class="InputContainer InputContainer--size_small"
+      data-testid="inputContainer"
+    >
+      <input
+        class="InputContainer__input InputContainer__input--size_small"
+        data-lpignore="true"
+        id=":r0:"
+        type="number"
+        value="12"
+      />
+    </div>
     <span
       class="Text--context_neutral UnitValue__value"
     >

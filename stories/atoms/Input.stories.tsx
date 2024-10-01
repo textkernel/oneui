@@ -38,6 +38,7 @@ export const _SearchInput: StorySearchInput = {
         helperText: 'Optional helper text',
         errorMessage: 'Error message',
         context: undefined,
+        size: 'medium',
     },
     render: (args) => <SearchInput {...args} />,
 };
