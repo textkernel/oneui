@@ -42,3 +42,17 @@ export const _SearchInput: StorySearchInput = {
     },
     render: (args) => <SearchInput {...args} />,
 };
+
+export const _SearchInputWithValue: StorySearchInput = {
+    name: 'SearchInput with value',
+    args: {
+        placeholder: 'While typing, check your console log...',
+        label: 'Label',
+        helperText: 'Optional helper text',
+        errorMessage: 'Error message',
+        context: undefined,
+        size: 'medium',
+        value: 'This is the value',
+    },
+    render: (args) => <SearchInput {...args} />,
+};
