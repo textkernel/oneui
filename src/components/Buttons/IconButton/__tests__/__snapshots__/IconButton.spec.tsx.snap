@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton should add classes when props are changed 1`] = `
+<div>
+  <button
+    class="Button Button--size_large Button--variant_filled Button--context_secondary IconButton--size_large"
+    style="width: auto;"
+    type="button"
+  >
+    <svg
+      aria-label="plus"
+      class="IconButton__icon--size_large"
+      fill="currentColor"
+      height="large"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 448 512"
+      width="large"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`IconButton should render icon button correctly 1`] = `
+<div>
+  <button
+    class="Button Button--variant_filled Button--context_secondary IconButton--size_medium"
+    style="width: auto;"
+    type="button"
+  >
+    <svg
+      aria-label="plus"
+      class="IconButton__icon--size_medium"
+      fill="currentColor"
+      height="medium"
+      stroke="currentColor"
+      stroke-width="0"
+      viewBox="0 0 448 512"
+      width="medium"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
+      />
+    </svg>
+  </button>
+</div>
+`;
