@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
-import Tippy, { TippyProps } from '@tippyjs/react';
 import * as React from 'react';
+import Tippy, { TippyProps } from '@tippyjs/react';
 import 'tippy.js/animations/shift-toward.css?external';
 import 'tippy.js/dist/tippy.css?external';
 
