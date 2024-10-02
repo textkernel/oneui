@@ -7,7 +7,6 @@
 ### VisualStudioCode template
 /.vscode
 .vscode/*
-.history
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json

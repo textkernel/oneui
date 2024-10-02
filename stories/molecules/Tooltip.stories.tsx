@@ -1,6 +1,6 @@
+import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Tooltip } from '@textkernel/oneui';
-import * as React from 'react';
 
 const meta: Meta<typeof Tooltip> = {
     title: 'Molecules/Tooltip',
