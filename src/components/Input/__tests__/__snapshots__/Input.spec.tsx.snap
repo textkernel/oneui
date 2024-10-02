@@ -2,136 +2,153 @@
 
 exports[`<Input> that renders an input field should add classes when props are changed 1`] = `
 <div>
-  <label
-    class="InputContainer__label"
-    for=":r1:"
-  >
-    Input Label
-  </label>
-  <div
-    class="InputContainer InputContainer--context_critical InputContainer--size_medium InputContainer--isBlock InputContainer--disabled"
-    data-testid="inputContainer"
-  >
-    <input
-      aria-invalid="true"
-      class="InputContainer__input InputContainer__input--size_medium"
-      data-lpignore="true"
-      disabled=""
-      id=":r1:"
-      type="text"
-      value=""
-    />
+  <div>
+    <label
+      class="Input__label"
+      for=":r1:"
+    >
+      Input Label
+    </label>
+    <div
+      class="Input__inputContainer Input__inputContainer--context_critical Input__inputContainer--size_medium Input__inputContainer--isBlock Input__inputContainer--disabled"
+      data-testid="inputContainer"
+    >
+      <input
+        aria-invalid="true"
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        disabled=""
+        id=":r1:"
+        type="text"
+        value=""
+      />
+    </div>
+    <p
+      class="Input__helperText"
+    >
+      This is a helper text
+    </p>
   </div>
-  <p
-    class="InputContainer__helperText"
-  >
-    This is a helper text
-  </p>
 </div>
 `;
 
 exports[`<Input> that renders an input field should render default input correctly 1`] = `
 <div>
-  <label
-    class="InputContainer__label"
-    for=":r0:"
-  >
-    Input Label
-  </label>
-  <div
-    class="InputContainer InputContainer--size_medium"
-    data-testid="inputContainer"
-  >
-    <input
-      class="InputContainer__input InputContainer__input--size_medium"
-      data-lpignore="true"
-      id=":r0:"
-      type="text"
-      value="Some value"
-    />
+  <div>
+    <label
+      class="Input__label"
+      for=":r0:"
+    >
+      Input Label
+    </label>
+    <div
+      class="Input__inputContainer Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <input
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        id=":r0:"
+        type="text"
+        value="Some value"
+      />
+    </div>
+    <p
+      class="Input__helperText"
+    >
+      This is a helper text
+    </p>
   </div>
-  <p
-    class="InputContainer__helperText"
-  >
-    This is a helper text
-  </p>
 </div>
 `;
 
 exports[`<SearchInput> that renders an input field should add classes when props are changed 1`] = `
 <div>
-  <label
-    class="InputContainer__label"
-    for=":r9:"
-  >
-    Input Label
-  </label>
-  <div
-    class="InputContainer InputContainer--context_critical InputContainer--size_medium InputContainer--isBlock InputContainer--disabled"
-    data-testid="inputContainer"
-  >
-    <svg
-      class="InputContainer__icon InputContainer__icon--type_leading"
-      data-testid="default-icon"
-      viewBox="0 0 24 24"
-    />
-    <input
-      aria-invalid="true"
-      class="InputContainer__input InputContainer__input--size_medium"
-      data-lpignore="true"
-      disabled=""
-      id=":r9:"
-      type="text"
-      value=""
-    />
-    <svg
-      class="InputContainer__icon InputContainer__icon--type_trailing"
-      data-testid="default-icon"
-      viewBox="0 0 24 24"
-    />
+  <div>
+    <label
+      class="Input__label"
+      for=":r9:"
+    >
+      Input Label
+    </label>
+    <div
+      class="Input__inputContainer Input__inputContainer--context_critical Input__inputContainer--size_medium Input__inputContainer--isBlock Input__inputContainer--disabled"
+      data-testid="inputContainer"
+    >
+      <svg
+        class="Input__icon Input__icon--type_leading"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+      <input
+        aria-invalid="true"
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        disabled=""
+        id=":r9:"
+        type="text"
+        value=""
+      />
+      <svg
+        class="Input__icon Input__icon--type_trailing"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+    </div>
+    <div
+      class="Input__errorMessageWrapper"
+    >
+      <svg
+        class="Input__icon Input__icon--context_critical"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+      <p
+        class="Input__errorMessage Input__errorMessage--context_critical"
+      >
+        error message
+      </p>
+    </div>
   </div>
-  <p
-    class="InputContainer__helperText"
-  >
-    This is a helper text
-  </p>
 </div>
 `;
 
 exports[`<SearchInput> that renders an input field should render default SearchInput correctly 1`] = `
 <div>
-  <label
-    class="InputContainer__label"
-    for=":r8:"
-  >
-    Input Label
-  </label>
-  <div
-    class="InputContainer InputContainer--size_medium"
-    data-testid="inputContainer"
-  >
-    <svg
-      class="InputContainer__icon InputContainer__icon--type_leading InputContainer__icon--bold"
-      data-testid="default-icon"
-      viewBox="0 0 24 24"
-    />
-    <input
-      class="InputContainer__input InputContainer__input--size_medium"
-      data-lpignore="true"
-      id=":r8:"
-      type="text"
-      value="Some value!"
-    />
-    <svg
-      class="InputContainer__icon InputContainer__icon--type_trailing InputContainer__icon--visible"
-      data-testid="default-icon"
-      viewBox="0 0 24 24"
-    />
+  <div>
+    <label
+      class="Input__label"
+      for=":r8:"
+    >
+      Input Label
+    </label>
+    <div
+      class="Input__inputContainer Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <svg
+        class="Input__icon Input__icon--type_leading Input__icon--bold"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+      <input
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        id=":r8:"
+        type="text"
+        value="Some value!"
+      />
+      <svg
+        class="Input__icon Input__icon--type_trailing Input__icon--visible"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+    </div>
+    <p
+      class="Input__helperText"
+    >
+      This is a helper text
+    </p>
   </div>
-  <p
-    class="InputContainer__helperText"
-  >
-    This is a helper text
-  </p>
 </div>
 `;

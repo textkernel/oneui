@@ -3,18 +3,20 @@
 exports[`ColorValue component should render component correctly 1`] = `
 <div>
   <span>
-    <div
-      class="InputContainer InputContainer--size_small"
-      data-testid="inputContainer"
-    >
-      <input
-        class="InputContainer__input InputContainer__input--size_small"
-        data-lpignore="true"
-        id=":r0:"
-        role="colorselector"
-        type="color"
-        value="#fffff"
-      />
+    <div>
+      <div
+        class="Input__inputContainer Input__inputContainer--size_small"
+        data-testid="inputContainer"
+      >
+        <input
+          class="Input__input Input__input--size_small"
+          data-lpignore="true"
+          id=":r0:"
+          role="colorselector"
+          type="color"
+          value="#fffff"
+        />
+      </div>
     </div>
     <span
       class="Text--context_neutral ColorValue__value"
