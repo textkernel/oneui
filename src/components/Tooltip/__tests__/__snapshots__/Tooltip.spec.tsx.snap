@@ -22,7 +22,7 @@ exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctl
       data-reference-hidden=""
       data-state="visible"
       role="tooltip"
-      style="max-width: 350px; transition-duration: 300ms;"
+      style="max-width: 320px; transition-duration: 300ms;"
       tabindex="-1"
     >
       <div
@@ -34,10 +34,6 @@ exports[`<Tooltip> that renders a Tooltip should render default Tooltip correctl
           content
         </div>
       </div>
-      <div
-        class="tippy-arrow"
-        style="position: absolute; left: 0px; transform: translate(3px, 0px);"
-      />
     </div>
   </div>
 </body>
