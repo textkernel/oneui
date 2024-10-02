@@ -31,18 +31,17 @@ interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 's
     /** Helper text under the input, display the error when the context is critical */
     helperText?: string;
     /** Icon before input, optional */
-    leadingIcon?: React.ReactElement;
+    leadingIcon?: { icon: React.ReactElement; callback?: () => void };
     /** Icon after input, which can trigger callback as a button, optional */
-    trailingIcon?: { icon: React.ReactElement; callback: () => void };
+    trailingIcon?: { icon: React.ReactElement; callback?: () => void };
     /**  Controls whether space is reserved for error messages under the input field when validation is expected
      *  to avoid "jumping" UI. */
     reserveErrorMessageSpace?: boolean;
 }
 
-export type Props = BaseProps &
-    (ErrorStateProps | { context?: undefined | string; errorMessage?: undefined | string });
+export type Props = BaseProps & (ErrorStateProps | { context?: undefined; errorMessage?: never });
 
-const { block, elem } = bem('InputContainer', styles);
+const { block, elem } = bem('Input', styles);
 
 export const Input = React.forwardRef<HTMLInputElement, Props>(
     (
@@ -84,7 +83,16 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         const isLastPassDisabled = type !== 'password';
 
         return (
-            <>
+            <div
+                {...block({
+                    withIcon: leadingIcon,
+                    context,
+                    size,
+                    isBlock,
+                    disabled,
+                    readOnly,
+                })}
+            >
                 {label && (
                     <label {...elem('label')} htmlFor={idRef}>
                         {label}
@@ -92,19 +100,20 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                 )}
                 <div
                     data-testid="inputContainer"
-                    {...block({
-                        withIcon: leadingIcon,
+                    {...elem('inputContainer', {
                         context,
                         size,
                         isBlock,
                         disabled,
+                        type,
                         readOnly,
                     })}
                 >
                     {leadingIcon &&
-                        React.cloneElement(leadingIcon, {
+                        React.cloneElement(leadingIcon.icon, {
                             viewBox: '0 0 24 24',
                             ...elem('icon', { type: 'leading', bold: hasText, size }),
+                            onClick: leadingIcon.callback ? leadingIcon.callback : undefined,
                         })}
                     <input
                         {...rest}
@@ -123,7 +132,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                         React.cloneElement(trailingIcon.icon, {
                             viewBox: '0 0 24 24',
                             ...elem('icon', { type: 'trailing', visible: hasText, size }),
-                            onClick: trailingIcon.callback,
+                            onClick: trailingIcon.callback ? trailingIcon.callback : undefined,
                         })}
                 </div>
 
@@ -146,7 +155,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                 ) : (
                     helperText && <p {...elem('helperText')}>{helperText}</p>
                 )}
-            </>
+            </div>
         );
     }
 );

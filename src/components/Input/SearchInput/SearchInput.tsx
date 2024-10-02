@@ -4,12 +4,14 @@ import Clear from '@material-design-icons/svg/round/cancel.svg';
 
 import { Input, Props } from '../Input';
 
-export const SearchInput = React.forwardRef<HTMLInputElement, Props>(
+export interface SearchInputProps extends Omit<Props, 'type' | 'leadingIcon' | 'trailingIcon'> {}
+
+export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
     (
         {
             id,
             children,
-            context = undefined,
+            context,
             disabled = false,
             readOnly = false,
             isBlock = false,
@@ -29,25 +31,31 @@ export const SearchInput = React.forwardRef<HTMLInputElement, Props>(
             setValue(initialValue);
         }, [initialValue]);
 
+        const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            setValue(e.target.value);
+            if (rest.onChange) {
+                rest.onChange(e);
+            }
+        };
+
         return (
             <Input
                 ref={ref}
                 disabled={disabled}
                 readOnly={readOnly}
                 isBlock={isBlock}
-                context={context}
                 size={size}
                 label={label}
                 helperText={helperText}
                 type="search"
                 value={value}
-                onChange={(e) => {
-                    setValue(e.target.value);
-                }}
-                leadingIcon={<Search />}
+                onChange={handleOnChange}
+                leadingIcon={{ icon: <Search /> }}
                 trailingIcon={{ icon: <Clear />, callback: () => setValue('') }}
                 reserveErrorMessageSpace={reserveErrorMessageSpace}
-                errorMessage={errorMessage}
+                {...(context && errorMessage
+                    ? { context, errorMessage }
+                    : { context: undefined, errorMessage: undefined })}
                 {...rest}
             />
         );
