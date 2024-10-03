@@ -9,7 +9,7 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     /** If the checkbox should be disabled */
     disabled?: boolean;
     /** The label for the checkbox */
-    children?: string | React.ReactElement;
+    children?: React.ReactNode;
     /** Optionally render checkbox in a flexbox */
     asFlexbox?: boolean;
     /** Indeterminate status, show minus sign across checkbox. This property overrides the checked state visually  */
@@ -20,6 +20,8 @@ export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     lineRole?: string;
     /** Polyline role */
     polylineRole?: string;
+    /** the size of the gap between the label and the checkbox itself */
+    useLargeGap?: boolean;
 }
 
 const { block, elem } = bem('Checkbox', styles);
@@ -38,6 +40,7 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
             inputRef,
             lineRole,
             polylineRole,
+            useLargeGap = false,
             ...rest
         },
         ref
@@ -68,7 +71,7 @@ export const Checkbox = React.forwardRef<HTMLDivElement, Props>(
                     ref={inputRef}
                 />
                 <label {...elem('label', { asFlexbox })} htmlFor={id}>
-                    <span {...elem('box', { asFlexbox })}>
+                    <span {...elem('box', { asFlexbox, useLargeGap })}>
                         <svg
                             {...elem('svg', { asFlexbox })}
                             width="12px"
