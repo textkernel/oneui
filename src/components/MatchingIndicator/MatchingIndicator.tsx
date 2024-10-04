@@ -13,7 +13,7 @@ export interface Props {
     percentage: number;
 }
 
-const { block } = bem('MatchingIndicator', styles);
+const { block, elem } = bem('MatchingIndicator', styles);
 
 export const MatchingIndicator: React.FC<Props> = ({ percentage }) => {
     if (percentage < 0 || percentage > 100) {
@@ -31,27 +31,29 @@ export const MatchingIndicator: React.FC<Props> = ({ percentage }) => {
     };
 
     return (
-        <svg {...block()} aria-label="Matching indicator">
-            <circle
-                r="9"
-                cx="50%"
-                cy="50%"
-                stroke="var(--color-background-neutral-subtle-default)"
-                fill="none"
-                strokeWidth="3"
-                strokeLinecap="round"
-            />
-            <circle
-                r="9"
-                cx="50%"
-                cy="50%"
-                stroke={computeMatchingIndicatorPercentageColor(percentage)}
-                fill="none"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeDasharray={`${(percentage / 100) * 56}, 56`}
-            />
-        </svg>
+        <div {...block()}>
+            <svg {...elem('svg')} aria-label="Matching indicator">
+                <circle
+                    r="9"
+                    cx="50%"
+                    cy="50%"
+                    stroke="var(--color-background-neutral-subtle-default)"
+                    fill="none"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                />
+                <circle
+                    r="9"
+                    cx="50%"
+                    cy="50%"
+                    stroke={computeMatchingIndicatorPercentageColor(percentage)}
+                    fill="none"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeDasharray={`${(percentage / 100) * 56}, 56`}
+                />
+            </svg>
+        </div>
     );
 };
 

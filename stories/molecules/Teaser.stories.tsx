@@ -1,9 +1,7 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Tag, Teaser } from '@textkernel/oneui';
-import { FaInternetExplorer, FaLinkedinIn } from 'react-icons/fa';
-
-const titleText = 'My first job';
+import { FaAddressBook, FaInternetExplorer } from 'react-icons/fa';
 
 const meta: Meta<typeof Teaser> = {
     title: 'Molecules/Teaser',
@@ -17,14 +15,21 @@ type Story = StoryObj<typeof Teaser>;
 export const WithAllFields: Story = {
     name: 'With all fields',
     args: {
-        title: titleText,
-        subtitle: 'Awsome inc.',
+        title: 'John Doe is a known placeholder name in the tech field accross the world',
+        subtitle: 'John Doe is a known placeholder name in the tech field accross the world',
         hasCheckbox: true,
-        date: 'Today',
-        primaryInfo: { text: 'Primary', href: 'https://textkernel.com' },
-        secondaryInfo: { text: 'Secondary' },
-        tercearyInfo: { text: 'Terceary' },
-        sourceInfo: { text: 'Source', icon: <FaLinkedinIn /> },
+        date: 'about a month ago',
+        primaryInfo: {
+            text: 'John Doe is a known placeholder name in the tech field accross the world',
+        },
+        secondaryInfo: {
+            text: 'John Doe is a known placeholder name in the tech field accross the world',
+            href: 'https://textkernel.nl',
+        },
+        tercearyInfo: {
+            text: 'John Doe is a known placeholder name in the tech field accross the world',
+        },
+        sourceInfo: { text: 'textkernel.nl (+ 4 more)', icon: <FaAddressBook /> },
         isVisited: true,
         matchingIndicatorPercentage: 50,
         bottom: (
@@ -42,9 +47,47 @@ export const WithAllFields: Story = {
         const [isSelected, setIsSelected] = React.useState(false);
 
         return (
-            <Teaser {...args} isSelected={isSelected} onChange={() => setIsSelected(!isSelected)} />
+            <div>
+                <p>Border is just to show the width (500px) of the component</p>
+                <div style={{ width: '500px', border: '1px solid black' }}>
+                    <Teaser
+                        {...args}
+                        isSelected={isSelected}
+                        onChange={() => setIsSelected(!isSelected)}
+                    />
+                </div>
+            </div>
         );
     },
+};
+
+export const WithoutCheckbox: Story = {
+    name: 'Without checkbox',
+    args: {
+        title: 'John Doe is a very known person in the IT field accross the world',
+        subtitle: 'Surgeon',
+        primaryInfo: { text: 'Netherlands' },
+        sourceInfo: { text: 'textkernel.nl (+ 4 more)', href: 'https://textkernel.nl' },
+        date: 'about 1 month ago',
+        bottom: (
+            <div style={{ display: 'flex', gap: '8px' }}>
+                <Tag bgColor="yellow" size="small" onDelete={() => console.log('Deleted')}>
+                    First
+                </Tag>
+                <Tag bgColor="lightblue" size="small">
+                    Second
+                </Tag>
+            </div>
+        ),
+    },
+    render: (args) => (
+        <div>
+            <p>Border is just to show the width (500px) of the component</p>
+            <div style={{ width: '500px', border: '1px solid black' }}>
+                <Teaser {...args} />
+            </div>
+        </div>
+    ),
 };
 
 export const VariantOne: Story = {

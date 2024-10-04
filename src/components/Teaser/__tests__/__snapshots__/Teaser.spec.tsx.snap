@@ -40,7 +40,7 @@ exports[`Teaser should render checkbox not checked 1`] = `
           class="Teaser__row"
         >
           <span
-            class="Teaser__title"
+            class="Teaser__title Teaser__lineClamp"
             title="some title"
           >
             some title
@@ -70,7 +70,7 @@ exports[`Teaser should render correctly with just a title 1`] = `
           class="Teaser__row"
         >
           <span
-            class="Teaser__title"
+            class="Teaser__title Teaser__lineClamp"
             title="some title"
           >
             some title
@@ -100,7 +100,7 @@ exports[`Teaser should render source info row with icon and link 1`] = `
           class="Teaser__row"
         >
           <span
-            class="Teaser__title"
+            class="Teaser__title Teaser__lineClamp"
             title="some title"
           >
             some title
@@ -190,35 +190,43 @@ exports[`Teaser should render with all props defined 1`] = `
           class="Teaser__row"
         >
           <span
-            class="Teaser__title"
+            class="Teaser__title Teaser__lineClamp"
             title="A job title"
           >
             A job title
           </span>
-          <svg
-            aria-label="Matching indicator"
-            class="MatchingIndicator"
+          <div
+            class="Teaser__matchingIndicator"
           >
-            <circle
-              cx="50%"
-              cy="50%"
-              fill="none"
-              r="9"
-              stroke="var(--color-background-neutral-subtle-default)"
-              stroke-linecap="round"
-              stroke-width="3"
-            />
-            <circle
-              cx="50%"
-              cy="50%"
-              fill="none"
-              r="9"
-              stroke="var(--color-icon-caution-default)"
-              stroke-dasharray="28, 56"
-              stroke-linecap="round"
-              stroke-width="3"
-            />
-          </svg>
+            <div
+              class="MatchingIndicator"
+            >
+              <svg
+                aria-label="Matching indicator"
+                class="MatchingIndicator__svg"
+              >
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  fill="none"
+                  r="9"
+                  stroke="var(--color-background-neutral-subtle-default)"
+                  stroke-linecap="round"
+                  stroke-width="3"
+                />
+                <circle
+                  cx="50%"
+                  cy="50%"
+                  fill="none"
+                  r="9"
+                  stroke="var(--color-icon-caution-default)"
+                  stroke-dasharray="28, 56"
+                  stroke-linecap="round"
+                  stroke-width="3"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
         <div
           class="Teaser__row"
@@ -236,13 +244,13 @@ exports[`Teaser should render with all props defined 1`] = `
         </div>
       </div>
       <span
-        class="Teaser__subtitle"
+        class="Teaser__subtitle Teaser__lineClamp"
         title="Organization"
       >
         Organization
       </span>
       <a
-        class="Link Teaser__link"
+        class="Link Teaser__link Teaser__lineClamp"
         href="https://textkernel.nl"
       >
         <span
@@ -252,13 +260,13 @@ exports[`Teaser should render with all props defined 1`] = `
         </span>
       </a>
       <span
-        class="Teaser__info"
+        class="Teaser__info Teaser__lineClamp"
         title="Secondary Info"
       >
         Secondary Info
       </span>
       <span
-        class="Teaser__info"
+        class="Teaser__info Teaser__lineClamp"
         title="Terceary Info"
       >
         Terceary Info

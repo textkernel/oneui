@@ -17,8 +17,6 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title
     title: string;
     /** The subtitle of the entity. Note: it is rendered within a <span> */
     subtitle?: string;
-    /** Style the component as disabled */
-    disabled?: boolean;
     /** Define if checkbox is rendered or not */
     hasCheckbox?: boolean;
     /** Checkbox id */
@@ -97,13 +95,13 @@ export const Teaser: React.FC<Props> = ({
 
         if (href) {
             return (
-                <Link href={href} {...elem('link')}>
+                <Link href={href} {...elem(['link', 'lineClamp'])}>
                     {textComponent}
                 </Link>
             );
         }
 
-        return React.cloneElement(textComponent, { ...elem('info') });
+        return React.cloneElement(textComponent, { ...elem(['info', 'lineClamp']) });
     };
 
     return (
@@ -112,14 +110,15 @@ export const Teaser: React.FC<Props> = ({
             <div {...elem('column')}>
                 <div {...elem(['row', 'titleRow'])}>
                     <div {...elem('row')}>
-                        <Text inline title={title} {...elem('title')}>
+                        <Text inline title={title} {...elem(['title', 'lineClamp'])}>
                             {title}
                         </Text>
                         {matchingIndicatorPercentage !== undefined && (
-                            <MatchingIndicator percentage={matchingIndicatorPercentage} />
+                            <div {...elem('matchingIndicator')}>
+                                <MatchingIndicator percentage={matchingIndicatorPercentage} />
+                            </div>
                         )}
                     </div>
-
                     <div {...elem('row')}>
                         {date && (
                             <Text inline title={date} {...elem('caption')}>
@@ -135,7 +134,7 @@ export const Teaser: React.FC<Props> = ({
                     </div>
                 </div>
                 {subtitle && (
-                    <Text inline title={subtitle} {...elem('subtitle')}>
+                    <Text inline title={subtitle} {...elem(['subtitle', 'lineClamp'])}>
                         {subtitle}
                     </Text>
                 )}
