@@ -48,7 +48,7 @@ describe('<SearchInput> that renders an input field', () => {
         const searchIcon = screen.getAllByTestId('default-icon')[0];
         expect(searchIcon).toHaveClass('Input__icon--bold');
     });
-    it('should not render the search icon bold when there is a value', () => {
+    it('should not render the search icon bold when there is no value', () => {
         renderSearchInputComponent({});
 
         const searchIcon = screen.getAllByTestId('default-icon')[0];
