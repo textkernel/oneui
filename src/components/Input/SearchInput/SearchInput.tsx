@@ -2,6 +2,7 @@ import * as React from 'react';
 import Search from '@material-design-icons/svg/round/search.svg';
 import Clear from '@material-design-icons/svg/round/cancel.svg';
 
+import { mergeRefs } from '../../../utils/mergeRefs';
 import { Input, Props } from '../Input';
 
 export interface SearchInputProps extends Omit<Props, 'type' | 'leadingIcon' | 'trailingIcon'> {}
@@ -16,7 +17,7 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
             readOnly = false,
             isBlock = false,
             size = 'medium',
-            value: initialValue = '',
+            value,
             label,
             helperText,
             errorMessage,
@@ -25,14 +26,8 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
         },
         ref
     ) => {
-        const [value, setValue] = React.useState(initialValue);
-
-        React.useEffect(() => {
-            setValue(initialValue);
-        }, [initialValue]);
-
+        const inputRef = React.useRef<HTMLInputElement | null>(null);
         const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            setValue(e.target.value);
             if (rest.onChange) {
                 rest.onChange(e);
             }
@@ -40,7 +35,7 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
 
         return (
             <Input
-                ref={ref}
+                ref={mergeRefs([ref, inputRef])}
                 disabled={disabled}
                 readOnly={readOnly}
                 isBlock={isBlock}
@@ -51,7 +46,19 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
                 value={value}
                 onChange={handleOnChange}
                 leadingIcon={{ icon: <Search /> }}
-                trailingIcon={{ icon: <Clear />, callback: () => setValue('') }}
+                trailingIcon={{
+                    icon: <Clear />,
+                    callback: () => {
+                        if (inputRef && 'current' in inputRef && inputRef.current) {
+                            (inputRef.current as HTMLInputElement).value = '';
+                            if (rest.onChange) {
+                                rest.onChange({
+                                    target: inputRef.current,
+                                } as React.ChangeEvent<HTMLInputElement>);
+                            }
+                        }
+                    },
+                }}
                 reserveErrorMessageSpace={reserveErrorMessageSpace}
                 {...(context && errorMessage
                     ? { context, errorMessage }

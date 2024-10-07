@@ -40,7 +40,9 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           Background color
         </p>
         <span>
-          <div>
+          <div
+            class="ColorValue__input"
+          >
             <div
               class="Input__inputContainer Input__inputContainer--size_small"
               data-testid="inputContainer"
@@ -70,7 +72,9 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           Foreground color
         </p>
         <span>
-          <div>
+          <div
+            class="ColorValue__input"
+          >
             <div
               class="Input__inputContainer Input__inputContainer--size_small"
               data-testid="inputContainer"
@@ -100,7 +104,9 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           Border radius
         </p>
         <span>
-          <div>
+          <div
+            class="UnitValue__input"
+          >
             <div
               class="Input__inputContainer Input__inputContainer--size_small"
               data-testid="inputContainer"
@@ -190,7 +196,9 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           Background color
         </p>
         <span>
-          <div>
+          <div
+            class="ColorValue__input"
+          >
             <div
               class="Input__inputContainer Input__inputContainer--size_small"
               data-testid="inputContainer"
@@ -220,7 +228,9 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           Foreground color
         </p>
         <span>
-          <div>
+          <div
+            class="ColorValue__input"
+          >
             <div
               class="Input__inputContainer Input__inputContainer--size_small"
               data-testid="inputContainer"
@@ -250,7 +260,9 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           Border radius
         </p>
         <span>
-          <div>
+          <div
+            class="UnitValue__input"
+          >
             <div
               class="Input__inputContainer Input__inputContainer--size_small"
               data-testid="inputContainer"

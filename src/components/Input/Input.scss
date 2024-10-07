@@ -31,7 +31,6 @@
 
             &:focus,
             &:hover {
-                border: 2px solid var(--color-border-selected);
                 background-color: inherit;
                 outline: none;
             }
@@ -90,7 +89,7 @@
         composes: OneUI-label-text from global;
 
         &--type_search::-webkit-search-cancel-button {
-            display: none;
+            appearance: none;
         }
 
         &:focus {

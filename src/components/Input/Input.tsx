@@ -69,10 +69,6 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         const idRef = id || fallbackId;
         const [hasText, setHasText] = React.useState<boolean>(!!value);
 
-        React.useEffect(() => {
-            setHasText(!!value);
-        }, [value]);
-
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             setHasText(!!e.target.value);
             if (rest.onChange) {
@@ -85,13 +81,14 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         return (
             <div
                 {...block({
-                    withIcon: leadingIcon,
                     context,
                     size,
                     isBlock,
                     disabled,
                     readOnly,
                 })}
+                className={rest.className ? rest.className : undefined}
+                style={rest.style ? rest.style : {}}
             >
                 {label && (
                     <label {...elem('label')} htmlFor={idRef}>
@@ -117,7 +114,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                         })}
                     <input
                         {...rest}
-                        {...elem('input', { context, size, isBlock, disabled, type })}
+                        {...elem('input', { size, disabled, type })}
                         id={idRef}
                         ref={ref}
                         type={type}
