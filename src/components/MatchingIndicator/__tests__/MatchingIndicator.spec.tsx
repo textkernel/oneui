@@ -5,7 +5,7 @@ import { MatchingIndicator } from '../MatchingIndicator';
 
 describe('MatchingIndicator', () => {
     it('should render correctly', () => {
-        const view = render(<MatchingIndicator percentage={75} />);
+        const view = render(<MatchingIndicator percentage={75} aria-label="Matching indicator" />);
         expect(view.container).toMatchSnapshot();
     });
 

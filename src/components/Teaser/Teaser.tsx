@@ -39,6 +39,8 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title
     date?: string;
     /** Matching indicator percentage */
     matchingIndicatorPercentage?: number;
+    /** Matching indicator aria-label */
+    matchingIndicatorAriaLabel?: string;
     /** Render bottom elements */
     bottom?: React.ReactNode;
 }
@@ -59,6 +61,7 @@ export const Teaser: React.FC<Props> = ({
     isVisited,
     date,
     matchingIndicatorPercentage,
+    matchingIndicatorAriaLabel,
     bottom,
     ...rest
 }) => {
@@ -115,7 +118,10 @@ export const Teaser: React.FC<Props> = ({
                         </Text>
                         {matchingIndicatorPercentage !== undefined && (
                             <div {...elem('matchingIndicator')}>
-                                <MatchingIndicator percentage={matchingIndicatorPercentage} />
+                                <MatchingIndicator
+                                    percentage={matchingIndicatorPercentage}
+                                    aria-label={matchingIndicatorAriaLabel}
+                                />
                             </div>
                         )}
                     </div>

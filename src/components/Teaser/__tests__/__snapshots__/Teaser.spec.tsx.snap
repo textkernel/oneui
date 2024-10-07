@@ -198,34 +198,30 @@ exports[`Teaser should render with all props defined 1`] = `
           <div
             class="Teaser__matchingIndicator"
           >
-            <div
+            <svg
+              aria-label="Matching indicator"
               class="MatchingIndicator"
             >
-              <svg
-                aria-label="Matching indicator"
-                class="MatchingIndicator__svg"
-              >
-                <circle
-                  cx="50%"
-                  cy="50%"
-                  fill="none"
-                  r="9"
-                  stroke="var(--color-background-neutral-subtle-default)"
-                  stroke-linecap="round"
-                  stroke-width="3"
-                />
-                <circle
-                  cx="50%"
-                  cy="50%"
-                  fill="none"
-                  r="9"
-                  stroke="var(--color-icon-caution-default)"
-                  stroke-dasharray="28, 56"
-                  stroke-linecap="round"
-                  stroke-width="3"
-                />
-              </svg>
-            </div>
+              <circle
+                cx="50%"
+                cy="50%"
+                fill="none"
+                r="9"
+                stroke="var(--color-background-neutral-subtle-default)"
+                stroke-linecap="round"
+                stroke-width="3"
+              />
+              <circle
+                cx="50%"
+                cy="50%"
+                fill="none"
+                r="9"
+                stroke="var(--color-icon-caution-default)"
+                stroke-dasharray="28, 56"
+                stroke-linecap="round"
+                stroke-width="3"
+              />
+            </svg>
           </div>
         </div>
         <div

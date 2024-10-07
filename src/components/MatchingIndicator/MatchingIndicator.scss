@@ -1,9 +1,6 @@
 .MatchingIndicator {
     display: flex;
-
-    &__svg {
-        width: var(--space-300);
-        height: var(--space-300);
-        transform: rotate(-90deg);
-    }
+    width: var(--space-300);
+    height: var(--space-300);
+    transform: rotate(-90deg);
 }

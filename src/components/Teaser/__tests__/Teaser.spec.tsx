@@ -24,6 +24,7 @@ describe('Teaser', () => {
                 sourceInfo={{ text: 'Source Info', icon: <FaPlane aria-label="plane" /> }}
                 date="Today"
                 matchingIndicatorPercentage={50}
+                matchingIndicatorAriaLabel="Matching indicator"
                 bottom={[
                     <Tag bgColor="yellow">First Tag</Tag>,
                     <Tag bgColor="lightblue">Second Tag</Tag>,

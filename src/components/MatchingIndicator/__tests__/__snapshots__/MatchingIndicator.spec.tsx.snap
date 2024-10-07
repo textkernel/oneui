@@ -2,33 +2,29 @@
 
 exports[`MatchingIndicator should render correctly 1`] = `
 <div>
-  <div
+  <svg
+    aria-label="Matching indicator"
     class="MatchingIndicator"
   >
-    <svg
-      aria-label="Matching indicator"
-      class="MatchingIndicator__svg"
-    >
-      <circle
-        cx="50%"
-        cy="50%"
-        fill="none"
-        r="9"
-        stroke="var(--color-background-neutral-subtle-default)"
-        stroke-linecap="round"
-        stroke-width="3"
-      />
-      <circle
-        cx="50%"
-        cy="50%"
-        fill="none"
-        r="9"
-        stroke="var(--color-icon-success-default)"
-        stroke-dasharray="42, 56"
-        stroke-linecap="round"
-        stroke-width="3"
-      />
-    </svg>
-  </div>
+    <circle
+      cx="50%"
+      cy="50%"
+      fill="none"
+      r="9"
+      stroke="var(--color-background-neutral-subtle-default)"
+      stroke-linecap="round"
+      stroke-width="3"
+    />
+    <circle
+      cx="50%"
+      cy="50%"
+      fill="none"
+      r="9"
+      stroke="var(--color-icon-success-default)"
+      stroke-dasharray="42, 56"
+      stroke-linecap="round"
+      stroke-width="3"
+    />
+  </svg>
 </div>
 `;
