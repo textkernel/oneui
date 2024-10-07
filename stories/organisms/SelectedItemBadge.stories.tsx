@@ -4,6 +4,7 @@ import {
     ListItem,
     SelectedItemBadge,
     SelectedItemBadgePriorityItem,
+    Separator,
     SingleSelectItem,
     Text,
     MultiSelectItem,
@@ -91,18 +92,7 @@ export const _SelectedItemBadge: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <div
-                        style={{
-                            padding: 'var(--space-75) var(--space-75) var(--space-50)',
-                            backgroundColor: 'var(--color-background-brand-subtlest-default)',
-                            fontWeight: 'var(--font-weight-bold)',
-                            color: 'var(--color-text-brand-default)',
-                        }}
-                    >
-                        <Text inline title="Radius" size="small">
-                            {'Radius'.toUpperCase()}
-                        </Text>
-                    </div>
+                    <Separator title={'Radius'.toUpperCase()} />
                     {radiusList.map((radius) => (
                         <ListItem
                             style={{
@@ -270,18 +260,7 @@ export const SelectedItemBadgeWithoutPriorityButton: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <div
-                        style={{
-                            padding: 'var(--space-75) var(--space-75) var(--space-50)',
-                            backgroundColor: 'var(--color-background-brand-subtlest-default)',
-                            fontWeight: 'var(--font-weight-bold)',
-                            color: 'var(--color-text-brand-default)',
-                        }}
-                    >
-                        <Text inline title="Radius" size="small">
-                            {'Radius'.toUpperCase()}
-                        </Text>
-                    </div>
+                    <Separator title={'Radius'.toUpperCase()} />
                     {radiusList.map((radius) => (
                         <ListItem
                             style={{
@@ -426,18 +405,7 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <div
-                        style={{
-                            padding: 'var(--space-75) var(--space-75) var(--space-50)',
-                            backgroundColor: 'var(--color-background-brand-subtlest-default)',
-                            fontWeight: 'var(--font-weight-bold)',
-                            color: 'var(--color-text-brand-default)',
-                        }}
-                    >
-                        <Text inline title="Radius" size="small">
-                            {'Radius'.toUpperCase()}
-                        </Text>
-                    </div>
+                    <Separator title={'Radius'.toUpperCase()} />
                     {radiusList.map((radius) => (
                         <ListItem
                             style={{
@@ -485,18 +453,7 @@ export const SelectedItemBadgeWithSingleSelectItems: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <div
-                        style={{
-                            padding: 'var(--space-75) var(--space-75) var(--space-50)',
-                            backgroundColor: 'var(--color-background-brand-subtlest-default)',
-                            fontWeight: 'var(--font-weight-bold)',
-                            color: 'var(--color-text-brand-default)',
-                        }}
-                    >
-                        <Text inline title="Radius" size="small">
-                            {'Radius'.toUpperCase()}
-                        </Text>
-                    </div>
+                    <Separator title={'Radius'.toUpperCase()} />
                     {radiusList.map((radius) => (
                         <SingleSelectItem
                             style={{
