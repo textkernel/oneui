@@ -33,7 +33,7 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title
     tercearyInfo?: Info;
     /** Line containing the source of the information */
     sourceInfo?: Info;
-    /** Render little blue bubble, if undefined it will not be rendered */
+    /** Render visit indicator: `true` - little blue bubble | `false` - empty circle | `undefined` - nothing will be rendered */
     isVisited?: boolean;
     /** Render date information as text */
     date?: string;
