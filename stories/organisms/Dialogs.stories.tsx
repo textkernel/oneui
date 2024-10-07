@@ -107,7 +107,6 @@ export const _Dialog: ConfirmStory = {
 
         const handleButtonClick = () => {
             setShowAlert(true);
-            console.log('hel')
         };
 
         const handleAccept = () => {
