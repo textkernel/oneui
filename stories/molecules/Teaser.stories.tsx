@@ -139,7 +139,7 @@ export const VariantThree: Story = {
     name: 'Variant Three',
     args: {
         title: 'John Doe',
-        subtitle: 'Surgeon',
+        subtitle: 'Super company you want to work for',
         hasCheckbox: true,
         primaryInfo: { text: 'Netherlands' },
         secondaryInfo: { text: 'textkernel.nl', href: 'https://textkernel.nl' },
