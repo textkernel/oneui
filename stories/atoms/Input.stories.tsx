@@ -30,7 +30,7 @@ export const _Input: StoryInput = {
 
 type StorySearchInput = StoryObj<typeof SearchInput>;
 
-export const _SearchInput: StorySearchInput = {
+export const _SearchInputControlled: StorySearchInput = {
     name: 'SearchInput',
     args: {
         placeholder: 'While typing, check your console log...',
@@ -40,19 +40,13 @@ export const _SearchInput: StorySearchInput = {
         context: undefined,
         size: 'medium',
     },
-    render: (args) => <SearchInput {...args} />,
-};
+    render: (args) => {
+        const [value, setValue] = React.useState('');
+        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+            console.log(e.target.value);
+            setValue(e.target.value);
+        };
 
-export const _SearchInputWithValue: StorySearchInput = {
-    name: 'SearchInput with value',
-    args: {
-        placeholder: 'While typing, check your console log...',
-        label: 'Label',
-        helperText: 'Optional helper text',
-        errorMessage: 'Error message',
-        context: undefined,
-        size: 'medium',
-        value: 'This is the value',
+        return <SearchInput {...args} value={value} onChange={handleChange} />;
     },
-    render: (args) => <SearchInput {...args} />,
 };

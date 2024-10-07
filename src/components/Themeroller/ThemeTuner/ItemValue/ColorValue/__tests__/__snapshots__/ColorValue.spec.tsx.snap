@@ -3,7 +3,9 @@
 exports[`ColorValue component should render component correctly 1`] = `
 <div>
   <span>
-    <div>
+    <div
+      class="ColorValue__input"
+    >
       <div
         class="Input__inputContainer Input__inputContainer--size_small"
         data-testid="inputContainer"
