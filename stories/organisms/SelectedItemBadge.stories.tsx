@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import {
     ListItem,
     SelectedItemBadge,
-    SelectedItemBadgePriorityItem,
+    PriorityItem as SelectedItemBadgePriorityItem,
     SingleSelectItem,
     Text,
     MultiSelectItem,
@@ -18,7 +18,7 @@ export default meta;
 
 type Story = StoryObj<typeof SelectedItemBadge<string, string>>;
 
-const priorityList: Array<SelectedItemBadgePriorityItem<string>> = [
+const priorityList: Array<SelectedItemBadgePriorityItem> = [
     { priority: 'mandatory', label: 'Mandatory', value: 'required' },
     { priority: 'important', label: 'Important', value: 'strongly_favored' },
     { priority: 'optional', label: 'Optional', value: 'favored' },
@@ -43,15 +43,14 @@ export const _SelectedItemBadge: Story = {
         buttonLabel: 'Select radius',
     },
     render: (args) => {
-        const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
-            SelectedItemBadgePriorityItem<string>
-        >(
-            args.priority?.selectedItem || {
-                priority: 'mandatory',
-                label: 'Mandatory',
-                value: 'required',
-            }
-        );
+        const [selectedPriorityItem, setSelectedPriorityItem] =
+            React.useState<SelectedItemBadgePriorityItem>(
+                args.priority?.selectedItem || {
+                    priority: 'mandatory',
+                    label: 'Mandatory',
+                    value: 'required',
+                }
+            );
         const [selectedRadius, setSelectedRadius] = React.useState<string>();
 
         React.useEffect(() => {
@@ -62,7 +61,7 @@ export const _SelectedItemBadge: Story = {
             setSelectedRadius(selectedRadius);
         }, [selectedRadius]);
 
-        const handlePriorityChange = (newPriorityItem: SelectedItemBadgePriorityItem<string>) => {
+        const handlePriorityChange = (newPriorityItem: SelectedItemBadgePriorityItem) => {
             setSelectedPriorityItem(newPriorityItem);
             console.log(`Priority changed to ${newPriorityItem.priority}`);
         };
@@ -139,15 +138,14 @@ export const _SelectedItemBadgeMultiSelect: Story = {
         buttonLabel: 'Select synonyms',
     },
     render: (args) => {
-        const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
-            SelectedItemBadgePriorityItem<string>
-        >(
-            args.priority?.selectedItem || {
-                priority: 'mandatory',
-                label: 'Mandatory',
-                value: 'required',
-            }
-        );
+        const [selectedPriorityItem, setSelectedPriorityItem] =
+            React.useState<SelectedItemBadgePriorityItem>(
+                args.priority?.selectedItem || {
+                    priority: 'mandatory',
+                    label: 'Mandatory',
+                    value: 'required',
+                }
+            );
         const [selectedSynonyms, setSelectedSynonyms] = React.useState<string[]>([]);
 
         const handleOnChange = (synonym: string) => {
@@ -169,7 +167,7 @@ export const _SelectedItemBadgeMultiSelect: Story = {
             setSelectedPriorityItem(selectedPriorityItem);
         }, [selectedPriorityItem]);
 
-        const handlePriorityChange = (newPriorityItem: SelectedItemBadgePriorityItem<string>) => {
+        const handlePriorityChange = (newPriorityItem: SelectedItemBadgePriorityItem) => {
             setSelectedPriorityItem(newPriorityItem);
             console.log(`Priority changed to ${newPriorityItem.priority}`);
         };
@@ -317,15 +315,14 @@ export const SelectedItemBadgeWithoutChildren: Story = {
         children: undefined,
     },
     render: (args) => {
-        const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
-            SelectedItemBadgePriorityItem<string>
-        >(
-            args.priority?.selectedItem || {
-                priority: 'mandatory',
-                label: 'Mandatory',
-                value: 'required',
-            }
-        );
+        const [selectedPriorityItem, setSelectedPriorityItem] =
+            React.useState<SelectedItemBadgePriorityItem>(
+                args.priority?.selectedItem || {
+                    priority: 'mandatory',
+                    label: 'Mandatory',
+                    value: 'required',
+                }
+            );
         const [selectedRadius, setSelectedRadius] = React.useState<string>();
 
         React.useEffect(() => {
@@ -336,7 +333,7 @@ export const SelectedItemBadgeWithoutChildren: Story = {
             setSelectedRadius(selectedRadius);
         }, [selectedRadius]);
 
-        const handlePriorityChange = (newPriorityItem: SelectedItemBadgePriorityItem<string>) => {
+        const handlePriorityChange = (newPriorityItem: SelectedItemBadgePriorityItem) => {
             setSelectedPriorityItem(newPriorityItem);
             console.log(`Priority changed to ${newPriorityItem.priority}`);
         };
@@ -383,15 +380,14 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
         onDelete: undefined,
     },
     render: (args) => {
-        const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
-            SelectedItemBadgePriorityItem<string>
-        >(
-            args.priority?.selectedItem || {
-                priority: 'mandatory',
-                label: 'Mandatory',
-                value: 'required',
-            }
-        );
+        const [selectedPriorityItem, setSelectedPriorityItem] =
+            React.useState<SelectedItemBadgePriorityItem>(
+                args.priority?.selectedItem || {
+                    priority: 'mandatory',
+                    label: 'Mandatory',
+                    value: 'required',
+                }
+            );
         const [selectedRadius, setSelectedRadius] = React.useState<string>();
 
         React.useEffect(() => {
@@ -402,7 +398,7 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
             setSelectedRadius(selectedRadius);
         }, [selectedRadius]);
 
-        const handlePriorityChange = (newPriorityItem: SelectedItemBadgePriorityItem<string>) => {
+        const handlePriorityChange = (newPriorityItem: SelectedItemBadgePriorityItem) => {
             setSelectedPriorityItem(newPriorityItem);
             console.log(`Priority changed to ${newPriorityItem.priority}`);
         };

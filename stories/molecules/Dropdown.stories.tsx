@@ -9,6 +9,10 @@ import {
     MultiSelectItem,
 } from '@textkernel/oneui';
 import { HiDotsVertical } from 'react-icons/hi';
+import {
+    PriorityItem,
+    PrioritySelector,
+} from '@textkernel/oneui/components/Dropdown/PrioritySelector/PrioritySelector';
 
 const styles = {
     content: {
@@ -269,6 +273,54 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
                         </MultiSelectItem>
                     ))}
                 </Dropdown>
+            </div>
+        );
+    },
+};
+
+type PriorityStory = StoryObj<typeof PrioritySelector>;
+
+const priorityList: PriorityItem[] = [
+    { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+    { priority: 'important', label: 'Important', value: 'strongly_favored' },
+    { priority: 'optional', label: 'Optional', value: 'favored' },
+    { priority: 'exclude', label: 'Exclude', value: 'banned' },
+];
+
+export const _PrioritySelectory: PriorityStory = {
+    name: 'Priority Selector',
+    args: {
+        list: priorityList as PriorityItem[],
+        buttonLabel: 'Priority',
+        onChange: () => {},
+        selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+    },
+    render: (args) => {
+        const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<PriorityItem>(
+            args.selectedItem as PriorityItem
+        );
+
+        React.useEffect(() => {
+            setSelectedPriorityItem(args.selectedItem as PriorityItem); // Ensure the effect depends on args.selectedItem
+        }, [args.selectedItem]);
+
+        React.useEffect(() => {
+            setSelectedPriorityItem(selectedPriorityItem);
+        }, [selectedPriorityItem]);
+
+        const handlePriorityChange = (newPriorityItem: PriorityItem) => {
+            setSelectedPriorityItem(newPriorityItem);
+            console.log(`Priority changed to ${newPriorityItem.priority}`);
+        };
+
+        return (
+            <div style={{ width: '200px' }}>
+                <PrioritySelector
+                    {...args}
+                    list={args.list}
+                    onChange={handlePriorityChange}
+                    selectedItem={selectedPriorityItem}
+                />
             </div>
         );
     },
