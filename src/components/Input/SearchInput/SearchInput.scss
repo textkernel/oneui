@@ -1,0 +1,28 @@
+.SearchInput {
+    &__icon {
+        flex-shrink: 0;
+        fill: var(--color-icon-critical-default);
+
+        &--type_leading {
+            width: 20px;
+            height: 20px;
+            fill: var(--color-icon-subtlest);
+        }
+
+        &--type_trailing {
+            width: 16px;
+            height: 16px;
+            fill: var(--color-icon-subtlest);
+            display: none;
+        }
+
+        &--bold {
+            fill: var(--color-icon-bold);
+        }
+
+        &--visible {
+            display: inline;
+            cursor: pointer;
+        }
+    }
+}

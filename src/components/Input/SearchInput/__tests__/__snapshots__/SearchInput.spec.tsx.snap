@@ -14,7 +14,7 @@ exports[`<SearchInput> that renders an input field should add classes when props
       data-testid="inputContainer"
     >
       <svg
-        class="Input__icon Input__icon--type_leading"
+        class="SearchInput__icon SearchInput__icon--type_leading"
         data-testid="default-icon"
         viewBox="0 0 24 24"
       />
@@ -28,7 +28,7 @@ exports[`<SearchInput> that renders an input field should add classes when props
         value=""
       />
       <svg
-        class="Input__icon Input__icon--type_trailing"
+        class="SearchInput__icon SearchInput__icon--type_trailing"
         data-testid="default-icon"
         viewBox="0 0 24 24"
       />
@@ -65,7 +65,7 @@ exports[`<SearchInput> that renders an input field should render default SearchI
       data-testid="inputContainer"
     >
       <svg
-        class="Input__icon Input__icon--type_leading Input__icon--bold"
+        class="SearchInput__icon SearchInput__icon--type_leading SearchInput__icon--bold"
         data-testid="default-icon"
         viewBox="0 0 24 24"
       />
@@ -77,7 +77,7 @@ exports[`<SearchInput> that renders an input field should render default SearchI
         value="Some value!"
       />
       <svg
-        class="Input__icon Input__icon--type_trailing Input__icon--visible"
+        class="SearchInput__icon SearchInput__icon--type_trailing SearchInput__icon--visible"
         data-testid="default-icon"
         viewBox="0 0 24 24"
       />
