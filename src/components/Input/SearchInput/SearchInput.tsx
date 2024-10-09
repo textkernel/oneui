@@ -2,68 +2,79 @@ import * as React from 'react';
 import Search from '@material-design-icons/svg/round/search.svg';
 import Clear from '@material-design-icons/svg/round/cancel.svg';
 
+import { bem } from '../../../utils/bem';
 import { mergeRefs } from '../../../utils/mergeRefs';
 import { Input, Props } from '../Input';
+import styles from './SearchInput.scss';
 
 export interface SearchInputProps extends Omit<Props, 'type' | 'leadingIcon' | 'trailingIcon'> {}
 
+const { block, elem } = bem('SearchInput', styles);
+
 export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
-    (
-        {
-            id,
-            children,
-            context,
-            disabled = false,
-            readOnly = false,
-            isBlock = false,
-            size = 'medium',
-            value,
-            label,
-            helperText,
-            errorMessage,
-            reserveErrorMessageSpace = false,
-            ...rest
-        },
-        ref
-    ) => {
+    ({ context, errorMessage, size, value, ...rest }, ref) => {
         const inputRef = React.useRef<HTMLInputElement | null>(null);
+        const { onChange } = rest;
+        const [hasText, setHasText] = React.useState<boolean>(!!inputRef.current?.value);
+
+        React.useEffect(() => {
+            setHasText(!!value);
+        }, [value]);
+
         const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            if (rest.onChange) {
-                rest.onChange(e);
+            if (onChange) {
+                onChange(e);
             }
         };
 
+        const handleClear = () => {
+            if (inputRef.current) {
+                const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+                    window.HTMLInputElement.prototype,
+                    'value'
+                )?.set;
+                if (nativeInputValueSetter) {
+                    // Use the setter to update the value
+                    nativeInputValueSetter.call(inputRef.current, '');
+
+                    // Dispatch the 'input' event so React detects the change
+                    const event = new Event('input', { bubbles: true });
+                    inputRef.current.dispatchEvent(event);
+                }
+                setHasText(false);
+            }
+        };
+
+        const ClearIcon = (): React.JSX.Element => (
+            <Clear
+                {...elem('icon', { type: 'trailing', visible: hasText, size })}
+                viewBox="0 0 24 24"
+                onClick={handleClear}
+            />
+        );
+        ClearIcon.displayName = 'ClearIcon';
+
+        const SearchIcon = (): React.JSX.Element => (
+            <Search
+                {...elem('icon', { type: 'leading', bold: hasText, size })}
+                viewBox="0 0 24 24"
+            />
+        );
+        SearchIcon.displayName = 'SearchIcon';
+
         return (
             <Input
+                {...rest}
+                {...block}
                 ref={mergeRefs([ref, inputRef])}
-                disabled={disabled}
-                readOnly={readOnly}
-                isBlock={isBlock}
-                size={size}
-                label={label}
-                helperText={helperText}
-                type="search"
                 value={value}
+                type="search"
                 onChange={handleOnChange}
-                leadingIcon={{ icon: <Search /> }}
-                trailingIcon={{
-                    icon: <Clear />,
-                    callback: () => {
-                        if (inputRef && 'current' in inputRef && inputRef.current) {
-                            (inputRef.current as HTMLInputElement).value = '';
-                            if (rest.onChange) {
-                                rest.onChange({
-                                    target: inputRef.current,
-                                } as React.ChangeEvent<HTMLInputElement>);
-                            }
-                        }
-                    },
-                }}
-                reserveErrorMessageSpace={reserveErrorMessageSpace}
+                leadingIcon={<SearchIcon />}
+                trailingIcon={<ClearIcon />}
                 {...(context && errorMessage
                     ? { context, errorMessage }
                     : { context: undefined, errorMessage: undefined })}
-                {...rest}
             />
         );
     }

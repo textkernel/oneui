@@ -41,9 +41,9 @@ export const _SearchInputControlled: StorySearchInput = {
         size: 'medium',
     },
     render: (args) => {
-        const [value, setValue] = React.useState('');
+        const [value, setValue] = React.useState('Some value');
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            console.log(e.target.value);
+            console.log('onChange is called with target.value: ', e.target.value);
             setValue(e.target.value);
         };
 

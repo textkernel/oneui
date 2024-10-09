@@ -46,36 +46,38 @@ describe('<SearchInput> that renders an input field', () => {
         renderSearchInputComponent({ value: 'Some value' });
 
         const searchIcon = screen.getAllByTestId('default-icon')[0];
-        expect(searchIcon).toHaveClass('Input__icon--bold');
+        expect(searchIcon).toHaveClass('SearchInput__icon--bold');
     });
     it('should not render the search icon bold when there is no value', () => {
         renderSearchInputComponent({});
 
         const searchIcon = screen.getAllByTestId('default-icon')[0];
-        expect(searchIcon).not.toHaveClass('Input__icon--bold');
+        expect(searchIcon).not.toHaveClass('SearchInput__icon--bold');
     });
 
     it('should not show the clear icon when there is no value', () => {
         renderSearchInputComponent({});
 
         const clearIcon = screen.getAllByTestId('default-icon')[1];
-        expect(clearIcon).not.toHaveClass('Input__icon--visible');
+        expect(clearIcon).not.toHaveClass('SearchInput__icon--visible');
     });
     it('should show the clear icon when there is a value', () => {
         renderSearchInputComponent({ value: 'Some value' });
 
         const clearIcon = screen.getAllByTestId('default-icon')[1];
-        expect(clearIcon).toHaveClass('Input__icon--visible');
+        expect(clearIcon).toHaveClass('SearchInput__icon--visible');
     });
 
     it('should delete value when clear icon is clicked', async () => {
         const user = userEvent.setup();
-        renderSearchInputComponent({ value: 'Some value' });
+        const handleChangeMock = jest.fn();
+        renderSearchInputComponent({ value: 'Some value', onChange: handleChangeMock });
         expect(screen.getByRole('searchbox')).toHaveValue('Some value');
 
         await user.click(screen.getAllByTestId('default-icon')[1]);
 
-        expect(screen.getByRole('searchbox')).toHaveValue('');
+        expect(handleChangeMock).toHaveBeenCalledTimes(1);
+        expect(screen.queryByRole('searchbox')).toHaveValue(undefined);
     });
 
     it('should change value correctly', async () => {
