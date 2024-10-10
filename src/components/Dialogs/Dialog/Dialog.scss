@@ -1,21 +1,42 @@
 .Dialog {
     width: 400px;
+    border-radius: var(--space-150);
+
+    &__header {
+        padding: var(--space-200);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &__closeButton {
+        height: var(--space-300);
+        width: var(--space-300);
+        cursor: pointer;
+        background-color: var(--transparent);
+        border: none;
+    }
 
     &__content {
+        max-height: 528px;
         padding: var(--space-200);
+        overflow-y: auto;
+        white-space: normal;
     }
 
     &__actions {
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-content: baseline;
-        margin-top: var(--space-75);
-        padding: var(--space-100);
-        border-top: 1px solid var(--color-neutral-20);
+        padding: var(--space-200);
+
+        &--borderTop {
+            border-top: 1px solid var(--color-neutral-20);
+        }
     }
 
     &__cancel {
-        margin-right: var(--space-75);
+        margin-left: var(--space-75);
     }
 
     &__title {

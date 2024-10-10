@@ -1,9 +1,12 @@
 import * as React from 'react';
+import { MdClose } from 'react-icons/md';
+import useResizeObserver from 'use-resize-observer';
 import { bem } from '../../../utils';
-import { Heading } from '../../Heading';
 import { Button } from '../../Buttons';
 import { Modal, ModalProps } from '../../Modal';
 import styles from './Dialog.scss';
+import { Heading } from '../../Heading';
+import { ButtonContext } from '../../../constants/component-specific';
 
 export type ButtonProps = {
     onClick: () => void;
@@ -18,42 +21,67 @@ export interface DialogProps extends ModalProps {
     /** Dialog title */
     title?: string;
     /** Properties of the accept button */
-    acceptButton: ButtonProps;
+    acceptButton?: ButtonProps;
     /** Properties of the cancel button */
     cancelButton?: ButtonProps;
+    /** the context of the buttons in the footer */
+    variant?: Omit<ButtonContext, 'secondary'>;
+    /** closes the dialog */
+    onClose: () => void;
 }
 
 const { block, elem } = bem('Dialog', styles);
 
 export const Dialog: React.FC<DialogProps> = (props) => {
-    const { isOpen, children, title, acceptButton, cancelButton, ...rest } = props;
+    const {
+        isOpen,
+        children,
+        title,
+        acceptButton,
+        cancelButton,
+        variant = 'primary',
+        onClose,
+        ...rest
+    } = props;
 
+    const { ref, height } = useResizeObserver<HTMLDivElement>();
+    const showButtons = !!acceptButton;
     const isConfirm = !!cancelButton;
 
     return (
         <Modal {...rest} {...block(props)} isOpen={isOpen}>
-            <div {...elem('content', props)} role="alert">
-                {!!title && (
+            {!!title && (
+                <div {...elem('header')} role="alert">
                     <Heading level="h2" {...elem('title', props)}>
                         {title}
                     </Heading>
-                )}
+                    <button {...elem('closeButton')} type="button" onClick={onClose}>
+                        <MdClose />
+                    </button>
+                </div>
+            )}
+            <div ref={ref} {...elem('content')}>
                 {children}
             </div>
-            <div {...elem('actions', props)}>
-                {isConfirm && (
+            {showButtons && (
+                <div {...elem('actions', { ...props, borderTop: height === 528 })}>
                     <Button
-                        {...elem('cancel', props)}
-                        onClick={cancelButton.onClick}
-                        variant="ghost"
+                        onClick={acceptButton.onClick}
+                        context={variant === 'primary' ? 'primary' : 'critical'}
                     >
-                        {cancelButton.label}
+                        {acceptButton.label}
                     </Button>
-                )}
-                <Button onClick={acceptButton.onClick} context="primary">
-                    {acceptButton.label}
-                </Button>
-            </div>
+                    {isConfirm && (
+                        <Button
+                            {...elem('cancel', props)}
+                            onClick={cancelButton.onClick}
+                            variant="ghost"
+                        >
+                            {cancelButton.label}
+                        </Button>
+                    )}
+                </div>
+            )}
         </Modal>
     );
 };

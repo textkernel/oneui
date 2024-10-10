@@ -1,12 +1,12 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Alert, Confirm, Button } from '@textkernel/oneui';
+import { Alert, Button, Dialog } from '@textkernel/oneui';
 
 const meta: Meta<typeof Alert> = {
     title: 'Organisms/Dialogs',
     component: Alert,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    subcomponents: { Confirm } as any,
+    subcomponents: { Dialog } as any,
 };
 
 export default meta;
@@ -37,6 +37,7 @@ export const _Alert: Story = {
                 <Button onClick={handleButtonClick}>Click me to see an alert</Button>
                 <Alert
                     {...args}
+                    onClose={handleAccept}
                     isOpen={showAlert}
                     acceptButton={{
                         onClick: handleAccept,
@@ -48,14 +49,22 @@ export const _Alert: Story = {
     },
 };
 
-type ConfirmStory = StoryObj<typeof Confirm>;
+type DialogStory = StoryObj<typeof Alert>;
 
-export const _Confirm: ConfirmStory = {
-    name: 'Confirm',
+export const _Dialog: DialogStory = {
+    name: 'Dialog',
     args: {
-        title: 'Hi there!',
-        contentLabel: 'A confirm dialog',
-        children: 'This is some information for you. Do you want to proceed?',
+        title: 'You’re about to delete this page',
+        contentLabel: 'content label',
+        children: (
+            <div>
+                Before you delete it permanently, there’s some things you should know:
+                <ul>
+                    <li>4 pages have links to this page that will break </li>
+                    <li>2 child pages will be left behind in the page tree</li>
+                </ul>
+            </div>
+        ),
     },
     render: (args) => {
         const [showAlert, setShowAlert] = React.useState(false);
@@ -77,13 +86,15 @@ export const _Confirm: ConfirmStory = {
         return (
             <>
                 <Button onClick={handleButtonClick}>Click me to see a confirm dialog</Button>
-                <Confirm
+                <Dialog
                     {...args}
                     isOpen={showAlert}
+                    onClose={handleCancel}
                     acceptButton={{
                         onClick: handleAccept,
-                        label: 'Ok',
+                        label: 'Delete',
                     }}
+                    variant="critical"
                     cancelButton={{
                         onClick: handleCancel,
                         label: 'Cancel',
