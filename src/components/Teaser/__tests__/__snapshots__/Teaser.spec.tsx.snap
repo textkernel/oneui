@@ -145,6 +145,36 @@ exports[`Teaser should render source info row with icon and link 1`] = `
 </div>
 `;
 
+exports[`Teaser should render the disabled component 1`] = `
+<div>
+  <div
+    class="Teaser"
+  >
+    <div
+      class="Teaser__column"
+    >
+      <div
+        class="Teaser__row Teaser__titleRow"
+      >
+        <div
+          class="Teaser__row"
+        >
+          <span
+            class="Teaser__title Teaser__title--disabled Teaser__lineClamp"
+            title="some title"
+          >
+            some title
+          </span>
+        </div>
+        <div
+          class="Teaser__row"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Teaser should render with all props defined 1`] = `
 <div>
   <div

@@ -107,4 +107,14 @@ describe('Teaser', () => {
 
         expect(container).toMatchSnapshot();
     });
+
+    it('should render the disabled component', () => {
+        const { container } = render(<Teaser title="some title" disabled />);
+
+        const title = screen.getByTitle('some title');
+        expect(title).toBeInTheDocument();
+        expect(title).toHaveClass('Teaser__title--disabled');
+
+        expect(container).toMatchSnapshot();
+    });
 });
