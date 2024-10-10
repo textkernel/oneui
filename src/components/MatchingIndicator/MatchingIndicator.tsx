@@ -8,7 +8,7 @@ const COLORS_MAX_VALUES = {
     GREEN: 100,
 };
 
-export interface Props extends React.HTMLAttributes<HTMLDivElement> {
+export interface Props extends React.HTMLAttributes<HTMLSVGElement> {
     /** Percentage of the matching indicator filled */
     percentage: number;
 }
