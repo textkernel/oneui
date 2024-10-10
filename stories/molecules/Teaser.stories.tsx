@@ -42,6 +42,7 @@ export const WithAllFields: Story = {
                 </Tag>
             </div>
         ),
+        disabled: true,
     },
     render: (args) => {
         const [isSelected, setIsSelected] = React.useState(false);
@@ -49,6 +50,7 @@ export const WithAllFields: Story = {
         return (
             <div>
                 <p>Border is just to show the width (500px) of the component</p>
+                <p>Disabled component, title text is gray</p>
                 <div style={{ width: '500px', border: '1px solid black' }}>
                     <Teaser
                         {...args}

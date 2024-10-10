@@ -43,6 +43,8 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title
     matchingIndicatorAriaLabel?: string;
     /** Render bottom elements */
     bottom?: React.ReactNode;
+    /** Disable the component */
+    disabled?: boolean;
 }
 
 const { block, elem } = bem('Teaser', styles);
@@ -63,6 +65,7 @@ export const Teaser: React.FC<Props> = ({
     matchingIndicatorPercentage,
     matchingIndicatorAriaLabel,
     bottom,
+    disabled = false,
     ...rest
 }) => {
     const useId = React.useId();
@@ -113,7 +116,7 @@ export const Teaser: React.FC<Props> = ({
             <div {...elem('column')}>
                 <div {...elem(['row', 'titleRow'])}>
                     <div {...elem('row')}>
-                        <Text inline title={title} {...elem(['title', 'lineClamp'])}>
+                        <Text inline title={title} {...elem(['title', 'lineClamp'], { disabled })}>
                             {title}
                         </Text>
                         {matchingIndicatorPercentage !== undefined && (

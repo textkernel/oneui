@@ -23,6 +23,10 @@
         composes: OneUI-body-text-bold from global;
         color: var(--color-link-default);
         overflow: hidden;
+
+        &--disabled {
+            color: var(--color-text-subtlest);
+        }
     }
 
     &__titleRow {
