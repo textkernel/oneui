@@ -12,6 +12,7 @@ export const PopoverDummy = React.forwardRef<HTMLDivElement, Props>(
             borderRadius: '5px',
             border: '1px solid #CCC',
             boxShadow: '0 3px 6px 6px rgba(0, 0, 0, 0.05)',
+            fontSize: '14px',
         };
         return (
             <div style={popupStyle} ref={ref} role="group">

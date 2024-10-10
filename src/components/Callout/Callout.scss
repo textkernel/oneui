@@ -10,6 +10,7 @@ $icon-size: 16px;
 
     &__content {
         flex-grow: 1;
+        composes: OneUI-label-text from global;
     }
 
     &__closeButton {

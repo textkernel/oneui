@@ -43,15 +43,14 @@
 
     &__content {
         display: inline;
-        font-size: var(--h1-font-size);
+        font-size: var(--font-size-base);
         font-weight: var(--font-weight-bold);
     }
 
     &__metric {
         display: block;
         width: 150px;
-        font-size: var(--font-size-normal);
-        font-weight: var(--font-weight-normal);
+        composes: OneUI-label-text from global;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -65,6 +64,6 @@
         color: var(--color-neutral-30);
         text-transform: uppercase;
         font-weight: var(--font-weight-bold);
-        font-size: var(--font-size-small);
+        composes: OneUI-caption-text from global;
     }
 }

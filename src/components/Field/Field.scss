@@ -4,5 +4,6 @@
         margin-bottom: var(--space-100);
         font-weight: var(--font-weight-normal);
         color: var(--color-foreground);
+        composes: OneUI-caption-text from global;
     }
 }
