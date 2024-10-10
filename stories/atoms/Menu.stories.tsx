@@ -4,7 +4,7 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { Button, MultiSelectMenuItem } from '@textkernel/oneui';
 
 const Menu = () => {
-    const generalValues = ['Value 1', 'Value 2', 'Value 3'];
+    const generalValues = ['Tag 1', 'Tag 2', 'Tag 3'];
     const group1 = ['Option 1', 'Option 2'];
     const group2 = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
     const [selectedValues, setSelectedValues] = React.useState<string[]>([]);
@@ -68,10 +68,27 @@ const Menu = () => {
     return (
         <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
-                <Button>Trigger</Button>
+                <Button>Apply tags</Button>
             </DropdownMenu.Trigger>
             <DropdownMenu.Portal>
                 <DropdownMenu.Content>
+                    <DropdownMenu.Item asChild>
+                        <input
+                            type="text"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                                e.stopPropagation();
+                            }}
+                            placeholder="Create new..."
+                            onChange={(e) => {
+                                console.log('input change with e:', e);
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                            onSelect={(e) => {
+                                e.preventDefault();
+                            }}
+                        />
+                    </DropdownMenu.Item>
                     <MultiSelectMenuItem
                         onCheckedChange={() => {
                             handleOnChange('all');
