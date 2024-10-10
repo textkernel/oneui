@@ -9,7 +9,9 @@ exports[`Confirm should render correctly 1`] = `
     style="position: absolute; opacity: 0;"
     tabindex="0"
   />
-  <div />
+  <div>
+    <div />
+  </div>
   <div
     data-react-modal-body-trap=""
     style="position: absolute; opacity: 0;"
@@ -24,13 +26,34 @@ exports[`Confirm should render correctly 1`] = `
       <div
         aria-label="Content Label"
         aria-modal="true"
-        class="Modal__content Dialog"
+        class="Modal__content Dialog__dialog"
         role="dialog"
         tabindex="-1"
       >
         <div
-          class="Dialog__content"
+          class="Dialog__header"
           role="alert"
+        >
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </div>
+        <div
+          class="Dialog__content"
         >
           Body of the confirm
         </div>
@@ -38,18 +61,19 @@ exports[`Confirm should render correctly 1`] = `
           class="Dialog__actions"
         >
           <button
-            class="Button Button--variant_ghost Button--context_secondary Dialog__cancel"
-            style="width: auto;"
-            type="button"
-          >
-            Cancel
-          </button>
-          <button
+            aria-label="Confirm OK"
             class="Button Button--variant_filled Button--context_primary"
             style="width: auto;"
             type="button"
           >
             OK
+          </button>
+          <button
+            class="Button Button--variant_ghost Button--context_secondary Dialog__cancel"
+            style="width: auto;"
+            type="button"
+          >
+            Cancel
           </button>
         </div>
       </div>
@@ -70,7 +94,9 @@ exports[`Confirm should render correctly with title 1`] = `
   <div
     class="ReactModalPortal"
   />
-  <div />
+  <div>
+    <div />
+  </div>
   <div
     data-react-modal-body-trap=""
     style="position: absolute; opacity: 0;"
@@ -85,12 +111,12 @@ exports[`Confirm should render correctly with title 1`] = `
       <div
         aria-label="Content Label"
         aria-modal="true"
-        class="Modal__content Dialog"
+        class="Modal__content Dialog__dialog"
         role="dialog"
         tabindex="-1"
       >
         <div
-          class="Dialog__content"
+          class="Dialog__header"
           role="alert"
         >
           <h2
@@ -98,24 +124,46 @@ exports[`Confirm should render correctly with title 1`] = `
           >
             Title
           </h2>
+          <svg
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </div>
+        <div
+          class="Dialog__content"
+        >
           Body of the confirm
         </div>
         <div
           class="Dialog__actions"
         >
           <button
-            class="Button Button--variant_ghost Button--context_secondary Dialog__cancel"
-            style="width: auto;"
-            type="button"
-          >
-            Cancel
-          </button>
-          <button
+            aria-label="Confirm OK"
             class="Button Button--variant_filled Button--context_primary"
             style="width: auto;"
             type="button"
           >
             OK
+          </button>
+          <button
+            class="Button Button--variant_ghost Button--context_secondary Dialog__cancel"
+            style="width: auto;"
+            type="button"
+          >
+            Cancel
           </button>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Alert, Confirm, Button } from '@textkernel/oneui';
-import { Dialog } from '@textkernel/oneui/components/Dialogs/Dialog';
+import { Alert, Confirm, Button, Dialog } from '@textkernel/oneui';
 
 const meta: Meta<typeof Alert> = {
     title: 'Organisms/Dialogs',
@@ -100,7 +99,8 @@ export const _Dialog: ConfirmStory = {
     args: {
         title: 'Duplicate this page',
         contentLabel: 'content label',
-        children: 'this is not as cool as I wanted ',
+        children:
+            'this is not as cool as I wanted this is not as cool as I wanted this is not as cool as I wanted this is not as cool as I wanted this is not as cool as I wanted this is not as cool as I wanted this is not as cool as I wanted this is not as cool as I wanted this is not as cool as I wanted this is not as cool as I wanted this is not as cool as I wanted ',
     },
     render: (args) => {
         const [showAlert, setShowAlert] = React.useState(false);
@@ -121,10 +121,11 @@ export const _Dialog: ConfirmStory = {
 
         return (
             <Dialog
-                onTriggerDialog={handleButtonClick}
-                dialogTrigger={<p>Trigger me please!</p>}
                 {...args}
+                onDialogTrigger={handleButtonClick}
+                dialogTrigger={<p>Trigger me please!</p>}
                 isOpen={showAlert}
+                onClose={handleCancel}
                 acceptButton={{
                     onClick: handleAccept,
                     label: 'Ok',
