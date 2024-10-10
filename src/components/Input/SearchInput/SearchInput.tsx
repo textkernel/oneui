@@ -9,23 +9,16 @@ import styles from './SearchInput.scss';
 
 export interface SearchInputProps extends Omit<Props, 'type' | 'leadingIcon' | 'trailingIcon'> {}
 
-const { block, elem } = bem('SearchInput', styles);
+const { elem } = bem('SearchInput', styles);
 
 export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
-    ({ context, errorMessage, size, value, ...rest }, ref) => {
+    ({ context, errorMessage, size, value, readOnly, ...rest }, ref) => {
         const inputRef = React.useRef<HTMLInputElement | null>(null);
-        const { onChange } = rest;
         const [hasText, setHasText] = React.useState<boolean>(!!inputRef.current?.value);
 
         React.useEffect(() => {
             setHasText(!!value);
         }, [value]);
-
-        const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            if (onChange) {
-                onChange(e);
-            }
-        };
 
         const handleClear = () => {
             if (inputRef.current) {
@@ -47,7 +40,7 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
 
         const ClearIcon = (): React.JSX.Element => (
             <Clear
-                {...elem('icon', { type: 'trailing', visible: hasText, size })}
+                {...elem('icon', { type: 'trailing', visible: hasText, size, readOnly })}
                 viewBox="0 0 24 24"
                 onClick={handleClear}
             />
@@ -65,13 +58,13 @@ export const SearchInput = React.forwardRef<HTMLInputElement, SearchInputProps>(
         return (
             <Input
                 {...rest}
-                {...block}
                 ref={mergeRefs([ref, inputRef])}
                 value={value}
                 type="search"
-                onChange={handleOnChange}
                 leadingIcon={<SearchIcon />}
                 trailingIcon={<ClearIcon />}
+                readOnly={readOnly}
+                size={size}
                 {...(context && errorMessage
                     ? { context, errorMessage }
                     : { context: undefined, errorMessage: undefined })}

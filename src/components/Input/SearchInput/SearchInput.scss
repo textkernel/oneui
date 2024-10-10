@@ -20,7 +20,7 @@
             fill: var(--color-icon-bold);
         }
 
-        &--visible {
+        &--visible:not(.SearchInput__icon--readOnly) {
             display: inline;
             cursor: pointer;
         }
