@@ -1,14 +1,15 @@
 import * as React from 'react';
+import { MdClose } from 'react-icons/md';
 import { bem } from '../../../utils';
-import { Heading } from '../../Heading';
 import { Button } from '../../Buttons';
 import { Modal, ModalProps } from '../../Modal';
 import styles from './Dialog.scss';
+import { Heading } from '../../Heading';
+import { ButtonContext } from '../../../constants/component-specific';
 
 export type ButtonProps = {
     onClick: () => void;
     label: string;
-    ButtonContext?: string; // this can also be set on the whole component instead..
 };
 
 export interface DialogProps extends ModalProps {
@@ -17,7 +18,7 @@ export interface DialogProps extends ModalProps {
     /** Should the alert appear */
     isOpen: boolean;
     /** the function which triggers the modal */
-    onTriggerDialog?: () => void;
+    onDialogTrigger?: () => void;
     /** The alert content */
     children: React.ReactNode;
     /** Dialog title */
@@ -26,42 +27,53 @@ export interface DialogProps extends ModalProps {
     acceptButton: ButtonProps;
     /** Properties of the cancel button */
     cancelButton?: ButtonProps;
-    /** when set the content will have a scroll bar if it's longer than the value set */
-    maxHeight?: string | number;
+    /** the context of the buttons in the footer */
+    buttonContext?: Omit<ButtonContext, 'secondary'>;
+    /** closes the dialog */
+    onClose?: () => void;
 }
 
 const { block, elem } = bem('Dialog', styles);
 
 export const Dialog: React.FC<DialogProps> = (props) => {
     const {
-        onTriggerDialog,
+        onDialogTrigger,
         isOpen,
         children,
         title,
         acceptButton,
         cancelButton,
         dialogTrigger,
+        onClose,
         ...rest
     } = props;
     const isConfirm = !!cancelButton;
 
     return (
-        <>
-            {/*
-                commenting this to pass tests
-            <button style={{ all: 'unset', cursor: 'pointer' }} onClick={onTriggerDialog}>
-                {dialogTrigger}
-            </button> */}
-            <Modal {...rest} {...block(props)} isOpen={isOpen}>
-                <div {...elem('content', props)} role="alert">
+        <div {...block(props)}>
+            {dialogTrigger && (
+                <button {...elem('trigger')} onClick={onDialogTrigger} aria-label="Open dialog">
+                    {dialogTrigger}
+                </button>
+            )}
+            <Modal {...rest} {...elem('dialog')} isOpen={isOpen}>
+                <div {...elem('header')} role="alert">
                     {!!title && (
                         <Heading level="h2" {...elem('title', props)}>
                             {title}
                         </Heading>
                     )}
-                    {children}
+                    <MdClose onClick={onClose} {...elem('closeIcon')} />
                 </div>
+                <div {...elem('content')}>{children}</div>
                 <div {...elem('actions', props)}>
+                    <Button
+                        onClick={acceptButton.onClick}
+                        context="primary"
+                        aria-label="Confirm OK"
+                    >
+                        {acceptButton.label}
+                    </Button>
                     {isConfirm && (
                         <Button
                             {...elem('cancel', props)}
@@ -71,12 +83,9 @@ export const Dialog: React.FC<DialogProps> = (props) => {
                             {cancelButton.label}
                         </Button>
                     )}
-                    <Button onClick={acceptButton.onClick} context="primary">
-                        {acceptButton.label}
-                    </Button>
                 </div>
             </Modal>
-        </>
+        </div>
     );
 };
 

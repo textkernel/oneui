@@ -46,7 +46,7 @@ describe('Alert', () => {
 
     it('should call onAccept cb when button is clicked', async () => {
         const user = userEvent.setup();
-        await user.click(screen.getByRole('button'));
+        await user.click(screen.getByRole('button', { name: /Confirm OK/i }));
 
         expect(mockOnAccept).toHaveBeenCalledTimes(1);
     });
