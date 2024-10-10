@@ -61,19 +61,13 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             trailingIcon,
             errorMessage,
             reserveErrorMessageSpace = false,
+            style,
             ...rest
         },
         ref
     ) => {
         const fallbackId = React.useId();
         const idRef = id || fallbackId;
-        const { onChange, style } = rest;
-
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            if (onChange) {
-                onChange(e);
-            }
-        };
 
         const isLastPassDisabled = type !== 'password';
 
@@ -105,7 +99,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                         readOnly,
                     })}
                 >
-                    {leadingIcon || <></>}
+                    {leadingIcon}
                     <input
                         {...rest}
                         {...elem('input', { size, disabled, type })}
@@ -115,11 +109,10 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                         disabled={disabled}
                         readOnly={readOnly}
                         value={value}
-                        onChange={handleChange}
                         aria-invalid={context === 'critical' ? 'true' : undefined}
                         data-lpignore={isLastPassDisabled}
                     />
-                    {trailingIcon || <></>}
+                    {trailingIcon}
                 </div>
 
                 {(context === 'critical' && errorMessage) ||
