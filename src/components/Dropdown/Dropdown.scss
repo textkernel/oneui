@@ -6,3 +6,7 @@
     background: var(--color-background-neutral-subtlest-default, #FFF);
     box-shadow: var(--space-0) var(--space-25) var(--space-125) var(--space-0) var(--color-transparent-10020, rgba(0, 0, 0, 0.20));
 }
+
+.DropdownSubContent {
+    max-width: 400px;
+}

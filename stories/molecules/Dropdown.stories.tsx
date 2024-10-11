@@ -3,9 +3,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 import {
     Button,
     DropdownRoot,
+    DropdownSub,
     DropdownPortal,
     DropdownTrigger,
+    SubContentTrigger,
     DropdownContent,
+    DropdownSubContent,
     SingleSelectItem,
     MultiSelectItem,
     Separator,
@@ -194,24 +197,24 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
                                 {value}
                             </MultiSelectItem>
                         ))}
-                        {/* // <DropdownMenu.Sub>
-                        //     <DropdownMenu.SubTrigger>Items →</DropdownMenu.SubTrigger>
-                        //     <DropdownMenu.Portal>
-                        //         <DropdownMenu.SubContent>
-                        //             {group2.map((value) => (
-                        //                 <MultiSelectItem
-                        //                     key={value}
-                        //                     isSelected={selectedValues.includes(value)}
-                        //                     onCheckedChange={() => {
-                        //                         handleOnChange(value);
-                        //                     }}
-                        //                 >
-                        //                     {value}
-                        //                 </MultiSelectItem>
-                        //             ))}
-                        //         </DropdownMenu.SubContent>
-                        //     </DropdownMenu.Portal>
-                        // </DropdownMenu.Sub> */}
+                        <DropdownSub>
+                            <SubContentTrigger>Items →</SubContentTrigger>
+                            <DropdownPortal>
+                                <DropdownSubContent>
+                                    {group2.map((value) => (
+                                        <MultiSelectItem
+                                            key={value}
+                                            isSelected={selectedValues.includes(value)}
+                                            onCheckedChange={() => {
+                                                handleOnChange(value);
+                                            }}
+                                        >
+                                            {value}
+                                        </MultiSelectItem>
+                                    ))}
+                                </DropdownSubContent>
+                            </DropdownPortal>
+                        </DropdownSub>
                     </DropdownContent>
                 </DropdownPortal>
             </DropdownRoot>
