@@ -44,32 +44,36 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
     </div>
   </div>
   <div
-    class="PillDropdown"
-    data-popper-escaped=""
-    data-popper-placement="bottom-start"
-    data-popper-reference-hidden=""
-    data-popup="true"
-    role="presentation"
-    style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
+    class="PopupBase__popup"
   >
     <div
-      class="PillDropdown__dialog"
-      role="dialog"
+      class="PillDropdown"
+      data-popper-escaped=""
+      data-popper-placement="bottom-start"
+      data-popper-reference-hidden=""
+      data-popup="true"
+      role="presentation"
+      style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
     >
       <div
-        class="PillDropdown__content"
-        role="group"
-      />
-      <div
-        class="PillDropdown__footer"
+        class="PillDropdown__dialog"
+        role="dialog"
       >
-        <button
-          class="Button Button--size_small Button--variant_filled Button--context_primary"
-          style="width: auto;"
-          type="button"
+        <div
+          class="PillDropdown__content"
+          role="group"
+        />
+        <div
+          class="PillDropdown__footer"
         >
-          Done
-        </button>
+          <button
+            class="Button Button--size_small Button--variant_filled Button--context_primary"
+            style="width: auto;"
+            type="button"
+          >
+            Done
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -118,5 +122,8 @@ exports[`<Pill> component should render correctly 1`] = `
       </button>
     </div>
   </div>
+  <div
+    class="PopupBase__popup"
+  />
 </div>
 `;

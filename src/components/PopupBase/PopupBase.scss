@@ -1,0 +1,6 @@
+.PopupBase {
+
+    &__popup {
+        composes: OneUI-label-text from global
+    }
+}

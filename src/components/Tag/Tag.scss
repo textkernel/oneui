@@ -15,7 +15,7 @@
 
     &__text{
         margin: 0;
-
+        composes: OneUI-label-text from global;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;

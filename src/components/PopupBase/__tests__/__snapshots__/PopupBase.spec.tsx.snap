@@ -10,6 +10,9 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
     >
       Toggle popup
     </button>
+    <div
+      class="PopupBase__popup"
+    />
   </div>
   <div
     data-popper-escaped=""
@@ -46,25 +49,29 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
       Toggle popup
     </button>
     <div
-      data-popper-escaped=""
-      data-popper-placement="bottom-start"
-      data-popper-reference-hidden=""
-      role="group"
-      style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
+      class="PopupBase__popup"
     >
-      <p>
-        I am the content of pop up.
-      </p>
-      <p>
-        Can be a form or anything.
-      </p>
-      <button
-        class="Button Button--variant_filled Button--context_secondary"
-        style="width: auto;"
-        type="button"
+      <div
+        data-popper-escaped=""
+        data-popper-placement="bottom-start"
+        data-popper-reference-hidden=""
+        role="group"
+        style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
       >
-        Close me!
-      </button>
+        <p>
+          I am the content of pop up.
+        </p>
+        <p>
+          Can be a form or anything.
+        </p>
+        <button
+          class="Button Button--variant_filled Button--context_secondary"
+          style="width: auto;"
+          type="button"
+        >
+          Close me!
+        </button>
+      </div>
     </div>
   </div>
 </body>
@@ -79,6 +86,9 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   >
     Toggle popup
   </button>
+  <div
+    class="PopupBase__popup"
+  />
 </div>
 `;
 
@@ -91,5 +101,8 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   >
     Toggle popup
   </button>
+  <div
+    class="PopupBase__popup"
+  />
 </div>
 `;
