@@ -8,13 +8,13 @@ describe('<Separator>', () => {
         const view = render(<Separator />);
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('listitem')).toHaveClass('Divider');
+        expect(screen.getByRole('separator')).toHaveClass('Divider');
     });
     it('should render SectionTitle when title is given', () => {
-        const view = render(<Separator title="section title" />);
+        const view = render(<Separator>section title</Separator>);
 
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('listitem')).toHaveClass('SectionTitle');
-        expect(screen.getByRole('listitem')).toHaveTextContent('section title');
+        expect(screen.getByRole('separator')).toHaveClass('SectionTitle');
+        expect(screen.getByRole('separator')).toHaveTextContent('section title');
     });
 });

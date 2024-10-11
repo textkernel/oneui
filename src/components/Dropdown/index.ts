@@ -10,3 +10,4 @@ export {
 export { DropdownTrigger } from './DropdownTrigger';
 export { DropdownContent } from './DropdownContent';
 export * from './Items';
+export * from './Separator';
