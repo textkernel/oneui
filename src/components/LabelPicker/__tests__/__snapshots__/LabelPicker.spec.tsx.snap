@@ -9,6 +9,9 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
   >
     Click me
   </button>
+  <div
+    class="PopupBase__popup"
+  />
 </div>
 `;
 
@@ -21,6 +24,9 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
   >
     Click me
   </button>
+  <div
+    class="PopupBase__popup"
+  />
 </div>
 `;
 
@@ -33,5 +39,8 @@ exports[`<LabelPicker> that renders a dropdown type component to apply/remove/ad
   >
     Click me
   </button>
+  <div
+    class="PopupBase__popup"
+  />
 </div>
 `;
