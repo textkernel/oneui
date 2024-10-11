@@ -17,7 +17,7 @@ const meta: Meta<typeof SelectedItemBadge> = {
 
 export default meta;
 
-type Story = StoryObj<typeof SelectedItemBadge<string, string>>;
+type Story = StoryObj<typeof SelectedItemBadge>;
 
 const priorityList: Array<SelectedItemBadgePriorityItem<string>> = [
     { priority: 'mandatory', label: 'Mandatory', value: 'required' },
@@ -92,7 +92,7 @@ export const _SelectedItemBadge: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator title={'Radius'.toUpperCase()} />
+                    <Separator>Radius</Separator>
                     {radiusList.map((radius) => (
                         <ListItem
                             style={{
@@ -192,7 +192,6 @@ export const _SelectedItemBadgeMultiSelect: Story = {
                         }
                     >
                         <MultiSelectItem
-                            value="All"
                             variant="select-all"
                             isSelected={selectedSynonyms.includes('All')}
                         >
@@ -200,7 +199,6 @@ export const _SelectedItemBadgeMultiSelect: Story = {
                         </MultiSelectItem>
                         {synonyms2.map((synonym) => (
                             <MultiSelectItem
-                                value={synonym}
                                 id={synonym}
                                 isSelected={selectedSynonyms.includes(synonym)}
                             >
@@ -208,7 +206,6 @@ export const _SelectedItemBadgeMultiSelect: Story = {
                             </MultiSelectItem>
                         ))}
                         <MultiSelectItem
-                            value="English"
                             variant="group-title"
                             isSelected={selectedSynonyms.includes('English')}
                         >
@@ -216,7 +213,6 @@ export const _SelectedItemBadgeMultiSelect: Story = {
                         </MultiSelectItem>
                         {synonyms.map((synonym) => (
                             <MultiSelectItem
-                                value={synonym}
                                 id={synonym}
                                 isSelected={selectedSynonyms.includes(synonym)}
                             >
@@ -260,7 +256,7 @@ export const SelectedItemBadgeWithoutPriorityButton: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator title={'Radius'.toUpperCase()} />
+                    <Separator>Radius</Separator>
                     {radiusList.map((radius) => (
                         <ListItem
                             style={{
@@ -405,7 +401,7 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator title={'Radius'.toUpperCase()} />
+                    <Separator>Radius</Separator>
                     {radiusList.map((radius) => (
                         <ListItem
                             style={{
@@ -453,7 +449,7 @@ export const SelectedItemBadgeWithSingleSelectItems: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator title={'Radius'.toUpperCase()} />
+                    <Separator>Radius</Separator>
                     {radiusList.map((radius) => (
                         <SingleSelectItem
                             style={{
@@ -463,7 +459,6 @@ export const SelectedItemBadgeWithSingleSelectItems: Story = {
                                 gap: '8px',
                             }}
                             key={radius}
-                            value={radius}
                             isSelected={selectedRadius === radius}
                         >
                             {radius}

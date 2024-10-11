@@ -4,11 +4,11 @@ import KeyboardDoubleArrowUp from '@material-design-icons/svg/round/keyboard_dou
 import KeyboardArrowUp from '@material-design-icons/svg/round/keyboard_arrow_up.svg';
 import KeyboardArrowDown from '@material-design-icons/svg/round/keyboard_arrow_down.svg';
 import { EmptyElement } from '@textkernel/oneui/customTypes/types';
-import { bem } from '../../utils';
-import { Dropdown } from '../Dropdown';
-import { ListItem, ListItemProps } from '../List';
+// import { bem } from '../../utils';
+import { ListItemProps } from '../List';
 import { Text } from '../Text';
 import styles from './SelectedItemBadge.scss';
+import { DropdownContent, DropdownItem, DropdownRoot, DropdownTrigger } from '../Dropdown';
 
 const iconMap = {
     mandatory: KeyboardDoubleArrowUp,
@@ -70,159 +70,181 @@ export interface Props<PriorityItemValue, ChildrenItemValue>
     priority?: PriorityProps<PriorityItemValue>;
 }
 
-const { block, elem } = bem('SelectedItemBadge', styles);
-export function SelectedItemBadge<PriorityItemValue, ChildrenItemValue>({
-    children,
-    label,
-    additionalLabel,
-    isMultiSelect = false,
-    isDisabled = false,
-    onChange,
-    onDelete = undefined,
-    buttonLabel,
-    deleteButtonLabel,
-    priority,
-    ...rest
-}: Props<PriorityItemValue, ChildrenItemValue>) {
-    const [dropdownStates, setDropdownStates] = React.useState({
-        priority: false,
-        main: false,
-    });
+// const { block, elem } = bem('SelectedItemBadge', styles);
 
-    const badgeRef = React.useRef<HTMLDivElement | null>(null);
+// TODO: fix types
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const SelectedItemBadge = React.forwardRef<any, Props<any, any>>(
+    (
+        {
+            children,
+            label,
+            additionalLabel,
+            // isMultiSelect = false,
+            isDisabled = false,
+            onChange,
+            onDelete,
+            buttonLabel,
+            deleteButtonLabel,
+            priority,
+            ...rest
+        },
+        ref
+    ) => {
+        const hasPriorityList = priority && priority.list.length > 0;
 
-    const hasPriorityList = priority && priority.list && priority.list.length > 0;
+        const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
+            if (!priorityType) {
+                return null;
+            }
 
-    const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
-        if (!priorityType) {
-            return null;
-        }
+            const IconComponent = iconMap[priorityType];
+            return IconComponent ? (
+                <IconComponent className={styles.icon} disabled={disabled} viewBox="0 0 24 24" />
+            ) : null;
+        };
 
-        const IconComponent = iconMap[priorityType];
+        const handleOnDelete = (e: React.KeyboardEvent | React.MouseEvent) => {
+            e.stopPropagation();
+            onDelete?.(e);
+        };
 
-        return IconComponent ? (
-            <IconComponent
-                {...elem('icon', { [priorityType]: true })}
-                disabled={disabled}
-                viewBox="0 0 24 24"
-            />
-        ) : null;
-    };
-
-    const handleOnDelete = (e: React.KeyboardEvent | React.MouseEvent) => {
-        e.stopPropagation();
-        onDelete?.(e);
-    };
-
-    const toggleDropdown = (type: 'priority' | 'main', isOpen: boolean) => {
-        /**
-         * Updates the dropdown state only if 'isOpen' is explicitly defined,
-         *  unintended state changes happen by mouse events cause 'isOpen' to become undefined
-         * */
-        if (isOpen !== undefined) {
-            setDropdownStates((prev) => ({ ...prev, [type]: isOpen }));
-        }
-    };
-
-    return (
-        <div {...rest} {...block({ ...rest })} ref={badgeRef}>
-            {hasPriorityList && (
-                <Dropdown<PriorityItem<PriorityItemValue>>
-                    button={
-                        <button
-                            {...elem('priorityButton', {
-                                isSelected: dropdownStates.priority,
-                            })}
-                            aria-label={priority.buttonLabel}
-                            disabled={isDisabled}
-                            type="button"
+        return (
+            <div
+                {...rest}
+                className={styles.selectedItemBadge}
+                ref={ref}
+                style={{
+                    padding: '10px',
+                    backgroundColor: '#f5f5f5',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                }}
+            >
+                {/* Priority Dropdown using Radix UI DropdownMenu */}
+                {hasPriorityList && (
+                    <DropdownRoot>
+                        <DropdownTrigger asChild>
+                            <button
+                                className={styles.priorityButton}
+                                aria-label={priority.buttonLabel}
+                                disabled={isDisabled}
+                                type="button"
+                                style={{
+                                    padding: '6px 12px',
+                                    backgroundColor: '#e0e0e0',
+                                    borderRadius: '4px',
+                                }}
+                            >
+                                {renderPriorityIcon(priority.selectedItem?.priority, isDisabled)}
+                            </button>
+                        </DropdownTrigger>
+                        <DropdownContent
+                            className={styles.badgeDropdownList}
+                            style={{
+                                padding: '10px',
+                                backgroundColor: '#ffffff',
+                                borderRadius: '8px',
+                                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                            }}
+                            sideOffset={5}
                         >
-                            {renderPriorityIcon(priority.selectedItem?.priority, isDisabled)}
-                        </button>
-                    }
-                    additionalSelectProps={{
-                        onStateChange: (state) => toggleDropdown('priority', state.isOpen),
-                    }}
-                    onChange={(newPriorityItem) => priority.onChange(newPriorityItem)}
-                    placement="bottom-start"
-                    listClassName={styles.badgeDropdownList}
-                    refElement={badgeRef}
-                >
-                    {priority.list.map((item) => (
-                        <ListItem className={styles.badgeListItem} key={item.priority} value={item}>
-                            {renderPriorityIcon(item.priority)}
-                            <Text inline size="small">
-                                {item.label}
-                            </Text>
-                        </ListItem>
-                    ))}
-                </Dropdown>
-            )}
+                            {priority.list.map((item) => (
+                                <DropdownItem
+                                    key={item.priority}
+                                    onSelect={() => {
+                                        priority.onChange(item);
+                                    }}
+                                    className={styles.badgeListItem}
+                                    style={{
+                                        padding: '6px 12px',
+                                        borderRadius: '4px',
+                                        cursor: 'pointer',
+                                    }}
+                                >
+                                    {renderPriorityIcon(item.priority)}
+                                    <Text inline size="small">
+                                        {item.label}
+                                    </Text>
+                                </DropdownItem>
+                            ))}
+                        </DropdownContent>
+                    </DropdownRoot>
+                )}
 
-            {children ? (
-                <Dropdown<ChildrenItemValue>
-                    button={
-                        <button
-                            {...elem('optionButton', {
-                                isSelected: dropdownStates.main,
-                            })}
-                            aria-label={buttonLabel}
-                            disabled={isDisabled}
-                            type="button"
-                        >
-                            <Text inline size="small" {...elem('valueText')}>
-                                {label}
-                            </Text>
-                            {additionalLabel && (
-                                <Text {...elem('optionText')} inline size="small">
-                                    {additionalLabel}
+                {/* Main Dropdown for Options */}
+                {children ? (
+                    <DropdownRoot>
+                        <DropdownTrigger asChild>
+                            <button
+                                className={styles.optionButton}
+                                aria-label={buttonLabel}
+                                disabled={isDisabled}
+                                type="button"
+                                style={{
+                                    padding: '6px 12px',
+                                    backgroundColor: '#e0e0e0',
+                                    borderRadius: '4px',
+                                }}
+                            >
+                                <Text inline size="small" className={styles.valueText}>
+                                    {label}
                                 </Text>
-                            )}
-                        </button>
-                    }
-                    additionalSelectProps={{
-                        onStateChange: (state) => toggleDropdown('main', state.isOpen),
-                    }}
-                    onChange={(newOptionItem) => onChange?.(newOptionItem)}
-                    placement="bottom"
-                    refElement={badgeRef}
-                    listClassName={styles.badgeDropdownList}
-                    isMultiSelect={isMultiSelect}
-                >
-                    {children}
-                </Dropdown>
-            ) : (
-                <div {...elem('valueContainer')}>
-                    <Text inline size="small" {...elem('valueText')}>
-                        {label}
-                    </Text>
-                    {additionalLabel && (
-                        <Text {...elem('optionText')} inline size="small">
-                            {additionalLabel}
+                                {additionalLabel && (
+                                    <Text inline size="small" className={styles.optionText}>
+                                        {additionalLabel}
+                                    </Text>
+                                )}
+                            </button>
+                        </DropdownTrigger>
+                        <DropdownContent
+                            className={styles.badgeDropdownList}
+                            style={{
+                                padding: '10px',
+                                backgroundColor: '#ffffff',
+                                borderRadius: '8px',
+                                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                            }}
+                            sideOffset={5}
+                        >
+                            {children}
+                        </DropdownContent>
+                    </DropdownRoot>
+                ) : (
+                    <div className={styles.valueContainer}>
+                        <Text inline size="small" className={styles.valueText}>
+                            {label}
                         </Text>
-                    )}
-                </div>
-            )}
+                        {additionalLabel && (
+                            <Text inline size="small" className={styles.optionText}>
+                                {additionalLabel}
+                            </Text>
+                        )}
+                    </div>
+                )}
 
-            {onDelete && (
-                <button
-                    {...elem('deleteButton')}
-                    aria-label={deleteButtonLabel}
-                    disabled={isDisabled}
-                    onClick={handleOnDelete}
-                    type="button"
-                >
-                    <Close
-                        viewBox="0 0 24 24"
+                {/* Delete Button */}
+                {onDelete && (
+                    <button
+                        className={styles.deleteButton}
+                        aria-label={deleteButtonLabel}
+                        disabled={isDisabled}
+                        onClick={handleOnDelete}
+                        type="button"
                         style={{
-                            width: '20px',
-                            height: '20px',
+                            padding: '4px',
+                            backgroundColor: '#ffcdd2',
+                            borderRadius: '4px',
                         }}
-                    />
-                </button>
-            )}
-        </div>
-    );
-}
+                    >
+                        <Close viewBox="0 0 24 24" style={{ width: '20px', height: '20px' }} />
+                    </button>
+                )}
+            </div>
+        );
+    }
+);
 
 SelectedItemBadge.displayName = 'SelectedItemBadge';
