@@ -9,7 +9,7 @@ import { ListItem } from '../../List';
 const mockOnPriorityItemChange = jest.fn();
 const mockOnDelete = jest.fn();
 
-const defaultProps: SelectedItemBadgeProps<string, string> = {
+const defaultProps: SelectedItemBadgeProps = {
     label: 'London',
     priority: {
         selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
