@@ -1,1 +1,1 @@
-export { MultiSelectItem, Props as MultiSelectItemProps } from './MultiSeletItem';
+export { MultiSelectItem, Props as MultiSelectItemProps } from './MultiSelectItem';

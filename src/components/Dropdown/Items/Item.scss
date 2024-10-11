@@ -1,7 +1,18 @@
 .DropdownItem {
     display: flex;
+    align-items: center;
     padding: var(--space-150);
     composes: OneUI-label-text from global;
+
+    &:first-of-type {
+        border-top-left-radius: var(--radius-8, 8px);
+        border-top-right-radius: var(--radius-8, 8px);
+    }
+
+    &:last-of-type {
+        border-bottom-left-radius: var(--radius-8, 8px);
+        border-bottom-right-radius: var(--radius-8, 8px);
+    }
 
     &:focus-visible {
         outline: 2px solid var(--color-info-20, #99caff);
@@ -43,13 +54,14 @@
         }
 
         &:active:not(.DropdownItem--disabled) {
+            border: 2px solid black;
             background: var(--color-background-selected-subtlest-pressed, #99caff);
         }
 
         &.DropdownItem--disabled {
             &:focus-visible,
-            &:has(label:hover),
-            &:has(label:active) {
+            &:hover,
+            &:active {
                 background: var(--color-background-selected-subtlest-default, #e6f2ff);
             }
         }
