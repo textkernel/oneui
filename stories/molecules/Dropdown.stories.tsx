@@ -2,102 +2,28 @@ import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
     Button,
-    Dropdown,
-    ListItem,
-    IconTextkernel,
+    DropdownRoot,
+    DropdownPortal,
+    DropdownTrigger,
+    DropdownContent,
     SingleSelectItem,
-    Separator,
     MultiSelectItem,
+    Separator,
 } from '@textkernel/oneui';
-import { HiDotsVertical } from 'react-icons/hi';
 
-const styles = {
-    content: {
-        display: 'flex',
-        justifyContent: 'center',
-        padding: '0 40px',
-    },
-    customDiv: {
-        alignItems: 'center',
-        background: '#ffff003d',
-        display: 'flex',
-        height: '40px',
-        justifyContent: 'center',
-    },
-    customListItem: {
-        alignItems: 'center',
-        display: 'flex',
-    },
-    divider: {
-        borderBottom: '1px solid #80808045',
-    },
-    icon: {
-        marginRight: '10px',
-    },
-};
-
-const meta: Meta<typeof Dropdown> = {
+const meta: Meta<typeof DropdownContent> = {
     title: 'Molecules/Dropdown',
-    component: Dropdown,
+    component: DropdownContent,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Dropdown>;
+type Story = StoryObj<typeof DropdownContent>;
 
 export const _Dropdown: Story = {
-    name: 'Dropdown',
+    name: 'Actions Dropdown',
     args: {},
-    render: (args) => {
-        const onDropdownStateChange = (object) => {
-            console.log(
-                'onDropdownStateChange was called with the following:',
-                JSON.stringify(object)
-            );
-        };
-
-        const customButtonsDemo = [
-            <Button context="primary">Click me!</Button>,
-            <Button>
-                <HiDotsVertical />
-            </Button>,
-            <Button variant="ghost">Select any</Button>,
-        ];
-
-        return (
-            <div style={styles.content}>
-                <Dropdown<string>
-                    {...args}
-                    button={customButtonsDemo[0]}
-                    additionalSelectProps={{
-                        onStateChange: onDropdownStateChange,
-                    }}
-                >
-                    <ListItem key="disabled-key" disabled style={styles.divider}>
-                        Disabled ListItem
-                    </ListItem>
-                    <Separator title="Section title" />
-                    <ListItem key="first-key" value="first-value">
-                        ListItem with value
-                    </ListItem>
-                    <Separator />
-                    {['ListItem with value 1', 'ListItem with value 2'].map((value) => (
-                        <ListItem key={value} value={value}>
-                            {value}
-                        </ListItem>
-                    ))}
-
-                    <ListItem key="second-key" value="second-value">
-                        <div style={styles.customListItem}>
-                            <IconTextkernel style={styles.icon} />
-                            <strong>Custom ListItem with value</strong>
-                        </div>
-                    </ListItem>
-                    <div style={styles.customDiv}>Just custom div element</div>
-                </Dropdown>
-            </div>
-        );
-    },
+    render: () => <p>To be implements</p>,
 };
 
 export const _DropdownWithSingleSelectItem: Story = {
@@ -105,35 +31,51 @@ export const _DropdownWithSingleSelectItem: Story = {
     args: {},
     render: (args) => {
         const [selectedValue, setSelectedValue] = React.useState<string>();
-
-        const onDropdownStateChange = (object) => {
-            console.log(
-                'onDropdownStateChange was called with the following:',
-                JSON.stringify(object)
-            );
-        };
+        const items = ['Item 1', 'Item 2', 'Some other item', 'Option you like'];
+        const items2 = ['Item 3', 'Item 4'];
 
         return (
-            <div style={styles.content}>
-                <Dropdown<string>
-                    {...args}
-                    button={<Button context="primary">Click me!</Button>}
-                    onChange={(value) => setSelectedValue(value)}
-                    additionalSelectProps={{
-                        onStateChange: onDropdownStateChange,
-                    }}
-                >
-                    {['Value 1', 'Value 2', 'Value 3'].map((value) => (
+            <DropdownRoot>
+                <DropdownTrigger>
+                    <Button>Apply tags</Button>
+                </DropdownTrigger>
+                <DropdownPortal>
+                    <DropdownContent {...args}>
                         <SingleSelectItem
-                            key={value}
-                            value={value}
-                            isSelected={selectedValue === value}
+                            onSelect={() => {
+                                setSelectedValue('1');
+                            }}
+                            key="1"
+                            isSelected={selectedValue === '1'}
                         >
-                            {value}
+                            Select all
                         </SingleSelectItem>
-                    ))}
-                </Dropdown>
-            </div>
+                        {items.map((value) => (
+                            <SingleSelectItem
+                                key={value}
+                                isSelected={selectedValue === value}
+                                onSelect={() => {
+                                    setSelectedValue(value);
+                                }}
+                            >
+                                {value}
+                            </SingleSelectItem>
+                        ))}
+                        <Separator>Section Title</Separator>
+                        {items2.map((value) => (
+                            <SingleSelectItem
+                                key={value}
+                                isSelected={selectedValue === value}
+                                onSelect={() => {
+                                    setSelectedValue(value);
+                                }}
+                            >
+                                {value}
+                            </SingleSelectItem>
+                        ))}
+                    </DropdownContent>
+                </DropdownPortal>
+            </DropdownRoot>
         );
     },
 };
@@ -142,17 +84,10 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
     name: 'Dropdown - Multi Select Item',
     args: {},
     render: (args) => {
-        const generalValues = ['Value 1', 'Value 2', 'Value 3'];
+        const generalValues = ['Tag 1', 'Tag 2', 'Tag 3'];
         const group1 = ['Option 1', 'Option 2'];
         const group2 = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
         const [selectedValues, setSelectedValues] = React.useState<string[]>([]);
-
-        const onDropdownStateChange = (object) => {
-            console.log(
-                'onDropdownStateChange was called with the following:',
-                JSON.stringify(object)
-            );
-        };
 
         const isAllSelected = () =>
             selectedValues.length === generalValues.length + group1.length + group2.length;
@@ -211,69 +146,75 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
         };
 
         return (
-            <div style={styles.content}>
-                <Dropdown<string>
-                    {...args}
-                    button={<Button context="primary">Click me!</Button>}
-                    onChange={handleOnChange}
-                    additionalSelectProps={{
-                        onStateChange: onDropdownStateChange,
-                    }}
-                    isMultiSelect
-                >
-                    <MultiSelectItem
-                        key="all"
-                        value="all"
-                        isSelected={isAllSelected()}
-                        variant="select-all"
-                    >
-                        Select all
-                    </MultiSelectItem>
-                    {generalValues.map((value) => (
+            <DropdownRoot>
+                <DropdownTrigger>
+                    <Button>Apply tags</Button>
+                </DropdownTrigger>
+                <DropdownPortal>
+                    <DropdownContent {...args}>
                         <MultiSelectItem
-                            key={value}
-                            value={value}
-                            isSelected={selectedValues.includes(value)}
+                            onCheckedChange={() => {
+                                handleOnChange('all');
+                            }}
+                            key="all"
+                            isSelected={isAllSelected()}
+                            variant="select-all"
                         >
-                            {value}
+                            Select all
                         </MultiSelectItem>
-                    ))}
-                    <MultiSelectItem
-                        key="group1"
-                        value="group1"
-                        isSelected={isGroup1Selected()}
-                        variant="group-title"
-                    >
-                        Options
-                    </MultiSelectItem>
-                    {group1.map((value) => (
+                        {generalValues.map((value) => (
+                            <MultiSelectItem
+                                key={value}
+                                isSelected={selectedValues.includes(value)}
+                                onCheckedChange={() => {
+                                    handleOnChange(value);
+                                }}
+                            >
+                                {value}
+                            </MultiSelectItem>
+                        ))}
                         <MultiSelectItem
-                            key={value}
-                            value={value}
-                            isSelected={selectedValues.includes(value)}
+                            key="group1"
+                            isSelected={isGroup1Selected()}
+                            variant="group-title"
+                            onCheckedChange={() => {
+                                handleOnChange('group1');
+                            }}
                         >
-                            {value}
+                            Options
                         </MultiSelectItem>
-                    ))}
-                    <MultiSelectItem
-                        key="group2"
-                        value="group2"
-                        isSelected={isGroup2Selected()}
-                        variant="group-title"
-                    >
-                        Items
-                    </MultiSelectItem>
-                    {group2.map((value) => (
-                        <MultiSelectItem
-                            key={value}
-                            value={value}
-                            isSelected={selectedValues.includes(value)}
-                        >
-                            {value}
-                        </MultiSelectItem>
-                    ))}
-                </Dropdown>
-            </div>
+                        {group1.map((value) => (
+                            <MultiSelectItem
+                                key={value}
+                                isSelected={selectedValues.includes(value)}
+                                onCheckedChange={() => {
+                                    handleOnChange(value);
+                                }}
+                            >
+                                {value}
+                            </MultiSelectItem>
+                        ))}
+                        {/* // <DropdownMenu.Sub>
+                        //     <DropdownMenu.SubTrigger>Items →</DropdownMenu.SubTrigger>
+                        //     <DropdownMenu.Portal>
+                        //         <DropdownMenu.SubContent>
+                        //             {group2.map((value) => (
+                        //                 <MultiSelectItem
+                        //                     key={value}
+                        //                     isSelected={selectedValues.includes(value)}
+                        //                     onCheckedChange={() => {
+                        //                         handleOnChange(value);
+                        //                     }}
+                        //                 >
+                        //                     {value}
+                        //                 </MultiSelectItem>
+                        //             ))}
+                        //         </DropdownMenu.SubContent>
+                        //     </DropdownMenu.Portal>
+                        // </DropdownMenu.Sub> */}
+                    </DropdownContent>
+                </DropdownPortal>
+            </DropdownRoot>
         );
     },
 };

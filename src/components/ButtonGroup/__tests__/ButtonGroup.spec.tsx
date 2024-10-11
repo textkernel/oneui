@@ -3,8 +3,6 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../../Buttons';
-import { Dropdown } from '../../Dropdown';
-import { ListItem } from '../../List/ListItem';
 
 describe('<ButtonGroup> that renders a button', () => {
     it('should render default button correctly', () => {
@@ -39,26 +37,27 @@ describe('<ButtonGroup> that renders a button', () => {
         expect(button[1]).toHaveClass('ButtonGroup__button--isBlock');
     });
 
-    it('should support mixed element types', () => {
-        const view = render(
-            <ButtonGroup size="large" isBlock>
-                <Button key="a">A button</Button>
-                <Button key="b" href="#">
-                    An anchor
-                </Button>
-                <Dropdown
-                    key="c"
-                    button={<Button>A dropdown button</Button>}
-                    placement="bottom-end"
-                    onChange={() => {}}
-                >
-                    <ListItem key="some-key">A list item</ListItem>
-                </Dropdown>
-            </ButtonGroup>
-        );
+    // TODO: disabled because we deprecated Dropdown. Reinstate when we have a good alternative component to test with
+    // it('should support mixed element types', () => {
+    //     const view = render(
+    //         <ButtonGroup size="large" isBlock>
+    //             <Button key="a">A button</Button>
+    //             <Button key="b" href="#">
+    //                 An anchor
+    //             </Button>
+    //             <Dropdown
+    //                 key="c"
+    //                 button={<Button>A dropdown button</Button>}
+    //                 placement="bottom-end"
+    //                 onChange={() => {}}
+    //             >
+    //                 <ListItem key="some-key">A list item</ListItem>
+    //             </Dropdown>
+    //         </ButtonGroup>
+    //     );
 
-        expect(view.container).toMatchSnapshot();
-    });
+    //     expect(view.container).toMatchSnapshot();
+    // });
 
     it('should render with conditional JSX', () => {
         const condition = false;

@@ -1,4 +1,3 @@
-export { Dropdown, Props as DropdownProps } from './Dropdown';
 export {
     Root as DropdownRoot,
     Portal as DropdownPortal,
