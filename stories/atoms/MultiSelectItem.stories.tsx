@@ -1,9 +1,16 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { MultiSelectItem, Text } from '@textkernel/oneui';
+import {
+    MultiSelectItem,
+    DropdownRoot,
+    DropdownTrigger,
+    DropdownContent,
+    Button,
+    Text,
+} from '@textkernel/oneui';
 
 export default {
-    title: 'Atoms/List/MultiSelectItem',
+    title: 'Molecules/Dropdown/MultiSelectItem',
     component: MultiSelectItem,
 } as Meta<typeof MultiSelectItem>;
 
@@ -26,17 +33,20 @@ export const _MultiSelectItem: StoryMultiSelectItem = {
                 <Text>
                     Note: this is a controlled component. You have to set `isSelected` prop yourself
                 </Text>
-                <ul
-                    style={{
-                        padding: 0,
-                        listStyleType: 'none',
-                        width: '200px',
-                    }}
-                >
-                    <MultiSelectItem {...args} isSelected={isSelected} onChange={handleChange}>
-                        Item with checkbox
-                    </MultiSelectItem>
-                </ul>
+                <DropdownRoot>
+                    <DropdownTrigger>
+                        <Button>Click here</Button>
+                    </DropdownTrigger>
+                    <DropdownContent>
+                        <MultiSelectItem
+                            {...args}
+                            isSelected={isSelected}
+                            onCheckedChange={handleChange}
+                        >
+                            Item with checkbox
+                        </MultiSelectItem>
+                    </DropdownContent>
+                </DropdownRoot>
             </>
         );
     },

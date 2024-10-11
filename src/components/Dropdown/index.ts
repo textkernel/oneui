@@ -9,3 +9,4 @@ export {
 } from '@radix-ui/react-dropdown-menu';
 export { DropdownTrigger } from './DropdownTrigger';
 export { DropdownContent } from './DropdownContent';
+export * from './Items';
