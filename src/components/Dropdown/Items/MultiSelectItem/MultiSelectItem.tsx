@@ -56,5 +56,3 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props>(
         </DropdownMenuCheckboxItem>
     )
 );
-
-MultiSelectItem.displayName = 'MultiSelectItem';

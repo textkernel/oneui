@@ -3,16 +3,7 @@
     align-items: center;
     padding: var(--space-150);
     composes: OneUI-label-text from global;
-
-    &:first-of-type {
-        border-top-left-radius: var(--radius-8, 8px);
-        border-top-right-radius: var(--radius-8, 8px);
-    }
-
-    &:last-of-type {
-        border-bottom-left-radius: var(--radius-8, 8px);
-        border-bottom-right-radius: var(--radius-8, 8px);
-    }
+    gap: var(--space-100);
 
     &:focus-visible {
         outline: 2px solid var(--color-info-20, #99caff);

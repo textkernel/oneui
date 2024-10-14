@@ -1,7 +1,6 @@
 import React from 'react';
 import { DropdownMenuItem, DropdownMenuItemProps } from '@radix-ui/react-dropdown-menu';
 import { bem } from '../../../../utils';
-import { Text } from '../../../Text';
 import styles from '../Item.scss';
 
 export interface Props extends Omit<DropdownMenuItemProps, 'onSelect'> {
@@ -40,9 +39,7 @@ export const SingleSelectItem = React.forwardRef<HTMLDivElement, Props>(
                 ...rest,
             })}
         >
-            <Text inline>{children}</Text>
+            {children}
         </DropdownMenuItem>
     )
 );
-
-SingleSelectItem.displayName = 'SingleSelectItem';

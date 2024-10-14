@@ -6,6 +6,7 @@ exports[`<Separator> should render SectionTitle when title is given 1`] = `
     aria-orientation="horizontal"
     class="SectionTitle"
     role="separator"
+    title="section title"
   >
     section title
   </div>
