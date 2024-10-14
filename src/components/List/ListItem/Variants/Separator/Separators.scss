@@ -1,0 +1,17 @@
+.Divider {
+    width: 100%;
+    height: var(--space-0);
+    border: .5px solid var(--color-border-subtle);
+    list-style-type: none; 
+    box-sizing: border-box;
+}
+
+.SectionTitle {
+    background-color: var(--color-background-brand-subtlest-default);
+    color: var(--color-text-brand-default);
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--space-150) var(--space-150) var(--space-50) var(--space-150);
+    composes: OneUI-caption-upper-case-text-bold from global;
+    list-style-type: none; 
+}

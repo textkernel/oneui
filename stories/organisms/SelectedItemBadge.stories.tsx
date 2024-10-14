@@ -92,7 +92,7 @@ export const _SelectedItemBadge: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator>Radius</Separator>
+                    <Separator title={'Radius'.toUpperCase()} />
                     {radiusList.map((radius) => (
                         <ListItem
                             style={{
@@ -256,7 +256,7 @@ export const SelectedItemBadgeWithoutPriorityButton: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator>Radius</Separator>
+                    <Separator title={'Radius'.toUpperCase()} />
                     {radiusList.map((radius) => (
                         <ListItem
                             style={{
@@ -401,7 +401,7 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator>Radius</Separator>
+                    <Separator title={'Radius'.toUpperCase()} />
                     {radiusList.map((radius) => (
                         <ListItem
                             style={{
@@ -449,7 +449,7 @@ export const SelectedItemBadgeWithSingleSelectItems: Story = {
                     onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator>Radius</Separator>
+                    <Separator title={'Radius'.toUpperCase()} />
                     {radiusList.map((radius) => (
                         <SingleSelectItem
                             style={{
