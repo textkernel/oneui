@@ -26,6 +26,7 @@ export * from './components/Icon';
 export * from './components/Input';
 export * from './components/Link';
 export * from './components/List';
+export * from './components/Menu';
 export * from './components/Modal';
 export * from './components/Map';
 export * from './components/ProgressBar';
