@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [26.1.0](https://github.com/textkernel/oneui/compare/26.0.0...26.1.0) (2024-10-14)
+
+
+### Features
+
+* **IconButton:** new component ([#1263](https://github.com/textkernel/oneui/issues/1263)) ([ef5ab11](https://github.com/textkernel/oneui/commit/ef5ab115acd26254e706329376a38f59ead544bb))
+* **MultiSelectItem:** new component ([#1256](https://github.com/textkernel/oneui/issues/1256)) ([ab8175d](https://github.com/textkernel/oneui/commit/ab8175d3139996c34e9f16448acddf854867ed23))
+* **Separators:** new components ([83c7724](https://github.com/textkernel/oneui/commit/83c7724e67a93517fa0368a327fad242f29dd794))
+* **SingleSelectItem:** new atom ([#1239](https://github.com/textkernel/oneui/issues/1239)) ([f33a072](https://github.com/textkernel/oneui/commit/f33a0724022b6d63995300be4e8d0e1372ac9b11))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @googlemaps/js-api-loader to v1.16.8 ([261172c](https://github.com/textkernel/oneui/commit/261172cbb51da4892a69527169cb1b9bd9e11962))
+
 ## [26.0.0](https://github.com/textkernel/oneui/compare/25.0.0...26.0.0) (2024-09-19)
 
 
