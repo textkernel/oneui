@@ -53,7 +53,7 @@
         "@babel/runtime": "7.25.7",
         "@googlemaps/js-api-loader": "1.16.8",
         "@material-design-icons/svg": "0.14.13",
-        "@popperjs/core": "2.9.0",
+        "@popperjs/core": "2.11.8",
         "@radix-ui/react-dropdown-menu": "2.1.2",
         "@react-google-maps/api": "2.19.3",
         "@storybook/addon-styling-webpack": "0.0.6",
