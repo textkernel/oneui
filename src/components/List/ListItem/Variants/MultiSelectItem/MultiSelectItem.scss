@@ -14,7 +14,8 @@
     &--variant_group-title {
         composes: OneUI-caption-upper-case-text-bold from global;
         padding-bottom: var(--space-50);
-        color: var(--color-text-brand-default, #0079A7);
+        color: var(--color-text-brand-default, #0079a7);
+        background-color: var(--color-background-brand-subtlest-default);
 
         &.MultiSelectItem--disabled {
             color: var(--color-text-brand-disabled);
@@ -22,16 +23,16 @@
     }
 
     &:focus-visible {
-        outline: 2px solid var(--color-info-20, #99CAFF);
+        outline: 2px solid var(--color-info-20, #99caff);
     }
 
     &:has(label:hover),
     &--isHighlighted {
-        background: var(--color-background-neutral-subtlest-hover, #E6E6E6);
+        background: var(--color-background-neutral-subtlest-hover, #e6e6e6);
     }
 
     &:has(label:active) {
-        background: var(--color-background-neutral-subtlest-pressed, #CCC);
+        background: var(--color-background-neutral-subtlest-pressed, #ccc);
     }
 
     &--disabled {
@@ -41,14 +42,15 @@
         &:has(label:hover),
         &.MultiSelectItem--isHighlighted,
         &:has(label:active) {
-            background: var(--color-background-neutral-subtlest-disabled, #FFF);
+            background: var(--color-background-neutral-subtlest-disabled, #fff);
         }
     }
 
     &--isSelected.MultiSelectItem--variant_group-title,
     &--isSelected.MultiSelectItem--variant_option {
         color: var(--color-text-selected-default, #004999);
-    
+        background: var(--color-background-selected-subtlest-default, #e6f2ff);
+
         &.MultiSelectItem--disabled {
             color: var(--color-text-selected-disabled, #004999);
         }
@@ -56,23 +58,21 @@
 
     &--variant_group-title,
     &--isSelected.MultiSelectItem--variant_option {
-        background: var(--color-background-selected-subtlest-default, #E6F2FF);
-
         &:has(label:hover),
         &.MultiSelectItem--isHighlighted {
-            background: var(--color-background-selected-subtlest-hover, #CCE4FF);
+            background: var(--color-background-selected-subtlest-hover, #cce4ff);
         }
-    
+
         &:has(label:active) {
-            background: var(--color-background-selected-subtlest-pressed, #99CAFF);
+            background: var(--color-background-selected-subtlest-pressed, #99caff);
         }
-    
+
         &.MultiSelectItem--disabled {
             &:focus-visible,
             &:has(label:hover),
             &.MultiSelectItem--isHighlighted,
             &:has(label:active) {
-                background: var(--color-background-selected-subtlest-default, #E6F2FF);
+                background: var(--color-background-selected-subtlest-default, #e6f2ff);
             }
         }
     }
