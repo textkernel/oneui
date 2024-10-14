@@ -40,13 +40,22 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           Background color
         </p>
         <span>
-          <input
-            class="Input Input--size_small ColorValue__input"
-            data-lpignore="true"
-            id=":r4:"
-            type="color"
-            value="#ffffff"
-          />
+          <div
+            class="ColorValue__input"
+          >
+            <div
+              class="Input__inputContainer Input__inputContainer--size_small"
+              data-testid="inputContainer"
+            >
+              <input
+                class="Input__input Input__input--size_small"
+                data-lpignore="true"
+                id=":r4:"
+                type="color"
+                value="#ffffff"
+              />
+            </div>
+          </div>
           <span
             class="Text--context_neutral ColorValue__value"
           >
@@ -63,13 +72,22 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           Foreground color
         </p>
         <span>
-          <input
-            class="Input Input--size_small ColorValue__input"
-            data-lpignore="true"
-            id=":r5:"
-            type="color"
-            value="#000000"
-          />
+          <div
+            class="ColorValue__input"
+          >
+            <div
+              class="Input__inputContainer Input__inputContainer--size_small"
+              data-testid="inputContainer"
+            >
+              <input
+                class="Input__input Input__input--size_small"
+                data-lpignore="true"
+                id=":r5:"
+                type="color"
+                value="#000000"
+              />
+            </div>
+          </div>
           <span
             class="Text--context_neutral ColorValue__value"
           >
@@ -86,13 +104,22 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
           Border radius
         </p>
         <span>
-          <input
-            class="Input Input--size_small UnitValue__input"
-            data-lpignore="true"
-            id=":r6:"
-            type="number"
-            value="3"
-          />
+          <div
+            class="UnitValue__input"
+          >
+            <div
+              class="Input__inputContainer Input__inputContainer--size_small"
+              data-testid="inputContainer"
+            >
+              <input
+                class="Input__input Input__input--size_small"
+                data-lpignore="true"
+                id=":r6:"
+                type="number"
+                value="3"
+              />
+            </div>
+          </div>
           <span
             class="Text--context_neutral UnitValue__value"
           >
@@ -109,13 +136,20 @@ exports[`ThemeTuner component should invoke onChange callback when first input w
         >
           Link decoration
         </p>
-        <input
-          class="Input Input--size_small"
-          data-lpignore="true"
-          id=":r7:"
-          type="text"
-          value="none"
-        />
+        <div>
+          <div
+            class="Input__inputContainer Input__inputContainer--size_small"
+            data-testid="inputContainer"
+          >
+            <input
+              class="Input__input Input__input--size_small"
+              data-lpignore="true"
+              id=":r7:"
+              type="text"
+              value="none"
+            />
+          </div>
+        </div>
       </li>
     </ul>
   </div>
@@ -162,13 +196,22 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           Background color
         </p>
         <span>
-          <input
-            class="Input Input--size_small ColorValue__input"
-            data-lpignore="true"
-            id=":r0:"
-            type="color"
-            value="#ffffff"
-          />
+          <div
+            class="ColorValue__input"
+          >
+            <div
+              class="Input__inputContainer Input__inputContainer--size_small"
+              data-testid="inputContainer"
+            >
+              <input
+                class="Input__input Input__input--size_small"
+                data-lpignore="true"
+                id=":r0:"
+                type="color"
+                value="#ffffff"
+              />
+            </div>
+          </div>
           <span
             class="Text--context_neutral ColorValue__value"
           >
@@ -185,13 +228,22 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           Foreground color
         </p>
         <span>
-          <input
-            class="Input Input--size_small ColorValue__input"
-            data-lpignore="true"
-            id=":r1:"
-            type="color"
-            value="#000000"
-          />
+          <div
+            class="ColorValue__input"
+          >
+            <div
+              class="Input__inputContainer Input__inputContainer--size_small"
+              data-testid="inputContainer"
+            >
+              <input
+                class="Input__input Input__input--size_small"
+                data-lpignore="true"
+                id=":r1:"
+                type="color"
+                value="#000000"
+              />
+            </div>
+          </div>
           <span
             class="Text--context_neutral ColorValue__value"
           >
@@ -208,13 +260,22 @@ exports[`ThemeTuner component should render component correctly 1`] = `
           Border radius
         </p>
         <span>
-          <input
-            class="Input Input--size_small UnitValue__input"
-            data-lpignore="true"
-            id=":r2:"
-            type="number"
-            value="3"
-          />
+          <div
+            class="UnitValue__input"
+          >
+            <div
+              class="Input__inputContainer Input__inputContainer--size_small"
+              data-testid="inputContainer"
+            >
+              <input
+                class="Input__input Input__input--size_small"
+                data-lpignore="true"
+                id=":r2:"
+                type="number"
+                value="3"
+              />
+            </div>
+          </div>
           <span
             class="Text--context_neutral UnitValue__value"
           >
@@ -231,13 +292,20 @@ exports[`ThemeTuner component should render component correctly 1`] = `
         >
           Link decoration
         </p>
-        <input
-          class="Input Input--size_small"
-          data-lpignore="true"
-          id=":r3:"
-          type="text"
-          value="none"
-        />
+        <div>
+          <div
+            class="Input__inputContainer Input__inputContainer--size_small"
+            data-testid="inputContainer"
+          >
+            <input
+              class="Input__input Input__input--size_small"
+              data-lpignore="true"
+              id=":r3:"
+              type="text"
+              value="none"
+            />
+          </div>
+        </div>
       </li>
     </ul>
   </div>
