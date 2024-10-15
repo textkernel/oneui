@@ -37,6 +37,12 @@ export const _DropdownWithSingleSelectItem: Story = {
         const items = ['Item 1', 'Item 2', 'Some other item', 'Option you like'];
         const items2 = ['Item 3', 'Item 4'];
 
+        const handleOnChange = (value: string) => {
+            console.log('handleOnChange was called with the following value:', value);
+
+            setSelectedValue(value);
+        };
+
         return (
             <DropdownRoot>
                 <DropdownTrigger>
@@ -46,7 +52,7 @@ export const _DropdownWithSingleSelectItem: Story = {
                     <DropdownContent {...args}>
                         <SingleSelectItem
                             onSelect={() => {
-                                setSelectedValue('1');
+                                handleOnChange('1');
                             }}
                             key="1"
                             isSelected={selectedValue === '1'}
@@ -58,7 +64,7 @@ export const _DropdownWithSingleSelectItem: Story = {
                                 key={value}
                                 isSelected={selectedValue === value}
                                 onSelect={() => {
-                                    setSelectedValue(value);
+                                    handleOnChange(value);
                                 }}
                             >
                                 {value}
@@ -70,7 +76,7 @@ export const _DropdownWithSingleSelectItem: Story = {
                                 key={value}
                                 isSelected={selectedValue === value}
                                 onSelect={() => {
-                                    setSelectedValue(value);
+                                    handleOnChange(value);
                                 }}
                             >
                                 {value}
@@ -109,6 +115,7 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
         }
 
         const handleOnChange = (value) => {
+            console.log('handleOnChange was called with the following value:', value);
             switch (value) {
                 case 'all':
                     if (isAllSelected()) {

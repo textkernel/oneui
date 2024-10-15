@@ -75,20 +75,30 @@ export interface Props<PriorityItemValue>
 const { block, elem } = bem('SelectedItemBadge', styles);
 
 export const SelectedItemBadge = React.forwardRef<HTMLDivElement, Props<string>>(
-    (
-        {
-            children,
-            label,
-            additionalLabel,
-            isDisabled = false,
-            onDelete,
-            buttonLabel,
-            deleteButtonLabel,
-            priority,
-            ...rest
-        },
-        ref
-    ) => {
+    ({
+        children,
+        label,
+        additionalLabel,
+        isDisabled = false,
+        onDelete,
+        buttonLabel,
+        deleteButtonLabel,
+        priority,
+        ...rest
+    }) => {
+        const badgeRef = React.useRef<HTMLDivElement>(null);
+
+        // React.useEffect(() => {
+        //     // The 'current' property contains info of the reference:
+        //     // align, title, ... , width, height, etc.
+        //     if (badgeRef.current) {
+        //         const height = badgeRef.current.offsetHeight;
+        //         const width = badgeRef.current.offsetWidth;
+
+        //         console.log(width, height);
+        //     }
+        // }, [badgeRef]);
+
         const hasPriorityList = priority && priority.list.length > 0;
 
         const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
@@ -112,7 +122,7 @@ export const SelectedItemBadge = React.forwardRef<HTMLDivElement, Props<string>>
         };
 
         return (
-            <div {...rest} ref={ref} {...block()}>
+            <div {...rest} {...block()} ref={badgeRef}>
                 {hasPriorityList && (
                     <DropdownRoot>
                         <DropdownTrigger asChild>
@@ -125,7 +135,7 @@ export const SelectedItemBadge = React.forwardRef<HTMLDivElement, Props<string>>
                                 {renderPriorityIcon(priority.selectedItem?.priority, isDisabled)}
                             </button>
                         </DropdownTrigger>
-                        <DropdownContent sideOffset={5}>
+                        <DropdownContent sideOffset={6} refElement={badgeRef}>
                             {priority.list.map((item) => (
                                 <SingleSelectItem
                                     key={item.priority}
@@ -161,7 +171,12 @@ export const SelectedItemBadge = React.forwardRef<HTMLDivElement, Props<string>>
                                 )}
                             </button>
                         </DropdownTrigger>
-                        <DropdownContent {...elem('badgeDropdownList')} sideOffset={5}>
+                        <DropdownContent
+                            {...elem('badgeDropdownList')}
+                            sideOffset={6}
+                            alignOffset={-32}
+                            refElement={badgeRef}
+                        >
                             {children}
                         </DropdownContent>
                     </DropdownRoot>

@@ -6,5 +6,5 @@ import styles from './Dropdown.scss';
 const { block } = bem('DropdownSubContent', styles);
 
 export const DropdownSubContent = (props: DropdownMenuSubContentProps) => (
-    <SubContent {...props} {...block(props)} />
+    <SubContent {...props} {...block(props)} sideOffset={6} />
 );
