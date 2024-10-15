@@ -1,52 +1,100 @@
 .Teaser {
-    min-width: 0;
-    margin: 0;
+    padding: var(--space-150);
     display: flex;
-    flex: 1;
-    flex-direction: column;
-    height: 63px;
+    gap: var(--space-150);
     color: var(--color-neutral-60);
 
-    &__line {
-        display: flex;
-        flex: 1;
-        align-items: center;
-        padding-bottom: var(--space-75);
+    &:active {
+        background-color: var(--color-background-information-subtlest-default);
+    }
 
-        &:last-child {
-            padding-bottom: 0;
-            justify-content: flex-end;
-        }
+    &__row {
+        display: flex;
+        align-items: center;
+    }
+
+    &__column {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
 
     &__title {
-        font-weight: var(--font-weight-bold);
-        white-space: nowrap;
+        composes: OneUI-body-text-bold from global;
+        color: var(--color-link-default);
         overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    &__location {
-        white-space: nowrap;
 
-        &::before {
-            content: '\00a0\2014\00a0';
+        &--disabled {
+            color: var(--color-text-subtlest);
         }
     }
 
-    &__subTitle {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    &__titleRow {
+        justify-content: space-between;
+        gap: var(--space-100);
     }
 
-    &__details {
-        flex: 1;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    &__titleRow > .Teaser__row:nth-child(2) {
+        flex-shrink: 0;
     }
 
-    &__statuses {
-        padding-left: var(--space-200);
+    &__subtitle {
+        composes: OneUI-label-text from global;
+        color: var(--color-text-bold);
+        margin-bottom: var(--space-100);
+    }
+
+    &__info {
+        composes: OneUI-label-text from global;
+        color: var(--color-text-subtle);
+    }
+
+    &__link {
+        composes: OneUI-label-text from global;
+        text-decoration: none;
+    }
+
+    &__caption {
+        composes: OneUI-caption-text from global;
+        color: var(--color-text-subtle);
+    }
+
+    &__matchingIndicator {
+        margin-left: var(--space-100);
+    }
+
+    &__visibility {
+        min-height: var(--space-150);
+        min-width: var(--space-150);
+        border-radius: 50%;
+        border: 1px solid var(--color-border-subtle);
+        margin-left: var(--space-100);
+
+        &--isVisited {
+            background-color: var(--color-icon-information-default);
+            border: 1px solid var(--color-border-information-bold-default);
+        }
+    }
+
+    &__sourceContainer {
+        margin-top: var(--space-100);
+        gap: var(--space-50);
+    }
+
+    &__sourceIcon {
+        width: var(--space-200);
+        height: var(--space-200);
+    }
+
+    &__bottom {
+        margin-top: var(--space-100);
+    }
+
+    &__lineClamp {
+        display: -webkit-box;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow-y: hidden;
     }
 }
