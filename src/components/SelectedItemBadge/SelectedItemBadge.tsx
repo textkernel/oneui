@@ -61,8 +61,6 @@ export interface Props<PriorityItemValue>
     label: React.ReactNode;
     /** An additional label displayed next to the main label (e.g., the number of synonyms) */
     additionalLabel?: React.ReactNode;
-    /** Determines if the children represent a multi-select dropdown */
-    isMultiSelect?: boolean;
     /** Function to be called when the delete button is clicked. */
     onDelete?: (e: React.KeyboardEvent | React.MouseEvent) => void;
     /** Boolean indicating whether the whole badge should be disabled. */
@@ -82,7 +80,6 @@ export const SelectedItemBadge = React.forwardRef<HTMLDivElement, Props<string>>
             children,
             label,
             additionalLabel,
-            // isMultiSelect = false,
             isDisabled = false,
             onDelete,
             buttonLabel,

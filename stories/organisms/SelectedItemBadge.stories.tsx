@@ -112,7 +112,6 @@ export const _SelectedItemBadgeMultiSelect: Story = {
     name: 'SelectedItemBadge - With multiselect children',
     args: {
         label: 'Java',
-        isMultiSelect: true,
         priority: {
             list: priorityList,
             buttonLabel: 'Priority',
@@ -178,7 +177,6 @@ export const _SelectedItemBadgeMultiSelect: Story = {
                             }
                         }
                         onDelete={handleDelete}
-                        isMultiSelect={args.isMultiSelect}
                         additionalLabel={
                             selectedSynonyms.length > 0 && `+${selectedSynonyms.length}`
                         }
