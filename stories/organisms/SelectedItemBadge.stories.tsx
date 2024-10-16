@@ -132,7 +132,57 @@ export const _SelectedItemBadgeMultiSelect: Story = {
         );
         const [selectedSynonyms, setSelectedSynonyms] = React.useState<string[]>([]);
 
-        const handleOnChange = (synonym: string) => {
+        React.useEffect(() => {
+            if (
+                selectedSynonyms.includes('All') &&
+                selectedSynonyms.length !== synonyms.length + synonyms2.length + 2
+            ) {
+                setSelectedSynonyms(selectedSynonyms.filter((s) => s !== 'All'));
+            }
+
+            if (
+                !selectedSynonyms.includes('All') &&
+                selectedSynonyms.length === synonyms.length + synonyms2.length + 1
+            ) {
+                setSelectedSynonyms([...selectedSynonyms, 'All']);
+            }
+        }, [selectedSynonyms]);
+
+        const handleOnChange = (event: Event, synonym: string) => {
+            // @ts-ignore
+            const checked = !Array.from(event.target.classList).includes(
+                'MultiSelectItem--isSelected'
+            );
+
+            if (synonym === 'All') {
+                if (checked) {
+                    setSelectedSynonyms([synonym, 'English', ...synonyms, ...synonyms2]);
+                    console.log(`All synonyms selected`);
+                } else {
+                    setSelectedSynonyms([]);
+                    console.log(`All synonyms de-selected`);
+                }
+                return;
+            }
+
+            if (synonym === 'English') {
+                if (checked) {
+                    setSelectedSynonyms([
+                        'English',
+                        ...selectedSynonyms.filter((s) => !synonyms.includes(s)),
+                        ...synonyms,
+                    ]);
+                    console.log(`All English synonyms selected`);
+                } else {
+                    const newSelectedSynonyms = selectedSynonyms
+                        .filter((s) => !synonyms.includes(s))
+                        .filter((s) => s !== 'English');
+                    setSelectedSynonyms(newSelectedSynonyms);
+                    console.log(`All English synonyms de-selected`);
+                }
+                return;
+            }
+
             const index = selectedSynonyms.indexOf(synonym);
 
             if (index > -1) {
@@ -161,59 +211,58 @@ export const _SelectedItemBadgeMultiSelect: Story = {
         };
 
         return (
-            <>
-                <Text>
-                    Note: group selection and Select all is not correctly implemented in this
-                    example. We only showcasing the layout here.
-                </Text>
-                <div style={{ width: '200px' }}>
-                    <SelectedItemBadge
-                        {...args}
-                        priority={
-                            args.priority && {
-                                ...args.priority,
-                                selectedItem: selectedPriorityItem,
-                                onChange: handlePriorityChange,
-                            }
+            <div style={{ width: '200px' }}>
+                <SelectedItemBadge
+                    {...args}
+                    priority={
+                        args.priority && {
+                            ...args.priority,
+                            selectedItem: selectedPriorityItem,
+                            onChange: handlePriorityChange,
                         }
-                        onDelete={handleDelete}
-                        additionalLabel={
-                            selectedSynonyms.length > 0 && `+${selectedSynonyms.length}`
-                        }
+                    }
+                    onDelete={handleDelete}
+                    additionalLabel={
+                        selectedSynonyms.length > 0 &&
+                        `+${selectedSynonyms.filter((s) => s !== 'All' && s !== 'English').length}`
+                    }
+                >
+                    <MultiSelectItem
+                        variant="select-all"
+                        isSelected={selectedSynonyms.includes('All')}
+                        onSelect={(event) => handleOnChange(event, 'All')}
                     >
+                        Select all
+                    </MultiSelectItem>
+                    {synonyms2.map((synonym) => (
                         <MultiSelectItem
-                            variant="select-all"
-                            isSelected={selectedSynonyms.includes('All')}
+                            id={synonym}
+                            onSelect={(event) => {
+                                handleOnChange(event, synonym);
+                            }}
+                            isSelected={selectedSynonyms.includes(synonym)}
                         >
-                            Select all
+                            {synonym}
                         </MultiSelectItem>
-                        {synonyms2.map((synonym) => (
-                            <MultiSelectItem
-                                id={synonym}
-                                onSelect={() => handleOnChange(synonym)}
-                                isSelected={selectedSynonyms.includes(synonym)}
-                            >
-                                {synonym}
-                            </MultiSelectItem>
-                        ))}
+                    ))}
+                    <MultiSelectItem
+                        variant="group-title"
+                        onSelect={(event) => handleOnChange(event, 'English')}
+                        isSelected={selectedSynonyms.includes('English')}
+                    >
+                        English
+                    </MultiSelectItem>
+                    {synonyms.map((synonym) => (
                         <MultiSelectItem
-                            variant="group-title"
-                            isSelected={selectedSynonyms.includes('English')}
+                            id={synonym}
+                            onSelect={(event) => handleOnChange(event, synonym)}
+                            isSelected={selectedSynonyms.includes(synonym)}
                         >
-                            English
+                            {synonym}
                         </MultiSelectItem>
-                        {synonyms.map((synonym) => (
-                            <MultiSelectItem
-                                id={synonym}
-                                onSelect={() => handleOnChange(synonym)}
-                                isSelected={selectedSynonyms.includes(synonym)}
-                            >
-                                {synonym}
-                            </MultiSelectItem>
-                        ))}
-                    </SelectedItemBadge>
-                </div>
-            </>
+                    ))}
+                </SelectedItemBadge>
+            </div>
         );
     },
 };
