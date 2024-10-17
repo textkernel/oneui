@@ -3,6 +3,10 @@ import { ReactElement, useEffect, useLayoutEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { createPopper, Instance } from '@popperjs/core';
 import { ESCAPE_KEY, PopupPlacement } from '../../constants';
+import { bem } from '../../utils';
+import styles from './PopupBase.scss';
+
+const { elem } = bem('PopupBase', styles);
 
 export type PopupBaseRendererArgs = {
     setPopupVisibility: (isOpen: boolean) => void;
@@ -180,7 +184,7 @@ export const PopupBase: React.FC<Props> = ({
     return (
         <>
             {renderAnchor()}
-            {renderPopup()}
+            <div {...elem('popup')}>{renderPopup()}</div>
         </>
     );
 };

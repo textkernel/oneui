@@ -26,9 +26,9 @@ $half-pill-height: math.div($pill-height, 2);
         box-sizing: border-box;
         height: $pill-label-height;
         padding: 0 $half-pill-height;
-        font-size: var(--font-size-normal);
         text-transform: uppercase;
         color: var(--color-brand-50);
+        composes: OneUI-caption-text from global;
 
         &--isActive {
             animation: labelIn var(--transition-duration) forwards;

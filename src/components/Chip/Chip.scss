@@ -1,6 +1,6 @@
 .Chip {
     display: inline-block;
-    font-size: var(--font-size-normal);
+    composes: OneUI-label-text from global;
     padding: var(--space-75) var(--space-200);
     background-color: var(--color-neutral-10);
     border-radius: var(--space-200) / 50%;
