@@ -88,17 +88,6 @@ export const SelectedItemBadge = React.forwardRef<HTMLDivElement, Props<string>>
     }) => {
         const badgeRef = React.useRef<HTMLDivElement>(null);
 
-        // React.useEffect(() => {
-        //     // The 'current' property contains info of the reference:
-        //     // align, title, ... , width, height, etc.
-        //     if (badgeRef.current) {
-        //         const height = badgeRef.current.offsetHeight;
-        //         const width = badgeRef.current.offsetWidth;
-
-        //         console.log(width, height);
-        //     }
-        // }, [badgeRef]);
-
         const hasPriorityList = priority && priority.list.length > 0;
 
         const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
