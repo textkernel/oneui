@@ -30,10 +30,9 @@ describe('FieldWithValidation', () => {
             );
             expect(container).toMatchSnapshot();
             const input = screen.getByRole('textbox');
-            expect(input).toHaveAttribute(
-                'class',
-                'Input Input--context_critical Input--size_medium'
-            );
+            const inputContainer = screen.getByTestId('inputContainer');
+            expect(input).toHaveAttribute('class', 'Input__input Input__input--size_medium');
+            expect(inputContainer).toHaveClass('Input__inputContainer--context_critical');
             expect(input).toBeInTheDocument();
             expect(screen.getByText(message)).toBeInTheDocument();
         });
@@ -75,13 +74,12 @@ describe('FieldWithValidation', () => {
                 );
 
                 expect(container).toMatchSnapshot();
+                const inputContainer = screen.getByTestId('inputContainer');
 
                 const input = screen.getByRole('textbox');
 
-                expect(input).toHaveAttribute(
-                    'class',
-                    'Input Input--context_critical Input--size_medium'
-                );
+                expect(input).toHaveAttribute('class', 'Input__input Input__input--size_medium');
+                expect(inputContainer).toHaveClass('Input__inputContainer--context_critical');
             });
 
             it('should render the message when field is focused', () => {
