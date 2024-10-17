@@ -47,15 +47,15 @@ describe('Confirm', () => {
         expect(screen.getAllByRole('heading')).toHaveLength(1);
     });
 
-    it('should call onCancel callback when button is clicked', async () => {
+    it('should call onAccept callback when button is clicked', async () => {
         const user = userEvent.setup();
-        await user.click(screen.getAllByRole('button')[1]);
+        await user.click(screen.getAllByRole('button')[0]);
 
         expect(mockOnAccept).toHaveBeenCalledTimes(1);
     });
     it('should call onCancel callback when button is clicked', async () => {
         const user = userEvent.setup();
-        await user.click(screen.getAllByRole('button')[0]);
+        await user.click(screen.getAllByRole('button')[1]);
 
         expect(mockOnCancel).toHaveBeenCalledTimes(1);
     });
