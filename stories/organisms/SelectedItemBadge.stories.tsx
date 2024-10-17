@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
-    ListItem,
     SelectedItemBadge,
     SelectedItemBadgePriorityItem,
     Separator,
@@ -17,7 +16,7 @@ const meta: Meta<typeof SelectedItemBadge> = {
 
 export default meta;
 
-type Story = StoryObj<typeof SelectedItemBadge<string, string>>;
+type Story = StoryObj<typeof SelectedItemBadge>;
 
 const priorityList: Array<SelectedItemBadgePriorityItem<string>> = [
     { priority: 'mandatory', label: 'Mandatory', value: 'required' },
@@ -69,12 +68,14 @@ export const _SelectedItemBadge: Story = {
         };
 
         const handleRadiusChange = (newRadius: string) => {
+            console.log('handleRadiusChange');
             setSelectedRadius(newRadius);
             console.log(`Option changed to ${newRadius}`);
         };
 
         const handleDelete = () => {
             console.log('SelectedItemBadge deleted');
+            setSelectedRadius(undefined);
         };
 
         return (
@@ -89,25 +90,17 @@ export const _SelectedItemBadge: Story = {
                         }
                     }
                     onDelete={handleDelete}
-                    onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator title={'Radius'.toUpperCase()} />
+                    <Separator>RADIUS</Separator>
                     {radiusList.map((radius) => (
-                        <ListItem
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'flex-start',
-                                gap: '8px',
-                            }}
+                        <SingleSelectItem
                             key={radius}
-                            value={radius}
+                            onClick={() => handleRadiusChange(radius)}
+                            isSelected={selectedRadius === radius}
                         >
-                            <Text inline size="small">
-                                {radius}
-                            </Text>
-                        </ListItem>
+                            {radius}
+                        </SingleSelectItem>
                     ))}
                 </SelectedItemBadge>
             </div>
@@ -119,7 +112,6 @@ export const _SelectedItemBadgeMultiSelect: Story = {
     name: 'SelectedItemBadge - With multiselect children',
     args: {
         label: 'Java',
-        isMultiSelect: true,
         priority: {
             list: priorityList,
             buttonLabel: 'Priority',
@@ -140,7 +132,52 @@ export const _SelectedItemBadgeMultiSelect: Story = {
         );
         const [selectedSynonyms, setSelectedSynonyms] = React.useState<string[]>([]);
 
-        const handleOnChange = (synonym: string) => {
+        React.useEffect(() => {
+            if (
+                selectedSynonyms.includes('All') &&
+                selectedSynonyms.length !== synonyms.length + synonyms2.length + 2
+            ) {
+                setSelectedSynonyms(selectedSynonyms.filter((s) => s !== 'All'));
+            }
+
+            if (
+                !selectedSynonyms.includes('All') &&
+                selectedSynonyms.length === synonyms.length + synonyms2.length + 1
+            ) {
+                setSelectedSynonyms([...selectedSynonyms, 'All']);
+            }
+        }, [selectedSynonyms]);
+
+        const handleOnChange = (checked: boolean, synonym: string) => {
+            if (synonym === 'All') {
+                if (checked) {
+                    setSelectedSynonyms([synonym, 'English', ...synonyms, ...synonyms2]);
+                    console.log(`All synonyms selected`);
+                } else {
+                    setSelectedSynonyms([]);
+                    console.log(`All synonyms de-selected`);
+                }
+                return;
+            }
+
+            if (synonym === 'English') {
+                if (checked) {
+                    setSelectedSynonyms([
+                        'English',
+                        ...selectedSynonyms.filter((s) => !synonyms.includes(s)),
+                        ...synonyms,
+                    ]);
+                    console.log(`All English synonyms selected`);
+                } else {
+                    const newSelectedSynonyms = selectedSynonyms
+                        .filter((s) => !synonyms.includes(s))
+                        .filter((s) => s !== 'English');
+                    setSelectedSynonyms(newSelectedSynonyms);
+                    console.log(`All English synonyms de-selected`);
+                }
+                return;
+            }
+
             const index = selectedSynonyms.indexOf(synonym);
 
             if (index > -1) {
@@ -169,63 +206,59 @@ export const _SelectedItemBadgeMultiSelect: Story = {
         };
 
         return (
-            <>
-                <Text>
-                    Note: group selection and Select all is not correctly implemented in this
-                    example. We only showcasing the layout here.
-                </Text>
-                <div style={{ width: '200px' }}>
-                    <SelectedItemBadge
-                        {...args}
-                        priority={
-                            args.priority && {
-                                ...args.priority,
-                                selectedItem: selectedPriorityItem,
-                                onChange: handlePriorityChange,
-                            }
+            <div style={{ width: '200px' }}>
+                <SelectedItemBadge
+                    {...args}
+                    priority={
+                        args.priority && {
+                            ...args.priority,
+                            selectedItem: selectedPriorityItem,
+                            onChange: handlePriorityChange,
                         }
-                        onDelete={handleDelete}
-                        onChange={handleOnChange}
-                        isMultiSelect={args.isMultiSelect}
-                        additionalLabel={
-                            selectedSynonyms.length > 0 && `+${selectedSynonyms.length}`
-                        }
+                    }
+                    onDelete={handleDelete}
+                    additionalLabel={
+                        selectedSynonyms.length > 0 &&
+                        `+${selectedSynonyms.filter((s) => s !== 'All' && s !== 'English').length}`
+                    }
+                >
+                    <MultiSelectItem
+                        variant="select-all"
+                        isSelected={selectedSynonyms.includes('All')}
+                        onCheckedChange={(checked) => handleOnChange(checked, 'All')}
+                        onChange={(e) => console.log(e)}
                     >
+                        Select all
+                    </MultiSelectItem>
+                    {synonyms2.map((synonym) => (
                         <MultiSelectItem
-                            value="All"
-                            variant="select-all"
-                            isSelected={selectedSynonyms.includes('All')}
+                            key={synonym}
+                            id={synonym}
+                            onCheckedChange={(checked) => handleOnChange(checked, synonym)}
+                            isSelected={selectedSynonyms.includes(synonym)}
                         >
-                            Select all
+                            {synonym}
                         </MultiSelectItem>
-                        {synonyms2.map((synonym) => (
-                            <MultiSelectItem
-                                value={synonym}
-                                id={synonym}
-                                isSelected={selectedSynonyms.includes(synonym)}
-                            >
-                                {synonym}
-                            </MultiSelectItem>
-                        ))}
+                    ))}
+                    <MultiSelectItem
+                        variant="group-title"
+                        onCheckedChange={(checked) => handleOnChange(checked, 'English')}
+                        isSelected={selectedSynonyms.includes('English')}
+                    >
+                        English
+                    </MultiSelectItem>
+                    {synonyms.map((synonym) => (
                         <MultiSelectItem
-                            value="English"
-                            variant="group-title"
-                            isSelected={selectedSynonyms.includes('English')}
+                            key={synonym}
+                            id={synonym}
+                            onCheckedChange={(checked) => handleOnChange(checked, synonym)}
+                            isSelected={selectedSynonyms.includes(synonym)}
                         >
-                            English
+                            {synonym}
                         </MultiSelectItem>
-                        {synonyms.map((synonym) => (
-                            <MultiSelectItem
-                                value={synonym}
-                                id={synonym}
-                                isSelected={selectedSynonyms.includes(synonym)}
-                            >
-                                {synonym}
-                            </MultiSelectItem>
-                        ))}
-                    </SelectedItemBadge>
-                </div>
-            </>
+                    ))}
+                </SelectedItemBadge>
+            </div>
         );
     },
 };
@@ -257,12 +290,11 @@ export const SelectedItemBadgeWithoutPriorityButton: Story = {
                 <SelectedItemBadge
                     {...args}
                     onDelete={handleDelete}
-                    onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator title={'Radius'.toUpperCase()} />
+                    <Separator>RADIUS</Separator>
                     {radiusList.map((radius) => (
-                        <ListItem
+                        <SingleSelectItem
                             style={{
                                 display: 'flex',
                                 alignItems: 'center',
@@ -270,12 +302,12 @@ export const SelectedItemBadgeWithoutPriorityButton: Story = {
                                 gap: '8px',
                             }}
                             key={radius}
-                            value={radius}
+                            onSelect={() => handleRadiusChange(radius)}
                         >
                             <Text inline size="small">
                                 {radius}
                             </Text>
-                        </ListItem>
+                        </SingleSelectItem>
                     ))}
                 </SelectedItemBadge>
             </div>
@@ -320,11 +352,6 @@ export const SelectedItemBadgeWithoutChildren: Story = {
             console.log(`Priority changed to ${newPriorityItem.priority}`);
         };
 
-        const handleRadiusChange = (newRadius: string) => {
-            setSelectedRadius(newRadius);
-            console.log(`Option changed to ${newRadius}`);
-        };
-
         const handleDelete = () => {
             console.log('SelectedItemBadge deleted');
         };
@@ -341,7 +368,6 @@ export const SelectedItemBadgeWithoutChildren: Story = {
                         }
                     }
                     onDelete={handleDelete}
-                    onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 />
             </div>
@@ -402,71 +428,14 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
                             onChange: handlePriorityChange,
                         }
                     }
-                    onChange={handleRadiusChange}
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}
                 >
-                    <Separator title={'Radius'.toUpperCase()} />
+                    <Separator>RADIUS</Separator>
                     {radiusList.map((radius) => (
-                        <ListItem
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'flex-start',
-                                gap: '8px',
-                            }}
-                            key={radius}
-                            value={radius}
-                        >
+                        <SingleSelectItem key={radius} onSelect={() => handleRadiusChange(radius)}>
                             <Text inline size="small">
                                 {radius}
                             </Text>
-                        </ListItem>
-                    ))}
-                </SelectedItemBadge>
-            </div>
-        );
-    },
-};
-
-export const SelectedItemBadgeWithSingleSelectItems: Story = {
-    name: 'SelectedItemBadge - SingleSelectItem',
-    args: {
-        label: 'London',
-        onDelete: undefined,
-    },
-    render: (args) => {
-        const [selectedRadius, setSelectedRadius] = React.useState<string>();
-
-        React.useEffect(() => {
-            setSelectedRadius(selectedRadius);
-        }, [selectedRadius]);
-
-        const handleRadiusChange = (newRadius: string) => {
-            setSelectedRadius(newRadius);
-            console.log(`Option changed to ${newRadius}`);
-        };
-
-        return (
-            <div style={{ width: '200px' }}>
-                <SelectedItemBadge
-                    {...args}
-                    onChange={handleRadiusChange}
-                    additionalLabel={selectedRadius && `+${selectedRadius} km`}
-                >
-                    <Separator title={'Radius'.toUpperCase()} />
-                    {radiusList.map((radius) => (
-                        <SingleSelectItem
-                            style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'flex-start',
-                                gap: '8px',
-                            }}
-                            key={radius}
-                            value={radius}
-                            isSelected={selectedRadius === radius}
-                        >
-                            {radius}
                         </SingleSelectItem>
                     ))}
                 </SelectedItemBadge>
