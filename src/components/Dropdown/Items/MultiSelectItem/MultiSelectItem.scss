@@ -15,6 +15,7 @@
         composes: OneUI-caption-upper-case-text-bold from global;
         padding-bottom: var(--space-50);
         color: var(--color-text-brand-default, #0079a7);
+        background-color: var(--color-background-brand-subtlest-default);
 
         &.MultiSelectItem--disabled {
             color: var(--color-text-brand-disabled);
@@ -48,6 +49,7 @@
     &--isSelected.MultiSelectItem--variant_group-title,
     &--isSelected.MultiSelectItem--variant_option {
         color: var(--color-text-selected-default, #004999);
+        background: var(--color-background-selected-subtlest-default, #e6f2ff);
 
         &.MultiSelectItem--disabled {
             color: var(--color-text-selected-disabled, #004999);
@@ -56,8 +58,6 @@
 
     &--variant_group-title,
     &--isSelected.MultiSelectItem--variant_option {
-        background: var(--color-background-selected-subtlest-default, #e6f2ff);
-
         &:hover,
         &.MultiSelectItem--isHighlighted {
             background: var(--color-background-selected-subtlest-hover, #cce4ff);
