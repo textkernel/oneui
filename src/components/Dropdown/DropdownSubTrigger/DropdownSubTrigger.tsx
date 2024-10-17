@@ -5,6 +5,6 @@ import styles from '../Items/Item.scss';
 
 const { block } = bem('DropdownItem', styles);
 
-export const SubContentTrigger = (props: DropdownMenuSubContentProps) => (
+export const DropdownSubTrigger = (props: DropdownMenuSubContentProps) => (
     <DropdownMenuSubTrigger {...props} {...block(props)} />
 );

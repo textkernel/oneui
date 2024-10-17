@@ -3,11 +3,11 @@ import { Content, DropdownMenuContentProps } from '@radix-ui/react-dropdown-menu
 import { bem } from '../../utils/bem/bem';
 import styles from './Dropdown.scss';
 
-const { block } = bem('DropdownContent', styles);
-
 interface Props extends DropdownMenuContentProps {
     refElement?: React.RefObject<HTMLElement | null>;
 }
+
+const { block } = bem('DropdownContent', styles);
 
 export const DropdownContent = ({ refElement, ...rest }: Props) => {
     const [width, setWidth] = React.useState<number>();
@@ -18,5 +18,5 @@ export const DropdownContent = ({ refElement, ...rest }: Props) => {
         }
     }, [refElement]);
 
-    return <Content {...rest} {...block(rest)} align="start" style={{ width }} />;
+    return <Content {...rest} {...block(rest)} align="start" style={{ width }} sideOffset={6} />;
 };

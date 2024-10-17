@@ -6,13 +6,15 @@ import {
     DropdownSub,
     DropdownPortal,
     DropdownTrigger,
-    SubContentTrigger,
     DropdownContent,
     DropdownSubContent,
+    DropdownSubTrigger,
     SingleSelectItem,
     MultiSelectItem,
     Separator,
+    Text,
 } from '@textkernel/oneui';
+import { MdArrowRight } from 'react-icons/md';
 
 const meta: Meta<typeof DropdownContent> = {
     title: 'Molecules/Dropdown',
@@ -93,6 +95,7 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
     name: 'Dropdown - Multi Select Item',
     args: {},
     render: (args) => {
+        const ref = React.useRef(null);
         const generalValues = ['Tag 1', 'Tag 2', 'Tag 3'];
         const group1 = ['Option 1', 'Option 2'];
         const group2 = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
@@ -158,14 +161,14 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
         return (
             <DropdownRoot>
                 <DropdownTrigger>
-                    <Button>Apply tags</Button>
+                    <div ref={ref} style={{ width: 200 }}>
+                        <Button>Apply tags</Button>
+                    </div>
                 </DropdownTrigger>
                 <DropdownPortal>
-                    <DropdownContent {...args}>
+                    <DropdownContent {...args} refElement={ref}>
                         <MultiSelectItem
-                            onCheckedChange={() => {
-                                handleOnChange('all');
-                            }}
+                            onCheckedChange={() => handleOnChange('all')}
                             key="all"
                             isSelected={isAllSelected()}
                             variant="select-all"
@@ -176,9 +179,7 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
                             <MultiSelectItem
                                 key={value}
                                 isSelected={selectedValues.includes(value)}
-                                onCheckedChange={() => {
-                                    handleOnChange(value);
-                                }}
+                                onCheckedChange={() => handleOnChange(value)}
                             >
                                 {value}
                             </MultiSelectItem>
@@ -187,9 +188,7 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
                             key="group1"
                             isSelected={isGroup1Selected()}
                             variant="group-title"
-                            onCheckedChange={() => {
-                                handleOnChange('group1');
-                            }}
+                            onCheckedChange={() => handleOnChange('group1')}
                         >
                             Options
                         </MultiSelectItem>
@@ -197,17 +196,27 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
                             <MultiSelectItem
                                 key={value}
                                 isSelected={selectedValues.includes(value)}
-                                onCheckedChange={() => {
-                                    handleOnChange(value);
-                                }}
+                                onCheckedChange={() => handleOnChange(value)}
                             >
                                 {value}
                             </MultiSelectItem>
                         ))}
                         <DropdownSub>
-                            <SubContentTrigger>Items →</SubContentTrigger>
+                            <DropdownSubTrigger>
+                                <div
+                                    style={{
+                                        width: '100%',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'space-between',
+                                    }}
+                                >
+                                    <Text inline>More items</Text>
+                                    <MdArrowRight size={24} />
+                                </div>
+                            </DropdownSubTrigger>
                             <DropdownPortal>
-                                <DropdownSubContent>
+                                <DropdownSubContent refElement={ref}>
                                     {group2.map((value) => (
                                         <MultiSelectItem
                                             key={value}
