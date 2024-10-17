@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Content, DropdownMenuContentProps } from '@radix-ui/react-dropdown-menu';
-import { bem } from '../../utils/bem/bem';
-import styles from './Dropdown.scss';
+import { bem } from '../../../utils/bem/bem';
+import styles from '../Dropdown.scss';
 
 interface Props extends DropdownMenuContentProps {
     refElement?: React.RefObject<HTMLElement | null>;
@@ -18,5 +18,5 @@ export const DropdownContent = ({ refElement, ...rest }: Props) => {
         }
     }, [refElement]);
 
-    return <Content {...rest} {...block(rest)} align="start" style={{ width }} sideOffset={6} />;
+    return <Content {...rest} {...block(rest)} align="start" sideOffset={6} style={{ width }} />;
 };

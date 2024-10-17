@@ -11,6 +11,6 @@ export {
 export { DropdownTrigger } from './DropdownTrigger';
 export { DropdownContent } from './DropdownContent';
 export { DropdownSubContent } from './DropdownSubContent';
-export * from './DropdownSubTrigger';
+export { DropdownSubTrigger } from './DropdownSubTrigger';
 export * from './Items';
 export * from './Separator';

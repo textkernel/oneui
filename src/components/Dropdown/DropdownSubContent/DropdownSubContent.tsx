@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { SubContent, DropdownMenuSubContentProps } from '@radix-ui/react-dropdown-menu';
-import { bem } from '../../utils/bem/bem';
-import styles from './Dropdown.scss';
+import { bem } from '../../../utils/bem/bem';
+import styles from '../Dropdown.scss';
 
 interface Props extends DropdownMenuSubContentProps {
     refElement?: React.RefObject<HTMLElement | null>;
