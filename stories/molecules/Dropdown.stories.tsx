@@ -12,9 +12,7 @@ import {
     SingleSelectItem,
     MultiSelectItem,
     Separator,
-    Text,
 } from '@textkernel/oneui';
-import { MdArrowRight } from 'react-icons/md';
 
 const meta: Meta<typeof DropdownContent> = {
     title: 'Molecules/Dropdown',
@@ -28,7 +26,7 @@ type Story = StoryObj<typeof DropdownContent>;
 export const _Dropdown: Story = {
     name: 'Actions Dropdown',
     args: {},
-    render: () => <p>To be implements</p>,
+    render: () => <p>To be implemented</p>,
 };
 
 export const _DropdownWithSingleSelectItem: Story = {
@@ -202,28 +200,14 @@ export const _DropdownWithMultiSingleSelectItem: Story = {
                             </MultiSelectItem>
                         ))}
                         <DropdownSub>
-                            <DropdownSubTrigger>
-                                <div
-                                    style={{
-                                        width: '100%',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'space-between',
-                                    }}
-                                >
-                                    <Text inline>More items</Text>
-                                    <MdArrowRight size={24} />
-                                </div>
-                            </DropdownSubTrigger>
+                            <DropdownSubTrigger>More items</DropdownSubTrigger>
                             <DropdownPortal>
                                 <DropdownSubContent refElement={ref}>
                                     {group2.map((value) => (
                                         <MultiSelectItem
                                             key={value}
                                             isSelected={selectedValues.includes(value)}
-                                            onCheckedChange={() => {
-                                                handleOnChange(value);
-                                            }}
+                                            onCheckedChange={() => handleOnChange(value)}
                                         >
                                             {value}
                                         </MultiSelectItem>

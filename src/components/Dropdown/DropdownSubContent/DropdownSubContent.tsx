@@ -4,6 +4,7 @@ import { bem } from '../../../utils/bem/bem';
 import styles from '../Dropdown.scss';
 
 interface Props extends DropdownMenuSubContentProps {
+    /** Ref element used to make the width of the Subcontent equal to the parent width */
     refElement?: React.RefObject<HTMLElement | null>;
 }
 

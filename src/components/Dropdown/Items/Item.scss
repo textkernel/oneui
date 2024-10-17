@@ -6,6 +6,10 @@
     gap: var(--space-100);
     cursor: default;
 
+    &--withChevron {
+        justify-content: space-between;
+    }
+
     &:focus-visible {
         outline: 2px solid var(--color-info-20, #99caff);
     }
