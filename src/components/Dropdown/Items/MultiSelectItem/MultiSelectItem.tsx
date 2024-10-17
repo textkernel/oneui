@@ -8,9 +8,7 @@ import { VisualCheckbox } from '../../../Checkbox';
 import { Text } from '../../../Text';
 import styles from './MultiSelectItem.scss';
 
-export interface Props extends Omit<DropdownMenuCheckboxItemProps, 'onChange'> {
-    /** A function to be called if the item is clicked */
-    onChange?: (e: React.SyntheticEvent<HTMLInputElement | HTMLLIElement>) => void;
+export interface Props extends DropdownMenuCheckboxItemProps {
     /** Id for the checkbox */
     id?: string;
     /** a variant to determine the look and feel of component */
@@ -31,6 +29,7 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props>(
             disabled = false,
             variant = 'option',
             hasPriority = false, // eslint-disable-line @typescript-eslint/no-unused-vars
+            onCheckedChange,
             ...rest
         },
         ref
@@ -40,9 +39,11 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props>(
             role="option"
             aria-selected={isSelected}
             tabIndex={disabled ? -1 : 0}
+            checked={isSelected}
             onSelect={(e) => {
                 e.preventDefault();
             }}
+            onCheckedChange={onCheckedChange}
             {...rest}
             {...block({
                 isSelected,

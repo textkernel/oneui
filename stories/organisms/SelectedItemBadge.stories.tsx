@@ -148,12 +148,7 @@ export const _SelectedItemBadgeMultiSelect: Story = {
             }
         }, [selectedSynonyms]);
 
-        const handleOnChange = (event: Event, synonym: string) => {
-            // @ts-ignore
-            const checked = !Array.from(event.target.classList).includes(
-                'MultiSelectItem--isSelected'
-            );
-
+        const handleOnChange = (checked: boolean, synonym: string) => {
             if (synonym === 'All') {
                 if (checked) {
                     setSelectedSynonyms([synonym, 'English', ...synonyms, ...synonyms2]);
@@ -230,16 +225,16 @@ export const _SelectedItemBadgeMultiSelect: Story = {
                     <MultiSelectItem
                         variant="select-all"
                         isSelected={selectedSynonyms.includes('All')}
-                        onSelect={(event) => handleOnChange(event, 'All')}
+                        onCheckedChange={(checked) => handleOnChange(checked, 'All')}
+                        onChange={(e) => console.log(e)}
                     >
                         Select all
                     </MultiSelectItem>
                     {synonyms2.map((synonym) => (
                         <MultiSelectItem
+                            key={synonym}
                             id={synonym}
-                            onSelect={(event) => {
-                                handleOnChange(event, synonym);
-                            }}
+                            onCheckedChange={(checked) => handleOnChange(checked, synonym)}
                             isSelected={selectedSynonyms.includes(synonym)}
                         >
                             {synonym}
@@ -247,15 +242,16 @@ export const _SelectedItemBadgeMultiSelect: Story = {
                     ))}
                     <MultiSelectItem
                         variant="group-title"
-                        onSelect={(event) => handleOnChange(event, 'English')}
+                        onCheckedChange={(checked) => handleOnChange(checked, 'English')}
                         isSelected={selectedSynonyms.includes('English')}
                     >
                         English
                     </MultiSelectItem>
                     {synonyms.map((synonym) => (
                         <MultiSelectItem
+                            key={synonym}
                             id={synonym}
-                            onSelect={(event) => handleOnChange(event, synonym)}
+                            onCheckedChange={(checked) => handleOnChange(checked, synonym)}
                             isSelected={selectedSynonyms.includes(synonym)}
                         >
                             {synonym}

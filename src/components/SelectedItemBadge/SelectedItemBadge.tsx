@@ -4,7 +4,6 @@ import KeyboardDoubleArrowUp from '@material-design-icons/svg/round/keyboard_dou
 import KeyboardArrowUp from '@material-design-icons/svg/round/keyboard_arrow_up.svg';
 import KeyboardArrowDown from '@material-design-icons/svg/round/keyboard_arrow_down.svg';
 
-import { EmptyElement } from '@textkernel/oneui/customTypes/types';
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './SelectedItemBadge.scss';
@@ -48,15 +47,10 @@ export interface Props<PriorityItemValue>
     /** Children nodes to be rendered within the Dropdown,
      *  which is triggered by the main button
      * */
-    children?:
-        | React.ReactElement
+    children?: (
         | React.ReactElement<SingleSelectItemProps>
-        | (React.ReactElement<SingleSelectItemProps> | EmptyElement)[]
-        | (
-              | React.ReactElement<SingleSelectItemProps>
-              | React.ReactElement<SingleSelectItemProps>[]
-              | EmptyElement
-          )[];
+        | React.ReactElement<SingleSelectItemProps>[]
+    )[];
     /** Label of the currently selected option item from filter */
     label: React.ReactNode;
     /** An additional label displayed next to the main label (e.g., the number of synonyms) */
