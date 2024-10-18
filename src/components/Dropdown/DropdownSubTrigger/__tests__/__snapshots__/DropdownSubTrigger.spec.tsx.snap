@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownSubTrigger should render correctly 1`] = `
+<div>
+  <button
+    aria-controls="radix-:r1:"
+    aria-expanded="true"
+    aria-haspopup="menu"
+    aria-hidden="true"
+    data-aria-hidden="true"
+    data-state="open"
+    id="radix-:r0:"
+    type="button"
+  >
+    Click here
+  </button>
+  <div
+    data-radix-popper-content-wrapper=""
+    dir="ltr"
+    style="position: fixed; left: 0px; top: 0px; transform: translate(0px, 6px); min-width: max-content; --radix-popper-available-width: 0px; --radix-popper-available-height: -6px; --radix-popper-anchor-width: 0px; --radix-popper-anchor-height: 0px; --radix-popper-transform-origin: 0% 0px;"
+  >
+    <div
+      aria-labelledby="radix-:r0:"
+      aria-orientation="vertical"
+      class="DropdownContent"
+      data-align="start"
+      data-orientation="vertical"
+      data-radix-menu-content=""
+      data-side="bottom"
+      data-state="open"
+      dir="ltr"
+      id="radix-:r1:"
+      role="menu"
+      style="outline: none; --radix-dropdown-menu-content-transform-origin: var(--radix-popper-transform-origin); --radix-dropdown-menu-content-available-width: var(--radix-popper-available-width); --radix-dropdown-menu-content-available-height: var(--radix-popper-available-height); --radix-dropdown-menu-trigger-width: var(--radix-popper-anchor-width); --radix-dropdown-menu-trigger-height: var(--radix-popper-anchor-height); pointer-events: auto;"
+      tabindex="-1"
+    >
+      <div
+        aria-controls="radix-:r2:"
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="DropdownItem DropdownItem--withChevron"
+        data-orientation="vertical"
+        data-radix-collection-item=""
+        data-state="closed"
+        id="radix-:r3:"
+        role="menuitem"
+        tabindex="-1"
+      >
+        More items
+        <svg
+          fill="currentColor"
+          height="20"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

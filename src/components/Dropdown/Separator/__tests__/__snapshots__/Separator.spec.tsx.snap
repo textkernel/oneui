@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Separator> should render SectionTitle when title is given 1`] = `
+<div>
+  <div
+    aria-orientation="horizontal"
+    class="SectionTitle"
+    role="separator"
+    title="section title"
+  >
+    section title
+  </div>
+</div>
+`;
+
+exports[`<Separator> should render Separator correctly when there is no title 1`] = `
+<div>
+  <div
+    aria-orientation="horizontal"
+    class="Divider"
+    role="separator"
+  />
+</div>
+`;
