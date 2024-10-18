@@ -369,16 +369,22 @@ export const _DropdownWithSelectedItemBadge: Story = {
                                         {i}
                                     </MultiSelectItem>
                                 ))}
-                                {group2.map((i) => (
-                                    <MultiSelectItem
-                                        id={i}
-                                        key={i}
-                                        onCheckedChange={() => handleOnChange(i)}
-                                        isSelected={selectedValues.includes(i)}
-                                    >
-                                        {i}
-                                    </MultiSelectItem>
-                                ))}
+                                <DropdownSub>
+                                    <DropdownSubTrigger>More items</DropdownSubTrigger>
+                                    <DropdownPortal>
+                                        <DropdownSubContent refElement={ref}>
+                                            {group2.map((value) => (
+                                                <MultiSelectItem
+                                                    key={value}
+                                                    isSelected={selectedValues.includes(value)}
+                                                    onCheckedChange={() => handleOnChange(value)}
+                                                >
+                                                    {value}
+                                                </MultiSelectItem>
+                                            ))}
+                                        </DropdownSubContent>
+                                    </DropdownPortal>
+                                </DropdownSub>
                             </SelectedItemBadge>
                         </div>
                         <DropdownSub>
