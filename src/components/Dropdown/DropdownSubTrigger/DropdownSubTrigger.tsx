@@ -14,6 +14,6 @@ interface Props extends DropdownMenuSubContentProps {
 export const DropdownSubTrigger = ({ children, ...rest }: Props) => (
     <DropdownMenuSubTrigger {...rest} {...block({ ...rest, withChevron: true })}>
         {children}
-        <MdChevronRight size={20} />
+        <MdChevronRight size={20} role="img" />
     </DropdownMenuSubTrigger>
 );
