@@ -63,24 +63,31 @@ export interface Props<PriorityItemValue>
     buttonLabel?: string;
     /** Delete button label name for ARIA labelling */
     deleteButtonLabel?: string;
+    /** Priority details */
     priority?: PriorityProps<PriorityItemValue>;
+    /** Ref element used to make the width of the Content equal to the parent width */
+    refElement?: React.RefObject<HTMLElement | null>;
 }
 
 const { block, elem } = bem('SelectedItemBadge', styles);
 
-export const SelectedItemBadge = React.forwardRef<HTMLDivElement, Props<string>>(
-    ({
-        children,
-        label,
-        additionalLabel,
-        isDisabled = false,
-        onDelete,
-        buttonLabel,
-        deleteButtonLabel,
-        priority,
-        ...rest
-    }) => {
-        const badgeRef = React.useRef<HTMLDivElement>(null);
+export const SelectedItemBadge = React.forwardRef<HTMLElement, Props<string>>(
+    (
+        {
+            children,
+            label,
+            additionalLabel,
+            isDisabled = false,
+            onDelete,
+            buttonLabel,
+            deleteButtonLabel,
+            priority,
+            refElement,
+            ...rest
+        },
+        ref
+    ) => {
+        const badgeRef = React.useRef<HTMLElement>(null);
 
         const hasPriorityList = priority && priority.list.length > 0;
 
@@ -105,7 +112,7 @@ export const SelectedItemBadge = React.forwardRef<HTMLDivElement, Props<string>>
         };
 
         return (
-            <div {...rest} {...block()} ref={badgeRef}>
+            <div {...rest} {...block()} ref={badgeRef || ref}>
                 {hasPriorityList && (
                     <DropdownRoot>
                         <DropdownTrigger asChild>

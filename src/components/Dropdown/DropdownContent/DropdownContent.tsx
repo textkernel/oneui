@@ -10,14 +10,25 @@ interface Props extends DropdownMenuContentProps {
 
 const { block } = bem('DropdownContent', styles);
 
-export const DropdownContent = ({ refElement, ...rest }: Props) => {
-    const [width, setWidth] = React.useState<number>();
+export const DropdownContent = React.forwardRef<HTMLElement, Props>(
+    ({ refElement, ...rest }, ref) => {
+        const [width, setWidth] = React.useState<number>();
 
-    useEffect(() => {
-        if (refElement?.current?.offsetWidth) {
-            setWidth(refElement.current.offsetWidth);
-        }
-    }, [refElement]);
+        useEffect(() => {
+            if (refElement?.current?.offsetWidth) {
+                setWidth(refElement.current.offsetWidth);
+            }
+        }, [refElement, width]);
 
-    return <Content {...rest} {...block(rest)} align="start" sideOffset={6} style={{ width }} />;
-};
+        return (
+            <Content
+                ref={ref}
+                {...rest}
+                {...block(rest)}
+                align="start"
+                sideOffset={6}
+                style={{ minWidth: width }}
+            />
+        );
+    }
+);
