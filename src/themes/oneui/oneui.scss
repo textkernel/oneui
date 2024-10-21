@@ -1,9 +1,9 @@
-@import './base-variables/colors';
-@import './base-variables/typography';
-@import './base-variables/sizing';
-@import './base-variables/misc';
-@import './base-variables/header_footer';
+@use 'base-variables/colors';
+@use 'base-variables/typography';
+@use 'base-variables/sizing';
+@use 'base-variables/misc';
+@use 'base-variables/header_footer';
 
-@import './semantic-tokens/semantic_colors';
+@use 'semantic-tokens/semantic_colors';
 
-@import './globalClasses/typography';
+@use 'globalClasses/typography' as typography2;

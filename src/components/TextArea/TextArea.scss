@@ -1,4 +1,4 @@
-@import '../../themes/oneui/placeholders/input';
+@use '../../themes/oneui/placeholders/input';
 
 .TextArea {
     @extend %input;
