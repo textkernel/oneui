@@ -7,6 +7,8 @@ import {
     DropdownContent,
     Button,
     Text,
+    PriorityItemType,
+    Priority,
 } from '@textkernel/oneui';
 
 export default {
@@ -16,17 +18,38 @@ export default {
 
 type StorySingleSelectItem = StoryObj<typeof SingleSelectItem>;
 
+const priorityList: PriorityItemType<string>[] = [
+    { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
+    { priority: Priority.Important, label: 'Important', value: 'strongly_favored' },
+    { priority: Priority.Optional, label: 'Optional', value: 'favored' },
+    { priority: Priority.Exclude, label: 'Exclude', value: 'banned' },
+];
+
 export const _SingleSelectItem: StorySingleSelectItem = {
     name: 'SingleSelectItem',
     args: {
         disabled: false,
+        priority: {
+            list: priorityList,
+            buttonLabel: 'Priority',
+            onSelect: () => {},
+            selectedItem: { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
+        },
     },
     render: (args) => {
+        const [prioritySelected, setPrioritySelected] = React.useState<PriorityItemType<string>>(
+            args.priority?.selectedItem as PriorityItemType<string>
+        );
         const [isSelected, setIsSelected] = React.useState(false);
 
-        const handleOnSelect = () => {
+        const handleSelect = () => {
             setIsSelected(!isSelected);
             console.log('onSelect: SingleSelectItem has been clicked');
+        };
+
+        const handlePrioritySelect = (selectedItem: PriorityItemType<string>) => {
+            console.log('new item selected: ', selectedItem);
+            setPrioritySelected(selectedItem);
         };
 
         return (
@@ -42,7 +65,14 @@ export const _SingleSelectItem: StorySingleSelectItem = {
                         <SingleSelectItem
                             {...args}
                             isSelected={isSelected}
-                            onSelect={handleOnSelect}
+                            onSelect={handleSelect}
+                            hasPriority
+                            priority={{
+                                onSelect: handlePrioritySelect,
+                                selectedItem: prioritySelected,
+                                list: priorityList,
+                                buttonLabel: 'priorityButton',
+                            }}
                         >
                             Simple Item
                         </SingleSelectItem>
