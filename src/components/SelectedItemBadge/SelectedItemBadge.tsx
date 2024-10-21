@@ -1,46 +1,11 @@
 import * as React from 'react';
 import Close from '@material-design-icons/svg/round/close.svg';
-import KeyboardDoubleArrowUp from '@material-design-icons/svg/round/keyboard_double_arrow_up.svg';
-import KeyboardArrowUp from '@material-design-icons/svg/round/keyboard_arrow_up.svg';
-import KeyboardArrowDown from '@material-design-icons/svg/round/keyboard_arrow_down.svg';
 
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './SelectedItemBadge.scss';
-import {
-    DropdownContent,
-    DropdownRoot,
-    DropdownTrigger,
-    SingleSelectItem,
-    SingleSelectItemProps,
-} from '../Dropdown';
-
-const iconMap = {
-    mandatory: KeyboardDoubleArrowUp,
-    important: KeyboardArrowUp,
-    optional: KeyboardArrowDown,
-    exclude: Close,
-};
-
-export type Priority = 'mandatory' | 'important' | 'optional' | 'exclude';
-
-export type PriorityItem<PriorityItemValue> = {
-    priority: Priority;
-    label: string;
-    value?: PriorityItemValue;
-};
-
-// Priority related props
-type PriorityProps<PriorityItemValue> = {
-    /** Currently selected priority item that indicates the importance of the component. */
-    selectedItem: PriorityItem<PriorityItemValue>;
-    /** Array of availible priority items. */
-    list: Array<PriorityItem<PriorityItemValue>>;
-    /** Callback function triggered when a new priority is selected. */
-    onChange: (newPriorityItem: PriorityItem<PriorityItemValue>) => void;
-    /** Priority button label name for ARIA labelling */
-    buttonLabel: string;
-};
+import { DropdownContent, DropdownRoot, DropdownTrigger, SingleSelectItemProps } from '../Dropdown';
+import { PrioritySelector, PrioritySelectorProps } from '../PrioritySelector';
 
 export interface Props<PriorityItemValue>
     extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -48,8 +13,8 @@ export interface Props<PriorityItemValue>
      *  which is triggered by the main button
      * */
     children?: (
-        | React.ReactElement<SingleSelectItemProps>
-        | React.ReactElement<SingleSelectItemProps>[]
+        | React.ReactElement<SingleSelectItemProps<PriorityItemValue>>
+        | React.ReactElement<SingleSelectItemProps<PriorityItemValue>>[]
     )[];
     /** Label of the currently selected option item from filter */
     label: React.ReactNode;
@@ -63,8 +28,8 @@ export interface Props<PriorityItemValue>
     buttonLabel?: string;
     /** Delete button label name for ARIA labelling */
     deleteButtonLabel?: string;
-    /** Priority details */
-    priority?: PriorityProps<PriorityItemValue>;
+    /** props for PrioritySelector */
+    priority?: PrioritySelectorProps<PriorityItemValue>;
     /** Ref element used to make the width of the Content equal to the parent width */
     refElement?: React.RefObject<HTMLElement | null>;
 }
@@ -91,21 +56,6 @@ export const SelectedItemBadge = React.forwardRef<HTMLElement, Props<string>>(
 
         const hasPriorityList = priority && priority.list.length > 0;
 
-        const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
-            if (!priorityType) {
-                return null;
-            }
-
-            const IconComponent = iconMap[priorityType];
-            return IconComponent ? (
-                <IconComponent
-                    disabled={disabled}
-                    viewBox="0 0 24 24"
-                    {...elem('icon', { [priorityType]: true })}
-                />
-            ) : null;
-        };
-
         const handleOnDelete = (e: React.KeyboardEvent | React.MouseEvent) => {
             e.stopPropagation();
             onDelete?.(e);
@@ -114,33 +64,12 @@ export const SelectedItemBadge = React.forwardRef<HTMLElement, Props<string>>(
         return (
             <div {...rest} {...block()} ref={badgeRef || ref}>
                 {hasPriorityList && (
-                    <DropdownRoot>
-                        <DropdownTrigger asChild>
-                            <button
-                                aria-label={priority.buttonLabel}
-                                disabled={isDisabled}
-                                type="button"
-                                {...elem('priorityButton')}
-                            >
-                                {renderPriorityIcon(priority.selectedItem?.priority, isDisabled)}
-                            </button>
-                        </DropdownTrigger>
-                        <DropdownContent sideOffset={6} refElement={badgeRef}>
-                            {priority.list.map((item) => (
-                                <SingleSelectItem
-                                    key={item.priority}
-                                    onSelect={() => {
-                                        priority.onChange(item);
-                                    }}
-                                    isSelected={priority.selectedItem.value === item.value}
-                                    {...elem('badgeListItem')}
-                                >
-                                    {renderPriorityIcon(item.priority)}
-                                    <Text inline>{item.label}</Text>
-                                </SingleSelectItem>
-                            ))}
-                        </DropdownContent>
-                    </DropdownRoot>
+                    <PrioritySelector
+                        list={priority.list}
+                        selectedItem={priority.selectedItem}
+                        onSelect={priority.onSelect}
+                        badgeRef={badgeRef}
+                    />
                 )}
                 {children ? (
                     <DropdownRoot>
@@ -164,7 +93,7 @@ export const SelectedItemBadge = React.forwardRef<HTMLElement, Props<string>>(
                         <DropdownContent
                             {...elem('badgeDropdownList')}
                             sideOffset={6}
-                            alignOffset={-32}
+                            alignOffset={priority ? -32 : 0}
                             refElement={badgeRef}
                         >
                             {children}
