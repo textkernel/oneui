@@ -2,48 +2,62 @@
 
 exports[`<Input> that renders an input field should add classes when props are changed 1`] = `
 <div>
-  <label
-    class="Input__label"
-    for=":r1:"
-  >
-    Input Label
-  </label>
-  <input
-    aria-invalid="true"
-    class="Input Input--context_critical Input--size_medium Input--isBlock"
-    data-lpignore="true"
-    disabled=""
-    id=":r1:"
-    type="text"
-    value=""
-  />
-  <p
-    class="Input__helperText"
-  >
-    This is a helper text
-  </p>
+  <div>
+    <label
+      class="Input__label"
+      for=":r1:"
+    >
+      Input Label
+    </label>
+    <div
+      class="Input__inputContainer Input__inputContainer--context_critical Input__inputContainer--size_medium Input__inputContainer--isBlock Input__inputContainer--disabled"
+      data-testid="inputContainer"
+    >
+      <input
+        aria-invalid="true"
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        disabled=""
+        id=":r1:"
+        type="text"
+        value=""
+      />
+    </div>
+    <p
+      class="Input__helperText"
+    >
+      This is a helper text
+    </p>
+  </div>
 </div>
 `;
 
 exports[`<Input> that renders an input field should render default input correctly 1`] = `
 <div>
-  <label
-    class="Input__label"
-    for=":r0:"
-  >
-    Input Label
-  </label>
-  <input
-    class="Input Input--size_medium"
-    data-lpignore="true"
-    id=":r0:"
-    type="text"
-    value="Some value"
-  />
-  <p
-    class="Input__helperText"
-  >
-    This is a helper text
-  </p>
+  <div>
+    <label
+      class="Input__label"
+      for=":r0:"
+    >
+      Input Label
+    </label>
+    <div
+      class="Input__inputContainer Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <input
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        id=":r0:"
+        type="text"
+        value="Some value"
+      />
+    </div>
+    <p
+      class="Input__helperText"
+    >
+      This is a helper text
+    </p>
+  </div>
 </div>
 `;
