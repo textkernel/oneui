@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Alert, Confirm, Button, Dialog, Callout } from '@textkernel/oneui';
+import { Alert, Confirm, Button, Dialog } from '@textkernel/oneui';
 
 const meta: Meta<typeof Alert> = {
     title: 'Organisms/Dialogs',
