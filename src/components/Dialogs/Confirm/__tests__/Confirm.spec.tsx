@@ -10,11 +10,20 @@ describe('Confirm', () => {
     let view: RenderResult;
 
     beforeEach(() => {
+        global.ResizeObserver = class MockedResizeObserver {
+            observe = jest.fn();
+
+            unobserve = jest.fn();
+
+            disconnect = jest.fn();
+        };
+
         view = render(
             <Confirm
                 isOpen
                 acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
                 cancelButton={{ onClick: mockOnCancel, label: 'Cancel' }}
+                onClose={mockOnCancel}
                 ariaHideApp={false}
                 contentLabel="Content Label"
             >
@@ -35,6 +44,7 @@ describe('Confirm', () => {
                 isOpen
                 acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
                 cancelButton={{ onClick: mockOnCancel, label: 'Cancel' }}
+                onClose={mockOnCancel}
                 ariaHideApp={false}
                 contentLabel="Content Label"
                 title="Title"

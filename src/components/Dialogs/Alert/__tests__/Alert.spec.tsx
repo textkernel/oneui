@@ -6,13 +6,23 @@ import { Alert } from '../Alert';
 
 describe('Alert', () => {
     const mockOnAccept = jest.fn();
+    const mockOnClose = jest.fn();
     let view: RenderResult;
 
     beforeEach(() => {
+        global.ResizeObserver = class MockedResizeObserver {
+            observe = jest.fn();
+
+            unobserve = jest.fn();
+
+            disconnect = jest.fn();
+        };
+
         view = render(
             <Alert
                 isOpen
                 acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
+                onClose={mockOnClose}
                 ariaHideApp={false}
                 contentLabel="Content label"
             >
@@ -32,6 +42,7 @@ describe('Alert', () => {
             <Alert
                 isOpen
                 acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
+                onClose={mockOnClose}
                 ariaHideApp={false}
                 contentLabel="Content label"
                 title="Title"

@@ -9,9 +9,7 @@ exports[`Alert should render correctly 1`] = `
     style="position: absolute; opacity: 0;"
     tabindex="0"
   />
-  <div>
-    <div />
-  </div>
+  <div />
   <div
     data-react-modal-body-trap=""
     style="position: absolute; opacity: 0;"
@@ -26,7 +24,7 @@ exports[`Alert should render correctly 1`] = `
       <div
         aria-label="Content label"
         aria-modal="true"
-        class="Modal__content Dialog__dialog"
+        class="Modal__content Dialog"
         role="dialog"
         tabindex="-1"
       >
@@ -35,6 +33,7 @@ exports[`Alert should render correctly 1`] = `
           role="alert"
         >
           <svg
+            data-testid="close-icon"
             fill="currentColor"
             height="1em"
             stroke="currentColor"
@@ -87,9 +86,7 @@ exports[`Alert should render correctly with title 1`] = `
   <div
     class="ReactModalPortal"
   />
-  <div>
-    <div />
-  </div>
+  <div />
   <div
     data-react-modal-body-trap=""
     style="position: absolute; opacity: 0;"
@@ -104,7 +101,7 @@ exports[`Alert should render correctly with title 1`] = `
       <div
         aria-label="Content label"
         aria-modal="true"
-        class="Modal__content Dialog__dialog"
+        class="Modal__content Dialog"
         role="dialog"
         tabindex="-1"
       >
@@ -118,6 +115,7 @@ exports[`Alert should render correctly with title 1`] = `
             Title
           </h2>
           <svg
+            data-testid="close-icon"
             fill="currentColor"
             height="1em"
             stroke="currentColor"
