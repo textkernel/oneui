@@ -80,12 +80,7 @@ export const ListShowingResults: Story = {
         doSelectOnNavigate: true,
         children: [
             <ListItem onClick={onClickJob('First')}>
-                <Teaser
-                    title="My first job"
-                    location="Melbourne"
-                    subTitle="Awsome inc."
-                    details="It was posted here, yesterday"
-                />
+                <Teaser title="My first job" subtitle="Awsome inc." />
                 <ListActions>
                     <Button variant="ghost" size="small" onClick={onClickAction}>
                         Action
@@ -95,9 +90,7 @@ export const ListShowingResults: Story = {
             <ListItem onClick={onClickJob('Second')}>
                 <Teaser
                     title="Job with a very, very, very long title to be truncated by css"
-                    location="Melbourne"
-                    subTitle="Awsome inc."
-                    details="It was posted there, yesterday"
+                    subtitle="Awsome inc."
                 />
                 <ListActions>
                     <Button variant="ghost" size="small" onClick={onClickAction}>
