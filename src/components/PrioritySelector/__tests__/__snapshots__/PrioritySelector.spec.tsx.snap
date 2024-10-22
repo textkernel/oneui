@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PrioritySelector renders correctly with all props provided 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    aria-label="Mandatory"
+    class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PrioritySelector__icon PrioritySelector__icon--mandatory"
+    data-state="closed"
+    id="radix-:r0:"
+    style="width: auto;"
+    type="button"
+  >
+    <svg
+      class="IconButton__icon--size_medium"
+      data-testid="default-icon"
+      viewBox="0 0 24 24"
+    />
+  </button>
+</div>
+`;

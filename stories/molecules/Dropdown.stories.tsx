@@ -13,7 +13,8 @@ import {
     MultiSelectItem,
     Separator,
     SelectedItemBadge,
-    SelectedItemBadgePriorityItem,
+    PriorityItemType,
+    Priority,
 } from '@textkernel/oneui';
 
 const meta: Meta<typeof DropdownContent> = {
@@ -228,11 +229,11 @@ export const _DropdownWithSelectedItemBadge: Story = {
     name: 'Dropdown - SelectedItemBadge',
     args: {},
     render: (args) => {
-        const priorityList: Array<SelectedItemBadgePriorityItem<string>> = [
-            { priority: 'mandatory', label: 'Mandatory', value: 'required' },
-            { priority: 'important', label: 'Important', value: 'strongly_favored' },
-            { priority: 'optional', label: 'Optional', value: 'favored' },
-            { priority: 'exclude', label: 'Exclude', value: 'banned' },
+        const priorityList: Array<PriorityItemType<string>> = [
+            { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
+            { priority: Priority.Mandatory, label: 'Important', value: 'strongly_favored' },
+            { priority: Priority.Optional, label: 'Optional', value: 'favored' },
+            { priority: Priority.Exclude, label: 'Exclude', value: 'banned' },
         ];
 
         const priority = {
@@ -245,9 +246,9 @@ export const _DropdownWithSelectedItemBadge: Story = {
         const ref = React.useRef(null);
 
         const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
-            SelectedItemBadgePriorityItem<string>
+            PriorityItemType<string>
         >({
-            priority: 'mandatory',
+            priority: Priority.Mandatory,
             label: 'Mandatory',
             value: 'required',
         });
@@ -318,7 +319,7 @@ export const _DropdownWithSelectedItemBadge: Story = {
             }
         };
 
-        const handlePriorityChange = (newPriorityItem: SelectedItemBadgePriorityItem<string>) => {
+        const handlePriorityChange = (newPriorityItem: PriorityItemType<string>) => {
             setSelectedPriorityItem(newPriorityItem);
             console.log(`Priority changed to ${newPriorityItem.priority}`);
         };
@@ -342,7 +343,7 @@ export const _DropdownWithSelectedItemBadge: Story = {
                                     priority && {
                                         ...priority,
                                         selectedItem: selectedPriorityItem,
-                                        onChange: handlePriorityChange,
+                                        onSelect: handlePriorityChange,
                                     }
                                 }
                                 label="Group"
