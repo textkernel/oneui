@@ -30,6 +30,10 @@ interface BaseProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 's
     label?: string;
     /** Helper text under the input, display the error when the context is critical */
     helperText?: string;
+    /** Icon before input, optional */
+    leadingIcon?: React.ReactElement;
+    /** Icon after input, which can trigger callback as a button, optional */
+    trailingIcon?: React.ReactElement;
     /**  Controls whether space is reserved for error messages under the input field when validation is expected
      *  to avoid "jumping" UI. */
     reserveErrorMessageSpace?: boolean;
@@ -53,8 +57,11 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
             value,
             label,
             helperText,
+            leadingIcon,
+            trailingIcon,
             errorMessage,
             reserveErrorMessageSpace = false,
+            style,
             ...rest
         },
         ref
@@ -65,24 +72,48 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
         const isLastPassDisabled = type !== 'password';
 
         return (
-            <>
+            <div
+                {...block({
+                    context,
+                    size,
+                    isBlock,
+                    disabled,
+                    readOnly,
+                    ...rest,
+                })}
+                style={style || {}}
+            >
                 {label && (
                     <label {...elem('label')} htmlFor={idRef}>
                         {label}
                     </label>
                 )}
-                <input
-                    {...rest}
-                    {...block({ context, size, isBlock, disabled, ...rest })}
-                    id={idRef}
-                    ref={ref}
-                    type={type}
-                    disabled={disabled}
-                    readOnly={readOnly}
-                    value={value}
-                    aria-invalid={context === 'critical' ? 'true' : undefined}
-                    data-lpignore={isLastPassDisabled}
-                />
+                <div
+                    data-testid="inputContainer"
+                    {...elem('inputContainer', {
+                        context,
+                        size,
+                        isBlock,
+                        disabled,
+                        type,
+                        readOnly,
+                    })}
+                >
+                    {leadingIcon}
+                    <input
+                        {...rest}
+                        {...elem('input', { size, disabled, type })}
+                        id={idRef}
+                        ref={ref}
+                        type={type}
+                        disabled={disabled}
+                        readOnly={readOnly}
+                        value={value}
+                        aria-invalid={context === 'critical' ? 'true' : undefined}
+                        data-lpignore={isLastPassDisabled}
+                    />
+                    {trailingIcon}
+                </div>
 
                 {(context === 'critical' && errorMessage) ||
                 (reserveErrorMessageSpace && !helperText) ? (
@@ -103,7 +134,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(
                 ) : (
                     helperText && <p {...elem('helperText')}>{helperText}</p>
                 )}
-            </>
+            </div>
         );
     }
 );
