@@ -10,7 +10,7 @@ import {
 } from '@textkernel/oneui';
 
 export default {
-    title: 'Molecules/Dropdown/Separator',
+    title: 'Atoms/Dropdown/Separator',
     component: Separator,
 } as Meta<typeof Separator>;
 

@@ -10,7 +10,7 @@ import {
 } from '@textkernel/oneui';
 
 export default {
-    title: 'Molecules/Dropdown/MultiSelectItem',
+    title: 'Atoms/Dropdown/MultiSelectItem',
     component: MultiSelectItem,
 } as Meta<typeof MultiSelectItem>;
 
