@@ -59,7 +59,11 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
       <div
         class="PillDropdown__content"
         role="group"
-      />
+      >
+        <p>
+          This is some content for the pill
+        </p>
+      </div>
       <div
         class="PillDropdown__footer"
       >
