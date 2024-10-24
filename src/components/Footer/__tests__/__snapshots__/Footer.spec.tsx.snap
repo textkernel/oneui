@@ -53,7 +53,9 @@ exports[`Footer component that renders a copyright text on the left and optional
           </svg>
         </div>
       </span>
-      <div>
+      <div
+        class="Footer__menu"
+      >
         This is a placeholder for children
       </div>
     </div>
@@ -70,7 +72,9 @@ exports[`Footer component that renders a copyright text on the left and optional
       class="BlockWidthRestrictor Footer__wrapper"
     >
       my special copyright
-      <div>
+      <div
+        class="Footer__menu"
+      >
         This is a placeholder for children
       </div>
     </div>
