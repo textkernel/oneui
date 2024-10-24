@@ -23,9 +23,10 @@ export const _MultiSelectItem: StoryMultiSelectItem = {
     },
     render: (args) => {
         const [isSelected, setIsSelected] = React.useState(false);
-        const handleChange = () => {
+
+        const handleOnCheckedChange = () => {
             setIsSelected(!isSelected);
-            console.log('MultiSelectItem has been clicked');
+            console.log('onCheckedChange: MultiSelectItem has been clicked');
         };
 
         return (
@@ -41,7 +42,7 @@ export const _MultiSelectItem: StoryMultiSelectItem = {
                         <MultiSelectItem
                             {...args}
                             isSelected={isSelected}
-                            onCheckedChange={handleChange}
+                            onCheckedChange={handleOnCheckedChange}
                         >
                             Item with checkbox
                         </MultiSelectItem>

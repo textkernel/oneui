@@ -23,9 +23,10 @@ export const _SingleSelectItem: StorySingleSelectItem = {
     },
     render: (args) => {
         const [isSelected, setIsSelected] = React.useState(false);
-        const handleSelect = () => {
+
+        const handleOnSelect = () => {
             setIsSelected(!isSelected);
-            console.log('SingleSelectItem has been clicked');
+            console.log('onSelect: SingleSelectItem has been clicked');
         };
 
         return (
@@ -38,7 +39,11 @@ export const _SingleSelectItem: StorySingleSelectItem = {
                         <Button>Click here</Button>
                     </DropdownTrigger>
                     <DropdownContent>
-                        <SingleSelectItem {...args} isSelected={isSelected} onSelect={handleSelect}>
+                        <SingleSelectItem
+                            {...args}
+                            isSelected={isSelected}
+                            onSelect={handleOnSelect}
+                        >
                             Simple Item
                         </SingleSelectItem>
                     </DropdownContent>
