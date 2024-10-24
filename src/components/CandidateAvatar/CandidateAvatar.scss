@@ -1,4 +1,4 @@
-@import '../../themes/oneui/constants/colors';
+@use '../../themes/oneui/constants/colors';
 
 .CandidateAvatar {
     position: relative;
@@ -30,7 +30,7 @@
     }
 
     &__percentage {
-        background-color: rgba(0,0,0,.25);
+        background-color: rgba(0, 0, 0, 0.25);
         border-radius: 50%;
         height: 100%;
         width: 100%;
