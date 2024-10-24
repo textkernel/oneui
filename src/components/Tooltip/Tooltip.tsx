@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved */
 import * as React from 'react';
 import Tippy, { TippyProps } from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css?external';
 import 'tippy.js/animations/shift-toward.css?external';
+import 'tippy.js/dist/tippy.css?external';
 
 export type TooltipProps = TippyProps;
 
@@ -20,7 +20,7 @@ export const Tooltip: React.FC<TooltipProps> = ({ content, children, disabled, .
         isDisabled = true;
     }
     return (
-        <Tippy content={content} disabled={isDisabled} {...rest}>
+        <Tippy content={content} disabled={isDisabled} maxWidth={320} arrow={false} {...rest}>
             {children}
         </Tippy>
     );
