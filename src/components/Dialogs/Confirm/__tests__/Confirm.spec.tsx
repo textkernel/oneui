@@ -10,11 +10,20 @@ describe('Confirm', () => {
     let view: RenderResult;
 
     beforeEach(() => {
+        global.ResizeObserver = class MockedResizeObserver {
+            observe = jest.fn();
+
+            unobserve = jest.fn();
+
+            disconnect = jest.fn();
+        };
+
         view = render(
             <Confirm
                 isOpen
                 acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
                 cancelButton={{ onClick: mockOnCancel, label: 'Cancel' }}
+                onClose={mockOnCancel}
                 ariaHideApp={false}
                 contentLabel="Content Label"
             >
@@ -35,6 +44,7 @@ describe('Confirm', () => {
                 isOpen
                 acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
                 cancelButton={{ onClick: mockOnCancel, label: 'Cancel' }}
+                onClose={mockOnCancel}
                 ariaHideApp={false}
                 contentLabel="Content Label"
                 title="Title"
@@ -47,15 +57,15 @@ describe('Confirm', () => {
         expect(screen.getAllByRole('heading')).toHaveLength(1);
     });
 
-    it('should call onCancel callback when button is clicked', async () => {
+    it('should call onAccept callback when button is clicked', async () => {
         const user = userEvent.setup();
-        await user.click(screen.getAllByRole('button')[1]);
+        await user.click(screen.getAllByRole('button')[0]);
 
         expect(mockOnAccept).toHaveBeenCalledTimes(1);
     });
     it('should call onCancel callback when button is clicked', async () => {
         const user = userEvent.setup();
-        await user.click(screen.getAllByRole('button')[0]);
+        await user.click(screen.getAllByRole('button')[1]);
 
         expect(mockOnCancel).toHaveBeenCalledTimes(1);
     });

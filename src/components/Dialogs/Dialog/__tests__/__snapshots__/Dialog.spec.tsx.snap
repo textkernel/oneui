@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Confirm should render correctly 1`] = `
+exports[`Dialogs should not render a title when one is not provided 1`] = `
 <body
   class="Modal__body"
 >
@@ -8,6 +8,9 @@ exports[`Confirm should render correctly 1`] = `
     data-react-modal-body-trap=""
     style="position: absolute; opacity: 0;"
     tabindex="0"
+  />
+  <div
+    class="ReactModalPortal"
   />
   <div />
   <div
@@ -54,7 +57,7 @@ exports[`Confirm should render correctly 1`] = `
         <div
           class="Dialog__content"
         >
-          Body of the confirm
+          Body of the dialog
         </div>
         <div
           class="Dialog__actions"
@@ -81,7 +84,7 @@ exports[`Confirm should render correctly 1`] = `
 </body>
 `;
 
-exports[`Confirm should render correctly with title 1`] = `
+exports[`Dialogs should render correctly with a title 1`] = `
 <body
   class="Modal__body"
 >
@@ -89,9 +92,6 @@ exports[`Confirm should render correctly with title 1`] = `
     data-react-modal-body-trap=""
     style="position: absolute; opacity: 0;"
     tabindex="0"
-  />
-  <div
-    class="ReactModalPortal"
   />
   <div />
   <div
@@ -143,7 +143,7 @@ exports[`Confirm should render correctly with title 1`] = `
         <div
           class="Dialog__content"
         >
-          Body of the confirm
+          Body of the dialog
         </div>
         <div
           class="Dialog__actions"
