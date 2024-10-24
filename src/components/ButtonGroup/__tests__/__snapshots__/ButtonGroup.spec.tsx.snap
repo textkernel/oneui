@@ -120,26 +120,16 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
       An anchor
     </a>
     <button
-      aria-activedescendant=""
-      aria-controls="downshift-:r0:-menu"
       aria-expanded="false"
-      aria-haspopup="listbox"
-      aria-labelledby="downshift-:r0:-label"
-      class="Button Button--size_large Button--variant_filled Button--context_primary ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--last"
-      id="downshift-:r0:-toggle-button"
-      role="combobox"
+      aria-haspopup="menu"
+      class="Button Button--variant_filled Button--context_secondary"
+      data-state="closed"
+      id="radix-:r0:"
       style="width: auto;"
-      tabindex="0"
       type="button"
     >
       A dropdown button
     </button>
-    <ul
-      aria-labelledby="downshift-:r0:-label"
-      class="List"
-      id="downshift-:r0:-menu"
-      role="listbox"
-    />
   </div>
 </div>
 `;

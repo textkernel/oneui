@@ -1,0 +1,66 @@
+.DropdownItem {
+    display: flex;
+    align-items: center;
+    padding: var(--space-150);
+    composes: OneUI-label-text from global;
+    gap: var(--space-100);
+    cursor: default;
+
+    &--withChevron {
+        justify-content: space-between;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-info-20, #99caff);
+    }
+
+    &:hover {
+        background: var(--color-background-neutral-subtlest-hover, #e6e6e6);
+        outline: none;
+    }
+
+    &:active {
+        background: var(--color-background-neutral-subtlest-pressed, #ccc);
+    }
+
+    &--disabled {
+        color: var(--color-text-disabled);
+        cursor: not-allowed;
+
+        &:focus-visible,
+        &:hover,
+        &:active {
+            background: var(--color-background-neutral-subtlest-disabled, #fff);
+        }
+    }
+
+    &--isSelected {
+        color: var(--color-text-selected-default, #004999);
+
+        &.DropdownItem--disabled {
+            color: var(--color-link-default, #0062cc);
+            cursor: not-allowed;
+        }
+    }
+
+    &--isSelected.DropdownItem {
+        background: var(--color-background-selected-subtlest-default, #e6f2ff);
+
+        &:hover:not(.DropdownItem--disabled) {
+            background: var(--color-background-selected-subtlest-hover, #cce4ff);
+        }
+
+        &:active:not(.DropdownItem--disabled) {
+            border: 2px solid black;
+            background: var(--color-background-selected-subtlest-pressed, #99caff);
+        }
+
+        &.DropdownItem--disabled {
+            &:focus-visible,
+            &:hover,
+            &:active {
+                background: var(--color-background-selected-subtlest-default, #e6f2ff);
+            }
+        }
+    }
+}

@@ -8,8 +8,6 @@ import {
     Text,
     Button,
     Checkbox,
-    SingleSelectItem,
-    Separator,
 } from '@textkernel/oneui';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -60,8 +58,6 @@ export const _List: Story = {
                 <Checkbox id="item4" />
                 Clickable item
             </ListItem>,
-            <SingleSelectItem>Suggestion Item</SingleSelectItem>,
-            <SingleSelectItem isSelected>Suggestion Item Selected</SingleSelectItem>,
         ],
     },
     render: (args) => <List {...args} />,
@@ -132,25 +128,6 @@ export const _ListOptimizer: Story = {
                     )}
                 </ListOptimizer>
             </div>,
-        ],
-    },
-    render: (args) => <List {...args} />,
-};
-
-export const ListWithSeparators: Story = {
-    name: 'List with separators',
-    args: {
-        isDivided: true,
-        doSelectOnNavigate: true,
-        children: [
-            <ListItem>Next is the separator with no title</ListItem>,
-            <Separator />,
-            <ListItem>Next is the separator with title</ListItem>,
-            <Separator title="Separator title" />,
-            <ListItem>Next is the separator with no title</ListItem>,
-            <Separator />,
-            <ListItem>Next is the separator with title</ListItem>,
-            <Separator title="Separator title" />,
         ],
     },
     render: (args) => <List {...args} />,

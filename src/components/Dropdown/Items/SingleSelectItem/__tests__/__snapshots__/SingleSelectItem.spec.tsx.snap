@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SingleSelectItem should render correctly 1`] = `
+<div>
+  <button
+    aria-expanded="false"
+    aria-haspopup="menu"
+    data-state="closed"
+    id="radix-:r0:"
+    type="button"
+  >
+    Click here
+  </button>
+</div>
+`;
