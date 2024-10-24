@@ -1,8 +1,7 @@
 [ONEUI-???](https://textkernel.atlassian.net/browse/ONEUI-)
 
-<!-- [Commiting and Merging](https://github.com/textkernel/oneui/blob/master/CONTRIBUTING.md#committing-and-merging) -->
-<!-- BREAKING CHANGE: description -->
-
 ### Checklist
 
 -   [ ] The Pull Request title follows our guidelines eg. `feat(PrioritySelector): new component`
+-   [ ] Breaking changes are mentioned eg. `BREAKING CHANGE: isMultiSelect prop is removed`, if any.
+-   [ ] Squash and Merge option is selected as merge option.
