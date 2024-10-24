@@ -16,6 +16,7 @@
 
     &:hover {
         background: var(--color-background-neutral-subtlest-hover, #e6e6e6);
+        outline: none;
     }
 
     &:active {
