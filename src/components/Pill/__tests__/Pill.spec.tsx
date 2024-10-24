@@ -5,7 +5,6 @@ import '@testing-library/jest-dom';
 import { Pill } from '../Pill';
 
 describe('<Pill> component', () => {
-    const childrenMock = jest.fn();
     const onClearMock = jest.fn();
     const onCloseMock = jest.fn();
     const nameMock = 'Pill name';
@@ -31,7 +30,7 @@ describe('<Pill> component', () => {
                 upArrowLabel={upArrowLabel}
                 clearLabel={clearLabel}
             >
-                {childrenMock}
+                <p>This is some content for the pill</p>
             </Pill>
         );
     });
@@ -70,13 +69,10 @@ describe('<Pill> component', () => {
     });
 
     it('should render children when dropdown is open', async () => {
-        expect(childrenMock).not.toHaveBeenCalled();
-
         const user = userEvent.setup();
         await user.click(getButtonByName(contentMock));
 
         expect(screen.getByRole(dialogRole)).toBeVisible();
-        expect(childrenMock).toHaveBeenCalledTimes(1);
     });
 
     it('should call onClose when dropdown is closed via pill-button click', async () => {

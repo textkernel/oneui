@@ -1,14 +1,11 @@
 import * as React from 'react';
 import { PopupBase } from '../PopupBase';
 import { PillButton, PillButtonProps } from './PillButton';
-import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
+import { PillDropdown } from './PillDropdown';
 
 export interface Props extends Omit<PillButtonProps, 'toggleDropdown' | 'children'> {
-    /** The dropdown content renderer function. It is called with:
-     *   * close {function} that closes the dropdown
-     *   * innerPadding {string} that can be applied inside the component to set consistent padding
-     */
-    children: (params: PillDropdownChildrenParams) => React.ReactNode;
+    /** The dropdown content */
+    children: React.ReactNode;
     /** a function to be called to clear the pill/filter content */
     onClear: () => void;
     /** a function that is called when the dropdown closes via done-button-click, window-click or ESC */

@@ -2,13 +2,6 @@ import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { PillButton, PillDropdown, Pill } from '@textkernel/oneui';
 
-const DummyComponent = (props) => (
-    <>
-        <p>This is some content for the pill</p>
-        <button onClick={props.close}>Close me</button>
-    </>
-);
-
 const meta: Meta<typeof Pill> = {
     title: 'Molecules/Pill',
     component: Pill,
@@ -33,9 +26,11 @@ export const _Pill: Story = {
     },
     render: (args) => (
         <div style={{ position: 'relative', display: 'flex', gap: '4px' }}>
-            <Pill {...args}>{({ close }) => <DummyComponent close={close} />}</Pill>
+            <Pill {...args}>
+                <p>This is some content for the pill</p>
+            </Pill>
             <Pill {...args} content={undefined}>
-                {({ close }) => <DummyComponent close={close} />}
+                <p>This is some content for the pill</p>
             </Pill>
         </div>
     ),
@@ -69,6 +64,8 @@ export const _PillDropdown: PillDropdownStory = {
         doneLabel: 'Done',
     },
     render: (args) => (
-        <PillDropdown {...args}>{({ close }) => <DummyComponent close={close} />}</PillDropdown>
+        <PillDropdown {...args}>
+            <p>This is some content for the pill</p>
+        </PillDropdown>
     ),
 };

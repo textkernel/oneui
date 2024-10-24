@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import { PillDropdown } from '../PillDropdown';
 
 describe('<PillDropdown> component', () => {
-    const childrenMock = jest.fn();
+    const dropdownContent = <p>This is some content for the pill</p>;
     const closeMock = jest.fn();
     const doneLabel = 'Done';
 
@@ -13,7 +13,7 @@ describe('<PillDropdown> component', () => {
     beforeEach(() => {
         view = render(
             <PillDropdown close={closeMock} doneLabel={doneLabel}>
-                {childrenMock}
+                {dropdownContent}
             </PillDropdown>
         );
     });
@@ -31,7 +31,7 @@ describe('<PillDropdown> component', () => {
     it('should render correctly without padding', () => {
         view.rerender(
             <PillDropdown close={closeMock} doneLabel={doneLabel} noPadding>
-                {childrenMock}
+                {dropdownContent}
             </PillDropdown>
         );
 
@@ -39,11 +39,5 @@ describe('<PillDropdown> component', () => {
 
         expect(contentInfo).toBeInTheDocument();
         expect(contentInfo).toHaveClass('PillDropdown__content');
-    });
-
-    it('should call children function with close as arguments', () => {
-        expect(childrenMock).toHaveBeenCalledWith({
-            close: closeMock,
-        });
     });
 });

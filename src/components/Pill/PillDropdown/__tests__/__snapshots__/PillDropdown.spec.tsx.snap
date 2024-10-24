@@ -13,7 +13,11 @@ exports[`<PillDropdown> component should render correctly 1`] = `
       <div
         class="PillDropdown__content"
         role="group"
-      />
+      >
+        <p>
+          This is some content for the pill
+        </p>
+      </div>
       <div
         class="PillDropdown__footer"
       >
