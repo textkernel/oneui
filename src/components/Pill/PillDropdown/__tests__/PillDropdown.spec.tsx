@@ -6,16 +6,11 @@ import { PillDropdown } from '../PillDropdown';
 describe('<PillDropdown> component', () => {
     const childrenMock = jest.fn();
     const closeMock = jest.fn();
-    const doneLabel = 'Done';
 
     let view: RenderResult;
 
     beforeEach(() => {
-        view = render(
-            <PillDropdown close={closeMock} doneLabel={doneLabel}>
-                {childrenMock}
-            </PillDropdown>
-        );
+        view = render(<PillDropdown close={closeMock}>{childrenMock}</PillDropdown>);
     });
 
     afterEach(() => {
@@ -24,13 +19,12 @@ describe('<PillDropdown> component', () => {
 
     it('should render correctly', () => {
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('button', { name: doneLabel }));
         expect(screen.getByRole('dialog')).toBeInTheDocument();
     });
 
     it('should render correctly without padding', () => {
         view.rerender(
-            <PillDropdown close={closeMock} doneLabel={doneLabel} noPadding>
+            <PillDropdown close={closeMock} noPadding>
                 {childrenMock}
             </PillDropdown>
         );

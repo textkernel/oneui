@@ -43,7 +43,6 @@ export interface Props extends Omit<PillButtonProps, 'toggleDropdown' | 'childre
  */
 export const Pill: React.FC<Props> = ({
     onClear,
-    doneLabel,
     isContentDefault = false,
     name,
     ref = null,
@@ -91,7 +90,6 @@ export const Pill: React.FC<Props> = ({
         <PillDropdown
             close={() => closeDropdown(setPopupVisibility)}
             noPadding={noPaddingInDropdown}
-            doneLabel={doneLabel}
             {...additionalDropdownProps}
         >
             {children}

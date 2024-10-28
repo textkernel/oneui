@@ -15,6 +15,8 @@
 
 .PillDropdown {
     z-index: 500;
+    max-width: 440px;
+    max-height: 440px;
 
     &__dialog {
         background: var(--color-background);
@@ -33,12 +35,5 @@
         &--noPadding {
             padding: 0;
         }
-    }
-
-    &__footer {
-        display: flex;
-        border-top: solid 1px var(--color-neutral-30);
-        justify-content: flex-end;
-        padding: var(--pill-dropdown-padding);
     }
 }

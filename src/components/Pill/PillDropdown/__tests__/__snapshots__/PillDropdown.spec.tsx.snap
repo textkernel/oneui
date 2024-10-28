@@ -14,17 +14,6 @@ exports[`<PillDropdown> component should render correctly 1`] = `
         class="PillDropdown__content"
         role="group"
       />
-      <div
-        class="PillDropdown__footer"
-      >
-        <button
-          class="Button Button--size_small Button--variant_filled Button--context_primary"
-          style="width: auto;"
-          type="button"
-        >
-          Done
-        </button>
-      </div>
     </div>
   </div>
 </div>

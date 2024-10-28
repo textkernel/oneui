@@ -65,9 +65,6 @@ type PillDropdownStory = StoryObj<typeof PillDropdown>;
 
 export const _PillDropdown: PillDropdownStory = {
     name: 'PillDropdown',
-    args: {
-        doneLabel: 'Done',
-    },
     render: (args) => (
         <PillDropdown {...args}>{({ close }) => <DummyComponent close={close} />}</PillDropdown>
     ),
