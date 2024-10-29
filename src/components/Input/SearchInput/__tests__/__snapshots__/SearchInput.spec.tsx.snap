@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchInput> that renders an input field should add classes when props are changed 1`] = `
+<div>
+  <div>
+    <label
+      class="Input__label"
+      for=":r1:"
+    >
+      Input Label
+    </label>
+    <div
+      class="Input__inputContainer Input__inputContainer--context_critical Input__inputContainer--size_medium Input__inputContainer--isBlock Input__inputContainer--disabled"
+      data-testid="inputContainer"
+    >
+      <svg
+        class="SearchInput__icon SearchInput__icon--type_leading"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+      <input
+        aria-invalid="true"
+        class="Input__input Input__input--size_medium Input__input--type_search"
+        data-lpignore="true"
+        disabled=""
+        id=":r1:"
+        type="search"
+        value=""
+      />
+      <svg
+        class="SearchInput__icon SearchInput__icon--type_trailing"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+    </div>
+    <div
+      class="Input__errorMessageWrapper"
+    >
+      <svg
+        class="Input__icon Input__icon--context_critical"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+      <p
+        class="Input__errorMessage Input__errorMessage--context_critical"
+      >
+        error message
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<SearchInput> that renders an input field should render default SearchInput correctly 1`] = `
+<div>
+  <div>
+    <label
+      class="Input__label"
+      for=":r0:"
+    >
+      Input Label
+    </label>
+    <div
+      class="Input__inputContainer Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <svg
+        class="SearchInput__icon SearchInput__icon--type_leading SearchInput__icon--bold"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+      <input
+        class="Input__input Input__input--size_medium Input__input--type_search"
+        data-lpignore="true"
+        id=":r0:"
+        type="search"
+        value="Some value!"
+      />
+      <svg
+        class="SearchInput__icon SearchInput__icon--type_trailing SearchInput__icon--visible"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+    </div>
+    <p
+      class="Input__helperText"
+    >
+      This is a helper text
+    </p>
+  </div>
+</div>
+`;
