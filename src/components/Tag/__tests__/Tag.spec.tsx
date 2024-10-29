@@ -43,10 +43,7 @@ describe('<Tag> component', () => {
 
         expect(view.container).toMatchSnapshot();
         expect(button).toBeInTheDocument();
-        expect(button).toHaveAttribute(
-            'style',
-            'background-color: rgb(204, 204, 204); max-width: 30px;'
-        );
+        expect(button).toHaveAttribute('style', '--bg-color: #ccc; max-width: 30px;');
     });
 
     it('should invoke callback when onClick event is called', async () => {

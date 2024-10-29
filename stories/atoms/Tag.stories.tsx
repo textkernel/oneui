@@ -23,9 +23,8 @@ type Story = StoryObj<typeof Tag>;
 export const _Tag: Story = {
     name: 'Tag',
     args: {
-        bgColor: '#3eff2b',
         isSelected: false,
-        maxWidth: 'fit-content',
+        maxWidth: '200px',
         children: 'This is an extremely long long text!',
     },
     render: (args) => (

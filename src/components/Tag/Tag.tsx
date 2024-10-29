@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MdClose } from 'react-icons/md';
+import Close from '@material-design-icons/svg/round/close.svg';
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import { ENTER_KEY, Size } from '../../constants';
@@ -24,6 +24,8 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     contentStyle?: React.CSSProperties;
     /** Close label name for ARIA labelling, it is used when needs to clear data from component */
     closeLabel?: string;
+    /** Should tag be disabled or not */
+    disabled?: boolean;
 }
 
 const { block, elem } = bem('Tag', styles);
@@ -32,7 +34,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
     (
         {
             children,
-            bgColor = 'var(--color-background)',
+            bgColor,
             maxWidth = 'fit-content',
             size = 'large',
             onDelete = undefined,
@@ -41,6 +43,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
             contentClassName,
             contentStyle,
             closeLabel,
+            disabled,
             ...rest
         },
         ref
@@ -84,14 +87,16 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
                     onKeyPress: handleTagKeyPress,
                 })}
                 style={{
-                    backgroundColor: bgColor,
+                    '--bg-color': bgColor,
                     maxWidth,
                 }}
+                disabled={disabled}
             >
                 <Text
                     size={size}
                     {...(areChildrenString && { title: children })}
                     {...elem('text', { elemClassName: contentClassName })}
+                    disabled={disabled}
                     style={contentStyle}
                 >
                     {children}
@@ -101,9 +106,14 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
                         onClick={handleDeleteClick}
                         onKeyDown={handleDeleteButtonKeyPress}
                         type="button"
+                        disabled={disabled}
                         {...elem('deleteButton')}
                     >
-                        <MdClose size="15px" aria-label={closeLabel} />
+                        <Close
+                            aria-label={closeLabel}
+                            style={{ width: '100%', height: '100%' }}
+                            viewBox="0 0 24 24"
+                        />
                     </button>
                 )}
             </div>

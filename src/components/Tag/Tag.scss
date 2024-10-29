@@ -2,37 +2,69 @@
     display: flex;
     align-items: center;
 
-    padding: var(--space-50) var(--space-75);
-    border-radius: var(--border-radius);
+    padding: var(--space-25) var(--space-50);
+    gap: 4px;
+    border-radius: 4px;
+    border: 1px solid var(--color-border-subtle);
+    cursor: default;
+    background-color: var(--bg-color, white); // Fallback to --color-background if bgColor isn't provided
+
+    &:focus:not([disabled]) {
+        outline: none;
+        box-shadow: 0 0 0 2px var(--color-info-20);
+    }
+
+    &:hover:not([disabled]){
+        background-color: var(--color-background-neutral-subtlest-hover);
+    }
+
+    &[disabled] {
+        color: var(--color-text-disabled);
+    }
 
     &--isSelected {
         box-shadow: 0 0 0 2px var(--color-brand-50);
     }
 
-    &--clickable {
+    &--clickable:not([disabled]) {
         cursor: pointer;
     }
 
     &__text{
+        composes: OneUI-label-text from global;
         margin: 0;
 
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        &[disabled] {
+            color: var(--color-text-disabled);
+        }
     }
 
     &__deleteButton {
         display: flex;
+        justify-content: center;
         align-items: center;
 
-        min-width: 15px;
-        min-height: 15px;
+        min-width: 16px;
+        height: 16px;
 
-        border: 0;
+        border: none;
+        border-radius: 2px;
         cursor: pointer;
         background-color: var(--transparent);
 
         padding: 0;
-        margin-left: var(--space-50);
+
+        &:focus:not([disabled]) {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--color-info-20);
+        }
+        &[disabled] {
+            fill: var(--color-text-disabled);
+            cursor: default;
+        }
+    
     }
 }

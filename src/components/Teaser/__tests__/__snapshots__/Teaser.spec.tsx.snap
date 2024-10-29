@@ -327,7 +327,7 @@ exports[`Teaser should render with all props defined 1`] = `
       >
         <div
           class="Tag"
-          style="background-color: yellow; max-width: fit-content;"
+          style="--bg-color: yellow; max-width: fit-content;"
         >
           <p
             class="Tag__text"
@@ -338,7 +338,7 @@ exports[`Teaser should render with all props defined 1`] = `
         </div>
         <div
           class="Tag"
-          style="background-color: lightblue; max-width: fit-content;"
+          style="--bg-color: lightblue; max-width: fit-content;"
         >
           <p
             class="Tag__text"
