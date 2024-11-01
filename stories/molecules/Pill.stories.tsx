@@ -67,16 +67,24 @@ export const _PillButtonEnhanced: PillButtonEnhancedStory = {
     name: 'PillButtonEnhanced',
     args: {
         name: 'Pill name',
-        content: 'This pill is used',
+        content: 'value',
         downArrowLabel: 'down arrow',
         upArrowLabel: 'up arrow',
         clearLabel: 'clear label',
+        multiSelectionLabel: '+2',
+        multiSelectionTooltip: 'an other value\na third thing',
     },
     render: (args) => (
         <div style={{ display: 'flex' }}>
             <PillButtonEnhanced {...args} />
             &nbsp;&nbsp;
-            <PillButtonEnhanced {...args} name="Pill 2" content="" />
+            <PillButtonEnhanced
+                {...args}
+                name="Pill 2"
+                content=""
+                multiSelectionLabel=""
+                multiSelectionTooltip=""
+            />
         </div>
     ),
 };

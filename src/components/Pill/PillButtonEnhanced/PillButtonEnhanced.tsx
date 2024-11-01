@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { IoIosArrowDown, IoMdClose } from 'react-icons/io';
+import DownArrow from '@material-design-icons/svg/round/expand_more.svg';
+import UpArrow from '@material-design-icons/svg/round/expand_less.svg';
+import Clear from '@material-design-icons/svg/round/cancel.svg';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import { PillButtonBaseProps } from '../PillButton';
@@ -28,6 +30,8 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
             upArrowLabel,
             clearLabel,
             prioritySelector = false,
+            multiSelectionLabel,
+            multiSelectionTooltip,
             ...rest
         },
         ref
@@ -35,52 +39,78 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
         const isActive = !!content;
         const propsForBem = { isOpen, isActive };
 
-        const labelRef = React.createRef();
-        const pillRef = React.createRef();
+        let buttonIcon = (
+            <DownArrow aria-label={downArrowLabel} viewBox="0 0 24 24" height="14px" width="14px" />
+        );
+        let handleButtonClick = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            toggleDropdown();
+        };
+        if (isOpen) {
+            buttonIcon = (
+                <UpArrow aria-label={upArrowLabel} viewBox="0 0 24 24" height="14px" width="14px" />
+            );
+        }
+        if (!!content) {
+            buttonIcon = (
+                <Clear aria-label={clearLabel} viewBox="0 0 24 24" height="14px" width="14px" />
+            );
+            handleButtonClick = (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                onClear();
+            };
+        }
 
-        let buttonIcon = 'arrow up/down OR close icon';
-        // let buttonIcon = (
-        //     <IoIosArrowDown
-        //         {...elem('arrowIcon', propsForBem)}
-        //         role="img"
-        //         aria-label={isOpen ? upArrowLabel : downArrowLabel}
-        //     />
-        // );
-        // let isButtonClickable = false;
+        const handleKeyDownOnButton = (e) => {
+            if (e.key === ENTER_KEY) {
+                handleButtonClick(e);
+            }
+        };
 
-        // if (isActive && !isOpen && !isContentDefault) {
-        //     buttonIcon = <IoMdClose role="img" aria-label={clearLabel} />;
-        //     isButtonClickable = true;
-        // }
+        const handlePillClick = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            toggleDropdown();
+        };
 
-        // const buttonClick = isButtonClickable
-        //     ? (e) => {
-        //           e.stopPropagation();
-        //           e.preventDefault();
-        //           onClear();
-        //       }
-        //     : undefined;
-
-        // const handleKeyDownOnButton = isButtonClickable
-        //     ? (e) => {
-        //           if (e.key === ENTER_KEY) {
-        //               if (buttonClick) {
-        //                   buttonClick(e);
-        //               }
-        //           }
-        //       }
-        //     : undefined;
-
-        // const handleKeyDownOnPill = (e) => {
-        //     if (e.key === ENTER_KEY) {
-        //         e.preventDefault();
-        //         toggleDropdown();
-        //     }
-        // };
+        const handleKeyDownOnPill = (e) => {
+            if (e.key === ENTER_KEY) {
+                handlePillClick(e);
+            }
+        };
 
         return (
             <div ref={ref} {...rest} {...block({ ...propsForBem, ...rest })}>
-                {prioritySelector && 'priority'} {name}: {content} {buttonIcon}
+                {prioritySelector && 'priority'}
+                <div
+                    role="button"
+                    {...elem('main')}
+                    onClick={handlePillClick}
+                    onKeyDown={handleKeyDownOnPill}
+                    tabIndex={1}
+                >
+                    <span {...elem('name')}>{name}</span>
+                    {!!content && (
+                        <>
+                            <span {...elem('separator')}>:</span>
+                            <span {...elem('content')}>{content}</span>
+                        </>
+                    )}
+                    <span {...elem('multiSelection')} title={multiSelectionTooltip}>
+                        {multiSelectionLabel}
+                    </span>
+                </div>
+                <div
+                    role="button"
+                    {...elem('button')}
+                    onClick={handleButtonClick}
+                    onKeyDown={handleKeyDownOnButton}
+                    tabIndex={1}
+                >
+                    {buttonIcon}
+                </div>
             </div>
         );
     }

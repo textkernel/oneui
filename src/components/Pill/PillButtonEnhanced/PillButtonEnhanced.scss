@@ -1,94 +1,73 @@
-@use 'sass:math';
-
-$pill-height: 32px !default;
-$pill-label-height: 17px !default;
-$pill-button-size: 20px !default;
-
-$half-pill-height: math.div($pill-height, 2);
-
-@keyframes labelIn {
-    from {
-        opacity: 0;
-        transform: translateY(5px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .PillButtonEnhanced {
+    composes: OneUI-label-text from global;
     display: inline-flex;
-    flex-direction: column;
     justify-items: start;
 
-    &__label {
-        box-sizing: border-box;
-        height: $pill-label-height;
-        padding: 0 $half-pill-height;
-        font-size: var(--font-size-normal);
-        text-transform: uppercase;
-        color: var(--color-brand-50);
+    border: solid 1px var(--color-border-subtlest);
+    background: var(--color-background-neutral-subtlest-default, #FFF);
+    border-radius: var(--space-50);
 
-        &--isActive {
-            animation: labelIn var(--transition-duration) forwards;
-            animation-timing-function: ease-out;
+    height: var(--space-400);
+    padding: var(--space-50) var(--space-100);
+    box-sizing: border-box;
+
+    &:has(.PillButtonEnhanced__main:hover) {
+        background: var(--color-background-neutral-subtlest-hover, #E6E6E6);
+    }
+
+    &:has(.PillButtonEnhanced__main:focus-visible) {
+        box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
+    }
+
+    &--isOpen {
+        border: 2px solid var(--color-border-selected, #007AFF);
+        background: var(--color-background-neutral-subtlest-pressed, #CCC);
+
+        &.PillButtonEnhanced--isActive {
+            background: var(--color-background-selected-subtlest-pressed, #99CAFF);
         }
     }
 
-    &__pillLabel {
-        display: inline-block;
-        padding-bottom: 1px;
+    &--isActive {
+        background: var(--color-background-selected-subtlest-default, #E6F2FF);
+
+        &:has(.PillButtonEnhanced__main:hover) {
+            background: var(--color-background-selected-subtlest-hover, #CCE4FF);
+        }
     }
 
-    &__pill {
+    &__main {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-sizing: border-box;
-        height: $pill-height;
-        border-radius: $half-pill-height;
-        border: 1px solid var(--color-neutral-30);
-        padding-right: var(--space-75);
-        padding-left: $half-pill-height;
-        color: var(--color-neutral-70);
         cursor: pointer;
-        transition: all var(--transition-duration) ease;
+        max-width: 220px;
+        white-space: nowrap;
 
-        &:focus,
-        &:hover {
+        &:focus-visible {
             outline: none;
-            border-color: var(--color-neutral-80);
-            background-color: var(--color-neutral-10);
         }
+   }
 
-        &--isOpen {
-            &:hover {
-                background-color: var(--color-neutral-10);
-            }
-        }
+    &__name {
+        color: var(--color-text-bold, #000);
+    }
 
-        &--isActive {
-            border: 1px solid var(--color-brand-50);
-            background-color: var(--color-brand-50);
-            color: var(--color-background);
+    &__separator {
+        padding-left: var(--space-25);
+    }
 
-            &:focus,
-            &:hover {
-                background-color: var(--color-brand-60);
-                border-color: var(--color-brand-60);
-            }
-        }
+    &__content {
+        color: var(--color-text-selected-default, #004999);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: var(--space-50)
+    }
+
+    &__multiSelection {
+        color: var(--color-text-selected-default, #004999);
     }
 
     &__button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        left: 1px;
         padding: 2px;
-        font-size: 16px;
         border: 1px solid transparent;
         border-radius: 50%;
         margin-left: var(--space-75);
@@ -96,22 +75,20 @@ $half-pill-height: math.div($pill-height, 2);
         color: inherit;
         cursor: pointer;
         box-sizing: content-box;
-        transition: background-color var(--transition-duration) ease;
 
-        &--isOpen {
-            transform: rotate(180deg);
-
-            &:hover {
-                background-color: transparent;
-            }
+        & svg {
+            fill: var(--color-icon-subtle)
         }
-    }
 
-    &__arrowIcon {
-        transform: translateY(1px);
+        &:hover svg {
+            fill: var(--color-icon-subtlest)
+        }
 
-        &--isOpen {
-            transform: translateY(0px);
+        &:focus-visible {
+            outline: none;
+            & svg {
+                box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
+            }
         }
     }
 }
