@@ -74,9 +74,9 @@ export const _PillButtonEnhanced: PillButtonEnhancedStory = {
     },
     render: (args) => (
         <div style={{ display: 'flex' }}>
-            <PillButton {...args} />
+            <PillButtonEnhanced {...args} />
             &nbsp;&nbsp;
-            <PillButton {...args} name="Pill 2" content="" />
+            <PillButtonEnhanced {...args} name="Pill 2" content="" />
         </div>
     ),
 };

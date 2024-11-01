@@ -6,6 +6,10 @@ import { PillButtonBaseProps } from '../PillButton';
 import styles from './PillButtonEnhanced.scss';
 
 export interface Props extends PillButtonBaseProps {
+    /** Label/indicator in case of multiple selection, such as `+2` for instance */
+    multiSelectionLabel?: string;
+    /** Tooltip content to be shown when multiple selections are shown */
+    multiSelectionTooltip?: string;
     /** Props needed for rendering optional priority selector */
     prioritySelector?: boolean; // boolean is temporary placeholder until PrioritySelector component is finalized
 }
