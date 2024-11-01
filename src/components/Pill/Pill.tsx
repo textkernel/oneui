@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { PopupBase } from '../PopupBase';
 import { PillButton, PillButtonProps } from './PillButton';
+import { PillButtonEnhanced } from './PillButtonEnhanced';
 import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
 
 export interface Props extends Omit<PillButtonProps, 'toggleDropdown' | 'children'> {
@@ -9,6 +10,8 @@ export interface Props extends Omit<PillButtonProps, 'toggleDropdown' | 'childre
      *   * innerPadding {string} that can be applied inside the component to set consistent padding
      */
     children: (params: PillDropdownChildrenParams) => React.ReactNode;
+    /** Trigger button variant */
+    variant?: 'classic' | 'enhanced';
     /** a function to be called to clear the pill/filter content */
     onClear: () => void;
     /** a function that is called when the dropdown closes via done-button-click, window-click or ESC */
@@ -42,6 +45,7 @@ export interface Props extends Omit<PillButtonProps, 'toggleDropdown' | 'childre
  * * 'ref' and 'dropdownRef' for used in PopupBase.
  */
 export const Pill: React.FC<Props> = ({
+    variant = 'classic',
     onClear,
     doneLabel,
     isContentDefault = false,
@@ -69,12 +73,21 @@ export const Pill: React.FC<Props> = ({
             setPopupVisibility(!isOpen);
         };
 
-        return (
+        return variant === 'classic' ? (
             <PillButton
                 name={name}
                 content={content}
                 isOpen={isOpen}
                 isContentDefault={isContentDefault}
+                toggleDropdown={toggleDropdown}
+                onClear={onClear}
+                {...rest}
+            />
+        ) : (
+            <PillButtonEnhanced
+                name={name}
+                content={content}
+                isOpen={isOpen}
                 toggleDropdown={toggleDropdown}
                 onClear={onClear}
                 {...rest}

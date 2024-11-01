@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { PillButton, PillDropdown, Pill } from '@textkernel/oneui';
+import { PillButton, PillButtonEnhanced, PillDropdown, Pill } from '@textkernel/oneui';
 
 const DummyComponent = (props) => (
     <>
@@ -13,7 +13,7 @@ const meta: Meta<typeof Pill> = {
     title: 'Molecules/Pill',
     component: Pill,
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    subcomponents: { PillButton, PillDropdown } as any,
+    subcomponents: { PillButton, PillButtonEnhanced, PillDropdown } as any,
     argTypes: {
         ref: { control: false },
         dropdownRef: { control: false },
@@ -45,6 +45,26 @@ type PillButtonStory = StoryObj<typeof PillButton>;
 
 export const _PillButton: PillButtonStory = {
     name: 'PillButton',
+    args: {
+        name: 'Pill name',
+        content: 'This pill is used',
+        downArrowLabel: 'down arrow',
+        upArrowLabel: 'up arrow',
+        clearLabel: 'clear label',
+    },
+    render: (args) => (
+        <div style={{ display: 'flex' }}>
+            <PillButton {...args} />
+            &nbsp;&nbsp;
+            <PillButton {...args} name="Pill 2" content="" />
+        </div>
+    ),
+};
+
+type PillButtonEnhancedStory = StoryObj<typeof PillButtonEnhanced>;
+
+export const _PillButtonEnhanced: PillButtonEnhancedStory = {
+    name: 'PillButtonEnhanced',
     args: {
         name: 'Pill name',
         content: 'This pill is used',
