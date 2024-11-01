@@ -2,10 +2,13 @@ import * as React from 'react';
 import { IoIosArrowDown, IoMdClose } from 'react-icons/io';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
-import { PillButtonProps } from '../PillButton';
+import { PillButtonBaseProps } from '../PillButton';
 import styles from './PillButtonEnhanced.scss';
 
-export interface Props extends Omit<PillButtonProps, 'isContentDefault'> {}
+export interface Props extends PillButtonBaseProps {
+    /** Props needed for rendering optional priority selector */
+    prioritySelector?: boolean; // boolean is temporary placeholder until PrioritySelector component is finalized
+}
 
 const { block, elem } = bem('PillButtonEnhanced', styles);
 
@@ -20,6 +23,7 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
             downArrowLabel,
             upArrowLabel,
             clearLabel,
+            prioritySelector = false,
             ...rest
         },
         ref
@@ -72,7 +76,7 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
 
         return (
             <div ref={ref} {...rest} {...block({ ...propsForBem, ...rest })}>
-                {name}: {content} {buttonIcon}
+                {prioritySelector && 'priority'} {name}: {content} {buttonIcon}
             </div>
         );
     }
