@@ -55,7 +55,7 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
                 <UpArrow aria-label={upArrowLabel} viewBox="0 0 24 24" height="14px" width="14px" />
             );
         }
-        if (!!content) {
+        if (content) {
             buttonIcon = (
                 <Clear aria-label={clearLabel} viewBox="0 0 24 24" height="14px" width="14px" />
             );
@@ -92,7 +92,7 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
                     {...elem('main')}
                     onClick={handlePillClick}
                     onKeyDown={handleKeyDownOnPill}
-                    tabIndex={1}
+                    tabIndex={0}
                     style={{ maxWidth }}
                 >
                     <span {...elem('name')}>{name}</span>
@@ -111,7 +111,7 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
                     {...elem('button')}
                     onClick={handleButtonClick}
                     onKeyDown={handleKeyDownOnButton}
-                    tabIndex={1}
+                    tabIndex={0}
                 >
                     {buttonIcon}
                 </div>
