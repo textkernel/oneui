@@ -16,7 +16,6 @@ export const _Tooltip: Story = {
     args: {
         placement: 'bottom',
         content: 'this is my tooltip text',
-        arrow: true,
         children: <div>hover here to see the tooltip</div>,
     },
     render: (args) => (
