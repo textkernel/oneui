@@ -9,11 +9,13 @@ import styles from './PillButtonEnhanced.scss';
 
 export interface Props extends PillButtonBaseProps {
     /** Label/indicator in case of multiple selection, such as `+2` for instance */
-    multiSelectionLabel?: string;
+    additionalContentLabel?: string;
     /** Tooltip content to be shown when multiple selections are shown */
-    multiSelectionTooltip?: string;
+    additionalContentTooltip?: string;
     /** Props needed for rendering optional priority selector */
     prioritySelector?: boolean; // boolean is temporary placeholder until PrioritySelector component is finalized
+    /** max width of the button (excluding 20px of the trailing button), e.g. `fit-content`. If undefined will default to 220px */
+    maxWidth?: string;
 }
 
 const { block, elem } = bem('PillButtonEnhanced', styles);
@@ -30,8 +32,9 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
             upArrowLabel,
             clearLabel,
             prioritySelector = false,
-            multiSelectionLabel,
-            multiSelectionTooltip,
+            additionalContentLabel,
+            additionalContentTooltip,
+            maxWidth,
             ...rest
         },
         ref
@@ -90,6 +93,7 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
                     onClick={handlePillClick}
                     onKeyDown={handleKeyDownOnPill}
                     tabIndex={1}
+                    style={{ maxWidth }}
                 >
                     <span {...elem('name')}>{name}</span>
                     {!!content && (
@@ -98,8 +102,8 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
                             <span {...elem('content')}>{content}</span>
                         </>
                     )}
-                    <span {...elem('multiSelection')} title={multiSelectionTooltip}>
-                        {multiSelectionLabel}
+                    <span {...elem('multiSelection')} title={additionalContentTooltip}>
+                        {additionalContentLabel}
                     </span>
                 </div>
                 <div
