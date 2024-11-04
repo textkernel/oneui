@@ -72,7 +72,12 @@ export const _PillButtonEnhanced: PillButtonEnhancedStory = {
         upArrowLabel: 'up arrow',
         clearLabel: 'clear label',
         additionalContentLabel: '+2',
-        additionalContentTooltip: 'an other value\na third thing',
+        additionalContentTooltip: (
+            <>
+                an other value
+                <br />a third thing
+            </>
+        ),
     },
     render: (args) => (
         <div style={{ display: 'flex' }}>

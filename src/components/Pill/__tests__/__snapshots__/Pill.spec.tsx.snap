@@ -143,6 +143,7 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
       </span>
       <span
         class="PillButtonEnhanced__content"
+        title="Pill content"
       >
         Pill content
       </span>
@@ -219,6 +220,7 @@ exports[`<Pill> component with enhanced button variant should render correctly 1
       </span>
       <span
         class="PillButtonEnhanced__content"
+        title="Pill content"
       >
         Pill content
       </span>

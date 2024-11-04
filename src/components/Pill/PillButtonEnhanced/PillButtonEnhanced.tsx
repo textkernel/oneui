@@ -6,12 +6,13 @@ import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import { PillButtonBaseProps } from '../PillButton';
 import styles from './PillButtonEnhanced.scss';
+import { Tooltip } from '../../Tooltip';
 
 export interface Props extends PillButtonBaseProps {
     /** Label/indicator in case of multiple selection, such as `+2` for instance */
     additionalContentLabel?: string;
     /** Tooltip content to be shown when multiple selections are shown */
-    additionalContentTooltip?: string;
+    additionalContentTooltip?: React.ReactNode;
     /** Props needed for rendering optional priority selector */
     prioritySelector?: boolean; // boolean is temporary placeholder until PrioritySelector component is finalized
     /** max width of the button (excluding 20px of the trailing button), e.g. `fit-content`. If undefined will default to 220px */
@@ -99,12 +100,14 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
                     {!!content && (
                         <>
                             <span {...elem('separator')}>:</span>
-                            <span {...elem('content')}>{content}</span>
+                            <span {...elem('content')} title={content}>
+                                {content}
+                            </span>
                         </>
                     )}
-                    <span {...elem('multiSelection')} title={additionalContentTooltip}>
-                        {additionalContentLabel}
-                    </span>
+                    <Tooltip content={additionalContentTooltip}>
+                        <span {...elem('multiSelection')}>{additionalContentLabel}</span>
+                    </Tooltip>
                 </div>
                 <div
                     role="button"

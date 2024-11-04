@@ -64,6 +64,7 @@
 
     &__multiSelection {
         color: var(--color-text-selected-default, #004999);
+        margin-left: var(--space-50);
     }
 
     &__button {
