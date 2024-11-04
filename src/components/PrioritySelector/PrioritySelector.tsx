@@ -48,12 +48,13 @@ export interface Props<PriorityItemValue>
     /** Priority button label name for ARIA labelling */
     buttonLabel?: string;
     /** ref to possible parent div, if it is a badge */
-    badgeRef?: React.RefObject<HTMLElement>;
+    badgeRef?: React.RefObject<HTMLElement | null> | React.ForwardedRef<HTMLDivElement>;
+    /** ref to iconButton, used for keyboard navigation */
+    buttonRef?: React.RefObject<HTMLElement>;
 }
 
 const { block, elem } = bem('PrioritySelector', styles);
 const itemStylesBem = bem('DropdownItem', itemStyles);
-
 export function PrioritySelector<PriorityItemValue>({
     onSelect,
     selectedItem,
@@ -61,6 +62,7 @@ export function PrioritySelector<PriorityItemValue>({
     buttonLabel,
     list,
     badgeRef,
+    buttonRef,
     ...rest
 }: Props<PriorityItemValue>) {
     const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
@@ -100,13 +102,14 @@ export function PrioritySelector<PriorityItemValue>({
                     aria-label={buttonLabel || selectedItem.label}
                     disabled={isDisabled}
                     type="button"
+                    ref={buttonRef}
                 >
                     {renderPriorityIcon(selectedItem.priority, isDisabled)}
                 </IconButton>
             </DropdownTrigger>
             <Portal>
                 <DropdownContent
-                    {...elem('badgeDropdownList')}
+                    {...elem('badgeDropdownList', { fixedWidth: !badgeRef })}
                     sideOffset={6}
                     refElement={badgeRef}
                 >

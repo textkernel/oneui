@@ -38,17 +38,29 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props<string>>(
         },
         ref
     ) => {
+        const priorityRef = React.useRef<HTMLDivElement>(null);
+
         const hasPriorityList = hasPriority && priority && priority.list.length > 0;
 
         const stopPropagation = (e: React.MouseEvent | React.KeyboardEvent) => {
             e.stopPropagation(); // Prevents the checkbox from toggling
         };
+
+        const handleKeyDown = (e: React.KeyboardEvent) => {
+            if (e.key === 'Tab') {
+                if (priorityRef.current) {
+                    e.preventDefault();
+                    priorityRef.current.focus();
+                }
+            }
+        };
+
         return (
             <DropdownMenuCheckboxItem
                 ref={ref}
                 role="option"
                 aria-selected={isSelected}
-                tabIndex={disabled ? -1 : 0}
+                onKeyDown={handleKeyDown}
                 checked={isSelected}
                 onSelect={(e) => {
                     e.preventDefault();
@@ -69,6 +81,7 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props<string>>(
                             list={priority.list}
                             selectedItem={priority.selectedItem}
                             onSelect={priority.onSelect}
+                            buttonRef={priorityRef}
                         />
                     </div>
                 )}
