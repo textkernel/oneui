@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PillButtonEnhanced> component in active, collapsed state (with content prop) should render correctly 1`] = `
+<div>
+  <div
+    class="PillButtonEnhanced PillButtonEnhanced--isActive"
+  >
+    <div
+      class="PillButtonEnhanced__main"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="PillButtonEnhanced__name"
+      >
+        Pill name
+      </span>
+      <span
+        class="PillButtonEnhanced__separator"
+      >
+        :
+      </span>
+      <span
+        class="PillButtonEnhanced__content"
+      >
+        This pill is in use
+      </span>
+      <span
+        class="PillButtonEnhanced__multiSelection"
+      />
+    </div>
+    <div
+      class="PillButtonEnhanced__button"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        aria-label="clear label"
+        data-testid="default-icon"
+        height="14px"
+        viewBox="0 0 24 24"
+        width="14px"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<PillButtonEnhanced> component in active, open state (content and isOpen prop) should render correctly 1`] = `
+<div>
+  <div
+    class="PillButtonEnhanced PillButtonEnhanced--isOpen PillButtonEnhanced--isActive"
+  >
+    <div
+      class="PillButtonEnhanced__main"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="PillButtonEnhanced__name"
+      >
+        Pill name
+      </span>
+      <span
+        class="PillButtonEnhanced__separator"
+      >
+        :
+      </span>
+      <span
+        class="PillButtonEnhanced__content"
+      >
+        This pill is in use
+      </span>
+      <span
+        class="PillButtonEnhanced__multiSelection"
+      />
+    </div>
+    <div
+      class="PillButtonEnhanced__button"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        aria-label="clear label"
+        data-testid="default-icon"
+        height="14px"
+        viewBox="0 0 24 24"
+        width="14px"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minimal props) should render correctly 1`] = `
+<div>
+  <div
+    class="PillButtonEnhanced"
+  >
+    <div
+      class="PillButtonEnhanced__main"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="PillButtonEnhanced__name"
+      >
+        Pill name
+      </span>
+      <span
+        class="PillButtonEnhanced__multiSelection"
+        title="more
+content"
+      >
+        +2
+      </span>
+    </div>
+    <div
+      class="PillButtonEnhanced__button"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        aria-label="down arrow"
+        data-testid="default-icon"
+        height="14px"
+        viewBox="0 0 24 24"
+        width="14px"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) should render correctly 1`] = `
+<div>
+  <div
+    class="PillButtonEnhanced PillButtonEnhanced--isOpen"
+  >
+    <div
+      class="PillButtonEnhanced__main"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="PillButtonEnhanced__name"
+      >
+        Pill name
+      </span>
+      <span
+        class="PillButtonEnhanced__multiSelection"
+      />
+    </div>
+    <div
+      class="PillButtonEnhanced__button"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        aria-label="up arrow"
+        data-testid="default-icon"
+        height="14px"
+        viewBox="0 0 24 24"
+        width="14px"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<PillButtonEnhanced> component with additional props should set style according to prop 1`] = `
+<div>
+  <div
+    class="PillButtonEnhanced PillButtonEnhanced--isActive"
+  >
+    <div
+      class="PillButtonEnhanced__main"
+      role="button"
+      style="max-width: fit-content;"
+      tabindex="0"
+    >
+      <span
+        class="PillButtonEnhanced__name"
+      >
+        Pill name
+      </span>
+      <span
+        class="PillButtonEnhanced__separator"
+      >
+        :
+      </span>
+      <span
+        class="PillButtonEnhanced__content"
+      >
+        This pill is in use
+      </span>
+      <span
+        class="PillButtonEnhanced__multiSelection"
+      />
+    </div>
+    <div
+      class="PillButtonEnhanced__button"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        aria-label="clear label"
+        data-testid="default-icon"
+        height="14px"
+        viewBox="0 0 24 24"
+        width="14px"
+      />
+    </div>
+  </div>
+</div>
+`;
