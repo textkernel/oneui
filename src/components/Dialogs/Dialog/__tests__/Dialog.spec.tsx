@@ -39,7 +39,7 @@ describe('Dialog', () => {
     it('should render correctly with a title', () => {
         expect(view.baseElement).toMatchSnapshot();
         expect(screen.getByText(/Title/i)).toBeInTheDocument();
-        expect(screen.queryByRole('heading', { level: 2 })).toBeInTheDocument();
+        expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
         expect(screen.getAllByRole('button')).toHaveLength(3);
     });
 
@@ -93,7 +93,7 @@ describe('Dialog', () => {
                 {dialogBody}
             </Dialog>
         );
-        expect(screen.getAllByRole('button')[1]).toHaveClass('Button--context_critical');
+        expect(screen.getByRole('button', { name: /OK/i })).toHaveClass('Button--context_critical');
     });
 
     it('should render buttons with context primary state when no variant is passed', () => {
@@ -109,7 +109,7 @@ describe('Dialog', () => {
                 {dialogBody}
             </Dialog>
         );
-        expect(screen.getAllByRole('button')[0]).toHaveClass('Button--context_primary');
+        expect(screen.getByRole('button', { name: /OK/i })).toHaveClass('Button--context_primary');
     });
 
     it('should call onAccept callback when button is clicked', async () => {

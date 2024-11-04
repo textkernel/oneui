@@ -46,7 +46,6 @@ export const Dialog: React.FC<DialogProps> = (props) => {
 
     const { ref, height } = useResizeObserver<HTMLDivElement>();
     const showButtons = !!acceptButton;
-    const isConfirm = !!cancelButton;
 
     return (
         <Modal {...rest} {...block(props)} isOpen={isOpen}>
@@ -71,7 +70,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
                     >
                         {acceptButton.label}
                     </Button>
-                    {isConfirm && (
+                    {!!cancelButton && (
                         <Button
                             {...elem('cancel', props)}
                             onClick={cancelButton.onClick}

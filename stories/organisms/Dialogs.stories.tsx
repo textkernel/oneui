@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Alert, Button, Dialog } from '@textkernel/oneui';
+import { Alert, Button, Dialog, Confirm } from '@textkernel/oneui';
 
 const meta: Meta<typeof Alert> = {
     title: 'Organisms/Dialogs',
@@ -42,6 +42,52 @@ export const _Alert: Story = {
                     acceptButton={{
                         onClick: handleAccept,
                         label: 'Ok',
+                    }}
+                />
+            </>
+        );
+    },
+};
+
+type ConfirmStory = StoryObj<typeof Confirm>;
+
+export const _Confirm: ConfirmStory = {
+    name: 'Confirm',
+    args: {
+        title: 'Hi there!',
+        contentLabel: 'A confirm dialog',
+        children: 'This is some information for you. Do you want to proceed?',
+    },
+    render: (args) => {
+        const [showAlert, setShowAlert] = React.useState(false);
+
+        const handleButtonClick = () => {
+            setShowAlert(true);
+        };
+
+        const handleAccept = () => {
+            setShowAlert(false);
+            console.log('Dialog has been accepted');
+        };
+
+        const handleCancel = () => {
+            setShowAlert(false);
+            console.log('Dialog has been cancelled');
+        };
+
+        return (
+            <>
+                <Button onClick={handleButtonClick}>Click me to see a confirm dialog</Button>
+                <Confirm
+                    {...args}
+                    isOpen={showAlert}
+                    acceptButton={{
+                        onClick: handleAccept,
+                        label: 'Ok',
+                    }}
+                    cancelButton={{
+                        onClick: handleCancel,
+                        label: 'Cancel',
                     }}
                 />
             </>
