@@ -25,16 +25,28 @@ export const SingleSelectItem = React.forwardRef<HTMLDivElement, Props<string>>(
         ref
     ) => {
         const hasPriorityList = hasPriority && priority && priority.list.length > 0;
+        const priorityRef = React.useRef<HTMLDivElement>(null);
 
         const stopPropagation = (e: React.MouseEvent | React.KeyboardEvent) => {
             e.stopPropagation(); // Prevents the menu from closing
         };
+
+        const handleKeyDown = (e: React.KeyboardEvent) => {
+            if (e.key === 'Tab') {
+                if (priorityRef.current) {
+                    e.preventDefault();
+                    priorityRef.current.focus();
+                }
+            }
+        };
+
         return (
             <DropdownMenuItem
                 ref={ref}
                 role="option"
                 aria-selected={isSelected}
                 tabIndex={disabled ? -1 : 0}
+                onKeyDown={handleKeyDown}
                 {...rest}
                 {...block({
                     isSelected,
@@ -48,6 +60,7 @@ export const SingleSelectItem = React.forwardRef<HTMLDivElement, Props<string>>(
                             list={priority.list}
                             selectedItem={priority.selectedItem}
                             onSelect={priority.onSelect}
+                            buttonRef={priorityRef}
                         />
                     </div>
                 )}

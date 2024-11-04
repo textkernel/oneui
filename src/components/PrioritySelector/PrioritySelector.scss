@@ -71,8 +71,9 @@ $icon-status-colors: (
     }
 
     &__icon {
-        height: 20px;
-        width: 20px;
+        outline: none;
+        min-height: 20px;
+        min-width: 20px;
         @each $status, $colors in $icon-status-colors {
             &--#{$status} {
                 fill: map.get($colors, normal);
@@ -94,10 +95,14 @@ $icon-status-colors: (
         gap: var(--space-100);
     }
     &__badgeDropdownList {
-        width: inherit;
         max-width: 400px;
         border-radius: var(--space-100);
         overflow: hidden;
+        background-color: white;
+
+        &--fixedWidth{
+            width: 232px;
+        }
     }
 
 }
