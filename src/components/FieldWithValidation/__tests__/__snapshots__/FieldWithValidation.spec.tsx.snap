@@ -2,26 +2,40 @@
 
 exports[`FieldWithValidation when rendering message as text with no error message passed should simply render the child as it is 1`] = `
 <div>
-  <input
-    class="Input Input--size_medium"
-    data-lpignore="true"
-    id=":r0:"
-    type="text"
-    value=""
-  />
+  <div>
+    <div
+      class="Input__inputContainer Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <input
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        id=":r0:"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
 </div>
 `;
 
 exports[`FieldWithValidation when using tooltip when error message is defined should remove the message when field is blurred 1`] = `
 <div>
-  <input
-    aria-invalid="true"
-    class="Input Input--context_critical Input--size_medium"
-    data-lpignore="true"
-    id=":r6:"
-    type="text"
-    value=""
-  />
+  <div>
+    <div
+      class="Input__inputContainer Input__inputContainer--context_critical Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <input
+        aria-invalid="true"
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        id=":r6:"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
   <p
     class="Text--context_critical Text--size_small FieldWithValidation"
   >
@@ -32,14 +46,21 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
 
 exports[`FieldWithValidation when using tooltip when error message is defined should render the message when field is focused 1`] = `
 <div>
-  <input
-    aria-invalid="true"
-    class="Input Input--context_critical Input--size_medium"
-    data-lpignore="true"
-    id=":r5:"
-    type="text"
-    value=""
-  />
+  <div>
+    <div
+      class="Input__inputContainer Input__inputContainer--context_critical Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <input
+        aria-invalid="true"
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        id=":r5:"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
   <p
     class="Text--context_critical Text--size_small FieldWithValidation"
   >
@@ -50,14 +71,21 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
 
 exports[`FieldWithValidation when using tooltip when error message is defined should set context to bad on child 1`] = `
 <div>
-  <input
-    aria-invalid="true"
-    class="Input Input--context_critical Input--size_medium"
-    data-lpignore="true"
-    id=":r4:"
-    type="text"
-    value=""
-  />
+  <div>
+    <div
+      class="Input__inputContainer Input__inputContainer--context_critical Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <input
+        aria-invalid="true"
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        id=":r4:"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
   <p
     class="Text--context_critical Text--size_small FieldWithValidation"
   >
@@ -68,26 +96,40 @@ exports[`FieldWithValidation when using tooltip when error message is defined sh
 
 exports[`FieldWithValidation when using tooltip with no error message passed should not render a tooltip with no error message 1`] = `
 <div>
-  <input
-    class="Input Input--size_medium"
-    data-lpignore="true"
-    id=":r3:"
-    type="text"
-    value=""
-  />
+  <div>
+    <div
+      class="Input__inputContainer Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <input
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        id=":r3:"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
 </div>
 `;
 
 exports[`FieldWithValidation with error message passed should render the message as text 1`] = `
 <div>
-  <input
-    aria-invalid="true"
-    class="Input Input--context_critical Input--size_medium"
-    data-lpignore="true"
-    id=":r2:"
-    type="text"
-    value=""
-  />
+  <div>
+    <div
+      class="Input__inputContainer Input__inputContainer--context_critical Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <input
+        aria-invalid="true"
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        id=":r2:"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
   <p
     class="Text--context_critical Text--size_small FieldWithValidation"
   >
@@ -98,14 +140,21 @@ exports[`FieldWithValidation with error message passed should render the message
 
 exports[`FieldWithValidation with error message passed should set context to bad on child 1`] = `
 <div>
-  <input
-    aria-invalid="true"
-    class="Input Input--context_critical Input--size_medium"
-    data-lpignore="true"
-    id=":r1:"
-    type="text"
-    value=""
-  />
+  <div>
+    <div
+      class="Input__inputContainer Input__inputContainer--context_critical Input__inputContainer--size_medium"
+      data-testid="inputContainer"
+    >
+      <input
+        aria-invalid="true"
+        class="Input__input Input__input--size_medium"
+        data-lpignore="true"
+        id=":r1:"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
   <p
     class="Text--context_critical Text--size_small FieldWithValidation"
   >

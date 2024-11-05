@@ -3,8 +3,13 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { ButtonGroup } from '../ButtonGroup';
 import { Button } from '../../Buttons';
-import { Dropdown } from '../../Dropdown';
-import { ListItem } from '../../List/ListItem';
+import {
+    DropdownContent,
+    DropdownPortal,
+    DropdownRoot,
+    DropdownTrigger,
+    SingleSelectItem,
+} from '../../Dropdown';
 
 describe('<ButtonGroup> that renders a button', () => {
     it('should render default button correctly', () => {
@@ -46,14 +51,16 @@ describe('<ButtonGroup> that renders a button', () => {
                 <Button key="b" href="#">
                     An anchor
                 </Button>
-                <Dropdown
-                    key="c"
-                    button={<Button>A dropdown button</Button>}
-                    placement="bottom-end"
-                    onChange={() => {}}
-                >
-                    <ListItem key="some-key">A list item</ListItem>
-                </Dropdown>
+                <DropdownRoot>
+                    <DropdownTrigger>
+                        <Button>A dropdown button</Button>
+                    </DropdownTrigger>
+                    <DropdownPortal>
+                        <DropdownContent>
+                            <SingleSelectItem>A list item</SingleSelectItem>
+                        </DropdownContent>
+                    </DropdownPortal>
+                </DropdownRoot>
             </ButtonGroup>
         );
 
