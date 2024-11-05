@@ -8,16 +8,7 @@
     border: 1px solid var(--color-border-subtle);
     cursor: default;
     background-color: var(--bg-color, white); // Fallback to --color-background if bgColor isn't provided
-
-    &:focus:not([disabled]) {
-        outline: none;
-        box-shadow: 0 0 0 2px var(--color-info-20);
-    }
-
-    &:hover:not([disabled]){
-        background-color: var(--color-background-neutral-subtlest-hover);
-    }
-
+    
     &[disabled] {
         color: var(--color-text-disabled);
     }
@@ -28,6 +19,15 @@
 
     &--clickable:not([disabled]) {
         cursor: pointer;
+
+        &:hover:not([disabled]){
+            background-color: var(--color-background-neutral-subtlest-hover);
+        }
+
+        &:focus:not([disabled]) {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--color-info-20);
+        }
     }
 
     &__text{

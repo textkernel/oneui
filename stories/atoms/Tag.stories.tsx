@@ -1,6 +1,5 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { FiCheck } from 'react-icons/fi';
 import { Tag } from '@textkernel/oneui';
 
 const meta: Meta<typeof Tag> = {
@@ -26,6 +25,12 @@ export const _Tag: Story = {
         isSelected: false,
         maxWidth: '200px',
         children: 'This is an extremely long long text!',
+        onClick: () => {
+            console.log('onClick: The tag has been clicked');
+        },
+        onDelete: () => {
+            console.log('onDelete: The delete button has been clicked');
+        },
     },
     render: (args) => (
         <div
@@ -38,18 +43,37 @@ export const _Tag: Story = {
     ),
 };
 
-export const TagWithIcon: Story = {
-    name: 'Tag with icon',
+export const ReadOnlyTag: Story = {
+    name: 'ReadOnly Tag',
     args: {
-        bgColor: '#3eff2b',
-        isSelected: false,
-        maxWidth: 'fit-content',
-        children: (
-            <>
-                <FiCheck />
-                Some text
-            </>
-        ),
+        maxWidth: '100px',
+        children: <>Read Only</>,
+        contentClassName: 'test-class',
+        contentStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'var(--space-75)',
+        },
+        onDelete: undefined,
+        onClick: undefined,
+    },
+    render: (args) => (
+        <div
+            style={{
+                padding: '5px',
+            }}
+        >
+            <Tag {...args} />
+        </div>
+    ),
+};
+
+export const ColoredTag: Story = {
+    name: 'Colored Tag',
+    args: {
+        bgColor: '#0097D1',
+        maxWidth: '100px',
+        children: <>Colored Tag</>,
         contentClassName: 'test-class',
         contentStyle: {
             display: 'flex',
