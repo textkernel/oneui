@@ -16,7 +16,7 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
         Pill name
       </span>
       <span
-        class="PillButtonEnhanced__separator"
+        class="PillButtonEnhanced__valueSeparator"
       >
         :
       </span>
@@ -26,9 +26,6 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
       >
         This pill is in use
       </span>
-      <span
-        class="PillButtonEnhanced__multiSelection"
-      />
     </div>
     <div
       class="PillButtonEnhanced__button"
@@ -63,7 +60,7 @@ exports[`<PillButtonEnhanced> component in active, open state (content and isOpe
         Pill name
       </span>
       <span
-        class="PillButtonEnhanced__separator"
+        class="PillButtonEnhanced__valueSeparator"
       >
         :
       </span>
@@ -73,9 +70,6 @@ exports[`<PillButtonEnhanced> component in active, open state (content and isOpe
       >
         This pill is in use
       </span>
-      <span
-        class="PillButtonEnhanced__multiSelection"
-      />
     </div>
     <div
       class="PillButtonEnhanced__button"
@@ -110,7 +104,12 @@ exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minim
         Pill name
       </span>
       <span
-        class="PillButtonEnhanced__multiSelection"
+        class="PillButtonEnhanced__contentSeparator"
+      >
+        ,
+      </span>
+      <span
+        class="PillButtonEnhanced__additionalContent"
       >
         +2
       </span>
@@ -147,9 +146,6 @@ exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) sh
       >
         Pill name
       </span>
-      <span
-        class="PillButtonEnhanced__multiSelection"
-      />
     </div>
     <div
       class="PillButtonEnhanced__button"
@@ -185,7 +181,7 @@ exports[`<PillButtonEnhanced> component with additional props should set style a
         Pill name
       </span>
       <span
-        class="PillButtonEnhanced__separator"
+        class="PillButtonEnhanced__valueSeparator"
       >
         :
       </span>
@@ -195,9 +191,6 @@ exports[`<PillButtonEnhanced> component with additional props should set style a
       >
         This pill is in use
       </span>
-      <span
-        class="PillButtonEnhanced__multiSelection"
-      />
     </div>
     <div
       class="PillButtonEnhanced__button"

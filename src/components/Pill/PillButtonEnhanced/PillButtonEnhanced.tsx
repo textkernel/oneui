@@ -99,15 +99,20 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
                     <span {...elem('name')}>{name}</span>
                     {!!content && (
                         <>
-                            <span {...elem('separator')}>:</span>
+                            <span {...elem('valueSeparator')}>:</span>
                             <span {...elem('content')} title={content}>
                                 {content}
                             </span>
                         </>
                     )}
-                    <Tooltip content={additionalContentTooltip}>
-                        <span {...elem('multiSelection')}>{additionalContentLabel}</span>
-                    </Tooltip>
+                    {additionalContentLabel && (
+                        <>
+                            <span {...elem('contentSeparator')}>,</span>
+                            <Tooltip content={additionalContentTooltip}>
+                                <span {...elem('additionalContent')}>{additionalContentLabel}</span>
+                            </Tooltip>
+                        </>
+                    )}
                 </div>
                 <div
                     role="button"

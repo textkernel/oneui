@@ -137,7 +137,7 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
         Pill name
       </span>
       <span
-        class="PillButtonEnhanced__separator"
+        class="PillButtonEnhanced__valueSeparator"
       >
         :
       </span>
@@ -147,9 +147,6 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
       >
         Pill content
       </span>
-      <span
-        class="PillButtonEnhanced__multiSelection"
-      />
     </div>
     <div
       class="PillButtonEnhanced__button"
@@ -214,7 +211,7 @@ exports[`<Pill> component with enhanced button variant should render correctly 1
         Pill name
       </span>
       <span
-        class="PillButtonEnhanced__separator"
+        class="PillButtonEnhanced__valueSeparator"
       >
         :
       </span>
@@ -224,9 +221,6 @@ exports[`<Pill> component with enhanced button variant should render correctly 1
       >
         Pill content
       </span>
-      <span
-        class="PillButtonEnhanced__multiSelection"
-      />
     </div>
     <div
       class="PillButtonEnhanced__button"

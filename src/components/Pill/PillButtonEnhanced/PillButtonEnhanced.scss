@@ -51,7 +51,7 @@
         color: var(--color-text-bold, #000);
     }
 
-    &__separator {
+    &__valueSeparator {
         padding-left: var(--space-25);
     }
 
@@ -62,7 +62,11 @@
         padding-left: var(--space-50)
     }
 
-    &__multiSelection {
+    &__contentSeparator {
+        color: var(--color-text-selected-default, #004999);
+    }
+
+    &__additionalContent {
         color: var(--color-text-selected-default, #004999);
         margin-left: var(--space-50);
     }
