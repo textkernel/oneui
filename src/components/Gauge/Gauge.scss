@@ -43,14 +43,14 @@
 
     &__content {
         display: inline;
-        font-size: var(--font-size-base);
-        font-weight: var(--font-weight-bold);
+        composes: OneUI-body-text-bold from global;
     }
 
     &__metric {
         display: block;
         width: 150px;
         composes: OneUI-label-text from global;
+        font-weight: var(--font-weight-normal);
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
