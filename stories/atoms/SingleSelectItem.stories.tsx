@@ -29,6 +29,39 @@ export const _SingleSelectItem: StorySingleSelectItem = {
     name: 'SingleSelectItem',
     args: {
         disabled: false,
+    },
+    render: (args) => {
+        const [isSelected, setIsSelected] = React.useState(false);
+
+        const handleSelect = () => {
+            setIsSelected(!isSelected);
+            console.log('onSelect: SingleSelectItem has been clicked');
+        };
+
+        return (
+            <>
+                <Text>
+                    Note: this is a controlled component. You have to set `isSelected` prop yourself
+                </Text>
+                <DropdownRoot>
+                    <DropdownTrigger>
+                        <Button>Click here</Button>
+                    </DropdownTrigger>
+                    <DropdownContent>
+                        <SingleSelectItem {...args} isSelected={isSelected} onSelect={handleSelect}>
+                            Simple Item
+                        </SingleSelectItem>
+                    </DropdownContent>
+                </DropdownRoot>
+            </>
+        );
+    },
+};
+
+export const _SingleSelectItemPriority: StorySingleSelectItem = {
+    name: 'SingleSelectItem with priority selector',
+    args: {
+        disabled: false,
         priority: {
             list: priorityList,
             buttonLabel: 'Priority',

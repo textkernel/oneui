@@ -212,7 +212,7 @@ export const _DropdownWithSelectedItemBadge: Story = {
     render: (args) => {
         const priorityList: Array<PriorityItemType<string>> = [
             { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
-            { priority: Priority.Mandatory, label: 'Important', value: 'strongly_favored' },
+            { priority: Priority.Important, label: 'Important', value: 'strongly_favored' },
             { priority: Priority.Optional, label: 'Optional', value: 'favored' },
             { priority: Priority.Exclude, label: 'Exclude', value: 'banned' },
         ];
