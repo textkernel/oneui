@@ -68,9 +68,9 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
 
         const handleDeleteButtonKeyPress = (e: React.KeyboardEvent) => {
             e.stopPropagation();
-            e.preventDefault();
 
             if (e.key === ENTER_KEY) {
+                e.preventDefault();
                 onDelete?.(e);
             }
         };
