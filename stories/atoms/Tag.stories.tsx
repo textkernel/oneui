@@ -46,7 +46,7 @@ export const _Tag: Story = {
 export const ReadOnlyTag: Story = {
     name: 'ReadOnly Tag',
     args: {
-        maxWidth: '100px',
+        maxWidth: 'fit-content',
         children: <>Read Only</>,
         contentClassName: 'test-class',
         contentStyle: {
@@ -72,7 +72,7 @@ export const ColoredTag: Story = {
     name: 'Colored Tag',
     args: {
         bgColor: '#0097D1',
-        maxWidth: '100px',
+        maxWidth: 'fit-content',
         children: <>Colored Tag</>,
         contentClassName: 'test-class',
         contentStyle: {
