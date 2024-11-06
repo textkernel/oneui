@@ -42,6 +42,7 @@ export * from './components/TextArea';
 export * from './components/WidthRestrictor';
 export * from './components/PopupBase';
 export * from './components/Tag';
+export * from './components/Badges';
 // Molecules
 export * from './components/BulkActionsToolbar';
 export * from './components/ButtonGroup';

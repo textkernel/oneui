@@ -1,0 +1,29 @@
+@use 'sass:list';
+@import '../../../themes/oneui/constants/colors';
+
+$icon-size: 16px; //Todo: check this later
+
+.StatusBadge {
+    display: flex;
+    align-items: flex-start;
+    width: fit-content;
+    max-width: 200px;
+
+    @each $context in list.join($contexts, ('info', 'neutral')) {
+        &--context_#{$context} {
+            background-color: var(--color-#{$context}-10);
+        }
+        &__content--context_#{ $context } {
+            color: var(--color-#{$context}-80);
+        }
+
+        &__closeButton--context_#{ $context } {
+            color: var(--color-#{$context}-60);
+        }
+
+        &__closeButton--context_#{ $context }:hover,
+        &__closeButton--context_#{ $context }:focus {
+            color: var(--color-#{$context}-80);
+        }
+    }
+}
