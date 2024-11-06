@@ -8,14 +8,13 @@ import { bem } from '../../../../utils';
 import { VisualCheckbox } from '../../../Checkbox';
 import { Text } from '../../../Text';
 import styles from './MultiSelectItem.scss';
+import { stopPropagation } from '../../../../utils/misc';
 
 export interface Props<PriorityItemValue> extends DropdownMenuCheckboxItemProps {
     /** Id for the checkbox */
     id?: string;
     /** a variant to determine the look and feel of component */
     variant?: 'option' | 'select-all' | 'group-title';
-    /** to add a priority badge before the label */
-    hasPriority?: boolean;
     /** props for PrioritySelector  */
     priority?: PrioritySelectorProps<PriorityItemValue>;
     /** Checkbox status */
@@ -31,7 +30,6 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props<string>>(
             isSelected = false,
             disabled = false,
             variant = 'option',
-            hasPriority = false,
             onCheckedChange,
             priority,
             ...rest
@@ -40,16 +38,11 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props<string>>(
     ) => {
         const priorityRef = React.useRef<HTMLDivElement>(null);
 
-        const hasPriorityList = hasPriority && priority && priority.list.length > 0;
-
-        const stopPropagation = (e: React.MouseEvent | React.KeyboardEvent) => {
-            e.stopPropagation(); // Prevents the checkbox from toggling
-        };
+        const hasPriorityList = priority && priority.list.length > 0;
 
         const handleKeyDown = (e: React.KeyboardEvent) => {
-            if (e.key === 'Tab') {
+            if (e.key === 'Tab' && !e.shiftKey) {
                 if (priorityRef.current) {
-                    e.preventDefault();
                     priorityRef.current.focus();
                 }
             }
@@ -77,12 +70,7 @@ export const MultiSelectItem = React.forwardRef<HTMLLIElement, Props<string>>(
                 <VisualCheckbox checked={isSelected} />
                 {hasPriorityList && (
                     <div role="none" onClick={stopPropagation} onKeyDown={stopPropagation}>
-                        <PrioritySelector
-                            list={priority.list}
-                            selectedItem={priority.selectedItem}
-                            onSelect={priority.onSelect}
-                            buttonRef={priorityRef}
-                        />
+                        <PrioritySelector {...priority} buttonRef={priorityRef} />
                     </div>
                 )}
                 <Text inline>{children}</Text>

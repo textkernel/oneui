@@ -38,7 +38,7 @@ export const _PrioritySelectory: PriorityStory = {
                     list={args.list}
                     selectedItem={selectedPriorityItem}
                     onSelect={handleSelect}
-                    badgeRef={badgeRef}
+                    parentRef={badgeRef}
                 />
             </div>
         );

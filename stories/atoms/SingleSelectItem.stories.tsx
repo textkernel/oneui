@@ -66,7 +66,6 @@ export const _SingleSelectItem: StorySingleSelectItem = {
                             {...args}
                             isSelected={isSelected}
                             onSelect={handleSelect}
-                            hasPriority
                             priority={{
                                 onSelect: handlePrioritySelect,
                                 selectedItem: prioritySelected,

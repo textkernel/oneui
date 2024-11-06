@@ -48,7 +48,7 @@ export interface Props<PriorityItemValue>
     /** Priority button label name for ARIA labelling */
     buttonLabel?: string;
     /** ref to possible parent div, if it is a badge */
-    badgeRef?: React.RefObject<HTMLElement | null> | React.ForwardedRef<HTMLDivElement>;
+    parentRef?: React.RefObject<HTMLElement | null> | React.ForwardedRef<HTMLDivElement>;
     /** ref to iconButton, used for keyboard navigation */
     buttonRef?: React.RefObject<HTMLElement>;
 }
@@ -61,13 +61,13 @@ export function PrioritySelector<PriorityItemValue>({
     isDisabled = false,
     buttonLabel,
     list,
-    badgeRef,
+    parentRef,
     buttonRef,
     ...rest
 }: Props<PriorityItemValue>) {
     const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
         if (!priorityType) {
-            return <></>;
+            return null;
         }
         const IconComponent = iconMap[priorityType];
         return IconComponent ? (
@@ -76,9 +76,7 @@ export function PrioritySelector<PriorityItemValue>({
                 disabled={disabled}
                 viewBox="0 0 24 24"
             />
-        ) : (
-            <></>
-        );
+        ) : null;
     };
 
     const priorityOrder: Record<Priority, number> = {
@@ -94,7 +92,7 @@ export function PrioritySelector<PriorityItemValue>({
         .sort((a, b) => priorityOrder[a.priority] - priorityOrder[b.priority]);
 
     return (
-        <Root {...block({ ...rest })} refElement={badgeRef}>
+        <Root {...block({ ...rest })} refElement={parentRef}>
             <DropdownTrigger>
                 <IconButton
                     {...elem('icon', { [selectedItem.priority]: true })}
@@ -109,9 +107,9 @@ export function PrioritySelector<PriorityItemValue>({
             </DropdownTrigger>
             <Portal>
                 <DropdownContent
-                    {...elem('badgeDropdownList', { fixedWidth: !badgeRef })}
+                    {...elem('badgeDropdownList', { fixedWidth: !parentRef })}
                     sideOffset={6}
-                    refElement={badgeRef}
+                    refElement={parentRef}
                 >
                     {sortedList.map((item) => (
                         <DropdownMenuItem
@@ -121,7 +119,7 @@ export function PrioritySelector<PriorityItemValue>({
                                 onSelect(item);
                             }}
                             role="option"
-                            aria-selected={selectedItem === item}
+                            aria-selected={selectedItem.priority === item.priority}
                             tabIndex={isDisabled ? -1 : 0}
                             {...rest}
                             {...itemStylesBem.block({

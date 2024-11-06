@@ -3,6 +3,7 @@ import { DropdownMenuItem, DropdownMenuItemProps } from '@radix-ui/react-dropdow
 import { PrioritySelector, PrioritySelectorProps } from '../../../PrioritySelector';
 import { bem } from '../../../../utils';
 import styles from '../Item.scss';
+import { stopPropagation } from '../../../../utils/misc';
 
 export interface Props<PriorityItemValue> extends Omit<DropdownMenuItemProps, 'onSelect'> {
     /** A function to be called if the item is clicked */
@@ -11,8 +12,6 @@ export interface Props<PriorityItemValue> extends Omit<DropdownMenuItemProps, 'o
     id?: string;
     /** Checkbox status */
     isSelected?: boolean;
-    /** Should PrioritySelector be included */
-    hasPriority?: boolean;
     /** props for PrioritySelector */
     priority?: PrioritySelectorProps<PriorityItemValue>;
 }
@@ -20,21 +19,13 @@ export interface Props<PriorityItemValue> extends Omit<DropdownMenuItemProps, 'o
 const { block } = bem('DropdownItem', styles);
 
 export const SingleSelectItem = React.forwardRef<HTMLDivElement, Props<string>>(
-    (
-        { children, isSelected = false, disabled = false, hasPriority = false, priority, ...rest },
-        ref
-    ) => {
-        const hasPriorityList = hasPriority && priority && priority.list.length > 0;
+    ({ children, isSelected = false, disabled = false, priority, ...rest }, ref) => {
+        const hasPriorityList = priority && priority.list.length > 0;
         const priorityRef = React.useRef<HTMLDivElement>(null);
 
-        const stopPropagation = (e: React.MouseEvent | React.KeyboardEvent) => {
-            e.stopPropagation(); // Prevents the menu from closing
-        };
-
         const handleKeyDown = (e: React.KeyboardEvent) => {
-            if (e.key === 'Tab') {
+            if (e.key === 'Tab' && !e.shiftKey) {
                 if (priorityRef.current) {
-                    e.preventDefault();
                     priorityRef.current.focus();
                 }
             }
@@ -56,12 +47,7 @@ export const SingleSelectItem = React.forwardRef<HTMLDivElement, Props<string>>(
             >
                 {hasPriorityList && (
                     <div role="none" onClick={stopPropagation} onKeyDown={stopPropagation}>
-                        <PrioritySelector
-                            list={priority.list}
-                            selectedItem={priority.selectedItem}
-                            onSelect={priority.onSelect}
-                            buttonRef={priorityRef}
-                        />
+                        <PrioritySelector {...priority} buttonRef={priorityRef} />
                     </div>
                 )}
                 {children}

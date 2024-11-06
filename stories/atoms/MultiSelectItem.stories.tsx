@@ -97,7 +97,6 @@ export const _MultiSelectItemPriority: StoryMultiSelectItem = {
                             {...args}
                             isSelected={isSelected}
                             onCheckedChange={handleChange}
-                            hasPriority
                             priority={{
                                 onSelect: handlePrioritySelect,
                                 selectedItem: prioritySelected,

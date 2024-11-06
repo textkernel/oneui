@@ -63,14 +63,7 @@ export const SelectedItemBadge = React.forwardRef<HTMLElement, Props<string>>(
 
         return (
             <div {...rest} {...block()} ref={badgeRef || ref}>
-                {hasPriorityList && (
-                    <PrioritySelector
-                        list={priority.list}
-                        selectedItem={priority.selectedItem}
-                        onSelect={priority.onSelect}
-                        badgeRef={badgeRef}
-                    />
-                )}
+                {hasPriorityList && <PrioritySelector {...priority} parentRef={badgeRef} />}
                 {children ? (
                     <DropdownRoot>
                         <DropdownTrigger asChild>

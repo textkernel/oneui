@@ -43,6 +43,7 @@ describe('PrioritySelector', () => {
     it('should render correctly opened', async () => {
         const user = userEvent.setup();
         await user.click(screen.getByRole('button', { name: 'Mandatory' }));
+        expect(view.baseElement).toMatchSnapshot();
         expect(screen.getAllByRole('option')).toHaveLength(4);
     });
 
