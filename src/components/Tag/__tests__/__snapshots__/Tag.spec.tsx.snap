@@ -2,19 +2,19 @@
 
 exports[`<Tag> component should render correctly with full list of props 1`] = `
 <div>
-  <div
+  <span
     class="Tag Tag--isSelected Tag--clickable"
     role="button"
     style="--bg-color: #ccc; max-width: 30px;"
     tabindex="0"
   >
-    <p
+    <span
       class="Tag__text my-class"
       style="color: red;"
       title="Tag text"
     >
       Tag text
-    </p>
+    </span>
     <button
       class="Tag__deleteButton"
       type="button"
@@ -25,22 +25,22 @@ exports[`<Tag> component should render correctly with full list of props 1`] = `
         viewBox="0 0 24 24"
       />
     </button>
-  </div>
+  </span>
 </div>
 `;
 
 exports[`<Tag> component should render correctly with minimum amount of props 1`] = `
 <div>
-  <div
+  <span
     class="Tag"
-    style="max-width: fit-content;"
+    style="max-width: 224px;"
   >
-    <p
+    <span
       class="Tag__text"
       title="Tag text"
     >
       Tag text
-    </p>
-  </div>
+    </span>
+  </span>
 </div>
 `;

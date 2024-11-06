@@ -9,9 +9,6 @@ const meta: Meta<typeof Tag> = {
         bgColor: {
             options: ['#3eff2b', '#ffa139', 'var(--color-background)'],
         },
-        size: {
-            options: ['small', 'medium', 'large'],
-        },
     },
 };
 
@@ -23,7 +20,6 @@ export const _Tag: Story = {
     name: 'Tag',
     args: {
         isSelected: false,
-        maxWidth: '200px',
         children: 'This is an extremely long long text!',
         onClick: () => {
             console.log('onClick: The tag has been clicked');
@@ -46,7 +42,6 @@ export const _Tag: Story = {
 export const ReadOnlyTag: Story = {
     name: 'ReadOnly Tag',
     args: {
-        maxWidth: 'fit-content',
         children: <>Read Only</>,
         contentClassName: 'test-class',
         contentStyle: {
@@ -72,7 +67,6 @@ export const ColoredTag: Story = {
     name: 'Colored Tag',
     args: {
         bgColor: '#0097D1',
-        maxWidth: 'fit-content',
         children: <>Colored Tag</>,
         contentClassName: 'test-class',
         contentStyle: {

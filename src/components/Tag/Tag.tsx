@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Close from '@material-design-icons/svg/round/close.svg';
 import { bem } from '../../utils';
-import { Text } from '../Text';
-import { ENTER_KEY, Size } from '../../constants';
+import { ENTER_KEY } from '../../constants';
 import styles from './Tag.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -12,8 +11,6 @@ export interface Props extends React.HTMLAttributes<HTMLDivElement> {
     bgColor?: string;
     /** Max-width of a component */
     maxWidth?: string;
-    /** Size of the text */
-    size?: Size;
     /** Callback, that is fired when a user clicks on a delete icon */
     onDelete?: (e: React.KeyboardEvent | React.MouseEvent) => void;
     /** Callback, that is fired when a user clicks on an element */
@@ -35,8 +32,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
         {
             children,
             bgColor,
-            maxWidth = 'fit-content',
-            size = 'large',
+            maxWidth = '224px',
             onDelete = undefined,
             onClick = undefined,
             isSelected = false,
@@ -76,7 +72,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
         };
 
         return (
-            <div
+            <span
                 {...rest}
                 ref={ref}
                 {...block({ isSelected, clickable: !!onClick, ...rest })}
@@ -92,15 +88,14 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
                 }}
                 disabled={disabled}
             >
-                <Text
-                    size={size}
+                <span
                     {...(areChildrenString && { title: children })}
                     {...elem('text', { elemClassName: contentClassName })}
                     disabled={disabled}
                     style={contentStyle}
                 >
                     {children}
-                </Text>
+                </span>
                 {onDelete && (
                     <button
                         onClick={handleDeleteClick}
@@ -116,7 +111,7 @@ export const Tag = React.forwardRef<HTMLDivElement, Props>(
                         />
                     </button>
                 )}
-            </div>
+            </span>
         );
     }
 );
