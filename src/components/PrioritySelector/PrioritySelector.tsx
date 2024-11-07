@@ -64,14 +64,18 @@ export function PrioritySelector<PriorityItemValue>({
     size,
     ...rest
 }: Props<PriorityItemValue>) {
-    const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
+    const renderPriorityIcon = (
+        priorityType?: Priority,
+        disabled: boolean = false,
+        inList?: boolean
+    ) => {
         if (!priorityType) {
             return null;
         }
         const IconComponent = iconMap[priorityType];
         return IconComponent ? (
             <IconComponent
-                {...elem('icon', { [priorityType]: true })}
+                {...elem('icon', { [priorityType]: true, inList })}
                 disabled={disabled}
                 viewBox="0 0 24 24"
             />
@@ -129,7 +133,7 @@ export function PrioritySelector<PriorityItemValue>({
                             })}
                         >
                             <div {...elem('badgeListItem')}>
-                                {renderPriorityIcon(item.priority)}
+                                {renderPriorityIcon(item.priority, false, true)}
                                 <Text inline size="small">
                                     {item.label}
                                 </Text>

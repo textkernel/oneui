@@ -82,6 +82,11 @@ $icon-status-colors: (
                 }
             }
         }
+
+        &--inList {
+            height: 20px;
+            width: 20px;
+        }
     }
     &__priorityButton--isSelected,
     &__optionButton--isSelected {

@@ -87,7 +87,7 @@ exports[`PrioritySelector should render correctly opened 1`] = `
           class="PrioritySelector__badgeListItem"
         >
           <svg
-            class="PrioritySelector__icon PrioritySelector__icon--mandatory"
+            class="PrioritySelector__icon PrioritySelector__icon--mandatory PrioritySelector__icon--inList"
             data-testid="default-icon"
             viewBox="0 0 24 24"
           />
@@ -110,7 +110,7 @@ exports[`PrioritySelector should render correctly opened 1`] = `
           class="PrioritySelector__badgeListItem"
         >
           <svg
-            class="PrioritySelector__icon PrioritySelector__icon--important"
+            class="PrioritySelector__icon PrioritySelector__icon--important PrioritySelector__icon--inList"
             data-testid="default-icon"
             viewBox="0 0 24 24"
           />
@@ -133,7 +133,7 @@ exports[`PrioritySelector should render correctly opened 1`] = `
           class="PrioritySelector__badgeListItem"
         >
           <svg
-            class="PrioritySelector__icon PrioritySelector__icon--optional"
+            class="PrioritySelector__icon PrioritySelector__icon--optional PrioritySelector__icon--inList"
             data-testid="default-icon"
             viewBox="0 0 24 24"
           />
@@ -156,7 +156,7 @@ exports[`PrioritySelector should render correctly opened 1`] = `
           class="PrioritySelector__badgeListItem"
         >
           <svg
-            class="PrioritySelector__icon PrioritySelector__icon--exclude"
+            class="PrioritySelector__icon PrioritySelector__icon--exclude PrioritySelector__icon--inList"
             data-testid="default-icon"
             viewBox="0 0 24 24"
           />
