@@ -8,7 +8,6 @@ import {
     Button,
     Text,
     PriorityItemType,
-    Priority,
 } from '@textkernel/oneui';
 
 export default {
@@ -56,10 +55,10 @@ export const _MultiSelectItem: StoryMultiSelectItem = {
 };
 
 const priorityList: PriorityItemType<string>[] = [
-    { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
-    { priority: Priority.Important, label: 'Important', value: 'strongly_favored' },
-    { priority: Priority.Optional, label: 'Optional', value: 'favored' },
-    { priority: Priority.Exclude, label: 'Exclude', value: 'banned' },
+    { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+    { priority: 'important', label: 'Important', value: 'strongly_favored' },
+    { priority: 'optional', label: 'Optional', value: 'favored' },
+    { priority: 'exclude', label: 'Exclude', value: 'banned' },
 ];
 
 export const _MultiSelectItemPriority: StoryMultiSelectItem = {
@@ -70,7 +69,7 @@ export const _MultiSelectItemPriority: StoryMultiSelectItem = {
     render: (args) => {
         const [isSelected, setIsSelected] = React.useState(false);
         const [prioritySelected, setPrioritySelected] = React.useState<PriorityItemType<string>>({
-            priority: Priority.Mandatory,
+            priority: 'mandatory',
             label: 'Mandatory',
             value: 'required',
         });
@@ -98,7 +97,7 @@ export const _MultiSelectItemPriority: StoryMultiSelectItem = {
                             isSelected={isSelected}
                             onCheckedChange={handleChange}
                             priority={{
-                                onSelect: handlePrioritySelect,
+                                onChange: handlePrioritySelect,
                                 selectedItem: prioritySelected,
                                 list: priorityList,
                                 buttonLabel: 'priorityButton',

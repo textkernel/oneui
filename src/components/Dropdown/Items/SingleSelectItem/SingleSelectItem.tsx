@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-constraint */
 import React from 'react';
 import { DropdownMenuItem, DropdownMenuItemProps } from '@radix-ui/react-dropdown-menu';
 import { PrioritySelector, PrioritySelectorProps } from '../../../PrioritySelector';
@@ -18,8 +19,17 @@ export interface Props<PriorityItemValue> extends Omit<DropdownMenuItemProps, 'o
 
 const { block } = bem('DropdownItem', styles);
 
-export const SingleSelectItem = React.forwardRef<HTMLDivElement, Props<string>>(
-    ({ children, isSelected = false, disabled = false, priority, ...rest }, ref) => {
+export const SingleSelectItem = React.forwardRef(
+    <PriorityItemValue extends unknown>(
+        {
+            children,
+            isSelected = false,
+            disabled = false,
+            priority,
+            ...rest
+        }: Props<PriorityItemValue>,
+        ref: React.Ref<HTMLLIElement>
+    ) => {
         const hasPriorityList = priority && priority.list.length > 0;
         const priorityRef = React.useRef<HTMLDivElement>(null);
 
@@ -54,4 +64,6 @@ export const SingleSelectItem = React.forwardRef<HTMLDivElement, Props<string>>(
             </DropdownMenuItem>
         );
     }
-);
+) as <PriorityItemValue extends unknown>(
+    p: Props<PriorityItemValue> & { ref?: React.Ref<HTMLElement> }
+) => React.ReactElement;

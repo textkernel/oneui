@@ -2,20 +2,20 @@ import * as React from 'react';
 import { render, RenderResult, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { userEvent } from '@testing-library/user-event';
-import { Priority, PriorityItemType, PrioritySelector } from '../PrioritySelector';
+import { PriorityItemType, PrioritySelector } from '../PrioritySelector';
 
 const priorityList: PriorityItemType<string>[] = [
-    { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
-    { priority: Priority.Important, label: 'Important', value: 'strongly_favored' },
-    { priority: Priority.Optional, label: 'Optional', value: 'favored' },
-    { priority: Priority.Exclude, label: 'Exclude', value: 'banned' },
+    { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+    { priority: 'important', label: 'Important', value: 'strongly_favored' },
+    { priority: 'optional', label: 'Optional', value: 'favored' },
+    { priority: 'exclude', label: 'Exclude', value: 'banned' },
 ];
 
 const priorityListRandom: PriorityItemType<string>[] = [
-    { priority: Priority.Optional, label: 'Optional', value: 'favored' },
-    { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
-    { priority: Priority.Exclude, label: 'Exclude', value: 'banned' },
-    { priority: Priority.Important, label: 'Important', value: 'strongly_favored' },
+    { priority: 'optional', label: 'Optional', value: 'favored' },
+    { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+    { priority: 'exclude', label: 'Exclude', value: 'banned' },
+    { priority: 'important', label: 'Important', value: 'strongly_favored' },
 ];
 
 describe('PrioritySelector', () => {
@@ -27,7 +27,7 @@ describe('PrioritySelector', () => {
             <PrioritySelector
                 selectedItem={priorityList[0]}
                 list={priorityList}
-                onSelect={onSelectMock}
+                onChange={onSelectMock}
             />
         );
     });
@@ -89,7 +89,7 @@ describe('PrioritySelector', () => {
             <PrioritySelector
                 selectedItem={priorityListRandom[0]}
                 list={priorityListRandom}
-                onSelect={onSelectMock}
+                onChange={onSelectMock}
             />
         );
 

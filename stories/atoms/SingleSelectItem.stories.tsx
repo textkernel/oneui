@@ -8,7 +8,6 @@ import {
     Button,
     Text,
     PriorityItemType,
-    Priority,
 } from '@textkernel/oneui';
 
 export default {
@@ -19,10 +18,10 @@ export default {
 type StorySingleSelectItem = StoryObj<typeof SingleSelectItem>;
 
 const priorityList: PriorityItemType<string>[] = [
-    { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
-    { priority: Priority.Important, label: 'Important', value: 'strongly_favored' },
-    { priority: Priority.Optional, label: 'Optional', value: 'favored' },
-    { priority: Priority.Exclude, label: 'Exclude', value: 'banned' },
+    { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+    { priority: 'important', label: 'Important', value: 'strongly_favored' },
+    { priority: 'optional', label: 'Optional', value: 'favored' },
+    { priority: 'exclude', label: 'Exclude', value: 'banned' },
 ];
 
 export const _SingleSelectItem: StorySingleSelectItem = {
@@ -65,8 +64,8 @@ export const _SingleSelectItemPriority: StorySingleSelectItem = {
         priority: {
             list: priorityList,
             buttonLabel: 'Priority',
-            onSelect: () => {},
-            selectedItem: { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
+            onChange: () => {},
+            selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },
     },
     render: (args) => {
@@ -100,7 +99,7 @@ export const _SingleSelectItemPriority: StorySingleSelectItem = {
                             isSelected={isSelected}
                             onSelect={handleSelect}
                             priority={{
-                                onSelect: handlePrioritySelect,
+                                onChange: handlePrioritySelect,
                                 selectedItem: prioritySelected,
                                 list: priorityList,
                                 buttonLabel: 'priorityButton',

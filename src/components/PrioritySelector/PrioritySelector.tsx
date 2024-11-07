@@ -4,6 +4,7 @@ import KeyboardDoubleArrowUp from '@material-design-icons/svg/round/keyboard_dou
 import KeyboardArrowUp from '@material-design-icons/svg/round/keyboard_arrow_up.svg';
 import KeyboardArrowDown from '@material-design-icons/svg/round/keyboard_arrow_down.svg';
 import { DropdownMenuItem, Root, Portal } from '@radix-ui/react-dropdown-menu';
+import { Size } from '@textkernel/oneui';
 import { DropdownTrigger } from '../Dropdown/DropdownTrigger';
 import { DropdownContent } from '../Dropdown/DropdownContent';
 import { bem } from '../../utils/bem';
@@ -19,12 +20,7 @@ const iconMap = {
     exclude: Close,
 };
 
-export enum Priority {
-    Mandatory = 'mandatory',
-    Important = 'important',
-    Optional = 'optional',
-    Exclude = 'exclude',
-}
+export type Priority = 'mandatory' | 'important' | 'optional' | 'exclude';
 
 export type PriorityItemType<PriorityItemValue> = {
     /** priority types: mandatory, important, optional or exclude. Makes correct icon show up */
@@ -36,13 +32,13 @@ export type PriorityItemType<PriorityItemValue> = {
 };
 
 export interface Props<PriorityItemValue>
-    extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSelect'> {
+    extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /** Currently selected priority item that indicates the importance of the component. */
     selectedItem: PriorityItemType<PriorityItemValue>;
     /** Array of availible priority items. */
     list: PriorityItemType<PriorityItemValue>[];
     /** Callback function triggered when a new priority is selected. */
-    onSelect: (newPriorityItem: PriorityItemType<PriorityItemValue>) => void;
+    onChange: (newPriorityItem: PriorityItemType<PriorityItemValue>) => void;
     /** Boolean indicating whether the whole badge should be disabled. */
     isDisabled?: boolean;
     /** Priority button label name for ARIA labelling */
@@ -52,19 +48,20 @@ export interface Props<PriorityItemValue>
     /** ref to iconButton, used for keyboard navigation */
     buttonRef?: React.RefObject<HTMLElement>;
     /** the size of the trigger button */
-    size?: Size
+    size?: Size;
 }
 
 const { block, elem } = bem('PrioritySelector', styles);
 const itemStylesBem = bem('DropdownItem', itemStyles);
 export function PrioritySelector<PriorityItemValue>({
-    onSelect,
+    onChange,
     selectedItem,
     isDisabled = false,
     buttonLabel,
     list,
     parentRef,
     buttonRef,
+    size,
     ...rest
 }: Props<PriorityItemValue>) {
     const renderPriorityIcon = (priorityType?: Priority, disabled: boolean = false) => {
@@ -82,10 +79,10 @@ export function PrioritySelector<PriorityItemValue>({
     };
 
     const priorityOrder: Record<Priority, number> = {
-        [Priority.Mandatory]: 1,
-        [Priority.Important]: 2,
-        [Priority.Optional]: 3,
-        [Priority.Exclude]: 4,
+        mandatory: 1,
+        important: 2,
+        optional: 3,
+        exclude: 4,
     };
 
     // Sort the list based on the priority order
@@ -103,6 +100,7 @@ export function PrioritySelector<PriorityItemValue>({
                     disabled={isDisabled}
                     type="button"
                     ref={buttonRef}
+                    size={size}
                 >
                     {renderPriorityIcon(selectedItem.priority, isDisabled)}
                 </IconButton>
@@ -118,7 +116,7 @@ export function PrioritySelector<PriorityItemValue>({
                             key={item.priority}
                             onSelect={(e) => {
                                 e.stopPropagation();
-                                onSelect(item);
+                                onChange(item);
                             }}
                             role="option"
                             aria-selected={selectedItem.priority === item.priority}

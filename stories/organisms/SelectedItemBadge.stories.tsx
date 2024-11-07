@@ -7,7 +7,6 @@ import {
     SingleSelectItem,
     Text,
     MultiSelectItem,
-    Priority,
 } from '@textkernel/oneui';
 
 const meta: Meta<typeof SelectedItemBadge> = {
@@ -20,10 +19,10 @@ export default meta;
 type Story = StoryObj<typeof SelectedItemBadge>;
 
 const priorityList: PriorityItemType<string>[] = [
-    { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
-    { priority: Priority.Important, label: 'Important', value: 'strongly_favored' },
-    { priority: Priority.Optional, label: 'Optional', value: 'favored' },
-    { priority: Priority.Exclude, label: 'Exclude', value: 'banned' },
+    { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+    { priority: 'important', label: 'Important', value: 'strongly_favored' },
+    { priority: 'optional', label: 'Optional', value: 'favored' },
+    { priority: 'exclude', label: 'Exclude', value: 'banned' },
 ];
 
 const radiusList = ['5', '10', '15', '25'];
@@ -38,8 +37,8 @@ export const _SelectedItemBadge: Story = {
         priority: {
             list: priorityList,
             buttonLabel: 'Priority',
-            onSelect: () => {},
-            selectedItem: { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
+            onChange: () => {},
+            selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },
         buttonLabel: 'Select radius',
     },
@@ -48,7 +47,7 @@ export const _SelectedItemBadge: Story = {
             PriorityItemType<string>
         >(
             args.priority?.selectedItem || {
-                priority: Priority.Mandatory,
+                priority: 'mandatory',
                 label: 'Mandatory',
                 value: 'required',
             }
@@ -87,7 +86,7 @@ export const _SelectedItemBadge: Story = {
                         args.priority && {
                             ...args.priority,
                             selectedItem: selectedPriorityItem,
-                            onSelect: handlePriorityChange,
+                            onChange: handlePriorityChange,
                         }
                     }
                     onDelete={handleDelete}
@@ -116,8 +115,8 @@ export const _SelectedItemBadgeMultiSelect: Story = {
         priority: {
             list: priorityList,
             buttonLabel: 'Priority',
-            onSelect: () => {},
-            selectedItem: { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
+            onChange: () => {},
+            selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },
         buttonLabel: 'Select synonyms',
     },
@@ -126,7 +125,7 @@ export const _SelectedItemBadgeMultiSelect: Story = {
             PriorityItemType<string>
         >(
             args.priority?.selectedItem || {
-                priority: Priority.Mandatory,
+                priority: 'mandatory',
                 label: 'Mandatory',
                 value: 'required',
             }
@@ -214,7 +213,7 @@ export const _SelectedItemBadgeMultiSelect: Story = {
                         args.priority && {
                             ...args.priority,
                             selectedItem: selectedPriorityItem,
-                            onSelect: handlePriorityChange,
+                            onChange: handlePriorityChange,
                         }
                     }
                     onDelete={handleDelete}
@@ -323,8 +322,8 @@ export const SelectedItemBadgeWithoutChildren: Story = {
         priority: {
             list: priorityList,
             buttonLabel: 'Priority',
-            onSelect: () => {},
-            selectedItem: { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
+            onChange: () => {},
+            selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },
         children: undefined,
     },
@@ -333,7 +332,7 @@ export const SelectedItemBadgeWithoutChildren: Story = {
             PriorityItemType<string>
         >(
             args.priority?.selectedItem || {
-                priority: Priority.Mandatory,
+                priority: 'mandatory',
                 label: 'Mandatory',
                 value: 'required',
             }
@@ -365,7 +364,7 @@ export const SelectedItemBadgeWithoutChildren: Story = {
                         args.priority && {
                             ...args.priority,
                             selectedItem: selectedPriorityItem,
-                            onSelect: handlePriorityChange,
+                            onChange: handlePriorityChange,
                         }
                     }
                     onDelete={handleDelete}
@@ -383,8 +382,8 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
         priority: {
             list: priorityList,
             buttonLabel: 'Priority',
-            onSelect: () => {},
-            selectedItem: { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
+            onChange: () => {},
+            selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
         },
         onDelete: undefined,
     },
@@ -393,7 +392,7 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
             PriorityItemType<string>
         >(
             args.priority?.selectedItem || {
-                priority: Priority.Mandatory,
+                priority: 'mandatory',
                 label: 'Mandatory',
                 value: 'required',
             }
@@ -426,7 +425,7 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
                         args.priority && {
                             ...args.priority,
                             selectedItem: selectedPriorityItem,
-                            onSelect: handlePriorityChange,
+                            onChange: handlePriorityChange,
                         }
                     }
                     additionalLabel={selectedRadius && `+${selectedRadius} km`}

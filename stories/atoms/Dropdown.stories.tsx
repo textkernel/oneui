@@ -14,7 +14,6 @@ import {
     Separator,
     SelectedItemBadge,
     PriorityItemType,
-    Priority,
 } from '@textkernel/oneui';
 
 const meta: Meta<typeof DropdownContent> = {
@@ -211,10 +210,10 @@ export const _DropdownWithSelectedItemBadge: Story = {
     args: {},
     render: (args) => {
         const priorityList: Array<PriorityItemType<string>> = [
-            { priority: Priority.Mandatory, label: 'Mandatory', value: 'required' },
-            { priority: Priority.Important, label: 'Important', value: 'strongly_favored' },
-            { priority: Priority.Optional, label: 'Optional', value: 'favored' },
-            { priority: Priority.Exclude, label: 'Exclude', value: 'banned' },
+            { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+            { priority: 'important', label: 'Important', value: 'strongly_favored' },
+            { priority: 'optional', label: 'Optional', value: 'favored' },
+            { priority: 'exclude', label: 'Exclude', value: 'banned' },
         ];
 
         const priority = {
@@ -229,7 +228,7 @@ export const _DropdownWithSelectedItemBadge: Story = {
         const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
             PriorityItemType<string>
         >({
-            priority: Priority.Mandatory,
+            priority: 'mandatory',
             label: 'Mandatory',
             value: 'required',
         });
@@ -324,7 +323,7 @@ export const _DropdownWithSelectedItemBadge: Story = {
                                     priority && {
                                         ...priority,
                                         selectedItem: selectedPriorityItem,
-                                        onSelect: handlePriorityChange,
+                                        onChange: handlePriorityChange,
                                     }
                                 }
                                 label="Group"
