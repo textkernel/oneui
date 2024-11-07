@@ -51,6 +51,8 @@ export interface Props<PriorityItemValue>
     parentRef?: React.RefObject<HTMLElement | null> | React.ForwardedRef<HTMLDivElement>;
     /** ref to iconButton, used for keyboard navigation */
     buttonRef?: React.RefObject<HTMLElement>;
+    /** the size of the trigger button */
+    size?: Size
 }
 
 const { block, elem } = bem('PrioritySelector', styles);
