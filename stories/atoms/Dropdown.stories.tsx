@@ -13,7 +13,7 @@ import {
     MultiSelectItem,
     Separator,
     SelectedItemBadge,
-    SelectedItemBadgePriorityItem,
+    PriorityItemType,
 } from '@textkernel/oneui';
 
 const meta: Meta<typeof DropdownContent> = {
@@ -209,7 +209,7 @@ export const _DropdownWithSelectedItemBadge: Story = {
     name: 'Dropdown - SelectedItemBadge',
     args: {},
     render: (args) => {
-        const priorityList: Array<SelectedItemBadgePriorityItem<string>> = [
+        const priorityList: Array<PriorityItemType<string>> = [
             { priority: 'mandatory', label: 'Mandatory', value: 'required' },
             { priority: 'important', label: 'Important', value: 'strongly_favored' },
             { priority: 'optional', label: 'Optional', value: 'favored' },
@@ -226,7 +226,7 @@ export const _DropdownWithSelectedItemBadge: Story = {
         const ref = React.useRef(null);
 
         const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
-            SelectedItemBadgePriorityItem<string>
+            PriorityItemType<string>
         >({
             priority: 'mandatory',
             label: 'Mandatory',
@@ -299,7 +299,7 @@ export const _DropdownWithSelectedItemBadge: Story = {
             }
         };
 
-        const handlePriorityChange = (newPriorityItem: SelectedItemBadgePriorityItem<string>) => {
+        const handlePriorityChange = (newPriorityItem: PriorityItemType<string>) => {
             setSelectedPriorityItem(newPriorityItem);
             console.log(`Priority changed to ${newPriorityItem.priority}`);
         };
