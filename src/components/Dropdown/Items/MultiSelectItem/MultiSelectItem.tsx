@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-type-constraint */
 import React from 'react';
 import {
     DropdownMenuCheckboxItem,
@@ -25,6 +24,7 @@ export interface Props<PriorityItemValue> extends DropdownMenuCheckboxItemProps 
 const { block } = bem('MultiSelectItem', styles);
 
 export const MultiSelectItem = React.forwardRef(
+    /* eslint-disable-next-line @typescript-eslint/no-unnecessary-type-constraint */
     <PriorityItemValue extends unknown>(
         {
             children,
@@ -78,6 +78,6 @@ export const MultiSelectItem = React.forwardRef(
             </DropdownMenuCheckboxItem>
         );
     }
-) as <PriorityItemValue extends unknown>(
+) as <PriorityItemValue>(
     p: Props<PriorityItemValue> & { ref?: React.Ref<HTMLDivElement> }
 ) => React.ReactElement;

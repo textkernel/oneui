@@ -1,6 +1,12 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { PillButton, PillButtonEnhanced, PillDropdown, Pill } from '@textkernel/oneui';
+import {
+    PillButton,
+    PillButtonEnhanced,
+    PillDropdown,
+    Pill,
+    PriorityItemType,
+} from '@textkernel/oneui';
 
 const DummyComponent = (props) => (
     <>
@@ -92,6 +98,58 @@ export const _PillButtonEnhanced: PillButtonEnhancedStory = {
             />
         </div>
     ),
+};
+
+const priorityList: PriorityItemType<string>[] = [
+    { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+    { priority: 'important', label: 'Important', value: 'strongly_favored' },
+    { priority: 'optional', label: 'Optional', value: 'favored' },
+    { priority: 'exclude', label: 'Exclude', value: 'banned' },
+];
+
+export const _PillButtonEnhancedWithPriority: PillButtonEnhancedStory = {
+    name: 'PillButtonEnhanced with Priority selector',
+    args: {
+        name: 'Pill name',
+        content: 'value',
+        downArrowLabel: 'down arrow',
+        upArrowLabel: 'up arrow',
+        clearLabel: 'clear label',
+    },
+    render: (args) => {
+        const [prioritySelected, setPrioritySelected] = React.useState<PriorityItemType<string>>({
+            priority: 'mandatory',
+            label: 'Mandatory',
+            value: 'required',
+        });
+
+        const handlePrioritySelect = (selectedItem: PriorityItemType<string>) => {
+            console.log('new item selected: ', selectedItem);
+            setPrioritySelected(selectedItem);
+        };
+
+        return (
+            <div style={{ display: 'flex' }}>
+                <PillButtonEnhanced<string>
+                    {...args}
+                    priority={{
+                        onChange: handlePrioritySelect,
+                        selectedItem: prioritySelected,
+                        list: priorityList,
+                        buttonLabel: 'priorityButton',
+                    }}
+                />
+                &nbsp;&nbsp;
+                <PillButtonEnhanced
+                    {...args}
+                    name="Pill 2"
+                    content=""
+                    additionalContentLabel=""
+                    additionalContentTooltip=""
+                />
+            </div>
+        );
+    },
 };
 
 type PillDropdownStory = StoryObj<typeof PillDropdown>;

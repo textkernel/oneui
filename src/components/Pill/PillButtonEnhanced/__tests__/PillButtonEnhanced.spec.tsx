@@ -3,6 +3,7 @@ import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { PillButtonEnhanced } from '../PillButtonEnhanced';
+import { PriorityItemType } from '../../../PrioritySelector';
 import { ENTER_KEY } from '../../../../constants';
 
 describe('<PillButtonEnhanced> component', () => {
@@ -256,6 +257,35 @@ describe('<PillButtonEnhanced> component', () => {
 
             expect(view.container).toMatchSnapshot();
             expect(getButtonByName(/name/i)).toHaveStyle('max-width: fit-content');
+        });
+
+        it('should render correctly with priority selector', () => {
+            const priorityList: PriorityItemType<string>[] = [
+                { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+                { priority: 'important', label: 'Important', value: 'strongly_favored' },
+                { priority: 'optional', label: 'Optional', value: 'favored' },
+                { priority: 'exclude', label: 'Exclude', value: 'banned' },
+            ];
+
+            view = render(
+                <PillButtonEnhanced
+                    toggleDropdown={toggleDropdownMock}
+                    onClear={onClearMock}
+                    name={name}
+                    content={content}
+                    downArrowLabel={downArrowLabel}
+                    upArrowLabel={upArrowLabel}
+                    clearLabel={clearLabel}
+                    priority={{
+                        onChange: jest.fn(),
+                        selectedItem: priorityList[0],
+                        list: priorityList,
+                        buttonLabel: 'priorityButton',
+                    }}
+                />
+            );
+
+            expect(view.container).toMatchSnapshot();
         });
     });
 });

@@ -9,13 +9,16 @@ export interface ClassicButtonProps extends Omit<PillButtonProps, 'toggleDropdow
     variant?: 'classic';
 }
 
-export interface EnhancedButtonProps
-    extends Omit<PillButtonEnhancedProps, 'toggleDropdown' | 'children'> {
+export interface EnhancedButtonProps<PriorityItemValue>
+    extends Omit<PillButtonEnhancedProps<PriorityItemValue>, 'toggleDropdown' | 'children'> {
     /** Trigger button variant */
     variant: 'enhanced';
 }
 
-export type Props = (ClassicButtonProps | EnhancedButtonProps) & {
+export type Props<PriorityItemValue> = (
+    | ClassicButtonProps
+    | EnhancedButtonProps<PriorityItemValue>
+) & {
     /** The dropdown content renderer function. It is called with:
      *   * close {function} that closes the dropdown
      *   * innerPadding {string} that can be applied inside the component to set consistent padding
@@ -45,12 +48,13 @@ export type Props = (ClassicButtonProps | EnhancedButtonProps) & {
  * * 'children', 'noPaddingInDropdown' and 'additionalDropdownProps' are used in PillDropdown.
  * * 'ref' and 'dropdownRef' for used in PopupBase.
  */
-export const Pill: React.FC<Props> = ({
+/* eslint-disable-next-line @typescript-eslint/no-unnecessary-type-constraint */
+export const Pill = <PriorityItemValue extends unknown>({
     variant = 'classic',
     onClear,
     doneLabel,
     name,
-    ref = null,
+    ref,
     content = null,
     children,
     dropdownRef: dropdownRefFromProps,
@@ -58,7 +62,7 @@ export const Pill: React.FC<Props> = ({
     additionalDropdownProps = {},
     onClose,
     ...rest
-}) => {
+}: Props<PriorityItemValue>) => {
     const buttonRef = React.useMemo(() => ref || React.createRef<HTMLElement>(), [ref]);
     const dropdownRef = React.useMemo(
         () => dropdownRefFromProps || React.createRef<HTMLElement>(),

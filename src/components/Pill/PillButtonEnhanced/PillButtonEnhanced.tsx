@@ -5,24 +5,26 @@ import Clear from '@material-design-icons/svg/round/cancel.svg';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import { PillButtonBaseProps } from '../PillButton';
+import { PrioritySelector, PrioritySelectorProps } from '../../PrioritySelector';
 import styles from './PillButtonEnhanced.scss';
 import { Tooltip } from '../../Tooltip';
 
-export interface Props extends PillButtonBaseProps {
+export interface Props<PriorityItemValue = unknown> extends PillButtonBaseProps {
     /** Label/indicator in case of multiple selection, such as `+2` for instance */
     additionalContentLabel?: string;
     /** Tooltip content to be shown when multiple selections are shown */
     additionalContentTooltip?: React.ReactNode;
     /** Props needed for rendering optional priority selector */
-    prioritySelector?: boolean; // boolean is temporary placeholder until PrioritySelector component is finalized
+    priority?: PrioritySelectorProps<PriorityItemValue>;
     /** max width of the button (excluding 20px of the trailing button), e.g. `fit-content`. If undefined will default to 220px */
     maxWidth?: string;
 }
 
 const { block, elem } = bem('PillButtonEnhanced', styles);
 
-export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
-    (
+export const PillButtonEnhanced = React.forwardRef(
+    /* eslint-disable-next-line @typescript-eslint/no-unnecessary-type-constraint */
+    <PriorityItemValue extends unknown>(
         {
             isOpen = false,
             toggleDropdown,
@@ -32,13 +34,13 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
             downArrowLabel,
             upArrowLabel,
             clearLabel,
-            prioritySelector = false,
+            priority,
             additionalContentLabel,
             additionalContentTooltip,
             maxWidth,
             ...rest
-        },
-        ref
+        }: Props<PriorityItemValue>,
+        ref: React.Ref<HTMLElement>
     ) => {
         const isActive = !!content;
         const propsForBem = { isOpen, isActive };
@@ -87,7 +89,7 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
 
         return (
             <div ref={ref} {...rest} {...block({ ...propsForBem, ...rest })}>
-                {prioritySelector && 'priority'}
+                {priority?.list.length && <PrioritySelector {...priority} size="small" />}
                 <div
                     role="button"
                     {...elem('main')}
@@ -126,6 +128,7 @@ export const PillButtonEnhanced = React.forwardRef<HTMLElement, Props>(
             </div>
         );
     }
-);
-
-PillButtonEnhanced.displayName = 'PillButtonEnhanced';
+) as <PriorityItemValue>(
+    p: Props<PriorityItemValue> & { ref?: React.Ref<HTMLElement> }
+) => React.ReactElement;
+// See https://stackoverflow.com/questions/58469229/react-with-typescript-generics-while-using-react-forwardref solution 1

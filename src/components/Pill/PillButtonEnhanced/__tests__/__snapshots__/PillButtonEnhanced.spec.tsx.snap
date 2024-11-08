@@ -164,6 +164,66 @@ exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) sh
 </div>
 `;
 
+exports[`<PillButtonEnhanced> component with additional props should render correctly with priority selector 1`] = `
+<div>
+  <div
+    class="PillButtonEnhanced PillButtonEnhanced--isActive"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="menu"
+      aria-label="priorityButton"
+      class="Button Button--size_small Button--variant_ghost Button--context_secondary IconButton--size_small PrioritySelector__icon PrioritySelector__icon--mandatory"
+      data-state="closed"
+      id="radix-:r0:"
+      style="width: auto;"
+      type="button"
+    >
+      <svg
+        class="IconButton__icon--size_small"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+    </button>
+    <div
+      class="PillButtonEnhanced__main"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="PillButtonEnhanced__name"
+      >
+        Pill name
+      </span>
+      <span
+        class="PillButtonEnhanced__valueSeparator"
+      >
+        :
+      </span>
+      <span
+        class="PillButtonEnhanced__content"
+        title="This pill is in use"
+      >
+        This pill is in use
+      </span>
+    </div>
+    <div
+      class="PillButtonEnhanced__button"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        aria-label="clear label"
+        data-testid="default-icon"
+        height="14px"
+        viewBox="0 0 24 24"
+        width="14px"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`<PillButtonEnhanced> component with additional props should set style according to prop 1`] = `
 <div>
   <div
