@@ -36,6 +36,11 @@
         }
     }
 
+    &__priority {
+        position: relative;
+        top: -1px;
+    }
+
     &__main {
         display: flex;
         cursor: pointer;

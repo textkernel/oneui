@@ -89,7 +89,13 @@ export const PillButtonEnhanced = React.forwardRef(
 
         return (
             <div ref={ref} {...rest} {...block({ ...propsForBem, ...rest })}>
-                {priority?.list.length && <PrioritySelector {...priority} size="small" />}
+                {priority?.list.length && (
+                    <PrioritySelector
+                        {...priority}
+                        size="small"
+                        triggerClassName={`${elem('priority').className} ${priority.triggerClassName}`}
+                    />
+                )}
                 <div
                     role="button"
                     {...elem('main')}

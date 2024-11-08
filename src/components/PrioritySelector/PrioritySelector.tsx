@@ -49,6 +49,8 @@ export interface Props<PriorityItemValue>
     buttonRef?: React.RefObject<HTMLElement>;
     /** the size of the trigger button */
     size?: Size;
+    /** additional CSS class to be applied to the trigger button */
+    triggerClassName?: string;
 }
 
 const { block, elem } = bem('PrioritySelector', styles);
@@ -62,6 +64,7 @@ export function PrioritySelector<PriorityItemValue>({
     parentRef,
     buttonRef,
     size,
+    triggerClassName,
     ...rest
 }: Props<PriorityItemValue>) {
     const renderPriorityIcon = (
@@ -98,7 +101,10 @@ export function PrioritySelector<PriorityItemValue>({
         <Root {...block({ ...rest })} refElement={parentRef}>
             <DropdownTrigger>
                 <IconButton
-                    {...elem('icon', { [selectedItem.priority]: true })}
+                    {...elem('icon', {
+                        [selectedItem.priority]: true,
+                        elemClassName: triggerClassName,
+                    })}
                     variant="ghost"
                     aria-label={buttonLabel || selectedItem.label}
                     disabled={isDisabled}

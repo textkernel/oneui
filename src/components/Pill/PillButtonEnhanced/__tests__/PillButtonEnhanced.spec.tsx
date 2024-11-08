@@ -281,11 +281,15 @@ describe('<PillButtonEnhanced> component', () => {
                         selectedItem: priorityList[0],
                         list: priorityList,
                         buttonLabel: 'priorityButton',
+                        triggerClassName: 'test-class',
                     }}
                 />
             );
 
             expect(view.container).toMatchSnapshot();
+            expect(screen.getByRole('button', { name: 'priorityButton' })).toHaveClass(
+                'test-class'
+            );
         });
     });
 });
