@@ -1,29 +1,43 @@
 @use 'sass:list';
 @import '../../../themes/oneui/constants/colors';
 
-$icon-size: 16px; //Todo: check this later
+$contexts: list.join($contexts, ('info', 'neutral'));
+$variants: (subtle, bold);
 
 .StatusBadge {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    border-radius: var(--border-radius);
+    padding: var(--space-0) var(--space-75);
+    height: 20px;
     width: fit-content;
     max-width: 200px;
+    min-width: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    composes: OneUI-caption-text from global;
 
-    @each $context in list.join($contexts, ('info', 'neutral')) {
-        &--context_#{$context} {
-            background-color: var(--color-#{$context}-10);
-        }
-        &__content--context_#{ $context } {
-            color: var(--color-#{$context}-80);
-        }
+    &__icon {
+        height: 12px;
+        width: 12px;
+        padding-right: var(--space-25);
+    }
 
-        &__closeButton--context_#{ $context } {
-            color: var(--color-#{$context}-60);
-        }
-
-        &__closeButton--context_#{ $context }:hover,
-        &__closeButton--context_#{ $context }:focus {
-            color: var(--color-#{$context}-80);
+    @each $context in $contexts {
+        @each $variant in $variants {
+            &--context_#{$context}.StatusBadge--variant_#{$variant} {
+                @if $variant == bold {
+                    background-color: var(--color-#{$context}-50);
+                    color: var(--color-neutral-0);
+                    @if $context == cautious {
+                        color: var(--color-#{$context}-90);
+                    }
+                } @else {
+                    background-color: var(--color-#{$context}-20);
+                    color: var(--color-#{$context}-80);
+                }
+            }
         }
     }
 }
