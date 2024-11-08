@@ -35,9 +35,9 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
       <svg
         aria-label="clear label"
         data-testid="default-icon"
-        height="14px"
+        height="16px"
         viewBox="0 0 24 24"
-        width="14px"
+        width="16px"
       />
     </div>
   </div>
@@ -79,9 +79,9 @@ exports[`<PillButtonEnhanced> component in active, open state (content and isOpe
       <svg
         aria-label="clear label"
         data-testid="default-icon"
-        height="14px"
+        height="16px"
         viewBox="0 0 24 24"
-        width="14px"
+        width="16px"
       />
     </div>
   </div>
@@ -122,9 +122,9 @@ exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minim
       <svg
         aria-label="down arrow"
         data-testid="default-icon"
-        height="14px"
+        height="16px"
         viewBox="0 0 24 24"
-        width="14px"
+        width="16px"
       />
     </div>
   </div>
@@ -155,9 +155,9 @@ exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) sh
       <svg
         aria-label="up arrow"
         data-testid="default-icon"
-        height="14px"
+        height="16px"
         viewBox="0 0 24 24"
-        width="14px"
+        width="16px"
       />
     </div>
   </div>
@@ -215,9 +215,9 @@ exports[`<PillButtonEnhanced> component with additional props should render corr
       <svg
         aria-label="clear label"
         data-testid="default-icon"
-        height="14px"
+        height="16px"
         viewBox="0 0 24 24"
-        width="14px"
+        width="16px"
       />
     </div>
   </div>
@@ -260,9 +260,9 @@ exports[`<PillButtonEnhanced> component with additional props should set style a
       <svg
         aria-label="clear label"
         data-testid="default-icon"
-        height="14px"
+        height="16px"
         viewBox="0 0 24 24"
-        width="14px"
+        width="16px"
       />
     </div>
   </div>

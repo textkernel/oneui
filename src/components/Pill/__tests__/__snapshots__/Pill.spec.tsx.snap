@@ -156,9 +156,9 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
       <svg
         aria-label="Clear"
         data-testid="default-icon"
-        height="14px"
+        height="16px"
         viewBox="0 0 24 24"
-        width="14px"
+        width="16px"
       />
     </div>
   </div>
@@ -230,9 +230,9 @@ exports[`<Pill> component with enhanced button variant should render correctly 1
       <svg
         aria-label="Clear"
         data-testid="default-icon"
-        height="14px"
+        height="16px"
         viewBox="0 0 24 24"
-        width="14px"
+        width="16px"
       />
     </div>
   </div>

@@ -46,7 +46,7 @@ export const PillButtonEnhanced = React.forwardRef(
         const propsForBem = { isOpen, isActive };
 
         let buttonIcon = (
-            <DownArrow aria-label={downArrowLabel} viewBox="0 0 24 24" height="14px" width="14px" />
+            <DownArrow aria-label={downArrowLabel} viewBox="0 0 24 24" height="16px" width="16px" />
         );
         let handleButtonClick = (e) => {
             e.stopPropagation();
@@ -55,12 +55,12 @@ export const PillButtonEnhanced = React.forwardRef(
         };
         if (isOpen) {
             buttonIcon = (
-                <UpArrow aria-label={upArrowLabel} viewBox="0 0 24 24" height="14px" width="14px" />
+                <UpArrow aria-label={upArrowLabel} viewBox="0 0 24 24" height="16px" width="16px" />
             );
         }
         if (content) {
             buttonIcon = (
-                <Clear aria-label={clearLabel} viewBox="0 0 24 24" height="14px" width="14px" />
+                <Clear aria-label={clearLabel} viewBox="0 0 24 24" height="16px" width="16px" />
             );
             handleButtonClick = (e) => {
                 e.stopPropagation();
