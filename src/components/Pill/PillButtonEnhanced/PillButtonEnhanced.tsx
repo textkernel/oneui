@@ -45,29 +45,60 @@ export const PillButtonEnhanced = React.forwardRef(
         const isActive = !!content;
         const propsForBem = { isOpen, isActive };
 
-        let buttonIcon = (
-            <DownArrow aria-label={downArrowLabel} viewBox="0 0 24 24" height="16px" width="16px" />
-        );
-        let handleButtonClick = (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            toggleDropdown();
-        };
-        if (isOpen) {
-            buttonIcon = (
-                <UpArrow aria-label={upArrowLabel} viewBox="0 0 24 24" height="16px" width="16px" />
-            );
-        }
-        if (content) {
-            buttonIcon = (
-                <Clear aria-label={clearLabel} viewBox="0 0 24 24" height="16px" width="16px" />
-            );
-            handleButtonClick = (e) => {
-                e.stopPropagation();
-                e.preventDefault();
-                onClear();
+        const getButtonIconAndHandler = () => {
+            if (content) {
+                return {
+                    icon: (
+                        <Clear
+                            aria-label={clearLabel}
+                            viewBox="0 0 24 24"
+                            height="16px"
+                            width="16px"
+                        />
+                    ),
+                    onClick: (e: React.MouseEvent) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        onClear();
+                    },
+                };
+            }
+
+            if (isOpen) {
+                return {
+                    icon: (
+                        <UpArrow
+                            aria-label={upArrowLabel}
+                            viewBox="0 0 24 24"
+                            height="16px"
+                            width="16px"
+                        />
+                    ),
+                    onClick: (e: React.MouseEvent) => {
+                        e.stopPropagation();
+                        e.preventDefault();
+                        toggleDropdown();
+                    },
+                };
+            }
+            return {
+                icon: (
+                    <DownArrow
+                        aria-label={downArrowLabel}
+                        viewBox="0 0 24 24"
+                        height="16px"
+                        width="16px"
+                    />
+                ),
+                onClick: (e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    toggleDropdown();
+                },
             };
-        }
+        };
+
+        const { icon: buttonIcon, onClick: handleButtonClick } = getButtonIconAndHandler();
 
         const handleKeyDownOnButton = (e) => {
             if (e.key === ENTER_KEY) {
