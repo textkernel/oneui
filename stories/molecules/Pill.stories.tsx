@@ -84,6 +84,9 @@ export const _PillButtonEnhanced: PillButtonEnhancedStory = {
                 <br />a third thing
             </>
         ),
+        toggleDropdown: () => {
+            console.log('toggleDropdown was called');
+        },
     },
     render: (args) => (
         <div style={{ display: 'flex' }}>
@@ -115,6 +118,9 @@ export const _PillButtonEnhancedWithPriority: PillButtonEnhancedStory = {
         downArrowLabel: 'down arrow',
         upArrowLabel: 'up arrow',
         clearLabel: 'clear label',
+        toggleDropdown: () => {
+            console.log('toggleDropdown was called');
+        },
     },
     render: (args) => {
         const [prioritySelected, setPrioritySelected] = React.useState<PriorityItemType<string>>({
