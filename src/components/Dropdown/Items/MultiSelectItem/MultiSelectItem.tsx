@@ -35,7 +35,7 @@ export const MultiSelectItem = React.forwardRef(
             priority,
             ...rest
         }: Props<PriorityItemValue>,
-        ref: React.Ref<HTMLLIElement>
+        ref: React.Ref<HTMLDivElement>
     ) => {
         const priorityRef = React.useRef<HTMLDivElement>(null);
 
@@ -79,5 +79,5 @@ export const MultiSelectItem = React.forwardRef(
         );
     }
 ) as <PriorityItemValue extends unknown>(
-    p: Props<PriorityItemValue> & { ref?: React.Ref<HTMLElement> }
+    p: Props<PriorityItemValue> & { ref?: React.Ref<HTMLDivElement> }
 ) => React.ReactElement;

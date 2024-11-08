@@ -28,7 +28,7 @@ export const SingleSelectItem = React.forwardRef(
             priority,
             ...rest
         }: Props<PriorityItemValue>,
-        ref: React.Ref<HTMLLIElement>
+        ref: React.Ref<HTMLDivElement>
     ) => {
         const hasPriorityList = priority && priority.list.length > 0;
         const priorityRef = React.useRef<HTMLDivElement>(null);
