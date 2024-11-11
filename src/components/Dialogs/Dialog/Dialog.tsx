@@ -51,7 +51,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
         <Modal {...rest} {...block(props)} isOpen={isOpen}>
             {!!title && (
                 <div {...elem('header')} role="alert">
-                    <Heading level="h2" {...elem('title', props)}>
+                    <Heading level="h3" {...elem('title', props)}>
                         {title}
                     </Heading>
                     <button {...elem('closeButton')} type="button" onClick={onClose}>
@@ -71,11 +71,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
                         {acceptButton.label}
                     </Button>
                     {!!cancelButton && (
-                        <Button
-                            {...elem('cancel', props)}
-                            onClick={cancelButton.onClick}
-                            variant="ghost"
-                        >
+                        <Button onClick={cancelButton.onClick} variant="ghost">
                             {cancelButton.label}
                         </Button>
                     )}

@@ -85,11 +85,11 @@ exports[`Alert should render correctly with title 1`] = `
           class="Dialog__header"
           role="alert"
         >
-          <h2
-            class="Heading Heading--level_h2 Dialog__title"
+          <h3
+            class="Heading Heading--level_h3 Dialog__title"
           >
             Title
-          </h2>
+          </h3>
           <button
             class="Dialog__closeButton"
             type="button"

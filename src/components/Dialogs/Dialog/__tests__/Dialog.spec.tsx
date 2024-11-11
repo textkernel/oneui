@@ -39,7 +39,7 @@ describe('Dialog', () => {
     it('should render correctly with a title', () => {
         expect(view.baseElement).toMatchSnapshot();
         expect(screen.getByText(/Title/i)).toBeInTheDocument();
-        expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
+        expect(screen.getByRole('heading', { level: 3 })).toBeInTheDocument();
         expect(screen.getAllByRole('button')).toHaveLength(3);
     });
 

@@ -47,7 +47,7 @@ exports[`Dialog should not render either a title nor a close-button when title i
             OK
           </button>
           <button
-            class="Button Button--variant_ghost Button--context_secondary Dialog__cancel"
+            class="Button Button--variant_ghost Button--context_secondary"
             style="width: auto;"
             type="button"
           >
@@ -92,11 +92,11 @@ exports[`Dialog should render correctly with a title 1`] = `
           class="Dialog__header"
           role="alert"
         >
-          <h2
-            class="Heading Heading--level_h2 Dialog__title"
+          <h3
+            class="Heading Heading--level_h3 Dialog__title"
           >
             Title
-          </h2>
+          </h3>
           <button
             class="Dialog__closeButton"
             type="button"
@@ -136,7 +136,7 @@ exports[`Dialog should render correctly with a title 1`] = `
             OK
           </button>
           <button
-            class="Button Button--variant_ghost Button--context_secondary Dialog__cancel"
+            class="Button Button--variant_ghost Button--context_secondary"
             style="width: auto;"
             type="button"
           >
