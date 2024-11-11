@@ -28,6 +28,7 @@ describe('PrioritySelector', () => {
                 selectedItem={priorityList[0]}
                 list={priorityList}
                 onChange={onSelectMock}
+                triggerClassName="test-class"
             />
         );
     });
@@ -38,6 +39,7 @@ describe('PrioritySelector', () => {
     it('renders correctly with all props provided', () => {
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('button', { name: 'Mandatory' })).toBeInTheDocument();
+        expect(screen.getByRole('button', { name: 'Mandatory' })).toHaveClass('test-class');
     });
 
     it('should render correctly opened', async () => {

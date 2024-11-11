@@ -1,0 +1,104 @@
+.PillButtonEnhanced {
+    composes: OneUI-label-text from global;
+    display: inline-flex;
+    justify-items: start;
+
+    border: solid 1px var(--color-border-subtlest);
+    background: var(--color-background-neutral-subtlest-default, #FFF);
+    border-radius: var(--space-50);
+
+    height: var(--space-400);
+    padding: var(--space-50) var(--space-100);
+    box-sizing: border-box;
+
+    &:has(.PillButtonEnhanced__main:hover) {
+        background: var(--color-background-neutral-subtlest-hover, #E6E6E6);
+    }
+
+    &:has(.PillButtonEnhanced__main:focus-visible) {
+        box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
+    }
+
+    &--isOpen {
+        border: 2px solid var(--color-border-selected, #007AFF);
+        background: var(--color-background-neutral-subtlest-pressed, #CCC);
+
+        &.PillButtonEnhanced--isActive {
+            background: var(--color-background-selected-subtlest-pressed, #99CAFF);
+        }
+    }
+
+    &--isActive {
+        background: var(--color-background-selected-subtlest-default, #E6F2FF);
+
+        &:has(.PillButtonEnhanced__main:hover) {
+            background: var(--color-background-selected-subtlest-hover, #CCE4FF);
+        }
+    }
+
+    &__priority {
+        position: relative;
+        top: -1px;
+    }
+
+    &__main {
+        display: flex;
+        cursor: pointer;
+        max-width: 220px;
+        white-space: nowrap;
+
+        &:focus-visible {
+            outline: none;
+        }
+   }
+
+    &__name {
+        color: var(--color-text-bold, #000);
+    }
+
+    &__valueSeparator {
+        padding-left: var(--space-25);
+    }
+
+    &__content {
+        color: var(--color-text-selected-default, #004999);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: var(--space-50)
+    }
+
+    &__contentSeparator {
+        color: var(--color-text-selected-default, #004999);
+    }
+
+    &__additionalContent {
+        color: var(--color-text-selected-default, #004999);
+        margin-left: var(--space-50);
+    }
+
+    &__button {
+        padding: 2px;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        margin-left: var(--space-75);
+        background-color: transparent;
+        color: inherit;
+        cursor: pointer;
+        box-sizing: content-box;
+
+        & svg {
+            fill: var(--color-icon-subtle)
+        }
+
+        &:hover svg {
+            fill: var(--color-icon-subtlest)
+        }
+
+        &:focus-visible {
+            outline: none;
+            & svg {
+                box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
+            }
+        }
+    }
+}
