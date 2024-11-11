@@ -26,7 +26,6 @@ describe('<Pill> component', () => {
                 onClose={onCloseMock}
                 name={nameMock}
                 content={contentMock}
-                doneLabel="Done"
                 downArrowLabel={downArrowLabel}
                 upArrowLabel={upArrowLabel}
                 clearLabel={clearLabel}

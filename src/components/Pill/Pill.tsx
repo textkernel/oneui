@@ -19,8 +19,6 @@ export interface Props extends Omit<PillButtonProps, 'toggleDropdown' | 'childre
     content?: React.ReactNode;
     /** If pill is in default state, meaning it has content but cannot be reset. */
     isContentDefault?: boolean;
-    /** label for the Done button */
-    doneLabel: string;
     /** ref for pill button */
     ref?: React.RefObject<HTMLElement>;
     /** ref for pill dropdown */

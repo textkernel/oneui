@@ -4,7 +4,6 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
 <div>
   <div
     class="PillButton"
-    donelabel="Done"
   >
     <div
       class="PillButton__label PillButton__label--isActive"
@@ -70,7 +69,6 @@ exports[`<Pill> component should render correctly 1`] = `
 <div>
   <div
     class="PillButton"
-    donelabel="Done"
   >
     <div
       class="PillButton__label PillButton__label--isActive"
