@@ -4,7 +4,7 @@
     padding: {
         top: var(--space-75);
     }
-    height: 40px;
+    border-bottom: var(--line-normal) solid var(--color-border-subtle);
 
     &--isBlock {
         justify-content: space-evenly;
