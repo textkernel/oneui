@@ -1,6 +1,5 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { FiCheck } from 'react-icons/fi';
 import { Tag } from '@textkernel/oneui';
 
 const meta: Meta<typeof Tag> = {
@@ -9,9 +8,6 @@ const meta: Meta<typeof Tag> = {
     argTypes: {
         bgColor: {
             options: ['#3eff2b', '#ffa139', 'var(--color-background)'],
-        },
-        size: {
-            options: ['small', 'medium', 'large'],
         },
     },
 };
@@ -23,10 +19,14 @@ type Story = StoryObj<typeof Tag>;
 export const _Tag: Story = {
     name: 'Tag',
     args: {
-        bgColor: '#3eff2b',
         isSelected: false,
-        maxWidth: 'fit-content',
         children: 'This is an extremely long long text!',
+        onClick: () => {
+            console.log('onClick: The tag has been clicked');
+        },
+        onDelete: () => {
+            console.log('onDelete: The delete button has been clicked');
+        },
     },
     render: (args) => (
         <div
@@ -39,18 +39,35 @@ export const _Tag: Story = {
     ),
 };
 
-export const TagWithIcon: Story = {
-    name: 'Tag with icon',
+export const ReadOnlyTag: Story = {
+    name: 'ReadOnly Tag',
     args: {
-        bgColor: '#3eff2b',
-        isSelected: false,
-        maxWidth: 'fit-content',
-        children: (
-            <>
-                <FiCheck />
-                Some text
-            </>
-        ),
+        children: <>Read Only</>,
+        contentClassName: 'test-class',
+        contentStyle: {
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'var(--space-75)',
+        },
+        onDelete: undefined,
+        onClick: undefined,
+    },
+    render: (args) => (
+        <div
+            style={{
+                padding: '5px',
+            }}
+        >
+            <Tag {...args} />
+        </div>
+    ),
+};
+
+export const ColoredTag: Story = {
+    name: 'Colored Tag',
+    args: {
+        bgColor: '#0097D1',
+        children: <>Colored Tag</>,
         contentClassName: 'test-class',
         contentStyle: {
             display: 'flex',
