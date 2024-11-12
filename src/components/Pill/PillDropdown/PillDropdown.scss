@@ -19,7 +19,7 @@
     &__dialog {
         max-width: 440px;
         max-height: 440px;
-        overflow-x: auto;
+        overflow-y: scroll;
         background: var(--color-background);
         margin: var(--space-75) 0;
         border-radius: var(--border-radius);
