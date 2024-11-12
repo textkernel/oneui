@@ -34,12 +34,8 @@ export const WithAllFields: Story = {
         matchingIndicatorPercentage: 50,
         bottom: (
             <div style={{ display: 'flex', gap: '8px' }}>
-                <Tag bgColor="yellow" size="small">
-                    First
-                </Tag>
-                <Tag bgColor="lightblue" size="small">
-                    Second
-                </Tag>
+                <Tag bgColor="yellow">First</Tag>
+                <Tag bgColor="lightblue">Second</Tag>
             </div>
         ),
         disabled: true,
@@ -73,12 +69,10 @@ export const WithoutCheckbox: Story = {
         date: 'about 1 month ago',
         bottom: (
             <div style={{ display: 'flex', gap: '8px' }}>
-                <Tag bgColor="yellow" size="small" onDelete={() => console.log('Deleted')}>
+                <Tag bgColor="yellow" onDelete={() => console.log('Deleted')}>
                     First
                 </Tag>
-                <Tag bgColor="lightblue" size="small">
-                    Second
-                </Tag>
+                <Tag bgColor="lightblue">Second</Tag>
             </div>
         ),
     },
@@ -149,12 +143,10 @@ export const VariantThree: Story = {
         date: 'Today',
         bottom: (
             <div style={{ display: 'flex', gap: '8px' }}>
-                <Tag bgColor="yellow" size="small" onDelete={() => console.log('Deleted')}>
+                <Tag bgColor="yellow" onDelete={() => console.log('Deleted')}>
                     First
                 </Tag>
-                <Tag bgColor="lightblue" size="small">
-                    Second
-                </Tag>
+                <Tag bgColor="lightblue">Second</Tag>
             </div>
         ),
     },

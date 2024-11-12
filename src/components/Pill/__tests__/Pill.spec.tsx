@@ -19,70 +19,142 @@ describe('<Pill> component', () => {
     const getButtonByName = (inputName) =>
         screen.getByRole('button', { name: new RegExp(inputName) });
 
-    beforeEach(() => {
-        view = render(
-            <Pill
-                onClear={onClearMock}
-                onClose={onCloseMock}
-                name={nameMock}
-                content={contentMock}
-                downArrowLabel={downArrowLabel}
-                upArrowLabel={upArrowLabel}
-                clearLabel={clearLabel}
-            >
-                {childrenMock}
-            </Pill>
-        );
+    describe('with classic button variant', () => {
+        beforeEach(() => {
+            view = render(
+                <Pill
+                    onClear={onClearMock}
+                    onClose={onCloseMock}
+                    name={nameMock}
+                    content={contentMock}
+                    downArrowLabel={downArrowLabel}
+                    upArrowLabel={upArrowLabel}
+                    clearLabel={clearLabel}
+                >
+                    {childrenMock}
+                </Pill>
+            );
+        });
+
+        it('should render correctly', () => {
+            expect(view.container).toMatchSnapshot();
+            expect(getButtonByName(contentMock)).toBeVisible();
+            expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
+        });
+
+        it('should open dropdown when button is clicked', async () => {
+            const user = userEvent.setup();
+            await user.click(getButtonByName(contentMock));
+
+            expect(view.container).toMatchSnapshot();
+            expect(getButtonByName(contentMock)).toBeVisible();
+            expect(screen.getByRole(dialogRole)).toBeVisible();
+        });
+
+        it('should close dropdown when button is clicked again', async () => {
+            const user = userEvent.setup();
+            await user.click(getButtonByName(contentMock));
+
+            expect(screen.getByRole(dialogRole)).toBeVisible();
+
+            await user.click(getButtonByName(contentMock));
+
+            expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
+        });
+
+        it('should call onClear when button is clicked', async () => {
+            const user = userEvent.setup();
+
+            await user.click(screen.getByRole('button', { name: clearLabel }));
+            expect(onClearMock).toHaveBeenCalledTimes(1);
+        });
+
+        it('should render children when dropdown is open', async () => {
+            expect(childrenMock).not.toHaveBeenCalled();
+
+            const user = userEvent.setup();
+            await user.click(getButtonByName(contentMock));
+
+            expect(screen.getByRole(dialogRole)).toBeVisible();
+            expect(childrenMock).toHaveBeenCalledTimes(1);
+        });
+
+        it('should call onClose when dropdown is closed via pill-button click', async () => {
+            const user = userEvent.setup();
+            await user.click(getButtonByName(contentMock));
+            await user.click(getButtonByName(contentMock));
+
+            expect(onCloseMock).toHaveBeenCalledTimes(1);
+        });
     });
 
-    it('should render correctly', () => {
-        expect(view.container).toMatchSnapshot();
-        expect(getButtonByName(contentMock)).toBeVisible();
-        expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
-    });
+    describe('with enhanced button variant', () => {
+        beforeEach(() => {
+            view = render(
+                <Pill
+                    variant="enhanced"
+                    onClear={onClearMock}
+                    onClose={onCloseMock}
+                    name={nameMock}
+                    content={contentMock}
+                    downArrowLabel={downArrowLabel}
+                    upArrowLabel={upArrowLabel}
+                    clearLabel={clearLabel}
+                >
+                    {childrenMock}
+                </Pill>
+            );
+        });
 
-    it('should open dropdown when button is clicked', async () => {
-        const user = userEvent.setup();
-        await user.click(getButtonByName(contentMock));
+        it('should render correctly', () => {
+            expect(view.container).toMatchSnapshot();
+            expect(getButtonByName(contentMock)).toBeVisible();
+            expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
+        });
 
-        expect(view.container).toMatchSnapshot();
-        expect(getButtonByName(contentMock)).toBeVisible();
-        expect(screen.getByRole(dialogRole)).toBeVisible();
-    });
+        it('should open dropdown when button is clicked', async () => {
+            const user = userEvent.setup();
+            await user.click(getButtonByName(contentMock));
 
-    it('should close dropdown when button is clicked again', async () => {
-        const user = userEvent.setup();
-        await user.click(getButtonByName(contentMock));
+            expect(view.container).toMatchSnapshot();
+            expect(getButtonByName(contentMock)).toBeVisible();
+            expect(screen.getByRole(dialogRole)).toBeVisible();
+        });
 
-        expect(screen.getByRole(dialogRole)).toBeVisible();
+        it('should close dropdown when button is clicked again', async () => {
+            const user = userEvent.setup();
+            await user.click(getButtonByName(contentMock));
 
-        await user.click(getButtonByName(contentMock));
+            expect(screen.getByRole(dialogRole)).toBeVisible();
 
-        expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
-    });
+            await user.click(getButtonByName(contentMock));
 
-    it('should call onClear when button is clicked', async () => {
-        const user = userEvent.setup();
+            expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
+        });
 
-        await user.click(screen.getByRole('button', { name: clearLabel }));
-        expect(onClearMock).toHaveBeenCalledTimes(1);
-    });
+        it('should call onClear when button is clicked', async () => {
+            const user = userEvent.setup();
 
-    it('should render children when dropdown is open', async () => {
-        expect(childrenMock).not.toHaveBeenCalled();
+            await user.click(screen.getByRole('button', { name: clearLabel }));
+            expect(onClearMock).toHaveBeenCalledTimes(1);
+        });
 
-        const user = userEvent.setup();
-        await user.click(getButtonByName(contentMock));
+        it('should render children when dropdown is open', async () => {
+            expect(childrenMock).not.toHaveBeenCalled();
 
-        expect(screen.getByRole(dialogRole)).toBeVisible();
-        expect(childrenMock).toHaveBeenCalledTimes(1);
-    });
+            const user = userEvent.setup();
+            await user.click(getButtonByName(contentMock));
 
-    it('should call onClose when dropdown is closed via pill-button click', async () => {
-        const user = userEvent.setup();
-        await user.click(getButtonByName(contentMock));
-        await user.click(getButtonByName(contentMock));
+            expect(screen.getByRole(dialogRole)).toBeVisible();
+            expect(childrenMock).toHaveBeenCalledTimes(1);
+        });
 
-        expect(onCloseMock).toHaveBeenCalledTimes(1);
+        it('should call onClose when dropdown is closed via pill-button click', async () => {
+            const user = userEvent.setup();
+            await user.click(getButtonByName(contentMock));
+            await user.click(getButtonByName(contentMock));
+
+            expect(onCloseMock).toHaveBeenCalledTimes(1);
+        });
     });
 });

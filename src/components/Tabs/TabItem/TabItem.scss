@@ -2,9 +2,9 @@
     color: var(--color-text-subtle);
     cursor: pointer;
     padding: var(--space-100) var(--space-150);
+    margin-bottom: calc(var(--line-normal) * -1);
     text-decoration: none;
     text-align: center;
-    border-bottom: var(--line-normal) solid var(--color-border-subtle);
     font-weight: var(--font-weight-bold);
     outline: none;
 

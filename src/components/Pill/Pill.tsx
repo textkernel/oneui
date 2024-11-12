@@ -1,24 +1,31 @@
 import * as React from 'react';
 import { PopupBase } from '../PopupBase';
 import { PillButton, PillButtonProps } from './PillButton';
+import { PillButtonEnhanced, PillButtonEnhancedProps } from './PillButtonEnhanced';
 import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
 
-export interface Props extends Omit<PillButtonProps, 'toggleDropdown' | 'children'> {
+export interface ClassicButtonProps extends Omit<PillButtonProps, 'toggleDropdown' | 'children'> {
+    /** Trigger button variant */
+    variant?: 'classic';
+}
+
+export interface EnhancedButtonProps<PriorityItemValue>
+    extends Omit<PillButtonEnhancedProps<PriorityItemValue>, 'toggleDropdown' | 'children'> {
+    /** Trigger button variant */
+    variant: 'enhanced';
+}
+
+export type Props<PriorityItemValue> = (
+    | ClassicButtonProps
+    | EnhancedButtonProps<PriorityItemValue>
+) & {
     /** The dropdown content renderer function. It is called with:
      *   * close {function} that closes the dropdown
      *   * innerPadding {string} that can be applied inside the component to set consistent padding
      */
     children: (params: PillDropdownChildrenParams) => React.ReactNode;
-    /** a function to be called to clear the pill/filter content */
-    onClear: () => void;
     /** a function that is called when the dropdown closes via done-button-click, window-click or ESC */
     onClose?: () => void;
-    /** name describing the pill/filter */
-    name: string;
-    /** label describing the content of an active filter/pill. Note: it is rendered within a <span> */
-    content?: React.ReactNode;
-    /** If pill is in default state, meaning it has content but cannot be reset. */
-    isContentDefault?: boolean;
     /** ref for pill button */
     ref?: React.RefObject<HTMLElement>;
     /** ref for pill dropdown */
@@ -30,7 +37,7 @@ export interface Props extends Omit<PillButtonProps, 'toggleDropdown' | 'childre
     noPaddingInDropdown?: boolean;
     /** other props that need to be applied to the dropdown container */
     additionalDropdownProps?: object;
-}
+};
 
 /**
  * This component renders a PillButton and a PillDropdown, under the hood. These in turn are linked via PopupBase.
@@ -39,11 +46,12 @@ export interface Props extends Omit<PillButtonProps, 'toggleDropdown' | 'childre
  * * 'children', 'noPaddingInDropdown' and 'additionalDropdownProps' are used in PillDropdown.
  * * 'ref' and 'dropdownRef' for used in PopupBase.
  */
-export const Pill: React.FC<Props> = ({
+/* eslint-disable-next-line @typescript-eslint/no-unnecessary-type-constraint */
+export const Pill = <PriorityItemValue extends unknown>({
+    variant = 'classic',
     onClear,
-    isContentDefault = false,
     name,
-    ref = null,
+    ref,
     content = null,
     children,
     dropdownRef: dropdownRefFromProps,
@@ -51,7 +59,7 @@ export const Pill: React.FC<Props> = ({
     additionalDropdownProps = {},
     onClose,
     ...rest
-}) => {
+}: Props<PriorityItemValue>) => {
     const buttonRef = React.useMemo(() => ref || React.createRef<HTMLElement>(), [ref]);
     const dropdownRef = React.useMemo(
         () => dropdownRefFromProps || React.createRef<HTMLElement>(),
@@ -66,12 +74,20 @@ export const Pill: React.FC<Props> = ({
             setPopupVisibility(!isOpen);
         };
 
-        return (
+        return variant === 'classic' ? (
             <PillButton
                 name={name}
                 content={content}
                 isOpen={isOpen}
-                isContentDefault={isContentDefault}
+                toggleDropdown={toggleDropdown}
+                onClear={onClear}
+                {...rest}
+            />
+        ) : (
+            <PillButtonEnhanced
+                name={name}
+                content={content}
+                isOpen={isOpen}
                 toggleDropdown={toggleDropdown}
                 onClear={onClear}
                 {...rest}

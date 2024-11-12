@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Pill> component should open dropdown when button is clicked 1`] = `
+exports[`<Pill> component with classic button variant should open dropdown when button is clicked 1`] = `
 <div>
   <div
     class="PillButton"
@@ -65,7 +65,7 @@ exports[`<Pill> component should open dropdown when button is clicked 1`] = `
 </div>
 `;
 
-exports[`<Pill> component should render correctly 1`] = `
+exports[`<Pill> component with classic button variant should render correctly 1`] = `
 <div>
   <div
     class="PillButton"
@@ -105,6 +105,113 @@ exports[`<Pill> component should render correctly 1`] = `
           />
         </svg>
       </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Pill> component with enhanced button variant should open dropdown when button is clicked 1`] = `
+<div>
+  <div
+    class="PillButtonEnhanced PillButtonEnhanced--isOpen PillButtonEnhanced--isActive"
+  >
+    <div
+      class="PillButtonEnhanced__main"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="PillButtonEnhanced__name"
+      >
+        Pill name
+      </span>
+      <span
+        class="PillButtonEnhanced__valueSeparator"
+      >
+        :
+      </span>
+      <span
+        class="PillButtonEnhanced__content"
+        title="Pill content"
+      >
+        Pill content
+      </span>
+    </div>
+    <div
+      class="PillButtonEnhanced__button"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        aria-label="Clear"
+        data-testid="default-icon"
+        height="16px"
+        viewBox="0 0 24 24"
+        width="16px"
+      />
+    </div>
+  </div>
+  <div
+    class="PillDropdown"
+    data-popper-escaped=""
+    data-popper-placement="bottom-start"
+    data-popper-reference-hidden=""
+    data-popup="true"
+    role="presentation"
+    style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
+  >
+    <div
+      class="PillDropdown__dialog"
+      role="dialog"
+    >
+      <div
+        class="PillDropdown__content"
+        role="group"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Pill> component with enhanced button variant should render correctly 1`] = `
+<div>
+  <div
+    class="PillButtonEnhanced PillButtonEnhanced--isActive"
+  >
+    <div
+      class="PillButtonEnhanced__main"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="PillButtonEnhanced__name"
+      >
+        Pill name
+      </span>
+      <span
+        class="PillButtonEnhanced__valueSeparator"
+      >
+        :
+      </span>
+      <span
+        class="PillButtonEnhanced__content"
+        title="Pill content"
+      >
+        Pill content
+      </span>
+    </div>
+    <div
+      class="PillButtonEnhanced__button"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        aria-label="Clear"
+        data-testid="default-icon"
+        height="16px"
+        viewBox="0 0 24 24"
+        width="16px"
+      />
     </div>
   </div>
 </div>
