@@ -13,22 +13,21 @@ export type ButtonProps = {
     label: string;
 };
 
-export interface DialogProps extends ModalProps {
+export interface BaseDialogProps extends ModalProps {
     /** Should the alert appear */
     isOpen: boolean;
     /** The alert content */
     children: React.ReactNode;
-    /** Dialog title */
-    title?: string;
     /** Properties of the accept button */
     acceptButton?: ButtonProps;
     /** Properties of the cancel button */
     cancelButton?: ButtonProps;
     /** the context of the buttons in the footer */
     variant?: Omit<ButtonContext, 'secondary'>;
-    /** closes the dialog */
-    onClose: () => void;
 }
+
+export type DialogProps = BaseDialogProps &
+    ({ title?: string; onClose: () => void } | { title?: undefined; onClose?: never });
 
 const { block, elem } = bem('Dialog', styles);
 

@@ -17,7 +17,6 @@ describe('Alert', () => {
             <Alert
                 isOpen
                 acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
-                onClose={mockOnClose}
                 ariaHideApp={false}
                 contentLabel="Content label"
             >

@@ -49,7 +49,6 @@ describe('Dialog', () => {
                 isOpen
                 acceptButton={acceptButtonProps}
                 cancelButton={cancelButtonProps}
-                onClose={mockOnCancel}
                 ariaHideApp={false}
                 contentLabel="Content Label"
             >
@@ -100,7 +99,6 @@ describe('Dialog', () => {
         view.rerender(
             <Dialog
                 isOpen
-                onClose={mockOnCancel}
                 ariaHideApp={false}
                 contentLabel="Content Label"
                 acceptButton={acceptButtonProps}

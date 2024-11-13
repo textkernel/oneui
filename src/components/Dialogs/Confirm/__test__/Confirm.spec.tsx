@@ -16,7 +16,6 @@ describe('Confirm', () => {
                 acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
                 cancelButton={{ onClick: mockOnCancel, label: 'Cancel' }}
                 ariaHideApp={false}
-                onClose={mockOnCancel}
                 contentLabel="Content Label"
             >
                 Body of the confirm
