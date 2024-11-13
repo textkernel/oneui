@@ -62,7 +62,7 @@ $half-pill-height: math.div($pill-height, 2);
             background-color: var(--color-neutral-10);
         }
 
-        &--isOpen {
+        &[data-state="open"] {
             &:hover {
                 background-color: var(--color-neutral-10);
             }
@@ -98,7 +98,7 @@ $half-pill-height: math.div($pill-height, 2);
         box-sizing: content-box;
         transition: background-color var(--transition-duration) ease;
 
-        &--isOpen {
+        &[data-state="open"] {
             transform: rotate(180deg);
 
             &:hover {
@@ -110,7 +110,7 @@ $half-pill-height: math.div($pill-height, 2);
     &__arrowIcon {
         transform: translateY(1px);
 
-        &--isOpen {
+        &[data-state="open"] {
             transform: translateY(0px);
         }
     }

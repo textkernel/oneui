@@ -3,12 +3,9 @@ import { IoIosArrowDown, IoMdClose } from 'react-icons/io';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
+import { mergeRefs } from '@textkernel/oneui/utils/mergeRefs';
 
 export interface PillButtonBaseProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
-    /** Wether the dropdown is open or closed */
-    isOpen?: boolean;
-    /** a function to be called when dropdown should be toggled */
-    toggleDropdown: () => void;
     /** a function to be called to clear the pill/filter content */
     onClear: () => void;
     /** name describing the pill/filter */
@@ -33,9 +30,7 @@ const { block, elem } = bem('PillButton', styles);
 export const PillButton = React.forwardRef<HTMLElement, Props>(
     (
         {
-            isOpen = false,
             isContentDefault = false,
-            toggleDropdown,
             onClear,
             name,
             content = null,
@@ -46,8 +41,22 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
         },
         ref
     ) => {
+        const mainRef = React.useRef();
         const isActive = !!content;
-        const propsForBem = { isOpen, isActive };
+        const [isOpen, setIsOpen] = React.useState(false);
+
+        // TODO: something with this so it works
+        React.useEffect(() => {
+            const state =
+                (mainRef.current &&
+                    // @ts-ignore
+                    (mainRef.current as HTMLElement)?.getAttribute('data-state') === 'open') ||
+                false;
+            setIsOpen(state);
+            // @ts-ignore
+        }, [mainRef.current?.getAttribute('data-state')]);
+
+        const propsForBem = { isActive };
 
         const labelRef = React.createRef();
         const pillRef = React.createRef();
@@ -99,15 +108,16 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
               }
             : undefined;
 
-        const handleKeyDownOnPill = (e) => {
-            if (e.key === ENTER_KEY) {
-                e.preventDefault();
-                toggleDropdown();
-            }
-        };
+        // TODO: check if needed
+        // const handleKeyDownOnPill = (e) => {
+        //     if (e.key === ENTER_KEY) {
+        //         e.preventDefault();
+        //         // toggleDropdown?.();
+        //     }
+        // };
 
         return (
-            <div ref={ref} {...rest} {...block({ ...propsForBem, ...rest })}>
+            <div ref={mergeRefs([ref, mainRef])} {...rest} {...block({ ...propsForBem, ...rest })}>
                 <div ref={labelRef} {...elem('label', propsForBem)}>
                     {isActive && name}
                 </div>
@@ -115,8 +125,7 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
                     ref={pillRef}
                     {...elem('pill', propsForBem)}
                     style={pillMinWidth ? { minWidth: pillMinWidth } : undefined}
-                    onClick={toggleDropdown}
-                    onKeyDown={handleKeyDownOnPill}
+                    // onKeyDown={handleKeyDownOnPill}
                     tabIndex="0"
                     role="button"
                 >

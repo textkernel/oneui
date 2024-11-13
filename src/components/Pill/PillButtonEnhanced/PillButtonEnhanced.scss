@@ -19,7 +19,7 @@
         box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
     }
 
-    &--isOpen {
+    &[data-state="open"] {
         border: 2px solid var(--color-border-selected, #007AFF);
         background: var(--color-background-neutral-subtlest-pressed, #CCC);
 

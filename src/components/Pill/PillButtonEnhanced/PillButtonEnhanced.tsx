@@ -26,8 +26,6 @@ export const PillButtonEnhanced = React.forwardRef(
     /* eslint-disable-next-line @typescript-eslint/no-unnecessary-type-constraint */
     <PriorityItemValue extends unknown>(
         {
-            isOpen = false,
-            toggleDropdown,
             onClear,
             name,
             content = null,
@@ -43,7 +41,8 @@ export const PillButtonEnhanced = React.forwardRef(
         ref: React.Ref<HTMLElement>
     ) => {
         const isActive = !!content;
-        const propsForBem = { isOpen, isActive };
+        const propsForBem = { isActive };
+        const isOpen = false; // TODO: fixme
 
         const getButtonIconAndHandler = () => {
             if (content) {
@@ -77,7 +76,6 @@ export const PillButtonEnhanced = React.forwardRef(
                     onClick: (e: React.MouseEvent) => {
                         e.stopPropagation();
                         e.preventDefault();
-                        toggleDropdown();
                     },
                 };
             }
@@ -93,7 +91,6 @@ export const PillButtonEnhanced = React.forwardRef(
                 onClick: (e) => {
                     e.stopPropagation();
                     e.preventDefault();
-                    toggleDropdown();
                 },
             };
         };
@@ -109,7 +106,6 @@ export const PillButtonEnhanced = React.forwardRef(
         const handlePillClick = (e) => {
             e.stopPropagation();
             e.preventDefault();
-            toggleDropdown();
         };
 
         const handleKeyDownOnPill = (e) => {
