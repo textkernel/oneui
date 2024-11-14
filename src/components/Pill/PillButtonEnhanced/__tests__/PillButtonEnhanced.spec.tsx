@@ -28,7 +28,6 @@ describe('<PillButtonEnhanced> component', () => {
         beforeEach(() => {
             view = render(
                 <PillButtonEnhanced
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     downArrowLabel={downArrowLabel}
@@ -84,7 +83,6 @@ describe('<PillButtonEnhanced> component', () => {
         beforeEach(() => {
             view = render(
                 <PillButtonEnhanced
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     isOpen
@@ -138,7 +136,6 @@ describe('<PillButtonEnhanced> component', () => {
         beforeEach(() => {
             view = render(
                 <PillButtonEnhanced
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     content={content}
@@ -187,7 +184,6 @@ describe('<PillButtonEnhanced> component', () => {
         beforeEach(() => {
             view = render(
                 <PillButtonEnhanced
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     content={content}
@@ -244,7 +240,6 @@ describe('<PillButtonEnhanced> component', () => {
         it('should set style according to prop', () => {
             view = render(
                 <PillButtonEnhanced
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     content={content}
@@ -269,7 +264,6 @@ describe('<PillButtonEnhanced> component', () => {
 
             view = render(
                 <PillButtonEnhanced
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     content={content}

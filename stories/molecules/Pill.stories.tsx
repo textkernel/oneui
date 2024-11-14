@@ -42,9 +42,11 @@ type Story = StoryObj<typeof Pill>;
 export const _Pill: Story = {
     name: 'Pill',
     args: {
-        doneLabel: 'Done',
         name: 'Pill name',
         content: 'This pill is used',
+        // downArrowLabel: 'down arrow',
+        // upArrowLabel: 'up arrow',
+        clearLabel: 'clear label',
     },
     render: (args) => {
         const [prioritySelected, setPrioritySelected] = React.useState<PriorityItemType<string>>({
@@ -65,11 +67,17 @@ export const _Pill: Story = {
 
         return (
             <div style={{ position: 'relative', display: 'flex', gap: '4px' }}>
-                <Pill {...args}>{({ close }) => <DummyComponent close={close} />}</Pill>
+                <Pill  {...args} onClear={() => {console.log('onClear called')}} onClose={() => {
+                        console.log('onClose called');
+                    }}>{({ close }) => <DummyComponent close={close} />}</Pill>
+
                 <Pill
                     {...args}
                     onClose={() => {
                         console.log('onClose called');
+                    }}
+                    onClear={() => {
+                        console.log('onClear called');
                     }}
                     variant="enhanced"
                     priority={{

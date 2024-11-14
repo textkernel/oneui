@@ -6,6 +6,7 @@ import styles from './PillButton.scss';
 import { mergeRefs } from '@textkernel/oneui/utils/mergeRefs';
 
 export interface PillButtonBaseProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
+    isOpen?: boolean;
     /** a function to be called to clear the pill/filter content */
     onClear: () => void;
     /** name describing the pill/filter */
@@ -133,7 +134,7 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
                     <button
                         type="button"
                         {...elem('button', propsForBem)}
-                        onClick={buttonClick}
+                        onClick={() => {console.log('hoi')}}
                         onKeyDown={handleKeyDownOnButton}
                     >
                         {buttonIcon}

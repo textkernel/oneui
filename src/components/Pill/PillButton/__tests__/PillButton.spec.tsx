@@ -26,7 +26,6 @@ describe('<PillButton> component', () => {
         beforeEach(() => {
             view = render(
                 <PillButton
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     downArrowLabel={downArrowLabel}
@@ -77,7 +76,6 @@ describe('<PillButton> component', () => {
         beforeEach(() => {
             view = render(
                 <PillButton
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     isOpen
@@ -107,7 +105,6 @@ describe('<PillButton> component', () => {
         beforeEach(() => {
             view = render(
                 <PillButton
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     content={content}
@@ -161,7 +158,6 @@ describe('<PillButton> component', () => {
         it('should show down arrow label when isContentDefault is true', () => {
             view.rerender(
                 <PillButton
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     content={content}
@@ -182,7 +178,6 @@ describe('<PillButton> component', () => {
         beforeEach(() => {
             view = render(
                 <PillButton
-                    toggleDropdown={toggleDropdownMock}
                     onClear={onClearMock}
                     name={name}
                     content={content}

@@ -63,17 +63,18 @@ export const Pill = <PriorityItemValue extends unknown>({
     onClose,
     ...rest
 }: Props<PriorityItemValue>) => {
+    const [isOpen, setIsOpen] = React.useState<boolean>(false);
     const closeDropdown = () => {
         onClose?.();
     };
 
     return (
-        <DropdownRoot>
+        <DropdownRoot onOpenChange={(open) => {setIsOpen(open); if(!open){onClose?.()}}} modal={false}>
             <DropdownTrigger asChild>
                 {variant === 'classic' ? (
-                    <PillButton name={name} content={content} onClear={onClear} {...rest} />
+                    <PillButton name={name} content={content} onClear={onClear} isOpen={isOpen} {...rest} />
                 ) : (
-                    <PillButtonEnhanced name={name} content={content} onClear={onClear} {...rest} />
+                    <PillButtonEnhanced name={name} content={content} onClear={onClear} isOpen={isOpen} {...rest} />
                 )}
             </DropdownTrigger>
             <DropdownPortal>

@@ -1,85 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Pill> component with classic button variant should open dropdown when button is clicked 1`] = `
+exports[`<Pill> component with classic button variant should call onClose when dropdown is closed via pill-button click 1`] = `
 <div>
   <div
+    aria-expanded="false"
+    aria-haspopup="menu"
     class="PillButton"
-  >
-    <div
-      class="PillButton__label PillButton__label--isActive"
-    >
-      Pill name
-    </div>
-    <div
-      class="PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive"
-      role="button"
-      tabindex="0"
-    >
-      <span
-        class="PillButton__pillLabel"
-      >
-        Pill content
-      </span>
-      <button
-        class="PillButton__button PillButton__button--isOpen"
-        type="button"
-      >
-        <svg
-          aria-label="Close"
-          class="PillButton__arrowIcon PillButton__arrowIcon--isOpen"
-          fill="currentColor"
-          height="1em"
-          role="img"
-          stroke="currentColor"
-          stroke-width="0"
-          viewBox="0 0 512 512"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
-  <div
-    class="PillDropdown"
-    data-popper-escaped=""
-    data-popper-placement="bottom-start"
-    data-popper-reference-hidden=""
-    data-popup="true"
-    role="presentation"
-    style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
-  >
-    <div
-      class="PillDropdown__dialog"
-      role="dialog"
-    >
-      <div
-        class="PillDropdown__content"
-        role="group"
-      />
-      <div
-        class="PillDropdown__footer"
-      >
-        <button
-          class="Button Button--size_small Button--variant_filled Button--context_primary"
-          style="width: auto;"
-          type="button"
-        >
-          Done
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`<Pill> component with classic button variant should render correctly 1`] = `
-<div>
-  <div
-    class="PillButton"
+    data-state="closed"
+    id="radix-:ra:"
+    type="button"
   >
     <div
       class="PillButton__label PillButton__label--isActive"
@@ -121,10 +50,117 @@ exports[`<Pill> component with classic button variant should render correctly 1`
 </div>
 `;
 
-exports[`<Pill> component with enhanced button variant should open dropdown when button is clicked 1`] = `
+exports[`<Pill> component with classic button variant should open dropdown when button is clicked 1`] = `
 <div>
   <div
-    class="PillButtonEnhanced PillButtonEnhanced--isOpen PillButtonEnhanced--isActive"
+    aria-controls="radix-:r3:"
+    aria-expanded="true"
+    aria-haspopup="menu"
+    class="PillButton"
+    data-state="open"
+    id="radix-:r2:"
+    type="button"
+  >
+    <div
+      class="PillButton__label PillButton__label--isActive"
+    >
+      Pill name
+    </div>
+    <div
+      class="PillButton__pill PillButton__pill--isActive PillButton__pill--isOpen"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="PillButton__pillLabel"
+      >
+        Pill content
+      </span>
+      <button
+        class="PillButton__button PillButton__button--isOpen"
+        type="button"
+      >
+        <svg
+          aria-label="Close"
+          class="PillButton__arrowIcon"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M256 294.1L383 167c9.4-9.4 24.6-9.4 33.9 0s9.3 24.6 0 34L273 345c-9.1 9.1-23.7 9.3-33.1.7L95 201.1c-4.7-4.7-7-10.9-7-17s2.3-12.3 7-17c9.4-9.4 24.6-9.4 33.9 0l127.1 127z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Pill> component with classic button variant should render correctly 1`] = `
+<div>
+  <div
+    aria-expanded="false"
+    aria-haspopup="menu"
+    class="PillButton"
+    data-state="closed"
+    id="radix-:r0:"
+    type="button"
+  >
+    <div
+      class="PillButton__label PillButton__label--isActive"
+    >
+      Pill name
+    </div>
+    <div
+      class="PillButton__pill PillButton__pill--isActive"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        class="PillButton__pillLabel"
+      >
+        Pill content
+      </span>
+      <button
+        class="PillButton__button"
+        type="button"
+      >
+        <svg
+          aria-label="Clear"
+          fill="currentColor"
+          height="1em"
+          role="img"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<Pill> component with enhanced button variant should call onClear when button is clicked 1`] = `
+<div>
+  <div
+    aria-expanded="false"
+    aria-haspopup="menu"
+    class="PillButtonEnhanced PillButtonEnhanced--isActive"
+    data-state="closed"
+    id="radix-:rk:"
+    type="button"
   >
     <div
       class="PillButtonEnhanced__main"
@@ -162,34 +198,54 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
       />
     </div>
   </div>
+</div>
+`;
+
+exports[`<Pill> component with enhanced button variant should open dropdown when button is clicked 1`] = `
+<div>
   <div
-    class="PillDropdown"
-    data-popper-escaped=""
-    data-popper-placement="bottom-start"
-    data-popper-reference-hidden=""
-    data-popup="true"
-    role="presentation"
-    style="position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
+    aria-controls="radix-:rh:"
+    aria-expanded="true"
+    aria-haspopup="menu"
+    class="PillButtonEnhanced PillButtonEnhanced--isActive"
+    data-state="open"
+    id="radix-:rg:"
+    type="button"
   >
     <div
-      class="PillDropdown__dialog"
-      role="dialog"
+      class="PillButtonEnhanced__main"
+      role="button"
+      tabindex="0"
     >
-      <div
-        class="PillDropdown__content"
-        role="group"
-      />
-      <div
-        class="PillDropdown__footer"
+      <span
+        class="PillButtonEnhanced__name"
       >
-        <button
-          class="Button Button--size_small Button--variant_filled Button--context_primary"
-          style="width: auto;"
-          type="button"
-        >
-          Done
-        </button>
-      </div>
+        Pill name
+      </span>
+      <span
+        class="PillButtonEnhanced__valueSeparator"
+      >
+        :
+      </span>
+      <span
+        class="PillButtonEnhanced__content"
+        title="Pill content"
+      >
+        Pill content
+      </span>
+    </div>
+    <div
+      class="PillButtonEnhanced__button"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        aria-label="Clear"
+        data-testid="default-icon"
+        height="16px"
+        viewBox="0 0 24 24"
+        width="16px"
+      />
     </div>
   </div>
 </div>
@@ -198,7 +254,12 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
 exports[`<Pill> component with enhanced button variant should render correctly 1`] = `
 <div>
   <div
+    aria-expanded="false"
+    aria-haspopup="menu"
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
+    data-state="closed"
+    id="radix-:re:"
+    type="button"
   >
     <div
       class="PillButtonEnhanced__main"

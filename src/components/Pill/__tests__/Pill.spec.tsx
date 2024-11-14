@@ -82,6 +82,7 @@ describe('<Pill> component', () => {
 
         it('should call onClose when dropdown is closed via pill-button click', async () => {
             const user = userEvent.setup();
+            expect(view.container).toMatchSnapshot();
             await user.click(getButtonByName(contentMock));
             await user.click(getButtonByName(contentMock));
 
@@ -145,6 +146,7 @@ describe('<Pill> component', () => {
         it('should call onClear when button is clicked', async () => {
             const user = userEvent.setup();
 
+            expect(view.container).toMatchSnapshot();
             await user.click(screen.getByRole('button', { name: clearLabel }));
             expect(onClearMock).toHaveBeenCalledTimes(1);
         });

@@ -47,7 +47,7 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
 exports[`<PillButtonEnhanced> component in active, open state (content and isOpen prop) should render correctly 1`] = `
 <div>
   <div
-    class="PillButtonEnhanced PillButtonEnhanced--isOpen PillButtonEnhanced--isActive"
+    class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <div
       class="PillButtonEnhanced__main"
@@ -134,7 +134,7 @@ exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minim
 exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) should render correctly 1`] = `
 <div>
   <div
-    class="PillButtonEnhanced PillButtonEnhanced--isOpen"
+    class="PillButtonEnhanced"
   >
     <div
       class="PillButtonEnhanced__main"
