@@ -13,7 +13,6 @@ describe('<Tag> component', () => {
     const text = 'Tag text';
     const bgColor = '#ccc';
     const maxWidth = '30px';
-    const textSize = 'large';
     const closeLabel = 'close label';
 
     it('should render correctly with minimum amount of props', () => {
@@ -29,7 +28,6 @@ describe('<Tag> component', () => {
                 isSelected
                 bgColor={bgColor}
                 maxWidth={maxWidth}
-                size={textSize}
                 onClick={onTagClick}
                 onDelete={onDeleteClick}
                 contentClassName="my-class"
@@ -43,10 +41,7 @@ describe('<Tag> component', () => {
 
         expect(view.container).toMatchSnapshot();
         expect(button).toBeInTheDocument();
-        expect(button).toHaveAttribute(
-            'style',
-            'background-color: rgb(204, 204, 204); max-width: 30px;'
-        );
+        expect(button).toHaveAttribute('style', '--bg-color: #ccc; max-width: 30px;');
     });
 
     it('should invoke callback when onClick event is called', async () => {
