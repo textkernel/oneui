@@ -42,10 +42,11 @@ type Story = StoryObj<typeof Pill>;
 export const _Pill: Story = {
     name: 'Pill',
     args: {
+        doneLabel: 'Done',
         name: 'Pill name',
         content: 'This pill is used',
-        // downArrowLabel: 'down arrow',
-        // upArrowLabel: 'up arrow',
+        downArrowLabel: 'down arrow',
+        upArrowLabel: 'up arrow',
         clearLabel: 'clear label',
     },
     render: (args) => {
@@ -67,10 +68,17 @@ export const _Pill: Story = {
 
         return (
             <div style={{ position: 'relative', display: 'flex', gap: '4px' }}>
-                <Pill  {...args} onClear={() => {console.log('onClear called')}} onClose={() => {
+                <Pill
+                    {...args}
+                    onClear={() => {
+                        console.log('onClear called');
+                    }}
+                    onClose={() => {
                         console.log('onClose called');
-                    }}>{({ close }) => <DummyComponent close={close} />}</Pill>
-
+                    }}
+                >
+                    {({ close }) => <DummyComponent close={close} />}
+                </Pill>
                 <Pill
                     {...args}
                     onClose={() => {
@@ -102,7 +110,7 @@ export const _Pill: Story = {
                                     <SingleSelectItem
                                         key={option}
                                         onClick={() => handleOptionChange(option)}
-                                        isSelected={'Java' === option}
+                                        isSelected={option === 'Java'}
                                     >
                                         {option}
                                     </SingleSelectItem>

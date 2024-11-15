@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { IoIosArrowDown, IoMdClose } from 'react-icons/io';
-import { bem } from '../../../utils';
+import { bem, mergeRefs } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
-import { mergeRefs } from '@textkernel/oneui/utils/mergeRefs';
 
 export interface PillButtonBaseProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
+    /** Wether the dropdown is open or closed */
     isOpen?: boolean;
     /** a function to be called to clear the pill/filter content */
     onClear: () => void;
@@ -31,6 +31,7 @@ const { block, elem } = bem('PillButton', styles);
 export const PillButton = React.forwardRef<HTMLElement, Props>(
     (
         {
+            isOpen = false,
             isContentDefault = false,
             onClear,
             name,
@@ -44,20 +45,7 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
     ) => {
         const mainRef = React.useRef();
         const isActive = !!content;
-        const [isOpen, setIsOpen] = React.useState(false);
-
-        // TODO: something with this so it works
-        React.useEffect(() => {
-            const state =
-                (mainRef.current &&
-                    // @ts-ignore
-                    (mainRef.current as HTMLElement)?.getAttribute('data-state') === 'open') ||
-                false;
-            setIsOpen(state);
-            // @ts-ignore
-        }, [mainRef.current?.getAttribute('data-state')]);
-
-        const propsForBem = { isActive };
+        const propsForBem = { isOpen, isActive };
 
         const labelRef = React.createRef();
         const pillRef = React.createRef();
@@ -134,7 +122,7 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
                     <button
                         type="button"
                         {...elem('button', propsForBem)}
-                        onClick={() => {console.log('hoi')}}
+                        onClick={buttonClick}
                         onKeyDown={handleKeyDownOnButton}
                     >
                         {buttonIcon}

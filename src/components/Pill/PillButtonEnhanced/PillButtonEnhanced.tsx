@@ -26,7 +26,7 @@ export const PillButtonEnhanced = React.forwardRef(
     /* eslint-disable-next-line @typescript-eslint/no-unnecessary-type-constraint */
     <PriorityItemValue extends unknown>(
         {
-            isOpen,
+            isOpen = false,
             onClear,
             name,
             content = null,
@@ -42,7 +42,7 @@ export const PillButtonEnhanced = React.forwardRef(
         ref: React.Ref<HTMLElement>
     ) => {
         const isActive = !!content;
-        const propsForBem = { isActive };
+        const propsForBem = { isOpen, isActive };
 
         const getButtonIconAndHandler = () => {
             if (content) {
