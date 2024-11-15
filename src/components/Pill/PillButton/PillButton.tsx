@@ -3,6 +3,7 @@ import { IoIosArrowDown, IoMdClose } from 'react-icons/io';
 import { bem, mergeRefs } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
+import { DropdownTrigger } from '../../Dropdown';
 
 export interface PillButtonBaseProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
     /** Wether the dropdown is open or closed */
@@ -97,37 +98,52 @@ export const PillButton = React.forwardRef<HTMLElement, Props>(
               }
             : undefined;
 
-        // TODO: check if needed
-        // const handleKeyDownOnPill = (e) => {
-        //     if (e.key === ENTER_KEY) {
-        //         e.preventDefault();
-        //         // toggleDropdown?.();
-        //     }
-        // };
-
         return (
             <div ref={mergeRefs([ref, mainRef])} {...rest} {...block({ ...propsForBem, ...rest })}>
                 <div ref={labelRef} {...elem('label', propsForBem)}>
                     {isActive && name}
                 </div>
-                <div
-                    ref={pillRef}
-                    {...elem('pill', propsForBem)}
-                    style={pillMinWidth ? { minWidth: pillMinWidth } : undefined}
-                    // onKeyDown={handleKeyDownOnPill}
-                    tabIndex="0"
-                    role="button"
-                >
-                    <span {...elem('pillLabel', propsForBem)}>{content || name}</span>
-                    <button
-                        type="button"
-                        {...elem('button', propsForBem)}
-                        onClick={buttonClick}
-                        onKeyDown={handleKeyDownOnButton}
+                {isButtonClickable ? (
+                    <div
+                        ref={pillRef}
+                        {...elem('pill', propsForBem)}
+                        style={pillMinWidth ? { minWidth: pillMinWidth } : undefined}
                     >
-                        {buttonIcon}
-                    </button>
-                </div>
+                        <DropdownTrigger>
+                            <span tabIndex="0" role="button" {...elem('pillLabel', propsForBem)}>
+                                {content || name}
+                            </span>
+                        </DropdownTrigger>
+                        <button
+                            type="button"
+                            {...elem('button', propsForBem)}
+                            onClick={buttonClick}
+                            onKeyDown={handleKeyDownOnButton}
+                        >
+                            {buttonIcon}
+                        </button>
+                    </div>
+                ) : (
+                    <DropdownTrigger>
+                        <div
+                            ref={pillRef}
+                            {...elem('pill', propsForBem)}
+                            style={pillMinWidth ? { minWidth: pillMinWidth } : undefined}
+                            tabIndex="0"
+                            role="button"
+                        >
+                            <span {...elem('pillLabel', propsForBem)}>{content || name}</span>
+                            <button
+                                type="button"
+                                {...elem('button', propsForBem)}
+                                onClick={buttonClick}
+                                onKeyDown={handleKeyDownOnButton}
+                            >
+                                {buttonIcon}
+                            </button>
+                        </div>
+                    </DropdownTrigger>
+                )}
             </div>
         );
     }

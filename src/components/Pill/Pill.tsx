@@ -2,7 +2,7 @@ import * as React from 'react';
 import { PillButton, PillButtonProps } from './PillButton';
 import { PillButtonEnhanced, PillButtonEnhancedProps } from './PillButtonEnhanced';
 import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
-import { DropdownContent, DropdownPortal, DropdownRoot, DropdownTrigger } from '../Dropdown';
+import { DropdownContent, DropdownPortal, DropdownRoot } from '../Dropdown';
 
 export interface ClassicButtonProps extends Omit<PillButtonProps, 'toggleDropdown' | 'children'> {
     /** Trigger button variant */
@@ -78,25 +78,23 @@ export const Pill = <PriorityItemValue extends unknown>({
 
     return (
         <DropdownRoot onOpenChange={handleOpenStateChange} modal={false}>
-            <DropdownTrigger asChild>
-                {variant === 'classic' ? (
-                    <PillButton
-                        name={name}
-                        content={content}
-                        onClear={onClear}
-                        isOpen={isOpen}
-                        {...rest}
-                    />
-                ) : (
-                    <PillButtonEnhanced
-                        name={name}
-                        content={content}
-                        onClear={onClear}
-                        isOpen={isOpen}
-                        {...rest}
-                    />
-                )}
-            </DropdownTrigger>
+            {variant === 'classic' ? (
+                <PillButton
+                    name={name}
+                    content={content}
+                    onClear={onClear}
+                    isOpen={isOpen}
+                    {...rest}
+                />
+            ) : (
+                <PillButtonEnhanced
+                    name={name}
+                    content={content}
+                    onClear={onClear}
+                    isOpen={isOpen}
+                    {...rest}
+                />
+            )}
             <DropdownPortal>
                 <DropdownContent asChild>
                     <PillDropdown

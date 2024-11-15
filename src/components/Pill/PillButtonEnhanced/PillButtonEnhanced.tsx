@@ -5,6 +5,7 @@ import Clear from '@material-design-icons/svg/round/cancel.svg';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import { PillButtonBaseProps } from '../PillButton';
+import { DropdownTrigger } from '../../Dropdown';
 import { PrioritySelector, PrioritySelectorProps } from '../../PrioritySelector';
 import styles from './PillButtonEnhanced.scss';
 import { Tooltip } from '../../Tooltip';
@@ -123,32 +124,36 @@ export const PillButtonEnhanced = React.forwardRef(
                         triggerClassName={`${elem('priority').className} ${priority.triggerClassName}`}
                     />
                 )}
-                <div
-                    role="button"
-                    {...elem('main')}
-                    onClick={handlePillClick}
-                    onKeyDown={handleKeyDownOnPill}
-                    tabIndex={0}
-                    style={{ maxWidth }}
-                >
-                    <span {...elem('name')}>{name}</span>
-                    {!!content && (
-                        <>
-                            <span {...elem('valueSeparator')}>:</span>
-                            <span {...elem('content')} title={content}>
-                                {content}
-                            </span>
-                        </>
-                    )}
-                    {additionalContentLabel && (
-                        <>
-                            <span {...elem('contentSeparator')}>,</span>
-                            <Tooltip content={additionalContentTooltip}>
-                                <span {...elem('additionalContent')}>{additionalContentLabel}</span>
-                            </Tooltip>
-                        </>
-                    )}
-                </div>
+                <DropdownTrigger>
+                    <div
+                        role="button"
+                        {...elem('main')}
+                        onClick={handlePillClick}
+                        onKeyDown={handleKeyDownOnPill}
+                        tabIndex={0}
+                        style={{ maxWidth }}
+                    >
+                        <span {...elem('name')}>{name}</span>
+                        {!!content && (
+                            <>
+                                <span {...elem('valueSeparator')}>:</span>
+                                <span {...elem('content')} title={content}>
+                                    {content}
+                                </span>
+                            </>
+                        )}
+                        {additionalContentLabel && (
+                            <>
+                                <span {...elem('contentSeparator')}>,</span>
+                                <Tooltip content={additionalContentTooltip}>
+                                    <span {...elem('additionalContent')}>
+                                        {additionalContentLabel}
+                                    </span>
+                                </Tooltip>
+                            </>
+                        )}
+                    </div>
+                </DropdownTrigger>
                 <div
                     role="button"
                     {...elem('button')}
