@@ -4,11 +4,9 @@ import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import styles from './PillButton.scss';
 
-export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
+export interface PillButtonBaseProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'content'> {
     /** Wether the dropdown is open or closed */
     isOpen?: boolean;
-    /** If pill is in default state, meaning it has content but cannot be reset. */
-    isContentDefault?: boolean;
     /** a function to be called when dropdown should be toggled */
     toggleDropdown: () => void;
     /** a function to be called to clear the pill/filter content */
@@ -23,6 +21,11 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'conte
     upArrowLabel?: string;
     /** Clear label name for ARIA labelling, it is used when needs to clear data from component */
     clearLabel?: string;
+}
+
+export interface Props extends PillButtonBaseProps {
+    /** If pill is in default state, meaning it has content but cannot be reset. */
+    isContentDefault?: boolean;
 }
 
 const { block, elem } = bem('PillButton', styles);

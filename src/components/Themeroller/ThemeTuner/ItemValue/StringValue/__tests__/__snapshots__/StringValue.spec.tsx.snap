@@ -2,12 +2,19 @@
 
 exports[`StringValue component should render component correctly 1`] = `
 <div>
-  <input
-    class="Input Input--size_small"
-    data-lpignore="true"
-    id=":r0:"
-    type="text"
-    value="flex"
-  />
+  <div>
+    <div
+      class="Input__inputContainer Input__inputContainer--size_small"
+      data-testid="inputContainer"
+    >
+      <input
+        class="Input__input Input__input--size_small"
+        data-lpignore="true"
+        id=":r0:"
+        type="text"
+        value="flex"
+      />
+    </div>
+  </div>
 </div>
 `;

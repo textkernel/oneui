@@ -1,13 +1,9 @@
-.Dropdown {
-    &__list {
-        background-color: var(--color-background);
-        border-radius: var(--border-radius);
-        border: var(--color-neutral-30) 1px solid;
-        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
-        z-index: 400;
-
-        .ListItem:hover:not(.ListItem--disabled) {
-            background-color: var(--color-neutral-10);
-        }
-    }
+.DropdownContent,
+.DropdownSubContent {
+    max-width: 400px;
+    border-radius: var(--radius-8, 8px);
+    border: 1px solid var(--color-border-subtlest, #e6e6e6);
+    background: var(--color-background-neutral-subtlest-default, #fff);
+    box-shadow: var(--space-0) var(--space-25) var(--space-125) var(--space-0)
+        var(--color-transparent-10020, rgba(0, 0, 0, 0.2));
 }

@@ -1,24 +1,33 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { MultiSelectItem, Text } from '@textkernel/oneui';
+import {
+    MultiSelectItem,
+    DropdownRoot,
+    DropdownTrigger,
+    DropdownContent,
+    Button,
+    Text,
+    PriorityItemType,
+} from '@textkernel/oneui';
 
 export default {
-    title: 'Atoms/List/MultiSelectItem',
+    title: 'Atoms/Dropdown/MultiSelectItem',
     component: MultiSelectItem,
 } as Meta<typeof MultiSelectItem>;
 
 type StoryMultiSelectItem = StoryObj<typeof MultiSelectItem>;
 
 export const _MultiSelectItem: StoryMultiSelectItem = {
-    name: 'MultiSelectItem',
+    name: 'MultiSelectItem with checkbox',
     args: {
         disabled: false,
     },
     render: (args) => {
         const [isSelected, setIsSelected] = React.useState(false);
-        const handleChange = () => {
+
+        const handleOnCheckedChange = () => {
             setIsSelected(!isSelected);
-            console.log('MultiSelectItem has been clicked');
+            console.log('onCheckedChange: MultiSelectItem has been clicked');
         };
 
         return (
@@ -26,17 +35,78 @@ export const _MultiSelectItem: StoryMultiSelectItem = {
                 <Text>
                     Note: this is a controlled component. You have to set `isSelected` prop yourself
                 </Text>
-                <ul
-                    style={{
-                        padding: 0,
-                        listStyleType: 'none',
-                        width: '200px',
-                    }}
-                >
-                    <MultiSelectItem {...args} isSelected={isSelected} onChange={handleChange}>
-                        Item with checkbox
-                    </MultiSelectItem>
-                </ul>
+                <DropdownRoot>
+                    <DropdownTrigger>
+                        <Button>Click here</Button>
+                    </DropdownTrigger>
+                    <DropdownContent>
+                        <MultiSelectItem
+                            {...args}
+                            isSelected={isSelected}
+                            onCheckedChange={handleOnCheckedChange}
+                        >
+                            Item with checkbox
+                        </MultiSelectItem>
+                    </DropdownContent>
+                </DropdownRoot>
+            </>
+        );
+    },
+};
+
+const priorityList: PriorityItemType<string>[] = [
+    { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+    { priority: 'important', label: 'Important', value: 'strongly_favored' },
+    { priority: 'optional', label: 'Optional', value: 'favored' },
+    { priority: 'exclude', label: 'Exclude', value: 'banned' },
+];
+
+export const _MultiSelectItemPriority: StoryMultiSelectItem = {
+    name: 'MultiSelectItem with checkbox and priority selector',
+    args: {
+        disabled: false,
+    },
+    render: (args) => {
+        const [isSelected, setIsSelected] = React.useState(false);
+        const [prioritySelected, setPrioritySelected] = React.useState<PriorityItemType<string>>({
+            priority: 'mandatory',
+            label: 'Mandatory',
+            value: 'required',
+        });
+        const handleChange = () => {
+            setIsSelected(!isSelected);
+            console.log('MultiSelectItem has been clicked');
+        };
+        const handlePrioritySelect = (selectedItem: PriorityItemType<string>) => {
+            console.log('new item selected: ', selectedItem);
+            setPrioritySelected(selectedItem);
+        };
+
+        return (
+            <>
+                <Text>
+                    Note: this is a controlled component. You have to set `isSelected` prop yourself
+                </Text>
+                <DropdownRoot>
+                    <DropdownTrigger>
+                        <Button>Click here</Button>
+                    </DropdownTrigger>
+                    <DropdownContent>
+                        <MultiSelectItem
+                            {...args}
+                            isSelected={isSelected}
+                            onCheckedChange={handleChange}
+                            priority={{
+                                onChange: handlePrioritySelect,
+                                selectedItem: prioritySelected,
+                                list: priorityList,
+                                buttonLabel: 'priorityButton',
+                            }}
+                        >
+                            Item with checkbox
+                        </MultiSelectItem>
+                    </DropdownContent>
+                </DropdownRoot>
             </>
         );
     },

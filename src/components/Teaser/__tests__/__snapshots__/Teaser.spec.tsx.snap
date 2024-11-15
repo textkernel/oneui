@@ -1,44 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Teaser should render correctly in disabled mode 1`] = `
+exports[`Teaser should render checkbox not checked 1`] = `
 <div>
   <div
     class="Teaser"
   >
     <div
-      class="Teaser__line"
+      class="Checkbox"
     >
-      <span
-        class="Text--context_neutral Teaser__title"
-        title="A job title"
+      <input
+        class="Checkbox__input"
+        id=":r2:"
+        type="checkbox"
+      />
+      <label
+        class="Checkbox__label"
+        for=":r2:"
       >
-        A job title
-      </span>
-      <span
-        class="Text--context_neutral Teaser__location"
-      >
-        location
-      </span>
+        <span
+          class="Checkbox__box"
+        >
+          <svg
+            class="Checkbox__svg"
+            height="8px"
+            role="img"
+            viewBox="0 0 12 9"
+            width="12px"
+          />
+        </span>
+      </label>
     </div>
     <div
-      class="Teaser__line"
+      class="Teaser__column"
     >
-      <span
-        class="Text--context_neutral Teaser__subTitle"
-        title="Organization"
+      <div
+        class="Teaser__row Teaser__titleRow"
       >
-        Organization
-      </span>
-    </div>
-    <div
-      class="Teaser__line"
-    >
-      <span
-        class="Text--context_neutral Teaser__details"
-        title="details about this job"
-      >
-        details about this job
-      </span>
+        <div
+          class="Teaser__row"
+        >
+          <span
+            class="Teaser__title Teaser__lineClamp"
+            title="some title"
+          >
+            some title
+          </span>
+        </div>
+        <div
+          class="Teaser__row"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -50,21 +61,116 @@ exports[`Teaser should render correctly with just a title 1`] = `
     class="Teaser"
   >
     <div
-      class="Teaser__line"
+      class="Teaser__column"
     >
-      <span
-        class="Teaser__title"
-        title="some title"
+      <div
+        class="Teaser__row Teaser__titleRow"
       >
-        some title
-      </span>
+        <div
+          class="Teaser__row"
+        >
+          <span
+            class="Teaser__title Teaser__lineClamp"
+            title="some title"
+          >
+            some title
+          </span>
+        </div>
+        <div
+          class="Teaser__row"
+        />
+      </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`Teaser should render source info row with icon and link 1`] = `
+<div>
+  <div
+    class="Teaser"
+  >
     <div
-      class="Teaser__line"
-    />
+      class="Teaser__column"
+    >
+      <div
+        class="Teaser__row Teaser__titleRow"
+      >
+        <div
+          class="Teaser__row"
+        >
+          <span
+            class="Teaser__title Teaser__lineClamp"
+            title="some title"
+          >
+            some title
+          </span>
+        </div>
+        <div
+          class="Teaser__row"
+        />
+      </div>
+      <a
+        class="Link Teaser__link"
+        href="https://textkernel.nl"
+      >
+        <div
+          class="Teaser__row Teaser__sourceContainer"
+        >
+          <svg
+            aria-label="plane"
+            class="Teaser__sourceIcon"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 576 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M480 192H365.71L260.61 8.06A16.014 16.014 0 0 0 246.71 0h-65.5c-10.63 0-18.3 10.17-15.38 20.39L214.86 192H112l-43.2-57.6c-3.02-4.03-7.77-6.4-12.8-6.4H16.01C5.6 128-2.04 137.78.49 147.88L32 256 .49 364.12C-2.04 374.22 5.6 384 16.01 384H56c5.04 0 9.78-2.37 12.8-6.4L112 320h102.86l-49.03 171.6c-2.92 10.22 4.75 20.4 15.38 20.4h65.5c5.74 0 11.04-3.08 13.89-8.06L365.71 320H480c35.35 0 96-28.65 96-64s-60.65-64-96-64z"
+            />
+          </svg>
+          <span
+            class="Teaser__caption"
+            title="Link"
+          >
+            Link
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Teaser should render the disabled component 1`] = `
+<div>
+  <div
+    class="Teaser"
+  >
     <div
-      class="Teaser__line"
-    />
+      class="Teaser__column"
+    >
+      <div
+        class="Teaser__row Teaser__titleRow"
+      >
+        <div
+          class="Teaser__row"
+        >
+          <span
+            class="Teaser__title Teaser__title--disabled Teaser__lineClamp"
+            title="some title"
+          >
+            some title
+          </span>
+        </div>
+        <div
+          class="Teaser__row"
+        />
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -75,59 +181,170 @@ exports[`Teaser should render with all props defined 1`] = `
     class="Teaser"
   >
     <div
-      class="Teaser__line"
+      class="Checkbox"
     >
-      <span
-        class="Teaser__title"
-        title="A job title"
+      <input
+        checked=""
+        class="Checkbox__input"
+        id=":r1:"
+        type="checkbox"
+      />
+      <label
+        class="Checkbox__label"
+        for=":r1:"
       >
-        A job title
-      </span>
-      <span
-        class="Text--context_neutral Teaser__location"
-      >
-        location
-      </span>
+        <span
+          class="Checkbox__box"
+        >
+          <svg
+            class="Checkbox__svg"
+            height="8px"
+            role="img"
+            viewBox="0 0 12 9"
+            width="12px"
+          >
+            <polyline
+              points="1.5 5 4 8 10.5 2"
+            />
+          </svg>
+        </span>
+      </label>
     </div>
     <div
-      class="Teaser__line"
+      class="Teaser__column"
     >
+      <div
+        class="Teaser__row Teaser__titleRow"
+      >
+        <div
+          class="Teaser__row"
+        >
+          <span
+            class="Teaser__title Teaser__lineClamp"
+            title="A job title"
+          >
+            A job title
+          </span>
+          <div
+            class="Teaser__matchingIndicator"
+          >
+            <svg
+              aria-label="Matching indicator"
+              class="MatchingIndicator"
+            >
+              <circle
+                cx="50%"
+                cy="50%"
+                fill="none"
+                r="9"
+                stroke="var(--color-background-neutral-subtle-default)"
+                stroke-linecap="round"
+                stroke-width="3"
+              />
+              <circle
+                cx="50%"
+                cy="50%"
+                fill="none"
+                r="9"
+                stroke="var(--color-icon-caution-default)"
+                stroke-dasharray="28, 56"
+                stroke-linecap="round"
+                stroke-width="3"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="Teaser__row"
+        >
+          <span
+            class="Teaser__caption"
+            title="Today"
+          >
+            Today
+          </span>
+          <div
+            aria-label="Visibility indicator"
+            class="Teaser__visibility Teaser__visibility--isVisited"
+          />
+        </div>
+      </div>
       <span
-        class="Teaser__subTitle"
+        class="Teaser__subtitle Teaser__lineClamp"
         title="Organization"
       >
         Organization
       </span>
-    </div>
-    <div
-      class="Teaser__line"
-    >
-      <span
-        class="Text--context_neutral Teaser__details"
-        title="details about this job"
+      <a
+        class="Link Teaser__link Teaser__lineClamp"
+        href="https://textkernel.nl"
       >
-        details about this job
+        <span
+          title="Primary Info"
+        >
+          Primary Info
+        </span>
+      </a>
+      <span
+        class="Teaser__info Teaser__lineClamp"
+        title="Secondary Info"
+      >
+        Secondary Info
+      </span>
+      <span
+        class="Teaser__info Teaser__lineClamp"
+        title="Terceary Info"
+      >
+        Terceary Info
       </span>
       <div
-        class="Teaser__statuses"
+        class="Teaser__row Teaser__sourceContainer"
       >
-        <span>
+        <svg
+          aria-label="plane"
+          class="Teaser__sourceIcon"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 576 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M480 192H365.71L260.61 8.06A16.014 16.014 0 0 0 246.71 0h-65.5c-10.63 0-18.3 10.17-15.38 20.39L214.86 192H112l-43.2-57.6c-3.02-4.03-7.77-6.4-12.8-6.4H16.01C5.6 128-2.04 137.78.49 147.88L32 256 .49 364.12C-2.04 374.22 5.6 384 16.01 384H56c5.04 0 9.78-2.37 12.8-6.4L112 320h102.86l-49.03 171.6c-2.92 10.22 4.75 20.4 15.38 20.4h65.5c5.74 0 11.04-3.08 13.89-8.06L365.71 320H480c35.35 0 96-28.65 96-64s-60.65-64-96-64z"
+          />
+        </svg>
+        <span
+          class="Teaser__caption"
+          title="Source Info"
+        >
+          Source Info
+        </span>
+      </div>
+      <div
+        class="Teaser__bottom"
+      >
+        <span
+          class="Tag"
+          style="--bg-color: yellow; max-width: 224px;"
+        >
           <span
-            class="Text--context_neutral Text--size_small"
+            class="Tag__text"
+            title="First Tag"
           >
-            Viewed
-          </span>
-          <span
-            class="Text--context_neutral Text--size_small"
-          >
-             & 
+            First Tag
           </span>
         </span>
-        <span>
+        <span
+          class="Tag"
+          style="--bg-color: lightblue; max-width: 224px;"
+        >
           <span
-            class="Text--context_neutral Text--size_small"
+            class="Tag__text"
+            title="Second Tag"
           >
-            Imported
+            Second Tag
           </span>
         </span>
       </div>

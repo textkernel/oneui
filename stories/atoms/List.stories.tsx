@@ -8,8 +8,6 @@ import {
     Text,
     Button,
     Checkbox,
-    SingleSelectItem,
-    Separator,
 } from '@textkernel/oneui';
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -60,8 +58,6 @@ export const _List: Story = {
                 <Checkbox id="item4" />
                 Clickable item
             </ListItem>,
-            <SingleSelectItem>Suggestion Item</SingleSelectItem>,
-            <SingleSelectItem isSelected>Suggestion Item Selected</SingleSelectItem>,
         ],
     },
     render: (args) => <List {...args} />,
@@ -84,12 +80,7 @@ export const ListShowingResults: Story = {
         doSelectOnNavigate: true,
         children: [
             <ListItem onClick={onClickJob('First')}>
-                <Teaser
-                    title="My first job"
-                    location="Melbourne"
-                    subTitle="Awsome inc."
-                    details="It was posted here, yesterday"
-                />
+                <Teaser title="My first job" subtitle="Awsome inc." />
                 <ListActions>
                     <Button variant="ghost" size="small" onClick={onClickAction}>
                         Action
@@ -99,9 +90,7 @@ export const ListShowingResults: Story = {
             <ListItem onClick={onClickJob('Second')}>
                 <Teaser
                     title="Job with a very, very, very long title to be truncated by css"
-                    location="Melbourne"
-                    subTitle="Awsome inc."
-                    details="It was posted there, yesterday"
+                    subtitle="Awsome inc."
                 />
                 <ListActions>
                     <Button variant="ghost" size="small" onClick={onClickAction}>
@@ -139,25 +128,6 @@ export const _ListOptimizer: Story = {
                     )}
                 </ListOptimizer>
             </div>,
-        ],
-    },
-    render: (args) => <List {...args} />,
-};
-
-export const ListWithSeparators: Story = {
-    name: 'List with separators',
-    args: {
-        isDivided: true,
-        doSelectOnNavigate: true,
-        children: [
-            <ListItem>Next is the separator with no title</ListItem>,
-            <Separator />,
-            <ListItem>Next is the separator with title</ListItem>,
-            <Separator title="Separator title" />,
-            <ListItem>Next is the separator with no title</ListItem>,
-            <Separator />,
-            <ListItem>Next is the separator with title</ListItem>,
-            <Separator title="Separator title" />,
         ],
     },
     render: (args) => <List {...args} />,

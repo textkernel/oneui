@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [27.0.0](https://github.com/textkernel/oneui/compare/26.1.0...27.0.0) (2024-11-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Tag:** 'size' is no longer a prop
+* **Dropdown:** Dropdown component API and structure changed
+
+### Features
+
+* **Dropdown:** refactor component based on Radix primitives ([#1281](https://github.com/textkernel/oneui/issues/1281)) ([2cf2846](https://github.com/textkernel/oneui/commit/2cf28469c834c7c0239886541dc94f0f7da3e16f))
+* **Pill:** add new PillButton variant ([#1303](https://github.com/textkernel/oneui/issues/1303)) ([80b7c21](https://github.com/textkernel/oneui/commit/80b7c21991a73afa95e3d057326748959d548237))
+* **PrioritySelector:** new component ([#1308](https://github.com/textkernel/oneui/issues/1308)) ([5b5e09b](https://github.com/textkernel/oneui/commit/5b5e09ba26477d1f8d58474152dbb1d323e9972b))
+* **SearchInput:** create new component ([#1286](https://github.com/textkernel/oneui/issues/1286)) ([fa65305](https://github.com/textkernel/oneui/commit/fa65305f5c9fecb9ea4d4b76f72486f1efa1ef9e))
+* **Teaser:** redesign Teaser ([#1266](https://github.com/textkernel/oneui/issues/1266)) ([815d29b](https://github.com/textkernel/oneui/commit/815d29bf3cc0436a33ca50a3646c1947862b6ebd))
+* **Tooltip:** implement new design ([07410ed](https://github.com/textkernel/oneui/commit/07410edbaee18cc83154ad20646da39568d6a4de))
+
+
+### Bug Fixes
+
+* border full width and jumping ([#1311](https://github.com/textkernel/oneui/issues/1311)) ([11313dd](https://github.com/textkernel/oneui/commit/11313dd8c9b8e24b89e2c9c0dcb7382bbceaa78d))
+* **deps:** update dependency @popperjs/core to v2.11.8 ([cc14555](https://github.com/textkernel/oneui/commit/cc14555eaa65fb027c66e72fb86de936b4a3caf8))
+* **deps:** update dependency @react-google-maps/api to v2.20.3 ([7b54149](https://github.com/textkernel/oneui/commit/7b54149bc2f75ae0b71a44d01d2755e9447d3ccf))
+* **deps:** update dependency ajv to v8.17.1 ([#1314](https://github.com/textkernel/oneui/issues/1314)) ([d6fe419](https://github.com/textkernel/oneui/commit/d6fe41937df427239b17038fe2c59f2168146ead))
+* don't render space for title when no title ([#1310](https://github.com/textkernel/oneui/issues/1310)) ([9dc399d](https://github.com/textkernel/oneui/commit/9dc399d2f3d10d45820ba6ec87c7727cce438b49))
+* **MultiSelectItem:** use correct background color for the group-title variant ([#1287](https://github.com/textkernel/oneui/issues/1287)) ([963ea61](https://github.com/textkernel/oneui/commit/963ea61db022c19e85b92d2136ac292610c4569e))
+
+
+* **Tag:** migrate Tag component ([#1302](https://github.com/textkernel/oneui/issues/1302)) ([ef88a31](https://github.com/textkernel/oneui/commit/ef88a319442047fba63c033ca2c0ca84d0a697c4))
+
 ## [26.1.0](https://github.com/textkernel/oneui/compare/26.0.0...26.1.0) (2024-10-14)
 
 
