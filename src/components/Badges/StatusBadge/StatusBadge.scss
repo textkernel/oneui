@@ -9,18 +9,18 @@ $variants: (subtle, bold);
     align-items: center;
     border-radius: var(--border-radius);
     padding: var(--space-0) var(--space-75);
-    height: 20px;
+    height: var(--space-250);
     width: fit-content;
     max-width: 200px;
-    min-width: 20px;
+    min-width: var(--space-250);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     composes: OneUI-caption-text from global;
 
     &__icon {
-        height: 12px;
-        width: 12px;
+        height: var(--space-150);
+        width: var(--space-150);
         padding-right: var(--space-25);
     }
 
@@ -28,13 +28,13 @@ $variants: (subtle, bold);
         @each $variant in $variants {
             &--context_#{$context}.StatusBadge--variant_#{$variant} {
                 @if $variant == bold {
-                    background-color: var(--color-#{$context}-50);
-                    color: var(--color-neutral-0);
+                    background-color: var(--color-background-#{$context}-bold-default);
+                    color: var(--color-text-inverse);
                     @if $context == cautious {
                         color: var(--color-#{$context}-90);
                     }
                 } @else {
-                    background-color: var(--color-#{$context}-20);
+                    background-color: var(--color-background-#{$context}-subtle-default);
                     color: var(--color-#{$context}-80);
                 }
             }

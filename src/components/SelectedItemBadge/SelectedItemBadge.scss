@@ -100,7 +100,7 @@ $icon-status-colors: (
     &__optionText {
         max-width: var(--space-600);
         min-width: var(--space-200);
-        color: var(--color-text-information-default);
+        color: var(--color-text-info-default);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -116,7 +116,7 @@ $icon-status-colors: (
 
         &[disabled] {
             .SelectedItemBadge__optionText {
-                color: var(--color-text-information-disabled);
+                color: var(--color-text-info-disabled);
             }
         }
 

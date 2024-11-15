@@ -3,7 +3,8 @@
 exports[`StatusBadge should render correctly 1`] = `
 <div>
   <span
-    class="StatusBadge StatusBadge--context_info StatusBadge--variant_bold"
+    class="StatusBadge StatusBadge--context_information StatusBadge--variant_bold"
+    title="some text"
   >
     some text
   </span>

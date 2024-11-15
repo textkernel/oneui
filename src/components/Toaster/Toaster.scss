@@ -1,13 +1,7 @@
-@use "sass:map";
+@use 'sass:map';
 @import '../../themes/oneui/oneui';
 
 $contexts: (info, success, cautious, critical);
-$contextMap: (
-    'info': 'information',
-    'success': 'success',
-    'cautious': 'caution',
-    'critical': 'critical'
-);
 
 .Toast {
     display: flex;
@@ -23,15 +17,14 @@ $contextMap: (
         margin: 0;
         font-size: var(--space-300);
         @each $context in $contexts {
-            $mappedContext: map.get($contextMap, $context);
             &--context_#{$context} {
-                fill: var(--color-icon-#{$mappedContext}-default);
+                fill: var(--color-icon-#{$context}-default);
             }
         }
     }
 
     &__content {
-        flex-grow: 1; 
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
         gap: var(--space-150);
@@ -39,12 +32,13 @@ $contextMap: (
 
     &__message {
         gap: var(--space-100);
-        display: flex; 
+        display: flex;
         flex-direction: column;
         margin: 0;
         font-family: var(--font-family-primary);
-        h3, p {
-            margin: 0; 
+        h3,
+        p {
+            margin: 0;
         }
     }
 
@@ -64,7 +58,7 @@ $contextMap: (
         padding: 0;
         margin: 0;
     }
-       
+
     &__closeButton {
         display: flex;
         align-items: flex-start;
@@ -76,24 +70,23 @@ $contextMap: (
         background-color: var(--transparent);
         border: none;
         outline: 0;
-        
+
         &:focus {
             box-shadow: 0px 0px 0px 2px var(--color-background-neutral-subtlest-pressed);
-            border-radius: var(--space-50);;
+            border-radius: var(--space-50);
         }
     }
 
     &__closeIcon {
         font-size: var(--space-300);
-        color: var(--color-icon-subtle);  
+        color: var(--color-icon-subtle);
         fill: var(--color-icon-subtle);
     }
 
     @each $context in $contexts {
-        $mappedContext: map.get($contextMap, $context);
         &--context_#{$context} {
-            background-color: var(--color-background-#{$mappedContext}-subtlest-default);
-            border-color: var(--color-border-#{$mappedContext}-subtle-#{$mappedContext});
+            background-color: var(--color-background-#{$context}-subtlest-default);
+            border-color: var(--color-border-#{$context}-subtle-#{$context});
         }
     }
 }
