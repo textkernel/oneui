@@ -80,6 +80,7 @@ export const _Confirm: ConfirmStory = {
                 <Button onClick={handleButtonClick}>Click me to see a confirm dialog</Button>
                 <Confirm
                     {...args}
+                    onClose={handleCancel}
                     isOpen={showAlert}
                     acceptButton={{
                         onClick: handleAccept,
