@@ -25,7 +25,7 @@ export const MatchingIndicator: React.FC<Props> = ({ percentage, ...rest }) => {
             return 'var(--color-icon-critical-default)';
         }
         if (value <= COLORS_MAX_VALUES.YELLOW) {
-            return 'var(--color-icon-caution-default)';
+            return 'var(--color-icon-cautious-default)';
         }
         return 'var(--color-icon-success-default)';
     };

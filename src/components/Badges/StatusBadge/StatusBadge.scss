@@ -34,7 +34,7 @@ $variants: (subtle, bold);
                         color: var(--color-#{$context}-90);
                     }
                 } @else {
-                    background-color: var(--color-background-#{$context}-subtle-default);
+                    background-color: var(--color-#{$context}-10);
                     color: var(--color-#{$context}-80);
                 }
             }
