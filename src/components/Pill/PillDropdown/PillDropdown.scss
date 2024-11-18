@@ -17,11 +17,6 @@
     z-index: 500;
 
     &__dialog {
-        background: var(--color-background);
-        margin: var(--space-75) 0;
-        border-radius: var(--border-radius);
-        border: 1px solid var(--color-neutral-30);
-        box-shadow: 0 5px 10px 0 rgb(0 0 0 / 20%);
         transform-origin: top left;
         animation: dropdownAppear var(--transition-duration-quick) forwards;
         animation-timing-function: linear;

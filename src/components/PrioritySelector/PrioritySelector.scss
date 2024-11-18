@@ -104,6 +104,7 @@ $icon-status-colors: (
         border-radius: var(--space-100);
         overflow: hidden;
         background-color: white;
+        z-index: 600;
 
         &--fixedWidth{
             width: 232px;
