@@ -31,11 +31,15 @@ $variants: (subtle, bold);
                     background-color: var(--color-background-#{$context}-bold-default);
                     color: var(--color-text-inverse);
                     @if $context == cautious {
-                        color: var(--color-#{$context}-90);
+                        color: var(--color-text-cautious-inverse-default, #1A1A1A);
                     }
                 } @else {
-                    background-color: var(--color-#{$context}-10);
-                    color: var(--color-#{$context}-80);
+                    background: var(--color-background-#{$context}-subtlest-default);
+                    color: var(--color-text-#{$context}-default);
+                    @if $context == neutral {
+                        background: var(--color-background-neutral-subtle-default, #E6E6E6);
+                        color: var(--color-text-subtle)
+                    }
                 }
             }
         }
