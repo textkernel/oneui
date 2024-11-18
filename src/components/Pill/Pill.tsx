@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { PopupBase } from '../PopupBase';
 import { PillButton, PillButtonProps } from './PillButton';
 import { PillButtonEnhanced, PillButtonEnhancedProps } from './PillButtonEnhanced';
 import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
+import { DropdownContent, DropdownPortal, DropdownRoot } from '../Dropdown';
 
 export interface ClassicButtonProps extends Omit<PillButtonProps, 'toggleDropdown' | 'children'> {
     /** Trigger button variant */
@@ -54,71 +54,56 @@ export const Pill = <PriorityItemValue extends unknown>({
     ref,
     content = null,
     children,
-    dropdownRef: dropdownRefFromProps,
+    dropdownRef,
     noPaddingInDropdown = false,
     additionalDropdownProps = {},
     onClose,
     ...rest
 }: Props<PriorityItemValue>) => {
-    const buttonRef = React.useMemo(() => ref || React.createRef<HTMLElement>(), [ref]);
-    const dropdownRef = React.useMemo(
-        () => dropdownRefFromProps || React.createRef<HTMLElement>(),
-        [dropdownRefFromProps]
-    );
+    const [isOpen, setIsOpen] = React.useState(false);
 
-    const buttonRenderer = ({ setPopupVisibility, isOpen }) => {
-        const toggleDropdown = () => {
-            if (isOpen && onClose) {
-                onClose();
-            }
-            setPopupVisibility(!isOpen);
-        };
-
-        return variant === 'classic' ? (
-            <PillButton
-                name={name}
-                content={content}
-                isOpen={isOpen}
-                toggleDropdown={toggleDropdown}
-                onClear={onClear}
-                {...rest}
-            />
-        ) : (
-            <PillButtonEnhanced
-                name={name}
-                content={content}
-                isOpen={isOpen}
-                toggleDropdown={toggleDropdown}
-                onClear={onClear}
-                {...rest}
-            />
-        );
-    };
-
-    const closeDropdown = (setPopupVisibility) => {
+    const closeDropdown = () => {
         onClose?.();
-        setPopupVisibility(false);
     };
 
-    const dropdownRenderer = ({ setPopupVisibility }) => (
-        <PillDropdown
-            close={() => closeDropdown(setPopupVisibility)}
-            noPadding={noPaddingInDropdown}
-            {...additionalDropdownProps}
-        >
-            {children}
-        </PillDropdown>
-    );
+    const handleOpenStateChange = (open: boolean) => {
+        setIsOpen(open);
+        if (!open) {
+            onClose?.();
+        }
+    };
 
     return (
-        <PopupBase
-            anchorRenderer={buttonRenderer}
-            popupRenderer={dropdownRenderer}
-            anchorRef={buttonRef}
-            popupRef={dropdownRef}
-            onClose={onClose}
-        />
+        <DropdownRoot onOpenChange={handleOpenStateChange} modal={false}>
+            {variant === 'classic' ? (
+                <PillButton
+                    name={name}
+                    content={content}
+                    onClear={onClear}
+                    isOpen={isOpen}
+                    {...rest}
+                />
+            ) : (
+                <PillButtonEnhanced
+                    name={name}
+                    content={content}
+                    onClear={onClear}
+                    isOpen={isOpen}
+                    {...rest}
+                />
+            )}
+            <DropdownPortal>
+                <DropdownContent asChild>
+                    <PillDropdown
+                        ref={dropdownRef}
+                        close={closeDropdown}
+                        noPadding={noPaddingInDropdown}
+                        {...additionalDropdownProps}
+                    >
+                        {children}
+                    </PillDropdown>
+                </DropdownContent>
+            </DropdownPortal>
+        </DropdownRoot>
     );
 };
-
-Pill.displayName = 'Pill';

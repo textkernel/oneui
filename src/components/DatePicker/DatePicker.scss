@@ -1,4 +1,4 @@
-@import '../../themes/oneui/placeholders/input';
+@use '../../themes/oneui/placeholders/input';
 
 /* Input field */
 :global .react-datepicker__input-container input {
@@ -111,7 +111,11 @@
 /* stylelint-disable */
 :global .react-datepicker__day--in-selecting-range,
 :global
-    .react-datepicker__day--in-selecting-range:not(.react-datepicker__month-text--in-range, .react-datepicker__quarter-text--in-range, .react-datepicker__year-text--in-range),
+    .react-datepicker__day--in-selecting-range:not(
+        .react-datepicker__month-text--in-range,
+        .react-datepicker__quarter-text--in-range,
+        .react-datepicker__year-text--in-range
+    ),
 :global .react-datepicker__day--in-range {
     border-radius: 0;
     background-color: var(--color-brand-40);
