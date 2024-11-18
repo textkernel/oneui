@@ -27,5 +27,10 @@
 
     &__logo {
         fill: var(--footer-foreground-color);
+        composes: OneUI-label-text from global;
+    }
+
+    &__menu {
+        composes: OneUI-label-text from global;
     }
 }
