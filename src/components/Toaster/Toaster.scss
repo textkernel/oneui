@@ -1,7 +1,8 @@
 @use 'sass:map';
-@import '../../themes/oneui/oneui';
+@use '../../themes/oneui/oneui';
 
 $contexts: (info, success, cautious, critical);
+
 
 .Toast {
     display: flex;

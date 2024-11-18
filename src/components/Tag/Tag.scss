@@ -7,8 +7,11 @@
     border-radius: var(--space-50);
     border: 1px solid var(--color-border-subtle);
     cursor: default;
-    background-color: var(--bg-color, white); // Fallback to --color-background if bgColor isn't provided
-    
+    background-color: var(
+        --bg-color,
+        white
+    ); // Fallback to --color-background if bgColor isn't provided
+
     &[disabled] {
         color: var(--color-text-disabled);
     }
@@ -20,7 +23,7 @@
     &--clickable:not([disabled]) {
         cursor: pointer;
 
-        &:hover:not([disabled]){
+        &:hover:not([disabled]) {
             background-color: var(--color-background-neutral-subtlest-hover);
         }
 
@@ -30,12 +33,12 @@
         }
     }
 
-    &__text{
-        composes: OneUI-label-text from global;
+    &__text {
         margin: 0;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+
         &[disabled] {
             color: var(--color-text-disabled);
         }
@@ -64,6 +67,5 @@
             fill: var(--color-text-disabled);
             cursor: default;
         }
-    
     }
 }
