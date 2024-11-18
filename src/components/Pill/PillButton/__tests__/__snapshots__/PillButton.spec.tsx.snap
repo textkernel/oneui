@@ -12,11 +12,16 @@ exports[`<PillButton> component in active, collapsed state (with content prop) s
     </div>
     <div
       class="PillButton__pill PillButton__pill--isActive"
-      role="button"
-      tabindex="0"
     >
       <span
+        aria-expanded="false"
+        aria-haspopup="menu"
         class="PillButton__pillLabel"
+        data-state="closed"
+        id="radix-:r8:"
+        role="button"
+        tabindex="0"
+        type="button"
       >
         This pill is in use
       </span>
@@ -56,9 +61,14 @@ exports[`<PillButton> component in active, open state (content and isOpen prop) 
       Pill name
     </div>
     <div
+      aria-expanded="false"
+      aria-haspopup="menu"
       class="PillButton__pill PillButton__pill--isOpen PillButton__pill--isActive"
+      data-state="closed"
+      id="radix-:rg:"
       role="button"
       tabindex="0"
+      type="button"
     >
       <span
         class="PillButton__pillLabel"
@@ -100,9 +110,14 @@ exports[`<PillButton> component in inactive, collapsed state (with minimal props
       class="PillButton__label"
     />
     <div
+      aria-expanded="false"
+      aria-haspopup="menu"
       class="PillButton__pill"
+      data-state="closed"
+      id="radix-:r0:"
       role="button"
       tabindex="0"
+      type="button"
     >
       <span
         class="PillButton__pillLabel"
@@ -144,9 +159,14 @@ exports[`<PillButton> component in inactive, open state (isOpen prop) should ren
       class="PillButton__label"
     />
     <div
+      aria-expanded="false"
+      aria-haspopup="menu"
       class="PillButton__pill PillButton__pill--isOpen"
+      data-state="closed"
+      id="radix-:r4:"
       role="button"
       tabindex="0"
+      type="button"
     >
       <span
         class="PillButton__pillLabel"
