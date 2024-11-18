@@ -38,6 +38,16 @@ export const _Dialog: DialogStory = {
                         beatae dignissimos eos corrupti, consequuntur vel nulla eius atque autem,
                         odit numquam officiis. Quas voluptatum hic quis reprehenderit cum eos?
                     </li>
+                    <li>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rerum,
+                        beatae dignissimos eos corrupti, consequuntur vel nulla eius atque autem,
+                        odit numquam officiis. Quas voluptatum hic quis reprehenderit cum eos?
+                    </li>
+                    <li>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rerum,
+                        beatae dignissimos eos corrupti, consequuntur vel nulla eius atque autem,
+                        odit numquam officiis. Quas voluptatum hic quis reprehenderit cum eos?
+                    </li>
                 </ul>
             </div>
         ),
