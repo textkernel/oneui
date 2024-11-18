@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [28.0.0](https://github.com/textkernel/oneui/compare/27.0.0...28.0.0) (2024-11-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Pill:** PillButton props toggleDropdown removed
+* **Pill:** Pill uses RadixDropdown under the hood.
+
+### Bug Fixes
+
+* **deps:** update dependency core-js to v3.39.0 ([#1315](https://github.com/textkernel/oneui/issues/1315)) ([146eaf9](https://github.com/textkernel/oneui/commit/146eaf904d89995e837d47c9486c4830ab92333d))
+* **Pill:** bugs in Pill with Enhanced options ([#1316](https://github.com/textkernel/oneui/issues/1316)) ([8e2ed49](https://github.com/textkernel/oneui/commit/8e2ed49fec0a602cd5fde34aad1c93780a1167a0))
+
 ## [27.0.0](https://github.com/textkernel/oneui/compare/26.1.0...27.0.0) (2024-11-11)
 
 
