@@ -39,6 +39,7 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+
         &[disabled] {
             color: var(--color-text-disabled);
         }
