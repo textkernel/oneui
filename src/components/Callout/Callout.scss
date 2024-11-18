@@ -1,5 +1,5 @@
 @use 'sass:list';
-@import '../../themes/oneui/constants/colors';
+@use '../../themes/oneui/constants/colors' as *;
 
 $icon-size: 16px;
 
