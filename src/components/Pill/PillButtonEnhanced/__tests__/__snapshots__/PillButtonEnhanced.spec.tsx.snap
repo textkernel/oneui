@@ -6,9 +6,14 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <div
+      aria-expanded="false"
+      aria-haspopup="menu"
       class="PillButtonEnhanced__main"
+      data-state="closed"
+      id="radix-:r4:"
       role="button"
       tabindex="0"
+      type="button"
     >
       <span
         class="PillButtonEnhanced__name"
@@ -47,12 +52,17 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
 exports[`<PillButtonEnhanced> component in active, open state (content and isOpen prop) should render correctly 1`] = `
 <div>
   <div
-    class="PillButtonEnhanced PillButtonEnhanced--isOpen PillButtonEnhanced--isActive"
+    class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <div
+      aria-expanded="false"
+      aria-haspopup="menu"
       class="PillButtonEnhanced__main"
+      data-state="closed"
+      id="radix-:ra:"
       role="button"
       tabindex="0"
+      type="button"
     >
       <span
         class="PillButtonEnhanced__name"
@@ -94,9 +104,14 @@ exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minim
     class="PillButtonEnhanced"
   >
     <div
+      aria-expanded="false"
+      aria-haspopup="menu"
       class="PillButtonEnhanced__main"
+      data-state="closed"
+      id="radix-:r0:"
       role="button"
       tabindex="0"
+      type="button"
     >
       <span
         class="PillButtonEnhanced__name"
@@ -134,12 +149,17 @@ exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minim
 exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) should render correctly 1`] = `
 <div>
   <div
-    class="PillButtonEnhanced PillButtonEnhanced--isOpen"
+    class="PillButtonEnhanced"
   >
     <div
+      aria-expanded="false"
+      aria-haspopup="menu"
       class="PillButtonEnhanced__main"
+      data-state="closed"
+      id="radix-:r2:"
       role="button"
       tabindex="0"
+      type="button"
     >
       <span
         class="PillButtonEnhanced__name"
@@ -175,7 +195,7 @@ exports[`<PillButtonEnhanced> component with additional props should render corr
       aria-label="priorityButton"
       class="Button Button--size_small Button--variant_ghost Button--context_secondary IconButton--size_small PrioritySelector__icon PrioritySelector__icon--mandatory PillButtonEnhanced__priority test-class"
       data-state="closed"
-      id="radix-:r0:"
+      id="radix-:rk:"
       style="width: auto;"
       type="button"
     >
@@ -186,9 +206,14 @@ exports[`<PillButtonEnhanced> component with additional props should render corr
       />
     </button>
     <div
+      aria-expanded="false"
+      aria-haspopup="menu"
       class="PillButtonEnhanced__main"
+      data-state="closed"
+      id="radix-:ri:"
       role="button"
       tabindex="0"
+      type="button"
     >
       <span
         class="PillButtonEnhanced__name"
@@ -230,10 +255,15 @@ exports[`<PillButtonEnhanced> component with additional props should set style a
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <div
+      aria-expanded="false"
+      aria-haspopup="menu"
       class="PillButtonEnhanced__main"
+      data-state="closed"
+      id="radix-:rg:"
       role="button"
       style="max-width: fit-content;"
       tabindex="0"
+      type="button"
     >
       <span
         class="PillButtonEnhanced__name"
