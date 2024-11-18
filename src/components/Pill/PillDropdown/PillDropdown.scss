@@ -24,6 +24,7 @@
 
     &__content {
         padding: var(--pill-dropdown-padding);
+        composes: OneUI-label-text from global;
 
         &--noPadding {
             padding: 0;

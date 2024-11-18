@@ -16,7 +16,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
     data-popper-placement="bottom-start"
     data-popper-reference-hidden=""
     role="group"
-    style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
+    style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); font-size: 14px; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
   >
     <p>
       I am the content of pop up.
@@ -50,7 +50,7 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
       data-popper-placement="bottom-start"
       data-popper-reference-hidden=""
       role="group"
-      style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
+      style="background-color: rgb(255, 238, 221); padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-shadow: 0 3px 6px 6px rgba(0, 0, 0, 0.05); font-size: 14px; position: absolute; left: 0px; top: 0px; margin: 0px; transform: translate(0px, 0px);"
     >
       <p>
         I am the content of pop up.
