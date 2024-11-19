@@ -10,7 +10,7 @@ import {
     SingleSelectItem,
 } from '@textkernel/oneui';
 
-const DummyComponent = (props) => (
+const DummyComponent = () => (
     <>
         <p>
             This is some content dropdown has 440px max height so it will show scroll bars after
@@ -27,7 +27,6 @@ const DummyComponent = (props) => (
             sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias
             error harum maxime adipisci amet laborum.
         </p>
-        <button onClick={props.close}>Close me</button>
     </>
 );
 
@@ -90,7 +89,7 @@ export const _Pill: Story = {
                         console.log('onClose called');
                     }}
                 >
-                    {({ close }) => <DummyComponent close={close} />}
+                    <DummyComponent />
                 </Pill>
                 <Pill
                     {...args}
@@ -108,32 +107,30 @@ export const _Pill: Story = {
                         buttonLabel: 'priorityButton',
                     }}
                 >
-                    {() => (
-                        <div style={{ width: '150px' }}>
-                            <SelectedItemBadge
-                                label="Java"
-                                priority={{
-                                    onChange: handlePrioritySelect,
-                                    selectedItem: prioritySelected,
-                                    list: priorityList,
-                                    buttonLabel: 'priorityButton',
-                                }}
-                            >
-                                {badgeOption.map((option) => (
-                                    <SingleSelectItem
-                                        key={option}
-                                        onClick={() => handleOptionChange(option)}
-                                        isSelected={option === 'Java'}
-                                    >
-                                        {option}
-                                    </SingleSelectItem>
-                                ))}
-                            </SelectedItemBadge>
-                        </div>
-                    )}
+                    <div style={{ width: '150px' }}>
+                        <SelectedItemBadge
+                            label="Java"
+                            priority={{
+                                onChange: handlePrioritySelect,
+                                selectedItem: prioritySelected,
+                                list: priorityList,
+                                buttonLabel: 'priorityButton',
+                            }}
+                        >
+                            {badgeOption.map((option) => (
+                                <SingleSelectItem
+                                    key={option}
+                                    onClick={() => handleOptionChange(option)}
+                                    isSelected={option === 'Java'}
+                                >
+                                    {option}
+                                </SingleSelectItem>
+                            ))}
+                        </SelectedItemBadge>
+                    </div>
                 </Pill>
                 <Pill {...args} content={undefined}>
-                    {({ close }) => <DummyComponent close={close} />}
+                    <DummyComponent />
                 </Pill>
             </div>
         );
@@ -243,6 +240,8 @@ type PillDropdownStory = StoryObj<typeof PillDropdown>;
 export const _PillDropdown: PillDropdownStory = {
     name: 'PillDropdown',
     render: (args) => (
-        <PillDropdown {...args}>{({ close }) => <DummyComponent close={close} />}</PillDropdown>
+        <PillDropdown {...args}>
+            <DummyComponent />
+        </PillDropdown>
     ),
 };

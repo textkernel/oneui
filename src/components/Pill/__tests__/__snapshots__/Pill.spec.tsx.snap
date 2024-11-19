@@ -83,7 +83,13 @@ exports[`<Pill> component with classic button variant should open dropdown when 
         <div
           class="PillDropdown__content"
           role="group"
-        />
+        >
+          <p
+            title="Classic"
+          >
+            Classic
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -228,7 +234,13 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
         <div
           class="PillDropdown__content"
           role="group"
-        />
+        >
+          <p
+            title="Enhanced"
+          >
+            Enhanced
+          </p>
+        </div>
       </div>
     </div>
   </div>

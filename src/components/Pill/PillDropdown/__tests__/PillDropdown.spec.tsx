@@ -4,13 +4,10 @@ import '@testing-library/jest-dom';
 import { PillDropdown } from '../PillDropdown';
 
 describe('<PillDropdown> component', () => {
-    const childrenMock = jest.fn();
-    const closeMock = jest.fn();
-
     let view: RenderResult;
 
     beforeEach(() => {
-        view = render(<PillDropdown close={closeMock}>{childrenMock}</PillDropdown>);
+        view = render(<PillDropdown>Pill dropdown content</PillDropdown>);
     });
 
     afterEach(() => {
@@ -23,21 +20,11 @@ describe('<PillDropdown> component', () => {
     });
 
     it('should render correctly without padding', () => {
-        view.rerender(
-            <PillDropdown close={closeMock} noPadding>
-                {childrenMock}
-            </PillDropdown>
-        );
+        view.rerender(<PillDropdown noPadding>Pill dropdown content</PillDropdown>);
 
         const contentInfo = screen.getByRole('group');
 
         expect(contentInfo).toBeInTheDocument();
         expect(contentInfo).toHaveClass('PillDropdown__content');
-    });
-
-    it('should call children function with close as arguments', () => {
-        expect(childrenMock).toHaveBeenCalledWith({
-            close: closeMock,
-        });
     });
 });

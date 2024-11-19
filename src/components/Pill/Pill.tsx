@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { PillButton, PillButtonProps } from './PillButton';
 import { PillButtonEnhanced, PillButtonEnhancedProps } from './PillButtonEnhanced';
-import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
+import { PillDropdown } from './PillDropdown';
 import { DropdownContent, DropdownPortal, DropdownRoot } from '../Dropdown';
 
 export interface ClassicButtonProps extends Omit<PillButtonProps, 'toggleDropdown' | 'children'> {
@@ -19,11 +19,8 @@ export type Props<PriorityItemValue> = (
     | ClassicButtonProps
     | EnhancedButtonProps<PriorityItemValue>
 ) & {
-    /** The dropdown content renderer function. It is called with:
-     *   * close {function} that closes the dropdown
-     *   * innerPadding {string} that can be applied inside the component to set consistent padding
-     */
-    children: (params: PillDropdownChildrenParams) => React.ReactNode;
+    /** Content that will be displayed inside of PillDropdown */
+    children: React.ReactNode;
     /** a function that is called when the dropdown closes via done-button-click, window-click or ESC */
     onClose?: () => void;
     /** ref for pill button */
@@ -62,10 +59,6 @@ export const Pill = <PriorityItemValue extends unknown>({
 }: Props<PriorityItemValue>) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
-    const closeDropdown = () => {
-        onClose?.();
-    };
-
     const handleOpenStateChange = (open: boolean) => {
         setIsOpen(open);
         if (!open) {
@@ -96,7 +89,6 @@ export const Pill = <PriorityItemValue extends unknown>({
                 <DropdownContent asChild>
                     <PillDropdown
                         ref={dropdownRef}
-                        close={closeDropdown}
                         noPadding={noPaddingInDropdown}
                         {...additionalDropdownProps}
                     >
@@ -107,3 +99,5 @@ export const Pill = <PriorityItemValue extends unknown>({
         </DropdownRoot>
     );
 };
+
+Pill.displayName = 'Pill';

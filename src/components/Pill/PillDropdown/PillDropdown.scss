@@ -17,6 +17,8 @@
     z-index: 500;
 
     &__dialog {
+        max-height: 440px;
+        max-width: 600px;
         transform-origin: top left;
         animation: dropdownAppear var(--transition-duration-quick) forwards;
         animation-timing-function: linear;

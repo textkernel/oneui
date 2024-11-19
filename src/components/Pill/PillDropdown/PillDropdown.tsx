@@ -2,22 +2,9 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import styles from './PillDropdown.scss';
 
-export interface PillDropdownChildrenParams {
-    /** function that closes the dropdown */
-    close?: () => void;
-    /** string that can be applied
-     * inside the component to set consistent padding
-     * */
-    innerPadding?: string;
-}
-
 export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
-    /** The dropdown content renderer function. It is called with:
-     *   * close {function} - see below
-     */
-    children: (params: PillDropdownChildrenParams) => React.ReactNode;
-    /** function that closes the dropdown */
-    close: () => void;
+    /** Content that will be displayed inside of PillDropdown */
+    children: React.ReactNode;
     /** whether or not to add a padding to the dropdown container.
      * It is useful if you need to add elements that stretch to the edge of the container.
      * You can use the CSS variable --pill-dropdown-padding to add padding as required.
@@ -28,11 +15,11 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'child
 const { block, elem } = bem('PillDropdown', styles);
 
 export const PillDropdown = React.forwardRef<HTMLElement, Props>(
-    ({ close, noPadding = false, children, ...rest }, ref) => (
+    ({ noPadding = false, children, ...rest }, ref) => (
         <div ref={ref} role="presentation" {...rest} {...block({ noPadding, ...rest })}>
             <div role="dialog" {...elem('dialog')}>
                 <div {...elem('content', { noPadding })} role="group">
-                    {children({ close })}
+                    {children}
                 </div>
             </div>
         </div>

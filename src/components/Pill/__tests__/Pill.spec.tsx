@@ -5,7 +5,6 @@ import '@testing-library/jest-dom';
 import { Pill } from '../Pill';
 
 describe('<Pill> component', () => {
-    const childrenMock = jest.fn();
     const onClearMock = jest.fn();
     const onCloseMock = jest.fn();
     const nameMock = 'Pill name';
@@ -31,7 +30,7 @@ describe('<Pill> component', () => {
                     upArrowLabel={upArrowLabel}
                     clearLabel={clearLabel}
                 >
-                    {childrenMock}
+                    <p title="Classic">Classic</p>
                 </Pill>
             );
         });
@@ -71,13 +70,13 @@ describe('<Pill> component', () => {
         });
 
         it('should render children when dropdown is open', async () => {
-            expect(childrenMock).not.toHaveBeenCalled();
+            expect(screen.queryByTitle('Classic')).not.toBeInTheDocument();
 
             const user = userEvent.setup();
             await user.click(getButtonByName(contentMock));
 
             expect(screen.getByRole(dialogRole)).toBeVisible();
-            expect(childrenMock).toHaveBeenCalled();
+            expect(screen.getByTitle('Classic')).toBeInTheDocument();
         });
 
         it('should call onClose when dropdown is closed via pill-button click', async () => {
@@ -102,7 +101,7 @@ describe('<Pill> component', () => {
                     upArrowLabel={upArrowLabel}
                     clearLabel={clearLabel}
                 >
-                    {childrenMock}
+                    <p title="Enhanced">Enhanced</p>
                 </Pill>
             );
         });
@@ -141,13 +140,13 @@ describe('<Pill> component', () => {
         });
 
         it('should render children when dropdown is open', async () => {
-            expect(childrenMock).not.toHaveBeenCalled();
+            expect(screen.queryByTitle('Enhanced')).not.toBeInTheDocument();
 
             const user = userEvent.setup();
             await user.click(getButtonByName(contentMock));
 
             expect(screen.getByRole(dialogRole)).toBeVisible();
-            expect(childrenMock).toHaveBeenCalled();
+            expect(screen.getByTitle('Enhanced')).toBeInTheDocument();
         });
 
         it('should call onClose when dropdown is closed via pill-button click', async () => {
