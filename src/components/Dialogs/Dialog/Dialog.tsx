@@ -62,7 +62,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
                 {children}
             </div>
             {showButtons && (
-                <div {...elem('actions', { ...props, borderTop: height === 528 })}>
+                <div {...elem('actions', { ...props, borderTop: height === 412 })}>
                     <Button
                         onClick={acceptButton.onClick}
                         context={variant === 'primary' ? 'primary' : 'critical'}
