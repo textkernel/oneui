@@ -13,10 +13,13 @@ $variants: (subtle, bold);
     width: fit-content;
     max-width: 200px;
     min-width: var(--space-250);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     composes: OneUI-caption-text from global;
+
+    &__text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 
     &__icon {
         height: var(--space-150);
@@ -31,14 +34,14 @@ $variants: (subtle, bold);
                     background-color: var(--color-background-#{$context}-bold-default);
                     color: var(--color-text-inverse);
                     @if $context == cautious {
-                        color: var(--color-text-cautious-inverse-default, #1A1A1A);
+                        color: var(--color-text-cautious-inverse-default, #1a1a1a);
                     }
                 } @else {
                     background: var(--color-background-#{$context}-subtlest-default);
                     color: var(--color-text-#{$context}-default);
                     @if $context == neutral {
-                        background: var(--color-background-neutral-subtle-default, #E6E6E6);
-                        color: var(--color-text-subtle)
+                        background: var(--color-background-neutral-subtle-default, #e6e6e6);
+                        color: var(--color-text-subtle);
                     }
                 }
             }

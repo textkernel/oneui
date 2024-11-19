@@ -2,11 +2,15 @@
 
 exports[`StatusBadge should render correctly 1`] = `
 <div>
-  <span
+  <div
     class="StatusBadge StatusBadge--context_info StatusBadge--variant_bold"
     title="some text"
   >
-    some text
-  </span>
+    <span
+      class="StatusBadge__text"
+    >
+      some text
+    </span>
+  </div>
 </div>
 `;

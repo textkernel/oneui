@@ -2,6 +2,7 @@ import * as React from 'react';
 import { bem } from '../../../utils';
 import { Context } from '../../../constants';
 import { BadgeVariant } from '../../../constants/component-specific';
+import { Text } from '../../Text';
 import styles from './StatusBadge.scss';
 
 export interface Props extends React.HTMLAttributes<HTMLSpanElement> {
@@ -29,10 +30,12 @@ export const StatusBadge: React.FC<Props> = ({
     }
 
     return (
-        <span title={children} {...rest} {...block({ context, variant, ...rest })}>
+        <div title={children} {...rest} {...block({ context, variant, ...rest })}>
             {leadingIcon && <span {...elem('icon')}>{leadingIcon}</span>}
-            {children}
-        </span>
+            <Text inline {...elem('text')}>
+                {children}
+            </Text>
+        </div>
     );
 };
 
