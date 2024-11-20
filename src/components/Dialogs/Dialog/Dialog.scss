@@ -1,6 +1,20 @@
 .Dialog {
-    width: 400px;
-    border-radius: var(--space-150);
+    box-shadow: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: unset;
+
+    &__container {
+        width: 400px;
+        border: 1px solid var(--color-border-subtlest);
+        border-radius: var(--space-150);
+        background: var(--color-background-neutral-subtlest-default, #ffffff);
+    }
 
     &__header {
         padding: var(--space-200);
@@ -29,7 +43,7 @@
         gap: var(--space-100);
         padding: var(--space-200);
         &--borderTop {
-            border-top: 1px solid var(--color-neutral-20);
+            border-top: 1px solid var(--color-border-subtlest);
         }
     }
 
