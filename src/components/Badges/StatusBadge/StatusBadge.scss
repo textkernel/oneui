@@ -24,7 +24,7 @@ $variants: (subtle, bold);
     &__icon {
         height: var(--space-150);
         width: var(--space-150);
-        padding-right: var(--space-25);
+        padding-right: var(--space-50);
     }
 
     @each $context in $contexts {
