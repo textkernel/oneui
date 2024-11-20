@@ -4,7 +4,9 @@ import { bem } from '../../utils';
 import styles from './Breadcrumb.scss';
 
 export interface Props extends React.ComponentPropsWithoutRef<'nav'> {
+    /** Paths used for creation of different breadcrumb links */
     paths: BreadcrumbPath[];
+    /** Custom link renderer to allow any router implementation */
     linkRenderer?: (path: BreadcrumbPath) => React.ReactElement;
 }
 
