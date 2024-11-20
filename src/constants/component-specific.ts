@@ -60,3 +60,11 @@ export type PopupPlacement = (typeof POPUP_PLACEMENTS)[number];
 
 /** Gauge */
 export const GAUGE_RADIUS = 100;
+
+/** Breadcrumb */
+
+export interface BreadcrumbPath {
+    href: string;
+    label?: string;
+    icon?: React.ReactElement;
+}

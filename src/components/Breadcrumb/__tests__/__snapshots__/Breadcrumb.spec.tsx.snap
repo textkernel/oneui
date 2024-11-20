@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Breadcrumb should render correctly 1`] = `
+<div>
+  <nav>
+    <ol
+      class="Breadcrumb__list"
+    >
+      <li
+        class="Breadcrumb__listItem"
+      >
+        <a
+          class="Breadcrumb__link"
+          href="/"
+        >
+          <svg
+            aria-label="home-icon"
+            class="Breadcrumb__icon"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+            />
+          </svg>
+        </a>
+      </li>
+      <li
+        class="Breadcrumb__listItem"
+      >
+        <a
+          class="Breadcrumb__link"
+          href="/compare"
+        >
+          <span>
+            /
+          </span>
+        </a>
+      </li>
+      <li
+        aria-current="page"
+        class="Breadcrumb__listItem"
+      >
+        <a
+          class="Breadcrumb__link Breadcrumb__link--active"
+          href="/compare/details"
+        >
+          <span>
+            /
+          </span>
+          Details
+        </a>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;
+
+exports[`Breadcrumb should render with a custom linkRenderer 1`] = `
+<div>
+  <nav>
+    <ol
+      class="Breadcrumb__list"
+    >
+      <li
+        class="Breadcrumb__listItem"
+      >
+        <div
+          class="Breadcrumb__link"
+        >
+          <svg
+            aria-label="home-icon"
+            class="Breadcrumb__icon"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+            />
+          </svg>
+        </div>
+      </li>
+      <li
+        class="Breadcrumb__listItem"
+      >
+        <div
+          class="Breadcrumb__link"
+        >
+          <span>
+            /
+          </span>
+        </div>
+      </li>
+      <li
+        aria-current="page"
+        class="Breadcrumb__listItem"
+      >
+        <div
+          aria-label="Details"
+          class="Breadcrumb__link Breadcrumb__link--active"
+        >
+          <span>
+            /
+          </span>
+          Details
+        </div>
+      </li>
+    </ol>
+  </nav>
+</div>
+`;
