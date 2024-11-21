@@ -22,6 +22,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * **Tag:** 'size' is no longer a prop
 * **Dropdown:** Dropdown component API and structure changed
+* **Teaser:** Teaser component API and structure changed
 
 ### Features
 
