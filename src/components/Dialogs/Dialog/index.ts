@@ -1,1 +1,1 @@
-export { Dialog, DialogProps, ButtonProps } from './Dialog';
+export { Dialog, Props as DialogProps, ButtonProps } from './Dialog';

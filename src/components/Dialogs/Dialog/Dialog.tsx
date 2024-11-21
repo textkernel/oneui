@@ -13,7 +13,14 @@ export type ButtonProps = {
     label: string;
 };
 
-export interface BaseDialogProps extends ModalProps {
+export type HeaderProps = {
+    /** Dialog header title */
+    title: string | undefined;
+    /** Properties of the close button */
+    closeButton: ButtonProps;
+};
+
+export interface BaseProps extends ModalProps {
     /** Should the alert appear */
     isOpen: boolean;
     /** The alert content */
@@ -26,20 +33,19 @@ export interface BaseDialogProps extends ModalProps {
     variant?: Omit<ButtonContext, 'secondary'>;
 }
 
-export type DialogProps = BaseDialogProps &
-    ({ title?: string; onClose: () => void } | { title?: undefined; onClose?: never });
+export type Props = BaseProps & (HeaderProps | { title?: undefined; closeButton?: undefined });
 
 const { block, elem } = bem('Dialog', styles);
 
-export const Dialog: React.FC<DialogProps> = (props) => {
+export const Dialog: React.FC<Props> = (props) => {
     const {
         isOpen,
         children,
         title,
         acceptButton,
         cancelButton,
+        closeButton,
         variant = 'primary',
-        onClose,
         ...rest
     } = props;
 
@@ -48,36 +54,39 @@ export const Dialog: React.FC<DialogProps> = (props) => {
 
     return (
         <Modal {...rest} {...block(props)} isOpen={isOpen}>
-            <div {...elem('container')}>
-                {!!title && (
-                    <div {...elem('header')} role="alert">
-                        <Heading level="h3" {...elem('title', props)}>
-                            {title}
-                        </Heading>
-                        <button {...elem('closeButton')} type="button" onClick={onClose}>
-                            <MdClose />
-                        </button>
-                    </div>
-                )}
-                <div ref={ref} {...elem('content')}>
-                    {children}
+            {!!title && closeButton && (
+                <div {...elem('header')} role="alert">
+                    <Heading level="h3" {...elem('title', props)}>
+                        {title}
+                    </Heading>
+                    <Button
+                        {...elem('closeButton')}
+                        variant="ghost"
+                        onClick={closeButton.onClick}
+                        aria-label={closeButton.label}
+                    >
+                        <MdClose />
+                    </Button>
                 </div>
-                {showButtons && (
-                    <div {...elem('actions', { ...props, borderTop: height === 412 })}>
-                        <Button
-                            onClick={acceptButton.onClick}
-                            context={variant === 'primary' ? 'primary' : 'critical'}
-                        >
-                            {acceptButton.label}
-                        </Button>
-                        {!!cancelButton && (
-                            <Button onClick={cancelButton.onClick} variant="ghost">
-                                {cancelButton.label}
-                            </Button>
-                        )}
-                    </div>
-                )}
+            )}
+            <div ref={ref} {...elem('content')}>
+                {children}
             </div>
+            {showButtons && (
+                <div {...elem('actions', { ...props, borderTop: height === 412 })}>
+                    <Button
+                        onClick={acceptButton.onClick}
+                        context={variant === 'primary' ? 'primary' : 'critical'}
+                    >
+                        {acceptButton.label}
+                    </Button>
+                    {!!cancelButton && (
+                        <Button onClick={cancelButton.onClick} variant="ghost">
+                            {cancelButton.label}
+                        </Button>
+                    )}
+                </div>
+            )}
         </Modal>
     );
 };

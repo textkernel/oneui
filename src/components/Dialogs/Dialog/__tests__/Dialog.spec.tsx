@@ -8,6 +8,7 @@ import { ResizeObserverMock } from '../../../../__mocks__/resizeObserverMock';
 describe('Dialog', () => {
     const mockOnAccept = jest.fn();
     const mockOnCancel = jest.fn();
+    const mockOnClose = jest.fn();
 
     const dialogBody = 'Body of the dialog';
     const dialogTitle = 'Title';
@@ -16,6 +17,7 @@ describe('Dialog', () => {
         label: 'OK',
     };
     const cancelButtonProps = { onClick: mockOnCancel, label: 'Cancel' };
+    const closeButtonProps = { onClick: mockOnClose, label: 'Close' };
 
     let view: RenderResult;
 
@@ -24,12 +26,12 @@ describe('Dialog', () => {
         view = render(
             <Dialog
                 isOpen
-                acceptButton={acceptButtonProps}
-                cancelButton={cancelButtonProps}
-                onClose={mockOnCancel}
-                ariaHideApp={false}
                 title={dialogTitle}
                 contentLabel="Content Label"
+                acceptButton={acceptButtonProps}
+                cancelButton={cancelButtonProps}
+                closeButton={closeButtonProps}
+                ariaHideApp={false}
             >
                 {dialogBody}
             </Dialog>
@@ -64,7 +66,7 @@ describe('Dialog', () => {
         view.rerender(
             <Dialog
                 isOpen
-                onClose={mockOnCancel}
+                closeButton={closeButtonProps}
                 ariaHideApp={false}
                 contentLabel="Content Label"
                 title={dialogTitle}
@@ -81,7 +83,7 @@ describe('Dialog', () => {
         view.rerender(
             <Dialog
                 isOpen
-                onClose={mockOnCancel}
+                closeButton={closeButtonProps}
                 ariaHideApp={false}
                 contentLabel="Content Label"
                 title={dialogTitle}
@@ -126,8 +128,8 @@ describe('Dialog', () => {
 
     it('should call onClose callback when x is clicked', async () => {
         const user = userEvent.setup();
-        await user.click(screen.getAllByRole('button')[0]);
+        await user.click(screen.getByLabelText('Close'));
 
-        expect(mockOnCancel).toHaveBeenCalledTimes(1);
+        expect(mockOnClose).toHaveBeenCalledTimes(1);
     });
 });

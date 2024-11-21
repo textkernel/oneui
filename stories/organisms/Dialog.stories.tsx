@@ -83,22 +83,30 @@ export const _Dialog: DialogStory = {
             console.log('Dialog has been cancelled');
         };
 
+        const handleClose = () => {
+            setShowAlert(false);
+            console.log('Dialog has been closed');
+        };
+
         return (
             <>
                 <Button onClick={handleButtonClick}>Click to open Dialog</Button>
                 <Dialog
                     {...args}
                     isOpen={showAlert}
-                    onClose={handleCancel}
                     acceptButton={{
                         onClick: handleAccept,
                         label: 'Delete',
                     }}
-                    variant="critical"
                     cancelButton={{
                         onClick: handleCancel,
                         label: 'Cancel',
                     }}
+                    closeButton={{
+                        onClick: handleClose,
+                        label: 'Close',
+                    }}
+                    variant="critical"
                 />
             </>
         );
@@ -126,16 +134,24 @@ export const _Alert: Story = {
             console.log('Dialog has been accepted');
         };
 
+        const handleClose = () => {
+            setShowAlert(false);
+            console.log('Dialog has been closed');
+        };
+
         return (
             <>
                 <Button onClick={handleButtonClick}>Click to open Alert</Button>
                 <Alert
                     {...args}
-                    onClose={handleAccept}
                     isOpen={showAlert}
                     acceptButton={{
                         onClick: handleAccept,
                         label: 'Ok',
+                    }}
+                    closeButton={{
+                        onClick: handleClose,
+                        label: 'Close',
                     }}
                 />
             </>
@@ -169,12 +185,16 @@ export const _Confirm: ConfirmStory = {
             console.log('Dialog has been cancelled');
         };
 
+        const handleClose = () => {
+            setShowAlert(false);
+            console.log('Dialog has been closed');
+        };
+
         return (
             <>
                 <Button onClick={handleButtonClick}>Click to open a Confirm</Button>
                 <Confirm
                     {...args}
-                    onClose={handleCancel}
                     isOpen={showAlert}
                     acceptButton={{
                         onClick: handleAccept,
@@ -183,6 +203,10 @@ export const _Confirm: ConfirmStory = {
                     cancelButton={{
                         onClick: handleCancel,
                         label: 'Cancel',
+                    }}
+                    closeButton={{
+                        onClick: handleClose,
+                        label: 'Close',
                     }}
                 />
             </>
