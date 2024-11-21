@@ -18,6 +18,7 @@ export const _Dialog: DialogStory = {
     args: {
         title: 'You’re about to delete this page',
         contentLabel: 'content label',
+        variant: 'critical',
         children: (
             <div>
                 Before you delete it permanently, there’s some things you should know:
@@ -106,7 +107,6 @@ export const _Dialog: DialogStory = {
                         onClick: handleClose,
                         label: 'Close',
                     }}
-                    variant="critical"
                 />
             </>
         );
@@ -121,6 +121,7 @@ export const _Alert: Story = {
         contentLabel: 'An alert dialog',
         title: 'Hi there!',
         children: 'This is some information for you.',
+        variant: 'primary',
     },
     render: (args) => {
         const [showAlert, setShowAlert] = React.useState(false);
@@ -167,6 +168,7 @@ export const _Confirm: ConfirmStory = {
         title: 'Hi there!',
         contentLabel: 'A confirm dialog',
         children: 'This is some information for you. Do you want to proceed?',
+        variant: 'primary',
     },
     render: (args) => {
         const [showAlert, setShowAlert] = React.useState(false);
