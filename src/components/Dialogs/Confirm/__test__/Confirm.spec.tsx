@@ -5,11 +5,16 @@ import '@testing-library/jest-dom';
 import { Confirm } from '../Confirm';
 
 describe('Confirm', () => {
-    const mockOnAccept = jest.fn();
-    const mockOnCancel = jest.fn();
+    let mockOnAccept: jest.Mock;
+    let mockOnCancel: jest.Mock;
+    let mockOnClose: jest.Mock;
     let view: RenderResult;
 
     beforeEach(() => {
+        mockOnAccept = jest.fn();
+        mockOnCancel = jest.fn();
+        mockOnClose = jest.fn();
+
         view = render(
             <Confirm
                 isOpen
@@ -35,10 +40,10 @@ describe('Confirm', () => {
                 isOpen
                 acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
                 cancelButton={{ onClick: mockOnCancel, label: 'Cancel' }}
+                closeButton={{ onClick: mockOnClose, label: 'Close' }}
                 ariaHideApp={false}
                 contentLabel="Content Label"
                 title="Title"
-                onClose={mockOnCancel}
             >
                 Body of the confirm
             </Confirm>
@@ -48,16 +53,38 @@ describe('Confirm', () => {
         expect(screen.getAllByRole('heading')).toHaveLength(1);
     });
 
-    it('should call onCancel callback when button is clicked', async () => {
+    it('should call onAccept callback when cancel button is clicked', async () => {
         const user = userEvent.setup();
-        await user.click(screen.getAllByRole('button')[1]);
+        await user.click(screen.getByRole('button', { name: 'OK' }));
 
         expect(mockOnAccept).toHaveBeenCalledTimes(1);
     });
-    it('should call onCancel callback when button is clicked', async () => {
+
+    it('should call onCancel callback when cancel button is clicked', async () => {
         const user = userEvent.setup();
-        await user.click(screen.getAllByRole('button')[0]);
+        await user.click(screen.getByRole('button', { name: 'Cancel' }));
 
         expect(mockOnCancel).toHaveBeenCalledTimes(1);
+    });
+
+    it('should call onCancel callback when button is clicked', async () => {
+        view.rerender(
+            <Confirm
+                isOpen
+                acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
+                cancelButton={{ onClick: mockOnCancel, label: 'Cancel' }}
+                closeButton={{ onClick: mockOnClose, label: 'Close' }}
+                ariaHideApp={false}
+                contentLabel="Content Label"
+                title="Title"
+            >
+                Body of the confirm
+            </Confirm>
+        );
+
+        const user = userEvent.setup();
+        await user.click(screen.getByLabelText('Close'));
+
+        expect(mockOnClose).toHaveBeenCalledTimes(1);
     });
 });
