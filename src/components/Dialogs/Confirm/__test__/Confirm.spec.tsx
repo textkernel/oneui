@@ -53,7 +53,7 @@ describe('Confirm', () => {
         expect(screen.getAllByRole('heading')).toHaveLength(1);
     });
 
-    it('should call onAccept callback when cancel button is clicked', async () => {
+    it('should call onAccept callback when OK button is clicked', async () => {
         const user = userEvent.setup();
         await user.click(screen.getByRole('button', { name: 'OK' }));
 
