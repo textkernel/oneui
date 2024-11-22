@@ -1,13 +1,18 @@
 import React from 'react';
 import { render, RenderResult, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
 import { PillDropdown } from '../PillDropdown';
 
 describe('<PillDropdown> component', () => {
     let view: RenderResult;
 
     beforeEach(() => {
-        view = render(<PillDropdown>Pill dropdown content</PillDropdown>);
+        view = render(
+            <DropdownMenu open>
+                <PillDropdown>Pill dropdown content</PillDropdown>
+            </DropdownMenu>
+        );
     });
 
     afterEach(() => {
@@ -16,15 +21,19 @@ describe('<PillDropdown> component', () => {
 
     it('should render correctly', () => {
         expect(view.container).toMatchSnapshot();
-        expect(screen.getByRole('dialog')).toBeInTheDocument();
+        expect(screen.getByRole('menu')).toBeInTheDocument();
     });
 
     it('should render correctly without padding', () => {
-        view.rerender(<PillDropdown noPadding>Pill dropdown content</PillDropdown>);
+        view.rerender(
+            <DropdownMenu open>
+                <PillDropdown noPadding>Pill dropdown content</PillDropdown>
+            </DropdownMenu>
+        );
 
-        const contentInfo = screen.getByRole('group');
+        const content = screen.getByRole('menu');
 
-        expect(contentInfo).toBeInTheDocument();
-        expect(contentInfo).toHaveClass('PillDropdown__content');
+        expect(content).toBeInTheDocument();
+        expect(content).toHaveClass('PillDropdown--noPadding');
     });
 });

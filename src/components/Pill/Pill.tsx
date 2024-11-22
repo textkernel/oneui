@@ -2,7 +2,7 @@ import * as React from 'react';
 import { PillButton, PillButtonProps } from './PillButton';
 import { PillButtonEnhanced, PillButtonEnhancedProps } from './PillButtonEnhanced';
 import { PillDropdown } from './PillDropdown';
-import { DropdownContent, DropdownPortal, DropdownRoot } from '../Dropdown';
+import { DropdownPortal, DropdownRoot } from '../Dropdown';
 
 export interface ClassicButtonProps extends Omit<PillButtonProps, 'toggleDropdown' | 'children'> {
     /** Trigger button variant */
@@ -86,15 +86,13 @@ export const Pill = <PriorityItemValue extends unknown>({
                 />
             )}
             <DropdownPortal>
-                <DropdownContent asChild>
-                    <PillDropdown
-                        ref={dropdownRef}
-                        noPadding={noPaddingInDropdown}
-                        {...additionalDropdownProps}
-                    >
-                        {children}
-                    </PillDropdown>
-                </DropdownContent>
+                <PillDropdown
+                    ref={dropdownRef}
+                    noPadding={noPaddingInDropdown}
+                    {...additionalDropdownProps}
+                >
+                    {children}
+                </PillDropdown>
             </DropdownPortal>
         </DropdownRoot>
     );

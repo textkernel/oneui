@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { bem } from '../../../utils';
+import { DropdownContent } from '../../Dropdown';
 import styles from './PillDropdown.scss';
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
@@ -12,17 +13,13 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'child
     noPadding?: boolean;
 }
 
-const { block, elem } = bem('PillDropdown', styles);
+const { block } = bem('PillDropdown', styles);
 
 export const PillDropdown = React.forwardRef<HTMLElement, Props>(
     ({ noPadding = false, children, ...rest }, ref) => (
-        <div ref={ref} role="presentation" {...rest} {...block({ noPadding, ...rest })}>
-            <div role="dialog" {...elem('dialog')}>
-                <div {...elem('content', { noPadding })} role="group">
-                    {children}
-                </div>
-            </div>
-        </div>
+        <DropdownContent ref={ref} {...rest} {...block({ noPadding, ...rest })}>
+            {children}
+        </DropdownContent>
     )
 );
 

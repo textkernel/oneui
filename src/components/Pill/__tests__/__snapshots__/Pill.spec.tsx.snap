@@ -64,7 +64,7 @@ exports[`<Pill> component with classic button variant should open dropdown when 
     <div
       aria-labelledby="radix-:r2:"
       aria-orientation="vertical"
-      class="PillDropdown DropdownContent"
+      class="DropdownContent PillDropdown"
       data-align="start"
       data-orientation="vertical"
       data-radix-menu-content=""
@@ -76,21 +76,11 @@ exports[`<Pill> component with classic button variant should open dropdown when 
       style="outline: none; --radix-dropdown-menu-content-transform-origin: var(--radix-popper-transform-origin); --radix-dropdown-menu-content-available-width: var(--radix-popper-available-width); --radix-dropdown-menu-content-available-height: var(--radix-popper-available-height); --radix-dropdown-menu-trigger-width: var(--radix-popper-anchor-width); --radix-dropdown-menu-trigger-height: var(--radix-popper-anchor-height);"
       tabindex="-1"
     >
-      <div
-        class="PillDropdown__dialog"
-        role="dialog"
+      <p
+        title="Classic"
       >
-        <div
-          class="PillDropdown__content"
-          role="group"
-        >
-          <p
-            title="Classic"
-          >
-            Classic
-          </p>
-        </div>
-      </div>
+        Classic
+      </p>
     </div>
   </div>
   <span
@@ -215,7 +205,7 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
     <div
       aria-labelledby="radix-:re:"
       aria-orientation="vertical"
-      class="PillDropdown DropdownContent"
+      class="DropdownContent PillDropdown"
       data-align="start"
       data-orientation="vertical"
       data-radix-menu-content=""
@@ -227,21 +217,11 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
       style="outline: none; --radix-dropdown-menu-content-transform-origin: var(--radix-popper-transform-origin); --radix-dropdown-menu-content-available-width: var(--radix-popper-available-width); --radix-dropdown-menu-content-available-height: var(--radix-popper-available-height); --radix-dropdown-menu-trigger-width: var(--radix-popper-anchor-width); --radix-dropdown-menu-trigger-height: var(--radix-popper-anchor-height);"
       tabindex="-1"
     >
-      <div
-        class="PillDropdown__dialog"
-        role="dialog"
+      <p
+        title="Enhanced"
       >
-        <div
-          class="PillDropdown__content"
-          role="group"
-        >
-          <p
-            title="Enhanced"
-          >
-            Enhanced
-          </p>
-        </div>
-      </div>
+        Enhanced
+      </p>
     </div>
   </div>
   <span

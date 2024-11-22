@@ -9,7 +9,6 @@ describe('<Pill> component', () => {
     const onCloseMock = jest.fn();
     const nameMock = 'Pill name';
     const contentMock = 'Pill content';
-    const dialogRole = 'dialog';
     const downArrowLabel = 'Open';
     const upArrowLabel = 'Close';
     const clearLabel = 'Clear';
@@ -38,7 +37,7 @@ describe('<Pill> component', () => {
         it('should render correctly', () => {
             expect(view.baseElement).toMatchSnapshot();
             expect(getButtonByName(contentMock)).toBeVisible();
-            expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
+            expect(screen.queryByRole('menu')).not.toBeInTheDocument();
         });
 
         it('should open dropdown when button is clicked', async () => {
@@ -47,18 +46,18 @@ describe('<Pill> component', () => {
 
             expect(view.baseElement).toMatchSnapshot();
             expect(getButtonByName(contentMock)).toBeVisible();
-            expect(screen.getByRole(dialogRole)).toBeVisible();
+            expect(screen.getByRole('menu')).toBeVisible();
         });
 
         it('should close dropdown when button is clicked again', async () => {
             const user = userEvent.setup();
             await user.click(getButtonByName(contentMock));
 
-            expect(screen.getByRole(dialogRole)).toBeVisible();
+            expect(screen.getByRole('menu')).toBeVisible();
 
             await user.click(getButtonByName(contentMock));
 
-            expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
+            expect(screen.queryByRole('menu')).not.toBeInTheDocument();
         });
 
         // TODO: re-enable this test when PilButton is fixed
@@ -75,7 +74,7 @@ describe('<Pill> component', () => {
             const user = userEvent.setup();
             await user.click(getButtonByName(contentMock));
 
-            expect(screen.getByRole(dialogRole)).toBeVisible();
+            expect(screen.getByRole('menu')).toBeVisible();
             expect(screen.getByTitle('Classic')).toBeInTheDocument();
         });
 
@@ -109,7 +108,7 @@ describe('<Pill> component', () => {
         it('should render correctly', () => {
             expect(view.baseElement).toMatchSnapshot();
             expect(getButtonByName(contentMock)).toBeVisible();
-            expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
+            expect(screen.queryByRole('menu')).not.toBeInTheDocument();
         });
 
         it('should open dropdown when button is clicked', async () => {
@@ -118,18 +117,18 @@ describe('<Pill> component', () => {
 
             expect(view.baseElement).toMatchSnapshot();
             expect(getButtonByName(contentMock)).toBeVisible();
-            expect(screen.getByRole(dialogRole)).toBeVisible();
+            expect(screen.getByRole('menu')).toBeVisible();
         });
 
         it('should close dropdown when button is clicked again', async () => {
             const user = userEvent.setup();
             await user.click(getButtonByName(contentMock));
 
-            expect(screen.getByRole(dialogRole)).toBeVisible();
+            expect(screen.getByRole('menu')).toBeVisible();
 
             await user.click(getButtonByName(contentMock));
 
-            expect(screen.queryByRole(dialogRole)).not.toBeInTheDocument();
+            expect(screen.queryByRole('menu')).not.toBeInTheDocument();
         });
 
         it('should call onClear when button is clicked', async () => {
@@ -145,7 +144,7 @@ describe('<Pill> component', () => {
             const user = userEvent.setup();
             await user.click(getButtonByName(contentMock));
 
-            expect(screen.getByRole(dialogRole)).toBeVisible();
+            expect(screen.getByRole('menu')).toBeVisible();
             expect(screen.getByTitle('Enhanced')).toBeInTheDocument();
         });
 
