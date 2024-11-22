@@ -80,7 +80,7 @@ export const Dialog: React.FC<Props> = (props) => {
                     >
                         {acceptButton.label}
                     </Button>
-                    {!!cancelButton && (
+                    {!!cancelButton.onClick && (
                         <Button onClick={cancelButton.onClick} variant="ghost">
                             {cancelButton.label}
                         </Button>
