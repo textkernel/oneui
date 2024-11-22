@@ -67,7 +67,7 @@ describe('Confirm', () => {
         expect(mockOnCancel).toHaveBeenCalledTimes(1);
     });
 
-    it('should call onCancel callback when button is clicked', async () => {
+    it('should call onCancel callback when close button is clicked', async () => {
         view.rerender(
             <Confirm
                 isOpen
