@@ -1,1 +1,1 @@
-export { Breadcrumb, Props as BreadcrumbProps } from './Breadcrumb';
+export { Breadcrumb, Props as BreadcrumbProps, Path as BreadcrumbPath } from './Breadcrumb';

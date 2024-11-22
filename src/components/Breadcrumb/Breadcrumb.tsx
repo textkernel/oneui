@@ -1,24 +1,25 @@
 import React from 'react';
-import { BreadcrumbPath } from '@textkernel/oneui/constants';
 import { bem } from '../../utils';
 import styles from './Breadcrumb.scss';
 
+export interface Path {
+    href: string;
+    label?: string;
+    icon?: React.ReactElement;
+}
+
 export interface Props extends React.ComponentPropsWithoutRef<'nav'> {
     /** Paths used for creation of different breadcrumb links */
-    paths: BreadcrumbPath[];
+    paths: Path[];
     /** Custom link renderer to allow any router implementation */
-    linkRenderer?: (path: BreadcrumbPath) => React.ReactElement;
+    linkRenderer?: (path: Path) => React.ReactElement;
 }
 
 const { block, elem } = bem('Breadcrumb', styles);
 
 const Breadcrumb = React.forwardRef<HTMLElement, Props>(
     (
-        {
-            paths,
-            linkRenderer = (path: BreadcrumbPath) => <a href={path.href}>{path.label}</a>,
-            ...rest
-        },
+        { paths, linkRenderer = (path: Path) => <a href={path.href}>{path.label}</a>, ...rest },
         ref
     ) => (
         <nav {...block(rest)} {...rest} ref={ref}>
