@@ -9,6 +9,7 @@ import {
     SelectedItemBadge,
     SingleSelectItem,
 } from '@textkernel/oneui';
+import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
 
 const DummyComponent = () => (
     <>
@@ -92,7 +93,7 @@ export const _Pill: Story = {
         };
 
         return (
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <Pill
                     {...args}
                     onClear={() => {
@@ -181,9 +182,13 @@ export const _PillButton: PillButtonStory = {
     },
     render: (args) => (
         <div style={{ display: 'flex' }}>
-            <PillButton {...args} />
+            <DropdownMenu>
+                <PillButton {...args} />
+            </DropdownMenu>
             &nbsp;&nbsp;
-            <PillButton {...args} name="Pill 2" content="" />
+            <DropdownMenu>
+                <PillButton {...args} name="Pill 2" content="" />
+            </DropdownMenu>
         </div>
     ),
 };
@@ -208,15 +213,19 @@ export const _PillButtonEnhanced: PillButtonEnhancedStory = {
     },
     render: (args) => (
         <div style={{ display: 'flex' }}>
-            <PillButtonEnhanced {...args} />
+            <DropdownMenu>
+                <PillButtonEnhanced {...args} />
+            </DropdownMenu>
             &nbsp;&nbsp;
-            <PillButtonEnhanced
-                {...args}
-                name="Pill 2"
-                content=""
-                additionalContentLabel=""
-                additionalContentTooltip=""
-            />
+            <DropdownMenu>
+                <PillButtonEnhanced
+                    {...args}
+                    name="Pill 2"
+                    content=""
+                    additionalContentLabel=""
+                    additionalContentTooltip=""
+                />
+            </DropdownMenu>
         </div>
     ),
 };
@@ -244,23 +253,27 @@ export const _PillButtonEnhancedWithPriority: PillButtonEnhancedStory = {
 
         return (
             <div style={{ display: 'flex' }}>
-                <PillButtonEnhanced<string>
-                    {...args}
-                    priority={{
-                        onChange: handlePrioritySelect,
-                        selectedItem: prioritySelected,
-                        list: priorityList,
-                        buttonLabel: 'priorityButton',
-                    }}
-                />
+                <DropdownMenu>
+                    <PillButtonEnhanced<string>
+                        {...args}
+                        priority={{
+                            onChange: handlePrioritySelect,
+                            selectedItem: prioritySelected,
+                            list: priorityList,
+                            buttonLabel: 'priorityButton',
+                        }}
+                    />
+                </DropdownMenu>
                 &nbsp;&nbsp;
-                <PillButtonEnhanced
-                    {...args}
-                    name="Pill 2"
-                    content=""
-                    additionalContentLabel=""
-                    additionalContentTooltip=""
-                />
+                <DropdownMenu>
+                    <PillButtonEnhanced
+                        {...args}
+                        name="Pill 2"
+                        content=""
+                        additionalContentLabel=""
+                        additionalContentTooltip=""
+                    />
+                </DropdownMenu>
             </div>
         );
     },
