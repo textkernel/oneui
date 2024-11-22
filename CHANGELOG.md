@@ -119,6 +119,7 @@ All notable changes to this project will be documented in this file. See [standa
 * **css variables:** some unused CSS variables removed: `--line-medium`, `--line-thick`, `--outline-size`
 * **fonts:** `--font-weight-light` and `--font-wight-medium` were removed from the library
 * **typography:** changes to how basic text styles are applied to consuming applications see [README](/README.md#assign-base-class-to-body)
+* **checkbox** `indeterminate` state needs to be used in combination with `checked`. Before it was also showing when the checkbox was not checked. 
 
 ### Features
 
