@@ -3,7 +3,7 @@
     text-decoration: underline;
 
     &:focus-visible {
-        outline: 2px solid var(--color-border-information-subtle-default, #66AFFF);
+        outline: 2px solid var(--color-border-info-subtle-default, #66afff);
     }
 
     &:hover {
@@ -16,7 +16,7 @@
         &:hover {
             color: var(--color-link-visited-pressed, #001833);
         }
-    } 
+    }
 
     &__icon {
         fill: currentColor;

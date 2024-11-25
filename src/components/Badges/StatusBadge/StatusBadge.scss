@@ -1,0 +1,50 @@
+@use 'sass:list';
+@import '../../../themes/oneui/constants/colors';
+
+$contexts: list.join($contexts, ('info', 'neutral'));
+$variants: (subtle, bold);
+
+.StatusBadge {
+    display: flex;
+    align-items: center;
+    border-radius: var(--border-radius);
+    padding: var(--space-0) var(--space-75);
+    height: var(--space-250);
+    width: fit-content;
+    max-width: 200px;
+    min-width: var(--space-250);
+    composes: OneUI-caption-text from global;
+
+    &__text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__icon {
+        height: var(--space-150);
+        width: var(--space-150);
+        padding-right: var(--space-50);
+    }
+
+    @each $context in $contexts {
+        @each $variant in $variants {
+            &--context_#{$context}.StatusBadge--variant_#{$variant} {
+                @if $variant == bold {
+                    background-color: var(--color-background-#{$context}-bold-default);
+                    color: var(--color-text-inverse);
+                    @if $context == cautious {
+                        color: var(--color-text-cautious-inverse-default, #1a1a1a);
+                    }
+                } @else {
+                    background: var(--color-background-#{$context}-subtlest-default);
+                    color: var(--color-text-#{$context}-default);
+                    @if $context == neutral {
+                        background: var(--color-background-neutral-subtle-default, #e6e6e6);
+                        color: var(--color-text-subtle);
+                    }
+                }
+            }
+        }
+    }
+}

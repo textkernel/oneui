@@ -2,12 +2,7 @@
 @use '../../themes/oneui/oneui';
 
 $contexts: (info, success, cautious, critical);
-$contextMap: (
-    'info': 'information',
-    'success': 'success',
-    'cautious': 'caution',
-    'critical': 'critical',
-);
+
 
 .Toast {
     display: flex;
@@ -23,9 +18,8 @@ $contextMap: (
         margin: 0;
         font-size: var(--space-300);
         @each $context in $contexts {
-            $mappedContext: map.get($contextMap, $context);
             &--context_#{$context} {
-                fill: var(--color-icon-#{$mappedContext}-default);
+                fill: var(--color-icon-#{$context}-default);
             }
         }
     }
@@ -91,10 +85,9 @@ $contextMap: (
     }
 
     @each $context in $contexts {
-        $mappedContext: map.get($contextMap, $context);
         &--context_#{$context} {
-            background-color: var(--color-background-#{$mappedContext}-subtlest-default);
-            border-color: var(--color-border-#{$mappedContext}-subtle-#{$mappedContext});
+            background-color: var(--color-background-#{$context}-subtlest-default);
+            border-color: var(--color-border-#{$context}-subtle-#{$context});
         }
     }
 }
