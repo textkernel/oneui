@@ -1,56 +1,92 @@
 .PillButtonEnhanced {
     composes: OneUI-label-text from global;
-    display: inline-flex;
+    display: flex;
     justify-items: start;
-
     border: solid 1px var(--color-border-subtlest);
-    background: var(--color-background-neutral-subtlest-default, #FFF);
     border-radius: var(--space-50);
-
+    align-items: center;
     height: var(--space-400);
-    padding: var(--space-50) var(--space-100);
     box-sizing: border-box;
 
-    &:has(.PillButtonEnhanced__main:hover) {
-        background: var(--color-background-neutral-subtlest-hover, #E6E6E6);
-    }
-
-    &:has(.PillButtonEnhanced__main:focus-visible) {
-        box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
-    }
-
-    &[data-state="open"] {
-        border: 2px solid var(--color-border-selected, #007AFF);
-        background: var(--color-background-neutral-subtlest-pressed, #CCC);
-
-        &.PillButtonEnhanced--isActive {
-            background: var(--color-background-selected-subtlest-pressed, #99CAFF);
-        }
-    }
-
     &--isActive {
-        background: var(--color-background-selected-subtlest-default, #E6F2FF);
+        background: var(--color-background-selected-subtlest-default, #e6f2ff);
 
-        &:has(.PillButtonEnhanced__main:hover) {
-            background: var(--color-background-selected-subtlest-hover, #CCE4FF);
+        &[disabled] {
+            background: var(--color-background-selected-subtlest-disabled);
         }
+    }
+
+    &:has(.PillButtonEnhanced__main[data-state='open']) {
+        background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
+    }
+
+    &:has(.PillButtonEnhanced__main:active):not([disabled]) {
+        background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
     }
 
     &__priority {
-        position: relative;
-        top: -1px;
+        border-radius: var(--space-50) 0 0 var(--space-50);
+        border-right: solid 1px var(--color-border-subtlest);
+        flex-shrink: 0;
     }
 
     &__main {
         display: flex;
+        align-items: center;
         cursor: pointer;
         max-width: 220px;
         white-space: nowrap;
+        padding: var(--space-75) var(--space-100);
+        box-sizing: border-box;
+        border-radius: inherit;
 
-        &:focus-visible {
+        &[disabled] {
+            cursor: not-allowed;
+            background: var(--color-background-disabled);
+        }
+
+        &:focus-visible:not([disabled]) {
+            border: var(--space-25) solid var(--color-info-20, #99caff);
+            padding: var(--space-50) var(--space-75);
             outline: none;
         }
-   }
+
+        &:active:not([disabled]) {
+            border: var(--space-25) solid var(--color-border-selected);
+            padding: var(--space-50) var(--space-75);
+        }
+
+        &:hover:not([disabled]):not(:active):not([data-state='open']) {
+            background-color: var(--color-background-neutral-subtlest-hover);
+        }
+
+        &[data-state='open'] {
+            border: var(--space-25) solid var(--color-border-selected, #007aff);
+            padding: var(--space-50) var(--space-75);
+            background-color: var(--color-background-neutral-subtlest-hover);
+        }
+
+        &--isActive {
+            border-radius: 0;
+
+            &[disabled] {
+                background: var(--color-background-selected-subtlest-disabled);
+                cursor: not-allowed;
+            }
+
+            &:active:not([disabled]) {
+                background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
+            }
+
+            &:hover:not([disabled]):not(:active):not([data-state='open']) {
+                background: var(--color-background-selected-subtlest-hover, #cce4ff);
+            }
+
+            &[data-state='open'] {
+                background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
+            }
+        }
+    }
 
     &__name {
         color: var(--color-text-bold, #000);
@@ -64,7 +100,7 @@
         color: var(--color-text-selected-default, #004999);
         overflow: hidden;
         text-overflow: ellipsis;
-        padding-left: var(--space-50)
+        padding-left: var(--space-50);
     }
 
     &__contentSeparator {
@@ -76,29 +112,47 @@
         margin-left: var(--space-50);
     }
 
-    &__button {
-        padding: 2px;
-        border: 1px solid transparent;
-        border-radius: 50%;
+    &__arrowIcon {
+        display: flex;
         margin-left: var(--space-75);
-        background-color: transparent;
         color: inherit;
-        cursor: pointer;
-        box-sizing: content-box;
 
         & svg {
-            fill: var(--color-icon-subtle)
+            fill: var(--color-icon-subtle);
+        }
+    }
+
+    &__clear {
+        border-radius: 0 var(--space-50) var(--space-50) 0;
+        border-left: 1px solid var(--color-border-subtlest);
+
+        & svg {
+            fill: var(--color-icon-brand-default);
         }
 
-        &:hover svg {
-            fill: var(--color-icon-subtlest)
-        }
-
-        &:focus-visible {
-            outline: none;
+        &[disabled] {
             & svg {
-                box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
+                fill: var(--color-icon-brand-disabled);
             }
+        }
+    }
+
+    &--isDisabled,
+    &[disabled] {
+        background: var(--color-background-disabled);
+        cursor: not-allowed;
+
+        .PillButtonEnhanced__name,
+        .PillButtonEnhanced__valueSeparator,
+        .PillButtonEnhanced__arrowIcon svg {
+            color: var(--color-text-disabled);
+            fill: var(--color-text-disabled);
+        }
+
+        .PillButtonEnhanced__content,
+        .PillButtonEnhanced__contentSeparator,
+        .PillButtonEnhanced__additionalContent {
+            color: var(--color-text-selected-disabled);
         }
     }
 }

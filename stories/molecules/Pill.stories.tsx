@@ -8,6 +8,7 @@ import {
     PriorityItemType,
     SelectedItemBadge,
     SingleSelectItem,
+    DropdownRoot,
 } from '@textkernel/oneui';
 
 const DummyComponent = (props) => (
@@ -40,7 +41,7 @@ export default meta;
 type Story = StoryObj<typeof Pill>;
 
 export const _Pill: Story = {
-    name: 'Pill',
+    name: 'Enhanced Pill',
     args: {
         doneLabel: 'Done',
         name: 'Pill name',
@@ -48,6 +49,7 @@ export const _Pill: Story = {
         downArrowLabel: 'down arrow',
         upArrowLabel: 'up arrow',
         clearLabel: 'clear label',
+        variant: 'enhanced',
     },
     render: (args) => {
         const [prioritySelected, setPrioritySelected] = React.useState<PriorityItemType<string>>({
@@ -70,6 +72,7 @@ export const _Pill: Story = {
             <div style={{ position: 'relative', display: 'flex', gap: '4px' }}>
                 <Pill
                     {...args}
+                    variant="enhanced"
                     onClear={() => {
                         console.log('onClear called');
                     }}
@@ -119,6 +122,91 @@ export const _Pill: Story = {
                         </div>
                     )}
                 </Pill>
+                <Pill {...args} variant="enhanced" content={undefined}>
+                    {({ close }) => <DummyComponent close={close} />}
+                </Pill>
+            </div>
+        );
+    },
+};
+
+export const _PillClassic: Story = {
+    name: 'Classic Pill',
+    args: {
+        doneLabel: 'Done',
+        name: 'Pill name',
+        content: 'This pill is used',
+        downArrowLabel: 'down arrow',
+        upArrowLabel: 'up arrow',
+        clearLabel: 'clear label',
+        variant: 'classic',
+    },
+    render: (args) => {
+        const [prioritySelected, setPrioritySelected] = React.useState<PriorityItemType<string>>({
+            priority: 'mandatory',
+            label: 'Mandatory',
+            value: 'required',
+        });
+
+        const handlePrioritySelect = (selectedItem: PriorityItemType<string>) => {
+            console.log('new item selected: ', selectedItem);
+            setPrioritySelected(selectedItem);
+        };
+
+        const badgeOption = ['some', 'other', 'options'];
+        const handleOptionChange = (option) => {
+            console.log('SelectedItemBadge option was selected: ', option);
+        };
+
+        return (
+            <div style={{ position: 'relative', display: 'flex', gap: '4px' }}>
+                <Pill
+                    {...args}
+                    variant="classic"
+                    onClear={() => {
+                        console.log('onClear called');
+                    }}
+                    onClose={() => {
+                        console.log('onClose called');
+                    }}
+                >
+                    {({ close }) => <DummyComponent close={close} />}
+                </Pill>
+                <Pill
+                    {...args}
+                    variant="classic"
+                    onClose={() => {
+                        console.log('onClose called');
+                    }}
+                    onClear={() => {
+                        console.log('onClear called');
+                    }}
+                    isContentDefault
+                >
+                    {() => (
+                        <div style={{ width: '150px' }}>
+                            <SelectedItemBadge
+                                label="Java"
+                                priority={{
+                                    onChange: handlePrioritySelect,
+                                    selectedItem: prioritySelected,
+                                    list: priorityList,
+                                    buttonLabel: 'priorityButton',
+                                }}
+                            >
+                                {badgeOption.map((option) => (
+                                    <SingleSelectItem
+                                        key={option}
+                                        onClick={() => handleOptionChange(option)}
+                                        isSelected={option === 'Java'}
+                                    >
+                                        {option}
+                                    </SingleSelectItem>
+                                ))}
+                            </SelectedItemBadge>
+                        </div>
+                    )}
+                </Pill>
                 <Pill {...args} content={undefined}>
                     {({ close }) => <DummyComponent close={close} />}
                 </Pill>
@@ -137,12 +225,17 @@ export const _PillButton: PillButtonStory = {
         downArrowLabel: 'down arrow',
         upArrowLabel: 'up arrow',
         clearLabel: 'clear label',
+        isContentDefault: false,
     },
     render: (args) => (
         <div style={{ display: 'flex' }}>
-            <PillButton {...args} />
+            <DropdownRoot>
+                <PillButton {...args} />
+            </DropdownRoot>
             &nbsp;&nbsp;
-            <PillButton {...args} name="Pill 2" content="" />
+            <DropdownRoot>
+                <PillButton {...args} name="Pill 2" content="" />
+            </DropdownRoot>
         </div>
     ),
 };
@@ -167,15 +260,19 @@ export const _PillButtonEnhanced: PillButtonEnhancedStory = {
     },
     render: (args) => (
         <div style={{ display: 'flex' }}>
-            <PillButtonEnhanced {...args} />
+            <DropdownRoot>
+                <PillButtonEnhanced {...args} />
+            </DropdownRoot>
             &nbsp;&nbsp;
-            <PillButtonEnhanced
-                {...args}
-                name="Pill 2"
-                content=""
-                additionalContentLabel=""
-                additionalContentTooltip=""
-            />
+            <DropdownRoot>
+                <PillButtonEnhanced
+                    {...args}
+                    name="Pill 2"
+                    content=""
+                    additionalContentLabel=""
+                    additionalContentTooltip=""
+                />
+            </DropdownRoot>
         </div>
     ),
 };
@@ -203,23 +300,27 @@ export const _PillButtonEnhancedWithPriority: PillButtonEnhancedStory = {
 
         return (
             <div style={{ display: 'flex' }}>
-                <PillButtonEnhanced<string>
-                    {...args}
-                    priority={{
-                        onChange: handlePrioritySelect,
-                        selectedItem: prioritySelected,
-                        list: priorityList,
-                        buttonLabel: 'priorityButton',
-                    }}
-                />
+                <DropdownRoot>
+                    <PillButtonEnhanced<string>
+                        {...args}
+                        priority={{
+                            onChange: handlePrioritySelect,
+                            selectedItem: prioritySelected,
+                            list: priorityList,
+                            buttonLabel: 'priorityButton',
+                        }}
+                    />
+                </DropdownRoot>
                 &nbsp;&nbsp;
-                <PillButtonEnhanced
-                    {...args}
-                    name="Pill 2"
-                    content=""
-                    additionalContentLabel=""
-                    additionalContentTooltip=""
-                />
+                <DropdownRoot>
+                    <PillButtonEnhanced
+                        {...args}
+                        name="Pill 2"
+                        content=""
+                        additionalContentLabel=""
+                        additionalContentTooltip=""
+                    />
+                </DropdownRoot>
             </div>
         );
     },

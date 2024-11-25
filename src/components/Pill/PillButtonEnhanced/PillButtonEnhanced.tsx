@@ -1,7 +1,7 @@
 import * as React from 'react';
 import DownArrow from '@material-design-icons/svg/round/expand_more.svg';
 import UpArrow from '@material-design-icons/svg/round/expand_less.svg';
-import Clear from '@material-design-icons/svg/round/cancel.svg';
+import Close from '@material-design-icons/svg/round/close.svg';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
 import { PillButtonBaseProps } from '../PillButton';
@@ -9,6 +9,7 @@ import { DropdownTrigger } from '../../Dropdown';
 import { PrioritySelector, PrioritySelectorProps } from '../../PrioritySelector';
 import styles from './PillButtonEnhanced.scss';
 import { Tooltip } from '../../Tooltip';
+import { IconButton } from '../../Buttons';
 
 export interface Props<PriorityItemValue = unknown> extends PillButtonBaseProps {
     /** Label/indicator in case of multiple selection, such as `+2` for instance */
@@ -19,6 +20,8 @@ export interface Props<PriorityItemValue = unknown> extends PillButtonBaseProps 
     priority?: PrioritySelectorProps<PriorityItemValue>;
     /** max width of the button (excluding 20px of the trailing button), e.g. `fit-content`. If undefined will default to 220px */
     maxWidth?: string;
+    /** Boolean indicating whether the whole pill should be disabled. */
+    isDisabled?: boolean;
 }
 
 const { block, elem } = bem('PillButtonEnhanced', styles);
@@ -38,6 +41,7 @@ export const PillButtonEnhanced = React.forwardRef(
             additionalContentLabel,
             additionalContentTooltip,
             maxWidth,
+            isDisabled,
             ...rest
         }: Props<PriorityItemValue>,
         ref: React.Ref<HTMLElement>
@@ -45,63 +49,16 @@ export const PillButtonEnhanced = React.forwardRef(
         const isActive = !!content;
         const propsForBem = { isOpen, isActive };
 
-        const getButtonIconAndHandler = () => {
-            if (content) {
-                return {
-                    icon: (
-                        <Clear
-                            aria-label={clearLabel}
-                            viewBox="0 0 24 24"
-                            height="16px"
-                            width="16px"
-                        />
-                    ),
-                    onClick: (e: React.MouseEvent) => {
-                        e.stopPropagation();
-                        e.preventDefault();
-                        onClear();
-                    },
-                };
-            }
+        const buttonIcon = isOpen ? (
+            <UpArrow aria-label={upArrowLabel} viewBox="0 0 24 24" height="16px" width="16px" />
+        ) : (
+            <DownArrow aria-label={downArrowLabel} viewBox="0 0 24 24" height="16px" width="16px" />
+        );
 
-            if (isOpen) {
-                return {
-                    icon: (
-                        <UpArrow
-                            aria-label={upArrowLabel}
-                            viewBox="0 0 24 24"
-                            height="16px"
-                            width="16px"
-                        />
-                    ),
-                    onClick: (e: React.MouseEvent) => {
-                        e.stopPropagation();
-                        e.preventDefault();
-                    },
-                };
-            }
-            return {
-                icon: (
-                    <DownArrow
-                        aria-label={downArrowLabel}
-                        viewBox="0 0 24 24"
-                        height="16px"
-                        width="16px"
-                    />
-                ),
-                onClick: (e) => {
-                    e.stopPropagation();
-                    e.preventDefault();
-                },
-            };
-        };
-
-        const { icon: buttonIcon, onClick: handleButtonClick } = getButtonIconAndHandler();
-
-        const handleKeyDownOnButton = (e) => {
-            if (e.key === ENTER_KEY) {
-                handleButtonClick(e);
-            }
+        const handleOnClear = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            onClear();
         };
 
         const handlePillClick = (e) => {
@@ -110,6 +67,9 @@ export const PillButtonEnhanced = React.forwardRef(
         };
 
         const handleKeyDownOnPill = (e) => {
+            if (isDisabled) {
+                return;
+            }
             if (e.key === ENTER_KEY) {
                 handlePillClick(e);
             }
@@ -120,18 +80,19 @@ export const PillButtonEnhanced = React.forwardRef(
                 {priority?.list.length && (
                     <PrioritySelector
                         {...priority}
-                        size="small"
                         triggerClassName={`${elem('priority').className} ${priority.triggerClassName}`}
+                        isDisabled={isDisabled}
                     />
                 )}
-                <DropdownTrigger>
+                <DropdownTrigger disabled={isDisabled}>
                     <div
                         role="button"
-                        {...elem('main')}
+                        {...elem('main', { isActive })}
                         onClick={handlePillClick}
                         onKeyDown={handleKeyDownOnPill}
                         tabIndex={0}
                         style={{ maxWidth }}
+                        disabled={isDisabled}
                     >
                         <span {...elem('name')}>{name}</span>
                         {!!content && (
@@ -152,17 +113,26 @@ export const PillButtonEnhanced = React.forwardRef(
                                 </Tooltip>
                             </>
                         )}
+                        <div {...elem('arrowIcon')}>{buttonIcon}</div>
                     </div>
                 </DropdownTrigger>
-                <div
-                    role="button"
-                    {...elem('button')}
-                    onClick={handleButtonClick}
-                    onKeyDown={handleKeyDownOnButton}
-                    tabIndex={0}
-                >
-                    {buttonIcon}
-                </div>
+                {!!content && (
+                    <IconButton
+                        {...elem('clear')}
+                        onClick={handleOnClear}
+                        variant="ghost"
+                        onKeyDown={handleOnClear}
+                        tabIndex={0}
+                        disabled={isDisabled}
+                    >
+                        <Close
+                            aria-label={clearLabel}
+                            viewBox="0 0 24 24"
+                            height="16px"
+                            width="16px"
+                        />
+                    </IconButton>
+                )}
             </div>
         );
     }
