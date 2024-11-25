@@ -1,6 +1,6 @@
 .PillButtonEnhanced {
     composes: OneUI-label-text from global;
-    display: flex;
+    display: inline-flex;
     justify-items: start;
     border: solid 1px var(--color-border-subtlest);
     border-radius: var(--space-50);
