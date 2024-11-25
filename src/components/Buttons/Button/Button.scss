@@ -47,7 +47,7 @@ $contextMap: (
         background-color: var(--color-background-critical-bold-pressed);
     }
     &:focus-visible {
-        box-shadow: 0px 0px 0px 2px var(--color-background-information-subtlest-pressed);
+        box-shadow: 0px 0px 0px 2px var(--color-background-info-subtlest-pressed);
     }
 
     &[disabled],
@@ -175,11 +175,7 @@ $contextMap: (
                     }
 
                     &:focus-visible {
-                        box-shadow: 0px
-                            0px
-                            0px
-                            2px
-                            var(--color-background-information-subtlest-pressed);
+                        box-shadow: 0px 0px 0px 2px var(--color-background-info-subtlest-pressed);
                     }
 
                     &[disabled],

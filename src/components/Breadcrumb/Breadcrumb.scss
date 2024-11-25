@@ -1,0 +1,45 @@
+.Breadcrumb__list {
+    display: flex;
+    gap: var(--space-50);
+    padding: 0;
+    margin: 0;
+}
+
+.Breadcrumb__listItem {
+    list-style-type: none;
+}
+
+.Breadcrumb__link {
+    display: flex;
+    gap: var(--space-50);
+    align-items: center;
+    composes: OneUI-caption-text from global;
+    color: var(--color-text-subtlest, #808080);
+
+    &:hover {
+        color: var(--color-text-bold, #000000);
+    }
+
+    &--active {
+        composes: OneUI-caption-text-bold from global;
+        color: var(--color-text-selected-default, #004999);
+
+        &:hover {
+            color: var(--color-text-bold, #000000);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-border-brand-subtle-brand, #66c1e3);
+    }
+}
+
+.Breadcrumb__icon {
+    height: var(--space-200);
+    width: var(--space-200);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}

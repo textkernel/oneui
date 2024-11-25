@@ -42,9 +42,11 @@ export * from './components/TextArea';
 export * from './components/WidthRestrictor';
 export * from './components/PopupBase';
 export * from './components/Tag';
+export * from './components/Badges';
 // Molecules
 export * from './components/BulkActionsToolbar';
 export * from './components/ButtonGroup';
+export * from './components/Breadcrumb';
 export * from './components/Checkbox';
 export * from './components/DatePicker';
 export * from './components/Dropdown';
