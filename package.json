@@ -143,7 +143,7 @@
         "react-router-dom": "6.28.0",
         "react-transition-group": "4.4.5",
         "sass": "1.81.0",
-        "sass-loader": "16.0.2",
+        "sass-loader": "16.0.3",
         "sonner": "1.5.0",
         "standard-version": "9.5.0",
         "storybook": "7.6.20",
