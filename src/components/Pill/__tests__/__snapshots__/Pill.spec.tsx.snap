@@ -64,7 +64,7 @@ exports[`<Pill> component with classic button variant should open dropdown when 
     <div
       aria-labelledby="radix-:r2:"
       aria-orientation="vertical"
-      class="PillDropdown DropdownContent"
+      class="DropdownContent PillDropdown"
       data-align="start"
       data-orientation="vertical"
       data-radix-menu-content=""
@@ -76,26 +76,11 @@ exports[`<Pill> component with classic button variant should open dropdown when 
       style="outline: none; --radix-dropdown-menu-content-transform-origin: var(--radix-popper-transform-origin); --radix-dropdown-menu-content-available-width: var(--radix-popper-available-width); --radix-dropdown-menu-content-available-height: var(--radix-popper-available-height); --radix-dropdown-menu-trigger-width: var(--radix-popper-anchor-width); --radix-dropdown-menu-trigger-height: var(--radix-popper-anchor-height);"
       tabindex="-1"
     >
-      <div
-        class="PillDropdown__dialog"
-        role="dialog"
+      <p
+        title="Classic"
       >
-        <div
-          class="PillDropdown__content"
-          role="group"
-        />
-        <div
-          class="PillDropdown__footer"
-        >
-          <button
-            class="Button Button--size_small Button--variant_filled Button--context_primary"
-            style="width: auto;"
-            type="button"
-          >
-            Done
-          </button>
-        </div>
-      </div>
+        Classic
+      </p>
     </div>
   </div>
   <span
@@ -170,12 +155,12 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
       class="PillButtonEnhanced PillButtonEnhanced--isActive"
     >
       <div
-        aria-controls="radix-:rh:"
+        aria-controls="radix-:rf:"
         aria-expanded="true"
         aria-haspopup="menu"
         class="PillButtonEnhanced__main"
         data-state="open"
-        id="radix-:rg:"
+        id="radix-:re:"
         role="button"
         tabindex="0"
         type="button"
@@ -218,40 +203,25 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
     style="position: fixed; left: 0px; top: 0px; transform: translate(0px, 6px); min-width: max-content; --radix-popper-available-width: 0px; --radix-popper-available-height: -6px; --radix-popper-anchor-width: 0px; --radix-popper-anchor-height: 0px; --radix-popper-transform-origin: 0% 0px;"
   >
     <div
-      aria-labelledby="radix-:rg:"
+      aria-labelledby="radix-:re:"
       aria-orientation="vertical"
-      class="PillDropdown DropdownContent"
+      class="DropdownContent PillDropdown"
       data-align="start"
       data-orientation="vertical"
       data-radix-menu-content=""
       data-side="bottom"
       data-state="open"
       dir="ltr"
-      id="radix-:rh:"
+      id="radix-:rf:"
       role="menu"
       style="outline: none; --radix-dropdown-menu-content-transform-origin: var(--radix-popper-transform-origin); --radix-dropdown-menu-content-available-width: var(--radix-popper-available-width); --radix-dropdown-menu-content-available-height: var(--radix-popper-available-height); --radix-dropdown-menu-trigger-width: var(--radix-popper-anchor-width); --radix-dropdown-menu-trigger-height: var(--radix-popper-anchor-height);"
       tabindex="-1"
     >
-      <div
-        class="PillDropdown__dialog"
-        role="dialog"
+      <p
+        title="Enhanced"
       >
-        <div
-          class="PillDropdown__content"
-          role="group"
-        />
-        <div
-          class="PillDropdown__footer"
-        >
-          <button
-            class="Button Button--size_small Button--variant_filled Button--context_primary"
-            style="width: auto;"
-            type="button"
-          >
-            Done
-          </button>
-        </div>
-      </div>
+        Enhanced
+      </p>
     </div>
   </div>
   <span
@@ -273,7 +243,7 @@ exports[`<Pill> component with enhanced button variant should render correctly 1
         aria-haspopup="menu"
         class="PillButtonEnhanced__main"
         data-state="closed"
-        id="radix-:re:"
+        id="radix-:rc:"
         role="button"
         tabindex="0"
         type="button"

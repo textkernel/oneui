@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { PillButton, PillButtonProps } from './PillButton';
 import { PillButtonEnhanced, PillButtonEnhancedProps } from './PillButtonEnhanced';
-import { PillDropdown, PillDropdownChildrenParams } from './PillDropdown';
-import { DropdownContent, DropdownPortal, DropdownRoot } from '../Dropdown';
+import { PillDropdown } from './PillDropdown';
+import { DropdownPortal, DropdownRoot } from '../Dropdown';
 
 export interface ClassicButtonProps extends Omit<PillButtonProps, 'toggleDropdown' | 'children'> {
     /** Trigger button variant */
@@ -19,15 +19,10 @@ export type Props<PriorityItemValue> = (
     | ClassicButtonProps
     | EnhancedButtonProps<PriorityItemValue>
 ) & {
-    /** The dropdown content renderer function. It is called with:
-     *   * close {function} that closes the dropdown
-     *   * innerPadding {string} that can be applied inside the component to set consistent padding
-     */
-    children: (params: PillDropdownChildrenParams) => React.ReactNode;
+    /** Content that will be displayed inside of PillDropdown */
+    children: React.ReactNode;
     /** a function that is called when the dropdown closes via done-button-click, window-click or ESC */
     onClose?: () => void;
-    /** label for the Done button */
-    doneLabel: string;
     /** ref for pill button */
     ref?: React.RefObject<HTMLElement>;
     /** ref for pill dropdown */
@@ -52,7 +47,6 @@ export type Props<PriorityItemValue> = (
 export const Pill = <PriorityItemValue extends unknown>({
     variant = 'classic',
     onClear,
-    doneLabel,
     name,
     ref,
     content = null,
@@ -65,11 +59,7 @@ export const Pill = <PriorityItemValue extends unknown>({
 }: Props<PriorityItemValue>) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
-    const closeDropdown = () => {
-        onClose?.();
-    };
-
-    const handleOpenStateChange = (open) => {
+    const handleOpenStateChange = (open: boolean) => {
         setIsOpen(open);
         if (!open) {
             onClose?.();
@@ -96,17 +86,13 @@ export const Pill = <PriorityItemValue extends unknown>({
                 />
             )}
             <DropdownPortal>
-                <DropdownContent asChild>
-                    <PillDropdown
-                        ref={dropdownRef}
-                        close={closeDropdown}
-                        noPadding={noPaddingInDropdown}
-                        doneLabel={doneLabel}
-                        {...additionalDropdownProps}
-                    >
-                        {children}
-                    </PillDropdown>
-                </DropdownContent>
+                <PillDropdown
+                    ref={dropdownRef}
+                    noPadding={noPaddingInDropdown}
+                    {...additionalDropdownProps}
+                >
+                    {children}
+                </PillDropdown>
             </DropdownPortal>
         </DropdownRoot>
     );

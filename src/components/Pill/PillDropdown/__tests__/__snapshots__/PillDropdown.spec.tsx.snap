@@ -3,28 +3,26 @@
 exports[`<PillDropdown> component should render correctly 1`] = `
 <div>
   <div
-    class="PillDropdown"
-    role="presentation"
+    data-radix-popper-content-wrapper=""
+    dir="ltr"
+    style="position: fixed; left: 0px; top: 0px; transform: translate(0, -200%); min-width: max-content;"
   >
     <div
-      class="PillDropdown__dialog"
-      role="dialog"
+      aria-labelledby="radix-:r0:"
+      aria-orientation="vertical"
+      class="DropdownContent PillDropdown"
+      data-align="start"
+      data-orientation="vertical"
+      data-radix-menu-content=""
+      data-side="bottom"
+      data-state="open"
+      dir="ltr"
+      id="radix-:r1:"
+      role="menu"
+      style="outline: none; --radix-dropdown-menu-content-transform-origin: var(--radix-popper-transform-origin); --radix-dropdown-menu-content-available-width: var(--radix-popper-available-width); --radix-dropdown-menu-content-available-height: var(--radix-popper-available-height); --radix-dropdown-menu-trigger-width: var(--radix-popper-anchor-width); --radix-dropdown-menu-trigger-height: var(--radix-popper-anchor-height); animation: none; pointer-events: auto;"
+      tabindex="-1"
     >
-      <div
-        class="PillDropdown__content"
-        role="group"
-      />
-      <div
-        class="PillDropdown__footer"
-      >
-        <button
-          class="Button Button--size_small Button--variant_filled Button--context_primary"
-          style="width: auto;"
-          type="button"
-        >
-          Done
-        </button>
-      </div>
+      Pill dropdown content
     </div>
   </div>
 </div>
