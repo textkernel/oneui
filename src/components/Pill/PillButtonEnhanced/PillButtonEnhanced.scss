@@ -11,7 +11,7 @@
     &--isActive {
         background: var(--color-background-selected-subtlest-default, #e6f2ff);
 
-        &[disabled] {
+        &[aria-disabled='true'] {
             background: var(--color-background-selected-subtlest-disabled);
         }
     }
@@ -20,7 +20,7 @@
         background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
     }
 
-    &:has(.PillButtonEnhanced__main:active):not([disabled]) {
+    &:has(.PillButtonEnhanced__main:active):not([aria-disable='true']) {
         background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
     }
 
@@ -40,23 +40,23 @@
         box-sizing: border-box;
         border-radius: inherit;
 
-        &[disabled] {
+        &[aria-disabled='true'] {
             cursor: not-allowed;
             background: var(--color-background-disabled);
         }
 
-        &:focus-visible:not([disabled]) {
+        &:focus-visible:not([aria-disabled='true']) {
             border: var(--space-25) solid var(--color-info-20, #99caff);
             padding: var(--space-50) var(--space-75);
             outline: none;
         }
 
-        &:active:not([disabled]) {
+        &:active:not([aria-disabled='true']) {
             border: var(--space-25) solid var(--color-border-selected);
             padding: var(--space-50) var(--space-75);
         }
 
-        &:hover:not([disabled]):not(:active):not([data-state='open']) {
+        &:hover:not([aria-disabled='true']):not([data-state='open']) {
             background-color: var(--color-background-neutral-subtlest-hover);
         }
 
@@ -69,17 +69,16 @@
         &--isActive {
             border-radius: 0;
 
-            &[disabled] {
-                background: var(--color-background-selected-subtlest-disabled);
-                cursor: not-allowed;
-            }
-
-            &:active:not([disabled]) {
+            &:active:not([aria-disabled='true']) {
                 background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
             }
 
-            &:hover:not([disabled]):not(:active):not([data-state='open']) {
+            &:hover:not([aria-disabled='true']):not([data-state='open']) {
                 background: var(--color-background-selected-subtlest-hover, #cce4ff);
+            }
+
+            &[aria-disabled='true'] {
+                background: var(--color-background-selected-subtlest-disabled);
             }
 
             &[data-state='open'] {
@@ -94,6 +93,16 @@
 
     &__valueSeparator {
         padding-left: var(--space-25);
+    }
+
+    &__arrowIcon {
+        display: flex;
+        margin-left: var(--space-75);
+        color: inherit;
+
+        & svg {
+            fill: var(--color-icon-subtle);
+        }
     }
 
     &__content {
@@ -112,16 +121,6 @@
         margin-left: var(--space-50);
     }
 
-    &__arrowIcon {
-        display: flex;
-        margin-left: var(--space-75);
-        color: inherit;
-
-        & svg {
-            fill: var(--color-icon-subtle);
-        }
-    }
-
     &__clear {
         border-radius: 0 var(--space-50) var(--space-50) 0;
         border-left: 1px solid var(--color-border-subtlest);
@@ -137,9 +136,7 @@
         }
     }
 
-    &--isDisabled,
-    &[disabled] {
-        background: var(--color-background-disabled);
+    &[aria-disabled='true'] {
         cursor: not-allowed;
 
         .PillButtonEnhanced__name,

@@ -67,16 +67,18 @@ export const PillButtonEnhanced = React.forwardRef(
         };
 
         const handleKeyDownOnPill = (e) => {
-            if (isDisabled) {
-                return;
-            }
             if (e.key === ENTER_KEY) {
                 handlePillClick(e);
             }
         };
 
         return (
-            <div ref={ref} {...rest} {...block({ ...propsForBem, ...rest })}>
+            <div
+                ref={ref}
+                aria-disabled={isDisabled}
+                {...rest}
+                {...block({ ...propsForBem, ...rest })}
+            >
                 {priority?.list.length && (
                     <PrioritySelector
                         {...priority}
@@ -92,7 +94,7 @@ export const PillButtonEnhanced = React.forwardRef(
                         onKeyDown={handleKeyDownOnPill}
                         tabIndex={0}
                         style={{ maxWidth }}
-                        disabled={isDisabled}
+                        aria-disabled={isDisabled}
                     >
                         <span {...elem('name')}>{name}</span>
                         {!!content && (
