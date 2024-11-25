@@ -72,6 +72,12 @@ export const PillButtonEnhanced = React.forwardRef(
             }
         };
 
+        const handleKeyDownOnClear = (e) => {
+            if (e.key === ENTER_KEY) {
+                handleOnClear(e);
+            }
+        };
+
         return (
             <div
                 ref={ref}
@@ -123,7 +129,7 @@ export const PillButtonEnhanced = React.forwardRef(
                         {...elem('clear')}
                         onClick={handleOnClear}
                         variant="ghost"
-                        onKeyDown={handleOnClear}
+                        onKeyDown={handleKeyDownOnClear}
                         tabIndex={0}
                         disabled={isDisabled}
                     >
