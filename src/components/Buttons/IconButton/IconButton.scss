@@ -1,6 +1,6 @@
 @use '../Button/Button';
 
-.Button.IconButton {
+.IconButton {
     &--size {
         &_small {
             padding: var(--space-75);

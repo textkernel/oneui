@@ -105,6 +105,20 @@
         }
     }
 
+    &__clear.Button {
+        border-radius: 0 var(--space-50) var(--space-50) 0;
+        border-left: 1px solid var(--color-border-subtlest);
+        padding: var(--space-100);
+
+        & svg {
+            fill: var(--color-icon-brand-default);
+        }
+
+        &[disabled] svg {
+            fill: var(--color-icon-brand-disabled);
+        }
+    }
+
     &__content {
         color: var(--color-text-selected-default, #004999);
         overflow: hidden;
@@ -135,20 +149,6 @@
         .PillButtonEnhanced__contentSeparator,
         .PillButtonEnhanced__additionalContent {
             color: var(--color-text-selected-disabled);
-        }
-    }
-
-    .PillButtonEnhanced.Button.IconButton.PillButtonEnhanced__clear {
-        border-radius: 0 var(--space-50) var(--space-50) 0;
-        border-left: 1px solid var(--color-border-subtlest);
-        padding: var(--space-100);
-
-        & svg {
-            fill: var(--color-icon-brand-default);
-        }
-
-        &[disabled] & svg {
-            fill: var(--color-icon-brand-disabled);
         }
     }
 }
