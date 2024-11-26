@@ -138,9 +138,10 @@
         }
     }
 
-    .IconButton.PillButtonEnhanced__clear {
+    .Button.IconButton.PillButtonEnhanced__clear {
         border-radius: 0 var(--space-50) var(--space-50) 0;
         border-left: 1px solid var(--color-border-subtlest);
+        padding: var(--space-100);
 
         & svg {
             fill: var(--color-icon-brand-default);
