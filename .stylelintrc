@@ -3,6 +3,7 @@
     "syntax": "scss",
     "plugins": ["stylelint-order"],
     "rules": {
+        "declaration-no-important": true,
         "font-family-name-quotes": "always-where-recommended",
         "font-weight-notation": "numeric",
         "selector-pseudo-class-no-unknown": [
