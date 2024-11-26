@@ -45,15 +45,15 @@
             background: var(--color-background-disabled);
         }
 
-        &:focus-visible:not([aria-disabled='true']) {
-            border: var(--space-25) solid var(--color-info-20, #99caff);
-            padding: var(--space-50) var(--space-75);
-            outline: none;
-        }
-
         &:active:not([aria-disabled='true']) {
             border: var(--space-25) solid var(--color-border-selected);
             padding: var(--space-50) var(--space-75);
+        }
+
+        &:focus-visible:not([aria-disabled='true']):not(:active) {
+            border: var(--space-25) solid var(--color-info-20, #99caff);
+            padding: var(--space-50) var(--space-75);
+            outline: none;
         }
 
         &:hover:not([aria-disabled='true']):not([data-state='open']) {
@@ -121,21 +121,6 @@
         margin-left: var(--space-50);
     }
 
-    &__clear {
-        border-radius: 0 var(--space-50) var(--space-50) 0;
-        border-left: 1px solid var(--color-border-subtlest);
-
-        & svg {
-            fill: var(--color-icon-brand-default);
-        }
-
-        &[disabled] {
-            & svg {
-                fill: var(--color-icon-brand-disabled);
-            }
-        }
-    }
-
     &[aria-disabled='true'] {
         cursor: not-allowed;
 
@@ -150,6 +135,19 @@
         .PillButtonEnhanced__contentSeparator,
         .PillButtonEnhanced__additionalContent {
             color: var(--color-text-selected-disabled);
+        }
+    }
+
+    .IconButton.PillButtonEnhanced__clear {
+        border-radius: 0 var(--space-50) var(--space-50) 0;
+        border-left: 1px solid var(--color-border-subtlest);
+
+        & svg {
+            fill: var(--color-icon-brand-default);
+        }
+
+        &[disabled] & svg {
+            fill: var(--color-icon-brand-disabled);
         }
     }
 }
