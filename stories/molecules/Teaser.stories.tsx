@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Tag, Teaser } from '@textkernel/oneui';
+import { ListItem, Tag, Teaser } from '@textkernel/oneui';
 import { FaAddressBook, FaInternetExplorer } from 'react-icons/fa';
 
 const meta: Meta<typeof Teaser> = {
@@ -121,12 +121,19 @@ export const VariantTwo: Story = {
             icon: <FaInternetExplorer />,
         },
         isVisited: true,
+        date: 'about a month ago',
     },
     render: (args) => {
         const [isSelected, setIsSelected] = React.useState(false);
 
         return (
-            <Teaser {...args} isSelected={isSelected} onChange={() => setIsSelected(!isSelected)} />
+            <ListItem>
+                <Teaser
+                    {...args}
+                    isSelected={isSelected}
+                    onChange={() => setIsSelected(!isSelected)}
+                />
+            </ListItem>
         );
     },
 };
