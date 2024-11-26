@@ -25,9 +25,10 @@
     }
 
     &__priority {
-        border-radius: var(--space-50) 0 0 var(--space-50);
-        border-right: solid 1px var(--color-border-subtlest);
-        flex-shrink: 0;
+        padding: var(--space-100) !important;
+        border-radius: var(--space-50) 0 0 var(--space-50) !important;
+        border-right: solid 1px var(--color-border-subtlest) !important;
+        flex-shrink: 0 !important;
     }
 
     &__main {
@@ -105,20 +106,6 @@
         }
     }
 
-    &__clear.Button {
-        border-radius: 0 var(--space-50) var(--space-50) 0;
-        border-left: 1px solid var(--color-border-subtlest);
-        padding: var(--space-100);
-
-        & svg {
-            fill: var(--color-icon-brand-default);
-        }
-
-        &[disabled] svg {
-            fill: var(--color-icon-brand-disabled);
-        }
-    }
-
     &__content {
         color: var(--color-text-selected-default, #004999);
         overflow: hidden;
@@ -133,6 +120,20 @@
     &__additionalContent {
         color: var(--color-text-selected-default, #004999);
         margin-left: var(--space-50);
+    }
+
+    &__clear {
+        border-radius: 0 var(--space-50) var(--space-50) 0 !important;
+        border-left: 1px solid var(--color-border-subtlest) !important;
+        padding: var(--space-100) !important;
+
+        & svg {
+            fill: var(--color-icon-brand-default) !important;
+        }
+
+        &[disabled] svg {
+            fill: var(--color-icon-brand-disabled) !important;
+        }
     }
 
     &[aria-disabled='true'] {
