@@ -1,1 +1,1 @@
-export { Confirm, ConfirmProps } from './Confirm';
+export { Confirm, Props as ConfirmProps } from './Confirm';

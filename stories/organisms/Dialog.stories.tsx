@@ -16,7 +16,6 @@ type DialogStory = StoryObj<typeof Dialog>;
 export const _Dialog: DialogStory = {
     name: 'Dialog',
     args: {
-        title: 'You’re about to delete this page',
         contentLabel: 'content label',
         variant: 'critical',
         children: (
@@ -94,6 +93,7 @@ export const _Dialog: DialogStory = {
                 <Button onClick={handleButtonClick}>Click to open Dialog</Button>
                 <Dialog
                     {...args}
+                    title="You’re about to delete this page"
                     isOpen={showAlert}
                     acceptButton={{
                         onClick: handleAccept,
@@ -119,7 +119,6 @@ export const _Alert: Story = {
     name: 'Alert',
     args: {
         contentLabel: 'An alert dialog',
-        title: 'Hi there!',
         children: 'This is some information for you.',
         variant: 'primary',
     },
@@ -145,6 +144,7 @@ export const _Alert: Story = {
                 <Button onClick={handleButtonClick}>Click to open Alert</Button>
                 <Alert
                     {...args}
+                    title="Hi there!"
                     isOpen={showAlert}
                     acceptButton={{
                         onClick: handleAccept,
@@ -165,7 +165,6 @@ type ConfirmStory = StoryObj<typeof Confirm>;
 export const _Confirm: ConfirmStory = {
     name: 'Confirm',
     args: {
-        title: 'Hi there!',
         contentLabel: 'A confirm dialog',
         children: 'This is some information for you. Do you want to proceed?',
         variant: 'primary',
@@ -197,6 +196,7 @@ export const _Confirm: ConfirmStory = {
                 <Button onClick={handleButtonClick}>Click to open a Confirm</Button>
                 <Confirm
                     {...args}
+                    title="Hi there!"
                     isOpen={showAlert}
                     acceptButton={{
                         onClick: handleAccept,

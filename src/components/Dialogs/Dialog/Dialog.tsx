@@ -15,7 +15,7 @@ export type ButtonProps = {
 
 export type HeaderProps = {
     /** Dialog header title */
-    title: string | undefined;
+    title: string;
     /** Properties of the close button */
     closeButton: ButtonProps;
 };
@@ -33,7 +33,7 @@ export interface BaseProps extends ModalProps {
     variant?: Omit<ButtonContext, 'secondary'>;
 }
 
-export type Props = BaseProps & (HeaderProps | { title?: undefined; closeButton?: undefined });
+export type Props = BaseProps & (HeaderProps | { title?: undefined; closeButton?: never });
 
 const { block, elem } = bem('Dialog', styles);
 
@@ -48,7 +48,6 @@ export const Dialog: React.FC<Props> = (props) => {
         variant = 'primary',
         ...rest
     } = props;
-
     const { ref, height } = useResizeObserver<HTMLDivElement>();
     const showButtons = !!acceptButton;
 
@@ -80,7 +79,7 @@ export const Dialog: React.FC<Props> = (props) => {
                     >
                         {acceptButton.label}
                     </Button>
-                    {!!cancelButton.onClick && (
+                    {!!cancelButton && (
                         <Button onClick={cancelButton.onClick} variant="ghost">
                             {cancelButton.label}
                         </Button>
