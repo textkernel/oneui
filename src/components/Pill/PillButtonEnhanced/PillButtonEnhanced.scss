@@ -94,8 +94,15 @@
         margin-left: var(--space-75);
         color: inherit;
 
+        &--isOpen {
+            & svg {
+                transform: rotateX(180deg);
+            }
+        }
+
         & svg {
             fill: var(--color-icon-subtle);
+            transition: transform var(--transition-duration);
         }
     }
 

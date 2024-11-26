@@ -1,6 +1,5 @@
 import * as React from 'react';
-import DownArrow from '@material-design-icons/svg/round/expand_more.svg';
-import UpArrow from '@material-design-icons/svg/round/expand_less.svg';
+import ExpandIcon from '@material-design-icons/svg/round/expand_more.svg';
 import Close from '@material-design-icons/svg/round/close.svg';
 import { bem } from '../../../utils';
 import { ENTER_KEY } from '../../../constants';
@@ -41,19 +40,13 @@ export const PillButtonEnhanced = React.forwardRef(
             additionalContentLabel,
             additionalContentTooltip,
             maxWidth,
-            isDisabled,
+            isDisabled = false,
             ...rest
         }: Props<PriorityItemValue>,
         ref: React.Ref<HTMLElement>
     ) => {
         const isActive = !!content;
         const propsForBem = { isOpen, isActive };
-
-        const buttonIcon = isOpen ? (
-            <UpArrow aria-label={upArrowLabel} viewBox="0 0 24 24" height="16px" width="16px" />
-        ) : (
-            <DownArrow aria-label={downArrowLabel} viewBox="0 0 24 24" height="16px" width="16px" />
-        );
 
         const handleOnClear = (e) => {
             e.stopPropagation();
@@ -121,7 +114,14 @@ export const PillButtonEnhanced = React.forwardRef(
                                 </Tooltip>
                             </>
                         )}
-                        <div {...elem('arrowIcon')}>{buttonIcon}</div>
+                        <div {...elem('arrowIcon', { isOpen })}>
+                            <ExpandIcon
+                                aria-label={isOpen ? upArrowLabel : downArrowLabel}
+                                viewBox="0 0 24 24"
+                                height="16px"
+                                width="16px"
+                            />
+                        </div>
                     </div>
                 </DropdownTrigger>
                 {!!content && (

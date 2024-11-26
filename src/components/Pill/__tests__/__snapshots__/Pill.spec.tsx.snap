@@ -152,10 +152,12 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
   />
   <div>
     <div
+      aria-disabled="false"
       class="PillButtonEnhanced PillButtonEnhanced--isActive"
     >
       <div
         aria-controls="radix-:rf:"
+        aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="menu"
         class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
@@ -182,7 +184,7 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
           Pill content
         </span>
         <div
-          class="PillButtonEnhanced__arrowIcon"
+          class="PillButtonEnhanced__arrowIcon PillButtonEnhanced__arrowIcon--isOpen"
         >
           <svg
             aria-label="Close"
@@ -249,9 +251,11 @@ exports[`<Pill> component with enhanced button variant should render correctly 1
 <body>
   <div>
     <div
+      aria-disabled="false"
       class="PillButtonEnhanced PillButtonEnhanced--isActive"
     >
       <div
+        aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="menu"
         class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"

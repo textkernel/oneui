@@ -3,9 +3,11 @@
 exports[`<PillButtonEnhanced> component in active, collapsed state (with content prop) should render correctly 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
       class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
@@ -65,9 +67,11 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
 exports[`<PillButtonEnhanced> component in active, open state (content and isOpen prop) should render correctly 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
       class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
@@ -94,7 +98,7 @@ exports[`<PillButtonEnhanced> component in active, open state (content and isOpe
         This pill is in use
       </span>
       <div
-        class="PillButtonEnhanced__arrowIcon"
+        class="PillButtonEnhanced__arrowIcon PillButtonEnhanced__arrowIcon--isOpen"
       >
         <svg
           aria-label="up arrow"
@@ -127,9 +131,11 @@ exports[`<PillButtonEnhanced> component in active, open state (content and isOpe
 exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minimal props) should render correctly 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
       class="PillButtonEnhanced__main"
@@ -173,9 +179,11 @@ exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minim
 exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) should render correctly 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
       class="PillButtonEnhanced__main"
@@ -191,7 +199,7 @@ exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) sh
         Pill name
       </span>
       <div
-        class="PillButtonEnhanced__arrowIcon"
+        class="PillButtonEnhanced__arrowIcon PillButtonEnhanced__arrowIcon--isOpen"
       >
         <svg
           aria-label="up arrow"
@@ -209,6 +217,7 @@ exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) sh
 exports[`<PillButtonEnhanced> component with additional props should render correctly with priority selector 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <button
@@ -228,6 +237,7 @@ exports[`<PillButtonEnhanced> component with additional props should render corr
       />
     </button>
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
       class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
@@ -287,9 +297,11 @@ exports[`<PillButtonEnhanced> component with additional props should render corr
 exports[`<PillButtonEnhanced> component with additional props should set style according to prop 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
       class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
