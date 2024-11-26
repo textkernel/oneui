@@ -196,7 +196,6 @@ exports[`<PillButtonEnhanced> component with additional props should render corr
       class="Button Button--size_small Button--variant_ghost Button--context_secondary IconButton--size_small PrioritySelector__icon PrioritySelector__icon--mandatory PillButtonEnhanced__priority test-class"
       data-state="closed"
       id="radix-:rk:"
-      style="width: auto;"
       type="button"
     >
       <svg

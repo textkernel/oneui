@@ -20,6 +20,7 @@ $labelingDialogWidth: 200px;
     }
 
     &__checkbox {
+        display: flex;
         margin-bottom: var(--space-100);
     }
 

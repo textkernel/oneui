@@ -5,7 +5,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   <div>
     <button
       class="Button Button--variant_filled Button--context_secondary"
-      style="width: auto;"
       type="button"
     >
       Toggle popup
@@ -26,7 +25,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
     </p>
     <button
       class="Button Button--variant_filled Button--context_secondary"
-      style="width: auto;"
       type="button"
     >
       Close me!
@@ -40,7 +38,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
   <div>
     <button
       class="Button Button--variant_filled Button--context_secondary"
-      style="width: auto;"
       type="button"
     >
       Toggle popup
@@ -60,7 +57,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
       </p>
       <button
         class="Button Button--variant_filled Button--context_secondary"
-        style="width: auto;"
         type="button"
       >
         Close me!
@@ -74,7 +70,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 <div>
   <button
     class="Button Button--variant_filled Button--context_secondary"
-    style="width: auto;"
     type="button"
   >
     Toggle popup
@@ -86,7 +81,6 @@ exports[`<PopupBase> that adds basic anchor/popup functionality to rendered comp
 <div>
   <button
     class="Button Button--variant_filled Button--context_secondary"
-    style="width: auto;"
     type="button"
   >
     Toggle popup
