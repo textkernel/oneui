@@ -49,7 +49,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
     </button>
     <button
       aria-current="page"
-      class="Button Button--variant_ghost Button--context_secondary PaginationButton PaginationButton--isActive"
+      class="Button Button--variant_filled Button--context_secondary PaginationButton"
       data-page="6"
       type="button"
     >
@@ -96,7 +96,7 @@ exports[`<Pagination> that renders a pagination component should render correctl
   >
     <button
       aria-current="page"
-      class="Button Button--variant_ghost Button--context_secondary PaginationButton PaginationButton--isActive"
+      class="Button Button--variant_filled Button--context_secondary PaginationButton"
       data-page="1"
       type="button"
     >
