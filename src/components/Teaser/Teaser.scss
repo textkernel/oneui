@@ -19,6 +19,10 @@
         flex-direction: column;
     }
 
+    &__checkbox {
+        align-self: flex-start;
+    }
+
     &__title {
         composes: OneUI-body-text-bold from global;
         color: var(--color-link-default);

@@ -18,6 +18,9 @@ export const WithAllFields: Story = {
         title: 'John Doe is a known placeholder name in the tech field accross the world',
         subtitle: 'John Doe is a known placeholder name in the tech field accross the world',
         hasCheckbox: true,
+        checkboxTooltip: {
+            content: 'Tooltip example text',
+        },
         date: 'about a month ago',
         primaryInfo: {
             text: 'John Doe is a known placeholder name in the tech field accross the world',
