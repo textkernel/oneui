@@ -15,9 +15,9 @@ export const CounterBadge: React.FC<Props> = ({ arrowDirection, children, ...res
     let trailingIcon: React.ReactElement | undefined;
 
     if (arrowDirection === 'up') {
-        trailingIcon = <ArrowUpwardRounded viewBox="0 0 12 12" data-testid="arrow-upward" />;
+        trailingIcon = <ArrowUpwardRounded data-testid="arrow-upward" />;
     } else if (arrowDirection === 'down') {
-        trailingIcon = <ArrowDownwardRounded viewBox="0 0 12 12" data-testid="arrow-downward" />;
+        trailingIcon = <ArrowDownwardRounded data-testid="arrow-downward" />;
     }
 
     return (
