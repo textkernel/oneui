@@ -10,6 +10,8 @@ export interface Props extends React.HTMLAttributes<HTMLSpanElement> {
     context?: Context | 'neutral';
     /** Icon before text, optional */
     leadingIcon?: React.ReactElement;
+    /** Icon after text, optional */
+    trailingIcon?: React.ReactElement;
     /** Define the badge variant, eg. subtle, bold */
     variant?: BadgeVariant;
 }
@@ -20,6 +22,7 @@ export const StatusBadge: React.FC<Props> = ({
     context = 'info',
     variant = 'bold',
     leadingIcon,
+    trailingIcon,
     children,
     ...rest
 }) => {
@@ -29,8 +32,19 @@ export const StatusBadge: React.FC<Props> = ({
 
     return (
         <div title={children} {...rest} {...block({ context, variant, ...rest })}>
-            {leadingIcon && <span {...elem('icon')}>{leadingIcon}</span>}
+            {leadingIcon &&
+                React.cloneElement(leadingIcon, {
+                    viewBox: '0 0 24 24',
+                    fill: 'currentColor',
+                    ...elem('icon'),
+                })}
             <span {...elem('text')}>{children}</span>
+            {trailingIcon &&
+                React.cloneElement(trailingIcon, {
+                    viewBox: '0 0 24 24',
+                    fill: 'currentColor',
+                    ...elem('icon'),
+                })}
         </div>
     );
 };
