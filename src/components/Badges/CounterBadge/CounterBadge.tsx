@@ -6,6 +6,7 @@ import { StatusBadge, StatusBadgeProps } from '../StatusBadge';
 import styles from './CounterBadge.scss';
 
 export interface Props extends Omit<StatusBadgeProps, 'leadingIcon' | 'trailingIcon'> {
+    /** Trailing icon arrow direction */
     arrowDirection?: 'up' | 'down';
 }
 
