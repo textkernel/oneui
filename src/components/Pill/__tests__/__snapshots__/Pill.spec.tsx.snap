@@ -152,13 +152,15 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
   />
   <div>
     <div
+      aria-disabled="false"
       class="PillButtonEnhanced PillButtonEnhanced--isActive"
     >
       <div
         aria-controls="radix-:rf:"
+        aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="menu"
-        class="PillButtonEnhanced__main"
+        class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
         data-state="open"
         id="radix-:re:"
         role="button"
@@ -181,20 +183,33 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
         >
           Pill content
         </span>
+        <div
+          class="PillButtonEnhanced__arrowIcon PillButtonEnhanced__arrowIcon--isOpen"
+        >
+          <svg
+            aria-label="Close"
+            data-testid="default-icon"
+            height="16px"
+            viewBox="0 0 24 24"
+            width="16px"
+          />
+        </div>
       </div>
-      <div
-        class="PillButtonEnhanced__button"
-        role="button"
+      <button
+        class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
+        style="width: auto;"
         tabindex="0"
+        type="button"
       >
         <svg
           aria-label="Clear"
+          class="IconButton__icon--size_medium"
           data-testid="default-icon"
           height="16px"
           viewBox="0 0 24 24"
           width="16px"
         />
-      </div>
+      </button>
     </div>
   </div>
   <div
@@ -236,12 +251,14 @@ exports[`<Pill> component with enhanced button variant should render correctly 1
 <body>
   <div>
     <div
+      aria-disabled="false"
       class="PillButtonEnhanced PillButtonEnhanced--isActive"
     >
       <div
+        aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="menu"
-        class="PillButtonEnhanced__main"
+        class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
         data-state="closed"
         id="radix-:rc:"
         role="button"
@@ -264,20 +281,33 @@ exports[`<Pill> component with enhanced button variant should render correctly 1
         >
           Pill content
         </span>
+        <div
+          class="PillButtonEnhanced__arrowIcon"
+        >
+          <svg
+            aria-label="Open"
+            data-testid="default-icon"
+            height="16px"
+            viewBox="0 0 24 24"
+            width="16px"
+          />
+        </div>
       </div>
-      <div
-        class="PillButtonEnhanced__button"
-        role="button"
+      <button
+        class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
+        style="width: auto;"
         tabindex="0"
+        type="button"
       >
         <svg
           aria-label="Clear"
+          class="IconButton__icon--size_medium"
           data-testid="default-icon"
           height="16px"
           viewBox="0 0 24 24"
           width="16px"
         />
-      </div>
+      </button>
     </div>
   </div>
 </body>
