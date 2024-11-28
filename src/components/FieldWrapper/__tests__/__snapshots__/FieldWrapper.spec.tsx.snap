@@ -12,7 +12,6 @@ exports[`FieldWrapper should add clear button if showClearButton is true 1`] = `
     </div>
     <button
       class="Button Button--size_small Button--variant_ghost Button--context_secondary FieldWrapper__clearButton"
-      style="width: auto;"
       title="Clear"
       type="button"
     >
@@ -112,7 +111,6 @@ exports[`FieldWrapper should call onClear callback correctly 1`] = `
     </div>
     <button
       class="Button Button--size_small Button--variant_ghost Button--context_secondary FieldWrapper__clearButton"
-      style="width: auto;"
       title="Clear"
       type="button"
     >

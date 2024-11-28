@@ -7,7 +7,6 @@ exports[`CalendarHeader should render correctly 1`] = `
   >
     <button
       class="Button Button--variant_filled Button--context_secondary CalendarHeader__navButton"
-      style="width: auto;"
       type="button"
     >
       <svg
@@ -88,7 +87,6 @@ exports[`CalendarHeader should render correctly 1`] = `
     </div>
     <button
       class="Button Button--variant_filled Button--context_secondary CalendarHeader__navButton"
-      style="width: auto;"
       type="button"
     >
       <svg

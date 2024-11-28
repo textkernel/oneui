@@ -34,7 +34,6 @@ exports[`SelectBase callbacks should call onClearAllSelected on Clear button cli
         </div>
         <button
           class="Button Button--size_small Button--variant_ghost Button--context_secondary FieldWrapper__clearButton FieldWrapper__clearButton--rightIndent"
-          style="width: auto;"
           title="Clear"
           type="button"
         >

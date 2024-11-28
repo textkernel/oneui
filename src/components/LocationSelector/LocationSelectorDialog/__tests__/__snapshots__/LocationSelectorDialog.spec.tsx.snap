@@ -61,7 +61,6 @@ exports[`LocationSelectorDialog component should render correctly 1`] = `
     </div>
     <button
       class="Button Button--variant_filled Button--context_primary LocationSelectorDialog__button"
-      style="width: auto;"
       type="button"
     >
       doneLabel

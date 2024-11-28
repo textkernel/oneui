@@ -13,7 +13,7 @@ const { block } = bem('PaginationButton', styles);
 export const PaginationButton: React.FC<Props> = ({ children, isActive = false, ...rest }) => (
     <Button
         {...rest}
-        variant="ghost"
+        variant={isActive ? 'filled' : 'ghost'}
         {...block({ isActive })}
         aria-current={isActive ? 'page' : null}
     >

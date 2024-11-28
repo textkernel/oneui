@@ -4,7 +4,6 @@ exports[`IconButton should add classes when props are changed 1`] = `
 <div>
   <button
     class="Button Button--size_large Button--variant_filled Button--context_secondary IconButton--size_large"
-    style="width: auto;"
     type="button"
   >
     <svg
@@ -30,7 +29,6 @@ exports[`IconButton should render icon button correctly 1`] = `
 <div>
   <button
     class="Button Button--variant_filled Button--context_secondary IconButton--size_medium"
-    style="width: auto;"
     type="button"
   >
     <svg
