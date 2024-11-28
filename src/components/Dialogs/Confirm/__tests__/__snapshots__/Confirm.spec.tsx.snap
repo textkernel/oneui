@@ -39,14 +39,12 @@ exports[`Confirm should render correctly 1`] = `
         >
           <button
             class="Button Button--variant_ghost Button--context_secondary Dialog__cancel"
-            style="width: auto;"
             type="button"
           >
             Cancel
           </button>
           <button
             class="Button Button--variant_filled Button--context_primary"
-            style="width: auto;"
             type="button"
           >
             OK
@@ -105,14 +103,12 @@ exports[`Confirm should render correctly with title 1`] = `
         >
           <button
             class="Button Button--variant_ghost Button--context_secondary Dialog__cancel"
-            style="width: auto;"
             type="button"
           >
             Cancel
           </button>
           <button
             class="Button Button--variant_filled Button--context_primary"
-            style="width: auto;"
             type="button"
           >
             OK

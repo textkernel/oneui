@@ -43,8 +43,8 @@ describe('<PillButtonEnhanced> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(getButtonByName(downArrowLabel)).toBeVisible();
-            expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
+            expect(screen.getByLabelText(downArrowLabel)).toBeVisible();
+            expect(screen.queryByLabelText(upArrowLabel)).not.toBeInTheDocument();
             expect(getButtonByNameQuerySearch(clearLabel)).not.toBeInTheDocument();
         });
     });
@@ -67,7 +67,7 @@ describe('<PillButtonEnhanced> component', () => {
 
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
-            expect(getButtonByName(upArrowLabel)).toBeVisible();
+            expect(screen.getByLabelText(upArrowLabel)).toBeVisible();
             expect(getButtonByNameQuerySearch(clearLabel)).not.toBeInTheDocument();
         });
     });
@@ -91,8 +91,8 @@ describe('<PillButtonEnhanced> component', () => {
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
             expect(getButtonByName(clearLabel)).toBeVisible();
-            expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
-            expect(getButtonByNameQuerySearch(downArrowLabel)).not.toBeInTheDocument();
+            expect(screen.queryByLabelText(upArrowLabel)).not.toBeInTheDocument();
+            expect(screen.getByLabelText(downArrowLabel)).toBeVisible();
         });
 
         it('should call onClear when clear button is clicked', async () => {
@@ -132,7 +132,7 @@ describe('<PillButtonEnhanced> component', () => {
         it('should render correctly', () => {
             expect(view.container).toMatchSnapshot();
             expect(getButtonByName(clearLabel)).toBeVisible();
-            expect(getButtonByNameQuerySearch(upArrowLabel)).not.toBeInTheDocument();
+            expect(screen.getByLabelText(upArrowLabel)).toBeInTheDocument();
         });
 
         it('should trigger onClear callback once when clear button is clicked', async () => {

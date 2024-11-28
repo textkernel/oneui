@@ -5,7 +5,6 @@ exports[`<Button> that renders a button should add classes when props are change
   <button
     class="Button Button--isBlock Button--isLoading Button--size_large Button--variant_filled Button--context_primary"
     disabled=""
-    style="width: auto;"
     type="button"
   >
     <div
@@ -38,7 +37,6 @@ exports[`<Button> that renders a button should render an ancor element if href i
   <a
     class="Button Button--variant_filled Button--context_secondary"
     href="/"
-    style="width: auto;"
   >
     Click me
   </a>
@@ -49,7 +47,6 @@ exports[`<Button> that renders a button should render default button correctly 1
 <div>
   <button
     class="Button Button--variant_filled Button--context_secondary"
-    style="width: auto;"
     type="button"
   >
     Click me

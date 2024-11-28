@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { Tag, Teaser } from '@textkernel/oneui';
+import { ListItem, Tag, Teaser } from '@textkernel/oneui';
 import { FaAddressBook, FaInternetExplorer } from 'react-icons/fa';
 
 const meta: Meta<typeof Teaser> = {
@@ -18,6 +18,9 @@ export const WithAllFields: Story = {
         title: 'John Doe is a known placeholder name in the tech field accross the world',
         subtitle: 'John Doe is a known placeholder name in the tech field accross the world',
         hasCheckbox: true,
+        checkboxTooltip: {
+            content: 'Tooltip example text',
+        },
         date: 'about a month ago',
         primaryInfo: {
             text: 'John Doe is a known placeholder name in the tech field accross the world',
@@ -121,12 +124,19 @@ export const VariantTwo: Story = {
             icon: <FaInternetExplorer />,
         },
         isVisited: true,
+        date: 'about a month ago',
     },
     render: (args) => {
         const [isSelected, setIsSelected] = React.useState(false);
 
         return (
-            <Teaser {...args} isSelected={isSelected} onChange={() => setIsSelected(!isSelected)} />
+            <ListItem>
+                <Teaser
+                    {...args}
+                    isSelected={isSelected}
+                    onChange={() => setIsSelected(!isSelected)}
+                />
+            </ListItem>
         );
     },
 };

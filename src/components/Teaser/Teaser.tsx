@@ -4,21 +4,24 @@ import { Text } from '../Text';
 import { Checkbox } from '../Checkbox';
 import { Link } from '../Link';
 import { MatchingIndicator } from '../MatchingIndicator';
+import { Tooltip, TooltipProps } from '../Tooltip';
 import styles from './Teaser.scss';
 
 type Info = {
-    text: string;
+    text: React.ReactElement | string;
     href?: string;
     icon?: React.ReactElement;
 };
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
     /** The title of entity. Note: it is rendered within a <span> */
-    title: string;
+    title: React.ReactElement | string;
     /** The subtitle of the entity. Note: it is rendered within a <span> */
-    subtitle?: string;
+    subtitle?: React.ReactElement | string;
     /** Define if checkbox is rendered or not */
     hasCheckbox?: boolean;
+    /** Checkbox tooltip label */
+    checkboxTooltip?: TooltipProps;
     /** Checkbox id */
     id?: string;
     /** Checkbox status */
@@ -53,6 +56,7 @@ export const Teaser: React.FC<Props> = ({
     title,
     subtitle,
     hasCheckbox = false,
+    checkboxTooltip,
     id,
     isSelected = false,
     onChange,
@@ -71,7 +75,7 @@ export const Teaser: React.FC<Props> = ({
     const useId = React.useId();
     const checkboxId = id ?? useId;
 
-    const composeInfoComponent = ({ text, icon, href }: Info) => {
+    const InfoComponent = ({ text, icon, href }: Info) => {
         if (icon) {
             const iconComponent = (
                 <div {...elem(['row', 'sourceContainer'])}>
@@ -93,11 +97,14 @@ export const Teaser: React.FC<Props> = ({
             return iconComponent;
         }
 
-        const textComponent = (
-            <Text inline title={text}>
-                {text}
-            </Text>
-        );
+        const textComponent =
+            typeof text === 'string' ? (
+                <Text inline title={text}>
+                    {text}
+                </Text>
+            ) : (
+                text
+            );
 
         if (href) {
             return (
@@ -110,9 +117,30 @@ export const Teaser: React.FC<Props> = ({
         return React.cloneElement(textComponent, { ...elem(['info', 'lineClamp']) });
     };
 
+    const CheckboxComponent = () => {
+        const checkbox = (
+            <Checkbox
+                id={checkboxId}
+                checked={isSelected}
+                onChange={onChange}
+                {...elem('checkbox')}
+            />
+        );
+
+        if (checkboxTooltip) {
+            return (
+                <Tooltip content={checkboxTooltip.content} delay={checkboxTooltip.delay}>
+                    {checkbox}
+                </Tooltip>
+            );
+        }
+
+        return checkbox;
+    };
+
     return (
         <div {...rest} {...block({ ...rest })}>
-            {hasCheckbox && <Checkbox id={checkboxId} checked={isSelected} onChange={onChange} />}
+            {hasCheckbox && <CheckboxComponent />}
             <div {...elem('column')}>
                 <div {...elem(['row', 'titleRow'])}>
                     <div {...elem('row')}>
@@ -147,10 +175,10 @@ export const Teaser: React.FC<Props> = ({
                         {subtitle}
                     </Text>
                 )}
-                {primaryInfo && composeInfoComponent(primaryInfo)}
-                {secondaryInfo && composeInfoComponent(secondaryInfo)}
-                {tercearyInfo && composeInfoComponent(tercearyInfo)}
-                {sourceInfo && composeInfoComponent(sourceInfo)}
+                {primaryInfo && <InfoComponent {...primaryInfo} />}
+                {secondaryInfo && <InfoComponent {...secondaryInfo} />}
+                {tercearyInfo && <InfoComponent {...tercearyInfo} />}
+                {sourceInfo && <InfoComponent {...sourceInfo} />}
                 {bottom && <div {...elem('bottom')}>{bottom}</div>}
             </div>
         </div>

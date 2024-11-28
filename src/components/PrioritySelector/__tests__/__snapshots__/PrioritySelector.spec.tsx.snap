@@ -9,7 +9,6 @@ exports[`PrioritySelector renders correctly with all props provided 1`] = `
     class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PrioritySelector__icon PrioritySelector__icon--mandatory test-class"
     data-state="closed"
     id="radix-:r0:"
-    style="width: auto;"
     type="button"
   >
     <svg
@@ -45,7 +44,6 @@ exports[`PrioritySelector should render correctly opened 1`] = `
       class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PrioritySelector__icon PrioritySelector__icon--mandatory test-class"
       data-state="open"
       id="radix-:r2:"
-      style="width: auto;"
       type="button"
     >
       <svg

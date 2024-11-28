@@ -8,14 +8,12 @@ exports[`<ButtonGroup> that renders a button should add classes when props are c
   >
     <button
       class="Button Button--size_large Button--variant_filled Button--context_primary ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--first"
-      style="width: auto;"
       type="button"
     >
       A button
     </button>
     <button
       class="Button Button--size_large Button--variant_filled Button--context_primary ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--last"
-      style="width: auto;"
       type="button"
     >
       Another button
@@ -32,7 +30,6 @@ exports[`<ButtonGroup> that renders a button should pass main props if child is 
   >
     <button
       class="Button Button--isBlock Button--size_small Button--variant_filled Button--context_primary"
-      style="width: auto;"
       type="button"
     >
       A button
@@ -49,7 +46,6 @@ exports[`<ButtonGroup> that renders a button should pass main props, but not add
   >
     <button
       class="Button Button--isBlock Button--size_small Button--variant_filled Button--context_primary"
-      style="width: auto;"
       type="button"
     >
       A button
@@ -66,14 +62,12 @@ exports[`<ButtonGroup> that renders a button should render default button correc
   >
     <button
       class="Button Button--variant_filled Button--context_primary ButtonGroup__button ButtonGroup__button--first"
-      style="width: auto;"
       type="button"
     >
       A button
     </button>
     <button
       class="Button Button--variant_filled Button--context_primary ButtonGroup__button ButtonGroup__button--last"
-      style="width: auto;"
       type="button"
     >
       Another button
@@ -90,7 +84,6 @@ exports[`<ButtonGroup> that renders a button should render with conditional JSX 
   >
     <button
       class="Button Button--variant_filled Button--context_primary ButtonGroup__button ButtonGroup__button--first"
-      style="width: auto;"
       type="button"
     >
       A button
@@ -107,7 +100,6 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
   >
     <button
       class="Button Button--size_large Button--variant_filled Button--context_primary ButtonGroup__button ButtonGroup__button--isBlock ButtonGroup__button--first"
-      style="width: auto;"
       type="button"
     >
       A button
@@ -115,7 +107,6 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
     <a
       class="Button Button--size_large Button--variant_filled Button--context_primary ButtonGroup__button ButtonGroup__button--isBlock"
       href="#"
-      style="width: auto;"
     >
       An anchor
     </a>
@@ -125,7 +116,6 @@ exports[`<ButtonGroup> that renders a button should support mixed element types 
       class="Button Button--variant_filled Button--context_secondary"
       data-state="closed"
       id="radix-:r0:"
-      style="width: auto;"
       type="button"
     >
       A dropdown button

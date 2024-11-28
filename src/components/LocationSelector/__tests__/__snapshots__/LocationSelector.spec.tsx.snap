@@ -33,7 +33,6 @@ exports[`LocationSelector component should render LocationSelector properly when
       </div>
       <button
         class="Button Button--size_small Button--variant_ghost Button--context_secondary FieldWrapper__clearButton"
-        style="width: auto;"
         title="Clear"
         type="button"
       >
@@ -95,7 +94,6 @@ exports[`LocationSelector component should render LocationSelector propertly whe
       </div>
       <button
         class="Button Button--size_small Button--variant_ghost Button--context_secondary FieldWrapper__clearButton"
-        style="width: auto;"
         title="Clear"
         type="button"
       >
