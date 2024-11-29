@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [28.1.0](https://github.com/textkernel/oneui/compare/28.0.0...28.1.0) (2024-11-29)
+
+
+### Features
+
+* **Breadcrumb:** new component ([#1331](https://github.com/textkernel/oneui/issues/1331)) ([7202695](https://github.com/textkernel/oneui/commit/72026952ea0df31cf3bfc5e78dbb08a2d5a645ff))
+* **Dialog:** update dialog design specs ([#1288](https://github.com/textkernel/oneui/issues/1288)) ([f20c1fa](https://github.com/textkernel/oneui/commit/f20c1fa023997bd4c1f09af56255644a44ca1b08))
+* **PillButtonEnhance:** update component ([#1337](https://github.com/textkernel/oneui/issues/1337)) ([d379470](https://github.com/textkernel/oneui/commit/d3794700e784ec95c698632a77a18520d9cc8a07))
+* **PillDropdown:** updated pill dropdown ([#1300](https://github.com/textkernel/oneui/issues/1300)) ([2d6e619](https://github.com/textkernel/oneui/commit/2d6e6194276d4026c1321af48211d78aaf5fc834))
+* **StatusBadge:** new component ([#1309](https://github.com/textkernel/oneui/issues/1309)) ([a4ce342](https://github.com/textkernel/oneui/commit/a4ce342cb1a85685966468bfffddb70bc4d36c1f))
+
+
+### Bug Fixes
+
+* add teaser and checkbox breaking change to changelog ([#1332](https://github.com/textkernel/oneui/issues/1332)) ([18ac712](https://github.com/textkernel/oneui/commit/18ac712c83b6ed2c85237d671a5ee92d11c2c98b))
+* change fonts ([#1289](https://github.com/textkernel/oneui/issues/1289)) ([b1446e0](https://github.com/textkernel/oneui/commit/b1446e0a346c46284b84d43a3237931931bb3068))
+* **deps:** update dependency rc-slider to v10.6.2 ([#1318](https://github.com/textkernel/oneui/issues/1318)) ([c8f1c03](https://github.com/textkernel/oneui/commit/c8f1c030cf6ab2ab09f13860ef8b62c6b621872e))
+* **deps:** update dependency remove-accents to v0.5.0 ([#1320](https://github.com/textkernel/oneui/issues/1320)) ([4d20be8](https://github.com/textkernel/oneui/commit/4d20be89d2470a79d5de57055184bf63decc2b6d))
+* **different components:** fix small layout bugs ([#1338](https://github.com/textkernel/oneui/issues/1338)) ([56e7cc3](https://github.com/textkernel/oneui/commit/56e7cc32eae0beb769b2e75468d5fc40ff455328))
+* sass deprecation warnings ([#1292](https://github.com/textkernel/oneui/issues/1292)) ([91316ee](https://github.com/textkernel/oneui/commit/91316ee88419bb9ac8fcb5feb52eb4e430f8650c))
+
 ## [28.0.0](https://github.com/textkernel/oneui/compare/27.0.0...28.0.0) (2024-11-18)
 
 
