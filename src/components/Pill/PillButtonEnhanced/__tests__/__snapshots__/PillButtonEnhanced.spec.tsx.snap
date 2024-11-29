@@ -47,7 +47,6 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
     </div>
     <button
       class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
-      style="width: auto;"
       tabindex="0"
       type="button"
     >
@@ -111,7 +110,6 @@ exports[`<PillButtonEnhanced> component in active, open state (content and isOpe
     </div>
     <button
       class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
-      style="width: auto;"
       tabindex="0"
       type="button"
     >
@@ -276,7 +274,6 @@ exports[`<PillButtonEnhanced> component with additional props should render corr
     </div>
     <button
       class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
-      style="width: auto;"
       tabindex="0"
       type="button"
     >
@@ -341,7 +338,6 @@ exports[`<PillButtonEnhanced> component with additional props should set style a
     </div>
     <button
       class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
-      style="width: auto;"
       tabindex="0"
       type="button"
     >

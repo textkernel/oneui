@@ -3,12 +3,16 @@ import { render, RenderResult, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import { Alert } from '../Alert';
+import { ResizeObserverMock } from '../../../../__mocks__/resizeObserverMock';
 
 describe('Alert', () => {
     const mockOnAccept = jest.fn();
+    const mockOnClose = jest.fn();
     let view: RenderResult;
 
     beforeEach(() => {
+        global.ResizeObserver = ResizeObserverMock;
+
         view = render(
             <Alert
                 isOpen
@@ -32,6 +36,7 @@ describe('Alert', () => {
             <Alert
                 isOpen
                 acceptButton={{ onClick: mockOnAccept, label: 'OK' }}
+                closeButton={{ onClick: mockOnClose, label: 'Close' }}
                 ariaHideApp={false}
                 contentLabel="Content label"
                 title="Title"
@@ -46,7 +51,7 @@ describe('Alert', () => {
 
     it('should call onAccept cb when button is clicked', async () => {
         const user = userEvent.setup();
-        await user.click(screen.getByRole('button'));
+        await user.click(screen.getByRole('button', { name: /OK/i }));
 
         expect(mockOnAccept).toHaveBeenCalledTimes(1);
     });

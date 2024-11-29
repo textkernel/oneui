@@ -30,7 +30,6 @@ exports[`Alert should render correctly 1`] = `
       >
         <div
           class="Dialog__content"
-          role="alert"
         >
           Body of the alert
         </div>
@@ -82,14 +81,41 @@ exports[`Alert should render correctly with title 1`] = `
         tabindex="-1"
       >
         <div
-          class="Dialog__content"
+          class="Dialog__header"
           role="alert"
         >
-          <h2
-            class="Heading Heading--level_h2 Dialog__title"
+          <h3
+            class="Heading Heading--level_h3 Dialog__title"
           >
             Title
-          </h2>
+          </h3>
+          <button
+            aria-label="Close"
+            class="Button Button--variant_ghost Button--context_secondary Dialog__closeButton"
+            type="button"
+          >
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0h24v24H0z"
+                fill="none"
+              />
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="Dialog__content"
+        >
           Body of the alert
         </div>
         <div

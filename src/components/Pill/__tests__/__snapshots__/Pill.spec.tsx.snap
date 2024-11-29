@@ -197,7 +197,6 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
       </div>
       <button
         class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
-        style="width: auto;"
         tabindex="0"
         type="button"
       >
@@ -295,7 +294,6 @@ exports[`<Pill> component with enhanced button variant should render correctly 1
       </div>
       <button
         class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
-        style="width: auto;"
         tabindex="0"
         type="button"
       >
