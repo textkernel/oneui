@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StatusBadge should render correctly 1`] = `
+<div>
+  <div
+    class="StatusBadge StatusBadge--context_info StatusBadge--variant_bold"
+    title="some text"
+  >
+    <span
+      class="StatusBadge__text"
+    >
+      some text
+    </span>
+  </div>
+</div>
+`;

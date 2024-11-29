@@ -15,26 +15,16 @@
 
 .PillDropdown {
     z-index: 500;
+    max-height: 440px;
+    max-width: 600px;
+    transform-origin: top left;
+    animation: dropdownAppear var(--transition-duration-quick) forwards;
+    animation-timing-function: linear;
+    overflow-y: auto;
+    padding: var(--pill-dropdown-padding);
+    composes: OneUI-label-text from global;
 
-    &__dialog {
-        transform-origin: top left;
-        animation: dropdownAppear var(--transition-duration-quick) forwards;
-        animation-timing-function: linear;
-    }
-
-    &__content {
-        padding: var(--pill-dropdown-padding);
-        composes: OneUI-label-text from global;
-
-        &--noPadding {
-            padding: 0;
-        }
-    }
-
-    &__footer {
-        display: flex;
-        border-top: solid 1px var(--color-neutral-30);
-        justify-content: flex-end;
-        padding: var(--pill-dropdown-padding);
+    &--noPadding {
+        padding: 0;
     }
 }

@@ -12,6 +12,8 @@ export type ButtonContext = 'primary' | 'secondary' | 'critical';
 
 export type ButtonVariant = 'filled' | 'outlined' | 'ghost';
 
+export type BadgeVariant = 'subtle' | 'bold';
+
 /** Input */
 export const INPUT_TYPES = [
     'text',

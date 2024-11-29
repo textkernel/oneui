@@ -3,12 +3,14 @@
 exports[`<PillButtonEnhanced> component in active, collapsed state (with content prop) should render correctly 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
-      class="PillButtonEnhanced__main"
+      class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
       data-state="closed"
       id="radix-:r4:"
       role="button"
@@ -31,20 +33,32 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
       >
         This pill is in use
       </span>
+      <div
+        class="PillButtonEnhanced__arrowIcon"
+      >
+        <svg
+          aria-label="down arrow"
+          data-testid="default-icon"
+          height="16px"
+          viewBox="0 0 24 24"
+          width="16px"
+        />
+      </div>
     </div>
-    <div
-      class="PillButtonEnhanced__button"
-      role="button"
+    <button
+      class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
       tabindex="0"
+      type="button"
     >
       <svg
         aria-label="clear label"
+        class="IconButton__icon--size_medium"
         data-testid="default-icon"
         height="16px"
         viewBox="0 0 24 24"
         width="16px"
       />
-    </div>
+    </button>
   </div>
 </div>
 `;
@@ -52,12 +66,14 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
 exports[`<PillButtonEnhanced> component in active, open state (content and isOpen prop) should render correctly 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
-      class="PillButtonEnhanced__main"
+      class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
       data-state="closed"
       id="radix-:ra:"
       role="button"
@@ -80,20 +96,32 @@ exports[`<PillButtonEnhanced> component in active, open state (content and isOpe
       >
         This pill is in use
       </span>
+      <div
+        class="PillButtonEnhanced__arrowIcon PillButtonEnhanced__arrowIcon--isOpen"
+      >
+        <svg
+          aria-label="up arrow"
+          data-testid="default-icon"
+          height="16px"
+          viewBox="0 0 24 24"
+          width="16px"
+        />
+      </div>
     </div>
-    <div
-      class="PillButtonEnhanced__button"
-      role="button"
+    <button
+      class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
       tabindex="0"
+      type="button"
     >
       <svg
         aria-label="clear label"
+        class="IconButton__icon--size_medium"
         data-testid="default-icon"
         height="16px"
         viewBox="0 0 24 24"
         width="16px"
       />
-    </div>
+    </button>
   </div>
 </div>
 `;
@@ -101,9 +129,11 @@ exports[`<PillButtonEnhanced> component in active, open state (content and isOpe
 exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minimal props) should render correctly 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
       class="PillButtonEnhanced__main"
@@ -128,19 +158,17 @@ exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minim
       >
         +2
       </span>
-    </div>
-    <div
-      class="PillButtonEnhanced__button"
-      role="button"
-      tabindex="0"
-    >
-      <svg
-        aria-label="down arrow"
-        data-testid="default-icon"
-        height="16px"
-        viewBox="0 0 24 24"
-        width="16px"
-      />
+      <div
+        class="PillButtonEnhanced__arrowIcon"
+      >
+        <svg
+          aria-label="down arrow"
+          data-testid="default-icon"
+          height="16px"
+          viewBox="0 0 24 24"
+          width="16px"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -149,9 +177,11 @@ exports[`<PillButtonEnhanced> component in inactive, collapsed state (with minim
 exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) should render correctly 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
       class="PillButtonEnhanced__main"
@@ -166,19 +196,17 @@ exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) sh
       >
         Pill name
       </span>
-    </div>
-    <div
-      class="PillButtonEnhanced__button"
-      role="button"
-      tabindex="0"
-    >
-      <svg
-        aria-label="up arrow"
-        data-testid="default-icon"
-        height="16px"
-        viewBox="0 0 24 24"
-        width="16px"
-      />
+      <div
+        class="PillButtonEnhanced__arrowIcon PillButtonEnhanced__arrowIcon--isOpen"
+      >
+        <svg
+          aria-label="up arrow"
+          data-testid="default-icon"
+          height="16px"
+          viewBox="0 0 24 24"
+          width="16px"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -187,28 +215,29 @@ exports[`<PillButtonEnhanced> component in inactive, open state (isOpen prop) sh
 exports[`<PillButtonEnhanced> component with additional props should render correctly with priority selector 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <button
       aria-expanded="false"
       aria-haspopup="menu"
       aria-label="priorityButton"
-      class="Button Button--size_small Button--variant_ghost Button--context_secondary IconButton--size_small PrioritySelector__icon PrioritySelector__icon--mandatory PillButtonEnhanced__priority test-class"
+      class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PrioritySelector__icon PrioritySelector__icon--mandatory PillButtonEnhanced__priority test-class"
       data-state="closed"
       id="radix-:rk:"
-      style="width: auto;"
       type="button"
     >
       <svg
-        class="IconButton__icon--size_small"
+        class="IconButton__icon--size_medium"
         data-testid="default-icon"
         viewBox="0 0 24 24"
       />
     </button>
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
-      class="PillButtonEnhanced__main"
+      class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
       data-state="closed"
       id="radix-:ri:"
       role="button"
@@ -231,20 +260,32 @@ exports[`<PillButtonEnhanced> component with additional props should render corr
       >
         This pill is in use
       </span>
+      <div
+        class="PillButtonEnhanced__arrowIcon"
+      >
+        <svg
+          aria-label="down arrow"
+          data-testid="default-icon"
+          height="16px"
+          viewBox="0 0 24 24"
+          width="16px"
+        />
+      </div>
     </div>
-    <div
-      class="PillButtonEnhanced__button"
-      role="button"
+    <button
+      class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
       tabindex="0"
+      type="button"
     >
       <svg
         aria-label="clear label"
+        class="IconButton__icon--size_medium"
         data-testid="default-icon"
         height="16px"
         viewBox="0 0 24 24"
         width="16px"
       />
-    </div>
+    </button>
   </div>
 </div>
 `;
@@ -252,12 +293,14 @@ exports[`<PillButtonEnhanced> component with additional props should render corr
 exports[`<PillButtonEnhanced> component with additional props should set style according to prop 1`] = `
 <div>
   <div
+    aria-disabled="false"
     class="PillButtonEnhanced PillButtonEnhanced--isActive"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       aria-haspopup="menu"
-      class="PillButtonEnhanced__main"
+      class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
       data-state="closed"
       id="radix-:rg:"
       role="button"
@@ -281,20 +324,32 @@ exports[`<PillButtonEnhanced> component with additional props should set style a
       >
         This pill is in use
       </span>
+      <div
+        class="PillButtonEnhanced__arrowIcon"
+      >
+        <svg
+          aria-label="down arrow"
+          data-testid="default-icon"
+          height="16px"
+          viewBox="0 0 24 24"
+          width="16px"
+        />
+      </div>
     </div>
-    <div
-      class="PillButtonEnhanced__button"
-      role="button"
+    <button
+      class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
       tabindex="0"
+      type="button"
     >
       <svg
         aria-label="clear label"
+        class="IconButton__icon--size_medium"
         data-testid="default-icon"
         height="16px"
         viewBox="0 0 24 24"
         width="16px"
       />
-    </div>
+    </button>
   </div>
 </div>
 `;

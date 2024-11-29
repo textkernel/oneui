@@ -64,7 +64,7 @@ exports[`<Pill> component with classic button variant should open dropdown when 
     <div
       aria-labelledby="radix-:r2:"
       aria-orientation="vertical"
-      class="PillDropdown DropdownContent"
+      class="DropdownContent PillDropdown"
       data-align="start"
       data-orientation="vertical"
       data-radix-menu-content=""
@@ -76,26 +76,11 @@ exports[`<Pill> component with classic button variant should open dropdown when 
       style="outline: none; --radix-dropdown-menu-content-transform-origin: var(--radix-popper-transform-origin); --radix-dropdown-menu-content-available-width: var(--radix-popper-available-width); --radix-dropdown-menu-content-available-height: var(--radix-popper-available-height); --radix-dropdown-menu-trigger-width: var(--radix-popper-anchor-width); --radix-dropdown-menu-trigger-height: var(--radix-popper-anchor-height);"
       tabindex="-1"
     >
-      <div
-        class="PillDropdown__dialog"
-        role="dialog"
+      <p
+        title="Classic"
       >
-        <div
-          class="PillDropdown__content"
-          role="group"
-        />
-        <div
-          class="PillDropdown__footer"
-        >
-          <button
-            class="Button Button--size_small Button--variant_filled Button--context_primary"
-            style="width: auto;"
-            type="button"
-          >
-            Done
-          </button>
-        </div>
-      </div>
+        Classic
+      </p>
     </div>
   </div>
   <span
@@ -167,112 +152,16 @@ exports[`<Pill> component with enhanced button variant should open dropdown when
   />
   <div>
     <div
+      aria-disabled="false"
       class="PillButtonEnhanced PillButtonEnhanced--isActive"
     >
       <div
-        aria-controls="radix-:rh:"
+        aria-controls="radix-:rf:"
+        aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="menu"
-        class="PillButtonEnhanced__main"
+        class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
         data-state="open"
-        id="radix-:rg:"
-        role="button"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="PillButtonEnhanced__name"
-        >
-          Pill name
-        </span>
-        <span
-          class="PillButtonEnhanced__valueSeparator"
-        >
-          :
-        </span>
-        <span
-          class="PillButtonEnhanced__content"
-          title="Pill content"
-        >
-          Pill content
-        </span>
-      </div>
-      <div
-        class="PillButtonEnhanced__button"
-        role="button"
-        tabindex="0"
-      >
-        <svg
-          aria-label="Clear"
-          data-testid="default-icon"
-          height="16px"
-          viewBox="0 0 24 24"
-          width="16px"
-        />
-      </div>
-    </div>
-  </div>
-  <div
-    data-radix-popper-content-wrapper=""
-    dir="ltr"
-    style="position: fixed; left: 0px; top: 0px; transform: translate(0px, 6px); min-width: max-content; --radix-popper-available-width: 0px; --radix-popper-available-height: -6px; --radix-popper-anchor-width: 0px; --radix-popper-anchor-height: 0px; --radix-popper-transform-origin: 0% 0px;"
-  >
-    <div
-      aria-labelledby="radix-:rg:"
-      aria-orientation="vertical"
-      class="PillDropdown DropdownContent"
-      data-align="start"
-      data-orientation="vertical"
-      data-radix-menu-content=""
-      data-side="bottom"
-      data-state="open"
-      dir="ltr"
-      id="radix-:rh:"
-      role="menu"
-      style="outline: none; --radix-dropdown-menu-content-transform-origin: var(--radix-popper-transform-origin); --radix-dropdown-menu-content-available-width: var(--radix-popper-available-width); --radix-dropdown-menu-content-available-height: var(--radix-popper-available-height); --radix-dropdown-menu-trigger-width: var(--radix-popper-anchor-width); --radix-dropdown-menu-trigger-height: var(--radix-popper-anchor-height);"
-      tabindex="-1"
-    >
-      <div
-        class="PillDropdown__dialog"
-        role="dialog"
-      >
-        <div
-          class="PillDropdown__content"
-          role="group"
-        />
-        <div
-          class="PillDropdown__footer"
-        >
-          <button
-            class="Button Button--size_small Button--variant_filled Button--context_primary"
-            style="width: auto;"
-            type="button"
-          >
-            Done
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <span
-    data-radix-focus-guard=""
-    style="outline: none; opacity: 0; position: fixed; pointer-events: none;"
-    tabindex="0"
-  />
-</body>
-`;
-
-exports[`<Pill> component with enhanced button variant should render correctly 1`] = `
-<body>
-  <div>
-    <div
-      class="PillButtonEnhanced PillButtonEnhanced--isActive"
-    >
-      <div
-        aria-expanded="false"
-        aria-haspopup="menu"
-        class="PillButtonEnhanced__main"
-        data-state="closed"
         id="radix-:re:"
         role="button"
         tabindex="0"
@@ -294,20 +183,129 @@ exports[`<Pill> component with enhanced button variant should render correctly 1
         >
           Pill content
         </span>
+        <div
+          class="PillButtonEnhanced__arrowIcon PillButtonEnhanced__arrowIcon--isOpen"
+        >
+          <svg
+            aria-label="Close"
+            data-testid="default-icon"
+            height="16px"
+            viewBox="0 0 24 24"
+            width="16px"
+          />
+        </div>
       </div>
-      <div
-        class="PillButtonEnhanced__button"
-        role="button"
+      <button
+        class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
         tabindex="0"
+        type="button"
       >
         <svg
           aria-label="Clear"
+          class="IconButton__icon--size_medium"
           data-testid="default-icon"
           height="16px"
           viewBox="0 0 24 24"
           width="16px"
         />
+      </button>
+    </div>
+  </div>
+  <div
+    data-radix-popper-content-wrapper=""
+    dir="ltr"
+    style="position: fixed; left: 0px; top: 0px; transform: translate(0px, 6px); min-width: max-content; --radix-popper-available-width: 0px; --radix-popper-available-height: -6px; --radix-popper-anchor-width: 0px; --radix-popper-anchor-height: 0px; --radix-popper-transform-origin: 0% 0px;"
+  >
+    <div
+      aria-labelledby="radix-:re:"
+      aria-orientation="vertical"
+      class="DropdownContent PillDropdown"
+      data-align="start"
+      data-orientation="vertical"
+      data-radix-menu-content=""
+      data-side="bottom"
+      data-state="open"
+      dir="ltr"
+      id="radix-:rf:"
+      role="menu"
+      style="outline: none; --radix-dropdown-menu-content-transform-origin: var(--radix-popper-transform-origin); --radix-dropdown-menu-content-available-width: var(--radix-popper-available-width); --radix-dropdown-menu-content-available-height: var(--radix-popper-available-height); --radix-dropdown-menu-trigger-width: var(--radix-popper-anchor-width); --radix-dropdown-menu-trigger-height: var(--radix-popper-anchor-height);"
+      tabindex="-1"
+    >
+      <p
+        title="Enhanced"
+      >
+        Enhanced
+      </p>
+    </div>
+  </div>
+  <span
+    data-radix-focus-guard=""
+    style="outline: none; opacity: 0; position: fixed; pointer-events: none;"
+    tabindex="0"
+  />
+</body>
+`;
+
+exports[`<Pill> component with enhanced button variant should render correctly 1`] = `
+<body>
+  <div>
+    <div
+      aria-disabled="false"
+      class="PillButtonEnhanced PillButtonEnhanced--isActive"
+    >
+      <div
+        aria-disabled="false"
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="PillButtonEnhanced__main PillButtonEnhanced__main--isActive"
+        data-state="closed"
+        id="radix-:rc:"
+        role="button"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="PillButtonEnhanced__name"
+        >
+          Pill name
+        </span>
+        <span
+          class="PillButtonEnhanced__valueSeparator"
+        >
+          :
+        </span>
+        <span
+          class="PillButtonEnhanced__content"
+          title="Pill content"
+        >
+          Pill content
+        </span>
+        <div
+          class="PillButtonEnhanced__arrowIcon"
+        >
+          <svg
+            aria-label="Open"
+            data-testid="default-icon"
+            height="16px"
+            viewBox="0 0 24 24"
+            width="16px"
+          />
+        </div>
       </div>
+      <button
+        class="Button Button--variant_ghost Button--context_secondary IconButton--size_medium PillButtonEnhanced__clear"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-label="Clear"
+          class="IconButton__icon--size_medium"
+          data-testid="default-icon"
+          height="16px"
+          viewBox="0 0 24 24"
+          width="16px"
+        />
+      </button>
     </div>
   </div>
 </body>

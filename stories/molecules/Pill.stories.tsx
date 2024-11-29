@@ -9,11 +9,38 @@ import {
     SelectedItemBadge,
     SingleSelectItem,
 } from '@textkernel/oneui';
+import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
 
-const DummyComponent = (props) => (
+const DummyComponent = () => (
     <>
-        <p>This is some content for the pill</p>
-        <button onClick={props.close}>Close me</button>
+        <span>
+            This is some content dropdown has 440px max height so it will show scroll bars after
+            that
+        </span>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas
+            vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum
+            quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident
+            similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut
+            molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit
+            sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid.
+            Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
+            sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias
+            error harum maxime adipisci amet laborum.
+        </p>
+        <span>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas
+            vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum
+            quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident
+            similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut
+            molestias architecto voluptate aliquam nihil, eveniet aliquid culpa officia aut! Impedit
+            sit sunt quaerat, odit, tenetur error, harum nesciunt ipsum debitis quas aliquid.
+            Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
+            sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam recusandae alias
+            error harum maxime adipisci amet laborum. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Id maiores, quaerat optio ullam eligendi dicta quia ipsam hic
+            exercitationem? Ex exercitationem, ad earum est quod architecto facere debitis quia et!
+        </span>
     </>
 );
 
@@ -42,7 +69,6 @@ type Story = StoryObj<typeof Pill>;
 export const _Pill: Story = {
     name: 'Pill',
     args: {
-        doneLabel: 'Done',
         name: 'Pill name',
         content: 'This pill is used',
         downArrowLabel: 'down arrow',
@@ -67,7 +93,7 @@ export const _Pill: Story = {
         };
 
         return (
-            <div style={{ position: 'relative', display: 'flex', gap: '4px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <Pill
                     {...args}
                     onClear={() => {
@@ -77,7 +103,10 @@ export const _Pill: Story = {
                         console.log('onClose called');
                     }}
                 >
-                    {({ close }) => <DummyComponent close={close} />}
+                    <DummyComponent />
+                </Pill>
+                <Pill {...args} content={undefined}>
+                    <DummyComponent />
                 </Pill>
                 <Pill
                     {...args}
@@ -95,32 +124,45 @@ export const _Pill: Story = {
                         buttonLabel: 'priorityButton',
                     }}
                 >
-                    {() => (
-                        <div style={{ width: '150px' }}>
-                            <SelectedItemBadge
-                                label="Java"
-                                priority={{
-                                    onChange: handlePrioritySelect,
-                                    selectedItem: prioritySelected,
-                                    list: priorityList,
-                                    buttonLabel: 'priorityButton',
-                                }}
-                            >
-                                {badgeOption.map((option) => (
-                                    <SingleSelectItem
-                                        key={option}
-                                        onClick={() => handleOptionChange(option)}
-                                        isSelected={option === 'Java'}
-                                    >
-                                        {option}
-                                    </SingleSelectItem>
-                                ))}
-                            </SelectedItemBadge>
-                        </div>
-                    )}
-                </Pill>
-                <Pill {...args} content={undefined}>
-                    {({ close }) => <DummyComponent close={close} />}
+                    <div style={{ width: '150px' }}>
+                        <SelectedItemBadge
+                            label="Java"
+                            priority={{
+                                onChange: handlePrioritySelect,
+                                selectedItem: prioritySelected,
+                                list: priorityList,
+                                buttonLabel: 'priorityButton',
+                            }}
+                        >
+                            {badgeOption.map((option) => (
+                                <SingleSelectItem
+                                    key={option}
+                                    onClick={() => handleOptionChange(option)}
+                                    isSelected={option === 'Java'}
+                                >
+                                    {option}
+                                </SingleSelectItem>
+                            ))}
+                        </SelectedItemBadge>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam a fuga
+                            beatae reiciendis earum, omnis eius accusantium eveniet quam
+                            exercitationem praesentium sint odit harum. Quisquam eos mollitia
+                            veritatis eligendi magnam.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam a fuga
+                            beatae reiciendis earum, omnis eius accusantium eveniet quam
+                            exercitationem praesentium sint odit harum. Quisquam eos mollitia
+                            veritatis eligendi magnam.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam a fuga
+                            beatae reiciendis earum, omnis eius accusantium eveniet quam
+                            exercitationem praesentium sint odit harum. Quisquam eos mollitia
+                            veritatis eligendi magnam.
+                        </p>
+                    </div>
                 </Pill>
             </div>
         );
@@ -140,9 +182,13 @@ export const _PillButton: PillButtonStory = {
     },
     render: (args) => (
         <div style={{ display: 'flex' }}>
-            <PillButton {...args} />
+            <DropdownMenu>
+                <PillButton {...args} />
+            </DropdownMenu>
             &nbsp;&nbsp;
-            <PillButton {...args} name="Pill 2" content="" />
+            <DropdownMenu>
+                <PillButton {...args} name="Pill 2" content="" />
+            </DropdownMenu>
         </div>
     ),
 };
@@ -167,15 +213,19 @@ export const _PillButtonEnhanced: PillButtonEnhancedStory = {
     },
     render: (args) => (
         <div style={{ display: 'flex' }}>
-            <PillButtonEnhanced {...args} />
+            <DropdownMenu>
+                <PillButtonEnhanced {...args} />
+            </DropdownMenu>
             &nbsp;&nbsp;
-            <PillButtonEnhanced
-                {...args}
-                name="Pill 2"
-                content=""
-                additionalContentLabel=""
-                additionalContentTooltip=""
-            />
+            <DropdownMenu>
+                <PillButtonEnhanced
+                    {...args}
+                    name="Pill 2"
+                    content=""
+                    additionalContentLabel=""
+                    additionalContentTooltip=""
+                />
+            </DropdownMenu>
         </div>
     ),
 };
@@ -203,36 +253,28 @@ export const _PillButtonEnhancedWithPriority: PillButtonEnhancedStory = {
 
         return (
             <div style={{ display: 'flex' }}>
-                <PillButtonEnhanced<string>
-                    {...args}
-                    priority={{
-                        onChange: handlePrioritySelect,
-                        selectedItem: prioritySelected,
-                        list: priorityList,
-                        buttonLabel: 'priorityButton',
-                    }}
-                />
+                <DropdownMenu>
+                    <PillButtonEnhanced<string>
+                        {...args}
+                        priority={{
+                            onChange: handlePrioritySelect,
+                            selectedItem: prioritySelected,
+                            list: priorityList,
+                            buttonLabel: 'priorityButton',
+                        }}
+                    />
+                </DropdownMenu>
                 &nbsp;&nbsp;
-                <PillButtonEnhanced
-                    {...args}
-                    name="Pill 2"
-                    content=""
-                    additionalContentLabel=""
-                    additionalContentTooltip=""
-                />
+                <DropdownMenu>
+                    <PillButtonEnhanced
+                        {...args}
+                        name="Pill 2"
+                        content=""
+                        additionalContentLabel=""
+                        additionalContentTooltip=""
+                    />
+                </DropdownMenu>
             </div>
         );
     },
-};
-
-type PillDropdownStory = StoryObj<typeof PillDropdown>;
-
-export const _PillDropdown: PillDropdownStory = {
-    name: 'PillDropdown',
-    args: {
-        doneLabel: 'Done',
-    },
-    render: (args) => (
-        <PillDropdown {...args}>{({ close }) => <DummyComponent close={close} />}</PillDropdown>
-    ),
 };

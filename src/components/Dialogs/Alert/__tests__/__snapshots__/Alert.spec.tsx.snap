@@ -38,7 +38,6 @@ exports[`Alert should render correctly 1`] = `
         >
           <button
             class="Button Button--variant_filled Button--context_primary"
-            style="width: auto;"
             type="button"
           >
             OK
@@ -93,7 +92,6 @@ exports[`Alert should render correctly with title 1`] = `
           <button
             aria-label="Close"
             class="Button Button--variant_ghost Button--context_secondary Dialog__closeButton"
-            style="width: auto;"
             type="button"
           >
             <svg
@@ -125,7 +123,6 @@ exports[`Alert should render correctly with title 1`] = `
         >
           <button
             class="Button Button--variant_filled Button--context_primary"
-            style="width: auto;"
             type="button"
           >
             OK

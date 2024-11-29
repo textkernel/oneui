@@ -114,7 +114,7 @@ export function LabelPicker<L extends Label>(props: Props<L>) {
                         />
                         <Button
                             context="primary"
-                            size="small"
+                            size="medium"
                             onClick={handleAdd}
                             disabled={!inputValue}
                             {...elem('addButton')}

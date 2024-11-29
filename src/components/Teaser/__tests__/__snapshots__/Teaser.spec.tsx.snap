@@ -6,7 +6,7 @@ exports[`Teaser should render checkbox not checked 1`] = `
     class="Teaser"
   >
     <div
-      class="Checkbox"
+      class="Checkbox Teaser__checkbox"
     >
       <input
         class="Checkbox__input"
@@ -181,7 +181,7 @@ exports[`Teaser should render with all props defined 1`] = `
     class="Teaser"
   >
     <div
-      class="Checkbox"
+      class="Checkbox Teaser__checkbox"
     >
       <input
         checked=""
@@ -246,7 +246,7 @@ exports[`Teaser should render with all props defined 1`] = `
                 cy="50%"
                 fill="none"
                 r="9"
-                stroke="var(--color-icon-caution-default)"
+                stroke="var(--color-icon-cautious-default)"
                 stroke-dasharray="28, 56"
                 stroke-linecap="round"
                 stroke-width="3"

@@ -2,55 +2,81 @@
     composes: OneUI-label-text from global;
     display: inline-flex;
     justify-items: start;
-
     border: solid 1px var(--color-border-subtlest);
-    background: var(--color-background-neutral-subtlest-default, #FFF);
     border-radius: var(--space-50);
-
+    align-items: center;
     height: var(--space-400);
-    padding: var(--space-50) var(--space-100);
     box-sizing: border-box;
 
-    &:has(.PillButtonEnhanced__main:hover) {
-        background: var(--color-background-neutral-subtlest-hover, #E6E6E6);
-    }
-
-    &:has(.PillButtonEnhanced__main:focus-visible) {
-        box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
-    }
-
-    &[data-state="open"] {
-        border: 2px solid var(--color-border-selected, #007AFF);
-        background: var(--color-background-neutral-subtlest-pressed, #CCC);
-
-        &.PillButtonEnhanced--isActive {
-            background: var(--color-background-selected-subtlest-pressed, #99CAFF);
-        }
-    }
-
     &--isActive {
-        background: var(--color-background-selected-subtlest-default, #E6F2FF);
+        background: var(--color-background-selected-subtlest-default, #e6f2ff);
 
-        &:has(.PillButtonEnhanced__main:hover) {
-            background: var(--color-background-selected-subtlest-hover, #CCE4FF);
+        &[aria-disabled='true'] {
+            background: var(--color-background-selected-subtlest-disabled);
         }
     }
 
-    &__priority {
-        position: relative;
-        top: -1px;
+    &:has(.PillButtonEnhanced__main[data-state='open']) {
+        background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
+    }
+
+    &:has(.PillButtonEnhanced__main:active):not([aria-disable='true']) {
+        background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
     }
 
     &__main {
         display: flex;
+        align-items: center;
         cursor: pointer;
         max-width: 220px;
         white-space: nowrap;
+        padding: var(--space-75) var(--space-100);
+        box-sizing: border-box;
+        border-radius: inherit;
 
-        &:focus-visible {
+        &[aria-disabled='true'] {
+            cursor: not-allowed;
+            background: var(--color-background-disabled);
+        }
+
+        &:active:not([aria-disabled='true']) {
+            box-shadow: inset 0 0 0 var(--space-25) var(--color-border-selected);
+        }
+
+        &:focus-visible:not([aria-disabled='true']):not(:active) {
+            box-shadow: inset 0 0 0 var(--space-25) var(--color-info-20, #99caff);
             outline: none;
         }
-   }
+
+        &:hover:not([aria-disabled='true']):not([data-state='open']) {
+            background-color: var(--color-background-neutral-subtlest-hover);
+        }
+
+        &[data-state='open'] {
+            box-shadow: inset 0 0 0 var(--space-25) var(--color-border-selected);
+            background-color: var(--color-background-neutral-subtlest-hover);
+        }
+
+        &--isActive {
+            border-radius: 0;
+
+            &:active:not([aria-disabled='true']) {
+                background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
+            }
+
+            &:hover:not([aria-disabled='true']):not([data-state='open']) {
+                background: var(--color-background-selected-subtlest-hover, #cce4ff);
+            }
+
+            &[aria-disabled='true'] {
+                background: var(--color-background-selected-subtlest-disabled);
+            }
+
+            &[data-state='open'] {
+                background: var(--color-background-selected-subtlest-pressed, #e6f2ff);
+            }
+        }
+    }
 
     &__name {
         color: var(--color-text-bold, #000);
@@ -60,11 +86,28 @@
         padding-left: var(--space-25);
     }
 
+    &__arrowIcon {
+        display: flex;
+        margin-left: var(--space-75);
+        color: inherit;
+
+        &--isOpen {
+            & svg {
+                transform: rotateX(180deg);
+            }
+        }
+
+        & svg {
+            fill: var(--color-icon-subtle);
+            transition: transform var(--transition-duration);
+        }
+    }
+
     &__content {
         color: var(--color-text-selected-default, #004999);
         overflow: hidden;
         text-overflow: ellipsis;
-        padding-left: var(--space-50)
+        padding-left: var(--space-50);
     }
 
     &__contentSeparator {
@@ -76,29 +119,41 @@
         margin-left: var(--space-50);
     }
 
-    &__button {
-        padding: 2px;
-        border: 1px solid transparent;
-        border-radius: 50%;
-        margin-left: var(--space-75);
-        background-color: transparent;
-        color: inherit;
-        cursor: pointer;
-        box-sizing: content-box;
+    .PillButtonEnhanced__clear {
+        padding: var(--space-100);
+        border-radius: 0 var(--space-50) var(--space-50) 0;
+        border-left: 1px solid var(--color-border-subtlest);
 
         & svg {
-            fill: var(--color-icon-subtle)
+            fill: var(--color-icon-brand-default);
         }
 
-        &:hover svg {
-            fill: var(--color-icon-subtlest)
+        &[disabled] svg {
+            fill: var(--color-icon-brand-disabled);
+        }
+    }
+
+    &[aria-disabled='true'] {
+        cursor: not-allowed;
+
+        .PillButtonEnhanced__name,
+        .PillButtonEnhanced__valueSeparator,
+        .PillButtonEnhanced__arrowIcon svg {
+            color: var(--color-text-disabled);
+            fill: var(--color-text-disabled);
         }
 
-        &:focus-visible {
-            outline: none;
-            & svg {
-                box-shadow: 0px 0px 0px 2px var(--color-info-20, #99CAFF);
-            }
+        .PillButtonEnhanced__content,
+        .PillButtonEnhanced__contentSeparator,
+        .PillButtonEnhanced__additionalContent {
+            color: var(--color-text-selected-disabled);
         }
+    }
+
+    .PillButtonEnhanced__priority {
+        padding: var(--space-100);
+        border-radius: var(--space-50) 0 0 var(--space-50);
+        border-right: solid 1px var(--color-border-subtlest);
+        flex-shrink: 0;
     }
 }

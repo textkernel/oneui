@@ -79,7 +79,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
                     })}
                     ref={mergeRefs([ref, buttonRef])}
                     href={href}
-                    style={{ width: buttonWidth ? `${buttonWidth}px` : 'auto' }}
+                    style={{ width: buttonWidth ? `${buttonWidth}px` : undefined }}
                 >
                     {isLoading ? (
                         <LoadingSpinner
@@ -106,7 +106,7 @@ export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, Props>(
                 })}
                 ref={mergeRefs([ref, buttonRef])}
                 type={type}
-                style={{ width: buttonWidth ? `${buttonWidth}px` : 'auto' }}
+                style={{ width: buttonWidth ? `${buttonWidth}px` : undefined }}
                 disabled={disabled || isLoading}
             >
                 {isLoading ? (
