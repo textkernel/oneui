@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [28.1.0](https://github.com/textkernel/oneui/compare/28.0.0...28.1.0) (2024-11-29)
 
-### Breaking changes (due to error, the version number is not representative of these)
+### ⚠ BREAKING CHANGES (due to error, the version number is not representative of these)
 
 * **Dialog** Component Props API change. Introduction of closeButton. If title defined, closeButton should be defined as well.
 * **PillDropdown** Done button was removed from the dropdown
