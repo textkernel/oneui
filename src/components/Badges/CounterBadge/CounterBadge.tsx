@@ -8,17 +8,24 @@ import styles from './CounterBadge.scss';
 export interface Props extends Omit<StatusBadgeProps, 'leadingIcon' | 'trailingIcon'> {
     /** Trailing icon arrow direction */
     arrowDirection?: 'up' | 'down';
+    /** Arrow aria label */
+    arrowAriaLabel?: string;
 }
 
 const { block } = bem('CounterBadge', styles);
 
-export const CounterBadge: React.FC<Props> = ({ arrowDirection, children, ...rest }) => {
+export const CounterBadge: React.FC<Props> = ({
+    arrowDirection,
+    arrowAriaLabel,
+    children,
+    ...rest
+}) => {
     let trailingIcon: React.ReactElement | undefined;
 
     if (arrowDirection === 'up') {
-        trailingIcon = <ArrowUpwardRounded data-testid="arrow-upward" />;
+        trailingIcon = <ArrowUpwardRounded aria-label={arrowAriaLabel} />;
     } else if (arrowDirection === 'down') {
-        trailingIcon = <ArrowDownwardRounded data-testid="arrow-downward" />;
+        trailingIcon = <ArrowDownwardRounded aria-label={arrowAriaLabel} />;
     }
 
     return (

@@ -37,6 +37,16 @@ export const _CounterBadge: CounterBadgeStory = {
         children: '+1',
         variant: 'subtle',
         arrowDirection: 'up',
+        arrowAriaLabel: 'Up arrow',
+        context: 'success',
+    },
+    render: (args) => <CounterBadge {...args} />,
+};
+
+export const _CounterBadgeWithoutArrow: CounterBadgeStory = {
+    args: {
+        children: '+1',
+        variant: 'subtle',
         context: 'success',
     },
     render: (args) => <CounterBadge {...args} />,

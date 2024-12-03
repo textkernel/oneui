@@ -14,18 +14,26 @@ describe('CounterBadge', () => {
     });
 
     it('should render with downward icon', () => {
-        const view = render(<CounterBadge arrowDirection="down">-1</CounterBadge>);
+        const view = render(
+            <CounterBadge arrowDirection="down" arrowAriaLabel="down arrow">
+                -1
+            </CounterBadge>
+        );
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByTitle('-1')).toBeInTheDocument();
-        expect(screen.getByTestId('arrow-downward')).toBeInTheDocument();
+        expect(screen.getByLabelText('down arrow')).toBeInTheDocument();
     });
 
     it('should render with upward icon', () => {
-        const view = render(<CounterBadge arrowDirection="up">+1</CounterBadge>);
+        const view = render(
+            <CounterBadge arrowDirection="up" arrowAriaLabel="up arrow">
+                +1
+            </CounterBadge>
+        );
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByTitle('+1')).toBeInTheDocument();
-        expect(screen.getByTestId('arrow-upward')).toBeInTheDocument();
+        expect(screen.getByLabelText('up arrow')).toBeInTheDocument();
     });
 });
