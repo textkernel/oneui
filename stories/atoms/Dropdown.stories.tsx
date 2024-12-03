@@ -317,11 +317,11 @@ export const _DropdownWithSelectedItemBadge: Story = {
                 <DropdownPortal>
                     <DropdownContent {...args} refElement={ref}>
                         <div style={{ padding: '8px' }}>
-                            <SelectedItemBadge
-                                {...args}
+                            <SelectedItemBadge<string, string>
                                 priority={
                                     priority && {
                                         ...priority,
+                                        list: priorityList,
                                         selectedItem: selectedPriorityItem,
                                         onChange: handlePriorityChange,
                                     }
