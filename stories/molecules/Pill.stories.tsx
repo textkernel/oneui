@@ -122,6 +122,7 @@ export const _Pill: Story = {
 
         const onSelectionAdd = (item: TSuggestion) => {
             console.log(`onSelectionAdd was called with {name: ${item.name}}`);
+            setSingleSelectedText(item.name);
             inputRef.current?.blur();
         };
 
@@ -147,7 +148,7 @@ export const _Pill: Story = {
                     }}
                     dropdownHeight={dropdownHeight}
                 >
-                    <div style={{ width: '200px' }}>
+                    <div style={{ width: '200px', height: '50px' }}>
                         <Autosuggest
                             suggestions={getSuggestions()}
                             onBlur={onBlur}
@@ -155,6 +156,8 @@ export const _Pill: Story = {
                             onSelectionAdd={onSelectionAdd}
                             onClearAllSelected={onClearAllSelected}
                             onDropdownStateChange={handleDropdownStateChange}
+                            // this will trick to UI to pre-fill the in input field when it gets focused again
+                            initInputValue={singleSelectedText}
                             inputRef={inputRef}
                             inputPlaceholder="Select something..."
                             suggestionToString={SUGGESTION_TO_STRING}
