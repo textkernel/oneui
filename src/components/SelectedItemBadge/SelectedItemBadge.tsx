@@ -1,10 +1,15 @@
 import * as React from 'react';
 import Close from '@material-design-icons/svg/round/close.svg';
-
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './SelectedItemBadge.scss';
-import { DropdownContent, DropdownRoot, DropdownTrigger, SingleSelectItemProps } from '../Dropdown';
+import {
+    DropdownContent,
+    DropdownPortal,
+    DropdownRoot,
+    DropdownTrigger,
+    SingleSelectItemProps,
+} from '../Dropdown';
 import { PrioritySelector, PrioritySelectorProps } from '../PrioritySelector';
 import { IconButton } from '../Buttons';
 
@@ -61,13 +66,14 @@ export const SelectedItemBadge = React.forwardRef(
 
         const badgeRef = React.useRef<HTMLElement>(null);
 
+        const triggerRef = React.useRef<HTMLButtonElement>(null);
+
         const hasPriorityList = priority && priority.list.length > 0;
 
         const handleOnDelete = (e: React.KeyboardEvent | React.MouseEvent) => {
             e.stopPropagation();
             onDelete?.(e);
         };
-
         return (
             <div {...rest} {...block()} ref={badgeRef || ref}>
                 {hasPriorityList && (
@@ -82,6 +88,7 @@ export const SelectedItemBadge = React.forwardRef(
                     <DropdownRoot onOpenChange={handleOpenStateChange}>
                         <DropdownTrigger asChild disabled={isDisabled}>
                             <button
+                                ref={triggerRef}
                                 aria-label={buttonLabel}
                                 disabled={isDisabled}
                                 type="button"
@@ -101,14 +108,16 @@ export const SelectedItemBadge = React.forwardRef(
                                 )}
                             </button>
                         </DropdownTrigger>
-                        <DropdownContent
-                            {...elem('badgeDropdownList')}
-                            sideOffset={6}
-                            alignOffset={priority ? -34 : 0}
-                            refElement={badgeRef}
-                        >
-                            {children}
-                        </DropdownContent>
+                        <DropdownPortal>
+                            <DropdownContent
+                                {...elem('badgeDropdownList')}
+                                sideOffset={6}
+                                alignOffset={priority ? -34 : 0}
+                                refElement={badgeRef}
+                            >
+                                {children}
+                            </DropdownContent>
+                        </DropdownPortal>
                     </DropdownRoot>
                 ) : (
                     <div
