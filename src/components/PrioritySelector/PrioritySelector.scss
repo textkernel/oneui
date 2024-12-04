@@ -47,8 +47,8 @@ $icon-status-colors: (
         disabled: var(--color-icon-success-disabled),
     ),
     important: (
-        normal: var(--color-icon-caution-default),
-        disabled: var(--color-icon-caution-disabled),
+        normal: var(--color-icon-cautious-default),
+        disabled: var(--color-icon-cautious-disabled),
     ),
     optional: (
         normal: var(--color-icon-subtle),
@@ -106,13 +106,8 @@ $icon-status-colors: (
         background-color: white;
         z-index: 600;
 
-        &--fixedWidth{
+        &--fixedWidth {
             width: 232px;
         }
     }
-
 }
-
-
-
-
