@@ -7,12 +7,11 @@ $variants: (subtle, bold);
 .StatusBadge {
     display: flex;
     align-items: center;
+    gap: var(--space-50);
     border-radius: var(--border-radius);
-    padding: var(--space-0) var(--space-75);
-    height: var(--space-250);
+    padding: var(--space-25) var(--space-75);
     width: fit-content;
     max-width: 200px;
-    min-width: var(--space-250);
     composes: OneUI-caption-text from global;
 
     &__text {
@@ -24,7 +23,6 @@ $variants: (subtle, bold);
     &__icon {
         height: var(--space-150);
         width: var(--space-150);
-        padding-right: var(--space-50);
     }
 
     @each $context in $contexts {

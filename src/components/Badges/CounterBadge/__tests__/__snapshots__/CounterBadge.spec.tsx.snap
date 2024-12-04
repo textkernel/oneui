@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CounterBadge should render correctly 1`] = `
+<div>
+  <div
+    class="StatusBadge StatusBadge--context_info StatusBadge--variant_bold CounterBadge"
+    title="200k"
+  >
+    <span
+      class="StatusBadge__text"
+    >
+      200k
+    </span>
+  </div>
+</div>
+`;
+
+exports[`CounterBadge should render with downward icon 1`] = `
+<div>
+  <div
+    class="StatusBadge StatusBadge--context_info StatusBadge--variant_bold CounterBadge"
+    title="-1"
+  >
+    <span
+      class="StatusBadge__text"
+    >
+      -1
+    </span>
+    <svg
+      aria-label="down arrow"
+      class="StatusBadge__icon"
+      data-testid="default-icon"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    />
+  </div>
+</div>
+`;
+
+exports[`CounterBadge should render with upward icon 1`] = `
+<div>
+  <div
+    class="StatusBadge StatusBadge--context_info StatusBadge--variant_bold CounterBadge"
+    title="+1"
+  >
+    <span
+      class="StatusBadge__text"
+    >
+      +1
+    </span>
+    <svg
+      aria-label="up arrow"
+      class="StatusBadge__icon"
+      data-testid="default-icon"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    />
+  </div>
+</div>
+`;
