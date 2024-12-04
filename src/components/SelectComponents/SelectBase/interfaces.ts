@@ -102,4 +102,6 @@ export interface Props<S>
     blurredRenderer: BlurredRendererHelpers<S>;
     /** highlighting for first item will be added if input is empty */
     highlightOnEmptyInput?: boolean;
+    /** callback function to be called whenever the dropdown state changes. */
+    onDropdownStateChange?: (isOpen: boolean) => void;
 }

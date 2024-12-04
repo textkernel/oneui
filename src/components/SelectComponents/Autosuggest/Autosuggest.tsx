@@ -53,6 +53,8 @@ export interface Props<S>
     /** render custom list values */
     customListRender?: (suggestions) => React.ReactNode;
     clearInputAfterSelection?: boolean;
+    /** callback function to be called whenever the dropdown state changes. */
+    onDropdownStateChange?: (isOpen: boolean) => void;
 }
 
 const { elem } = bem('Autosuggest', styles);
@@ -94,6 +96,7 @@ export function Autosuggest<S>({
     iconNode,
     customListRender,
     clearInputAfterSelection = true,
+    onDropdownStateChange,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -242,6 +245,7 @@ export function Autosuggest<S>({
     return (
         <SelectBase
             {...rest}
+            onDropdownStateChange={onDropdownStateChange}
             suggestions={suggestions}
             suggestionToString={suggestionToString}
             inputRef={inputRef}

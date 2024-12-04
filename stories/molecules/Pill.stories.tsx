@@ -8,8 +8,15 @@ import {
     PriorityItemType,
     SelectedItemBadge,
     SingleSelectItem,
+    Autosuggest,
 } from '@textkernel/oneui';
 import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
+import {
+    SUGGESTION_TO_STRING,
+    SUGGESTIONS,
+} from '@textkernel/oneui/components/SelectComponents/Autosuggest/__mocks__/suggestions';
+
+type TSuggestion = { name: string };
 
 const DummyComponent = () => (
     <>
@@ -81,6 +88,11 @@ export const _Pill: Story = {
             label: 'Mandatory',
             value: 'required',
         });
+        const [dropdownHeight, setDropdownHeight] = React.useState<string>();
+        const [inputValue, setInputValue] = React.useState('');
+        const [singleSelectedText, setSingleSelectedText] = React.useState('');
+
+        const inputRef = React.createRef<HTMLInputElement>();
 
         const handlePrioritySelect = (selectedItem: PriorityItemType<string>) => {
             console.log('new item selected: ', selectedItem);
@@ -88,8 +100,39 @@ export const _Pill: Story = {
         };
 
         const badgeOption = ['some', 'other', 'options'];
+
         const handleOptionChange = (option) => {
             console.log('SelectedItemBadge option was selected: ', option);
+        };
+
+        const handleDropdownStateChange = (isOpen) => {
+            setDropdownHeight(isOpen ? '200px' : '');
+        };
+
+        const getSuggestions = (): TSuggestion[] =>
+            // filtering suggestions from some other source
+            SUGGESTIONS.filter((item: TSuggestion) =>
+                // suggestion is relevant to input
+                item.name.toLocaleLowerCase().includes(inputValue.toLocaleLowerCase())
+            );
+        const onInputValueChange = (value: string) => {
+            console.log(`onInputValueChange was called with ${value}`);
+            setInputValue(value);
+        };
+
+        const onSelectionAdd = (item: TSuggestion) => {
+            console.log(`onSelectionAdd was called with {name: ${item.name}}`);
+            inputRef.current?.blur();
+        };
+
+        const onBlur = () => {
+            console.log('onBlur was called');
+            setInputValue(singleSelectedText || '');
+        };
+
+        const onClearAllSelected = () => {
+            console.log('onClearAllSelected was called');
+            setSingleSelectedText('');
         };
 
         return (
@@ -102,8 +145,24 @@ export const _Pill: Story = {
                     onClose={() => {
                         console.log('onClose called');
                     }}
+                    dropdownHeight={dropdownHeight}
                 >
-                    <DummyComponent />
+                    <div style={{ width: '200px' }}>
+                        <Autosuggest
+                            suggestions={getSuggestions()}
+                            onBlur={onBlur}
+                            onInputValueChange={onInputValueChange}
+                            onSelectionAdd={onSelectionAdd}
+                            onClearAllSelected={onClearAllSelected}
+                            onDropdownStateChange={handleDropdownStateChange}
+                            inputRef={inputRef}
+                            inputPlaceholder="Select something..."
+                            suggestionToString={SUGGESTION_TO_STRING}
+                            isLoading={false}
+                            showClearButton
+                            clearTitle="Clear"
+                        />
+                    </div>
                 </Pill>
                 <Pill {...args} content={undefined}>
                     <DummyComponent />
@@ -125,25 +184,6 @@ export const _Pill: Story = {
                     }}
                 >
                     <div style={{ width: '150px' }}>
-                        <SelectedItemBadge
-                            label="Java"
-                            priority={{
-                                onChange: handlePrioritySelect,
-                                selectedItem: prioritySelected,
-                                list: priorityList,
-                                buttonLabel: 'priorityButton',
-                            }}
-                        >
-                            {badgeOption.map((option) => (
-                                <SingleSelectItem
-                                    key={option}
-                                    onClick={() => handleOptionChange(option)}
-                                    isSelected={option === 'Java'}
-                                >
-                                    {option}
-                                </SingleSelectItem>
-                            ))}
-                        </SelectedItemBadge>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam a fuga
                             beatae reiciendis earum, omnis eius accusantium eveniet quam
@@ -163,6 +203,25 @@ export const _Pill: Story = {
                             veritatis eligendi magnam.
                         </p>
                     </div>
+                    <SelectedItemBadge
+                        label="Java"
+                        priority={{
+                            onChange: handlePrioritySelect,
+                            selectedItem: prioritySelected,
+                            list: priorityList,
+                            buttonLabel: 'priorityButton',
+                        }}
+                    >
+                        {badgeOption.map((option) => (
+                            <SingleSelectItem
+                                key={option}
+                                onClick={() => handleOptionChange(option)}
+                                isSelected={option === 'Java'}
+                            >
+                                {option}
+                            </SingleSelectItem>
+                        ))}
+                    </SelectedItemBadge>
                 </Pill>
             </div>
         );

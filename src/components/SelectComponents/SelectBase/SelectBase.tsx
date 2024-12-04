@@ -35,6 +35,7 @@ export function SelectBase<S>({
     clearInputAfterSelection = false,
     highlightOnEmptyInput = true,
     initInputValue,
+    onDropdownStateChange,
     autoFocus = false,
     ...rest
 }: Props<S>) {
@@ -161,18 +162,26 @@ export function SelectBase<S>({
     };
 
     const stateUpdater = (change, state) => {
+        const isOpen = change.isOpen ?? state.isOpen;
         switch (change.type) {
             case Downshift.stateChangeTypes.blurInput:
                 handleBlur();
+                onDropdownStateChange?.(isOpen);
                 break;
             case Downshift.stateChangeTypes.clickButton:
                 setFocused(change.isOpen);
+                onDropdownStateChange?.(isOpen);
                 break;
             case Downshift.stateChangeTypes.changeInput:
                 if (state.isOpen !== focused) {
                     setFocused(state.isOpen);
+                    onDropdownStateChange?.(isOpen);
                 }
                 break;
+            case Downshift.stateChangeTypes.unknown:
+                onDropdownStateChange?.(isOpen);
+                break;
+
             default:
                 break;
         }

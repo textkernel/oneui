@@ -11,13 +11,15 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'child
      * You can use the CSS variable --pill-dropdown-padding to add padding as required.
      * */
     noPadding?: boolean;
+    /** The height for the dropdown content. */
+    height?: string;
 }
 
 const { block } = bem('PillDropdown', styles);
 
 export const PillDropdown = React.forwardRef<HTMLElement, Props>(
-    ({ noPadding = false, children, ...rest }, ref) => (
-        <DropdownContent ref={ref} {...rest} {...block({ noPadding, ...rest })}>
+    ({ noPadding = false, children, height, ...rest }, ref) => (
+        <DropdownContent height={height} ref={ref} {...rest} {...block({ noPadding, ...rest })}>
             {children}
         </DropdownContent>
     )
