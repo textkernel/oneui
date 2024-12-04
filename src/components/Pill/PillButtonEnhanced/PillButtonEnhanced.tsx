@@ -99,9 +99,9 @@ export const PillButtonEnhanced = React.forwardRef(
                         {!!content && (
                             <>
                                 <span {...elem('valueSeparator')}>:</span>
-                                <span {...elem('content')} title={content}>
-                                    {content}
-                                </span>
+                                <Tooltip content={content}>
+                                    <span {...elem('content')}>{content}</span>
+                                </Tooltip>
                             </>
                         )}
                         {additionalContentLabel && (
