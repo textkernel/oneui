@@ -158,7 +158,14 @@ export const _Pill: Story = {
                             clearTitle="Clear"
                             shouldRenderWithPortal
                         />
-                        <div style={{ marginTop: '8px', display: 'flex', gap: '4px' }}>
+                        <div
+                            style={{
+                                marginTop: '8px',
+                                display: 'flex',
+                                gap: '4px',
+                                flexDirection: 'column',
+                            }}
+                        >
                             {selectedValues.map((value) => (
                                 <SelectedItemBadge
                                     label={value}
