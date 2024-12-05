@@ -143,6 +143,7 @@ export const _Pill: Story = {
                     <div
                         style={{
                             width: '200px',
+                            marginBottom: '8px',
                         }}
                     >
                         <Autosuggest
@@ -157,8 +158,9 @@ export const _Pill: Story = {
                             showClearButton
                             clearTitle="Clear"
                             shouldRenderWithPortal
-                            style={{ marginBottom: '8px' }}
                         />
+                    </div>
+                    <div style={{ marginTop: '8px', display: 'flex', gap: '4px' }}>
                         {selectedValues.map((value) => (
                             <SelectedItemBadge
                                 label={value}
