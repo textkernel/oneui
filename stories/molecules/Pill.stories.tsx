@@ -144,7 +144,14 @@ export const _Pill: Story = {
                         console.log('onClose called');
                     }}
                 >
-                    <div style={{ width: '200px' }}>
+                    <div
+                        style={{
+                            width: '200px',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '8px',
+                        }}
+                    >
                         <Autosuggest
                             suggestions={getSuggestions()}
                             onBlur={onBlur}
@@ -161,53 +168,26 @@ export const _Pill: Story = {
                             clearTitle="Clear"
                             shouldRenderWithPortal
                         />
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '4px',
-                                marginTop: '8px',
+
+                        <SelectedItemBadge
+                            label="Java"
+                            priority={{
+                                onChange: handlePrioritySelect,
+                                selectedItem: prioritySelected,
+                                list: priorityList,
+                                buttonLabel: 'priorityButton',
                             }}
                         >
-                            <SelectedItemBadge
-                                label="Java"
-                                priority={{
-                                    onChange: handlePrioritySelect,
-                                    selectedItem: prioritySelected,
-                                    list: priorityList,
-                                    buttonLabel: 'priorityButton',
-                                }}
-                            >
-                                {badgeOption.map((option) => (
-                                    <SingleSelectItem
-                                        key={option}
-                                        onClick={() => handleOptionChange(option)}
-                                        isSelected={option === 'Java'}
-                                    >
-                                        {option}
-                                    </SingleSelectItem>
-                                ))}
-                            </SelectedItemBadge>
-                            <SelectedItemBadge
-                                label="Java"
-                                priority={{
-                                    onChange: handlePrioritySelect,
-                                    selectedItem: prioritySelected,
-                                    list: priorityList,
-                                    buttonLabel: 'priorityButton',
-                                }}
-                            >
-                                {badgeOption.map((option) => (
-                                    <SingleSelectItem
-                                        key={option}
-                                        onClick={() => handleOptionChange(option)}
-                                        isSelected={option === 'Java'}
-                                    >
-                                        {option}
-                                    </SingleSelectItem>
-                                ))}
-                            </SelectedItemBadge>
-                        </div>
+                            {badgeOption.map((option) => (
+                                <SingleSelectItem
+                                    key={option}
+                                    onClick={() => handleOptionChange(option)}
+                                    isSelected={option === 'Java'}
+                                >
+                                    {option}
+                                </SingleSelectItem>
+                            ))}
+                        </SelectedItemBadge>
                     </div>
                 </Pill>
                 <Pill {...args} content={undefined}>
