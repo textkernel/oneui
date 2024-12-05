@@ -341,7 +341,8 @@ export function SelectBase<S>({
                                                 zIndex: 700,
                                                 background: 'var(--color-background)',
                                                 border: '1px solid var(--color-neutral-30)',
-                                                borderRadius: 'var(--border-radius)',
+                                                borderRadiusLeftBottom: 'var(--border-radius)',
+                                                borderRadiusRightBottom: 'var(--border-radius)',
                                                 boxSizing: 'border-box',
                                             }}
                                         >

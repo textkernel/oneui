@@ -89,7 +89,7 @@ export const _Pill: Story = {
             value: 'required',
         });
         const [inputValue, setInputValue] = React.useState('');
-        const [singleSelectedText, setSingleSelectedText] = React.useState('');
+        const [selectedValues, setSelectedValues] = React.useState<string[]>([]);
 
         const inputRef = React.createRef<HTMLInputElement>();
 
@@ -119,18 +119,14 @@ export const _Pill: Story = {
 
         const onSelectionAdd = (item: TSuggestion) => {
             console.log(`onSelectionAdd was called with {name: ${item.name}}`);
-            setSingleSelectedText(item.name);
+            const newSelectedValues = [...selectedValues, item.name];
+            setSelectedValues(newSelectedValues);
             inputRef.current?.blur();
         };
 
         const onBlur = () => {
             console.log('onBlur was called');
-            setInputValue(singleSelectedText || '');
-        };
-
-        const onClearAllSelected = () => {
-            console.log('onClearAllSelected was called');
-            setSingleSelectedText('');
+            setInputValue('');
         };
 
         return (
@@ -147,9 +143,6 @@ export const _Pill: Story = {
                     <div
                         style={{
                             width: '200px',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '8px',
                         }}
                     >
                         <Autosuggest
@@ -157,9 +150,6 @@ export const _Pill: Story = {
                             onBlur={onBlur}
                             onInputValueChange={onInputValueChange}
                             onSelectionAdd={onSelectionAdd}
-                            onClearAllSelected={onClearAllSelected}
-                            // this will trick to UI to pre-fill the in input field when it gets focused again
-                            initInputValue={singleSelectedText}
                             inputRef={inputRef}
                             inputPlaceholder="Select something..."
                             suggestionToString={SUGGESTION_TO_STRING}
@@ -167,27 +157,19 @@ export const _Pill: Story = {
                             showClearButton
                             clearTitle="Clear"
                             shouldRenderWithPortal
+                            style={{ marginBottom: '8px' }}
                         />
-
-                        <SelectedItemBadge
-                            label="Java"
-                            priority={{
-                                onChange: handlePrioritySelect,
-                                selectedItem: prioritySelected,
-                                list: priorityList,
-                                buttonLabel: 'priorityButton',
-                            }}
-                        >
-                            {badgeOption.map((option) => (
-                                <SingleSelectItem
-                                    key={option}
-                                    onClick={() => handleOptionChange(option)}
-                                    isSelected={option === 'Java'}
-                                >
-                                    {option}
-                                </SingleSelectItem>
-                            ))}
-                        </SelectedItemBadge>
+                        {selectedValues.map((value) => (
+                            <SelectedItemBadge
+                                label={value}
+                                priority={{
+                                    onChange: handlePrioritySelect,
+                                    selectedItem: prioritySelected,
+                                    list: priorityList,
+                                    buttonLabel: 'priorityButton',
+                                }}
+                            />
+                        ))}
                     </div>
                 </Pill>
                 <Pill {...args} content={undefined}>
