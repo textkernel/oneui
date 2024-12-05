@@ -19,10 +19,6 @@
         }
     }
 
-    &__field {
-        padding: 0;
-    }
-
     &__spacedElem {
         margin: var(--space-50);
     }
@@ -41,5 +37,9 @@
 
     &__loaderContainer {
         width: 250px;
+    }
+
+    .SelectBase__field {
+        padding: 0;
     }
 }

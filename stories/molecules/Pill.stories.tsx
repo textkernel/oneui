@@ -143,7 +143,6 @@ export const _Pill: Story = {
                     <div
                         style={{
                             width: '200px',
-                            marginBottom: '8px',
                         }}
                     >
                         <Autosuggest
@@ -159,19 +158,19 @@ export const _Pill: Story = {
                             clearTitle="Clear"
                             shouldRenderWithPortal
                         />
-                    </div>
-                    <div style={{ marginTop: '8px', display: 'flex', gap: '4px' }}>
-                        {selectedValues.map((value) => (
-                            <SelectedItemBadge
-                                label={value}
-                                priority={{
-                                    onChange: handlePrioritySelect,
-                                    selectedItem: prioritySelected,
-                                    list: priorityList,
-                                    buttonLabel: 'priorityButton',
-                                }}
-                            />
-                        ))}
+                        <div style={{ marginTop: '8px', display: 'flex', gap: '4px' }}>
+                            {selectedValues.map((value) => (
+                                <SelectedItemBadge
+                                    label={value}
+                                    priority={{
+                                        onChange: handlePrioritySelect,
+                                        selectedItem: prioritySelected,
+                                        list: priorityList,
+                                        buttonLabel: 'priorityButton',
+                                    }}
+                                />
+                            ))}
+                        </div>
                     </div>
                 </Pill>
                 <Pill {...args} content={undefined}>
