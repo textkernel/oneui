@@ -34,8 +34,6 @@ export type Props<PriorityItemValue> = (
     noPaddingInDropdown?: boolean;
     /** other props that need to be applied to the dropdown container */
     additionalDropdownProps?: object;
-    /** The height for the dropdown content. */
-    dropdownHeight?: string;
 };
 
 /**
@@ -56,7 +54,6 @@ export const Pill = <PriorityItemValue extends unknown>({
     dropdownRef,
     noPaddingInDropdown = false,
     additionalDropdownProps = {},
-    dropdownHeight = undefined,
     onClose,
     ...rest
 }: Props<PriorityItemValue>) => {
@@ -90,7 +87,6 @@ export const Pill = <PriorityItemValue extends unknown>({
             )}
             <DropdownPortal>
                 <PillDropdown
-                    height={dropdownHeight}
                     ref={dropdownRef}
                     noPadding={noPaddingInDropdown}
                     {...additionalDropdownProps}

@@ -53,8 +53,10 @@ export interface Props<S>
     /** render custom list values */
     customListRender?: (suggestions) => React.ReactNode;
     clearInputAfterSelection?: boolean;
-    /** callback function to be called whenever the dropdown state changes. */
-    onDropdownStateChange?: (isOpen: boolean) => void;
+    /** determines if the suggestion list should be rendered using a React Portal
+     *  to the dropdown needs to bypass parent element clipping, overflow, or z-index issues.
+     */
+    shouldRenderWithPortal?: boolean;
 }
 
 const { elem } = bem('Autosuggest', styles);
@@ -96,7 +98,7 @@ export function Autosuggest<S>({
     iconNode,
     customListRender,
     clearInputAfterSelection = true,
-    onDropdownStateChange,
+    shouldRenderWithPortal = false,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -245,7 +247,6 @@ export function Autosuggest<S>({
     return (
         <SelectBase
             {...rest}
-            onDropdownStateChange={onDropdownStateChange}
             suggestions={suggestions}
             suggestionToString={suggestionToString}
             inputRef={inputRef}
@@ -262,6 +263,7 @@ export function Autosuggest<S>({
             initInputValue={initInputValue}
             clearInputAfterSelection={clearInputAfterSelection}
             autoFocus={isFocused}
+            shouldRenderWithPortal={shouldRenderWithPortal}
         />
     );
 }

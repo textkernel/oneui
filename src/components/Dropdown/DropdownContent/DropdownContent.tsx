@@ -6,14 +6,12 @@ import styles from '../Dropdown.scss';
 interface Props extends DropdownMenuContentProps {
     /** Ref element used to make the width of the Content equal to the parent width */
     refElement?: React.RefObject<HTMLElement | null>;
-    /** The height for the dropdown content. */
-    height?: string;
 }
 
 const { block } = bem('DropdownContent', styles);
 
 export const DropdownContent = React.forwardRef<HTMLElement, Props>(
-    ({ refElement, height, ...rest }, ref) => {
+    ({ refElement, ...rest }, ref) => {
         const [width, setWidth] = React.useState<number>();
 
         useEffect(() => {
@@ -29,7 +27,7 @@ export const DropdownContent = React.forwardRef<HTMLElement, Props>(
                 {...block(rest)}
                 align="start"
                 sideOffset={6}
-                style={{ minWidth: width, minHeight: height }}
+                style={{ minWidth: width }}
             />
         );
     }

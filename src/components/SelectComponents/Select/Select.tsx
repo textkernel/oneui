@@ -42,6 +42,10 @@ export interface Props<S> extends Omit<React.HTMLAttributes<HTMLDivElement>, 'on
     rootRef?: React.RefObject<HTMLDivElement>;
     /** items list ref */
     listRef?: React.RefObject<HTMLUListElement>;
+    /** determines if the suggestion list should be rendered using a React Portal
+     *  to the dropdown needs to bypass parent element clipping, overflow, or z-index issues.
+     */
+    shouldRenderWithPortal?: boolean;
 }
 
 /**
@@ -67,6 +71,7 @@ export function Select<S>({
     onFocus = undefined,
     onClear = undefined,
     listRef = undefined,
+    shouldRenderWithPortal = false,
     ...rest
 }: Props<S>) {
     const focusElRef = React.useRef();
@@ -124,6 +129,7 @@ export function Select<S>({
             onBlur={onBlur}
             onFocus={onFocus}
             onClearAllSelected={onClear}
+            shouldRenderWithPortal={shouldRenderWithPortal}
             listRenderer={(listProps) => (
                 <SuggestionsList
                     {...listProps}

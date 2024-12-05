@@ -88,7 +88,6 @@ export const _Pill: Story = {
             label: 'Mandatory',
             value: 'required',
         });
-        const [dropdownHeight, setDropdownHeight] = React.useState<string>();
         const [inputValue, setInputValue] = React.useState('');
         const [singleSelectedText, setSingleSelectedText] = React.useState('');
 
@@ -105,9 +104,7 @@ export const _Pill: Story = {
             console.log('SelectedItemBadge option was selected: ', option);
         };
 
-        const handleDropdownStateChange = (isOpen) => {
-            setDropdownHeight(isOpen ? '200px' : '');
-        };
+        //  const handleDropdownStateChange = (isOpen) => {};
 
         const getSuggestions = (): TSuggestion[] =>
             // filtering suggestions from some other source
@@ -146,16 +143,14 @@ export const _Pill: Story = {
                     onClose={() => {
                         console.log('onClose called');
                     }}
-                    dropdownHeight={dropdownHeight}
                 >
-                    <div style={{ width: '200px', height: '50px' }}>
+                    <div style={{ width: '200px' }}>
                         <Autosuggest
                             suggestions={getSuggestions()}
                             onBlur={onBlur}
                             onInputValueChange={onInputValueChange}
                             onSelectionAdd={onSelectionAdd}
                             onClearAllSelected={onClearAllSelected}
-                            onDropdownStateChange={handleDropdownStateChange}
                             // this will trick to UI to pre-fill the in input field when it gets focused again
                             initInputValue={singleSelectedText}
                             inputRef={inputRef}
@@ -164,7 +159,55 @@ export const _Pill: Story = {
                             isLoading={false}
                             showClearButton
                             clearTitle="Clear"
+                            shouldRenderWithPortal
                         />
+                        <div
+                            style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '4px',
+                                marginTop: '8px',
+                            }}
+                        >
+                            <SelectedItemBadge
+                                label="Java"
+                                priority={{
+                                    onChange: handlePrioritySelect,
+                                    selectedItem: prioritySelected,
+                                    list: priorityList,
+                                    buttonLabel: 'priorityButton',
+                                }}
+                            >
+                                {badgeOption.map((option) => (
+                                    <SingleSelectItem
+                                        key={option}
+                                        onClick={() => handleOptionChange(option)}
+                                        isSelected={option === 'Java'}
+                                    >
+                                        {option}
+                                    </SingleSelectItem>
+                                ))}
+                            </SelectedItemBadge>
+                            <SelectedItemBadge
+                                label="Java"
+                                priority={{
+                                    onChange: handlePrioritySelect,
+                                    selectedItem: prioritySelected,
+                                    list: priorityList,
+                                    buttonLabel: 'priorityButton',
+                                }}
+                            >
+                                {badgeOption.map((option) => (
+                                    <SingleSelectItem
+                                        key={option}
+                                        onClick={() => handleOptionChange(option)}
+                                        isSelected={option === 'Java'}
+                                    >
+                                        {option}
+                                    </SingleSelectItem>
+                                ))}
+                            </SelectedItemBadge>
+                        </div>
                     </div>
                 </Pill>
                 <Pill {...args} content={undefined}>
