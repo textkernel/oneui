@@ -62,7 +62,7 @@ export function SelectBase<S>({
             setDropdownStyles({
                 top: rect.bottom + window.scrollY, // Position below the input field
                 left: rect.left + window.scrollX, // Align left with the input field
-                width: rect.width, // Match the width of the input field
+                width: rootRef.current.offsetWidth, // Match the width of the input field
             });
         }
     };
@@ -104,26 +104,35 @@ export function SelectBase<S>({
         setInputValue(initInputValue || '');
     }, [setInputValue, initInputValue]);
 
+    // Ensure the calculation is triggered after the DOM update
+    const calculateDropdownPositionAfterRender = () => {
+        requestAnimationFrame(() => calculateDropdownPosition());
+    };
+
+    // Recalculate position when focused or opened
     React.useEffect(() => {
         if (focused) {
-            calculateDropdownPosition();
+            calculateDropdownPositionAfterRender();
         }
+    }, [focused]);
 
-        const handleResize = () => {
-            if (focused) {
-                calculateDropdownPosition();
-            }
-        };
+    // Recalculate on resize, scroll, or input changes
+    React.useEffect(() => {
+        const handleResizeOrScroll = () => calculateDropdownPositionAfterRender();
 
-        window.addEventListener('resize', handleResize);
-        window.addEventListener('scroll', handleResize);
+        window.addEventListener('resize', handleResizeOrScroll);
+        window.addEventListener('scroll', handleResizeOrScroll);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
-            window.removeEventListener('scroll', handleResize);
+            window.removeEventListener('resize', handleResizeOrScroll);
+            window.removeEventListener('scroll', handleResizeOrScroll);
         };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [focused, rootRef]);
+    }, []);
+
+    // Trigger position update on input value changes
+    React.useEffect(() => {
+        calculateDropdownPositionAfterRender();
+    }, [inputValue]);
 
     const handleBlur = () => {
         setFocused(false);
@@ -340,7 +349,11 @@ export function SelectBase<S>({
                                                 width: dropdownStyles.width,
                                                 zIndex: 700,
                                                 background: 'var(--color-background)',
-                                                border: '1px solid var(--color-neutral-30)',
+                                                /* since we use autofocus passed from parent,
+                                                 * we need to avoid showing border on empty dropdown */
+                                                border:
+                                                    suggestions.length > 0 &&
+                                                    '1px solid var(--color-neutral-30)',
                                                 borderRadiusLeftBottom: 'var(--border-radius)',
                                                 borderRadiusRightBottom: 'var(--border-radius)',
                                                 boxSizing: 'border-box',

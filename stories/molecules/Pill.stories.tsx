@@ -139,6 +139,17 @@ export const _Pill: Story = {
                     onClose={() => {
                         console.log('onClose called');
                     }}
+                    variant="enhanced"
+                    priority={
+                        selectedValues.length > 0
+                            ? {
+                                  onChange: handlePrioritySelect,
+                                  selectedItem: prioritySelected,
+                                  list: priorityList,
+                                  buttonLabel: 'priorityButton',
+                              }
+                            : undefined
+                    }
                 >
                     <div
                         style={{
