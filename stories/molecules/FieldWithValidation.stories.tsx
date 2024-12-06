@@ -32,7 +32,7 @@ export const _FieldWithValidation: Story = {
             </div>
             <div>
                 <FieldWithValidation errorMessage={errorMessage2} useTooltip={useTootip2}>
-                    <TextArea />
+                    <TextArea label="FieldWithValidation" />
                 </FieldWithValidation>
             </div>
         </>
