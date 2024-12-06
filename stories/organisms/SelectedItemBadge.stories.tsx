@@ -38,7 +38,11 @@ export const _SelectedItemBadge: Story = {
             list: priorityList,
             buttonLabel: 'Priority',
             onChange: () => {},
-            selectedItem: { priority: 'mandatory', label: 'Mandatory', value: 'required' },
+            selectedItem: {
+                priority: 'mandatory',
+                label: 'Mandatory',
+                value: 'required',
+            },
         },
         buttonLabel: 'Select radius',
     },
@@ -46,7 +50,7 @@ export const _SelectedItemBadge: Story = {
         const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
             PriorityItemType<string>
         >(
-            args.priority?.selectedItem || {
+            (args.priority?.selectedItem as PriorityItemType<string>) || {
                 priority: 'mandatory',
                 label: 'Mandatory',
                 value: 'required',
@@ -80,11 +84,12 @@ export const _SelectedItemBadge: Story = {
 
         return (
             <div style={{ width: '200px' }}>
-                <SelectedItemBadge
+                <SelectedItemBadge<string, string>
                     {...args}
                     priority={
                         args.priority && {
                             ...args.priority,
+                            list: priorityList,
                             selectedItem: selectedPriorityItem,
                             onChange: handlePriorityChange,
                         }
@@ -124,7 +129,7 @@ export const _SelectedItemBadgeMultiSelect: Story = {
         const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
             PriorityItemType<string>
         >(
-            args.priority?.selectedItem || {
+            (args.priority?.selectedItem as PriorityItemType<string>) || {
                 priority: 'mandatory',
                 label: 'Mandatory',
                 value: 'required',
@@ -212,6 +217,7 @@ export const _SelectedItemBadgeMultiSelect: Story = {
                     priority={
                         args.priority && {
                             ...args.priority,
+                            list: priorityList,
                             selectedItem: selectedPriorityItem,
                             onChange: handlePriorityChange,
                         }
@@ -331,7 +337,7 @@ export const SelectedItemBadgeWithoutChildren: Story = {
         const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
             PriorityItemType<string>
         >(
-            args.priority?.selectedItem || {
+            (args.priority?.selectedItem as PriorityItemType<string>) || {
                 priority: 'mandatory',
                 label: 'Mandatory',
                 value: 'required',
@@ -363,6 +369,7 @@ export const SelectedItemBadgeWithoutChildren: Story = {
                     priority={
                         args.priority && {
                             ...args.priority,
+                            list: priorityList,
                             selectedItem: selectedPriorityItem,
                             onChange: handlePriorityChange,
                         }
@@ -391,7 +398,7 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
         const [selectedPriorityItem, setSelectedPriorityItem] = React.useState<
             PriorityItemType<string>
         >(
-            args.priority?.selectedItem || {
+            (args.priority?.selectedItem as PriorityItemType<string>) || {
                 priority: 'mandatory',
                 label: 'Mandatory',
                 value: 'required',
@@ -424,6 +431,7 @@ export const SelectedItemBadgeWithoutCloseButton: Story = {
                     priority={
                         args.priority && {
                             ...args.priority,
+                            list: priorityList,
                             selectedItem: selectedPriorityItem,
                             onChange: handlePriorityChange,
                         }

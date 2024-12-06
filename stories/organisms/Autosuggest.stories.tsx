@@ -83,6 +83,7 @@ export const Multiselect: Story = {
                     onSelectionAdd={onSelectionAdd}
                     onSelectionRemove={onSelectionRemove}
                     onClearAllSelected={onClearAllSelected}
+                    shouldRenderWithPortal
                 />
             </div>
         );

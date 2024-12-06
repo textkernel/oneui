@@ -12,7 +12,7 @@ import { IconButton } from '../../Buttons';
 
 export interface Props<PriorityItemValue = unknown> extends PillButtonBaseProps {
     /** Label/indicator in case of multiple selection, such as `+2` for instance */
-    additionalContentLabel?: string;
+    additionalContentLabel?: React.ReactNode;
     /** Tooltip content to be shown when multiple selections are shown */
     additionalContentTooltip?: React.ReactNode;
     /** Props needed for rendering optional priority selector */
@@ -99,9 +99,9 @@ export const PillButtonEnhanced = React.forwardRef(
                         {!!content && (
                             <>
                                 <span {...elem('valueSeparator')}>:</span>
-                                <span {...elem('content')} title={content}>
-                                    {content}
-                                </span>
+                                <Tooltip content={content}>
+                                    <span {...elem('content')}>{content}</span>
+                                </Tooltip>
                             </>
                         )}
                         {additionalContentLabel && (

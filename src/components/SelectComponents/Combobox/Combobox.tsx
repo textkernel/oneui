@@ -32,6 +32,10 @@ export interface Props<S>
     upArrowLabel?: string;
     /** enable ListOptimizer component for decreasing render time */
     useOptimizeListRender?: boolean;
+    /** determines if the suggestion list should be rendered using a React Portal
+     *  to the dropdown needs to bypass parent element clipping, overflow, or z-index issues.
+     */
+    shouldRenderWithPortal?: boolean;
 }
 
 /**
@@ -61,6 +65,7 @@ export function Combobox<S>({
     upArrowLabel,
     downArrowLabel,
     useOptimizeListRender,
+    shouldRenderWithPortal = false,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -130,6 +135,7 @@ export function Combobox<S>({
             showArrow
             downArrowLabel={downArrowLabel}
             upArrowLabel={upArrowLabel}
+            shouldRenderWithPortal={shouldRenderWithPortal}
         />
     );
 }

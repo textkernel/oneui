@@ -102,4 +102,8 @@ export interface Props<S>
     blurredRenderer: BlurredRendererHelpers<S>;
     /** highlighting for first item will be added if input is empty */
     highlightOnEmptyInput?: boolean;
+    /** determines if the suggestion list should be rendered using a React Portal
+     *  to the dropdown needs to bypass parent element clipping, overflow, or z-index issues.
+     */
+    shouldRenderWithPortal?: boolean;
 }
