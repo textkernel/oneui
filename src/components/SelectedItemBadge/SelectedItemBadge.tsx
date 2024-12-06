@@ -112,7 +112,7 @@ export const SelectedItemBadge = React.forwardRef(
                             <DropdownContent
                                 {...elem('badgeDropdownList')}
                                 sideOffset={6}
-                                alignOffset={priority ? -34 : 0}
+                                alignOffset={priority ? -34 : -2}
                                 refElement={badgeRef}
                             >
                                 {children}
