@@ -139,9 +139,9 @@ export const _Pill: Story = {
                     onClose={() => {
                         console.log('onClose called');
                     }}
-                    variant="enhanced"
+                    // @ts-ignore
                     priority={
-                        selectedValues.length > 0
+                        args.variant === 'enhanced' && selectedValues.length > 0
                             ? {
                                   onChange: handlePrioritySelect,
                                   selectedItem: prioritySelected,
