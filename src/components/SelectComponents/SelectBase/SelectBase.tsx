@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Downshift from 'downshift';
+import { createPortal } from 'react-dom';
 import { bem } from '../../../utils/bem';
 import { useBrowserTabVisibilityChange } from '../../../hooks';
 import { FieldWrapper } from '../../FieldWrapper';
@@ -36,6 +37,7 @@ export function SelectBase<S>({
     highlightOnEmptyInput = true,
     initInputValue,
     autoFocus = false,
+    shouldRenderWithPortal = false,
     ...rest
 }: Props<S>) {
     const [inputRef, setInputRef] = React.useState(
@@ -47,6 +49,23 @@ export function SelectBase<S>({
     const [listRef, setListRef] = React.useState(
         listRefFromProps || React.createRef<HTMLUListElement>()
     );
+
+    const [dropdownStyles, setDropdownStyles] = React.useState({
+        top: 0,
+        left: 0,
+        width: 0,
+    });
+
+    const calculateDropdownPosition = () => {
+        if (rootRef.current) {
+            const rect = rootRef.current.getBoundingClientRect();
+            setDropdownStyles({
+                top: rect.bottom + window.scrollY, // Position below the input field
+                left: rect.left + window.scrollX, // Align left with the input field
+                width: rootRef.current.offsetWidth, // Match the width of the input field
+            });
+        }
+    };
 
     const [inputValue, setInputValue] = React.useState(initInputValue || '');
     const [inputValueRecall, setInputValueRecall] = React.useState('');
@@ -84,6 +103,36 @@ export function SelectBase<S>({
     React.useEffect(() => {
         setInputValue(initInputValue || '');
     }, [setInputValue, initInputValue]);
+
+    // Ensure the calculation is triggered after the DOM update
+    const calculateDropdownPositionAfterRender = () => {
+        requestAnimationFrame(() => calculateDropdownPosition());
+    };
+
+    // Recalculate position when focused or opened
+    React.useEffect(() => {
+        if (focused) {
+            calculateDropdownPositionAfterRender();
+        }
+    }, [focused]);
+
+    // Recalculate on resize, scroll, or input changes
+    React.useEffect(() => {
+        const handleResizeOrScroll = () => calculateDropdownPositionAfterRender();
+
+        window.addEventListener('resize', handleResizeOrScroll);
+        window.addEventListener('scroll', handleResizeOrScroll);
+
+        return () => {
+            window.removeEventListener('resize', handleResizeOrScroll);
+            window.removeEventListener('scroll', handleResizeOrScroll);
+        };
+    }, []);
+
+    // Trigger position update on input value changes
+    React.useEffect(() => {
+        calculateDropdownPositionAfterRender();
+    }, [inputValue]);
 
     const handleBlur = () => {
         setFocused(false);
@@ -234,57 +283,93 @@ export function SelectBase<S>({
                     getToggleButtonProps,
                     highlightedIndex,
                     openMenu,
-                }) => (
-                    <div {...elem('main', stateAndProps)}>
-                        <FieldWrapper
-                            showArrow={showArrow}
-                            isArrowUp={focused}
-                            onArrowClick={focused ? handleOuterClick : handleWrapperClick(openMenu)}
-                            clearTooltipLabel={clearTitle}
-                            downArrowLabel={downArrowLabel}
-                            upArrowLabel={upArrowLabel}
-                            onClear={handleClearSelectedSuggestions}
-                            showClearButton={!focused && showClearButton}
-                            isFocused={focused && !disabled}
-                            disabled={disabled}
-                            onClick={handleWrapperClick(openMenu)}
-                            {...elem('field', stateAndProps)}
-                        >
-                            {focused && !disabled
-                                ? focusedRenderer({
-                                      getInputProps: getInputPropsWithUpdatedRef(getInputProps),
-                                      getToggleButtonProps,
-                                      onBlur: handleBlur,
-                                      onFocus: handleInputOnFocus(openMenu),
-                                      highlightedIndex,
-                                      inputValue,
-                                  })
-                                : blurredRenderer({
-                                      getInputProps,
-                                      getToggleButtonProps,
-                                      onFocus: handleInputOnFocus(openMenu),
-                                      onBlur: handleBlur,
-                                  })}
-                            <List
-                                {...getMenuProps({
-                                    ...elem('list', stateAndProps),
-                                    ref: listRef.current,
-                                    isControlledNavigation: true,
-                                })}
+                }) => {
+                    const listContent =
+                        focused && !disabled
+                            ? listRenderer({
+                                  suggestionToString,
+                                  suggestions,
+                                  getItemProps,
+                                  highlightedIndex,
+                                  inputValue: inputValueRecall,
+                              })
+                            : null;
+
+                    const dropdownProps = getMenuProps({
+                        ...elem('list', stateAndProps),
+                        ref: listRef.current,
+                        isControlledNavigation: true,
+                    });
+
+                    return (
+                        <div {...elem('main', stateAndProps)}>
+                            <FieldWrapper
+                                showArrow={showArrow}
+                                isArrowUp={focused}
+                                onArrowClick={
+                                    focused ? handleOuterClick : handleWrapperClick(openMenu)
+                                }
+                                clearTooltipLabel={clearTitle}
+                                downArrowLabel={downArrowLabel}
+                                upArrowLabel={upArrowLabel}
+                                onClear={handleClearSelectedSuggestions}
+                                showClearButton={!focused && showClearButton}
+                                isFocused={focused && !disabled}
+                                disabled={disabled}
+                                onClick={handleWrapperClick(openMenu)}
+                                {...elem('field', stateAndProps)}
                             >
                                 {focused && !disabled
-                                    ? listRenderer({
-                                          suggestionToString,
-                                          suggestions,
-                                          getItemProps,
+                                    ? focusedRenderer({
+                                          getInputProps: getInputPropsWithUpdatedRef(getInputProps),
+                                          getToggleButtonProps,
+                                          onBlur: handleBlur,
+                                          onFocus: handleInputOnFocus(openMenu),
                                           highlightedIndex,
-                                          inputValue: inputValueRecall,
+                                          inputValue,
                                       })
-                                    : null}
-                            </List>
-                        </FieldWrapper>
-                    </div>
-                )}
+                                    : blurredRenderer({
+                                          getInputProps,
+                                          getToggleButtonProps,
+                                          onFocus: handleInputOnFocus(openMenu),
+                                          onBlur: handleBlur,
+                                      })}
+
+                                {shouldRenderWithPortal ? (
+                                    focused &&
+                                    !disabled &&
+                                    createPortal(
+                                        <List
+                                            {...dropdownProps}
+                                            // implemented directly for elem not to override elem styles
+                                            style={{
+                                                position: 'absolute',
+                                                top: dropdownStyles.top,
+                                                left: dropdownStyles.left,
+                                                width: dropdownStyles.width,
+                                                zIndex: 700,
+                                                background: 'var(--color-background)',
+                                                /* since we use autofocus passed from parent,
+                                                 * we need to avoid showing border on empty dropdown */
+                                                border:
+                                                    suggestions.length > 0 &&
+                                                    '1px solid var(--color-neutral-30)',
+                                                borderRadiusLeftBottom: 'var(--border-radius)',
+                                                borderRadiusRightBottom: 'var(--border-radius)',
+                                                boxSizing: 'border-box',
+                                            }}
+                                        >
+                                            {listContent}
+                                        </List>,
+                                        document.body
+                                    )
+                                ) : (
+                                    <List {...dropdownProps}>{listContent}</List>
+                                )}
+                            </FieldWrapper>
+                        </div>
+                    );
+                }}
             </Downshift>
         </div>
     );

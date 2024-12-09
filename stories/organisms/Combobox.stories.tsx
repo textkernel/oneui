@@ -66,6 +66,7 @@ export const _Combobox: Story = {
                     onBlur={onBlur}
                     onSelectionAdd={onSelectionAdd}
                     onInputValueChange={onInputValueChange}
+                    shouldRenderWithPortal
                 />
             </>
         );
