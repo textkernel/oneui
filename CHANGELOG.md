@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [28.2.0](https://github.com/textkernel/oneui/compare/28.1.0...28.2.0) (2024-12-10)
+
+
+### Features
+
+* **CounterBadge:** new component ([#1339](https://github.com/textkernel/oneui/issues/1339)) ([bfe5e10](https://github.com/textkernel/oneui/commit/bfe5e1082aebc0d3fc30b5fa1baa3e7118d59393))
+
+
+### Bug Fixes
+
+* **Changelog:** add breaking changes ([#1340](https://github.com/textkernel/oneui/issues/1340)) ([0c2aae4](https://github.com/textkernel/oneui/commit/0c2aae42a5578178f3e3cdf3ab0a1259417c405c))
+* issues after latest releases ([#1343](https://github.com/textkernel/oneui/issues/1343)) ([32c2933](https://github.com/textkernel/oneui/commit/32c293300f88b49acb974a4da22fe7d24963b981))
+
 ## [28.1.0](https://github.com/textkernel/oneui/compare/28.0.0...28.1.0) (2024-11-29)
 
 ### ⚠ BREAKING CHANGES (due to error, the version number is not representative of these)
