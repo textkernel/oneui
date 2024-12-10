@@ -6,4 +6,5 @@
     box-shadow: var(--space-0) var(--space-25) var(--space-125) var(--space-0)
         var(--color-transparent-10020, rgba(0, 0, 0, 0.2));
     z-index: 400;
+    box-sizing: border-box;
 }

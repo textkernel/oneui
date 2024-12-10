@@ -1,20 +1,26 @@
 import * as React from 'react';
 import Close from '@material-design-icons/svg/round/close.svg';
-
 import { bem } from '../../utils';
 import { Text } from '../Text';
 import styles from './SelectedItemBadge.scss';
-import { DropdownContent, DropdownRoot, DropdownTrigger, SingleSelectItemProps } from '../Dropdown';
+import {
+    DropdownContent,
+    DropdownPortal,
+    DropdownRoot,
+    DropdownTrigger,
+    SingleSelectItemProps,
+} from '../Dropdown';
 import { PrioritySelector, PrioritySelectorProps } from '../PrioritySelector';
+import { IconButton } from '../Buttons';
 
-export interface Props<PriorityItemValue>
+export interface Props<PriorityItemValue, ChildrenItemValue>
     extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
     /** Children nodes to be rendered within the Dropdown,
      *  which is triggered by the main button
      * */
     children?: (
-        | React.ReactElement<SingleSelectItemProps<PriorityItemValue>>
-        | React.ReactElement<SingleSelectItemProps<PriorityItemValue>>[]
+        | React.ReactElement<SingleSelectItemProps<ChildrenItemValue>>
+        | React.ReactElement<SingleSelectItemProps<ChildrenItemValue>>[]
     )[];
     /** Label of the currently selected option item from filter */
     label: React.ReactNode;
@@ -36,8 +42,8 @@ export interface Props<PriorityItemValue>
 
 const { block, elem } = bem('SelectedItemBadge', styles);
 
-export const SelectedItemBadge = React.forwardRef<HTMLElement, Props<string>>(
-    (
+export const SelectedItemBadge = React.forwardRef(
+    <PriorityItemValue, ChildrenItemValue>(
         {
             children,
             label,
@@ -49,10 +55,18 @@ export const SelectedItemBadge = React.forwardRef<HTMLElement, Props<string>>(
             priority,
             refElement,
             ...rest
-        },
-        ref
+        }: Props<PriorityItemValue, ChildrenItemValue>,
+        ref: React.Ref<HTMLElement>
     ) => {
+        const [isOpen, setIsOpen] = React.useState(false);
+
+        const handleOpenStateChange = (open: boolean) => {
+            setIsOpen(open);
+        };
+
         const badgeRef = React.useRef<HTMLElement>(null);
+
+        const triggerRef = React.useRef<HTMLButtonElement>(null);
 
         const hasPriorityList = priority && priority.list.length > 0;
 
@@ -60,18 +74,29 @@ export const SelectedItemBadge = React.forwardRef<HTMLElement, Props<string>>(
             e.stopPropagation();
             onDelete?.(e);
         };
-
         return (
             <div {...rest} {...block()} ref={badgeRef || ref}>
-                {hasPriorityList && <PrioritySelector {...priority} parentRef={badgeRef} />}
+                {hasPriorityList && (
+                    <PrioritySelector
+                        {...priority}
+                        triggerClassName={`${elem('priorityButton').className} ${priority.triggerClassName}`}
+                        isDisabled={isDisabled}
+                        parentRef={badgeRef}
+                    />
+                )}
                 {children ? (
-                    <DropdownRoot>
-                        <DropdownTrigger asChild>
+                    <DropdownRoot onOpenChange={handleOpenStateChange}>
+                        <DropdownTrigger asChild disabled={isDisabled}>
                             <button
+                                ref={triggerRef}
                                 aria-label={buttonLabel}
                                 disabled={isDisabled}
                                 type="button"
-                                {...elem('optionButton')}
+                                {...elem('optionButton', {
+                                    hasPriorityList,
+                                    onDelete: Boolean(onDelete),
+                                    isOpen,
+                                })}
                             >
                                 <Text inline size="small" {...elem('valueText')}>
                                     {label}
@@ -83,17 +108,24 @@ export const SelectedItemBadge = React.forwardRef<HTMLElement, Props<string>>(
                                 )}
                             </button>
                         </DropdownTrigger>
-                        <DropdownContent
-                            {...elem('badgeDropdownList')}
-                            sideOffset={6}
-                            alignOffset={priority ? -32 : 0}
-                            refElement={badgeRef}
-                        >
-                            {children}
-                        </DropdownContent>
+                        <DropdownPortal>
+                            <DropdownContent
+                                {...elem('badgeDropdownList')}
+                                sideOffset={6}
+                                alignOffset={priority ? -32 : 0}
+                                refElement={badgeRef}
+                            >
+                                {children}
+                            </DropdownContent>
+                        </DropdownPortal>
                     </DropdownRoot>
                 ) : (
-                    <div {...elem('valueContainer')}>
+                    <div
+                        {...elem('valueContainer', {
+                            hasPriorityList,
+                            onDelete: Boolean(onDelete),
+                        })}
+                    >
                         <Text inline size="small" {...elem('valueText')}>
                             {label}
                         </Text>
@@ -105,17 +137,20 @@ export const SelectedItemBadge = React.forwardRef<HTMLElement, Props<string>>(
                     </div>
                 )}
                 {onDelete && (
-                    <button
+                    <IconButton
                         aria-label={deleteButtonLabel}
                         disabled={isDisabled}
                         onClick={handleOnDelete}
                         type="button"
+                        variant="ghost"
                         {...elem('deleteButton')}
                     >
-                        <Close viewBox="0 0 24 24" style={{ width: '20px', height: '20px' }} />
-                    </button>
+                        <Close viewBox="0 0 24 24" />
+                    </IconButton>
                 )}
             </div>
         );
     }
-);
+) as <PriorityItemValue, ChildrenItemValue>(
+    p: Props<PriorityItemValue, ChildrenItemValue> & { ref?: React.Ref<HTMLElement> }
+) => React.ReactElement;

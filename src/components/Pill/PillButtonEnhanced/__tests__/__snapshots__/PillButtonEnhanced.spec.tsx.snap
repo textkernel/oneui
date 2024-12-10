@@ -29,7 +29,6 @@ exports[`<PillButtonEnhanced> component in active, collapsed state (with content
       </span>
       <span
         class="PillButtonEnhanced__content"
-        title="This pill is in use"
       >
         This pill is in use
       </span>
@@ -92,7 +91,6 @@ exports[`<PillButtonEnhanced> component in active, open state (content and isOpe
       </span>
       <span
         class="PillButtonEnhanced__content"
-        title="This pill is in use"
       >
         This pill is in use
       </span>
@@ -256,7 +254,6 @@ exports[`<PillButtonEnhanced> component with additional props should render corr
       </span>
       <span
         class="PillButtonEnhanced__content"
-        title="This pill is in use"
       >
         This pill is in use
       </span>
@@ -320,7 +317,6 @@ exports[`<PillButtonEnhanced> component with additional props should set style a
       </span>
       <span
         class="PillButtonEnhanced__content"
-        title="This pill is in use"
       >
         This pill is in use
       </span>

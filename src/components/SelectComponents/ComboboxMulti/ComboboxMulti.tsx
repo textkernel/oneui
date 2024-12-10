@@ -24,6 +24,10 @@ export interface Props<S> extends BasicSelectProps<S>, SelectInputFieldProps {
     downArrowLabel?: string;
     /** Up arrow name for ARIA labelling, it is used when the component is focused and options are shown */
     upArrowLabel?: string;
+    /** determines if the suggestion list should be rendered using a React Portal
+     *  to the dropdown needs to bypass parent element clipping, overflow, or z-index issues.
+     */
+    shouldRenderWithPortal?: boolean;
 }
 
 /**
@@ -53,6 +57,7 @@ export function ComboboxMulti<S>({
     downArrowLabel,
     useOptimizeListRender = false,
     inputAttrs = {},
+    shouldRenderWithPortal = false,
     ...rest
 }: Props<S>) {
     const inputRef = inputRefFromProps || React.createRef<HTMLInputElement>();
@@ -141,6 +146,7 @@ export function ComboboxMulti<S>({
             focusedRenderer={renderFocused}
             blurredRenderer={renderBlurred}
             keepExpandedAfterSelection
+            shouldRenderWithPortal={shouldRenderWithPortal}
         />
     );
 }
