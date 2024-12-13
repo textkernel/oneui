@@ -11,7 +11,7 @@ export interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement>
     disabled?: boolean;
     /** Should the input field be readOnly or not */
     readOnly?: boolean;
-    /** Label text, displayey above the textarea */
+    /** Label text, display above the textarea */
     label: string;
     /** Label status, eg. required or optional, rendered between parenthesis */
     labelStatus?: string;
