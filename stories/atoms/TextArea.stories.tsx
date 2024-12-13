@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { TextArea } from '@textkernel/oneui';
-import { OLD_SIZES as SIZES } from '@textkernel/oneui/constants';
 
 const meta: Meta<typeof TextArea> = {
     title: 'Atoms/TextArea',
@@ -17,7 +16,12 @@ export const DefaultBehavior: Story = {
     args: {
         defaultValue: 'This is a default value',
         placeholder: 'Some text goes here...',
-        size: SIZES[1],
+        label: 'Label',
+        labelStatus: 'Required',
+        helperText: 'Help text',
+        readOnly: false,
+        disabled: false,
+        copyCallback: (text) => console.log(text),
     },
     render: (args) => <TextArea {...args} />,
 };
@@ -25,13 +29,27 @@ export const DefaultBehavior: Story = {
 export const ControlledComponent: Story = {
     name: 'Controlled component',
     args: {
-        onChange: (e) => {
-            const { value } = e.target;
-            console.log(value);
-        },
-        placeholder: 'While typing, check your console log...',
-        size: SIZES[1],
-        value: '',
+        placeholder: 'Type to get rid of the error...',
+        label: 'Label',
+        labelStatus: 'Required',
+        readOnly: false,
+        disabled: false,
+        maxLength: 250,
+        copyCallback: (text) => console.log(`Copied text: ${text}`),
     },
-    render: (args) => <TextArea {...args} />,
+    render: (args) => {
+        const [text, setText] = React.useState('');
+
+        return (
+            <TextArea
+                {...args}
+                value={text}
+                errorText={text.length === 0 ? 'Field should not be empty' : undefined}
+                onChange={(event) => {
+                    setText(event.target.value);
+                    console.log(event.target.value);
+                }}
+            />
+        );
+    },
 };
