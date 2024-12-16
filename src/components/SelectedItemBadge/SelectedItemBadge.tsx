@@ -111,6 +111,7 @@ export const SelectedItemBadge = React.forwardRef(
                         <DropdownPortal>
                             <DropdownContent
                                 {...elem('badgeDropdownList')}
+                                style={{ maxWidth: badgeRef.current?.offsetWidth }}
                                 sideOffset={6}
                                 alignOffset={priority ? -32 : 0}
                                 refElement={badgeRef}
