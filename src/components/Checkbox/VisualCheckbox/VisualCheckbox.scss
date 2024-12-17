@@ -11,6 +11,7 @@
     transition: all var(--transition-duration) ease;
     vertical-align: middle;
     margin-right: var(--space-75);
+    flex-shrink: 0;
 
     &--checked {
         background: var(--color-background-selected-bold-default, #007aff);

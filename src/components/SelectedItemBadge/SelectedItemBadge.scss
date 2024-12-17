@@ -106,10 +106,10 @@
     }
 
     &__badgeDropdownList {
-        width: 100%;
+        max-height: 440px;
         border-radius: var(--space-100);
         z-index: 600;
-        overflow: hidden;
+        overflow-y: auto;
     }
 
     &__badgeListItem {

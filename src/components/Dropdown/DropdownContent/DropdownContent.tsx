@@ -27,7 +27,7 @@ export const DropdownContent = React.forwardRef<HTMLElement, Props>(
                 {...block(rest)}
                 align="start"
                 sideOffset={6}
-                style={{ minWidth: width }}
+                style={{ width }}
             />
         );
     }
