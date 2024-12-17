@@ -1,0 +1,1 @@
+{"version":3,"file":"6617.oneui.min.css","mappings":"AAAA","sources":["webpack://@textkernel/oneui/./src/components/MatchingIndicator/MatchingIndicator.scss"],"sourcesContent":[".MatchingIndicator {\n    display: flex;\n    width: var(--space-300);\n    height: var(--space-300);\n    transform: rotate(-90deg);\n}\n"],"names":[],"sourceRoot":""}
