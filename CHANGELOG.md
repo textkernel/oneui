@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [28.2.1](https://github.com/textkernel/oneui/compare/28.2.0...28.2.1) (2024-12-17)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @radix-ui/react-dropdown-menu to v2.1.3 ([#1350](https://github.com/textkernel/oneui/issues/1350)) ([1bad4c3](https://github.com/textkernel/oneui/commit/1bad4c3bfbc19c4a844ccec326c2ff04df4e3cf1))
+* **SelectedItemBadge:** width and scrolling of the dropdown ([#1351](https://github.com/textkernel/oneui/issues/1351)) ([d80823f](https://github.com/textkernel/oneui/commit/d80823fcefaecd087fb52a93e3642af8419e775a))
+
 ## [28.2.0](https://github.com/textkernel/oneui/compare/28.1.0...28.2.0) (2024-12-10)
 
 
