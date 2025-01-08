@@ -1,0 +1,36 @@
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateX(-50%) translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.ActionIsland {
+    width: fit-content;
+    padding: var(--space-50) var(--space-100) var(--space-50) var(--space-200);
+    margin-bottom: var(--space-200);
+    position: fixed;
+    bottom: 0;
+    border-radius: var(--space-100);
+    background-color: var(--color-background);
+    display: flex;
+    align-items: center;
+    gap: var(--space-100);
+    z-index: 1000;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: slideInFromBottom 300ms ease-out;
+
+    &__label {
+        padding-right: var(--space-100);
+        border-right: 1px solid var(--color-border-disabled);
+        text-wrap: nowrap;
+    }
+
+    // &__actionsContainer {
+    // }
+}
