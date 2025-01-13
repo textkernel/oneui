@@ -62,7 +62,7 @@
         "ajv": "8.17.1",
         "ajv-formats": "2.1.1",
         "color": "4.2.3",
-        "core-js": "3.39.0",
+        "core-js": "3.40.0",
         "css-vars-ponyfill": "2.4.9",
         "downshift": "9.0.8",
         "file-saver": "2.0.5",
