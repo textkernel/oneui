@@ -16,7 +16,36 @@ export const _ActionIsland: Story = {
     args: {
         label: 'candidates selected',
         size: '10',
+        actionButtons: [
+            { label: 'Share', onClick: () => console.log('Share clicked') },
+            {
+                label: 'Export',
+                dropdownItems: [
+                    { label: 'Export as PDF', onClick: () => console.log('Export PDF clicked') },
+                    { label: 'Export as CSV', onClick: () => console.log('Export CSV clicked') },
+                ],
+                isGroup: true,
+            },
+            {
+                label: 'ATS Actions',
+                isGroup: true,
+                dropdownItems: [
+                    { label: 'Candidate overview', onClick: () => console.log('Overview clicked') },
+                    { label: 'Email candidate', onClick: () => console.log('Email clicked') },
+                ],
+            },
+            {
+                label: 'Textkernel Actions',
+                isGroup: true,
+                dropdownItems: [
+                    { label: 'Action 1', onClick: () => console.log('Action 1 clicked') },
+                    { label: 'Action 2', onClick: () => console.log('Action 2 clicked') },
+                ],
+            },
+        ],
+        closeButtonTooltip: 'Close',
     },
+
     render: (args) => {
         const [isShown, setIsShown] = React.useState(false);
 

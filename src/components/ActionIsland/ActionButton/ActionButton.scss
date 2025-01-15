@@ -1,0 +1,28 @@
+@keyframes dropdownAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(var(--space-250));
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ActionButton {
+    &__icon {
+        margin-left: var(--space-50);
+        fill: var(--color-text-brand-default);
+
+        &--isOpen {
+            transform: rotateX(180deg);
+        }
+    }
+
+    &__dropdown {
+        min-width: 200px;
+        width: fit-content;
+        margin-bottom: var(--space-100);
+        animation: dropdownAnimation 300ms ease-out;
+    }
+}

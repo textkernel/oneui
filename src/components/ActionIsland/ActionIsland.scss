@@ -1,4 +1,4 @@
-@keyframes slideInFromBottom {
+@keyframes islandAnimation {
     0% {
         transform: translateX(-50%) translateY(100%);
         opacity: 0;
@@ -23,14 +23,11 @@
     z-index: 1000;
     left: 50%;
     transform: translateX(-50%);
-    animation: slideInFromBottom 300ms ease-out;
+    animation: islandAnimation 300ms ease-out;
 
     &__label {
         padding-right: var(--space-100);
         border-right: 1px solid var(--color-border-disabled);
         text-wrap: nowrap;
     }
-
-    // &__actionsContainer {
-    // }
 }
