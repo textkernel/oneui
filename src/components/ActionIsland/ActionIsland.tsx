@@ -6,17 +6,7 @@ import { Text } from '../Text';
 import styles from './ActionIsland.scss';
 import { ActionButton } from './ActionButton';
 import { Tooltip } from '../Tooltip/Tooltip';
-
-export interface ActionButtonProps {
-    /** Label of the button or the group of buttons */
-    label: React.ReactNode;
-    /** Dropdown items for the button, supports nested dropdowns/groups */
-    dropdownItems?: React.ReactNode[] | ActionButtonProps[];
-    /** Click handler for the button */
-    onClick?: () => void;
-    /** Indicates if this button represents a group of buttons */
-    isGroup?: boolean;
-}
+import { ActionButtonProps } from './ActionButton/ActionButton';
 
 export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'children'> {
     actionButtons: ActionButtonProps[];
@@ -28,8 +18,10 @@ export interface Props extends Omit<React.HTMLAttributes<HTMLDivElement>, 'child
     size: React.ReactNode;
     /** Main label to be displayed */
     label: React.ReactNode;
-    /** Label for the "More" button, defaults to "More" */
-    moreLabel?: string;
+    /** Label for the "More" button */
+    moreButtonLabel?: string;
+    /** Close button label name for ARIA labelling */
+    closeButtonLabel?: string;
     /** Tooltip content for the close button, which appears on hover */
     closeButtonTooltip?: string;
 }
@@ -42,7 +34,8 @@ export const ActionIsland: React.FC<Props> = ({
     onClose,
     size,
     label,
-    moreLabel = 'More',
+    moreButtonLabel,
+    closeButtonLabel,
     closeButtonTooltip,
     ...rest
 }) => {
@@ -65,11 +58,16 @@ export const ActionIsland: React.FC<Props> = ({
                         <ActionButton key={`${button.label}`} {...button} />
                     ))}
                     {overflowButtons.length > 0 && (
-                        <ActionButton label={moreLabel} dropdownItems={overflowButtons} />
+                        <ActionButton label={moreButtonLabel} dropdownItems={overflowButtons} />
                     )}
                 </div>
-                <Tooltip placement="bottom" content={closeButtonTooltip}>
-                    <IconButton variant="ghost" size="large" onClick={onClose}>
+                <Tooltip placement="top" content={closeButtonTooltip}>
+                    <IconButton
+                        variant="ghost"
+                        size="large"
+                        onClick={onClose}
+                        aria-label={closeButtonLabel}
+                    >
                         <Close viewBox="0 0 24 24" />
                     </IconButton>
                 </Tooltip>

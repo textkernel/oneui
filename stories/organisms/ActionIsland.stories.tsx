@@ -43,6 +43,7 @@ export const _ActionIsland: Story = {
                 ],
             },
         ],
+        moreButtonLabel: 'More',
         closeButtonTooltip: 'Close',
     },
 
