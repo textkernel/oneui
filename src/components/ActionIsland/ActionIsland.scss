@@ -24,6 +24,8 @@
     left: 50%;
     transform: translateX(-50%);
     animation: islandAnimation 300ms ease-out;
+    white-space: nowrap;
+    overflow: hidden;
 
     &__label {
         padding-right: var(--space-100);

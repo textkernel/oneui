@@ -64,7 +64,12 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
                         </Button>
                     </DropdownTrigger>
                     <DropdownPortal>
-                        <DropdownContent {...elem('dropdown')} role="menu">
+                        <DropdownContent
+                            {...elem('dropdown')}
+                            role="menu"
+                            align="end"
+                            collisionPadding={8}
+                        >
                             {dropdownItems.map((item) =>
                                 item.isGroup ? (
                                     <DropdownItem key={`${item.label}`}>
