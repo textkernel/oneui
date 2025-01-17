@@ -17,12 +17,16 @@
         &--isOpen {
             transform: rotateX(180deg);
         }
+
+        &--isGroupDisabled {
+            fill: var(--color-text-brand-disabled);
+        }
     }
 
     &__dropdown {
         min-width: 200px;
         width: fit-content;
         margin-bottom: var(--space-100);
-        // animation: dropdownAnimation 300ms ease-out;
+        animation: dropdownAnimation 300ms ease-out;
     }
 }

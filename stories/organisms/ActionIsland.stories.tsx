@@ -25,6 +25,8 @@ export const _ActionIsland: Story = {
                     { label: 'Export as CSV', onClick: () => console.log('Export CSV clicked') },
                 ],
                 isGroup: true,
+                isGroupDisabled: true,
+                tooltipContent: 'Export',
             },
             {
                 label: 'ATS Actions',

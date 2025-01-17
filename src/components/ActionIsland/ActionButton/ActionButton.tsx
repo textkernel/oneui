@@ -25,6 +25,8 @@ export interface ActionButtonProps extends Omit<ButtonProps, 'children'> {
     onClick?: () => void;
     /** Indicates if this button represents a group of buttons */
     isGroup?: boolean;
+    /** Indicates if this group is disabled */
+    isGroupDisabled?: boolean;
     /** Tooltip content for the button, which appears on hover */
     tooltipContent?: string;
 }
@@ -35,6 +37,7 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
     onClick,
     tooltipContent,
     isGroup,
+    isGroupDisabled,
     ...rest
 }) => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -47,18 +50,12 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
         <>
             {dropdownItems?.length ? (
                 <DropdownRoot onOpenChange={handleOpenStateChange}>
-                    <DropdownTrigger asChild>
-                        <Button
-                            type="button"
-                            context="primary"
-                            variant="ghost"
-                            onClick={onClick}
-                            {...rest}
-                        >
+                    <DropdownTrigger asChild disabled={isGroupDisabled}>
+                        <Button type="button" context="primary" variant="ghost" {...rest}>
                             {label}
                             {dropdownItems && (
                                 <ExpandIcon
-                                    {...elem('icon', { isOpen })}
+                                    {...elem('icon', { isOpen, isGroupDisabled })}
                                     viewBox="0 0 24 24"
                                     height="20px"
                                     width="20px"

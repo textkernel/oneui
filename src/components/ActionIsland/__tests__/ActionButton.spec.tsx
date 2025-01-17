@@ -49,9 +49,9 @@ describe('ActionButton', () => {
         expect(container).toMatchSnapshot();
     });
 
-    // it('renders tooltip correctly', async () => {
-    //     render(<ActionButton {...defaultButtonProps} tooltipContent="Tooltip Content" />);
-    //     await userEvent.hover(screen.getByText('Test Button'));
-    //     expect(screen.getByText('Tooltip Content')).toBeInTheDocument();
-    // });
+    it('renders tooltip correctly', async () => {
+        render(<ActionButton {...defaultButtonProps} tooltipContent="Tooltip Content" />);
+        await userEvent.hover(screen.getByText('Test Button'));
+        expect(screen.getByText('Tooltip Content')).toBeInTheDocument();
+    });
 });
