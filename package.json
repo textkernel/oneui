@@ -50,7 +50,7 @@
     "homepage": "https://github.com/textkernel/oneui#readme",
     "sideEffects": false,
     "dependencies": {
-        "@babel/runtime": "7.26.7",
+        "@babel/runtime": "7.26.9",
         "@googlemaps/js-api-loader": "1.16.8",
         "@material-design-icons/svg": "0.14.14",
         "@popperjs/core": "2.11.8",
@@ -83,9 +83,9 @@
     },
     "devDependencies": {
         "@babel/cli": "7.26.4",
-        "@babel/core": "7.26.8",
-        "@babel/plugin-transform-runtime": "7.26.8",
-        "@babel/preset-env": "7.26.8",
+        "@babel/core": "7.26.9",
+        "@babel/plugin-transform-runtime": "7.26.9",
+        "@babel/preset-env": "7.26.9",
         "@babel/preset-react": "7.26.3",
         "@storybook/addon-essentials": "7.6.20",
         "@storybook/addon-interactions": "7.6.20",
