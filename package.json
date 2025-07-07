@@ -51,7 +51,7 @@
     "sideEffects": false,
     "dependencies": {
         "@babel/runtime": "7.26.10",
-        "@googlemaps/js-api-loader": "1.16.8",
+        "@googlemaps/js-api-loader": "1.16.10",
         "@material-design-icons/svg": "0.14.15",
         "@popperjs/core": "2.11.8",
         "@radix-ui/react-dropdown-menu": "2.1.6",
