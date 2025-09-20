@@ -159,7 +159,7 @@
         "ts-jest": "29.4.1",
         "ts-loader": "9.5.4",
         "typescript": "5.2.2",
-        "webpack": "5.100.2",
+        "webpack": "5.101.3",
         "webpack-bundle-analyzer": "4.10.2",
         "webpack-cli": "5.1.4",
         "webpack-dev-server": "4.15.2"
