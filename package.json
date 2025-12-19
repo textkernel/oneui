@@ -147,7 +147,7 @@
         "sass-loader": "16.0.6",
         "sonner": "1.5.0",
         "standard-version": "9.5.0",
-        "storybook": "7.6.20",
+        "storybook": "7.6.21",
         "style-loader": "3.3.4",
         "stylelint": "15.11.0",
         "stylelint-config-css-modules": "4.4.0",
