@@ -55,7 +55,7 @@
         "@material-design-icons/svg": "0.14.15",
         "@popperjs/core": "2.11.8",
         "@radix-ui/react-dropdown-menu": "2.1.6",
-        "@react-google-maps/api": "2.20.7",
+        "@react-google-maps/api": "2.20.8",
         "@storybook/addon-styling-webpack": "0.0.6",
         "@textkernel/bem": "0.2.4",
         "@tippyjs/react": "4.2.6",
