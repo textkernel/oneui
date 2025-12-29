@@ -64,7 +64,7 @@
         "color": "4.2.3",
         "core-js": "3.46.0",
         "css-vars-ponyfill": "2.4.9",
-        "downshift": "9.0.10",
+        "downshift": "9.0.13",
         "file-saver": "2.0.5",
         "rc-slider": "10.6.2",
         "react-datepicker": "4.16.0",
