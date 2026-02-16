@@ -150,7 +150,7 @@
         "storybook": "7.6.21",
         "style-loader": "3.3.4",
         "stylelint": "15.11.0",
-        "stylelint-config-css-modules": "4.4.0",
+        "stylelint-config-css-modules": "4.6.0",
         "stylelint-config-recommended": "13.0.0",
         "stylelint-config-recommended-scss": "13.1.0",
         "stylelint-order": "6.0.4",
