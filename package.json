@@ -59,7 +59,7 @@
         "@storybook/addon-styling-webpack": "0.0.6",
         "@textkernel/bem": "0.2.4",
         "@tippyjs/react": "4.2.6",
-        "ajv": "8.17.1",
+        "ajv": "8.18.0",
         "ajv-formats": "2.1.1",
         "color": "4.2.3",
         "core-js": "3.46.0",
