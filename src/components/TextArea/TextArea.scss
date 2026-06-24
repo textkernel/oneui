@@ -1,31 +1,116 @@
-@use '../../themes/oneui/placeholders/input';
-
 .TextArea {
-    @extend %input;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-50);
+}
+
+.TextArea__row {
+    display: flex;
+}
+
+.TextArea__column {
+    display: flex;
+    flex-direction: column;
+}
+
+.TextArea__labelRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.TextArea__label {
+    composes: OneUI-caption-text-bold from global;
+}
+
+.TextArea__labelStatus {
+    margin-left: var(--space-50);
+    composes: OneUI-caption-text from global;
+    color: var(--color-text-subtlest, #808080);
+}
+
+.TextArea__letterCount {
+    composes: OneUI-caption-text from global;
+    color: var(--color-text-subtlest, #808080);
+}
+
+.TextArea__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-100);
+    border: 1px solid var(--color-border-input, #808080);
+    border-radius: var(--space-100);
+    padding: var(--space-125) var(--space-150);
+
+    &:hover {
+        background: var(--color-background-input-hover, #f2f2f2);
+    }
+
+    &:has(.TextArea__textarea:invalid) {
+        border: 2px solid var(--color-border-critical-bold-default, #ff3b2f);
+        padding: calc(var(--space-125) - 1px) calc(var(--space-150) - 1px);
+    }
+
+    &:has(.TextArea__textarea:read-only) {
+        background: var(--color-background-input-read-only, #f2f2f2);
+    }
+
+    &:has(.TextArea__textarea:disabled) {
+        border: 1px solid var(--color-border-disabled, #cccccc);
+        color: var(--color-text-disabled, #b3b3b3);
+    }
+
+    &:has(.TextArea__textarea[aria-invalid='true']) {
+        border: 2px solid var(--color-text-critical-default);
+        padding: calc(var(--space-125) - 1px) calc(var(--space-150) - 1px);
+    }
+
+    &:has(.TextArea__textarea:focus):not(
+            :has(.TextArea__textarea:disabled),
+            :has(.TextArea__textarea:read-only),
+            :has(.TextArea__textarea[aria-invalid='true'])
+        ) {
+        border: 2px solid var(--color-border-selected, #007aff);
+        padding: calc(var(--space-125) - 1px) calc(var(--space-150) - 1px);
+    }
+}
+
+.TextArea__textarea {
+    font-family: var(--font-family-primary);
+    outline: none;
+    composes: OneUI-label-text from global;
+    resize: none;
+    padding: 0;
+    border: none;
+    background: transparent;
 
     &::placeholder {
-        color: var(--color-neutral-30);
-        opacity: 1;
+        color: var(--color-text-subtlest, #808080);
     }
+}
 
-    &:focus {
-        border-color: var(--color-brand-50);
-    }
+.TextArea__iconContainer {
+    display: flex;
+    justify-content: flex-end;
+}
 
-    &--isBlock {
-        width: 100%;
-    }
+.TextArea__icon {
+    height: 20px;
+    width: 20px;
+}
 
-    &--size {
-        &_small {
-            font-size: var(--font-size-small);
-            line-height: var(--line-height-small);
-            padding: var(--space-50);
-        }
-        &_large {
-            font-size: var(--font-size-large);
-            line-height: var(--line-height-large);
-            padding: var(--space-100);
-        }
-    }
+.TextArea__helperText {
+    composes: OneUI-caption-text from global;
+    color: var(--color-text-subtle, #4d4d4d);
+}
+
+.TextArea__errorContainer {
+    display: flex;
+    gap: var(--space-25);
+    align-items: center;
+    color: var(--color-text-critical-default);
+}
+
+.TextArea__errorText {
+    composes: OneUI-caption-text from global;
 }
