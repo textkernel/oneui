@@ -72,6 +72,7 @@ export * from './components/TwoPaneView';
 export * from './components/WeightedResultBar';
 export * from './components/NumericStepper';
 // Organisms
+export * from './components/ActionIsland';
 export * from './components/Dialogs';
 export * from './components/SelectedItemBadge';
 export * from './components/SelectComponents';
