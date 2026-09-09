@@ -146,7 +146,7 @@
         "sass": "1.99.0",
         "sass-loader": "16.0.8",
         "sonner": "1.5.0",
-        "standard-version": "9.5.0",
+        "commit-and-tag-version": "9.5.0",
         "storybook": "7.6.24",
         "style-loader": "3.3.4",
         "stylelint": "15.11.0",
