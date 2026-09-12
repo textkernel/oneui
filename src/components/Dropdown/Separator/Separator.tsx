@@ -8,7 +8,7 @@ import classnames from './Separators.scss';
 
 export interface Props extends DropdownMenuSeparatorProps {
     /** title of the section: optional */
-    children?: string;
+    children?: string | React.ReactNode;
 }
 
 const titleBlock = bem('SectionTitle', classnames);
