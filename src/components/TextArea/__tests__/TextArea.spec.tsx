@@ -9,28 +9,47 @@ describe('<TextArea> that renders a textarea', () => {
 
     let view: RenderResult;
 
-    it('should render default textarea correctly', () => {
-        view = render(<TextArea defaultValue="Some value" />);
+    it('should render textarea correctly', () => {
+        view = render(
+            <TextArea
+                defaultValue="Some value"
+                label="label"
+                labelStatus="required"
+                helperText="helper"
+            />
+        );
 
         expect(view.container).toMatchSnapshot();
         expect(screen.getByRole('textbox')).toBeInTheDocument();
+        expect(screen.getByText('label')).toBeInTheDocument();
+        expect(screen.getByText('(required)')).toBeInTheDocument();
+        expect(screen.getByText('helper')).toBeInTheDocument();
     });
 
-    it('should add classes when props are changed', () => {
-        view = render(<TextArea size="large" isBlock disabled />);
+    it('should render error message', () => {
+        view = render(
+            <TextArea
+                defaultValue="Some value"
+                label="label"
+                labelStatus="required"
+                errorText="It should contain a number"
+            />
+        );
 
-        const textarea = screen.getByRole('textbox');
+        expect(screen.getByTestId('default-icon')).toBeInTheDocument();
+        expect(screen.getByText('It should contain a number')).toBeInTheDocument();
+    });
 
-        expect(view.container).toMatchSnapshot();
-        expect(textarea).toBeInTheDocument();
-        expect(textarea).toBeDisabled();
-        expect(textarea).toHaveClass('TextArea TextArea--size_large TextArea--isBlock');
+    it('should render letter count correctly', () => {
+        view = render(<TextArea label="label" defaultValue="12345" maxLength={250} />);
+
+        expect(screen.getByText('5 / 250')).toBeInTheDocument();
     });
 
     it('should call change callback correctly', async () => {
         const user = userEvent.setup();
         const onChange = jest.fn();
-        view = render(<TextArea onChange={onChange} />);
+        view = render(<TextArea label="label" onChange={onChange} />);
 
         const textarea = screen.getByRole('textbox');
 
@@ -42,7 +61,7 @@ describe('<TextArea> that renders a textarea', () => {
     });
 
     it('should add string html attributes correctly', () => {
-        view = render(<TextArea data-test="something" />);
+        view = render(<TextArea label="label" data-test="something" />);
 
         const textarea = screen.getByRole('textbox');
 
