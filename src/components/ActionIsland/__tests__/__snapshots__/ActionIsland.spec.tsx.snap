@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionIsland does not render when \`isShown\` is false 1`] = `<div />`;
+
+exports[`ActionIsland renders correctly with all props 1`] = `
+<div>
+  <div
+    class="ActionIsland"
+  >
+    <div>
+      <span
+        class="ActionIsland__label"
+      >
+        <span
+          class="Text--isBold"
+        >
+          Large
+        </span>
+         
+        Test Label
+      </span>
+    </div>
+    <div>
+      <button
+        class="Button Button--variant_ghost Button--context_primary"
+        type="button"
+      >
+        Action 1
+      </button>
+      <button
+        class="Button Button--variant_ghost Button--context_primary"
+        type="button"
+      >
+        Action 2
+      </button>
+      <button
+        class="Button Button--variant_ghost Button--context_primary"
+        type="button"
+      >
+        Action 3
+      </button>
+      <button
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="Button Button--variant_ghost Button--context_primary"
+        data-state="closed"
+        id="radix-:r0:"
+        type="button"
+      >
+        More
+        <svg
+          class="ActionButton__icon"
+          data-testid="default-icon"
+          height="20px"
+          viewBox="0 0 24 24"
+          width="20px"
+        />
+      </button>
+    </div>
+    <button
+      aria-label="Close button"
+      class="Button Button--size_large Button--variant_ghost Button--context_secondary IconButton--size_large"
+      type="button"
+    >
+      <svg
+        class="IconButton__icon--size_large"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ActionIsland renders visible and overflow buttons correctly 1`] = `
+<div>
+  <div
+    class="ActionIsland"
+  >
+    <div>
+      <span
+        class="ActionIsland__label"
+      >
+        <span
+          class="Text--isBold"
+        >
+          Large
+        </span>
+         
+        Test Label
+      </span>
+    </div>
+    <div>
+      <button
+        class="Button Button--variant_ghost Button--context_primary"
+        type="button"
+      >
+        Action 1
+      </button>
+      <button
+        class="Button Button--variant_ghost Button--context_primary"
+        type="button"
+      >
+        Action 2
+      </button>
+      <button
+        class="Button Button--variant_ghost Button--context_primary"
+        type="button"
+      >
+        Action 3
+      </button>
+      <button
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="Button Button--variant_ghost Button--context_primary"
+        data-state="closed"
+        id="radix-:r4:"
+        type="button"
+      >
+        More
+        <svg
+          class="ActionButton__icon"
+          data-testid="default-icon"
+          height="20px"
+          viewBox="0 0 24 24"
+          width="20px"
+        />
+      </button>
+    </div>
+    <button
+      aria-label="Close button"
+      class="Button Button--size_large Button--variant_ghost Button--context_secondary IconButton--size_large"
+      type="button"
+    >
+      <svg
+        class="IconButton__icon--size_large"
+        data-testid="default-icon"
+        viewBox="0 0 24 24"
+      />
+    </button>
+  </div>
+</div>
+`;
