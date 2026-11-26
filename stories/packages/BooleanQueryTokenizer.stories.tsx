@@ -48,10 +48,9 @@ export const _BooleanQueryTokenizer: Story = {
                     <TextArea
                         defaultValue={initialValue}
                         disabled={false}
-                        isBlock
                         onChange={tokenizeBooleanQuery}
                         placeholder="Enter a boolean query..."
-                        size="normal"
+                        label="Query"
                         style={{
                             resize: 'vertical',
                             height: '100%',
